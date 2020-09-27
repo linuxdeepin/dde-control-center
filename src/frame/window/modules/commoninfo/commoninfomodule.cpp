@@ -189,7 +189,10 @@ void CommonInfoModule::onShowDeveloperWidget()
     pWidget->setVisible(false);
     pWidget->setModel(m_commonModel);
     connect(pWidget, &DeveloperModeWidget::requestLogin, m_commonWork, &CommonInfoWork::login);
-    connect(pWidget, &DeveloperModeWidget::enableDeveloperMode, m_commonWork, &CommonInfoWork::setEnableDeveloperMode);
+    connect(pWidget, &DeveloperModeWidget::enableDeveloperMode, this, [=](bool enabled) {
+        MainWindow *pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+        m_commonWork->setEnableDeveloperMode(enabled, pMainWindow);
+    });
     m_frameProxy->pushWidget(this, pWidget);
     pWidget->setVisible(true);
 }

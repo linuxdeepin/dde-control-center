@@ -291,7 +291,7 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
     }
 }
 
-void CommonInfoWork::setEnableDeveloperMode(bool enabled)
+void CommonInfoWork::setEnableDeveloperMode(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow)
 {
     QDateTime current_date_time = QDateTime::currentDateTime();
     QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
@@ -307,17 +307,17 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     // license内容
     QString content = getDevelopModeLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
     QString contentPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation).append("tmpDeveloperMode.txt");// 临时存储路径
-    QFile file(contentPath);
+    QFile *contentFile = new QFile(contentPath);
     // 如果文件不存在，则创建文件
-    if (!file.exists()) {
-        file.open(QIODevice::WriteOnly);
-        file.close();
+    if (!contentFile->exists()) {
+        contentFile->open(QIODevice::WriteOnly);
+        contentFile->close();
     }
     // 写入文件内容
-    if (!file.open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
+    if (!contentFile->open(QFile::ReadWrite | QIODevice::Text | QIODevice::Truncate))
         return;
-    file.write(content.toLocal8Bit());
-    file.close();
+    contentFile->write(content.toLocal8Bit());
+    contentFile->close();
 
     auto pathType = "-c";
     QStringList sl;
@@ -326,33 +326,26 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
         pathType = "-e";
 
     m_process = new QProcess(this);
-    int result = m_process->execute("dde-license-dialog",
-                                    QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
-    m_process->deleteLater();
-    m_process = nullptr;
+    m_process->start("dde-license-dialog", QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent);
+    connect(m_process, &QProcess::stateChanged, this, [pMainWindow](QProcess::ProcessState state) {
+        if (pMainWindow) {
+            pMainWindow->setEnabled(state != QProcess::Running);
+        } else {
+            qDebug() << "setEnableDeveloperMode pMainWindow is nullptr";
+        }
+    });
 
-    if(96 == result) {
-        //删除重复认证
-        m_dBusdeepinIdInter->call("UnlockDevice");
-        /*
-        QDBusPendingCall call = m_dBusdeepinIdInter->UnlockDevice();
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
-            if (w->isError()) {
-                qDebug() << "developer mode enter fail info:" << w->error();
-                Q_EMIT m_commomModel->developerModeStateChanged(false);
-            }
-            if (w->isValid()) {
-                qInfo() << QString("On %1, Agree to enter the developer mode!").arg(current_date);
-            }
-            w->deleteLater();
-        });
-        */
-    } else {
-        qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
-        //Q_EMIT m_commomModel->developerModeStateChanged(false);
-    }
-    file.remove();
+    connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
+        if (96 == result) {
+            m_dBusdeepinIdInter->call("UnlockDevice");
+        } else {
+            qInfo() << QString("On %1, Remove developer mode Disclaimer!").arg(current_date);
+        }
+        contentFile->remove();
+        contentFile->deleteLater();
+        m_process->deleteLater();
+        m_process = nullptr;
+    });
 }
 
 void CommonInfoWork::login()

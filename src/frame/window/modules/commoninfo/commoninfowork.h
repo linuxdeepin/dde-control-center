@@ -62,7 +62,7 @@ public Q_SLOTS:
     void onBackgroundChanged();
     void setBackground(const QString &path);
     void setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow);
-    void setEnableDeveloperMode(bool enabled);
+    void setEnableDeveloperMode(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow);
     void login();
     void licenseStateChangeSlot();
 
