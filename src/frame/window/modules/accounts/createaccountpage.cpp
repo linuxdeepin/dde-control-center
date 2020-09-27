@@ -553,7 +553,7 @@ bool CreateAccountPage::onFullNameEidtFinished(DLineEdit *edit)
     } else {
         auto userList = m_userModel->userList();
         for (auto u : userList) {
-            if (userFullName == u->name() || userFullName == u->fullname()) {
+            if (userFullName == u->fullname()) {
                 edit->setAlert(true);
                 edit->showAlertMessage(tr("The full name already exists"), this);
                 return false;
