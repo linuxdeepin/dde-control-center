@@ -164,6 +164,8 @@ private Q_SLOTS:
     void onActivateApFailed(const QString &apPath, const QString &uuid);
     void onNetworkAdapterChanged(bool checked);
 
+    void onSwitchEnable();
+
 private:
     void updateActiveAp(const QJsonObject &activeApInfo);
     QString connectionUuid(const QString &ssid);
@@ -188,6 +190,8 @@ private:
 
     QString m_editingUuid;
     QTimer *m_sortDelayTimer;
+    //禁用wifi开关控件，防止用户对wifi开关疯狂操作
+    QTimer *m_switchEnableTimer;
     QMap<QString, APItem *> m_apItems;
     AirplanInter  *m_airplaninter;
     QString m_disconnectUuid;

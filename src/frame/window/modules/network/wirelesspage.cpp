@@ -39,6 +39,7 @@
 
 #include <QMap>
 #include <QTimer>
+#include <QTime>
 #include <QDebug>
 #include <QVBoxLayout>
 #include <QPointer>
@@ -262,6 +263,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_clickedItem(nullptr)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
+    , m_switchEnableTimer(new QTimer(this))
     , m_airplaninter(new AirplanInter("com.deepin.daemon.AirplaneMode","/com/deepin/daemon/AirplaneMode",QDBusConnection::systemBus(),this))
 {
     qRegisterMetaType<APSortInfo>();
@@ -275,7 +277,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvAP->setViewportMargins(0, 0, 7, 0);
-
+    
     QScroller::grabGesture(m_lvAP->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_lvAP->viewport());
     QScrollerProperties sp;
@@ -286,6 +288,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_sortDelayTimer->setInterval(100);
     m_sortDelayTimer->setSingleShot(true);
 
+    m_switchEnableTimer->setInterval(500);
+    m_switchEnableTimer->setSingleShot(true);
     APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
     nonbc->setPath("");
@@ -303,6 +307,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             m_switch->setChecked(dev->enabled() && enabled);
     });
 
+    connect(m_switchEnableTimer, &QTimer::timeout, this, &WirelessPage::onSwitchEnable);
 
     TitleLabel *lblTitle = new TitleLabel(tr("Wireless Network Adapter"));//无线网卡
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
@@ -311,9 +316,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
-        m_switch->blockSignals(true);
         m_switch->setChecked(enabled);
-        m_switch->blockSignals(false);
 
         if (m_lvAP) {
             m_lvAP->setVisible(enabled);
@@ -345,10 +348,12 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     setContent(mainWidget);
 
     connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
+        //没有名字的wifi则调用wifi编辑页面
         if (idx.data(APItem::PathRole).toString().length() == 0) {
             this->showConnectHidePage();
             return;
         }
+
         const QStandardItemModel *deviceModel = qobject_cast<const QStandardItemModel *>(idx.model());
         if (!deviceModel) {
             return;
@@ -358,6 +363,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             qDebug() << "clicked item is nullptr";
             return;
         }
+
+        //当前处于连接中状态，则返回
         if (m_clickedItem->isConnected()) {
             return;
         }
@@ -418,6 +425,12 @@ WirelessPage::~WirelessPage()
     m_model->WirelessListClear();
 }
 
+void WirelessPage::onSwitchEnable()
+{
+    m_switch->switchButton()->setEnabled(true);
+}
+
+
 void WirelessPage::updateLayout(bool enabled)
 {
     int layCount = m_mainLayout->layout()->count();
@@ -449,9 +462,6 @@ int WirelessPage::canUpdateApList() {
 
 void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat)
 {
-    //当wifi状态切换的时候，刷新一下列表，防止出现wifi已经连接，三级页面没有刷新出来的情况，和wifi已经断开，但是页面上还是显示该wifi
-    Q_EMIT requestWirelessScan();
-
     const bool unavailable = stat <= NetworkDevice::Unavailable;
     if (m_preWifiStatus == Wifi_Unknown) {
         m_preWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
@@ -496,7 +506,9 @@ void WirelessPage::setModel(NetworkModel *model)
             static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
             this,
             &WirelessPage::onDeviceStatusChanged);
-    //当信号和槽函数连接后，发送一个刷新wifi列表的信号，可以防止第一次打开无线网页面出现没有wifi的情况，如果这个写在构造函数中，实际上是没有响应的
+
+    //由于dde::network::NetworkModel和dde::network::Networkwork并不会被释放，
+    //所以需要在这里做一个wifi刷新操作，防止打开一打开wifi页面的开始没有wifi列表的情况
     Q_EMIT requestWirelessScan();
 
     onHotspotEnableChanged(m_device->hotspotEnabled());
@@ -519,11 +531,14 @@ void WirelessPage::jumpByUuid(const QString &uuid)
 
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
+
     Q_EMIT requestDeviceEnabled(m_device->path(), checked);
 
     if (checked) {
-        Q_EMIT requestDeviceAPList(m_device->path());
         Q_EMIT requestWirelessScan();
+        //开启的时候将开关禁用500毫秒，为了防止用户疯狂操作，导致wifi状态切换频繁
+        m_switch->switchButton()->setEnabled(false);
+        m_switchEnableTimer->start();
     }
 
     m_clickedItem = nullptr;
@@ -643,7 +658,7 @@ void WirelessPage::onDeviceRemoved()
     if (!m_apEditPage.isNull()) {
         m_apEditPage->onDeviceRemoved();
     }
-    Q_EMIT requestDeviceAPList(m_device->path());
+    //当有其他的网络接口的时候，删除一个则其他的刷新一下网络
     Q_EMIT requestWirelessScan();
     // destroy self page
     Q_EMIT back();
