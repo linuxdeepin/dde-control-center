@@ -256,6 +256,9 @@ void AdapterWidget::initConnect()
         //关闭蓝牙的时候,直接隐藏列表
         if (!check) {
             onPowerStatus(false, false);
+            if (m_adapter) {
+                Q_EMIT m_adapter->closeDetailPage();
+            }
         }
         m_powerSwitch->switchButton()->setEnabled(false);
         Q_EMIT requestSetToggleAdapter(m_adapter, check);

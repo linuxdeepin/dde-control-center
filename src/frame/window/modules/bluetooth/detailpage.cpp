@@ -132,11 +132,10 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
             Q_EMIT back();
         }
     });
-    connect(adapter, &Adapter::poweredChanged, this, [this](const bool &powered, const bool &discovering) {
-        Q_UNUSED(discovering)
-        if (!powered) {
+    //收到蓝牙关闭引发的closeDetailPage信号后，直接关闭三级页面不需要等待后端服务关闭成功的反馈信号
+    connect(adapter, &Adapter::closeDetailPage, this, [this] {
+        if (isVisible())
             Q_EMIT back();
-        }
     });
     connect(m_editDevAlias, &QLineEdit::editingFinished, this, &DetailPage::onDeviceAliasChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);

@@ -68,6 +68,7 @@ Q_SIGNALS:
     void poweredChanged(const bool &powered, const bool &discovering) const;
     void loadStatus() const;
     void discoverableChanged(const bool &discoverable) const;
+    void closeDetailPage() const;
 
 private:
     QString m_id;
