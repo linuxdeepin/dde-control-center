@@ -54,7 +54,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_vbWidget(nullptr)
     , m_balanceSlider(nullptr)
     , m_lastsetvalue(0)
-    , m_isBalanceShow(true)
+    , m_balance(true)
 {
     const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
@@ -131,8 +131,8 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
     connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
     connect(m_model, &SoundModel::setBlanceVisible, this, [ = ](bool flag) {
-            m_balanceSlider->setVisible(flag);
-            m_isBalanceShow = flag;
+            m_balance = flag;
+            showDevice();
     });
 
     initSlider();
@@ -396,7 +396,7 @@ void SpeakerPage::setDeviceVisible(bool visable)
     if (visable) {
         m_speakSlider->show();
         m_vbWidget->show();
-        m_balanceSlider->setVisible(m_isBalanceShow);
+        m_balanceSlider->setVisible(m_balance);
         m_outputSlider->show();
     } else {
         m_speakSlider->hide();

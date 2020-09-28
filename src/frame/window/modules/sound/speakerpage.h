@@ -108,7 +108,7 @@ private:
     const dcc::sound::Port *m_currentPort{nullptr};
     int m_lastsetvalue;
     //左/右平衡音界面是否显示
-    bool m_isBalanceShow;
+    bool m_balance;
 };
 
 }
