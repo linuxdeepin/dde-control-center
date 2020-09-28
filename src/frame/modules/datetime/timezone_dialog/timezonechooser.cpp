@@ -250,7 +250,8 @@ bool TimeZoneChooser::eventFilter(QObject *watched, QEvent *event)
     // it won't overlap with the SearchInput.
     if (watched == m_popup && event->type() == QEvent::Move) {
         const QMoveEvent *move = static_cast<QMoveEvent *>(event);
-        const QPoint destPos = m_searchInput->mapToGlobal(QPoint(0, m_searchInput->height() + 1));
+        const int titleBarHeight = 40;  // 目前窗口有标题栏，须加上其高度
+        const QPoint destPos = m_searchInput->mapToGlobal(QPoint(0, m_searchInput->height() + 1 + titleBarHeight));
         // Don't panic, it won't cause dead loop.
         if (move->pos() != destPos) {
             m_popup->move(destPos);
