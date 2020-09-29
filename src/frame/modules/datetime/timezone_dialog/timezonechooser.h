@@ -81,6 +81,7 @@ protected:
 
 private:
     QSize getFitSize() const;
+    int getFontSize() const;
     void setupSize();
 
 private:
