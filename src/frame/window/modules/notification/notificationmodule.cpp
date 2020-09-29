@@ -49,6 +49,7 @@ NotificationModule::~NotificationModule()
 // 控制中心启动时会被调用
 void NotificationModule::preInitialize(bool sync)
 {
+    Q_UNUSED(sync)
     if (m_model) {
         delete m_model;
     }
@@ -56,7 +57,7 @@ void NotificationModule::preInitialize(bool sync)
     m_worker = new NotificationWorker(m_model, this);
     m_worker->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
-    m_worker->active(sync); //refresh data
+    m_worker->active(true); //refresh data
 }
 
 // 仅在进入模块是会被调用
