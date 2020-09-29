@@ -96,9 +96,10 @@ void ComboxWidget::setTitle(const QString &title)
     if (label) {
         label->setWordWrap(true);
         label->setText(title);
+        m_str = title;
     }
 
-    setAccessibleName(title);
+    setAccessibleName(m_str);
 }
 
 QComboBox *ComboxWidget::comboBox()
