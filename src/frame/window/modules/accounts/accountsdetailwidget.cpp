@@ -102,6 +102,12 @@ void AccountsDetailWidget::setFingerModel(FingerModel *model)
     }
 }
 
+void AccountsDetailWidget::mousePressEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e);
+    updateLineEditDisplayStyle(false);
+}
+
 //删除账户
 void AccountsDetailWidget::deleteUserClicked()
 {

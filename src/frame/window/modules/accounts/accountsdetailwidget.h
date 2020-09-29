@@ -76,6 +76,7 @@ public:
     void updateLineEditDisplayStyle(bool edit = false);
     void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
+    void mousePressEvent(QMouseEvent *e);
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
