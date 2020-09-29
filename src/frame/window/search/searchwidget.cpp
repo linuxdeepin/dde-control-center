@@ -146,6 +146,10 @@ SearchWidget::SearchWidget(QWidget *parent)
         {tr("Sign In"), false},
         {tr("Auto power saving on battery"), false},
         {tr("Touch Screen"), false},
+        {tr("Power Plans"), false},
+        {tr("Power Saving Settings"), false},
+        {tr("Wakeup Settings"), false},
+        {tr("Battery"), false},
     };
 
     m_contensServerTxtList = {

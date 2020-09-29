@@ -28,7 +28,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
         <source>Cancel and Reboot</source>
-        <translation>Törlés és újraindítás</translation>
+        <translation>Mégsem és újraindítás</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="275"/>
