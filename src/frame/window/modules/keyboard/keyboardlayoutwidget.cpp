@@ -280,5 +280,10 @@ bool KeyboardLayoutWidget::eventFilter(QObject *watched, QEvent *event)
     return false;
 }
 
+void KeyboardLayoutWidget::showEvent(QShowEvent *event) {
+    Q_UNUSED(event);
+    m_search->setFocus();
+}
+
 }
 }

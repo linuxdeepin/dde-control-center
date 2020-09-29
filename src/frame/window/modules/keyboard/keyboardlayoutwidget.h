@@ -60,6 +60,7 @@ public:
 
 protected:
     bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
+    void showEvent(QShowEvent *event) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void layoutSelected(const QString &value);
