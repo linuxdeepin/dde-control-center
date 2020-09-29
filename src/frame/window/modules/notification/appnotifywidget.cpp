@@ -100,6 +100,7 @@ void AppNotifyWidget::initUI()
     m_itemShowNotifyPreview->setTitle(tr("Show message preview"));
     m_settingsGrp->appendItem(m_itemShowNotifyPreview);
     mainLayout->addWidget(m_settingsGrp);
+    mainLayout->addStretch();
 
     m_settingsGrp->setVisible(m_model->getAppModel(m_index)->isAllowNotify());
     m_lblTip->setVisible(m_model->getAppModel(m_index)->isAllowNotify());

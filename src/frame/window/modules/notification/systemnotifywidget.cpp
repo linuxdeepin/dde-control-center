@@ -108,6 +108,7 @@ void SystemNotifyWidget::initUI()
     m_btnShowInDock->addBackground();
     m_btnShowInDock->layout()->setContentsMargins(10, 0, 10, 0);
     mainLayout->addWidget(m_btnShowInDock);
+    mainLayout->addStretch();
 
     m_settingsGrp->setVisible(m_btnDisturbMode->isChecked());
 }
