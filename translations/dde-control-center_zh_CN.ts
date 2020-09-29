@@ -2313,7 +2313,7 @@
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="80"/>
         <source>Airplane Mode</source>
         <translation>飞行模式</translation>
-        <extra-contents_path>/network/Airplane</extra-contents_path>
+        <extra-contents_path>/network/Airplane Mode</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="90"/>
@@ -10038,7 +10038,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="232"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
