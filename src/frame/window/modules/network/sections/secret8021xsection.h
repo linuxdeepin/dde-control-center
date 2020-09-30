@@ -37,7 +37,7 @@ class Secret8021xEnableWatcher : public QObject
     Q_OBJECT
 
 public:
-    Secret8021xEnableWatcher(QObject *parent = nullptr) : QObject(parent) {}
+    Secret8021xEnableWatcher(QObject *parent = nullptr) : QObject(parent), m_secretEnabled(false) {}
     virtual ~Secret8021xEnableWatcher() {}
 
     inline bool secretEnabled() {return m_secretEnabled;}

@@ -75,6 +75,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_sw(new SwitchWidget)
+    , m_volumeBtn(nullptr)
     , m_mute(false)
     , m_noiseReduce(true)
 {

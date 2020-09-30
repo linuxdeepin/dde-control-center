@@ -32,7 +32,7 @@
 
 using DBusDisplay = com::deepin::daemon::Display;
 
-ControlCenterUnitTest::ControlCenterUnitTest()
+ControlCenterUnitTest::ControlCenterUnitTest() : displayMode(0)
 {
 
 }
@@ -153,7 +153,7 @@ void ControlCenterUnitTest::testBluetoothIsVisible()
 void ControlCenterUnitTest::displayMode_check()
 {
     QDBusInterface displayInter("com.deepin.daemon.Display", "/com/deepin/daemon/Display", "com.deepin.daemon.Display", QDBusConnection::sessionBus());
-    srand((unsigned)time(NULL));
+    srand(static_cast<unsigned>(time(nullptr)));
     int displayMode = rand() % 3;
     QString primaryScreen = displayInter.property("Primary").toString();
     auto ret = displayInter.call("SwitchMode", displayMode, primaryScreen);

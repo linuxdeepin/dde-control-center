@@ -43,6 +43,8 @@ struct App {
     bool CanDelete;
     bool MimeTypeFit;
 
+    App() : isUser(false), CanDelete(false), MimeTypeFit(false) {}
+
     bool operator ==(const App &app) const {
         return app.Id == Id && app.isUser == isUser;
     }

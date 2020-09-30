@@ -60,7 +60,9 @@ PowerModel::PowerModel(QObject *parent)
     , m_dLowPowerNotifyThreshold(0)
     , m_dLowPowerAutoSleepThreshold(0)
     , m_isSuspend(false)
+    , m_isHibernate(false)
     , m_powerPlan("")
+    , m_isHighPerformanceSupported(false)
 {
 }
 

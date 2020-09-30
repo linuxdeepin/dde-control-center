@@ -51,7 +51,7 @@ public:
         In = 2
     };
 
-    explicit Port(QObject * parent) : QObject(parent) {}
+    explicit Port(QObject * parent) : QObject(parent), m_cardId(0), m_isActive(false), m_direction(Out) {}
     virtual ~Port() {}
 
     inline QString id() const { return m_id; }
