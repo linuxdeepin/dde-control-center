@@ -13,6 +13,8 @@ static const QStringList DCC_CONFIG_FILES {
 
 static const QMap<QString, QString> SYSTEM_LOCAL_MAP {
     {"zh_CN", "zh_CN"},
+    {"zh_HK", "zh_HK"},
+    {"zh_TW", "zh_TW"},
 };
 
 static const QString getLicensePath(const QString &filePath, const QString &type)

@@ -21,5 +21,7 @@
         <file>license/deepin-end-user-license-agreement_community_zh_CN.txt</file>
         <file>license/deepin-end-user-license-agreement_developer_community_en_US.txt</file>
         <file>license/deepin-end-user-license-agreement_developer_community_zh_CN.txt</file>
+        <file>license/deepin-end-user-license-agreement_developer_community_zh_HK.txt</file>
+        <file>license/deepin-end-user-license-agreement_developer_community_zh_TW.txt</file>
     </qresource>
 </RCC>
