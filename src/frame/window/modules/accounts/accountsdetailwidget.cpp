@@ -396,12 +396,16 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
 
+    //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
+    //~ contents_path /accounts/Accounts Detail
     deleteAccount->setText(tr("Delete Account"));
 
+    //~ contents_path /accounts/Accounts Detail
     m_autoLogin->setTitle(tr("Auto Login"));
     m_autoLogin->setChecked(m_curUser->autoLogin());
 
+    //~ contents_path /accounts/Accounts Detail
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
@@ -461,11 +465,9 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
-    // 临时关闭免密码登录、自动登录
-    m_autoLogin->setVisible(false);
-    m_nopasswdLogin->setVisible(false);
-//    m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
-//    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginValid() && !IsServerSystem);
+
+    m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
+    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginValid() && !IsServerSystem);
 
     if (!m_groupItemModel)
         return;
