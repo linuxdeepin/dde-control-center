@@ -106,6 +106,9 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
         titleLayout->addWidget(lbcaption, 0, Qt::AlignCenter);
         titleLayout->addStretch();
         ComboxWidget *cbvpntype = new ComboxWidget(tr("VPN Type"));
+        SettingsGroup *typeGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+        typeGrp->getLayout()->setContentsMargins(8, 0, 8, 0);
+        typeGrp->appendItem(cbvpntype);
         QComboBox *cb = cbvpntype->comboBox();
         cb->addItem(tr("L2TP"), VpnType::L2TP);
         cb->addItem(tr("PPTP"), VpnType::PPTP);
@@ -126,7 +129,7 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
         });
 
         m_settingsLayout->addLayout(titleLayout);
-        m_settingsLayout->addWidget(cbvpntype);
+        m_settingsLayout->addWidget(typeGrp);
 
         initSettingsWidgetByType(VpnType::L2TP);
         return;

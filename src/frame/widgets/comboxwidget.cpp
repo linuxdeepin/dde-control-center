@@ -53,7 +53,6 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     , m_str("")
 {
     QHBoxLayout *mainLayout = new QHBoxLayout;
-    setFixedHeight(ComboxWidgetHeight);
     m_titleLabel = qobject_cast<QLabel *>(m_leftWidget);
     if (m_titleLabel) {
         m_str = m_titleLabel->text();
@@ -64,7 +63,8 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     mainLayout->addWidget(m_switchComboBox, 0, Qt::AlignVCenter);
     mainLayout->setStretchFactor(m_switchComboBox,7);
 
-    m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_leftWidget->setFixedWidth(ComboxTitleWidth);
+    m_leftWidget->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     setLayout(mainLayout);
 
     connect(m_switchComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ComboxWidget::onIndexChanged);
