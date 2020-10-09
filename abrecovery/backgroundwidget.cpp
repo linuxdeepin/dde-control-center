@@ -43,7 +43,7 @@ BackgroundWidget::BackgroundWidget(bool bRestoring, QWidget *parent)
         m_loadingIndicator->setFixedSize(30, 30);
         m_loadingIndicator->start();
 
-        //计算文字宽高，用于将文字放到中间
+        // 计算文字宽高，用于将文字放到中间
         QFont font;
         QFontMetrics fm(font);
         QRect rec = fm.boundingRect(tr("Rolling back the system, please wait..."));
@@ -52,13 +52,14 @@ BackgroundWidget::BackgroundWidget(bool bRestoring, QWidget *parent)
     }
 }
 
-//绘制文字无背景
 void BackgroundWidget::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event)
 
     QPainter painter(this);
     painter.fillRect(this->rect(), QColor(0, 0, 0, 150));
+
+    // 绘制文字无背景
     if (m_bIsRestoring) {
         painter.setPen(Qt::white);
         painter.drawText(QPointF(m_loadingIndicator->x() + m_loadingIndicator->width() + 10, m_loadingIndicator->y() + m_loadingIndicator->height() * 0.8), tr("Rolling back the system, please wait..."));

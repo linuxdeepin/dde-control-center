@@ -31,9 +31,6 @@
 #include <QWindow>
 #include <QHBoxLayout>
 
-//在"控制中心",进行"Install update"前,会先备份,备份成功后再升级,升级完成需要重启;(重启后在启动列表中选择更新的启动项)
-//然后启动该进程,根据构造函数中的条件逐渐往下判断,都满足则showDialog
-//弹框后,选择"取消并重启"则恢复到旧的版本 , 选择"确定"则使用新的版本
 Manage::Manage(QObject *parent)
     : QObject(parent)
     , m_systemRecovery(new AbRecoveryInter("com.deepin.ABRecovery",
@@ -45,11 +42,11 @@ Manage::Manage(QObject *parent)
     , m_dialog(nullptr)
 {
     qDebug() << "abrecovery: Manage construct";
-    //满足配置条件,再判断是否满足恢复的条件
+    // 满足配置条件,再判断是否满足恢复的条件
     if (m_systemRecovery->configValid()) {
         recoveryCanRestore();
     } else {
-        //不满足配置条件,退出app
+        // 不满足配置条件,退出app
         exitApp(false);
     }
 }
@@ -62,7 +59,7 @@ void Manage::showDialog()
     m_dialog = new RecoveryDialog;
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
     m_dialog->backupInfomation(m_systemRecovery->backupVersion(), getBackupTime());
-    //设置点击按钮不立即关闭当前页面
+    // 设置点击按钮不立即关闭当前页面
     m_dialog->setOnButtonClickedClose(false);
 
     QTimer::singleShot(300, this, [this]() {
@@ -70,14 +67,14 @@ void Manage::showDialog()
     });
 
     connect(m_dialog, &RecoveryDialog::notifyButtonClicked, m_sessionManager, [ = ](bool state) {
-        //能够进入到弹框页面,说明是满足一切版本回退的条件
-        //true: 确认 , 要恢复旧版本
+        // 能够进入到弹框页面,说明是满足一切版本回退的条件
+        // true: 确认 , 要恢复旧版本
         qDebug() << " state : " << state << " restoring() : " << m_systemRecovery->restoring();
         if (state) {
             m_systemRecovery->StartRestore();
             m_dialog->updateRestoringWaitUI();
         } else {
-            //false: 取消, 使用升级后的版本,需要重启
+            // false: 取消, 使用升级后的版本,需要重启
             requestReboot();
         }
     });
@@ -90,12 +87,12 @@ void Manage::showDialog()
             return;
         }
 
-        //恢复成功,打印log
+        // 恢复成功,打印log
         if (success) {
             qDebug() << "Restore successed. exitApp";
             exitApp();
         } else {
-            //恢复失败,不做处理并退出当前进程
+            // 恢复失败,不做处理并退出当前进程
             qDebug() << Q_FUNC_INFO << " , Recovery restore failed. errMsg : " << errMsg;
             m_dialog->updateRestoringFailedUI();
         }
@@ -111,11 +108,11 @@ void Manage::recoveryCanRestore()
         if (!call.isError()) {
             QDBusReply<bool> reply = call.reply();
             bool value = reply.value();
-            //满足条件,返回 true : showDialog
+            // 满足条件,返回 true : showDialog
             if (value) {
                 showDialog();
             } else {
-                //不满足恢复条件,退出app
+                // 不满足恢复条件,退出app
                 qDebug() << Q_FUNC_INFO << " , CanRestore : false";
                 exitApp();
             }
@@ -133,7 +130,6 @@ QString Manage::getBackupTime()
     return time.toString("yyyy/MM/dd hh:mm:ss");
 }
 
-//退出进程
 void Manage::exitApp(bool isExec)
 {
     if (isExec) {
@@ -168,7 +164,7 @@ RecoveryDialog::RecoveryDialog(DDialog *parent)
     this->setWindowFlag(Qt::WindowStaysOnTopHint);
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    //触发关闭按钮需要退出当前进程
+    // 触发关闭按钮需要退出当前进程
     connect(this, &DDialog::closed, [&]{
         exit(0);
     });
@@ -206,7 +202,7 @@ void RecoveryDialog::grabMouseAndKeyboardFocus(bool bgrab)
     qDebug() << "抓取鼠标焦点(true : 成功)，setMouseGrabEnabled :" << bGrabMouseState;
     qDebug() << "抓取键盘焦点(true : 成功)， d->setKeyboardGrabEnabled :" << bGrabKeyboardState;
 
-    //获取鼠标焦点失败后，重抓，最多重连3次
+    // 获取鼠标焦点失败后，重抓，最多重连3次
     if (!bGrabMouseState) {
         QTimer::singleShot(100, this, [this]() {
             for (int i = 0; i < 3; i++) {
@@ -219,7 +215,7 @@ void RecoveryDialog::grabMouseAndKeyboardFocus(bool bgrab)
         });
     }
 
-    //获取键盘焦点失败后，重抓，最多重抓3次
+    // 获取键盘焦点失败后，重抓，最多重抓3次
     if (!bGrabKeyboardState) {
         QTimer::singleShot(100, this, [this]() {
             for (int i = 0; i < 3; i++) {
@@ -233,7 +229,6 @@ void RecoveryDialog::grabMouseAndKeyboardFocus(bool bgrab)
     }
 }
 
-//正在进行版本回退中,更新提示信息
 void RecoveryDialog::updateRestoringWaitUI()
 {
     if (isVisible())

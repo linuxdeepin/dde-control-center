@@ -19,16 +19,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "controlcenterunittest.h"
+
+#include <com_deepin_daemon_display.h>
+
 #include <QtTest>
 #include <QDBusInterface>
 #include <QDBusMetaType>
 #include <QDBusMessage>
 #include <QDBusArgument>
 #include <cstdlib>
-
-#include <com_deepin_daemon_display.h>
-
-#include "controlcenterunittest.h"
 
 using DBusDisplay = com::deepin::daemon::Display;
 
@@ -41,9 +41,7 @@ ControlCenterUnitTest::~ControlCenterUnitTest()
 {
 
 }
-/**
- * @brief ControlCenterUnitTest::SetPrimary   设置主屏
- */
+
 void ControlCenterUnitTest::SetPrimary(QString strDisplay)
 {
     QString strPrimary;
@@ -98,12 +96,6 @@ void ControlCenterUnitTest::testModules()
     controlcenterProc->waitForFinished();
 }
 
-/**
- * @brief ControlCenterUnitTest::inputDevieNum 判断显示的输出设备个数
- * @param num 预计显示的输出设备数
- * 未接入耳机时默认显示１个输出设备，测试通过
- * 当接入多个耳机时，会导致测试用例失败
- */
 void ControlCenterUnitTest::inputDevieNum(int num)
 {
     int actualNum = 0;
@@ -147,9 +139,6 @@ void ControlCenterUnitTest::testBluetoothIsVisible()
     QCOMPARE(reply,bluetoothState);
 }
 
-/**
- * @brief ControlCenterUnitTest::displayMode_check  检查显示模式
- */
 void ControlCenterUnitTest::displayMode_check()
 {
     QDBusInterface displayInter("com.deepin.daemon.Display", "/com/deepin/daemon/Display", "com.deepin.daemon.Display", QDBusConnection::sessionBus());
@@ -210,10 +199,6 @@ void ControlCenterUnitTest::checkWindowCompositingEnable()
     QCOMPARE(compositingEnable, !lastCompositingEnable);
 }
 
-/**
- * @brief ControlCenterUnitTest::testProcessNumber
- * 启动10次，检测控制中心能否保持单例+控制中心能否正常退出
- */
 void ControlCenterUnitTest::testProcessNumber()
 {
     QProcess process;
