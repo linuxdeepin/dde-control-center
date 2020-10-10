@@ -225,6 +225,7 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
     });
 
     m_fingerWorker->tryEnroll(name, thumb);
+    dlg->startFoucosTimer();
     connect(m_fingerWorker, &FingerWorker::tryEnrollResult, dlg, [=] (FingerWorker::EnrollResult res) {
         // 第一次tryEnroll进入时显示添加指纹对话框
         if (m_pMainWindow->isEnabled()) {
