@@ -41,7 +41,7 @@ configure_file(files/dde-control-center.conf.in files/dde-control-center.conf @O
 add_definitions(-DWINDOW_MODE)
 
 add_subdirectory("src/frame")
-add_subdirectory("src/dialogs")
+add_subdirectory("src/reboot-reminder-dialog")
 add_subdirectory("src/develop-tool")
 add_subdirectory("unittest")
 

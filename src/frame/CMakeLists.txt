@@ -76,15 +76,10 @@ endforeach()
 set(FRAME_FILES
                 main.cpp
                 dbuscontrolcenterservice.cpp
-                framecontentwrapper.cpp
-                moduleinitthread.cpp
-                navigationview.cpp
-                updatenotifier.cpp
 )
 
 set(WINDOW_FILES
     window/mainwindow.cpp
-    window/standarditemhelper.cpp
     window/utils.h
     window/accessibleinterface.h
     window/accessible.h
