@@ -27,6 +27,9 @@
 #include "customsettingdialog.h"
 #include "../../mainwindow.h"
 
+using namespace dcc::display;
+using namespace DCC_NAMESPACE::display;
+
 class Resolution;
 
 namespace dcc {
@@ -81,6 +84,9 @@ private:
     dcc::display::DisplayWorker *m_displayWorker{nullptr};
     DCC_NAMESPACE::display::DisplayWidget *m_displayWidget{nullptr};
     MainWindow *m_pMainWindow = nullptr;
+    //由于切换合并和拆分模式会比较耗费资源，所以这边做延迟操作，防止一直进行切换的操作
+    QTimer *m_joinTimer;
+    QTimer *m_splitTimer;
 };
 
 } // namespace display

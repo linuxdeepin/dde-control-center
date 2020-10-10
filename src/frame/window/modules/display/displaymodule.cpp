@@ -36,6 +36,7 @@
 #include "modules/display/recognizedialog.h"
 
 #include <QApplication>
+#include <QTimer>
 #include <com_deepin_daemon_keybinding.h>
 
 using namespace dcc::display;
@@ -48,7 +49,13 @@ DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
     , ModuleInterface(frame)
     , m_displayModel(nullptr)
     , m_displayWorker(nullptr)
+    , m_joinTimer(new QTimer(this))
+    , m_splitTimer(new QTimer(this))
 {
+    m_joinTimer->setSingleShot(true);
+    m_splitTimer->setSingleShot(true);
+    m_joinTimer->setInterval(300);
+    m_splitTimer->setInterval(300);
 }
 
 DisplayModule::~DisplayModule()
@@ -243,19 +250,26 @@ void DisplayModule::showCustomSettingDialog()
                                      QDBusConnection::sessionBus(), this);
     keybindInter.DeleteShortcutKeystroke("display", 2, "XF86Display");
 
+    connect(m_splitTimer, &QTimer::timeout, m_displayWorker, &DisplayWorker::mergeScreens);
+    connect(m_joinTimer, &QTimer::timeout, m_displayWorker, &DisplayWorker::splitScreens);
+
     connect(dlg, &CustomSettingDialog::requestShowRotateDialog,
             this, &DisplayModule::showRotate);
     connect(dlg, &CustomSettingDialog::requestSetResolution, this,
             &DisplayModule::onCustomPageRequestSetResolution);
-    connect(dlg, &CustomSettingDialog::requestMerge,
-            m_displayWorker, &DisplayWorker::mergeScreens);
     connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
         m_displayWorker->onMonitorEnable(mon, enable);
     });
-    connect(dlg, &CustomSettingDialog::requestSplit,
-            m_displayWorker, &DisplayWorker::splitScreens);
-    connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
-            m_displayWorker, &DisplayWorker::setMonitorPosition);
+    //这里做延迟处理的操作，防止疯狂的切换显示模式，浪费资源
+    connect(dlg, &CustomSettingDialog::requestMerge, m_displayWorker,[=](){
+        if (m_joinTimer->isActive() && m_splitTimer->isActive()) return;
+        m_splitTimer->start();
+    });
+    connect(dlg, &CustomSettingDialog::requestSplit, this, [=](){
+        if (m_joinTimer->isActive() && m_splitTimer->isActive()) return;
+        m_joinTimer->start();
+    });
+    connect(dlg, &CustomSettingDialog::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
     connect(dlg, &CustomSettingDialog::requestRecognize, this,
             &DisplayModule::showRecognize);
     connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,

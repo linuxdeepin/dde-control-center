@@ -80,7 +80,6 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     mainLayout->addLayout(btnsLayout);
 
     setLayout(mainLayout);
-
     connect(m_recognize, &QPushButton::clicked, this, &MonitorControlWidget::requestRecognize);
     connect(m_join, &QPushButton::clicked, this, &MonitorControlWidget::requestMerge);
     connect(m_split, &QPushButton::clicked, this, &MonitorControlWidget::requestSplit);
