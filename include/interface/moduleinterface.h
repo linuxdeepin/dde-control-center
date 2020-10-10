@@ -26,6 +26,7 @@
 
 #include <QtCore>
 #include <QIcon>
+#include <QWidget>
 
 //struct ModuleMetadata {
 //    QString icon;
@@ -136,6 +137,12 @@ public:
 public:
     inline void setAvailable(bool isAvailable) { m_available = isAvailable; }
     inline bool isAvailable() const { return m_available; }
+    inline void setEnabled(bool value) {
+        QWidget *mainwindow = dynamic_cast<QWidget *>(m_frameProxy);
+        if (mainwindow) {
+            mainwindow->setEnabled(value);
+        }
+    }
 
 protected:
     FrameProxyInterface *m_frameProxy{nullptr};

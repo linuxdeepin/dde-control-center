@@ -45,6 +45,7 @@
 #include "search/searchwidget.h"
 #include "dtitlebar.h"
 #include "utils.h"
+#include "interface/moduleinterface.h"
 
 #include <DBackgroundGroup>
 #include <DIconButton>

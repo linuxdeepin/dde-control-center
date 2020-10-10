@@ -75,6 +75,8 @@ public:
     void showAlertMessage(const QString &message);
     void hideAlertMessage();
 
+    inline QLabel *label() { return m_title; }
+
 public Q_SLOTS:
     void setTitle(const QString &title);
     void setText(const QString &text);

@@ -23,7 +23,6 @@
 
 #include "navigation/navmodel.h"
 #include "interface/frameproxyinterface.h"
-#include "interface/moduleinterface.h"
 
 #include <DMainWindow>
 #include <DBackgroundGroup>
@@ -59,6 +58,7 @@ extern const QString GSettinsWindowWidth;
 extern const QString GSettinsWindowHeight;
 
 namespace DCC_NAMESPACE {
+class ModuleInterface;
 class FourthColWidget : public QWidget
 {
     Q_OBJECT

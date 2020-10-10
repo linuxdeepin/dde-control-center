@@ -63,6 +63,7 @@ public:
     void setTitle(const QString& title);
     void setValue(const QString& value);
     void setWordWrap(const bool enable);
+    inline QString value() const { return m_value->text(); }
 
 private:
     TipsLabel* m_title;
