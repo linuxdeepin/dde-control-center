@@ -46,6 +46,8 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
+static const int LayoutSpacing = 20;
+
 static QGSettings *GSettings()
 {
     static QGSettings settings("com.deepin.dde.dock.module.power");
@@ -119,6 +121,7 @@ void GeneralWidget::initUi()
     powerPlansLayout->addWidget(m_powerplanListview);   // 添加性能模式列表
     powerPlansLayout->setContentsMargins(10, 0, 10, 0); // 性能设置布局与外面总布局的边距
     m_layout->addLayout(powerPlansLayout);              // 将性能设置布局添加到总布局中
+    m_layout->addSpacing(LayoutSpacing);
     /*************************************************************************************/
 
     /**** 节能设置 ************************************************************************/
@@ -147,6 +150,7 @@ void GeneralWidget::initUi()
     energySavingLayout->addWidget(energySavingGrp);      // 添加节能设置
     energySavingLayout->setContentsMargins(10, 0, 0, 0); // 节能设置与外面总布局的边距
     m_layout->addLayout(energySavingLayout);             // 将节能模式布局添加到总布局中
+    m_layout->addSpacing(LayoutSpacing);
     /*************************************************************************************/
 
     /**** 唤醒设置 ************************************************************************/
@@ -164,6 +168,7 @@ void GeneralWidget::initUi()
     wakeupLayout->addWidget(wakeupSettingsGrp);    // 添加唤醒设置
     wakeupLayout->setContentsMargins(10, 0, 0, 0); // 唤醒设置与外面总布局的边距
     m_layout->addLayout(wakeupLayout);             // 将唤醒设置布局添加到总布局中
+    m_layout->addSpacing(LayoutSpacing);
     /*************************************************************************************/
 
     /**** 电池设置 ************************************************************************/
@@ -189,6 +194,7 @@ void GeneralWidget::initUi()
     batteyLayout->addWidget(batterySettingsGrp);   // 添加电池设置
     batteyLayout->setContentsMargins(10, 0, 0, 0); // 电池设置与外面总布局的边距
     m_layout->addLayout(batteyLayout);             // 将唤醒设置布局添加到总布局中
+    m_layout->addSpacing(LayoutSpacing);
     /*************************************************************************************/
 
     m_layout->setSpacing(List_Interval);
