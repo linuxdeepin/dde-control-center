@@ -83,7 +83,9 @@ void DatetimeModule::active()
 {
     m_widget = new DatetimeWidget;
     m_widget->setVisible(false);
-    connect(m_widget, &DatetimeWidget::requestPushWidget, this, &DatetimeModule::onPushWidget);
+    connect(m_widget, &DatetimeWidget::requestTimeSetting, this, &DatetimeModule::showTimeSetting);
+    connect(m_widget, &DatetimeWidget::requestTimezoneList, this, &DatetimeModule::showTimezoneList);
+    connect(m_widget, &DatetimeWidget::requestFormatSetting, this, &DatetimeModule::showFormatSetting);
     connect(m_widget, &DatetimeWidget::requestSetHourType, m_work, &DatetimeWork::set24HourType);
     connect(m_model,  &DatetimeModel::hourTypeChanged, m_widget, &DatetimeWidget::onHourTypeChanged);
     connect(m_widget, &DatetimeWidget::requestCloseWidget, this, &DatetimeModule::closeDialog);
@@ -312,23 +314,6 @@ void DatetimeModule::showTimeSetting()
 
     m_frameProxy->pushWidget(this, m_setting);
     m_setting->setVisible(true);
-}
-
-void DatetimeModule::onPushWidget(const int &index)
-{
-    switch (static_cast<DatetimeType>(index)) {
-    case ETimezoneList:
-        showTimezoneList();
-        break;
-    case TimeSetting:
-        showTimeSetting();
-        break;
-    case FormatSetting:
-        showFormatSetting();
-        break;
-    default:
-        break;
-    }
 }
 
 void DatetimeModule::onPopWidget()

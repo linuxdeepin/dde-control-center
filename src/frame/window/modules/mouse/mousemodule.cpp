@@ -44,8 +44,9 @@ MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
 {
 }
 
-void MouseModule::preInitialize(bool sync)
+void MouseModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
+    Q_UNUSED(pushtype);
     //添加此判断是因为公共功能可能泄露。在分配指针“m_model”之前未释放它
     if (m_model) {
         delete m_model;

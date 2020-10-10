@@ -20,7 +20,7 @@
  */
 
 #include "keyboardwidget.h"
-#include "window/utils.h"
+#include "window/insertplugin.h"
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
@@ -46,22 +46,31 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) : QWidget(parent)
 void KeyboardWidget::init()
 {
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
-    QList<QPair<QIcon, QString>> menuIconText;
+    QList<QPair<QString, QString>> menuIconText;
     menuIconText = {
-        { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
+        { "dcc_general_purpose", tr("General")},
         //~ contents_path /keyboard/Keyboard Layout
-        { QIcon::fromTheme("dcc_keyboard"), tr("Keyboard Layout")},
+        { "dcc_keyboard", tr("Keyboard Layout")},
         //~ contents_path /keyboard/System Language
-        { QIcon::fromTheme("dcc_language"), tr("System Language")},
+        { "dcc_language", tr("System Language")},
         //~ contents_path /keyboard/Shortcuts
-        { QIcon::fromTheme("dcc_hot_key"), tr("Shortcuts")}
+        { "dcc_hot_key", tr("Shortcuts")}
     };
     DStandardItem *keyboardItem = nullptr;
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
-        keyboardItem = new DStandardItem(it->first, it->second);
+        keyboardItem = new DStandardItem(QIcon::fromTheme(it->first), it->second);
         keyboardItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listviewModel->appendRow(keyboardItem);
     }
+
+    m_itemList.append({menuIconText[0].first,menuIconText[0].second,QMetaMethod::fromSignal(&KeyboardWidget::showGeneralSetting)});
+    m_itemList.append({menuIconText[1].first,menuIconText[1].second,QMetaMethod::fromSignal(&KeyboardWidget::showKBLayoutSetting)});
+    m_itemList.append({menuIconText[2].first,menuIconText[2].second,QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting)});
+    m_itemList.append({menuIconText[3].first,menuIconText[3].second,QMetaMethod::fromSignal(&KeyboardWidget::showShortCutSetting)});
+
+    if(InsertPlugin::instance()->needPushPlugin("Keyboard and Language"))
+        InsertPlugin::instance()->pushPlugin(m_listviewModel,m_itemList);
+
     m_keyboardListView->setAccessibleName("List_keyboardlist");
     m_keyboardListView->setFrameShape(QFrame::NoFrame);
     m_keyboardListView->setModel(m_listviewModel);
@@ -86,23 +95,9 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
     if (index == m_lastIndex) {
         return;
     }
-    switch (index.row()) {
-    case 0:
-        Q_EMIT showGeneralSetting();
-        break;
-    case 1:
-        Q_EMIT showKBLayoutSetting();
-        break;
-    case 2:
-        Q_EMIT showSystemLanguageSetting();
-        break;
-    case 3:
-        Q_EMIT showShortCutSetting();
-        break;
-    default:
-        Q_EMIT showGeneralSetting();
-        break;
-    }
+
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
+
     m_lastIndex = index;
     m_keyboardListView->resetStatus(index);
 }

@@ -45,7 +45,7 @@ public:
     virtual const QString displayName() const override;
     virtual void contentPopped(QWidget *const w) override;
     virtual void active() override;
-    virtual void preInitialize(bool sync = false) override;
+    virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     QStringList availPage() const override;
 public Q_SLOTS:
     void onShowPopup(QString fileName); // for user exprience program

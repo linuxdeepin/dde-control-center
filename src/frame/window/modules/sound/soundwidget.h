@@ -23,6 +23,8 @@
 #define SoundWidget_H_V20
 
 #include "interface/namespace.h"
+#include "window/utils.h"
+#include "window/insertplugin.h"
 
 #include <DListView>
 
@@ -61,14 +63,7 @@ private:
     void initMenuUI();
 
 private:
-    struct MenuMethod {
-        QString menuText;
-        QString iconName;
-        QMetaMethod method;
-    };
-
-private:
-    QList<MenuMethod> m_menuMethod;
+    QList<ListSubItem> m_menuMethod;
     dcc::widgets::MultiSelectListView *m_menuList{nullptr};
     QModelIndex m_currentIdx;
 };

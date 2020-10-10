@@ -50,7 +50,7 @@ class MouseModule : public QObject, public ModuleInterface
 public:
     explicit MouseModule() = default;
     explicit MouseModule(FrameProxyInterface *frame, QObject *parent = nullptr);
-    void preInitialize(bool sync = false) override;
+    void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     void initialize() override;
     void reset() override;
     void active() override;

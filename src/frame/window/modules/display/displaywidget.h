@@ -23,6 +23,7 @@
 #define DISPLAYWIDGET_H_V20
 
 #include "interface/namespace.h"
+#include "window/utils.h"
 
 #include <DFloatingButton>
 #include <DListView>
@@ -90,13 +91,6 @@ Q_SIGNALS:
     void requestShowMultiResolutionPage() const;
 
 private:
-    struct MenuMethod {
-        QString menuText;
-        QString iconName;
-        QMetaMethod method;
-    };
-
-private:
     dcc::display::DisplayModel *m_model{nullptr};
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_rotate{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
@@ -106,8 +100,8 @@ private:
     QStandardItemModel *m_multiModel{nullptr};
     QStandardItemModel *m_singleModel{nullptr};
 
-    QList<MenuMethod> m_multMenuList;
-    QList<MenuMethod> m_singleMenuList;
+    QList<ListSubItem> m_multMenuList;
+    QList<ListSubItem> m_singleMenuList;
 
     bool m_isMultiScreen{true};
     QGSettings *m_displaySetting{nullptr};

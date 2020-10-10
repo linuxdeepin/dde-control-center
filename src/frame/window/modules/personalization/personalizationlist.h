@@ -21,6 +21,8 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "window/utils.h"
+#include "window/insertplugin.h"
 
 #include <dtkwidget_global.h>
 
@@ -61,6 +63,7 @@ public Q_SLOTS:
     void setCurrentIndex(int row);
 
 private:
+    QList<ListSubItem> m_itemList;
     dcc::widgets::MultiSelectListView *m_categoryListView;
     QStandardItemModel *m_model;
     QVBoxLayout *m_centralLayout;

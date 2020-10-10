@@ -56,28 +56,32 @@ void PowerWidget::initialize(bool hasBattery)
     if (!IsServerSystem) {
         m_menuIconText = {
             //~ contents_path /power/General
-            { QIcon::fromTheme("dcc_general_purpose"), tr("General"), QMetaMethod::fromSignal(&PowerWidget::requestShowGeneral)},
+            {"dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&PowerWidget::requestShowGeneral)},
             //~ contents_path /power/Plugged In
-            { QIcon::fromTheme("dcc_using_electric"), tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
+            {"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
             //~ contents_path /power/On Battery
-            { QIcon::fromTheme("dcc_battery"), tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
+            {"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
         };
     } else {
         m_menuIconText = {
             //~ contents_path /power/Plugged In
-            { QIcon::fromTheme("dcc_using_electric"), tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
+            {"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
             //~ contents_path /power/On Battery
-            { QIcon::fromTheme("dcc_battery"), tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
+            {"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
         };
     }
 
     auto model = new QStandardItemModel(this);
     DStandardItem *item = nullptr;
     for (auto menu : m_menuIconText) {
-        item = new DStandardItem(menu.menuIcon,menu.menuText);
+        item = new DStandardItem(QIcon::fromTheme(menu.itemIcon),menu.itemText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         model->appendRow(item);
     }
+
+    if(InsertPlugin::instance()->needPushPlugin("Power"))
+        InsertPlugin::instance()->pushPlugin(model,m_menuIconText);
+
     m_listview->setFrameShape(QFrame::NoFrame);
     m_listview->setModel(model);
     m_listview->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -129,6 +133,6 @@ void PowerWidget::onItemClicked(const QModelIndex &index)
 
     m_lastIndex = index;
     m_listview->setCurrentIndex(index);
-    m_menuIconText[index.row()].method.invoke(this);
+    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin?m_menuIconText[index.row()].pulgin:this);
     m_listview->resetStatus(index);
 }

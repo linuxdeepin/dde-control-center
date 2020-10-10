@@ -20,8 +20,11 @@
  */
 
 #include "commoninfowidget.h"
+#include "window/insertplugin.h"
 #include "window/utils.h"
 #include "widgets/multiselectlistview.h"
+
+
 #include <DStandardItem>
 
 #include <QVBoxLayout>
@@ -77,19 +80,19 @@ void CommonInfoWidget::initData()
                        QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)});
 #endif
 
-     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
-         m_moduleDevelop = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
-         isContensServer =  m_moduleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
-     }
+    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
+        m_moduleDevelop = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
+        isContensServer =  m_moduleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
+    }
 
     //以下模块只在非服务器版本使用
     if (!IsServerSystem) {
         if (!isContensServer) {
-                    if (!IsCommunitySystem) {
-                        //~ contents_path /commoninfo/Developer Mode
-                        m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
-                                           QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)});
-                    }
+            if (!IsCommunitySystem) {
+                //~ contents_path /commoninfo/Developer Mode
+                m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
+                                   QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)});
+            }
         }
         //~ contents_path /commoninfo/User Experience Program
         m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),
@@ -97,7 +100,8 @@ void CommonInfoWidget::initData()
 
 #if 0
         m_itemList.append({"", tr("Tablet Mode"),
-                              QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)});
+                           QMetaMethod::fromSignal(&CommonInfoWidget::requestShowTabletModeWidget)
+                          });
 #endif
     }
 
@@ -107,12 +111,17 @@ void CommonInfoWidget::initData()
         item->setText(m.itemText);
         m_itemModel->appendRow(item);
     }
+
+    if(InsertPlugin::instance()->needPushPlugin("General Settings"))
+        InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
+
     m_lastIndex = m_listView->model()->index(0, 0);
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         if (m_lastIndex == index) return;
 
         m_lastIndex = index;
-        m_itemList[index.row()].itemSignal.invoke(this);
+
+        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
         m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);

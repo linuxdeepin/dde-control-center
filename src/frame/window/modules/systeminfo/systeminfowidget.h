@@ -22,6 +22,8 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "window/utils.h"
+#include "window/insertplugin.h"
 
 #include <DListView>
 
@@ -64,17 +66,10 @@ Q_SIGNALS:
 #endif
 
 private:
-    struct ListMethod {
-        QString icon;
-        QString text;
-        QMetaMethod method;
-    };
-
-private:
     QVBoxLayout *m_mainContentLayout;
     dcc::widgets::MultiSelectListView *m_listView;
     QStandardItemModel *m_itemModel;
-    QList<ListMethod> m_itemList;
+    QList<ListSubItem> m_itemList;
     QModelIndex m_lastIndex;
 };
 

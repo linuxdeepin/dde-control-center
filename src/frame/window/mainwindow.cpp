@@ -40,6 +40,7 @@
 #include "modules/update/mirrorswidget.h"
 #include "widgets/multiselectlistview.h"
 #include "mainwindow.h"
+#include "insertplugin.h"
 #include "constant.h"
 #include "search/searchwidget.h"
 #include "dtitlebar.h"
@@ -116,7 +117,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
     m_contentLayout->setSpacing(0);
     m_rightContentLayout = new QHBoxLayout();
-    m_rightContentLayout->setContentsMargins(0,0,0,0);
+    m_rightContentLayout->setContentsMargins(0, 0, 0, 0);
 
     m_rightView = new DBackgroundGroup(m_rightContentLayout);
     m_rightView->setObjectName("modulepage");
@@ -158,8 +159,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     DTitlebar *titlebar = this->titlebar();
     auto widhetlist = titlebar->children();
-    for (auto child : widhetlist ) {
-        if (auto item = qobject_cast<DIconButton*>(child)) {
+    for (auto child : widhetlist) {
+        if (auto item = qobject_cast<DIconButton *>(child)) {
             item->setAccessibleName("FrameIcom");
         }
     }
@@ -179,9 +180,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     auto action = new QAction(tr("Help"));
     menu->addAction(action);
-    connect(action, &QAction::triggered, this, [=] {
+    connect(action, &QAction::triggered, this, [ = ] {
         QString helpTitle = m_moduleName;
-        if(helpTitle.isEmpty()) {
+        if (helpTitle.isEmpty()) {
             helpTitle = "controlcenter";
         }
         const QString dmanInterface = "com.deepin.Manual.Open";
@@ -340,7 +341,7 @@ void MainWindow::initAllModule(const QString &m)
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},
         { new NetworkModule(this), tr("Network")},
-        { new NotificationModule(this),tr("Notification")},
+        { new NotificationModule(this), tr("Notification")},
         { new SoundModule(this), tr("Sound")},
         { new BluetoothModule(this), tr("Bluetooth")},
         { new DatetimeModule(this), tr("Date and Time")},
@@ -353,12 +354,13 @@ void MainWindow::initAllModule(const QString &m)
         { new CommonInfoModule(this), tr("General Settings")},
     };
 
-    loadModules();
+    //读取加载一级菜单的插件
+    InsertPlugin::instance(this, this)->pushPlugin(m_modules);
 
     //通过gsetting设置某模块是否显示,默认都显示
     m_moduleSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
 
-    connect(m_moduleSettings, &QGSettings::changed, this, [ & ] (const QString &keyName) {
+    connect(m_moduleSettings, &QGSettings::changed, this, [ & ](const QString & keyName) {
         if (keyName != "hideModule" && keyName != GSETTINGS_HIDE_MODULE) {
             return;
         }
@@ -405,9 +407,9 @@ void MainWindow::initAllModule(const QString &m)
             group.m_name = it->first->name();
             group.m_action.first = action1;
             group.m_action.second = action2;
-            group.m_index=m_navModel->rowCount();
+            group.m_index = m_navModel->rowCount();
             m_remindeSubscriptList.append(group);
-            if(action2->isVisible())
+            if (action2->isVisible())
                 item->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
         } else {
             item->setData(NavItemMargin, Dtk::MarginsRole);
@@ -440,45 +442,6 @@ void MainWindow::updateWinsize()
     WidgetMinimumWidth = qMin(w, 820);
     WidgetMinimumHeight = qMin(h, 634);
     setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
-}
-
-void MainWindow::loadModules()
-{
-    QDir moduleDir(ModuleDirectory);
-    if (!moduleDir.exists()) {
-        qDebug() << "module directory not exists";
-    }
-
-    auto moduleList = moduleDir.entryInfoList();
-    for (auto i : moduleList) {
-        QString path = i.absoluteFilePath();
-
-        if (!QLibrary::isLibrary(path)) continue;
-
-        qDebug() << "loading module: " << i;
-
-        QPluginLoader loader(path);
-        QObject* instance = loader.instance();
-        if (!instance) {
-            qDebug() << loader.errorString();
-            continue;
-        }
-
-        instance->setParent(this);
-
-        auto *module = qobject_cast<ModuleInterface *>(instance);
-        module->setFrameProxy(this);
-
-        if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsCommunitySystem) {
-            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
-                    return data.second == tr("Keyboard and Language");
-                });
-
-                if (res != m_modules.end()) {
-                    m_modules.insert(m_modules.indexOf(*res) + 1, {module, module->displayName()});
-                }
-        }
-    }
 }
 
 void MainWindow::updateModuleVisible()
@@ -577,13 +540,13 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     }
 
     auto findModule = [this](const QString & str)->ModuleInterface * {
-        auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
-                return data.first->name() == str;
-            });
+        auto res = std::find_if(m_modules.begin(), m_modules.end(), [ = ](const QPair<ModuleInterface *, QString> &data)->bool{
+            return data.first->name() == str;
+        });
 
-            if (res != m_modules.end()) {
-                return (*res).first;
-            }
+        if (res != m_modules.end()) {
+            return (*res).first;
+        }
 
         return nullptr;
     };
@@ -635,9 +598,9 @@ void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDispla
         if (m_pair.first->isVisible() != bIsDisplay) {
             m_pair.first->setVisible(bIsDisplay);
             if (bIsDisplay) {
-                 m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
+                m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
             } else {
-                 m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(0, 0, 0, 0)), Dtk::MarginsRole);
+                m_navModel->item(index, 0)->setData(QVariant::fromValue(QMargins(0, 0, 0, 0)), Dtk::MarginsRole);
             }
         }
     } else {
@@ -650,13 +613,13 @@ void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDispla
 
 bool MainWindow::isModuleAvailable(const QString &m)
 {
-    auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
-            return data.first->name() == m;
-        });
+    auto res = std::find_if(m_modules.begin(), m_modules.end(), [ = ](const QPair<ModuleInterface *, QString> &data)->bool{
+        return data.first->name() == m;
+    });
 
-        if (res != m_modules.end()) {
-            return (*res).first->isAvailable();
-        }
+    if (res != m_modules.end()) {
+        return (*res).first->isAvailable();
+    }
 
     qDebug() << QString("can not fine module named %1!").arg(m);
     return false;
@@ -681,7 +644,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_F1: {
         QString helpTitle = m_moduleName;
-        if(helpTitle.isEmpty()) {
+        if (helpTitle.isEmpty()) {
             helpTitle = "controlcenter";
         }
         const QString dmanInterface = "com.deepin.Manual.Open";
@@ -702,12 +665,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 {
-    if( watched == this && m_navView && m_navView->viewMode() == QListView::ListMode) {
+    if (watched == this && m_navView && m_navView->viewMode() == QListView::ListMode) {
         if (QEvent::WindowDeactivate == event->type() || QEvent::WindowActivate == event->type()) {
             DPalette pa = DApplicationHelper::instance()->palette(m_navView);
             QColor base_color = palette().base().color();
 
-            if(QEvent::WindowDeactivate == event->type()) {
+            if (QEvent::WindowDeactivate == event->type()) {
                 base_color = DGuiApplicationHelper::adjustColor(base_color, 0, 0, 0, 0, 0, 0, -5);
                 pa.setColor(DPalette::ItemBackground, base_color);
             } else if (QEvent::WindowActivate == event->type()) {
@@ -718,7 +681,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
         }
     }
 
-    return  DMainWindow::eventFilter(watched,event);
+    return  DMainWindow::eventFilter(watched, event);
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event)
@@ -790,7 +753,7 @@ void MainWindow::resetNavList(bool isIconMode)
                 if (m_modules.at(i).first->name() == data.m_name) {
                     data.m_action.first->setVisible(data.m_action.second->isVisible());
                     data.m_action.second->setVisible(false);
-                    if(data.m_action.first->isVisible())
+                    if (data.m_action.first->isVisible())
                         m_navModel->item(i, 0)->setData(QVariant::fromValue(QMargins(ActionIconSize + 15, 0, 0, 0)), Dtk::MarginsRole);
                     else
                         m_navModel->item(i, 0)->setData(QVariant::fromValue(QMargins()), Dtk::MarginsRole);
@@ -849,24 +812,24 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
         qDebug() << Q_FUNC_INFO << " Search widget is current display widget.";
         // load wireless detail pages.
         if ((moduleName == "network") && (widgetPages.size() > 1)) {
-            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
-                    return data.first->name() == moduleName;
-                });
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [ = ](const QPair<ModuleInterface *, QString> &data)->bool{
+                return data.first->name() == moduleName;
+            });
 
-                if (res != m_modules.end()) {
-                    (*res).first->load(widget);
-                    return;
-                }
+            if (res != m_modules.end()) {
+                (*res).first->load(widget);
+                return;
+            }
         }
         if ((moduleName == "keyboard") && (widgetPages.size() >= 1)) {
-            auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
-                    return data.first->name() == moduleName;
-                });
+            auto res = std::find_if(m_modules.begin(), m_modules.end(), [ = ](const QPair<ModuleInterface *, QString> &data)->bool{
+                return data.first->name() == moduleName;
+            });
 
-                if (res != m_modules.end()) {
-                    (*res).first->load(widget);
-                    return;
-                }
+            if (res != m_modules.end()) {
+                (*res).first->load(widget);
+                return;
+            }
         }
         return;
     }
@@ -973,11 +936,11 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 m_searchWidget->addUnExsitData(tr("General Settings"));
             }
         } else if ("update" == find_it->first->name()) {
-                    if (visible) {
-                        m_searchWidget->removeUnExsitData(tr("Updates"));
-                    } else {
-                        m_searchWidget->addUnExsitData(tr("Updates"));
-                    }
+            if (visible) {
+                m_searchWidget->removeUnExsitData(tr("Updates"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Updates"));
+            }
 
         }
     } else {

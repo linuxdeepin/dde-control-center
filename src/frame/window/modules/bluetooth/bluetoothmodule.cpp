@@ -42,8 +42,9 @@ BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
 
 }
 
-void BluetoothModule::preInitialize(bool sync)
+void BluetoothModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
 {
+    Q_UNUSED(pushtype);
     m_bluetoothWorker = &BluetoothWorker::Instance(sync);
     m_bluetoothModel = m_bluetoothWorker->model();
     m_bluetoothModel->moveToThread(qApp->thread());

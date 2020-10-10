@@ -63,7 +63,7 @@ public:
     const QString displayName() const override;
     void active() override;
     int load(const QString &path) override;
-    void preInitialize(bool sync = false) override;
+    void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     QStringList availPage() const override;
 
 private Q_SLOTS:

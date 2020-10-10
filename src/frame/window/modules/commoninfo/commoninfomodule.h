@@ -46,7 +46,7 @@ class CommonInfoModule : public QObject, public ModuleInterface
 public:
     explicit CommonInfoModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~CommonInfoModule();
-    void preInitialize(bool sync);
+    void preInitialize(bool sync , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal);
     //　初始化模块
     virtual void initialize() override;
     // 返回模块名

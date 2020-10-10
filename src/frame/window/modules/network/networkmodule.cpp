@@ -160,8 +160,9 @@ void NetworkModule::onDeviceListChanged(const QList<dde::network::NetworkDevice 
     m_frameProxy->setRemoveableDeviceStatus(tr("Personal Hotspot"), m_hasAp);
 }
 
-void NetworkModule::preInitialize(bool sync)
+void NetworkModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
 {
+    Q_UNUSED(pushtype);
     m_networkModel = new NetworkModel;
     m_networkWorker = new NetworkWorker(m_networkModel, nullptr, sync);
 

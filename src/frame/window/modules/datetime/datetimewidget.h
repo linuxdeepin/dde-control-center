@@ -21,6 +21,8 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "window/utils.h"
+#include "window/insertplugin.h"
 
 #include <types/zoneinfo.h>
 #include <DListView>
@@ -68,6 +70,9 @@ public:
 Q_SIGNALS:
     void requestSetHourType(const bool &type);
     void requestPushWidget(const int &page);
+    void requestTimezoneList();
+    void requestFormatSetting();
+    void requestTimeSetting();
     void requestCloseWidget();
 
 public Q_SLOTS:
@@ -77,6 +82,8 @@ public Q_SLOTS:
 private:
     dcc::widgets::MultiSelectListView *m_listview;
     ClockItem *m_clockItem;
+
+    QList<ListSubItem> m_itemList;
     const dcc::datetime::DatetimeModel *m_model;
     dcc::widgets::SwitchWidget *m_hourTypeSwitch;
     QModelIndex m_lastIndex;

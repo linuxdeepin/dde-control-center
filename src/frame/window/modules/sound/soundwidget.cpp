@@ -58,8 +58,8 @@ int SoundWidget::showPath(const QString &path)
 {
     for (int i = 0; i < m_menuMethod.size(); ++i) {
         auto menu = m_menuMethod[i];
-        if (tr(path.toStdString().c_str()) == menu.menuText) {
-            menu.method.invoke(this);
+        if (tr(path.toStdString().c_str()) == menu.itemText) {
+            menu.itemSignal.invoke(this);
             m_currentIdx = m_menuList->model()->index(i, 0);
             m_menuList->setCurrentIndex(m_currentIdx);
             return 0;
@@ -73,20 +73,23 @@ void SoundWidget::initMenuUI()
 {
     m_menuMethod = {
         //~ contents_path /sound/Speaker
-        { tr("Output"), "dcc_speaker", QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
+        { "dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
         //~ contents_path /sound/Microphone
-        { tr("Input"), "dcc_noun", QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
+        { "dcc_noun",tr("Input"),  QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
         //~ contents_path /sound/Sound Effects
-        { tr("Sound Effects"), "dcc_sound_effect", QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}
+        {"dcc_sound_effect",tr("Sound Effects"),  QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}
     };
 
     QStandardItemModel *listModel = new QStandardItemModel(this);
     for (auto mm : m_menuMethod) {
-        DStandardItem *item = new DStandardItem(mm.menuText);
+        DStandardItem *item = new DStandardItem(mm.itemText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        item->setIcon(QIcon::fromTheme(mm.iconName));
+        item->setIcon(QIcon::fromTheme(mm.itemIcon));
         listModel->appendRow(item);
     }
+
+    if(InsertPlugin::instance()->needPushPlugin("Sound"))
+        InsertPlugin::instance()->pushPlugin(listModel,m_menuMethod);
 
     m_menuList->setModel(listModel);
     m_menuList->setCurrentIndex(listModel->index(0, 0));
@@ -96,7 +99,7 @@ void SoundWidget::initMenuUI()
             return;
 
         m_currentIdx = idx;
-        m_menuMethod[idx.row()].method.invoke(this);
+        m_menuMethod[idx.row()].itemSignal.invoke(m_menuMethod[idx.row()].pulgin?m_menuMethod[idx.row()].pulgin:this);
         m_menuList->resetStatus(idx);
     });
     connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);

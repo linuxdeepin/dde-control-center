@@ -47,9 +47,10 @@ NotificationModule::~NotificationModule()
 }
 
 // 控制中心启动时会被调用
-void NotificationModule::preInitialize(bool sync)
+void NotificationModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(sync)
+    Q_UNUSED(pushtype);
     if (m_model) {
         delete m_model;
     }

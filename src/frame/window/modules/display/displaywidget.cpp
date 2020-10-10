@@ -22,6 +22,7 @@
 #include "displaywidget.h"
 #include "interface/namespace.h"
 #include "window/utils.h"
+#include "window/insertplugin.h"
 #include "widgets/multiselectlistview.h"
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
@@ -92,8 +93,8 @@ int DisplayWidget::showPath(const QString &path)
     auto menuList = m_isMultiScreen ? m_multMenuList : m_singleMenuList;
     for (int i = 0; i < menuList.size(); ++i) {
         auto menu = menuList[i];
-        if (tr(path.toStdString().c_str()) == menu.menuText) {
-            menu.method.invoke(this);
+        if (tr(path.toStdString().c_str()) == menu.itemText) {
+            menu.itemSignal.invoke(this);
             m_currentIdx = m_menuList->model()->index(i, 0);
             m_menuList->setCurrentIndex(m_currentIdx);
             return 0;
@@ -135,14 +136,14 @@ void DisplayWidget::initMenuUI()
 
     m_multMenuList = {
         //~ contents_path /display/Multiple Displays
-        {tr("Multiple Displays"), "dcc_display", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
+        {"dcc_display", tr("Multiple Displays"), QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiScreenPage)},
         //~ contents_path /display/Brightness
-        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
+        {"dcc_brightness", tr("Brightness"), QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
     };
     m_singleMenuList = {
         //~ contents_path /display/Resolution
-        {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
-        {tr("Brightness"), "dcc_brightness", QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
+        {"dcc_resolution", tr("Resolution"),QMetaMethod::fromSignal(&DisplayWidget::requestShowResolutionPage)},
+        {"dcc_brightness", tr("Brightness"),QMetaMethod::fromSignal(&DisplayWidget::requestShowBrightnessPage)},
     };
 
     auto mons = m_model->monitorList();
@@ -163,7 +164,7 @@ void DisplayWidget::initMenuUI()
 
     if (!IsServerSystem) {
         //~ contents_path /display/Display Scaling
-        MenuMethod scaleMenu = {tr("Display Scaling"), "dcc_screen",
+        ListSubItem scaleMenu = {"dcc_screen",tr("Display Scaling"),
                                 QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)
                                };
         m_multMenuList << scaleMenu;
@@ -171,15 +172,14 @@ void DisplayWidget::initMenuUI()
     }
 
     //~ contents_path /display/Refresh Rate
-    MenuMethod refreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
+    ListSubItem refreshMenu = { "dcc_refresh_rate",tr("Refresh Rate"),
                               QMetaMethod::fromSignal(&DisplayWidget::requestShowRefreshRatePage)
                              };
     m_singleMenuList << refreshMenu;
 
     if ((m_model && !m_model->touchscreenList().isEmpty()) && !IsServerSystem) {
         //~ contents_path /display/Touch Screen
-        MenuMethod touchscreenMenu = {tr("Touch Screen"),
-                                      "dcc_touchscreen",
+        ListSubItem touchscreenMenu = {"dcc_touchscreen",tr("Touch Screen"),
                                       QMetaMethod::fromSignal(&DisplayWidget::requestShowTouchscreenPage)};
         m_multMenuList << touchscreenMenu;
         m_singleMenuList << touchscreenMenu;
@@ -187,33 +187,36 @@ void DisplayWidget::initMenuUI()
 
     if (!m_isShowMultiscreen) {
         m_multMenuList.removeAt(0);
-        MenuMethod multiRefreshMenu = {tr("Refresh Rate"), "dcc_refresh_rate",
+        ListSubItem multiRefreshMenu = {"dcc_refresh_rate",tr("Refresh Rate"), 
                                   QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)
                                  };
-        MenuMethod multiResoMenu = {tr("Resolution"), "dcc_resolution",
+        ListSubItem multiResoMenu = { "dcc_resolution",tr("Resolution"),
                                   QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)
                                  };
         m_multMenuList << multiResoMenu << multiRefreshMenu;
         if (getMenuIndex(tr("Resolution")) >= 0)
-            m_singleMenuList[getMenuIndex(tr("Resolution"))] = {tr("Resolution"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)};
+            m_singleMenuList[getMenuIndex(tr("Resolution"))] = {"dcc_resolution",tr("Resolution"),  QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiResolutionPage)};
         if (getMenuIndex(tr("Refresh Rate")) >= 0)
-            m_singleMenuList[getMenuIndex(tr("Refresh Rate"))] = {tr("Refresh Rate"), "dcc_resolution", QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)};
+            m_singleMenuList[getMenuIndex(tr("Refresh Rate"))] = { "dcc_resolution", tr("Refresh Rate"),QMetaMethod::fromSignal(&DisplayWidget::requestShowMultiRefreshRatePage)};
     }
 
     DStandardItem *btn{nullptr};
     for (auto menu : m_multMenuList) {
-        btn = new DStandardItem(menu.menuText);
+        btn = new DStandardItem(menu.itemText);
         btn->setData(VListViewItemMargin, Dtk::MarginsRole);
-        btn->setIcon(QIcon::fromTheme(menu.iconName));
+        btn->setIcon(QIcon::fromTheme(menu.itemIcon));
         m_multiModel->appendRow(btn);
     }
 
     for (auto menu : m_singleMenuList) {
-        btn = new DStandardItem(menu.menuText);
+        btn = new DStandardItem(menu.itemText);
         btn->setData(VListViewItemMargin, Dtk::MarginsRole);
-        btn->setIcon(QIcon::fromTheme(menu.iconName));
+        btn->setIcon(QIcon::fromTheme(menu.itemIcon));
         m_singleModel->appendRow(btn);
     }
+
+    if(InsertPlugin::instance()->needPushPlugin("Display"))
+        InsertPlugin::instance()->pushPlugin(m_singleModel,m_singleMenuList);
 
     m_menuList->setAccessibleName("List_displaymenulist");
     m_menuList->setEditTriggers(DListView::NoEditTriggers);
@@ -241,9 +244,9 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
     m_currentIdx = idx;
     m_menuList->setCurrentIndex(m_currentIdx);
     if (m_isMultiScreen) {
-        m_multMenuList[idx.row()].method.invoke(this);
+        m_multMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].pulgin?m_singleMenuList[idx.row()].pulgin:this);
     } else {
-        m_singleMenuList[idx.row()].method.invoke(this);
+        m_singleMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].pulgin?m_singleMenuList[idx.row()].pulgin:this);
     }
     m_menuList->resetStatus(idx);
 }
@@ -252,13 +255,13 @@ int DisplayWidget::getMenuIndex(QString str, bool isSingle)
 {
     if (isSingle) {
         for (int i = 0; i < m_singleMenuList.count(); i++) {
-            if (m_singleMenuList[i].menuText == str) {
+            if (m_singleMenuList[i].itemText == str) {
                 return i;
             }
         }
     } else {
         for (int i = 0; i < m_multMenuList.count(); i++) {
-            if (m_multMenuList[i].menuText == str) {
+            if (m_multMenuList[i].itemText == str) {
                 return i;
             }
         }

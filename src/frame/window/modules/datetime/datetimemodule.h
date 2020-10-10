@@ -76,13 +76,11 @@ Q_SIGNALS:
     void weekStartDayFormatChanged(int index);
 
 public Q_SLOTS:
-    void onPushWidget(const int &index);
     void onPopWidget();
     void updateSystemTimezone(const QString &timezone);
     void showSystemTimezone();
     void closeDialog();
 
-private:
     void showTimezoneList();
     void showTimeSetting();
     void ensureZoneChooserDialog();

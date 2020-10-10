@@ -68,6 +68,14 @@ PersonalizationList::PersonalizationList(QWidget *parent)
         m_model->appendRow(item);
     }
 
+    m_itemList.push_back({icons.at(0),menus.at(0),QMetaMethod::fromSignal(&PersonalizationList::requestShowGeneral)});
+    m_itemList.push_back({icons.at(1),menus.at(1),QMetaMethod::fromSignal(&PersonalizationList::requestShowIconTheme)});
+    m_itemList.push_back({icons.at(2),menus.at(2),QMetaMethod::fromSignal(&PersonalizationList::requestShowCursorTheme)});
+    m_itemList.push_back({icons.at(3),menus.at(3),QMetaMethod::fromSignal(&PersonalizationList::requestShowFonts)});
+
+    if(InsertPlugin::instance()->needPushPlugin("Personalization"))
+        InsertPlugin::instance()->pushPlugin(m_model,m_itemList);
+
     m_categoryListView->setModel(m_model);
     m_categoryListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
 
@@ -85,22 +93,9 @@ void PersonalizationList::onCategoryClicked(const QModelIndex &index)
     if (index == m_lastIndex) return;
 
     m_lastIndex = index;
-    switch (index.row()) {
-    case 0:
-        Q_EMIT requestShowGeneral();
-        break;
-    case 1:
-        Q_EMIT requestShowIconTheme();
-        break;
-    case 2:
-        Q_EMIT requestShowCursorTheme();
-        break;
-    case 3:
-        Q_EMIT requestShowFonts();
-        break;
-    default:
-        break;
-    }
+
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
+
     m_categoryListView->resetStatus(index);
 }
 

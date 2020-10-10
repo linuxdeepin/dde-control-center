@@ -28,11 +28,11 @@
 #include <QSize>
 #include <QVariant>
 #include <QSettings>
+#include <QMetaMethod>
 #include <DSysInfo>
+#include <DPlatformHandle>
 
 DCORE_USE_NAMESPACE
-
-Q_DECLARE_METATYPE(QMargins)
 
 namespace DCC_NAMESPACE {
 
@@ -67,7 +67,12 @@ const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
 const bool IsServerSystem = (DSysInfo::UosServer == UosType);
 const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);
 const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);
-
+struct ListSubItem {
+    QString itemIcon;
+    QString itemText;
+    QMetaMethod itemSignal;
+    QObject* pulgin = nullptr;
+};
 }
 
 #endif // V20_DISPLAY_UTILS_H

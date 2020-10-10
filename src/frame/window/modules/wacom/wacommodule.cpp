@@ -47,9 +47,10 @@ WacomModule::~WacomModule()
     }
 }
 
-void WacomModule::preInitialize(bool sync)
+void WacomModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(sync);
+    Q_UNUSED(pushtype);
     if (m_model) {
         delete m_model;
     }

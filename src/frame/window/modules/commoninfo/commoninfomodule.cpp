@@ -61,9 +61,10 @@ CommonInfoModule::~CommonInfoModule()
     m_commonModel = nullptr;
 }
 
-void CommonInfoModule::preInitialize(bool sync)
+void CommonInfoModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
 {   
     Q_UNUSED(sync);
+    Q_UNUSED(pushtype);
 #ifdef DCC_DISABLE_GRUB
     m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), false);
     if (IsServerSystem) {

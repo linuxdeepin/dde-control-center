@@ -49,8 +49,9 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
 
 }
 
-void PowerModule::preInitialize(bool sync)
+void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
+    Q_UNUSED(pushtype);
     //添加此判断是因为公共功能可能泄露。在分配指针“m_model”之前未释放它
     if (m_model) {
         delete m_model;

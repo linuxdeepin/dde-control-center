@@ -21,6 +21,7 @@
 
 #pragma once
 #include "interface/namespace.h"
+#include "window/utils.h"
 
 #include <DListView>
 
@@ -64,11 +65,7 @@ private:
     void initData();
 
 private:
-    struct ListSubItem {
-        QString itemIcon;
-        QString itemText;
-        QMetaMethod itemSignal;
-    };
+
     QVBoxLayout *m_vBoxLayout;
     dcc::widgets::MultiSelectListView *m_listView;
     QStandardItemModel *m_itemModel;

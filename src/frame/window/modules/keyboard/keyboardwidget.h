@@ -22,6 +22,7 @@
 #pragma once
 
 #include "interface/namespace.h"
+#include "window/utils.h"
 
 #include <DListView>
 
@@ -67,6 +68,7 @@ Q_SIGNALS:
     void showSystemLanguageSetting();
     void showShortCutSetting();
 private:
+    QList<ListSubItem> m_itemList;
     dcc::keyboard::KeyboardModel *m_keyboardModel;
     dcc::widgets::MultiSelectListView *m_keyboardListView;
     QVBoxLayout *m_contentLayout;

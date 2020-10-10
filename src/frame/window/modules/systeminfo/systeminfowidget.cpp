@@ -89,7 +89,7 @@ void SystemInfoWidget::initData()
             QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
             if (device->idUUID() == UUID) {
 #endif
-            m_itemList << ListMethod{
+            m_itemList << ListSubItem{
                 "dcc_backup",
                 tr("Backup and Restore"),
                 QMetaMethod::fromSignal(&SystemInfoWidget::requestShowRestore)
@@ -107,17 +107,20 @@ void SystemInfoWidget::initData()
 
     for (auto m : m_itemList) {
         DStandardItem *item = new DStandardItem;
-        item->setIcon(QIcon::fromTheme(m.icon));
-        item->setText(m.text);
+        item->setIcon(QIcon::fromTheme(m.itemIcon));
+        item->setText(m.itemText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_itemModel->appendRow(item);
     }
+
+   if(InsertPlugin::instance()->needPushPlugin("System Info"))
+        InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
 
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         if (m_lastIndex == index) return;
 
         m_lastIndex = index;
-        m_itemList[index.row()].method.invoke(this);
+        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
         m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);

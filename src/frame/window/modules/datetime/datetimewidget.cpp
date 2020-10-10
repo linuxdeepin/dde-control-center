@@ -56,22 +56,30 @@ DatetimeWidget::~DatetimeWidget()
 
 void DatetimeWidget::init()
 {
-    QList<QPair<QIcon, QString>> menuIconText;
+    QList<QPair<QString, QString>> menuIconText;
     menuIconText = {
-        { QIcon::fromTheme("dcc_time_zone"), tr("Timezone List")},
+        { "dcc_time_zone", tr("Timezone List")},
         //~ contents_path /datetime/Time Settings
-        { QIcon::fromTheme("dcc_setting"), tr("Time Settings")} ,
+        { "dcc_setting", tr("Time Settings")} ,
         //~ contents_path /datetime/Format Settings
-        { QIcon::fromTheme("dcc_time_format"), tr("Time Format")}
+        { "dcc_time_format", tr("Time Format")}
     };
 
     DStandardItem *item = nullptr;
     auto model = new QStandardItemModel(this);
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
-        item = new DStandardItem(it->first, it->second);
+        item = new DStandardItem(QIcon::fromTheme(it->first), it->second);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         model->appendRow(item);
     }
+
+    m_itemList.append({menuIconText.at(0).first, menuIconText.at(0).second,QMetaMethod::fromSignal(&DatetimeWidget::requestTimezoneList)});
+    m_itemList.append({menuIconText.at(1).first, menuIconText.at(1).second,QMetaMethod::fromSignal(&DatetimeWidget::requestTimeSetting)});
+    m_itemList.append({menuIconText.at(2).first, menuIconText.at(2).second,QMetaMethod::fromSignal(&DatetimeWidget::requestFormatSetting)});
+
+    if(InsertPlugin::instance()->needPushPlugin("Date and Time"))
+        InsertPlugin::instance()->pushPlugin(model,m_itemList);
+
     m_listview->setAccessibleName("List_datetimesettingList");
     m_listview->setFrameShape(QFrame::NoFrame);
     m_listview->setModel(model);
@@ -142,7 +150,10 @@ void DatetimeWidget::onItemClicked(const QModelIndex &index)
     if (m_lastIndex == index) return;
 
     m_lastIndex = index;
-    Q_EMIT requestPushWidget(index.row());
+
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
+    //Q_EMIT requestPushWidget(index.row());
+
     m_listview->resetStatus(index);
     m_listview->setFocus();
 }

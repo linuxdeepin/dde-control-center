@@ -73,9 +73,10 @@ void UnionidModule::active()
     widget->setVisible(true);
 }
 
-void UnionidModule::preInitialize(bool sync)
+void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(sync);
+    Q_UNUSED(pushtype);
     m_model = new dcc::unionid::UnionidModel;
     m_worker = new dcc::unionid::UnionidWorker(m_model);
 

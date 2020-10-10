@@ -58,9 +58,10 @@ void SyncModule::active()
     m_worker->activate(); //refresh data
 }
 
-void SyncModule::preInitialize(bool sync)
+void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(sync);
+    Q_UNUSED(pushtype);
     m_model = new dcc::cloudsync::SyncModel;
     m_worker = new dcc::cloudsync::SyncWorker(m_model);
 

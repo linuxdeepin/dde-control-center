@@ -130,9 +130,10 @@ int DisplayModule::load(const QString &path)
     return m_displayWidget->showPath(path);
 }
 
-void DisplayModule::preInitialize(bool sync)
+void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(sync);
+    Q_UNUSED(pushtype);
     if (m_displayModel) {
         delete m_displayModel;
     }

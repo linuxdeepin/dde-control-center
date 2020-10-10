@@ -21,7 +21,8 @@
 #pragma once
 
 #include "interface/namespace.h"
-
+#include "window/utils.h"
+#include "window/insertplugin.h"
 #include <DListView>
 
 #include <QWidget>
@@ -58,13 +59,6 @@ Q_SIGNALS:
     void requestShowUseElectric() const;
     void requestShowUseBattery() const;
 
-private:
-    struct MenuMethod {
-        QIcon menuIcon;
-        QString menuText;
-        QMetaMethod method;
-    };
-
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
 
@@ -72,7 +66,7 @@ private:
     dcc::widgets::MultiSelectListView *m_listview;
     const dcc::power::PowerModel *m_model;
     bool m_bhasBattery;
-    QList<MenuMethod> m_menuIconText;
+    QList<ListSubItem> m_menuIconText;
     QModelIndex m_lastIndex;
 };
 

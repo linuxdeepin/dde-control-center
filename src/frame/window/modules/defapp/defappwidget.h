@@ -23,6 +23,8 @@
 
 #include "interface/namespace.h"
 #include "modules/defapp/defappworker.h"
+#include "widgets/utils.h"
+#include "window/insertplugin.h"
 
 #include <dtkwidget_global.h>
 
@@ -61,6 +63,7 @@ public Q_SLOTS:
     void setCurrentIndex(int row);
 
 private:
+    QList<ListSubItem> m_itemList;
     dcc::widgets::MultiSelectListView *m_defAppCatView;
     QVBoxLayout *m_centralLayout;
     QModelIndex m_lastIndex;

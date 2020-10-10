@@ -42,7 +42,7 @@ public:
     explicit WacomModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     virtual ~WacomModule() override;
 
-    virtual void preInitialize(bool sync = false) override;
+    virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     virtual void initialize() override;
     virtual void active() override;
     virtual void deactive() override;

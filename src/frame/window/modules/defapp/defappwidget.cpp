@@ -22,6 +22,7 @@
 #include "defappwidget.h"
 #include "window/utils.h"
 #include "widgets/multiselectlistview.h"
+#include "window/insertplugin.h"
 
 #include <QStandardItemModel>
 #include <QVBoxLayout>
@@ -79,7 +80,11 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
 
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         model->appendRow(item);
+
+        m_itemList.push_back({icons.at(i),titles.at(i),QMetaMethod::fromSignal(&DefaultAppsWidget::requestCategoryClicked)});
     }
+    if(InsertPlugin::instance()->needPushPlugin("Default Applications"))
+        InsertPlugin::instance()->pushPlugin(model,m_itemList);
 
     m_defAppCatView->setModel(model);
     //show default browser app
@@ -108,6 +113,12 @@ void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {
 
     m_lastIndex = index;
     qDebug() << "DefaultAppsWidget clicked row " << index.row();
-    Q_EMIT requestCategoryClicked(dcc::defapp::DefAppWorker::DefaultAppsCategory(index.row()));
+
+    if(m_itemList[index.row()].pulgin) {
+        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin);
+    } else {
+        m_itemList[index.row()].itemSignal.invoke(this, Qt::ConnectionType::DirectConnection, Q_ARG(int, index.row()));
+    }
+
     m_defAppCatView->resetStatus(index);
 }
