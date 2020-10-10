@@ -145,8 +145,13 @@ void ConnectionEditPage::initHeaderButtons()
             break;
         }
     }
-
     m_removeBtn->setVisible(true);
+
+    //当只有m_removeBtn显示时,由于布局中添加了space,导致删除按钮未对齐,需要删除空格
+    if (!m_disconnectBtn->isHidden())
+        return;
+    m_buttonTuple_conn->removeSpacing();
+
 }
 
 void ConnectionEditPage::initSettingsWidget()

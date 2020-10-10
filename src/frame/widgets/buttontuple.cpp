@@ -61,6 +61,16 @@ QPushButton *ButtonTuple::rightButton()
     return m_rightButton;
 }
 
+void ButtonTuple::removeSpacing()
+{
+    if (!this->layout())
+        return;
+    //第二个控件为space
+    if (this->layout()->itemAt(1)) {
+        this->layout()->removeItem(this->layout()->itemAt(1));
+    }
+}
+
 void ButtonTuple::createRightButton(const ButtonTuple::ButtonType type)
 {
     switch (type) {

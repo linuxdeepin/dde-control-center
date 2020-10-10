@@ -69,6 +69,8 @@ public:
     QPushButton *leftButton();
     QPushButton *rightButton();
 
+    void removeSpacing();
+
 private:
     void createRightButton(const ButtonType type);
 
