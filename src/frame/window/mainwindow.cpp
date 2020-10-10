@@ -37,7 +37,6 @@
 #include "modules/systeminfo/systeminfomodule.h"
 #include "modules/network/networkmodule.h"
 #include "modules/defapp/defaultappsmodule.h"
-#include "moduleinitthread.h"
 #include "modules/update/mirrorswidget.h"
 #include "widgets/multiselectlistview.h"
 #include "mainwindow.h"

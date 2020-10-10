@@ -29,7 +29,9 @@
 #include <QHBoxLayout>
 
 #include "widgets/labels/tipslabel.h"
-#include "../frame/frame.h"
+
+#define FRAME_WIDTH     408
+#define NAVBAR_WIDTH    56
 
 namespace dcc {
 namespace systeminfo {

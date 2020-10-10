@@ -23,7 +23,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "frame.h"
 #include "dbuscontrolcenterservice.h"
 #include "window/mainwindow.h"
 #include "window/accessible.h"
@@ -53,84 +52,97 @@ DCORE_USE_NAMESPACE
 static DCC_NAMESPACE::MainWindow *gwm{nullptr};
 
 const int MAX_STACK_FRAMES = 128;
+const QString strPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0] + "/dde-collapse.log";
+const QString cfgPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0] + "/dde-cfg.ini";
 
 using namespace std;
 
 void sig_crash(int sig)
 {
-    FILE *fd;
-    struct stat buf;
-    char path[100];
-    memset(path, 0, 100);
-    //崩溃日志路径
-    QString strPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0] + "/dde-collapse.log";
-    memcpy(path, strPath.toStdString().data(), static_cast<size_t>(strPath.length()));
-    qDebug() << path;
+    QFile *file = new QFile(strPath);
 
-    stat(path, &buf);
-    if (buf.st_size > 10 * 1024 * 1024) {
-        // 超过10兆则清空内容
-        fd = fopen(path, "w");
-    } else {
-        fd = fopen(path, "at");
+    // 创建默认配置文件,记录段时间内的崩溃次数
+    if (!QFile::exists(cfgPath)) {
+        QFile file(cfgPath);
+        if (!file.open(QIODevice::WriteOnly))
+            exit(0);
+        file.close();
     }
 
-    if (nullptr == fd) {
+    QSettings settings(cfgPath, QSettings::IniFormat);
+    settings.beginGroup(qApp->applicationName());
+
+    QDateTime lastDate = QDateTime::fromString(settings.value("lastDate").toString(), "yyyy-MM-dd hh:mm:ss:zzz");
+    int collapseNum = settings.value("collapse").toInt();
+
+    // 10秒以内发生崩溃则累加,记录到文件中
+    if (qAbs(lastDate.secsTo(QDateTime::currentDateTime())) < 10) {
+        settings.setValue("collapse", collapseNum + 1);
+    } else {
+        settings.setValue("collapse", 0);
+    }
+    settings.setValue("lastDate", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss:zzz"));
+    settings.endGroup();
+    settings.sync();
+
+    if (!file->open(QIODevice::Text | QIODevice::Append)) {
+        qDebug() << file->errorString();
         exit(0);
     }
-    //捕获异常，打印崩溃日志到配置文件中
+
+    if (file->size() >= 10 * 1024 * 1024) {
+        // 清空原有内容
+        file->close();
+        if (file->open(QIODevice::Text | QIODevice::Truncate)) {
+            qDebug() << file->errorString();
+            exit(0);
+        }
+    }
+
+    // 捕获异常，打印崩溃日志到配置文件中
     try {
-        char szLine[512] = {0};
-        time_t t = time(nullptr);
-        tm *now = localtime(&t);
-        sprintf(szLine, "#####dde-control-center#####\n[%04d-%02d-%02d %02d:%02d:%02d][crash signal number:%d]\n",
-                            now->tm_year + 1900,
-                            now->tm_mon + 1,
-                            now->tm_mday,
-                            now->tm_hour,
-                            now->tm_min,
-                            now->tm_sec,
-                            sig);
-        fwrite(szLine, 1, strlen(szLine), fd);
-#ifdef __linux
+        QString head = "\n----" + qApp->applicationName() + "----\n"
+                + QDateTime::currentDateTime().toString("[yyyy-MM-dd hh:mm:ss:zzz]")
+                + "[crash signal number:" + QString::number(sig) + "]\n";
+        file->write(head.toUtf8());
+
+#ifdef Q_OS_LINUX
         void *array[MAX_STACK_FRAMES];
-        int size = 0;
+        size_t size = 0;
         char **strings = nullptr;
+        size_t i;
         signal(sig, SIG_DFL);
-        size = backtrace(array, MAX_STACK_FRAMES);
-        strings = static_cast<char **>(backtrace_symbols(array, size));
-        for (int i = 0; i < size; ++i) {
-            char szLine[512] = {0};
-            sprintf(szLine, "%d %s\n", i, strings[i]);
-            fwrite(szLine, 1, strlen(szLine), fd);
+        size = static_cast<size_t>(backtrace(array, MAX_STACK_FRAMES));
+        strings = backtrace_symbols(array, int(size));
+        for (i = 0; i < size; ++i) {
+            QString line = QString::number(i) + " " + QString::fromStdString(strings[i]) + "\n";
+            file->write(line.toUtf8());
 
             std::string symbol(strings[i]);
+            QString strSymbol = QString::fromStdString(symbol);
+            int pos1 = strSymbol.indexOf("[");
+            int pos2 = strSymbol.lastIndexOf("]");
+            QString address = strSymbol.mid(pos1 + 1,pos2 - pos1 - 1);
 
-            size_t pos1 = symbol.find_first_of("[");
-            size_t pos2 = symbol.find_last_of("]");
-            std::string address = symbol.substr(pos1 + 1, pos2 - pos1 - 1);
-            char cmd[128] = {0};
-            sprintf(cmd, "addr2line -C -f -e dde-control-center %s", address.c_str()); // 打印当前进程的id和地址
-            FILE *fPipe = popen(cmd, "r");
-            if (fPipe != nullptr) {
-                char buff[1024];
-                memset(buff, 0, sizeof(buff));
-                char *ret = fgets(buff, sizeof(buff), fPipe);
-                pclose(fPipe);
-                fwrite(ret, 1, strlen(ret), fd);
-            }
+            // 按照内存地址找到对应代码的行号
+            QString cmd = "addr2line -C -f -e " + qApp->applicationName() + " " + address;
+            QProcess *p = new QProcess;
+            p->setReadChannel(QProcess::StandardOutput);
+            p->start(cmd);
+            p->waitForFinished();
+            p->waitForReadyRead();
+            file->write(p->readAllStandardOutput());
+            delete p;
+            p = nullptr;
         }
         free(strings);
 #endif // __linux
     } catch (...) {
         //
     }
-    fflush(fd);
-    fclose(fd);
-    fd = nullptr;
+    file->close();
     exit(0);
 }
-
 
 int main(int argc, char *argv[])
 {
