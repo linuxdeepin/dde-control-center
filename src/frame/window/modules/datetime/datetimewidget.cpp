@@ -144,6 +144,7 @@ void DatetimeWidget::onItemClicked(const QModelIndex &index)
     m_lastIndex = index;
     Q_EMIT requestPushWidget(index.row());
     m_listview->resetStatus(index);
+    m_listview->setFocus();
 }
 
 void DatetimeWidget::onHourTypeChanged(const bool &type)
