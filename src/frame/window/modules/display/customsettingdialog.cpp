@@ -81,9 +81,9 @@ void CustomSettingDialog::initUI()
     setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint );
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    m_layout = new QVBoxLayout();
+    m_layout = new QVBoxLayout(this);
     m_layout->setContentsMargins(0, 10, 0, 0);
-    m_listLayout = new QVBoxLayout();
+    m_listLayout = new QVBoxLayout(this);
 
     auto btnBox = new DButtonBox(this);
     m_layout->addWidget(btnBox, 0, Qt::AlignHCenter);
@@ -102,7 +102,7 @@ void CustomSettingDialog::initUI()
         m_vSegBtn << new DButtonBoxButton(tr("Displays"));
     }
 
-    m_resolutionList = new DListView;
+    m_resolutionList = new DListView(this);
     initlistfunc(m_resolutionList);
     m_resolutionList->setVisible(!m_isPrimary);
     m_vSegBtn << new DButtonBoxButton(tr("Resolution"));
