@@ -47,29 +47,67 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
+    , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
+    , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
+    , m_swBatteryHint(new SwitchWidget(tr("Low Battery Notification")))
     , m_sldLowBatteryHint(new TitledSliderItem(tr("Low battery level")))
     , m_sldAutoSuspend(new TitledSliderItem(tr("Auto suspend battery level")))
 //    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
-    , m_swBatteryHint(new SwitchWidget(tr("Low Battery Notification")))
-    , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
-    , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    QStringList options;
+    QStringList annos;
+    annos << "1m"
+          << "5m"
+          << "10m"
+          << "15m"
+          << "30m"
+          << "1h" << tr("Never");
 
+    /*** 超时关闭显示器 ***/
     //~ contents_path /power/On Battery
     //~ child_page On Battery
     m_monitorSleepOnBattery->setAccessibleName(tr("Monitor will suspend after"));
+    m_monitorSleepOnBattery->slider()->setType(DCCSlider::Vernier);
+    m_monitorSleepOnBattery->slider()->setRange(1, 7);
+    m_monitorSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
+    m_monitorSleepOnBattery->slider()->setTickInterval(1);
+    m_monitorSleepOnBattery->slider()->setPageStep(1);
+    m_monitorSleepOnBattery->setAnnotations(annos);
+    m_monitorSleepOnBattery->addBackground();
+    m_layout->addWidget(m_monitorSleepOnBattery);
+
+    /*** 超时进入待机模式 ***/
     //~ contents_path /power/On Battery
     //~ child_page On Battery
     m_computerSleepOnBattery->setAccessibleName(tr("Computer will suspend after"));
+    m_computerSleepOnBattery->slider()->setType(DCCSlider::Vernier);
+    m_computerSleepOnBattery->slider()->setRange(1, 7);
+    m_computerSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
+    m_computerSleepOnBattery->slider()->setTickInterval(1);
+    m_computerSleepOnBattery->slider()->setPageStep(1);
+    m_computerSleepOnBattery->setAnnotations(annos);
+    m_computerSleepOnBattery->addBackground();
+    m_layout->addWidget(m_computerSleepOnBattery);
+
+    /*** 超时自动锁屏 ***/
     //~ contents_path /power/On Battery
     //~ child_page On Battery
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
+    m_autoLockScreen->slider()->setType(DCCSlider::Vernier);
+    m_autoLockScreen->slider()->setRange(1, 7);
+    m_autoLockScreen->slider()->setTickPosition(QSlider::TicksBelow);
+    m_autoLockScreen->slider()->setTickInterval(1);
+    m_autoLockScreen->slider()->setPageStep(1);
+    m_autoLockScreen->setAnnotations(annos);
+    m_autoLockScreen->addBackground();
+    m_layout->addWidget(m_autoLockScreen);
+
     //~ contents_path /power/On Battery
     //~ child_page On Battery
 //    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
-    QStringList options;
+    /*** 按电源按钮功能 ***/
     options << tr("Shut down");
     if (model->getSuspend()) {
         options << tr("Suspend");
@@ -79,10 +117,18 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     }
     options << tr("Turn off the monitor") << tr("Do nothing");
     m_cmbPowerBtn->setComboxOption(options);
+    m_cmbPowerBtn->addBackground();
+    m_layout->addWidget(m_cmbPowerBtn);
+
+    /*** 笔记本合盖功能 ***/
     options.pop_front();
     m_cmbCloseLid->setComboxOption(options);
+    m_cmbCloseLid->addBackground();
+    m_layout->addWidget(m_cmbCloseLid);
 
-
+    /*** 低电量设置 ***/
+    SettingsGroup *lowBatteryGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    lowBatteryGrp->layout()->setContentsMargins(0, 0, 0, 0);
     options.clear();
     for (int i = 0; i <= 9; i++) {
         options.append(QString());
@@ -94,7 +140,11 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     m_sldLowBatteryHint->slider()->setRange(16, 25);
     m_sldLowBatteryHint->slider()->setType(DCCSlider::Vernier);
     m_sldLowBatteryHint->slider()->setTickPosition(QSlider::NoTicks);
+    lowBatteryGrp->appendItem(m_swBatteryHint);
+    lowBatteryGrp->appendItem(m_sldLowBatteryHint);
+    m_layout->addWidget(lowBatteryGrp);
 
+    /*** 自动待机电量设置 ***/
     options.clear();
     for (int i = 0; i <= 8; i++) {
         options.append(QString("%1%").arg(i + 1));
@@ -103,59 +153,23 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     m_sldAutoSuspend->slider()->setRange(1, 9);
     m_sldAutoSuspend->slider()->setType(DCCSlider::Vernier);
     m_sldAutoSuspend->slider()->setTickPosition(QSlider::NoTicks);
+    m_sldAutoSuspend->addBackground();
+    m_layout->addWidget(m_sldAutoSuspend);
 
-    SettingsGroup *batterySettingsGrp = new SettingsGroup;
-    batterySettingsGrp->setSpacing(List_Interval);
-    batterySettingsGrp->appendItem(m_monitorSleepOnBattery);
-    batterySettingsGrp->appendItem(m_computerSleepOnBattery);
-    batterySettingsGrp->appendItem(m_autoLockScreen);
-//    batterySettingsGrp->appendItem(m_suspendOnLidClose);
-    batterySettingsGrp->appendItem(m_cmbCloseLid);
-    batterySettingsGrp->appendItem(m_cmbPowerBtn);
-    batterySettingsGrp->appendItem(m_swBatteryHint);
-    batterySettingsGrp->appendItem(m_sldLowBatteryHint);
-    batterySettingsGrp->appendItem(m_sldAutoSuspend);
-
-
-    m_layout->setMargin(0);
-    m_layout->addWidget(batterySettingsGrp);
+    /*********************/
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
-    m_layout->setContentsMargins(10, 10, 0, 0);
-    //    setLayout(m_layout);
+    m_layout->setContentsMargins(10, 10, 10, 5);
+
     //add scroll
     ContentWidget *contentWgt = new ContentWidget;
     QWidget *mainWgt = new TranslucentFrame;
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addWidget(contentWgt);
     setLayout(mainLayout);
-
-    QStringList annos;
-    annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
-
-    m_monitorSleepOnBattery->slider()->setType(DCCSlider::Vernier);
-    m_monitorSleepOnBattery->slider()->setRange(1, 7);
-    m_monitorSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
-    m_monitorSleepOnBattery->slider()->setTickInterval(1);
-    m_monitorSleepOnBattery->slider()->setPageStep(1);
-    m_monitorSleepOnBattery->setAnnotations(annos);
-
-    m_computerSleepOnBattery->slider()->setType(DCCSlider::Vernier);
-    m_computerSleepOnBattery->slider()->setRange(1, 7);
-    m_computerSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
-    m_computerSleepOnBattery->slider()->setTickInterval(1);
-    m_computerSleepOnBattery->slider()->setPageStep(1);
-    m_computerSleepOnBattery->setAnnotations(annos);
-
-    m_autoLockScreen->slider()->setType(DCCSlider::Vernier);
-    m_autoLockScreen->slider()->setRange(1, 7);
-    m_autoLockScreen->slider()->setTickPosition(QSlider::TicksBelow);
-    m_autoLockScreen->slider()->setTickInterval(1);
-    m_autoLockScreen->slider()->setPageStep(1);
-    m_autoLockScreen->setAnnotations(annos);
 
     setModel(model);
 

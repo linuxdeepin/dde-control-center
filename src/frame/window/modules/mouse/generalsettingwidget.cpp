@@ -83,10 +83,10 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_generalSettingsGrp->appendItem(m_doubleTest);
 
     m_contentLayout = new QVBoxLayout();
-    m_contentLayout->setMargin(0);
-    m_contentLayout->setContentsMargins(ThirdPageContentsMargins);
     m_contentLayout->addWidget(m_generalSettingsGrp);
-    m_contentLayout->addStretch();
+    m_contentLayout->setAlignment(Qt::AlignTop);
+    m_contentLayout->setSpacing(10);
+    m_contentLayout->setContentsMargins(10, 10, 10, 5);
 
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
@@ -118,7 +118,7 @@ void GeneralSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 void GeneralSettingWidget::onDoubleClickSpeedChanged(int speed)
 {
     speed = qBound(0, speed, 6);
-    m_doubleSlider->slider()->blockSignals(true);   
+    m_doubleSlider->slider()->blockSignals(true);
     m_doubleSlider->slider()->setValue(speed);
     m_doubleSlider->slider()->blockSignals(false);
 }

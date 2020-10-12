@@ -46,8 +46,6 @@ using namespace dcc::power;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 
-static const int LayoutSpacing = 20;
-
 static QGSettings *GSettings()
 {
     static QGSettings settings("com.deepin.dde.dock.module.power");
@@ -116,12 +114,12 @@ void GeneralWidget::initUi()
     m_powerplanListview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_powerplanListview->setSelectionMode(QAbstractItemView::NoSelection);
 
-    powerPlansLabel->setContentsMargins(10, 0, 0, 0);   // 性能设置label与外面布局的边距
+    powerPlansLabel->setContentsMargins(10, 0, 10, 0);  // 性能设置label与外面布局的边距
     powerPlansLayout->addWidget(powerPlansLabel);       // 添加性能设置label
     powerPlansLayout->addWidget(m_powerplanListview);   // 添加性能模式列表
+    powerPlansLayout->setSpacing(10);                   // 布局中组件间距
     powerPlansLayout->setContentsMargins(10, 0, 10, 0); // 性能设置布局与外面总布局的边距
     m_layout->addLayout(powerPlansLayout);              // 将性能设置布局添加到总布局中
-    m_layout->addSpacing(LayoutSpacing);
     /*************************************************************************************/
 
     /**** 节能设置 ************************************************************************/
@@ -134,7 +132,6 @@ void GeneralWidget::initUi()
     QStringList annotions;
     annotions << "10%" << "20%" << "30%" << "40%";
 
-    m_sldLowerBrightness->addBackground();
     m_sldLowerBrightness->slider()->setAnnotations(annotions);
     m_sldLowerBrightness->slider()->setRange(1, 4);
     m_sldLowerBrightness->slider()->setPageStep(10);
@@ -145,12 +142,12 @@ void GeneralWidget::initUi()
     energySavingGrp->appendItem(m_autoIntoSaveEnergyMode);
     energySavingGrp->appendItem(m_sldLowerBrightness);
 
-    energySavingLabel->setContentsMargins(10, 0, 0, 0);  // 节能设置label与外面布局的边距
-    energySavingLayout->addWidget(energySavingLabel);    // 添加节能设置label
-    energySavingLayout->addWidget(energySavingGrp);      // 添加节能设置
-    energySavingLayout->setContentsMargins(10, 0, 0, 0); // 节能设置与外面总布局的边距
-    m_layout->addLayout(energySavingLayout);             // 将节能模式布局添加到总布局中
-    m_layout->addSpacing(LayoutSpacing);
+    energySavingLabel->setContentsMargins(10, 0, 10, 0);  // 节能设置label与外面布局的边距
+    energySavingLayout->addWidget(energySavingLabel);     // 添加节能设置label
+    energySavingLayout->addWidget(energySavingGrp);       // 添加节能设置
+    energySavingLayout->setSpacing(10);                   // 布局中组件间距
+    energySavingLayout->setContentsMargins(10, 0, 10, 0); // 节能设置与外面总布局的边距
+    m_layout->addLayout(energySavingLayout);              // 将节能模式布局添加到总布局中
     /*************************************************************************************/
 
     /**** 唤醒设置 ************************************************************************/
@@ -163,12 +160,12 @@ void GeneralWidget::initUi()
     wakeupSettingsGrp->appendItem(m_wakeComputerNeedPassword);
     wakeupSettingsGrp->appendItem(m_wakeDisplayNeedPassword);
 
-    wakeupLabel->setContentsMargins(10, 0, 0, 0);
-    wakeupLayout->addWidget(wakeupLabel);          // 添加唤醒设置label
-    wakeupLayout->addWidget(wakeupSettingsGrp);    // 添加唤醒设置
-    wakeupLayout->setContentsMargins(10, 0, 0, 0); // 唤醒设置与外面总布局的边距
-    m_layout->addLayout(wakeupLayout);             // 将唤醒设置布局添加到总布局中
-    m_layout->addSpacing(LayoutSpacing);
+    wakeupLabel->setContentsMargins(10, 0, 10, 0);
+    wakeupLayout->addWidget(wakeupLabel);           // 添加唤醒设置label
+    wakeupLayout->addWidget(wakeupSettingsGrp);     // 添加唤醒设置
+    wakeupLayout->setSpacing(10);                   // 布局中组件间距
+    wakeupLayout->setContentsMargins(10, 0, 10, 0); // 唤醒设置与外面总布局的边距
+    m_layout->addLayout(wakeupLayout);              // 将唤醒设置布局添加到总布局中
     /*************************************************************************************/
 
     /**** 电池设置 ************************************************************************/
@@ -189,24 +186,24 @@ void GeneralWidget::initUi()
     m_powerShowTimeToFull->setVisible(m_bIsBattery);
     m_ShowTimeToFullTips->setVisible(m_bIsBattery);
 
-    batteryLabel->setContentsMargins(10, 0, 0, 0); // 电池设置label与外面布局的边距
-    batteyLayout->addWidget(batteryLabel);         // 添加电池设置label
-    batteyLayout->addWidget(batterySettingsGrp);   // 添加电池设置
-    batteyLayout->setContentsMargins(10, 0, 0, 0); // 电池设置与外面总布局的边距
-    m_layout->addLayout(batteyLayout);             // 将唤醒设置布局添加到总布局中
-    m_layout->addSpacing(LayoutSpacing);
+    batteryLabel->setContentsMargins(10, 0, 10, 0); // 电池设置label与外面布局的边距
+    batteyLayout->addWidget(batteryLabel);          // 添加电池设置label
+    batteyLayout->addWidget(batterySettingsGrp);    // 添加电池设置
+    batteyLayout->setSpacing(10);                   // 布局中组件间距
+    batteyLayout->setContentsMargins(10, 0, 10, 0); // 电池设置与外面总布局的边距
+    m_layout->addLayout(batteyLayout);              // 将唤醒设置布局添加到总布局中
     /*************************************************************************************/
 
-    m_layout->setSpacing(List_Interval);
+    m_layout->setSpacing(30);
     m_layout->setAlignment(Qt::AlignTop);
-    m_layout->setContentsMargins(0, 10, 0, 5);
+    m_layout->setContentsMargins(0, 10, 0, 5); // 总布局上下边距
 
     ContentWidget *contentWgt = new ContentWidget;
     QWidget *mainWgt = new TranslucentFrame; // 添加一层半透明框架
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(0, 0, 0, 0);
     mainLayout->addWidget(contentWgt);
     setLayout(mainLayout);
 }

@@ -61,6 +61,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_layout->setSpacing(10);
 
     m_effectList->setAccessibleName("List_effectlist");
+    m_effectList->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_effectList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_effectList->setSelectionMode(QListView::SelectionMode::NoSelection);
     m_effectList->setEditTriggers(DListView::NoEditTriggers);

@@ -52,16 +52,14 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     , m_settingWidget(nullptr)
 {
     QVBoxLayout *layout = new QVBoxLayout();
-    layout->setMargin(0);
     layout->setSpacing(List_Interval);
 
     QHBoxLayout *headLayout = new QHBoxLayout();
-    headLayout->setMargin(0);
     TitleLabel *headTitle = new TitleLabel(tr("Language List"));
+    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     m_editSystemLang = new DCommandLinkButton(tr("Edit"));
     headLayout->addWidget(headTitle);
-    headTitle->setContentsMargins(15,0,0,0);
-    headLayout->addStretch();
+    headTitle->setContentsMargins(10, 0, 0, 0);
     headLayout->addWidget(m_editSystemLang);
 
     m_langListview = new DListView();
@@ -78,8 +76,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     m_langListview->setModel(m_langItemModel);
 
     layout->addWidget(m_langListview);
-    layout->setContentsMargins(ThirdPageContentsMargins);
-    layout->addStretch();
+    layout->setContentsMargins(0, 0, 0, 0);
 
     QWidget *widget = new QWidget(this);
     widget->setLayout(layout);
@@ -87,9 +84,9 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     contentWidget->setContent(widget);
 
     QVBoxLayout *vLayout = new QVBoxLayout();
-    vLayout->setMargin(0);
     vLayout->addLayout(headLayout);
     vLayout->addWidget(contentWidget);
+    vLayout->setAlignment(Qt::AlignTop);
 
     DFloatingButton *addSystemLanguage = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     QHBoxLayout *btnLayout = new QHBoxLayout;
@@ -97,7 +94,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(addSystemLanguage);
     vLayout->addLayout(btnLayout);
-    vLayout->setContentsMargins(ThirdPageContentsMargins);
+    vLayout->setContentsMargins(10, 10, 10, 5);
     setLayout(vLayout);
 
     connect(m_langListview, &DListView::clicked, this, &SystemLanguageWidget::setCurLangChecked);

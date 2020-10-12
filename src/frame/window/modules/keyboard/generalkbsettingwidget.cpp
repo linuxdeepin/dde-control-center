@@ -151,4 +151,3 @@ void GeneralKBSettingWidget::setSpeedValue(uint value)
     m_speedSlider->setValue(static_cast<int>(value));
     m_speedSlider->blockSignals(false);
 }
-

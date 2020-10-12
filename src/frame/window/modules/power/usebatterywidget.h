@@ -25,6 +25,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QVBoxLayout>
+#include <DListView>
 
 QT_BEGIN_NAMESPACE
 class QSlider;
@@ -62,23 +63,26 @@ private:
     dcc::widgets::TitledSliderItem *m_monitorSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_computerSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_autoLockScreen;
-    dcc::widgets::TitledSliderItem *m_sldLowBatteryHint;
-    dcc::widgets::TitledSliderItem *m_sldAutoSuspend;
+
+    dcc::widgets::ComboxWidget *m_cmbPowerBtn; // 电源按钮
+    dcc::widgets::ComboxWidget *m_cmbCloseLid; // 合盖
+
+    DTK_WIDGET_NAMESPACE::DListView *m_lowPowerListView = nullptr;
+    QStandardItemModel *m_lowPowerModel = nullptr;
     dcc::widgets::SwitchWidget *m_swBatteryHint;
+    dcc::widgets::TitledSliderItem *m_sldLowBatteryHint;
 
-    dcc::widgets::ComboxWidget *m_cmbPowerBtn;    //电源按钮
-    dcc::widgets::ComboxWidget *m_cmbCloseLid;    //盒盖
-
+    dcc::widgets::TitledSliderItem *m_sldAutoSuspend;
 
 Q_SIGNALS:
     void requestSetScreenBlackDelayOnBattery(const int delay) const;
     void requestSetSleepDelayOnBattery(const int delay) const;
     void requestSetAutoLockScreenOnBattery(const int delay) const;
-    void requestSetLowPowerNotifyEnable(const bool bState) const;//低电量通知
-    void requestSetBatteryPressPowerBtnAction(const int reply) const;//按下电源
-    void requestSetBatteryLidClosedAction(const int reply) const;//合上盖子
-    void requestSetLowPowerNotifyThreshold(const int dValue);//低电量通知阈值
-    void requestSetLowPowerAutoSleepThreshold(const int dValue);//进入待机模式阈值
+    void requestSetLowPowerNotifyEnable(const bool bState) const;     // 低电量通知
+    void requestSetBatteryPressPowerBtnAction(const int reply) const; // 按下电源
+    void requestSetBatteryLidClosedAction(const int reply) const;     // 合上盖子
+    void requestSetLowPowerNotifyThreshold(const int dValue);         // 低电量通知阈值
+    void requestSetLowPowerAutoSleepThreshold(const int dValue);      // 进入待机模式阈值
 
 public Q_SLOTS:
     void setScreenBlackDelayOnBattery(const int delay);

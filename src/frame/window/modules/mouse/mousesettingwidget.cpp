@@ -71,10 +71,11 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     m_mouseSettingsGrp->appendItem(m_mouseNaturalScroll);
 
     m_contentLayout = new QVBoxLayout();
-    m_contentLayout->setMargin(0);
-    m_contentLayout->setContentsMargins(ThirdPageContentsMargins);
     m_contentLayout->addWidget(m_mouseSettingsGrp);
-    m_contentLayout->addStretch();
+    m_contentLayout->setAlignment(Qt::AlignTop);
+    m_contentLayout->setSpacing(10);
+    m_contentLayout->setContentsMargins(10, 10, 10, 5);
+
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
     layout()->setMargin(0);

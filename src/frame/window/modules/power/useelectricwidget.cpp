@@ -105,7 +105,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     powerSettingsGrp->appendItem(m_cmbCloseLid);
     powerSettingsGrp->appendItem(m_cmbPowerBtn);
 
-    m_layout->setContentsMargins(10, 10, 0, 0);
+    m_layout->setContentsMargins(10, 10, 10, 5);
     m_layout->addWidget(powerSettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);

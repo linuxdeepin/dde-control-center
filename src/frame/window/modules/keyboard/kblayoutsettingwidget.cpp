@@ -49,15 +49,12 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     , m_switchLayoutListView(new DListView())
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(List_Interval);
     QHBoxLayout *headLayout = new QHBoxLayout();
-    headLayout->setMargin(0);
 
     TitleLabel *headTitle = new TitleLabel(tr("Keyboard Layout"));
+    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     headLayout->addWidget(headTitle);
-    headTitle->setContentsMargins(15,0,0,0);
-    headLayout->addStretch();
+    headTitle->setContentsMargins(10, 0, 0, 0);
 
     m_editKBLayout = new DCommandLinkButton(tr("Edit"));
     headLayout->addWidget(m_editKBLayout);
@@ -73,13 +70,14 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_kbLayoutListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_kbLayoutListView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_kbLayoutListView->setContentsMargins(ListViweItemMargin);
+    m_kbLayoutListView->setContentsMargins(10, 0, 10, 0);
     mainLayout->addWidget(m_kbLayoutListView);
-    mainLayout->addSpacing(List_Interval);
     m_switchTitle = new TitleLabel(tr("Switch Layouts (Multiple)"));
     mainLayout->addWidget(m_switchTitle);
     mainLayout->addWidget(m_switchLayoutListView);
-    mainLayout->setContentsMargins(ThirdPageContentsMargins);
+    mainLayout->setAlignment(Qt::AlignTop);
+    mainLayout->setSpacing(10);
+    mainLayout->setContentsMargins(10, 0, 10, 0);
 
     QMap<int, QString> shortCutMap;
     shortCutMap.insert(1, QString("Ctrl+Shift"));
@@ -102,7 +100,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_switchLayoutListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_switchLayoutListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_switchLayoutListView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_switchLayoutListView->setContentsMargins(ListViweItemMargin);
+    m_switchLayoutListView->setContentsMargins(10, 0, 10, 0);
 
     m_comboWidget = new ComboxWidget;
     //~ contents_path /keyboard/Keyboard Layout
@@ -111,7 +109,6 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     comboxOptions << tr("System") << tr("Application");
     m_comboWidget->setComboxOption(comboxOptions);
     mainLayout->addWidget(m_comboWidget);
-    mainLayout->addStretch();
 
     QWidget *widget = new QWidget(this);
     widget->setLayout(mainLayout);
@@ -119,15 +116,16 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_contentWidget->setContent(widget);
 
     QVBoxLayout *vLayout = new QVBoxLayout();
-    vLayout->setMargin(0);//
     vLayout->addWidget(m_contentWidget);
 
     DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
     QHBoxLayout *btnLayout = new QHBoxLayout;
-    btnLayout->setMargin(0);//
+    btnLayout->setContentsMargins(0, 0, 0, 0);
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
     btnLayout->addWidget(addLayout);
     vLayout->addLayout(btnLayout);
+    vLayout->setSpacing(0);
+    vLayout->setContentsMargins(0, 10, 0, 5);
     setLayout(vLayout);
 
     connect(addLayout, &DFloatingButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
