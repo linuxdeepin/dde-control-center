@@ -147,23 +147,23 @@ void ModifyPasswdPage::clickSaveBtn()
         return;
     }
 
-    DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
-                                                     "/com/deepin/defender/daemonservice",
-                                                     QDBusConnection::sessionBus(), this);
+    DaemonService daemonservice("com.deepin.defender.daemonservice",
+                                "/com/deepin/defender/daemonservice",
+                                QDBusConnection::sessionBus());
     QString strPwd = m_newPasswordEdit->lineEdit()->text();
-    if (strPwd.length() >= daemonservice->GetPwdLen() && m_curUser->charactertypes(strPwd) >= daemonservice->GetPwdTypeLen()) {
+    if (strPwd.length() >= daemonservice.GetPwdLen() && m_curUser->charactertypes(strPwd) >= daemonservice.GetPwdTypeLen()) {
         Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
     } else {
-        DDialog dlg("", daemonservice->GetPwdError());
+        DDialog dlg("", daemonservice.GetPwdError());
         dlg.setIcon(QIcon::fromTheme("preferences-system"));
         dlg.addButton(tr("Go to Settings"));
         dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-        connect(&dlg, &DDialog::buttonClicked, this, [this](int idx){
+        connect(&dlg, &DDialog::buttonClicked, this, [](int idx){
             if (idx == 0) {
-                Defender *defender = new Defender("com.deepin.defender.hmiscreen",
-                                                  "/com/deepin/defender/hmiscreen",
-                                                  QDBusConnection::sessionBus(), this);
-                defender->ShowModule("systemsafety");
+                Defender defender("com.deepin.defender.hmiscreen",
+                                  "/com/deepin/defender/hmiscreen",
+                                  QDBusConnection::sessionBus());
+                defender.ShowModule("systemsafety");
             }
         });
         dlg.exec();
@@ -172,22 +172,71 @@ void ModifyPasswdPage::clickSaveBtn()
 
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 {
-    if (exitCode == ModifyPasswdPage::ModifyNewPwdSuccess) {
-        DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
-                                                         "/com/deepin/defender/daemonservice",
-                                                         QDBusConnection::sessionBus(), this);
-        daemonservice->PasswordUpdate();
+    QMap<int, QString> PasswordFlagsStrMap = {
+        {InputOldPwdError, tr("Wrong password")},
+        {InputLongerError, tr("Password must have at least %1 characters")},
+        {InputSimilarError, tr("The new password should not be similar to the current one")},
+        {InputSameError, tr("New password should differ from the current one")},
+        {InputSimpleError, tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)")},
+        {InputUsedError, tr("Do not use a password you have used before")},
+        {InputDictionaryError, tr("Do not use common words and combinations as password")},
+        {InputRevDictionaryError, tr("Do not use common words and combinations in reverse order as password")},
+        {InputFailedError, tr("Failed to change the password")}
+    };
+
+    // 获取密码最小长度，默认最小长度为6
+    auto tfunc = [](int &minlen) {
+        QFile file("/etc/pam.d/common-password");
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream in(&file);
+            QString line = in.readLine();
+            while (!line.isNull()) {
+                line = in.readLine();
+                if (line.trimmed().left(8) == "password" && line.indexOf("pam_unix.so") != -1) {
+                    for (auto sw : line.split(" ")) {
+                        if (sw.indexOf("minlen=") != -1) {
+                            minlen = sw.mid(sw.indexOf("minlen=") + 7).toInt();
+                            file.close();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        file.close();
+    };
+
+    switch (exitCode) {
+    case ModifyPasswdPage::ModifyNewPwdSuccess: {
+        DaemonService daemonservice("com.deepin.defender.daemonservice",
+                                    "/com/deepin/defender/daemonservice",
+                                    QDBusConnection::sessionBus());
+        daemonservice.PasswordUpdate();
 
         Q_EMIT requestBack(AccountsWidget::ModifyPwdSuccess);
-        return;
-    } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
+        break;
+    }
+    case ModifyPasswdPage::InputOldPwdError: {
         m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"), -1);
-        return;
-    } else {
+        m_oldPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(exitCode), m_oldPasswordEdit, 2000);
+        break;
+    }
+    case ModifyPasswdPage::InputLongerError: {
+        int minlen(6);
+        tfunc(minlen);
         m_newPasswordEdit->setAlert(true);
-        m_newPasswordEdit->showAlertMessage(tr("Failed to change the password"), -1);
-        qDebug() << Q_FUNC_INFO << "exit =" << exitCode;
+        m_newPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(exitCode).arg(minlen), m_newPasswordEdit, 2000);
+        break;
+    }
+    case ModifyPasswdPage::InputSimilarError:
+    case ModifyPasswdPage::InputSameError:
+    case ModifyPasswdPage::InputSimpleError:
+    case ModifyPasswdPage::InputDictionaryError:
+    case ModifyPasswdPage::InputRevDictionaryError:
+    default:
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(exitCode), m_newPasswordEdit, 2000);
+        break;
     }
 }
 

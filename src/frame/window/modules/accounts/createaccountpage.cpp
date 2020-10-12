@@ -352,23 +352,23 @@ void CreateAccountPage::createUser()
         }
     }
 
-    DaemonService *daemonservice = new DaemonService("com.deepin.defender.daemonservice",
-                                                     "/com/deepin/defender/daemonservice",
-                                                     QDBusConnection::sessionBus(), this);
+    DaemonService daemonservice("com.deepin.defender.daemonservice",
+                                "/com/deepin/defender/daemonservice",
+                                QDBusConnection::sessionBus());
     QString strPwd = m_passwdEdit->lineEdit()->text();
-    if (strPwd.length() >= daemonservice->GetPwdLen() && m_newUser->charactertypes(strPwd) >= daemonservice->GetPwdTypeLen()) {
+    if (strPwd.length() >= daemonservice.GetPwdLen() && m_newUser->charactertypes(strPwd) >= daemonservice.GetPwdTypeLen()) {
         Q_EMIT requestCreateUser(m_newUser);
     } else {
-        DDialog dlg("", daemonservice->GetPwdError());
+        DDialog dlg("", daemonservice.GetPwdError());
         dlg.setIcon(QIcon::fromTheme("preferences-system"));
         dlg.addButton(tr("Go to Settings"));
         dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-        connect(&dlg, &DDialog::buttonClicked, this, [this](int idx){
+        connect(&dlg, &DDialog::buttonClicked, this, [](int idx){
             if (idx == 0) {
-                Defender *defender = new Defender("com.deepin.defender.hmiscreen",
-                                                  "/com/deepin/defender/hmiscreen",
-                                                  QDBusConnection::sessionBus(), this);
-                defender->ShowModule("systemsafety");
+                Defender defender("com.deepin.defender.hmiscreen",
+                                  "/com/deepin/defender/hmiscreen",
+                                  QDBusConnection::sessionBus());
+                defender.ShowModule("systemsafety");
             }
         });
         dlg.exec();

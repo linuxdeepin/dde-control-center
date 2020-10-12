@@ -253,6 +253,9 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd)
 {
     QProcess process;
+    QProcessEnvironment env;
+    env.insert("LC_ALL", "C");
+    process.setProcessEnvironment(env);
     process.start("/bin/bash", QStringList() << "-c" << QString("passwd"));
     if (user->passwordStatus() == NO_PASSWORD) {
         process.write(QString("%1\n%2\n").arg(passwd).arg(passwd).toLatin1());
@@ -262,7 +265,33 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     process.closeWriteChannel();
     process.waitForFinished();
 
-    Q_EMIT user->passwordModifyFinished(process.exitCode());
+    // process.exitCode() = 0 表示密码修改成功
+    int exitCode = process.exitCode();
+    if (exitCode != 0) {
+        QString errortxt = process.readAllStandardError();
+        qDebug() << errortxt;
+        if (errortxt.contains("Current password: passwd: Authentication token manipulation error")) {
+            exitCode = 10;
+        } else if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password") || errortxt.contains("The password is shorter than")) {
+            exitCode = 11;
+        } else if (errortxt.contains("is too similar to the old one") || errortxt.contains("new and old password are too similar")) {
+            exitCode = 12;
+        } else if (errortxt.contains("Password unchanged")) {
+            exitCode = 13;
+        } else if (errortxt.contains("it is too simplistic/systematic") || errortxt.contains("new password is too simple")) {
+            exitCode = 14;
+        } else if (errortxt.contains("Password has been already used. Choose another")) {
+            exitCode = 15;
+        } else if (errortxt.contains("it is based on a dictionary word")) {
+            exitCode = 16;
+        } else if (errortxt.contains("it is based on a (reversed) dictionary word")) {
+            exitCode = 17;
+        } else {
+            exitCode = 20;
+        }
+    }
+
+    Q_EMIT user->passwordModifyFinished(exitCode);
 }
 
 void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
