@@ -75,7 +75,7 @@ TimeZoneChooser::TimeZoneChooser()
     m_confirmBtn->setEnabled(false);
 
     DPalette pa = DApplicationHelper::instance()->palette(m_title);
-    pa.setBrush(QPalette::WindowText, pa.base());
+    pa.setBrush(QPalette::WindowText, pa.windowText());
     DApplicationHelper::instance()->setPalette(m_title, pa);
 
     DPlatformWindowHandle handle(this);
