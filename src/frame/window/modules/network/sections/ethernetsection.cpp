@@ -26,6 +26,7 @@
 
 #include <networkmanagerqt/manager.h>
 #include <networkmanagerqt/wireddevice.h>
+#include <QIntValidator>
 
 #define NotBindValue "NotBind"
 
@@ -134,6 +135,11 @@ void EthernetSection::initUI()
     m_customMtu->spinBox()->setMinimum(0);
     m_customMtu->spinBox()->setMaximum(10000);
     m_customMtu->spinBox()->setValue(m_wiredSetting->mtu());
+    connect(m_customMtu->spinBox()->lineEdit(), &QLineEdit::textEdited, this, [this] (const QString &str){
+        if (str.contains("+")) {
+            m_customMtu->spinBox()->lineEdit()->clear();
+        }
+    });
     onCostomMtuChanged(m_customMtuSwitch->checked());
 
     appendItem(m_deviceMacLine);
@@ -152,7 +158,7 @@ void EthernetSection::initConnection()
     connect(m_deviceMacComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &EthernetSection::editClicked);
     connect(m_deviceMacLine, &ComboxWidget::onIndexChanged, this, &EthernetSection::editClicked);
     connect(m_customMtuSwitch, &SwitchWidget::checkedChanged, this, &EthernetSection::editClicked);
-    connect(m_customMtu->spinBox(), static_cast<void (QSpinBox::*)(int)>(&QSpinBox::valueChanged), this, &EthernetSection::editClicked);
+    connect(m_customMtu->spinBox(), static_cast<void (DSpinBox::*)(int)>(&DSpinBox::valueChanged), this, &EthernetSection::editClicked);
 }
 
 void EthernetSection::onCostomMtuChanged(const bool enable)
@@ -164,7 +170,7 @@ bool EthernetSection::eventFilter(QObject *watched, QEvent *event)
 {
     // 实现鼠标点击编辑框，确定按钮激活，统一网络模块处理，捕捉FocusIn消息
     if (event->type() == QEvent::FocusIn) {
-        if (dynamic_cast<QLineEdit *>(watched) || dynamic_cast<QSpinBox *>(watched)) {
+        if (dynamic_cast<QLineEdit *>(watched) || dynamic_cast<DSpinBox *>(watched)) {
             Q_EMIT editClicked();
         }
     }

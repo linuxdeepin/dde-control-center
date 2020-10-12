@@ -38,7 +38,7 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     : SettingsItem(parent)
     , m_defaultVal(0)
     , m_title(new QLabel)
-    , m_spinBox(new QSpinBox)
+    , m_spinBox(new DSpinBox)
     , m_resetBtn(new DIconButton(this))
 {
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);

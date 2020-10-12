@@ -29,6 +29,9 @@
 #include "widgets/settingsitem.h"
 
 #include <DIconButton>
+#include <DSpinBox>
+
+DWIDGET_USE_NAMESPACE
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -45,7 +48,7 @@ class SpinBoxWidget : public SettingsItem
 public:
     explicit SpinBoxWidget(QWidget *parent = nullptr);
 
-    inline QSpinBox *spinBox() const { return m_spinBox; }
+    inline DSpinBox *spinBox() const { return m_spinBox; }
 
     void setTitle(const QString &title);
     void setDefaultVal(int defaultVal);
@@ -55,7 +58,7 @@ protected:
 private:
     int m_defaultVal;
     QLabel *m_title;
-    QSpinBox *m_spinBox;
+    DSpinBox *m_spinBox;
     DTK_WIDGET_NAMESPACE::DIconButton *m_resetBtn;
 };
 
