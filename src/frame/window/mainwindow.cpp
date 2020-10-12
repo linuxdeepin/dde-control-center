@@ -460,6 +460,13 @@ void MainWindow::updateWinsize()
     WidgetMinimumWidth = qMin(w, 820);
     WidgetMinimumHeight = qMin(h, 634);
     setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
+
+    //+ 如果当前记录的尺寸超出屏幕分辨率，则使用屏幕分辨率大小；
+    QTimer::singleShot(100, this, [this] {
+        if (this->width() > QGuiApplication::primaryScreen()->geometry().width()) {
+            setGeometry(0, 0, QGuiApplication::primaryScreen()->geometry().width(), QGuiApplication::primaryScreen()->geometry().height());
+        }
+    });
 }
 
 void MainWindow::loadModules()
