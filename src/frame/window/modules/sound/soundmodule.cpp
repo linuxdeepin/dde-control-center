@@ -86,7 +86,7 @@ int SoundModule::load(const QString &path)
 QStringList SoundModule::availPage() const
 {
     QStringList sl;
-    sl << "Speaker" << "Microphone" << "Advanced" << "Sound Effects";
+    sl << "Output" << "Input" << "Sound Effects";
 
     return sl;
 }

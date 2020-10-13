@@ -72,9 +72,9 @@ int SoundWidget::showPath(const QString &path)
 void SoundWidget::initMenuUI()
 {
     m_menuMethod = {
-        //~ contents_path /sound/Speaker
+        //~ contents_path /sound/Output
         { tr("Output"), "dcc_speaker", QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
-        //~ contents_path /sound/Microphone
+        //~ contents_path /sound/Input
         { tr("Input"), "dcc_noun", QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
         //~ contents_path /sound/Sound Effects
         { tr("Sound Effects"), "dcc_sound_effect", QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}

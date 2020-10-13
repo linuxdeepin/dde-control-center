@@ -61,6 +61,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_systemListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_systemListView->setViewportMargins(QMargins(0, 0, 8, 0));
 
+    //~ contents_path /notification/System Notifications
     DStandardItem *systemitem = new DStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("System Notifications"));
 
     systemitem->setData(VListViewItemMargin, Dtk::MarginsRole);

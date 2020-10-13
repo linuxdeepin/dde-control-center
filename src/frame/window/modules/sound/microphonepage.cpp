@@ -80,7 +80,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_noiseReduce(true)
 {
     const int titleLeftMargin = 8;
-    //~ contents_path /sound/Advanced
+    //~ contents_path /sound/Input
     TitleLabel *labelInput = new TitleLabel(tr("Input"));
     DFontSizeManager::instance()->bind(labelInput, DFontSizeManager::T5, QFont::DemiBold);
     labelInput->setContentsMargins(titleLeftMargin, 0, 0, 0);
