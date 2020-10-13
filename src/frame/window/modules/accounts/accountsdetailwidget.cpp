@@ -55,6 +55,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_curUser(user)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
+    , m_avatarLayout(new QHBoxLayout)
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -192,7 +193,8 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_avatarListWidget->setVisible(false);
     m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_avatarListWidget->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-    layout->addWidget(m_avatarListWidget);
+    m_avatarLayout->addWidget(m_avatarListWidget);
+    layout->addLayout(m_avatarLayout);
 
     connect(m_curUser, &User::currentAvatarChanged, m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
     connect(m_inputLineEdit, &DLineEdit::textEdited, this, [ = ] {
@@ -507,6 +509,16 @@ bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
         m_inputLineEdit->lineEdit()->setFocus();
     }
     return false;
+}
+
+void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
+{
+    // 头像个数为15,头像大小为74，间距为20
+    int w = event->size().width() - 20 - 94 * 15 - 1;
+    if (w < 0) {
+        w = (event->size().width() - 20) % 94;
+    }
+    m_avatarLayout->setContentsMargins(w / 2 - 1, 0, 0, 0);
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)

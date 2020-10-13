@@ -99,6 +99,7 @@ protected:
     void initSetting(QVBoxLayout *layout);
     void initGroups(QVBoxLayout *layout);
     bool eventFilter(QObject *obj, QEvent *event) override;
+    void resizeEvent(QResizeEvent *event);
 
 private Q_SLOTS:
     void deleteUserClicked();
@@ -119,6 +120,7 @@ private:
     bool m_isServerSystem;
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
+    QHBoxLayout *m_avatarLayout;
 };
 
 }   // namespace accounts
