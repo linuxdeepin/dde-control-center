@@ -30,6 +30,8 @@
 #include <DTipLabel>
 #include <DFontSizeManager>
 #include <DStandardItem>
+#include <DGuiApplicationHelper>
+#include <DApplication>
 
 #include <QAction>
 #include <QHBoxLayout>
@@ -37,6 +39,7 @@
 #include <QComboBox>
 #include <QLabel>
 #include <QDebug>
+#include <QSvgRenderer>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
@@ -55,6 +58,8 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_balanceSlider(nullptr)
     , m_lastsetvalue(0)
     , m_balance(true)
+    , m_volumeBtn(nullptr)
+    , m_mute(false)
 {
     const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
@@ -135,6 +140,10 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
             m_balance = flag;
             showDevice();
     });
+    connect(m_model, &SoundModel::speakerOnChanged, this, [ = ](bool flag) {
+            m_mute = flag;
+            refreshIcon();
+    });
 
     initSlider();
 
@@ -176,6 +185,11 @@ void SpeakerPage::changeComboxIndex(const int idx)
     auto temp = m_outputModel->index(idx, 0);
     this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
     qDebug() << "default sink index change, currentTerxt:" << m_outputSoundCbx->comboBox()->itemText(idx);
+}
+
+void SpeakerPage::clickLeftButton()
+{
+    Q_EMIT requestMute();
 }
 
 void SpeakerPage::addPort(const dcc::sound::Port *port)
@@ -235,9 +249,16 @@ void SpeakerPage::initSlider()
     m_speakSlider->setRange(0, maxRange);
     m_speakSlider->setType(DCCSlider::Vernier);
     m_speakSlider->setTickPosition(QSlider::NoTicks);
-    //从DStyle 中获取标准图标
-    auto icon_low = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement);
-    m_outputSlider->setLeftIcon(icon_low);
+
+    m_volumeBtn = new SoundLabel(this);
+    m_volumeBtn->setScaledContents(true);
+    QGridLayout *gridLayout = dynamic_cast<QGridLayout *>(m_outputSlider->slider()->layout());
+    if (gridLayout) {
+        gridLayout->addWidget(m_volumeBtn, 1, 0, Qt::AlignVCenter);
+    }
+    m_volumeBtn->setAccessibleName("volume-button");
+    m_volumeBtn->setFixedSize(ICON_SIZE, ICON_SIZE);
+
     //从DStyle 中获取标准图标
     auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
     m_outputSlider->setRightIcon(icon_high);
@@ -309,7 +330,7 @@ void SpeakerPage::initSlider()
         m_speakSlider->blockSignals(false);
         m_outputSlider->setValueLiteral(QString::number((int)(m_model->speakerVolume() * 100 + 0.000001))+ "%");
     });
-
+    connect(m_volumeBtn, &SoundLabel::clicked, this, &SpeakerPage::clickLeftButton);
     m_layout->insertWidget(3, m_outputSlider);
 
     //音量增强
@@ -363,11 +384,56 @@ void SpeakerPage::initSlider()
         slider2->setSliderPosition(static_cast<int>(v * 100 + 0.000001));
         slider2->blockSignals(false);
     });
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &SpeakerPage::refreshIcon);
+    connect(qApp, &DApplication::iconThemeChanged, this, &SpeakerPage::refreshIcon);
 
     m_layout->insertWidget(5, m_balanceSlider);
     m_layout->setSpacing(10);
     m_layout->addStretch(10);
+    refreshIcon();
     showDevice();
+}
+
+void SpeakerPage::refreshIcon()
+{
+    QString volumeString;
+    if (m_mute) {
+        volumeString = "muted";
+    } else {
+        volumeString = "low";
+    }
+
+    QString iconLeft = QString("audio-volume-%1-symbolic").arg(volumeString);
+
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        iconLeft.append("-dark");
+    }
+    const auto ratio = devicePixelRatioF();
+    QPixmap  ret = loadSvg(iconLeft, ":/", ICON_SIZE, ratio);
+    m_volumeBtn->setPixmap(ret);
+}
+
+const QPixmap SpeakerPage::loadSvg(const QString &iconName, const QString &localPath, const int size, const qreal ratio)
+{
+    QIcon icon = QIcon::fromTheme(iconName);
+    if (!icon.isNull()) {
+        QPixmap pixmap = icon.pixmap(int(size * ratio), int(size * ratio));
+        pixmap.setDevicePixelRatio(ratio);
+        return pixmap;
+    }
+
+    QPixmap pixmap(int(size * ratio), int(size * ratio));
+    QString localIcon = QString("%1%2%3").arg(localPath).arg(iconName).arg(iconName.contains(".svg") ? "" : ".svg");
+    QSvgRenderer renderer(localIcon);
+    pixmap.fill(Qt::transparent);
+
+    QPainter painter;
+    painter.begin(&pixmap);
+    renderer.render(&painter);
+    painter.end();
+    pixmap.setDevicePixelRatio(ratio);
+
+    return pixmap;
 }
 
 /**

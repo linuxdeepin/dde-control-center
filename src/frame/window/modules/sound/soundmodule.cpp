@@ -102,8 +102,9 @@ void SoundModule::showSpeakerPage()
     connect(w, &SpeakerPage::requestIncreaseVolume, m_worker, &SoundWorker::setIncreaseVolume);
     connect(w, &SpeakerPage::requestSetPort, m_worker, &SoundWorker::setPort);
     connect(w, &SpeakerPage::requestBalanceVisible, m_worker, &SoundWorker::requestBlanceVisible);
-
+    connect(w, &SpeakerPage::requestMute, m_worker, &SoundWorker::setSinkMute);
     w->setModel(m_model);
+    m_model->initSpeaker();
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
 }
@@ -118,7 +119,7 @@ void SoundModule::showMicrophonePage()
     connect(w, &MicrophonePage::requestSetMicrophoneVolume, m_worker, &SoundWorker::setSourceVolume);
     connect(w, &MicrophonePage::requestSetPort, m_worker, &SoundWorker::setPort);
     connect(w, &MicrophonePage::requestReduceNoise, m_worker, &SoundWorker::setReduceNoise);
-    connect(w, &MicrophonePage::requestMute, m_worker, &SoundWorker::setMute);
+    connect(w, &MicrophonePage::requestMute, m_worker, &SoundWorker::setSourceMute);
     m_frameProxy->pushWidget(this, w);
     //输出端口重置后可能会出现，默认输入为空，重置界面
     w->resetUi();

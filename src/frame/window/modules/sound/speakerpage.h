@@ -35,6 +35,7 @@ QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 QT_END_NAMESPACE
 
+#define ICON_SIZE 20
 namespace dcc {
 
 namespace sound {
@@ -80,15 +81,20 @@ Q_SIGNALS:
     void requestSetPort(const dcc::sound::Port *);
     //请求是否隐藏声音平衡
     void requestBalanceVisible();
+    //请求静音切换
+    void requestMute();
 
 private Q_SLOTS:
     void removePort(const QString &portId, const uint &cardId);
     void addPort(const dcc::sound::Port *port);
     void changeComboxIndex(const int idx);
+    void clickLeftButton();
 
 private:
     //初始化使用到的 slider 控件
     void initSlider();
+    void refreshIcon();
+    const QPixmap loadSvg(const QString &iconName, const QString &localPath, const int size, const qreal ratio);
 
 private:
     //model类， 为后端数据来源及数据变化信号来源
@@ -109,6 +115,8 @@ private:
     int m_lastsetvalue;
     //左/右平衡音界面是否显示
     bool m_balance;
+    dcc::sound::SoundLabel *m_volumeBtn;
+    bool m_mute;
 };
 
 }

@@ -57,6 +57,20 @@ static const QMap<DDesktopServices::SystemSoundEffect, QString> SOUND_EFFECT_MAP
 namespace dcc {
 namespace sound {
 
+SoundLabel::SoundLabel(QWidget *parent)
+    : QLabel(parent)
+    , m_mute(false)
+{
+
+}
+
+void SoundLabel::mouseReleaseEvent(QMouseEvent *e)
+{
+    Q_UNUSED(e)
+    m_mute = !m_mute;
+    Q_EMIT clicked(m_mute);
+}
+
 SoundModel::SoundModel(QObject *parent)
     : QObject(parent)
     , m_speakerOn(true)

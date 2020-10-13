@@ -68,7 +68,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     connect(m_audioInter, &Audio::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
     connect(m_audioInter, &Audio::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
     // 此接口后端已经不再维护，过几个版本直接删除吧
-//    connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
+    //    connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
     connect(m_audioInter, &Audio::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
     connect(m_audioInter, &Audio::IncreaseVolumeChanged, model, &SoundModel::setIncreaseVolume);
     connect(m_audioInter, &Audio::CardsWithoutUnavailableChanged, model, &SoundModel::setAudioCards);
@@ -177,8 +177,16 @@ void SoundWorker::setSinkVolume(double volume)
     }
 }
 
+//切换输入静音状态
+void SoundWorker::setSinkMute()
+{
+    if (m_defaultSink) {
+        m_defaultSink->SetMute(!m_defaultSink->mute());
+    }
+}
+
 //通知后端切换静音状态
-void SoundWorker::setMute()
+void SoundWorker::setSourceMute()
 {
     if (m_defaultSource) {
         m_defaultSource->SetMute(!m_defaultSource->mute());
@@ -221,16 +229,16 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
     if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
 
     if (m_defaultSink) m_defaultSink->deleteLater();
-    m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this); 
+    m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
     requestBlanceVisible();
 
-    connect(m_defaultSink, &Sink::MuteChanged, [this](bool mute) { m_model->setSpeakerOn(!mute); });
+    connect(m_defaultSink, &Sink::MuteChanged, [this](bool mute) { m_model->setSpeakerOn(mute);});
     connect(m_defaultSink, &Sink::BalanceChanged, m_model, &SoundModel::setSpeakerBalance);
     connect(m_defaultSink, &Sink::VolumeChanged, m_model, &SoundModel::setSpeakerVolume);
     connect(m_defaultSink, &Sink::ActivePortChanged, this, &SoundWorker::activeSinkPortChanged);
     connect(m_defaultSink, &Sink::CardChanged, this, &SoundWorker::onSinkCardChanged);
 
-    m_model->setSpeakerOn(!m_defaultSink->mute());
+    m_model->setSpeakerOn(m_defaultSink->mute());
     m_model->setSpeakerBalance(m_defaultSink->balance());
     m_model->setSpeakerVolume(m_defaultSink->volume());
 

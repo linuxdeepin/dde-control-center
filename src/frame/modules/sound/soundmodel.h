@@ -30,6 +30,8 @@
 #include <QObject>
 #include <QMap>
 #include <QString>
+#include <QLabel>
+
 #include <DDesktopServices>
 
 DWIDGET_USE_NAMESPACE
@@ -87,6 +89,21 @@ private:
     QString m_cardName;
     bool m_isActive;
     Direction m_direction;
+};
+
+class SoundLabel : public QLabel
+{
+    Q_OBJECT
+public:
+    explicit SoundLabel(QWidget *parent = nullptr);
+    void mouseReleaseEvent(QMouseEvent *e) override;
+    virtual ~SoundLabel() {}
+
+private:
+    bool m_mute;
+
+Q_SIGNALS:
+    void clicked(bool checked);
 };
 
 class SoundModel : public QObject
@@ -164,6 +181,7 @@ public:
     bool isIncreaseVolume() const;
     void setIncreaseVolume(bool value);
     void initMicroPhone() { Q_EMIT microphoneOnChanged(m_microphoneOn); }
+    void initSpeaker() { Q_EMIT speakerOnChanged(m_speakerOn); }
     bool isShow(QStandardItemModel *model, const Port *port);
 
 Q_SIGNALS:

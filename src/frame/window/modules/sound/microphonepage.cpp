@@ -57,20 +57,6 @@ using com::deepin::daemon::audio::Source;
 
 Q_DECLARE_METATYPE(const dcc::sound::Port *)
 
-SoundLabel::SoundLabel(QWidget *parent)
-    : QLabel(parent)
-    , m_mute(false)
-{
-
-}
-
-void SoundLabel::mouseReleaseEvent(QMouseEvent *e)
-{
-    Q_UNUSED(e)
-    m_mute = !m_mute;
-    Q_EMIT clicked(m_mute);
-}
-
 MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)

@@ -27,9 +27,8 @@
 
 #include <QStandardItemModel>
 #include <QWidget>
-#include <QLabel>
 
-#define ICON_SIZE   20
+#define ICON_SIZE 20
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -52,21 +51,6 @@ class SoundModel;
 namespace DCC_NAMESPACE {
 
 namespace sound {
-
-class SoundLabel : public QLabel
-{
-    Q_OBJECT
-public:
-    explicit SoundLabel(QWidget *parent = nullptr);
-    void mouseReleaseEvent(QMouseEvent *e) override;
-    virtual ~SoundLabel() {}
-
-private:
-    bool m_mute;
-
-Q_SIGNALS:
-    void clicked(bool checked);
-};
 
 class MicrophonePage : public QWidget
 {
@@ -116,7 +100,7 @@ private:
     QStandardItemModel *m_inputModel{nullptr};
     const dcc::sound::Port  *m_currentPort{nullptr};
 
-    SoundLabel *m_volumeBtn;
+    dcc::sound::SoundLabel *m_volumeBtn;
     bool m_mute;
     bool m_noiseReduce;
 };
