@@ -128,7 +128,7 @@ void DefAppWorker::onCreateFile(const QString &mime, const QFileInfo &info)
 
         const QString &filename = "deepin-custom-" + fileInfo.baseName() + ".desktop";
 
-        m_dbusManager->AddUserApp(mimelist, filename);
+        m_dbusManager->AddUserApp(mimelist, filename).waitForFinished();
 
         App app;
         app.Id = filename;
