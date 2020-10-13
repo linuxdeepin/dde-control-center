@@ -379,12 +379,13 @@ void MainWindow::initAllModule(const QString &m)
     //通过gsetting设置某模块是否显示,默认都显示
     m_moduleSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
 
-    auto listModule =  m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
-    for (auto i : m_modules) {
-        if (listModule.contains((i.first->name()))) {
-            setModuleVisible(i.first, false);
+    connect(m_moduleSettings, &QGSettings::changed, this, [ & ] (const QString &keyName) {
+        if (keyName != "hideModule" && keyName != GSETTINGS_HIDE_MODULE) {
+            return;
         }
-    }
+        updateModuleVisible();
+    });
+    updateModuleVisible();
 
     //通过gsetting获取版本类型，设置某模块是否显示
     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
@@ -522,6 +523,18 @@ void MainWindow::setListViewEditDisable(QWidget *w)
         for (int i = 0; i < model->rowCount(); ++i) {
             QStandardItem *item = model->item(i);
             item->setEditable(false);
+        }
+    }
+}
+
+void MainWindow::updateModuleVisible()
+{
+    m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
+    for (auto module : m_modules) {
+        if (m_hideModuleNames.contains((module.first->name()))) {
+            setModuleVisible(module.first, false);
+        } else {
+            setModuleVisible(module.first, true);
         }
     }
 }
@@ -964,7 +977,11 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
 {
-    inter->setAvailable(visible);
+    bool bFinalVisible = visible;
+    if (bFinalVisible && m_hideModuleNames.contains(inter->name())) {
+        bFinalVisible = false;
+    }
+    inter->setAvailable(bFinalVisible);
 
     auto find_it = std::find_if(m_modules.cbegin(),
                                 m_modules.cend(),
@@ -973,12 +990,12 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
     });
 
     if (find_it != m_modules.cend()) {
-        m_navView->setRowHidden(find_it - m_modules.cbegin(), !visible);
-        Q_EMIT moduleVisibleChanged(find_it->first->name(), visible);
+        m_navView->setRowHidden(find_it - m_modules.cbegin(), !bFinalVisible);
+        Q_EMIT moduleVisibleChanged(find_it->first->name(), bFinalVisible);
 
-        qDebug() << "[SearchWidget] find_it->first->name() : " << find_it->first->name() << visible;
+        qDebug() << "[SearchWidget] find_it->first->name() : " << find_it->first->name() << bFinalVisible;
         if ("bluetooth" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Bluetooth"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Bluetooth"));
@@ -990,7 +1007,7 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 }
             }
         } else if ("wacom" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Drawing Tablet"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Drawing Tablet"));
@@ -1002,19 +1019,19 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 }
             }
         }  else if ("cloudsync" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Cloud Sync"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Cloud Sync"));
             }
         } else if ("commoninfo" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("General Settings"));
             } else {
                 m_searchWidget->addUnExsitData(tr("General Settings"));
             }
         } else if ("update" == find_it->first->name()) {
-                    if (visible) {
+                    if (bFinalVisible) {
                         m_searchWidget->removeUnExsitData(tr("Updates"));
                     } else {
                         m_searchWidget->addUnExsitData(tr("Updates"));
