@@ -165,6 +165,7 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
                 disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
                 model->removeRow(i);
                 connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
+                m_outputSoundCbx->comboBox()->showPopup();
             } else {
                 ++i;
             }
@@ -214,6 +215,7 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
         m_outputModel->appendRow(pi);
         connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
+        m_outputSoundCbx->comboBox()->showPopup();
         if (port->isActive()) {
             disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");

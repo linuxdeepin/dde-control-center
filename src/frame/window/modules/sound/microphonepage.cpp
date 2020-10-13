@@ -206,6 +206,7 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
                 disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
                 model->removeRow(i);
                 disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
+                m_inputSoundCbx->comboBox()->showPopup();
             } else {
                 ++i;
             }
@@ -250,6 +251,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
         m_inputModel->appendRow(pi);
         connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
+        m_inputSoundCbx->comboBox()->showPopup();
         if (port->isActive()) {
             disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
             m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
