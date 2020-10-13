@@ -446,9 +446,9 @@ void MainWindow::updateWinsize()
 
 void MainWindow::updateModuleVisible()
 {
-    auto listModule = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
+    m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
     for (auto i : m_modules) {
-        if (listModule.contains((i.first->name()))) {
+        if (m_hideModuleNames.contains((i.first->name()))) {
             setModuleVisible(i.first, false);
         } else {
             setModuleVisible(i.first, true);
@@ -886,7 +886,11 @@ void MainWindow::changeEvent(QEvent *event)
 
 void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
 {
-    inter->setAvailable(visible);
+    bool bFinalVisible = visible;
+    if (bFinalVisible && m_hideModuleNames.contains(inter->name())) {
+        bFinalVisible = false;
+    }
+    inter->setAvailable(bFinalVisible);
 
     auto find_it = std::find_if(m_modules.cbegin(),
                                 m_modules.cend(),
@@ -895,12 +899,12 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
     });
 
     if (find_it != m_modules.cend()) {
-        m_navView->setRowHidden(find_it - m_modules.cbegin(), !visible);
-        Q_EMIT moduleVisibleChanged(find_it->first->name(), visible);
+        m_navView->setRowHidden(find_it - m_modules.cbegin(), !bFinalVisible);
+        Q_EMIT moduleVisibleChanged(find_it->first->name(), bFinalVisible);
 
-        qDebug() << "[SearchWidget] find_it->first->name() : " << find_it->first->name() << visible;
+        qDebug() << "[SearchWidget] find_it->first->name() : " << find_it->first->name() << bFinalVisible;
         if ("bluetooth" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Bluetooth"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Bluetooth"));
@@ -912,7 +916,7 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 }
             }
         } else if ("wacom" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Drawing Tablet"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Drawing Tablet"));
@@ -924,24 +928,23 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 }
             }
         }  else if ("cloudsync" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Cloud Sync"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Cloud Sync"));
             }
         } else if ("commoninfo" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("General Settings"));
             } else {
                 m_searchWidget->addUnExsitData(tr("General Settings"));
             }
         } else if ("update" == find_it->first->name()) {
-            if (visible) {
+            if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Updates"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Updates"));
             }
-
         }
     } else {
         qDebug() << Q_FUNC_INFO << "Not found module!";
