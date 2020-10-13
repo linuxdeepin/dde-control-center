@@ -79,8 +79,8 @@ public Q_SLOTS:
     void setSinkBalance(double balance);
     void setSourceVolume(double volume);
     void setSinkVolume(double volume);
-    void setSourceMute();
-    void setSinkMute();
+    void setSourceMute(bool flag = true);
+    void setSinkMute(bool flag = true);
     void setIncreaseVolume(bool value);
     void setReduceNoise(bool value);
 

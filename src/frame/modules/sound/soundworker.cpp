@@ -177,19 +177,27 @@ void SoundWorker::setSinkVolume(double volume)
     }
 }
 
-//切换输入静音状态
-void SoundWorker::setSinkMute()
+//切换输入静音状态，flag为false时直接取消静音
+void SoundWorker::setSinkMute(bool flag)
 {
-    if (m_defaultSink) {
+    if (!m_defaultSink)
+        return;
+    if (flag) {
         m_defaultSink->SetMute(!m_defaultSink->mute());
+    } else if (m_defaultSink->mute()) {
+        m_defaultSink->SetMute(false);
     }
 }
 
-//通知后端切换静音状态
-void SoundWorker::setSourceMute()
+//通知后端切换静音状态,flag为false时直接取消静音
+void SoundWorker::setSourceMute(bool flag)
 {
-    if (m_defaultSource) {
+    if (!m_defaultSource)
+        return;
+    if (flag) {
         m_defaultSource->SetMute(!m_defaultSource->mute());
+    } else if (m_defaultSource->mute()) {
+        m_defaultSource->SetMute(false);
     }
 }
 

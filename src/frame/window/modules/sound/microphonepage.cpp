@@ -297,6 +297,7 @@ void MicrophonePage::initSlider()
     auto slotfunc1 = [ = ](int pos) {
         double val = pos / 100.0;
         Q_EMIT requestSetMicrophoneVolume(val);
+        Q_EMIT requestMute(false);
     };
     int val = static_cast<int>(m_model->microphoneVolume() * static_cast<int>(100.0f));
     slider->setValue(val);

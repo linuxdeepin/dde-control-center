@@ -71,8 +71,8 @@ Q_SIGNALS:
     void requestSetPort(const dcc::sound::Port *);
     //请求降噪
    void requestReduceNoise(bool value);
-   //请求静音切换
-   void requestMute();
+   //请求静音切换,flag为false时请求直接取消静音
+   void requestMute(bool flag = true);
 
 private Q_SLOTS:
     void removePort(const QString &portId, const uint &cardId);

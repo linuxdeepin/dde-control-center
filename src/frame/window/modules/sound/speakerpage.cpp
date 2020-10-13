@@ -300,6 +300,7 @@ void SpeakerPage::initSlider()
         double vals = pos / 100.0;
         //滑块位置改变时，发送设置音量的信号
         Q_EMIT requestSetSpeakerVolume(vals);
+        Q_EMIT requestMute(false);
     };
     //当点击滑槽时不会有，sliderMoved消息，用这个补
     connect(m_speakSlider, &DCCSlider::valueChanged, slotfunc1);
