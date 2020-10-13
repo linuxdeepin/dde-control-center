@@ -97,11 +97,11 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     m_sldLowBatteryHint->slider()->setTickPosition(QSlider::NoTicks);
 
     options.clear();
-    for (int i = 0; i <= 8; i++) {
+    for (int i = 4; i <= 8; i++) {
         options.append(QString("%1%").arg(i + 1));
     }
     m_sldAutoSuspend->setAnnotations(options);
-    m_sldAutoSuspend->slider()->setRange(1, 9);
+    m_sldAutoSuspend->slider()->setRange(5, 9);
     m_sldAutoSuspend->slider()->setType(DCCSlider::Vernier);
     m_sldAutoSuspend->slider()->setTickPosition(QSlider::NoTicks);
 
