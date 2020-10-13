@@ -43,6 +43,7 @@
 #include <QLineEdit>
 #include <QCommandLinkButton>
 #include <QScrollArea>
+#include <QScroller>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -78,6 +79,10 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     contentLayout->setSpacing(0);
     contentLayout->setContentsMargins(0, 0, 0, 0);
     scrollArea->setWidget(tw);
+
+    /* 设置账户详情列表支持触屏滑动，不使用TouchGesture的原因，TouchGesture qt内部存在bug。1、滚动区滑动过程中，主窗口也跟随move；
+     * 2、滑动回弹过程中，点击头像，窗口出现错位*/
+    QScroller::grabGesture(scrollArea, QScroller::LeftMouseButtonGesture);
 
     initUserInfo(contentLayout);
     initSetting(contentLayout);
