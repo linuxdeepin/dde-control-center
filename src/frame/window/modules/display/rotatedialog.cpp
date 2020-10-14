@@ -46,8 +46,10 @@ RotateDialog::RotateDialog(Monitor *mon, QWidget *parent)
     , m_mon(mon)
 {
     setMouseTracking(true);
+    setAttribute(Qt::WA_NativeWindow);
     setAttribute(Qt::WA_TranslucentBackground);
-    setWindowFlags(Qt::X11BypassWindowManagerHint | Qt::Tool | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool | Qt::WindowStaysOnTopHint);
+    windowHandle()->setProperty("_d_dwayland_window-type", "menu");
 
     DBlurEffectWidget *blurWidget = new DBlurEffectWidget;
     blurWidget->setFixedSize(140, 140);
