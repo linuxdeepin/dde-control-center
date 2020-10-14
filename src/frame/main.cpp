@@ -140,6 +140,12 @@ int main(int argc, char *argv[])
     DApplication app(argc, argv);
     if (!app.setSingleInstance(QString("dde-control-center_%1").arg(getuid()))) {
         qDebug() << "set single instance failed!";
+        DDBusSender()
+        .service("com.deepin.dde.ControlCenter")
+        .interface("com.deepin.dde.ControlCenter")
+        .path("/com/deepin/dde/ControlCenter")
+        .method("Show")
+        .call();
         return -1;
     }
     app.setOrganizationName("deepin");
