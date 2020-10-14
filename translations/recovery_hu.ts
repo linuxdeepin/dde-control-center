@@ -5,7 +5,7 @@
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Rendszer visszaállítás folyamatban, kérem várjon...</translation>
+        <translation>A rendszer visszaállítása folyamatban, kérjük várjon...</translation>
     </message>
 </context>
 <context>
@@ -28,7 +28,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
         <source>Cancel and Reboot</source>
-        <translation>Mégsem és újraindítás</translation>
+        <translation>Mégsem és Újraindítás</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="275"/>
