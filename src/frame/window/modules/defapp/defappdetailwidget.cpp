@@ -164,7 +164,7 @@ void DefappDetailWidget::showInvalidText(DStandardItem *modelItem, const QString
         return;
 
     DViewItemActionList actions;
-    DViewItemAction *act = new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(32, 32), QSize(), false);
+    QPointer<DViewItemAction> act(new DViewItemAction(Qt::AlignVCenter | Qt::AlignLeft, QSize(32, 32), QSize(), false));
     QIcon icon = getAppIcon(iconName, QSize(32, 32));
     act->setIcon(icon);
     act->setTextColorRole(DPalette::TextWarning);
@@ -204,9 +204,7 @@ void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
                 continue;
 
             DViewItemActionList btnActList;
-            QSize size(style()->pixelMetric(QStyle::PM_SmallIconSize, nullptr, this),
-                                     style()->pixelMetric(QStyle::PM_SmallIconSize, nullptr, this));
-            DViewItemAction *delAction = new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight, size, size, true);
+            QPointer<DViewItemAction> delAction(new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight, QSize(21, 21), QSize(19, 19), true));
 
             delAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
             connect(delAction, &QAction::triggered, this, &DefappDetailWidget::onDelBtnClicked);
