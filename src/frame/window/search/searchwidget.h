@@ -132,6 +132,7 @@ private:
     bool m_bIsServerType;
     QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
     QList<QString> m_TxtList;
+    QList<QString> m_TxtListAll;
     bool m_speechState;
     DCompleterStyledItemDelegate styledItemDelegate;
     QList<QPair<QString, bool>> m_contensServerTxtList;

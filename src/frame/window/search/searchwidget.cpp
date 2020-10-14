@@ -355,6 +355,7 @@ void SearchWidget::loadxml()
     m_EnterNewPagelist.append(m_searchBoxStruct);
     m_inputList.append(SearchDataStruct());
     m_model->appendRow(new QStandardItem(""));
+    m_TxtListAll.clear();
 
     auto isChineseFunc = [](const QString &str)->bool {
         QRegularExpression rex_expression(R"(^[^a-zA-Z]+$)");
@@ -523,6 +524,13 @@ void SearchWidget::loadxml()
                          }
 
                         m_EnterNewPagelist.append(m_searchBoxStruct);
+
+                        if (!m_TxtListAll.contains(m_searchBoxStruct.translateContent)) {
+                            m_TxtListAll.append(m_searchBoxStruct.translateContent);
+                        } else {
+                            clearSearchData();
+                            continue;
+                        }
 
                         // Add search result content
                         if (!m_bIsChinese) {
