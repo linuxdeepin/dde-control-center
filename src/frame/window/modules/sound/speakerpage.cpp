@@ -57,7 +57,6 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_balance(true)
 {
     const int titleLeftMargin = 8;
-    //~ contents_path /sound/Output
     TitleLabel *labelOutput = new TitleLabel(tr("Output"));
     DFontSizeManager::instance()->bind(labelOutput, DFontSizeManager::T5, QFont::DemiBold);
     labelOutput->setContentsMargins(titleLeftMargin, 0, 0, 0);
