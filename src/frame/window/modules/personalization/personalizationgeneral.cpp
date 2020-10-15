@@ -44,6 +44,8 @@
 #include <QGraphicsDropShadowEffect>
 #include <QPainterPath>
 
+#include <libdtk-5.2.2/DGui/DPlatformTheme>
+
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 using namespace dcc::widgets;
@@ -233,6 +235,39 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         });
     }
     m_centralLayout->addWidget(m_switchWidget);
+
+    if (Dtk::Core::DSysInfo::isCommunityEdition()) {
+        m_centralLayout->addSpacing(10);
+        TitledSliderItem *winRoundSlider = new dcc::widgets::TitledSliderItem(tr("Rounded Corner"));
+        winRoundSlider->addBackground();
+        winRoundSlider->slider()->setOrientation(Qt::Horizontal);
+        winRoundSlider->setObjectName("winRoundSlider");
+
+        dcc::widgets::DCCSlider *slider = winRoundSlider->slider();
+        QStringList list;
+        list<<tr("small")<<tr("medium")<<tr("large");
+        slider->setAnnotations(list);
+        slider->setType(dcc::widgets::DCCSlider::Vernier);
+        slider->setTickPosition(QSlider::TicksBelow);
+        slider->setRange(0, 2);
+        slider->setTickInterval(1);
+        slider->setPageStep(1);
+        m_centralLayout->addWidget(winRoundSlider);
+
+        connect(winRoundSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this, [](int value){
+            auto theme = DGuiApplicationHelper::instance()->systemTheme();
+
+            if (value == 0) {
+                theme->setWindowRadius(0);
+            } else if (value == 1) {
+                theme->setWindowRadius(8);
+            } else if (value == 2) {
+                theme->setWindowRadius(18);
+            }
+        });
+        update();
+    }
+
     m_centralLayout->addStretch(20);
     setLayout(m_centralLayout);
 }
