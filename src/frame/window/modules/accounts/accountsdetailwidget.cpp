@@ -83,7 +83,11 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 
     /* 设置账户详情列表支持触屏滑动，不使用TouchGesture的原因，TouchGesture qt内部存在bug。1、滚动区滑动过程中，主窗口也跟随move；
      * 2、滑动回弹过程中，点击头像，窗口出现错位*/
-    QScroller::grabGesture(scrollArea, QScroller::LeftMouseButtonGesture);
+    QScroller::grabGesture(scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(scrollArea->viewport());
+    QScrollerProperties sp;
+    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    scroller->setScrollerProperties(sp);
 
     initUserInfo(contentLayout);
     initSetting(contentLayout);
