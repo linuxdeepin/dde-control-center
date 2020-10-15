@@ -103,6 +103,8 @@ private:
     dcc::sound::SoundLabel *m_volumeBtn;
     bool m_mute;
     bool m_noiseReduce;
+    //判断是否打开m_inputSoundCbx
+    bool m_clickCombobox;
 };
 
 }

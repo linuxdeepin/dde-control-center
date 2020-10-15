@@ -64,6 +64,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_volumeBtn(nullptr)
     , m_mute(false)
     , m_noiseReduce(true)
+    , m_clickCombobox(false)
 {
     const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
@@ -187,6 +188,9 @@ void MicrophonePage::setModel(SoundModel *model)
             m_noiseReduce = flag;
             showDevice();
     });
+    connect(m_inputSoundCbx, &dcc::widgets::ComboxWidget::clickedComBox, [ = ] {
+            m_clickCombobox = true;
+    });
 
     initSlider();
 
@@ -206,7 +210,10 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
                 disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
                 model->removeRow(i);
                 disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
-                m_inputSoundCbx->comboBox()->showPopup();
+                if (m_clickCombobox) {
+                    m_inputSoundCbx->comboBox()->showPopup();
+                    m_clickCombobox = false;
+                }
             } else {
                 ++i;
             }
@@ -251,7 +258,10 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
         m_inputModel->appendRow(pi);
         connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
-        m_inputSoundCbx->comboBox()->showPopup();
+        if (m_clickCombobox) {
+            m_inputSoundCbx->comboBox()->showPopup();
+            m_clickCombobox = false;
+        }
         if (port->isActive()) {
             disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
             m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
