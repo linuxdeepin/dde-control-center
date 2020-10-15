@@ -221,6 +221,7 @@ void DateSettings::onConfirmButtonClicked()
             qDebug() << "The customize address is nullptr.";
             return;
         }
+        this->setFocus();
         qDebug() << "ok clicked, requestNTPServer";
         Q_EMIT requestNTPServer(m_addressContent->text());
     } else {
