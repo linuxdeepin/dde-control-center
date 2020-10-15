@@ -57,6 +57,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     headTitle->setContentsMargins(10, 0, 0, 0);
 
     m_editKBLayout = new DCommandLinkButton(tr("Edit"));
+    headLayout->addStretch();
     headLayout->addWidget(m_editKBLayout);
     mainLayout->addLayout(headLayout);
 

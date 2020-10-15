@@ -60,6 +60,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     m_editSystemLang = new DCommandLinkButton(tr("Edit"));
     headLayout->addWidget(headTitle);
     headTitle->setContentsMargins(10, 0, 0, 0);
+    headLayout->addStretch();
     headLayout->addWidget(m_editSystemLang);
 
     m_langListview = new DListView();
