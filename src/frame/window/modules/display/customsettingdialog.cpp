@@ -287,6 +287,7 @@ void CustomSettingDialog::initRefreshrateList(int mode)
     auto moni = m_monitor;
     QList<double> rateList;
     bool isFirst = true;
+    QString allStr;
     for (auto m : moni->modeList()) {
         if (!Monitor::isSameResolution(m, moni->currentMode()))
             continue;
@@ -303,11 +304,18 @@ void CustomSettingDialog::initRefreshrateList(int mode)
             if (!isCommen)
                 continue;
         }
+
         auto trate = m.rate();
+        //+  防止出现由合并模式切换到拆分模式外接屏幕出现多个相同刷新率的情况
+        if (allStr.contains(QString::number(trate, 'g', 4) + tr("Hz"))) {
+            continue;
+        }
+
         DStandardItem *item = new DStandardItem;
         listModel->appendRow(item);
 
         auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
+        allStr.append(tstr);
         if (isFirst) {
             tstr += QString(" (%1)").arg(tr("Recommended"));
             isFirst = false;
@@ -815,105 +823,7 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 
 void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
 {    
-    auto listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
-
-    //+ 从拆分模式切换到合并模式时，更新刷新率列表，防止出现刷新率未勾选情况；
-    auto moni = m_monitor;
-    QVector<int> alistIndex;
-    for (int i = 0; i < listModel->rowCount(); ++i) {
-        alistIndex.push_back(i);
-    }
-    for (auto m : moni->modeList()) {
-        if (!Monitor::isSameResolution(m, moni->currentMode()))
-            continue;
-
-        if (m_model->isMerge()) {
-            bool isCommen = true;;
-            for (auto tmonitor : m_model->monitorList()) {
-                if (!tmonitor->hasResolutionAndRate(m)) {
-                    isCommen = false;
-                    break;
-                }
-            }
-
-            if (!isCommen)
-                continue;
-        }
-
-        int rate = static_cast<int>(m.rate());
-        for (int i = 0; i < listModel->rowCount(); ++i) {
-            auto tItem = listModel->item(i);
-            if (tItem->text().left(tItem->text().indexOf('.')).contains(QString::number(rate))) {
-                for (int j = 0; j < alistIndex.count(); j++) {
-                    if (alistIndex[j] == i)
-                        alistIndex.remove(j);
-                }
-                break;
-            }
-        }
-    }
-
-    QVector<int> tlistIndex;
-    for (int i = alistIndex.count() - 1; i >= 0; i--) {
-        tlistIndex.append(alistIndex[i]);
-    }
-
-    int tlistCount = tlistIndex.count();
-    if (tlistCount > 0) {
-        tlistCount--;
-        for (int i = listModel->rowCount() - 1; i >= 0; i--) {
-            if (i == tlistIndex[tlistCount]) {
-                listModel->removeRow(i);
-            }
-            else {
-                tlistCount--;
-            }
-        }
-    }
-
-    for (int i = 0; i < listModel->rowCount(); ++i) {
-        auto tItem = listModel->item(i);
-
-        if (tItem->data(IdRole).toInt() == r.id()) {
-            tItem->setData(Qt::CheckState::Checked, Qt::CheckStateRole);
-        } else {
-            tItem->setData(Qt::CheckState::Unchecked, Qt::CheckStateRole);
-        }
-    }
-
-    const auto curMode = m_monitor->currentMode();
-    for (auto i = 0; i < listModel->rowCount(); i++) {
-        QStandardItem * aitem = listModel->item(i);
-        if (aitem->text().contains(QString::number(curMode.rate()))) {
-            m_rateList->setEnabled(false);
-            aitem->setCheckState(Qt::Checked);
-            m_rateList->setEnabled(true);
-        }
-    }
-
-    for (auto idx = 0; idx < m_resolutionListModel->rowCount(); ++idx) {
-        auto item = m_resolutionListModel->item(idx);
-        if (m_model->isMerge()) {
-            auto w = item->data(WidthRole).toInt();
-            auto h = item->data(HeightRole).toInt();
-            auto rate = item->data(RateRole).toDouble();
-
-            if (w == r.width() && h == r.height() && abs(rate - r.rate()) < 1e-5) {
-                item->setCheckState(Qt::Checked);
-            } else {
-                item->setCheckState(Qt::Unchecked);
-            }
-        } else {
-            auto id = item->data(IdRole).toInt();
-
-            if (id == r.id()) {
-                item->setCheckState(Qt::Checked);
-            } else {
-                item->setCheckState(Qt::Unchecked);
-            }
-        }
-    }
-
+    initWithModel();
     resetDialog();
 }
 
