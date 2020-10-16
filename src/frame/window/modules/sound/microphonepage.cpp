@@ -167,8 +167,12 @@ void MicrophonePage::setModel(SoundModel *model)
 
     //连接switch点击信号，发送切换开/关扬声器的请求信号
     connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ] {
-        if(m_currentPort != nullptr)
+        if (m_currentPort != nullptr) {
             Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->id(), m_sw->checked());
+            QModelIndex index = m_inputSoundCbx->comboBox()->view()->currentIndex();
+            if (index.isValid())
+                Q_EMIT requestSetPort(m_inputModel->data(index, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
+        }
         else
             m_sw->setChecked(false);
     });
