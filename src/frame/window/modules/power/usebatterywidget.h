@@ -26,6 +26,8 @@
 #include <QWidget>
 #include <QVBoxLayout>
 
+#include <QMap>
+
 QT_BEGIN_NAMESPACE
 class QSlider;
 QT_END_NAMESPACE
@@ -68,6 +70,8 @@ private:
 
     dcc::widgets::ComboxWidget *m_cmbPowerBtn;    //电源按钮
     dcc::widgets::ComboxWidget *m_cmbCloseLid;    //盒盖
+    QMap<int, int> m_mPower2ComboxIndex4CloseLid;
+    QMap<int, int> m_mCombox2PowerAction4CloseId;
 
 
 Q_SIGNALS:

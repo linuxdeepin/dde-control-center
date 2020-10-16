@@ -81,7 +81,32 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
 
     m_cmbPowerBtn->setComboxOption(options);
     options.pop_front();
-    m_cmbCloseLid->setComboxOption(options);
+
+    //合盖电源选项
+    QStringList optionsLidClose;
+    int lidComboIndex = 0;
+    if (model->getSuspend()) {
+        optionsLidClose << tr("Suspend");
+        m_mCombox2PowerAction4CloseId[lidComboIndex] = 1;
+        m_mPower2ComboxIndex4CloseLid[1] = lidComboIndex;
+        lidComboIndex++;
+    }
+    if (!IsServerSystem && false) {
+        optionsLidClose << tr("Hibernate");
+        m_mCombox2PowerAction4CloseId[lidComboIndex] = 2;
+        m_mPower2ComboxIndex4CloseLid[2] = lidComboIndex;
+        lidComboIndex++;
+    }
+    optionsLidClose << tr("Turn off the monitor");
+    m_mCombox2PowerAction4CloseId[lidComboIndex] = 3;
+    m_mPower2ComboxIndex4CloseLid[3] = lidComboIndex;
+    lidComboIndex++;
+
+    optionsLidClose << tr("Do nothing");
+    m_mCombox2PowerAction4CloseId[lidComboIndex] = 4;
+    m_mPower2ComboxIndex4CloseLid[4] = lidComboIndex;
+    lidComboIndex++;
+    m_cmbCloseLid->setComboxOption(optionsLidClose);
 
 
     options.clear();
@@ -181,18 +206,9 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
         }
     });
     connect(m_cmbCloseLid, &ComboxWidget::onIndexChanged, [ = ](int nIndex) {
-        if (!model->getSuspend()) {
-            if (IsServerSystem || !model->canHibernate()) {
-                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 3);
-            } else {
-                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 2);
-            }
-        } else {
-            if (IsServerSystem || !model->canHibernate()) {
-                Q_EMIT requestSetBatteryLidClosedAction(nIndex > 0 ? nIndex + 2 : nIndex + 1);
-            } else {
-                Q_EMIT requestSetBatteryLidClosedAction(nIndex + 1);
-            }
+        if (m_mCombox2PowerAction4CloseId.contains(nIndex)) {
+            int powerAction = m_mCombox2PowerAction4CloseId[nIndex];
+            Q_EMIT requestSetBatteryLidClosedAction(powerAction);
         }
     });
 }
@@ -228,35 +244,15 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
-    if (!model->getSuspend()) {
-        if (IsServerSystem || !model->canHibernate()) {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 3);
-        } else {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 2);
-        }
-    } else {
-        if (IsServerSystem || !model->canHibernate()) {
-            int serverIndex = model->batteryLidClosedAction();
-            m_cmbCloseLid->comboBox()->setCurrentIndex(serverIndex > 2 ? serverIndex - 2 : serverIndex - 1);
-        } else {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(model->batteryLidClosedAction() - 1);
-        }
+    const int powerAction = model->batteryLidClosedAction();
+    if (m_mPower2ComboxIndex4CloseLid.contains(powerAction)) {
+        int comboIndex = m_mPower2ComboxIndex4CloseLid[powerAction];
+        m_cmbCloseLid->comboBox()->setCurrentIndex(comboIndex);
     }
     connect(model, &PowerModel::batteryLidClosedActionChanged, this, [ = ](const int reply) {
-        if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1) {
-            if (!model->getSuspend()) {
-                if (IsServerSystem || !model->canHibernate()) {
-                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 3);
-                } else {
-                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
-                }
-            } else {
-                if (IsServerSystem || !model->canHibernate()) {
-                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply > 2 ? reply - 2 : reply - 1);
-                } else {
-                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
-                }
-            }
+        if (m_mPower2ComboxIndex4CloseLid.contains(reply)) {
+            int comboIndex = m_mPower2ComboxIndex4CloseLid[reply];
+            m_cmbCloseLid->comboBox()->setCurrentIndex(comboIndex);
         }
     });
 
