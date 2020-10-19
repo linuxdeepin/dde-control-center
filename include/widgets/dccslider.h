@@ -55,13 +55,15 @@ public:
     void setSliderPosition(int Position);
     void setAnnotations(const QStringList &annotations);
     void setOrientation(Qt::Orientation orientation);
+    //当value大于0时，在slider中插入一条分隔线
+    void setSeparateValue(int value = 0);
 
 protected:
     void wheelEvent(QWheelEvent *e);
-
+    void paintEvent(QPaintEvent *e);
 private:
     QSlider::TickPosition tickPosition = QSlider::TicksBelow;
-
+    int m_separateValue;
 };
 
 }

@@ -243,10 +243,10 @@ void SpeakerPage::initSlider()
     QStringList annotions;
     if (m_model->MaxUIVolume() > 1.0) {
         annotions << "0" << " " << "100" << "150";
-        m_speakSlider->setAnnotations(annotions);
+        m_speakSlider->setSeparateValue(100);
     } else {
         annotions << "0" << " " << "100";
-        m_speakSlider->setAnnotations(annotions);
+        m_speakSlider->setSeparateValue(0);
     }
 
     //初始化音量设置滚动条
@@ -325,10 +325,10 @@ void SpeakerPage::initSlider()
         if (maxvalue > 1.0) {
             annotion << "0 " << "" << "100" << "150 ";
             qDebug() << m_outputSlider << annotion;
-            m_outputSlider->slider()->setRightTicks(annotion);
+            m_speakSlider->setSeparateValue(100);
         } else {
             annotion << "0 " << "" << "100";
-            m_outputSlider->slider()->setRightTicks(annotion);
+            m_speakSlider->setSeparateValue(0);
         }
         m_outputSlider->update();
 
