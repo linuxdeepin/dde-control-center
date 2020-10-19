@@ -72,8 +72,6 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     connect(m_switchComboBox, &QComboBox::currentTextChanged, this, [this] {
         Q_EMIT dataChanged(m_switchComboBox->currentData());
     });
-
-    m_switchComboBox->installEventFilter(this);
 }
 
 void ComboxWidget::setComboxOption(const QStringList &options)
@@ -114,6 +112,7 @@ void ComboxWidget::mouseReleaseEvent(QMouseEvent *event)
     if (!m_switchComboBox->geometry().contains(event->pos())) {
         Q_EMIT clicked();
     }
+
     return SettingsItem::mouseReleaseEvent(event);
 }
 
@@ -135,15 +134,6 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
         }
     }
     SettingsItem::resizeEvent(event);
-}
-
-bool ComboxWidget::eventFilter(QObject *watched, QEvent *event)
-{
-    if (watched == m_switchComboBox && event->type() == QEvent::MouseButtonPress) {
-        Q_EMIT clickedComBox();
-    }
-
-    return SettingsItem::eventFilter(watched, event);
 }
 
 }

@@ -53,12 +53,10 @@ Q_SIGNALS:
     void onSelectChanged(const QString &selected);
     void dataChanged(const QVariant &data);
     void clicked();
-    void clickedComBox();
 
 protected:
     void mouseReleaseEvent(QMouseEvent *event) override;
     void resizeEvent(QResizeEvent *event) override;
-    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     QWidget *m_leftWidget;

@@ -60,7 +60,6 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_balance(true)
     , m_volumeBtn(nullptr)
     , m_mute(false)
-    , m_clickCombobox(false)
 {
     const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
@@ -137,6 +136,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
         else
             m_sw->setChecked(false);
     });
+
     connect(m_model, &SoundModel::portAdded, this, &SpeakerPage::addPort);
     connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
     connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
@@ -147,9 +147,6 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     connect(m_model, &SoundModel::speakerOnChanged, this, [ = ](bool flag) {
             m_mute = flag;
             refreshIcon();
-    });
-    connect(m_outputSoundCbx, &dcc::widgets::ComboxWidget::clickedComBox, [ = ] {
-            m_clickCombobox = true;
     });
 
     initSlider();
@@ -172,10 +169,7 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
                 disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
                 model->removeRow(i);
                 connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
-                if (m_clickCombobox) {
-                    m_outputSoundCbx->comboBox()->showPopup();
-                    m_clickCombobox = false;
-                }
+                m_outputSoundCbx->comboBox()->showPopup();
             } else {
                 ++i;
             }
@@ -225,10 +219,7 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
         m_outputModel->appendRow(pi);
         connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
-        if (m_clickCombobox) {
-            m_outputSoundCbx->comboBox()->showPopup();
-            m_clickCombobox = false;
-        }
+        m_outputSoundCbx->comboBox()->showPopup();
         if (port->isActive()) {
             disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");

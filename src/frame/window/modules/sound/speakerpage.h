@@ -117,8 +117,6 @@ private:
     bool m_balance;
     dcc::sound::SoundLabel *m_volumeBtn;
     bool m_mute;
-    //判断是否打开m_outputSoundCbx
-    bool m_clickCombobox;
 };
 
 }
