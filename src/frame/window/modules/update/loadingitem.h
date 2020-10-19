@@ -44,16 +44,13 @@ public:
     void setMessage(const QString &message);
     void setVersionVisible(bool state);
     void setSystemVersion(const QString &version);
-    void setImage(QImage *image);
     void setImageVisible(bool state);
     void setImageOrTextVisible(bool state);
     void setImageAndTextVisible(bool state);
-    QPixmap getPixmap(const QString &name, const QSize size);
 
 private:
     dcc::widgets::NormalLabel *m_messageLabel;
     QProgressBar *m_progress;
-    QImage *m_image;
     QLabel *m_labelImage;
     QLabel *m_labelText;
 };

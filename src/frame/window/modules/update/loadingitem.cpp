@@ -50,9 +50,7 @@ LoadingItem::LoadingItem(QFrame *parent)
 
     QVBoxLayout *imgLayout = new QVBoxLayout;
     imgLayout->setAlignment(Qt::AlignCenter);
-    m_image = new QImage;
     m_labelImage = new QLabel;
-    m_labelImage->setPixmap(QPixmap::fromImage(*m_image));
     m_labelImage->setMinimumSize(128, 128);
     imgLayout->addWidget(m_labelImage, 0, Qt::AlignTop);
 
@@ -97,26 +95,9 @@ void LoadingItem::setSystemVersion(const QString &version)
     m_labelText->setText(DSysInfo::uosProductTypeName() + " " + DSysInfo::majorVersion() + " " + DSysInfo::uosEditionName());
 }
 
-void LoadingItem::setImage(QImage *image)
-{
-    m_labelImage->setPixmap(QPixmap::fromImage(*image));
-}
-
 void LoadingItem::setImageVisible(bool state)
 {
     m_labelImage->setVisible(state);
-}
-
-QPixmap LoadingItem::getPixmap(const QString &name, const QSize size)
-{
-    const QIcon &icon = QIcon(name);
-    const qreal ratio = devicePixelRatioF();
-    QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
-    QPainter p(&pixmap);
-    p.setRenderHints(QPainter::Antialiasing);
-    p.drawPixmap(0, 0, pixmap);
-    pixmap.setDevicePixelRatio(ratio);
-    return pixmap;
 }
 
 //image or text only use one
@@ -129,12 +110,10 @@ void LoadingItem::setImageOrTextVisible(bool state)
 
     QString path = "";
     if (state) {
-        path = ":/update/themes/common/icons/success.svg";
+        m_labelImage->setPixmap(QIcon::fromTheme("icon_success").pixmap({128, 128}));
     } else {
-        path = ":/update/updatev20/dcc_checking_update.svg";
+        m_labelImage->setPixmap(QIcon(":/update/updatev20/dcc_checking_update.svg").pixmap({128, 128}));
     }
-
-    m_labelImage->setPixmap(getPixmap(path, QSize(128, 128)));
 }
 
 //image and text all use or not use
