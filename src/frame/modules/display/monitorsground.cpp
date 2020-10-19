@@ -107,11 +107,11 @@ void MonitorsGround::resetMonitorsView()
 
     // recheck settings
     if (!isScreenPerfect()) {
-        monitorMoved(m_monitors.firstKey(), false);
+        monitorMoved(m_monitors.firstKey());
     }
 }
 
-void MonitorsGround::monitorMoved(MonitorProxyWidget *pw, bool isApply)
+void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 {
     qDebug() << Q_FUNC_INFO << pw->name();
 
@@ -137,11 +137,7 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw, bool isApply)
         w->setMovedY(w->y() - minY);
     }
 
-    //增加isApply参数区分是初始化或接收信号后的重围，还是人为调整的
-    //若是人为调整需要应用到系统
-    if (isApply) {
-        applySettings();
-    }
+    applySettings();
     qApp->processEvents();
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
 }

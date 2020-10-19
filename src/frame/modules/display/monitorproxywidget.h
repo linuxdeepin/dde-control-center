@@ -53,7 +53,7 @@ public:
     const QString name() const;
 
 Q_SIGNALS:
-    void requestApplyMove(MonitorProxyWidget *self, bool isApply) const;
+    void requestApplyMove(MonitorProxyWidget *self) const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
 

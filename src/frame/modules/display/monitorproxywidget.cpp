@@ -136,7 +136,7 @@ void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
 void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     if (!m_model->isMerge())
-        Q_EMIT requestApplyMove(this, true);
+        Q_EMIT requestApplyMove(this);
 
     m_underMouseMove = false;
 
