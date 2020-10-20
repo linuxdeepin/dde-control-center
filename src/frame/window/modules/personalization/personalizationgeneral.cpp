@@ -232,43 +232,43 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
                 Q_EMIT requestWindowSwitchWM(checked);
                 Q_EMIT requestSetMiniEffect(m_cmbMiniEffect->comboBox()->currentIndex());
         });
+
+        if (Dtk::Core::DSysInfo::isCommunityEdition()) {
+            winEffectVLayout->addSpacing(10);
+            TitledSliderItem *winRoundSlider = new dcc::widgets::TitledSliderItem(tr("Rounded Corner"));
+            winRoundSlider->addBackground();
+            winRoundSlider->slider()->setOrientation(Qt::Horizontal);
+            winRoundSlider->setObjectName("winRoundSlider");
+
+            dcc::widgets::DCCSlider *sliderRound = winRoundSlider->slider();
+            QStringList list;
+            list<<tr("Small")<<tr("Medium")<<tr("Large");
+            sliderRound->setAnnotations(list);
+            sliderRound->setType(dcc::widgets::DCCSlider::Vernier);
+            sliderRound->setTickPosition(QSlider::TicksBelow);
+            sliderRound->setRange(0, 2);
+            sliderRound->setValue(2);
+            sliderRound->setTickInterval(1);
+            sliderRound->setPageStep(1);
+            winEffectVLayout->addWidget(winRoundSlider);
+            winEffectVLayout->addStretch(20);
+
+            connect(winRoundSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this, [](int value){
+                auto theme = DGuiApplicationHelper::instance()->systemTheme();
+
+                if (value == 0) {
+                    theme->setWindowRadius(0);
+                } else if (value == 1) {
+                    theme->setWindowRadius(8);
+                } else if (value == 2) {
+                    theme->setWindowRadius(18);
+                }
+            });
+            update();
+        }
     }
+
     m_centralLayout->addWidget(m_switchWidget);
-
-    if (Dtk::Core::DSysInfo::isCommunityEdition()) {
-        m_centralLayout->addSpacing(10);
-        TitledSliderItem *winRoundSlider = new dcc::widgets::TitledSliderItem(tr("Rounded Corner"));
-        winRoundSlider->addBackground();
-        winRoundSlider->slider()->setOrientation(Qt::Horizontal);
-        winRoundSlider->setObjectName("winRoundSlider");
-
-        dcc::widgets::DCCSlider *slider = winRoundSlider->slider();
-        QStringList list;
-        list<<tr("Small")<<tr("Medium")<<tr("Large");
-        slider->setAnnotations(list);
-        slider->setType(dcc::widgets::DCCSlider::Vernier);
-        slider->setTickPosition(QSlider::TicksBelow);
-        slider->setRange(0, 2);
-        slider->setValue(2);
-        slider->setTickInterval(1);
-        slider->setPageStep(1);
-        m_centralLayout->addWidget(winRoundSlider);
-
-        connect(winRoundSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this, [](int value){
-            auto theme = DGuiApplicationHelper::instance()->systemTheme();
-
-            if (value == 0) {
-                theme->setWindowRadius(0);
-            } else if (value == 1) {
-                theme->setWindowRadius(8);
-            } else if (value == 2) {
-                theme->setWindowRadius(18);
-            }
-        });
-        update();
-    }
-
-
     m_centralLayout->addStretch(20);
     setLayout(m_centralLayout);
 }
