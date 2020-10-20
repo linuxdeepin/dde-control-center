@@ -151,7 +151,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     //闲时下载更新布局
     setDownloadTimeCtrlLayout(m_freeTimeDownload, m_freeTimeDownloadLbl, m_setFreeTimeLbl);
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal") {
+    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
         m_smartMirrorBtn = new SwitchWidget;
         //~ contents_path /update/Update Settings
         m_smartMirrorBtn->setTitle(tr("Smart Mirror Switch"));
@@ -220,7 +220,7 @@ void UpdateSettings::setModel(UpdateModel *model)
         m_autoDownloadSwitch->setChecked(autoDownload);
     };
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal") {
+    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
