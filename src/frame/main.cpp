@@ -52,38 +52,16 @@ DCORE_USE_NAMESPACE
 static DCC_NAMESPACE::MainWindow *gwm{nullptr};
 
 const int MAX_STACK_FRAMES = 128;
-const QString strPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0] + "/dde-collapse.log";
-const QString cfgPath = QStandardPaths::standardLocations(QStandardPaths::ConfigLocation)[0] + "/dde-cfg.ini";
 
 using namespace std;
 
-void sig_crash(int sig)
+[[noreturn]] void sig_crash(int sig)
 {
-    QFile *file = new QFile(strPath);
+    QDir dir(QStandardPaths::standardLocations(QStandardPaths::CacheLocation)[0]);
+    dir.cdUp();
+    QString filePath = dir.path() + "/dde-collapse.log";
 
-    // 创建默认配置文件,记录段时间内的崩溃次数
-    if (!QFile::exists(cfgPath)) {
-        QFile file(cfgPath);
-        if (!file.open(QIODevice::WriteOnly))
-            exit(0);
-        file.close();
-    }
-
-    QSettings settings(cfgPath, QSettings::IniFormat);
-    settings.beginGroup(qApp->applicationName());
-
-    QDateTime lastDate = QDateTime::fromString(settings.value("lastDate").toString(), "yyyy-MM-dd hh:mm:ss:zzz");
-    int collapseNum = settings.value("collapse").toInt();
-
-    // 10秒以内发生崩溃则累加,记录到文件中
-    if (qAbs(lastDate.secsTo(QDateTime::currentDateTime())) < 10) {
-        settings.setValue("collapse", collapseNum + 1);
-    } else {
-        settings.setValue("collapse", 0);
-    }
-    settings.setValue("lastDate", QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss:zzz"));
-    settings.endGroup();
-    settings.sync();
+    QFile *file = new QFile(filePath);
 
     if (!file->open(QIODevice::Text | QIODevice::Append)) {
         qDebug() << file->errorString();
@@ -141,6 +119,8 @@ void sig_crash(int sig)
         //
     }
     file->close();
+    delete file;
+    file = nullptr;
     exit(0);
 }
 
