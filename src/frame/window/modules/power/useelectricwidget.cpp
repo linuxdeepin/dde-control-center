@@ -195,6 +195,9 @@ void UseElectricWidget::setModel(const PowerModel *model)
     }
 
     //--------------sp2 add-----------------
+    connect(model, &PowerModel::lidPresentChanged, this, [ = ](bool value) {
+        m_cmbCloseLid->setVisible(value);
+    });
     m_cmbCloseLid->setVisible(model->lidPresent());
     int nLidAction = model->linePowerLidClosedAction();
     if (!model->getSuspend()) {
