@@ -195,6 +195,7 @@ Q_SIGNALS:
     void updateCheckUpdateTime();
     void updateHistoryAppInfos();
     void updateNotifyChanged(const bool notify);
+    void updatablePackagesChanged(const bool isUpdatablePackages);
 private:
     UpdatesStatus m_status;
     DownloadInfo *m_downloadInfo;
