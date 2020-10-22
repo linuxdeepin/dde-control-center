@@ -62,7 +62,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
     connect(m_model, &SoundModel::requestSwitchEnable, this, &SoundWorker::isPortEnabled);
-    //setPortEnabled,也会触发SoundWorker::isPortEnabled函数，触发SoundModel::isPortEnableChanged信号
+    //setPortEnabled,设置成功后会收到PortEnabledChanged信号，判断是否设置成功
     connect(m_model, &SoundModel::requestSwitchSetEnable, this, &SoundWorker::setPortEnabled);
 
     connect(m_audioInter, &Audio::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
