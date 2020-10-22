@@ -95,7 +95,7 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
 void TouchPadSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 {
     m_mouseModel = model;
-    connect(model, &MouseModel::tpadMoveSpeedChanged, [this] (int value) {
+    connect(model, &MouseModel::tpadMoveSpeedChanged, this, [this] (int value) {
         if(m_isNotWayland)
             onTouchMoveSpeedChanged(value);
         else
