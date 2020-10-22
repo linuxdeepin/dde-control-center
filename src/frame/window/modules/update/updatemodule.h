@@ -64,6 +64,12 @@ private Q_SLOTS:
 private:
     void notifyDisplayReminder(dcc::update::UpdatesStatus status);
 
+    /*!
+     * \brief onUpdatablePackagesChanged 根据是否有更新包,处理更新项小红点显示
+     * \param isUpdatablePackages 当更新包数量大于0时为true
+     */
+    void onUpdatablePackagesChanged(const bool isUpdatablePackages);
+
 private:
     dcc::update::UpdateModel *m_model = nullptr;
     dcc::update::UpdateWorker *m_work = nullptr;

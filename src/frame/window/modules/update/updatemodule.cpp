@@ -82,12 +82,9 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     });
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateModule::notifyDisplayReminder);
 
-    // 首次进入更新红点处理
-    if (m_model->getUpdatablePackages() && m_model->updateNotify()) {
-        m_frameProxy->setModuleSubscriptVisible(name(), true);
-    } else {
-        m_frameProxy->setModuleSubscriptVisible(name(), false);
-    }
+    // 初始化更新小红点处理
+    onUpdatablePackagesChanged(m_model->getUpdatablePackages());
+    connect(m_model, &UpdateModel::updatablePackagesChanged, this, &UpdateModule::onUpdatablePackagesChanged);
 
     //通过gsetting获取版本类型，设置某模块是否显示
     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
@@ -246,4 +243,12 @@ void UpdateModule::notifyDisplayReminder(UpdatesStatus status)
     } else {
         m_frameProxy->setModuleSubscriptVisible(name(), false);
     }
+}
+
+void UpdateModule::onUpdatablePackagesChanged(const bool isUpdatablePackages)
+{
+    if (isUpdatablePackages)
+        m_frameProxy->setModuleSubscriptVisible(name(), true);
+    else
+        m_frameProxy->setModuleSubscriptVisible(name(), false);
 }

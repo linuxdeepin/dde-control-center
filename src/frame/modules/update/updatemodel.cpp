@@ -330,6 +330,7 @@ void UpdateModel::isUpdatablePackages(bool isUpdatablePackages)
         return;
 
     m_isUpdatablePackages = isUpdatablePackages;
+    Q_EMIT updatablePackagesChanged(isUpdatablePackages);
 }
 
 //判断当前是否正在备份中，若正在备份则不能再设置其他状态，直到备份有结果了才能继续设置其他状态
