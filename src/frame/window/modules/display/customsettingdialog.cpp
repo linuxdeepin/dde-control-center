@@ -266,6 +266,7 @@ void CustomSettingDialog::initRefreshrateList()
     auto moni = m_monitor;
     QList<double> rateList;
     bool isFirst = true;
+    bool hasRecommend = false;
     for (auto m : moni->modeList()) {
         if (!Monitor::isSameResolution(m, moni->currentMode()))
             continue;
@@ -287,10 +288,18 @@ void CustomSettingDialog::initRefreshrateList()
         m_freshListModel->appendRow(item);
 
         auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
-        if (isFirst) {
+        if (Monitor::isSameResolution(m, moni->bestMode())) {
+            if (Monitor::isSameRatefresh(m, moni->bestMode())) {
+                tstr += QString(" (%1)").arg(tr("Recommended"));
+                isFirst = false;
+                hasRecommend = true;
+            }
+        } else if (isFirst) {
             tstr += QString(" (%1)").arg(tr("Recommended"));
             isFirst = false;
+            hasRecommend = true;
         }
+
         if (fabs(trate - moni->currentMode().rate()) < 0.000001) {
             item->setCheckState(Qt::CheckState::Checked);
         } else {
@@ -302,6 +311,10 @@ void CustomSettingDialog::initRefreshrateList()
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
         item->setText(tstr);
+    }
+
+    if (!hasRecommend) {
+        qDebug() << "CustomSettingDialog BestMode provided by server is not in the ModeList";
     }
 }
 
