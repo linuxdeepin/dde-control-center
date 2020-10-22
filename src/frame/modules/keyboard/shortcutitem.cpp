@@ -115,7 +115,13 @@ void ShortcutItem::setShortcut(const QString &shortcut)
     accels = accels.replace("_R", "");
     accels = accels.replace("Control", "Ctrl");
 
-    m_key->setTextList(accels.split("-"));
+    QStringList alist = accels.split("-");
+    if (alist.count() > 1) {
+        if (alist[alist.count() - 1] == "") {
+            alist.removeAt(alist.count() - 1);
+        }
+    }
+    m_key->setTextList(alist);
 }
 
 void ShortcutItem::onEditMode(bool value)

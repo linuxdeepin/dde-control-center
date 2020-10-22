@@ -33,6 +33,7 @@
 #include <QPushButton>
 
 #include "widgets/buttontuple.h"
+#include <QGSettings>
 
 using namespace dcc;
 
@@ -71,6 +72,9 @@ private:
     dcc::widgets::ButtonTuple *m_buttonTuple;
     TitleButtonItem* m_item;
     QString m_shortcut;
+    QGSettings *m_systemSettings;
+    QGSettings *m_mediaSettings;
+    QGSettings *m_wmSettings;
 };
 }
 }

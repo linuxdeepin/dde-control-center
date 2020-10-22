@@ -43,6 +43,10 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     : QWidget(parent)
     , m_assistiveToolsGroup(nullptr)
     , m_model(model)
+    , m_shiftKey(false)
+    , m_controlKey(false)
+    , m_superKey(false)
+    , m_altKey(false)
 {
     m_searchDelayTimer = new QTimer(this);
     m_searchDelayTimer->setInterval(300);
@@ -444,8 +448,159 @@ void ShortCutSettingWidget::onShortcutChanged(ShortcutInfo *info)
     }
 }
 
+void ShortCutSettingWidget::keyPressEvent(QKeyEvent *event)
+{
+    QString A_Z_Def[26] = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
+    QString F1_F12_Def[12] = {"F1", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9", "F10", "F11", "F12"};
+    QString Key_Other_Def[20] = {"comma", "minus", "period", "slash", "apostrophe", "semicolon", "bracketleft", "bracketright", "Escape",
+                                 "grave", "Tab", "Delete", "equal", "BackSpace", "backslash", "Return", "space"};
+    QString ShiftModifier[3] = {"<Shift>", "Shift_L", "Shift_R"};
+    QString ControlModifier[3] = {"<Control>", "Control_L", "Control_R"};
+    QString AltModifier[3] = {"<Alt>", "Alt_L", "Alt_R"};
+    QString SuperModifier[3] = {"<Super>", "Super_L", "Super_R"};
+    if (Qt::Key_Shift == event->key()) {
+        m_shiftKey = true;
+    } else if (Qt::Key_Control == event->key()) {
+        m_controlKey = true;
+    } else if (Qt::Key_Alt == event->key()) {
+        m_altKey = true;
+    } else if (Qt::Key_Super_L == event->key()) {
+        m_superKey = true;
+    }
+
+    QString shortcut;
+    if (m_shiftKey) {
+        shortcut += ShiftModifier[0];
+    }
+    if (m_controlKey) {
+        shortcut += ControlModifier[0];
+    }
+    if (m_altKey) {
+        shortcut += AltModifier[0];
+    }
+    if (m_superKey) {
+        shortcut += SuperModifier[0];
+    }
+
+    if ((event->key() >= Qt::Key_A && event->key() <= Qt::Key_Z)                                                                                                    ||
+        (event->key() >= Qt::Key_0 && event->key() <= Qt::Key_9)                                                                                                    ||
+        (event->key() >= Qt::Key_F1 && event->key() <= Qt::Key_F12)                                                                                                 ||
+        (event->key() == Qt::Key_Comma || event->key() == Qt::Key_Less) || (event->key() == Qt::Key_Minus || event->key() == Qt::Key_Underscore)                    ||
+        (event->key() == Qt::Key_Period || event->key() == Qt::Key_Greater) || (event->key() == Qt::Key_Slash || event->key() == Qt::Key_Question)                  ||
+        (event->key() == Qt::Key_Apostrophe || event->key() == Qt::Key_QuoteDbl) || (event->key() == Qt::Key_Semicolon || event->key() == Qt::Key_Colon)            ||
+        (event->key() == Qt::Key_BracketLeft || event->key() == Qt::Key_BraceLeft) || (event->key() == Qt::Key_BracketRight || event->key() == Qt::Key_BraceRight)  ||
+        (event->key() == Qt::Key_Escape) || (event->key() == Qt::Key_QuoteLeft || event->key() == Qt::Key_AsciiTilde)                                               ||
+        (event->key() == Qt::Key_Tab) || (event->key() == Qt::Key_Delete)                                                                                           ||
+        (event->key() == Qt::Key_Equal || event->key() == Qt::Key_Plus) || (event->key() == Qt::Key_Backspace)                                                      ||
+        (event->key() == Qt::Key_Backslash || event->key() == Qt::Key_Bar) || (event->key() == Qt::Key_Return) || (event->key() == Qt::Key_Space)                          ) {
+        if (event->key() >= Qt::Key_A && event->key() <= Qt::Key_Z) {
+            shortcut += A_Z_Def[event->key() - Qt::Key_A];
+        } else if (event->key() >= Qt::Key_0 && event->key() <= Qt::Key_9) {
+            shortcut += event->text();
+        } else if (event->key() >= Qt::Key_F1 && event->key() <= Qt::Key_F12) {
+            shortcut += F1_F12_Def[event->key() - Qt::Key_F1];
+        } else if (event->key() == Qt::Key_Comma || event->key() == Qt::Key_Less) {
+            shortcut += Key_Other_Def[0];
+        } else if (event->key() == Qt::Key_Minus || event->key() == Qt::Key_Underscore) {
+            shortcut += Key_Other_Def[1];
+        } else if (event->key() == Qt::Key_Period || event->key() == Qt::Key_Greater) {
+            shortcut += Key_Other_Def[2];
+        } else if (event->key() == Qt::Key_Slash || event->key() == Qt::Key_Question) {
+            shortcut += Key_Other_Def[3];
+        } else if (event->key() == Qt::Key_Apostrophe  || event->key() == Qt::Key_QuoteDbl) {
+            shortcut += Key_Other_Def[4];
+        } else if (event->key() == Qt::Key_Semicolon || event->key() == Qt::Key_Colon) {
+            shortcut += Key_Other_Def[5];
+        } else if (event->key() == Qt::Key_BracketLeft || event->key() == Qt::Key_BraceLeft) {
+            shortcut += Key_Other_Def[6];
+        } else if (event->key() == Qt::Key_BracketRight || event->key() == Qt::Key_BraceRight) {
+            shortcut += Key_Other_Def[7];
+        } else if (event->key() == Qt::Key_Escape) {
+            shortcut += Key_Other_Def[8];
+        } else if (event->key() == Qt::Key_QuoteLeft || event->key() == Qt::Key_AsciiTilde) {
+            shortcut += Key_Other_Def[9];
+        } else if (event->key() == Qt::Key_Tab) {
+            shortcut += Key_Other_Def[10];
+        } else if (event->key() == Qt::Key_Delete) {
+            shortcut += Key_Other_Def[11];
+        } else if (event->key() == Qt::Key_Equal || event->key() == Qt::Key_Plus) {
+            shortcut += Key_Other_Def[12];
+        } else if (event->key() == Qt::Key_Backspace) {
+            shortcut += Key_Other_Def[13];
+        } else if (event->key() == Qt::Key_Backslash || event->key() == Qt::Key_Bar) {
+            shortcut += Key_Other_Def[14];
+        } else if (event->key() == Qt::Key_Return) {
+            shortcut += Key_Other_Def[15];
+        } else if (event->key() == Qt::Key_Space) {
+            shortcut += Key_Other_Def[16];
+        }
+
+        if ((!(true == m_shiftKey && false == m_controlKey && false == m_altKey && false == m_superKey) && true == m_controlKey) ||
+            (!(true == m_shiftKey && false == m_controlKey && false == m_altKey && false == m_superKey) && true == m_altKey)     ||
+            (!(true == m_shiftKey && false == m_controlKey && false == m_altKey && false == m_superKey) && true == m_superKey))  {
+            onKeyEvent(false, shortcut);
+            return ;
+        }
+    }
+
+    onKeyEvent(true, shortcut);
+}
+
+void ShortCutSettingWidget::keyReleaseEvent(QKeyEvent *event)
+{
+    QString Key_Other_Def[4] = {"Up", "Down ", "Left", "Right"};
+    QString ShiftModifier[3] = {"<Shift>", "Shift_L", "Shift_R"};
+    QString ControlModifier[3] = {"<Control>", "Control_L", "Control_R"};
+    QString AltModifier[3] = {"<Alt>", "Alt_L", "Alt_R"};
+    QString SuperModifier[3] = {"<Super>", "Super_L", "Super_R"};
+    QString shortcut;
+    if (m_shiftKey) {
+        shortcut += ShiftModifier[0];
+    }
+    if (m_controlKey) {
+        shortcut += ControlModifier[0];
+    }
+    if (m_altKey) {
+        shortcut += AltModifier[0];
+    }
+    if (m_superKey) {
+        shortcut += SuperModifier[0];
+    }
+
+    if ((event->key() == Qt::Key_Up) || (event->key() == Qt::Key_Down) || (event->key() == Qt::Key_Left) || (event->key() == Qt::Key_Right)) {
+        if (event->key() == Qt::Key_Up) {
+            shortcut += Key_Other_Def[0];
+        } else if (event->key() == Qt::Key_Down) {
+            shortcut += Key_Other_Def[1];
+        } else if (event->key() == Qt::Key_Left) {
+            shortcut += Key_Other_Def[2];
+        } else if (event->key() == Qt::Key_Right) {
+            shortcut += Key_Other_Def[3];
+        }
+        if ((!(true == m_shiftKey && false == m_controlKey && false == m_altKey && false == m_superKey) && true == m_controlKey) ||
+            (!(true == m_shiftKey && false == m_controlKey && false == m_altKey && false == m_superKey) && true == m_altKey)     ||
+            (!(true == m_shiftKey && false == m_controlKey && false == m_altKey && false == m_superKey) && true == m_superKey))  {
+            onKeyEvent(false, shortcut);
+            return ;
+        }
+    }
+
+    if (Qt::Key_Shift == event->key()) {
+        m_shiftKey = false;
+    } else if (Qt::Key_Control == event->key()) {
+        m_controlKey = false;
+    } else if (Qt::Key_Alt == event->key()) {
+        m_altKey = false;
+    } else if (Qt::Key_Super_L == event->key()) {
+        m_superKey = false;
+    }
+
+    onKeyEvent(false, "");
+}
+
 void ShortCutSettingWidget::onKeyEvent(bool press, const QString &shortcut)
 {
+    qDebug() << " press " << press << " shortcut " << shortcut;
     ShortcutInfo *current = m_model->currentInfo();
 
     if (!current)

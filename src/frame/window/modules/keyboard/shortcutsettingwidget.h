@@ -64,6 +64,8 @@ protected:
     {
         update();
     }
+    void keyPressEvent(QKeyEvent *event)            Q_DECL_OVERRIDE;
+    void keyReleaseEvent(QKeyEvent *event)          Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void customShortcut();
@@ -121,6 +123,11 @@ private:
     QList<dcc::keyboard::ShortcutItem *> m_workspaceList;
     QList<dcc::keyboard::ShortcutItem *> m_assistiveToolsList;
     QList<dcc::keyboard::ShortcutItem *> m_customList;
+
+    bool m_shiftKey;
+    bool m_controlKey;
+    bool m_superKey;
+    bool m_altKey;
 };
 }
 }

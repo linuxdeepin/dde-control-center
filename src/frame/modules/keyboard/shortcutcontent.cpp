@@ -41,6 +41,10 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     , m_shortcutItem(new ShortcutItem)
     , m_buttonTuple(new ButtonTuple)
 {
+    m_systemSettings = new QGSettings("com.deepin.dde.keybinding.system", "/com/deepin/dde/keybinding/system/");
+    m_mediaSettings = new QGSettings("com.deepin.dde.keybinding.mediakey", "/com/deepin/dde/keybinding/mediakey/");
+    m_wmSettings = new QGSettings("com.deepin.wrap.gnome.desktop.wm.keybindings", "/com/deepin/wrap/gnome/desktop/wm/keybindings/");
+
     TranslucentFrame* widget = new TranslucentFrame();
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
@@ -149,6 +153,36 @@ void ShortcutContent::onReplace()
             Q_EMIT requestDisableShortcut(m_info);
         } else {
             m_info->accels = m_shortcut;
+
+            bool isSet =false;
+            QString idStr = m_info->id;
+            idStr = idStr.replace("-","");
+
+            for (auto i = 0; i < m_systemSettings->keys().count(); i++) {
+                if (m_systemSettings->keys().at(i).toLower() == idStr.toLower()) {
+                    isSet = true;
+                    m_systemSettings->trySet(m_systemSettings->keys().at(i), m_info->accels);
+                    break;
+                }
+            }
+            if (!isSet) {
+                for (auto i = 0; i < m_wmSettings->keys().count(); i++) {
+                    if (m_wmSettings->keys().at(i).toLower() == idStr.toLower()) {
+                        isSet = true;
+                        m_wmSettings->trySet(m_wmSettings->keys().at(i), m_info->accels);
+                        break;
+                    }
+                }
+            }
+            if (!isSet) {
+                for (auto i = 0; i < m_mediaSettings->keys().count(); i++) {
+                    if (m_mediaSettings->keys().at(i).toLower() == idStr.toLower()) {
+                        m_mediaSettings->trySet(m_mediaSettings->keys().at(i), m_info->accels);
+                        break;
+                    }
+                }
+            }
+
             Q_EMIT requestSaveShortcut(m_info);
         }
     }
