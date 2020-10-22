@@ -159,8 +159,7 @@ void ResolutionDetailPage::initResoList()
         for (auto m : moni->modeList()) {
             auto w = itemModel->itemData(idx)[WidthRole].toInt();
             auto h = itemModel->itemData(idx)[HeightRole].toInt();
-            auto r = moni->currentMode().rate();
-            if (m.width() == w && m.height() == h && fabs(m.rate() - r) < 0.01) {
+            if (m.width() == w && m.height() == h) {
                 requestSetResolution(moni, m.id());
                 return;
             }
