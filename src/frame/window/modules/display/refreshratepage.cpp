@@ -83,6 +83,7 @@ void RefreshRatePage::initRateList()
         if (Monitor::isSameResolution(m, moni->bestMode())) {
             if (Monitor::isSameRatefresh(m, moni->bestMode())) {
                 tstr += QString(" (%1)").arg(tr("Recommended"));
+                isFirst = false;
                 hasRecommend = true;
             }
         } else if (isFirst) {
