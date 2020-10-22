@@ -117,6 +117,8 @@ private:
     bool m_balance;
     dcc::sound::SoundLabel *m_volumeBtn;
     bool m_mute;
+    //启用端口但未设置为默认端口判断
+    bool m_enablePort;
 };
 
 }

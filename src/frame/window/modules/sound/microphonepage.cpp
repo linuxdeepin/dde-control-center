@@ -64,6 +64,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_volumeBtn(nullptr)
     , m_mute(false)
     , m_noiseReduce(true)
+    , m_enablePort(false)
 {
     const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
@@ -144,12 +145,20 @@ void MicrophonePage::setModel(SoundModel *model)
     //监听消息设置是否可用
     connect(m_model, &SoundModel::isPortEnableChanged, this, [ = ](bool enable) {
         m_sw->setChecked(enable);
+        //启用端口后需要再判断是否启用成功后，再设置为默认端口，但因为设置端口后会有端口是否启用的状态判断，
+        //导致进入死循环，所以添加判断值，判断是否是启用或禁用端口类型的操作，若是，则设置默认端口
+        if (enable && m_enablePort) {
+            QModelIndex index = m_inputSoundCbx->comboBox()->view()->currentIndex();
+            if (index.isValid())
+                Q_EMIT requestSetPort(m_inputModel->data(index, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
+        }
         showDevice();
     });
     //发送查询请求消息看是否可用
     connect(m_model, &SoundModel::setPortChanged, this, [ = ](const dcc::sound::Port  * port) {
         m_currentPort = port;
         if (!m_currentPort) return;
+        m_enablePort = false;
         m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
         Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
     });
@@ -167,10 +176,8 @@ void MicrophonePage::setModel(SoundModel *model)
     //连接switch点击信号，发送切换开/关扬声器的请求信号
     connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ] {
         if (m_currentPort != nullptr) {
+            m_enablePort = true;
             Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->id(), m_sw->checked());
-            QModelIndex index = m_inputSoundCbx->comboBox()->view()->currentIndex();
-            if (index.isValid())
-                Q_EMIT requestSetPort(m_inputModel->data(index, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
         }
         else
             m_sw->setChecked(false);

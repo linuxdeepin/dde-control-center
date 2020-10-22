@@ -60,6 +60,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_balance(true)
     , m_volumeBtn(nullptr)
     , m_mute(false)
+    , m_enablePort(false)
 {
     const int titleLeftMargin = 8;
     //~ contents_path /sound/Advanced
@@ -105,8 +106,16 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
     //当扬声器状态发生变化，将switch设置为对应的状态
     connect(m_model, &SoundModel::isPortEnableChanged, this, [ = ](bool visible) {
-        if (visible)
+        if (visible) {
             m_sw->setChecked(true);
+            //启用端口后需要再判断是否启用成功后，再设置为默认端口，但因为设置端口后会有端口是否启用的状态判断，
+            //导致进入死循环，所以添加判断值，判断是否是启用或禁用端口类型的操作，若是，则设置默认端口
+            if (m_enablePort) {
+                QModelIndex index = m_outputSoundCbx->comboBox()->view()->currentIndex();
+                if (index.isValid())
+                    Q_EMIT requestSetPort(m_outputModel->data(index, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
+            }
+        }
         else
             m_sw->setChecked(false);
         showDevice();
@@ -116,8 +125,9 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
         m_currentPort = port;
         if (!m_currentPort)
             return;
+        m_enablePort = false;
         m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
-        Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
+        Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());//设置端口后，发送信号，判断该端口是否需要禁用
     });
 
     auto ports = m_model->ports();
@@ -128,10 +138,8 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     //连接switch点击信号，发送切换开/关扬声器的请求信号
     connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ] {
         if(m_currentPort != nullptr) {
+            m_enablePort = true;
             Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->id(), m_sw->checked());
-            QModelIndex index = m_outputSoundCbx->comboBox()->view()->currentIndex();
-            if (index.isValid())
-                Q_EMIT requestSetPort(m_outputModel->data(index, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
         }
         else
             m_sw->setChecked(false);
@@ -240,12 +248,9 @@ void SpeakerPage::initSlider()
     m_outputSlider->addBackground();
     m_speakSlider = m_outputSlider->slider();
 
-    QStringList annotions;
     if (m_model->MaxUIVolume() > 1.0) {
-        annotions << "0" << " " << "100" << "150";
         m_speakSlider->setSeparateValue(100);
     } else {
-        annotions << "0" << " " << "100";
         m_speakSlider->setSeparateValue(0);
     }
 
@@ -321,13 +326,10 @@ void SpeakerPage::initSlider()
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
         m_speakSlider->setRange(0, static_cast<int>(maxvalue * 100 + 0.000001));
-        QStringList annotion;
         if (maxvalue > 1.0) {
-            annotion << "0 " << "" << "100" << "150 ";
-            qDebug() << m_outputSlider << annotion;
+            qDebug() << m_outputSlider << maxvalue;
             m_speakSlider->setSeparateValue(100);
         } else {
-            annotion << "0 " << "" << "100";
             m_speakSlider->setSeparateValue(0);
         }
         m_outputSlider->update();
