@@ -288,7 +288,7 @@ void ManualRestore::restore()
         const bool formatData = !m_saveUserDataCheckBox->isChecked();
 
         DDialog dialog;
-        QString message{ tr("It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding") };
+        QString message{ tr("\"Reset to factory settings\" will clear your system data and reinstall the system, which is highly risky, please confirm before proceeding.\nNote: Create an account with the same username please.") };
 
         if (formatData) {
             message =
