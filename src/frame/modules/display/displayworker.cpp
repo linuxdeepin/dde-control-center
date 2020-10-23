@@ -155,7 +155,7 @@ void DisplayWorker::mergeScreens()
     qDebug() << Q_FUNC_INFO;
 
     m_model->setIsMerge(true);
-
+    //保存拆分时候的坐标
     m_model->monitorList()[0]->setLastPoint(m_model->monitorList()[0]->x(), m_model->monitorList()[0]->y());
     m_model->monitorList()[1]->setLastPoint(m_model->monitorList()[1]->x(), m_model->monitorList()[1]->y());
 
@@ -225,10 +225,23 @@ void DisplayWorker::splitScreens()
     Q_ASSERT(mList.size() == 2);
 
     auto *primary = m_model->primaryMonitor();
-    Q_ASSERT(m_monitors.contains(primary));
-    m_monitors[primary]->SetPosition(static_cast<short>(m_model->primaryMonitor()->getLastPoint().x()), static_cast<short>(m_model->primaryMonitor()->getLastPoint().y())).waitForFinished();
-    int xOffset = primary->modeList().first().width();
+//    int xOffset = primary->modeList().first().width();
+//    Q_ASSERT(m_monitors.contains(primary));
+    int enableConut = 0;
+    for (auto mon : mList) {
+        if (mon->enable())
+            enableConut++;
+    }
 
+    if (enableConut == 2) {
+        m_monitors[primary]->SetPosition(static_cast<short>(m_model->primaryMonitor()->getLastPoint().x()), static_cast<short>(m_model->primaryMonitor()->getLastPoint().y())).waitForFinished();
+    } else {
+        m_monitors[primary]->SetPosition( 0, 0).waitForFinished();
+        primary->setLastPoint(0, 0);
+    }
+
+    int xOffset = primary->modeList().first().width();
+    qDebug() << "splitScreens" << m_model->primaryMonitor()->getLastPoint().x() << m_model->primaryMonitor()->getLastPoint().y() << m_model->primary();
     for (auto *mon : mList) {
         // pass primary
         Q_ASSERT(m_monitors.contains(mon));
@@ -246,7 +259,9 @@ void DisplayWorker::splitScreens()
         }
         xOffset += mon->modeList().first().width();
     }
-
+    for (auto *mon : m_model->monitorList()) {
+        qDebug() << mon->name() << mon->rect() << "splitScreens";
+    }
     m_displayInter.ApplyChanges();
 }
 
@@ -493,7 +508,7 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
         inter->Enable(enabled).waitForFinished();
     Q_ASSERT(m_monitors.contains(primary));
     m_monitors[primary]->SetPosition(0, 0).waitForFinished();
-
+    qDebug() << "primary onMonitorEnable" << primary->name() << primary->rect() << m_monitors[primary]->x() << m_monitors[primary]->y();
     //为亮的屏幕排序
     int xOffset = primary->w();
     if (ismerge == false) {
@@ -512,10 +527,13 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
             Q_ASSERT(m_monitors.contains(mon));
             auto *mInter = m_monitors[mon];
             mInter->SetPosition(static_cast<short>(xOffset), 0).waitForFinished();
-            monitor->setW(xOffset);
-            monitor->setH(0);
+//            monitor->setW(xOffset);
+//            monitor->setH(0);
             xOffset += mon->w();
         }
+    }
+    for (auto *mon : m_model->monitorList()) {
+        qDebug() << mon->name() << mon->rect() << "onMonitorEnable";
     }
     m_displayInter.ApplyChanges().waitForFinished();
 }

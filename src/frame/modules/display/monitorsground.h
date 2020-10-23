@@ -68,7 +68,8 @@ private:
     int m_viewPortWidth;
     int m_viewPortHeight;
     DisplayModel *m_model;
-    QMap<MonitorProxyWidget *, Monitor *> m_monitors;
+//    QMap<MonitorProxyWidget *, Monitor *> m_monitors;
+    QList<QPair<MonitorProxyWidget *, Monitor *>> m_monitors;
 
     QTimer *m_refershTimer;
 };

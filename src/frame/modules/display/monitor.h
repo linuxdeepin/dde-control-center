@@ -66,6 +66,7 @@ public:
         m_lastPoint.setX(x);
         m_lastPoint.setY(y);
     }
+    inline void requitGeometryChanged() { Q_EMIT geometryChanged();}
 
 Q_SIGNALS:
     void geometryChanged() const;

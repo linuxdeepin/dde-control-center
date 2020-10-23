@@ -52,7 +52,10 @@ MonitorsGround::MonitorsGround(QWidget *parent)
 
 MonitorsGround::~MonitorsGround()
 {
-    qDeleteAll(m_monitors.keys());
+//    qDeleteAll(m_monitors.keys());
+    for (auto pw : m_monitors) {
+        delete pw.first;
+    }
 }
 
 void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
@@ -64,8 +67,8 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
     auto initMW = [ this ](Monitor * mon) {
 
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
-        m_monitors[pw] = mon;
-
+//        m_monitors[pw] = mon;
+        m_monitors.append(QPair<MonitorProxyWidget *, Monitor *>(pw, mon));
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
         connect(pw, &MonitorProxyWidget::requestMonitorPress, this, &MonitorsGround::requestMonitorPress);
         connect(pw, &MonitorProxyWidget::requestMonitorRelease, this, &MonitorsGround::requestMonitorRelease);
@@ -101,13 +104,18 @@ void MonitorsGround::resetMonitorsView()
         adjustAll();
         return;
     } else {
-        for (auto pw : m_monitors.keys())
+//        for (auto pw : m_monitors.keys())
+//            adjust(pw);
+        for(auto list : m_monitors) {
+            MonitorProxyWidget *pw = list.first;
             adjust(pw);
+        }
     }
 
     // recheck settings
     if (!isScreenPerfect()) {
-        monitorMoved(m_monitors.firstKey());
+//        monitorMoved(m_monitors.firstKey());
+        monitorMoved(m_monitors.first().first);
     }
 }
 
@@ -128,15 +136,24 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
     // clear global offset
     int minX = INT_MAX;
     int minY = INT_MAX;
-    for (auto w : m_monitors.keys()) {
+//    for (auto w : m_monitors.keys()) {
+//        minX = std::min(minX, w->x());
+//        minY = std::min(minY, w->y());
+//    }
+//    for (auto w : m_monitors.keys()) {
+//        w->setMovedX(w->x() - minX);
+//        w->setMovedY(w->y() - minY);
+//    }
+    for (auto list : m_monitors) {
+        auto w = list.first;
         minX = std::min(minX, w->x());
         minY = std::min(minY, w->y());
     }
-    for (auto w : m_monitors.keys()) {
+    for (auto list : m_monitors) {
+        auto w = list.first;
         w->setMovedX(w->x() - minX);
         w->setMovedY(w->y() - minY);
     }
-
     applySettings();
     qApp->processEvents();
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
@@ -146,11 +163,20 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
     bool bSingle = false;
     int enabledCount = 0;
-    for (auto* value : m_monitors)
-    {
+//    for (auto* value : m_monitors)
+//    {
+//        if (value->enable()) {
+//            enabledCount++;
+//            m_monitors.key(value)->setVisible(true);
+//        }
+//    }
+    for (auto list : m_monitors) {
+        auto value = list.second;
         if (value->enable()) {
             enabledCount++;
-            m_monitors.key(value)->setVisible(true);
+//            m_monitors.key(value)->setVisible(true);
+            list.first->setVisible(true);
+
         }
     }
     if (1 == enabledCount)
@@ -187,7 +213,9 @@ void MonitorsGround::adjustAll()
     const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
     const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
     MonitorProxyWidget *primarywdt = nullptr;
-    for (auto pw : m_monitors.keys()) {
+//    for (auto pw : m_monitors.keys()) {
+    for(auto list : m_monitors) {
+        MonitorProxyWidget *pw = list.first;
         if (pw->name() == m_model->primary()) {
             primarywdt = pw;
             continue;
@@ -219,7 +247,14 @@ void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
         return;
 
     MonitorProxyWidget *other = nullptr;
-    for (auto w : m_monitors.keys()) {
+//    for (auto w : m_monitors.keys()) {
+//        if (w != pw) {
+//            other = w;
+//            break;
+//        }
+//    }
+    for (auto list : m_monitors) {
+        auto w = list.first;
         if (w != pw) {
             other = w;
             break;
@@ -237,13 +272,24 @@ void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
 
 void MonitorsGround::reloadViewPortSize()
 {
+//    int w = 0;
+//    for (auto pw : m_monitors.keys())
+//        w = std::max(w, pw->x() + pw->w());
+
+//    int h = 0;
+//    for (auto pw : m_monitors.keys())
+//        h = std::max(h, pw->y() + pw->h());
     int w = 0;
-    for (auto pw : m_monitors.keys())
+    for(auto list : m_monitors) {
+        MonitorProxyWidget *pw = list.first;
         w = std::max(w, pw->x() + pw->w());
+    }
 
     int h = 0;
-    for (auto pw : m_monitors.keys())
+    for(auto list : m_monitors) {
+        MonitorProxyWidget *pw = list.first;
         h = std::max(h, pw->y() + pw->h());
+    }
 
     m_viewPortWidth = w;
     m_viewPortHeight = h;
@@ -251,8 +297,10 @@ void MonitorsGround::reloadViewPortSize()
 
 void MonitorsGround::applySettings()
 {
+//    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
+//        Q_EMIT requestApplySettings(it.value(), it.key()->x(), it.key()->y());
     for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
-        Q_EMIT requestApplySettings(it.value(), it.key()->x(), it.key()->y());
+        Q_EMIT requestApplySettings(it->second, it->first->x(), it->first->y());
 }
 
 bool MonitorsGround::isScreenPerfect() const
@@ -261,8 +309,10 @@ bool MonitorsGround::isScreenPerfect() const
     if (m_monitors.size() != 2)
         return true;
 
-    MonitorProxyWidget *p0 = m_monitors.firstKey();
-    MonitorProxyWidget *p1 = m_monitors.lastKey();
+//    MonitorProxyWidget *p0 = m_monitors.firstKey();
+//    MonitorProxyWidget *p1 = m_monitors.lastKey();
+    MonitorProxyWidget *p0 = m_monitors.first().first;
+    MonitorProxyWidget *p1 = m_monitors.last().first;
 
     const QRect r0(p0->x(), p0->y(), p0->w(), p0->h());
     const QRect r1(p1->x(), p1->y(), p1->w(), p1->h());

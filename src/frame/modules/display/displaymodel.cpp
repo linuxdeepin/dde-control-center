@@ -139,6 +139,7 @@ void DisplayModel::setMinimumBrightnessScale(const double scale)
 
 void DisplayModel::setPrimary(const QString &primary)
 {
+    qDebug()  << "setPrimary" << primary;
     if (m_primary != primary) {
         m_primary = primary;
         Q_EMIT primaryScreenChanged(m_primary);
