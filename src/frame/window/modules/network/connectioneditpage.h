@@ -60,7 +60,6 @@ public:
 
     static const QString devicePath();
     inline const QString connectionUuid() { return m_connectionUuid; }
-    static bool uuidIsEmpty(const QString &uuid);
 
     void onDeviceRemoved();
 
@@ -80,15 +79,6 @@ Q_SIGNALS:
     void requestRefreshVPNStatus();
     void disconnect(const QString &uuid);
     void requestUpdateLoader(QString &uuid);
-    /**
-     * @def deleteConnect
-     * @brief 告知后端将其中的连接删除了，没有实际的删除作用，
-     * 实际的删除是networkManager中提供的该控件去做的, 如果不告知daemon那边的话，daemon没办法将uuid删除，
-     * 会导致详情页数据找不到，出现异常，而且连接的时候也会异常
-     * @param const QString uuid
-     */
-    void deleteConnectAP(const QString &uuid);
-    void disconnectAP();
 
 protected:
     int connectionSuffixNum(const QString &matchConnName);

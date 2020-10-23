@@ -50,9 +50,7 @@ const QString compressedIpv6Addr(const QString &ipv6Adr)
     int maxStart = 0, maxLen = 0;
     const auto &sequence = ipv6Adr.split(':');
     for (int i = 0; i != sequence.size(); ++i) {
-        //这个断言不知道有什么作用，其他电脑可以正常过这个断言，
-        // 而且数据和我的电脑一样的，我却过不了这个断言，所以暂时屏蔽掉了
-//        Q_ASSERT(sequence[i].size() == 4);
+        Q_ASSERT(sequence[i].size() == 4);
         if (sequence[i] == "0000") {
             len += 5;
         } else {
@@ -83,14 +81,10 @@ namespace network {
 
 NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     : ContentWidget(parent)
-    , m_updateData(new QTimer(this))
 {
     m_groupsLayout = new QVBoxLayout;
     m_groupsLayout->setSpacing(0);
     m_groupsLayout->setMargin(0);
-
-    m_updateData->setSingleShot(false);
-    m_updateData->setInterval(6000);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_groupsLayout);
@@ -99,19 +93,12 @@ NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     layout()->setMargin(0);
     setContent(mainWidget);
 }
-NetworkDetailPage::~NetworkDetailPage()
-{
-    qDebug() << Q_FUNC_INFO;
-}
 
 void NetworkDetailPage::setModel(NetworkModel *model)
 {
     connect(model, &NetworkModel::activeConnInfoChanged, this, &NetworkDetailPage::onActiveInfoChanged);
-    //刚点开获取一次数据，然后再用定时器进行一分钟刷新一次
-    Q_EMIT model->requestActionConnect();
-    connect(m_updateData, &QTimer::timeout, model, &NetworkModel::requestActionConnect);
-    m_updateData->start();
-    onActiveInfoChanged(model->activeConns());
+
+    onActiveInfoChanged(model->activeConnInfos());
 }
 
 void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
@@ -134,6 +121,7 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         delete item;
     }
 
+    QVBoxLayout *m_headTitleLayout = new QVBoxLayout;
     int infoCount = infos.count();
     for (const auto &info : infos) {
         SettingsGroup *grp = new SettingsGroup;
@@ -147,7 +135,6 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             SettingsHead *head = new SettingsHead();
             head->setTitle(tr("Hotspot"));
             head->setEditEnable(false);
-
             grp->appendItem(head, SettingsGroup::NoneBackground);
 
             const QString ssid = hotspotInfo.value("Ssid").toString();
@@ -224,7 +211,6 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             }
             // ipv6 info
             const auto ipv6 = info.value("Ip6").toObject();
-            qDebug() << "ipv6" << ipv6;
             if (!ipv6.isEmpty()) {
                 // ipv6 address
                 const auto ip6Addr = ipv6.value("Address").toString();

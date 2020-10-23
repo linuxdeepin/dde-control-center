@@ -79,7 +79,7 @@ private Q_SLOTS:
     void createNewConnection();
     void activateConnection(const QString &connectionPath);
     void activateEditConnection(const QString &connectPath, const QString &uuid);
-    void onActivatedConnection(const QList<QJsonObject> &activeConns);
+    void checkActivatedConnection();
     void onDeviceStatusChanged(const dde::network::WiredDevice::DeviceStatus stat);
     void onDeviceRemoved();
 
@@ -97,7 +97,7 @@ private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
     dcc::widgets::SettingsGroup *m_tipsGrp;
 
-    QMap<DTK_WIDGET_NAMESPACE::DStandardItem *, QString> m_connectionUuid;
+    QMap<DTK_WIDGET_NAMESPACE::DStandardItem *, QString> m_connectionPath;
 
     static const int PathRole = Dtk::UserRole + 1;
 };
