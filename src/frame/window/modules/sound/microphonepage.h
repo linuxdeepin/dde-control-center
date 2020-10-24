@@ -28,7 +28,7 @@
 #include <QStandardItemModel>
 #include <QWidget>
 
-#define ICON_SIZE 20
+#define ICON_SIZE 24
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -83,7 +83,6 @@ private Q_SLOTS:
 private:
     void initSlider();
     void refreshIcon();
-    const QPixmap loadSvg(const QString &iconName, const QString &localPath, const int size, const qreal ratio);
 
 private:
     dcc::sound::SoundModel *m_model{nullptr};
