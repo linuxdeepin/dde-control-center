@@ -36,6 +36,10 @@
 
 DWIDGET_USE_NAMESPACE
 
+DWIDGET_BEGIN_NAMESPACE
+class DIconButton;
+DWIDGET_END_NAMESPACE
+
 QT_BEGIN_NAMESPACE
 class QStandardItemModel;
 QT_END_NAMESPACE
@@ -98,9 +102,12 @@ public:
     explicit SoundLabel(QWidget *parent = nullptr);
     void mouseReleaseEvent(QMouseEvent *e) override;
     virtual ~SoundLabel() {}
+    void setIcon(const QIcon &icon);
+    void setIconSize(const QSize &size);
 
 private:
     bool m_mute;
+    DIconButton *m_btn;
 
 Q_SIGNALS:
     void clicked(bool checked);

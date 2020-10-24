@@ -262,14 +262,13 @@ void SpeakerPage::initSlider()
     m_speakSlider->setTickPosition(QSlider::NoTicks);
 
     m_volumeBtn = new SoundLabel(this);
-    m_volumeBtn->setScaledContents(true);
     QGridLayout *gridLayout = dynamic_cast<QGridLayout *>(m_outputSlider->slider()->layout());
     if (gridLayout) {
         gridLayout->addWidget(m_volumeBtn, 1, 0, Qt::AlignVCenter);
     }
     m_volumeBtn->setAccessibleName("volume-button");
     m_volumeBtn->setFixedSize(ICON_SIZE, ICON_SIZE);
-
+    m_volumeBtn->setIconSize(QSize(ICON_SIZE, ICON_SIZE));
     //从DStyle 中获取标准图标
     auto icon_high = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeHighElement);
     m_outputSlider->setRightIcon(icon_high);
@@ -406,44 +405,11 @@ void SpeakerPage::initSlider()
 
 void SpeakerPage::refreshIcon()
 {
-    QString volumeString;
     if (m_mute) {
-        volumeString = "muted";
+        m_volumeBtn->setIcon(qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeMutedElement));
     } else {
-        volumeString = "low";
+        m_volumeBtn->setIcon(qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement));
     }
-
-    QString iconLeft = QString("audio-volume-%1-symbolic").arg(volumeString);
-
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        iconLeft.append("-dark");
-    }
-    const auto ratio = devicePixelRatioF();
-    QPixmap  ret = loadSvg(iconLeft, ":/", ICON_SIZE, ratio);
-    m_volumeBtn->setPixmap(ret);
-}
-
-const QPixmap SpeakerPage::loadSvg(const QString &iconName, const QString &localPath, const int size, const qreal ratio)
-{
-    QIcon icon = QIcon::fromTheme(iconName);
-    if (!icon.isNull()) {
-        QPixmap pixmap = icon.pixmap(int(size * ratio), int(size * ratio));
-        pixmap.setDevicePixelRatio(ratio);
-        return pixmap;
-    }
-
-    QPixmap pixmap(int(size * ratio), int(size * ratio));
-    QString localIcon = QString("%1%2%3").arg(localPath).arg(iconName).arg(iconName.contains(".svg") ? "" : ".svg");
-    QSvgRenderer renderer(localIcon);
-    pixmap.fill(Qt::transparent);
-
-    QPainter painter;
-    painter.begin(&pixmap);
-    renderer.render(&painter);
-    painter.end();
-    pixmap.setDevicePixelRatio(ratio);
-
-    return pixmap;
 }
 
 /**
