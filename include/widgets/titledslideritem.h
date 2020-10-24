@@ -44,6 +44,7 @@ public:
     TitledSliderItem(QString title, QWidget *parent = nullptr);
 
     DCCSlider *slider() const;
+    bool isSliderPressed() const;
     void setAnnotations(const QStringList &annotations);
 
     QString valueLiteral() const;
@@ -58,6 +59,7 @@ private:
     NormalLabel *m_valueLabel;
     DCCSlider *m_slider;
     QString m_valueLiteral;
+    bool    m_sliderPressed;
 };
 
 } // namespace widgets

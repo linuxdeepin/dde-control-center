@@ -50,6 +50,14 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     , m_slider(new DCCSlider)
 {
     m_slider->qtSlider()->setAccessibleName(title);
+    m_sliderPressed = false;
+    QObject::connect(m_slider, &DCCSlider::sliderPressed, this, [this]{
+        this->m_sliderPressed = true;
+    });
+    QObject::connect(m_slider, &DCCSlider::sliderReleased, this, [this]{
+        this->m_sliderPressed = false;
+    });
+
 
     QMargins zeroMg(8, 8, 8, 8);
 
@@ -83,6 +91,11 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
 DCCSlider *TitledSliderItem::slider() const
 {
     return m_slider->slider();
+}
+
+bool TitledSliderItem::isSliderPressed() const
+{
+    return m_sliderPressed;
 }
 
 void TitledSliderItem::setAnnotations(const QStringList &annotations)

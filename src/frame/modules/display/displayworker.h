@@ -37,6 +37,8 @@
 #include <com_deepin_system_systempower.h>
 
 #include <QGSettings>
+#include <QMutex>
+#include <QMutexLocker>
 
 using DisplayInter = com::deepin::daemon::Display;
 using AppearanceInter = com::deepin::daemon::Appearance;
@@ -113,6 +115,7 @@ private Q_SLOTS:
 private:
     void monitorAdded(const QString &path);
     void monitorRemoved(const QString &path);
+    void handleSetBrightnessRequest();
 
 private:
     DisplayModel *m_model;
@@ -126,6 +129,13 @@ private:
 
     SysPowerInter *m_sysPowerInter;
     QDBusInterface *m_systemInfo;
+    struct {
+        QMutex  m_brightnessMutex;
+        bool    m_hasPendingRequest = false;
+        bool    m_hasWaitingRequest = false;
+        double  m_brightnessValue = 0;
+        QString m_monitorName;
+    }m_brightness;
 };
 
 } // namespace display

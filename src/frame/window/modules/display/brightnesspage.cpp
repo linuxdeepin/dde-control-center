@@ -107,9 +107,7 @@ void BrightnessPage::setMode(DisplayModel *model)
 void BrightnessPage::addSlider()
 {
     auto monList = m_displayModel->monitorList();
-    auto envType = qEnvironmentVariable("XDG_SESSION_TYPE");
-    bool bWayland = envType.contains("wayland");
-    if (bWayland) {
+    if (m_displayModel->getSystemType()) {
         monList.clear();
         for (auto monitor : m_displayModel->monitorList()) {
             QString monitorName = monitor->name();
@@ -150,6 +148,10 @@ void BrightnessPage::addSlider()
         connect(slider, &DCCSlider::sliderMoved, this, onValueChanged);
 
         connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
+            qDebug() << "received Monitor::brightnessChanged" << rb << sender()->objectName();
+            if (slideritem->isSliderPressed()) {
+                return;
+            }
             slider->blockSignals(true);
             int iValue = 0;
             if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
@@ -170,6 +172,7 @@ void BrightnessPage::addSlider()
             int tmini = int(ms * PercentageNum);
             slider->setMinimum(tmini);
             slider->setTickInterval(int((BrightnessMaxScale - tmini) / 5.0));
+            qDebug() << "received DisplayModel::minimumBrightnessScaleChanged" << rb << tmini;
 
             slider->blockSignals(true);
             slideritem->setValueLiteral(brightnessToTickInterval(rb));

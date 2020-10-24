@@ -24,6 +24,7 @@
  */
 
 #include "monitor.h"
+#include <QDebug>
 
 using namespace dcc::display;
 
@@ -108,9 +109,11 @@ void Monitor::setRotate(const quint16 rotate)
 
 void Monitor::setBrightness(const double brightness)
 {
-    if (fabs(m_brightness - brightness) < DoubleZero)
+    //因为亮度变化最小为1%，所以不使用 DoubleZero
+    if (fabs(m_brightness - brightness) < 0.01)
         return;
 
+    qDebug() << "Monitor::setBrightness" << brightness;
     m_brightness = brightness;
 
     Q_EMIT brightnessChanged(m_brightness);

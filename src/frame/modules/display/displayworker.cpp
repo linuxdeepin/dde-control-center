@@ -31,6 +31,7 @@
 #include <DApplicationHelper>
 
 #include <QDebug>
+#include <QtConcurrent>
 
 using namespace dcc;
 using namespace dcc::display;
@@ -561,7 +562,60 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
 {
-    m_displayInter.SetAndSaveBrightness(mon->name(), std::max(brightness, m_model->minimumBrightnessScale())).waitForFinished();
+    double value = std::max(brightness, m_model->minimumBrightnessScale());
+    qDebug() << "setMonitorBrightness: receive request" << mon->name() << value;
+
+    //前面亮度设置未完成，只记录最新请求
+    QMutexLocker loker(&m_brightness.m_brightnessMutex);
+    m_brightness.m_hasWaitingRequest = true;
+    m_brightness.m_brightnessValue = value;
+    m_brightness.m_monitorName = mon->name();
+    if (!m_brightness.m_hasPendingRequest) {
+        QTimer::singleShot(0, this, &DisplayWorker::handleSetBrightnessRequest);
+    }
+}
+
+void DisplayWorker::handleSetBrightnessRequest() {
+    qDebug() << "setMonitorBrightness enter";
+    QMutexLocker loker(&m_brightness.m_brightnessMutex);
+    if (m_brightness.m_hasPendingRequest) {
+        return;
+    }
+    if (!m_brightness.m_hasWaitingRequest) {
+        return;
+    }
+
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    connect(watcher, &QFutureWatcher<QDBusPendingReply<>>::finished, [this, watcher] {
+        QMutexLocker loker(&m_brightness.m_brightnessMutex);
+        m_brightness.m_hasPendingRequest = false;
+        qDebug() << "setMonitorBrightness: finish";
+        if (m_brightness.m_hasWaitingRequest) {
+            QTimer::singleShot(0, this, &DisplayWorker::handleSetBrightnessRequest);
+        }
+        watcher->deleteLater();
+    });
+
+    QFuture<void> future = QtConcurrent::run([this] {
+        QMutexLocker loker(&m_brightness.m_brightnessMutex);
+        if (m_brightness.m_hasPendingRequest) {
+            return;
+        }
+        if (!m_brightness.m_hasWaitingRequest) {
+            return;
+        }
+        m_brightness.m_hasPendingRequest = true;
+        m_brightness.m_hasWaitingRequest = false;
+        QString name = m_brightness.m_monitorName;
+        double value = m_brightness.m_brightnessValue;
+        m_brightness.m_monitorName = "";
+        m_brightness.m_brightnessValue = 0;
+        loker.unlock();
+        qDebug() << "setMonitorBrightness: begin, " << name << value;
+        m_displayInter.SetAndSaveBrightness(name, value).waitForFinished();
+    });
+
+    watcher->setFuture(future);
 }
 
 void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)

@@ -119,10 +119,6 @@ void DisplayWidget::onMonitorListChanged()
 
         onMenuClicked(m_menuList->model()->index(0, 0));
     }
-
-    if (!m_model->getSystemType()) {
-        m_menuList->setRowHidden(1, true);
-    }
 }
 
 void DisplayWidget::initMenuUI()
