@@ -504,6 +504,11 @@ bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
     return false;
 }
 
+void AccountsDetailWidget::setAllGroups(const QStringList &groups)
+{
+    setAccountModel(m_userModel);
+}
+
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
 {
     QStringList curUserGroup;

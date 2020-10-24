@@ -260,6 +260,7 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
+    m_userModel->setAllGroups(m_accountsInter->GetGroups());
     for (const auto &path : userList)
         if (!m_userModel->contains(path))
             addUser(path);
