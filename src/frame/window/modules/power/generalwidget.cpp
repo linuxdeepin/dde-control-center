@@ -245,7 +245,7 @@ void GeneralWidget::setModel(const PowerModel *model)
                              "com.deepin.daemon.Display",
                              QDBusConnection::sessionBus());
     int maxBacklight = Interface.property("MaxBacklightBrightness").toInt();
-    m_sldLowerBrightness->setVisible(maxBacklight >= 100);
+    m_sldLowerBrightness->setVisible(maxBacklight >= 100 || maxBacklight == 0);
     m_sldLowerBrightness->slider()->setValue(model->powerSavingModeLowerBrightnessThreshold() / 10);
     connect(model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, this,  [ = ](const uint dLevel) {
         m_sldLowerBrightness->slider()->setValue(dLevel / 10);
@@ -255,7 +255,6 @@ void GeneralWidget::setModel(const PowerModel *model)
 
     m_swLowPowerAutoIntoSaveEnergyMode->setVisible(bStatus);
     m_autoIntoSaveEnergyMode->setVisible(bStatus);
-    m_sldLowerBrightness->setVisible(true);
 
     connect(model, &PowerModel::haveBettaryChanged, this, &GeneralWidget::onBatteryChanged);
 
