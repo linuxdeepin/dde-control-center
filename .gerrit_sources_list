@@ -1,0 +1,3 @@
+deb http://pools.uniontech.com/desktop-professional/ eagle main contrib non-free
+deb http://pools.uniontech.com/ppa/dde-eagle unstable main contrib non-free
+deb [trusted=yes] http://shuttle.corp.deepin.com/cache/repos/uos-exprimental/commit experimental main
