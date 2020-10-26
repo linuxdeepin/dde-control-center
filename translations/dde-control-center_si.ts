@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="da" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="si" version="2.1">
 <context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
         <source>Refresh</source>
-        <translation>Genopfrisk</translation>
+        <translation>නැවුම් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -12,12 +12,12 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Klik på ikon for at aktivere bluetooth</translation>
+        <translation>බ්ලූටූත් සක්‍රිය කිරීමට අයිකනය ක්ලික් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation>Opret forbindelse til andre enheder</translation>
+        <translation>වෙනත් උපාංග සමඟ සම්බන්ධ වන්න</translation>
     </message>
 </context>
 <context>
@@ -25,117 +25,117 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="190"/>
         <source>Help</source>
-        <translation>Hjælp</translation>
+        <translation>උදව්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
         <source>Accounts</source>
-        <translation>Konti</translation>
+        <translation>ගිණුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
         <source>Display</source>
-        <translation>Skærm</translation>
+        <translation>තිරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
         <source>Default Applications</source>
-        <translation>Standardprogrammer</translation>
+        <translation>පෙරනිමි යෙදවුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="362"/>
         <source>Personalization</source>
-        <translation>Personliggørelse</translation>
+        <translation>සව්‍යං උචිත සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="363"/>
         <source>Network</source>
-        <translation>Netværk</translation>
+        <translation>ජාලය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="364"/>
         <source>Notification</source>
-        <translation>Notifikation</translation>
+        <translation>දැනුම්දීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="365"/>
         <source>Sound</source>
-        <translation>Lyd</translation>
+        <translation>ශබ්දය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="366"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="982"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="984"/>
         <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
+        <translation>බ්ලූටූත්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="367"/>
         <source>Date and Time</source>
-        <translation>Dato og klokkeslæt</translation>
+        <translation>දිනය සහ වේලාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="368"/>
         <source>Power</source>
-        <translation>Strøm</translation>
+        <translation>බලය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="369"/>
         <source>Mouse</source>
-        <translation>Mus</translation>
+        <translation>මූසිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="370"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="994"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="996"/>
         <source>Drawing Tablet</source>
-        <translation>Tegneplade</translation>
+        <translation>අඳින ටැබ්ලටය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="371"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="501"/>
         <source>Keyboard and Language</source>
-        <translation>Tastatur og sprog</translation>
+        <translation>යතුරුපුවරුව සහ භාෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="372"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="1018"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="1020"/>
         <source>Updates</source>
-        <translation>Opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="373"/>
         <source>System Info</source>
-        <translation>Systeminfo</translation>
+        <translation>පද්ධති තොරතුරු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="374"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="1012"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="1014"/>
         <source>General Settings</source>
-        <translation>Generelle indstillinger</translation>
+        <translation>සාමාන්‍ය සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="445"/>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>ටච් පෑඩ්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="446"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>ට්‍රැක් පොයින්ට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="499"/>
         <source>Assistive Tools</source>
-        <translation>Assisterende værktøjer</translation>
+        <translation>උපකාරක මෙවලම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="1006"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="1008"/>
         <source>Cloud Sync</source>
-        <translation>Skysynkronisering</translation>
+        <translation>වලාකුළු සමමුහුර්තකරණය</translation>
     </message>
 </context>
 <context>
@@ -143,7 +143,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="102"/>
         <source>The name already exists</source>
-        <translation>Navnet findes allerede</translation>
+        <translation>නම දැනටමත් පවතී</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accounntfingeitem.cpp" line="143"/>
@@ -167,23 +167,23 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="153"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="227"/>
         <source>Full Name</source>
-        <translation>Fulde navn</translation>
+        <translation>සම්පූර්ණ නම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="257"/>
         <source>The full name already exists</source>
-        <translation>Det fulde navn findes allerede</translation>
+        <translation>සම්පූර්ණ නම දැනටමත් පවතී</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="265"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="547"/>
         <source>The full name is too long</source>
-        <translation>Det fulde navn er for langt</translation>
+        <translation>සම්පූර්ණ නම දිග වැඩිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="299"/>
         <source>Validity Days</source>
-        <translation>Dage for gyldighed</translation>
+        <translation>වලංගු දින</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="302"/>
@@ -192,41 +192,41 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="350"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="367"/>
         <source>Always</source>
-        <translation>Altid</translation>
+        <translation>සැමවිටම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="360"/>
         <source>Please input a number between 1-99999</source>
-        <translation>Indtast venligst et tal mellem 1-99999</translation>
+        <translation>කරුණාකර 1-99999 අතර අංකයක් ඇතුළත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="400"/>
         <source>Change Password</source>
-        <translation>Skift adgangskode</translation>
+        <translation>මුරපදය වෙනස් කරන්න</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="402"/>
         <source>Delete Account</source>
-        <translation>Slet konto</translation>
+        <translation>ගිණුම මකා දමන්න</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="405"/>
         <source>Auto Login</source>
-        <translation>Automatisk login</translation>
+        <translation>ස්වයංක්‍රීය පිවිසුම</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="409"/>
         <source>Login Without Password</source>
-        <translation>Log ind uden adgangskode</translation>
+        <translation>මුරපදය නොමැතිව පිවිසීම</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="498"/>
         <source>Group</source>
-        <translation>Gruppe</translation>
+        <translation>කණ්ඩායම</translation>
     </message>
 </context>
 <context>
@@ -234,7 +234,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="85"/>
         <source>Accounts</source>
-        <translation>Konti</translation>
+        <translation>ගිණුම්</translation>
     </message>
 </context>
 <context>
@@ -243,20 +243,20 @@
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="58"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="59"/>
         <source>Create Account</source>
-        <translation>Opret konto</translation>
+        <translation>ගිණුමක් තනන්න</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="140"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="150"/>
         <source>Administrator</source>
-        <translation>Administrator</translation>
+        <translation>පරිපාලක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="142"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="152"/>
         <source>Standard User</source>
-        <translation>Standardbruger</translation>
+        <translation>සම්මත පරිශීලකයා</translation>
     </message>
 </context>
 <context>
@@ -264,13 +264,13 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="135"/>
         <source>Done</source>
-        <translation>Færdig</translation>
+        <translation>සම්පූර්ණයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
@@ -279,19 +279,19 @@
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="191"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="207"/>
         <source>Scan Again</source>
-        <translation>Skan igen</translation>
+        <translation>නැවතත් ස්කෑන් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="174"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="189"/>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="205"/>
         <source>Scan Suspended</source>
-        <translation>Skanning suspenderet</translation>
+        <translation>ස්කෑන් අත්හිටුවීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="205"/>
         <source>Scan time expired</source>
-        <translation type="unfinished"/>
+        <translation>ස්කෑන් කාලය කල් ඉකුත් විය</translation>
     </message>
 </context>
 <context>
@@ -299,7 +299,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="168"/>
         <source>Images</source>
-        <translation>Billeder</translation>
+        <translation>රූප</translation>
     </message>
 </context>
 <context>
@@ -307,101 +307,101 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="55"/>
         <source>Group</source>
-        <translation>Gruppe</translation>
+        <translation>කණ්ඩායම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="364"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
         <source>Create</source>
-        <translation>Opret</translation>
+        <translation>සාදන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="152"/>
         <source>New Account</source>
-        <translation>Ny konto</translation>
+        <translation>නව ගිණුම</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
         <source>Account Type</source>
-        <translation>Kontotype</translation>
+        <translation>පරිශීලක ගිණුම් වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="173"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="179"/>
         <source>Full Name</source>
-        <translation>Fulde navn</translation>
+        <translation>සම්පූර්ණ නම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="185"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="191"/>
         <source>Repeat Password</source>
-        <translation>Gentag adgangskode</translation>
+        <translation>මුරපදය නැවත ඇතුලත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
         <source>Standard</source>
-        <translation>Standard</translation>
+        <translation>සම්මත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="262"/>
         <source>Administrator</source>
-        <translation>Administrator</translation>
+        <translation>පරිපාලක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="263"/>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>කැමති පරිදි සකසන ලද</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="267"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="268"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
         <source>optional</source>
-        <translation>valgfri</translation>
+        <translation>විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
         <source>Go to Settings</source>
-        <translation>Gå til Indstillinger</translation>
+        <translation>සැකසීම් වෙත යන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="527"/>
         <source>Passwords do not match</source>
-        <translation>Adgangskoderne er ikke ens</translation>
+        <translation>මුරපද නොගැලපේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
         <source>Password cannot be empty</source>
-        <translation>Adgangskoden må ikke være tom</translation>
+        <translation>මුරපදය හිස් විය නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="541"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදයේ අවම වශයෙන් අක්ෂර %1 ක් තිබිය යුතු අතර, පවතින අක්ෂර වර්ග හතරෙන් අවම වශයෙන් %2 ක් වත් අඩංගු විය යුතුය: කුඩා අකුරු, ලොකු අකුරු, අංක සහ සංකේත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
         <source>Password must be no more than %1 characters</source>
-        <translation>Adgangskoden må højst være %1 tegn langt</translation>
+        <translation>මුරපදය අක්ෂර %1 ට නොඅඩු විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
@@ -411,37 +411,37 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="553"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Adgangskoden må kun indeholde engelske bogstaver (der skelnes mellem store og små bogstaver), tal eller specialtegn (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>මුරපදයේ ඉංග්‍රීසි අකුරු (සිද්ධි සංවේදී), අංක හෝ විශේෂ සංකේත (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) අඩංගු විය යුතුය.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
         <source>Password should not be the repeated or reversed username</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදය නැවත නැවත යෙදෙන හෝ ආපසු හරවන ලද පරිශීලක නාමය නොවිය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="581"/>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>Brugernavnet skal være mellem 3-32 tegn langt</translation>
+        <translation>පරිශීලක නාමය අක්ෂර 3 ත් 32 ත් අතර විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="588"/>
         <source>The first character must be a letter or number</source>
-        <translation>Det første tegn skal være et bogstav eller et tal</translation>
+        <translation>පළමු අක්‍ෂරය අකුරක් හෝ අංකයක් විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="594"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>ඔබගේ පරිශීලක නාමයට අංක පමණක් තිබිය යුතු නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="612"/>
         <source>The full name already exists</source>
-        <translation>Det fulde navn findes allerede</translation>
+        <translation>සම්පූර්ණ නම දැනටමත් පවතී</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="619"/>
         <source>The full name is too long</source>
-        <translation>Det fulde navn er for langt</translation>
+        <translation>සම්පූර්ණ නම දිග වැඩිය</translation>
     </message>
 </context>
 <context>
@@ -450,27 +450,27 @@
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="44"/>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="87"/>
         <source>Edit</source>
-        <translation>Rediger</translation>
+        <translation>සංස්කරණය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="47"/>
         <source>Fingerprint Password</source>
-        <translation>Fingeraftryksadgangskode</translation>
+        <translation>ඇඟිලි සලකුණු මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
         <source>You can add up to 10 fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>ඔබට ඇඟිලි සලකුණු 10 ක් දක්වා එක් කළ හැකිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="85"/>
         <source>Done</source>
-        <translation>Færdig</translation>
+        <translation>සම්පූර්ණයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="180"/>
         <source>Add Fingerprint</source>
-        <translation>Tilføj fingeraftryk</translation>
+        <translation>ඇඟිලි සලකුණ එක් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -478,50 +478,50 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="59"/>
         <source>Change Password</source>
-        <translation>Skift adgangskode</translation>
+        <translation>මුරපදය වෙනස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
         <source>Current Password</source>
-        <translation>Nuværende adgangskode</translation>
+        <translation>වත්මන් මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
         <source>New Password</source>
-        <translation>Ny adgangskode</translation>
+        <translation>නව මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Repeat Password</source>
-        <translation>Gentag adgangskode</translation>
+        <translation>මුරපදය නැවත ඇතුලත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="167"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="129"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="131"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="133"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="166"/>
         <source>Go to Settings</source>
-        <translation>Gå til Indstillinger</translation>
+        <translation>සැකසීම් වෙත යන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="192"/>
         <source>Wrong password</source>
-        <translation>Forkert password</translation>
+        <translation>වැරදි මුරපදයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="196"/>
@@ -531,32 +531,32 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
         <source>Password must be between %1 and %2 characters</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදය අක්ෂර %1 සහ %2 අතර විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="237"/>
         <source>The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදයේ අවම වශයෙන් අක්ෂර 6 ක් තිබිය යුතු අතර, පවතින අක්ෂර වර්ග හතරෙන් අවම වශයෙන් 2 ක් වත් අඩංගු විය යුතුය: කුඩා අකුරු, ලොකු අකුරු, අංක සහ සංකේත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="239"/>
         <source>Password should not be the repeated or reversed username</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදය නැවත නැවත යෙදෙන හෝ ආපසු හරවන ලද පරිශීලක නාමය නොවිය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="255"/>
         <source>Password must be no more than %1 characters</source>
-        <translation>Adgangskoden må højst være %1 tegn langt</translation>
+        <translation>මුරපදය අක්ෂර %1 ට නොඅඩු විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="270"/>
         <source>Passwords do not match</source>
-        <translation>Adgangskoderne er ikke ens</translation>
+        <translation>මුරපද නොගැලපේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
         <source>New password should differ from the current one</source>
-        <translation>Ny adgangskode bør afvige fra den nuværende</translation>
+        <translation>නව මුරපදය වත්මන් එකට වඩා වෙනස් විය යුතුය</translation>
     </message>
 </context>
 <context>
@@ -564,19 +564,19 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="62"/>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>මගේ උපාංග</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="66"/>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>වෙනත් උපාංග</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="94"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
-        <translation>Aktivér Bluetooth for at finde enheder i nærheden (højttalere, tastatur, mus)</translation>
+        <translation>ආසන්න උපාංග (ස්පීකර්, යතුරුපුවරුව, මූසිකය) සොයා ගැනීමට බ්ලූටූත් සක්‍රීය කරන්න.</translation>
     </message>
 </context>
 <context>
@@ -584,7 +584,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="95"/>
         <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
+        <translation>බ්ලූටූත්</translation>
     </message>
 </context>
 <context>
@@ -592,28 +592,28 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
         <source>Ignore this device</source>
-        <translation>Ignorer enheden</translation>
+        <translation>මෙම උපාංගය නොසලකා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="47"/>
         <source>Disconnect</source>
-        <translation>Afbryd</translation>
+        <translation>විසන්ධි කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="48"/>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="135"/>
         <source>Connect</source>
-        <translation>Opret forbindelse</translation>
+        <translation>සම්බන්ධ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="123"/>
         <source>Connecting</source>
-        <translation>Opretter forbindelse</translation>
+        <translation>සම්බන්ධ වෙමින් පවතී</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="129"/>
         <source>Disconnecting</source>
-        <translation type="unfinished"/>
+        <translation>විසන්ධි කරමින්</translation>
     </message>
 </context>
 <context>
@@ -621,12 +621,12 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="243"/>
         <source>Connected</source>
-        <translation>Tilsluttet</translation>
+        <translation>සම්බන්ධයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="245"/>
         <source>Not connected</source>
-        <translation>Ikke tilsluttet</translation>
+        <translation>සම්බන්ධතා නොමැත</translation>
     </message>
 </context>
 <context>
@@ -634,34 +634,34 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="80"/>
         <source>Updating...</source>
-        <translation>Opdaterer...</translation>
+        <translation>යාවත්කාලීන වෙමින් ...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="91"/>
         <source>Startup Delay</source>
-        <translation>Opstartsforsinkelse</translation>
+        <translation>ආරම්භක ප්‍රමාදය</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="95"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>තේමාව</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="97"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Klik på valgmuligheden i opstartsmenuen for at indstille den som den første opstart, og trække og slippe et billede, for at skifte baggrunden</translation>
+        <translation>පළමු ඇරඹුම ලෙස සැකසීමට ඇරඹුම් මෙනුවේ ඇති විකල්පය ක්ලික් කරන්න, පසුබිම වෙනස් කිරීම සඳහා පින්තූරයක් ඇද අතහරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Slå tema til for at vise den i opstartsmenuen</translation>
+        <translation>ඇරඹුම් මෙනුවේ දිස්වන තේමාව මාරු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="125"/>
         <source>Boot Menu</source>
-        <translation>Opstartsmenu</translation>
+        <translation>ඇරඹුම් මෙනුව</translation>
     </message>
 </context>
 <context>
@@ -670,12 +670,12 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="67"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="69"/>
         <source>Boot Menu</source>
-        <translation>Opstartsmenu</translation>
+        <translation>ඇරඹුම් මෙනුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="89"/>
         <source>General Settings</source>
-        <translation>Generelle indstillinger</translation>
+        <translation>සාමාන්‍ය සැකසුම්</translation>
     </message>
 </context>
 <context>
@@ -683,25 +683,25 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="76"/>
         <source>Boot Menu</source>
-        <translation>Opstartsmenu</translation>
+        <translation>ඇරඹුම් මෙනුව</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="90"/>
         <source>Developer Mode</source>
-        <translation>Udviklertilstand</translation>
+        <translation>සංවර්ධක ප්‍රකාරය</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="95"/>
         <source>User Experience Program</source>
-        <translation>Brugeroplevelsesprogram</translation>
+        <translation>පරිශීලක අත්දැකීම් වැඩසටහන</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="99"/>
         <source>Tablet Mode</source>
-        <translation>Tablettilstand</translation>
+        <translation>ටැබ්ලටයේ ප්‍රකාරය</translation>
     </message>
 </context>
 <context>
@@ -710,7 +710,7 @@
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="93"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="105"/>
         <source>Failed to get root access</source>
-        <translation>Det lykkedes ikke at få root-adgang</translation>
+        <translation>මූල ප්‍රවේශය ලබා ගැනීමට අපොහොසත් විය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="95"/>
@@ -720,37 +720,37 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
         <source>Cannot read your PC information</source>
-        <translation>Kan ikke læse din PC-information</translation>
+        <translation>ඔබේ පරිගණක තොරතුරු කියවිය නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="99"/>
         <source>No network connection</source>
-        <translation>Ingen netværksforbindelse</translation>
+        <translation>ජාල සම්බන්ධතාවයක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="101"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Indlæsning af certifikat mislykkedes, kan ikke få root-adgang</translation>
+        <translation>සහතික ලබාගැනීම අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="103"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Bekræftelse af underskrift mislykkedes, kan ikke få root-adgang</translation>
+        <translation>අත්සන සත්‍යාපනය අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="241"/>
         <source>Agree and Join User Experience Program</source>
-        <translation>Accepter og deltag i vores brugeroplevelsesprogram</translation>
+        <translation>පරිශීලක අත්දැකීම් වැඩසටහනට එකඟ වී සම්බන්ධ වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="303"/>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>Ansvarsfraskrivelse af udvikler-tilstanden</translation>
+        <translation>සංවර්ධක ප්‍රකාරයේ වියාචනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="304"/>
         <source>Agree and Request Root Access</source>
-        <translation>Accepter og anmod om root-adgang</translation>
+        <translation>එකඟ වෙමින්  මූල ප්‍රවේශය ඉල්ලා සිටින්න</translation>
     </message>
 </context>
 <context>
@@ -758,17 +758,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="64"/>
         <source>Request Root Access</source>
-        <translation>Anmod om root-adgang</translation>
+        <translation>මූල ප්‍රවේශය ඉල්ලා සිටින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="73"/>
         <source>Online</source>
-        <translation>Online</translation>
+        <translation>මාර්ගගතයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="74"/>
         <source>Offline</source>
-        <translation>Offline</translation>
+        <translation>මාර්ගගතව නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
@@ -779,32 +779,32 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
         <source>Next</source>
-        <translation>Næste</translation>
+        <translation>ඊළඟ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="99"/>
         <source>Export PC Info</source>
-        <translation>Eksportér PC-info</translation>
+        <translation>පරිගණක තොරතුරු නිර්යාත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="100"/>
         <source>Import Certificate</source>
-        <translation>Importér certifikat</translation>
+        <translation>සහතිකය ආයාත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="126"/>
         <source>1. Export your PC information</source>
-        <translation>1. Eksportér din PC-information</translation>
+        <translation>1. ඔබේ පරිගණක තොරතුරු නිර්යාත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="127"/>
         <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
-        <translation>2. Gå til https://www.chinauos.com/developMode for at downloade et offlinecertifikat</translation>
+        <translation>2. මාර්ගගතවීම අනවශ්‍යය සහතිකයක් බාගත කිරීම සඳහා https://www.chinauos.com/developMode වෙත යන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="128"/>
         <source>3. Import the certificate</source>
-        <translation>3. Importér certifikatet</translation>
+        <translation>3. සහතිකය ආයාත කරන්න</translation>
     </message>
 </context>
 <context>
@@ -813,18 +813,18 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="56"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="202"/>
         <source>Request Root Access</source>
-        <translation>Anmod om root-adgang</translation>
+        <translation>මූල ප්‍රවේශය ඉල්ලා සිටින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>Udviklertilstand gør det muligt for dig at få root-rettigheder, installere og køre programmer. som ikke er underskrevet, der ikke vises i programbutikken, men din systemintegriteten kan også tage skade. Vær venligst forsigtig når du bruger den.</translation>
+        <translation>සංවර්ධක ප්‍රකාරය මඟින් ඔබට මූල වරප්‍රසාද ලබා ගැනීමට, යෙදුම් වෙළඳසැලේ ලැයිස්තුගත කර නොමැති සහතික නොකළ යෙදුම් ස්ථාපනය කිරීමට සහ ක්‍රියාත්මක කිරීමට හැකියාව ලබා දෙයි, නමුත් මේ නිසා ඔබේ පද්ධතියේ අඛණ්ඩතාවයටද හානි සිදුවිය හැකිය, කරුණාකර එය ප්‍රවේශමෙන් භාවිතා කරන්න.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="100"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="112"/>
         <source>Failed to get root access</source>
-        <translation>Det lykkedes ikke at få root-adgang</translation>
+        <translation>මූල ප්‍රවේශය ලබා ගැනීමට අපොහොසත් විය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="102"/>
@@ -834,22 +834,22 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="104"/>
         <source>Cannot read your PC information</source>
-        <translation>Kan ikke læse din PC-information</translation>
+        <translation>ඔබේ පරිගණක තොරතුරු කියවිය නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="106"/>
         <source>No network connection</source>
-        <translation>Ingen netværksforbindelse</translation>
+        <translation>ජාල සම්බන්ධතාවයක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="108"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Indlæsning af certifikat mislykkedes, kan ikke få root-adgang</translation>
+        <translation>සහතික ලබාගැනීම අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="110"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Bekræftelse af underskrift mislykkedes, kan ikke få root-adgang</translation>
+        <translation>අත්සන සත්‍යාපනය අසාර්ථක විය, මූල ප්‍රවේශය ලබා ගත නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="123"/>
@@ -859,22 +859,22 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="156"/>
         <source>To make some features effective, a restart is required. Restart now?</source>
-        <translation>Nogle funktionaliteter kræver en genstart. Genstart nu?</translation>
+        <translation>සමහර විශේෂාංග ක්‍රියාත්මක කිරීමට, නැවත ආරම්භ කිරීම අවශ්‍ය වේ. දැන් නැවත ආරම්භ කරන්නද?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="157"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="157"/>
         <source>Restart Now</source>
-        <translation>Genstart nu</translation>
+        <translation>දැන්ම නැවත අරඹන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="195"/>
         <source>Root Access Allowed</source>
-        <translation>Root-adgang tilladt</translation>
+        <translation>මූල ප්‍රවේශයට අවසර ඇත</translation>
     </message>
 </context>
 <context>
@@ -882,7 +882,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="46"/>
         <source>Join User Experience Program</source>
-        <translation>Deltag i vores brugeroplevelsesprogram</translation>
+        <translation>පරිශීලක අත්දැකීම් වැඩසටහනට සම්බන්ධ වන්න</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
@@ -897,12 +897,12 @@
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="78"/>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
         <source>AM</source>
-        <translation>AM</translation>
+        <translation>පෙ.ව.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="181"/>
         <source>PM</source>
-        <translation>PM</translation>
+        <translation>ප.ව.</translation>
     </message>
 </context>
 <context>
@@ -910,34 +910,34 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="82"/>
         <source>Auto Sync</source>
-        <translation>Automatisk synkronisering</translation>
+        <translation>ස්වයංක්‍රීය සමමුහුර්තකරණය</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="90"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
         <source>Confirm</source>
-        <translation>Bekræft</translation>
+        <translation>තහවුරු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation>සේවාදායකය</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="151"/>
         <source>Address</source>
-        <translation>Adresse</translation>
+        <translation>ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="153"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="161"/>
@@ -950,7 +950,7 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="362"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="410"/>
         <source>Customize</source>
-        <translation>Tilpas</translation>
+        <translation>කැමති පරිදි සකසන්න</translation>
     </message>
 </context>
 <context>
@@ -959,19 +959,19 @@
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="66"/>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="67"/>
         <source>Year</source>
-        <translation>År</translation>
+        <translation>වර්ෂය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="71"/>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="72"/>
         <source>Month</source>
-        <translation>Måned</translation>
+        <translation>මාසය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="76"/>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="77"/>
         <source>Day</source>
-        <translation>Dag</translation>
+        <translation>දිනය</translation>
     </message>
 </context>
 <context>
@@ -979,7 +979,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="72"/>
         <source>Date and Time</source>
-        <translation>Dato og klokkeslæt</translation>
+        <translation>දිනය සහ වේලාව</translation>
     </message>
 </context>
 <context>
@@ -987,18 +987,18 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="61"/>
         <source>Timezone List</source>
-        <translation>Tidszoneliste</translation>
+        <translation>කාල කලාප ලැයිස්තුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
         <source>Time Settings</source>
-        <translation>Tidsindstillinger</translation>
+        <translation>වේලා සැකසුම්</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="85"/>
         <source>24-hour Time</source>
-        <translation>24-timers klokkeslæt</translation>
+        <translation>පැය-24 වේලාව</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -1007,13 +1007,13 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="42"/>
         <source>Change System Timezone</source>
-        <translation>Skift systemets tidszone</translation>
+        <translation>පද්ධති කාල කලාපය වෙනස් කරන්න</translation>
         <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="46"/>
         <source>System Timezone</source>
-        <translation>Systemets tidszone</translation>
+        <translation>පද්ධති කාල කලාපය</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -1022,14 +1022,14 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="48"/>
         <source>Timezone List</source>
-        <translation>Tidszoneliste</translation>
+        <translation>කාල කලාප ලැයිස්තුව</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="68"/>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="69"/>
         <source>Add Timezone</source>
-        <translation>Tilføj tidszone</translation>
+        <translation>කාල කලාපය එක් කරන්න</translation>
         <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
@@ -1039,18 +1039,18 @@
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="75"/>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="76"/>
         <source>Add Application</source>
-        <translation>Tilføj program</translation>
+        <translation>යෙදවුම එක් කරන්න</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="258"/>
         <source>Open Desktop file</source>
-        <translation>Åbn skrivebordsfil</translation>
+        <translation>ඩෙස්ක්ටොප් ගොනුව විවෘත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="321"/>
         <source>Invalid</source>
-        <translation>Ugyldig</translation>
+        <translation>වලංගු නොවේ</translation>
     </message>
 </context>
 <context>
@@ -1058,7 +1058,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="85"/>
         <source>Default Applications</source>
-        <translation>Standardprogrammer</translation>
+        <translation>පෙරනිමි යෙදවුම්</translation>
     </message>
 </context>
 <context>
@@ -1066,49 +1066,49 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="51"/>
         <source>Webpage</source>
-        <translation>Webside</translation>
+        <translation>වෙබ් පිටුව</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
         <source>Mail</source>
-        <translation>E-mail</translation>
+        <translation>තැපෑල</translation>
         <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="55"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>වගන්තිය</translation>
         <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="57"/>
         <source>Music</source>
-        <translation>Musik</translation>
+        <translation>සංගීතය</translation>
         <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>වීඩියෝ / දෘශ්‍ය</translation>
         <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="61"/>
         <source>Picture</source>
-        <translation>Billede</translation>
+        <translation>පින්තූරය</translation>
         <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="63"/>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation>ටර්මිනලය</translation>
         <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="95"/>
         <source>Default Applications</source>
-        <translation>Standardprogrammer</translation>
+        <translation>පෙරනිමි යෙදවුම්</translation>
     </message>
 </context>
 <context>
@@ -1116,18 +1116,18 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="61"/>
         <source>Night Shift</source>
-        <translation>Natteskift</translation>
+        <translation>රාත්‍රී වැඩ මුරය</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="65"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>Skærmens farvetone justeres automatisk i henhold til din placering</translation>
+        <translation>ඔබගේ ස්ථානය අනුව තිරයේ පැහැය ස්වයංක්‍රීයව සකසනු ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="75"/>
         <source>Auto Brightness</source>
-        <translation>Automatisk lysstyrke</translation>
+        <translation>ස්වයං දීප්තිය</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
 </context>
@@ -1136,27 +1136,27 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="102"/>
         <source>Displays</source>
-        <translation>Skærme</translation>
+        <translation>තිර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="108"/>
         <source>Resolution</source>
-        <translation>Opløsning</translation>
+        <translation>විභේදනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="116"/>
         <source>Refresh Rate</source>
-        <translation>Opdateringshastighed</translation>
+        <translation>නැවුම්කරණ අනුපාතය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="145"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="149"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="310"/>
@@ -1168,17 +1168,17 @@
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="320"/>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="388"/>
         <source>Recommended</source>
-        <translation>Anbefalet</translation>
+        <translation>නිර්දේශිතයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="441"/>
         <source>Main Screen</source>
-        <translation>Primære skærm</translation>
+        <translation>ප්‍රධාන තිරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="466"/>
         <source>Monitor Connected (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>මොනිටරයන් සම්බන්ධයි (බහු)</translation>
     </message>
 </context>
 <context>
@@ -1186,13 +1186,13 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="84"/>
         <source>Display</source>
-        <translation>Skærm</translation>
+        <translation>තිරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="142"/>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="145"/>
         <source>Multiple Displays</source>
-        <translation>Flere skærme</translation>
+        <translation>බහු තිර</translation>
     </message>
 </context>
 <context>
@@ -1200,39 +1200,39 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="132"/>
         <source>Multiple Displays</source>
-        <translation>Flere skærme</translation>
+        <translation>බහු තිර</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="134"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="139"/>
         <source>Brightness</source>
-        <translation>Lysstyrke</translation>
+        <translation>දීප්තිය</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="138"/>
         <source>Resolution</source>
-        <translation>Opløsning</translation>
+        <translation>විභේදනය</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="144"/>
         <source>Display Scaling</source>
-        <translation>Skærmskalering</translation>
+        <translation>දර්ශන පරිමාණය</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="151"/>
         <source>Refresh Rate</source>
-        <translation>Opdateringshastighed</translation>
+        <translation>නැවුම්කරණ අනුපාතය</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="193"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="194"/>
         <source>Rotate Screen</source>
-        <translation>Roter skærm</translation>
+        <translation>තිරය කරකවන්න</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -1241,37 +1241,37 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="52"/>
         <source>Custom Settings</source>
-        <translation>Brugerdefinerede indstillinger</translation>
+        <translation>අභිරුචි සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="143"/>
         <source>Duplicate</source>
-        <translation>Duplikér</translation>
+        <translation>අනුපිටපත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="143"/>
         <source>Extend</source>
-        <translation>Udvid</translation>
+        <translation>දීර්ඝ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="146"/>
         <source>Show the same image on other screens</source>
-        <translation>Vis det samme billede på de andre skærme</translation>
+        <translation>එකම රූපය අනෙක් තිරවල ද පෙන්වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="147"/>
         <source>Expand the desktop across the screens</source>
-        <translation>Udvid skrivebordet henover skærmene</translation>
+        <translation>තිර හරහා ඩෙස්ක්ටොප් එක පුළුල් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="151"/>
         <source>Customize</source>
-        <translation>Tilpas</translation>
+        <translation>කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="152"/>
         <source>Configure the display according to your needs</source>
-        <translation>Konfigurer skærmen som du har brug for</translation>
+        <translation>ඔබගේ අවශ්‍යතා අනුව දර්ශනය වින්‍යාසය සකස් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -1284,7 +1284,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="83"/>
         <source>Recommended</source>
-        <translation>Anbefalet</translation>
+        <translation>නිර්දේශිතයි</translation>
     </message>
 </context>
 <context>
@@ -1292,7 +1292,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
         <source>Recommended</source>
-        <translation>Anbefalet</translation>
+        <translation>නිර්දේශිතයි</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
@@ -1301,17 +1301,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="178"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation>Venstreklik for at dreje, højreklik for at gendanne og afslutte. Tryk på Ctrl+S for at gemme.</translation>
+        <translation>භ්‍රමණය වීමට වම ක්ලික් කරන්න, ප්‍රතිස්ථාපනය කිරීමට සහ පිටවීමට දකුණ ක්ලික් කරන්න, සුරැකීමට Ctrl + S ඔබන්න.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="180"/>
         <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation>Højreklik for at dreje, venstreklik for at gendanne og afslutte. Tryk på Ctrl+S for at gemme.</translation>
+        <translation>භ්‍රමණය වීමට දකුණ ක්ලික් කරන්න, ප්‍රතිස්ථාපනය කිරීමට සහ පිටවීමට වම ක්ලික් කරන්න, සුරැකීමට Ctrl + S ඔබන්න.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="183"/>
         <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation>Gem skærmindstillingerne? Hvis der ikke foretages nogen handling, så gendannes skærmen i %1s.</translation>
+        <translation>දර්ශන සැකසුම් සුරකින්නද? කිසිදු ප්‍රතිචාරයක් නොලැබේ නම්, දර්ශනය තත්පර %1 තුළ ප්‍රතිස්ථාපනය වේ.</translation>
     </message>
 </context>
 <context>
@@ -1320,12 +1320,12 @@
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="53"/>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="130"/>
         <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation>Nogle programmer kan ikke skaleres med de angivne indstillinger i miljø med flere skærme.</translation>
+        <translation>සමහර යෙදුම් බහු-දර්ශන පරිසරයේ නිශ්චිත සැකසුම් සමඟ පරිමාණය කළ නොහැක.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="126"/>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>Skærmen understøtter kun 100% skærmskalering</translation>
+        <translation>මොනිටරය සහය දක්වන්නේ 100% දර්ශන පරිමාණයට පමණි</translation>
     </message>
 </context>
 <context>
@@ -1333,37 +1333,37 @@
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="60"/>
         <source>Select your touch screen</source>
-        <translation type="unfinished"/>
+        <translation>ඔබගේ ස්පර්ශ තිරය තෝරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="62"/>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>සම්බන්ධ වූ විට ඔබගේ ස්පර්ශ තිරය තෝරන්න හෝ එය මෙහි සකසන්න.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="79"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="80"/>
         <source>Confirm</source>
-        <translation>Bekræft</translation>
+        <translation>තහවුරු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="133"/>
         <source>Touch Screen - %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>ස්පර්ශ තිරය -%1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="178"/>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>ස්පර්ශ තිර සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="179"/>
         <source>The settings of touch screen %1 changed</source>
-        <translation type="unfinished"/>
+        <translation>ස්පර්ශ තිරය %1 හි සැකසුම් වෙනස් විය</translation>
     </message>
 </context>
 <context>
@@ -1371,39 +1371,39 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
-        <translation>Tilføj brugerdefineret genvej</translation>
+        <translation>අභිරුචි කෙටිමං එක් කරන්න</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="66"/>
         <source>Name</source>
-        <translation>Navn</translation>
+        <translation>නම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="70"/>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="83"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
         <source>Command</source>
-        <translation>Kommando</translation>
+        <translation>විධානය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="101"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="103"/>
         <source>Add</source>
-        <translation>Tilføj</translation>
+        <translation>එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="134"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Genvejen er i konflikt med %1. Klik på Tilføj, for at bruge genvejen med det samme</translation>
+        <translation>මෙම කෙටිමඟ %1 සමඟ ගැටළු ඇතිකරයි, මෙම කෙටිමඟ වහාම එකතු කිරීමට-එක් කරන්න යන්න මත ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -1411,51 +1411,51 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="49"/>
         <source>Repeat Delay</source>
-        <translation>Gentagelsesforsinkelse</translation>
+        <translation>පුනරාවර්තන ප්‍රමාදය</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="58"/>
         <source>Short</source>
-        <translation>Kort</translation>
+        <translation>කෙටි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="59"/>
         <source>Long</source>
-        <translation>Lang</translation>
+        <translation>දිග</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="63"/>
         <source>Repeat Rate</source>
-        <translation>Gentagelseshastighed</translation>
+        <translation>පුනරාවර්තන අගය</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="73"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="74"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="80"/>
         <source>Test here</source>
-        <translation>Test her</translation>
+        <translation>මෙහිදී පිරික්සන්න</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="102"/>
         <source>Numeric Keypad</source>
-        <translation>Numerisk tastatur</translation>
+        <translation>සංඛ්‍යා යතුරුපෑඩය</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="107"/>
         <source>Caps Lock Prompt</source>
-        <translation>Caps Lock-prompt</translation>
+        <translation>කැපිටල් අකුරු විමසුම</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
 </context>
@@ -1464,39 +1464,39 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="57"/>
         <source>Keyboard Layout</source>
-        <translation>Tastaturlayout</translation>
+        <translation>යතුරුපුවරු පිරිසැලසුම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="62"/>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="215"/>
         <source>Edit</source>
-        <translation>Rediger</translation>
+        <translation>සංස්කරණය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="80"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Skift layouts (flere)</translation>
+        <translation>පිරිසැලසුම් මාරු කරන්න (බහු)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="110"/>
         <source>Applies to</source>
-        <translation>Gælder for</translation>
+        <translation>සඳහා අදාළ වේ</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="112"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation>පද්ධතිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="112"/>
         <source>Application</source>
-        <translation>Program</translation>
+        <translation>යෙදවුම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="195"/>
         <source>Done</source>
-        <translation>Færdig</translation>
+        <translation>සම්පූර්ණයි</translation>
     </message>
 </context>
 <context>
@@ -1504,12 +1504,12 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="126"/>
         <source>Keyboard and Language</source>
-        <translation>Tastatur og sprog</translation>
+        <translation>යතුරුපුවරුව සහ භාෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="243"/>
         <source>Custom Shortcut</source>
-        <translation>Brugerdefineret genvej</translation>
+        <translation>අභිරුචි කෙටිමඟ</translation>
     </message>
 </context>
 <context>
@@ -1517,24 +1517,24 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="51"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="53"/>
         <source>Keyboard Layout</source>
-        <translation>Tastaturlayout</translation>
+        <translation>යතුරුපුවරු පිරිසැලසුම</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="55"/>
         <source>System Language</source>
-        <translation>Systemets sprog</translation>
+        <translation>පද්ධති භාෂාව</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="57"/>
         <source>Shortcuts</source>
-        <translation>Genveje</translation>
+        <translation>කෙටිමං</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
 </context>
@@ -1543,37 +1543,37 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="60"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation>පද්ධතිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="71"/>
         <source>Window</source>
-        <translation>Vindue</translation>
+        <translation>කවුළුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="77"/>
         <source>Workspace</source>
-        <translation>Arbejdsområde</translation>
+        <translation>වැඩ අවකාශය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="83"/>
         <source>Assistive Tools</source>
-        <translation>Assisterende værktøjer</translation>
+        <translation>උපකාරක මෙවලම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="97"/>
         <source>Custom Shortcut</source>
-        <translation>Brugerdefineret genvej</translation>
+        <translation>අභිරුචි කෙටිමඟ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="127"/>
         <source>Restore Defaults</source>
-        <translation>Gendan standarder</translation>
+        <translation>පෙරනිමි නැවත පිහිටුවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="160"/>
         <source>Shortcut</source>
-        <translation>Genvej</translation>
+        <translation>කෙටිමඟ</translation>
     </message>
 </context>
 <context>
@@ -1581,17 +1581,17 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="67"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="69"/>
         <source>Add</source>
-        <translation>Tilføj</translation>
+        <translation>එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="74"/>
         <source>Add System Language</source>
-        <translation>Tilføj systemsprog</translation>
+        <translation>පද්ධති භාෂාවක් එක් කරන්න</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
 </context>
@@ -1600,18 +1600,18 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="60"/>
         <source>Language List</source>
-        <translation>Sprogliste</translation>
+        <translation>භාෂා ලැයිස්තුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="146"/>
         <source>Edit</source>
-        <translation>Rediger</translation>
+        <translation>සංස්කරණය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="126"/>
         <source>Done</source>
-        <translation>Færdig</translation>
+        <translation>සම්පූර්ණයි</translation>
     </message>
 </context>
 <context>
@@ -1619,36 +1619,36 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="46"/>
         <source>Left Hand</source>
-        <translation>Venstrehåndet</translation>
+        <translation>වම් අත</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="48"/>
         <source>Disable touchpad while typing</source>
-        <translation>Deaktivér touchpad mens der skrives</translation>
+        <translation>ටයිප් කිරීමේදී ටච් පෑඩ් අක්‍රීය කරන්න</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="50"/>
         <source>Scrolling Speed</source>
-        <translation>Rullehastighed</translation>
+        <translation>අනුචලන වේගය</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="52"/>
         <source>Double-click Speed</source>
-        <translation>Hastighed for dobbeltklik</translation>
+        <translation>ද්විත්ව ක්ලික් කිරීමේ වේගය</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="68"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="69"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
 </context>
 <context>
@@ -1656,17 +1656,17 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="61"/>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>ටච් පෑඩ්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="65"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>ට්‍රැක් පොයින්ට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="150"/>
         <source>Mouse</source>
-        <translation>Mus</translation>
+        <translation>මූසිකය</translation>
     </message>
 </context>
 <context>
@@ -1674,7 +1674,7 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="47"/>
         <source>Pointer Speed</source>
-        <translation>Markørhastighed</translation>
+        <translation>දර්ශක වේගය</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
@@ -1682,26 +1682,26 @@
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="52"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="53"/>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Deaktivér touchpad når der tilsluttes en mus</translation>
+        <translation>මූසිකයක් සම්බන්ධ වූ විට ටච් පෑඩ් අක්‍රීය කරන්න</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="56"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="57"/>
         <source>Natural Scrolling</source>
-        <translation>Naturlig rulning</translation>
+        <translation>ස්වාභාවික අනුචලනය</translation>
         <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="60"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="61"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
 </context>
 <context>
@@ -1709,25 +1709,25 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="57"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="59"/>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="69"/>
         <source>Mouse</source>
-        <translation>Mus</translation>
+        <translation>මූසිකය</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="61"/>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>ටච් පෑඩ්</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="63"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>ට්‍රැක් පොයින්ට්</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
 </context>
@@ -1736,32 +1736,32 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
         <source>Pointer Speed</source>
-        <translation>Markørhastighed</translation>
+        <translation>දර්ශක වේගය</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="49"/>
         <source>Tap to Click</source>
-        <translation>Tryk for at klikke</translation>
+        <translation>ක්ලික් කිරීමට තට්ටු කරන්න</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="52"/>
         <source>Natural Scrolling</source>
-        <translation>Naturlig rulning</translation>
+        <translation>ස්වාභාවික අනුචලනය</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="56"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="57"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
 </context>
 <context>
@@ -1769,19 +1769,19 @@
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="39"/>
         <source>Pointer Speed</source>
-        <translation>Markørhastighed</translation>
+        <translation>දර්ශක වේගය</translation>
         <extra-child_page>TrackPoint</extra-child_page>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="41"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="42"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
 </context>
 <context>
@@ -1797,69 +1797,69 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="47"/>
         <source>Application Proxy</source>
-        <translation>Programproxy</translation>
+        <translation>යෙදුම් ප්‍රොක්සිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="50"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>ප්‍රොක්සි වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="58"/>
         <source>IP Address</source>
-        <translation>IP-adresse</translation>
+        <translation>IP ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="63"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="62"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation>කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="66"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="67"/>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="71"/>
         <source>Optional</source>
-        <translation>Valgfri</translation>
+        <translation>විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="91"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Tjek &quot;Brug en proxy&quot; i programmets genvejsmenu i opstarter efter den er blevet konfigureret</translation>
+        <translation>වින්‍යාස කිරීමෙන් පසු  වැඩසටහන් රඳවනයේ ඇති යෙදුම් සන්දර්භ මෙනුවේ &quot;ප්‍රොක්සියක් භාවිතා කරන්න&quot; සලකුණු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="97"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="98"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="213"/>
         <source>Invalid IP address</source>
-        <translation>Ugyldig IP-adresse</translation>
+        <translation>වලංගු නොමැති IP ලිපිනයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="221"/>
         <source>Invalid port</source>
-        <translation>Ugyldig port</translation>
+        <translation>වලංගු නොවන කෙවෙනියකි</translation>
     </message>
 </context>
 <context>
@@ -1867,7 +1867,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>ප්‍රොක්සි වර්ගය</translation>
     </message>
 </context>
 <context>
@@ -1875,50 +1875,50 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
         <source>Disconnect</source>
-        <translation>Afbryd</translation>
+        <translation>විසන්ධි කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="210"/>
         <source>Delete</source>
-        <translation>Slet</translation>
+        <translation>මකන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="209"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="206"/>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="207"/>
         <source>Are you sure you want to delete this configuration?</source>
-        <translation>Er du sikker på, at du vil slette konfigurationen?</translation>
+        <translation>මෙම සැකසුම් මකා දැමීමට අවශ්‍ය බව ඔබට විශ්වාසද?</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="387"/>
         <source>Wired Connection %1</source>
-        <translation>Kablet forbindelse %1</translation>
+        <translation>රැහැන් සම්බන්ධතාවය: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="392"/>
         <source>hotspot</source>
-        <translation>hotspot</translation>
+        <translation>හොට්ස්පොට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="394"/>
         <source>Wireless Connection %1</source>
-        <translation>Trådløs forbindelse %1</translation>
+        <translation>රැහැන් රහිත සම්බන්ධතාවය: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="400"/>
         <source>PPPoE Connection %1</source>
-        <translation>PPPoE-forbindelse %1</translation>
+        <translation>PPPoE සම්බන්ධතාවය %1</translation>
     </message>
 </context>
 <context>
@@ -1926,12 +1926,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="105"/>
         <source>New VPN</source>
-        <translation>Ny VPN</translation>
+        <translation>නව VPN සම්බන්ධතාවක්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="109"/>
         <source>VPN Type</source>
-        <translation>VPN-type</translation>
+        <translation>VPN වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="111"/>
@@ -1966,7 +1966,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="186"/>
         <source>Export</source>
-        <translation>Eksportér</translation>
+        <translation>නිර්යාත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="208"/>
@@ -2009,22 +2009,22 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="59"/>
         <source>Not Bind</source>
-        <translation>Ikke bundet</translation>
+        <translation>බැඳී නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="101"/>
         <source>Device MAC Addr</source>
-        <translation>Enhedens MAC-adresse</translation>
+        <translation>උපාංගයේ MAC ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="117"/>
         <source>Cloned MAC Addr</source>
-        <translation>Klonet MAC-adresse</translation>
+        <translation>ක්ලෝන කළ MAC ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="130"/>
         <source>Customize MTU</source>
-        <translation>Brugerdefineret MTU</translation>
+        <translation>MTU කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="133"/>
@@ -2037,12 +2037,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
-        <translation>Navn</translation>
+        <translation>නම</translation>
     </message>
 </context>
 <context>
@@ -2050,22 +2050,22 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="33"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="70"/>
         <source>The name already exists</source>
-        <translation>Navnet findes allerede</translation>
+        <translation>නම දැනටමත් පවතී</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="100"/>
         <source>Name</source>
-        <translation>Navn</translation>
+        <translation>නම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="103"/>
         <source>Auto Connect</source>
-        <translation>Opret automatisk forbindelse</translation>
+        <translation>ස්වයංක්‍රීයව සම්බන්ධ වන්න</translation>
     </message>
 </context>
 <context>
@@ -2073,13 +2073,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="66"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>හොට්ස්පොට්</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Tilføj indstillinger</translation>
+        <translation>සැකසුම් එක් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -2087,7 +2087,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="259"/>
         <source>Create Hotspot</source>
-        <translation>Opret hotspot</translation>
+        <translation>හොට්ස්පොට් සාදන්න</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -2107,65 +2107,65 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Auto</source>
-        <translation>Automatisk</translation>
+        <translation>ස්වයංක්‍රීය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Manual</source>
-        <translation>Manuel</translation>
+        <translation>සව්‍යං</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Ignore</source>
-        <translation>Ignorer</translation>
+        <translation>නොසලකා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="239"/>
         <source>IP Address</source>
-        <translation>IP-adresse</translation>
+        <translation>IP ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="240"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="241"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="243"/>
         <source>Primary DNS</source>
-        <translation>Primær DNS</translation>
+        <translation>ප්‍රාථමික DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="244"/>
         <source>Secondary DNS</source>
-        <translation>Sekundær DNS</translation>
+        <translation>ද්විතියික DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="245"/>
         <source>Only applied in corresponding resources</source>
-        <translation>Kun anvendt i tilsvarende ressourcer</translation>
+        <translation>අදාළ සම්පත් වල පමණක් යෙදී ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="249"/>
         <source>Method</source>
-        <translation>Metode</translation>
+        <translation>ක්‍රමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Netmask</source>
-        <translation>Netmaske</translation>
+        <translation>නෙට්මාස්ක්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="316"/>
         <source>Prefix</source>
-        <translation>Præfiks</translation>
+        <translation>උපසර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="449"/>
@@ -2173,7 +2173,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="517"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="533"/>
         <source>Invalid IP address</source>
-        <translation>Ugyldig IP-adresse</translation>
+        <translation>වලංගු නොමැති IP ලිපිනයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="461"/>
@@ -2194,12 +2194,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="92"/>
         <source>Network Details</source>
-        <translation>Netværksdetaljer</translation>
+        <translation>ජාල විස්තර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="136"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>හොට්ස්පොට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="141"/>
@@ -2209,29 +2209,29 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="157"/>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>ප්රොටෝකෝලය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="161"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="177"/>
         <source>Security Type</source>
-        <translation type="unfinished"/>
+        <translation>ආරක්ෂක වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="166"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="190"/>
         <source>Band</source>
-        <translation>Bånd</translation>
+        <translation>කලාපය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="171"/>
         <source>Channel</source>
-        <translation>Kanal</translation>
+        <translation>නාලිකාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="182"/>
         <source>Interface</source>
-        <translation>Grænseflade</translation>
+        <translation>අතුරුමුහුණත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="186"/>
@@ -2247,18 +2247,18 @@
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="202"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="222"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="206"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="226"/>
         <source>Primary DNS</source>
-        <translation>Primær DNS</translation>
+        <translation>ප්‍රාථමික DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="210"/>
         <source>Netmask</source>
-        <translation>Netmaske</translation>
+        <translation>නෙට්මාස්ක්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="218"/>
@@ -2268,12 +2268,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="230"/>
         <source>Prefix</source>
-        <translation>Præfiks</translation>
+        <translation>උපසර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="235"/>
         <source>Speed</source>
-        <translation>Hastighed</translation>
+        <translation>වේගය</translation>
     </message>
 </context>
 <context>
@@ -2281,22 +2281,22 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="160"/>
         <source>Wired Network</source>
-        <translation>Kablet netværk</translation>
+        <translation>රැහැන්ගත ජාලය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="161"/>
         <source>Wireless Network</source>
-        <translation>Trådløst netværk</translation>
+        <translation>රැහැන් රහිත ජාලය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="162"/>
         <source>Personal Hotspot</source>
-        <translation>Personligt hotspot</translation>
+        <translation>පුද්ගලික හොට්ස්පොට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="267"/>
         <source>Network</source>
-        <translation>Netværk</translation>
+        <translation>ජාලය</translation>
     </message>
 </context>
 <context>
@@ -2322,52 +2322,52 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="106"/>
         <source>System Proxy</source>
-        <translation>Systemproxy</translation>
+        <translation>පද්ධති ප්‍රොක්සිය</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="112"/>
         <source>Application Proxy</source>
-        <translation>Programproxy</translation>
+        <translation>යෙදුම් ප්‍රොක්සිය</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="122"/>
         <source>Network Details</source>
-        <translation>Netværksdetaljer</translation>
+        <translation>ජාල විස්තර</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="177"/>
         <source>Configure by Network Manager</source>
-        <translation>Konfigurer med netværkshåndtering</translation>
+        <translation>ජාල කළමනාකරු විසින් වින්‍යාස කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="340"/>
         <source>Personal Hotspot</source>
-        <translation>Personligt hotspot</translation>
+        <translation>පුද්ගලික හොට්ස්පොට්</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="363"/>
         <source>Wired Network %1</source>
-        <translation>Kablet netværk %1</translation>
+        <translation>රැහැන්ගත ජාලය %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="366"/>
         <source>Wired Network</source>
-        <translation>Kablet netværk</translation>
+        <translation>රැහැන්ගත ජාලය</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="370"/>
         <source>Wireless Network %1</source>
-        <translation>Trådløst netværk %1</translation>
+        <translation>රැහැන් රහිත ජාලය %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="373"/>
         <source>Wireless Network</source>
-        <translation>Trådløst netværk</translation>
+        <translation>රැහැන් රහිත සම්බන්ධතාවය</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
@@ -2375,13 +2375,13 @@
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="396"/>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="406"/>
         <source>Disabled</source>
-        <translation>Deaktiveret</translation>
+        <translation>අක්‍රීයයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="416"/>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="422"/>
         <source>Disconnected</source>
-        <translation>Afbrudt</translation>
+        <translation>විසන්ධි වි ඇත</translation>
     </message>
 </context>
 <context>
@@ -2394,23 +2394,23 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="79"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="80"/>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="87"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="83"/>
         <source>Service</source>
-        <translation>Tjeneste</translation>
+        <translation>සේවාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -2423,62 +2423,62 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Afvis EAP-autentifikation</translation>
+        <translation>EAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Afvis PAP-autentifikation</translation>
+        <translation>PAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Afvis CHAP-autentifikation</translation>
+        <translation>CHAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Afvis MSCHAP-autentifikation</translation>
+        <translation>MSCHAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Afvis MSCHAPv2-autentifikation</translation>
+        <translation>MSCHAPv2 සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
-        <translation>Ingen BSD-datakomprimering</translation>
+        <translation>BSD දත්ත සම්පීඩන කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>Ingen deflate-datakomprimering</translation>
+        <translation>Deflate දත්ත සම්පීඩන කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
-        <translation>Ingen TCP-headerkomprimering</translation>
+        <translation>TCP ශීර්ෂ සම්පීඩනයක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation>Ingen protokol-feltkomprimering</translation>
+        <translation>Protocol ක්ෂේත්‍ර සම්පීඩනය කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>Ingen adresse-/kontrolkomprimering</translation>
+        <translation>ලිපිනය / පාලන සම්පීඩනය කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Send PPP echo-pakker</translation>
+        <translation>PPP Echo පැකට් යවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
-        <translation>Brug MPPE</translation>
+        <translation>MPPE භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="107"/>
@@ -2498,7 +2498,7 @@
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="57"/>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="77"/>
         <source>Create PPPoE Connection</source>
-        <translation>Opret PPPoE-forbindelse</translation>
+        <translation>PPPoE සම්බන්ධතාවයක් සාදන්න</translation>
         <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
@@ -2512,27 +2512,27 @@
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="59"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="61"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
-        <translation>Manuel</translation>
+        <translation>සව්‍යං</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="63"/>
         <source>Auto</source>
-        <translation>Automatisk</translation>
+        <translation>ස්වයංක්‍රීය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
@@ -2545,12 +2545,12 @@
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="98"/>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
         <source>Optional</source>
-        <translation>Valgfri</translation>
+        <translation>විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
         <source>HTTP Proxy</source>
-        <translation>HTTP-proxy</translation>
+        <translation>HTTP ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="78"/>
@@ -2558,37 +2558,37 @@
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="92"/>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="99"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation>කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="82"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS-proxy</translation>
+        <translation>HTTPS ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="89"/>
         <source>FTP Proxy</source>
-        <translation>FTP-proxy</translation>
+        <translation>FTP ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="96"/>
         <source>SOCKS Proxy</source>
-        <translation>SOCKS-proxy</translation>
+        <translation>SOCKS ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Ignorer proxy-konfigurationerne for værterne og domænerne ovenfor</translation>
+        <translation>ඉහත ධාරක-host සහ ඩොමේන් සඳහා ප්‍රොක්සි වින්‍යාසයන් නොසලකා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="110"/>
         <source>Configuration URL</source>
-        <translation>Konfigurations-URL</translation>
+        <translation>වින්‍යාස URL</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="162"/>
         <source>System Proxy</source>
-        <translation>Systemproxy</translation>
+        <translation>පද්ධති ප්‍රොක්සිය</translation>
     </message>
 </context>
 <context>
@@ -2596,7 +2596,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="34"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
@@ -2621,139 +2621,139 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>Tunneled TLS</source>
-        <translation>Tunneled TLS</translation>
+        <translation>උමං TLS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
         <source>Protected EAP</source>
-        <translation>Beskyttet EAP</translation>
+        <translation>ආරක්ෂිත EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Save password for this user</source>
-        <translation type="unfinished"/>
+        <translation>මෙම පරිශීලකයා සඳහා මුරපදය සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Save password for all users</source>
-        <translation type="unfinished"/>
+        <translation>සියළු පරිශීලකයන් සඳහා මුරපදය සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
         <source>Ask me always</source>
-        <translation type="unfinished"/>
+        <translation>සැමවිටම මගෙන් විමසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="177"/>
         <source>Disabled</source>
-        <translation>Deaktiveret</translation>
+        <translation>අක්‍රීයයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="178"/>
         <source>Anonymous</source>
-        <translation>Anonym</translation>
+        <translation>නිර්නාමික</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="179"/>
         <source>Authenticated</source>
-        <translation>Autentificeret</translation>
+        <translation>සත්‍යාපනය කරන ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="180"/>
         <source>Both</source>
-        <translation>Begge</translation>
+        <translation>දෙකම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="196"/>
         <source>Automatic</source>
-        <translation>Automatisk</translation>
+        <translation>ස්වයංක්‍රීය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="197"/>
         <source>Version 0</source>
-        <translation>Version 0</translation>
+        <translation>අනුවාදය 0</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="198"/>
         <source>Version 1</source>
-        <translation>Version 1</translation>
+        <translation>අනුවාදය 2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="210"/>
         <source>EAP Auth</source>
-        <translation>EAP-godkendelse</translation>
+        <translation>EAP සත්‍යාපනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="234"/>
         <source>Identity</source>
-        <translation>Identitet</translation>
+        <translation>අනන්‍යතාවය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="236"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="250"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="238"/>
         <source>Pwd Options</source>
-        <translation>Valgmuligheder for adgangskode</translation>
+        <translation>මුරපද විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="346"/>
         <source>Private Key</source>
-        <translation>Privat nøgle</translation>
+        <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="350"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="426"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="458"/>
         <source>CA Cert</source>
-        <translation>CA-certifikat</translation>
+        <translation>CA සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="354"/>
         <source>User Cert</source>
-        <translation>Brugercertifikat</translation>
+        <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="376"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="422"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="454"/>
         <source>Anonymous ID</source>
-        <translation>Anonym ID</translation>
+        <translation>නිර්නාමික හැඳුනුම් අංකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="380"/>
         <source>Provisioning</source>
-        <translation>Provisioning</translation>
+        <translation>ප්‍රතිපාදනය-Provisioning</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="392"/>
         <source>PAC file</source>
-        <translation>PAC-fil</translation>
+        <translation>PAC ගොනුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="396"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="430"/>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="473"/>
         <source>Inner Auth</source>
-        <translation>Indre godkendelse</translation>
+        <translation>අභ්‍යන්තර සත්‍යාපනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="462"/>
         <source>PEAP Version</source>
-        <translation>PEAP-version</translation>
+        <translation>PEAP අනුවාදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="557"/>
         <source>Private Pwd</source>
-        <translation>Privat adgangskode</translation>
+        <translation>පුද්ගලික මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="559"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -2762,12 +2762,12 @@
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
         <source>Invalid password</source>
-        <translation>Ugyldig adgangskode</translation>
+        <translation>වලංගු නොවන මුරපදයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="113"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
@@ -2777,27 +2777,27 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 personlig</translation>
+        <translation>WPA / WPA2 පුද්ගලික</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="122"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="128"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="156"/>
         <source>Key</source>
-        <translation>Nøgle</translation>
+        <translation>යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="162"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -2805,7 +2805,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="34"/>
         <source>Security Required</source>
-        <translation>Påkrævet sikkerhed</translation>
+        <translation>ආරක්ෂාව අවශ්‍යයි</translation>
     </message>
 </context>
 <context>
@@ -2814,12 +2814,12 @@
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="133"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="143"/>
         <source>Invalid password</source>
-        <translation>Ugyldig adgangskode</translation>
+        <translation>වලංගු නොවන මුරපදයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="192"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="193"/>
@@ -2829,49 +2829,49 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="194"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 personlig</translation>
+        <translation>WPA / WPA2 පුද්ගලික</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="195"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 enterprise</translation>
+        <translation>WPA/WPA2 Enterprise</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="199"/>
         <source>Shared key</source>
-        <translation type="unfinished"/>
+        <translation>හවුල් යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="200"/>
         <source>Open system</source>
-        <translation type="unfinished"/>
+        <translation>පද්ධතිය විවෘත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="206"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="216"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="230"/>
         <source>Authentication</source>
-        <translation>Godkendelse</translation>
+        <translation>සත්‍යාපනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="276"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="309"/>
         <source>Key</source>
-        <translation>Nøgle</translation>
+        <translation>යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="282"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="322"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -2879,47 +2879,47 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>Avanceret VPN</translation>
+        <translation>උසස් VPN </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation>Tilpas gateway-port</translation>
+        <translation>දොරටු කෙවෙනිය කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
         <source>Gateway Port</source>
-        <translation>Gateway-port</translation>
+        <translation>දොරටු කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>Tilpas renegotiationsinterval</translation>
+        <translation>නැවත උත්සාහ කිරීමේ පරතරය කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation>Renegotiationsinterval</translation>
+        <translation>නැවත උත්සාහ කිරීමේ අන්තරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation>Brug LZO-datakomprimering</translation>
+        <translation>LZO දත්ත සම්පීඩනය භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation>Brug TCP-forbindelse</translation>
+        <translation>TCP සම්බන්ධතාවය භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation>Brug TAP-enhed</translation>
+        <translation>TAP උපාංගයක් භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation>Tilpas tunnel-MTU</translation>
+        <translation>උමං MTU කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
@@ -2929,22 +2929,22 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation>Tilpas UDP-fragmentstørrelse</translation>
+        <translation>UDP කොටස් පරිමාණය කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
         <source>UDP Fragment Size</source>
-        <translation>UDP-fragmentstørrelse</translation>
+        <translation>UDP කොටස් පරිමාණය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Begræns tunnel TCP MSS</translation>
+        <translation>උමං TCP MSS සීමා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation>Tilfældiggør fjern-værter</translation>
+        <translation>දුරස්ථ ධාරකයන් අහඹු ලෙස සකස් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -2952,12 +2952,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
-        <translation>Avanceret VPN</translation>
+        <translation>උසස් VPN </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
         <source>Cisco (default)</source>
-        <translation>Cisco (standard)</translation>
+        <translation>Cisco (default)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
@@ -2967,28 +2967,28 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
         <source>Secure (default)</source>
-        <translation>Sikker (standard)</translation>
+        <translation>ආරක්ෂිත (පෙරනිමි)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
         <source>Weak</source>
-        <translation>Svag</translation>
+        <translation>දුර්වලයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="147"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
         <source>NAT-T When Available (default)</source>
-        <translation>NAT-T når tilgængelig (standard)</translation>
+        <translation>ලබා ගත හැකි විට NAT-T (පෙරනිමිය)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
         <source>NAT-T Always</source>
-        <translation>NAT-T altid</translation>
+        <translation>සැමවිටම NAT-T</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
@@ -2998,79 +2998,79 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="153"/>
         <source>Disabled</source>
-        <translation>Deaktiveret</translation>
+        <translation>අක්‍රීයයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
         <source>DH Group 1</source>
-        <translation>DH gruppe 1</translation>
+        <translation>DH කාණ්ඩ 1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
         <source>DH Group 2 (default)</source>
-        <translation>DH gruppe 2 (standard)</translation>
+        <translation>DH කාණ්ඩ 2 (සුපුරුදු)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="158"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
         <source>DH Group 5</source>
-        <translation>DH gruppe 5</translation>
+        <translation>DH කාණ්ඩ 5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
         <source>Server (default)</source>
-        <translation>Server (standard)</translation>
+        <translation>සේවාදායකය (සුපුරුදු)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
         <source>DH Group 2</source>
-        <translation>DH gruppe 2</translation>
+        <translation>DH කාණ්ඩ 2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="171"/>
         <source>Domain</source>
-        <translation>Domæne</translation>
+        <translation>වසම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="174"/>
         <source>Vendor</source>
-        <translation>Udbyder</translation>
+        <translation>විකුණුම්කරු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="184"/>
         <source>Version</source>
-        <translation>Version</translation>
+        <translation>අනුවාදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="187"/>
         <source>Encryption</source>
-        <translation>Kryptering</translation>
+        <translation>සංකේතනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="197"/>
         <source>NAT Traversal Mode</source>
-        <translation>NAT-gennemgangstilstand</translation>
+        <translation>NAT සංචලන ප්‍රකාරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="207"/>
         <source>IKE DH Group</source>
-        <translation>IKE DH-gruppe</translation>
+        <translation>IKE DH සමූහය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="217"/>
         <source>Forward Secrecy</source>
-        <translation>Videresende kode</translation>
+        <translation>රහස්‍යභාවය ඉදිරියට ගෙනයන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="227"/>
         <source>Local Port</source>
-        <translation>Lokal port</translation>
+        <translation>ස්ථානීය-local කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="232"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>Deaktivér registrering af død peer</translation>
+        <translation>මල තුල්‍ය-Dead peer හඳුනාගැනීම අක්‍රීය කරන්න</translation>
     </message>
 </context>
 <context>
@@ -3083,32 +3083,32 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="81"/>
         <source>Enable IPsec</source>
-        <translation>Aktivér IPsec</translation>
+        <translation>IPsec සක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="84"/>
         <source>Group Name</source>
-        <translation>Gruppenavn</translation>
+        <translation>කණ්ඩායම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="87"/>
         <source>Group ID</source>
-        <translation>Gruppe-ID</translation>
+        <translation>කණ්ඩායම් හැඳුනුම් අංකය/නම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="90"/>
         <source>Pre-Shared Key</source>
-        <translation>Prædelt nøgle</translation>
+        <translation>පෙර-හවුල් යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="93"/>
         <source>Phase1 Algorithms</source>
-        <translation>Fase1-algoritmer</translation>
+        <translation>අදියර 1 ඇල්ගොරිතම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="96"/>
         <source>Phase2 Algorithms</source>
-        <translation>Fase2-algoritmer</translation>
+        <translation>අදියර 2 ඇල්ගොරිතම</translation>
     </message>
 </context>
 <context>
@@ -3121,47 +3121,47 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
         <source>CA Cert</source>
-        <translation>CA-certifikat</translation>
+        <translation>CA සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
         <source>Proxy</source>
-        <translation>Proxy</translation>
+        <translation>ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Tillad Cisco Secure Desktop Trojan</translation>
+        <translation>ඩෙස්ක්ටොප් ට්‍රෝජන් වලින් ආරක්ෂා කිරීමට Cisco හට ඉඩදෙන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
         <source>CSD Script</source>
-        <translation>CSD-skript</translation>
+        <translation>CSD ස්ක්‍රිප්ට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
         <source>User Cert</source>
-        <translation>Brugercertifikat</translation>
+        <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
         <source>Private Key</source>
-        <translation>Privat nøgle</translation>
+        <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>Brug FSID til nøgleadgangskode</translation>
+        <translation>යතුරු මුරපදය සඳහා FSID භාවිතා කරන්න</translation>
     </message>
 </context>
 <context>
@@ -3174,44 +3174,44 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
         <source>Certificates (TLS)</source>
-        <translation>Certifikater (TLS)</translation>
+        <translation>සහතික (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="247"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <source>Certificates with Password (TLS)</source>
-        <translation>Certifikater med adgangskode (TLS)</translation>
+        <translation>මුරපදය සහිත සහතික (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="273"/>
         <source>Static Key</source>
-        <translation>Statisk nøgle</translation>
+        <translation>ස්ථිතික යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
         <source>Saved</source>
-        <translation>Gemt</translation>
+        <translation>සුරකින ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
         <source>Ask</source>
-        <translation>Spørg</translation>
+        <translation>අහන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
@@ -3221,63 +3221,63 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="289"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="294"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
         <source>Auth Type</source>
-        <translation>Godkendelsestype</translation>
+        <translation>සත්‍යාපන වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
         <source>CA Cert</source>
-        <translation>CA-certifikat</translation>
+        <translation>CA සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="180"/>
         <source>User Cert</source>
-        <translation>Brugercertifikat</translation>
+        <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="184"/>
         <source>Private Key</source>
-        <translation>Privat nøgle</translation>
+        <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="234"/>
         <source>Pwd Options</source>
-        <translation>Valgmuligheder for adgangskode</translation>
+        <translation>මුරපද විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="201"/>
         <source>Private Pwd</source>
-        <translation>Privat adgangskode</translation>
+        <translation>පුද්ගලික මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="229"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="277"/>
         <source>Customize Key Direction</source>
-        <translation>Tilpas nøgleretning</translation>
+        <translation>යතුරු දිශාව කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="281"/>
         <source>Key Direction</source>
-        <translation>Nøgleretning</translation>
+        <translation>යතුරු දිශාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
         <source>Remote IP</source>
-        <translation>Fjern-IP</translation>
+        <translation>දුරස්ථ IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <source>Local IP</source>
-        <translation>Lokal IP</translation>
+        <translation>ස්ථානික IP</translation>
     </message>
 </context>
 <context>
@@ -3290,82 +3290,82 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="138"/>
         <source>All Available (default)</source>
-        <translation>Alle tilgængelige (standard)</translation>
+        <translation>පවතින සියල්ලම (පෙරනිමිය)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="139"/>
         <source>40-bit (less secure)</source>
-        <translation>40-bit (mindre sikker)</translation>
+        <translation>40-bit (අඩු ආරක්ෂිත)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>128-bit (most secure)</source>
-        <translation>128-bit (mest sikker)</translation>
+        <translation>128-bit (වඩාත්ම ආරක්ෂිත)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="144"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Afvis EAP-autentifikation</translation>
+        <translation>EAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="145"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Afvis PAP-autentifikation</translation>
+        <translation>PAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Afvis CHAP-autentifikation</translation>
+        <translation>CHAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Afvis MSCHAP-autentifikation</translation>
+        <translation>MSCHAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Afvis MSCHAPv2-autentifikation</translation>
+        <translation>MSCHAPv2 සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>No BSD Data Compression</source>
-        <translation>Ingen BSD-datakomprimering</translation>
+        <translation>BSD දත්ත සම්පීඩනය නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>No Deflate Data Compression</source>
-        <translation>Ingen deflate-datakomprimering</translation>
+        <translation>Deflate දත්ත සම්පීඩන කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No TCP Header Compression</source>
-        <translation>Ingen TCP-headerkomprimering</translation>
+        <translation>TCP ශීර්ෂ සම්පීඩනය නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Protocol Field Compression</source>
-        <translation>Ingen protokol-feltkomprimering</translation>
+        <translation>Protocol ක්ෂේත්‍ර සම්පීඩනය කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No Address/Control Compression</source>
-        <translation>Ingen adresse-/kontrolkomprimering</translation>
+        <translation>ලිපිනය / පාලන සම්පීඩනය කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Send PPP echo-pakker</translation>
+        <translation>PPP Echo පැකට් යවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="160"/>
         <source>Use MPPE</source>
-        <translation>Brug MPPE</translation>
+        <translation>MPPE භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="161"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="174"/>
@@ -3378,14 +3378,14 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="91"/>
         <source>VPN Status</source>
-        <translation>VPN-status</translation>
+        <translation>VPN තත්වය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="118"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="121"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="122"/>
         <source>Create VPN</source>
-        <translation>Opret VPN</translation>
+        <translation>VPN සාදන්න</translation>
         <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
@@ -3393,13 +3393,13 @@
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="129"/>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="130"/>
         <source>Import VPN</source>
-        <translation>Importér VPN</translation>
+        <translation>VPN ආයාත කරන්න</translation>
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="371"/>
         <source>Import Error</source>
-        <translation>Fejl ved import</translation>
+        <translation>ආයාත කිරීමේ දෝෂයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="372"/>
@@ -3409,7 +3409,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="373"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>හරි</translation>
     </message>
 </context>
 <context>
@@ -3417,12 +3417,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
         <source>VPN Proxy</source>
-        <translation>VPN-proxy</translation>
+        <translation>VPN ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="141"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="142"/>
@@ -3437,39 +3437,39 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="149"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>ප්‍රොක්සි වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
         <source>Server IP</source>
-        <translation>Server-IP</translation>
+        <translation>සේවාදායක IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="174"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="178"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation>කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Prøv igen når det fejler</translation>
+        <translation>අසමත් වූ විට නැවත නැවත උත්සාහ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="173"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="177"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -3477,17 +3477,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>CA File</source>
-        <translation>CA-fil</translation>
+        <translation>CA ගොනුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
         <source>Ignore Certificate Warnings</source>
-        <translation>Ignorer advarsler om certifikat</translation>
+        <translation>සහතික අනතුරු ඇඟවීම් නොසලකා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="86"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation>Brug udvidelser for TLS-værtsnavn</translation>
+        <translation>TLS ධාරක නාම දිගු භාවිතා කරන්න</translation>
     </message>
 </context>
 <context>
@@ -3495,29 +3495,29 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
         <source>VPN Security</source>
-        <translation>VPN-sikkerhed</translation>
+        <translation>VPN ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
         <source>Default</source>
-        <translation>Standard</translation>
+        <translation>පෙරනිමිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="77"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="98"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="112"/>
         <source>Cipher</source>
-        <translation>Chiffer</translation>
+        <translation>කේතාංකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="124"/>
         <source>HMAC Auth</source>
-        <translation>HMAC-godkendelse</translation>
+        <translation>HMAC සත්‍යාපනය</translation>
     </message>
 </context>
 <context>
@@ -3530,49 +3530,49 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="105"/>
         <source>Saved</source>
-        <translation>Gemt</translation>
+        <translation>සුරකින ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Ask</source>
-        <translation>Spørg</translation>
+        <translation>අහන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="113"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="135"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="117"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="121"/>
         <source>Pwd Options</source>
-        <translation>Valgmuligheder for adgangskode</translation>
+        <translation>මුරපද විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="134"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="139"/>
         <source>NT Domain</source>
-        <translation>NT-domæne</translation>
+        <translation>NT වසම</translation>
     </message>
 </context>
 <context>
@@ -3580,27 +3580,27 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation>VPN-proxy</translation>
+        <translation>VPN ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="104"/>
         <source>Server IP</source>
-        <translation>Server-IP</translation>
+        <translation>සේවාදායක IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="107"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation>කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="112"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="115"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -3614,17 +3614,17 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="141"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="173"/>
         <source>Private Key</source>
-        <translation>Privat nøgle</translation>
+        <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
         <source>SSH Agent</source>
-        <translation>SSH-agent</translation>
+        <translation>SSH නියෝජිත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>Smart Card</source>
-        <translation>Smartcard</translation>
+        <translation>ස්මාට් කාඩ්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
@@ -3634,62 +3634,62 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
         <source>Pre-Shared Key</source>
-        <translation>Prædelt nøgle</translation>
+        <translation>පෙර-හවුල් යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="151"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="155"/>
         <source>CA Cert</source>
-        <translation>CA-certifikat</translation>
+        <translation>CA සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="158"/>
         <source>Auth Type</source>
-        <translation>Godkendelsestype</translation>
+        <translation>සත්‍යාපන වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="170"/>
         <source>User Cert</source>
-        <translation>Brugercertifikat</translation>
+        <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="176"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="179"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="183"/>
         <source>Request an Inner IP Address</source>
-        <translation>Anmod om en indre IP-adresse</translation>
+        <translation>අභ්‍යන්තර IP ලිපිනයක් ඉල්ලීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="186"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation>Gennemtving UDP-indkapsling</translation>
+        <translation>UDP සංවෘත කිරීම බලාත්මක කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="189"/>
         <source>Use IP Compression</source>
-        <translation>Brug IP-komprimering</translation>
+        <translation>IP සම්පීඩනය භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="192"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation>Aktivér brugerdefineret cifferforslag</translation>
+        <translation>අභිරුචි කේතාංක යෝජනා සක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="195"/>
@@ -3707,47 +3707,47 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
         <source>VPN TLS Authentication</source>
-        <translation>VPN TLS-autentifikation</translation>
+        <translation>VPN TLS සත්‍යාපනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="82"/>
         <source>Default</source>
-        <translation>Standard</translation>
+        <translation>පෙරනිමිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
         <source>Client</source>
-        <translation>Klient</translation>
+        <translation>සේවාදායකයා</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="84"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation>සේවාදායකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Subject Match</source>
-        <translation>Emnematch</translation>
+        <translation>කාරණය ගැලපීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="93"/>
         <source>Remote Cert Type</source>
-        <translation>Type af fjern-certifikat</translation>
+        <translation>දුරස්ථ සහතික වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="105"/>
         <source>Key File</source>
-        <translation>Nøglefil</translation>
+        <translation>යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="108"/>
         <source>Customize Key Direction</source>
-        <translation>Tilpas nøgleretning</translation>
+        <translation>යතුරු දිශාව කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="111"/>
         <source>Key Direction</source>
-        <translation>Nøgleretning</translation>
+        <translation>යතුරු දිශාව</translation>
     </message>
 </context>
 <context>
@@ -3760,22 +3760,22 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
         <source>Saved</source>
-        <translation>Gemt</translation>
+        <translation>සුරකින ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
         <source>Ask</source>
-        <translation>Spørg</translation>
+        <translation>අහන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="169"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
@@ -3784,43 +3784,43 @@
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="193"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="208"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="173"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
         <source>Pwd Options</source>
-        <translation>Valgmuligheder for adgangskode</translation>
+        <translation>මුරපද විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="187"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="192"/>
         <source>Group Name</source>
-        <translation>Gruppenavn</translation>
+        <translation>කණ්ඩායම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="207"/>
         <source>Group Pwd</source>
-        <translation>Gruppens adgangskode</translation>
+        <translation>කණ්ඩායම් මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="212"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Brug hybrid-autentifikation</translation>
+        <translation>දෙමුහුන් සත්‍යාපනය භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="215"/>
         <source>CA File</source>
-        <translation>CA-fil</translation>
+        <translation>CA ගොනුව</translation>
     </message>
 </context>
 <context>
@@ -3828,25 +3828,25 @@
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="68"/>
         <source>Plug in the network cable first</source>
-        <translation>Tilslut venligst først netværkskablet</translation>
+        <translation>පළමුව ජාල කේබලය සම්බන්ධ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="74"/>
         <source>Wired Network Adapter</source>
-        <translation>Kablet netværkskort</translation>
+        <translation>රැහැන්ගත ජාල ඇඩැප්ටරය</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="89"/>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="111"/>
         <source>Add Network Connection</source>
-        <translation>Tilføj netværksforbindelse</translation>
+        <translation>ජාල සම්බන්ධතාවයක් එක් කරන්න</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="103"/>
         <source>Select Settings</source>
-        <translation>Vælg indstillinger</translation>
+        <translation>සැකසුම් තෝරන්න</translation>
     </message>
 </context>
 <context>
@@ -3854,22 +3854,22 @@
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="293"/>
         <source>Connect to hidden network</source>
-        <translation>Opret forbindelse til skjult netværk</translation>
+        <translation>සැඟවුණු ජාලයකට සම්බන්ධ වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="312"/>
         <source>Wireless Network Adapter</source>
-        <translation>Trådløst netværkskort</translation>
+        <translation>රැහැන් රහිත ජාල ඇඩැප්ටරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="327"/>
         <source>Close Hotspot</source>
-        <translation>Luk hotspot</translation>
+        <translation>හොට්ස්පොට් වසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="330"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>Deaktivér først hotspottet hvis du vil oprette forbindelse og bruger trådløst netværk</translation>
+        <translation>ඔබට රැහැන් රහිත ජාලයකට සම්බන්ධ වීමට අවශ්‍ය නම් පළමුව හොට්ස්පොට් අක්‍රීය කරන්න</translation>
     </message>
 </context>
 <context>
@@ -3877,7 +3877,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
         <source>Not Bind</source>
-        <translation>Ikke bundet</translation>
+        <translation>බැඳී නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="115"/>
@@ -3887,17 +3887,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="119"/>
         <source>Device MAC Addr</source>
-        <translation>Enhedens MAC-adresse</translation>
+        <translation>උපාංගයේ MAC ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="135"/>
         <source>Customize MTU</source>
-        <translation>Brugerdefineret MTU</translation>
+        <translation>MTU කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="138"/>
@@ -3910,17 +3910,17 @@
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="75"/>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>%1 මගින් කෙරෙන දැනුම්දීම් ඩෙස්ක්ටොප් එකේ සහ දැනුම්දීම් මධ්‍යස්ථානයේ  පෙන්වන්න.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="89"/>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>ශබ්දයක් වාදනය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="92"/>
         <source>Show messages on lockscreen</source>
-        <translation type="unfinished"/>
+        <translation>අගුල් තිරයේ පණිවිඩ පෙන්වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="95"/>
@@ -3930,7 +3930,7 @@
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>පණිවිඩ පෙරදසුන පෙන්වන්න</translation>
     </message>
 </context>
 <context>
@@ -3938,7 +3938,7 @@
     <message>
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="73"/>
         <source>Notification</source>
-        <translation>Notifikation</translation>
+        <translation>දැනුම්දීම්</translation>
     </message>
 </context>
 <context>
@@ -3946,12 +3946,12 @@
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="61"/>
         <source>System Notifications</source>
-        <translation type="unfinished"/>
+        <translation>පද්ධති දැනුම්දීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="74"/>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>යෙදවුම් දැනුම්දීම්</translation>
     </message>
 </context>
 <context>
@@ -3959,22 +3959,22 @@
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="51"/>
         <source>Show icon on Dock</source>
-        <translation type="unfinished"/>
+        <translation>අයිකනය ඩොක් එකේ පෙන්වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="79"/>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>බාධා නොකරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="85"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>යෙදුම් දැනුම්දීම් ඩෙස්ක්ටොප් එකේ නොපෙන්වන අතර ශබ්ද නිහඩ කරනු ඇත, නමුත් ඔබට දැනුම්දීම් මධ්‍යස්ථානයේ ඇති සියලුම පණිවිඩ නැරඹිය හැකිය.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="103"/>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>තිරය ​​අගුළු දමා ඇති විට</translation>
     </message>
 </context>
 <context>
@@ -3982,12 +3982,12 @@
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="47"/>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>සිට</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="49"/>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>දක්වා</translation>
     </message>
 </context>
 <context>
@@ -3995,24 +3995,24 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="50"/>
         <source>Size</source>
-        <translation>Størrelse</translation>
+        <translation>ප්‍රමාණය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="81"/>
         <source>Standard Font</source>
-        <translation>Standardskrifttype</translation>
+        <translation>සම්මත අකුරු</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="99"/>
         <source>Monospaced Font</source>
-        <translation>Skifttype med fast bredde</translation>
+        <translation>ඒක පරතර අකුරු</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="231"/>
         <source> (Unsupported font)</source>
-        <translation> (ikke-understøttet skrifttype)</translation>
+        <translation>(සහාය නොදක්වන අකුරු)</translation>
     </message>
 </context>
 <context>
@@ -4020,41 +4020,41 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="112"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>තේමාව</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="124"/>
         <source>Accent Color</source>
-        <translation>Accentfarve</translation>
+        <translation>ප්‍රධාන භාවිත වර්ණය</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="183"/>
         <source>Window Effect</source>
-        <translation>Vindueseffekt</translation>
+        <translation>කවුළු ආකාරය</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="192"/>
         <source>Transparency</source>
-        <translation>Gennemsigtighed</translation>
+        <translation>විනිවිදභාවය</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="212"/>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"/>
+        <translation>කවුළුව කුඩා කිරීමේ පෙනුම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="215"/>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>පරිමාණය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="215"/>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>මැජික් ලාම්පුව</translation>
     </message>
 </context>
 <context>
@@ -4062,25 +4062,25 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="49"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Icon Theme</source>
-        <translation>Ikontema</translation>
+        <translation>අයිකන තේමාව</translation>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Cursor Theme</source>
-        <translation>Markørtema</translation>
+        <translation>කර්සර තේමාව</translation>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="55"/>
         <source>Font</source>
-        <translation>Skrifttype</translation>
+        <translation>අකුරු</translation>
         <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
 </context>
@@ -4089,7 +4089,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="68"/>
         <source>Personalization</source>
-        <translation>Personliggørelse</translation>
+        <translation>සව්‍යං උචිත සැකසුම්</translation>
     </message>
 </context>
 <context>
@@ -4097,22 +4097,22 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="101"/>
         <source>Light</source>
-        <translation>Let</translation>
+        <translation>එළිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="103"/>
         <source>Dark</source>
-        <translation>Mørkt</translation>
+        <translation>අඳුරු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="105"/>
         <source>Auto</source>
-        <translation>Automatisk</translation>
+        <translation>ස්වයංක්‍රීය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="110"/>
         <source>Default</source>
-        <translation>Standard</translation>
+        <translation>පෙරනිමිය</translation>
     </message>
 </context>
 <context>
@@ -4120,26 +4120,26 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="78"/>
         <source>Light</source>
-        <translation>Let</translation>
+        <translation>එළිය</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="82"/>
         <source>Dark</source>
-        <translation>Mørkt</translation>
+        <translation>අඳුරු</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="86"/>
         <source>Auto</source>
-        <translation>Automatisk</translation>
+        <translation>ස්වයංක්‍රීය</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="94"/>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="95"/>
         <source>Default</source>
-        <translation>Standard</translation>
+        <translation>පෙරනිමිය</translation>
     </message>
 </context>
 <context>
@@ -4147,71 +4147,71 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="53"/>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>අඩු බැටරි ධාරිතාවයේදී ස්වයංක්‍රීයව බැටරියේ බලය ඉතිරි කිරීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="54"/>
         <source>Show battery capacity</source>
-        <translation type="unfinished"/>
+        <translation>බැටරි ධාරිතාව පෙන්වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="56"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
         <source>Power Saving Mode</source>
-        <translation>Strømbesparende tilstand</translation>
+        <translation>බල ඉතිරි කිරීමේ මාදිලිය</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="57"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>ස්වයංක්‍රීයව බැටරියේ බලය ඉතිරි කිරීම</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="58"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="72"/>
         <source>Password is required to wake up the computer</source>
-        <translation>Spørg om adgangskode for at vække computeren</translation>
+        <translation>පරිගණකය අවදි කිරීමට මුරපදය අවශ්‍ය වේ</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="74"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Spørg om adgangskode for at vække skærmen</translation>
+        <translation>මොනිටරය අවදි කිරීමට මුරපදය අවශ්‍ය වේ</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="60"/>
         <source>Battery</source>
-        <translation type="unfinished"/>
+        <translation>බැටරිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="101"/>
         <source>Display capacity and remaining charging time</source>
-        <translation type="unfinished"/>
+        <translation>ධාරිතාව සහ ආරෝපනයෙන් භාවිත කළ හැකි ඉතිරි කාලය පෙන්වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="79"/>
         <source>Decrease brightness</source>
-        <translation type="unfinished"/>
+        <translation>දීප්තිය අඩු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="94"/>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>බල සුරැකීමේ සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="102"/>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>උපරිම ධාරිතාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="118"/>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>අවදි සැකසුම්</translation>
     </message>
 </context>
 <context>
@@ -4219,22 +4219,22 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="63"/>
         <source>On Battery</source>
-        <translation>På batteri</translation>
+        <translation>බැටරි බලයෙන් ක්‍රියාකරයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="78"/>
         <source>Power</source>
-        <translation>Strøm</translation>
+        <translation>බලය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="220"/>
         <source>Battery low, please plug in</source>
-        <translation>Batteriet er lavt. Tilslut venligst strømforsyningen</translation>
+        <translation>අඩු බැටරි ධාරිතාවක් පවතී, කරුණාකර විදුලි සැපයුමක් ලබා දෙන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="222"/>
         <source>Battery critically low</source>
-        <translation>Batteriet er kritisk lavt</translation>
+        <translation>බැටරි ධාරිතාවය ඉතා අඩුය</translation>
     </message>
 </context>
 <context>
@@ -4242,21 +4242,21 @@
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="59"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="61"/>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="68"/>
         <source>Plugged In</source>
-        <translation>Tilsluttet</translation>
+        <translation>සම්බන්ධ කර ඇත</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="63"/>
         <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="70"/>
         <source>On Battery</source>
-        <translation>På batteri</translation>
+        <translation>බැටරි බලයෙන් ක්‍රියාකරයි</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
@@ -4266,7 +4266,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="60"/>
         <source>Monitor will suspend after</source>
-        <translation>Skærmen vil gå i hvile om</translation>
+        <translation>මොනිටරය අත්හිටුවීම පසුව</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -4274,7 +4274,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="63"/>
         <source>Computer will suspend after</source>
-        <translation>Computeren vil gå i hvile om</translation>
+        <translation>පරිගණකය අත්හිටුවීම පසුව</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -4282,74 +4282,74 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="66"/>
         <source>Lock screen after</source>
-        <translation>Lås skærmen efter</translation>
+        <translation>තිරය අගුළුලෑම පසුව</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="49"/>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>අඩු බැටරි මට්ටම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <source>Auto suspend battery level</source>
-        <translation type="unfinished"/>
+        <translation>ස්වයංක්‍රීයව අත්හිටුවීමේ බැටරි මට්ටම </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
         <source>Low Battery Notification</source>
-        <translation type="unfinished"/>
+        <translation>අඩු බැටරි දැනුම්දීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
         <source>When pressing the power button</source>
-        <translation type="unfinished"/>
+        <translation>බල බොත්තම එබීමේදී</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>පියන වසා ඇති විට</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="73"/>
         <source>Shut down</source>
-        <translation>Luk ned</translation>
+        <translation>වසා දමන්න </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="75"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="89"/>
         <source>Suspend</source>
-        <translation>Hvile</translation>
+        <translation>තාවකාලිකව වසාදමන්න </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="78"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="95"/>
         <source>Hibernate</source>
-        <translation>Dvale</translation>
+        <translation>ශිශිරකරණය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="80"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="100"/>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>මොනිටරය ක්‍රියා විරහිත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="80"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="105"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>කිසිවක් නොකරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="162"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="372"/>
         <source>Never</source>
-        <translation>Aldrig</translation>
+        <translation>කිසිදා නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="354"/>
         <source>1 Minute</source>
-        <translation>1 minut</translation>
+        <translation>මිනිත්තු 1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="357"/>
@@ -4358,12 +4358,12 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="366"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="375"/>
         <source>%1 Minutes</source>
-        <translation>%1 minutter</translation>
+        <translation>මිනිත්තු %1 ක්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="369"/>
         <source>1 Hour</source>
-        <translation>1 time</translation>
+        <translation>පැය 1</translation>
     </message>
 </context>
 <context>
@@ -4372,25 +4372,25 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="45"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="53"/>
         <source>Lock screen after</source>
-        <translation>Lås skærmen efter</translation>
+        <translation>තිරය අගුළුලෑම පසුව</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="47"/>
         <source>When pressing the power button</source>
-        <translation type="unfinished"/>
+        <translation>බල බොත්තම එබීමේදී</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="48"/>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>පියන වසා ඇති විට</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="61"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="64"/>
         <source>Monitor will suspend after</source>
-        <translation>Skærmen vil gå i hvile om</translation>
+        <translation>මොනිටරය අත්හිටුවීම පසුව</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
@@ -4398,49 +4398,49 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="74"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="77"/>
         <source>Computer will suspend after</source>
-        <translation>Computeren vil gå i hvile om</translation>
+        <translation>පරිගණකය අත්හිටුවීම පසුව</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="88"/>
         <source>Shut down</source>
-        <translation>Luk ned</translation>
+        <translation>වසා දමන්න </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="90"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="103"/>
         <source>Suspend</source>
-        <translation>Hvile</translation>
+        <translation>තාවකාලිකව වසාදමන්න </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="93"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="109"/>
         <source>Hibernate</source>
-        <translation>Dvale</translation>
+        <translation>ශිශිරකරණය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="95"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="114"/>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>මොනිටරය ක්‍රියා විරහිත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="95"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="119"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>කිසිවක් නොකරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="137"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="314"/>
         <source>Never</source>
-        <translation>Aldrig</translation>
+        <translation>කිසිදා නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="296"/>
         <source>1 Minute</source>
-        <translation>1 minut</translation>
+        <translation>මිනිත්තු 1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="299"/>
@@ -4449,12 +4449,12 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="308"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="317"/>
         <source>%1 Minutes</source>
-        <translation>%1 minutter</translation>
+        <translation>මිනිත්තු %1 ක්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="311"/>
         <source>1 Hour</source>
-        <translation>1 time</translation>
+        <translation>පැය 1</translation>
     </message>
 </context>
 <context>
@@ -4462,158 +4462,158 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation>සේවාදායකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
         <source>Window Effect</source>
-        <translation>Vindueseffekt</translation>
+        <translation>කවුළු ආකාරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="150"/>
         <source>Developer Mode</source>
-        <translation>Udviklertilstand</translation>
+        <translation>සංවර්ධක ප්‍රකාරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
         <source>User Experience Program</source>
-        <translation>Brugeroplevelsesprogram</translation>
+        <translation>පරිශීලක අත්දැකීම් වැඩසටහන</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Join User Experience Program</source>
-        <translation>Deltag i vores brugeroplevelsesprogram</translation>
+        <translation>පරිශීලක අත්දැකීම් වැඩසටහනට සම්බන්ධ වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>Display Scaling</source>
-        <translation>Skærmskalering</translation>
+        <translation>දර්ශන පරිමාණය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Night Shift</source>
-        <translation>Natteskift</translation>
+        <translation>රාත්‍රී වැඩ මුරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Auto Login</source>
-        <translation>Automatisk login</translation>
+        <translation>ස්වයංක්‍රීය පිවිසුම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Login Without Password</source>
-        <translation>Log ind uden adgangskode</translation>
+        <translation>මුරපදය නොමැතිව පිවිසීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Auto Brightness</source>
-        <translation>Automatisk lysstyrke</translation>
+        <translation>ස්වයං දීප්තිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Spørg om adgangskode for at vække skærmen</translation>
+        <translation>මොනිටරය අවදි කිරීමට මුරපදය අවශ්‍ය වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
         <source>Password is required to wake up the computer</source>
-        <translation>Spørg om adgangskode for at vække computeren</translation>
+        <translation>පරිගණකය අවදි කිරීමට මුරපදය අවශ්‍ය වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
         <source>Power Saving Mode</source>
-        <translation>Strømbesparende tilstand</translation>
+        <translation>බල ඉතිරි කිරීමේ මාදිලිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
         <source>Auto Mode Switch</source>
-        <translation>Automatisk skift af tilstand</translation>
+        <translation>ස්වයංක්‍රීය ප්‍රකාර ස්විචය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
         <source>Transparency</source>
-        <translation>Gennemsigtighed</translation>
+        <translation>විනිවිදභාවය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
         <source>Create PPPoE Connection</source>
-        <translation>Opret PPPoE-forbindelse</translation>
+        <translation>PPPoE සම්බන්ධතාවයක් සාදන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Deaktivér touchpad&apos;en mens der skrives</translation>
+        <translation>ටයිප් කිරීමේදී ටච් පෑඩ් අක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Deaktivér touchpad, når musen tilkobles</translation>
+        <translation>මූසිකයක් සම්බන්ධ කරන විට ටච් පෑඩ් අක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
         <source>Computer will suspend after</source>
-        <translation>Computeren vil gå i hvile om</translation>
+        <translation>පරිගණකය අත්හිටුවීම පසුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
         <source>Sign In</source>
-        <translation>Log ind</translation>
+        <translation>පුරනය වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>ස්වයංක්‍රීයව බැටරියේ බලය ඉතිරි කිරීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="157"/>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>ටච් පෑඩ්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="158"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>ට්‍රැක් පොයින්ට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="159"/>
         <source>Personal Hotspot</source>
-        <translation>Personligt hotspot</translation>
+        <translation>පුද්ගලික හොට්ස්පොට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="160"/>
         <source>On Battery</source>
-        <translation>På batteri</translation>
+        <translation>බැටරි බලයෙන් ක්‍රියාකරයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
         <source>Wired Network</source>
-        <translation>Kablet netværk</translation>
+        <translation>රැහැන්ගත ජාලය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
         <source>Wireless Network</source>
-        <translation>Trådløst netværk</translation>
+        <translation>රැහැන් රහිත සම්බන්ධතාවය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="163"/>
         <source>Multiple Displays</source>
-        <translation>Flere skærme</translation>
+        <translation>බහු තිර</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="164"/>
         <source>Boot Menu</source>
-        <translation>Opstartsmenu</translation>
+        <translation>ඇරඹුම් මෙනුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="501"/>
         <source>Cloud Account</source>
-        <translation>Skykonto</translation>
+        <translation>වලාකුළු පරිශීලක ගිණුම</translation>
     </message>
 </context>
 <context>
@@ -4621,19 +4621,19 @@
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="71"/>
         <source>Output</source>
-        <translation>Output</translation>
+        <translation>ප්‍රතිදානය</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="97"/>
         <source>Input</source>
-        <translation>Input</translation>
+        <translation>ආදානය</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/advancedpage.cpp" line="162"/>
         <source>Sound Card:</source>
-        <translation>Lydkort:</translation>
+        <translation>ශබ්ද කාඩ්පත:</translation>
     </message>
 </context>
 <context>
@@ -4641,18 +4641,18 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="66"/>
         <source>Microphone</source>
-        <translation>Mikrofon</translation>
+        <translation>මයික්‍රෝෆෝනය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="106"/>
         <source>Input Volume</source>
-        <translation>Lydstyrke (input)</translation>
+        <translation>ආදාන ශබ්ද පරිමාව</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="143"/>
         <source>Input Level</source>
-        <translation>Inputniveau</translation>
+        <translation>ආදාන මට්ටම</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
@@ -4661,7 +4661,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="55"/>
         <source>Sound Effects</source>
-        <translation>Lydeffekter</translation>
+        <translation>ශබ්ද ප්‍රයෝග</translation>
     </message>
 </context>
 <context>
@@ -4669,7 +4669,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="62"/>
         <source>Sound</source>
-        <translation>Lyd</translation>
+        <translation>ශබ්දය</translation>
     </message>
 </context>
 <context>
@@ -4677,25 +4677,25 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Speaker</source>
-        <translation>Højttaler</translation>
+        <translation>ස්පීකරය</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Microphone</source>
-        <translation>Mikrofon</translation>
+        <translation>මයික්‍රෝෆෝනය</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
         <source>Advanced</source>
-        <translation>Avanceret</translation>
+        <translation>උසස්</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
         <source>Sound Effects</source>
-        <translation>Lydeffekter</translation>
+        <translation>ශබ්ද ප්‍රයෝග</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
 </context>
@@ -4705,39 +4705,39 @@
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="53"/>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="56"/>
         <source>Speaker</source>
-        <translation>Højttaler</translation>
+        <translation>ස්පීකරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="84"/>
         <source>Output Volume</source>
-        <translation>Lydstyrke (output)</translation>
+        <translation>ප්‍රතිදාන ශබ්ද පරිමාව</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="186"/>
         <source>Volume Boost</source>
-        <translation>Boost af lydstyrke</translation>
+        <translation>පරිමාව වැඩි කිරීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="197"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
-        <translation>Hvis lydstyrken er over 100%, så kan det forringe lyden og være skadeligt for din højttaler</translation>
+        <translation>ශබ්ද පරිමාව 100% ට වඩා වැඩි නම්, එය හඩ විකෘති වීම් ඇතිකරයි. එසේම එය ඔබේ ස්පීකරයට හානිකර විය හැකිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="210"/>
         <source>Left/Right Balance</source>
-        <translation>Balance for venstre/højre</translation>
+        <translation>වම්/දකුණු සමබරතාව</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="216"/>
         <source>Left</source>
-        <translation>Venstre</translation>
+        <translation>වම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="217"/>
         <source>Right</source>
-        <translation>Højre</translation>
+        <translation>දකුණ</translation>
     </message>
 </context>
 <context>
@@ -4745,7 +4745,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="46"/>
         <source>Auto Sync</source>
-        <translation>Automatisk synkronisering</translation>
+        <translation>ස්වයංක්‍රීය සමමුහුර්තකරණය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
@@ -4755,77 +4755,77 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
         <source>Syncing...</source>
-        <translation>Synkroniserer...</translation>
+        <translation>සමමුහුර්ත වෙමින්...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="108"/>
         <source>Sign Out</source>
-        <translation>Log ud</translation>
+        <translation>ඉවත් වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="136"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
-        <translation>Din WLAN-adgangskode synkroniseres hvis netværksindstillinger er slået til</translation>
+        <translation>ජාල සැකසුම් සක්‍රිය කර ඇත්නම් ඔබගේ WLAN මුරපදය සමමුහුර්ත වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="179"/>
         <source>Network Settings</source>
-        <translation>Netværksindstillinger</translation>
+        <translation>ජාල සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="180"/>
         <source>Sound Settings</source>
-        <translation>Lydindstillinger</translation>
+        <translation>ශබ්ද සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="181"/>
         <source>Mouse Settings</source>
-        <translation>Museindstillinger</translation>
+        <translation>මූසික සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="182"/>
         <source>Update Settings</source>
-        <translation>Opdateringsindstillinger</translation>
+        <translation>යාවත්කාලීන කිරීම් සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="183"/>
         <source>Dock</source>
-        <translation>Dok</translation>
+        <translation>ඩොක් එක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="184"/>
         <source>Launcher</source>
-        <translation>Programstarter</translation>
+        <translation>රදවනය </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="185"/>
         <source>Wallpaper</source>
-        <translation>Tapet</translation>
+        <translation>බිතුපත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="186"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>තේමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="187"/>
         <source>Power Settings</source>
-        <translation>Strømindstillinger</translation>
+        <translation>බල සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="188"/>
         <source>Corner Settings</source>
-        <translation>Kantindstillinger</translation>
+        <translation>මුලු සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="319"/>
         <source>Last Sync: %1</source>
-        <translation>Sidste synkronisering: %1</translation>
+        <translation>අවසන් සමමුහුර්තකරණය: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="321"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>dd-MM-yyyy hh:mm</translation>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -4833,7 +4833,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="33"/>
         <source>Sign In</source>
-        <translation>Log ind</translation>
+        <translation>පුරනය වන්න</translation>
         <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
     </message>
     <message>
@@ -4849,7 +4849,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="56"/>
         <source>Only supported in Mainland China at present</source>
-        <translation>Understøttes i øjeblikket kun i Fastlandskina</translation>
+        <translation>දැනට චීනයේ ප්‍රධාන භූමියේ පමණක් සහාය දක්වයි</translation>
     </message>
 </context>
 <context>
@@ -4857,12 +4857,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="43"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Beklager, det understøttes ikke din region på nuværende tidspunkt, men det kommer snart</translation>
+        <translation>කණගාටුයි, එය දැනට ඔබගේ කලාපයට සහය නොදක්වන අතර ඉක්මනින් සහය ලබාදෙනු ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="54"/>
         <source>Sign Out</source>
-        <translation>Log ud</translation>
+        <translation>ඉවත් වන්න</translation>
     </message>
 </context>
 <context>
@@ -4883,22 +4883,22 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="35"/>
         <source>Backup Type</source>
-        <translation type="unfinished"/>
+        <translation>උපස්ථ වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="36"/>
         <source>Save to</source>
-        <translation type="unfinished"/>
+        <translation>වෙත සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="55"/>
         <source>Full Backup</source>
-        <translation type="unfinished"/>
+        <translation>සම්පූර්ණ උපස්ථය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="56"/>
         <source>System Backup</source>
-        <translation type="unfinished"/>
+        <translation>පද්ධති උපස්ථය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="125"/>
@@ -4908,7 +4908,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="172"/>
         <source>The storage location cannot be in source disk, please reselect</source>
-        <translation type="unfinished"/>
+        <translation>ගබඩා ස්ථානය ප්‍රභව තැටියේ තිබිය නොහැක, කරුණාකර නැවත තෝරා ගන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="176"/>
@@ -4918,17 +4918,17 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="180"/>
         <source>Tool execution error</source>
-        <translation>Fejl ved udførsel af værktøj</translation>
+        <translation>මෙවලම් ක්‍රියාත්මක කිරීමේ දෝෂයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="184"/>
         <source>Invalid path</source>
-        <translation>Ugyldig sti</translation>
+        <translation>වලංගු නොවන මගකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="188"/>
         <source>Grub authentication failed</source>
-        <translation>Grub-autentifikation mislykkedes</translation>
+        <translation>Grub සත්‍යාපනය අසමත් විය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="192"/>
@@ -4946,12 +4946,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="122"/>
         <source>Keep personal files and apps</source>
-        <translation type="unfinished"/>
+        <translation>පුද්ගලික ලිපිගොනු සහ යෙදුම් තබා ගන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="124"/>
         <source>Reset to factory settings</source>
-        <translation type="unfinished"/>
+        <translation>කර්මාන්තශාලා සැකසුම් වෙත නැවත සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
@@ -4961,7 +4961,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>
         <source>Restore from backup files</source>
-        <translation type="unfinished"/>
+        <translation>උපස්ථ ගොනු වලින් ප්‍රතිස්ථාපනය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="218"/>
@@ -4971,17 +4971,17 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="265"/>
         <source>Backup file is invalid</source>
-        <translation>Sikkerhedskopieringsfilen er ugyldig</translation>
+        <translation>උපස්ථ ගොනුව වලංගු නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="269"/>
         <source>Invalid path</source>
-        <translation>Ugyldig sti</translation>
+        <translation>වලංගු නොවන මගකි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="273"/>
         <source>Grub authentication failed</source>
-        <translation>Grub-autentifikation mislykkedes</translation>
+        <translation>Grub සත්‍යාපනය අසමත් විය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="291"/>
@@ -4992,17 +4992,17 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="295"/>
         <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
-        <translation>Den geninstallerer systemet og rydde al brugerdata hvilket er meget risikabelt — bekræft venligst inden du fortsætter</translation>
+        <translation>එය පද්ධතිය නැවත ස්ථාපනය කර සියලුම පරිශීලක දත්ත ඉවත් කරනු ඇත, මෙය ඉතා අවදානම් සහිතය. කරුණාකර ඉදිරියට යාමට පෙර තහවුරු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="299"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="300"/>
         <source>Confirm</source>
-        <translation>Bekræft</translation>
+        <translation>තහවුරු කරන්න</translation>
     </message>
 </context>
 <context>
@@ -5016,31 +5016,31 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="86"/>
         <source>Version:</source>
-        <translation>Version:</translation>
+        <translation type="unfinished"/>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="91"/>
         <source>Edition:</source>
-        <translation>Udgave:</translation>
+        <translation>සංස්කරණය:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="95"/>
         <source>Type:</source>
-        <translation>Type:</translation>
+        <translation>වර්ගය:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="98"/>
         <source>Authorization</source>
-        <translation>Autentifikation</translation>
+        <translation>අවසර ලබාගැනීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="99"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="205"/>
         <source>To be activated</source>
-        <translation>Skal aktiveres</translation>
+        <translation>සක්‍රීය කළ යුතුව ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="101"/>
@@ -5048,24 +5048,24 @@ Note: Create an account with the same username please.</source>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="215"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="219"/>
         <source>Activate</source>
-        <translation>Aktivér</translation>
+        <translation>සක්‍රිය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="111"/>
         <source>Kernel:</source>
-        <translation>Kerne:</translation>
+        <translation>කර්නලය:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="116"/>
         <source>Processor:</source>
-        <translation>Processor:</translation>
+        <translation>ප්‍රොසෙසරය:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="121"/>
         <source>Memory:</source>
-        <translation>Hukommelse:</translation>
+        <translation>මතකය:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -5076,28 +5076,28 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="201"/>
         <source>Activated</source>
-        <translation>Aktiveret</translation>
+        <translation>සක්‍රීයයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="203"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
         <source>View</source>
-        <translation>Vis</translation>
+        <translation>දැක්ම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
         <source>Expired</source>
-        <translation>Udløbet</translation>
+        <translation>කල් ඉකුත් වී ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="213"/>
         <source>In trial period</source>
-        <translation>I prøveperiode</translation>
+        <translation>අත්හදා බැලීමේ කාල පරිච්ඡේදයේ පවතී</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="217"/>
         <source>Trial expired</source>
-        <translation>Prøveperioden er udløbet</translation>
+        <translation>අත්හදා බැලීමේ කාල පරිච්ඡේදය අවසන් වී ඇත</translation>
     </message>
 </context>
 <context>
@@ -5105,7 +5105,7 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="98"/>
         <source>System Info</source>
-        <translation>Systeminfo</translation>
+        <translation>පද්ධති තොරතුරු</translation>
     </message>
 </context>
 <context>
@@ -5113,25 +5113,25 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="71"/>
         <source>About This PC</source>
-        <translation>Om denne computer</translation>
+        <translation>මෙම පරිගණකය ගැන</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>Edition License</source>
-        <translation>Udgavelicens</translation>
+        <translation>සංස්කරණ බලපත්‍රය</translation>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
         <source>End User License Agreement</source>
-        <translation>Slutbruger-licensaftale</translation>
+        <translation>අවසාන පරිශීලක බලපත්‍ර ගිවිසුම</translation>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="90"/>
         <source>Backup and Restore</source>
-        <translation>Sikkerhedskopiér og gendan</translation>
+        <translation>උපස්ථ කිරීම් සහ නැවත ස්ථාපනය කිරීම්</translation>
     </message>
 </context>
 <context>
@@ -5139,12 +5139,12 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="29"/>
         <source>Backup</source>
-        <translation>Sikkerhedskopiér</translation>
+        <translation>උපස්ථ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="30"/>
         <source>Restore</source>
-        <translation>Gendan</translation>
+        <translation>ප්‍රතිස්ථාපනය කරන්න</translation>
     </message>
 </context>
 <context>
@@ -5152,7 +5152,7 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="83"/>
         <source>Modify Password</source>
-        <translation>Rediger adgangskode</translation>
+        <translation>මුරපදය වෙනස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="87"/>
@@ -5162,12 +5162,12 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="91"/>
         <source>User Center</source>
-        <translation>Brugercenter</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="95"/>
         <source>Sign Out</source>
-        <translation>Log ud</translation>
+        <translation>ඉවත් වන්න</translation>
     </message>
 </context>
 <context>
@@ -5175,7 +5175,7 @@ Note: Create an account with the same username please.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="57"/>
         <source>Sign In</source>
-        <translation>Log ind</translation>
+        <translation>පුරනය වන්න</translation>
         <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
     </message>
     <message>
@@ -5195,7 +5195,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/logout.cpp" line="44"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Beklager, det understøttes ikke din region på nuværende tidspunkt, men det kommer snart</translation>
+        <translation>කණගාටුයි, එය දැනට ඔබගේ කලාපයට සහය නොදක්වන අතර ඉක්මනින් සහය ලබාදෙනු ඇත</translation>
     </message>
 </context>
 <context>
@@ -5229,27 +5229,27 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="10"/>
         <source>Untested</source>
-        <translation>Ikke testet</translation>
+        <translation>පරීක්ෂා නොකළ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="80"/>
         <source>Timeout</source>
-        <translation>Timeout</translation>
+        <translation>කල් ඉකුත් වීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="82"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="84"/>
         <source>Medium</source>
-        <translation>Medium</translation>
+        <translation>මාධ්‍යය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="86"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
 </context>
 <context>
@@ -5258,22 +5258,22 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
         <source>Mirror List</source>
-        <translation>Spejlliste</translation>
+        <translation>මූලාශ්‍ර දර්පණ ලැයිස්තුව</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="51"/>
         <source>Test Speed</source>
-        <translation>Test hastighed</translation>
+        <translation>පරීක්ෂණ වේගය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Untested</source>
-        <translation>Ikke testet</translation>
+        <translation>පරීක්ෂා නොකළ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="170"/>
         <source>Retest</source>
-        <translation>Test igen</translation>
+        <translation>නැවත පරීක්ෂා කරන්න</translation>
     </message>
 </context>
 <context>
@@ -5281,73 +5281,73 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="74"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Genstart computeren for at bruge systemet og programmerne ordentligt</translation>
+        <translation>පද්ධතිය සහ යෙදුම් නිසි ලෙස භාවිතා කිරීමට පරිගණකය නැවත ආරම්භ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="75"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Netværk deaktiveret. Prøv venligst når forbindelsen er oprettet</translation>
+        <translation>ජාලය විසන්ධි කර ඇත, කරුණාකර සම්බන්ධ වූ පසු නැවත උත්සාහ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="84"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation>Dit system er ikke autentificeret — aktivér det venligst først</translation>
+        <translation>ඔබේ පද්ධතියට අවසර නැත, කරුණාකර පළමුව සක්‍රිය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="105"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Opdateringen kan tage længere tid, luk venligst ikke ned eller genstarter under processen.</translation>
+        <translation>මෙම යාවත්කාලීන කිරීමට බොහෝ කාලයක් ගතවනු ඇත, කරුණාකර ක්‍රියාවලිය අතරතුර වසා දැමීමෙන් හෝ නැවත ඇරඹීමෙන් වලකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="244"/>
         <source>Last checking time: </source>
-        <translation type="unfinished"/>
+        <translation>අවසන් වරට පරීක්ෂා කල වේලාව:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="252"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Your system is up to date</source>
-        <translation>Dit system er opdateret</translation>
+        <translation>ඔබේ පද්ධතිය යාවත්කාලීනයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="255"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="307"/>
         <source>Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>යාවත්කාල කිරීම් සඳහා පරීක්ෂා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="266"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Søger efter opdateringer, vent venligst...</translation>
+        <translation>යාවත්කාල කිරීම් සඳහා පරීක්ෂා කරමින් පවතී, කරුණාකර රැඳී සිටින්න ...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="274"/>
         <source>Download and install updates</source>
-        <translation>Download og installer opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම් බාගත කර ස්ථාපනය කරන්න</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="283"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="411"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% downloadet (klik for at pause)</translation>
+        <translation>%1% බාගත කර ඇත (විරාම කිරීමට ක්ලික් කරන්න)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="290"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="413"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% downloadet (klik for at fortsætte)</translation>
+        <translation>%1% බාගත කර ඇත (නැවත ඇරඹීමට ක්ලික් කරන්න)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="297"/>
         <source>Install updates</source>
-        <translation>Installer opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම් ස්ථාපනය කරන්න</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="313"/>
         <source>Updating, please wait...</source>
-        <translation>Opdaterer, vent venligst...</translation>
+        <translation>යාවත්කාල කරමින් පවතී, කරුණාකර රැඳී සිටින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="323"/>
@@ -5355,62 +5355,62 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="339"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
         <source>Check Again</source>
-        <translation type="unfinished"/>
+        <translation>නැවත පරීක්ෂා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="327"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>Nyeste system installeret, genstart for at træde i kraft</translation>
+        <translation>නවතම පද්ධතිය ස්ථාපනය කර ඇත, බලාත්මක වීමට නැවත ආරම්භ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="338"/>
         <source>Update failed: insufficient disk space</source>
-        <translation>Opdatering mislykkedes: utilstrækkelig diskplads</translation>
+        <translation>යාවත්කාලීන කිරීම අසාර්ථකයි: තැටි අවකාශය ප්‍රමාණවත් නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="344"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Afhængighedsfejl, kunne ikke registrere opdateringerne</translation>
+        <translation>පරායත්ත සාධක දෝෂයකි, යාවත්කාලීන කිරීම් හඳුනා ගැනීමට අසමත් විය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="352"/>
         <source>Backing up, please wait...</source>
-        <translation>Sikkerhedskopiérer, vent venligst...</translation>
+        <translation>උපස්ථ වෙමින් පවතී, කරුණාකර රැඳී සිටින්න ...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="357"/>
         <source>System backup failed</source>
-        <translation>Sikkerhedskopiering af system mislykkedes</translation>
+        <translation>පද්ධතිය උපස්ථ කිරීම අසාර්ථක විය</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="380"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n යෙදුම් යාවත්කාලීන කිරීම් ලබා ගත හැකිය</numerusform><numerusform>%n යෙදුම් යාවත්කාලීන කිරීම් ලබා ගත හැකිය</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
         <source>New system edition available</source>
-        <translation>Ny systemudgave tilgængelig</translation>
+        <translation>නව පද්ධති සංස්කරණය ලබා ගත හැක</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="394"/>
         <source>Downloaded</source>
-        <translation>Downloadet</translation>
+        <translation>බාගත කර ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="396"/>
         <source>Size: %1</source>
-        <translation>Størrelse: %1</translation>
+        <translation>ප්‍රමාණය: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="421"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Dit batteri er under 50%, tilslut venligst strømforsyningen for at fortsætte</translation>
+        <translation>ඔබගේ බැටරි ධාරිතාවය 50% ට වඩා අඩුය, කරුණාකර ඉදිරියට යාමට විදුලි සැපයුමක් ලබා දෙන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="423"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Sørg venligst for tilstrækkeligt med strøm til genstart, og sluk ikke eller frakobl strømforsyningen fra din maskine</translation>
+        <translation>කරුණාකර නැවත ආරම්භ කිරීමට ප්‍රමාණවත් බලයක් පවතින බව සහතික කරන්න, ඔබේ යන්ත්‍රය ක්‍රියා විරහිත නොකරන්න</translation>
     </message>
 </context>
 <context>
@@ -5418,7 +5418,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="49"/>
         <source>Update History</source>
-        <translation>Opdateringshistorik</translation>
+        <translation>යාවත්කාලීන කිරීම් වාර්තා</translation>
     </message>
 </context>
 <context>
@@ -5426,7 +5426,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="117"/>
         <source>Updates</source>
-        <translation>Opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම්</translation>
     </message>
 </context>
 <context>
@@ -5434,67 +5434,67 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="48"/>
         <source>Update Settings</source>
-        <translation>Opdateringsindstillinger</translation>
+        <translation>යාවත්කාලීන කිරීම් සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
         <source>Automatic Updating Settings</source>
-        <translation type="unfinished"/>
+        <translation>සව්‍යංක්‍රීය යාවත්කාලීන කිරීම් සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="64"/>
         <source>Clear Package Cache</source>
-        <translation type="unfinished"/>
+        <translation>පැකේජ වාරක මතකය පිරිසිදු කරන්න</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="68"/>
         <source>Check for Updates</source>
-        <translation type="unfinished"/>
+        <translation>යාවත්කාල කිරීම් සඳහා පරීක්ෂා කරන්න</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="71"/>
         <source>Updates Notification</source>
-        <translation>Opdateringsnotifikation</translation>
+        <translation>යාවත්කාලීන කිරීමේ දැනුම්දීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="74"/>
         <source>Download Updates</source>
-        <translation>Download opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම් බාගත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="75"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Slå den til for automatisk download af opdateringerne i trådløst og kablet netværk</translation>
+        <translation>රැහැන් රහිත හෝ රැහැන්ගත ජාලයන්හීදී යාවත්කාලීන කිරීම් ස්වයංක්‍රීයව බාගත කිරීම ක්‍රියාත්මක කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="103"/>
         <source>System Repository Detection</source>
-        <translation>Systemsoftwarekilde registreret</translation>
+        <translation>පද්ධති මූලාශ්‍ර හඳුනා ගැනීම</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="107"/>
         <source>Show a notification if system update repository has been modified</source>
-        <translation>Vis en notifikation hvis softwarekilden for sytemopdateringer er blev ændret</translation>
+        <translation>පද්ධති යාවත්කාලීන මූලාශ්‍රය වෙනස් කර ඇත්නම් දැනුම්දීමක් පෙන්වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="156"/>
         <source>Smart Mirror Switch</source>
-        <translation>Smart skift af spejlserver</translation>
+        <translation>ස්මාර්ට් මූලාශ්‍ර දර්පණ ස්විචය</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="163"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Slå den til for automatisk at oprette forbindelse til det hurtigste spejlsted</translation>
+        <translation>වේගවත්ම දර්පණ මුලාශ්‍ර අඩවියට ස්වයංක්‍රීයව සම්බන්ධ වීමට ක්‍රියාත්මක කරන්න</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="177"/>
         <source>Mirror List</source>
-        <translation>Spejlliste</translation>
+        <translation>මූලාශ්‍ර දර්පණ ලැයිස්තුව</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
     </message>
 </context>
@@ -5503,35 +5503,35 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="58"/>
         <source>Updates</source>
-        <translation>Opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම්</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="62"/>
         <source>Update Settings</source>
-        <translation>Opdateringsindstillinger</translation>
+        <translation>යාවත්කාලීන කිරීම් සැකසුම්</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="73"/>
         <source>Last Update</source>
-        <translation>Seneste opdatering</translation>
+        <translation>අවසන් යාවත්කාලීන කිරීම</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="122"/>
         <source>Return</source>
-        <translation>Tilbage</translation>
+        <translation>ආපසු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="173"/>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="179"/>
         <source>Current Edition</source>
-        <translation>Nuværende udgave</translation>
+        <translation>වත්මන් සංස්කරණය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="187"/>
         <source>Update History</source>
-        <translation>Opdateringshistorik</translation>
+        <translation>යාවත්කාලීන කිරීම් වාර්තා</translation>
     </message>
 </context>
 <context>
@@ -5539,18 +5539,18 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation>Trykfølsomhed</translation>
+        <translation>පීඩන සංවේදීතාව</translation>
         <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
         <source>Light</source>
-        <translation>Let</translation>
+        <translation>එළිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation>Tungt</translation>
+        <translation>තද/බර</translation>
     </message>
 </context>
 <context>
@@ -5558,7 +5558,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="100"/>
         <source>Drawing Tablet</source>
-        <translation>Tegneplade</translation>
+        <translation>අඳින ටැබ්ලටය</translation>
     </message>
 </context>
 <context>
@@ -5566,17 +5566,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="64"/>
         <source>Mode</source>
-        <translation>Tilstand</translation>
+        <translation>ප්‍රකාරය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="66"/>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>පෑන</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="67"/>
         <source>Mouse</source>
-        <translation>Mus</translation>
+        <translation>මූසිකය</translation>
     </message>
 </context>
 <context>
@@ -5585,52 +5585,52 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="87"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
         <source>Copy</source>
-        <translation>Kopiér</translation>
+        <translation>පිටපත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="89"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
         <source>Extend</source>
-        <translation>Udvid</translation>
+        <translation>දීර්ඝ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="91"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
-        <translation>Vises kun på %1</translation>
+        <translation>%1 මත පමණක් දර්ශනය වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="99"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation>Kopiér skærmens indhold til en eller flere skærme</translation>
+        <translation>තිර අන්තර්ගතයන් තිර එකකට හෝ වැඩි ගණනකට පිටපත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="101"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Udvid skærmens indhold til at vise forskelligt indhold på forskellige skærme</translation>
+        <translation>විවිධ තිරවල විවිධ අන්තර්ගතයන් පෙන්වීමට තිරයේ අන්තර්ගතය දිගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaycontrolmodel.cpp" line="103"/>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
         <source>Screen contents are only displayed on %1</source>
-        <translation>Skærmindhold vises kun på %1</translation>
+        <translation>තිර අන්තර්ගතය %1 මත පමණක් දර්ශනය වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
         <source>New Custom Settings</source>
-        <translation>Nye brugerdefinerede indstillinger</translation>
+        <translation>නව අභිරුචි සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Skift venligst til skærmtilstanden som skal sættes, hvis du vil ændre de brugerdefinerede indstillinger</translation>
+        <translation>ඔබට අභිරුචි සැකසුම් වෙනස් කිරීමට අවශ්‍ය නම් කරුණාකර දර්ශන මොඩියුලය වෙත යන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation>Klik for at gå ind i display-modul</translation>
+        <translation>දර්ශන මොඩියුලය වෙත යාමට ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -5639,7 +5639,7 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="44"/>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="92"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
 </context>
 <context>
@@ -5647,7 +5647,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="187"/>
         <source>Navigation</source>
-        <translation>Navigation</translation>
+        <translation>සංචලනය</translation>
     </message>
 </context>
 <context>
@@ -5655,7 +5655,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="242"/>
         <source>Navigation</source>
-        <translation>Navigation</translation>
+        <translation>සංචලනය</translation>
     </message>
 </context>
 <context>
@@ -5663,17 +5663,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/notify/notifydelegate.cpp" line="197"/>
         <source>Yesterday</source>
-        <translation>I går</translation>
+        <translation>ඊයේ</translation>
     </message>
     <message>
         <location filename="../src/frame/notify/notifydelegate.cpp" line="199"/>
         <source>The day before yesterday</source>
-        <translation>I går</translation>
+        <translation>පෙරේදා</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/notify/notifydelegate.cpp" line="202"/>
         <source>%n day(s) ago</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>දින(ය) %n කට පෙර</numerusform><numerusform>දින(ය) %n කට පෙර</numerusform></translation>
     </message>
 </context>
 <context>
@@ -5681,12 +5681,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="33"/>
         <source>No system notifications</source>
-        <translation>Ingen systemnotifikationer</translation>
+        <translation>පද්ධති දැනුම්දීම් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
-        <translation>Ryd alle</translation>
+        <translation>සියල්ල ඉවත් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -5694,58 +5694,58 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/main.cpp" line="172"/>
         <source>Control Center</source>
-        <translation>Kontrolcenter</translation>
+        <translation>පාලන මධ්‍යස්ථානය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="307"/>
         <source>On Battery</source>
-        <translation>På batteri</translation>
+        <translation>බැටරි බලයෙන් ක්‍රියාකරයි</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="308"/>
         <source>Plugged In</source>
-        <translation>Tilsluttet</translation>
+        <translation>සම්බන්ධ කර ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="309"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="310"/>
         <source>Mouse</source>
-        <translation>Mus</translation>
+        <translation>මූසිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="311"/>
         <source>Touchpad</source>
-        <translation>Touchpad</translation>
+        <translation>ටච් පෑඩ්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="312"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>ට්‍රැක් පොයින්ට්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="313"/>
         <source>Application Proxy</source>
-        <translation>Programproxy</translation>
+        <translation>යෙදුම් ප්‍රොක්සිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="314"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="317"/>
         <source>System Proxy</source>
-        <translation>Systemproxy</translation>
+        <translation>පද්ධති ප්‍රොක්සිය</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="315"/>
         <source>Time Settings</source>
-        <translation>Tidsindstillinger</translation>
+        <translation>වේලා සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="316"/>
         <source>Change System Timezone</source>
-        <translation>Skift systemets tidszone</translation>
+        <translation>පද්ධති කාල කලාපය වෙනස් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -5753,27 +5753,27 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Genstart computeren for at bruge systemet og programmerne ordentligt</translation>
+        <translation>පද්ධතිය සහ යෙදුම් නිසි ලෙස භාවිතා කිරීමට පරිගණකය නැවත ආරම්භ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Søg først for at al data er blevet gemt</translation>
+        <translation>සියලු දත්ත සුරැකී ඇති බව පළමුව තහවුරු කරගන්න</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="41"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="41"/>
         <source>Shut down</source>
-        <translation>Luk ned</translation>
+        <translation>වසා දමන්න </translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="44"/>
         <source>Reboot</source>
-        <translation>Genstart</translation>
+        <translation>පද්ධතිය නැවත අරඹන්න</translation>
     </message>
 </context>
 <context>
@@ -5782,8 +5782,7 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/display/rotatedialog.cpp" line="137"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.
 If no operation, the display will be restored after %1s.</source>
-        <translation>Venstreklik for at dreje, højreklik for at gendanne og afslutte. Tryk på Ctrl+S for at gemme.
-Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
+        <translation>භ්‍රමණය වීමට වම ක්ලික් කරන්න, ප්‍රතිස්ථාපනය කිරීමට සහ පිටවීමට දකුණ ක්ලික් කරන්න, සුරැකීමට Ctrl + S ඔබන්න. මෙහෙයුමක් නොමැති නම්, තත්පර %1 කට පසු දර්ශනය ප්‍රතිස්ථාපනය වේ.</translation>
     </message>
 </context>
 <context>
@@ -5791,7 +5790,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
-        <translation>Søg</translation>
+        <translation>සොයන්න</translation>
     </message>
 </context>
 <context>
@@ -5799,12 +5798,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
         <source>No search results</source>
-        <translation>Ingen søgeresultater</translation>
+        <translation>සෙවුම් ප්‍රතිඵල නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
         <source>Current City: %1</source>
-        <translation>Aktuelle by: %1</translation>
+        <translation>වත්මන් නගරය: %1</translation>
     </message>
 </context>
 <context>
@@ -5813,12 +5812,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/widgets/settingshead.cpp" line="48"/>
         <location filename="../src/frame/widgets/settingshead.cpp" line="102"/>
         <source>Edit</source>
-        <translation>Rediger</translation>
+        <translation>සංස්කරණය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/settingshead.cpp" line="104"/>
         <source>Done</source>
-        <translation>Færdig</translation>
+        <translation>සම්පූර්ණයි</translation>
     </message>
 </context>
 <context>
@@ -5826,12 +5825,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="80"/>
         <source>Reset all settings</source>
-        <translation>Nulstil alle indstillinger</translation>
+        <translation>සියලුම සැකසුම් නැවත සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/settingswidget.cpp" line="90"/>
         <source>All Settings</source>
-        <translation>Alle indstillinger</translation>
+        <translation>සියලු සැකසුම්</translation>
     </message>
 </context>
 <context>
@@ -5839,72 +5838,72 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation>Opstart</translation>
+        <translation>ආරම්භ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
         <source>Shut down</source>
-        <translation>Luk ned</translation>
+        <translation>වසා දමන්න </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="18"/>
         <source>Log out</source>
-        <translation>Log ud</translation>
+        <translation>ඉවත් වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation>Vågn op</translation>
+        <translation>අවදි කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation>Lydstyrke +/-</translation>
+        <translation>ශබ්ද පරිමාව +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
         <source>Notification</source>
-        <translation>Notifikation</translation>
+        <translation>දැනුම්දීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
-        <translation>Lavt batteri</translation>
+        <translation>අඩු බැටරි ධාරිතාවයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Send ikon i opstarter til skrivebord</translation>
+        <translation>රඳවනයේ හි ඇති අයිනක ඩෙස්ක්ටොප් එක වෙත යවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
-        <translation>Tøm papirkurv</translation>
+        <translation>කුණු කූඩය හිස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
-        <translation>Stik sættes i</translation>
+        <translation>සම්බන්ධ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation>Stik tages ud</translation>
+        <translation>සම්බන්ධතාව ඉවත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation>Tilslutning af flytbar enhed</translation>
+        <translation>ඉවත් කළ හැකි උපාංගය සම්බන්ධයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation>Fjernelse af flytbar enhed</translation>
+        <translation>ඉවත් කළ හැකි උපාංගය ඉවත් කරන ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
-        <translation>Fejl</translation>
+        <translation>දෝෂයකි</translation>
     </message>
 </context>
 <context>
@@ -5912,22 +5911,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="31"/>
         <source>Do you want to save the display settings?</source>
-        <translation>Vil du gemme skærmindstillingerne?</translation>
+        <translation>දර්ශන සැකසුම් සුරැකීමට ඔබට අවශ්‍යද?</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="33"/>
         <source>If no operation, the display will be restored after %1s.</source>
-        <translation>Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
+        <translation>පවතින මෙහෙයුමක් නොමැති නම්,තත්පර %1 කට පසු දර්ශනය ප්‍රතිස්ථාපනය වනු ඇත.</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="38"/>
         <source>Restore</source>
-        <translation>Gendan</translation>
+        <translation>ප්‍රතිස්ථාපනය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
 </context>
 <context>
@@ -5935,22 +5934,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="37"/>
         <source>Updates</source>
-        <translation>Opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="162"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Afhængighedsfejl, kunne ikke registrere opdateringerne</translation>
+        <translation>පරායත්ත සාධක දෝෂයකි, යාවත්කාලීන කිරීම් හඳුනා ගැනීමට අසමත් විය</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="165"/>
         <source>Updates detecting failure</source>
-        <translation>Fejl ved registrering af opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම් හඳුනා ගැනීම අසාර්ථක විය.</translation>
     </message>
     <message>
         <location filename="../src/frame/updatenotifier.cpp" line="174"/>
         <source>Updates detected, click to view</source>
-        <translation>Opdateringer registreret, klik for at vise</translation>
+        <translation>යාවත්කාලීන කිරීම් හඳුනාගෙන ඇත, විස්තර සඳහා ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -5958,7 +5957,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>Klik på ikon for at aktivere VPN</translation>
+        <translation>VPN සක්‍රීය කිරීමට අයිකනය ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -5966,17 +5965,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
         <source>Sorry, unable to get weather!</source>
-        <translation>Beklager - kan ikke hente vejret!</translation>
+        <translation>කණගාටුයි, කාලගුණ දත්ත ලබා ගැනීමට නොහැකි විය!</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
         <source>Loading weather...</source>
-        <translation>Indlæser vejret...</translation>
+        <translation>කාලගුණ දත්ත ලබාගනිමින් ...</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
-        <translation>Netop opdateret</translation>
+        <translation>යාවත්කාලීන කරන ලදි</translation>
     </message>
 </context>
 <context>
@@ -5984,17 +5983,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WLAN</source>
-        <translation>Klik på ikon for at aktivere WLAN</translation>
+        <translation>WLAN සක්‍රීය කිරීමට අයිකනය ක්ලික් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
         <source>Connect to hidden network</source>
-        <translation>Opret forbindelse til skjult netværk</translation>
+        <translation>සැඟවුණු ජාලයකට සම්බන්ධ වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
         <source>Wireless Card %1</source>
-        <translation>Trådløstkort %1</translation>
+        <translation>රැහැන් රහිත කාඩ්පත %1</translation>
     </message>
 </context>
 <context>
@@ -6002,32 +6001,32 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
         <source>Leave domain</source>
-        <translation>Forlad domæne</translation>
+        <translation>වසමෙන් ඉවත් වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="53"/>
         <source>Join domain</source>
-        <translation>Deltag i domæne</translation>
+        <translation>වසමට සම්බන්ධ වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="61"/>
         <source>Domain Server</source>
-        <translation>Domæneserver</translation>
+        <translation>වසම්-Domain සේවාදායකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="62"/>
         <source>Admin account</source>
-        <translation>Administratorkonto</translation>
+        <translation>පරිපාලක ගිණුම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="63"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/addialog.cpp" line="72"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
 </context>
 <context>
@@ -6035,42 +6034,42 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="51"/>
         <source>Modify Avatar</source>
-        <translation>Rediger avatar</translation>
+        <translation>පරිශීලක රුව වෙනස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="54"/>
         <source>Modify Fullname</source>
-        <translation>Rediger fulde navn</translation>
+        <translation>සම්පූර්ණ නම වෙනස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="57"/>
         <source>Modify Password</source>
-        <translation>Rediger adgangskode</translation>
+        <translation>මුරපදය වෙනස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="60"/>
         <source>Auto Login</source>
-        <translation>Automatisk login</translation>
+        <translation>ස්වයංක්‍රීය පිවිසුම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="64"/>
         <source>Login Without Password</source>
-        <translation>Log ind uden adgangskode</translation>
+        <translation>මුරපදය නොමැතිව පිවිසීම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="68"/>
         <source>Delete Account</source>
-        <translation>Slet konto</translation>
+        <translation>ගිණුම මකා දමන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="71"/>
         <source>Unable to delete, current user logged in</source>
-        <translation>Kan ikke slette, nuværende bruger er logget ind</translation>
+        <translation>මකා දැමිය නොහැක, වත්මන් පරිශීලකයා පුරනය වී ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsdetailwidget.cpp" line="74"/>
         <source>Fingerprint Password</source>
-        <translation>Fingeraftryksadgangskode</translation>
+        <translation>ඇඟිලි සලකුණු මුරපදය</translation>
     </message>
 </context>
 <context>
@@ -6078,24 +6077,24 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="43"/>
         <source>Create Account</source>
-        <translation>Opret konto</translation>
+        <translation>ගිණුමක් තනන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
         <location filename="../src/frame/navigationbar.cpp" line="201"/>
         <source>Accounts</source>
-        <translation>Konti</translation>
+        <translation>ගිණුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Leave domain</source>
-        <translation>Forlad domæne</translation>
+        <translation>වසමෙන් ඉවත් වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountswidget.cpp" line="99"/>
         <source>Join domain</source>
-        <translation>Deltag i domæne</translation>
+        <translation>වසමට සම්බන්ධ වන්න</translation>
     </message>
 </context>
 <context>
@@ -6103,32 +6102,32 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="401"/>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Din vært forlod domæneserveren</translation>
+        <translation>ඔබගේ ධාරකය-host වසම් සේවාදායකයෙන් සාර්ථකව ඉවත් කරන ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="402"/>
         <source>Your host joins the domain server successfully</source>
-        <translation>Din vært deltager i domæneserveren</translation>
+        <translation>ඔබගේ ධාරකය වසම් සේවාදායකයට සාර්ථකව සම්බන්ධ වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="424"/>
         <source>Your host failed to leave the domain server</source>
-        <translation>Din vært kunne ikke forlade domæneserveren</translation>
+        <translation>ඔබගේ ධාරකය වසම් සේවාදායකයෙන් ඉවත් වීමට අසමත් විය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="425"/>
         <source>Your host failed to join the domain server</source>
-        <translation>Din værk kunne ikke deltage i domæneserveren</translation>
+        <translation>ඔබගේ ධාරකය වසම් සේවාදායකයට සම්බන්ධ වීමට අසමත් විය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="428"/>
         <source>AD domain settings</source>
-        <translation>AD-domæneindstillinger</translation>
+        <translation>AD වසම් සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
         <source>Password not match</source>
-        <translation>Adgangskode passer ikke</translation>
+        <translation>මුරපද නොගැලපේ</translation>
     </message>
 </context>
 <context>
@@ -6136,37 +6135,37 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="42"/>
         <source>Add Fingerprint</source>
-        <translation>Tilføj fingeraftryk</translation>
+        <translation>ඇඟිලි සලකුණ එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="55"/>
         <source>Re-enter</source>
-        <translation>Indtast igen</translation>
+        <translation>නැවත ඇතුලත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="56"/>
         <source>Done</source>
-        <translation>Færdig</translation>
+        <translation>සම්පූර්ණයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="108"/>
         <source>Identifying fingerprint</source>
-        <translation>Identificerer fingeraftryk</translation>
+        <translation>ඇඟිලි සලකුණු හඳුනා ගනිමින් පවතී</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="114"/>
         <source>Failed to identify fingerprint, place your finger on the fingerprint reader, swipe upwards and release</source>
-        <translation>Kunne ikke identificere fingeraftryk. Sæt din finger på fingeraftryksoptageren og flyt op fra bunden og giv slip</translation>
+        <translation>ඇඟිලි සලකුණු හඳුනා ගැනීමට අපොහොසත් විය, ඇඟිලි සලකුණු කියවනය මත ඔබේ ඇඟිල්ල තබන්න, ඉහළට ගෙනගොස් මුදා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="120"/>
         <source>Added successfully</source>
-        <translation>Tilføjet</translation>
+        <translation>සාර්ථකව එක් කරන ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/addfingerpage.cpp" line="130"/>
         <source>Place your finger on the fingerprint reader, swipe upwards, then repeat</source>
-        <translation>Sæt din finger på fingeraftrykslæseren, stryg op, og gentag</translation>
+        <translation>ඇඟිලි සලකුණු කියවනය මත ඔබේ ඇඟිල්ල තබන්න, ඉහළට ගෙන යන්න ඉන්පසු නැවත කරන්න</translation>
     </message>
 </context>
 <context>
@@ -6174,60 +6173,60 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="53"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="54"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="56"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="59"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="55"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="58"/>
         <source>Repeat password</source>
-        <translation>Gentag adgangskode</translation>
+        <translation>මුරපදය නැවත ඇතුලත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="67"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="68"/>
         <source>Create</source>
-        <translation>Opret</translation>
+        <translation>සාදන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="88"/>
         <source>New Account</source>
-        <translation>Ny konto</translation>
+        <translation>නව ගිණුම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="160"/>
         <source>Username can&apos;t be empty</source>
-        <translation>Brugernavn må ikke være tomt</translation>
+        <translation>පරිශීලක නාමය හිස් විය නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="163"/>
         <source>Password can&apos;t be empty</source>
-        <translation>Adgangskode må ikke være tomt</translation>
+        <translation>මුරපදය හිස් විය නොහැක</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="265"/>
         <source>The password should be different from the username</source>
-        <translation>Adgangskoden bør ikke det samme som brugernavnet</translation>
+        <translation>මුරපදය පරිශීලක නාමයට වඩා වෙනස් විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="271"/>
         <location filename="../src/frame/modules/accounts/createpage.cpp" line="274"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Adgangskoden skal indeholde engelske bogstaver (forskel på store og små bogstaver), tal eller specialtegn (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>මුරපදයේ ඉංග්‍රීසි අකුරු (සිද්ධි සංවේදී), අංක හෝ විශේෂ සංකේත (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;) අඩංගු විය යුතුය.</translation>
     </message>
 </context>
 <context>
@@ -6285,19 +6284,19 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="107"/>
         <source>Scan failed</source>
-        <translation type="unfinished"/>
+        <translation>පරිලෝකනය අසාර්ථක විය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="117"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"/>
+        <translation>ඇඟිලි සලකුණ දැනටමත් පවතී</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="171"/>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"/>
+        <translation>කරුණාකර වෙනත් ඇඟිලි පරිලෝකනය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="121"/>
@@ -6320,44 +6319,44 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="158"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
         <source>Moved too fast</source>
-        <translation type="unfinished"/>
+        <translation>ඉතා වේගයෙන් චලනය විය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="159"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>Fingeren bevægede sig for hurtigt, løft venligst ikke fingeren før du får besked om det</translation>
+        <translation>ඇඟිල්ල වේගයෙන් චලනය විය, කරුණාකර විමසන තුරු ඔසවන්න එපා</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="162"/>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>අපැහැදිලි ඇඟිලි සලකුණකි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="181"/>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Rens din finger og juster fingerens placering og prøv igen</translation>
+        <translation>ඔබේ ඇඟිල්ල පිරිසිදු කර හෝ ඇඟිල්ලේ පිහිටීම සකසා නැවත උත්සාහ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
         <source>Already scanned</source>
-        <translation>Allerede skannet</translation>
+        <translation>දැනටමත් පරිලෝකනය කර ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="178"/>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Juster din fingers placering og skal hele dit fingeraftryk</translation>
+        <translation>ඔබේ ඇඟිලි සලකුණ සම්පූර්ණයෙන් පරිලෝකනය කිරීමට ඇඟිලි ස්ථානය සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="175"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Fingeren bevægede sig for hurtigt. Løft venligst ikke fingeren før du får besked om det</translation>
+        <translation>ඇඟිල්ල වේගයෙන් චලනය විය, කරුණාකර විමසන තුරු ඔසවන්න එපා</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>ඔබේ ඇඟිල්ල ඔසවා නැවත සංවේදකය මත තබන්න</translation>
     </message>
 </context>
 <context>
@@ -6365,32 +6364,32 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="43"/>
         <source>Fingerprint List</source>
-        <translation>Fingeraftryksliste</translation>
+        <translation>ඇඟිලි සලකුණු ලැයිස්තුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="46"/>
         <source>Fingerprint Password</source>
-        <translation>Fingeraftryksadgangskode</translation>
+        <translation>ඇඟිලි සලකුණු මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="49"/>
         <source>Add Fingerprint</source>
-        <translation>Tilføj fingeraftryk</translation>
+        <translation>ඇඟිලි සලකුණ එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="52"/>
         <source>Clear Fingerprint</source>
-        <translation>Ryd fingeraftryk</translation>
+        <translation>ඇඟිලි සලකුණ ඉවත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="56"/>
         <source>Fingerprint password is used in system login, application authorization and other scenes. Scan the fingerprint when password needed.</source>
-        <translation>Fingeraftryksadgangskode bruges ved systemlogin, programautentificering og andre senarier. Skan fingeraftrykket når der er brug for adgangskoden.</translation>
+        <translation>ඇඟිලි සලකුණු මුරපදය පද්ධති පිවිසුම, යෙදුම් අවසරය සහ වෙනත් දර්ශන සඳහා භාවිතා කරයි. මුරපදය අවශ්‍ය විට ඇඟිලි සලකුණ පරිලෝකනය-ස්කෑන් කරන්න.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingerpage.cpp" line="98"/>
         <source>Fingerprint</source>
-        <translation>Fingeraftryk</translation>
+        <translation>ඇඟිලි සලකුණ</translation>
     </message>
 </context>
 <context>
@@ -6399,50 +6398,50 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="138"/>
         <source>Place your finger</source>
-        <translation>Sæt din finger</translation>
+        <translation>ඔබේ ඇඟිල්ල තබන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="66"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="139"/>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Sæt din finger godt på sensoren indtil du bliver spurgt om at fjerne den</translation>
+        <translation>ඔබේ ඇඟිල්ල එසවීමට ඔබෙන් ඉල්ලා සිටින තුරු සංවේදකය මත තදින් තබන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="152"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="155"/>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>ඔබගේ ඇඟිලි සලකුණු වල කෙළවරවල්  පරිලෝකනය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="69"/>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Sæt kanten af dit fingeraftryk på sensoren</translation>
+        <translation>ඔබගේ ඇඟිලි සලකුණු වල කෙළවරවල්  සංවේදකය මත තබන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="146"/>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>ඔබේ ඇඟිල්ල ඔසවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="147"/>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>ඔබේ ඇඟිල්ල ඔසවා නැවත සංවේදකය මත තබන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>ඔබගේ ඇඟිලි සලකුණු වල කෙළවරවල් පරිලෝකනය කිරීමට ස්ථානය සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="156"/>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>ඔබේ ඇඟිල්ල ඔසවා නැවත එය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="160"/>
         <source>Fingerprint added</source>
-        <translation>Fingeraftryk tilføjet</translation>
+        <translation>ඇඟිලි සලකුණ එක් කරන ලදි</translation>
     </message>
 </context>
 <context>
@@ -6450,17 +6449,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="44"/>
         <source>Fullname:</source>
-        <translation>Fulde navn:</translation>
+        <translation>සම්පූර්ණ නම:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="48"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>හරි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifyfullnamepage.cpp" line="63"/>
         <source>Fullname Settings</source>
-        <translation>Indstillinger for fulde navn</translation>
+        <translation>සම්පූර්ණ නම සැකසුම්</translation>
     </message>
 </context>
 <context>
@@ -6468,54 +6467,54 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="50"/>
         <source>Current Password</source>
-        <translation>Nuværende adgangskode</translation>
+        <translation>වත්මන් මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="52"/>
         <source>New Password</source>
-        <translation>Ny adgangskode</translation>
+        <translation>නව මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="54"/>
         <source>Repeat Password</source>
-        <translation>Gentag adgangskode</translation>
+        <translation>මුරපදය නැවත ඇතුලත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="56"/>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="57"/>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="58"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="62"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="64"/>
         <source>Accept</source>
-        <translation>Acceptér</translation>
+        <translation>අනුමත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="117"/>
         <source>New password should differ from the current one</source>
-        <translation>Ny adgangskode bør afvige fra den nuværende</translation>
+        <translation>නව මුරපදය වත්මන් එකට වඩා වෙනස් විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="156"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="215"/>
         <source>The password should be different from the username</source>
-        <translation>Adgangskoden bør ikke det samme som brugernavnet</translation>
+        <translation>මුරපදය පරිශීලක නාමයට වඩා වෙනස් විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/modifypasswordpage.cpp" line="223"/>
         <source>The password must contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Adgangskoden skal indeholde engelske bogstaver (forskel på store og små bogstaver), tal eller specialtegn (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>මුරපදයේ ඉංග්‍රීසි අකුරු (සිද්ධි සංවේදී), අංක හෝ විශේෂ සංකේත (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;) අඩංගු විය යුතුය.</translation>
     </message>
 </context>
 <context>
@@ -6523,22 +6522,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>All data under this account will be permanently deleted</source>
-        <translation type="unfinished"/>
+        <translation>මෙම ගිණුම යටතේ ඇති සියලුම දත්ත ස්ථිරවම මකා දැමෙනු ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation>Slet kontomappe</translation>
+        <translation>ගිණුම් නාමාවලිය මකන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
-        <translation>Slet</translation>
+        <translation>මකන්න</translation>
     </message>
 </context>
 <context>
@@ -6546,17 +6545,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/usermodel.cpp" line="166"/>
         <source>Password must be between %1 and %2 characters</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදය අක්ෂර %1 සහ %2 අතර විය යුතුය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/usermodel.cpp" line="173"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Adgangskoden må kun indeholde engelske bogstaver (der skelnes mellem store og små bogstaver), tal eller specialtegn (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>මුරපදයේ ඉංග්‍රීසි අකුරු (සිද්ධි සංවේදී), අංක හෝ විශේෂ සංකේත (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;) අඩංගු විය යුතුය.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/usermodel.cpp" line="186"/>
         <source>Password must contain at least %1 types of characters</source>
-        <translation type="unfinished"/>
+        <translation>මුරපදයේ අවම වශයෙන් වර්ග %1 ක අක්ෂර අඩංගු විය යුතුය</translation>
     </message>
 </context>
 <context>
@@ -6564,17 +6563,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="47"/>
         <source>My devices</source>
-        <translation>Mine enheder</translation>
+        <translation>මගේ උපාංග</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
         <source>Other devices</source>
-        <translation>Andre enheder</translation>
+        <translation>වෙනත් උපාංග</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>Aktivér bluetooth for at finde enheder i nærheden (højttaler, tastatur, mus)</translation>
+        <translation>ආසන්න උපාංග සොයා ගැනීමට බ්ලූටූත් සක්‍රීය කරන්න (ශබ්ද විකාශන යන්ත්‍ර, යතුරුපුවරුව, මූසිකය)</translation>
     </message>
 </context>
 <context>
@@ -6584,7 +6583,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
         <location filename="../src/frame/navigationbar.cpp" line="208"/>
         <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
+        <translation>බ්ලූටූත්</translation>
     </message>
 </context>
 <context>
@@ -6592,12 +6591,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="43"/>
         <source>Ignore</source>
-        <translation>Ignorer</translation>
+        <translation>නොසලකා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
-        <translation>Afbryd</translation>
+        <translation>විසන්ධි කරන්න</translation>
     </message>
 </context>
 <context>
@@ -6605,12 +6604,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="125"/>
         <source>Connected</source>
-        <translation>Tilsluttet</translation>
+        <translation>සම්බන්ධයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/devicesettingsitem.cpp" line="130"/>
         <source>Not connected</source>
-        <translation>Ikke tilsluttet</translation>
+        <translation>සම්බන්ධතා නොමැත</translation>
     </message>
 </context>
 <context>
@@ -6618,17 +6617,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
         <source>The PIN for connecting to the Bluetooth device is:</source>
-        <translation>PIN&apos;et til at oprette forbindelse til Bluetooth-enheden er:</translation>
+        <translation>බ්ලූටූත් උපාංගයට සම්බන්ධ වීමේ PIN අංකය:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>Confirm</source>
-        <translation>Bekræft</translation>
+        <translation>තහවුරු කරන්න</translation>
     </message>
 </context>
 <context>
@@ -6636,87 +6635,87 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="29"/>
         <source>Syncing</source>
-        <translation>Synkroniserer</translation>
+        <translation>සමමුහුර්ත වෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="30"/>
         <source>Logout</source>
-        <translation>Log ud</translation>
+        <translation>ඉවත් වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="34"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
-        <translation>Beklager, det understøttes ikke din region på nuværende tidspunkt, men det kommer snart</translation>
+        <translation>කණගාටුයි, එය දැනට ඔබගේ කලාපයට සහය නොදක්වන අතර ඉක්මනින් සහය ලබාදෙනු ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="65"/>
         <source>Auto Sync</source>
-        <translation>Automatisk synkronisering</translation>
+        <translation>ස්වයංක්‍රීය සමමුහුර්තකරණය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="72"/>
         <source>Switch it on to sync part of the settings for Control Center, Launcher and Dock automatically.</source>
-        <translation>Slå den til for automatisk at synkronisere dele af indstillingerne for kontrolcenter, opstarter og dok.</translation>
+        <translation>පාලන මධ්‍යස්ථානය, රඳවනය-launcher සහ ඩොක්එක සඳහා සැකසුම් වලින් කොටසක් ස්වයංක්‍රීයව සමමුහුර්ත කිරීමට ක්‍රියාත්මක කරන්න.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="79"/>
         <source>Network Settings</source>
-        <translation>Netværksindstillinger</translation>
+        <translation>ජාල සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="80"/>
         <source>Sound Settings</source>
-        <translation>Lydindstillinger</translation>
+        <translation>ශබ්ද සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="81"/>
         <source>Mouse Settings</source>
-        <translation>Museindstillinger</translation>
+        <translation>මූසික සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="82"/>
         <source>Update Settings</source>
-        <translation>Opdateringsindstillinger</translation>
+        <translation>යාවත්කාලීන කිරීම් සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="83"/>
         <source>Dock</source>
-        <translation>Dok</translation>
+        <translation>ඩොක් එක</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="84"/>
         <source>Launcher</source>
-        <translation>Programstarter</translation>
+        <translation>රදවනය </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="85"/>
         <source>Wallpaper</source>
-        <translation>Tapet</translation>
+        <translation>බිතුපත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="86"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>තේමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="87"/>
         <source>Power Settings</source>
-        <translation>Strømindstillinger</translation>
+        <translation>බල සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="88"/>
         <source>Corner Settings</source>
-        <translation>Kantindstillinger</translation>
+        <translation>මුලු සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="214"/>
         <source>Last Sync: %1</source>
-        <translation>Sidste synkronisering: %1</translation>
+        <translation>අවසන් සමමුහුර්තකරණය: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncstatewidget.cpp" line="216"/>
         <source>yyyy-MM-dd hh:mm</source>
-        <translation>dd-MM-yyyy hh:mm</translation>
+        <translation>yyyy-MM-dd hh:mm</translation>
     </message>
 </context>
 <context>
@@ -6724,18 +6723,18 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="14"/>
         <source>Login</source>
-        <translation>Login</translation>
+        <translation>ඇතුල් වන්න </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="18"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
         <source>Cloud Sync</source>
-        <translation>Skysynkronisering</translation>
+        <translation>වලාකුළු සමමුහුර්තකරණය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sync/syncwidget.cpp" line="21"/>
         <source>Only supported in Mainland China at present</source>
-        <translation>Understøttes i øjeblikket kun i Fastlandskina</translation>
+        <translation>දැනට චීනයේ ප්‍රධාන භූමියේ පමණක් සහාය දක්වයි</translation>
     </message>
 </context>
 <context>
@@ -6743,17 +6742,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="63"/>
         <source>Change Time Settings</source>
-        <translation>Skift tidsindstillinger</translation>
+        <translation>වේලා සැකසුම් වෙනස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="68"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datesettings.cpp" line="69"/>
         <source>Confirm</source>
-        <translation>Bekræft</translation>
+        <translation>තහවුරු කරන්න</translation>
     </message>
 </context>
 <context>
@@ -6761,17 +6760,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="56"/>
         <source>Year</source>
-        <translation>År</translation>
+        <translation>වර්ෂය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="59"/>
         <source>Month</source>
-        <translation>Måned</translation>
+        <translation>මාසය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetimewidget.cpp" line="62"/>
         <source>Day</source>
-        <translation>Dag</translation>
+        <translation>දිනය</translation>
     </message>
 </context>
 <context>
@@ -6779,34 +6778,34 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="46"/>
         <source>Auto-Sync</source>
-        <translation>Automatisk synkronisering</translation>
+        <translation>ස්වයංක්‍රීය සමමුහුර්තකරණය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="51"/>
         <source>Add Timezone</source>
-        <translation>Tilføj tidszone</translation>
+        <translation>කාල කලාපය එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="57"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
         <location filename="../src/frame/navigationbar.cpp" line="210"/>
         <source>Time and Date</source>
-        <translation>Klokkeslæt og dato</translation>
+        <translation>වේලාව සහ දිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="61"/>
         <source>Change System Timezone</source>
-        <translation>Skift systemets tidszone</translation>
+        <translation>පද්ධති කාල කලාපය වෙනස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="69"/>
         <source>Time Settings</source>
-        <translation>Tidsindstillinger</translation>
+        <translation>වේලා සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetime.cpp" line="74"/>
         <source>Timezone List</source>
-        <translation>Tidszoneliste</translation>
+        <translation>කාල කලාප ලැයිස්තුව</translation>
     </message>
 </context>
 <context>
@@ -6814,29 +6813,29 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="61"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="212"/>
         <source>Confirm</source>
-        <translation>Bekræft</translation>
+        <translation>තහවුරු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="208"/>
         <source>Add Timezone</source>
-        <translation>Tilføj tidszone</translation>
+        <translation>කාල කලාපය එක් කරන්න</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="209"/>
         <source>Add</source>
-        <translation>Tilføj</translation>
+        <translation>එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="211"/>
         <source>Change Timezone</source>
-        <translation>Skift tidszone</translation>
+        <translation>කාල කලාපය වෙනස් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -6844,27 +6843,27 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="108"/>
         <source>Tomorrow</source>
-        <translation>I morgen</translation>
+        <translation>හෙට</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="110"/>
         <source>Yesterday</source>
-        <translation>I går</translation>
+        <translation>ඊයේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="112"/>
         <source>Today</source>
-        <translation>I dag</translation>
+        <translation>අද</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="131"/>
         <source>%1 hours earlier than local</source>
-        <translation>%1 timer tidligere end lokalt</translation>
+        <translation>ස්ථානික වේලාවට පැය %1 කට පෙර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
         <source>%1 hours later than local</source>
-        <translation>%1 timer senere end lokalt</translation>
+        <translation>ස්ථානික වේලාවට පැය %1 කට පසු</translation>
     </message>
 </context>
 <context>
@@ -6874,42 +6873,42 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
         <location filename="../src/frame/navigationbar.cpp" line="204"/>
         <source>Default Applications</source>
-        <translation>Standardprogrammer</translation>
+        <translation>පෙරනිමි යෙදවුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="55"/>
         <source>Webpage</source>
-        <translation>Webside</translation>
+        <translation>වෙබ් පිටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="56"/>
         <source>Mail</source>
-        <translation>E-mail</translation>
+        <translation>තැපෑල</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="57"/>
         <source>Text</source>
-        <translation>Tekst</translation>
+        <translation>වගන්තිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="58"/>
         <source>Music</source>
-        <translation>Musik</translation>
+        <translation>සංගීතය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="59"/>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation>වීඩියෝ / දෘශ්‍ය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="60"/>
         <source>Picture</source>
-        <translation>Billede</translation>
+        <translation>පින්තූරය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/defappviewer.cpp" line="61"/>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation>ටර්මිනලය</translation>
     </message>
 </context>
 <context>
@@ -6917,12 +6916,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="44"/>
         <source>Add</source>
-        <translation>Tilføj</translation>
+        <translation>එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/defapp/widgets/defcategoryaddwidget.cpp" line="65"/>
         <source>Open Desktop file</source>
-        <translation>Åbn skrivebordsfil</translation>
+        <translation>ඩෙස්ක්ටොප් ගොනුව විවෘත කරන්න</translation>
     </message>
 </context>
 <context>
@@ -6931,7 +6930,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="46"/>
         <location filename="../src/frame/modules/defapp/defappwidget.cpp" line="50"/>
         <source>Default Applications</source>
-        <translation>Standardprogrammer</translation>
+        <translation>පෙරනිමි යෙදවුම්</translation>
     </message>
 </context>
 <context>
@@ -6939,22 +6938,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="58"/>
         <source>Brightness</source>
-        <translation>Lysstyrke</translation>
+        <translation>දීප්තිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="81"/>
         <source>Night Shift</source>
-        <translation>Natteskift</translation>
+        <translation>රාත්‍රී වැඩ මුරය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="86"/>
         <source>The screen tone will be auto adjusted by help of figuring out your location to protect eyes</source>
-        <translation>Skærmens farvenuance justeres automatisk for at beskytte dine øjne</translation>
+        <translation>ඇස් ආරක්ෂා කර ගැනීම සඳහා ඔබේ ස්ථානය හදුනාගැනීමෙන් තිරයේ වර්ණයෙහි ස්වභාවය ස්වයංක්‍රීයව සකසනු ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/brightnesspage.cpp" line="95"/>
         <source>Auto Brightness</source>
-        <translation>Automatisk lysstyrke</translation>
+        <translation>ස්වයං දීප්තිය</translation>
     </message>
 </context>
 <context>
@@ -6962,22 +6961,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="43"/>
         <source>Modify</source>
-        <translation>Rediger</translation>
+        <translation>වෙනස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="45"/>
         <source>Delete</source>
-        <translation>Slet</translation>
+        <translation>මකන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="48"/>
         <source>Please switch to current mode before modifying the settings</source>
-        <translation>Skift venligst til den nuværende tilstand inden indstillingerne ændres</translation>
+        <translation>සැකසුම් වෙනස් කිරීමට පෙර කරුණාකර වත්මන් ප්‍රකාරයට මාරුවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/customconfigpage.cpp" line="50"/>
         <source>Please switch to another mode before deleting the settings</source>
-        <translation>Skift venligst til en anden tilstand inden indstillingerne slettes</translation>
+        <translation>සැකසුම් මකා දැමීමට පෙර කරුණාකර වෙනත් ප්‍රකාරයකට මාරු වන්න</translation>
     </message>
 </context>
 <context>
@@ -6985,7 +6984,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/displaymodule.cpp" line="258"/>
         <source>Wireless Screen Projection</source>
-        <translation>Trådløs skærmprojektion</translation>
+        <translation>රැහැන් රහිත තිර ප්‍රක්ෂේපණය</translation>
     </message>
 </context>
 <context>
@@ -6993,44 +6992,44 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="49"/>
         <source>Display Scaling</source>
-        <translation>Skærmskalering</translation>
+        <translation>දර්ශන පරිමාණය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="57"/>
         <source>Rotate</source>
-        <translation>Drej</translation>
+        <translation>කරකවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="59"/>
         <source>Custom Settings</source>
-        <translation>Brugerdefinerede indstillinger</translation>
+        <translation>අභිරුචි සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="60"/>
         <source>Resolution</source>
-        <translation>Opløsning</translation>
+        <translation>විභේදනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="61"/>
         <source>Brightness</source>
-        <translation>Lysstyrke</translation>
+        <translation>දීප්තිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="62"/>
         <source>Scaling Settings</source>
-        <translation>Skaleringsindstillinger</translation>
+        <translation>පරිමාණ සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="115"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
         <location filename="../src/frame/navigationbar.cpp" line="203"/>
         <source>Display</source>
-        <translation>Skærm</translation>
+        <translation>තිරය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/displaywidget.cpp" line="238"/>
         <source>Wireless Screen Projection</source>
-        <translation>Trådløs skærmprojektion</translation>
+        <translation>රැහැන් රහිත තිර ප්‍රක්ෂේපණය</translation>
     </message>
 </context>
 <context>
@@ -7038,17 +7037,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="43"/>
         <source>Scanning devices, please wait...</source>
-        <translation>Skanner enheder, vent venligst...</translation>
+        <translation>උපාංග හදුනා ගනිමින්, කරුණාකර රැඳී සිටින්න...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="44"/>
         <source>No available device found</source>
-        <translation>Ingen tilgængelig enhed fundet</translation>
+        <translation>සුදානම්ව පවතින උපාංගයක් හමු නොවීය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastnodevicewidget.cpp" line="47"/>
         <source>Refresh</source>
-        <translation>Genopfrisk</translation>
+        <translation>නැවුම් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7056,17 +7055,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="51"/>
         <source>WLAN will be disconnected when screen projection is enabled</source>
-        <translation>WLAN vil blive afbrudt når skærmprojektion aktiveres</translation>
+        <translation>තිර ප්‍රක්ෂේපණය සක්‍රිය කළ විට WLAN විසන්ධි වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="55"/>
         <source>Refresh</source>
-        <translation>Genopfrisk</translation>
+        <translation>නැවුම් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/miracastsettings.cpp" line="69"/>
         <source>Device List</source>
-        <translation>Enhedsliste</translation>
+        <translation>උපාංග ලැයිස්තුව</translation>
     </message>
 </context>
 <context>
@@ -7074,17 +7073,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="47"/>
         <source>Recognize</source>
-        <translation>Genkend</translation>
+        <translation>හදුනාගන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="54"/>
         <source>Split</source>
-        <translation>Opdel</translation>
+        <translation>බෙදන්න/කොටස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="61"/>
         <source>Merge</source>
-        <translation>Forén</translation>
+        <translation>සංයුක්ත කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7092,27 +7091,27 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="107"/>
         <source>Resolution</source>
-        <translation>Opløsning</translation>
+        <translation>විභේදනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="170"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="172"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
         <source>Primary</source>
-        <translation>Primær</translation>
+        <translation>ප්‍රාථමික</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
         <source> (Recommended)</source>
-        <translation> (anbefalet)</translation>
+        <translation>(නිර්දේශිතයි)</translation>
     </message>
 </context>
 <context>
@@ -7120,12 +7119,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="41"/>
         <source>Resolution</source>
-        <translation>Opløsning</translation>
+        <translation>විභේදනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/resolutiondetailpage.cpp" line="80"/>
         <source> (Recommended)</source>
-        <translation> (anbefalet)</translation>
+        <translation>(නිර්දේශිතයි)</translation>
     </message>
 </context>
 <context>
@@ -7133,22 +7132,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="56"/>
         <source>Some applications in multi-screens may not scale as the settings.</source>
-        <translation>Nogle programmer i multiskærme skaleres måske ikke i henhold til indstillingerne.</translation>
+        <translation>බහු තිරවල ඇති සමහර යෙදුම් පරිමාණය වීම සැකසීම් අනුව සිදු නොවිය හැක</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="62"/>
         <source>Display Scaling</source>
-        <translation>Skærmskalering</translation>
+        <translation>දර්ශන පරිමාණය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="86"/>
         <source>Display scaling for %1</source>
-        <translation>Skærmskalering for %1</translation>
+        <translation>%1 සඳහා දර්ශන පරිමාණයන්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/scalingpage.cpp" line="87"/>
         <source>Display scaling for all monitors</source>
-        <translation>Skærmskalering for alle skærme</translation>
+        <translation>සියළු මොනිටර් සඳහා දර්ශන පරිමාණයන්</translation>
     </message>
 </context>
 <context>
@@ -7156,38 +7155,38 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation>Genveje</translation>
+        <translation>කෙටිමං</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="60"/>
         <source>Name</source>
-        <translation>Navn</translation>
+        <translation>නම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="61"/>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="65"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="64"/>
         <source>Command</source>
-        <translation>Kommando</translation>
+        <translation>විධානය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="83"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="85"/>
         <source>Add</source>
-        <translation>Tilføj</translation>
+        <translation>එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customcontent.cpp" line="116"/>
         <source>This shortcut conflicts with %1, click on Save to make this shortcut effective immediately</source>
-        <translation>Genvejen er i konflikt med %1. Klik på Gem, for at bruge genvejen med det samme</translation>
+        <translation>මෙම කෙටිමඟ %1 සමඟ ගැටළු ඇතිකරයි, මෙම කෙටිමඟ වහාම සුරැකීමට- සුරකින්න යන්න මත ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7195,42 +7194,42 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="51"/>
         <source>Shortcuts</source>
-        <translation>Genveje</translation>
+        <translation>කෙටිමං</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="61"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="73"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="101"/>
         <source>Shortcut</source>
-        <translation>Genvej</translation>
+        <translation>කෙටිමඟ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="104"/>
         <source>Name</source>
-        <translation>Navn</translation>
+        <translation>නම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="105"/>
         <source>Command</source>
-        <translation>Kommando</translation>
+        <translation>විධානය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Genvejen er i konflikt med %1. Klik på Tilføj, for at bruge genvejen med det samme</translation>
+        <translation>මෙම කෙටිමඟ %1 සමඟ ගැටළු ඇතිකරයි, මෙම කෙටිමඟ වහාම එකතු කිරීමට-එක් කරන්න යන්න මත ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7238,12 +7237,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="50"/>
         <source>Shortcut</source>
-        <translation>Genvej</translation>
+        <translation>කෙටිමඟ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
         <source>Please enter a shortcut</source>
-        <translation>Indtast venligst en genvej</translation>
+        <translation>කරුණාකර කෙටිමඟක් ඇතුළත් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7252,17 +7251,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="49"/>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="51"/>
         <source>Keyboard Layout</source>
-        <translation>Tastaturlayout</translation>
+        <translation>යතුරුපුවරු පිරිසැලසුම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="60"/>
         <source>Switch Layouts (Multiple)</source>
-        <translation>Skift layouts (flere)</translation>
+        <translation>පිරිසැලසුම් මාරු කරන්න (බහු)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboarddetails.cpp" line="88"/>
         <source>Add Keyboard Layout</source>
-        <translation>Tilføj tastaturlayout</translation>
+        <translation>යතුරුපුවරු පිරිසැලසුම එක් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7270,18 +7269,18 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="49"/>
         <source>Add Keyboard Layout</source>
-        <translation>Tilføj tastaturlayout</translation>
+        <translation>යතුරුපුවරු පිරිසැලසුම එක් කරන්න</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="75"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="77"/>
         <source>Add</source>
-        <translation>Tilføj</translation>
+        <translation>එක් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7291,67 +7290,67 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
         <location filename="../src/frame/navigationbar.cpp" line="213"/>
         <source>Keyboard and Language</source>
-        <translation>Tastatur og sprog</translation>
+        <translation>යතුරුපුවරුව සහ භාෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="52"/>
         <source>Repeat Delay</source>
-        <translation>Gentagelsesforsinkelse</translation>
+        <translation>පුනරාවර්තන ප්‍රමාදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Short</source>
-        <translation>Kort</translation>
+        <translation>කෙටි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="61"/>
         <source>Long</source>
-        <translation>Lang</translation>
+        <translation>දිග</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>Repeat Rate</source>
-        <translation>Gentagelseshastighed</translation>
+        <translation>පුනරාවර්තන අගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="79"/>
         <source>Please Test Here</source>
-        <translation>Test venligst her</translation>
+        <translation>කරුණාකර මෙහි දී පිරික්සන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="93"/>
         <source>Enable Numeric Keyboard</source>
-        <translation>Aktivér numerisk tastatur</translation>
+        <translation>සංඛ්‍යා යතුරු පුවරුව ක්‍රියාත්මක කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="97"/>
         <source>Caps Lock Prompt</source>
-        <translation>Caps Lock-prompt</translation>
+        <translation>කැපිටල් අකුරු විමසුම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="103"/>
         <source>Keyboard Layout</source>
-        <translation>Tastaturlayout</translation>
+        <translation>යතුරුපුවරු පිරිසැලසුම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="111"/>
         <source>System Language</source>
-        <translation>Systemets sprog</translation>
+        <translation>පද්ධති භාෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/keyboardwidget.cpp" line="117"/>
         <source>Shortcuts</source>
-        <translation>Genveje</translation>
+        <translation>කෙටිමං</translation>
     </message>
 </context>
 <context>
@@ -7359,7 +7358,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/langwidget.cpp" line="48"/>
         <source>System Language</source>
-        <translation>Systemets sprog</translation>
+        <translation>පද්ධති භාෂාව</translation>
     </message>
 </context>
 <context>
@@ -7367,27 +7366,27 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="53"/>
         <source>Please Reset Shortcut</source>
-        <translation>Nulstil venligst genvej</translation>
+        <translation>කරුණාකර කෙටිමඟ නැවත සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="60"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="61"/>
         <source>Replace</source>
-        <translation>Erstat</translation>
+        <translation>ප්රතිස්ථාපනය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="63"/>
         <source>Shortcuts</source>
-        <translation>Genveje</translation>
+        <translation>කෙටිමං</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="96"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Genvejen er i konflikt med %1. Klik på Erstat, for at bruge genvejen med det samme</translation>
+        <translation>මෙම කෙටිමඟ %1 සමඟ ගැටළු ඇතිකරයි, මෙම කෙටිමඟ වහාම ක්‍රියාත්මක කිරීමට- ප්‍රතිස්ථාපනය කරන්න යන්න ක්ලික් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7395,7 +7394,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="84"/>
         <source>Enter a new shortcut</source>
-        <translation>Indtast en ny genvej</translation>
+        <translation>නව කෙටිමඟක් ඇතුළත් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7403,37 +7402,37 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="55"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation>පද්ධතිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="56"/>
         <source>Window</source>
-        <translation>Vindue</translation>
+        <translation>කවුළුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="57"/>
         <source>WorkSpace</source>
-        <translation>Arbejdsområde</translation>
+        <translation>වැඩ අවකාශය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="65"/>
         <source>Custom Shortcut</source>
-        <translation>Brugerdefineret genvej</translation>
+        <translation>අභිරුචි කෙටිමඟ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="78"/>
         <source>Add Custom Shortcut</source>
-        <translation>Tilføj brugerdefineret genvej</translation>
+        <translation>අභිරුචි කෙටිමං එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="80"/>
         <source>Restore Defaults</source>
-        <translation>Gendan standarder</translation>
+        <translation>පෙරනිමි නැවත පිහිටුවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutwidget.cpp" line="93"/>
         <source>Shortcuts</source>
-        <translation>Genveje</translation>
+        <translation>කෙටිමං</translation>
     </message>
 </context>
 <context>
@@ -7441,7 +7440,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
         <source>Double-click Test</source>
-        <translation>Test af dobbeltklik</translation>
+        <translation>ද්විත්ව ක්ලික් කිරීම පිරික්සුම</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -7450,77 +7449,77 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="46"/>
         <source>Mouse and Touchpad</source>
-        <translation>Mus og touchpad</translation>
+        <translation>මූසිකය සහ ටච්පෑඩ්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="49"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
         <location filename="../src/frame/navigationbar.cpp" line="212"/>
         <source>Mouse</source>
-        <translation>Mus</translation>
+        <translation>මූසිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="50"/>
         <source>TouchPad</source>
-        <translation>Touchpad</translation>
+        <translation>ටච් පෑඩ්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="51"/>
         <source>TrackPoint</source>
-        <translation>Trackpoint</translation>
+        <translation>ට්‍රැක් පොයින්ට්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="53"/>
         <source>Left Hand</source>
-        <translation>Venstrehåndet</translation>
+        <translation>වම් අත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="54"/>
         <source>Disable the touchpad while typing</source>
-        <translation>Deaktivér touchpad&apos;en mens der skrives</translation>
+        <translation>ටයිප් කිරීමේදී ටච් පෑඩ් අක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="55"/>
         <source>Double-click Speed</source>
-        <translation>Hastighed for dobbeltklik</translation>
+        <translation>ද්විත්ව ක්ලික් කිරීමේ වේගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="58"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="64"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="70"/>
         <source>Pointer Speed</source>
-        <translation>Markørhastighed</translation>
+        <translation>දර්ශක වේගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Scroll Speed</source>
-        <translation>Rullehastighed</translation>
+        <translation>අනුචලන වේගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="61"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation>Deaktivér touchpad, når musen tilkobles</translation>
+        <translation>මූසිකයක් සම්බන්ධ කරන විට ටච් පෑඩ් අක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="62"/>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="66"/>
         <source>Natural Scrolling</source>
-        <translation>Naturlig rulning</translation>
+        <translation>ස්වාභාවික අනුචලනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="65"/>
         <source>Tap to Click</source>
-        <translation>Tryk for at klikke</translation>
+        <translation>ක්ලික් කිරීමට තට්ටු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/mousewidget.cpp" line="73"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
 </context>
 <context>
@@ -7529,7 +7528,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
-        <translation>Registrering af håndflade</translation>
+        <translation>අත්ල හඳුනාගැනීම</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -7537,7 +7536,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="42"/>
         <source>Minimum Contact Surface</source>
-        <translation>Minimum kontaktområde</translation>
+        <translation>අවම සම්බන්ධ වන මතුපිට</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -7545,14 +7544,14 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="45"/>
         <source>Minimum Pressure Value</source>
-        <translation>Minimum trykværdi</translation>
+        <translation>අවම පීඩන අගය</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="82"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
-        <translation>Deaktivér valgmuligheden hvis touchpaden ikke virker efter aktivering</translation>
+        <translation>ටච් පෑඩ් සක්‍රිය කිරීමෙන් පසු ක්‍රියා නොකරන්නේ නම් විකල්පය අක්‍රීය කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7560,59 +7559,59 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="46"/>
         <source>Application Proxy</source>
-        <translation>Programproxy</translation>
+        <translation>යෙදුම් ප්‍රොක්සිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="49"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>ප්‍රොක්සි වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="52"/>
         <source>IP address</source>
-        <translation>IP-adresse</translation>
+        <translation>IP ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="53"/>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="57"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="56"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation>කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="60"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="61"/>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="65"/>
         <source>Optional</source>
-        <translation>Valgfri</translation>
+        <translation>විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="64"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="83"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Tjek &quot;Brug en proxy&quot; i programmets genvejsmenu i opstarter efter den er blevet konfigureret</translation>
+        <translation>වින්‍යාස කිරීමෙන් පසු  වැඩසටහන් රඳවනයේ ඇති යෙදුම් සන්දර්භ මෙනුවේ &quot;ප්‍රොක්සියක් භාවිතා කරන්න&quot; සලකුණු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="88"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/chainsproxypage.cpp" line="89"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>හරි</translation>
     </message>
 </context>
 <context>
@@ -7620,7 +7619,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>ප්‍රොක්සි වර්ගය</translation>
     </message>
 </context>
 <context>
@@ -7628,37 +7627,37 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="90"/>
         <source>Disconnect</source>
-        <translation>Afbryd</translation>
+        <translation>විසන්ධි කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="92"/>
         <source>Delete</source>
-        <translation>Slet</translation>
+        <translation>මකන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="97"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="98"/>
         <source>Save</source>
-        <translation>Gem</translation>
+        <translation>සුරකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="344"/>
         <source>Wired Connection %1</source>
-        <translation>Kablet forbindelse %1</translation>
+        <translation>රැහැන් සම්බන්ධතාවය: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="348"/>
         <source>Wireless Connection %1</source>
-        <translation>Trådløs forbindelse %1</translation>
+        <translation>රැහැන් රහිත සම්බන්ධතාවය: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectioneditpage.cpp" line="352"/>
         <source>PPPoE Connection %1</source>
-        <translation>PPPoE-forbindelse %1</translation>
+        <translation>PPPoE සම්බන්ධතාවය %1</translation>
     </message>
 </context>
 <context>
@@ -7666,7 +7665,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectionhotspoteditpage.cpp" line="47"/>
         <source>hotspot</source>
-        <translation>hotspot</translation>
+        <translation>හොට්ස්පොට්</translation>
     </message>
 </context>
 <context>
@@ -7674,7 +7673,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="155"/>
         <source>Export</source>
-        <translation>Eksportér</translation>
+        <translation>නිර්යාත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/connectionvpneditpage.cpp" line="166"/>
@@ -7722,22 +7721,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="54"/>
         <source>Not Bind</source>
-        <translation>Ikke bundet</translation>
+        <translation>බැඳී නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="96"/>
         <source>Device MAC Addr</source>
-        <translation>Enhedens MAC-adresse</translation>
+        <translation>උපාංගයේ MAC ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="111"/>
         <source>Cloned MAC Addr</source>
-        <translation>Klonet MAC-adresse</translation>
+        <translation>ක්ලෝන කළ MAC ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="124"/>
         <source>Customize MTU</source>
-        <translation>Brugerdefineret MTU</translation>
+        <translation>MTU කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ethernetsection.cpp" line="127"/>
@@ -7750,12 +7749,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
-        <translation>Navn</translation>
+        <translation>නම</translation>
     </message>
 </context>
 <context>
@@ -7763,17 +7762,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="31"/>
         <source>General</source>
-        <translation>Generelt</translation>
+        <translation>පොදු</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="62"/>
         <source>Name</source>
-        <translation>Navn</translation>
+        <translation>නම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/genericsection.cpp" line="65"/>
         <source>Auto connect</source>
-        <translation>Automatisk tilslutning</translation>
+        <translation>ස්වයංක්‍රීයව සම්බන්ධ වන්න</translation>
     </message>
 </context>
 <context>
@@ -7782,12 +7781,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="61"/>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="83"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>හොට්ස්පොට්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/hotspotpage.cpp" line="62"/>
         <source>Add Settings</source>
-        <translation>Tilføj indstillinger</translation>
+        <translation>සැකසුම් එක් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -7806,64 +7805,64 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="215"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Auto</source>
-        <translation>Automatisk</translation>
+        <translation>ස්වයංක්‍රීය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="216"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="221"/>
         <source>Manual</source>
-        <translation>Manuel</translation>
+        <translation>සව්‍යං</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="222"/>
         <source>Ignore</source>
-        <translation>Ignorer</translation>
+        <translation>නොසලකා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>Method</source>
-        <translation>Metode</translation>
+        <translation>ක්‍රමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>IP Address</source>
-        <translation>IP-adresse</translation>
+        <translation>IP ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="230"/>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="295"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="231"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="232"/>
         <source>Primary DNS</source>
-        <translation>Primær DNS</translation>
+        <translation>ප්‍රාථමික DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Secondary DNS</source>
-        <translation>Sekundær DNS</translation>
+        <translation>ද්විතියික DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="234"/>
         <source>Only applied in corresponding resources</source>
-        <translation>Kun anvendt i tilsvarende ressourcer</translation>
+        <translation>අදාළ සම්පත් වල පමණක් යෙදී ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="294"/>
         <source>Netmask</source>
-        <translation>Netmaske</translation>
+        <translation>නෙට්මාස්ක්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/ipvxsection.cpp" line="305"/>
         <source>Prefix</source>
-        <translation>Præfiks</translation>
+        <translation>උපසර්ගය</translation>
     </message>
 </context>
 <context>
@@ -7871,12 +7870,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="94"/>
         <source>Network Details</source>
-        <translation>Netværksdetaljer</translation>
+        <translation>ජාල විස්තර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="139"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>හොට්ස්පොට්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="144"/>
@@ -7886,12 +7885,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="154"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="160"/>
         <source>Interface</source>
-        <translation>Grænseflade</translation>
+        <translation>අතුරුමුහුණත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="165"/>
@@ -7901,7 +7900,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="171"/>
         <source>Band</source>
-        <translation>Bånd</translation>
+        <translation>කලාපය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="180"/>
@@ -7912,18 +7911,18 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="185"/>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="210"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="190"/>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="215"/>
         <source>Primary DNS</source>
-        <translation>Primær DNS</translation>
+        <translation>ප්‍රාථමික DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="195"/>
         <source>Netmask</source>
-        <translation>Netmaske</translation>
+        <translation>නෙට්මාස්ක්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="205"/>
@@ -7933,12 +7932,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="220"/>
         <source>Prefix</source>
-        <translation>Præfiks</translation>
+        <translation>උපසර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkdetailpage.cpp" line="226"/>
         <source>Speed</source>
-        <translation>Hastighed</translation>
+        <translation>වේගය</translation>
     </message>
 </context>
 <context>
@@ -7956,74 +7955,74 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="65"/>
         <source>System Proxy</source>
-        <translation>Systemproxy</translation>
+        <translation>පද්ධති ප්‍රොක්සිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="67"/>
         <source>Application Proxy</source>
-        <translation>Programproxy</translation>
+        <translation>යෙදුම් ප්‍රොක්සිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="70"/>
         <source>Network Details</source>
-        <translation>Netværksdetaljer</translation>
+        <translation>ජාල විස්තර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="97"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
         <location filename="../src/frame/navigationbar.cpp" line="207"/>
         <source>Network</source>
-        <translation>Netværk</translation>
+        <translation>ජාලය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="237"/>
         <source>Wired Network Card%1</source>
-        <translation>Kablet netværkskort %1</translation>
+        <translation>රැහැන්ගත ජාල කාඩ්පත%1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="238"/>
         <source>Wired Network%1</source>
-        <translation>Kablet netværk %1</translation>
+        <translation>රැහැන්ගත ජාලය %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="242"/>
         <source>Wired Network Card</source>
-        <translation>Kablet netværkskort</translation>
+        <translation>රැහැන්ගත ජාල කාඩ්පත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="243"/>
         <source>Wired Network</source>
-        <translation>Kablet netværk</translation>
+        <translation>රැහැන්ගත ජාලය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="252"/>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>හොට්ස්පොට්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="257"/>
         <source>Shared</source>
-        <translation>Delt</translation>
+        <translation>බෙදාගෙන ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="266"/>
         <source>Wireless Network Card%1</source>
-        <translation>Trådløst netværkskort %1</translation>
+        <translation>රැහැන් රහිත ජාල කාඩ්පත%1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="267"/>
         <source>Wireless Network%1</source>
-        <translation>Trådløst netværk %1</translation>
+        <translation>රැහැන් රහිත ජාලය%1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="271"/>
         <source>Wireless Network Card</source>
-        <translation>Trådløst netværkskort</translation>
+        <translation>රැහැන් රහිත ජාල කාඩ්පත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/networkmodulewidget.cpp" line="272"/>
         <source>Wireless Network</source>
-        <translation>Trådløst netværk</translation>
+        <translation>රැහැන් රහිත සම්බන්ධතාවය</translation>
     </message>
 </context>
 <context>
@@ -8036,23 +8035,23 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="78"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="79"/>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="86"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="82"/>
         <source>Service</source>
-        <translation>Tjeneste</translation>
+        <translation>සේවාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppoesection.cpp" line="85"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -8065,62 +8064,62 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="86"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Afvis EAP-autentifikation</translation>
+        <translation>EAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="87"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Afvis PAP-autentifikation</translation>
+        <translation>PAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="88"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Afvis CHAP-autentifikation</translation>
+        <translation>CHAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="89"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Afvis MSCHAP-autentifikation</translation>
+        <translation>MSCHAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="90"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Afvis MSCHAPv2-autentifikation</translation>
+        <translation>MSCHAPv2 සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="91"/>
         <source>No BSD Data Compression</source>
-        <translation>Ingen BSD-datakomprimering</translation>
+        <translation>BSD දත්ත සම්පීඩනය නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="92"/>
         <source>No Deflate Data Compression</source>
-        <translation>Ingen deflate-datakomprimering</translation>
+        <translation>Deflate දත්ත සම්පීඩන කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="93"/>
         <source>No TCP Header Compression</source>
-        <translation>Ingen TCP-headerkomprimering</translation>
+        <translation>TCP ශීර්ෂ සම්පීඩනය නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="94"/>
         <source>No Protocol Field Compression</source>
-        <translation>Ingen protokol-feltkomprimering</translation>
+        <translation>Protocol ක්ෂේත්‍ර සම්පීඩනය කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="95"/>
         <source>No Address/Control Compression</source>
-        <translation>Ingen adresse-/kontrolkomprimering</translation>
+        <translation>ලිපිනය / පාලන සම්පීඩනය කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="96"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Send PPP echo-pakker</translation>
+        <translation>PPP Echo පැකට් යවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="104"/>
         <source>Use MPPE</source>
-        <translation>Brug MPPE</translation>
+        <translation>MPPE භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/pppsection.cpp" line="107"/>
@@ -8138,7 +8137,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/pppoepage.cpp" line="52"/>
         <source>Create PPPoE Connection</source>
-        <translation>Opret PPPoE-forbindelse</translation>
+        <translation>PPPoE සම්බන්ධතාවයක් සාදන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/pppoepage.cpp" line="66"/>
@@ -8151,32 +8150,32 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="58"/>
         <source>Cancel</source>
-        <translation>Annuller</translation>
+        <translation>අවලංගු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="59"/>
         <source>Confirm</source>
-        <translation>Bekræft</translation>
+        <translation>තහවුරු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="61"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="62"/>
         <source>Manual</source>
-        <translation>Manuel</translation>
+        <translation>සව්‍යං</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="63"/>
         <source>Auto</source>
-        <translation>Automatisk</translation>
+        <translation>ස්වයංක්‍රීය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="68"/>
         <source>HTTP Proxy</source>
-        <translation>HTTP-proxy</translation>
+        <translation>HTTP ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="70"/>
@@ -8184,37 +8183,37 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="80"/>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="85"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation>කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="73"/>
         <source>HTTPS Proxy</source>
-        <translation>HTTPS-proxy</translation>
+        <translation>HTTPS ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="78"/>
         <source>FTP Proxy</source>
-        <translation>FTP-proxy</translation>
+        <translation>FTP ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="83"/>
         <source>SOCKS Proxy</source>
-        <translation>SOCKS-proxy</translation>
+        <translation>SOCKS ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="92"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Ignorer proxy-konfigurationerne for værterne og domænerne ovenfor</translation>
+        <translation>ඉහත ධාරක-host සහ ඩොමේන් සඳහා ප්‍රොක්සි වින්‍යාසයන් නොසලකා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="95"/>
         <source>Configuration URL</source>
-        <translation>Konfigurations-URL</translation>
+        <translation>වින්‍යාස URL</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/proxypage.cpp" line="152"/>
         <source>System Proxy</source>
-        <translation>Systemproxy</translation>
+        <translation>පද්ධති ප්‍රොක්සිය</translation>
     </message>
 </context>
 <context>
@@ -8222,7 +8221,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="31"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="153"/>
@@ -8247,139 +8246,139 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="157"/>
         <source>Tunneled TLS</source>
-        <translation>Tunneled TLS</translation>
+        <translation>උමං TLS</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="158"/>
         <source>Protected EAP</source>
-        <translation>Beskyttet EAP</translation>
+        <translation>ආරක්ෂිත EAP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="163"/>
         <source>Saved</source>
-        <translation>Gemt</translation>
+        <translation>සුරකින ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="164"/>
         <source>Ask</source>
-        <translation>Spørg</translation>
+        <translation>අහන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="169"/>
         <source>Disabled</source>
-        <translation>Deaktiveret</translation>
+        <translation>අක්‍රීයයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="170"/>
         <source>Anonymous</source>
-        <translation>Anonym</translation>
+        <translation>නිර්නාමික</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Authenticated</source>
-        <translation>Autentificeret</translation>
+        <translation>සත්‍යාපනය කරන ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Both</source>
-        <translation>Begge</translation>
+        <translation>දෙකම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="188"/>
         <source>Automatic</source>
-        <translation>Automatisk</translation>
+        <translation>ස්වයංක්‍රීය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="189"/>
         <source>Version 0</source>
-        <translation>Version 0</translation>
+        <translation>අනුවාදය 0</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="190"/>
         <source>Version 1</source>
-        <translation>Version 1</translation>
+        <translation>අනුවාදය 2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="202"/>
         <source>EAP Auth</source>
-        <translation>EAP-godkendelse</translation>
+        <translation>EAP සත්‍යාපනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="214"/>
         <source>Identity</source>
-        <translation>Identitet</translation>
+        <translation>අනන්‍යතාවය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="216"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="224"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="218"/>
         <source>Pwd Options</source>
-        <translation>Valgmuligheder for adgangskode</translation>
+        <translation>මුරපද විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="302"/>
         <source>Private Key</source>
-        <translation>Privat nøgle</translation>
+        <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="306"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="387"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="423"/>
         <source>CA Cert</source>
-        <translation>CA-certifikat</translation>
+        <translation>CA සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="310"/>
         <source>User Cert</source>
-        <translation>Brugercertifikat</translation>
+        <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="332"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="383"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="419"/>
         <source>Anonymous ID</source>
-        <translation>Anonym ID</translation>
+        <translation>නිර්නාමික හැඳුනුම් අංකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="336"/>
         <source>Provisioning</source>
-        <translation>Provisioning</translation>
+        <translation>ප්‍රතිපාදනය-Provisioning</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="348"/>
         <source>PAC file</source>
-        <translation>PAC-fil</translation>
+        <translation>PAC ගොනුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="352"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="391"/>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="438"/>
         <source>Inner Auth</source>
-        <translation>Indre godkendelse</translation>
+        <translation>අභ්‍යන්තර සත්‍යාපනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="427"/>
         <source>PEAP Version</source>
-        <translation>PEAP-version</translation>
+        <translation>PEAP අනුවාදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="523"/>
         <source>Private Pwd</source>
-        <translation>Privat adgangskode</translation>
+        <translation>පුද්ගලික මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secret8021xsection.cpp" line="525"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -8387,7 +8386,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="104"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="105"/>
@@ -8397,27 +8396,27 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="106"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 personlig</translation>
+        <translation>WPA / WPA2 පුද්ගලික</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="112"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="118"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="148"/>
         <source>Key</source>
-        <translation>Nøgle</translation>
+        <translation>යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secrethotspotsection.cpp" line="154"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -8425,7 +8424,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwiredsection.cpp" line="32"/>
         <source>Security Required</source>
-        <translation>Påkrævet sikkerhed</translation>
+        <translation>ආරක්ෂාව අවශ්‍යයි</translation>
     </message>
 </context>
 <context>
@@ -8433,7 +8432,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="106"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="107"/>
@@ -8443,32 +8442,32 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="108"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 personlig</translation>
+        <translation>WPA / WPA2 පුද්ගලික</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="109"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 enterprise</translation>
+        <translation>WPA/WPA2 Enterprise</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="115"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="163"/>
         <source>Key</source>
-        <translation>Nøgle</translation>
+        <translation>යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/secretwirelesssection.cpp" line="170"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -8476,47 +8475,47 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>Avanceret VPN</translation>
+        <translation>උසස් VPN </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="128"/>
         <source>Customize Gateway Port</source>
-        <translation>Tilpas gateway-port</translation>
+        <translation>දොරටු කෙවෙනිය කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="131"/>
         <source>Gateway Port</source>
-        <translation>Gateway-port</translation>
+        <translation>දොරටු කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="137"/>
         <source>Customize Renegotiation Interval</source>
-        <translation>Tilpas renegotiationsinterval</translation>
+        <translation>නැවත උත්සාහ කිරීමේ පරතරය කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="140"/>
         <source>Renegotiation Interval</source>
-        <translation>Renegotiationsinterval</translation>
+        <translation>නැවත උත්සාහ කිරීමේ අන්තරය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="146"/>
         <source>Use LZO Data Compression</source>
-        <translation>Brug LZO-datakomprimering</translation>
+        <translation>LZO දත්ත සම්පීඩනය භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="149"/>
         <source>Use TCP Connection</source>
-        <translation>Brug TCP-forbindelse</translation>
+        <translation>TCP සම්බන්ධතාවය භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="152"/>
         <source>Use TAP Device</source>
-        <translation>Brug TAP-enhed</translation>
+        <translation>TAP උපාංගයක් භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="155"/>
         <source>Customize Tunnel MTU</source>
-        <translation>Tilpas tunnel-MTU</translation>
+        <translation>උමං MTU කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="158"/>
@@ -8526,22 +8525,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="164"/>
         <source>Customize UDP Fragment Size</source>
-        <translation>Tilpas UDP-fragmentstørrelse</translation>
+        <translation>UDP කොටස් පරිමාණය කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="167"/>
         <source>UDP Fragment Size</source>
-        <translation>UDP-fragmentstørrelse</translation>
+        <translation>UDP කොටස් පරිමාණය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="173"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation>Begræns tunnel TCP MSS</translation>
+        <translation>උමං TCP MSS සීමා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="176"/>
         <source>Randomize Remote Hosts</source>
-        <translation>Tilfældiggør fjern-værter</translation>
+        <translation>දුරස්ථ ධාරකයන් අහඹු ලෙස සකස් කරන්න</translation>
     </message>
 </context>
 <context>
@@ -8549,12 +8548,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="31"/>
         <source>VPN Advanced</source>
-        <translation>Avanceret VPN</translation>
+        <translation>උසස් VPN </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="140"/>
         <source>Cisco (default)</source>
-        <translation>Cisco (standard)</translation>
+        <translation>Cisco (default)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
@@ -8564,28 +8563,28 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="144"/>
         <source>Secure (default)</source>
-        <translation>Sikker (standard)</translation>
+        <translation>ආරක්ෂිත (පෙරනිමි)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
         <source>Weak</source>
-        <translation>Svag</translation>
+        <translation>දුර්වලයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="149"/>
         <source>NAT-T When Available (default)</source>
-        <translation>NAT-T når tilgængelig (standard)</translation>
+        <translation>ලබා ගත හැකි විට NAT-T (පෙරනිමිය)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
         <source>NAT-T Always</source>
-        <translation>NAT-T altid</translation>
+        <translation>සැමවිටම NAT-T</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
@@ -8595,79 +8594,79 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
         <source>Disabled</source>
-        <translation>Deaktiveret</translation>
+        <translation>අක්‍රීයයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="155"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
         <source>DH Group 1</source>
-        <translation>DH gruppe 1</translation>
+        <translation>DH කාණ්ඩ 1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
         <source>DH Group 2 (default)</source>
-        <translation>DH gruppe 2 (standard)</translation>
+        <translation>DH කාණ්ඩ 2 (සුපුරුදු)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
         <source>DH Group 5</source>
-        <translation>DH gruppe 5</translation>
+        <translation>DH කාණ්ඩ 5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="160"/>
         <source>Server (default)</source>
-        <translation>Server (standard)</translation>
+        <translation>සේවාදායකය (සුපුරුදු)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
         <source>DH Group 2</source>
-        <translation>DH gruppe 2</translation>
+        <translation>DH කාණ්ඩ 2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="170"/>
         <source>Domain</source>
-        <translation>Domæne</translation>
+        <translation>වසම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="173"/>
         <source>Vendor</source>
-        <translation>Udbyder</translation>
+        <translation>විකුණුම්කරු</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="179"/>
         <source>Version</source>
-        <translation>Version</translation>
+        <translation>අනුවාදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="182"/>
         <source>Encryption</source>
-        <translation>Kryptering</translation>
+        <translation>සංකේතනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="188"/>
         <source>NAT Traversal Mode</source>
-        <translation>NAT-gennemgangstilstand</translation>
+        <translation>NAT සංචලන ප්‍රකාරය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="194"/>
         <source>IKE DH Group</source>
-        <translation>IKE DH-gruppe</translation>
+        <translation>IKE DH සමූහය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="200"/>
         <source>Forward Secrecy</source>
-        <translation>Videresende kode</translation>
+        <translation>රහස්‍යභාවය ඉදිරියට ගෙනයන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="206"/>
         <source>Local Port</source>
-        <translation>Lokal port</translation>
+        <translation>ස්ථානීය-local කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="211"/>
         <source>Disable Dead Peer Detection</source>
-        <translation>Deaktivér registrering af død peer</translation>
+        <translation>මල තුල්‍ය-Dead peer හඳුනාගැනීම අක්‍රීය කරන්න</translation>
     </message>
 </context>
 <context>
@@ -8680,32 +8679,32 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="83"/>
         <source>Enable IPsec</source>
-        <translation>Aktivér IPsec</translation>
+        <translation>IPsec සක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="86"/>
         <source>Group Name</source>
-        <translation>Gruppenavn</translation>
+        <translation>කණ්ඩායම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="89"/>
         <source>Group ID</source>
-        <translation>Gruppe-ID</translation>
+        <translation>කණ්ඩායම් හැඳුනුම් අංකය/නම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="92"/>
         <source>Pre-Shared Key</source>
-        <translation>Prædelt nøgle</translation>
+        <translation>පෙර-හවුල් යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="95"/>
         <source>Phase1 Algorithms</source>
-        <translation>Fase1-algoritmer</translation>
+        <translation>අදියර 1 ඇල්ගොරිතම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnipsecsection.cpp" line="98"/>
         <source>Phase2 Algorithms</source>
-        <translation>Fase2-algoritmer</translation>
+        <translation>අදියර 2 ඇල්ගොරිතම</translation>
     </message>
 </context>
 <context>
@@ -8718,47 +8717,47 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="88"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="89"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="92"/>
         <source>CA Cert</source>
-        <translation>CA-certifikat</translation>
+        <translation>CA සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="95"/>
         <source>Proxy</source>
-        <translation>Proxy</translation>
+        <translation>ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="98"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Tillad Cisco Secure Desktop Trojan</translation>
+        <translation>ඩෙස්ක්ටොප් ට්‍රෝජන් වලින් ආරක්ෂා කිරීමට Cisco හට ඉඩදෙන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="101"/>
         <source>CSD Script</source>
-        <translation>CSD-skript</translation>
+        <translation>CSD ස්ක්‍රිප්ට්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="104"/>
         <source>User Cert</source>
-        <translation>Brugercertifikat</translation>
+        <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="107"/>
         <source>Private Key</source>
-        <translation>Privat nøgle</translation>
+        <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="110"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation>Brug FSID til nøgleadgangskode</translation>
+        <translation>යතුරු මුරපදය සඳහා FSID භාවිතා කරන්න</translation>
     </message>
 </context>
 <context>
@@ -8771,44 +8770,44 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="115"/>
         <source>Certificates (TLS)</source>
-        <translation>Certifikater (TLS)</translation>
+        <translation>සහතික (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="243"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
         <source>Certificates with Password (TLS)</source>
-        <translation>Certifikater med adgangskode (TLS)</translation>
+        <translation>මුරපදය සහිත සහතික (TLS)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="272"/>
         <source>Static Key</source>
-        <translation>Statisk nøgle</translation>
+        <translation>ස්ථිතික යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="123"/>
         <source>Saved</source>
-        <translation>Gemt</translation>
+        <translation>සුරකින ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
         <source>Ask</source>
-        <translation>Spørg</translation>
+        <translation>අහන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="131"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
@@ -8817,63 +8816,63 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="288"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="293"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="142"/>
         <source>Auth Type</source>
-        <translation>Godkendelsestype</translation>
+        <translation>සත්‍යාපන වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="145"/>
         <source>CA Cert</source>
-        <translation>CA-certifikat</translation>
+        <translation>CA සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="177"/>
         <source>User Cert</source>
-        <translation>Brugercertifikat</translation>
+        <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="181"/>
         <source>Private Key</source>
-        <translation>Privat nøgle</translation>
+        <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="185"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="232"/>
         <source>Pwd Options</source>
-        <translation>Valgmuligheder for adgangskode</translation>
+        <translation>මුරපද විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="196"/>
         <source>Private Pwd</source>
-        <translation>Privat adgangskode</translation>
+        <translation>පුද්ගලික මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="227"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="276"/>
         <source>Customize Key Direction</source>
-        <translation>Tilpas nøgleretning</translation>
+        <translation>යතුරු දිශාව කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="280"/>
         <source>Key Direction</source>
-        <translation>Nøgleretning</translation>
+        <translation>යතුරු දිශාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="287"/>
         <source>Remote IP</source>
-        <translation>Fjern-IP</translation>
+        <translation>දුරස්ථ IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="292"/>
         <source>Local IP</source>
-        <translation>Lokal IP</translation>
+        <translation>ස්ථානික IP</translation>
     </message>
 </context>
 <context>
@@ -8886,82 +8885,82 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
-        <translation>Alle tilgængelige (standard)</translation>
+        <translation>පවතින සියල්ලම (පෙරනිමිය)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
-        <translation>40-bit (mindre sikker)</translation>
+        <translation>40-bit (අඩු ආරක්ෂිත)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
-        <translation>128-bit (mest sikker)</translation>
+        <translation>128-bit (වඩාත්ම ආරක්ෂිත)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
-        <translation>Afvis EAP-autentifikation</translation>
+        <translation>EAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
-        <translation>Afvis PAP-autentifikation</translation>
+        <translation>PAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
-        <translation>Afvis CHAP-autentifikation</translation>
+        <translation>CHAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation>Afvis MSCHAP-autentifikation</translation>
+        <translation>MSCHAP සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Afvis MSCHAPv2-autentifikation</translation>
+        <translation>MSCHAPv2 සත්‍යාපනය ප්‍රතික්ෂේප කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
-        <translation>Ingen BSD-datakomprimering</translation>
+        <translation>BSD දත්ත සම්පීඩනය නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
-        <translation>Ingen deflate-datakomprimering</translation>
+        <translation>Deflate දත්ත සම්පීඩන කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
-        <translation>Ingen TCP-headerkomprimering</translation>
+        <translation>TCP ශීර්ෂ සම්පීඩනය නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
-        <translation>Ingen protokol-feltkomprimering</translation>
+        <translation>Protocol ක්ෂේත්‍ර සම්පීඩනය කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
-        <translation>Ingen adresse-/kontrolkomprimering</translation>
+        <translation>ලිපිනය / පාලන සම්පීඩනය කිරීමක් නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
-        <translation>Send PPP echo-pakker</translation>
+        <translation>PPP Echo පැකට් යවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
-        <translation>Brug MPPE</translation>
+        <translation>MPPE භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="164"/>
         <source>Security</source>
-        <translation>Sikkerhed</translation>
+        <translation>ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnpppsection.cpp" line="170"/>
@@ -8974,17 +8973,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="76"/>
         <source>VPN Status</source>
-        <translation>VPN-status</translation>
+        <translation>VPN තත්වය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="79"/>
         <source>Create VPN</source>
-        <translation>Opret VPN</translation>
+        <translation>VPN සාදන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="82"/>
         <source>Import VPN</source>
-        <translation>Importér VPN</translation>
+        <translation>VPN ආයාත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="101"/>
@@ -8994,12 +8993,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="242"/>
         <source>Import Error</source>
-        <translation>Fejl ved import</translation>
+        <translation>ආයාත කිරීමේ දෝෂයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="244"/>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation>හරි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="266"/>
@@ -9039,7 +9038,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/vpnpage.cpp" line="311"/>
         <source>New VPN</source>
-        <translation>Ny VPN</translation>
+        <translation>නව VPN සම්බන්ධතාවක්</translation>
     </message>
 </context>
 <context>
@@ -9047,12 +9046,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation>VPN-proxy</translation>
+        <translation>VPN ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="135"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="136"/>
@@ -9067,39 +9066,39 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
         <source>Proxy Type</source>
-        <translation>Proxytype</translation>
+        <translation>ප්‍රොක්සි වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="153"/>
         <source>Server IP</source>
-        <translation>Server-IP</translation>
+        <translation>සේවාදායක IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="154"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="166"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="157"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation>කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation>Prøv igen når det fejler</translation>
+        <translation>අසමත් වූ විට නැවත නැවත උත්සාහ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnproxysection.cpp" line="169"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -9107,17 +9106,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="79"/>
         <source>CA File</source>
-        <translation>CA-fil</translation>
+        <translation>CA ගොනුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="82"/>
         <source>Ignore Certificate Warnings</source>
-        <translation>Ignorer advarsler om certifikat</translation>
+        <translation>සහතික අනතුරු ඇඟවීම් නොසලකා හරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpsection.cpp" line="85"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation>Brug udvidelser for TLS-værtsnavn</translation>
+        <translation>TLS ධාරක නාම දිගු භාවිතා කරන්න</translation>
     </message>
 </context>
 <context>
@@ -9125,29 +9124,29 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="29"/>
         <source>VPN Security</source>
-        <translation>VPN-sikkerhed</translation>
+        <translation>VPN ආරක්ෂාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="75"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="96"/>
         <source>Default</source>
-        <translation>Standard</translation>
+        <translation>පෙරනිමිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
         <source>None</source>
-        <translation>Intet</translation>
+        <translation>කිසිවක් නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="111"/>
         <source>Cipher</source>
-        <translation>Chiffer</translation>
+        <translation>කේතාංකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="121"/>
         <source>HMAC Auth</source>
-        <translation>HMAC-godkendelse</translation>
+        <translation>HMAC සත්‍යාපනය</translation>
     </message>
 </context>
 <context>
@@ -9160,49 +9159,49 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="106"/>
         <source>Saved</source>
-        <translation>Gemt</translation>
+        <translation>සුරකින ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="107"/>
         <source>Ask</source>
-        <translation>Spørg</translation>
+        <translation>අහන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="108"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="114"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="115"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="119"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="129"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
         <source>Pwd Options</source>
-        <translation>Valgmuligheder for adgangskode</translation>
+        <translation>මුරපද විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="128"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsection.cpp" line="132"/>
         <source>NT Domain</source>
-        <translation>NT-domæne</translation>
+        <translation>NT වසම</translation>
     </message>
 </context>
 <context>
@@ -9210,27 +9209,27 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
-        <translation>VPN-proxy</translation>
+        <translation>VPN ප්‍රොක්සි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="105"/>
         <source>Server IP</source>
-        <translation>Server-IP</translation>
+        <translation>සේවාදායක IP</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="108"/>
         <source>Port</source>
-        <translation>Port</translation>
+        <translation>කෙවෙනිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="113"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="116"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
 </context>
 <context>
@@ -9244,17 +9243,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="172"/>
         <source>Private Key</source>
-        <translation>Privat nøgle</translation>
+        <translation>පුද්ගලික යතුරු කේතය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
         <source>SSH Agent</source>
-        <translation>SSH-agent</translation>
+        <translation>SSH නියෝජිත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
         <source>Smartcard</source>
-        <translation>Smartcard</translation>
+        <translation>ස්මාට් කාඩ්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
@@ -9264,62 +9263,62 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="146"/>
         <source>Pre-Shared Key</source>
-        <translation>Prædelt nøgle</translation>
+        <translation>පෙර-හවුල් යතුර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="153"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="156"/>
         <source>CA Cert</source>
-        <translation>CA-certifikat</translation>
+        <translation>CA සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="159"/>
         <source>Auth Type</source>
-        <translation>Godkendelsestype</translation>
+        <translation>සත්‍යාපන වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="169"/>
         <source>User Cert</source>
-        <translation>Brugercertifikat</translation>
+        <translation>පරිශීලක සහතිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="175"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="178"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="181"/>
         <source>Request an Inner IP Address</source>
-        <translation>Anmod om en indre IP-adresse</translation>
+        <translation>අභ්‍යන්තර IP ලිපිනයක් ඉල්ලීම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="184"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation>Gennemtving UDP-indkapsling</translation>
+        <translation>UDP සංවෘත කිරීම බලාත්මක කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="187"/>
         <source>Use IP Compression</source>
-        <translation>Brug IP-komprimering</translation>
+        <translation>IP සම්පීඩනය භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="190"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation>Aktivér brugerdefineret cifferforslag</translation>
+        <translation>අභිරුචි කේතාංක යෝජනා සක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnstrongswansection.cpp" line="193"/>
@@ -9337,47 +9336,47 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="29"/>
         <source>VPN TLS Authentication</source>
-        <translation>VPN TLS-autentifikation</translation>
+        <translation>VPN TLS සත්‍යාපනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="79"/>
         <source>Default</source>
-        <translation>Standard</translation>
+        <translation>පෙරනිමිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="80"/>
         <source>Client</source>
-        <translation>Klient</translation>
+        <translation>සේවාදායකයා</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="81"/>
         <source>Server</source>
-        <translation>Server</translation>
+        <translation>සේවාදායකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="87"/>
         <source>Subject Match</source>
-        <translation>Emnematch</translation>
+        <translation>කාරණය ගැලපීම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
         <source>Remote Cert Type</source>
-        <translation>Type af fjern-certifikat</translation>
+        <translation>දුරස්ථ සහතික වර්ගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="100"/>
         <source>Key File</source>
-        <translation>Nøglefil</translation>
+        <translation>යතුරු ගොනුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="103"/>
         <source>Customize Key Direction</source>
-        <translation>Tilpas nøgleretning</translation>
+        <translation>යතුරු දිශාව කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpntlssection.cpp" line="106"/>
         <source>Key Direction</source>
-        <translation>Nøgleretning</translation>
+        <translation>යතුරු දිශාව</translation>
     </message>
 </context>
 <context>
@@ -9390,22 +9389,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="159"/>
         <source>Saved</source>
-        <translation>Gemt</translation>
+        <translation>සුරකින ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="160"/>
         <source>Ask</source>
-        <translation>Spørg</translation>
+        <translation>අහන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
         <source>Not Required</source>
-        <translation>Ikke påkrævet</translation>
+        <translation>අත්‍යවශ්‍යය නොවේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="167"/>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>දොරටුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="168"/>
@@ -9414,43 +9413,43 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="186"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="196"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="171"/>
         <source>Username</source>
-        <translation>Brugernavn</translation>
+        <translation>පරිශීලක නාමය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="175"/>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="189"/>
         <source>Pwd Options</source>
-        <translation>Valgmuligheder for adgangskode</translation>
+        <translation>මුරපද විකල්ප</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="181"/>
         <source>Password</source>
-        <translation>Adgangskode</translation>
+        <translation>මුර පදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="185"/>
         <source>Group Name</source>
-        <translation>Gruppenavn</translation>
+        <translation>කණ්ඩායම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
         <source>Group Pwd</source>
-        <translation>Gruppens adgangskode</translation>
+        <translation>කණ්ඩායම් මුරපදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="199"/>
         <source>Use Hybrid Authentication</source>
-        <translation>Brug hybrid-autentifikation</translation>
+        <translation>දෙමුහුන් සත්‍යාපනය භාවිතා කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/vpn/vpnvpncsection.cpp" line="202"/>
         <source>CA File</source>
-        <translation>CA-fil</translation>
+        <translation>CA ගොනුව</translation>
     </message>
 </context>
 <context>
@@ -9458,22 +9457,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="59"/>
         <source>Setting List</source>
-        <translation>Indstillingsliste</translation>
+        <translation>සැකසුම් ලැයිස්තුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="63"/>
         <source>Plug in the network cable first</source>
-        <translation>Tilslut venligst først netværkskablet</translation>
+        <translation>පළමුව ජාල කේබලය සම්බන්ධ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="69"/>
         <source>Add Settings</source>
-        <translation>Tilføj indstillinger</translation>
+        <translation>සැකසුම් එක් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wiredpage.cpp" line="84"/>
         <source>Select Settings</source>
-        <translation>Vælg indstillinger</translation>
+        <translation>සැකසුම් තෝරන්න</translation>
     </message>
 </context>
 <context>
@@ -9481,17 +9480,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="64"/>
         <source>Connect to hidden network</source>
-        <translation>Opret forbindelse til skjult netværk</translation>
+        <translation>සැඟවුණු ජාලයකට සම්බන්ධ වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="67"/>
         <source>Close Hotspot</source>
-        <translation>Luk hotspot</translation>
+        <translation>හොට්ස්පොට් වසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="70"/>
         <source>Please disable hotspot sharing first if you want to connect to a wireless network</source>
-        <translation>Deaktivér venligst først hotspot-deling hvis du vil oprette forbindelse og bruger trådløst netværk</translation>
+        <translation>ඔබට රැහැන් රහිත ජාලයකට සම්බන්ධ වීමට අවශ්‍ය නම් කරුණාකර පළමුව හොට්ස්පොට් බෙදාගැනීම අක්‍රීය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/wirelesspage.cpp" line="93"/>
@@ -9504,7 +9503,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="55"/>
         <source>Not Bind</source>
-        <translation>Ikke bundet</translation>
+        <translation>බැඳී නොමැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="112"/>
@@ -9514,17 +9513,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="113"/>
         <source>Required</source>
-        <translation>Påkrævet</translation>
+        <translation>අත්‍යවශ්‍යයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Device MAC Addr</source>
-        <translation>Enhedens MAC-adresse</translation>
+        <translation>උපාංගයේ MAC ලිපිනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="144"/>
         <source>Customize MTU</source>
-        <translation>Brugerdefineret MTU</translation>
+        <translation>MTU කැමති පරිදි සකසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/network/sections/wirelesssection.cpp" line="147"/>
@@ -9537,7 +9536,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontlistwidget.cpp" line="89"/>
         <source> (Unsupported font)</source>
-        <translation> (ikke-understøttet skrifttype)</translation>
+        <translation>(සහාය නොදක්වන අකුරු)</translation>
     </message>
 </context>
 <context>
@@ -9545,18 +9544,18 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="45"/>
         <source>Standard Font</source>
-        <translation>Standardskrifttype</translation>
+        <translation>සම්මත අකුරු</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="46"/>
         <source>Monospaced Font</source>
-        <translation>Skifttype med fast bredde</translation>
+        <translation>ඒක පරතර අකුරු</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="94"/>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsettingswidget.cpp" line="108"/>
         <source> (Unsupported font)</source>
-        <translation> (ikke-understøttet skrifttype)</translation>
+        <translation>(සහාය නොදක්වන අකුරු)</translation>
     </message>
 </context>
 <context>
@@ -9564,7 +9563,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontsizewidget.cpp" line="41"/>
         <source>Size</source>
-        <translation>Størrelse</translation>
+        <translation>ප්‍රමාණය</translation>
     </message>
 </context>
 <context>
@@ -9572,7 +9571,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/fontswidget/fontswidget.cpp" line="52"/>
         <source>Font</source>
-        <translation>Skrifttype</translation>
+        <translation>අකුරු</translation>
     </message>
 </context>
 <context>
@@ -9580,12 +9579,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="118"/>
         <source>Standard Font</source>
-        <translation>Standardskrifttype</translation>
+        <translation>සම්මත අකුරු</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationmodule.cpp" line="127"/>
         <source>Monospaced Font</source>
-        <translation>Skifttype med fast bredde</translation>
+        <translation>ඒක පරතර අකුරු</translation>
     </message>
 </context>
 <context>
@@ -9593,29 +9592,29 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="48"/>
         <source>Transparency</source>
-        <translation>Gennemsigtighed</translation>
+        <translation>විනිවිදභාවය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="70"/>
         <source>Window Effect</source>
-        <translation>Vindueseffekt</translation>
+        <translation>කවුළු ආකාරය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="72"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>තේමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="73"/>
         <source>Font</source>
-        <translation>Skrifttype</translation>
+        <translation>අකුරු</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/personalizationwidget.cpp" line="79"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
         <location filename="../src/frame/navigationbar.cpp" line="205"/>
         <source>Personalization</source>
-        <translation>Personliggørelse</translation>
+        <translation>සව්‍යං උචිත සැකසුම්</translation>
     </message>
 </context>
 <context>
@@ -9623,7 +9622,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/theme.cpp" line="84"/>
         <source>Default</source>
-        <translation>Standard</translation>
+        <translation>පෙරනිමිය</translation>
     </message>
 </context>
 <context>
@@ -9631,22 +9630,22 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="40"/>
         <source>Window Theme</source>
-        <translation>Vinduestema</translation>
+        <translation>කවුළු තේමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="41"/>
         <source>Icon Theme</source>
-        <translation>Ikontema</translation>
+        <translation>අයිකන තේමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="42"/>
         <source>Cursor Theme</source>
-        <translation>Markørtema</translation>
+        <translation>කර්සර තේමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/personalization/module/themewidget/themewidget.cpp" line="54"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>තේමාව</translation>
     </message>
 </context>
 <context>
@@ -9654,68 +9653,68 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="46"/>
         <source>Plugged in</source>
-        <translation>Tilsluttet</translation>
+        <translation>සම්බන්ධ කර ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="47"/>
         <source>On battery</source>
-        <translation>På batteri</translation>
+        <translation>බැටරි බලයෙන් ක්‍රියාකරයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="48"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="50"/>
         <source>Monitor will suspend after</source>
-        <translation>Skærmen vil gå i hvile om</translation>
+        <translation>මොනිටරය අත්හිටුවීම පසුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="49"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="51"/>
         <source>Computer will suspend after</source>
-        <translation>Computeren vil gå i hvile om</translation>
+        <translation>පරිගණකය අත්හිටුවීම පසුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="62"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="202"/>
         <source>Never</source>
-        <translation>Aldrig</translation>
+        <translation>කිසිදා නැත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="100"/>
         <source>Password is required to wake up the monitor</source>
-        <translation>Spørg om adgangskode for at vække skærmen</translation>
+        <translation>මොනිටරය අවදි කිරීමට මුරපදය අවශ්‍ය වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="103"/>
         <source>Password is required to wake up the computer</source>
-        <translation>Spørg om adgangskode for at vække computeren</translation>
+        <translation>පරිගණකය අවදි කිරීමට මුරපදය අවශ්‍ය වේ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="106"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="107"/>
         <source>Suspend on lid close</source>
-        <translation>Gå i hvile når låget lukkes</translation>
+        <translation>පියන වැසීමේදී පරිගණකය අත්හිටුවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="110"/>
         <source>Power Saving Mode</source>
-        <translation>Strømbesparende tilstand</translation>
+        <translation>බල ඉතිරි කිරීමේ මාදිලිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="111"/>
         <source>Auto Mode Switch</source>
-        <translation>Automatisk skift af tilstand</translation>
+        <translation>ස්වයංක්‍රීය ප්‍රකාර ස්විචය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="122"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
         <location filename="../src/frame/navigationbar.cpp" line="211"/>
         <source>Power Management</source>
-        <translation>Strømstyring</translation>
+        <translation>බල කළමනාකරණය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="190"/>
         <source>1 Minute</source>
-        <translation>1 minut</translation>
+        <translation>මිනිත්තු 1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="192"/>
@@ -9724,12 +9723,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="198"/>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="204"/>
         <source>%1 Minutes</source>
-        <translation>%1 minutter</translation>
+        <translation>මිනිත්තු %1 ක්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/power/powerwidget.cpp" line="200"/>
         <source>1 Hour</source>
-        <translation>1 time</translation>
+        <translation>පැය 1</translation>
     </message>
 </context>
 <context>
@@ -9737,17 +9736,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/advancedpage.cpp" line="37"/>
         <source>Output</source>
-        <translation>Output</translation>
+        <translation>ප්‍රතිදානය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/advancedpage.cpp" line="38"/>
         <source>Input</source>
-        <translation>Input</translation>
+        <translation>ආදානය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/advancedpage.cpp" line="40"/>
         <source>Advanced</source>
-        <translation>Avanceret</translation>
+        <translation>උසස්</translation>
     </message>
 </context>
 <context>
@@ -9755,12 +9754,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="43"/>
         <source>Sound Effects</source>
-        <translation>Lydeffekter</translation>
+        <translation>ශබ්ද ප්‍රයෝග</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="62"/>
         <source>System Sound Effect</source>
-        <translation>Lydeffekter for systemet</translation>
+        <translation>පද්ධති ශබ්ද ප්‍රයෝග</translation>
     </message>
 </context>
 <context>
@@ -9769,19 +9768,19 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="71"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="88"/>
         <source>Boot up</source>
-        <translation>Opstart</translation>
+        <translation>ආරම්භ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="72"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="89"/>
         <source>Shut down</source>
-        <translation>Luk ned</translation>
+        <translation>වසා දමන්න </translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="73"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="90"/>
         <source>Log out</source>
-        <translation>Log ud</translation>
+        <translation>ඉවත් වන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="74"/>
@@ -9789,64 +9788,64 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="102"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="103"/>
         <source>Wake up</source>
-        <translation>Vågn op</translation>
+        <translation>අවදි කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="75"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="92"/>
         <source>Volume +/-</source>
-        <translation>Lydstyrke +/-</translation>
+        <translation>ශබ්ද පරිමාව +/-</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="76"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="93"/>
         <source>Notification</source>
-        <translation>Notifikation</translation>
+        <translation>දැනුම්දීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="77"/>
         <source>Low battery</source>
-        <translation>Lavt batteri</translation>
+        <translation>අඩු බැටරි ධාරිතාවයකි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="78"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="94"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Send ikon i opstarter til skrivebord</translation>
+        <translation>රඳවනයේ හි ඇති අයිනක ඩෙස්ක්ටොප් එක වෙත යවන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="79"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="95"/>
         <source>Empty Trash</source>
-        <translation>Tøm papirkurv</translation>
+        <translation>කුණු කූඩය හිස් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="80"/>
         <source>Plug in</source>
-        <translation>Stik sættes i</translation>
+        <translation>සම්බන්ධ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="81"/>
         <source>Plug out</source>
-        <translation>Stik tages ud</translation>
+        <translation>සම්බන්ධතාව ඉවත් කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="82"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="96"/>
         <source>Removable device connected</source>
-        <translation>Tilslutning af flytbar enhed</translation>
+        <translation>ඉවත් කළ හැකි උපාංගය සම්බන්ධයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="83"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="97"/>
         <source>Removable device removed</source>
-        <translation>Fjernelse af flytbar enhed</translation>
+        <translation>ඉවත් කළ හැකි උපාංගය ඉවත් කරන ලදි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="84"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="98"/>
         <source>Error</source>
-        <translation>Fejl</translation>
+        <translation>දෝෂයකි</translation>
     </message>
 </context>
 <context>
@@ -9854,49 +9853,49 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="43"/>
         <source>Output Volume</source>
-        <translation>Lydstyrke (output)</translation>
+        <translation>ප්‍රතිදාන ශබ්ද පරිමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="44"/>
         <source>Left/Right Balance</source>
-        <translation>Balance for venstre/højre</translation>
+        <translation>වම්/දකුණු සමබරතාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="47"/>
         <source>Input Volume</source>
-        <translation>Lydstyrke (input)</translation>
+        <translation>ආදාන ශබ්ද පරිමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="49"/>
         <source>Feedback Volume</source>
-        <translation>Lydstyrke (feedback)</translation>
+        <translation>ප්‍රතිපෝෂණ පරිමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="58"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
         <location filename="../src/frame/navigationbar.cpp" line="209"/>
         <source>Sound</source>
-        <translation>Lyd</translation>
+        <translation>ශබ්දය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="60"/>
         <source>Speaker</source>
-        <translation>Højttaler</translation>
+        <translation>ස්පීකරය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="83"/>
         <source>Microphone</source>
-        <translation>Mikrofon</translation>
+        <translation>මයික්‍රෝෆෝනය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="106"/>
         <source>Advanced</source>
-        <translation>Avanceret</translation>
+        <translation>උසස්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundwidget.cpp" line="109"/>
         <source>Sound Effects</source>
-        <translation>Lydeffekter</translation>
+        <translation>ශබ්ද ප්‍රයෝග</translation>
     </message>
 </context>
 <context>
@@ -9904,7 +9903,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/navigationbar.cpp" line="202"/>
         <source>Cloud Sync</source>
-        <translation>Skysynkronisering</translation>
+        <translation>වලාකුළු සමමුහුර්තකරණය</translation>
     </message>
 </context>
 <context>
@@ -9912,32 +9911,32 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="62"/>
         <source>Updating...</source>
-        <translation>Opdaterer...</translation>
+        <translation>යාවත්කාලීන වෙමින් ...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="73"/>
         <source>Startup Delay</source>
-        <translation>Opstartsforsinkelse</translation>
+        <translation>ආරම්භක ප්‍රමාදය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="76"/>
         <source>Theme</source>
-        <translation>Tema</translation>
+        <translation>තේමාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="78"/>
         <source>You can click the option in boot menu to set it as the first boot, and drag and drop a picture to replace the background.</source>
-        <translation>Du kan klikke på valgmuligheden i opstartsmenuen for at indstille den som den første opstart, og trække og slippe et billede, for at erstatte baggrunden.</translation>
+        <translation>පළමු ඇරඹුම ලෙස සැකසීමට ඇරඹුම් මෙනුවේ ඇති විකල්පය ඔබට ක්ලික් කල හැකිය, පසුබිම වෙනස් කිරීම සඳහා පින්තූරයක් ඇද අතහරින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="82"/>
         <source>Switch theme on to view it in boot menu</source>
-        <translation>Slå tema til for at vise den i opstartsmenuen</translation>
+        <translation>ඇරඹුම් මෙනුවේ දිස්වන ආකාරය නිරීක්ෂණයට තේමාව මාරු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/bootwidget.cpp" line="102"/>
         <source>Boot Menu</source>
-        <translation>Opstartsmenu</translation>
+        <translation>ඇරඹුම් මෙනුව</translation>
     </message>
 </context>
 <context>
@@ -9945,7 +9944,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/copyrightwidget.cpp" line="70"/>
         <source>Edition License</source>
-        <translation>Udgavelicens</translation>
+        <translation>සංස්කරණ බලපත්‍රය</translation>
     </message>
 </context>
 <context>
@@ -9953,7 +9952,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="183"/>
         <source>available</source>
-        <translation>tilgængelig</translation>
+        <translation>ලබා ගත/භාවිත කළ හැකිය</translation>
     </message>
 </context>
 <context>
@@ -9961,64 +9960,64 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="50"/>
         <source>Copyright © 2011-%1 Wuhan Deepin Technology Co., Ltd.</source>
-        <translation>Ophavsret © 2011-%1 Wuhan Deepin Technology Co., Ltd.</translation>
+        <translation>ප්‍රකාශන හිමිකම © 2011-%1 වුහාන් Deepin තාක්ෂණික සීමිත සමාගම.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="70"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
         <location filename="../src/frame/navigationbar.cpp" line="217"/>
         <source>System Information</source>
-        <translation>Systeminformation</translation>
+        <translation>පද්ධති තොරතුරු</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="81"/>
         <source>Distribution:</source>
-        <translation>Distribution:</translation>
+        <translation>බෙදා හැරීම:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="86"/>
         <source>Distribution Release:</source>
-        <translation>Distributionsudgivelse:</translation>
+        <translation>බෙදාහැරීමේ නිකුතුව:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="91"/>
         <source>Edition:</source>
-        <translation>Udgave:</translation>
+        <translation>සංස්කරණය:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="95"/>
         <source>Type:</source>
-        <translation>Type:</translation>
+        <translation>වර්ගය:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="98"/>
         <source>Processor:</source>
-        <translation>Processor:</translation>
+        <translation>ප්‍රොසෙසරය:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="102"/>
         <source>Memory:</source>
-        <translation>Hukommelse:</translation>
+        <translation>මතකය:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="106"/>
         <source>Disk:</source>
-        <translation>Disk:</translation>
+        <translation>ඩිස්කය:</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="119"/>
         <source>Edition License</source>
-        <translation>Udgavelicens</translation>
+        <translation>සංස්කරණ බලපත්‍රය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
         <source>End User License Agreement</source>
-        <translation>Slutbruger-licensaftale</translation>
+        <translation>අවසාන පරිශීලක බලපත්‍ර ගිවිසුම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="126"/>
         <source>Boot Menu</source>
-        <translation>Opstartsmenu</translation>
+        <translation>ඇරඹුම් මෙනුව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="182"/>
@@ -10033,7 +10032,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="232"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Ophavsret© 2019-2020 UnionTech Software Technology Co., LTD</translation>
+        <translation>ප්‍රකාශන හිමිකම © 2019-2020 යුනියන් ටෙක් මෘදුකාංග තාක්ෂණ සීමිත සමාගම,</translation>
     </message>
 </context>
 <context>
@@ -10041,7 +10040,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation>Slutbruger-licensaftale</translation>
+        <translation>අවසාන පරිශීලක බලපත්‍ර ගිවිසුම</translation>
     </message>
 </context>
 <context>
@@ -10050,31 +10049,31 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="45"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
         <source>Untested</source>
-        <translation>Ikke testet</translation>
+        <translation>පරීක්ෂා නොකළ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="125"/>
         <source>Timeout</source>
-        <translation>Timeout</translation>
+        <translation>කල් ඉකුත් වීම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="126"/>
         <source>Slow</source>
-        <translation>Langsom</translation>
+        <translation>සෙමින්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="127"/>
         <source>Medium</source>
-        <translation>Medium</translation>
+        <translation>මාධ්‍යය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
         <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
         <source>Fast</source>
-        <translation>Hurtig</translation>
+        <translation>වේගයෙන්</translation>
     </message>
 </context>
 <context>
@@ -10082,17 +10081,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="42"/>
         <source>Test Speed</source>
-        <translation>Test hastighed</translation>
+        <translation>පරීක්ෂණ වේගය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="46"/>
         <source>Switch Mirror</source>
-        <translation>Skift spejlserver</translation>
+        <translation>දර්පණ මූලාශ්‍ර මාරු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/mirrorswidget.cpp" line="141"/>
         <source>Retest</source>
-        <translation>Test igen</translation>
+        <translation>නැවත පරීක්ෂා කරන්න</translation>
     </message>
 </context>
 <context>
@@ -10100,17 +10099,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="70"/>
         <source>Your system is not authorized, please activate first</source>
-        <translation>Dit system er ikke autentificeret — aktivér det venligst først</translation>
+        <translation>ඔබේ පද්ධතියට අවසර නැත, කරුණාකර පළමුව සක්‍රිය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="75"/>
         <source>Update successful</source>
-        <translation>Opdatering lykkedes</translation>
+        <translation>යාවත්කාලීන කිරීම සාර්ථකයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
-        <translation>Kunne ikke opdatere</translation>
+        <translation>යාවත්කාලීන කිරීමට අපොහොසත් විය</translation>
     </message>
 </context>
 <context>
@@ -10118,110 +10117,110 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="55"/>
         <source>Please restart to use the system and applications properly after updated</source>
-        <translation>Genstart venligst for at bruge systemet og programmerne ordentligt efter opdatering</translation>
+        <translation>යාවත්කාලීන කිරීමෙන් පසු පද්ධතිය සහ යෙදුම් නිසි ලෙස භාවිතා කිරීමට කරුණාකර නැවත ආරම්භ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="56"/>
         <source>Network disconnected, please retry after connected</source>
-        <translation>Netværk deaktiveret. Prøv venligst når forbindelsen er oprettet</translation>
+        <translation>ජාලය විසන්ධි කර ඇත, කරුණාකර සම්බන්ධ වූ පසු නැවත උත්සාහ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="59"/>
         <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
         <location filename="../src/frame/navigationbar.cpp" line="216"/>
         <source>Update</source>
-        <translation>Opdatering</translation>
+        <translation>යාවත්කාලීන කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Opdateringen kan tage længere tid, luk venligst ikke ned eller genstarter under processen.</translation>
+        <translation>මෙම යාවත්කාලීන කිරීමට බොහෝ කාලයක් ගතවනු ඇත, කරුණාකර ක්‍රියාවලිය අතරතුර වසා දැමීමෙන් හෝ නැවත ඇරඹීමෙන් වලකින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
         <source>Checking for updates, please wait...</source>
-        <translation>Søger efter opdateringer, vent venligst...</translation>
+        <translation>යාවත්කාල කිරීම් සඳහා පරීක්ෂා කරමින් පවතී, කරුණාකර රැඳී සිටින්න ...</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="181"/>
         <source>Download and install updates</source>
-        <translation>Download og installer opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම් බාගත කර ස්ථාපනය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="190"/>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="294"/>
         <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% downloadet (klik for at pause)</translation>
+        <translation>%1% බාගත කර ඇත (විරාම කිරීමට ක්ලික් කරන්න)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% downloadet (klik for at fortsætte)</translation>
+        <translation>%1% බාගත කර ඇත (නැවත ඇරඹීමට ක්ලික් කරන්න)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
         <source>Install updates</source>
-        <translation>Installer opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම් ස්ථාපනය කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="208"/>
         <source>Your system is up to date</source>
-        <translation>Dit system er opdateret</translation>
+        <translation>ඔබේ පද්ධතිය යාවත්කාලීනයි</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="213"/>
         <source>Updating, please wait...</source>
-        <translation>Opdaterer, vent venligst...</translation>
+        <translation>යාවත්කාල කරමින් පවතී, කරුණාකර රැඳී සිටින්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="227"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation>Nyeste system installeret, genstart for at træde i kraft</translation>
+        <translation>නවතම පද්ධතිය ස්ථාපනය කර ඇත, බලාත්මක වීමට නැවත ආරම්භ කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="237"/>
         <source>Insufficient disk space, unable to update system.</source>
-        <translation>Ikke tilstrækkelig diskplads, kan ikke opdatere system.</translation>
+        <translation>තැටි අවකාශය ප්‍රමාණවත් නොවේ, පද්ධතිය යාවත්කාලීන කළ නොහැක.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Afhængighedsfejl, kunne ikke registrere opdateringerne</translation>
+        <translation>පරායත්ත සාධක දෝෂයකි, යාවත්කාලීන කිරීම් හඳුනා ගැනීමට අසමත් විය</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
         <source>%n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>%n යෙදුම් යාවත්කාලීන කිරීම් හදුනා ගන්නා ලදි.</numerusform><numerusform>%n යෙදුම් යාවත්කාලීන කිරීම් හදුනා ගන්නා ලදි.</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="269"/>
         <source>New system edition detected</source>
-        <translation>Ny systemudgave registreret</translation>
+        <translation>නව පද්ධති සංස්කරණයක් හඳුනා ගන්නා ලදි</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="271"/>
         <source>New system edition and %n application update(s) detected</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>නව පද්ධති සංස්කරණය සහ %n යෙදුම් යාවත්කාලීන කිරීම් හඳුනා ගන්නා ලදි</numerusform><numerusform>නව පද්ධති සංස්කරණය සහ %n යෙදුම් යාවත්කාලීන කිරීම් හඳුනා ගන්නා ලදි</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="278"/>
         <source>Downloaded</source>
-        <translation>Downloadet</translation>
+        <translation>බාගත කර ඇත</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="280"/>
         <source>Download size: %1</source>
-        <translation>Downloadstørrelse: %1</translation>
+        <translation>බාගත කිරීමේ ප්‍රමාණය: %1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="302"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
-        <translation>Dit batteri er under 50%, tilslut venligst strømforsyningen for at fortsætte</translation>
+        <translation>ඔබගේ බැටරි ධාරිතාවය 50% ට වඩා අඩුය, කරුණාකර ඉදිරියට යාමට විදුලි සැපයුමක් ලබා දෙන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="304"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
-        <translation>Sørg venligst for tilstrækkeligt med strøm til genstart, og sluk ikke eller frakobl strømforsyningen fra din maskine</translation>
+        <translation>කරුණාකර නැවත ආරම්භ කිරීමට ප්‍රමාණවත් බලයක් පවතින බව සහතික කරන්න, ඔබේ යන්ත්‍රය ක්‍රියා විරහිත නොකරන්න</translation>
     </message>
 </context>
 <context>
@@ -10230,12 +10229,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="166"/>
         <source>Details</source>
-        <translation>Detaljer</translation>
+        <translation>විස්තර</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updateitem.cpp" line="160"/>
         <source>Collapse</source>
-        <translation>Sammenfold</translation>
+        <translation>හකුළුවන්න</translation>
     </message>
 </context>
 <context>
@@ -10243,52 +10242,52 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="50"/>
         <source>Update Settings</source>
-        <translation>Opdateringsindstillinger</translation>
+        <translation>යාවත්කාලීන කිරීම් සැකසුම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="62"/>
         <source>Auto Clear Package Cache</source>
-        <translation>Automatisk rydning af pakkemellemlager</translation>
+        <translation>පැකේජ වාරක මතකය සව්‍යංක්‍රීයව පිරිසිදු කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
-        <translation>Opdateringsnotifikation</translation>
+        <translation>යාවත්කාලීන කිරීමේ දැනුම්දීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
         <source>Auto-download Updates</source>
-        <translation>Automatisk download af opdateringer</translation>
+        <translation>යාවත්කාලීන කිරීම් ස්වයංක්‍රීයව බාගත කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation>Slå den til for automatisk download af opdateringerne i trådløst og kablet netværk</translation>
+        <translation>රැහැන් රහිත හෝ රැහැන්ගත ජාලයන්හීදී යාවත්කාලීන කිරීම් ස්වයංක්‍රීයව බාගත කිරීම ක්‍රියාත්මක කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
         <source>System Source Detection</source>
-        <translation>Registrering af systemkilde</translation>
+        <translation>පද්ධති ප්‍රභවය හඳුනාගැනීම</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="81"/>
         <source>Prompt the notification if system update mirror has been modified</source>
-        <translation>Spørg notifikationen om systemopdateringsspejlserveren er blevet ændret</translation>
+        <translation>පද්ධති යාවත්කාලීන මූලාශ්‍ර පිටපත - system update mirror වෙනස් කර ඇත්නම් දැනුම්දීමක් මගින් විමසන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation>Smart skift af spejlserver</translation>
+        <translation>ස්මාර්ට් මූලාශ්‍ර දර්පණ ස්විචය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation>Slå den til for automatisk at oprette forbindelse til det hurtigste spejlsted</translation>
+        <translation>වේගවත්ම දර්පණ මුලාශ්‍ර අඩවියට ස්වයංක්‍රීයව සම්බන්ධ වීමට ක්‍රියාත්මක කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="114"/>
         <source>Switch Mirror</source>
-        <translation>Skift spejlserver</translation>
+        <translation>දර්පණ මූලාශ්‍ර මාරු කරන්න</translation>
     </message>
 </context>
 <context>
@@ -10297,12 +10296,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
         <location filename="../src/frame/modules/update/updateview.cpp" line="40"/>
         <location filename="../src/frame/modules/update/updateview.cpp" line="52"/>
         <source>Update</source>
-        <translation>Opdatering</translation>
+        <translation>යාවත්කාලීන කරන්න</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updateview.cpp" line="45"/>
         <source>Update Settings</source>
-        <translation>Opdateringsindstillinger</translation>
+        <translation>යාවත්කාලීන කිරීම් සැකසුම්</translation>
     </message>
 </context>
 <context>
@@ -10310,17 +10309,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="389"/>
         <source>Patches</source>
-        <translation>Rettelser</translation>
+        <translation>නිවැරදි කිරීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="390"/>
         <source>System patches</source>
-        <translation>Systemrettelser</translation>
+        <translation>පද්ධති නිවැරදි කිරීම්</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1129"/>
         <source>System</source>
-        <translation>System</translation>
+        <translation>පද්ධතිය</translation>
     </message>
 </context>
 <context>
@@ -10328,12 +10327,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="37"/>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>පෑන</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacommodepage.cpp" line="38"/>
         <source>Mouse</source>
-        <translation>Mus</translation>
+        <translation>මූසිකය</translation>
     </message>
 </context>
 <context>
@@ -10341,17 +10340,17 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation>Trykfølsomhed</translation>
+        <translation>පීඩන සංවේදීතාව</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Light</source>
-        <translation>Let</translation>
+        <translation>එළිය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation>Tungt</translation>
+        <translation>තද/බර</translation>
     </message>
 </context>
 <context>
@@ -10359,7 +10358,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="50"/>
         <source>Mode</source>
-        <translation>Tilstand</translation>
+        <translation>ආකාරය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="57"/>
@@ -10371,12 +10370,12 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Mouse</source>
-        <translation>Mus</translation>
+        <translation>මූසිකය</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/wacomwidget.cpp" line="72"/>
         <source>Pen</source>
-        <translation>Pen</translation>
+        <translation>පෑන</translation>
     </message>
 </context>
 <context>
@@ -10384,7 +10383,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/modules/display/connectwidget.cpp" line="38"/>
         <source>Connected</source>
-        <translation>Tilsluttet</translation>
+        <translation>සම්බන්ධයි</translation>
     </message>
 </context>
 <context>
@@ -10392,7 +10391,7 @@ Hvis ikke der handles, så gendannes skærmen om %1s.</translation>
     <message>
         <location filename="../src/frame/main.cpp" line="173"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation>Kontrolcenteret giver valgmulighederne for systemindstillinger.</translation>
+        <translation>පාලන මධ්‍යස්ථානය පද්ධති සැකසුම් සඳහා පහසුකම් සපයයි.</translation>
     </message>
 </context>
 </TS>

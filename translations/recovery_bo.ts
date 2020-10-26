@@ -1,11 +1,11 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="id" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
 <context>
     <name>BackgroundWidget</name>
     <message>
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Mengembalikan sistem, harap tunggu ...</translation>
+        <translation>རྒྱུད་ཁོངས་སུ་ཕྱིར་ལོག་བྱེད་བཞིན་ཡོད་པས། ཏོག་ཙམ་སྒུག་རོགས། </translation>
     </message>
 </context>
 <context>
@@ -13,27 +13,27 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
         <source>Rollback failed.</source>
-        <translation>Rollback gagal.</translation>
+        <translation>རྒྱུད་ཁོངས་སུ་ཕྱིར་ལོག་མ་ཐུབ།</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
         <source>Reboot</source>
-        <translation>Boot ulang</translation>
+        <translation>བསྐྱར་སློང་།</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>Anda yakin ingin rollback ke %1 dicadangkan pada %2?</translation>
+        <translation>རྒྱུད་ཁོངས་%2སྔོན་གྱི་%1ལ་འགྱུར་རྒྱུར་ཁྱོད་ཀྱིས་གཏན་ཁེལ་ལམ།</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
         <source>Cancel and Reboot</source>
-        <translation>Tunda dan Muat Ulang</translation>
+        <translation>འདོར་བ་མ་ཟད་བསྐྱར་སློང་བྱེད།</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="275"/>
         <source>Confirm</source>
-        <translation>Konfirmasi</translation>
+        <translation>གཏན་ཁེལ། </translation>
     </message>
 </context>
 </TS>

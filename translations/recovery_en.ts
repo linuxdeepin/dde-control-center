@@ -1,11 +1,11 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="id" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
 <context>
     <name>BackgroundWidget</name>
     <message>
         <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
         <location filename="../abrecovery/backgroundwidget.cpp" line="64"/>
         <source>Rolling back the system, please wait...</source>
-        <translation>Mengembalikan sistem, harap tunggu ...</translation>
+        <translation>Rolling back the system, please wait...</translation>
     </message>
 </context>
 <context>
@@ -13,27 +13,27 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="259"/>
         <source>Rollback failed.</source>
-        <translation>Rollback gagal.</translation>
+        <translation>Rollback failed.</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="264"/>
         <source>Reboot</source>
-        <translation>Boot ulang</translation>
+        <translation>Reboot</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>Anda yakin ingin rollback ke %1 dicadangkan pada %2?</translation>
+        <translation>Are you sure you want to roll back to %1 backed up on %2?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>
         <source>Cancel and Reboot</source>
-        <translation>Tunda dan Muat Ulang</translation>
+        <translation>Cancel and Reboot</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="275"/>
         <source>Confirm</source>
-        <translation>Konfirmasi</translation>
+        <translation>Confirm</translation>
     </message>
 </context>
 </TS>
