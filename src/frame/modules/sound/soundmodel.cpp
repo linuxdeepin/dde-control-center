@@ -27,10 +27,13 @@
 
 #include "window/utils.h"
 
+#include <DIconButton>
+
 #include <QDebug>
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QStandardItemModel>
+#include <QHBoxLayout>
 
 using namespace DCC_NAMESPACE;
 
@@ -60,8 +63,14 @@ namespace sound {
 SoundLabel::SoundLabel(QWidget *parent)
     : QLabel(parent)
     , m_mute(false)
+    , m_btn(new DIconButton(this))
 {
-
+    QHBoxLayout* layout = new QHBoxLayout(this);
+    layout->setContentsMargins(0, 0, 0, 0);
+    layout->addWidget(m_btn);
+    m_btn->setFlat(true);
+    m_btn->setFocusPolicy(Qt::NoFocus);
+    m_btn->setAttribute(Qt::WA_TransparentForMouseEvents);
 }
 
 void SoundLabel::mouseReleaseEvent(QMouseEvent *e)
@@ -69,6 +78,16 @@ void SoundLabel::mouseReleaseEvent(QMouseEvent *e)
     Q_UNUSED(e)
     m_mute = !m_mute;
     Q_EMIT clicked(m_mute);
+}
+
+void SoundLabel::setIcon(const QIcon &icon)
+{
+    m_btn->setIcon(icon);
+}
+
+void SoundLabel::setIconSize(const QSize &size)
+{
+    m_btn->setIconSize(size);
 }
 
 SoundModel::SoundModel(QObject *parent)

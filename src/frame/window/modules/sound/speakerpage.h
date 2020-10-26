@@ -35,7 +35,7 @@ QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 QT_END_NAMESPACE
 
-#define ICON_SIZE 20
+#define ICON_SIZE 24
 namespace dcc {
 
 namespace sound {
@@ -94,7 +94,6 @@ private:
     //初始化使用到的 slider 控件
     void initSlider();
     void refreshIcon();
-    const QPixmap loadSvg(const QString &iconName, const QString &localPath, const int size, const qreal ratio);
 
 private:
     //model类， 为后端数据来源及数据变化信号来源
