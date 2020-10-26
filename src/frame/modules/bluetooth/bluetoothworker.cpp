@@ -258,10 +258,15 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
             QJsonArray arr = doc.array();
             for (QJsonValue val : arr) {
                 const QString id = val.toObject()["Path"].toString();
+                const QString name = val.toObject()["Name"].toString();
 
                 const Device *result = adapter->deviceById(id);
                 Device *device = const_cast<Device*>(result);
-                if (!device) device = new Device(adapter);
+                if (!device) {
+                    device = new Device(adapter);
+                } else {
+                    if (device->name() != name) adapter->removeDevice(device->id());
+                }
                 inflateDevice(device, val.toObject());
                 adapter->addDevice(device);
 
@@ -317,9 +322,19 @@ void BluetoothWorker::onDevicePropertiesChanged(const QString &json)
     const QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
     const QJsonObject obj = doc.object();
     const QString id = obj["Path"].toString();
+    const QString name = obj["Name"].toString();
     for (const Adapter *adapter : m_model->adapters()) {
+        Adapter *adapterPointer = const_cast<Adapter*>(adapter);
         Device *device = const_cast<Device*>(adapter->deviceById(id));
-        if (device) inflateDevice(device, obj);
+        if (device) {
+            if (device->name() == name) {
+                inflateDevice(device, obj);
+            } else {
+                adapterPointer->removeDevice(device->id());
+                inflateDevice(device, obj);
+                adapterPointer->addDevice(device);
+            }
+        }
     }
 }
 
