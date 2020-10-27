@@ -111,10 +111,10 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
         m_mPower2ComboxIndex4CloseLid[2] = lidComboIndex;
         lidComboIndex++;
     }
-    optionsLidClose << tr("Turn off the monitor");
-    m_mCombox2PowerAction4CloseId[lidComboIndex] = 3;
-    m_mPower2ComboxIndex4CloseLid[3] = lidComboIndex;
-    lidComboIndex++;
+//    optionsLidClose << tr("Turn off the monitor");
+//    m_mCombox2PowerAction4CloseId[lidComboIndex] = 3;
+//    m_mPower2ComboxIndex4CloseLid[3] = lidComboIndex;
+//    lidComboIndex++;
 
     optionsLidClose << tr("Do nothing");
     m_mCombox2PowerAction4CloseId[lidComboIndex] = 4;
