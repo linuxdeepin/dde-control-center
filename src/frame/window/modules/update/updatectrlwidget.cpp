@@ -244,7 +244,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_lastCheckTimeTip->setVisible(true);
     };
 
-    m_status = UpdatesStatus::Default;		  //+ 屏蔽更新功能后强制使用默认显示状态
     switch (m_status) {
     case UpdatesStatus::Default:
         m_checkUpdateItem->setVisible(true);
