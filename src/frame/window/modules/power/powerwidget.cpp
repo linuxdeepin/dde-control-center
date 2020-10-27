@@ -98,6 +98,7 @@ void PowerWidget::initialize(bool hasBattery)
     connect(m_listview, &DListView::activated, m_listview, &QListView::clicked);
     connect(this, &PowerWidget::requestRemoveBattery, this, [this](bool state) {
         m_listview->setRowHidden(2, !state);
+        m_bhasBattery = state;
     });
 
     QVBoxLayout *layout = new QVBoxLayout(this);
