@@ -113,7 +113,7 @@ void TouchscreenPage::onMonitorChanged()
 {
     m_buttonTuple->rightButton()->setEnabled(false);
 
-    auto *oldWidget = m_contentArea->widget();
+    QWidget *oldWidget = m_contentArea->takeWidget();
     if (oldWidget) {
         oldWidget->deleteLater();
     }
@@ -121,50 +121,46 @@ void TouchscreenPage::onMonitorChanged()
     m_titleName.clear();
     m_labels.clear();
 
-    auto *mainWidget = new QWidget();
-    mainWidget->installEventFilter(this);
+    QWidget *contentWidget = new QWidget();
+    contentWidget->installEventFilter(this);
 
-    QHBoxLayout *areamainlayout = new QHBoxLayout(m_contentArea);
-    areamainlayout->addWidget(mainWidget);
-    m_contentArea->setLayout(areamainlayout);
+    m_contentArea->setWidget(contentWidget);
 
-    auto *layout = new QVBoxLayout();
-    mainWidget->setLayout(layout);
-    layout->setAlignment(Qt::AlignTop);
-    layout->setContentsMargins(0,0,0,0);
+    QVBoxLayout *contentLayout = new QVBoxLayout();
+    contentWidget->setLayout(contentLayout);
+    contentLayout->setAlignment(Qt::AlignTop);
+    contentLayout->setSpacing(10);
+    contentLayout->setContentsMargins(0, 0, 0, 0);
 
     TouchscreenMap touchMap = m_model->touchMap();
     TouchscreenInfoList touchscreenList = m_model->touchscreenList();
-    auto monitorList = m_model->monitorList();
+    QList<Monitor *> monitorList = m_model->monitorList();
     for (const auto &i : touchscreenList) {
         QString touchscreenSerial = i.serialNumber;
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new QLabel(title);
         label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        label->setContentsMargins(10, 0, 0, 0);
         label->setAlignment(Qt::AlignLeft);
-        layout->addWidget(label);
-        layout->addSpacing(5);
+        label->setContentsMargins(10, 0, 0, 0);
+        contentLayout->addWidget(label);
 
-        auto *listCombo = new MCombobox();
-        listCombo->setContentsMargins(0, 0, 0, 10);
+        MCombobox *listCombo = new MCombobox();
         listCombo->setProperty("touchscreenName", i.name);
         listCombo->setProperty("touchscreenSerial", touchscreenSerial);
         listCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-        layout->addWidget(listCombo);
-        layout->addSpacing(10);
+        for (Monitor *m : monitorList) {
+            listCombo->addItem(m->name());
+        }
+        if (touchMap.find(touchscreenSerial) != touchMap.end()) {
+            listCombo->setCurrentText(touchMap.value(touchscreenSerial));
+        }
+        contentLayout->addWidget(listCombo);
+
         m_list.push_back(listCombo);
         m_labels.push_back(label);
         m_titleName << title;
 
-        for (Monitor *m : monitorList) {
-            listCombo->addItem(m->name());
-        }
-
-        if (touchMap.find(touchscreenSerial) != touchMap.end()) {
-            listCombo->setCurrentText(touchMap.value(touchscreenSerial));
-        }
         connect(listCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [this] {
             m_buttonTuple->rightButton()->setEnabled(true);
         });
@@ -212,7 +208,7 @@ bool TouchscreenPage::eventFilter(QObject *obj, QEvent *event)
             // QFontMetrics计算不精准，为保证视觉效果，设置右边空10（FontSpaceLenght）个像素作为余量
             if ((fontSize + FontSpaceLenght) > m_labels[i]->width()) {
                 // 字体过长做省略显示处理时，以控件宽度减去空白处为标准截取
-                m_labels[i]->setText(fontMetrics.elidedText(m_titleName[i], Qt::ElideMiddle, m_labels[i]->width() - FontSpaceLenght));
+                m_labels[i]->setText(fontMetrics.elidedText(m_titleName[i], Qt::ElideMiddle, m_labels[i]->width() - FontSpaceLenght * 2));
                 m_labels[i]->setToolTip(m_titleName[i]);
             } else {
                 m_labels[i]->setText(m_titleName[i]);
