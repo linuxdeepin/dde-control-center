@@ -94,7 +94,7 @@ void PowerModule::active()
     bool hibernate = m_powerSetting->get(GSETTING_SHOW_HIBERNATE).toBool();
     m_model->setHibernate(hibernate && m_model->canHibernate() && !IsServerSystem);
 
-    connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::requestRemoveBattery);
+    connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::removeBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
     connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
     connect(m_widget, &PowerWidget::requestShowUseBattery, this, &PowerModule::showUseBattery);

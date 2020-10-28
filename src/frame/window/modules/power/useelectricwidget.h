@@ -69,6 +69,8 @@ public Q_SLOTS:
     void setSleepDelayOnPower(const int delay);
     void setAutoLockScreenOnPower(const int delay);
     void setLockScreenAfter(const int delay);
+    void setCloseLid(const dcc::power::PowerModel *model, int lidIndex);
+    void setPowerBtn(const dcc::power::PowerModel *model, int powIndex);
 
 private:
     QString delayToLiteralString(const int delay) const;

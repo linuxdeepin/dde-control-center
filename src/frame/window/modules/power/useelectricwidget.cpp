@@ -196,68 +196,18 @@ void UseElectricWidget::setModel(const PowerModel *model)
 
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
-    int nLidAction = model->linePowerLidClosedAction();
-    if (!model->getSuspend()) {
-        if (!model->getHibernate()) {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 3);
-        } else {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 2);
-        }
-    } else {
-        if (!model->getHibernate()) {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction > 2 ? nLidAction - 2 : nLidAction - 1);
-        } else {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(nLidAction - 1);
-        }
-    }
     connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
         if (reply - 1 < m_cmbCloseLid->comboBox()->count()) {
-            if (!model->getSuspend()) {
-                if (!model->getHibernate()) {
-                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 3);
-                } else {
-                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 2);
-                }
-            } else {
-                if (!model->getHibernate()) {
-                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply > 2 ? reply - 2 : reply - 1);
-                } else {
-                    m_cmbCloseLid->comboBox()->setCurrentIndex(reply - 1);
-                }
-            }
+            setCloseLid(model, reply);
         }
     });
-    int powIndex = model->linePowerPressPowerBtnAction();
-    if (!model->getSuspend()) {
-        if (!model->getHibernate()) {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
-        } else {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
-        }
-    } else {
-        if (!model->getHibernate()) {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
-        } else {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex);
-        }
-    }
+    setCloseLid(model, model->linePowerLidClosedAction());
     connect(model, &PowerModel::linePowerPressPowerBtnActionChanged, this, [=](const int reply){
-        if (reply < m_cmbPowerBtn->comboBox()->count()) {
-            if (!model->getSuspend()) {
-                if (!model->getHibernate()) {
-                    m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 2 : reply);
-                } else {
-                    m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 0 ? reply - 1 : reply);
-                }
-            } else {
-                if (!model->getHibernate()) {
-                    m_cmbPowerBtn->comboBox()->setCurrentIndex(reply > 2 ? reply - 1 : reply);
-                } else {
-                    m_cmbPowerBtn->comboBox()->setCurrentIndex(reply);
-                }
-            }
+        if (reply - 1 < m_cmbPowerBtn->comboBox()->count()) {
+            setPowerBtn(model, reply);
         }
     });
+    setPowerBtn(model, model->linePowerPressPowerBtnAction());
     //--------------------------------------
 }
 
@@ -296,6 +246,40 @@ void UseElectricWidget::setAutoLockScreenOnPower(const int delay)
     m_autoLockScreen->slider()->setValue(delay);
     m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
     m_autoLockScreen->slider()->blockSignals(false);
+}
+
+void UseElectricWidget::setCloseLid(const dcc::power::PowerModel *model, int lidIndex)
+{
+    if (!model->getSuspend()) {
+        if (!model->getHibernate()) {
+            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 3);
+        } else {
+            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 2);
+        }
+    } else {
+        if (!model->getHibernate()) {
+            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex > 2 ? lidIndex - 2 : lidIndex - 1);
+        } else {
+            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 1);
+        }
+    }
+}
+
+void UseElectricWidget::setPowerBtn(const dcc::power::PowerModel *model, int powIndex)
+{
+    if (!model->getSuspend()) {
+        if (!model->getHibernate()) {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
+        } else {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
+        }
+    } else {
+        if (!model->getHibernate()) {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
+        } else {
+            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex);
+        }
+    }
 }
 
 QString UseElectricWidget::delayToLiteralString(const int delay) const
