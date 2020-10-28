@@ -231,6 +231,11 @@ void AccountsWidget::removeUser(User *user)
     m_userItemModel->removeRow(m_userList.indexOf(user)); // It will delete when remove
     m_userList.removeOne(user);
 
+    if (m_userList.isEmpty()) {
+        Q_EMIT requestBack();
+        return;
+    }
+
     if (m_isShowFirstUserInfo) {
         showDefaultAccountInfo();
     } else {
