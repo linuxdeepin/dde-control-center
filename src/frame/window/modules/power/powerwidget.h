@@ -54,13 +54,13 @@ public:
 
 Q_SIGNALS:
     void requestPushWidget(int index);
-    void requestRemoveBattery(bool state);
     void requestShowGeneral() const;
     void requestShowUseElectric() const;
     void requestShowUseBattery() const;
 
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
+    void removeBattery(bool state);
 
 private:
     dcc::widgets::MultiSelectListView *m_listview;

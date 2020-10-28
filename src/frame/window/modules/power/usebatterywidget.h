@@ -90,6 +90,8 @@ public Q_SLOTS:
     void setAutoLockScreenOnBattery(const int delay);
     void onLowPowerNotifyThreshold(const int value);
     void onLowPowerAutoSleepThreshold(const int value);
+    void setCloseLid(const dcc::power::PowerModel *model, int lidIndex);
+    void setPowerBtn(const dcc::power::PowerModel *model, int powIndex);
 
 };
 

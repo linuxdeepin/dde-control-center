@@ -96,10 +96,6 @@ void PowerWidget::initialize(bool hasBattery)
 
     connect(m_listview, &DListView::clicked, this, &PowerWidget::onItemClicked);
     connect(m_listview, &DListView::activated, m_listview, &QListView::clicked);
-    connect(this, &PowerWidget::requestRemoveBattery, this, [this](bool state) {
-        m_listview->setRowHidden(2, !state);
-        m_bhasBattery = state;
-    });
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setMargin(0);
@@ -136,4 +132,11 @@ void PowerWidget::onItemClicked(const QModelIndex &index)
     m_listview->setCurrentIndex(index);
     m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin?m_menuIconText[index.row()].pulgin:this);
     m_listview->resetStatus(index);
+}
+
+void PowerWidget::removeBattery(bool state)
+{
+    m_listview->setRowHidden(2, !state);
+    m_bhasBattery = state;
+    Q_EMIT requestShowUseElectric();
 }
