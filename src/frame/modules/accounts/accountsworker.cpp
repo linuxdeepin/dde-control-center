@@ -75,7 +75,8 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 #ifdef DCC_ENABLE_ADDOMAIN
     m_notifyInter->setSync(false);
 #endif
-    onUserListChanged(m_accountsInter->userList());
+    QDBusInterface interface(AccountsService, "/com/deepin/daemon/Accounts", AccountsService, QDBusConnection::systemBus());
+    onUserListChanged(interface.property("UserList").toStringList());
     updateUserOnlineStatus(m_dmInter->sessions());
     getAllGroups();
     getPresetGroups();
