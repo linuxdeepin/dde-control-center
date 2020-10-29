@@ -425,7 +425,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="456"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -579,7 +579,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
