@@ -20,6 +20,7 @@
  */
 
 #include "widgets/timeoutdialog.h"
+#include <QWindow>
 
 TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *parent)
     : DDialog(parent)
@@ -27,6 +28,10 @@ TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *p
     , m_timeout(timeout)
     , m_messageModel(messageModel)
 {
+    setAttribute(Qt::WA_NativeWindow);
+    setWindowFlags(windowFlags() | Qt::Popup | Qt::WindowStaysOnTopHint);
+    windowHandle()->setProperty("_d_dwayland_window-type", "menu");
+
     // set default title, message icon
     setTitle(tr("Do you want to save the display settings?"));
     if (messageModel.isEmpty()) {
@@ -42,7 +47,6 @@ TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *p
 
     connect(m_timeoutRefreshTimer, &QTimer::timeout, this, &TimeoutDialog::onRefreshTimeout);
 
-    setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
 }
 
 int TimeoutDialog::exec()
