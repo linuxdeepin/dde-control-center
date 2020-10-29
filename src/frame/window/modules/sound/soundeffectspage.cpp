@@ -74,7 +74,6 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setMinimumWidth(350);
 
     m_effectList->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-    QScroller::grabGesture(m_effectList->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_effectList->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);

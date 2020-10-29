@@ -271,7 +271,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvAP->setViewportMargins(0, 0, 7, 0);
 
-    QScroller::grabGesture(m_lvAP->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_lvAP->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
