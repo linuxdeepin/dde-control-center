@@ -53,7 +53,7 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     m_maxFingerTip->setFont(font);
 
     m_listGrp->setSpacing(1);
-    m_listGrp->setContentsMargins(0, 0, 0, 0);
+    m_listGrp->setContentsMargins(10, 0, 10, 0);
     m_listGrp->layout()->setMargin(0);
     m_listGrp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
