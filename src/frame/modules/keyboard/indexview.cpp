@@ -39,7 +39,6 @@ IndexView::IndexView(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollMode(ScrollPerPixel);
-    QScroller::grabGesture(this->viewport(), QScroller::LeftMouseButtonGesture);
 }
 
 void IndexView::onClick(const QString &ch)

@@ -85,7 +85,6 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_softwareListView->setSpacing(0);
     m_softwareListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    QScroller::grabGesture(m_softwareListView->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_softwareListView->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
