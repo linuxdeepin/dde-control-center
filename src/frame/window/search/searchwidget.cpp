@@ -718,6 +718,9 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)))
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
 
+        // 如果模块名称中英文相同则不继续添加拼音搜索显示,否则会重复索引
+        if (data.actualModuleName == DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)) return;
+
         //添加显示的汉字(用于拼音搜索显示)
         m_model->appendRow(new QStandardItem(icon.value(), hanziTxt));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
