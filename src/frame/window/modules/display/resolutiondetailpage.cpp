@@ -110,8 +110,6 @@ void ResolutionDetailPage::initResoList()
     auto itemModel = new QStandardItemModel(this);
     rlist->setModel(itemModel);
 
-    QScroller::grabGesture(rlist->viewport(), QScroller::LeftMouseButtonGesture);
-
     // 关闭滚动越过边界以减少异常触发的概率
     QScroller *scroller = QScroller::scroller(rlist->viewport());
     QScrollerProperties sp;

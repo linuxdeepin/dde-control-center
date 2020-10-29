@@ -82,8 +82,6 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     m_userlistView->setLayoutDirection(Qt::LeftToRight);
     m_userlistView->setModel(m_userItemModel);
 
-    // DListView使用的qt默认触屏手势捕获TouchGesture,存在缺陷,改用LeftMouseButtonGesture解决滑动不流畅问题
-    QScroller::grabGesture(m_userlistView->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_userlistView->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
