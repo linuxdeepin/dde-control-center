@@ -25,11 +25,14 @@
 #include <DFontSizeManager>
 #include <DSpinner>
 #include <DStyle>
+#include <DSysInfo>
 
 #include <QDesktopWidget>
 #include <QApplication>
 #include <QWindow>
 #include <QHBoxLayout>
+
+DCORE_USE_NAMESPACE
 
 Manage::Manage(QObject *parent)
     : QObject(parent)
@@ -272,7 +275,9 @@ void RecoveryDialog::updateRestoringFailedUI()
 
 void RecoveryDialog::initUI()
 {
-    DLabel *txt = new DLabel(tr("Are you sure you want to roll back to %1 backed up on %2?").arg("uos " + m_backupVersion).arg(m_backupTime));
+    // 社区版需要显示'deepin 20',专业版显示'uos 20'
+    QString systemVersion = DSysInfo::isCommunityEdition() ? "deepin " : "uos ";
+    DLabel *txt = new DLabel(tr("Are you sure you want to roll back to %1 backed up on %2?").arg(systemVersion + m_backupVersion).arg(m_backupTime));
     txt->setWordWrap(true);
     addContent(txt);
     addButton(tr("Cancel and Reboot"), true, DDialog::ButtonRecommend);
