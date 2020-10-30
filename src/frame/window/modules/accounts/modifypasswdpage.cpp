@@ -178,7 +178,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         {InputLongerError, tr("Password must have at least %1 characters")},
         {InputSimilarError, tr("The new password should not be similar to the current one")},
         {InputSameError, tr("New password should differ from the current one")},
-        {InputSimpleError, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols")},
+        {InputSimpleError, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)")},
         {InputUsedError, tr("Do not use a password you have used before")},
         {InputDictionaryError, tr("Do not use common words and combinations as password")},
         {InputRevDictionaryError, tr("Do not use common words and combinations in reverse order as password")},
@@ -323,7 +323,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
     case ENUM_PASSWORD_CHARACTER:
         edit->setAlert(true);
         if (passwordtype == CreateAccountPage::NormalPassWord)
-            edit->showAlertMessage(tr("Password must contain uppercase letters, lowercase letters, numbers and symbols"), -1);
+            edit->showAlertMessage(tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
         if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
             edit->showAlertMessage(blanksymbolstr, -1);
         return false;

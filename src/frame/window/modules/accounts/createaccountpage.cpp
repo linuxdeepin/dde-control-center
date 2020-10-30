@@ -456,7 +456,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
     case ENUM_PASSWORD_CHARACTER:
         edit->setAlert(true);
         if (passwordtype == PassWordType::NormalPassWord)
-            edit->showAlertMessage(tr("Password must contain uppercase letters, lowercase letters, numbers and symbols"), -1);
+            edit->showAlertMessage(tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
         if (passwordtype == PassWordType::IncludeBlankSymbol)
             edit->showAlertMessage(blanksymbolstr, -1);
         return false;

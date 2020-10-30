@@ -423,8 +423,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="456"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
-        <translation>密码必须由大写字母、小写字母、数字、符号四种类型组成</translation>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）四种类型组成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="467"/>
@@ -577,8 +577,8 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols</source>
-        <translation>密码必须由大写字母、小写字母、数字、符号四种类型组成</translation>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）四种类型组成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
@@ -6916,7 +6916,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
