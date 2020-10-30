@@ -317,7 +317,8 @@ bool MonitorsGround::isScreenPerfect() const
     const QRect r0(p0->x(), p0->y(), p0->w(), p0->h());
     const QRect r1(p1->x(), p1->y(), p1->w(), p1->h());
 
-    if (r0 == r1)
+    //由于两个屏幕大小一定不一样所以==重载一定不会进入现在所以就一直计算坐标
+    if (r0.x() == r1.x() && r0.y() == r1.y())
         return true;
     if (r0.intersects(r1))
         return false;
