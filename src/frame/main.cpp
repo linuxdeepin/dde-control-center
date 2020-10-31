@@ -197,11 +197,19 @@ int main(int argc, char *argv[])
     auto w = gs.get(GSettinsWindowWidth).toInt();
     auto h = gs.get(GSettinsWindowHeight).toInt();
     pid_t pid = getpid();
-    qDebug() << QString("main window size: %1 * %2").arg(w, h) << ", pid is:" << pid;
+    qDebug() << QString("main window size: %1 * %2").arg(w).arg(h) << ", pid is:" << pid;
 
-    auto screen = app.primaryScreen();
+    auto screen = app.primaryScreen();    
+
+    // 多屏情况下，当上一次保存的宽高比新的主屏大小还大，则用新屏幕的大小
+    QRect screenRt = screen->geometry();
+    if (w > screenRt.width())
+        w = screenRt.width();
+    if (h > screenRt.height())
+        h = screenRt.height();
+
     QRect mwRect(0, 0, w, h);
-    mwRect.moveCenter(screen->geometry().center());
+    mwRect.moveCenter(screenRt.center());
 
     DCC_NAMESPACE::MainWindow mw;
     mw.setGeometry(mwRect);
