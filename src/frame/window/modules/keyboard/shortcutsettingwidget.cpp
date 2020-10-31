@@ -251,6 +251,12 @@ void ShortCutSettingWidget::addShortcut(QList<QPair<ShortcutInfoList, ShortcutMo
             m_allList << item;
             switch (type) {
             case ShortcutModel::System:
+                if (info->id == "wm-switcher") {
+                    if (item) {
+                        delete item;
+                    }
+                    continue;
+                }
                 m_systemGroup->appendItem(item);
                 item->setParent(m_systemGroup);
                 m_systemList.append(item);
