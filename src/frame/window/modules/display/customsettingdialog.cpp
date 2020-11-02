@@ -692,6 +692,8 @@ void CustomSettingDialog::resetDialog()
 {
     //当收到屏幕变化的消息后，屏幕数据还是旧的
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
+    //由于窗口不能直接隐藏,需要在等待的1s内将主窗口设置为完全透明
+    this->setWindowOpacity(0);
     QTimer::singleShot(sender() ? 1000 : 0, this, [ = ] {
         m_monitroControlWidget->adjustSize();
         m_monitroControlWidget->updateGeometry();
@@ -718,6 +720,7 @@ void CustomSettingDialog::resetDialog()
         qDebug() << "mrt :" << mrt;
         qDebug() << "final rt :" << rt;
         setGeometry(rt);
+        this->setWindowOpacity(1);
     });
 }
 
