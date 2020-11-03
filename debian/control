@@ -2,13 +2,13 @@ Source: dde-control-center
 Section: admin
 Priority: optional
 Maintainer: Deepin Sysdev <sysdev@deepin.com>
-Build-Depends: debhelper (>= 9),
+Build-Depends:
+ debhelper-compat (= 11),
  pkg-config,
- dpkg-dev,
  ninja-build,
  libx11-dev,
  cmake,
- qt5-default,
+ qtbase5-dev,
  qtdeclarative5-dev,
  libqt5svg5-dev,
  libdtkcore-dev,
@@ -63,5 +63,5 @@ Description: New control center for Deepin Desktop Environment
 Package: dde-control-center-dev
 Architecture: any
 Depends: dde-control-center (= ${binary:Version}), ${misc:Depends}, ${shlib:Depends}, ${dist:Depends}
-Description: New control center for Deepin Desktop Environment - developement files
+Description: New control center for Deepin Desktop Environment - development files
  DDE Control Center is the control panel of Deepin Desktop Environment.

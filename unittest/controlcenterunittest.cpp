@@ -113,7 +113,7 @@ void ControlCenterUnitTest::inputDevieNum(int num)
             const int portAvai = jPort["Available"].toInt();
             if (jPort["Direction"].toInt() != 1) //1输出, 2输入
                 continue;
-            if (portAvai == 2 || portAvai == 0 ) { // 0 Unknow 1 Not available 2 Available
+            if (portAvai == 2 || portAvai == 0 ) { // 0 Unknown 1 Not available 2 Available
                 actualNum++;
             }
         }
