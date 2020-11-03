@@ -60,7 +60,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
         m_model->moveToThread(qApp->thread());
     }
 
-    m_work->activate(); //refresh data
+    QTimer::singleShot(0, m_work, &UpdateWorker::activate);
 
     // 之前自动更新与更新提醒后端为同一处理逻辑，新需求分开处理，前端相应提示角标处理逻辑同步调整
     connect(m_model, &UpdateModel::updateNotifyChanged, this, [this](const bool state) {

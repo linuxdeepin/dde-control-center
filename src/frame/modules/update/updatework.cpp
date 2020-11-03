@@ -98,7 +98,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
     , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this))
     , m_abRecoveryInter(new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this))
-    , m_systemInfoInter(new SystemInfoInter("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this))
     , m_iconTheme(new Appearance("com.deepin.daemon.Appearance","/com/deepin/daemon/Appearance",QDBusConnection::sessionBus(), this))
     , m_onBattery(true)
     , m_batteryPercentage(0.0)
@@ -117,7 +116,7 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     m_powerInter->setSync(false);
     m_powerSystemInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
-    m_smartMirrorInter->setSync(true, false);
+    m_smartMirrorInter->setSync(false, false);
     m_iconTheme->setSync(false);
 
     QString sVersion = QString("%1 %2 %3").arg(DSysInfo::uosProductTypeName(),
@@ -179,6 +178,10 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_abRecoveryInter, &RecoveryInter::RestoringChanged, m_model, &UpdateModel::setRecoverRestoring);
     //图片主题
     connect(m_iconTheme, &Appearance::IconThemeChanged, this, &UpdateWorker::onIconThemeChanged);
+
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+    connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
+#endif
 }
 
 UpdateWorker::~UpdateWorker()
@@ -238,10 +241,6 @@ void UpdateWorker::activate()
 
     m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
 
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged,
-            m_model, &UpdateModel::setSourceCheck);
-#endif
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
     // setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
