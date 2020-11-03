@@ -376,12 +376,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     loginGrp->layout()->setMargin(0);
     loginGrp->appendItem(m_autoLogin);
     loginGrp->appendItem(m_nopasswdLogin);
-    if (!IsServerSystem) {
-        layout->addSpacing(20);
-    }
+    //if (!IsServerSystem) {
+    //    layout->addSpacing(20);
+    //}
     layout->addWidget(loginGrp);
     //服务器版本不显示自动登录，无密码登录
-    loginGrp->setVisible(!IsServerSystem);
+    //loginGrp->setVisible(!IsServerSystem);
+    loginGrp->setVisible(false);
 
     m_fingerWidget = new FingerWidget(m_curUser, this);
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);
