@@ -103,10 +103,11 @@ void MicrophonePage::setModel(SoundModel *model)
 void MicrophonePage::initSlider()
 {
     //~ contents_path /sound/Microphone
-    m_inputSlider = new TitledSliderItem(tr("Input Volume"));
+    m_inputSlider = new TitledSliderItem(tr("Input Volume"), this);
     m_inputSlider->addBackground();
     //m_inputSlider->setVisible(m_model->microphoneOn());
     m_layout->insertWidget(1, m_inputSlider);
+    m_inputSlider->setVisible(m_model->microphoneOn());
 
     DCCSlider *slider = m_inputSlider->slider();
     slider->setRange(0, PercentageNum);
