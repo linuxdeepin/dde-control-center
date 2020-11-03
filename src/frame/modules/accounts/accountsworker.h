@@ -69,7 +69,7 @@ Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
     void accountCreationFinished(CreationResult *result) const;
     void accountFullNameChangeFinished() const;
-    void requesetMainWindowEnabled(const bool isEnabled) const;
+    void requestMainWindowEnabled(const bool isEnabled) const;
 
 public Q_SLOTS:
     void randomUserIcon(User *user);

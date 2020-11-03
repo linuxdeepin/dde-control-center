@@ -44,6 +44,7 @@
 #include <QCommandLinkButton>
 #include <QScrollArea>
 #include <QScroller>
+#include <QValidator>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -200,12 +201,29 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_avatarLayout->addWidget(m_avatarListWidget);
     layout->addLayout(m_avatarLayout);
 
-    connect(m_curUser, &User::currentAvatarChanged, m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
-    connect(m_inputLineEdit, &DLineEdit::textEdited, this, [ = ] {
-        if (m_inputLineEdit->isAlert())
-        {
-            m_inputLineEdit->hideAlertMessage();
-            m_inputLineEdit->setAlert(false);
+    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
+        m_inputLineEdit->setAlert(false);
+        m_inputLineEdit->hideAlertMessage();
+    });
+    connect(m_inputLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ]() {
+        auto uerList = m_userModel->userList();
+        //判断账户全名是否被其他用户所用
+        auto userList = m_userModel->userList();
+        if (m_inputLineEdit->text().simplified() != m_curUser->fullname()) {
+            for (auto u : userList) {
+                if (u->fullname() == m_inputLineEdit->text().simplified() && u->fullname() != nullptr) {
+                    m_inputLineEdit->setAlert(true);
+                    m_inputLineEdit->showAlertMessage(tr("The full name already exists"), -1);
+                    return;
+                }
+            }
+            m_inputLineEdit->lineEdit()->clearFocus();
+            bool valid = m_inputLineEdit->lineEdit()->text().size() <= 32;
+            updateLineEditDisplayStyle(valid);
+            if (valid)
+                Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text().simplified());
+        } else {
+            updateLineEditDisplayStyle(true);
         }
     });
 
@@ -224,6 +242,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         }
     });
 
+    connect(m_curUser, &User::currentAvatarChanged, m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
     connect(m_curUser, &User::currentAvatarChanged, avatar, &AvatarWidget::setAvatarPath);
     //用户名发生变化
     connect(m_curUser, &User::nameChanged, shortName, &QLabel::setText);
@@ -254,31 +273,6 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         m_inputLineEdit->hideAlertMessage();
         m_inputLineEdit->lineEdit()->setFocus();
     });
-    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
-        m_inputLineEdit->setAlert(false);
-        m_inputLineEdit->hideAlertMessage();
-    });
-    connect(m_inputLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ]() {
-        auto uerList = m_userModel->userList();
-        //判断账户全名是否被其他用户所用
-        auto userList = m_userModel->userList();
-        if (m_inputLineEdit->text().simplified() != m_curUser->fullname()) {
-            for (auto u : userList) {
-                if (u->fullname() == m_inputLineEdit->text().simplified() && u->fullname() != nullptr) {
-                    m_inputLineEdit->setAlert(true);
-                    m_inputLineEdit->showAlertMessage(tr("The full name already exists"), -1);
-                    return;
-                }
-            }
-            m_inputLineEdit->lineEdit()->clearFocus();
-            bool valid = m_inputLineEdit->lineEdit()->text().size() <= 32;
-            updateLineEditDisplayStyle(valid);
-            if (valid)
-                Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text().simplified());
-        } else {
-            updateLineEditDisplayStyle(true);
-        }
-    });
 }
 
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
@@ -307,40 +301,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         ageEdit->lineEdit()->setPlaceholderText(tr("Always"));
         ageEdit->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
         ageEdit->setClearButtonEnabled(false);
+        ageEdit->lineEdit()->setValidator(new QIntValidator(1, 99999));
         pwHLayout->addWidget(ageEdit, 0, Qt::AlignRight);
 
         connect(ageEdit, &DLineEdit::textChanged, this, [ageEdit]() {
             ageEdit->setAlert(false);
-        });
-        connect(ageEdit, &DLineEdit::textEdited, this, [ageEdit]() {
-            if (ageEdit->text().isEmpty())
-                return;
 
-            bool isInt(false);
-            auto age = ageEdit->text().toInt(&isInt);
-            if (!isInt) {
-                QString strText(ageEdit->text());
-                QString strTemp;
-                int idx;
-                for (idx = 0; idx < strText.size(); ++idx) {
-                    if (strText[idx] >= '0' && strText[idx] <= '9') {
-                        strTemp.append(strText[idx]);
-                    } else {
-                        break;
-                    }
-                }
-
-                ageEdit->lineEdit()->blockSignals(true);
-                ageEdit->lineEdit()->setText(strTemp);
-                ageEdit->lineEdit()->setCursorPosition(idx);
-                ageEdit->lineEdit()->blockSignals(false);
-            } else if (age > 99999) {
-                auto idx = ageEdit->lineEdit()->cursorPosition();
-                ageEdit->lineEdit()->blockSignals(true);
-                ageEdit->lineEdit()->setText(ageEdit->text().left(ageEdit->text().length() - 1));
-                ageEdit->lineEdit()->setCursorPosition(idx - 1);
-                ageEdit->lineEdit()->blockSignals(false);
-            }
         });
         connect(ageEdit, &DLineEdit::editingFinished, this, [this, pwWidget, ageEdit]() {
             if (ageEdit->text().isEmpty()) {
@@ -348,13 +314,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
                 return;
             }
 
-            bool isInt = false;
-            auto age = ageEdit->text().toInt(&isInt);
-            if (!isInt) {
-                ageEdit->setAlert(true);
-                if (ageEdit->text() == tr("Always")) ageEdit->setAlert(false);
-                return;
-            }
+            int age = ageEdit->text().toInt();
 
             if (age == m_curUser->passwordAge())
                 return;
@@ -413,46 +373,38 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     //当前用户禁止使用删除按钮
-    const bool isOnline = m_curUser->online();
-    if (m_curUser->isCurrentUser()) {
-        deleteAccount->setEnabled(false);
-    } else {
-        deleteAccount->setEnabled(!isOnline);
-    }
+    deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
     connect(m_curUser, &User::onlineChanged, deleteAccount, [ = ](const bool online) {
-        deleteAccount->setEnabled(!online);
+        deleteAccount->setEnabled(!online && !m_curUser->isCurrentUser());
     });
 
-    //修改密码，删除账户操作
+    //修改密码
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
     });
+
+    //删除用户
     connect(deleteAccount, &DWarningButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
 
     //自动登录，无密码登录操作
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_curUser, &User::nopasswdLoginChanged,
-            m_nopasswdLogin, &SwitchWidget::setChecked);
-    connect(m_autoLogin, &SwitchWidget::checkedChanged,
-    this, [ = ](const bool autoLogin) {
+    connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_autoLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool autoLogin) {
         Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
     });
-    connect(m_nopasswdLogin, &SwitchWidget::checkedChanged,
-    this, [ = ](const bool nopasswdLogin) {
+    connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
 
     //指纹界面操作
-    connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this,
-            &AccountsDetailWidget::requestAddThumbs);
-    connect(m_fingerWidget, &FingerWidget::requestCleanThumbs, this,
-            &AccountsDetailWidget::requestCleanThumbs);
+    connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &AccountsDetailWidget::requestAddThumbs);
+    connect(m_fingerWidget, &FingerWidget::requestCleanThumbs, this, &AccountsDetailWidget::requestCleanThumbs);
     connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &AccountsDetailWidget::requestDeleteFingerItem);
     connect(m_fingerWidget, &FingerWidget::requestRenameFingerItem, this, &AccountsDetailWidget::requestRenameFingerItem);
     connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &AccountsDetailWidget::noticeEnrollCompleted);
+
     //图像列表操作
-    connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
-    this, [ = ](const QString & avatarPath) {
+    connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
     });
 }
@@ -538,11 +490,7 @@ void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
 
     QStandardItem *item = m_groupItemModel->item(index.row(), index.column());
     Qt::CheckState state = item->checkState();
-    if (state == Qt::Checked) {
-        curUserGroup.removeOne(item->text());
-    } else {
-        curUserGroup << item->text();
-    }
+    state == Qt::Checked ? (void)curUserGroup.removeOne(item->text()) : curUserGroup.append(item->text());
 
     Q_EMIT requestSetGroups(m_curUser, curUserGroup);
 }
@@ -552,11 +500,7 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
     int row_count = m_groupItemModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
         QStandardItem *item = m_groupItemModel->item(i, 0);
-        if (item && groups.contains(item->text())) {
-            item->setCheckState(Qt::Checked);
-        } else {
-            item->setCheckState(Qt::Unchecked);
-        }
+        item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
 }

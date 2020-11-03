@@ -182,20 +182,12 @@ void AccountsWorker::createAccount(const User *user)
         m_userModel->setAllGroups(m_accountsInter->GetGroups());
         Q_EMIT accountCreationFinished(result);
         Q_EMIT requestFrameAutoHide(true);
+        Q_EMIT requestMainWindowEnabled(true);
         watcher->deleteLater();
     });
 
     QFuture<CreationResult*> future = QtConcurrent::run(this, &AccountsWorker::createAccountInternal, user);
-    QTimer *timer = new QTimer();
-    timer->start(500);
-    connect(timer, &QTimer::timeout, this, [ = ] {
-        if (future.isFinished()) {
-            timer->stop();
-            requesetMainWindowEnabled(true);
-        } else {
-            requesetMainWindowEnabled(false);
-        }
-    });
+    Q_EMIT requestMainWindowEnabled(false);
     watcher->setFuture(future);
 }
 

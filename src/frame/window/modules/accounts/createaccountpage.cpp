@@ -306,11 +306,7 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
     int row_count = m_groupItemModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
         QStandardItem *item = m_groupItemModel->item(i, 0);
-        if (item && presetGroup.contains(item->text())) {
-            item->setCheckState(Qt::Checked);
-        } else {
-            item->setCheckState(Qt::Unchecked);
-        }
+        item->setCheckState(item && presetGroup.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
 }
@@ -318,16 +314,10 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
 void CreateAccountPage::createUser()
 {
     //校验输入的用户名和密码
-    if (!onNameEditFinished(m_nameEdit)) {
-        return;
-    }
-    if (!onPasswordEditFinished(m_passwdEdit)) {
-        return;
-    }
-    if (!onFullNameEidtFinished(m_fullnameEdit)) {
-        return;
-    }
-    if (!onPasswordEditFinished(m_repeatpasswdEdit)) {
+    if (!onNameEditFinished(m_nameEdit) ||
+            !onPasswordEditFinished(m_passwdEdit) ||
+            !onFullNameEidtFinished(m_fullnameEdit) ||
+            !onPasswordEditFinished(m_repeatpasswdEdit)) {
         return;
     }
 

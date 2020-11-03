@@ -141,10 +141,8 @@ void ModifyPasswdPage::clickSaveBtn()
         m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"));
         return;
     }
-    if (!onPasswordEditFinished(m_newPasswordEdit)) {
-        return;
-    }
-    if (!onPasswordEditFinished(m_repeatPasswordEdit)) {
+    if (!onPasswordEditFinished(m_newPasswordEdit) ||
+        !onPasswordEditFinished(m_repeatPasswordEdit)) {
         return;
     }
 
