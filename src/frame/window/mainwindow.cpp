@@ -462,7 +462,7 @@ void MainWindow::modulePreInitialize(const QString &m)
         QElapsedTimer et;
         et.start();
         it->first->preInitialize(m == it->first->name());
-        qDebug() << QString("initalize %1 module using time: %2ms")
+        qDebug() << QString("initialize %1 module using time: %2ms")
                  .arg(it->first->name())
                  .arg(et.elapsed());
 
