@@ -320,7 +320,9 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     if (exitCode != 0) {
         QString errortxt = process.readAllStandardError();
         qDebug() << errortxt;
-        if (errortxt.contains("Current password: passwd: Authentication token manipulation error")) {
+        if (errortxt.contains("Permission denied")) {
+            exitCode = 1;
+        } else if (errortxt.contains("Current password: passwd: Authentication token manipulation error")) {
             exitCode = 10;
         } else if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password") || errortxt.contains("The password is shorter than")) {
             exitCode = 11;
