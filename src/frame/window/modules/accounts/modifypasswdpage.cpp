@@ -180,7 +180,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         {InputUsedError, tr("Do not use a password you have used before")},
         {InputDictionaryError, tr("Do not use common words and combinations as password")},
         {InputRevDictionaryError, tr("Do not use common words and combinations in reverse order as password")},
-        {InputFailedError, tr("Failed to change the password")}
+        {Failure, tr("Failed to change the password")}
     };
 
     // 获取密码最小长度，默认最小长度为6
@@ -250,9 +250,12 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
     case ModifyPasswdPage::InputSimpleError:
     case ModifyPasswdPage::InputDictionaryError:
     case ModifyPasswdPage::InputRevDictionaryError:
-    default:
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(exitCode), m_newPasswordEdit, 2000);
+        break;
+    default:
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(Failure), m_newPasswordEdit, 2000);
         break;
     }
 }
