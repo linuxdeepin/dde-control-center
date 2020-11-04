@@ -166,8 +166,14 @@ void AccountsWidget::addUser(User *user, bool t1)
     onlineFlag->setWidget(onlineIcon);
     item->setActionList(Qt::Edge::RightEdge, {onlineFlag});
     onlineFlag->setVisible(user->online());
+    if (onlineFlag->widget()) {
+        onlineFlag->widget()->setVisible(onlineFlag->isVisible());
+    }
     connect(user, &User::onlineChanged, this, [=](const bool &online) {
         onlineFlag->setVisible(online);
+        if (onlineFlag->widget()) {
+            onlineFlag->widget()->setVisible(onlineFlag->isVisible());
+        }
     });
 
     m_userItemModel->appendRow(item);
