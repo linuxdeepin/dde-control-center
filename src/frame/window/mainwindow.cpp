@@ -570,11 +570,13 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     }
 
     raise();
+    QTimer::singleShot(10, this, [ = ] {
+        onEnterSearchWidget(module, page);
+    });
     if (isMinimized() || !isVisible())
         showNormal();
 
     activateWindow();
-    onEnterSearchWidget(module, page);
 }
 
 void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDisplay)
