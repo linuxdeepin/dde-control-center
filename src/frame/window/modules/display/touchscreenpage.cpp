@@ -140,6 +140,9 @@ void TouchscreenPage::onMonitorChanged()
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new QLabel(title);
+
+        // 窗口显示前,窗口width()无法拿到正确值,导致eventFilter中初始化label文本时计算宽度错误,设置小的初始值,通过layout自动调整
+        label->setGeometry(0, 0, FontSpaceLenght, FontSpaceLenght);
         label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         label->setAlignment(Qt::AlignLeft);
         label->setContentsMargins(10, 0, 0, 0);
