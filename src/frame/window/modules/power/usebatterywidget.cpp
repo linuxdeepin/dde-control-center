@@ -107,7 +107,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     //~ child_page On Battery
 //    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
-    /*** 按电源按钮功能 ***/
+    /*** 笔记本合盖功能与按电源按钮功能 ***/
     options << tr("Shut down");
     if (model->getSuspend()) {
         options << tr("Suspend");
@@ -118,13 +118,12 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     options << tr("Turn off the monitor") << tr("Do nothing");
     m_cmbPowerBtn->setComboxOption(options);
     m_cmbPowerBtn->addBackground();
-    m_layout->addWidget(m_cmbPowerBtn);
-
-    /*** 笔记本合盖功能 ***/
     options.pop_front();
     m_cmbCloseLid->setComboxOption(options);
     m_cmbCloseLid->addBackground();
+
     m_layout->addWidget(m_cmbCloseLid);
+    m_layout->addWidget(m_cmbPowerBtn);
 
     /*** 低电量设置 ***/
     SettingsGroup *lowBatteryGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
