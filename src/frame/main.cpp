@@ -126,13 +126,13 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    DApplication app(argc, argv);
-    if (!app.setSingleInstance(QString("dde-control-center_%1").arg(getuid()))) {
+    DApplication *app = DApplication::globalApplication(argc, argv);
+    if (!app->setSingleInstance(QString("dde-control-center_%1").arg(getuid()))) {
         qDebug() << "set single instance failed!";
         return -1;
     }
-    app.setOrganizationName("deepin");
-    app.setApplicationName("dde-control-center");
+    app->setOrganizationName("deepin");
+    app->setApplicationName("dde-control-center");
 
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
@@ -148,12 +148,12 @@ int main(int argc, char *argv[])
     parser.addOption(toggleOption);
     parser.addOption(moduleOption);
     parser.addOption(pageOption);
-    parser.process(app);
+    parser.process(*app);
 
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
 
-    if (!app.setSingleInstance(app.applicationName(), DApplication::SingleScope::UserScope)) {
+    if (!app->setSingleInstance(app->applicationName(), DApplication::SingleScope::UserScope)) {
         if (parser.isSet(toggleOption)) {
             DDBusSender()
             .service("com.deepin.dde.ControlCenter")
@@ -192,33 +192,33 @@ int main(int argc, char *argv[])
     QString verstr(CVERSION);
     if (verstr.isEmpty())
         verstr="4.1";
-    app.setApplicationVersion(CVERSION);
+    app->setApplicationVersion(CVERSION);
 #else
-    app.setApplicationVersion("4.0");
+    app->setApplicationVersion("4.0");
 #endif
-    app.setAttribute(Qt::AA_UseHighDpiPixmaps);
-    app.loadTranslator();
-    app.setStyle("chameleon");
-    app.setProductIcon(QIcon::fromTheme("preferences-system"));
-    app.setWindowIcon(QIcon::fromTheme("preferences-system"));
+    app->setAttribute(Qt::AA_UseHighDpiPixmaps);
+    app->loadTranslator();
+    app->setStyle("chameleon");
+    app->setProductIcon(QIcon::fromTheme("preferences-system"));
+    app->setWindowIcon(QIcon::fromTheme("preferences-system"));
 
     DApplicationSettings settings;
     // load dde-network-utils translator
     QTranslator translator;
     translator.load("/usr/share/dde-network-utils/translations/dde-network-utils_" + QLocale::system().name());
-    app.installTranslator(&translator);
-    app.setApplicationDisplayName(QObject::tr("Control Center"));
-    app.setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
+    app->installTranslator(&translator);
+    app->setApplicationDisplayName(QObject::tr("Control Center"));
+    app->setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
 
     QAccessible::installFactory(accessibleFactory);
 
-    QGSettings gs(ControlCenterGSettings, QByteArray(), &app);
+    QGSettings gs(ControlCenterGSettings, QByteArray(), app);
     auto w = gs.get(GSettinsWindowWidth).toInt();
     auto h = gs.get(GSettinsWindowHeight).toInt();
     pid_t pid = getpid();
     qDebug() << QString("main window size: %1 * %2").arg(w).arg(h) << ", pid is:" << pid;
 
-    auto screen = app.primaryScreen();
+    auto screen = app->primaryScreen();
     QRect mwRect(0, 0, w, h);
     mwRect.moveCenter(screen->geometry().center());
 
@@ -266,5 +266,5 @@ int main(int argc, char *argv[])
     .call();
 #endif
 
-    return app.exec();
+    return app->exec();
 }
