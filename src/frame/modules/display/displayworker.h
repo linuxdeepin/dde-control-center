@@ -123,6 +123,7 @@ private:
     MouseInter *m_mouseInter{nullptr};
 
     SysPowerInter *m_sysPowerInter;
+    QDBusInterface *m_systemInfo;
 };
 
 } // namespace display
