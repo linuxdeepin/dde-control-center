@@ -35,12 +35,6 @@ PwqualityManager::PwqualityManager()
     , m_passwordMaxLength(-1)
     , m_validateRequiredString(-1)
 {
-    init();
-}
-
-void PwqualityManager::init()
-{
-    m_pwqualitySetting.reset(pwquality_default_settings());
 }
 
 PwqualityManager *PwqualityManager::instance()
@@ -49,26 +43,28 @@ PwqualityManager *PwqualityManager::instance()
     return &pwquality;
 }
 
-QString PwqualityManager::palindromeChecked(const QString &text)
+bool PwqualityManager::palindromeChecked(const QString &text)
 {
     QStringList list;
     for (int pos = 0; pos < text.size() + 1 - m_palindromeLength; pos++) {
         list.append(text.mid(pos, m_palindromeLength));
     }
 
+    // 判断是否是连续4个字符的回文,如果是就返回false
     for (QString str : list) {
-        int code = pwquality_check(m_pwqualitySetting.get(),
-                                   str.toStdString().c_str(),
-                                   NULL, NULL, NULL);
-
-        if (code == PWQ_ERROR_PALINDROME) {
-            return str;
+        bool isPalindrome = true;
+        for (int i = 0; i < m_palindromeLength / 2; i++) {
+            if (str[i] == str[m_palindromeLength - 1 - i]) {
+                continue;
+            } else {
+                isPalindrome = false;
+            }
         }
+        if (isPalindrome) return false;
     }
 
-    return QString();
+    return true;
 }
-
 
 QString PwqualityManager::dictChecked(const QString &text)
 {
@@ -129,7 +125,7 @@ int PwqualityManager::verifyPassword(const QString &password)
             return ENUM_PASSWORD_CHARACTER;
         }
         if (dccV20::IsServerSystem) {
-            if (!PwqualityManager::instance()->palindromeChecked(password).isEmpty()) {
+            if (!PwqualityManager::instance()->palindromeChecked(password)) {
                 return ENUM_PASSWORD_PALINDROME;
             }
 

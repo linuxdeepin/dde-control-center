@@ -23,7 +23,6 @@
 #define DEEPIN_INSTALLER_PWQUALITY_MANAGER_H
 
 #include <cstddef>
-#include <pwquality.h>
 #include <QString>
 #include <QScopedPointer>
 
@@ -50,9 +49,9 @@ public:
     /**
     * @brief PwqualityManager::palindromeChecked 进行回文检测
     * @param text 带检测的字符串
-    * @return 如果检测到回文字符串，返回检测到的回文字符串，反之返回空的QString对象
+    * @return 如果检测到回文字符串，返回false
     */
-    QString palindromeChecked(const QString &text);
+    bool palindromeChecked(const QString &text);
 
     /**
     * @brief PwqualityManager::dictChecked 从字典文件查询是否存在参数text
@@ -103,14 +102,6 @@ private:
     void init();
 
 private:
-    struct ScopedPointerCustomDeleter{
-        static inline void cleanup(pwquality_settings_t *pointer){
-            pwquality_free_settings(pointer);
-        }
-    };
-
-    QScopedPointer<pwquality_settings_t, ScopedPointerCustomDeleter> m_pwqualitySetting;
-
     // 回文字符长度要求
     int m_palindromeLength = 4;
     int m_passwordMinLength;

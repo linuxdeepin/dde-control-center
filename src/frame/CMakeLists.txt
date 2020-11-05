@@ -781,7 +781,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Svg_LIBRARIES}
     crypt
     ${LIBS}
-    pwquality
 )
 
 # bin
