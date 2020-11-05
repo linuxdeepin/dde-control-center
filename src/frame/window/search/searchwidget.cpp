@@ -34,8 +34,6 @@
 #include <QRect>
 #include <QApplication>
 #include <QKeyEvent>
-#include <QtConcurrent>
-#include <QFutureWatcher>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -92,14 +90,27 @@ QSize DCompleterStyledItemDelegate::sizeHint(const QStyleOptionViewItem &option,
     return s;
 }
 
-SearchModel::SearchModel(QObject *parent)
-    : QStandardItemModel(parent)
+SearchWidget::SearchWidget(QWidget *parent)
+    : DTK_WIDGET_NAMESPACE::DSearchEdit(parent)
     , m_xmlExplain("")
     , m_bIsChinese(false)
+    , m_searchValue("")
     , m_bIstextEdited(false)
+    , m_speechState(false)
     , m_deepinwm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
-    , m_searchWatcher(new QFutureWatcher<void>())
 {
+    m_model = new QStandardItemModel(this);
+    m_completer = new ddeCompleter(m_model, this);
+    m_completer->popup()->setItemDelegate(&styledItemDelegate);
+    m_completer->popup()->setAttribute(Qt::WA_InputMethodEnabled);
+
+    m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
+    m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
+    m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
+    lineEdit()->setCompleter(m_completer);
+    m_completer->setWrapAround(false);
+    m_completer->installEventFilter(this);
+
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
     m_bIsServerType = IsServerSystem;
 
@@ -151,7 +162,7 @@ SearchModel::SearchModel(QObject *parent)
 
     //first : 可移除设备名称
     //second : 可以除设备具体的页面名称(该页面必须与搜索的页面对应)
-    //通过在 loadXml() 301行，使用 “qDebug() << searchBoxStruct.fullPagePath.section('/', 2, -1);”解析
+    //通过在 loadXml() 301行，使用 “qDebug() << m_searchBoxStruct.fullPagePath.section('/', 2, -1);”解析
     m_removedefaultWidgetList = {
         {tr("Touchpad"), "Touchpad"},
         {tr("TrackPoint"), "TrackPoint"},
@@ -167,34 +178,14 @@ SearchModel::SearchModel(QObject *parent)
     for (auto data : m_removedefaultWidgetList) {
         m_defaultRemoveableList << data.second;
     }
-}
-
-SearchWidget::SearchWidget(QWidget *parent)
-    : DTK_WIDGET_NAMESPACE::DSearchEdit(parent)
-    , m_searchValue("")
-    , m_speechState(false)
-{
-    m_model = new SearchModel(this);
-    m_completer = new ddeCompleter(m_model, this);
-    m_completer->popup()->setItemDelegate(&styledItemDelegate);
-    m_completer->popup()->setAttribute(Qt::WA_InputMethodEnabled);
-
-    m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
-    m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
-    m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
-    lineEdit()->setCompleter(m_completer);
-    m_completer->setWrapAround(false);
-    m_completer->installEventFilter(this);
-
-    connect(m_model, &SearchModel::notifyModuleSearch, this, &SearchWidget::notifyModuleSearch);
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textEdited, this, [ = ] {
         //m_bIstextEdited，　true : 用户输入　，　false : 直接调用setText
         //text(). ""　：　表示使用清除按钮删除数据，发送的信号；　非空　：　表示用户输入数据发送的信号
         if (text() != "") {
-            m_model->m_bIstextEdited = true;
+            m_bIstextEdited = true;
         } else {
-            m_model->m_bIstextEdited = false;
+            m_bIstextEdited = false;
         }
     });
 
@@ -223,7 +214,7 @@ SearchWidget::SearchWidget(QWidget *parent)
                 return ;
             }
 
-            retValue = m_model->transPinyinToChinese(text());
+            retValue = transPinyinToChinese(text());
 
             m_searchValue = retValue;
             //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
@@ -237,8 +228,8 @@ SearchWidget::SearchWidget(QWidget *parent)
         if (false == m_speechState) {
             //用户输入的时候，还是按直接设置setText流程运行(旧的流程)
             //外部调用setText的时候，需要先对setText的内容进行解析，解析获取对应的存在数据
-            if (m_model->m_bIstextEdited) {
-                m_model->m_bIstextEdited = false;
+            if (m_bIstextEdited) {
+                m_bIstextEdited = false;
                 //解决无法在已经输入数据前面输入数据,但是目前不清楚外部调用会出现什么问题,暂时注释代码
     //            this->setText(transPinyinToChinese(retValue));
                 return ;
@@ -250,7 +241,7 @@ SearchWidget::SearchWidget(QWidget *parent)
                 return ;
             }
 
-            retValue = m_model->transPinyinToChinese(text());
+            retValue = transPinyinToChinese(text());
 
             m_searchValue = retValue;
 
@@ -273,7 +264,7 @@ SearchWidget::SearchWidget(QWidget *parent)
                 //中文遍历一遍,若没有匹配再遍历将拼音转化为中文再遍历
                 //解决输入拼音时,有配置数据后,直接回车无法进入第一个匹配数据页面的问题
                 if (!jumpContentPathWidget(currentCompletion)) {
-                    jumpContentPathWidget(m_model->transPinyinToChinese(currentCompletion));
+                    jumpContentPathWidget(transPinyinToChinese(currentCompletion));
                 }
             }
         }
@@ -288,7 +279,7 @@ SearchWidget::~SearchWidget()
 
 }
 
-bool SearchModel::jumpContentPathWidget(const QString &path)
+bool SearchWidget::jumpContentPathWidget(const QString &path)
 {
     qDebug() << Q_FUNC_INFO << path;
     bool bResult = false;
@@ -318,79 +309,77 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
     return bResult;
 }
 
-void SearchModel::loadxml()
+void SearchWidget::loadxml()
 {
-    if (m_searchWatcher->isRunning()) {
-        m_searchWatcher->cancel();
+    //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
+    //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
+    static QMap<QString, QString> transChildPageName = {
+        {"On Battery", QObject::tr("On Battery")}, //Power
+        {"Plugged In", QObject::tr("Plugged In")},
+        {"General", QObject::tr("General")}, //mouse
+        {"Mouse", QObject::tr("Mouse")},
+        {"Touchpad", QObject::tr("Touchpad")},
+        {"TrackPoint", QObject::tr("TrackPoint")},
+        {"Application Proxy", QObject::tr("Application Proxy")}, //network
+        {"System Proxy", QObject::tr("System Proxy")},
+        {"Time Settings", QObject::tr("Time Settings")},//datetime
+        {"Timezone List/Change System Timezone", QObject::tr("Change System Timezone")},
+        {"System Proxy", QObject::tr("System Proxy")},//network
+    };
+#if DEBUG_XML_SWITCH
+    qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
+#endif
+    if (!m_EnterNewPagelist.isEmpty()) {
+        m_EnterNewPagelist.clear();
     }
 
-    QFuture<void> future = QtConcurrent::run([=] {
-        //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
-        //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
-        static QMap<QString, QString> transChildPageName = {
-            {"On Battery", QObject::tr("On Battery")}, //Power
-            {"Plugged In", QObject::tr("Plugged In")},
-            {"General", QObject::tr("General")}, //mouse
-            {"Mouse", QObject::tr("Mouse")},
-            {"Touchpad", QObject::tr("Touchpad")},
-            {"TrackPoint", QObject::tr("TrackPoint")},
-            {"Application Proxy", QObject::tr("Application Proxy")}, //network
-            {"System Proxy", QObject::tr("System Proxy")},
-            {"Time Settings", QObject::tr("Time Settings")},//datetime
-            {"Timezone List/Change System Timezone", QObject::tr("Change System Timezone")},
-            {"System Proxy", QObject::tr("System Proxy")},//network
-        };
-#if DEBUG_XML_SWITCH
-        qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
-#endif
-        if (!m_EnterNewPagelist.isEmpty()) {
-            m_EnterNewPagelist.clear();
+    if (!m_inputList.isEmpty()) {
+        m_inputList.clear();
+    }
+
+    if (m_model->rowCount() > 0) {
+        QStandardItem *item = nullptr;
+        for (int i = 0; i < m_model->rowCount(); i++) {
+            item = m_model->takeItem(i);
+            delete item;
+            item = nullptr;
+        }
+        m_model->clear();
+    }
+
+    //添加一项空数据，为了防止使用setText输入错误数据时直接跳转到list中正确的第一个页面
+    m_searchBoxStruct.fullPagePath = "";
+    m_searchBoxStruct.actualModuleName = "";
+    m_searchBoxStruct.translateContent = "";
+    m_searchBoxStruct.childPageName = "";
+    m_EnterNewPagelist.append(m_searchBoxStruct);
+    m_inputList.append(SearchDataStruct());
+    m_model->appendRow(new QStandardItem(""));
+    m_TxtListAll.clear();
+
+    auto isChineseFunc = [](const QString &str)->bool {
+        QRegularExpression rex_expression(R"(^[^a-zA-Z]+$)");
+        return rex_expression.match(str).hasMatch();
+    };
+
+    for (const QString &i : m_xmlFilePath) {
+        QString xmlPath = i.arg(m_lang);
+        QFile file(xmlPath);
+
+        if (!file.exists()) {
+            qDebug() << " [SearchWidget] File not exist";
+            continue;
         }
 
-        if (!m_inputList.isEmpty()) {
-            m_inputList.clear();
+        if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qDebug() << " [SearchWidget] File open failed";
+            continue;
         }
 
-        if (rowCount() > 0) {
-            QStandardItem *item = nullptr;
-            for (int i = 0; i < rowCount(); i++) {
-                item = takeItem(i);
-                delete item;
-                item = nullptr;
-            }
-            clear();
-        }
-
-        //添加一项空数据，为了防止使用setText输入错误数据时直接跳转到list中正确的第一个页面
-        m_EnterNewPagelist.append(SearchBoxStruct());
-        m_inputList.append(SearchDataStruct());
-        appendRow(new QStandardItem(""));
-        m_TxtListAll.clear();
-
-        auto isChineseFunc = [](const QString &str)->bool {
-            QRegularExpression rex_expression(R"(^[^a-zA-Z]+$)");
-            return rex_expression.match(str).hasMatch();
-        };
-
-        for (const QString &i : m_xmlFilePath) {
-            QString xmlPath = i.arg(m_lang);
-            QFile file(xmlPath);
-
-            if (!file.exists()) {
-                qDebug() << " [SearchWidget] File not exist";
-                continue;
-            }
-
-            if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                qDebug() << " [SearchWidget] File open failed";
-                continue;
-            }
-
-            SearchBoxStruct searchBoxStruct;
-            QXmlStreamReader xmlRead(&file);
-            QStringRef dataName;
-            QXmlStreamReader::TokenType type = QXmlStreamReader::Invalid;
-            /*
+        QXmlStreamReader xmlRead(&file);
+        QStringRef dataName;
+        QXmlStreamReader::TokenType type = QXmlStreamReader::Invalid;
+        /*
             <message>
                 <source>Update Setting</source>
                 <translation>更新设置</translation>
@@ -419,177 +408,186 @@ void SearchModel::loadxml()
         //在xml的 </>时进入EndElement
 
         */
-            //遍历XML文件,读取每一行的xml数据都会
-            //先进入StartElement读取出<>中的内容;
-            //再进入Characters读取出中间数据部分;
-            //最后进入时进入EndElement读取出</>中的内容
-            while (!xmlRead.atEnd()) {
-                type = xmlRead.readNext();
+        //遍历XML文件,读取每一行的xml数据都会
+        //先进入StartElement读取出<>中的内容;
+        //再进入Characters读取出中间数据部分;
+        //最后进入时进入EndElement读取出</>中的内容
+        while (!xmlRead.atEnd()) {
+            type = xmlRead.readNext();
 
-                switch (type) {
-                case QXmlStreamReader::StartElement:
+            switch (type) {
+            case QXmlStreamReader::StartElement:
 #if DEBUG_XML_SWITCH
-                    qDebug() << " [SearchWidget] +::StartElement: " << xmlRead.name() << xmlRead.text();
+                qDebug() << " [SearchWidget] +::StartElement: " << xmlRead.name() << xmlRead.text();
 #endif
-                    m_xmlExplain = xmlRead.name().toString();
-                    break;
-                case QXmlStreamReader::Characters:
-                    if (!xmlRead.isWhitespace()) {
+                m_xmlExplain = xmlRead.name().toString();
+                break;
+            case QXmlStreamReader::Characters:
+                if (!xmlRead.isWhitespace()) {
 #if DEBUG_XML_SWITCH
-                        qDebug() << " [SearchWidget]  xmlRead.text : " << xmlRead.text().toString();
+                    qDebug() << " [SearchWidget]  xmlRead.text : " << xmlRead.text().toString();
 #endif
-                        if (m_xmlExplain == XML_Source) { // get xml source date
-                            searchBoxStruct.translateContent = xmlRead.text().toString();
-                        } else if (m_xmlExplain == XML_Title) {
-                            if (!xmlRead.text().isEmpty()) // translation not nullptr can set it
-                                searchBoxStruct.translateContent = xmlRead.text().toString();
+                    if (m_xmlExplain == XML_Source) { // get xml source date
+                        m_searchBoxStruct.translateContent = xmlRead.text().toString();
+                    } else if (m_xmlExplain == XML_Title) {
+                        if (xmlRead.text().toString() != "") // translation not nullptr can set it
+                            m_searchBoxStruct.translateContent = xmlRead.text().toString();
 #if DEBUG_XML_SWITCH
-                            qDebug() << " [SearchWidget] searchBoxStruct.translateContent : "
-                                     << searchBoxStruct.translateContent;
+                        qDebug() << " [SearchWidget] m_searchBoxStruct.translateContent : "
+                                 << m_searchBoxStruct.translateContent;
 #endif
-                        } else if (m_xmlExplain == XML_Numerusform) {
-                            if (!xmlRead.text().isEmpty()) // translation not nullptr can set it
-                                searchBoxStruct.translateContent = xmlRead.text().toString();
-                        } else if (XML_Child_Path == m_xmlExplain) {
-                            searchBoxStruct.childPageName = transChildPageName.value(xmlRead.text().toString());
-                        } else if (m_xmlExplain == XML_Explain_Path) {
-                            searchBoxStruct.fullPagePath = xmlRead.text().toString();
-                            // follow path module name to get actual module name  ->  Left module dispaly can support
-                            // mulLanguages
-                            searchBoxStruct.actualModuleName =
-                                    getModulesName(searchBoxStruct.fullPagePath.section('/', 1, 1));
+                    } else if (m_xmlExplain == XML_Numerusform) {
+                        if (xmlRead.text().toString() != "") // translation not nullptr can set it
+                            m_searchBoxStruct.translateContent = xmlRead.text().toString();
+                    } else if (XML_Child_Path == m_xmlExplain) {
+                        m_searchBoxStruct.childPageName = transChildPageName.value(xmlRead.text().toString());
+                    } else if (m_xmlExplain == XML_Explain_Path) {
+                        m_searchBoxStruct.fullPagePath = xmlRead.text().toString();
+                        // follow path module name to get actual module name  ->  Left module dispaly can support
+                        // mulLanguages
+                        m_searchBoxStruct.actualModuleName =
+                                getModulesName(m_searchBoxStruct.fullPagePath.section('/', 1, 1));
 
-                            if (!isChineseFunc(searchBoxStruct.translateContent)) {
-                                if (!m_TxtList.contains(searchBoxStruct.translateContent)) {
-                                    m_TxtList.append(searchBoxStruct.translateContent);
-                                }
+                        if (!isChineseFunc(m_searchBoxStruct.translateContent)) {
+                            if (!m_TxtList.contains(m_searchBoxStruct.translateContent)) {
+                                m_TxtList.append(m_searchBoxStruct.translateContent);
                             }
+                        }
 
-                            //"蓝牙","数位板"不存在则不加载该模块search数据
-                            //目前只用到了模块名，未使用detail信息，之后再添加模块内区分
-                            bool bIsLeapfrog = false;
-                            auto res = std::any_of(m_unexsitList.begin(), m_unexsitList.end(), [=](const UnexsitStruct &date) {
-                                return searchBoxStruct.actualModuleName == date.module;
+                        //"蓝牙","数位板"不存在则不加载该模块search数据
+                        //目前只用到了模块名，未使用detail信息，之后再添加模块内区分
+                        bool bIsLeapfrog = false;
+                        auto res = std::any_of(m_unexsitList.begin(), m_unexsitList.end(), [=](const UnexsitStruct &date) {
+                            return m_searchBoxStruct.actualModuleName == date.module;
+                        });
+
+                        if (res) {
+                            bIsLeapfrog = true;
+                            break;
+                        }
+
+                        if (bIsLeapfrog) continue;
+
+                        //“鼠标”可移除设备 : 指点杆，触控板
+                        //“网络”模块可移除设备 : 个人热点，有线网，无线网
+                        //“电源”模块可移除设备 : 使用电池
+                        //不存在时，不加载数据
+                        //是以上模块才会有此判断，其他模块不用此判断(包含在m_defaultRemoveableList的页面才需要“添加/移除”xml信息)
+                        if (m_defaultRemoveableList.contains(m_searchBoxStruct.fullPagePath.section('/', 2, -1))) {
+                            bool bRet = false;
+                            auto rets = std::any_of(m_removeableActualExistList.begin(), m_removeableActualExistList.end(), [=](const QPair<QString, QString> &date) {
+                                return date.second == m_searchBoxStruct.fullPagePath.section('/', 2, -1);
                             });
-
-                            if (res) {
-                                bIsLeapfrog = true;
+                            //变量list，存在就需要继续加载数据
+                            if (rets) {
+                                bRet = true;
                                 break;
                             }
 
-                            if (bIsLeapfrog) continue;
-
-                            //“鼠标”可移除设备 : 指点杆，触控板
-                            //“网络”模块可移除设备 : 个人热点，有线网，无线网
-                            //“电源”模块可移除设备 : 使用电池
-                            //不存在时，不加载数据
-                            //是以上模块才会有此判断，其他模块不用此判断(包含在m_defaultRemoveableList的页面才需要“添加/移除”xml信息)
-                            if (m_defaultRemoveableList.contains(searchBoxStruct.fullPagePath.section('/', 2, -1))) {
-                                bool bRet = false;
-                                auto rets = std::any_of(m_removeableActualExistList.begin(), m_removeableActualExistList.end(), [=](const QPair<QString, QString> &date) {
-                                    return date.second == searchBoxStruct.fullPagePath.section('/', 2, -1);
-                                });
-                                //变量list，存在就需要继续加载数据
-                                if (rets) {
-                                    bRet = true;
-                                    break;
-                                }
-
-                                //设备不存在，不加载xml数据
-                                if (!bRet) {
-                                    continue;
-                                }
+                            //设备不存在，不加载xml数据
+                            if (!bRet) {
+                                clearSearchData();
+                                continue;
                             }
+                        }
 
-                            if (searchBoxStruct.actualModuleName.isEmpty() || searchBoxStruct.translateContent.isEmpty()) {
+                        if ("" == m_searchBoxStruct.actualModuleName || "" == m_searchBoxStruct.translateContent) {
+                            clearSearchData();
+                            continue;
+                        }
+
+                        //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"
+                        if (isLoadText(m_searchBoxStruct.translateContent)) {
+                            clearSearchData();
+                            continue;
+                        }
+
+                        //判断是否为contens服务器,是contens服务器时,若当前不是服务器就不添加"Server"
+                        if (isLoadContensText(m_searchBoxStruct.translateContent)) {
+                            clearSearchData();
+                            continue;
+                        }
+
+                        //判断是否为服务器，如果是服务器状态下搜索不到网络账户相关（所有界面）
+                        if (m_bIsServerType && tr("Cloud Account") == m_searchBoxStruct.actualModuleName) {
+                            clearSearchData();
+                            continue;
+                        }
+
+                        //qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
+                        if (!m_bIsServerType && !m_deepinwm->compositingAllowSwitch()) {
+                            qDebug()<<"search not Window!";
+                            if (tr("Window Effect") == m_searchBoxStruct.translateContent) {
+                               clearSearchData();
+                               continue;
+                             }
+                         }
+
+                        m_EnterNewPagelist.append(m_searchBoxStruct);
+
+                        if (!m_TxtListAll.contains(m_searchBoxStruct.translateContent)) {
+                            m_TxtListAll.append(m_searchBoxStruct.translateContent);
+                        } else {
+                            clearSearchData();
+                            continue;
+                        }
+
+                        // Add search result content
+                        if (!m_bIsChinese) {
+                            auto icon = m_iconMap.find(m_searchBoxStruct.fullPagePath.section('/', 1, 1));
+                            if (icon == m_iconMap.end()) {
                                 continue;
                             }
 
-                            //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"
-                            if (isLoadText(searchBoxStruct.translateContent)) {
-                                continue;
-                            }
-
-                            //判断是否为contens服务器,是contens服务器时,若当前不是服务器就不添加"Server"
-                            if (isLoadContensText(searchBoxStruct.translateContent)) {
-                                continue;
-                            }
-
-                            //判断是否为服务器，如果是服务器状态下搜索不到网络账户相关（所有界面）
-                            if (m_bIsServerType && tr("Cloud Account") == searchBoxStruct.actualModuleName) {
-                                continue;
-                            }
-
-                            //qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
-                            if (!m_bIsServerType && !m_deepinwm->compositingAllowSwitch()) {
-                                qDebug()<<"search not Window!";
-                                if (tr("Window Effect") == searchBoxStruct.translateContent) {
-                                    continue;
-                                }
-                            }
-
-                            m_EnterNewPagelist.append(searchBoxStruct);
-
-                            if (!m_TxtListAll.contains(searchBoxStruct.translateContent)) {
-                                m_TxtListAll.append(searchBoxStruct.translateContent);
+                            if ("" == m_searchBoxStruct.childPageName) {
+                                m_model->appendRow(new QStandardItem(
+                                        icon.value(),
+                                        QString("%1 --> %2")
+                                                .arg(m_searchBoxStruct.actualModuleName)
+                                                .arg(m_searchBoxStruct.translateContent)));
                             } else {
-                                continue;
-                            }
-
-                            // Add search result content
-                            if (!m_bIsChinese) {
-                                auto icon = m_iconMap.find(searchBoxStruct.fullPagePath.section('/', 1, 1));
-                                if (icon == m_iconMap.end()) {
-                                    continue;
-                                }
-
-                                if ("" == searchBoxStruct.childPageName) {
-                                    appendRow(new QStandardItem(
-                                                  icon.value(),
-                                                  QString("%1 --> %2")
-                                                  .arg(searchBoxStruct.actualModuleName)
-                                                  .arg(searchBoxStruct.translateContent)));
-                                } else {
-                                    appendRow(new QStandardItem(
-                                                  icon.value(),
-                                                  QString("%1 --> %2 / %3")
-                                                  .arg(searchBoxStruct.actualModuleName)
-                                                  .arg(searchBoxStruct.childPageName)
-                                                  .arg(searchBoxStruct.translateContent)));
-                                }
-                            } else {
-                                appendChineseData(searchBoxStruct);
+                                m_model->appendRow(new QStandardItem(
+                                        icon.value(),
+                                        QString("%1 --> %2 / %3")
+                                                .arg(m_searchBoxStruct.actualModuleName)
+                                                .arg(m_searchBoxStruct.childPageName)
+                                                .arg(m_searchBoxStruct.translateContent)));
                             }
                         } else {
-                            // donthing
+                            appendChineseData(m_searchBoxStruct);
                         }
+
+                        clearSearchData();
                     } else {
-                        // qDebug() << "  QXmlStreamReader::Characters with whitespaces.";
+                        // donthing
                     }
-                    break;
-                case QXmlStreamReader::EndElement:
-#if DEBUG_XML_SWITCH
-                    qDebug() << " [SearchWidget] -::EndElement: " << xmlRead.name();
-#endif
-                    // if (m_xmlExplain != "") {
-                    //     m_xmlExplain = "";
-                    // }
-                    break;
-                default:
-                    break;
+                } else {
+                    // qDebug() << "  QXmlStreamReader::Characters with whitespaces.";
                 }
+                break;
+            case QXmlStreamReader::EndElement:
+#if DEBUG_XML_SWITCH
+                qDebug() << " [SearchWidget] -::EndElement: " << xmlRead.name();
+#endif
+                // if (m_xmlExplain != "") {
+                //     m_xmlExplain = "";
+                // }
+                break;
+            default:
+                break;
             }
-
-            m_xmlExplain = "";
-            qDebug() << " [SearchWidget] m_EnterNewPagelist.count : " << m_EnterNewPagelist.count();
-
-            file.close();
         }
-    });
+
+        m_xmlExplain = "";
+        clearSearchData();
+        qDebug() << " [SearchWidget] m_EnterNewPagelist.count : " << m_EnterNewPagelist.count();
+
+        file.close();
+    }
 }
 
 //Follow display content to Analysis SearchBoxStruct data
-SearchBoxStruct SearchModel::getModuleBtnString(QString value)
+SearchWidget::SearchBoxStruct SearchWidget::getModuleBtnString(QString value)
 {
     SearchBoxStruct data;
 
@@ -610,7 +608,7 @@ SearchBoxStruct SearchModel::getModuleBtnString(QString value)
 }
 
 //tranlate the path name to tr("name")
-QString SearchModel::getModulesName(const QString &name, bool state)
+QString SearchWidget::getModulesName(const QString &name, bool state)
 {
     QString strResult = "";
 
@@ -631,7 +629,7 @@ QString SearchModel::getModulesName(const QString &name, bool state)
     return strResult;
 }
 
-QString SearchModel::removeDigital(QString input)
+QString SearchWidget::removeDigital(QString input)
 {
     if ("" == input)
         return "";
@@ -650,7 +648,7 @@ QString SearchModel::removeDigital(QString input)
     return value;
 }
 
-QString SearchModel::transPinyinToChinese(const QString &pinyin)
+QString SearchWidget::transPinyinToChinese(const QString &pinyin)
 {
     QString value = pinyin;
 
@@ -666,7 +664,7 @@ QString SearchModel::transPinyinToChinese(const QString &pinyin)
     return value;
 }
 
-QString SearchModel::containTxtData(QString txt)
+QString SearchWidget::containTxtData(QString txt)
 {
     QString value = txt;
 
@@ -683,9 +681,9 @@ QString SearchModel::containTxtData(QString txt)
     return value;
 }
 
-void SearchModel::appendChineseData(SearchBoxStruct data)
+void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
 {
-    auto icon = m_iconMap.find(data.fullPagePath.section('/', 1, 1));
+    auto icon = m_iconMap.find(m_searchBoxStruct.fullPagePath.section('/', 1, 1));
     if (icon == m_iconMap.end()) {
         return;
     }
@@ -695,16 +693,16 @@ void SearchModel::appendChineseData(SearchBoxStruct data)
         //Qt::EditRole数据用于显示搜索到的结果(汉字)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
-        appendRow(new QStandardItem(icon.value(),
+        m_model->appendRow(new QStandardItem(icon.value(),
                                              QString("%1 --> %2").arg(data.actualModuleName).arg(data.translateContent)));
 
         //设置汉字的Qt::UserRole数据
-        setData(index(rowCount() - 1, 0),
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0),
                          QString("%1 --> %2")
                          .arg(data.actualModuleName)
                          .arg(data.translateContent),
                          Qt::UserRole);
-        setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
         QString hanziTxt = QString("%1 --> %2").arg(data.actualModuleName).arg(data.translateContent);
 
@@ -724,10 +722,10 @@ void SearchModel::appendChineseData(SearchBoxStruct data)
         if (data.actualModuleName == DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)) return;
 
         //添加显示的汉字(用于拼音搜索显示)
-        appendRow(new QStandardItem(icon.value(), hanziTxt));
+        m_model->appendRow(new QStandardItem(icon.value(), hanziTxt));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
-        setData(index(rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
-        setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
         SearchDataStruct transdata;
         transdata.chiese = hanziTxt;
         transdata.pinyin = pinyinTxt;
@@ -739,17 +737,17 @@ void SearchModel::appendChineseData(SearchBoxStruct data)
         //Qt::EditRole数据用于显示搜索到的结果(汉字)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
-        appendRow(new QStandardItem(icon.value(),
+        m_model->appendRow(new QStandardItem(icon.value(),
                                              QString("%1 --> %2 / %3").arg(data.actualModuleName).arg(data.childPageName).arg(data.translateContent)));
 
         //设置汉字的Qt::UserRole数据
-        setData(index(rowCount() - 1, 0),
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0),
                          QString("%1 --> %2 / %3")
                          .arg(data.actualModuleName)
                          .arg(data.childPageName)
                          .arg(data.translateContent),
                          Qt::UserRole);
-        setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
         QString hanziTxt = QString("%1 --> %2 / %3").arg(data.actualModuleName).arg(data.childPageName).arg(data.translateContent);
         QString pinyinTxt = QString("%1 --> %2 / %3")
@@ -762,10 +760,10 @@ void SearchModel::appendChineseData(SearchBoxStruct data)
         if (icons == m_iconMap.end()) {
             return;
         }
-        appendRow(new QStandardItem(icons.value(), hanziTxt));
+        m_model->appendRow(new QStandardItem(icons.value(), hanziTxt));
         //设置Qt::UserRole搜索的拼音(即搜索拼音会显示上面的汉字)
-        setData(index(rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
-        setData(index(rowCount() - 1, 0), icons->name(), Qt::UserRole + 1);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), pinyinTxt, Qt::UserRole);
+        m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icons->name(), Qt::UserRole + 1);
         SearchDataStruct transdata;
         transdata.chiese = hanziTxt;
         transdata.pinyin = pinyinTxt;
@@ -775,8 +773,16 @@ void SearchModel::appendChineseData(SearchBoxStruct data)
     }
 }
 
+void SearchWidget::clearSearchData()
+{
+    m_searchBoxStruct.translateContent = "";
+    m_searchBoxStruct.actualModuleName = "";
+    m_searchBoxStruct.childPageName = "";
+    m_searchBoxStruct.fullPagePath = "";
+}
+
 //返回值:true,不加载该搜索数据
-bool SearchModel::isLoadText(const QString &txt)
+bool SearchWidget::isLoadText(const QString &txt)
 {
     for (auto data : m_serverTxtList) {
         //有first数据继续判断second
@@ -795,7 +801,7 @@ bool SearchModel::isLoadText(const QString &txt)
     return false;
 }
 
-bool SearchModel::isLoadContensText(const QString &text)
+bool SearchWidget::isLoadContensText(const QString &text)
 {
     for (auto data : m_contensServerTxtList) {
         //有first数据继续判断second
@@ -813,12 +819,15 @@ bool SearchModel::isLoadContensText(const QString &text)
     return false;
 }
 
-void SearchModel::setLanguage(const QString &type)
+void SearchWidget::setLanguage(const QString &type)
 {
     m_lang = type;
 
     if (type == "zh_CN" || type == "zh_HK" || type == "zh_TW") {
         m_bIsChinese = true;
+        m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
+    } else {
+        m_completer->setCompletionRole(Qt::DisplayRole);
     }
 
     loadxml();
@@ -827,7 +836,7 @@ void SearchModel::setLanguage(const QString &type)
 //save all modules moduleInteface name and actual moduleName
 //moduleName : moduleInteface name  (used to path module to translate searchName)
 //searchName : actual module
-void SearchModel::addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation)
+void SearchWidget::addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation)
 {
     QPair<QString, QString> data;
     data.first = moduleName;
@@ -845,7 +854,7 @@ void SearchModel::addModulesName(QString moduleName, const QString &searchName, 
 #endif
 }
 
-void SearchModel::addUnExsitData(const QString &module, const QString &datail)
+void SearchWidget::addUnExsitData(const QString &module, const QString &datail)
 {
     auto res = std::any_of(m_unexsitList.begin(), m_unexsitList.end(), [=](const UnexsitStruct &date) {
         return date.module == module;
@@ -863,7 +872,7 @@ void SearchModel::addUnExsitData(const QString &module, const QString &datail)
     loadxml();
 }
 
-void SearchModel::removeUnExsitData(const QString &module, const QString &datail)
+void SearchWidget::removeUnExsitData(const QString &module, const QString &datail)
 {
     for (int i = 0; i < m_unexsitList.count(); i++) {
         if (m_unexsitList.at(i).module == module && m_unexsitList.at(i).datail == datail) {
@@ -874,7 +883,7 @@ void SearchModel::removeUnExsitData(const QString &module, const QString &datail
     }
 }
 
-void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
+void SearchWidget::setRemoveableDeviceStatus(const QString &name, bool isExist)
 {
     QPair<QString, QString> value("", "");
 
@@ -956,40 +965,4 @@ bool ddeCompleter::eventFilter(QObject *o, QEvent *e)
         }
     }
     return QCompleter::eventFilter(o, e);
-}
-
-bool SearchWidget::jumpContentPathWidget(const QString &path)
-{
-    return m_model->jumpContentPathWidget(path);
-}
-
-void SearchWidget::setLanguage(const QString &type)
-{
-    if (type == "zh_CN" || type == "zh_HK" || type == "zh_TW") {
-        m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
-    } else {
-        m_completer->setCompletionRole(Qt::DisplayRole);
-    }
-
-    return m_model->setLanguage(type);
-}
-
-void SearchWidget::addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation)
-{
-    return m_model->addModulesName(moduleName, searchName, icon, translation);
-}
-
-void SearchWidget::addUnExsitData(const QString &module, const QString &datail)
-{
-    return m_model->addUnExsitData(module, datail);
-}
-
-void SearchWidget::removeUnExsitData(const QString &module, const QString &datail)
-{
-    return m_model->removeUnExsitData(module, datail);
-}
-
-void SearchWidget::setRemoveableDeviceStatus(const QString &name, bool isExist)
-{
-    return m_model->setRemoveableDeviceStatus(name, isExist);
 }
