@@ -26,6 +26,10 @@
 #include <DLineEdit>
 
 #include <QWidget>
+#include <com_deepin_daemon_soundeffect.h>
+
+
+using SoundeffectInter = com::deepin::daemon::SoundEffect;
 
 DWIDGET_USE_NAMESPACE
 
@@ -49,10 +53,12 @@ public Q_SLOTS:
     void setName();
     void setEdit();
     void setTitle(const QString &title);
+    bool playSystemSoundEffect(QString soundName);
 
 private:
     QLabel *m_name;
     DLineEdit *m_lineEdit;
+    SoundeffectInter *m_soundeffectInter;
 };
 }
 }

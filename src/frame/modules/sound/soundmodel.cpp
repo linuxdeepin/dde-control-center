@@ -98,6 +98,23 @@ SoundModel::SoundModel(QObject *parent)
         { tr("Error"), DDesktopServices::SSE_Error },
     };
 
+    m_soundEffectPathData = {
+        { "/usr/share/sounds/deepin/stereo/desktop-login.wav", "desktop-login" },
+        { "/usr/share/sounds/deepin/stereo/system-shutdown.wav", "system-shutdown" },
+        { "/usr/share/sounds/deepin/stereo/desktop-logout.wav", "desktop-logout" },
+        { "/usr/share/sounds/deepin/stereo/suspend-resume.wav", "suspend-resume" },
+        { "/usr/share/sounds/deepin/stereo/audio-volume-change.wav", "audio-volume-change" },
+        { "/usr/share/sounds/deepin/stereo/message.wav", "message" },
+        { "/usr/share/sounds/deepin/stereo/power-unplug-battery-low.wav", "power-unplug-battery-low" },
+        { "/usr/share/sounds/deepin/stereo/x-deepin-app-sent-to-desktop.wav", "x-deepin-app-sent-to-desktop" },
+        { "/usr/share/sounds/deepin/stereo/trash-empty.wav", "trash-empty" },
+        { "/usr/share/sounds/deepin/stereo/power-plug.wav", "power-plug" },
+        { "/usr/share/sounds/deepin/stereo/power-unplug.wav", "power-unplug" },
+        { "/usr/share/sounds/deepin/stereo/device-added.wav", "device-added" },
+        { "/usr/share/sounds/deepin/stereo/device-removed.wav", "device-removed" },
+        { "/usr/share/sounds/deepin/stereo/dialog-error.wav", "dialog-error" },
+    };
+
     if(IsServerSystem) {
         m_soundEffectMapBattery.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
         m_soundEffectMapPower.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
@@ -292,6 +309,10 @@ void SoundModel::updateSoundEffectPath(DDesktopServices::SystemSoundEffect effec
 const QString SoundModel::soundEffectPathByType(DDesktopServices::SystemSoundEffect effect)
 {
     return m_soundEffectPaths[effect];
+}
+const QString SoundModel::soundNameByPath(QString soundpath)
+{
+    return m_soundEffectPathData[soundpath];
 }
 
 const QString SoundModel::getNameByEffectType(DDesktopServices::SystemSoundEffect effect) const

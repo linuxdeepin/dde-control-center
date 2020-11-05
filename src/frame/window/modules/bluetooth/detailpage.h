@@ -25,8 +25,12 @@
 #include "widgets/contentwidget.h"
 
 #include <DIconButton>
+#include <com_deepin_daemon_soundeffect.h>
+
+using SoundeffectInter = com::deepin::daemon::SoundEffect;
 
 QT_BEGIN_NAMESPACE
+
 class QLabel;
 class QLineEdit;
 class QPushButton;
@@ -58,6 +62,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onDeviceAliasChanged();
     void onDeviceStatusChanged();
+    bool playSystemSoundEffect(QString soundName);
 private:
     const dcc::bluetooth::Adapter *m_adapter;
     const dcc::bluetooth::Device *m_device;
@@ -66,6 +71,7 @@ private:
     QPushButton *m_connectButton;
     QLineEdit *m_editDevAlias;
     TitleLabel *m_devNameLabel;
+    SoundeffectInter *m_soundeffectInter;
 };
 }
 }

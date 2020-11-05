@@ -29,8 +29,12 @@
 
 #include <QWidget>
 #include <QSound>
+#include <com_deepin_daemon_soundeffect.h>
 
 QT_BEGIN_NAMESPACE
+
+using SoundeffectInter = com::deepin::daemon::SoundEffect;
+
 class QListView;
 class QVBoxLayout;
 QT_END_NAMESPACE
@@ -72,15 +76,17 @@ private:
     void initList();
 
 private:
+    SoundeffectInter *m_soundeffectInter;
     QVBoxLayout *m_layout{nullptr};
     dcc::widgets::SwitchWidget *m_sw{nullptr};
     dcc::sound::SoundModel *m_model{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_effectList{nullptr};
     QStandardItemModel *m_listModel{nullptr};
-    QScopedPointer<QSound> m_sound;
+    //QScopedPointer<QSound> m_sound;
     QTimer *m_aniTimer{nullptr};
     QModelIndex m_playIdx;
     int m_aniDuration{0};
+
 };
 
 }

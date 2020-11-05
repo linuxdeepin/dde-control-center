@@ -36,6 +36,7 @@
 #include <QStandardItem>
 #include <QSound>
 #include <QScroller>
+#include <QGSettings>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
@@ -48,7 +49,9 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_effectList(new DListView)
-    , m_sound(nullptr)
+    , m_soundeffectInter(new SoundeffectInter("com.deepin.daemon.SoundEffect",
+                                               "/com/deepin/daemon/SoundEffect",
+                                               QDBusConnection::sessionBus(), this))
 {
     m_layout->setContentsMargins(ThirdPageContentsMargins);
 
@@ -119,9 +122,8 @@ void SoundEffectsPage::startPlay(const QModelIndex &index)
     m_playIdx = index;
 
     auto eff = m_model->soundEffectMap()[index.row()].second;
-    m_sound.reset(new QSound(m_model->soundEffectPathByType(eff)));
-    m_sound->stop();
-    m_sound->play();
+    QString soundName = m_model->soundNameByPath(m_model->soundEffectPathByType(eff));
+    m_soundeffectInter->PlaySound(soundName);
 
     m_aniTimer->disconnect();
     auto item = static_cast<DStandardItem *>(m_listModel->itemFromIndex(index));

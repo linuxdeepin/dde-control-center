@@ -24,6 +24,7 @@
 #include <DIconButton>
 #include <DDesktopServices>
 
+#include <QGSettings>
 #include <QLabel>
 #include <QLineEdit>
 #include <QHBoxLayout>
@@ -38,6 +39,9 @@ TitleEdit::TitleEdit(QWidget *parent)
     : QWidget(parent)
     , m_name(new QLabel)
     , m_lineEdit(new DLineEdit)
+    , m_soundeffectInter(new SoundeffectInter("com.deepin.daemon.SoundEffect",
+                                               "/com/deepin/daemon/SoundEffect",
+                                               QDBusConnection::sessionBus(), this))
 {
     QHBoxLayout *mainlayout = new QHBoxLayout;
     m_lineEdit->lineEdit()->setVisible(false);
@@ -57,11 +61,34 @@ TitleEdit::TitleEdit(QWidget *parent)
     connect(m_lineEdit, &DLineEdit::editingFinished, this, &TitleEdit::setName);
     connect(m_lineEdit, &DLineEdit::textEdited, this, [ = ](const QString &str) {
         if (str.length() > 32) {
-            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+            //DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+            playSystemSoundEffect("dialog-error");
             m_lineEdit->lineEdit()->backspace();
         }
     });
     connect(editWidget, &DIconButton::clicked, this, &TitleEdit::setEdit);
+}
+
+bool TitleEdit::playSystemSoundEffect(QString soundName)
+{
+    QGSettings settings("com.deepin.dde.sound-effect");
+    bool effEnabled = settings.get("enabled").toBool();
+    if (effEnabled) {
+        const QStringList list = settings.keys();
+        if (!list.contains(soundName)) {
+                return false;
+        }
+        effEnabled = settings.get(soundName).toBool();
+    }
+    if (effEnabled == false) {
+        return false;
+    }
+    if (soundName.isEmpty()) {
+        return false;
+    }
+
+    m_soundeffectInter->PlaySound(soundName);
+    return true;
 }
 
 void TitleEdit::setName()
