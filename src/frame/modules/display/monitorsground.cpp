@@ -111,12 +111,6 @@ void MonitorsGround::resetMonitorsView()
             adjust(pw);
         }
     }
-
-    // recheck settings
-    if (!isScreenPerfect()) {
-//        monitorMoved(m_monitors.firstKey());
-        monitorMoved(m_monitors.first().first);
-    }
 }
 
 void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
