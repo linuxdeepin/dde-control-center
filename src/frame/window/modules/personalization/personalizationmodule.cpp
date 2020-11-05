@@ -136,6 +136,8 @@ void PersonalizationModule::showGenaralWidget()
 
     m_frameProxy->pushWidget(this, widget);
     widget->setVisible(true);
+
+    connect(widget, &PersonalizationGeneral::windowRadiusChanged, m_work, &dcc::personalization::PersonalizationWork::setWindowRadius);
 }
 
 void PersonalizationModule::showIconThemeWidget()
