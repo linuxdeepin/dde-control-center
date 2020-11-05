@@ -29,11 +29,9 @@
 #include "widgets/contentwidget.h"
 #include "interface/namespace.h"
 
-namespace dde {
-namespace network {
-class NetworkModel;
-}
-}
+#include <networkmanagerqt/ipaddress.h>
+
+using namespace NetworkManager;
 
 namespace DCC_NAMESPACE {
 namespace network {
@@ -41,15 +39,22 @@ namespace network {
 class NetworkDetailPage : public dcc::ContentWidget
 {
     Q_OBJECT
+    enum InfoType
+    {
+        Ip,
+        Gateway
+    };
 
 public:
     explicit NetworkDetailPage(QWidget *parent = nullptr);
 
-    void setModel(dde::network::NetworkModel *model);
+    void updateNetworkInfo();
 
 private Q_SLOTS:
     void onActiveInfoChanged(const QList<QJsonObject> &infos);
 
+private:
+    QString ipv6Infomation(QJsonObject connectinfos, InfoType type);
 private:
     QVBoxLayout *m_groupsLayout;
 };

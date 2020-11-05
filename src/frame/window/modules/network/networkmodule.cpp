@@ -393,7 +393,7 @@ void NetworkModule::showDetailPage()
 {
     NetworkDetailPage *p = new NetworkDetailPage;
     p->setVisible(false);
-    p->setModel(m_networkModel);
+    p->updateNetworkInfo();
 
     m_frameProxy->pushWidget(this, p);
     p->setVisible(true);
