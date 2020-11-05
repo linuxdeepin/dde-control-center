@@ -44,6 +44,7 @@
 #include <QComboBox>
 #include <QGraphicsDropShadowEffect>
 #include <QPainterPath>
+#include <QDBusInterface>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -235,34 +236,34 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
         if (Dtk::Core::DSysInfo::isCommunityEdition()) {
             winEffectVLayout->addSpacing(10);
-            TitledSliderItem *winRoundSlider = new dcc::widgets::TitledSliderItem(tr("Rounded Corner"));
-            winRoundSlider->addBackground();
-            winRoundSlider->slider()->setOrientation(Qt::Horizontal);
-            winRoundSlider->setObjectName("winRoundSlider");
+            m_winRoundSlider = new dcc::widgets::TitledSliderItem(tr("Rounded Corner"));
+            m_winRoundSlider->addBackground();
+            m_winRoundSlider->slider()->setOrientation(Qt::Horizontal);
+            m_winRoundSlider->setObjectName("m_winRoundSlider");
 
-            dcc::widgets::DCCSlider *sliderRound = winRoundSlider->slider();
+            dcc::widgets::DCCSlider *sliderRound = m_winRoundSlider->slider();
             QStringList list;
             list<<tr("Small")<<tr("Medium")<<tr("Large");
             sliderRound->setAnnotations(list);
             sliderRound->setType(dcc::widgets::DCCSlider::Vernier);
             sliderRound->setTickPosition(QSlider::TicksBelow);
             sliderRound->setRange(0, 2);
-            sliderRound->setValue(2);
             sliderRound->setTickInterval(1);
             sliderRound->setPageStep(1);
-            winEffectVLayout->addWidget(winRoundSlider);
+            winEffectVLayout->addWidget(m_winRoundSlider);
             winEffectVLayout->addStretch(20);
 
-            connect(winRoundSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this, [](int value){
-                auto theme = DGuiApplicationHelper::instance()->systemTheme();
-
+            connect(m_winRoundSlider->slider(), &dcc::widgets::DCCSlider::valueChanged, this, [=](int value){
+                int val = value;
                 if (value == 0) {
-                    theme->setWindowRadius(0);
+                    val = 0;
                 } else if (value == 1) {
-                    theme->setWindowRadius(8);
+                    val = 8;
                 } else if (value == 2) {
-                    theme->setWindowRadius(18);
+                    val = 18;
                 }
+
+                Q_EMIT windowRadiusChanged(val);
             });
             update();
         }
@@ -303,6 +304,11 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     connect(m_model, &dcc::personalization::PersonalizationModel::onCompositingAllowSwitch, this,
             &PersonalizationGeneral::onCompositingAllowSwitchChanged);
     onCompositingAllowSwitchChanged(m_model->getAllowSwitch());
+
+    connect(m_model, &dcc::personalization::PersonalizationModel::onWindowRadiusChanged, this,
+            &PersonalizationGeneral::onWindowRadiusChanged);
+    onWindowRadiusChanged(m_model->windowRadius());
+
 }
 
 void PersonalizationGeneral::updateThemeColors(DGuiApplicationHelper::ColorType type)
@@ -373,6 +379,27 @@ void PersonalizationGeneral::onCompositingAllowSwitchChanged(bool value)
         m_switchWidget->setVisible(true);
     } else {
         m_switchWidget->setVisible(false);
+    }
+}
+
+void PersonalizationGeneral::onWindowRadiusChanged(int radius)
+{
+    /* 虽然自定义圆角值保留了三档: 直角 0px/ 小圆角 8px/ 大圆角 18px
+     * 但是实际是允许用户用命令自定义任何 >= 0 的窗口圆角, 但是在滑动条上依旧显示大概范围的值
+     */
+
+    m_windowRadius = radius;
+
+    if (Dtk::Core::DSysInfo::isCommunityEdition()) {
+        if(m_winRoundSlider) {
+            if (m_windowRadius <= 0) {
+                m_winRoundSlider->slider()->setValue(0);
+            } else if (0 < m_windowRadius && m_windowRadius <= 8) {
+                m_winRoundSlider->slider()->setValue(1);
+            } else {
+                m_winRoundSlider->slider()->setValue(2);
+            }
+        }
     }
 }
 

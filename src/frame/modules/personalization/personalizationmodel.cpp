@@ -64,6 +64,19 @@ bool PersonalizationModel::is3DWm() const
     return m_is3DWm;
 }
 
+void PersonalizationModel::setWindowRadius(int radius)
+{
+    if (m_windowRadius != radius)
+        m_windowRadius = radius;
+
+    Q_EMIT  onWindowRadiusChanged(radius);
+}
+
+int PersonalizationModel::windowRadius()
+{
+    return m_windowRadius;
+}
+
 void PersonalizationModel::setOpacity(std::pair<int, double> opacity)
 {
     if (m_opacity == opacity) return;
