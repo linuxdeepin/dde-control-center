@@ -52,6 +52,9 @@ public:
     void setIs3DWm(const bool is3d);
     bool is3DWm() const;
 
+    void setWindowRadius(int radius);
+    int windowRadius();
+
     inline std::pair<int, double> opacity() const { return m_opacity; }
     void setOpacity(std::pair<int, double> opacity);
 
@@ -70,6 +73,8 @@ Q_SIGNALS:
     void onMiniEffectChanged(int effect);
     void onActiveColorChanged(const QString &color);
     void onCompositingAllowSwitch(bool value);
+    void onWindowRadiusChanged(int radius);
+    void onSaveWindowRadiusChanged(int radius);
 
 private:
     ThemeModel    *m_windowModel;
@@ -83,6 +88,7 @@ private:
     int m_miniEffect;
     QString m_activeColor;
     bool m_allowSwitch;
+    int m_windowRadius;
 };
 }
 }
