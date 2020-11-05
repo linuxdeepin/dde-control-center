@@ -422,15 +422,17 @@ void MainWindow::initAllModule(const QString &m)
     resetNavList(isIcon);
 
     modulePreInitialize(m);
-    //设置 触控板，指点杆 是否存在
-    m_searchWidget->setRemoveableDeviceStatus(tr("Touchpad"), getRemoveableDeviceStatus(tr("Touchpad")));
-    m_searchWidget->setRemoveableDeviceStatus(tr("TrackPoint"), getRemoveableDeviceStatus(tr("TrackPoint")));
+    QTimer::singleShot(0, this, [ = ]() {
+        //设置 触控板，指点杆 是否存在
+        m_searchWidget->setRemoveableDeviceStatus(tr("Touchpad"), getRemoveableDeviceStatus(tr("Touchpad")));
+        m_searchWidget->setRemoveableDeviceStatus(tr("TrackPoint"), getRemoveableDeviceStatus(tr("TrackPoint")));
 
-    QElapsedTimer et;
-    et.start();
-    //after initAllModule to load ts data
-    m_searchWidget->setLanguage(QLocale::system().name());
-    qDebug() << QString("load search info with %1ms").arg(et.elapsed());
+        QElapsedTimer et;
+        et.start();
+        //after initAllModule to load ts data
+        m_searchWidget->setLanguage(QLocale::system().name());
+        qDebug() << QString("load search info with %1ms").arg(et.elapsed());
+    });
 }
 
 void MainWindow::updateWinsize()
