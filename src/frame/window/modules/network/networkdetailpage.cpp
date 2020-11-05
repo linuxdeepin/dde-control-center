@@ -31,15 +31,22 @@
 #include "widgets/titlevalueitem.h"
 #include "window/utils.h"
 
-#include <networkmodel.h>
+#include <networkmanagerqt/settings.h>
+#include <networkmanagerqt/connection.h>
+#include <networkmanagerqt/connectionsettings.h>
+#include <networkmanagerqt/ipv6setting.h>
+#include <com_deepin_daemon_network.h>
 
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QJsonArray>
 #include <DFontSizeManager>
+#include <QDBusInterface>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingCall>
+#include <QDBusPendingReply>
 
 using namespace dcc::widgets;
-using namespace dde::network;
 
 const QString compressedIpv6Addr(const QString &ipv6Adr)
 {
@@ -51,7 +58,6 @@ const QString compressedIpv6Addr(const QString &ipv6Adr)
     int maxStart = 0, maxLen = 0;
     const auto &sequence = ipv6Adr.split(':');
     for (int i = 0; i != sequence.size(); ++i) {
-        Q_ASSERT(sequence[i].size() == 4);
         if (sequence[i] == "0000") {
             len += 5;
         } else {
@@ -96,11 +102,30 @@ NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     setContent(mainWidget);
 }
 
-void NetworkDetailPage::setModel(NetworkModel *model)
+void NetworkDetailPage::updateNetworkInfo()
 {
-    connect(model, &NetworkModel::activeConnInfoChanged, this, &NetworkDetailPage::onActiveInfoChanged);
-
-    onActiveInfoChanged(model->activeConnInfos());
+   QDBusInterface *networkInter = new QDBusInterface("com.deepin.daemon.Network",
+                                                     "/com/deepin/daemon/Network",
+                                                     "com.deepin.daemon.Network",
+                                                     QDBusConnection::sessionBus(), this);
+   QDBusPendingCall async = networkInter->asyncCall("GetActiveConnectionInfo");
+   QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(async, this);
+   connect(w, &QDBusPendingCallWatcher::finished, this, [this, w](){
+       QDBusPendingReply<QString> reply = *w;
+       if (reply.isError()) {
+           qDebug() << "GetActiveConnectionInfo error";
+           return;
+       }
+       QList<QJsonObject> activeinfos;
+       QJsonArray activeConns = QJsonDocument::fromJson(reply.value().toUtf8()).array();
+       for (const auto info : activeConns)
+       {
+           const auto &connInfo = info.toObject();
+           activeinfos << connInfo;
+       }
+       onActiveInfoChanged(activeinfos);
+       w->deleteLater();
+   });
 }
 
 void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
@@ -210,14 +235,9 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             // ipv6 info
             const auto ipv6 = info.value("Ip6").toObject();
             if (!ipv6.isEmpty()) {
-                // ipv6 address
-                const auto ip6Addr = ipv6.value("Address").toString();
-                if (!ip6Addr.isEmpty())
-                    appendInfo(grp, tr("IPv6"), compressedIpv6Addr(ip6Addr));
-                // ipv6 gateway
-                const auto gateway = ipv6.value("Gateways").toArray();
-                if (!gateway.isEmpty())
-                    appendInfo(grp, tr("Gateway"), compressedIpv6Addr(gateway.first().toString()));
+                appendInfo(grp, tr("IPv6"), compressedIpv6Addr(ipv6Infomation(info, NetworkDetailPage::Ip)));
+                appendInfo(grp, tr("Gateway"), compressedIpv6Addr(ipv6Infomation(info, NetworkDetailPage::Gateway)));
+
                 // ipv6 primary dns
                 const auto ip6PrimaryDns = ipv6.value("Dnses").toArray();
                 if (!ip6PrimaryDns.isEmpty())
@@ -239,6 +259,39 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
     }
 
     m_groupsLayout->addStretch();
+}
+
+QString NetworkDetailPage::ipv6Infomation(QJsonObject connectinfo, NetworkDetailPage::InfoType type)
+{
+    NetworkManager::Connection::Ptr connection = findConnectionByUuid(connectinfo.value("ConnectionUuid").toString());
+    NetworkManager::ConnectionSettings::Ptr connectionSettings = connection->settings();
+    NetworkManager::Ipv6Setting::Ptr ipv6Setting = connectionSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>();
+    QList<NetworkManager::IpAddress> addressInfos = ipv6Setting->addresses();
+    if (ipv6Setting->method() == Ipv6Setting::Manual) {
+
+        if (addressInfos.count() == 0) {
+            qDebug() << "ipv6Setting error! ";
+            return "";
+        }
+
+        switch (type) {
+        case Ip:
+            return addressInfos[0].ip().toString();
+        case Gateway:
+            return addressInfos[0].gateway().toString();
+        }
+    }
+
+    if (ipv6Setting->method() == Ipv6Setting::Automatic) {
+        const auto ipv6 = connectinfo.value("Ip6").toObject();
+        switch (type) {
+        case Ip:
+            return ipv6.value("Address").toString();
+        case Gateway:
+            return ipv6.value("Address").toString();
+        }
+    }
+    return "";
 }
 }
 }
