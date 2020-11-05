@@ -100,6 +100,7 @@ Q_SIGNALS:
     void requestSetOpacity(int value);
     void requestSetMiniEffect(int effect);
     void requestSetActiveColor(const QString &color);
+    void windowRadiusChanged(int radius);
 
 private:
     void onOpacityChanged(std::pair<int, double> value);
@@ -107,6 +108,7 @@ private:
     void onActiveColorChanged(const QString &newColor);
     void onActiveColorClicked();
     void onCompositingAllowSwitchChanged(bool value);
+    void onWindowRadiusChanged(int radius);
 
 private:
     QVBoxLayout *m_centralLayout;             //主布局
@@ -114,11 +116,13 @@ private:
     dcc::widgets::TitledSliderItem *m_transparentSlider;  //透明度调节
     dcc::widgets::ComboxWidget *m_cmbMiniEffect;    //最小化效果
     dcc::personalization::PersonalizationModel *m_model;
+    dcc::widgets:: TitledSliderItem *m_winRoundSlider;   // 自定义圆角(社区版功能)
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;
     RingColorWidget *m_bgWidget;
     QWidget *m_switchWidget;
     bool m_bSystemIsServer;
+    int m_windowRadius;
     Dtk::Gui::DGuiApplicationHelper::ColorType m_themeType;
 };
 }

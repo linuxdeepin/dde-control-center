@@ -116,6 +116,12 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
 
     m_dbus->setSync(false);
     m_wmSwitcher->setSync(false);
+
+    bool ok = false;
+    QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
+    int radius = interface.property("WindowRadius").toInt(&ok);
+    if (ok)
+        m_model->setWindowRadius(radius);
 }
 
 void PersonalizationWork::active()
@@ -549,6 +555,12 @@ void PersonalizationWork::setMiniEffect(int effect)
 void PersonalizationWork::setActiveColor(const QString &hexColor)
 {
     m_dbus->setQtActiveColor(hexColor);
+}
+
+void PersonalizationWork::setWindowRadius(int radius)
+{
+    QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
+    interface.setProperty("WindowRadius", radius);
 }
 
 template<typename T>
