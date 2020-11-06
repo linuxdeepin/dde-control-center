@@ -2,13 +2,13 @@ Source: dde-control-center
 Section: admin
 Priority: optional
 Maintainer: Deepin Sysdev <sysdev@deepin.com>
-Build-Depends: debhelper (>= 9),
+Build-Depends: 
+ debhelper (>= 11),
  pkg-config,
- dpkg-dev,
  ninja-build,
  libx11-dev,
  cmake,
- qt5-default,
+ qtbase5-dev,
  qtdeclarative5-dev,
  libqt5svg5-dev,
  libdtkcore-dev,
@@ -41,7 +41,7 @@ Depends: ${shlibs:Depends},
  dde-account-faces,
  dde-daemon,
  deepin-user-experience-daemon,
- dde-api (>=2.92.1),
+ dde-api (>= 2.92.1),
  xkb-data,
  deepin-installer-timezones,
  passwd,
@@ -56,11 +56,11 @@ Conflicts:
 Replaces:
  dde-control-center-plugin-weather,
  dde-control-center-plugin-notify
-Description: New control center for Deepin Desktop Environment
- DDE Control Center is the control panel of Deepin Desktop Environment.
+Description: this dde-control-center
+ This section is useless, but it will not compile and report errors
 
 Package: dde-control-center-dev
-Architecture: all
+Architecture: any
 Depends: dde-control-center (= ${binary:Version}), ${misc:Depends}
-Description: New control center for Deepin Desktop Environment - developement files
- DDE Control Center is the control panel of Deepin Desktop Environment.
+Description: this dde-control-center-dev is dev file
+ development files DDE  Control Center is the control panel of Deepin Desktop Environment.
