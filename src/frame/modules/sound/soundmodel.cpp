@@ -113,6 +113,7 @@ SoundModel::SoundModel(QObject *parent)
         { "/usr/share/sounds/deepin/stereo/device-added.wav", "device-added" },
         { "/usr/share/sounds/deepin/stereo/device-removed.wav", "device-removed" },
         { "/usr/share/sounds/deepin/stereo/dialog-error.wav", "dialog-error" },
+        { "/usr/share/sounds/deepin/stereo/camera-shutter.wav", "camera-shutter" },
     };
 
     if(IsServerSystem) {

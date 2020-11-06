@@ -25,7 +25,6 @@
 #include "widgets/translucentframe.h"
 #include "widgets/titlelabel.h"
 
-#include <QGSettings>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLineEdit>
@@ -43,9 +42,6 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     : ContentWidget()
     , m_adapter(adapter)
     , m_device(device)
-    , m_soundeffectInter(new SoundeffectInter("com.deepin.daemon.SoundEffect",
-                                               "/com/deepin/daemon/SoundEffect",
-                                               QDBusConnection::sessionBus(), this))
 {
     m_ignoreButton = new QPushButton(tr("Ignore this device"));
     m_disconnectButton = new QPushButton(tr("Disconnect"));
@@ -92,8 +88,7 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     connect(m_editDevAlias, &QLineEdit::textEdited, this, [ = ](const QString &str){
         if (str.length() > 32) {
             m_editDevAlias->backspace();
-            //DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-            playSystemSoundEffect("dialog-error");
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         }
     });
     connect(m_device, &Device::nameChanged, m_devNameLabel, &QLabel::setText);
@@ -115,28 +110,6 @@ DetailPage::DetailPage(const Adapter *adapter, const Device *device)
     connect(m_editDevAlias, &QLineEdit::editingFinished, this, &DetailPage::onDeviceAliasChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
     connect(backWidgetBtn, &DIconButton::clicked, this, &DetailPage::back);
-}
-
-bool DetailPage::playSystemSoundEffect(QString soundName)
-{
-    QGSettings settings("com.deepin.dde.sound-effect");
-    bool effEnabled = settings.get("enabled").toBool();
-    if (effEnabled) {
-        const QStringList list = settings.keys();
-        if (!list.contains(soundName)) {
-                return false;
-        }
-        effEnabled = settings.get(soundName).toBool();
-    }
-    if (effEnabled == false) {
-        return false;
-    }
-    if (soundName.isEmpty()) {
-        return false;
-    }
-
-    m_soundeffectInter->PlaySound(soundName);
-    return true;
 }
 
 void DetailPage::onDeviceStatusChanged()

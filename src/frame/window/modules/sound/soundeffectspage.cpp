@@ -122,8 +122,13 @@ void SoundEffectsPage::startPlay(const QModelIndex &index)
     m_playIdx = index;
 
     auto eff = m_model->soundEffectMap()[index.row()].second;
-    QString soundName = m_model->soundNameByPath(m_model->soundEffectPathByType(eff));
-    m_soundeffectInter->PlaySound(soundName);
+    QString soundPath = m_model->soundEffectPathByType(eff);
+    if (QFile::exists(soundPath))
+    {
+        QString soundName = m_model->soundNameByPath(soundPath);
+        m_soundeffectInter->PlaySound(soundName);
+        qDebug() << "play sound name: " << soundName;
+    }
 
     m_aniTimer->disconnect();
     auto item = static_cast<DStandardItem *>(m_listModel->itemFromIndex(index));
