@@ -280,22 +280,21 @@ void CustomSettingDialog::initRefreshrateList(int mode)
     } else {
         listModel = new QStandardItemModel(this);
     }
-    auto modes = m_monitor->modeList();
+
     m_rateList->setModel(listModel);
     Resolution pevR;
 
-    auto moni = m_monitor;
     QList<double> rateList;
     bool isFirst = true;
     QString allStr;
-    for (auto m : moni->modeList()) {
-        if (!Monitor::isSameResolution(m, moni->currentMode()))
+    for (auto m : m_monitor->modeList()) {
+        if (!Monitor::isSameResolution(m, m_monitor->currentMode()))
             continue;
 
         if (m_model->isMerge()) {
-            bool isCommen = true;;
+            bool isCommen = true;
             for (auto tmonitor : m_model->monitorList()) {
-                if (!tmonitor->hasResolutionAndRate(m, mode)) {
+                if (tmonitor !=m_monitor && !tmonitor->hasResolutionAndRate(m, mode)) {
                     isCommen = false;
                     break;
                 }
@@ -320,7 +319,7 @@ void CustomSettingDialog::initRefreshrateList(int mode)
             tstr += QString(" (%1)").arg(tr("Recommended"));
             isFirst = false;
         }
-        if (fabs(trate - moni->currentMode().rate()) < 1e-5) {
+        if (fabs(trate - m_monitor->currentMode().rate()) < 1e-5) {
             item->setCheckState(Qt::CheckState::Checked);
         } else {
             item->setCheckState(Qt::CheckState::Unchecked);

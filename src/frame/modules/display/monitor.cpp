@@ -204,7 +204,7 @@ bool Monitor::hasResolutionAndRate(const Resolution &r, int mode)
     //+ 双屏复制时，添加刷新率判断模式；当检测到两个屏幕的没有共同刷新率时启用；
     if (1 == mode || 0 == mode) {
         for (auto m : m_modeList) {
-            if (abs(m.rate() - r.rate()) < 0.5 && m.width() == r.width() && m.height() == r.height()) {
+            if (abs(m.rate() - r.rate()) < 1e-5 && m.width() == r.width() && m.height() == r.height()) {
                 return true;
             }
         }
@@ -215,7 +215,6 @@ bool Monitor::hasResolutionAndRate(const Resolution &r, int mode)
             }
         }
     }
-
 
     return false;
 }
