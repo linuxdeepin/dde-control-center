@@ -1,4 +1,4 @@
 #!/bin/bash
 # this will launch dde-control-center
 
-qdbus --literal com.deepin.SessionManager /com/deepin/StartManager com.deepin.StartManager.Launch /usr/share/applications/dde-dde-control-center.desktop
+qdbus --literal com.deepin.SessionManager /com/deepin/StartManager com.deepin.StartManager.Launch /usr/share/applications/dde-control-center.desktop
