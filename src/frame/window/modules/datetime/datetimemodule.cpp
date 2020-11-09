@@ -281,7 +281,11 @@ void DatetimeModule::showSystemTimezone()
     ensureZoneChooserDialog();
     m_dialog->setIsAddZone(false);
     m_dialog->show();
-    m_dialog->setMarkedTimeZone(m_model->getTimeZone());
+    if (!installer::GetCurrentTimezone().isEmpty()) {
+        m_dialog->setMarkedTimeZone(installer::GetCurrentTimezone());
+    } else {
+        m_dialog->setMarkedTimeZone(m_model->getTimeZone());
+    }
 }
 
 void DatetimeModule::showTimeSetting()
