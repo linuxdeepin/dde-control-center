@@ -547,12 +547,23 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
 
     // default FullName is empty string
     auto type = IsServerSystem ? 0 : 1;
-    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
-
+    QDBusObjectPath path;
+    QString errorStr;
+    QDBusPendingCall call = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ watcher, &path, &errorStr ] {
+        QDBusPendingReply<QDBusObjectPath> reply = *watcher;
+        if (reply.isError()) {
+            errorStr = reply.error().message();
+        }
+        path = reply.argumentAt<0>();
+        watcher->deleteLater();
+    });
+    watcher->waitForFinished();
     const QString userPath = path.path();
     if (userPath.isEmpty() || userPath.isNull()) {
         result->setType(CreationResult::UnknownError);
-        result->setMessage("no method call result on CreateUser");
+        result->setMessage(errorStr.isEmpty() ? "no method call result on CreateUser" : errorStr);
         return result;
     }
 
