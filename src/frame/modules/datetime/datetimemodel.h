@@ -63,6 +63,9 @@ public:
     inline QStringList ntpServerList() const { return  m_NtpServerList; }
     void setNTPServerList(const QStringList &list);
 
+    inline QString getTimeZone() const { return m_timeZones; }
+    void setTimeZoneInfo(const QString &timeZone);
+
     inline int weekdayFormatType() const { return  m_weekdayFormatType; }
     inline int shortDateFormat() const { return  m_shortDateFormat; }
     inline int longDateFormat() const { return  m_longDateFormat; }
@@ -107,6 +110,7 @@ Q_SIGNALS:
     void longTimeFormatChanged(int type);
     void shorTimeFormatChanged(int type);
     void weekStartDayFormatChanged(int type);
+    void timeZoneChanged(QString value);
 private:
     bool m_ntp;
     bool m_bUse24HourType;
@@ -120,6 +124,7 @@ private:
     bool m_bSystemIsServer;
     QString m_strNtpServerAddress;
     QStringList m_NtpServerList;
+    QString m_timeZones;
 
     int m_weekdayFormatType{0};
     int m_shortDateFormat{0};
