@@ -29,6 +29,9 @@
 #include "widgets/contentwidget.h"
 #include "interface/namespace.h"
 
+
+class QTimer;
+
 namespace dde {
 namespace network {
 class NetworkModel;
@@ -44,6 +47,7 @@ class NetworkDetailPage : public dcc::ContentWidget
 
 public:
     explicit NetworkDetailPage(QWidget *parent = nullptr);
+    ~NetworkDetailPage();
 
     void setModel(dde::network::NetworkModel *model);
 
@@ -52,6 +56,11 @@ private Q_SLOTS:
 
 private:
     QVBoxLayout *m_groupsLayout;
+    /**
+     * @brief m_updateData
+     * @remark 一分钟刷新一次详情数据，不在该页面就不会刷新，节省资源
+     */
+    QTimer *m_updateData;
 };
 }
 }

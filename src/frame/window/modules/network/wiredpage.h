@@ -63,23 +63,19 @@ public:
     void setModel(dde::network::NetworkModel *model);
     void jumpPath(const QString &searchPath);
 Q_SIGNALS:
-    void requestConnectionsList(const QString &devPath);
     void requestActiveConnection(const QString &devPath, const QString &uuid) const;
     void requestNextPage(ContentWidget * const w) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
-    void requestDeviceEnabled(const QString &devPath, const bool enabled) const;
     void requestShowConnEditPage(dde::network::NetworkDevice *device, const QString &session) const;
     void requestRemoveConnEditPage(dde::network::NetworkDevice *device) const;
 
 private Q_SLOTS:
-    void initUI();
-
     void refreshConnectionList();
     void editConnection(const QString &connectionPath);
     void createNewConnection();
     void activateConnection(const QString &connectionPath);
     void activateEditConnection(const QString &connectPath, const QString &uuid);
-    void checkActivatedConnection();
+    void onActivatedConnection(const QJsonObject &activeConn);
     void onDeviceStatusChanged(const dde::network::WiredDevice::DeviceStatus stat);
     void onDeviceRemoved();
 
@@ -97,7 +93,7 @@ private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
     dcc::widgets::SettingsGroup *m_tipsGrp;
 
-    QMap<DTK_WIDGET_NAMESPACE::DStandardItem *, QString> m_connectionPath;
+    QMap<DTK_WIDGET_NAMESPACE::DStandardItem *, QString> m_connectionUuid;
 
     static const int PathRole = Dtk::UserRole + 1;
 };

@@ -62,7 +62,6 @@ using namespace dde::network;
 
 APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListView *parent)
     : DStandardItem(text)
-    , m_parentView(nullptr)
     , m_dStyleHelper(style)
     , m_preLoading(false)
     , m_uuid("")
@@ -73,7 +72,6 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
     m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false);
     setActionList(Qt::Edge::LeftEdge, {m_secureAction});
 
-    m_parentView = parent;
     if (parent != nullptr) {
         //连接动图---那个三个小球转转转的图标
         m_loadingIndicator = new DSpinner();
@@ -119,13 +117,14 @@ void APItem::setSignalStrength(int ss)
         setIcon(QPixmap());
         return;
     }
-    if (5 >= ss)
+    //该区间是根据需求文档中规定的
+    if (6 > ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(0)));
-    else if (5 < ss && 30 >= ss)
+    else if (5 < ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(2)));
-    else if (30 < ss && 55 >= ss)
+    else if (30 < ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(4)));
-    else if (55 < ss && 65 >= ss)
+    else if (55 < ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(6)));
     else if (65 < ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(8)));
@@ -134,6 +133,7 @@ void APItem::setSignalStrength(int ss)
     si.signalstrength = ss;
     si.ssid = text();
     setData(QVariant::fromValue(si), SortRole);
+    Q_EMIT apChange();
 }
 
 int APItem::signalStrength() const
@@ -141,9 +141,26 @@ int APItem::signalStrength() const
     return data(SortRole).value<APSortInfo>().signalstrength;
 }
 
+void APItem::setConnecting(bool connecting)
+{
+    APSortInfo si = data(SortRole).value<APSortInfo>();
+    si.connecting = connecting;
+    setData(QVariant::fromValue(si), SortRole);
+    Q_EMIT apChange();
+}
+
+bool APItem::isConnecting()
+{
+    return data(SortRole).value<APSortInfo>().connecting;
+}
+
 void APItem::setConnected(bool connected)
 {
     setCheckState(connected ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+    APSortInfo si = data(SortRole).value<APSortInfo>();
+    si.connected = connected;
+    setData(QVariant::fromValue(si), SortRole);
+    Q_EMIT apChange();
 }
 
 bool APItem::isConnected()
@@ -154,6 +171,7 @@ bool APItem::isConnected()
 void APItem::setSortInfo(const APSortInfo &si)
 {
     setData(QVariant::fromValue(si), SortRole);
+    Q_EMIT apChange();
 }
 
 APSortInfo APItem::sortInfo()
@@ -169,6 +187,11 @@ void APItem::setPath(const QString &path)
 QString APItem::path() const
 {
     return data(PathRole).toString();
+}
+
+QString APItem::ssid() const
+{
+    return data(SortRole).value<APSortInfo>().ssid;
 }
 
 void APItem::setUuid(const QString &uuid)
@@ -187,7 +210,7 @@ QAction *APItem::action() const
 
 bool APItem::operator<(const QStandardItem &other) const
 {
-    APSortInfo thisApInfo = data(SortRole).value<APSortInfo>();
+    APSortInfo  thisApInfo = data(SortRole).value<APSortInfo>();
     APSortInfo otherApInfo = other.data(SortRole).value<APSortInfo>();
     bool bRet = thisApInfo < otherApInfo;
     return bRet;
@@ -196,35 +219,19 @@ bool APItem::operator<(const QStandardItem &other) const
 bool APItem::setLoading(bool isLoading)
 {
     bool isReconnect = false;
+    //连接小图标有实例
     if (m_loadingIndicator.isNull()) {
         return isReconnect;
     }
+    //前一个状态是否当前状态
     if (m_preLoading == isLoading) {
         return isReconnect;
     } else {
         m_preLoading = isLoading;
     }
+    //判断是否需要处于连接状态
     if (isLoading) {
-        if (m_parentView) {
-            QModelIndex index;
-            const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentView->model());
-            if (!deviceModel) {
-                return isReconnect;
-            }
-            for (int i = 0; i < m_parentView->count(); ++i) {
-                DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
-                if (!item) {
-                    return isReconnect;
-                }
-                if (this == item) {
-                    index = m_parentView->model()->index(i, 0);
-                    break;
-                }
-            }
-            QRect itemrect = m_parentView->visualRect(index);
-            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
-            m_loadingIndicator->move(point);
-        }
+        //隐藏详情页箭头
         if (!m_arrowAction.isNull()) {
             m_arrowAction->setVisible(false);
         }
@@ -233,8 +240,10 @@ bool APItem::setLoading(bool isLoading)
         m_loadingAction->setVisible(true);
         m_loadingIndicator->start();
         m_loadingIndicator->show();
+        //设置ActionList会将原来旧的DViewItemAction释放掉，所以这里会出现智能指针，且一直在new的情况
         setActionList(Qt::Edge::RightEdge, {m_loadingAction});
     } else {
+        //停止并隐藏动图
         m_loadingIndicator->stop();
         m_loadingIndicator->hide();
         if (!m_loadingAction.isNull()) {
@@ -245,12 +254,12 @@ bool APItem::setLoading(bool isLoading)
         m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
         m_arrowAction->setVisible(true);
+        Q_EMIT ActionChange(this);
         setActionList(Qt::Edge::RightEdge, {m_arrowAction});
         isReconnect = true;
     }
-    if (m_parentView) {
-        m_parentView->update();
-    }
+    //告知列表状态改变，准备刷新
+    Q_EMIT apChange();
     return isReconnect;
 }
 
@@ -264,10 +273,28 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_switchEnableTimer(new QTimer(this))
-    , m_airplaninter(new AirplanInter("com.deepin.daemon.AirplaneMode","/com/deepin/daemon/AirplaneMode",QDBusConnection::systemBus(),this))
 {
+    initUI();
     qRegisterMetaType<APSortInfo>();
-    m_preWifiStatus = Wifi_Unknown;
+    //排序定时器
+    m_sortDelayTimer->setInterval(100);
+    m_sortDelayTimer->setSingleShot(true);
+    //wifi开关禁用定时器
+    m_switchEnableTimer->setInterval(500);
+    m_switchEnableTimer->setSingleShot(true);
+    initConnect();
+}
+
+
+
+void WirelessPage::initUI()
+{
+    //无线网卡页的标题栏
+    TitleLabel *lblTitle = new TitleLabel(tr("Wireless Network Adapter"));//无线网卡
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_switch = new SwitchWidget(nullptr, lblTitle);
+
+    //网络详情页
     m_lvAP->setAccessibleName("List_wirelesslist");
     m_lvAP->setModel(m_modelAP);
     m_lvAP->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -277,7 +304,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvAP->setViewportMargins(0, 0, 7, 0);
-    
+
+    //设置滚动条
     QScroller::grabGesture(m_lvAP->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_lvAP->viewport());
     QScrollerProperties sp;
@@ -285,44 +313,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     scroller->setScrollerProperties(sp);
 
     m_modelAP->setSortRole(APItem::SortRole);
-    m_sortDelayTimer->setInterval(100);
-    m_sortDelayTimer->setSingleShot(true);
 
-    m_switchEnableTimer->setInterval(500);
-    m_switchEnableTimer->setSingleShot(true);
+    //创建隐藏wifi连接选项
     APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
     nonbc->setPath("");
     nonbc->setSortInfo({-1, "", false});
     connect(nonbc->action(), &QAction::triggered, this, [this] { showConnectHidePage(); });
     m_modelAP->appendRow(nonbc);
-
-    //~ contents_path /network/WirelessPage
-    //初始化的时候判断一下飞行模式是否打开
-    bool isAirplan = m_airplaninter->wifiEnabled();
-    m_lvAP->setVisible(dev->enabled() && isAirplan);
-
-    //关联信号和槽,防止信息不同步
-    connect(m_airplaninter, &AirplanInter::WifiEnabledChanged,this, [=](const bool enabled){
-            m_switch->setChecked(dev->enabled() && enabled);
-    });
-
-    connect(m_switchEnableTimer, &QTimer::timeout, this, &WirelessPage::onSwitchEnable);
-
-    TitleLabel *lblTitle = new TitleLabel(tr("Wireless Network Adapter"));//无线网卡
-    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
-    m_switch = new SwitchWidget(nullptr, lblTitle);
-    m_switch->setChecked(dev->enabled() && isAirplan);
-
-    connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
-    connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
-        m_switch->setChecked(enabled);
-
-        if (m_lvAP) {
-            m_lvAP->setVisible(enabled);
-            updateLayout(!m_lvAP->isHidden());
-        }
-    });
 
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
 
@@ -338,80 +336,43 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     //m_mainLayout->addWidget(m_tipsGroup);
     m_mainLayout->addWidget(m_closeHotspotBtn);
     m_layoutCount = m_mainLayout->layout()->count();
-    updateLayout(!m_lvAP->isHidden());
     m_mainLayout->setSpacing(10);//三级菜单控件间的间隙
     m_mainLayout->setMargin(0);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_mainLayout);
-
+    //获取当前开关状态
+    onSwitch(m_device->enabled());
     setContent(mainWidget);
+}
 
-    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
-        //没有名字的wifi则调用wifi编辑页面
-        if (idx.data(APItem::PathRole).toString().length() == 0) {
-            this->showConnectHidePage();
-            return;
-        }
+void WirelessPage::initConnect()
+{
+    //禁用wifi开关500毫秒
+    connect(m_switchEnableTimer, &QTimer::timeout, this, &WirelessPage::onSwitchEnable);
 
-        const QStandardItemModel *deviceModel = qobject_cast<const QStandardItemModel *>(idx.model());
-        if (!deviceModel) {
-            return;
-        }
-        m_clickedItem = dynamic_cast<APItem *>(deviceModel->item(idx.row()));
-        if (!m_clickedItem) {
-            qDebug() << "clicked item is nullptr";
-            return;
-        }
-
-        //当前处于连接中状态，则返回
-        if (m_clickedItem->isConnected()) {
-            return;
-        }
-        qDebug() << "clicked item " << m_clickedItem->text();
-        this->onApWidgetConnectRequested(idx.data(APItem::PathRole).toString(),
-                                         idx.data(Qt::ItemDataRole::DisplayRole).toString());
-    });
-
+    //延迟100毫秒刷新wifi列表
     connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
-    connect(m_closeHotspotBtn, &QPushButton::clicked, this, &WirelessPage::onCloseHotspotClicked);
+
+    //切换开关
+    connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
+
+    //更改wifi列表信息
     connect(m_device, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
-    connect(m_device, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
     connect(m_device, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
-    connect(m_device, &WirelessDevice::activeApInfoChanged, this, &WirelessPage::updateActiveAp);
+    connect(m_device, &WirelessDevice::apInfoChanged, this, &WirelessPage::onAPChanged);
+
+    //点击wifi进行连接
+    connect(m_lvAP, &QListView::clicked, this, &WirelessPage::onClickApItem);
+
+    //热点功能相关的信号槽，目前还没做
     connect(m_device, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
-    connect(m_device, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
+    connect(m_closeHotspotBtn, &QPushButton::clicked, this, &WirelessPage::onCloseHotspotClicked);
+
+    //活动状态的槽
+    connect(m_device, &WirelessDevice::activeConnectionsChanged, this, &WirelessPage::onActivaConnections);
+    //当网络需要密码或者是企业wifi的时候，要先去后端判断
     connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
-    connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
-    connect(m_device, &WirelessDevice::activeConnectionsChanged, this, [ = ] {
-        /*由于这里数据不好处理，需要将QList<QJsonObject> > 转成 APItem，并不是很好处理
-            所以放弃了更新m_clickItem,而直接将全部的连接状态都关闭，则可以正常显示一个wifi的连接状态，
-            正确的操作应该是在这里更新一下m_clickItem的值，然后再进行遍历关闭其他连接中状态的操作，伪代码如下:
-
-            m_clickItem = 后端发过来的数据转化成ApItem *;
-            for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-                it.value()->setLoading(it->value() == m_clickItem);
-            }
-
-         Author: xiehui <xiehui@uniontech.com>   */
-
-        for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-            it.value()->setLoading(false);
-        }
-    });
-
-
-
-    // init data
-    const QJsonArray mApList = m_device->apList();
-    if (!mApList.isEmpty()) {
-        for (auto ap : mApList) {
-            onAPAdded(ap.toObject());
-            onAPChanged(ap.toObject());
-        }
-    }
-
-    m_preActiveSsid = m_device->activeApSsid();
 }
 
 WirelessPage::~WirelessPage()
@@ -421,8 +382,6 @@ WirelessPage::~WirelessPage()
         scroller->stop();
     }
     qDebug() << Q_FUNC_INFO;
-    //这里做个清理操作，由于networkmodle和networkwrok是一个复用状态，不会被释放，所以这里加一个清理wifi列表的操作
-    m_model->WirelessListClear();
 }
 
 void WirelessPage::onSwitchEnable()
@@ -430,6 +389,12 @@ void WirelessPage::onSwitchEnable()
     m_switch->switchButton()->setEnabled(true);
 }
 
+void WirelessPage::onSwitch(bool enable)
+{
+    m_switch->setChecked(enable);
+    m_lvAP->setVisible(enable);
+    updateLayout(!m_lvAP->isHidden());
+}
 
 void WirelessPage::updateLayout(bool enabled)
 {
@@ -460,35 +425,25 @@ int WirelessPage::canUpdateApList() {
     return true;
 }
 
-void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat)
+bool WirelessPage::setApLoadin(APItem *ApItem)
 {
-    const bool unavailable = stat <= NetworkDevice::Unavailable;
-    if (m_preWifiStatus == Wifi_Unknown) {
-        m_preWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
-    }
-    WifiStatus curWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
-    if (curWifiStatus != m_preWifiStatus && stat > NetworkDevice::Disconnected) {
-        m_switch->setChecked(!unavailable);
-        onNetworkAdapterChanged(!unavailable);
-        m_preWifiStatus = curWifiStatus;
-    }
-    if (stat == WirelessDevice::Failed) {
-        for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-            if (m_clickedItem == it.value()) {
-                it.value()->setLoading(false);
-                m_clickedItem = nullptr;
-            }
-        }
-    } else if (WirelessDevice::Prepare <= stat && stat < WirelessDevice::Activated) {
-        for (auto ls = m_device->activeConnections().cbegin(); ls != m_device->activeConnections().cend(); ++ls) {
-            for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-                if (ls->value("Id").toString() == it.key()) {
-                    it.value()->setLoading(true);
-                    m_clickedItem = it.value();
-                }
-            }
+    bool isLoad = true;
+    for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
+        if (ApItem == it.value()) {
+            it.value()->setConnecting(true);
+            isLoad = it.value()->setLoading(true);
+            m_clickedItem = ApItem;
+        } else {
+            it.value()->setConnecting(false);
+            it.value()->setLoading(false);
         }
     }
+    //由于当ApItem = nullptr时候，则ApItem == it.value()无法进去，
+    //所以需要在全部设置false后再赋值给
+    if (ApItem == nullptr) {
+        m_clickedItem = nullptr;
+    }
+    return isLoad;
 }
 
 void WirelessPage::setModel(NetworkModel *model)
@@ -496,25 +451,20 @@ void WirelessPage::setModel(NetworkModel *model)
     m_model = model;
     m_lvAP->setVisible(m_switch->checked());
     connect(m_model, &NetworkModel::deviceEnableChanged, this, [=](){
-            bool isAirplan = m_airplaninter->wifiEnabled();
-            m_switch->setChecked(m_device->enabled() && isAirplan);
-            m_lvAP->setVisible(m_device->enabled() && isAirplan);
-            updateLayout(!m_lvAP->isHidden());
-   	});
+        onSwitch(m_device->enabled());
+        if (m_device->enabled())
+            //这里会在页面创建的时候去初始化一次，所以无需在构造函数中再调用
+            m_device->initWirelessData();
+    });
+    //更新一下wifi数据
+    m_device->initWirelessData();
+    //开启之后刷新wifi数据，防止数据太旧了
+    Q_EMIT m_model->updateApList();
 
-    connect(m_device,
-            static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
-            this,
-            &WirelessPage::onDeviceStatusChanged);
-
-    //由于dde::network::NetworkModel和dde::network::Networkwork并不会被释放，
-    //所以需要在这里做一个wifi刷新操作，防止打开一打开wifi页面的开始没有wifi列表的情况
-    Q_EMIT requestWirelessScan();
-
+    //以下两个是根据热点功能进行刷新，暂时没有热点功能
     onHotspotEnableChanged(m_device->hotspotEnabled());
     updateLayout(!m_lvAP->isHidden());
-    m_switch->setChecked(m_device->enabled());
-    onDeviceStatusChanged(m_device->status());
+    //onDeviceStatusChanged(m_device->status());
 }
 
 void WirelessPage::jumpByUuid(const QString &uuid)
@@ -531,19 +481,15 @@ void WirelessPage::jumpByUuid(const QString &uuid)
 
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
+    //网卡开关
+    m_model->onDeviceEnable(m_device->path(), checked);
 
-    Q_EMIT requestDeviceEnabled(m_device->path(), checked);
-
-    if (checked) {
-        Q_EMIT requestWirelessScan();
-        //开启的时候将开关禁用500毫秒，为了防止用户疯狂操作，导致wifi状态切换频繁
-        m_switch->switchButton()->setEnabled(false);
-        m_switchEnableTimer->start();
-    }
-
+    //开启的时候将开关禁用500毫秒，为了防止用户疯狂操作，导致wifi状态切换频繁
+    m_switch->switchButton()->setEnabled(false);
+    m_switchEnableTimer->start();
+    onSwitch(checked);
+    //将点击的wifi变成空
     m_clickedItem = nullptr;
-    m_lvAP->setVisible(checked);
-    updateLayout(!m_lvAP->isHidden());
 
     if (!m_apEditPage.isNull() && !checked) {
         Q_EMIT m_apEditPage->back();
@@ -552,40 +498,39 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
 
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 {
-    /* 当前情况下是一分钟刷新一次
-        if (!canUpdateApList()) {
-            return;
-        }
-        注释中的内容无需添加，如果后期修改逻辑，请根据情况是否要添加 */
-
+    //确定存在ssid
     const QString &ssid = apInfo.value("Ssid").toString();
-    if (!m_apItems.contains(ssid)) {
+    //这里防止加入的wifi为空白名称，产生异常
+    if (!m_apItems.contains(ssid) && !ssid.isEmpty()) {
         APItem *apItem = new APItem(ssid, style(), m_lvAP);
+        connect(apItem, &APItem::apChange,
+                this, [=](){if (!m_sortDelayTimer->isActive())
+                                m_sortDelayTimer->start();});
         m_apItems[ssid] = apItem;
         m_modelAP->appendRow(apItem);
         apItem->setSecure(apInfo.value("Secured").toBool());
         apItem->setPath(apInfo.value("Path").toString());
-        apItem->setConnected(ssid == m_device->activeApSsid());
+        //这里需要判断当前的是否处于连接成功的状态，防止刚打开出现连接成功和连接中的图标
+        apItem->setConnected(ssid == m_device->activeApSsid()
+                             && m_device->activeApState() == Wifi_Connected);
+        apItem->setUuid(apInfo.value("Uuid").toString());
         apItem->setSignalStrength(apInfo.value("Strength").toInt());
-        connect(apItem->action(), &QAction::triggered, [this, apItem] {
-            this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(),
-                                          apItem->data(Qt::ItemDataRole::DisplayRole).toString());
-        });
-        m_sortDelayTimer->start();
+        //去连接详情页
+        updateAction(apItem);
+        connect(apItem, &APItem::ActionChange, this, &WirelessPage::updateAction);
+
     }
 }
 
 void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 {
-    if (!canUpdateApList())
-        return;
-
     const QString &ssid = apInfo.value("Ssid").toString();
     if (!m_apItems.contains(ssid)) return;
 
     const QString &path = apInfo.value("Path").toString();
     const int strength = apInfo.value("Strength").toInt();
     const bool isSecure = apInfo.value("Secured").toBool();
+    const QString &uuid = apInfo.value("Uuid").toString();
 
     APItem *it = m_apItems[ssid];
     if (5 >= strength && !it->checkState() && ssid != m_device->activeApSsid()) {
@@ -597,16 +542,13 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     } else {
         m_lvAP->setRowHidden(it->row(), false);
     }
-
-    APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
-    m_apItems[ssid]->setSortInfo(si);
-
     m_apItems[ssid]->setSignalStrength(strength);
+    m_apItems[ssid]->setConnected(ssid == m_device->activeApSsid() && m_device->activeApState() == Wifi_Connected);
+    m_apItems[ssid]->setUuid(uuid);
     if (it->path() != path) {
         m_apItems[ssid]->setPath(path);
     }
     it->setSecure(isSecure);
-    m_sortDelayTimer->start();
 }
 
 void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
@@ -617,24 +559,13 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
     const QString &ssid = apInfo.value("Ssid").toString();
     if (!m_apItems.contains(ssid)) return;
 
-    const QString &path = apInfo.value("Path").toString();
-
-    if (m_apItems[ssid]->path() == path) {
+    if (m_apItems[ssid]->ssid() == ssid) {
         if (m_clickedItem == m_apItems[ssid]) {
             m_clickedItem = nullptr;
             qDebug() << "remove clicked item," << QThread::currentThreadId();
         }
         m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
         m_apItems.erase(m_apItems.find(ssid));
-    }
-
-    //已连接wifi状态下，network后端防止数据过期，数据不同步。在连接上wifi后过一段时间会清空ap列表,发出清空信号。(正常处理)
-    //前端现象为wifi列表上过一段时间后只显示一个已连接ap。
-    //当前端wifi列表为该状态下时，重新扫描一次。
-    if (m_apItems.count()==1
-            && m_apItems.contains(m_device->activeWirelessConnName())) {
-        qDebug() << "Only one activedAp && requestWirelessScan";
-        Q_EMIT requestWirelessScan();
     }
 }
 
@@ -668,18 +599,7 @@ void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid
 {
     Q_UNUSED(uuid);
     onApWidgetEditRequested(apPath, connectionSsid(uuid));
-    for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-        if ((it.value()->path() == apPath) && (it.value()->uuid() == uuid)) {
-            bool isReconnect = it.value()->setLoading(false);
-            if (isReconnect) {
-                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
-                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
-                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                });
-            }
-        }
-        it.value()->setConnected(false);
-    }
+    setApLoadin(nullptr);
 }
 
 void WirelessPage::sortAPList()
@@ -689,17 +609,20 @@ void WirelessPage::sortAPList()
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
 {
-    const QString uuid = connectionUuid(ssid);
+    QString uuid = connectionUuid(ssid);
     if (!m_apEditPage.isNull()) {
+        qDebug() << "apEditPage not Empty";
         return;
     }
-
+    //由于数据一分钟更新一次，所以在快速删除后点击wifi详情页，会出现打开内容为空白的情况，
+    //所以要用静态函数先去networkManger中判断当前的uuid是否还有用，再去创建详情页
+    if (ConnectionWirelessEditPage::uuidIsEmpty(uuid))
+        uuid = QString("");
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid);
-
     if (!uuid.isEmpty()) {
-        m_editingUuid = uuid;
         m_apEditPage->initSettingsWidget();
-    } else {
+    }  else {
+        qDebug() << "uuid is Empty";
         m_apEditPage->initSettingsWidgetFromAp(apPath);
     }
 
@@ -712,52 +635,33 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
             return;
 
         QString connSSid = connectionSsid(uuid);
+        qDebug() << connSSid;
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
             if (connSSid == it.key()) {
                 m_clickedItem = it.value();
-                QJsonObject nilInfo;
-                updateActiveAp(nilInfo);
+                Q_EMIT m_model->requestConnectAp(m_device->path(), m_clickedItem->path(), m_clickedItem->uuid());
+                setApLoadin(m_clickedItem);
                 break;
             }
         }
+
     });
+    connect(m_apEditPage, &ConnectionEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
+    connect(m_apEditPage, &ConnectionEditPage::disconnectAP, m_model, [ = ](){Q_EMIT m_model->requestDisconnectAp(m_device->path());});
 
     Q_EMIT requestNextPage(m_apEditPage);
 }
 
 void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
 {
+
     const QString uuid = connectionUuid(ssid);
-    // uuid could be empty
-    for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-        it.value()->setConnected(false);
-        if (m_clickedItem == it.value()) {
-            m_clickedItem->setUuid(uuid);
-        }
-    }
-    if (uuid.isEmpty()) {
-        for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-            bool isReconnect = it.value()->setLoading(false);
-            if (isReconnect) {
-                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
-                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
-                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                });
-            }
-        }
-    } else {
-        for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-            bool isReconnect = it.value()->setLoading(it.value() == m_clickedItem);
-            if (isReconnect) {
-                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
-                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
-                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                });
-            }
-        }
+    //将现有的连接成功的图标关闭掉，防止出现正在连接和连接成功的图标
+    for (APItem *item : m_apItems) {
+        item->setConnected(false);
     }
     if (m_switch && m_switch->checked()) {
-        Q_EMIT requestConnectAp(m_device->path(), path, uuid);
+        Q_EMIT m_model->requestConnectAp(m_device->path(), path, uuid);
     }
 }
 
@@ -770,65 +674,12 @@ void WirelessPage::showConnectHidePage()
     Q_EMIT requestNextPage(m_apEditPage);
 }
 
-void WirelessPage::updateActiveAp(const QJsonObject &activeApInfo)
-{
-    qDebug() << "updateActiveAp:" << QThread::currentThreadId();
-    auto status = m_device->status();
-    auto activedSsid = m_device->activeApSsid();
-    bool isWifiConnected = status == NetworkDevice::Activated;
-    for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-        bool isConnected = it.key() == activedSsid;
-        it.value()->setConnected(isConnected);
-        APSortInfo info = it.value()->sortInfo();
-        info.connected = isConnected;
-        it.value()->setSortInfo(info);
-
-        if (m_clickedItem == it.value()) {
-            qDebug() << "click item: " << isConnected;
-            bool loading = true;
-            if (status == NetworkDevice::Activated || status == NetworkDevice::Disconnected) {
-                loading = false;
-            }
-            bool isReconnect = it.value()->setLoading(loading);
-            if (isReconnect) {
-                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
-                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
-                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                });
-            }
-        } else {
-            connect(it.value()->action(), &QAction::triggered, this, [this, it] {
-                this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
-                                              it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-            });
-        }
-    }
-    if (isWifiConnected && m_clickedItem) {
-        bool isReconnect = m_clickedItem->setLoading(false);
-        if (isReconnect) {
-            connect(m_clickedItem->action(), &QAction::triggered, this, [this] {
-                this->onApWidgetEditRequested(m_clickedItem->data(APItem::PathRole).toString(),
-                                              m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
-            });
-        }
-    }
-
-    QString activessid = activeApInfo.value("Ssid").toString();
-    if (!activessid.isEmpty()) {
-        if (m_preActiveSsid != activessid) {
-            m_preActiveSsid = activessid;
-            m_sortDelayTimer->start();
-        }
-    }
-}
-
 QString WirelessPage::connectionUuid(const QString &ssid)
 {
     QString uuid;
-    QList<QJsonObject> connections = m_device->connections();
-    for (auto item : connections) {
-        if (item.value("Ssid").toString() != ssid) continue;
-        uuid = item.value("Uuid").toString();
+    for (auto item : m_apItems) {
+        if (item->ssid() != ssid) continue;
+        uuid = item->uuid();
         if (!uuid.isEmpty()) break;
     }
     return uuid;
@@ -838,13 +689,80 @@ QString WirelessPage::connectionSsid(const QString &uuid)
 {
     QString ssid;
 
-    QList<QJsonObject> connections = m_device->connections();
-    for (auto item : connections) {
-        if (item.value("Uuid").toString() != uuid) continue;
+    for (auto item : m_apItems) {
+        if (item->uuid() != uuid) continue;
 
-        ssid = item.value("Ssid").toString();
+        ssid = item->ssid();
         if (!ssid.isEmpty()) break;
     }
 
     return ssid;
+}
+
+void WirelessPage::onActivaConnections(const QJsonObject &activeConn)
+{
+    const int &state = activeConn.value("State").toInt();
+    const QString &ssid = activeConn.value("Id").toString();
+    for (APItem *it: m_apItems) {
+        //由于WirelessAccessPoints接口一分钟会刷新一次，
+        //所以可能和当前连接状态的uuid不匹配的情况出现，故使用ssid进行判断连接的是哪个wifi
+        if (ssid == it->ssid()) m_clickedItem = it;
+    }
+    qDebug() << "m_clickedItem is nullptr :" << (m_clickedItem == nullptr) << ",connect ssid =" << ssid;
+    //当state=1代表连接中的状态，这个时候就要保持旋转图标不变
+    if (state == Wifi_Connecting) {
+        setApLoadin(m_clickedItem);
+        for (APItem *it: m_apItems) {
+            it->setConnected(false);
+        }
+      //当state =2的时候，代表是连接成功的状态
+    } else if(state == Wifi_Connected) {
+        for (APItem *it: m_apItems) {
+            it->setConnected(m_clickedItem == it);
+        }
+        setApLoadin(nullptr);
+      //当state == 3时，代表网络断开连接了
+    } else {
+        for (APItem *it: m_apItems) {
+            it->setConnected(false);
+        }
+        setApLoadin(nullptr);
+    }
+}
+
+void WirelessPage::updateAction(APItem *item)
+{
+    connect(item->action(), &QAction::triggered, [this, item] {
+        this->onApWidgetEditRequested(item->data(APItem::PathRole).toString(),
+                                      item->data(Qt::ItemDataRole::DisplayRole).toString());
+    });
+}
+
+void WirelessPage::onClickApItem(const QModelIndex & idx)
+{
+    //wifi路径为空，则代表是连接隐藏wifi选项
+    if (idx.data(APItem::PathRole).toString().isEmpty()) {
+       this->showConnectHidePage();
+       return;
+    }
+
+    const QStandardItemModel *deviceModel = qobject_cast<const QStandardItemModel *>(idx.model());
+    if (!deviceModel) {
+       return;
+    }
+    //当点击同一个wifi的时候，不再响应
+    if (deviceModel->item(idx.row()) == m_clickedItem)
+        return;
+    m_clickedItem = dynamic_cast<APItem *>(deviceModel->item(idx.row()));
+    if (!m_clickedItem) {
+       qDebug() << "clicked item is nullptr";
+       return;
+    }
+
+    //当前处于连接中状态，则返回
+    if (m_clickedItem->isConnected()) {
+       return;
+    }
+    this->onApWidgetConnectRequested(idx.data(APItem::PathRole).toString(),
+                                    idx.data(Qt::ItemDataRole::DisplayRole).toString());
 }

@@ -77,9 +77,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_switch->setChecked(dev->enabled());
     m_switch->addBackground();
     m_tipsGrp->setVisible(dev->enabled());
-    connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
-        Q_EMIT requestDeviceEnabled(m_device->path(), checked);
-    });
     //设置有线网卡选中状态
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
 
@@ -111,10 +108,10 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     tr("Add Network Connection");
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::connectionsChanged, this, &WiredPage::refreshConnectionList);
-    connect(m_device, &WiredDevice::activeWiredConnectionInfoChanged, this, &WiredPage::checkActivatedConnection);
     connect(m_device, static_cast<void (WiredDevice::*)(WiredDevice::DeviceStatus) const>(&WiredDevice::statusChanged),
             this, &WiredPage::onDeviceStatusChanged);
     connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
+    connect(m_device, &WiredDevice::activeConnectionsChanged, this, &WiredPage::onActivatedConnection);
 
     onDeviceStatusChanged(m_device->status());
     QTimer::singleShot(1, this, &WiredPage::refreshConnectionList);
@@ -123,8 +120,10 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 void WiredPage::setModel(NetworkModel *model)
 {
     m_model = model;
-
-    QTimer::singleShot(1, this, &WiredPage::initUI);
+    connect(m_switch, &SwitchWidget::checkedChanged, m_model, [  = ] (const bool checked) {
+        qDebug() << "enable:" << checked;
+        Q_EMIT m_model->requestDeviceEnable(m_device->path(), checked);
+    });
 }
 
 void WiredPage::jumpPath(const QString &searchPath)
@@ -134,45 +133,44 @@ void WiredPage::jumpPath(const QString &searchPath)
     }
 }
 
-void WiredPage::initUI()
-{
-    Q_EMIT requestConnectionsList(m_device->path());
-}
-
 void WiredPage::refreshConnectionList()
 {
-    // get all available wired connections path
+    // get all available wired connections uuid
     const auto wiredConns = m_model->wireds();
 
     QSet<QString> availableWiredConns;
     availableWiredConns.reserve(wiredConns.size());
 
     m_modelprofiles->clear();
-    m_connectionPath.clear();
+    m_connectionUuid.clear();
+
 
     for (const auto &wiredConn : wiredConns) {
-        const QString path = wiredConn.value("Path").toString();
-        if (!path.isEmpty())
-            availableWiredConns << path;
+        const QString uuid = wiredConn.value("Uuid").toString();
+        if (!uuid.isEmpty())
+            availableWiredConns << uuid;
     }
 
     const auto connObjList = m_device->connections();
-    QSet<QString> connPaths;
+    qDebug() << connObjList;
+    QSet<QString> connuuid;
     for (const auto &connObj : connObjList) {
+        const QString &uuid = connObj.value("Uuid").toString();
         const QString &path = connObj.value("Path").toString();
         // pass unavailable wired conns, like 'PPPoE'
-        if (!availableWiredConns.contains(path))
+        if (!availableWiredConns.contains(uuid))
             continue;
 
-        connPaths << path;
-        if (m_connectionPath.values().contains(path))
+        connuuid << uuid;
+        if (m_connectionUuid.values().contains(uuid))
             continue;
 
-        DStandardItem *it = new DStandardItem(m_model->connectionNameByPath(path));
+        //创建页面上的ApItem
+        DStandardItem *it = new DStandardItem(m_model->connectionNameByUuid(uuid));
         it->setData(path, PathRole);
         it->setCheckable(false);
-        it->setCheckState(path == m_device->activeWiredConnSettingPath() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
-
+        it->setCheckState(uuid == m_device->activeWiredConnUuid() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+        //创建Ap编辑页
         DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
@@ -184,10 +182,10 @@ void WiredPage::refreshConnectionList()
         it->setActionList(Qt::Edge::RightEdge, {editaction});
 
         m_modelprofiles->appendRow(it);
-        m_connectionPath.insert(it, path);
+        m_connectionUuid.insert(it, uuid);
     }
-
-    checkActivatedConnection();
+    //获取当前连接状态
+    onActivatedConnection(m_device->activeWiredConnectionData());
 }
 
 void WiredPage::editConnection(const QString &connectionPath)
@@ -195,10 +193,13 @@ void WiredPage::editConnection(const QString &connectionPath)
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
                                         m_device->path(), m_model->connectionUuidByPath(connectionPath));
     m_editPage->initSettingsWidget();
-    connect(m_editPage, &ConnectionEditPage::requestWiredDeviceEnabled, this, &WiredPage::requestDeviceEnabled);
     connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
+    //断开连接
+    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, [ = ](){Q_EMIT m_model->requestDisconnectAp(m_device->path());});
+    //删除wifi
+    connect(m_editPage, &ConnectionEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
     Q_EMIT requestNextPage(m_editPage);
 }
 
@@ -206,16 +207,16 @@ void WiredPage::createNewConnection()
 {
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
     m_editPage->initSettingsWidget();
-    connect(m_editPage, &ConnectionEditPage::requestWiredDeviceEnabled, this, &WiredPage::requestDeviceEnabled);
     connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
+    //断开连接
+    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, [ = ](){Q_EMIT m_model->requestDisconnectAp(m_device->path());});
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
 }
 
 void WiredPage::activateConnection(const QString &connectionPath)
 {
-    qDebug() << Q_FUNC_INFO;
     Q_EMIT requestActiveConnection(m_device->path(), m_model->connectionUuidByPath(connectionPath));
 }
 
@@ -225,10 +226,11 @@ void WiredPage::activateEditConnection(const QString &connectPath, const QString
     Q_EMIT requestActiveConnection(m_device->path(), uuid);
 }
 
-void WiredPage::checkActivatedConnection()
+void WiredPage::onActivatedConnection(const QJsonObject &activeConn)
 {
-    for (auto it(m_connectionPath.cbegin()); it != m_connectionPath.cend(); ++it) {
-        if (it.value() == m_device->activeWiredConnSettingPath()) {
+    qDebug() << "Wired connection state switching";
+    for (auto it = m_connectionUuid.cbegin(); it != m_connectionUuid.cend(); ++it) {
+        if (it.value() == m_device->activeWiredConnUuid()) {
             it.key()->setCheckState(Qt::CheckState::Checked);
         } else {
             it.key()->setCheckState(Qt::CheckState::Unchecked);

@@ -195,6 +195,8 @@ void VpnPage::onVpnDetailClicked(const QString &connectionUuid)
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
     connect(m_editPage, &ConnectionVpnEditPage::requestRefreshVPNStatusSignal, this, &VpnPage::requestRefreshVPNStatus);
+    //删除VPN
+    connect(m_editPage, &ConnectionVpnEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
     Q_EMIT requestNextPage(m_editPage);
 }
 
@@ -396,6 +398,8 @@ void VpnPage::createVPN()
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
     connect(m_editPage, &ConnectionVpnEditPage::requestRefreshVPNStatusSignal, this, &VpnPage::requestRefreshVPNStatus);
+    //删除VPN
+    connect(m_editPage, &ConnectionVpnEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
     Q_EMIT requestNextPage(m_editPage);
 }
 

@@ -147,6 +147,11 @@ void ConnectionEditPage::initHeaderButtons()
     m_removeBtn->setVisible(true);
 }
 
+bool ConnectionEditPage::uuidIsEmpty(const QString &uuid)
+{
+      return findConnectionByUuid(uuid) == nullptr;
+}
+
 void ConnectionEditPage::initSettingsWidget()
 {
     if (!m_connectionSettings) {
@@ -196,6 +201,13 @@ void ConnectionEditPage::initConnection()
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ConnectionEditPage::back);
     connect(this, &ConnectionEditPage::saveSettingsDone, this, &ConnectionEditPage::prepareConnection);
     connect(this, &ConnectionEditPage::prepareConnectionDone, this, &ConnectionEditPage::updateConnection);
+    connect(m_disconnectBtn, &QPushButton::clicked, this, [ = ]() {
+        //deactivateConnection(m_disconnectBtn->property("activeConnectionPath").toString());
+        //这里走了networkmanager的断开连接，这样可能会导致后端数据异常，所以这里我要调用后端的信号来处理断开连接
+        //Q_EMIT disconnect(m_disconnectBtn->property("connectionUuid").toString());
+        Q_EMIT disconnectAP();
+        Q_EMIT back();
+    });
 
     if (m_frame) {
         connect(this, &ConnectionEditPage::back, std::bind(&dccV20::FrameProxyInterface::popWidget, m_frame, nullptr));
@@ -211,16 +223,15 @@ void ConnectionEditPage::initConnection()
         dialog.addButtons(btns);
         int ret = dialog.exec();
         if (ret == QDialog::Accepted) {
-            m_connection->remove();
+//            m_connection->remove();
+            Q_EMIT deleteConnectAP(m_connectionUuid);
+            //目前后端在删除wifi的时候并不会断开连接
+            Q_EMIT disconnectAP();
             Q_EMIT back();
         }
     });
 
-    connect(m_disconnectBtn, &QPushButton::clicked, this, [ = ]() {
-        deactivateConnection(m_disconnectBtn->property("activeConnectionPath").toString());
-        Q_EMIT disconnect(m_disconnectBtn->property("connectionUuid").toString());
-        Q_EMIT back();
-    });
+
 }
 
 NMVariantMapMap ConnectionEditPage::secretsMapMapBySettingType(NetworkManager::Setting::SettingType settingType)

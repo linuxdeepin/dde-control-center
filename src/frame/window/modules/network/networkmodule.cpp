@@ -282,12 +282,7 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
         p = m_wirelessPage;
         m_networkWorker->queryDeviceStatus(dev->path());
         connect(m_wirelessPage, &WirelessPage::back, this, &NetworkModule::popPage);
-        connect(m_wirelessPage, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
-        connect(m_wirelessPage, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
-        connect(m_wirelessPage, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
-        connect(m_wirelessPage, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
-        connect(m_wirelessPage, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
-        connect(m_wirelessPage, &WirelessPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
+        //插入四级页面
         connect(m_wirelessPage, &WirelessPage::requestNextPage, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
         });
@@ -299,11 +294,9 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
         p = new WiredPage(static_cast<WiredDevice *>(dev));
 
         WiredPage *wiredPage = static_cast<WiredPage *>(p);
-
-//        connect(p, &WiredPage::requestConnectionsList, m_networkWorker, &NetworkWorker::queryDeviceConnections);
-        connect(wiredPage, &WiredPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
         connect(wiredPage, &WiredPage::requestActiveConnection, m_networkWorker, &NetworkWorker::activateConnection);
         connect(wiredPage, &WiredPage::back, this, &NetworkModule::popPage);
+        //插入四级页面
         connect(wiredPage, &WiredPage::requestNextPage, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
         });
@@ -395,6 +388,7 @@ void NetworkModule::showHotspotPage()
 
     p->setModel(m_networkModel);
     connect(p, &HotspotPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
+    //这个地方可以改成其他的断开连接信号 PS:1
     connect(p, &HotspotPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
     connect(p, &HotspotPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
     connect(p, &HotspotPage::requestNextPage, [ = ](ContentWidget * const w) {
@@ -471,7 +465,6 @@ void NetworkModule::showWirelessEditPage(dde::network::NetworkDevice *dev, const
 void NetworkModule::removeConnEditPageByDevice(dde::network::NetworkDevice *dev)
 {
     if (m_connEditPage && dev->path() == m_connEditPage->devicePath()) {
-        m_connEditPage->onDeviceRemoved();
         m_connEditPage = nullptr;
     }
 }
