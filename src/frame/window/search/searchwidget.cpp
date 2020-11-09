@@ -356,11 +356,6 @@ void SearchWidget::loadxml()
     m_inputList.append(SearchDataStruct());
     m_model->appendRow(new QStandardItem(""));
 
-    auto isChineseFunc = [](const QString &str)->bool {
-        QRegularExpression rex_expression(R"(^[^a-zA-Z]+$)");
-        return rex_expression.match(str).hasMatch();
-    };
-
     for (const QString &i : m_xmlFilePath) {
         QString xmlPath = i.arg(m_lang);
         QFile file(xmlPath);
@@ -446,12 +441,6 @@ void SearchWidget::loadxml()
                         // mulLanguages
                         m_searchBoxStruct.actualModuleName =
                                 getModulesName(m_searchBoxStruct.fullPagePath.section('/', 1, 1));
-
-                        if (!isChineseFunc(m_searchBoxStruct.translateContent)) {
-                            if (!m_TxtList.contains(m_searchBoxStruct.translateContent)) {
-                                m_TxtList.append(m_searchBoxStruct.translateContent);
-                            }
-                        }
 
                         //"蓝牙","数位板"不存在则不加载该模块search数据
                         //目前只用到了模块名，未使用detail信息，之后再添加模块内区分
@@ -698,17 +687,9 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
 
         QString hanziTxt = QString("%1 --> %2").arg(data.actualModuleName).arg(data.translateContent);
 
-        for (auto datas : m_TxtList) {
-            for (int i = 0; i < datas.count(); i++) {
-                if( data.translateContent == datas){
-                    return;
-                }
-            }
-        }
-
         QString pinyinTxt = QString("%1 --> %2")
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
 
         //添加显示的汉字(用于拼音搜索显示)
         m_model->appendRow(new QStandardItem(icon.value(), hanziTxt));
@@ -740,10 +721,9 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
 
         QString hanziTxt = QString("%1 --> %2 / %3").arg(data.actualModuleName).arg(data.childPageName).arg(data.translateContent);
         QString pinyinTxt = QString("%1 --> %2 / %3")
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.childPageName)))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
-
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.childPageName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
         //添加显示的汉字(用于拼音搜索显示)
         auto icons = m_iconMap.find(data.fullPagePath.section('/', 1, 1));
         if (icons == m_iconMap.end()) {
