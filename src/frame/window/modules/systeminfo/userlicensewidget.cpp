@@ -57,7 +57,6 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
     connect(w, &QFutureWatcher<QString>::finished, this, [ = ] {
         const QString r = w->result();
         m_body->setText(r);
+        Q_EMIT loadTextFinished();
     });
 }
-
-

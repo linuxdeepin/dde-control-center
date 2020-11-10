@@ -46,6 +46,9 @@ class VersionProtocolWidget : public dcc::ContentWidget
 public:
     explicit VersionProtocolWidget(QWidget *parent = nullptr);
 
+Q_SIGNALS:
+    void loadTextFinished();
+
 private:
     QVBoxLayout *m_mainLayout;
     dcc::widgets::TipsLabel *m_title;

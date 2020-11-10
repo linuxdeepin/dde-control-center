@@ -150,16 +150,20 @@ void SystemInfoModule::onVersionProtocolPage()
 {
     VersionProtocolWidget *w = new VersionProtocolWidget;
     w->setVisible(false);
-    m_frameProxy->pushWidget(this, w);
-    w->setVisible(true);
+    connect(w, &VersionProtocolWidget::loadTextFinished, [ = ](){
+        m_frameProxy->pushWidget(this, w);
+        w->setVisible(true);
+    });
 }
 
 void SystemInfoModule::onShowEndUserLicenseAgreementPage()
 {
     UserLicenseWidget *w = new UserLicenseWidget;
     w->setVisible(false);
-    m_frameProxy->pushWidget(this, w);
-    w->setVisible(true);
+    connect(w, &UserLicenseWidget::loadTextFinished, [ = ](){
+        m_frameProxy->pushWidget(this, w);
+        w->setVisible(true);
+    });
 }
 
 #ifndef DISABLE_RECOVERY
