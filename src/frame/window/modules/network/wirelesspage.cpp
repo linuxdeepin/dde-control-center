@@ -118,16 +118,16 @@ void APItem::setSignalStrength(int ss)
         return;
     }
     //该区间是根据需求文档中规定的
-    if (6 > ss)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(0)));
-    else if (5 < ss)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(2)));
-    else if (30 < ss)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(4)));
+    if (65 < ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(8)));
     else if (55 < ss)
         setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(6)));
-    else if (65 < ss)
-        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(8)));
+    else if (30 < ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(4)));
+    else if (5 < ss)
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(2)));
+    else
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-%1").arg(0)));
 
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = ss;
