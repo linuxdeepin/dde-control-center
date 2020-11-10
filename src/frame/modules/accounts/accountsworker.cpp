@@ -258,11 +258,27 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
     });
 }
 
+void AccountsWorker::loadUserList()
+{
+    onUserListChanged(m_accountsInter->userList());
+}
+
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
-    for (const auto &path : userList)
-        if (!m_userModel->contains(path))
+    int count = 0;
+    static bool first = true;
+    for (const QString &path : userList) {
+        if (!m_userModel->contains(path)) {
+            count++;
             addUser(path);
+            if (count > 50 && first) {
+                first = false;
+                break; // 第一次打开用户列表只加载51个用户信息
+            } else if (count > 2 && !first) {
+                break; // 滚动条每滑动一次，加载3个用户
+            }
+        }
+    }
 }
 
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd)
@@ -543,8 +559,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     }
 
     // default FullName is empty string
-    auto type = IsServerSystem ? 0 : 1;
-    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
+    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), user->userType());
 
     const QString userPath = path.path();
     if (userPath.isEmpty() || userPath.isNull()) {

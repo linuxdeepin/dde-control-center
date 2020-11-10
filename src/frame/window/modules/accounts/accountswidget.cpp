@@ -43,6 +43,7 @@
 #include <QBitmap>
 #include <QPainterPath>
 #include <QScroller>
+#include <QScrollBar>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -91,6 +92,13 @@ AccountsWidget::AccountsWidget(QWidget *parent)
 
     connect(m_userlistView, &QListView::clicked, this, &AccountsWidget::onItemClicked);
     connect(m_userlistView, &DListView::activated, m_userlistView, &QListView::clicked);
+    connect(m_userlistView->verticalScrollBar(), &QScrollBar::valueChanged, this, [ = ](int value) {
+        static int valueTemp = 0;
+        if (value > valueTemp) {
+            requestLoadUserList();
+        }
+        valueTemp = value;
+    });
     connect(m_createBtn, &QPushButton::clicked, this, &AccountsWidget::requestCreateAccount);
 }
 
@@ -146,25 +154,25 @@ void AccountsWidget::addUser(User *user, bool t1)
     m_userList << user;
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
-    if (IsServerSystem) {
-        auto *subTitleAction = new DViewItemAction;
-        if (1 == user->userType()) {
+
+    /* 用户列表显示用户类型 */
+    auto *subTitleAction = new DViewItemAction;
+    if (user->userType() == User::UserType::Administrator) {
+        subTitleAction->setText(tr("Administrator"));
+    } else {
+        subTitleAction->setText(tr("Standard User"));
+    }
+    subTitleAction->setFontSize(DFontSizeManager::T8);
+    subTitleAction->setTextColorRole(DPalette::TextTips);
+    item->setTextActionList({subTitleAction});
+
+    connect(user, &User::userTypeChanged, this, [ = ](int userType) {
+        if (userType == User::UserType::Administrator) {
             subTitleAction->setText(tr("Administrator"));
-        }else {
+        } else {
             subTitleAction->setText(tr("Standard User"));
         }
-        subTitleAction->setFontSize(DFontSizeManager::T8);
-        subTitleAction->setTextColorRole(DPalette::TextTips);
-        item->setTextActionList({subTitleAction});
-
-        connect(user, &User::userTypeChanged, this, [ = ](int userType) {
-            if (1 == userType) {
-                subTitleAction->setText(tr("Administrator"));
-            } else {
-                subTitleAction->setText(tr("Standard User"));
-            }
-        });
-    }
+    });
 
     DViewItemAction *onlineFlag = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
     OnlineIcon *onlineIcon = new OnlineIcon(m_userlistView->viewport());
@@ -193,10 +201,8 @@ void AccountsWidget::addUser(User *user, bool t1)
         }
     });
 
-    if (t1) {
-        handleRequestBack(CreateUserSuccess);
+    if (t1)
         return;
-    }
 
     auto path = user->currentAvatar();
     path = path.startsWith("file://") ? QUrl(path).toLocalFile() : path;

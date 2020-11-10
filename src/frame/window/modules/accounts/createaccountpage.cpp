@@ -71,19 +71,15 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     m_scrollArea->setContentsMargins(0, 0, 0, 0);
     mainContentLayout->addWidget(m_scrollArea);
 
-    auto contentLayout = new QVBoxLayout();
+    m_tw = new QWidget(this);
+    QVBoxLayout *contentLayout = new QVBoxLayout(m_tw);
     contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    m_tw = new QWidget();
-    m_tw->setLayout(contentLayout);
     contentLayout->setSpacing(0);
-    contentLayout->setMargin(0);
+    contentLayout->setContentsMargins(0, 0, 0, 0);
     m_scrollArea->setWidget(m_tw);
 
     initWidgets(contentLayout);
-    if (m_isServerSystem) {
-        contentLayout->addSpacing(List_Interval);
-        initUsrGroup(contentLayout);
-    }
+    initUsrGroup(contentLayout);
 
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setMargin(0);
@@ -162,12 +158,11 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     layout->addSpacing(7);
     layout->addWidget(m_avatarListWidget, 0, Qt::AlignTop);
 
-    if (m_isServerSystem) {
-        QLabel *accountTypeLabel = new QLabel(tr("Account Type") + ':');
-        layout->addWidget(accountTypeLabel);
-        layout->addWidget(m_accountChooser);
-        layout->addSpacing(7);
-    }
+    /* 用户类型 */
+    QLabel *accountTypeLabel = new QLabel(tr("Account Type") + ':');
+    layout->addWidget(accountTypeLabel);
+    layout->addWidget(m_accountChooser);
+    layout->addSpacing(7);
 
     QLabel *nameLabel = new QLabel(tr("Username") + ':');
     m_nameEdit->setAccessibleName("username_edit");
@@ -322,7 +317,10 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 
     m_accountChooser->addItem(tr("Standard"));
     m_accountChooser->addItem(tr("Administrator"));
-    m_accountChooser->addItem(tr("Customized"));
+    /* 仅在服务器模式下创建用户才能自定义用户组 */
+    if (m_isServerSystem) {
+        m_accountChooser->addItem(tr("Customized"));
+    }
 
     m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
@@ -387,23 +385,22 @@ void CreateAccountPage::createUser()
     m_newUser->setPassword(m_passwdEdit->lineEdit()->text());
     m_newUser->setRepeatPassword(m_repeatpasswdEdit->lineEdit()->text());
 
-    if (m_isServerSystem) {
-        if (m_accountChooser->currentIndex() == 1) {
-            QDBusInterface inter("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts",
-                                 "com.deepin.daemon.Accounts", QDBusConnection::systemBus());
-            QDBusPendingReply<QStringList> reply = inter.call("GetPresetGroups", 1);
-            m_newUser->setGroups(reply.value());
-        } else {
-            QStringList usrGroups;
-            int row_count = m_groupItemModel->rowCount();
-            for (int i = 0; i < row_count; ++i) {
-                QStandardItem *item = m_groupItemModel->item(i, 0);
-                if (item->checkState() == Qt::Checked) {
-                    usrGroups << item->text();
-                }
+    /* 设置用户组 */
+    if (m_accountChooser->currentIndex() == 1) {
+        m_newUser->setUserType(User::UserType::Administrator);
+    } else if (m_accountChooser->currentIndex() == 0) {
+        m_newUser->setUserType(User::UserType::StandardUser);
+    } else {
+        QStringList usrGroups;
+        int row_count = m_groupItemModel->rowCount();
+        for (int i = 0; i < row_count; ++i) {
+            QStandardItem *item = m_groupItemModel->item(i, 0);
+            if (item->checkState() == Qt::Checked) {
+                usrGroups << item->text();
             }
-            m_newUser->setGroups(usrGroups);
         }
+        m_newUser->setGroups(usrGroups);
+        m_newUser->setUserType(User::UserType::StandardUser);
     }
 
     DaemonService daemonservice("com.deepin.defender.daemonservice",
@@ -411,7 +408,7 @@ void CreateAccountPage::createUser()
                                 QDBusConnection::sessionBus());
     QString strPwd = m_passwdEdit->lineEdit()->text();
     if (strPwd.length() >= daemonservice.GetPwdLen() && m_newUser->charactertypes(strPwd) >= daemonservice.GetPwdTypeLen()) {
-        Q_EMIT requestCreateUser(m_newUser);
+        Q_EMIT requestCreateUser(m_newUser); // 请求创建用户
     } else {
         DDialog dlg("", daemonservice.GetPwdError());
         dlg.setIcon(QIcon::fromTheme("preferences-system"));

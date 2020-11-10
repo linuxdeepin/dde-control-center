@@ -103,6 +103,7 @@ void AccountsModule::active()
     m_accountsWidget->setShowFirstUserInfo(true);
     connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
     connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
+    connect(m_accountsWidget, &AccountsWidget::requestLoadUserList, m_accountsWorker, &AccountsWorker::loadUserList);
     m_frameProxy->pushWidget(this, m_accountsWidget);
     m_accountsWidget->setVisible(true);
     m_accountsWidget->selectUserList();
