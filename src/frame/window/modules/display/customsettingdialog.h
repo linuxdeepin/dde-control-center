@@ -23,6 +23,7 @@
 #define CUSTOMSETTINGDIALOG_H
 
 #include "interface/namespace.h"
+#include "modules/display/monitor.h"
 
 #include <DListView>
 #include <DButtonBox>
@@ -43,7 +44,6 @@ QT_END_NAMESPACE
 namespace dcc {
 namespace display {
 class DisplayModel;
-class Monitor;
 class MonitorControlWidget;
 class MonitorIndicator;
 }
@@ -107,7 +107,7 @@ private:
     void initUI();
     void initWithModel();
     void initOtherDialog();
-    void initRefreshrateList(int mode = 0);
+    void initRefreshrateList(dcc::display::Monitor::JudgementModel mode);
     void initResolutionList();
     void initMoniList();
     void initMoniControlWidget();

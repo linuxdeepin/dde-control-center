@@ -44,6 +44,14 @@ class Monitor : public QObject
     friend class DisplayWorker;
 
 public:
+    enum  JudgementModel {
+        Rigorous,
+        General,
+        NoRate,
+        special
+    };
+
+public:
     explicit Monitor(QObject *parent = 0);
 
     inline int x() const { return m_x; }
@@ -85,7 +93,7 @@ public:
     static bool isSameResolution(const Resolution &r1,const Resolution &r2);
     static bool isSameRatefresh(const Resolution &r1,const Resolution &r2);
     bool hasResolution(const Resolution &r);
-    bool hasResolutionAndRate(const Resolution &r, int mode = 0);
+    bool hasResolutionAndRate(const Resolution &r, JudgementModel mode = Rigorous);
     bool hasRatefresh(const double r);
 
 private Q_SLOTS:

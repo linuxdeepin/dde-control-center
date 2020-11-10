@@ -199,20 +199,21 @@ bool Monitor::hasResolution(const Resolution &r)
     return false;
 }
 
-bool Monitor::hasResolutionAndRate(const Resolution &r, int mode)
+bool Monitor::hasResolutionAndRate(const Resolution &r, JudgementModel mode)
 {
-    //+ 双屏复制时，添加刷新率判断模式；当检测到两个屏幕的没有共同刷新率时启用；
-    if (1 == mode || 0 == mode) {
-        for (auto m : m_modeList) {
-            if (abs(m.rate() - r.rate()) < 1e-5 && m.width() == r.width() && m.height() == r.height()) {
-                return true;
-            }
-        }
-    } else {
-        for (auto m : m_modeList) {
-            if (m.width() == r.width() && m.height() == r.height()) {
-                return true;
-            }
+    //+ 双屏复制时，添加刷新率判断模式；当检测到两个屏幕的没有共同刷新率时启用；\
+
+    double compareValue = 0.0;
+    switch (mode) {
+    case Rigorous:  compareValue = 1e-5;    break;
+    case General:   compareValue = 0.5;     break;
+    case NoRate:    compareValue = 1e+10;   break;
+    case special:   compareValue = 0.03;    break;
+    }
+
+    for (auto m : m_modeList) {
+        if (abs(m.rate() - r.rate()) < compareValue && m.width() == r.width() && m.height() == r.height()) {
+            return true;
         }
     }
 

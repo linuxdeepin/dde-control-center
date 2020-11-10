@@ -22,7 +22,6 @@
 #include "customsettingdialog.h"
 
 #include "modules/display/displaymodel.h"
-#include "modules/display/monitor.h"
 #include "modules/display/monitorcontrolwidget.h"
 #include "modules/display/monitorindicator.h"
 #include "widgets/basiclistview.h"
@@ -195,14 +194,15 @@ void CustomSettingDialog::initWithModel()
 
     if (m_model->isMerge()) {
         //+ 对于merge模式需要获取共同的刷新率，这样切换分辨率时才能保证两个显示屏幕使用同样的刷新率，不会出现一个可以正常显示一个黑屏的现象；
+        // -100 flag含义  即当rate=-100时，不同显示器在同分辨率情况下无相同刷新率
         double rate = -100;
-        for (auto m : m_monitor->modeList()) {
+        for (Resolution m : m_monitor->modeList()) {
             if (m.width() != m_model->screenWidth() || m.height() != m_model->screenHeight())
                 continue;
 
             bool isCommen = true;
-            for (auto tmonitor : m_model->monitorList()) {
-                if (!tmonitor->hasResolutionAndRate(m)) {
+            for (Monitor * tmonitor : m_model->monitorList()) {
+                if (tmonitor != m_monitor && !tmonitor->hasResolutionAndRate(m)) {
                     isCommen = false;
                     break;
                 }
@@ -216,7 +216,7 @@ void CustomSettingDialog::initWithModel()
 
         refreshRateListWhileMerge(rate, m_model->screenWidth(), m_model->screenHeight());
     } else {
-        initRefreshrateList();
+        initRefreshrateList(Monitor::Rigorous);
     }
 
     if (m_moniList)
@@ -272,7 +272,7 @@ void CustomSettingDialog::initOtherDialog()
     }
 }
 
-void CustomSettingDialog::initRefreshrateList(int mode)
+void CustomSettingDialog::initRefreshrateList(Monitor::JudgementModel mode)
 {
     QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
     if (listModel) {
@@ -280,21 +280,19 @@ void CustomSettingDialog::initRefreshrateList(int mode)
     } else {
         listModel = new QStandardItemModel(this);
     }
-
     m_rateList->setModel(listModel);
-    Resolution pevR;
 
+    double currentRate = m_monitor->currentMode().rate();
     QList<double> rateList;
     bool isFirst = true;
     QString allStr;
-    for (auto m : m_monitor->modeList()) {
+    for (Resolution m : m_monitor->modeList()) {
         if (!Monitor::isSameResolution(m, m_monitor->currentMode()))
             continue;
-
         if (m_model->isMerge()) {
             bool isCommen = true;
             for (auto tmonitor : m_model->monitorList()) {
-                if (tmonitor !=m_monitor && !tmonitor->hasResolutionAndRate(m, mode)) {
+                if (tmonitor !=m_monitor && !tmonitor->hasResolutionAndRate(m, Monitor::special)) {
                     isCommen = false;
                     break;
                 }
@@ -304,7 +302,7 @@ void CustomSettingDialog::initRefreshrateList(int mode)
                 continue;
         }
 
-        auto trate = m.rate();
+        auto trate = abs(m.rate() - currentRate) < 0.5 ? currentRate : m.rate();
         //+  防止出现由合并模式切换到拆分模式外接屏幕出现多个相同刷新率的情况
         if (allStr.contains(QString::number(trate, 'g', 4) + tr("Hz"))) {
             continue;
@@ -319,7 +317,7 @@ void CustomSettingDialog::initRefreshrateList(int mode)
             tstr += QString(" (%1)").arg(tr("Recommended"));
             isFirst = false;
         }
-        if (fabs(trate - m_monitor->currentMode().rate()) < 1e-5) {
+        if (fabs(trate - currentRate) < 1e-5) {
             item->setCheckState(Qt::CheckState::Checked);
         } else {
             item->setCheckState(Qt::CheckState::Unchecked);
@@ -332,7 +330,7 @@ void CustomSettingDialog::initRefreshrateList(int mode)
         item->setText(tstr);
 
         //+ 双屏复制模式，没有共同刷新率且刷新率相差很大时，只允许显示一个在列表中；
-        if (2 == mode)
+        if (Monitor::NoRate == mode)
             break;
     }
 
@@ -614,7 +612,7 @@ void CustomSettingDialog::initConnect()
         if (m_model->isMerge()) {
             refreshRateListWhileMerge(rate, w, h);
         } else {
-            initRefreshrateList();
+            initRefreshrateList(Monitor::Rigorous);
         }
 
         const auto curMode = m_monitor->currentMode();
@@ -723,7 +721,7 @@ void CustomSettingDialog::refreshRateListWhileMerge(double rate, int w, int h)
             if (m_model->isMerge()) {
                 bool isCommen = true;
                 for (auto tmonitor : m_model->monitorList()) {
-                    if (!tmonitor->hasResolutionAndRate(m, 1)) {
+                    if (!tmonitor->hasResolutionAndRate(m, Monitor::General)) {
                         isCommen = false;
                         break;
                     }
@@ -737,13 +735,13 @@ void CustomSettingDialog::refreshRateListWhileMerge(double rate, int w, int h)
         }
 
         if (rate > 0) {
-            initRefreshrateList(1);
+            initRefreshrateList(Monitor::General);
         } else {
-            initRefreshrateList(2);
+            initRefreshrateList(Monitor::NoRate);
         }
     } else {
         //+ 切换分辨率后，更新刷新率列表，防止出现刷新率未勾选的情况；
-        initRefreshrateList();
+        initRefreshrateList(Monitor::Rigorous);
     }
 }
 
