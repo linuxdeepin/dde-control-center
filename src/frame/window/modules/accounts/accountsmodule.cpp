@@ -168,7 +168,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
         m_accountsWidget->setShowFirstUserInfo(false);
     });
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
-    connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
+    connect(w, &AccountsDetailWidget::requestSetFullname, m_accountsWorker, &AccountsWorker::setFullname);
     connect(w, &AccountsDetailWidget::requestAddThumbs, this, &AccountsModule::onShowAddThumb);
     connect(w, &AccountsDetailWidget::requestDeleteFingerItem, m_fingerWorker, &FingerWorker::deleteFingerItem);
     connect(w, &AccountsDetailWidget::requestRenameFingerItem, m_fingerWorker, &FingerWorker::renameFingerItem);

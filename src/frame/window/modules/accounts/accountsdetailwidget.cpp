@@ -34,6 +34,7 @@
 #include <DLineEdit>
 #include <DFontSizeManager>
 #include <DTipLabel>
+#include <DDesktopServices>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -196,12 +197,12 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     DFontSizeManager::instance()->bind(m_inputLineEdit, DFontSizeManager::T5);
 
     QHBoxLayout *fullnameLayout = new QHBoxLayout;
-    fullnameLayout->setMargin(0);
     fullnameLayout->setSpacing(5);
     fullnameLayout->setAlignment(Qt::AlignHCenter);
     fullnameLayout->addWidget(m_fullName);
     fullnameLayout->addWidget(m_fullNameBtn);
     fullnameLayout->addWidget(m_inputLineEdit);
+    fullnameLayout->setContentsMargins(10, 0, 10, 0);
     layout->addLayout(fullnameLayout);
 
     m_avatarListWidget = new AvatarListWidget(m_curUser, this);
@@ -212,30 +213,61 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_avatarLayout->addWidget(m_avatarListWidget);
     layout->addLayout(m_avatarLayout);
 
-    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
-        m_inputLineEdit->setAlert(false);
-        m_inputLineEdit->hideAlertMessage();
+    connect(m_inputLineEdit, &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
+        if (userFullName.size() > 32) {
+            m_inputLineEdit->lineEdit()->backspace();
+            m_inputLineEdit->setAlert(true);
+            m_inputLineEdit->showAlertMessage(tr("The full name is too long"), this);
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        } else if (m_inputLineEdit->isAlert()) {
+            m_inputLineEdit->setAlert(false);
+            m_inputLineEdit->hideAlertMessage();
+        }
     });
-    connect(m_inputLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ]() {
-        auto uerList = m_userModel->userList();
-        //判断账户全名是否被其他用户所用
-        auto userList = m_userModel->userList();
-        if (m_inputLineEdit->text().simplified() != m_curUser->fullname()) {
-            for (auto u : userList) {
-                if (u->fullname() == m_inputLineEdit->text().simplified() && u->fullname() != nullptr) {
+
+    connect(m_inputLineEdit, &DLineEdit::editingFinished, this, [ = ] {
+        QString userFullName = m_inputLineEdit->lineEdit()->text();
+        if (userFullName == m_curUser->fullname() || (!userFullName.isEmpty() && userFullName.simplified().isEmpty())) {
+            m_inputLineEdit->lineEdit()->clearFocus();
+            m_inputLineEdit->setVisible(false);
+            m_fullName->setVisible(true);
+            m_fullNameBtn->setVisible(true);
+            if (m_inputLineEdit->isAlert()) {
+                m_inputLineEdit->setAlert(false);
+                m_inputLineEdit->hideAlertMessage();
+            }
+            return;
+        }
+        if (!userFullName.isEmpty()) {
+            QList<QString> groupList = m_userModel->getAllGroups();
+            for (QString &group : groupList) {
+                if (userFullName == group && userFullName != m_curUser->name()) {
                     m_inputLineEdit->setAlert(true);
-                    m_inputLineEdit->showAlertMessage(tr("The full name already exists"), -1);
+                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), this);
+                    m_inputLineEdit->lineEdit()->selectAll();
                     return;
                 }
             }
-            m_inputLineEdit->lineEdit()->clearFocus();
-            bool valid = m_inputLineEdit->lineEdit()->text().size() <= 32;
-            updateLineEditDisplayStyle(valid);
-            if (valid)
-                Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text().simplified());
-        } else {
-            updateLineEditDisplayStyle(true);
+            QList<User *> userList = m_userModel->userList();
+            for (User *user : userList) {
+                if (userFullName == user->fullname()) {
+                    m_inputLineEdit->setAlert(true);
+                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), this);
+                    m_inputLineEdit->lineEdit()->selectAll();
+                    return;
+                }
+            }
         }
+        m_inputLineEdit->lineEdit()->clearFocus();
+        m_inputLineEdit->setVisible(false);
+        m_fullName->setVisible(true);
+        m_fullNameBtn->setVisible(true);
+        if (m_inputLineEdit->isAlert()) {
+            m_inputLineEdit->setAlert(false);
+            m_inputLineEdit->hideAlertMessage();
+        }
+
+        Q_EMIT requestSetFullname(m_curUser, m_inputLineEdit->text());
     });
 
     //点击用户图像
@@ -541,20 +573,4 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
         item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
-}
-
-void AccountsDetailWidget::updateLineEditDisplayStyle(bool valid)
-{
-    m_inputLineEdit->setVisible(!valid);
-    m_fullName->setVisible(valid);
-    m_fullNameBtn->setVisible(valid);
-
-    if (valid) {
-        m_fullName->setVisible(true);
-        m_fullNameBtn->setVisible(true);
-    } else {
-        m_inputLineEdit->lineEdit()->selectAll();
-        m_inputLineEdit->setAlert(true);
-        m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
-    }
 }
