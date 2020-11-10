@@ -107,7 +107,7 @@ void AccountsModule::active()
     });
     m_frameProxy->pushWidget(this, m_accountsWidget);
     m_accountsWidget->setVisible(true);
-    m_accountsWidget->selectUserList();
+    m_accountsWidget->showDefaultAccountInfo();
 }
 
 int AccountsModule::load(const QString &path)
