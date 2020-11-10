@@ -32,7 +32,7 @@
 #include <QStandardItemModel>
 #include <QStyledItemDelegate>
 #include <QGSettings>
-#include <mutex>
+#include <memory>
 
 QT_BEGIN_NAMESPACE
 class QListWidget;
@@ -54,6 +54,7 @@ using WM = com::deepin::wm;
 namespace DCC_NAMESPACE {
 namespace search {
 struct SearchBoxStruct {
+    typedef std::shared_ptr<SearchBoxStruct> Ptr;
     QString translateContent;
     QString actualModuleName;
     QString childPageName;
@@ -98,18 +99,18 @@ Q_SIGNALS:
 
 private:
     void loadxml();
-    SearchBoxStruct getModuleBtnString(QString value);
+    SearchBoxStruct::Ptr getModuleBtnString(QString value);
     QString getModulesName(const QString &name, bool state = true);
     QString removeDigital(QString input);
     QString transPinyinToChinese(const QString &pinyin);
     QString containTxtData(QString txt);
-    void appendChineseData(SearchBoxStruct data);
+    void appendChineseData(SearchBoxStruct::Ptr data);
     bool isLoadText(const QString &txt);
     bool isLoadContensText(const QString &text);
 
 private:
-    QList<SearchBoxStruct> m_EnterNewPagelist;
-    QString m_xmlExplain;
+    QList<SearchBoxStruct::Ptr> m_originList;
+    QList<SearchBoxStruct::Ptr> m_EnterNewPagelist;
     QSet<QString> m_xmlFilePath;
     QString m_lang;
     QMap<QString, QIcon> m_iconMap;
@@ -129,8 +130,6 @@ private:
     bool m_bIsContensServerType;
     QGSettings *m_searchModuleDevelop{nullptr};
     WM *m_deepinwm;
-    QFutureWatcher<void> *m_searchWatcher;
-    std::mutex m_xmlMutex;
 };
 
 class SearchWidget : public DTK_WIDGET_NAMESPACE::DSearchEdit
