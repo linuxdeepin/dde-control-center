@@ -68,5 +68,7 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
         const auto r = w->result();
         m_title->setText(r.first);
         m_body->setText(r.second);
+        Q_EMIT loadTextFinished();
     });
 }
+

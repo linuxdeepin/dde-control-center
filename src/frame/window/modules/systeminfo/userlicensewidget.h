@@ -41,6 +41,9 @@ class UserLicenseWidget : public dcc::ContentWidget
 public:
     explicit UserLicenseWidget(QWidget *parent = nullptr);
 
+Q_SIGNALS:
+    void loadTextFinished();
+
 private:
     dcc::widgets::TipsLabel *m_body;
 };
