@@ -23,6 +23,7 @@ Build-Depends:
  libdtkcore5-bin,
  libkf5networkmanagerqt-dev,
  qtbase5-private-dev,
+ qtmultimedia5-dev,
  libxrandr-dev,
  libmtdev-dev,
  libfontconfig1-dev,
