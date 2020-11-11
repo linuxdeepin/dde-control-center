@@ -60,6 +60,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     , m_titleWidget(new QLabel(tr("Battery")))
     , m_powerShowTimeToFull(new SwitchWidget(tr("Display capacity and remaining charging time")))
     , m_ShowTimeToFullTips(new PowerDisplayWidget(this))
+    , m_systemInfo (new QDBusInterface ("com.deepin.system.SystemInfo", "/com/deepin/system/SystemInfo", "com.deepin.system.SystemInfo", QDBusConnection::systemBus(), this))
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     SettingsGroup *generalSettingsGrp = new SettingsGroup;
@@ -95,6 +96,11 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     DFontSizeManager::instance()->bind(label, DFontSizeManager::T5, QFont::DemiBold);
     m_layEnergySavingMode->addWidget(label);
     m_layEnergySavingMode->addWidget(saveEnergySettingsGrp);
+
+    if (m_systemInfo->property("ProductName").toString() != "klu") {
+        label->setVisible(false);
+        saveEnergySettingsGrp->setVisible(false);
+    }
 
     //---------------------------------------------------------
     //add battery info
@@ -144,6 +150,8 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     connect(m_powerShowTimeToFull, &SwitchWidget::checkedChanged, this, &GeneralWidget::setPowerDisplay);
     connect(GSettings(), &QGSettings::changed, this, &GeneralWidget::onGSettingsChanged);
     onGSettingsChanged("showtimetofull");
+
+
 }
 GeneralWidget::~GeneralWidget()
 {

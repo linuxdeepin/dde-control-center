@@ -25,6 +25,8 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QDBusInterface>
+
 namespace dcc {
 namespace widgets {
 class SwitchWidget;
@@ -67,6 +69,7 @@ private:
     QLabel *m_titleWidget;
     dcc::widgets::SwitchWidget *m_powerShowTimeToFull;
     dcc::widgets::PowerDisplayWidget *m_ShowTimeToFullTips;
+    QDBusInterface *m_systemInfo;
 Q_SIGNALS:
     void requestSetLowBatteryMode(const bool &state);//同节能模式
     void requestSetPowerSavingModeAutoWhenQuantifyLow(const bool &state);//低电量自动切换节能模式
