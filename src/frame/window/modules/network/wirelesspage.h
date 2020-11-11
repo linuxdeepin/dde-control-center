@@ -176,76 +176,6 @@ Q_SIGNALS:
     void requestFrameKeepAutoHide(const bool autoHide) const;
     void requestShowAPEditPage(dde::network::NetworkDevice *device, const QString &session) const;
     void requestRemoveAPEditPage(dde::network::NetworkDevice *device) const;
-
-public Q_SLOTS:
-    void onAPAdded(const QJsonObject &apInfo);
-    void onAPChanged(const QJsonObject &apInfo);
-    void onAPRemoved(const QJsonObject &apInfo);
-    void onHotspotEnableChanged(const bool enabled);
-    void onCloseHotspotClicked();
-
-private Q_SLOTS:
-    /**
-     * @def sortAPList
-     * @brief 对wifi进行排序
-     */
-    void sortAPList();
-    /**
-     * @def onApWidgetEditRequested
-     * @brief 调用网络详情页
-     * @param (const QString &apPath)
-     * @param (const QString &ssid)
-     */
-    void onApWidgetEditRequested(const QString &apPath, const QString &ssid);
-    void onApWidgetConnectRequested(const QString &path, const QString &ssid);
-    void showConnectHidePage();
-    void onDeviceRemoved();
-    void onActivateApFailed(const QString &apPath, const QString &uuid);
-    /**
-     * @def onSwitchEnable
-     * @brief 设置wifi开关变成禁用状态
-     */
-    void onSwitchEnable();
-    /**
-     * @def onSwitch
-     * @brief 设置开关打开或者关闭
-     * @param (bool enable)
-     */
-    void onSwitch(bool enable);
-    void onClickApItem(const QModelIndex & idx);
-
-private:
-
-    QString connectionUuid(const QString &ssid);
-    QString connectionSsid(const QString &uuid);
-    void updateLayout(bool enabled);
-    int canUpdateApList(); //是否可更新ap列表
-
-private:
-    dde::network::WirelessDevice *m_device;
-    dde::network::NetworkModel *m_model;
-
-    dcc::widgets::SwitchWidget *m_switch;
-    dcc::widgets::SettingsGroup *m_tipsGroup;
-    QPushButton *m_closeHotspotBtn;
-    DListView *m_lvAP;
-    APItem *m_clickedItem;
-    QVBoxLayout *m_mainLayout;
-    QStandardItemModel *m_modelAP;
-    int m_layoutCount;
-    QPointer<ConnectionWirelessEditPage> m_apEditPage;
-
-    QTimer *m_sortDelayTimer;
-    //禁用wifi开关控件，防止用户对wifi开关疯狂操作
-    QTimer *m_switchEnableTimer;
-    QMap<QString, APItem *> m_apItems;
-    QString m_disconnectUuid;
-
-private:
-      void initUI();
-      void initConnect();
-
-Q_SIGNALS:
     /**
      * @brief requestDisconnectConnection
      * @param uuid
@@ -286,6 +216,11 @@ Q_SIGNALS:
 
 
 public Q_SLOTS:
+    void onAPAdded(const QJsonObject &apInfo);
+    void onAPChanged(const QJsonObject &apInfo);
+    void onAPRemoved(const QJsonObject &apInfo);
+    void onHotspotEnableChanged(const bool enabled);
+    void onCloseHotspotClicked();
     /**
      * @brief onApConnect
      * @param apPath
@@ -305,12 +240,84 @@ public Q_SLOTS:
      * 由于DViewItemAction会在setAcionsList的时候释放旧的，所以会出现信号和槽断开的情况
      */
     void updateAction(APItem *item);
-private:
+
+private Q_SLOTS:
     /**
-     * @def ApLoadin
-     * @brief wifi连接中的状态图标显示，如果要全部关闭的状态化，可以传个nullptr
+     * @def sortAPList
+     * @brief 对wifi进行排序
      */
-    bool setApLoadin(APItem *ApItem);
+    void sortAPList();
+    /**
+     * @def onApWidgetEditRequested
+     * @brief 调用网络详情页
+     * @param (const QString &apPath)
+     * @param (const QString &ssid)
+     */
+    void onApWidgetEditRequested(const QString &apPath, const QString &ssid);
+    void onApWidgetConnectRequested(const QString &path, const QString &ssid);
+    void showConnectHidePage();
+    void onDeviceRemoved();
+    void onActivateApFailed(const QString &apPath, const QString &uuid);
+    /**
+     * @def onSwitchEnable
+     * @brief 设置wifi开关变成禁用状态
+     */
+    void onSwitchEnable();
+    /**
+     * @def onSwitch
+     * @brief 设置开关打开或者关闭
+     * @param (bool enable)
+     */
+    void onSwitch(bool enable);
+    void onClickApItem(const QModelIndex & idx);
+
+private:
+
+    QString connectionUuid(const QString &ssid);
+    QString connectionSsid(const QString &uuid);
+    void updateLayout(bool enabled);
+    /**
+     * @def canUpdateApList
+     * @brief 判断是否更新wifi
+     * @return
+     */
+    int canUpdateApList();
+    /**
+     * @def initUI
+     * @brief 初始化UI页面
+     */
+    void initUI();
+    /**
+     * @def initConnect
+     * @brief 初始化部分信号和槽
+     */
+    void initConnect();
+  /**
+   * @def ApLoadin
+   * @brief wifi连接中的状态图标显示，如果要全部关闭的状态化，可以传个nullptr
+   */
+  bool setApLoadin(APItem *ApItem);
+
+private:
+    dde::network::WirelessDevice *m_device;
+    dde::network::NetworkModel *m_model;
+
+    dcc::widgets::SwitchWidget *m_switch;
+    dcc::widgets::SettingsGroup *m_tipsGroup;
+    QPushButton *m_closeHotspotBtn;
+    DListView *m_lvAP;
+    APItem *m_clickedItem;
+    QVBoxLayout *m_mainLayout;
+    QStandardItemModel *m_modelAP;
+    int m_layoutCount;
+    QPointer<ConnectionWirelessEditPage> m_apEditPage;
+
+    QTimer *m_sortDelayTimer;
+    //禁用wifi开关控件，防止用户对wifi开关疯狂操作
+    QTimer *m_switchEnableTimer;
+    QMap<QString, APItem *> m_apItems;
+    QString m_disconnectUuid;
+
 };
 }   // namespace dcc
 }   // namespace network

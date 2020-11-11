@@ -314,27 +314,8 @@ void ConnectionEditPage::saveConnSettings()
     if (!m_settingsWidget->allInputValid()) {
         return;
     }
-
     Q_EMIT requestUpdateLoader(m_connectionUuid);
-
-    if (m_settingsWidget->isAutoConnect()) {
-        // deactivate this device's ActiveConnection
-        QDBusPendingReply<> reply;
-        for (auto aConn : activeConnections()) {
-            for (auto devPath : aConn->devices()) {
-                if (devPath == DevicePath) {
-                    reply = deactivateConnection(aConn->path());
-                    reply.waitForFinished();
-                    if (reply.isError()) {
-                        qDebug() << "error occurred while deactivate connection" << reply.error();
-                    }
-                }
-            }
-        }
-    }
-
     m_settingsWidget->saveSettings();
-
     Q_EMIT saveSettingsDone();
 }
 

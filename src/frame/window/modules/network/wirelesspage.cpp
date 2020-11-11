@@ -90,7 +90,6 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
 
 APItem::~APItem()
 {
-    qDebug() << text() << " is destoryed";
     if (!m_loadingIndicator.isNull()) {
         m_loadingIndicator->stop();
         m_loadingIndicator->hide();
@@ -451,15 +450,22 @@ void WirelessPage::setModel(NetworkModel *model)
     m_model = model;
     m_lvAP->setVisible(m_switch->checked());
     connect(m_model, &NetworkModel::deviceEnableChanged, this, [=](){
+        qDebug() << "Device change signal from daemon, state:" << m_device->enabled();
         onSwitch(m_device->enabled());
-        if (m_device->enabled())
+        //开关的时候做个清空操作，防止出现脏数据
+        m_apItems.clear();
+        m_modelAP->clear();
+        if (m_device->enabled())  
             //这里会在页面创建的时候去初始化一次，所以无需在构造函数中再调用
             m_device->initWirelessData();
     });
+
     //更新一下wifi数据
     m_device->initWirelessData();
     //开启之后刷新wifi数据，防止数据太旧了
     Q_EMIT m_model->updateApList();
+    //更新一下当前网络状态是否正确
+    Q_EMIT m_model->initDeviceEnable(m_device->path());
 
     //以下两个是根据热点功能进行刷新，暂时没有热点功能
     onHotspotEnableChanged(m_device->hotspotEnabled());
@@ -481,13 +487,13 @@ void WirelessPage::jumpByUuid(const QString &uuid)
 
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
+    qDebug() <<"click enable , set Enable =" << checked;
     //网卡开关
-    m_model->onDeviceEnable(m_device->path(), checked);
-
+    Q_EMIT m_model->requestDeviceEnable(m_device->path(), checked);
+    onSwitch(checked);
     //开启的时候将开关禁用500毫秒，为了防止用户疯狂操作，导致wifi状态切换频繁
     m_switch->switchButton()->setEnabled(false);
     m_switchEnableTimer->start();
-    onSwitch(checked);
     //将点击的wifi变成空
     m_clickedItem = nullptr;
 
@@ -499,39 +505,51 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 {
     //确定存在ssid
-    const QString &ssid = apInfo.value("Ssid").toString();
+    const QString &ssid = apInfo.value("Ssid").toString("");
+    const int strength = apInfo.value("Strength").toInt(0);
     //这里防止加入的wifi为空白名称，产生异常
-    if (!m_apItems.contains(ssid) && !ssid.isEmpty()) {
-        APItem *apItem = new APItem(ssid, style(), m_lvAP);
-        connect(apItem, &APItem::apChange,
-                this, [=](){if (!m_sortDelayTimer->isActive())
-                                m_sortDelayTimer->start();});
-        m_apItems[ssid] = apItem;
-        m_modelAP->appendRow(apItem);
-        apItem->setSecure(apInfo.value("Secured").toBool());
-        apItem->setPath(apInfo.value("Path").toString());
-        //这里需要判断当前的是否处于连接成功的状态，防止刚打开出现连接成功和连接中的图标
-        apItem->setConnected(ssid == m_device->activeApSsid()
-                             && m_device->activeApState() == Wifi_Connected);
-        apItem->setUuid(apInfo.value("Uuid").toString());
-        apItem->setSignalStrength(apInfo.value("Strength").toInt());
-        //去连接详情页
-        updateAction(apItem);
-        connect(apItem, &APItem::ActionChange, this, &WirelessPage::updateAction);
+    if (m_apItems.keys().contains(ssid) || ssid.isEmpty()) return;
+    if (strength < 5) return;
+    APItem *apItem = new APItem(ssid, style(), m_lvAP);
+    connect(apItem, &APItem::apChange,
+            this, [=](){if (!m_sortDelayTimer->isActive())
+                            m_sortDelayTimer->start();});
+    m_apItems[ssid] = apItem;
+    m_modelAP->appendRow(apItem);
+    apItem->setSecure(apInfo.value("Secured").toBool());
+    apItem->setPath(apInfo.value("Path").toString());
+    //这里需要判断当前的是否处于连接成功的状态，防止刚打开出现连接成功和连接中的图标
+    apItem->setConnected(ssid == m_device->activeApSsid()
+                         && m_device->activeApState() == Wifi_Connected);
+    apItem->setUuid(apInfo.value("Uuid").toString());
+    apItem->setSignalStrength(strength);
+    //连接详情页
+    updateAction(apItem);
+    connect(apItem, &APItem::ActionChange, this, &WirelessPage::updateAction);
 
-    }
 }
 
 void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 {
     const QString &ssid = apInfo.value("Ssid").toString();
-    if (!m_apItems.contains(ssid)) return;
-
     const QString &path = apInfo.value("Path").toString();
     const int strength = apInfo.value("Strength").toInt();
     const bool isSecure = apInfo.value("Secured").toBool();
     const QString &uuid = apInfo.value("Uuid").toString();
 
+    //当wifi之前小于5且更新后还小于5则直接跳过
+    if (!m_apItems.contains(ssid) && strength < 5) return;
+    //当wifi之前小于5但是更新后大于5则添加该网络到列表
+    else if (!m_apItems.contains(ssid) && strength > 5) {
+        onAPAdded(apInfo);
+        return;
+    //当wifi大于5更新到小于5则删除该网络
+    } else if (m_apItems.contains(ssid) && strength < 5) {
+        onAPRemoved(apInfo);
+        return;
+    }
+
+    //其他情况正常更新
     APItem *it = m_apItems[ssid];
     if (5 >= strength && !it->checkState() && ssid != m_device->activeApSsid()) {
         if (nullptr == m_clickedItem) {
@@ -553,20 +571,15 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
 void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
 {
-    if (!canUpdateApList())
-        return;
-
     const QString &ssid = apInfo.value("Ssid").toString();
     if (!m_apItems.contains(ssid)) return;
-
-    if (m_apItems[ssid]->ssid() == ssid) {
-        if (m_clickedItem == m_apItems[ssid]) {
-            m_clickedItem = nullptr;
-            qDebug() << "remove clicked item," << QThread::currentThreadId();
-        }
-        m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
-        m_apItems.erase(m_apItems.find(ssid));
+    if (m_clickedItem == m_apItems[ssid]) {
+        m_clickedItem = nullptr;
+        qDebug() << "remove clicked item," << QThread::currentThreadId();
     }
+    m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
+    m_apItems.erase(m_apItems.find(ssid));
+
 }
 
 void WirelessPage::onHotspotEnableChanged(const bool enabled)
