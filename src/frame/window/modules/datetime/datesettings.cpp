@@ -331,7 +331,7 @@ void DateSettings::setLastServerAddress(QString address)
 QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
 {
     TimeSpinBox *spinBox = new TimeSpinBox(parent);
-    spinBox->setFixedSize(93, 60);
+    spinBox->setFixedSize(100, 60);
     spinBox->setRange(min, max);
     spinBox->setSingleStep(1);
     spinBox->setWrapping(true);
@@ -350,8 +350,8 @@ QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
     btnDown->setIcon(DStyle::SP_ArrowDown);
     btnUp->setFixedSize(QSize(SpinBtnLength, SpinBtnLength));
     btnDown->setFixedSize(QSize(SpinBtnLength, SpinBtnLength));
-    btnUp->move(57, 4);
-    btnDown->move(57, 31);
+    btnUp->move(70, 4);
+    btnDown->move(70, 31);
 
     connect(btnUp, &DIconButton::clicked, spinBox, &QSpinBox::stepUp);
     connect(btnDown, &DIconButton::clicked, spinBox, &QSpinBox::stepDown);
