@@ -402,8 +402,10 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     case CreationResult::UnknownError:
         //当用户名与用户组信息重名时,会返回UnknownError,并且提示信息是从系统中获取过来的,控制中心无法区分他的中英文
         qDebug() << "error encountered creating user: " << result->message();
-        m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(result->message(), -1);
+        if (!result->message().isEmpty()) {
+            m_nameEdit->setAlert(true);
+            m_nameEdit->showAlertMessage(result->message(), -1);
+        }
         break;
     }
 
