@@ -180,7 +180,9 @@ BtStandardItem *DeviceSettingsItem::getStandardItem(DListView *parent)
     if (parent != nullptr) {
         m_parentDListView = parent;
         m_loadingIndicator->setParent(parent->viewport());
-        setDevice(m_device);
+
+        if (m_device)
+            setDevice(m_device);
     }
     return m_deviceItem;
 }
@@ -191,7 +193,8 @@ BtStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     if (parent != nullptr) {
         m_parentDListView = parent;
         m_loadingIndicator->setParent(parent->viewport());
-        setDevice(m_device);
+        if (m_device)
+            setDevice(m_device);
     }
     m_deviceItem = new BtStandardItem;
 

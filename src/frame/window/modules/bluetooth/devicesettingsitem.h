@@ -112,9 +112,9 @@ private Q_SLOTS:
     void onDevicePairedChanged(const bool &paired);
 
 private:
-    const dcc::bluetooth::Device *m_device;
+    const dcc::bluetooth::Device *m_device{nullptr};
     QPointer<DTK_WIDGET_NAMESPACE::DSpinner> m_loadingIndicator;
-    BtStandardItem *m_deviceItem;
+    BtStandardItem *m_deviceItem{nullptr};
     DTK_WIDGET_NAMESPACE::DListView *m_parentDListView;
     DViewItemActionList m_dActionList;
     QPointer<DViewItemAction> m_loadingAction;

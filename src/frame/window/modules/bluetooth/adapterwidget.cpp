@@ -278,14 +278,16 @@ void AdapterWidget::initConnect()
             for (int i = 0; i < m_deviceLists.size(); i++) {
                 DeviceSettingsItem *pDeviceItem = m_deviceLists[i];
 
-                if (pDeviceItem->device()->paired())
+                if (pDeviceItem && pDeviceItem->device() && pDeviceItem->device()->paired())
                     continue;
 
-                BtStandardItem *dListItem = pDeviceItem->getStandardItem();
-                QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
-                if (index.isValid() && pDeviceItem->device()->name().isEmpty()) {
-                    m_otherDeviceModel->takeRow(index.row());
-                    m_delaySortTimer->start();
+                if (pDeviceItem) {
+                    BtStandardItem *dListItem = pDeviceItem->getStandardItem();
+                    QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
+                    if (index.isValid() && pDeviceItem->device() && pDeviceItem->device()->name().isEmpty()) {
+                        m_otherDeviceModel->takeRow(index.row());
+                        m_delaySortTimer->start();
+                    }
                 }
             }
         } else {
@@ -295,14 +297,16 @@ void AdapterWidget::initConnect()
             // 显示所有蓝牙设备
             for (int i = 0; i < m_deviceLists.size(); i++) {
                 DeviceSettingsItem *pDeviceItem = m_deviceLists[i];
-                if (pDeviceItem->device()->paired())
+                if (pDeviceItem && pDeviceItem->device() && pDeviceItem->device()->paired())
                     continue;
 
-                BtStandardItem *dListItem = pDeviceItem->getStandardItem();
-                QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
-                if ((false == index.isValid()) && pDeviceItem->device()->name().isEmpty()) {
-                    m_otherDeviceModel->insertRow(0, dListItem);
-                    m_delaySortTimer->start();
+                if (pDeviceItem) {
+                    BtStandardItem *dListItem = pDeviceItem->getStandardItem();
+                    QModelIndex index = m_otherDeviceModel->indexFromItem(dListItem);
+                    if (!index.isValid() && pDeviceItem->device() && pDeviceItem->device()->name().isEmpty()) {
+                        m_otherDeviceModel->insertRow(0, dListItem);
+                        m_delaySortTimer->start();
+                    }
                 }
             }
         }
@@ -316,10 +320,8 @@ void AdapterWidget::initConnect()
 
 void AdapterWidget::loadDetailPage()
 {
-    if (m_myDevices.count() == 0) {
-        return;
-    }
-    Q_EMIT requestShowDetail(m_adapter, m_myDevices.at(0)->device());
+    if (m_myDevices.count() != 0 && m_myDevices[0])
+        Q_EMIT requestShowDetail(m_adapter, m_myDevices[0]->device());
 }
 
 void AdapterWidget::setAdapter(const Adapter *adapter)
@@ -394,20 +396,22 @@ void AdapterWidget::toggleDiscoverableSwitch(const bool checked)
 
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)
 {
-    if (paired) {
-        BtStandardItem *dListItem = deviceItem->getStandardItem(m_myDeviceListView);
-        m_myDevices << deviceItem;
-        m_myDeviceModel->appendRow(dListItem);
-        m_delaySortTimer->start();
-    } else {
-        BtStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
-        if (m_showAnonymousCheckBox->checkState() == Qt::CheckState::Unchecked) {
-            if (false == deviceItem->device()->name().isEmpty()) { // 只关注有名称的蓝牙设备,没有名称的忽略
-                m_otherDeviceModel->insertRow(0, dListItem);
-                m_delaySortTimer->start();
-            }
+    if (deviceItem) {
+        if (paired) {
+            BtStandardItem *dListItem = deviceItem->getStandardItem(m_myDeviceListView);
+            m_myDevices << deviceItem;
+            m_myDeviceModel->appendRow(dListItem);
+            m_delaySortTimer->start();
         } else {
-            m_otherDeviceModel->insertRow(0, dListItem);
+            BtStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
+            if (m_showAnonymousCheckBox->checkState() == Qt::CheckState::Unchecked) {
+                if (deviceItem->device() && false == deviceItem->device()->name().isEmpty()) { // 只关注有名称的蓝牙设备,没有名称的忽略
+                    m_otherDeviceModel->insertRow(0, dListItem);
+                    m_delaySortTimer->start();
+                }
+            } else {
+                m_otherDeviceModel->insertRow(0, dListItem);
+            }
         }
     }
     bool isVisible = !m_myDevices.isEmpty() && m_powerSwitch->checked();
