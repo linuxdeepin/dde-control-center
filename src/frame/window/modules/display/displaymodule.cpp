@@ -388,7 +388,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 
 int DisplayModule::showTimeoutDialog(Monitor *mon)
 {
-    TimeoutDialog *timeoutDialog = new TimeoutDialog(15,"",m_displayWidget);
+    TimeoutDialog *timeoutDialog = new TimeoutDialog(15,"");
     qDebug() << "new TimeoutDialog";
     qreal radio = qApp->devicePixelRatio();
     connect(mon, &Monitor::geometryChanged, timeoutDialog, [ = ] {
@@ -401,6 +401,11 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
     connect(timeoutDialog, &TimeoutDialog::closed,
             timeoutDialog, &TimeoutDialog::deleteLater);
 
+    //mon坐标数据有延迟，保存设置窗口延迟200ms获取monitor坐标和移动到屏幕中心位置显示
+    QTimer::singleShot(200,this,[ = ]{
+        QRectF rt(mon->x(), mon->y(), mon->w() / radio, mon->h() / radio);
+        timeoutDialog->moveToCenterByRect(rt.toRect());
+    });
     return timeoutDialog->exec();
 }
 
