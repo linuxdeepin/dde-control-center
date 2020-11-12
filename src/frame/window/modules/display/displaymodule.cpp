@@ -346,6 +346,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                      << "\t rate:" << tmode.rate
                      << "\t id: " << tmode.id;
             for (auto m : m_displayModel->monitorList()) {
+                bool matched = false;
                 for (auto res : m->modeList()) {
 //                    if (fabs(r) > 0.000001 && fabs(res.rate() - r) > 0.000001) {
 //                        continue;
@@ -359,12 +360,12 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                     } else {
                         if (res.width() == w && res.height() == h && abs(res.rate() - r) < 1e-5) {
                             m_displayWorker->setMonitorResolution(m, res.id());
-                            break;
-                        } else {
-                            m_displayWorker->setMonitorResolutionBySize(m, w, h);
-                            break;
+                            matched = true;
                         }
                     }
+                }
+                if (!matched) {
+                    m_displayWorker->setMonitorResolutionBySize(m, w, h);
                 }
             }
         } else {

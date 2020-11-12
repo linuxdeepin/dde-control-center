@@ -292,7 +292,7 @@ void CustomSettingDialog::initRefreshrateList(Monitor::JudgementModel mode)
         if (m_model->isMerge()) {
             bool isCommen = true;
             for (auto tmonitor : m_model->monitorList()) {
-                if (tmonitor !=m_monitor && !tmonitor->hasResolutionAndRate(m, Monitor::special)) {
+                if (tmonitor !=m_monitor && !tmonitor->hasResolutionAndRate(m, mode)) {
                     isCommen = false;
                     break;
                 }
@@ -302,7 +302,7 @@ void CustomSettingDialog::initRefreshrateList(Monitor::JudgementModel mode)
                 continue;
         }
 
-        auto trate = abs(m.rate() - currentRate) < 0.5 ? currentRate : m.rate();
+        auto trate = m.rate();
         //+  防止出现由合并模式切换到拆分模式外接屏幕出现多个相同刷新率的情况
         if (allStr.contains(QString::number(trate, 'g', 4) + tr("Hz"))) {
             continue;
@@ -588,7 +588,7 @@ void CustomSettingDialog::initConnect()
             rate = m.rate();
         }
 
-        if (m_model->isMerge()) {            
+        if (m_model->isMerge()) {
             if (w == m_monitor->currentMode().width()
                     && h == m_monitor->currentMode().height()) {
                 return;
@@ -648,7 +648,7 @@ void CustomSettingDialog::initConnect()
             res.w = w;
             res.h = h;
             res.rate = rate;
-            this->requestSetResolution(nullptr, res);            
+            this->requestSetResolution(nullptr, res);
         } else {
             auto id = lm->data(idx, IdRole).toInt();
             if (id == m_monitor->currentMode().id()) {
@@ -819,7 +819,7 @@ void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
 }
 
 void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
-{    
+{
     initWithModel();
     resetDialog();
 }
