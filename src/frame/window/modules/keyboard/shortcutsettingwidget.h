@@ -118,6 +118,7 @@ private:
     QList<dcc::keyboard::ShortcutItem *> m_workspaceList;
     QList<dcc::keyboard::ShortcutItem *> m_assistiveToolsList;
     QList<dcc::keyboard::ShortcutItem *> m_customList;
+    QStringList m_assistiveToolsIdList;
 };
 }
 }
