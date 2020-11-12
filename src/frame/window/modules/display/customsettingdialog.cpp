@@ -599,6 +599,8 @@ void CustomSettingDialog::initConnect()
                 }
                 this->requestEnalbeMonitor(monis[idx], flag);
                 item->setCheckState(item->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
+                //禁止用户去切换主屏幕到被取消开启的屏幕
+                m_displayComboxWidget->comboBox()->setEnabled(flag);
                 //initOtherDialog();
                 break;
             }
