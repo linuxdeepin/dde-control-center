@@ -229,7 +229,7 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool c
     if (state == Device::StateConnected && connectState) {
         tip = tr("Connected");
         setLoading(false);
-    } else if (state == Device::StateUnavailable) {
+    } else if (state == Device::StateUnavailable || state == Device::StateDisconnecting) {
         tip = tr("Not connected");
         setLoading(false);
     }
