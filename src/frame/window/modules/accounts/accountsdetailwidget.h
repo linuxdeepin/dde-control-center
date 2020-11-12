@@ -35,6 +35,7 @@
 #include "fingerwidget.h"
 
 #include <DLineEdit>
+#include <DDialog>
 
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
@@ -76,6 +77,8 @@ public:
     void updateLineEditDisplayStyle(bool valid = false);
     void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
+    //获取其它用户是否开启自动登录开关
+    bool getOtherUserAutoLogin();
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
@@ -121,6 +124,7 @@ private:
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
     QHBoxLayout *m_avatarLayout;
+    DDialog *m_tipDialog;
 };
 
 }   // namespace accounts

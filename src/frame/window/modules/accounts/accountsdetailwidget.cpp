@@ -57,6 +57,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_avatarLayout(new QHBoxLayout)
+    , m_tipDialog(nullptr)
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -110,6 +111,16 @@ void AccountsDetailWidget::setFingerModel(FingerModel *model)
     if (m_curUser->isCurrentUser()) {
         m_fingerWidget->setVisible(!IsServerSystem && model->isVaild());
     }
+}
+
+bool AccountsDetailWidget::getOtherUserAutoLogin()
+{
+    for(auto user : m_userModel->userList()) {
+        if (user->name() != m_curUser->name() && user->autoLogin()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 //删除账户
@@ -288,12 +299,24 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
+    m_autoLogin = new SwitchWidget;
+    m_nopasswdLogin = new SwitchWidget;
+    SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+
+    loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
+    loginGrp->setContentsMargins(10, 10, 10, 10);
+    loginGrp->layout()->setMargin(0);
+    loginGrp->appendItem(m_autoLogin);
+    loginGrp->appendItem(m_nopasswdLogin);
+    if (!IsServerSystem) {
+        layout->addSpacing(20);
+    }
+
     if (m_isServerSystem) {
         auto pwHLayout = new QHBoxLayout;
         auto pwWidget = new SettingsItem;
-        pwWidget->addBackground();
         layout->addSpacing(15);
-        layout->addWidget(pwWidget);
+        loginGrp->appendItem(pwWidget);
         pwWidget->setLayout(pwHLayout);
 
         pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
@@ -333,21 +356,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         });
     }
 
-    m_autoLogin = new SwitchWidget;
-    m_nopasswdLogin = new SwitchWidget;
-    SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-
-    loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
-    loginGrp->setContentsMargins(10, 10, 10, 10);
-    loginGrp->layout()->setMargin(0);
-    loginGrp->appendItem(m_autoLogin);
-    loginGrp->appendItem(m_nopasswdLogin);
-    if (!IsServerSystem) {
-        layout->addSpacing(20);
-    }
     layout->addWidget(loginGrp);
-    //服务器版本不显示自动登录，无密码登录
-    loginGrp->setVisible(!IsServerSystem);
 
     m_fingerWidget = new FingerWidget(m_curUser, this);
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);
@@ -388,9 +397,36 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //自动登录，无密码登录操作
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
-    connect(m_autoLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool autoLogin) {
-        Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+    connect(m_curUser, &User::nopasswdLoginChanged,
+            m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_autoLogin, &SwitchWidget::checkedChanged,
+            this, [ = ](const bool autoLogin) {
+        if (autoLogin) {
+            if (getOtherUserAutoLogin()) {
+                Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+            } else {
+                m_tipDialog = new DDialog(this);
+                m_tipDialog->setAttribute(Qt::WA_DeleteOnClose);
+                m_tipDialog->setMessage(tr("Only one account can have \"Auto Login\" enabled.If proceeding,"\
+                                           " that option of other accounts will be disabled."));
+                m_tipDialog->addButton(tr("Cancel"), true, DDialog::ButtonRecommend);
+                m_tipDialog->addButton(tr("Enable"), true, DDialog::ButtonRecommend);
+                m_tipDialog->show();
+                connect(m_tipDialog, &DDialog::buttonClicked, this, [ = ](int dex, const QString &text) {
+                    if (text == tr("Cancel")) {
+                        m_tipDialog->close();
+                        m_autoLogin->setChecked(false);
+                    } else {
+                        Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+                    }
+                });
+                connect(m_tipDialog, &DDialog::closed, this, [ = ] {
+                    m_autoLogin->setChecked(false);
+                });
+            }
+        } else {
+            Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+        }
     });
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
@@ -415,8 +451,8 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
-    m_autoLogin->setVisible(m_userModel->isAutoLoginVisable() && !IsServerSystem);
-    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable() && !IsServerSystem);
+    m_autoLogin->setVisible(m_userModel->isAutoLoginVisable());
+    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable());
 
     // 非服务器系统，关联配置改变信号，控制自动登陆开关/无密码登陆开关显隐
     if (!IsServerSystem) {

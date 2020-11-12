@@ -80,17 +80,24 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     getAllGroups();
     getPresetGroups();
 
-    // 关联gsetting自动登陆/无密码登陆配置
-    QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
-    m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
-    connect(gsetting, &QGSettings::changed, m_userModel, [=](const QString &key){
-        if (key == "autoLoginVisable") {
-            m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
-        } else if (key == "nopasswdLoginVisable") {
-            m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
-        }
-    });
+    // 非服务器版本关联gsetting自动登陆/无密码登陆配置
+    if (!IsServerSystem) {
+        QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+
+        m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
+        m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
+        connect(gsetting, &QGSettings::changed, m_userModel, [=](const QString &key){
+            if (key == "autoLoginVisable") {
+                m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
+            } else if (key == "nopasswdLoginVisable") {
+                m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
+            }
+        });
+    } else {
+        m_userModel->setAutoLoginVisable(true);
+        m_userModel->setNoPassWordLoginVisable(false);
+    }
+
 
     bool bShowCreateUser = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showCreateUser", true);
     m_userModel->setCreateUserValid(bShowCreateUser);
