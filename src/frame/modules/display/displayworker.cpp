@@ -84,7 +84,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(&m_displayInter, &DisplayInter::CurrentCustomIdChanged, model, &DisplayModel::setCurrentConfig);
     connect(&m_displayInter, &DisplayInter::CustomIdListChanged, model, &DisplayModel::setConfigList);
 //    connect(&m_displayInter, &DisplayInter::HasCustomConfigChanged, model, &DisplayModel::setHasConfig);
-    connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
+    connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary, Qt::QueuedConnection);
 
     //display redSfit/autoLight
     connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged,
