@@ -26,13 +26,11 @@
 #include <QHBoxLayout>
 #include <QMouseEvent>
 #include <QTimer>
-#include <QDateTime>
 
 #include <DApplicationHelper>
 
 using namespace dcc::widgets;
 using namespace dcc;
-using namespace dcc::bluetooth;
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::bluetooth;
 
