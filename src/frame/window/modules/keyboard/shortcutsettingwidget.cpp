@@ -83,6 +83,9 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
         speechHead->setTitle(tr("Assistive Tools"));
         speechHead->setEditEnable(false);
         m_assistiveToolsGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
+        //TODO：klu将辅助功移除， 快捷键模块辅助功能屏蔽
+        speechHead->setVisible(false);
+        m_assistiveToolsGroup->setVisible(false);
     }
 
     m_customGroup = new SettingsGroup();
@@ -324,9 +327,6 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         m_layout->insertWidget(0, m_searchGroup, 0, Qt::AlignTop);
     } else {
         m_customGroup->show();
-        if (m_assistiveToolsGroup) {
-            m_assistiveToolsGroup->show();
-        }
         m_workspaceGroup->show();
         m_windowGroup->show();
         m_systemGroup->show();
@@ -662,7 +662,6 @@ void ShortCutSettingWidget::setGroupSettingVisible(bool enable)
     m_systemGroup->setVisible(enable);
     m_windowGroup->setVisible(enable);
     m_workspaceGroup->setVisible(enable);
-    m_assistiveToolsGroup->setVisible(enable);
     m_customGroup->setVisible(enable);
     m_searchGroup->setVisible(enable);
 }
