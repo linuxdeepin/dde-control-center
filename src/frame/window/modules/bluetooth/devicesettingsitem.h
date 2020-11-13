@@ -30,8 +30,10 @@
 
 #include <QObject>
 #include <QPointer>
+#include <QDateTime>
 
 DWIDGET_USE_NAMESPACE
+using namespace dcc::bluetooth;
 
 QT_BEGIN_NAMESPACE
 class QStyle;
@@ -39,7 +41,6 @@ QT_END_NAMESPACE
 
 namespace dcc {
 namespace bluetooth {
-class Device;
 class Adapter;
 }
 }
@@ -68,6 +69,13 @@ public:
     };
 
     using DStandardItem::DStandardItem;
+
+     BtStandardItem() {
+        BtSortInfo info;
+        info.connected = false;
+        info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
+        setSortInfo(info);
+    }
 
     void setSortInfo(const BtSortInfo &sortInfo) {
         setData(QVariant::fromValue(sortInfo), SortRole);
