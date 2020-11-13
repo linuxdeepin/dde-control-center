@@ -137,6 +137,7 @@ private:
     QStandardItemModel *m_freshListModel{nullptr};
     QStandardItemModel *m_displayListModel{nullptr};
     QList<CustomSettingDialog *> m_otherDialog;
+    QTimer *m_resetDialogTimer;
 };
 }
 

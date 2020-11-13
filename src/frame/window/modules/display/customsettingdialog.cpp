@@ -47,6 +47,7 @@ DWIDGET_USE_NAMESPACE
 CustomSettingDialog::CustomSettingDialog(QWidget *parent)
     : DAbstractDialog(parent)
     , m_isPrimary(true)
+    , m_resetDialogTimer(new QTimer(this))
 {
     initUI();
 }
@@ -57,6 +58,7 @@ CustomSettingDialog::CustomSettingDialog(dcc::display::Monitor *mon,
     : DAbstractDialog(parent)
     , m_isPrimary(false)
     , m_model(model)
+    , m_resetDialogTimer(new QTimer(this))
 {
     initUI();
     resetMonitorObject(mon);
@@ -158,6 +160,36 @@ void CustomSettingDialog::initUI()
     for (auto item : m_vSegBtn) {
         item->setFocusPolicy(Qt::NoFocus);
     }
+
+    m_resetDialogTimer->setSingleShot(true);
+    connect(m_resetDialogTimer, &QTimer::timeout, this, [ = ] {
+        m_monitroControlWidget->adjustSize();
+        m_monitroControlWidget->updateGeometry();
+        adjustSize();
+
+        auto rt = rect();
+        if (rt.width() > m_monitor->w())
+            rt.setWidth(m_monitor->w());
+
+        if (rt.height() > m_monitor->h())
+            rt.setHeight(m_monitor->h());
+
+        auto mrt = m_monitor->rect();
+        auto tsize = (mrt.size() / m_model->monitorScale(m_monitor) - rt.size()) / 2;
+
+        qDebug() << Q_FUNC_INFO << "-----------------------";
+
+        qDebug() << "monitor name:" << m_monitor->name();
+        qDebug() << "rt :" << rt;
+        qDebug() << "tsize :" << tsize;
+        qDebug() << "scale :" << m_model->monitorScale(m_monitor);
+        rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
+
+        qDebug() << "mrt :" << mrt;
+        qDebug() << "final rt :" << rt;
+        setGeometry(rt);
+        this->setWindowOpacity(1);
+    });
 }
 
 void CustomSettingDialog::setModel(DisplayModel *model)
@@ -402,6 +434,7 @@ void CustomSettingDialog::initMoniList()
         m_displayListModel->appendRow(item);
         connect(moniList[idx], &Monitor::enableChanged, this, [ = ](bool enable) {
             item->setCheckState(enable ? Qt::Checked : Qt::Unchecked);
+            initOtherDialog();
         });
     }
 
@@ -601,7 +634,6 @@ void CustomSettingDialog::initConnect()
                 item->setCheckState(item->checkState() == Qt::Checked ? Qt::Unchecked : Qt::Checked);
                 //禁止用户去切换主屏幕到被取消开启的屏幕
                 m_displayComboxWidget->comboBox()->setEnabled(flag);
-                //initOtherDialog();
                 break;
             }
         });
@@ -696,34 +728,8 @@ void CustomSettingDialog::resetDialog()
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
     //由于窗口不能直接隐藏,需要在等待的1s内将主窗口设置为完全透明
     this->setWindowOpacity(0);
-    QTimer::singleShot(sender() ? 1000 : 0, this, [ = ] {
-        m_monitroControlWidget->adjustSize();
-        m_monitroControlWidget->updateGeometry();
-        adjustSize();
-
-        auto rt = rect();
-        if (rt.width() > m_monitor->w())
-            rt.setWidth(m_monitor->w());
-
-        if (rt.height() > m_monitor->h())
-            rt.setHeight(m_monitor->h());
-
-        auto mrt = m_monitor->rect();
-        auto tsize = (mrt.size() / m_model->monitorScale(m_monitor) - rt.size()) / 2;
-
-        qDebug() << Q_FUNC_INFO << "-----------------------";
-
-        qDebug() << "monitor name:" << m_monitor->name();
-        qDebug() << "rt :" << rt;
-        qDebug() << "tsize :" << tsize;
-        qDebug() << "scale :" << m_model->monitorScale(m_monitor);
-        rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
-
-        qDebug() << "mrt :" << mrt;
-        qDebug() << "final rt :" << rt;
-        setGeometry(rt);
-        this->setWindowOpacity(1);
-    });
+    m_resetDialogTimer->setInterval(sender() ? 1000 : 0);
+    m_resetDialogTimer->start();
 }
 
 void CustomSettingDialog::onPrimaryMonitorChanged()
