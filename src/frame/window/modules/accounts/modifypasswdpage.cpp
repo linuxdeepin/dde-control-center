@@ -138,7 +138,7 @@ void ModifyPasswdPage::clickSaveBtn()
     //校验输入密码
     if (m_oldPasswordEdit->lineEdit()->text().isEmpty()) {
         m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"));
+        m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
         return;
     }
     if (!onPasswordEditFinished(m_newPasswordEdit) ||
@@ -259,7 +259,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 
     if (password.isEmpty()) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"));
+        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
         return false;
     }
 
@@ -267,7 +267,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
     if (edit == m_repeatPasswordEdit) {
         if (m_newPasswordEdit->lineEdit()->text() != password) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Passwords do not match"), -1);
+            edit->showAlertMessage(tr("Passwords do not match"), edit, 2000);
             return false;
         }
     }
@@ -281,48 +281,48 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
     {
     case ENUM_PASSWORD_NOTEMPTY:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"), -1);
+        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
         return false;
     case ENUM_PASSWORD_TOOSHORT:
         edit->setAlert(true);
         if (passwordtype == CreateAccountPage::NormalPassWord)
-            edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), -1);
+            edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), edit, 2000);
         if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, -1);
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
         return false;
     case ENUM_PASSWORD_TOOLONG:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(PwqualityManager::instance()->getPasswordMaxLength()), -1);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(PwqualityManager::instance()->getPasswordMaxLength()), edit, 2000);
         return false;
     case ENUM_PASSWORD_TYPE:
         edit->setAlert(true);
         if (passwordtype == CreateAccountPage::NormalPassWord)
-            edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), -1);
+            edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), edit, 2000);
         if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, -1);
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
         return false;
     case ENUM_PASSWORD_CHARACTER:
         edit->setAlert(true);
         if (passwordtype == CreateAccountPage::NormalPassWord)
-            edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+            edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), edit, 2000);
         if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, -1);
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
         return false;
     case ENUM_PASSWORD_SEVERAL:
         edit->setAlert(true);
-        edit->showAlertMessage(blanksymbolstr, -1);
+        edit->showAlertMessage(blanksymbolstr, edit, 2000);
         return false;
     case ENUM_PASSWORD_PALINDROME:
         if (passwordtype == CreateAccountPage::NormalPassWord) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"));
+            edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"), edit, 2000);
             return false;
         }
         break;
     case ENUM_PASSWORD_DICT_FORBIDDEN:
         if (passwordtype == CreateAccountPage::NormalPassWord) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Password must not contain common words and combinations"));
+            edit->showAlertMessage(tr("Password must not contain common words and combinations"), edit, 2000);
             return false;
         }
         break;
@@ -330,14 +330,14 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 
     if (m_oldPasswordEdit->lineEdit()->text() == password) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("New password should differ from the current one"), -1);
+        edit->showAlertMessage(tr("New password should differ from the current one"), edit, 2000);
         return false;
     }
 
     const int maxSize = 512;
     if (password.size() > maxSize) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), edit, 2000);
         return false;
     }
 
@@ -353,7 +353,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         //密码不可为用户名重复或倒置
         if (password == m_curUser->name() || password == reversusername) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Password should not be the repeated or reversed username"));
+            edit->showAlertMessage(tr("Password should not be the repeated or reversed username"), edit, 2000);
             return false;
         }
     }

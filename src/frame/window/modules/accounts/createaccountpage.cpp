@@ -379,15 +379,15 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         break;
     case CreationResult::UserNameError:
         m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(result->message(), -1);
+        m_nameEdit->showAlertMessage(result->message(), m_nameEdit, 2000);
         break;
     case CreationResult::PasswordError:
         m_passwdEdit->setAlert(true);
-        m_passwdEdit->showAlertMessage(result->message(), -1);
+        m_passwdEdit->showAlertMessage(result->message(), m_passwdEdit, 2000);
         break;
     case CreationResult::PasswordMatchError:
         m_repeatpasswdEdit->setAlert(true);
-        m_repeatpasswdEdit->showAlertMessage(result->message(), -1);
+        m_repeatpasswdEdit->showAlertMessage(result->message(), m_repeatpasswdEdit, 2000);
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:
         qDebug() << "error encountered creating user: " << result->message();
@@ -407,7 +407,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
 
     if (userpassword.isEmpty()) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"), -1);
+        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
         return false;
     }
 
@@ -420,48 +420,48 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
     {
     case ENUM_PASSWORD_NOTEMPTY:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"), -1);
+        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
         return false;
     case ENUM_PASSWORD_TOOSHORT:
         edit->setAlert(true);
         if (passwordtype == PassWordType::NormalPassWord)
-            edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), -1);
+            edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), edit, 2000);
         if (passwordtype == PassWordType::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, -1);
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
         return false;
     case ENUM_PASSWORD_TOOLONG:
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(PwqualityManager::instance()->getPasswordMaxLength()), -1);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(PwqualityManager::instance()->getPasswordMaxLength()), edit, 2000);
         return false;
     case ENUM_PASSWORD_TYPE:
         edit->setAlert(true);
         if (passwordtype == PassWordType::NormalPassWord)
-            edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), -1);
+            edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), edit, 2000);
         if (passwordtype == PassWordType::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, -1);
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
         return false;
     case ENUM_PASSWORD_CHARACTER:
         edit->setAlert(true);
         if (passwordtype == PassWordType::NormalPassWord)
-            edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+            edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), edit, 2000);
         if (passwordtype == PassWordType::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, -1);
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
         return false;
     case ENUM_PASSWORD_SEVERAL:
         edit->setAlert(true);
-        edit->showAlertMessage(blanksymbolstr, -1);
+        edit->showAlertMessage(blanksymbolstr, edit, 2000);
         return false;
     case ENUM_PASSWORD_PALINDROME:
         if (passwordtype == PassWordType::NormalPassWord) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"));
+            edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"), edit, 2000);
             return false;
         }
         break;
     case ENUM_PASSWORD_DICT_FORBIDDEN:
         if (passwordtype == PassWordType::NormalPassWord) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Password must not contain common words and combinations"));
+            edit->showAlertMessage(tr("Password must not contain common words and combinations"), edit, 2000);
             return false;
         }
         break;
@@ -479,7 +479,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
         //密码不可为用户名重复或倒置
         if (userpassword == m_nameEdit->lineEdit()->text() || userpassword == reversusername) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Password should not be the repeated or reversed username"));
+            edit->showAlertMessage(tr("Password should not be the repeated or reversed username"), edit, 2000);
             return false;
         }
     }
@@ -487,7 +487,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
     if (edit == m_repeatpasswdEdit) {
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
             m_repeatpasswdEdit->setAlert(true);
-            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), -1);
+            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
             return false;
         }
     }
@@ -511,20 +511,20 @@ bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
 
     if (username.size() < 3 || username.size() > 32) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Username must be between 3 and 32 characters"), -1);
+        edit->showAlertMessage(tr("Username must be between 3 and 32 characters"), edit, 2000);
         return false;
     }
 
     const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     if (!compStr.contains(username.at(0))) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("The first character must be a letter or number"), -1);
+        edit->showAlertMessage(tr("The first character must be a letter or number"), edit, 2000);
         return false;
     }
 
     if(username.contains(QRegExp("^\\d+$"))) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Your username should not only have numbers"), -1);
+        edit->showAlertMessage(tr("Your username should not only have numbers"), edit, 2000);
         return false;
     }
 
@@ -545,7 +545,7 @@ bool CreateAccountPage::onFullNameEidtFinished(DLineEdit *edit)
         for (auto u : userList) {
             if (userFullName == u->fullname()) {
                 edit->setAlert(true);
-                edit->showAlertMessage(tr("The full name already exists"), this);
+                edit->showAlertMessage(tr("The full name already exists"), this, 2000);
                 return false;
             }
         }
@@ -553,7 +553,7 @@ bool CreateAccountPage::onFullNameEidtFinished(DLineEdit *edit)
         // sp3要求全名最长32位
         if (userFullName.size() > 32) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("The full name is too long"), this);
+            edit->showAlertMessage(tr("The full name is too long"), this, 2000);
             return false;
         }
         return true;
