@@ -56,11 +56,6 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     }
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
-
-    BtSortInfo info;
-    info.connected = m_device->connectState();
-    info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
-    m_deviceItem->setSortInfo(info);
 }
 
 DeviceSettingsItem::~DeviceSettingsItem()
@@ -103,7 +98,7 @@ void DeviceSettingsItem::setLoading(const bool loading)
                 if (!deviceModel) {
                     return;
                 }
-                DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
+                BtStandardItem *item = dynamic_cast<BtStandardItem *>(deviceModel->item(i));
                 if (!item) {
                     return;
                 }
@@ -142,7 +137,7 @@ void DeviceSettingsItem::setDevice(const Device *device)
             if (!deviceModel) {
                 return;
             }
-            DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
+            BtStandardItem *item = dynamic_cast<BtStandardItem *>(deviceModel->item(i));
             if (!item) {
                 return;
             }
@@ -160,10 +155,6 @@ void DeviceSettingsItem::setDevice(const Device *device)
     connect(device, &Device::aliasChanged, this, [this](const QString &alias) {
         if (m_deviceItem) {
             m_deviceItem->setText(alias);
-
-            BtSortInfo info = m_deviceItem->sortInfo();
-            info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
-            m_deviceItem->setSortInfo(info);
         }
 
         Q_EMIT requestSort();
@@ -210,13 +201,6 @@ BtStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
 
-    BtSortInfo info;
-    info.connected = m_device->connectState();
-    if (m_deviceItem) {
-        info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
-        m_deviceItem->setSortInfo(info);
-    }
-
     return m_deviceItem;
 }
 
@@ -236,12 +220,6 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool c
     }
     m_textAction->setText(tip);
 
-    if (m_deviceItem) {
-        BtSortInfo info = m_deviceItem->sortInfo();
-        info.connected = (state == Device::StateConnected && connectState);
-        m_deviceItem->setSortInfo(info);
-    }
-
     Q_EMIT requestSort();
 }
 
@@ -258,3 +236,4 @@ const Device *DeviceSettingsItem::device() const
 {
     return m_device;
 }
+
