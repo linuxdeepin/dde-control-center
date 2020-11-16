@@ -204,7 +204,7 @@ void UseElectricWidget::setModel(const PowerModel *model)
 
     //--------------sp2 add-----------------
     m_cmbCloseLid->setVisible(model->lidPresent());
-    const int powerAction = model->batteryLidClosedAction();
+    const int powerAction = model->linePowerLidClosedAction();
     if (m_mPower2ComboxIndex4CloseLid.contains(powerAction)) {
         int comboIndex = m_mPower2ComboxIndex4CloseLid[powerAction];
         m_cmbCloseLid->comboBox()->setCurrentIndex(comboIndex);
