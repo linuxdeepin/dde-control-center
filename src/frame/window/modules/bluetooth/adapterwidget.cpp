@@ -148,6 +148,7 @@ void AdapterWidget::initUI()
 
     m_myDeviceListView = new DListView(this);
     m_myDeviceModel = new QStandardItemModel(m_myDeviceListView);
+    m_myDeviceModel->setSortRole(BtStandardItem::SortRole);
     m_myDeviceListView->setAccessibleName("List_mydevicelist");
     m_myDeviceListView->setFrameShape(QFrame::NoFrame);
     m_myDeviceListView->setModel(m_myDeviceModel);
@@ -238,6 +239,9 @@ void AdapterWidget::initConnect()
         for (auto it : m_deviceLists) {
             if (it && it->device() && it->getStandardItem() == item) {
                 it->requestConnectDevice(it->device(), m_adapter);
+                BtSortInfo info = it->getStandardItem()->sortInfo();
+                info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
+                it->getStandardItem()->setSortInfo(info);
                 m_delaySortTimer->start();
                 break;
             }
@@ -421,42 +425,38 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
 
 void AdapterWidget::addDevice(const Device *device)
 {
-    if (!device)
-        return;
     QPointer<DeviceSettingsItem> deviceItem = new DeviceSettingsItem(device, style());
     categoryDevice(deviceItem, device->paired());
 
     connect(deviceItem, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
     connect(device, &Device::pairedChanged, this, [this, deviceItem](const bool paired) {
-        if (deviceItem && deviceItem->device()) {
-            if (paired) {
-                qDebug() << "paired :" << deviceItem->device()->name();
-                BtStandardItem *item = deviceItem->getStandardItem();
-                QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
-                m_otherDeviceModel->removeRow(otherDeviceIndex.row());
-                deviceItem->resetDeviceItem();
-                BtStandardItem *dListItem = deviceItem->createStandardItem(m_myDeviceListView);
-                m_myDevices << deviceItem;
-                connect(deviceItem, &DeviceSettingsItem::requestSort, this, [ = ] {
-                    m_delaySortTimer->start();
-                });
-                m_myDeviceModel->appendRow(dListItem);
+        if (paired) {
+            qDebug() << "paired :" << deviceItem->device()->name();
+            BtStandardItem *item = deviceItem->getStandardItem();
+            QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
+            m_otherDeviceModel->removeRow(otherDeviceIndex.row());
+            deviceItem->resetDeviceItem();
+            BtStandardItem *dListItem = deviceItem->createStandardItem(m_myDeviceListView);
+            m_myDevices << deviceItem;
+            connect(deviceItem, &DeviceSettingsItem::requestSort, this, [ = ] {
                 m_delaySortTimer->start();
-            } else {
-                qDebug() << "unpaired :" << deviceItem->device()->name();
-                for (auto it : m_myDevices) {
-                    if (it && it->device() && it == deviceItem) {
-                        m_myDevices.removeOne(it);
-                        break;
-                    }
+            });
+            m_myDeviceModel->appendRow(dListItem);
+            m_delaySortTimer->start();
+        } else {
+            qDebug() << "unpaired :" << deviceItem->device()->name();
+            for (auto it : m_myDevices) {
+                if (it && it->device() && it == deviceItem) {
+                    m_myDevices.removeOne(it);
+                    break;
                 }
-                BtStandardItem *item = deviceItem->getStandardItem();
-                QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
-                m_myDeviceModel->removeRow(myDeviceIndex.row());
-                BtStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
-                m_otherDeviceModel->appendRow(dListItem);
-                m_delaySortTimer->start();
             }
+            BtStandardItem *item = deviceItem->getStandardItem();
+            QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
+            m_myDeviceModel->removeRow(myDeviceIndex.row());
+            BtStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
+            m_otherDeviceModel->appendRow(dListItem);
+            m_delaySortTimer->start();
         }
         bool isVisible = !m_myDevices.isEmpty() && m_powerSwitch->checked();
         m_myDevicesGroup->setVisible(isVisible);
