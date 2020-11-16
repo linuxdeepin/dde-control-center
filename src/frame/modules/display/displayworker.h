@@ -58,7 +58,7 @@ public:
     ~DisplayWorker();
 
     void active();
-
+    bool isCustomMerge();
 public Q_SLOTS:
     void saveChanges();
     void discardChanges();

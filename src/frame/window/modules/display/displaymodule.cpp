@@ -276,7 +276,8 @@ void DisplayModule::showCustomSettingDialog()
             m_displayWorker, &DisplayWorker::setPrimary);
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
-    m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
+    // 当自定义关闭一个屏幕时 两个屏幕坐标都为0,0 所以判断两个屏幕相交有误，现在根据后端返回判断
+    m_displayModel->setIsMerge(m_displayWorker->isCustomMerge());
     dlg->setModel(m_displayModel);
 
     if (dlg->exec() != QDialog::Accepted) {

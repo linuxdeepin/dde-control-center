@@ -136,6 +136,18 @@ void DisplayWorker::active()
     connect(screenscaleswatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScreenScalesFinished);
 }
 
+bool DisplayWorker::isCustomMerge()
+{
+    QDBusMessage GetCustomDisplayMode = QDBusMessage::createMethodCall("com.deepin.daemon.Display",
+                                                                     "/com/deepin/daemon/Display",
+                                                                     "com.deepin.daemon.Display",
+                                                                     "GetCustomDisplayMode");
+    QDBusMessage msg = QDBusConnection::sessionBus().call(GetCustomDisplayMode);
+    auto RealDisplayMode = msg.arguments().first().toUInt();
+    //1 为复制模式， 2为拆分模式
+    return RealDisplayMode == 1;
+}
+
 void DisplayWorker::saveChanges()
 {
     qDebug() << Q_FUNC_INFO;
