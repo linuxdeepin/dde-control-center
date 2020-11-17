@@ -112,7 +112,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
             this, &WiredPage::onDeviceStatusChanged);
     connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
     connect(m_device, &WiredDevice::activeConnectionsChanged, this, &WiredPage::onActivatedConnection);
-
     onDeviceStatusChanged(m_device->status());
     QTimer::singleShot(1, this, &WiredPage::refreshConnectionList);
 }
@@ -120,6 +119,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 void WiredPage::setModel(NetworkModel *model)
 {
     m_model = model;
+    //初始化开关状态
+    Q_EMIT m_model->initDeviceEnable(m_device->path());
     connect(m_switch, &SwitchWidget::checkedChanged, m_model, [  = ] (const bool checked) {
         qDebug() << "enable:" << checked;
         Q_EMIT m_model->requestDeviceEnable(m_device->path(), checked);

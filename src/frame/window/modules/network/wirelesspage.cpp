@@ -355,7 +355,17 @@ void WirelessPage::initConnect()
 
     //切换开关
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
-
+    //监听后端信号改变
+    connect(m_device, &WirelessDevice::enableChanged, this, [=](){
+        qDebug() << "Device change signal from daemon, state:" << m_device->enabled();
+        onSwitch(m_device->enabled());
+        //开关的时候做个清空操作，防止出现脏数据
+        m_apItems.clear();
+        m_modelAP->clear();
+        if (m_device->enabled())
+            //这里会在页面创建的时候去初始化一次，所以无需在构造函数中再调用
+            m_device->initWirelessData();
+    });
     //更改wifi列表信息
     connect(m_device, &WirelessDevice::apAdded, this, &WirelessPage::onAPAdded);
     connect(m_device, &WirelessDevice::apRemoved, this, &WirelessPage::onAPRemoved);
@@ -449,16 +459,6 @@ void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
     m_lvAP->setVisible(m_switch->checked());
-    connect(m_model, &NetworkModel::deviceEnableChanged, this, [=](){
-        qDebug() << "Device change signal from daemon, state:" << m_device->enabled();
-        onSwitch(m_device->enabled());
-        //开关的时候做个清空操作，防止出现脏数据
-        m_apItems.clear();
-        m_modelAP->clear();
-        if (m_device->enabled())  
-            //这里会在页面创建的时候去初始化一次，所以无需在构造函数中再调用
-            m_device->initWirelessData();
-    });
 
     //更新一下wifi数据
     m_device->initWirelessData();
