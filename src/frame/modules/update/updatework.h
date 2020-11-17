@@ -76,7 +76,16 @@ public:
     void getLicenseState();
 #endif
 
+Q_SIGNALS:
+    void requestInit();
+    void requestActive();
+    void requestRefreshLicenseState();
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
+    void requestRefreshMirrors();
+#endif
+
 public Q_SLOTS:
+    void init();
     void checkForUpdates();
     void pauseDownload();
     void resumeDownload();

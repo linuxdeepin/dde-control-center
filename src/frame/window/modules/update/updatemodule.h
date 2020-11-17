@@ -25,6 +25,8 @@
 
 #include <QObject>
 #include <QGSettings>
+#include <QSharedPointer>
+#include <QThread>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -71,12 +73,13 @@ private:
     void onUpdatablePackagesChanged(const bool isUpdatablePackages);
 
 private:
-    dcc::update::UpdateModel *m_model = nullptr;
-    dcc::update::UpdateWorker *m_work = nullptr;
+    dcc::update::UpdateModel *m_model;
+    QSharedPointer<dcc::update::UpdateWorker> m_work;
     QPointer<UpdateWidget> m_updateWidget;
     MirrorsWidget *m_mirrorsWidget;
     QGSettings *m_versionTypeModue{nullptr};
     QStringList versionTypeList;
+    QSharedPointer<QThread> m_workThread;
 };
 
 }// namespace datetime
