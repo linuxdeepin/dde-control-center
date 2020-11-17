@@ -48,50 +48,10 @@ class Adapter;
 namespace DCC_NAMESPACE {
 namespace bluetooth {
 
-struct BtSortInfo {
-    bool connected = false;
-    int time;
-    bool operator < (const BtSortInfo &other)
-    {
-        if (connected ^ other.connected) {
-            return !connected;
-        } else {
-            return time < other.time;
-        }
-    }
-};
-
 class BtStandardItem : public DStandardItem
 {
 public:
-    enum {
-        SortRole = Dtk::UserRole + 1,
-    };
-
     using DStandardItem::DStandardItem;
-
-     BtStandardItem() {
-        BtSortInfo info;
-        info.connected = false;
-        info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
-        setSortInfo(info);
-    }
-
-    void setSortInfo(const BtSortInfo &sortInfo) {
-        setData(QVariant::fromValue(sortInfo), SortRole);
-    }
-
-    BtSortInfo sortInfo() {
-        return data(SortRole).value<BtSortInfo>();
-    }
-
-    bool operator < (const QStandardItem &other) const {
-        BtSortInfo thisApInfo = data(SortRole).value<BtSortInfo>();
-        BtSortInfo otherApInfo = other.data(SortRole).value<BtSortInfo>();
-
-        return thisApInfo < otherApInfo;
-
-    }
 };
 
 class DeviceSettingsItem : public QObject
@@ -109,15 +69,21 @@ public:
 private:
     void setDevice(const dcc::bluetooth::Device *device);
     void initItemActionList();
+    void loadingStart();
+    void loadingStop();
 
 Q_SIGNALS:
     void requestConnectDevice(const dcc::bluetooth::Device *device, const dcc::bluetooth::Adapter *adapter) const;
     void requestShowDetail(const dcc::bluetooth::Device *device) const;
-    void requestSort();
 
 private Q_SLOTS:
     void onDeviceStateChanged(const dcc::bluetooth::Device::State &state, bool paired);
     void onDevicePairedChanged(const bool &paired);
+
+    /*!
+     * \brief onUpdateLoadingPos 更新加载动画
+     */
+    void onUpdateLoading();
 
 private:
     const dcc::bluetooth::Device *m_device{nullptr};
@@ -132,4 +98,3 @@ private:
 };
 } // namespace DCC_NAMESPACE
 } // namespace dcc
-Q_DECLARE_METATYPE(DCC_NAMESPACE::bluetooth::BtSortInfo)

@@ -56,11 +56,6 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     }
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
-
-    BtSortInfo info;
-    info.connected = m_device->connectState();
-    info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
-    m_deviceItem->setSortInfo(info);
 }
 
 DeviceSettingsItem::~DeviceSettingsItem()
@@ -93,38 +88,60 @@ void DeviceSettingsItem::initItemActionList()
     m_dActionList.append(m_iconAction);
 }
 
+void DeviceSettingsItem::loadingStart()
+{
+    m_loadingIndicator->start();
+    m_loadingIndicator->show();
+    m_loadingAction->setVisible(true);
+    m_textAction->setVisible(false);
+}
+
+void DeviceSettingsItem::loadingStop()
+{
+    m_loadingIndicator->stop();
+    m_loadingIndicator->hide();
+    m_loadingAction->setVisible(false);
+    m_textAction->setVisible(true);
+}
+
+void DeviceSettingsItem::onUpdateLoading()
+{
+    if (m_parentDListView) {
+        QModelIndex index;
+        BtStandardItem *item = nullptr;
+        for (int i = 0; i < m_parentDListView->count(); ++i) {
+            const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentDListView->model());
+            if (!deviceModel) {
+                return;
+            }
+            item = dynamic_cast<BtStandardItem *>(deviceModel->item(i));
+            if (!item) {
+                continue;
+            }
+            if (m_deviceItem == item) {
+                index = m_parentDListView->model()->index(i, 0);
+                break;
+            }
+        }
+        QRect itemrect = m_parentDListView->visualRect(index);
+        if (item && (itemrect.height() != 0 || index.row() == 1)) {
+            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
+            m_loadingIndicator->move(point);
+            loadingStart();
+            return;
+        }
+
+        loadingStop();
+    }
+}
+
 void DeviceSettingsItem::setLoading(const bool loading)
 {
     if (loading) {
-        if (m_parentDListView) {
-            QModelIndex index;
-            for (int i = 0; i < m_parentDListView->count(); ++i) {
-                const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentDListView->model());
-                if (!deviceModel) {
-                    return;
-                }
-                DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
-                if (!item) {
-                    return;
-                }
-                if (m_deviceItem == item) {
-                    index = m_parentDListView->model()->index(i, 0);
-                    break;
-                }
-            }
-            QRect itemrect = m_parentDListView->visualRect(index);
-            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
-            m_loadingIndicator->move(point);
-        }
-        m_loadingIndicator->start();
-        m_loadingIndicator->show();
-        m_loadingAction->setVisible(true);
-        m_textAction->setVisible(false);
+        onUpdateLoading();
+        connect(m_parentDListView, &DListView::indexesMoved, this, &DeviceSettingsItem::onUpdateLoading);
     } else {
-        m_loadingIndicator->stop();
-        m_loadingIndicator->hide();
-        m_loadingAction->setVisible(false);
-        m_textAction->setVisible(true);
+        loadingStop();
     }
     if (m_parentDListView) {
         m_parentDListView->update();
@@ -142,7 +159,7 @@ void DeviceSettingsItem::setDevice(const Device *device)
             if (!deviceModel) {
                 return;
             }
-            DStandardItem *item = dynamic_cast<DStandardItem *>(deviceModel->item(i));
+            BtStandardItem *item = dynamic_cast<BtStandardItem *>(deviceModel->item(i));
             if (!item) {
                 return;
             }
@@ -160,13 +177,7 @@ void DeviceSettingsItem::setDevice(const Device *device)
     connect(device, &Device::aliasChanged, this, [this](const QString &alias) {
         if (m_deviceItem) {
             m_deviceItem->setText(alias);
-
-            BtSortInfo info = m_deviceItem->sortInfo();
-            info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
-            m_deviceItem->setSortInfo(info);
         }
-
-        Q_EMIT requestSort();
     });
 
     onDeviceStateChanged(device->state(), device->connectState());
@@ -210,13 +221,6 @@ BtStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
 
-    BtSortInfo info;
-    info.connected = m_device->connectState();
-    if (m_deviceItem) {
-        info.time = static_cast<int>(QDateTime::currentDateTime().toTime_t());
-        m_deviceItem->setSortInfo(info);
-    }
-
     return m_deviceItem;
 }
 
@@ -235,14 +239,6 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool c
         setLoading(false);
     }
     m_textAction->setText(tip);
-
-    if (m_deviceItem) {
-        BtSortInfo info = m_deviceItem->sortInfo();
-        info.connected = (state == Device::StateConnected && connectState);
-        m_deviceItem->setSortInfo(info);
-    }
-
-    Q_EMIT requestSort();
 }
 
 void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)
@@ -258,3 +254,4 @@ const Device *DeviceSettingsItem::device() const
 {
     return m_device;
 }
+
