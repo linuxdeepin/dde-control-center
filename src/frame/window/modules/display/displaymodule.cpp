@@ -285,6 +285,7 @@ void DisplayModule::showCustomSettingDialog()
         m_displayWorker->restore();
     } else {
         keybindInter.AddShortcutKeystroke("display",2,"XF86Display");
+        m_displayWorker->setCustomDisplayMode();
         m_displayWorker->saveChanges();
     }
 

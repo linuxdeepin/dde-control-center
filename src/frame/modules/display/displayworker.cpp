@@ -151,7 +151,6 @@ bool DisplayWorker::isCustomMerge()
 void DisplayWorker::saveChanges()
 {
     qDebug() << Q_FUNC_INFO;
-
     m_displayInter.Save().waitForFinished();
 }
 
@@ -708,6 +707,22 @@ void DisplayWorker::monitorRemoved(const QString &path)
     m_monitors.remove(monitor);
 
     monitor->deleteLater();
+}
+
+void DisplayWorker::setCustomDisplayMode()
+{
+    QDBusMessage SetCustomDisplayMode = QDBusMessage::createMethodCall("com.deepin.daemon.Display",
+                                                                     "/com/deepin/daemon/Display",
+                                                                     "com.deepin.daemon.Display",
+                                                                     "SetCustomDisplayMode");
+    QList<QVariant> arguments;
+    //1为自定义合并，2为自定义拆分
+    if (m_model->isMerge())
+        arguments << 1;
+    else
+        arguments << 2;
+    SetCustomDisplayMode.setArguments(arguments);
+    QDBusConnection::sessionBus().call(SetCustomDisplayMode);
 }
 
 void DisplayWorker::onGSettingsChanged(const QString &key)

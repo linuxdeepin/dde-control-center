@@ -59,6 +59,8 @@ public:
 
     void active();
     bool isCustomMerge();
+    //此接口只设置自定义模式下，保存合并和拆分
+    void setCustomDisplayMode();
 public Q_SLOTS:
     void saveChanges();
     void discardChanges();
