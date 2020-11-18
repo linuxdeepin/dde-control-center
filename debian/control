@@ -30,7 +30,8 @@ Build-Depends:
  libegl1-mesa-dev,
  libxcb-ewmh-dev,
  libudisks2-qt5-dev,
- qtmultimedia5-dev
+ qtmultimedia5-dev,
+ libgtest-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 

@@ -10,7 +10,8 @@ file(GLOB_RECURSE SRCS "*.h" "*.cpp")
 
 # 查找依赖库
 find_package(PkgConfig REQUIRED)
-find_package(Qt5 COMPONENTS Test DBus REQUIRED)
+find_package(Qt5 COMPONENTS Widgets Test DBus REQUIRED)
+find_package(GTest REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
@@ -24,5 +25,9 @@ target_include_directories(${BIN_NAME} PUBLIC ${DFrameworkDBus_INCLUDE_DIRS})
 target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Test_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
+    ${Qt5Widgets_LIBRARIES}
     ${DFrameworkDBus_LIBRARIES}
+    ${GTEST_LIBRARIES}
+    -lpthread
+    -lm
 )
