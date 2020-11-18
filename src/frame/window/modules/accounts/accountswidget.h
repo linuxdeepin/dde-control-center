@@ -63,7 +63,6 @@ public:
     void showLastAccountInfo();
     void setShowFirstUserInfo(bool show);
     void connectUserWithItem(dcc::accounts::User *user);
-    void selectUserList();
 
     enum AccountRole {
         ItemDataRole = Dtk::UserRole + 1
@@ -87,6 +86,7 @@ Q_SIGNALS:
     void requestShowAccountsDetail(dcc::accounts::User *account);
     void requestCreateAccount();
     void requestShowLastClickedUserInfo(bool t = false);
+    void requestBack();
 
 private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;

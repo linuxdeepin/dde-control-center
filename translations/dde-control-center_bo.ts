@@ -1387,37 +1387,40 @@
         <translation>མདོག་དྲོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="68"/>
         <source>Night Shift</source>
         <translation>མདོག་དྲོད་རང་སྙོམ།</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="71"/>
         <source>The screen hue will be auto adjusted according to your location</source>
         <translation>གནས་ས་གནས་ཡུལ་ཐོབ་ཐབས་བྱས་ཏེ་རྒྱུད་ཁོངས་ལ་རམ་འདེགས་བྱས་ནས་བརྙན་ཡོལ་གྱི་ཁ་དོག་རང་སྙོམ་ཡོང་བ་བྱ་དགོས། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="81"/>
         <source>Change Color Temperature</source>
         <translation>ལག་ཐབས་སྙོམ་སྒྲིག </translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="86"/>
         <source>Auto Brightness</source>
         <translation>གསལ་ཚད་རང་སྙོམ།</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="155"/>
         <source>Brightness</source>
         <translation>གསལ་ཚད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="304"/>
         <source>Cool</source>
         <translation>ཅུང་གྲང་། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="304"/>
         <source>Warm</source>
         <translation>ཅུང་དྲོ།</translation>
     </message>
@@ -4259,12 +4262,13 @@
 <context>
     <name>dccV20::notification::NotificationWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="65"/>
         <source>System Notifications</source>
         <translation>རྒྱུད་ཁོངས་ཀྱི་བརྡ་ཐོ།</translation>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="78"/>
         <source>App Notifications</source>
         <translation>ཉེར་སྤྱོད་བརྡ་ཐོ།</translation>
     </message>
@@ -4277,17 +4281,18 @@
         <translation>ལས་འགན་ཚན་བྱང་དུ་རྟགས་རིས་མངོན་སྟོན་བྱེད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="81"/>
         <source>Do Not Disturb</source>
         <translation>སུན་འགོག་དཔེ་རྣམ།</translation>
+        <extra-contents_path>/notification/Do Not Disturb</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="87"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
         <translation>ཉེར་སྤྱོད་འཕྲེད་འགེལ་ཆ་འཕྲིན་ཆ་ཚང་ཡིབ་པ་དང་། བརྡ་ཐོའི་སྒྲ་ཡང་སྒྲ་མེད་དུ་འགྱུར་བས། ཁྱོད་ཀྱིས་བརྡ་ཐོའི་ལྟེ་གནས་ནས་ཆ་འཕྲིན་ཆ་ཚང་ལ་ལྟ་ཆོག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="105"/>
         <source>When the screen is locked</source>
         <translation>བརྙན་ཡོལ་སྒོ་ལྕགས་རྒྱག་སྐབས།</translation>
     </message>
@@ -4480,63 +4485,63 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
         <source>Auto power saving on low battery</source>
         <translation>གློག་ཚད་རྫོགས་རན་སྐབས་རང་བཞིན་དུ་ཕྱེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
         <source>Auto power saving on battery</source>
         <translation>གློག་སྨན་སྤྱོད་སྐབས་རང་བཞིན་གྱིས་ཕྱེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
         <source>Decrease brightness</source>
         <translation>གསལ་ཚད་རང་བཞིན་གྱིས་དམའ་རུ་གཏོང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
         <source>Password is required to wake up the computer</source>
         <translation>སོར་ཆུད་པར་གསང་ཨང་དགོས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
         <source>Password is required to wake up the monitor</source>
         <translation>མངོན་ཆས་གཉིད་ལས་སད་སྐབས་གསང་ཨང་དགོས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
         <source>Display capacity and remaining charging time</source>
         <translation>གློག་ཚད་ལྷག་མ་དང་གློག་གསོག་པའི་དུས་ཚོད་མངོན་སྟོན་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="67"/>
         <source>Maximum capacity</source>
         <translation>ཤོང་ཚད་ཆེ་ཤོས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
         <source>Show battery capacity</source>
         <translation>གློག་སྨན་གྱི་གློག་ཚད་མངོན་སྟོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="93"/>
         <source>Power Plans</source>
         <translation type="unfinished"/>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
         <source>Balanced</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="100"/>
         <source>High Performance</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="101"/>
         <source>Power Saver</source>
         <translation type="unfinished"/>
     </message>
@@ -4988,7 +4993,6 @@
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="70"/>
         <source>Input</source>
         <translation>ནང་འཇུག</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="75"/>
@@ -5009,13 +5013,11 @@
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="280"/>
         <source>Input Volume</source>
         <translation>སྒྲ་ཤུགས་ནང་འཇུག</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="322"/>
         <source>Input Level</source>
         <translation>སྒྲ་ཤུགས་ལྡོག་སྐྱེལ།</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
 <context>
@@ -5040,13 +5042,13 @@
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Output</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Input</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
@@ -5061,7 +5063,6 @@
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="66"/>
         <source>Output</source>
         <translation>ཕྱིར་འདྲེན།</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>

@@ -103,9 +103,12 @@ void AccountsModule::active()
     m_accountsWidget->setShowFirstUserInfo(true);
     connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
     connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
+    connect(m_accountsWidget, &AccountsWidget::requestBack, this, [ = ] {
+        m_frameProxy->popWidget(this);
+    });
     m_frameProxy->pushWidget(this, m_accountsWidget);
     m_accountsWidget->setVisible(true);
-    m_accountsWidget->selectUserList();
+    m_accountsWidget->showDefaultAccountInfo();
 }
 
 int AccountsModule::load(const QString &path)
@@ -159,6 +162,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     w->setFingerModel(m_fingerModel);
 
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
+    connect(m_userModel, &UserModel::allGroupsChange, w, &AccountsDetailWidget::setAllGroups);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);

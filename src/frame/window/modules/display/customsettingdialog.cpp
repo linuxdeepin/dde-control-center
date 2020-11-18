@@ -153,7 +153,7 @@ void CustomSettingDialog::initUI()
 
     for (auto obj : this->children()) {
         QWidget* item = qobject_cast<QWidget*>(obj);
-        if (item !=nullptr) {
+        if (item != nullptr) {
             item->setFocusPolicy(Qt::NoFocus);
         }
     }

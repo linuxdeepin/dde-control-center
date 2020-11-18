@@ -116,21 +116,49 @@ int SystemInfoModule::load(const QString &path)
         active();
     }
 
-    QStringList searchList;
-    searchList << "About This PC";
+    QListView *list = m_sysinfoWidget->getSystemListViewPointer();
+    SystemType type = Default;
 
-    if (searchList.contains(path)) {
-        m_sysinfoWidget->setCurrentIndex(0);
+    if (!list) {
         return 0;
     }
 
-    return -1;
+    if (path == "About This PC") {
+        type = AboutThisPC;
+    } else if (path == "Edition License") {
+        type = EditionLicense;
+    } else if (path == "End User License Agreement") {
+        type = EndUserLicenseAgreement;
+    }
+
+    QModelIndex index = list->model()->index(type, 0);
+    switch (type) {
+    case AboutThisPC:
+        index = list->model()->index(AboutThisPC, 0);
+        list->setCurrentIndex(index);
+        list->clicked(index);
+        break;
+    case EditionLicense:
+        index = list->model()->index(EditionLicense, 0);
+        list->setCurrentIndex(index);
+        list->clicked(index);
+        break;
+    case EndUserLicenseAgreement:
+        index = list->model()->index(EndUserLicenseAgreement, 0);
+        list->setCurrentIndex(index);
+        list->clicked(index);
+        break;
+    default:
+        break;
+    }
+
+    return 0;
 }
 
 QStringList SystemInfoModule::availPage() const
 {
     QStringList availList;
-    availList << "About This PC";
+    availList << "About This PC" << "Edition License" << "End User License Agreement";
     return availList;
 }
 

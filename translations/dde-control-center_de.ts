@@ -1387,37 +1387,40 @@
         <translation>Farbtemperatur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="68"/>
         <source>Night Shift</source>
         <translation>Nachtschicht</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="71"/>
         <source>The screen hue will be auto adjusted according to your location</source>
         <translation>Der Bildschirmfarbton wird automatisch an Ihren Standort angepasst</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="81"/>
         <source>Change Color Temperature</source>
         <translation>Farbtemperatur ändern</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="86"/>
         <source>Auto Brightness</source>
         <translation>Automatische Helligkeit</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="155"/>
         <source>Brightness</source>
         <translation>Helligkeit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="304"/>
         <source>Cool</source>
         <translation>Kalt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="304"/>
         <source>Warm</source>
         <translation>Warm</translation>
     </message>
@@ -4259,12 +4262,13 @@
 <context>
     <name>dccV20::notification::NotificationWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="65"/>
         <source>System Notifications</source>
         <translation>Systembenachrichtigungen</translation>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="78"/>
         <source>App Notifications</source>
         <translation>App-Benachrichtigungen</translation>
     </message>
@@ -4277,17 +4281,18 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="81"/>
         <source>Do Not Disturb</source>
         <translation>Nicht stören</translation>
+        <extra-contents_path>/notification/Do Not Disturb</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="87"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="105"/>
         <source>When the screen is locked</source>
         <translation>Wenn der Bildschirm gesperrt ist</translation>
     </message>
@@ -4480,63 +4485,63 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
         <source>Auto power saving on low battery</source>
         <translation>Automatisches Energiesparen bei niedriger Akkuladung</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
         <source>Auto power saving on battery</source>
         <translation>Automatisches Energiesparen im Akkubetrieb</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
         <source>Decrease brightness</source>
         <translation>Helligkeit verringern</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
         <source>Password is required to wake up the computer</source>
         <translation>Zum Freischalten des Computers wird ein Passwort benötigt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Zum Freischalten des Monitors wird ein Passwort benötigt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
         <source>Display capacity and remaining charging time</source>
         <translation>Kapazität und verbleibende Ladezeit anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="67"/>
         <source>Maximum capacity</source>
         <translation>Maximale Kapazität</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
         <source>Show battery capacity</source>
         <translation>Akkukapazität anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="93"/>
         <source>Power Plans</source>
         <translation type="unfinished"/>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
         <source>Balanced</source>
         <translation>Ausgeglichen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="100"/>
         <source>High Performance</source>
         <translation>Hochleistung</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="101"/>
         <source>Power Saver</source>
         <translation type="unfinished"/>
     </message>
@@ -4988,7 +4993,6 @@
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="70"/>
         <source>Input</source>
         <translation>Eingabe</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="75"/>
@@ -5009,13 +5013,11 @@
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="280"/>
         <source>Input Volume</source>
         <translation>Eingangslautstärke</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="322"/>
         <source>Input Level</source>
         <translation>Eingangspegel</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
 <context>
@@ -5040,13 +5042,13 @@
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Output</source>
         <translation>Ausgang</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Input</source>
         <translation>Eingang</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
@@ -5061,7 +5063,6 @@
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="66"/>
         <source>Output</source>
         <translation>Ausgabe</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>

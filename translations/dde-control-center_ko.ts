@@ -1387,37 +1387,40 @@
         <translation>색 온도</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="68"/>
         <source>Night Shift</source>
         <translation>야간모드 전환</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="71"/>
         <source>The screen hue will be auto adjusted according to your location</source>
         <translation>사용자 위치에 따라 화면 색상이 자동으로 조정됩니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="81"/>
         <source>Change Color Temperature</source>
         <translation>색 온도 변경</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="86"/>
         <source>Auto Brightness</source>
         <translation>자동 밝기</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="155"/>
         <source>Brightness</source>
         <translation>밝기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="304"/>
         <source>Cool</source>
         <translation>차가운</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="304"/>
         <source>Warm</source>
         <translation>따뜻한</translation>
     </message>
@@ -4259,12 +4262,13 @@
 <context>
     <name>dccV20::notification::NotificationWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="65"/>
         <source>System Notifications</source>
         <translation>시스템 알림</translation>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="78"/>
         <source>App Notifications</source>
         <translation>앱 알림</translation>
     </message>
@@ -4277,17 +4281,18 @@
         <translation>도크에서 아이콘 표시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="81"/>
         <source>Do Not Disturb</source>
         <translation>방해 금지</translation>
+        <extra-contents_path>/notification/Do Not Disturb</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="87"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
         <translation>앱 알림은 바탕 화면에 표시되지 않으며 소리가 무음으로 표시되지만 알림 센터에서 모든 메시지를 볼 수 있습니다.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="105"/>
         <source>When the screen is locked</source>
         <translation>화면이 잠겨 있는 경우</translation>
     </message>
@@ -4480,63 +4485,63 @@
 <context>
     <name>dccV20::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
         <source>Auto power saving on low battery</source>
         <translation>배터리 부족시 자동 절전</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
         <source>Auto power saving on battery</source>
         <translation>배터리 자동 절전</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
         <source>Decrease brightness</source>
         <translation>밝기 감소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
         <source>Password is required to wake up the computer</source>
         <translation>컴퓨터의 절전 모드를 종료하려면 비밀번호가 필요합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
         <source>Password is required to wake up the monitor</source>
         <translation>모니터를 깨우려면 비밀번호가 필요합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
         <source>Display capacity and remaining charging time</source>
         <translation>디스플레이 용량 및 남은 충전 시간</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="67"/>
         <source>Maximum capacity</source>
         <translation>최대 용량</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
         <source>Show battery capacity</source>
         <translation>배터리 용량 표시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="93"/>
         <source>Power Plans</source>
         <translation type="unfinished"/>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
         <source>Balanced</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="100"/>
         <source>High Performance</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="101"/>
         <source>Power Saver</source>
         <translation type="unfinished"/>
     </message>
@@ -4988,7 +4993,6 @@
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="70"/>
         <source>Input</source>
         <translation>입력</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="75"/>
@@ -5009,13 +5013,11 @@
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="280"/>
         <source>Input Volume</source>
         <translation>입력 볼륨</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="322"/>
         <source>Input Level</source>
         <translation>입력 수준</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
 </context>
 <context>
@@ -5040,13 +5042,13 @@
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Output</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
+        <extra-contents_path>/sound/Output</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Input</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
+        <extra-contents_path>/sound/Input</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
@@ -5061,7 +5063,6 @@
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="66"/>
         <source>Output</source>
         <translation>출력</translation>
-        <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>

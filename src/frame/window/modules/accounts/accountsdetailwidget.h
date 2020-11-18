@@ -94,6 +94,9 @@ Q_SIGNALS:
     void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
     void noticeEnrollCompleted(QString username);
 
+public Q_SLOTS:
+    void setAllGroups(const QStringList &groups);
+
 protected:
     void initUserInfo(QVBoxLayout *layout);
     void initSetting(QVBoxLayout *layout);

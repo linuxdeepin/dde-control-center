@@ -343,11 +343,13 @@ void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mod
 {
     auto lastMode = mon->currentMode().id();
     m_displayWorker->setMonitorResolution(mon, mode);
+    m_displayWorker->applyChanges();
 
     if (showTimeoutDialog(mon) == QDialog::Accepted) {
         m_displayWorker->saveChanges();
     } else {
         m_displayWorker->setMonitorResolution(mon, lastMode);
+        m_displayWorker->applyChanges();
     }
 }
 
@@ -398,6 +400,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                      << "\t id: " << tmode.id;
             m_displayWorker->setMonitorResolution(tmon, tmode.id);
         }
+        m_displayWorker->applyChanges();
     };
 
     tfunc(mon, mode);

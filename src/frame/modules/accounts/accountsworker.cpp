@@ -75,7 +75,8 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 #ifdef DCC_ENABLE_ADDOMAIN
     m_notifyInter->setSync(false);
 #endif
-    onUserListChanged(m_accountsInter->userList());
+    QDBusInterface interface(AccountsService, "/com/deepin/daemon/Accounts", AccountsService, QDBusConnection::systemBus());
+    onUserListChanged(interface.property("UserList").toStringList());
     updateUserOnlineStatus(m_dmInter->sessions());
     getAllGroups();
     getPresetGroups();
@@ -252,6 +253,7 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
+    m_userModel->setAllGroups(m_accountsInter->GetGroups());
     for (const auto &path : userList)
         if (!m_userModel->contains(path))
             addUser(path);
@@ -272,12 +274,14 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     process.closeWriteChannel();
     process.waitForFinished();
 
-    // process.exitCode() = 10 表示密码修改失败
+    // process.exitCode() = 0 表示密码修改成功
     int exitCode = process.exitCode();
-    if (exitCode == 10) {
+    if (exitCode != 0) {
         QString errortxt = process.readAllStandardError();
         qDebug() << errortxt;
-        if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password")) {
+        if (errortxt.contains("Current password: passwd: Authentication token manipulation error")) {
+            exitCode = 10;
+        } else if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password") || errortxt.contains("The password is shorter than")) {
             exitCode = 11;
         } else if (errortxt.contains("is too similar to the old one") || errortxt.contains("new and old password are too similar")) {
             exitCode = 12;
@@ -291,8 +295,6 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
             exitCode = 16;
         } else if (errortxt.contains("it is based on a (reversed) dictionary word")) {
             exitCode = 17;
-        } else if (errortxt.contains("Authentication token manipulation error")) {
-            exitCode = 10;
         } else {
             exitCode = 20;
         }
@@ -311,6 +313,7 @@ void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
 
 void AccountsWorker::addUser(const QString &userPath)
 {
+    if (userPath.contains("User0", Qt::CaseInsensitive)) return;
     AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
     userInter->setSync(false);
 
@@ -536,14 +539,17 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
 
     // default FullName is empty string
     auto type = IsServerSystem ? 0 : 1;
-    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
-
-    const QString userPath = path.path();
-    if (userPath.isEmpty() || userPath.isNull()) {
+    QDBusObjectPath path;
+    QDBusPendingReply<QDBusObjectPath> createReply = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
+    createReply.waitForFinished();
+    if (createReply.isError()) {
         result->setType(CreationResult::UnknownError);
-        result->setMessage("no method call result on CreateUser");
+        result->setMessage(createReply.error().message());
         return result;
+    } else {
+        path = createReply.argumentAt<0>();
     }
+    const QString userPath = path.path();
 
     AccountsUser *userDBus = new AccountsUser("com.deepin.daemon.Accounts", userPath, QDBusConnection::systemBus(), this);
     if (!userDBus->isValid()) {

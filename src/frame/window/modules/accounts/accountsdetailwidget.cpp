@@ -477,6 +477,11 @@ void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
     m_avatarLayout->setContentsMargins(w / 2 - 1, 0, 0, 0);
 }
 
+void AccountsDetailWidget::setAllGroups(const QStringList &groups)
+{
+    setAccountModel(m_userModel);
+}
+
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
 {
     QStringList curUserGroup;

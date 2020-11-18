@@ -126,6 +126,11 @@ void SystemInfoWidget::initData()
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
 }
 
+DListView *SystemInfoWidget::getSystemListViewPointer()
+{
+    return m_listView;
+}
+
 void SystemInfoWidget::setCurrentIndex(int index)
 {
     QModelIndex mindex = m_itemModel->index(index, 0);

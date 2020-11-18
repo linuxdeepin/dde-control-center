@@ -119,7 +119,11 @@ void UserModel::setPresetGroups(const QStringList &presetGroups)
 
 void UserModel::setAllGroups(const QStringList &groups)
 {
+    if (m_allGroups == groups) {
+        return;
+    }
     m_allGroups = groups;
+    Q_EMIT allGroupsChange(groups);
 }
 
 QStringList UserModel::getPresetGroups()
