@@ -395,7 +395,7 @@ void MainWindow::initAllModule(const QString &m)
 
         //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
         //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值
-        if (it->first->name() == "update") {
+        if (it->first->name() == "update" && m_updateVisibale) {
             auto action1 = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(ActionIconSize, ActionIconSize), QSize(ActionIconSize, ActionIconSize), false);
             action1->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
             action1->setVisible(false);
@@ -942,8 +942,10 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
         } else if ("update" == find_it->first->name()) {
             if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Updates"));
+                m_updateVisibale = false;
             } else {
                 m_searchWidget->addUnExsitData(tr("Updates"));
+                m_updateVisibale = true;
             }
         }
     } else {
