@@ -64,9 +64,11 @@ const QString SystemTypeName = DSysInfo::uosEditionName(QLocale::c());
 
 const DSysInfo::UosType UosType = DSysInfo::uosType();
 const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
-const bool IsServerSystem = (DSysInfo::UosServer == UosType);
-const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);
-const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);
+const bool IsServerSystem = (DSysInfo::UosServer == UosType);//是否是服务器版
+const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否是社区版
+const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
+const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
+const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
 struct ListSubItem {
     QString itemIcon;
     QString itemText;
