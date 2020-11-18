@@ -239,7 +239,6 @@ void IpvxSection::initUI()
     m_ipAddress->setTitle(tr("IP Address"));
     m_ipAddress->textEdit()->setPlaceholderText(tr("Required"));
     m_gateway->setTitle(tr("Gateway"));
-    m_gateway->textEdit()->setPlaceholderText(tr("Required"));
     m_dnsPrimary->setTitle(tr("Primary DNS"));
     m_dnsSecond->setTitle(tr("Secondary DNS"));
     m_neverDefault->setTitle(tr("Only applied in corresponding resources"));
@@ -482,7 +481,7 @@ bool IpvxSection::ipv4InputIsValid()
         }
 
         const QString &gateway = m_gateway->text();
-        if (gateway.isEmpty() || !isIpv4Address(gateway)) {
+        if (!gateway.isEmpty() && !isIpv4Address(gateway)) {
             valid = false;
             m_gateway->setIsErr(true);
             m_gateway->dTextEdit()->showAlertMessage(tr("Invalid gateway"), m_gateway, 2000);
@@ -545,7 +544,7 @@ bool IpvxSection::ipv6InputIsValid()
         }
 
         const QString &gateway = m_gateway->text();
-        if (gateway.isEmpty() || !isIpv6Address(gateway)) {
+        if (!gateway.isEmpty() && !isIpv6Address(gateway)) {
             valid = false;
             m_gateway->setIsErr(true);
             m_gateway->dTextEdit()->showAlertMessage(tr("Invalid gateway"), m_gateway, 2000);
