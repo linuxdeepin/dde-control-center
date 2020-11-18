@@ -167,6 +167,7 @@ private:
     QGSettings *m_versionType{nullptr};
     DisplayInter m_displayInter;
     QStringList m_hideModuleNames;
+    bool m_updateVisibale = true;
 };
 }
 
