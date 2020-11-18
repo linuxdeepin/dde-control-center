@@ -20,7 +20,7 @@
  */
 #include "appitemmodel.h"
 
-#include <QJsonObject>
+#include <QVariant>
 
 using namespace dcc;
 using namespace dcc::notification;
@@ -37,31 +37,6 @@ AppItemModel::AppItemModel(QObject *parent)
 
 }
 
-void AppItemModel::setItem(const QString &name, const QJsonObject &item)
-{
-    m_actName = name;
-    setSoftName(item["Name"].toString());
-    setIcon(item["Icon"].toString());
-    setAllowNotify(item["AllowNotify"].toBool());
-    setLockShowNotify(item["LockShowNotify"].toBool());
-    setNotifySound(item["NotificationSound"].toBool());
-    setShowInNotifyCenter(item["ShowInNotifyCenter"].toBool());
-    setShowNotifyPreview(item["ShowNotifyPreview"].toBool());
-}
-
-QJsonObject AppItemModel::convertQJson()
-{
-    QJsonObject json;
-    json.insert("Name", m_softName);
-    json.insert("Icon", m_icon);
-    json.insert("AllowNotify", isAllowNotify());
-    json.insert("LockShowNotify", isLockShowNotify());
-    json.insert("NotificationSound", isNotifySound());
-    json.insert("ShowInNotifyCenter", isShowInNotifyCenter());
-    json.insert("ShowNotifyPreview", isShowNotifyPreview());
-    return json;
-}
-
 void AppItemModel::setActName(const QString &name)
 {
     if (m_actName != name) {
@@ -69,65 +44,87 @@ void AppItemModel::setActName(const QString &name)
     }
 }
 
-void AppItemModel::setSoftName(const QString &name)
+void AppItemModel::onSettingChanged(const QString &id, const uint &item, QDBusVariant var)
 {
-    if (m_softName != name) {
-        m_softName = name;
-
-        Q_EMIT softNameChanged(name);
+    if (id != m_actName)
+        return;
+    switch (item) {
+    case APPNAME:
+        setSoftName(var.variant().toString());
+        break;
+    case APPICON:
+        setIcon(var.variant().toString());
+        break;
+    case ENABELNOTIFICATION:
+        setAllowNotify(var.variant().toBool());
+        break;
+    case ENABELPREVIEW:
+        setShowNotifyPreview(var.variant().toBool());
+        break;
+    case ENABELSOUND:
+        setNotifySound(var.variant().toBool());
+        break;
+    case SHOWINNOTIFICATIONCENTER:
+        setShowInNotifyCenter(var.variant().toBool());
+        break;
+    case LOCKSCREENSHOWNOTIFICATION:
+        setLockShowNotify(var.variant().toBool());
+        break;
     }
+}
+
+void AppItemModel::setSoftName(const QString &name) {
+    if (m_softName == name)
+        return;
+    m_softName = name;
+    Q_EMIT softNameChanged(name);
 }
 
 void AppItemModel::setIcon(const QString &icon)
 {
     if (m_icon == icon)
         return;
-
     m_icon = icon;
     Q_EMIT iconChanged(icon);
 }
 
 void AppItemModel::setAllowNotify(const bool &state)
 {
-    if (m_isAllowNotify != state) {
-        m_isAllowNotify = state;
+    if (m_isAllowNotify == state)
+        return;
+    m_isAllowNotify = state;
+    Q_EMIT allowNotifyChanged(state);
 
-        Q_EMIT allowNotifyChanged(state);
-    }
 }
 
 void AppItemModel::setNotifySound(const bool &state)
 {
-    if (m_isNotifySound != state) {
-        m_isNotifySound = state;
-
-        Q_EMIT notifySoundChanged(state);
-    }
+    if (m_isNotifySound == state)
+        return;
+    m_isNotifySound = state;
+    Q_EMIT notifySoundChanged(state);
 }
 
 void AppItemModel::setLockShowNotify(const bool &state)
 {
-    if (m_isLockShowNotify != state) {
-        m_isLockShowNotify = state;
-
-        Q_EMIT lockShowNotifyChanged(state);
-    }
+    if (m_isLockShowNotify == state)
+        return;
+    m_isLockShowNotify = state;
+    Q_EMIT lockShowNotifyChanged(state);
 }
 
 void AppItemModel::setShowInNotifyCenter(const bool &state)
 {
-    if (m_isShowInNotifyCenter != state) {
-        m_isShowInNotifyCenter = state;
-
-        Q_EMIT showInNotifyCenterChanged(state);
-    }
+    if (m_isShowInNotifyCenter == state)
+        return;
+    m_isShowInNotifyCenter = state;
+    Q_EMIT showInNotifyCenterChanged(state);
 }
 
 void AppItemModel::setShowNotifyPreview(const bool &state)
 {
-    if (m_isShowNotifyPreview != state) {
-        m_isShowNotifyPreview = state;
-
-        Q_EMIT showNotifyPreviewChanged(state);
-    }
+    if (m_isShowNotifyPreview == state)
+        return;
+    m_isShowNotifyPreview = state;
+    Q_EMIT showNotifyPreviewChanged(state);
 }

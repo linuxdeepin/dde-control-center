@@ -45,7 +45,6 @@ class NotificationWidget : public QWidget
     Q_OBJECT
 public:
     explicit NotificationWidget(dcc::notification::NotificationModel *model, QWidget *parent = nullptr);
-    void setModel(dcc::notification::NotificationModel *model);
     QIcon getAppIcon(const QString &appIcon, const QSize &size);
 
 Q_SIGNALS:
@@ -57,15 +56,17 @@ public Q_SLOTS:
     void setAppCurrentIndex(int row);
     void onSystemClicked(const QModelIndex &index);
     void refreshList();
+
 private:
     const QPixmap loadSvg(const QString &fileName, const QSize &size);
+
 private:
     Dtk::Widget::DListView *m_softwareListView;
     Dtk::Widget::DListView *m_systemListView;
     QStandardItemModel *m_sysmodel;
     QStandardItemModel *m_softwaremodel;
     QVBoxLayout *m_centralLayout;
-    dcc::notification::NotificationModel  *m_model;
+    dcc::notification::NotificationModel *m_model;
     QString m_theme;
     QModelIndex m_lastIndex;
 };
