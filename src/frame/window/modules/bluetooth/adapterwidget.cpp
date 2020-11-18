@@ -384,7 +384,7 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
         if (paired) {
             BtStandardItem *dListItem = deviceItem->getStandardItem(m_myDeviceListView);
             m_myDevices << deviceItem;
-            m_myDeviceModel->appendRow(dListItem);
+            m_myDeviceModel->insertRow(0, dListItem);
         } else {
             BtStandardItem *dListItem = deviceItem->getStandardItem(m_otherDeviceListView);
             if (m_showAnonymousCheckBox->checkState() == Qt::CheckState::Unchecked) {
@@ -419,7 +419,7 @@ void AdapterWidget::addDevice(const Device *device)
                 deviceItem->resetDeviceItem();
                 BtStandardItem *dListItem = deviceItem->createStandardItem(m_myDeviceListView);
                 m_myDevices << deviceItem;
-                m_myDeviceModel->appendRow(dListItem);
+                m_myDeviceModel->insertRow(0, dListItem);
             } else {
                 qDebug() << "unpaired :" << deviceItem->device()->name();
                 for (auto it : m_myDevices) {
@@ -430,9 +430,11 @@ void AdapterWidget::addDevice(const Device *device)
                 }
                 BtStandardItem *item = deviceItem->getStandardItem();
                 QModelIndex myDeviceIndex = m_myDeviceModel->indexFromItem(item);
-                m_myDeviceModel->removeRow(myDeviceIndex.row());
-                BtStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
-                m_otherDeviceModel->appendRow(dListItem);
+                if (myDeviceIndex.isValid()) {
+                    m_myDeviceModel->removeRow(myDeviceIndex.row());
+                    BtStandardItem *dListItem = deviceItem->createStandardItem(m_otherDeviceListView);
+                    m_otherDeviceModel->insertRow(0, dListItem);
+                }
             }
         }
         bool isVisible = !m_myDevices.isEmpty() && m_powerSwitch->checked();
