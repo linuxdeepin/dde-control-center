@@ -79,14 +79,7 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
     if (!moni) {
         Monitor *primary = nullptr;
         for (auto mon : model->monitorList()) {
-            if (mon->isPrimary()) {
-                primary = mon;
-                continue;
-            }
             initMW(mon);
-        }
-        if (primary) {
-            initMW(primary);
         }
     } else {
         initMW(moni);
