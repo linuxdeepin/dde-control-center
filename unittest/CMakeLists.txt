@@ -8,6 +8,9 @@ set(CMAKE_AUTOMOC ON)
 # 源文件
 file(GLOB_RECURSE SRCS "*.h" "*.cpp")
 
+# 用于测试覆盖率的编译条件
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -lgcov")
+
 # 查找依赖库
 find_package(PkgConfig REQUIRED)
 find_package(Qt5 COMPONENTS Widgets Test DBus REQUIRED)
