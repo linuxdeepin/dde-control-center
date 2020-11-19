@@ -407,7 +407,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             } else {
                 m_tipDialog = new DDialog(this);
                 m_tipDialog->setAttribute(Qt::WA_DeleteOnClose);
-                m_tipDialog->setMessage(tr("Only one account can have \"Auto Login\" enabled.If proceeding,"\
+                m_tipDialog->setMessage(tr("Only one account can have \"Auto Login\" enabled. If proceeding,"\
                                            " that option of other accounts will be disabled."));
                 m_tipDialog->addButton(tr("Cancel"), true, DDialog::ButtonRecommend);
                 m_tipDialog->addButton(tr("Enable"), true, DDialog::ButtonRecommend);
