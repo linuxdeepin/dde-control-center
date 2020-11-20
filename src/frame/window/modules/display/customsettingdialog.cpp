@@ -442,7 +442,7 @@ void CustomSettingDialog::initMoniList()
     if (vseg_size > 2 && m_vSegBtn[0]->isChecked()) {
         if (m_displaylist == nullptr) {
             m_displaylist = new SettingsGroup();
-            m_displaylist->setContentsMargins(10, 10, 0, 10);
+            m_displaylist->setContentsMargins(10, 10, 0, 5);
             m_layout->insertWidget(1, m_displaylist);
         }
         if (m_displayComboxWidget == nullptr) {
@@ -466,7 +466,7 @@ void CustomSettingDialog::initMoniList()
     if (m_main_select_lab_widget == nullptr) {
         m_main_select_lab_widget = new QWidget(this);
         QLabel *main_select_lab = new QLabel(tr("Monitor Connected (Multiple)"), m_main_select_lab_widget);
-        m_main_select_lab_widget->setFixedHeight(50);
+        m_main_select_lab_widget->setFixedHeight(40);
         QHBoxLayout *m_main_select_lab_layout = new QHBoxLayout();
         m_main_select_lab_layout->addWidget(main_select_lab);
         m_main_select_lab_widget->setLayout(m_main_select_lab_layout);
