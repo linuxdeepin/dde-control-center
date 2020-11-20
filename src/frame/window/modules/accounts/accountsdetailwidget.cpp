@@ -406,14 +406,16 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
                 Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
             } else {
                 m_tipDialog = new DDialog(this);
+                m_tipDialog->setModal(true);
                 m_tipDialog->setAttribute(Qt::WA_DeleteOnClose);
                 m_tipDialog->setMessage(tr("Only one account can have \"Auto Login\" enabled. If proceeding,"\
                                            " that option of other accounts will be disabled."));
-                m_tipDialog->addButton(tr("Cancel"), true, DDialog::ButtonRecommend);
+                m_tipDialog->addButton(tr("Cancel"), false, DDialog::ButtonRecommend);
                 m_tipDialog->addButton(tr("Enable"), true, DDialog::ButtonRecommend);
                 m_tipDialog->show();
-                connect(m_tipDialog, &DDialog::buttonClicked, this, [ = ](int dex, const QString &text) {
-                    if (text == tr("Cancel")) {
+                connect(m_tipDialog, &DDialog::buttonClicked, this, [ = ](int index, const QString &text) {
+                    Q_UNUSED(text);
+                    if (!index) {
                         m_tipDialog->close();
                         m_autoLogin->setChecked(false);
                     } else {
