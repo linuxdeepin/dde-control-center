@@ -88,7 +88,7 @@ Q_SIGNALS:
      * @param const QString uuid
      */
     void deleteConnectAP(const QString &uuid);
-    void disconnectAP();
+    void disconnectAP(const QString &uuid);
 
 protected:
     int connectionSuffixNum(const QString &matchConnName);

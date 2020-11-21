@@ -198,7 +198,7 @@ void WiredPage::editConnection(const QString &connectionPath)
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     //断开连接
-    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, [ = ](){Q_EMIT m_model->requestDisconnectAp(m_device->path());});
+    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, &NetworkModel::requestDisconnctAP);
     //删除wifi
     connect(m_editPage, &ConnectionEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
     Q_EMIT requestNextPage(m_editPage);
@@ -211,7 +211,7 @@ void WiredPage::createNewConnection()
     connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     //断开连接
-    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, [ = ](){Q_EMIT m_model->requestDisconnectAp(m_device->path());});
+    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, &NetworkModel::requestDisconnctAP);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
 }

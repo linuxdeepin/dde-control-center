@@ -665,7 +665,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
 
     });
     connect(m_apEditPage, &ConnectionEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
-    connect(m_apEditPage, &ConnectionEditPage::disconnectAP, m_model, [ = ](){Q_EMIT m_model->requestDisconnectAp(m_device->path());});
+    connect(m_apEditPage, &ConnectionEditPage::disconnectAP, m_model, &NetworkModel::requestDisconnctAP);
 
     Q_EMIT requestNextPage(m_apEditPage);
 }
