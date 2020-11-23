@@ -345,12 +345,6 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
         break;
     }
 
-    if (m_oldPasswordEdit->lineEdit()->text() == password) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("New password should differ from the current one"), edit, 2000);
-        return false;
-    }
-
     const int maxSize = 512;
     if (password.size() > maxSize) {
         edit->setAlert(true);
