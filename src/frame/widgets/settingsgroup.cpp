@@ -51,13 +51,13 @@ SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
 
     QVBoxLayout *vLayout = m_layout;
     if (GroupBackground == bgStyle) {
-        m_layout->setContentsMargins(0, 0, 0, 0);
+        vLayout = new QVBoxLayout;
         m_bggroup = new DBackgroundGroup(m_layout);
         m_bggroup->setBackgroundRole(QPalette::Window);
         m_bggroup->setItemSpacing(1);
-        vLayout = new QVBoxLayout;
-        vLayout->addWidget(m_bggroup);
         m_bggroup->setUseWidgetBackground(false);
+        vLayout->addWidget(m_bggroup);
+        vLayout->setContentsMargins(0, 0, 0, 0);
     }
 
     m_bgStyle = bgStyle;

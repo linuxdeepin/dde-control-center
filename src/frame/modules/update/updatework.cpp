@@ -141,6 +141,7 @@ void UpdateWorker::init() {
     connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
     connect(m_updateInter, &UpdateInter::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoCheckUpdates);
+    connect(m_managerInter, &ManagerInter::UpdateModeChanged, m_model, &UpdateModel::setUpdateMode);
     connect(m_updateInter, &UpdateInter::UpdateNotifyChanged, m_model, &UpdateModel::setUpdateNotify);
 
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
@@ -239,6 +240,7 @@ void UpdateWorker::activate()
     m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
+    m_model->setUpdateMode(m_managerInter->updateMode());
     m_model->setUpdateNotify(m_updateInter->updateNotify());
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
@@ -675,9 +677,16 @@ void UpdateWorker::downloadAndDistUpgrade()
     }
 }
 
-void UpdateWorker::setAutoCheckUpdates(const bool autocheckUpdates)
+void UpdateWorker::setAutoCheckUpdates(const bool autoCheckUpdates)
 {
-    m_updateInter->SetAutoCheckUpdates(autocheckUpdates);
+    m_updateInter->SetAutoCheckUpdates(autoCheckUpdates);
+}
+
+void UpdateWorker::setUpdateMode(const quint64 updateMode)
+{
+    qDebug() << Q_FUNC_INFO << "set UpdateMode to dbus:" << updateMode;
+
+    m_managerInter->setUpdateMode(updateMode);
 }
 
 void UpdateWorker::setAutoDownloadUpdates(const bool &autoDownload)
