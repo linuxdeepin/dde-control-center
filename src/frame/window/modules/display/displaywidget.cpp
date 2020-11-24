@@ -215,7 +215,7 @@ void DisplayWidget::initMenuUI()
         m_singleModel->appendRow(btn);
     }
 
-    if(InsertPlugin::instance()->needPushPlugin("Display"))
+    if(InsertPlugin::instance()->needPushPlugin("display"))
         InsertPlugin::instance()->pushPlugin(m_singleModel,m_singleMenuList);
 
     m_menuList->setAccessibleName("List_displaymenulist");
@@ -244,11 +244,20 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
     m_currentIdx = idx;
     m_menuList->setCurrentIndex(m_currentIdx);
     if (m_isMultiScreen) {
-        m_multMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].pulgin?m_singleMenuList[idx.row()].pulgin:this);
+        m_multMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].pulgin ? m_singleMenuList[idx.row()].pulgin : this);
     } else {
-        m_singleMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].pulgin?m_singleMenuList[idx.row()].pulgin:this);
+        m_singleMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].pulgin ? m_singleMenuList[idx.row()].pulgin : this);
     }
     m_menuList->resetStatus(idx);
+}
+
+void DisplayWidget::setDefaultWidget()
+{
+    if (m_isMultiScreen) {
+        m_multMenuList[0].itemSignal.invoke(m_singleMenuList[0].pulgin ? m_singleMenuList[0].pulgin : this);
+    } else {
+        m_singleMenuList[0].itemSignal.invoke(m_singleMenuList[0].pulgin ? m_singleMenuList[0].pulgin : this);
+    }
 }
 
 int DisplayWidget::getMenuIndex(QString str, bool isSingle)

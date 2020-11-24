@@ -20,7 +20,6 @@
  */
 
 #include "mousewidget.h"
-#include "window/utils.h"
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
@@ -29,6 +28,7 @@
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
 #include "widgets/multiselectlistview.h"
+#include "window/insertplugin.h"
 #include <QVBoxLayout>
 #include <QList>
 
@@ -52,25 +52,30 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
 {
     qDebug() << "tpadExist: " << tpadExist << "redPoint: " << redPointExist;
     m_listviewModel = new QStandardItemModel(m_mouseListView);
-    QList<QPair<QIcon, QString>> menuIconText;
-    menuIconText = {
-        { QIcon::fromTheme("dcc_general_purpose"), tr("General")},
+    m_menuIconText = {
+        { "dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&MouseWidget::showGeneralSetting)},
         //~ contents_path /mouse/Mouse
-        { QIcon::fromTheme("dcc_mouse"), tr("Mouse")},
+        { "dcc_mouse", tr("Mouse"), QMetaMethod::fromSignal(&MouseWidget::showMouseSetting)},
         //~ contents_path /mouse/Touchpad
-        { QIcon::fromTheme("dcc_touchpad"), tr("Touchpad")},
+        { "dcc_touchpad", tr("Touchpad"), QMetaMethod::fromSignal(&MouseWidget::showTouchpadSetting)},
         //~ contents_path /mouse/TrackPoint
-        { QIcon::fromTheme("dcc_trackpoint"), tr("TrackPoint")}
+        { "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting)}
     };
-    DStandardItem *mouseItem = nullptr;
-    for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
-        mouseItem = new DStandardItem(it->first, it->second);
+    QList<DStandardItem *> mouseItems;
+    for (auto it = m_menuIconText.cbegin(); it != m_menuIconText.cend(); ++it) {
+        DStandardItem *mouseItem = new DStandardItem(QIcon::fromTheme(it->itemIcon), it->itemText);
         mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
-        if (it->second == QString(tr("Mouse"))) {
+        if (it->itemText == QString(tr("Mouse"))) {
             mouseItem->setAccessibleText("MOUSE_ITEM");
         }
         m_listviewModel->appendRow(mouseItem);
+        mouseItems << mouseItem;
     }
+
+    if (InsertPlugin::instance()->needPushPlugin("mouse")) {
+        InsertPlugin::instance()->pushPlugin(m_listviewModel, m_menuIconText);
+    }
+
     m_mouseListView->setAccessibleName("List_mousemenulist");
     m_mouseListView->setFrameShape(QFrame::NoFrame);
     m_mouseListView->setModel(m_listviewModel);
@@ -78,18 +83,18 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_lastIndex = m_listviewModel->index(0, 0);
     m_mouseListView->setCurrentIndex(m_lastIndex);
-    m_mouseListView->setRowHidden(2, !tpadExist);
-    m_mouseListView->setRowHidden(3, !redPointExist);
+    m_mouseListView->setRowHidden(m_listviewModel->indexFromItem(mouseItems[2]).row(), !tpadExist);
+    m_mouseListView->setRowHidden(m_listviewModel->indexFromItem(mouseItems[3]).row(), !redPointExist);
     m_mouseListView->setViewportMargins(ScrollAreaMargins);
     m_mouseListView->setIconSize(ListViweIconSize);
     connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClicked);
     connect(m_mouseListView, &DListView::activated, m_mouseListView, &QListView::clicked);
-    connect(this, &MouseWidget::tpadExistChanged, this, [this](bool bExist) {
-        m_mouseListView->setRowHidden(2, !bExist);
+    connect(this, &MouseWidget::tpadExistChanged, this, [this, mouseItems](bool bExist) {
+        m_mouseListView->setRowHidden(m_listviewModel->indexFromItem(mouseItems[2]).row(), !bExist);
         qDebug() << "tpadExistChanged: " << bExist;
     });
-    connect(this, &MouseWidget::redPointExistChanged, this, [this](bool bExist) {
-        m_mouseListView->setRowHidden(3, !bExist);
+    connect(this, &MouseWidget::redPointExistChanged, this, [this, mouseItems](bool bExist) {
+        m_mouseListView->setRowHidden(m_listviewModel->indexFromItem(mouseItems[3]).row(), !bExist);
         qDebug() << "redPointExistChanged: " << bExist;
     });
 }
@@ -100,27 +105,16 @@ void MouseWidget::initSetting(const int settingIndex)
     m_mouseListView->clicked(m_listviewModel->index(settingIndex, 0));
 }
 
+void MouseWidget::setDefaultWidget()
+{
+    m_menuIconText[0].itemSignal.invoke(m_menuIconText[0].pulgin ? m_menuIconText[0].pulgin : this);
+}
+
 void MouseWidget::onItemClicked(const QModelIndex &index)
 {
     if (m_lastIndex == index) return;
 
     m_lastIndex = index;
-    switch (index.row()) {
-    case 0:
-        Q_EMIT showGeneralSetting();
-        break;
-    case 1:
-        Q_EMIT showMouseSetting();
-        break;
-    case 2:
-        Q_EMIT showTouchpadSetting();
-        break;
-    case 3:
-        Q_EMIT showTrackPointSetting();
-        break;
-    default:
-        Q_EMIT showGeneralSetting();
-        break;
-    }
+    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin ? m_menuIconText[index.row()].pulgin : this);
     m_mouseListView->resetStatus(index);
 }

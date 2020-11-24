@@ -77,6 +77,7 @@ private Q_SLOTS:
 public:
     static int convertToSlider(const double value);
     static double convertToScale(const int value);
+    void setDefaultWidget();
 
 Q_SIGNALS:
     void requestShowMultiScreenPage() const;

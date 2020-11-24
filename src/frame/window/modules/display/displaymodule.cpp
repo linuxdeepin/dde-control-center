@@ -108,17 +108,7 @@ void DisplayModule::active()
 
     m_frameProxy->pushWidget(this, m_displayWidget);
     m_displayWidget->setVisible(true);
-    if (m_displayWidget->isMultiMode()) {
-        if (m_displayWidget->isShowMultiscreen())
-            showMultiScreenSettingPage();
-        else
-            showBrightnessPage();
-    } else {
-        if (m_displayWidget->isShowMultiscreen())
-            showResolutionDetailPage();
-        else
-            showMultiResolutionPage();
-    }
+    m_displayWidget->setDefaultWidget();
 }
 
 int DisplayModule::load(const QString &path)

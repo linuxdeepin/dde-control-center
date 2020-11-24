@@ -72,7 +72,7 @@ void SoundModule::active()
 
     m_frameProxy->pushWidget(this, m_soundWidget);
     m_soundWidget->setVisible(true);
-    showSpeakerPage();
+    m_soundWidget->setDefaultWidget();
 }
 
 int SoundModule::load(const QString &path)
