@@ -23,7 +23,6 @@
 #include "adapterwidget.h"
 #include "widgets/settingsgroup.h"
 #include "modules/bluetooth/bluetoothmodel.h"
-#include "modules/bluetooth/bluetoothworker.h"
 
 #include <QVBoxLayout>
 
@@ -42,7 +41,6 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
     setContent(m_tFrame);
 
     setObjectName("Bluetooth");
-    m_bluetoothWorker = &dcc::bluetooth::BluetoothWorker::Instance();
 
     setModel(model);
     QTimer::singleShot(1, this, &BluetoothWidget::setVisibleState);
@@ -50,9 +48,6 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
 
 BluetoothWidget::~BluetoothWidget()
 {
-    for (const Adapter *adapter : m_model->adapters()) {
-        m_bluetoothWorker->setAdapterDiscovering(QDBusObjectPath(adapter->id()), false);
-    }
 }
 
 void BluetoothWidget::setModel(BluetoothModel *model)
@@ -89,7 +84,6 @@ AdapterWidget *BluetoothWidget::getAdapter(const Adapter *adapter)
     connect(adpWidget, &AdapterWidget::requestRefresh, this, &BluetoothWidget::requestRefresh);
     connect(adpWidget, &AdapterWidget::requestDiscoverable, this, &BluetoothWidget::requestDiscoverable);
 
-    m_bluetoothWorker->setAdapterDiscovering(path, true);
     m_valueMap[adapter] = adpWidget;
     return adpWidget;
 }
@@ -153,9 +147,4 @@ void BluetoothWidget::updateWidget()
 void BluetoothWidget::setVisibleState()
 {
     Q_EMIT requestModuleVisible(m_valueMap.size());
-}
-
-void BluetoothWidget::requestRefresh(const dcc::bluetooth::Adapter *adapter)
-{
-    m_bluetoothWorker->setAdapterDiscoverable(adapter->id());
 }
