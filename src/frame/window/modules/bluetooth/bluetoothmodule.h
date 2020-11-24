@@ -25,6 +25,8 @@
 
 #include <QMap>
 #include <QObject>
+#include <QThread>
+#include <QSharedPointer>
 
 class QDBusObjectPath;
 
@@ -46,6 +48,7 @@ class BluetoothModule : public QObject, public ModuleInterface
     Q_OBJECT
 public:
     explicit BluetoothModule(FrameProxyInterface *frame, QObject *parent = nullptr);
+    ~BluetoothModule();
     void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     void initialize() override;
     void reset() override;
@@ -62,9 +65,10 @@ public Q_SLOTS:
     void popPage();
 private:
     BluetoothWidget *m_bluetoothWidget;
-    dcc::bluetooth::BluetoothModel *m_bluetoothModel;
-    dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
+    QSharedPointer<dcc::bluetooth::BluetoothModel> m_bluetoothModel;
+    QSharedPointer < dcc::bluetooth::BluetoothWorker> m_bluetoothWorker;
     QMap<QDBusObjectPath, dcc::bluetooth::PinCodeDialog *> m_dialogs;
+    QSharedPointer<QThread> m_workerThread;
 };
 }
 }
