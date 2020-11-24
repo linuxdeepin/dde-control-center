@@ -47,6 +47,14 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 }
 
+UpdateModule::~UpdateModule()
+{
+    if (m_workThread) {
+        m_workThread->quit();
+        m_workThread->wait();
+    }
+}
+
 void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(sync);

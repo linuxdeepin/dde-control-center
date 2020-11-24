@@ -50,7 +50,7 @@ class UpdateModule : public QObject, public ModuleInterface
     Q_OBJECT
 public:
     UpdateModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
-
+    ~UpdateModule() override;
     virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     virtual void initialize() override;
     virtual const QString name() const override;
