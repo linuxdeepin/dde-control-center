@@ -35,6 +35,7 @@
 #include <QVBoxLayout>
 #include <QList>
 #include <DFontSizeManager>
+#include <QScrollArea>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -86,7 +87,22 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_centralLayout->addWidget(m_autoLightMode);
 
-    setLayout(m_centralLayout);
+    QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setFrameStyle(QFrame::NoFrame);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    scrollArea->setContentsMargins(0, 0, 0, 0);
+
+    QVBoxLayout *mainContentLayout = new QVBoxLayout;
+    mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    mainContentLayout->setMargin(0);
+    setLayout(mainContentLayout);
+    mainContentLayout->addWidget(scrollArea);
+
+    auto tw = new QWidget();
+    tw->setLayout(m_centralLayout);
+    scrollArea->setWidget(tw);
 }
 
 void BrightnessPage::setMode(DisplayModel *model)
