@@ -93,7 +93,7 @@ bool SecretWirelessSection::allInputValid()
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             valid = NetworkManager::wepKeyIsValid(m_passwdEdit->text(),
-                                                  NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
+                                                  NetworkManager::WirelessSecuritySetting::WepKeyType::Passphrase);
             m_passwdEdit->setIsErr(!valid);
             if (!valid && !m_passwdEdit->text().isEmpty()) {
                 m_passwdEdit->dTextEdit()->showAlertMessage(tr("Invalid password"), this);
@@ -124,7 +124,7 @@ void SecretWirelessSection::saveSettings()
     }
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
-        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
+        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Passphrase);
         m_wsSetting->setWepKeyFlags(m_currentPasswordType);
         if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_wsSetting->setWepKey0(m_passwdEdit->text());
