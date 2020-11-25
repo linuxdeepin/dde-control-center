@@ -753,14 +753,20 @@ void CustomSettingDialog::resetMonitorObject(Monitor *moni)
     if (!m_monitor) {
         disconnect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
         disconnect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
-        disconnect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
+        disconnect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::onGeometryChanged);
         disconnect(m_monitor, &Monitor::enableChanged, this, &CustomSettingDialog::setVisible);
     }
 
     m_monitor = moni;
     connect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
     connect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
-    connect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
+    connect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::onGeometryChanged);
+    connect(m_model, &DisplayModel::primaryScreenChanged, this, [&](QString primaryName){
+        for (auto mon : m_model->monitorList()) {
+            if (mon->name() == primaryName)
+                Q_EMIT this->requestGeometry(mon);
+        }
+    });
     connect(m_monitor, &Monitor::enableChanged, this, [ = ](bool enable) {
         if (m_model->isMerge() == false) {
             if(m_monitor->isPrimary()) {   //对后端可能传递的错误信号规避
@@ -889,4 +895,10 @@ void CustomSettingDialog::onMonitorRelease(Monitor *mon)
 void CustomSettingDialog::currentIndexChanged(int index)
 {
     this->requestSetPrimaryMonitor(index);
+}
+
+void CustomSettingDialog::onGeometryChanged()
+{
+    resetDialog();
+    Q_EMIT this->requestGeometry(m_monitor);
 }

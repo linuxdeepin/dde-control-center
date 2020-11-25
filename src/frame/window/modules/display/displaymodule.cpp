@@ -56,6 +56,7 @@ DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
     m_splitTimer->setSingleShot(true);
     m_joinTimer->setInterval(300);
     m_splitTimer->setInterval(300);
+    m_pMainWindow = static_cast<MainWindow *>(frame);
 }
 
 DisplayModule::~DisplayModule()
@@ -260,6 +261,7 @@ void DisplayModule::showCustomSettingDialog()
     connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
         m_displayWorker->onMonitorEnable(mon, enable);
     });
+    connect(dlg, &CustomSettingDialog::requestGeometry, this, &DisplayModule::updateGeometry);
     //这里做延迟处理的操作，防止疯狂的切换显示模式，浪费资源
     connect(dlg, &CustomSettingDialog::requestMerge, m_displayWorker,[=](){
         if (m_joinTimer->isActive() && m_splitTimer->isActive()) return;
@@ -454,4 +456,16 @@ void DisplayModule::showRecognize()
 {
     RecognizeDialog dialog(m_displayModel);
     dialog.exec();
+}
+
+void DisplayModule::updateGeometry(Monitor *mon)
+{
+    if (mon->isPrimary()) {
+        int widht = (mon->w() / qApp->devicePixelRatio() - m_pMainWindow->geometry().width()) / 2 ;
+        int heght = (mon->h() / qApp->devicePixelRatio() - m_pMainWindow->geometry().height()) /2 ;
+        int x = mon->x() + widht;
+        int y = mon->y() + heght;
+        m_pMainWindow->move(x, y);
+    }
+
 }

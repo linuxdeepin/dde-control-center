@@ -82,6 +82,7 @@ Q_SIGNALS:
     void requestShowTouchscreenPage() const;
     void requestRotate() const;
     void requestShowRefreshRatePage() const;
+    void requestGeometry() const;
 
 private:
     void initMenuUI();

@@ -557,9 +557,6 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
             xOffset += mon->w();
         }
     }
-    for (auto *mon : m_model->monitorList()) {
-        qDebug() << mon->name() << mon->rect() << "onMonitorEnable";
-    }
     m_displayInter.ApplyChanges().waitForFinished();
 }
 

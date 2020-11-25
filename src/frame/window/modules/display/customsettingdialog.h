@@ -93,6 +93,7 @@ Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *mon, ResolutionDate resolution);
     void requestSetPrimaryMonitor(int idx);
     void requestEnalbeMonitor(dcc::display::Monitor *mon, bool enable);
+    void requestGeometry(dcc::display::Monitor *mon);
 
 private Q_SLOTS:
     void onMonitorPress(dcc::display::Monitor *mon);
@@ -102,6 +103,7 @@ private Q_SLOTS:
     void onChangList(QAbstractButton *btn, bool beChecked);
     void onMonitorModeChange(const Resolution &r);
     void currentIndexChanged(int index);
+    void onGeometryChanged();
 
 private:
     void initUI();

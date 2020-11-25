@@ -78,6 +78,7 @@ private Q_SLOTS:
     void showTouchScreenPage();
     int showTimeoutDialog(dcc::display::Monitor *mon);
     void showRecognize();
+    void updateGeometry(dcc::display::Monitor *mon);
 
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
