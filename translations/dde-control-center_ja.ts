@@ -379,7 +379,7 @@
         <translation>省略可能</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="360"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="415"/>
         <source>Go to Settings</source>
         <translation>設定に移動</translation>
     </message>

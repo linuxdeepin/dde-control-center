@@ -34,6 +34,7 @@
 #include <DLineEdit>
 #include <DFontSizeManager>
 #include <DTipLabel>
+#include <DDesktopServices>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -57,6 +58,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_avatarLayout(new QHBoxLayout)
+    , m_tipDialog(nullptr)
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -110,6 +112,16 @@ void AccountsDetailWidget::setFingerModel(FingerModel *model)
     if (m_curUser->isCurrentUser()) {
         m_fingerWidget->setVisible(!IsServerSystem && model->isVaild());
     }
+}
+
+bool AccountsDetailWidget::getOtherUserAutoLogin()
+{
+    for(auto user : m_userModel->userList()) {
+        if (user->name() != m_curUser->name() && user->autoLogin()) {
+            return false;
+        }
+    }
+    return true;
 }
 
 //删除账户
@@ -185,12 +197,12 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     DFontSizeManager::instance()->bind(m_inputLineEdit, DFontSizeManager::T5);
 
     QHBoxLayout *fullnameLayout = new QHBoxLayout;
-    fullnameLayout->setMargin(0);
     fullnameLayout->setSpacing(5);
     fullnameLayout->setAlignment(Qt::AlignHCenter);
     fullnameLayout->addWidget(m_fullName);
     fullnameLayout->addWidget(m_fullNameBtn);
     fullnameLayout->addWidget(m_inputLineEdit);
+    fullnameLayout->setContentsMargins(10, 0, 10, 0);
     layout->addLayout(fullnameLayout);
 
     m_avatarListWidget = new AvatarListWidget(m_curUser, this);
@@ -201,30 +213,61 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_avatarLayout->addWidget(m_avatarListWidget);
     layout->addLayout(m_avatarLayout);
 
-    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
-        m_inputLineEdit->setAlert(false);
-        m_inputLineEdit->hideAlertMessage();
+    connect(m_inputLineEdit, &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
+        if (userFullName.size() > 32) {
+            m_inputLineEdit->lineEdit()->backspace();
+            m_inputLineEdit->setAlert(true);
+            m_inputLineEdit->showAlertMessage(tr("The full name is too long"), this);
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        } else if (m_inputLineEdit->isAlert()) {
+            m_inputLineEdit->setAlert(false);
+            m_inputLineEdit->hideAlertMessage();
+        }
     });
-    connect(m_inputLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ]() {
-        auto uerList = m_userModel->userList();
-        //判断账户全名是否被其他用户所用
-        auto userList = m_userModel->userList();
-        if (m_inputLineEdit->text().simplified() != m_curUser->fullname()) {
-            for (auto u : userList) {
-                if (u->fullname() == m_inputLineEdit->text().simplified() && u->fullname() != nullptr) {
+
+    connect(m_inputLineEdit, &DLineEdit::editingFinished, this, [ = ] {
+        QString userFullName = m_inputLineEdit->lineEdit()->text();
+        if (userFullName == m_curUser->fullname() || (!userFullName.isEmpty() && userFullName.simplified().isEmpty())) {
+            m_inputLineEdit->lineEdit()->clearFocus();
+            m_inputLineEdit->setVisible(false);
+            m_fullName->setVisible(true);
+            m_fullNameBtn->setVisible(true);
+            if (m_inputLineEdit->isAlert()) {
+                m_inputLineEdit->setAlert(false);
+                m_inputLineEdit->hideAlertMessage();
+            }
+            return;
+        }
+        if (!userFullName.isEmpty()) {
+            QList<QString> groupList = m_userModel->getAllGroups();
+            for (QString &group : groupList) {
+                if (userFullName == group && userFullName != m_curUser->name()) {
                     m_inputLineEdit->setAlert(true);
-                    m_inputLineEdit->showAlertMessage(tr("The full name already exists"), -1);
+                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), this);
+                    m_inputLineEdit->lineEdit()->selectAll();
                     return;
                 }
             }
-            m_inputLineEdit->lineEdit()->clearFocus();
-            bool valid = m_inputLineEdit->lineEdit()->text().size() <= 32;
-            updateLineEditDisplayStyle(valid);
-            if (valid)
-                Q_EMIT requestShowFullnameSettings(m_curUser, m_inputLineEdit->text().simplified());
-        } else {
-            updateLineEditDisplayStyle(true);
+            QList<User *> userList = m_userModel->userList();
+            for (User *user : userList) {
+                if (userFullName == user->fullname()) {
+                    m_inputLineEdit->setAlert(true);
+                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), this);
+                    m_inputLineEdit->lineEdit()->selectAll();
+                    return;
+                }
+            }
         }
+        m_inputLineEdit->lineEdit()->clearFocus();
+        m_inputLineEdit->setVisible(false);
+        m_fullName->setVisible(true);
+        m_fullNameBtn->setVisible(true);
+        if (m_inputLineEdit->isAlert()) {
+            m_inputLineEdit->setAlert(false);
+            m_inputLineEdit->hideAlertMessage();
+        }
+
+        Q_EMIT requestSetFullname(m_curUser, m_inputLineEdit->text());
     });
 
     //点击用户图像
@@ -288,12 +331,24 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
+    m_autoLogin = new SwitchWidget;
+    m_nopasswdLogin = new SwitchWidget;
+    SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+
+    loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
+    loginGrp->setContentsMargins(10, 10, 10, 10);
+    loginGrp->layout()->setMargin(0);
+    loginGrp->appendItem(m_autoLogin);
+    loginGrp->appendItem(m_nopasswdLogin);
+    if (!IsServerSystem) {
+        layout->addSpacing(20);
+    }
+
     if (m_isServerSystem) {
         auto pwHLayout = new QHBoxLayout;
         auto pwWidget = new SettingsItem;
-        pwWidget->addBackground();
         layout->addSpacing(15);
-        layout->addWidget(pwWidget);
+        loginGrp->appendItem(pwWidget);
         pwWidget->setLayout(pwHLayout);
 
         pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
@@ -333,21 +388,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         });
     }
 
-    m_autoLogin = new SwitchWidget;
-    m_nopasswdLogin = new SwitchWidget;
-    SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-
-    loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
-    loginGrp->setContentsMargins(10, 10, 10, 10);
-    loginGrp->layout()->setMargin(0);
-    loginGrp->appendItem(m_autoLogin);
-    loginGrp->appendItem(m_nopasswdLogin);
-    if (!IsServerSystem) {
-        layout->addSpacing(20);
-    }
     layout->addWidget(loginGrp);
-    //服务器版本不显示自动登录，无密码登录
-    loginGrp->setVisible(!IsServerSystem);
 
     m_fingerWidget = new FingerWidget(m_curUser, this);
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);
@@ -388,9 +429,38 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //自动登录，无密码登录操作
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
-    connect(m_autoLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool autoLogin) {
-        Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+    connect(m_curUser, &User::nopasswdLoginChanged,
+            m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_autoLogin, &SwitchWidget::checkedChanged,
+            this, [ = ](const bool autoLogin) {
+        if (autoLogin) {
+            if (getOtherUserAutoLogin()) {
+                Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+            } else {
+                m_tipDialog = new DDialog(this);
+                m_tipDialog->setModal(true);
+                m_tipDialog->setAttribute(Qt::WA_DeleteOnClose);
+                m_tipDialog->setMessage(tr("Only one account can have \"Auto Login\" enabled. If proceeding,"\
+                                           " that option of other accounts will be disabled."));
+                m_tipDialog->addButton(tr("Cancel"), false, DDialog::ButtonRecommend);
+                m_tipDialog->addButton(tr("Enable"), true, DDialog::ButtonRecommend);
+                m_tipDialog->show();
+                connect(m_tipDialog, &DDialog::buttonClicked, this, [ = ](int index, const QString &text) {
+                    Q_UNUSED(text);
+                    if (!index) {
+                        m_tipDialog->close();
+                        m_autoLogin->setChecked(false);
+                    } else {
+                        Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+                    }
+                });
+                connect(m_tipDialog, &DDialog::closed, this, [ = ] {
+                    m_autoLogin->setChecked(false);
+                });
+            }
+        } else {
+            Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+        }
     });
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
@@ -415,8 +485,8 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
-    m_autoLogin->setVisible(m_userModel->isAutoLoginVisable() && !IsServerSystem);
-    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable() && !IsServerSystem);
+    m_autoLogin->setVisible(m_userModel->isAutoLoginVisable());
+    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable());
 
     // 非服务器系统，关联配置改变信号，控制自动登陆开关/无密码登陆开关显隐
     if (!IsServerSystem) {
@@ -508,20 +578,4 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
         item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
-}
-
-void AccountsDetailWidget::updateLineEditDisplayStyle(bool valid)
-{
-    m_inputLineEdit->setVisible(!valid);
-    m_fullName->setVisible(valid);
-    m_fullNameBtn->setVisible(valid);
-
-    if (valid) {
-        m_fullName->setVisible(true);
-        m_fullNameBtn->setVisible(true);
-    } else {
-        m_inputLineEdit->lineEdit()->selectAll();
-        m_inputLineEdit->setAlert(true);
-        m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
-    }
 }

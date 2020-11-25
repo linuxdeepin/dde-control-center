@@ -87,6 +87,7 @@ Q_SIGNALS:
     void requestCreateAccount();
     void requestShowLastClickedUserInfo(bool t = false);
     void requestBack();
+    void requestLoadUserList();
 
 private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
