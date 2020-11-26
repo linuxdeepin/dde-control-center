@@ -315,6 +315,7 @@ const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory 
                                    << "application/x-xpinstall";
     case Text:          return QStringList() << "text/plain";
     case Music:         return QStringList() << "audio/mpeg" << "audio/mp3" << "audio/x-mp3" << "audio/mpeg3" << "audio/x-mpeg-3"
+                                   << "audio/m4a" << "audio/x-m4a" << "audio/AMR" << "audio/x-AMR" << "audio/aac" << "audio/x-aac"
                                    << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
                                    << "audio/ape" << "audio/x-ape" << "application/x-ape" << "audio/ogg" << "audio/x-ogg"
                                    << "audio/musepack" << "application/musepack" << "audio/x-musepack"
