@@ -94,6 +94,7 @@ Q_SIGNALS:
     void requestSetPrimaryMonitor(int idx);
     void requestEnalbeMonitor(dcc::display::Monitor *mon, bool enable);
     void requestGeometry(dcc::display::Monitor *mon);
+    void requestApplayChange();
 
 private Q_SLOTS:
     void onMonitorPress(dcc::display::Monitor *mon);

@@ -56,6 +56,7 @@ Q_SIGNALS:
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
     void requestUpdateWidget();
+    void requestApplyChange();
 
 private:
     MonitorsGround *m_screensGround;

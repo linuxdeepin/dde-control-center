@@ -580,7 +580,6 @@ void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
     Q_ASSERT(inter);
 
     inter->SetPosition(static_cast<short>(x), static_cast<short>(y)).waitForFinished();
-    m_displayInter.ApplyChanges().waitForFinished();
 }
 
 void DisplayWorker::setUiScale(const double value)

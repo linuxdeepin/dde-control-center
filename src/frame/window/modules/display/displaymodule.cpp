@@ -272,6 +272,7 @@ void DisplayModule::showCustomSettingDialog()
         m_joinTimer->start();
     });
     connect(dlg, &CustomSettingDialog::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
+    connect(dlg, &CustomSettingDialog::requestApplayChange, m_displayWorker, &DisplayWorker::applyChanges);
     connect(dlg, &CustomSettingDialog::requestRecognize, this,
             &DisplayModule::showRecognize);
     connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,

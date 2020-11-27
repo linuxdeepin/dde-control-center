@@ -84,6 +84,7 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     connect(m_join, &QPushButton::clicked, this, &MonitorControlWidget::requestMerge);
     connect(m_split, &QPushButton::clicked, this, &MonitorControlWidget::requestSplit);
     connect(m_screensGround, &MonitorsGround::requestApplySettings, this, &MonitorControlWidget::requestSetMonitorPosition);
+    connect(m_screensGround, &MonitorsGround::requestApplyChange, this, &MonitorControlWidget::requestApplyChange);
     connect(m_screensGround, &MonitorsGround::requestMonitorPress, this, &MonitorControlWidget::requestMonitorPress);
     connect(m_screensGround, &MonitorsGround::requestMonitorRelease, this, &MonitorControlWidget::requestMonitorRelease);
     m_recognize->setFocusPolicy(Qt::NoFocus);
