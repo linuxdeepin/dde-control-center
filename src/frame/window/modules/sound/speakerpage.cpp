@@ -357,14 +357,11 @@ void SpeakerPage::initSlider()
     volumeBoostTip->setWordWrap(true);
     volumeBoostTip->setAlignment(Qt::AlignLeft);
     volumeBoostTip->setContentsMargins(10, 0, 0, 0);
-    volumeBoostTip->setVisible(m_model->isIncreaseVolume());
     hlayout->addWidget(volumeBoostTip);
     m_vbWidget = new QWidget(this);
     m_vbWidget->setLayout(hlayout);
     m_vbWidget->setVisible(m_model->isPortEnable());
     m_layout->insertWidget(4, m_vbWidget);
-    connect(volumeBoost, &SwitchWidget::checkedChanged, volumeBoostTip, &DTipLabel::setVisible);
-    connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoostTip, &DTipLabel::setVisible);
     //~ contents_path /sound/Speaker
     m_balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     m_balanceSlider->addBackground();
