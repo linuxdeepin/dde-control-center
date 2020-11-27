@@ -202,6 +202,10 @@ void NetworkModuleWidget::setModel(NetworkModel *model)
 
     qDebug() << "network devices size:" << model->devices().size();
     onDeviceListChanged(model->devices());
+    //刷新开关状态
+    for (NetworkDevice *device : model->devices()) {
+        model->initDeviceEnable(device->path());
+    }
 }
 
 void NetworkModuleWidget::initSetting(const int settingIndex, const QString &searchPath)
