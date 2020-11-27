@@ -28,6 +28,9 @@
 #include "../../mainwindow.h"
 #include "modules/display/recognizedialog.h"
 
+#include <QSharedPointer>
+#include <QThread>
+
 using namespace dcc::display;
 
 class Resolution;
@@ -85,7 +88,8 @@ private Q_SLOTS:
 
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
-    dcc::display::DisplayWorker *m_displayWorker{nullptr};
+    QSharedPointer<dcc::display::DisplayWorker> m_displayWorker;
+    QSharedPointer<QThread> m_workThread;
     DisplayWidget *m_displayWidget{nullptr};
     MainWindow *m_pMainWindow = nullptr;
     QMap<QString, RecognizeDialog*> m_recognizeDialg;

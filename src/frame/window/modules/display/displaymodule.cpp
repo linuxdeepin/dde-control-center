@@ -52,7 +52,10 @@ DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
 DisplayModule::~DisplayModule()
 {
     m_displayModel->deleteLater();
-    m_displayWorker->deleteLater();
+    if (m_workThread) {
+        m_workThread->quit();
+        m_workThread->wait();
+    }
 }
 
 void DisplayModule::windowUpdate()
@@ -63,6 +66,7 @@ void DisplayModule::windowUpdate()
 
 void DisplayModule::initialize()
 {
+    QMetaObject::invokeMethod(m_displayWorker.get(), "active", Qt::QueuedConnection);
 }
 
 const QString DisplayModule::name() const
@@ -138,10 +142,10 @@ void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType push
         delete m_displayModel;
     }
     m_displayModel = new DisplayModel;
-    m_displayWorker = new DisplayWorker(m_displayModel);
-
-    m_displayModel->moveToThread(qApp->thread());
-    m_displayWorker->moveToThread(qApp->thread());
+    m_workThread = QSharedPointer<QThread>(new QThread);
+    m_displayWorker = QSharedPointer<DisplayWorker>(new DisplayWorker(m_displayModel));
+    m_displayWorker->moveToThread(m_workThread.get());
+    m_workThread->start(QThread::LowestPriority);
 
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
         m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
@@ -154,9 +158,8 @@ void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType push
             m_displayWidget->initMenuUI();
         }
     });
-    QTimer::singleShot(0, m_displayWorker, [=] {
-        m_displayWorker->active();
-    });
+
+    QMetaObject::invokeMethod(m_displayWorker.get(), "init", Qt::QueuedConnection);
 }
 
 QStringList DisplayModule::availPage() const
@@ -186,13 +189,13 @@ void DisplayModule::showBrightnessPage()
     BrightnessPage *page = new BrightnessPage;
     page->setVisible(false);
     page->setMode(m_displayModel);
-    connect(page, &BrightnessPage::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
+    connect(page, &BrightnessPage::requestSetColorTemperature, m_displayWorker.get(), &DisplayWorker::setColorTemperature);
     connect(page, &BrightnessPage::requestSetMonitorBrightness,
-            m_displayWorker, &DisplayWorker::setMonitorBrightness);
+            m_displayWorker.get(), &DisplayWorker::setMonitorBrightness);
     connect(page, &BrightnessPage::requestAmbientLightAdjustBrightness,
-            m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
+            m_displayWorker.get(), &DisplayWorker::setAmbientLightAdjustBrightness);
     connect(page, &BrightnessPage::requestSetMethodAdjustCCT,
-                m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
+                m_displayWorker.get(), &DisplayWorker::SetMethodAdjustCCT);
 
     m_frameProxy->pushWidget(this, page);
     page->setVisible(true);
@@ -206,9 +209,9 @@ void DisplayModule::showResolutionDetailPage()
 
     connect(page, &ResolutionDetailPage::requestSetResolution, this,
             &DisplayModule::onDetailPageRequestSetResolution);
-    connect(page, &ResolutionDetailPage::requestReset, m_displayWorker,
+    connect(page, &ResolutionDetailPage::requestReset, m_displayWorker.get(),
             &DisplayWorker::discardChanges);
-    connect(page, &ResolutionDetailPage::requestSave, m_displayWorker,
+    connect(page, &ResolutionDetailPage::requestSave, m_displayWorker.get(),
             &DisplayWorker::saveChanges);
 
     m_frameProxy->pushWidget(this, page);
@@ -222,9 +225,9 @@ void DisplayModule::showScalingPage()
     page->setModel(m_displayModel);
 
     connect(page, &ScalingPage::requestUiScaleChange,
-            m_displayWorker, &DisplayWorker::setUiScale);
+            m_displayWorker.get(), &DisplayWorker::setUiScale);
     connect(page, &ScalingPage::requestIndividualScaling,
-            m_displayWorker, &DisplayWorker::setIndividualScaling);
+            m_displayWorker.get(), &DisplayWorker::setIndividualScaling);
 
     m_frameProxy->pushWidget(this, page);
     page->setVisible(true);
@@ -236,11 +239,11 @@ void DisplayModule::showMultiScreenSettingPage()
     page->setVisible(false);
     page->setModel(m_displayModel);
 
-    connect(page, &MultiScreenSettingPage::requestDuplicateMode, m_displayWorker,
+    connect(page, &MultiScreenSettingPage::requestDuplicateMode, m_displayWorker.get(),
             &DisplayWorker::duplicateMode);
-    connect(page, &MultiScreenSettingPage::requestExtendMode, m_displayWorker,
+    connect(page, &MultiScreenSettingPage::requestExtendMode, m_displayWorker.get(),
             &DisplayWorker::extendMode);
-    connect(page, &MultiScreenSettingPage::requestOnlyMonitor, m_displayWorker,
+    connect(page, &MultiScreenSettingPage::requestOnlyMonitor, m_displayWorker.get(),
             &DisplayWorker::onlyMonitor);
     connect(page, &MultiScreenSettingPage::requestCustomMode, [this]() {
         m_displayWorker->switchMode(0, m_displayModel->DDE_Display_Config);
@@ -248,9 +251,9 @@ void DisplayModule::showMultiScreenSettingPage()
     connect(page, &MultiScreenSettingPage::requestCustomDiglog, this,
             &DisplayModule::showCustomSettingDialog);
     connect(page, &MultiScreenSettingPage::requsetCreateConfig,
-            m_displayWorker, &DisplayWorker::createConfig);
+            m_displayWorker.get(), &DisplayWorker::createConfig);
     connect(page, &MultiScreenSettingPage::requsetRecord,
-            m_displayWorker, &DisplayWorker::record);
+            m_displayWorker.get(), &DisplayWorker::record);
 
     m_frameProxy->pushWidget(this, page);
     page->setVisible(true);
@@ -268,18 +271,18 @@ void DisplayModule::showCustomSettingDialog()
     connect(dlg, &CustomSettingDialog::requestSetResolution, this,
             &DisplayModule::onCustomPageRequestSetResolution);
     connect(dlg, &CustomSettingDialog::requestMerge,
-            m_displayWorker, &DisplayWorker::mergeScreens);
+            m_displayWorker.get(), &DisplayWorker::mergeScreens);
     connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
         m_displayWorker->onMonitorEnable(mon, enable);
     });
     connect(dlg, &CustomSettingDialog::requestSplit,
-            m_displayWorker, &DisplayWorker::splitScreens);
+            m_displayWorker.get(), &DisplayWorker::splitScreens);
     connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
-            m_displayWorker, &DisplayWorker::setMonitorPosition);
+            m_displayWorker.get(), &DisplayWorker::setMonitorPosition);
     connect(dlg, &CustomSettingDialog::requestRecognize, this,
             &DisplayModule::showDisplayRecognize);
     connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,
-            m_displayWorker, &DisplayWorker::setPrimary);
+            m_displayWorker.get(), &DisplayWorker::setPrimary);
     connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
 
     m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
@@ -313,7 +316,7 @@ void DisplayModule::showTouchScreenPage()
     page->setVisible(false);
     page->setModel(m_displayModel);
 
-    connect(page, &TouchscreenPage::requestAssociateTouch, m_displayWorker, &DisplayWorker::setTouchScreenAssociation);
+    connect(page, &TouchscreenPage::requestAssociateTouch, m_displayWorker.get(), &DisplayWorker::setTouchScreenAssociation);
 
     m_frameProxy->pushWidget(this, page);
     page->setVisible(true);
@@ -504,8 +507,8 @@ void DisplayModule::showRotate(Monitor *mon)
     RotateDialog *dialog = new RotateDialog(mon);
     dialog->setModel(m_displayModel);
 
-    connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
-    connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
+    connect(dialog, &RotateDialog::requestRotate, m_displayWorker.get(), &DisplayWorker::setMonitorRotate);
+    connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker.get(), &DisplayWorker::setMonitorRotateAll);
 
     QMap<Monitor *, quint16> mMonitorRotate;
     for (auto m : m_displayModel->monitorList()) {

@@ -55,9 +55,9 @@ public:
     explicit DisplayWorker(DisplayModel *model, QObject *parent = 0, bool isSync = false);
     ~DisplayWorker();
 
-    void active();
-
 public Q_SLOTS:
+    void init();
+    void active();
     void saveChanges();
     void discardChanges();
     void mergeScreens();
@@ -112,7 +112,7 @@ private:
 
 private:
     DisplayModel *m_model;
-    DisplayInter m_displayInter;
+    DisplayInter *m_displayInter;
     QDBusInterface *m_displayDBusInter;
     QGSettings *m_dccSettings;
     AppearanceInter *m_appearanceInter;
