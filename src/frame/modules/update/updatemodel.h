@@ -30,6 +30,7 @@
 #include <com_deepin_lastore_updater.h>
 
 #include "common.h"
+#include "widgets/utils.h"
 
 namespace dcc{
 namespace update{
@@ -145,8 +146,8 @@ public:
     bool getIsRecoveryBackingup(UpdatesStatus state) const;
 
 #ifndef DISABLE_ACTIVATOR
-    inline bool systemActivation() const {return m_bSystemActivation;}
-    void setSystemActivation(uint systemactivation);
+    inline UiActiveState systemActivation() const {return m_bSystemActivation;}
+    void setSystemActivation(const UiActiveState &systemactivation);
 #endif
 
     inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
@@ -189,7 +190,7 @@ Q_SIGNALS:
     void recoverRestoringChanged(bool recoverRestoring);
     void systemVersionChanged(QString version);
 #ifndef DISABLE_ACTIVATOR
-    void setSystemActivationChanged(bool systemactivation);
+    void systemActivationChanged(UiActiveState systemactivation);
 #endif
     void beginCheckUpdate();
     void updateCheckUpdateTime();
@@ -224,7 +225,7 @@ private:
     QMetaEnum m_metaEnum;
 
 #ifndef DISABLE_ACTIVATOR
-    bool m_bSystemActivation;
+    UiActiveState m_bSystemActivation;
 #endif
 
     QString m_lastCheckUpdateTime; //上次检查更新时间

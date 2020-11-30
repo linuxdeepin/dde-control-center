@@ -25,6 +25,7 @@
 
 #include "updatework.h"
 #include "window/utils.h"
+#include "widgets/utils.h"
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>
@@ -207,7 +208,7 @@ void UpdateWorker::licenseStateChangeSlot()
 void UpdateWorker::getLicenseState()
 {
     if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
-        m_model->setSystemActivation(true);
+        m_model->setSystemActivation(UiActiveState::Authorized);
         return;
     }
     QDBusInterface licenseInfo("com.deepin.license",
@@ -218,7 +219,7 @@ void UpdateWorker::getLicenseState()
         qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
-    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    UiActiveState reply = static_cast<UiActiveState>(licenseInfo.property("AuthorizationState").toInt());
     qDebug() << "Authorization State:" << reply;
     m_model->setSystemActivation(reply);
 }

@@ -134,7 +134,7 @@ void UpdateModule::active()
 #ifndef DISABLE_ACTIVATOR
     Q_EMIT m_work->requestRefreshLicenseState();
 
-    if (m_model->systemActivation()) {
+    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
         mainWidget->setSystemVersion(m_model->systemVersionInfo());
     }
 #else

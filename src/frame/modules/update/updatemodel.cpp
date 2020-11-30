@@ -70,7 +70,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_systemVersionInfo("")
     , m_metaEnum(QMetaEnum::fromType<ModelUpdatesStatus>())
 #ifndef DISABLE_ACTIVATOR
-    , m_bSystemActivation(false)
+    , m_bSystemActivation(UiActiveState::Unknown)
 #endif
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
@@ -307,20 +307,14 @@ void UpdateModel::setSystemVersionInfo(const QString &systemVersionInfo)
 }
 
 #ifndef DISABLE_ACTIVATOR
-void UpdateModel::setSystemActivation(uint systemactivation)
+void UpdateModel::setSystemActivation(const UiActiveState &systemactivation)
 {
-    bool activation;
-    if (systeminfo::ActiveState::Authorized == systemactivation || systeminfo::ActiveState::TrialAuthorized == systemactivation) {
-        activation = true;
-    } else {
-        activation = false;
-    }
-    if (m_bSystemActivation == activation) {
+    if (m_bSystemActivation == systemactivation) {
         return;
     }
-    m_bSystemActivation = activation;
+    m_bSystemActivation = systemactivation;
 
-    Q_EMIT setSystemActivationChanged(systemactivation);
+    Q_EMIT systemActivationChanged(systemactivation);
 }
 #endif
 
