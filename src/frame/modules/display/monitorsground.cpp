@@ -73,6 +73,7 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
         connect(pw, &MonitorProxyWidget::requestMonitorPress, this, &MonitorsGround::requestMonitorPress);
         connect(pw, &MonitorProxyWidget::requestMonitorRelease, this, &MonitorsGround::requestMonitorRelease);
         connect(mon, &Monitor::geometryChanged, m_refershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
+        connect(mon, &Monitor::enableChanged, pw, &MonitorProxyWidget::setVisible);
         connect(m_model, &DisplayModel::primaryScreenChanged, pw, static_cast<void (MonitorProxyWidget::*)()>(&MonitorProxyWidget::update), Qt::QueuedConnection);
     };
 
