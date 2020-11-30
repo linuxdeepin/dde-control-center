@@ -317,7 +317,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 
     connect(m_accountChooser, &DComboBox::currentTextChanged, this, &CreateAccountPage::showGroupList);
 
-    m_accountChooser->addItem(tr("Standard"));
+    m_accountChooser->addItem(tr("Standard User"));
     m_accountChooser->addItem(tr("Administrator"));
     /* 仅在服务器模式下创建用户才能自定义用户组 */
     if (m_isServerSystem) {
