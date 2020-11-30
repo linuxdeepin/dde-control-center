@@ -37,6 +37,7 @@
 #include <QDebug>
 #include <QSettings>
 #include <QApplication>
+#include <QScroller>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -64,6 +65,7 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     setLayout(mainContentLayout);
 
     m_scrollArea = new QScrollArea;
+    QScroller::grabGesture(m_scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
     m_scrollArea->setWidgetResizable(true);
     m_scrollArea->setFrameStyle(QFrame::NoFrame);
     m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
