@@ -158,7 +158,7 @@ void ResolutionDetailPage::initResoList()
             return ;
 
         requestSetResolution(moni, itemModel->itemData(idx)[IdRole].toInt());
-    });
+    }, Qt::ConnectionType::QueuedConnection);
     connect(rlist, &DListView::activated, rlist, &QListView::clicked);
     connect(moni, &Monitor::currentModeChanged, this, [ = ](const Resolution & r) {
         for(int i = 0; i < itemModel->rowCount(); ++i) {

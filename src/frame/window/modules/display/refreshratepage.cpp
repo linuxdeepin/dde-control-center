@@ -97,7 +97,7 @@ void RefreshRatePage::initRateList()
             return ;
 
         this->requestSetResolution(m_monitor, listModel->data(idx, Qt::WhatsThisPropertyRole).toInt());
-    });
+    }, Qt::ConnectionType::QueuedConnection);
 
     connect(m_monitor, &Monitor::currentModeChanged, this, [ = ](const Resolution & r) {
         for (int i = 0; i < listModel->rowCount(); ++i) {
