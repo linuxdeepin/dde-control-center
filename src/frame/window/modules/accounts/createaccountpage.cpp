@@ -228,43 +228,14 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         m_nameEdit->lineEdit()->blockSignals(false);
     });
 
-    connect(m_nameEdit, &DLineEdit::editingFinished, this, [ = ]() {
-        QString userName = m_nameEdit->lineEdit()->text();
-        if (userName.size() < 3 || userName.size() > 32) {
-            m_nameEdit->setAlert(true);
-            m_nameEdit->showAlertMessage(tr("Username must be between 3 and 32 characters"), this);
-            return;
-        }
-
-        QList<QString> groupList = m_userModel->getAllGroups();
-        for (QString &group : groupList) {
-            if (userName == group) {
-                m_nameEdit->setAlert(true);
-                m_nameEdit->showAlertMessage(tr("The name already exists"), this);
-                return;
-            }
-        }
-        /* 暂时先屏蔽用户名与用户全名的重复性检查 */
-        // QList<User *> userList = m_userModel->userList();
-        // for (User *user : userList) {
-        //     if (userName == user->fullname()) {
-        //         m_nameEdit->setAlert(true);
-        //         m_nameEdit->showAlertMessage(tr("The name already exists"), this);
-        //         return;
-        //     }
-        // }
-
-        if (m_nameEdit->isAlert()) {
-            m_nameEdit->setAlert(false);
-            m_nameEdit->hideAlertMessage();
-        }
-    });
+    connect(m_nameEdit, &DLineEdit::editingFinished, this, &CreateAccountPage::checkName);
 
     connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
+        /* 在输入的过程中仅检查全名的长度，输入完成后检查其它规则 */
         if (userFullName.size() > 32) {
             m_fullnameEdit->lineEdit()->backspace();
             m_fullnameEdit->setAlert(true);
-            m_fullnameEdit->showAlertMessage(tr("The full name is too long"), this);
+            m_fullnameEdit->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         } else if (m_fullnameEdit->isAlert()) {
             m_fullnameEdit->setAlert(false);
@@ -272,34 +243,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
     });
 
-    connect(m_fullnameEdit, &DLineEdit::editingFinished, this, [ = ]() {
-        QString userFullName = m_fullnameEdit->lineEdit()->text();
-        if (!userFullName.simplified().isEmpty()) {
-            QList<QString> groupList = m_userModel->getAllGroups();
-            for (QString &group : groupList) {
-                if (userFullName == group) {
-                    m_fullnameEdit->setAlert(true);
-                    m_fullnameEdit->showAlertMessage(tr("The name already exists"), this);
-                    return;
-                }
-            }
-            QList<User *> userList = m_userModel->userList();
-            for (User *user : userList) {
-                if (userFullName == user->fullname()) {
-                    m_fullnameEdit->setAlert(true);
-                    m_fullnameEdit->showAlertMessage(tr("The name already exists"), this);
-                    return;
-                }
-            }
-        } else {
-            m_fullnameEdit->lineEdit()->clear();
-        }
-
-        if (m_fullnameEdit->isAlert()) {
-            m_fullnameEdit->setAlert(false);
-            m_fullnameEdit->hideAlertMessage();
-        }
-    });
+    connect(m_fullnameEdit, &DLineEdit::editingFinished, this, &CreateAccountPage::checkFullname);
 
     connect(m_passwdEdit, &DPasswordEdit::textEdited, this, [ = ] {
         if (m_passwdEdit->isAlert()) {
@@ -372,10 +316,10 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
 void CreateAccountPage::createUser()
 {
     //校验输入的用户名和密码
-    if (!onNameEditFinished(m_nameEdit) ||
-            !onPasswordEditFinished(m_passwdEdit) ||
-            !onFullNameEidtFinished(m_fullnameEdit) ||
-            !onPasswordEditFinished(m_repeatpasswdEdit)) {
+    if (!checkName()
+        || !checkFullname()
+        || !checkPassward(m_passwdEdit)
+        || !checkPassward(m_repeatpasswdEdit)) {
         return;
     }
 
@@ -451,7 +395,7 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         qDebug() << "error encountered creating user: " << result->message();
         if (!result->message().isEmpty()) {
             m_nameEdit->setAlert(true);
-            m_nameEdit->showAlertMessage(result->message(), -1);
+            m_nameEdit->showAlertMessage(result->message(), m_nameEdit, 2000);
         }
         break;
     }
@@ -459,7 +403,99 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
     result->deleteLater();
 }
 
-bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
+bool CreateAccountPage::checkName()
+{
+    const QString &userName = m_nameEdit->lineEdit()->text();
+
+    if (userName.size() < 3 || userName.size() > 32) {
+        m_nameEdit->setAlert(true);
+        m_nameEdit->showAlertMessage(tr("Username must be between 3 and 32 characters"), m_nameEdit, 2000);
+        return false;
+    }
+
+    const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    if (!compStr.contains(userName.at(0))) {
+        m_nameEdit->setAlert(true);
+        m_nameEdit->showAlertMessage(tr("The first character must be a letter or number"), m_nameEdit, 2000);
+        return false;
+    }
+
+    if (userName.contains(QRegExp("^\\d+$"))) {
+        m_nameEdit->setAlert(true);
+        m_nameEdit->showAlertMessage(tr("Your username should not only have numbers"), m_nameEdit, 2000);
+        return false;
+    }
+
+    QList<QString> groupList = m_userModel->getAllGroups();
+    for (QString &group : groupList) {
+        if (userName == group) {
+            m_nameEdit->setAlert(true);
+            m_nameEdit->showAlertMessage(tr("The name already exists"), m_nameEdit, 2000);
+            return false;
+        }
+    }
+    /* 暂时先屏蔽用户名与用户全名的重复性检查 */
+    // QList<User *> userList = m_userModel->userList();
+    // for (User *user : userList) {
+    //     if (userName == user->fullname()) {
+    //         m_nameEdit->setAlert(true);
+    //         m_nameEdit->showAlertMessage(tr("The name already exists"), m_nameEdit, 2000);
+    //         return false;
+    //     }
+    // }
+
+    if (m_nameEdit->isAlert()) {
+        m_nameEdit->setAlert(false);
+        m_nameEdit->hideAlertMessage();
+    }
+
+    return true;
+}
+
+bool CreateAccountPage::checkFullname()
+{
+    QString userFullName = m_fullnameEdit->lineEdit()->text();
+
+    if (userFullName.size() > 32) {
+        m_fullnameEdit->setAlert(true);
+        m_fullnameEdit->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
+        return false;
+    }
+
+    if (!userFullName.simplified().isEmpty()) {
+        QList<QString> groupList = m_userModel->getAllGroups();
+        /* 与系统中已有的用户名和用户组进行重复性校验 */
+        for (QString &group : groupList) {
+            if (userFullName == group) {
+                m_fullnameEdit->setAlert(true);
+                m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
+                m_fullnameEdit->lineEdit()->selectAll();
+                return false;
+            }
+        }
+        QList<User *> userList = m_userModel->userList();
+        /* 与已有的用户全名进行重复性校验 */
+        for (User *user : userList) {
+            if (userFullName == user->fullname()) {
+                m_fullnameEdit->setAlert(true);
+                m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
+                m_fullnameEdit->lineEdit()->selectAll();
+                return false;
+            }
+        }
+    } else {
+        m_fullnameEdit->lineEdit()->clear(); // 输入全空格不保存
+    }
+
+    if (m_fullnameEdit->isAlert()) {
+        m_fullnameEdit->setAlert(false);
+        m_fullnameEdit->hideAlertMessage();
+    }
+
+    return true;
+}
+
+bool CreateAccountPage::checkPassward(DPasswordEdit *edit)
 {
     PassWordType passwordtype = PassWordType::NormalPassWord;
     const QString &userpassword = edit->lineEdit()->text();
@@ -552,49 +588,6 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *edit)
             m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
             return false;
         }
-    }
-    return true;
-}
-
-bool CreateAccountPage::validateUsername(const QString &username)
-{
-    const QString name_validate = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
-                                  QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("-_");
-    return PwqualityManager::instance()->containsChar(username, name_validate);
-}
-
-bool CreateAccountPage::onNameEditFinished(DLineEdit *edit)
-{
-    const QString &username = edit->lineEdit()->text();
-
-    if (edit->isAlert()) {
-        return false;
-    }
-
-    const QString compStr = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") + QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-    if (!compStr.contains(username.at(0))) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("The first character must be a letter or number"), edit, 2000);
-        return false;
-    }
-
-    if(username.contains(QRegExp("^\\d+$"))) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Your username should not only have numbers"), edit, 2000);
-        return false;
-    }
-
-    if (!validateUsername(username)) {
-        edit->setAlert(true);
-        return false;
-    }
-    return true;
-}
-
-bool CreateAccountPage::onFullNameEidtFinished(DLineEdit *edit)
-{
-    if (edit->isAlert()) {
-        return false;
     }
     return true;
 }

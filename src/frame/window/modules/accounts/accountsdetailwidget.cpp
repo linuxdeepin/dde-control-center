@@ -243,7 +243,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
             for (QString &group : groupList) {
                 if (userFullName == group && userFullName != m_curUser->name()) {
                     m_inputLineEdit->setAlert(true);
-                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), this);
+                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
                     m_inputLineEdit->lineEdit()->selectAll();
                     return;
                 }
@@ -252,7 +252,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
             for (User *user : userList) {
                 if (userFullName == user->fullname()) {
                     m_inputLineEdit->setAlert(true);
-                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), this);
+                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
                     m_inputLineEdit->lineEdit()->selectAll();
                     return;
                 }
