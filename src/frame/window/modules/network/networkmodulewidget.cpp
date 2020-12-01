@@ -192,8 +192,8 @@ bool NetworkModuleWidget::handleNMEditor()
                 QProcess::startDetached("nm-connection-editor");
             });
         }
+        process->deleteLater();
     });
-    process->deleteLater();
     return true;
 }
 
