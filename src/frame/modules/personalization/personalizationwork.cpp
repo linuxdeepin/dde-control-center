@@ -117,11 +117,6 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     m_dbus->setSync(false);
     m_wmSwitcher->setSync(false);
 
-    bool ok = false;
-    QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
-    int radius = interface.property("WindowRadius").toInt(&ok);
-    if (ok)
-        m_model->setWindowRadius(radius);
 }
 
 void PersonalizationWork::active()
@@ -139,6 +134,12 @@ void PersonalizationWork::active()
     m_model->getMouseModel()->setDefault(m_dbus->cursorTheme());
     m_model->getMonoFontModel()->setFontName(m_dbus->monospaceFont());
     m_model->getStandFontModel()->setFontName(m_dbus->standardFont());
+
+    bool ok = false;
+    QDBusInterface interface(Service, Path, Service, QDBusConnection::sessionBus());
+    int radius = interface.property("WindowRadius").toInt(&ok);
+    if (ok)
+        m_model->setWindowRadius(radius);
 }
 
 void PersonalizationWork::deactive()
