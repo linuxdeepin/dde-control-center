@@ -402,7 +402,7 @@ void BluetoothWorker::refresh()
         QJsonDocument doc = QJsonDocument::fromJson(replyStr.toUtf8());
         QJsonArray arr = doc.array();
         for (QJsonValue val : arr) {
-            Adapter *adapter = new Adapter;
+            Adapter *adapter = new Adapter(m_model);
             inflateAdapter(adapter, val.toObject());
 
             m_model->addAdapter(adapter);
