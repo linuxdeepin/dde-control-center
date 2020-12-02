@@ -33,28 +33,18 @@
 namespace dcc {
 namespace bluetooth {
 
-BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
-    : QObject()
-    , m_model(model)
+BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
+    QObject(),
+    m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)),
+    m_model(model)
 {
-}
-
-BluetoothWorker::~BluetoothWorker()
-{
-}
-
-void BluetoothWorker::init()
-{
-    m_bluetoothInter = new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this);
-    m_bluetoothInter->setSync(false);
-
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterPropertiesChanged, this, &BluetoothWorker::onAdapterPropertiesChanged);
     connect(m_bluetoothInter, &DBusBluetooth::DeviceAdded, this, &BluetoothWorker::addDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DeviceRemoved, this, &BluetoothWorker::removeDevice);
     connect(m_bluetoothInter, &DBusBluetooth::DevicePropertiesChanged, this, &BluetoothWorker::onDevicePropertiesChanged);
-    connect(m_bluetoothInter, &DBusBluetooth::Cancelled, this, [=](const QDBusObjectPath &device) {
+    connect(m_bluetoothInter, &DBusBluetooth::Cancelled, this, [=] (const QDBusObjectPath &device) {
         PinCodeDialog *dialog = m_dialogs[device];
         if (dialog != nullptr) {
             m_dialogs.remove(device);
@@ -64,20 +54,21 @@ void BluetoothWorker::init()
         }
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::RequestConfirmation, this, &BluetoothWorker::requestConfirmation);
-    connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, this, [](const QDBusObjectPath &in0) {
+    connect(m_bluetoothInter, &DBusBluetooth::RequestAuthorization, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request authorization: " << in0.path();
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::RequestPasskey, this, [](const QDBusObjectPath &in0) {
+    connect(m_bluetoothInter, &DBusBluetooth::RequestConfirmation, this, &BluetoothWorker::requestConfirmation);
+
+    connect(m_bluetoothInter, &DBusBluetooth::RequestPasskey, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request passkey: " << in0.path();
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::RequestPinCode, this, [](const QDBusObjectPath &in0) {
+    connect(m_bluetoothInter, &DBusBluetooth::RequestPinCode, this, [] (const QDBusObjectPath &in0) {
         qDebug() << "request pincode: " << in0.path();
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::DisplayPasskey, this, [=](const QDBusObjectPath &in0, uint in1, uint in2) {
+    connect(m_bluetoothInter, &DBusBluetooth::DisplayPasskey, this, [ = ] (const QDBusObjectPath &in0, uint in1, uint in2) {
         qDebug() << "request display passkey: " << in0.path() << in1 << in2;
 
         PinCodeDialog *dialog = PinCodeDialog::instance(QString::number(in1), false);
@@ -88,7 +79,7 @@ void BluetoothWorker::init()
         }
     });
 
-    connect(m_bluetoothInter, &DBusBluetooth::DisplayPinCode, this, [=](const QDBusObjectPath &in0, const QString &in1) {
+    connect(m_bluetoothInter, &DBusBluetooth::DisplayPinCode, this, [ = ] (const QDBusObjectPath &in0, const QString &in1) {
         qDebug() << "request display pincode: " << in0.path() << in1;
 
         PinCodeDialog *dialog = PinCodeDialog::instance(in1, false);
@@ -100,6 +91,28 @@ void BluetoothWorker::init()
     });
 
     connect(m_bluetoothInter, &DBusBluetooth::TransportableChanged, m_model, &BluetoothModel::setTransportable);
+    m_model->setTransportable(m_bluetoothInter->transportable());
+
+    m_bluetoothInter->setSync(sync);
+
+    //第一次调用时传true，refresh 函数会使用同步方式去获取蓝牙设备数据
+    //避免出现当dbus调用控制中心接口直接显示蓝牙模块时，
+    //因为异步的数据获取使控制中心设置了蓝牙模块不可见，
+    //而出现没办法显示蓝牙模块
+    refresh(true);
+
+    m_bluetoothInter->setSync(false);
+}
+
+BluetoothWorker::~BluetoothWorker()
+{
+
+}
+
+BluetoothWorker &BluetoothWorker::Instance(bool sync)
+{
+    static BluetoothWorker worker(new BluetoothModel, sync);
+    return worker;
 }
 
 void BluetoothWorker::activate()
@@ -109,7 +122,6 @@ void BluetoothWorker::activate()
     }
 
     blockDBusSignals(false);
-    m_model->setTransportable(m_bluetoothInter->transportable());
     m_bluetoothInter->ClearUnpairedDevice();
 
     refresh();
@@ -137,7 +149,6 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
     timer->setInterval(500);
 
     connect(timer, &QTimer::timeout, adapter, &Adapter::loadStatus);
-    connect(timer, &QTimer::timeout, timer, &QTimer::deleteLater);
 
     timer->start();
 
@@ -146,9 +157,9 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
     if (!powered) {
         QDBusPendingCall call = m_bluetoothInter->ClearUnpairedDevice();
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, [=] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, [ = ] {
             if (!call.isError()) {
-                QDBusPendingCall adapterPoweredOffCall = m_bluetoothInter->SetAdapterPowered(path, false);
+                QDBusPendingCall adapterPoweredOffCall  = m_bluetoothInter->SetAdapterPowered(path, false);
                 QDBusPendingCallWatcher *watchers = new QDBusPendingCallWatcher(adapterPoweredOffCall, this);
                 connect(watchers, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOffCall, adapter, timer, powered] {
                     if (adapterPoweredOffCall.isError()) {
@@ -161,14 +172,14 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                             m_model->adpaterPowerChanged(adapter->powered());
                         }
                     });
-                    timer->deleteLater();
+                    delete timer;
                 });
             } else {
                 qDebug() << call.error().message();
             }
         });
     } else {
-        QDBusPendingCall adapterPoweredOnCall = m_bluetoothInter->SetAdapterPowered(path, true);
+        QDBusPendingCall adapterPoweredOnCall  = m_bluetoothInter->SetAdapterPowered(path, true);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(adapterPoweredOnCall, this);
         connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOnCall, adapter, timer, powered] {
             if (adapterPoweredOnCall.isError()) {
@@ -182,7 +193,7 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                     m_model->adpaterPowerChanged(adapter->powered());
                 }
             });
-            timer->deleteLater();
+            delete timer;
         });
     }
 }
@@ -205,9 +216,8 @@ void BluetoothWorker::connectDevice(const Device *device, const Adapter *adapter
 {
     for (const Adapter *a : m_model->adapters()) {
         for (const Device *d : a->devices()) {
-            Device *vd = const_cast<Device *>(d);
-            if (vd)
-                vd->setConnecting(d == device);
+            Device *vd = const_cast<Device*>(d);
+            if (vd) vd->setConnecting(d == device);
         }
     }
 
@@ -242,7 +252,7 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
 
         Adapter *adapter = adapterPointer.data();
 
-        if (!call.isError()) {
+        if (!call.isError())  {
             QStringList tmpList;
 
             QDBusReply<QString> reply = call.reply();
@@ -254,12 +264,11 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
                 const QString name = val.toObject()["Name"].toString();
 
                 const Device *result = adapter->deviceById(id);
-                Device *device = const_cast<Device *>(result);
+                Device *device = const_cast<Device*>(result);
                 if (!device) {
                     device = new Device(adapter);
                 } else {
-                    if (device->name() != name)
-                        adapter->removeDevice(device->id());
+                    if (device->name() != name) adapter->removeDevice(device->id());
                 }
                 inflateDevice(device, val.toObject());
                 adapter->addDevice(device);
@@ -271,9 +280,8 @@ void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapte
                 if (!tmpList.contains(device->id())) {
                     adapter->removeDevice(device->id());
 
-                    Device *target = const_cast<Device *>(device);
-                    if (target)
-                        target->deleteLater();
+                    Device *target = const_cast<Device*>(device);
+                    if (target) target->deleteLater();
                 }
             }
         } else {
@@ -308,9 +316,8 @@ void BluetoothWorker::onAdapterPropertiesChanged(const QString &json)
     const QJsonObject obj = doc.object();
     const QString id = obj["Path"].toString();
 
-    Adapter *adapter = const_cast<Adapter *>(m_model->adapterById(id));
-    if (adapter)
-        inflateAdapter(adapter, obj);
+    Adapter *adapter = const_cast<Adapter*>(m_model->adapterById(id));
+    if (adapter) inflateAdapter(adapter, obj);
 }
 
 void BluetoothWorker::onDevicePropertiesChanged(const QString &json)
@@ -320,8 +327,8 @@ void BluetoothWorker::onDevicePropertiesChanged(const QString &json)
     const QString id = obj["Path"].toString();
     const QString name = obj["Name"].toString();
     for (const Adapter *adapter : m_model->adapters()) {
-        Adapter *adapterPointer = const_cast<Adapter *>(adapter);
-        Device *device = const_cast<Device *>(adapter->deviceById(id));
+        Adapter *adapterPointer = const_cast<Adapter*>(adapter);
+        Device *device = const_cast<Device*>(adapter->deviceById(id));
         if (device) {
             if (device->name() == name) {
                 inflateDevice(device, obj);
@@ -341,7 +348,7 @@ void BluetoothWorker::addAdapter(const QString &json)
     QJsonDocument doc = QJsonDocument::fromJson(json.toUtf8());
     QJsonObject obj = doc.object();
 
-    Adapter *adapter = new Adapter;
+    Adapter *adapter = new Adapter(m_model);
     inflateAdapter(adapter, obj);
     m_model->addAdapter(adapter);
 }
@@ -353,7 +360,7 @@ void BluetoothWorker::removeAdapter(const QString &json)
     const QString id = obj["Path"].toString();
 
     const Adapter *result = m_model->removeAdapater(id);
-    Adapter *adapter = const_cast<Adapter *>(result);
+    Adapter *adapter = const_cast<Adapter*>(result);
     if (adapter) {
         adapter->deleteLater();
     }
@@ -367,12 +374,11 @@ void BluetoothWorker::addDevice(const QString &json)
     const QString id = obj["Path"].toString();
 
     const Adapter *result = m_model->adapterById(adapterId);
-    Adapter *adapter = const_cast<Adapter *>(result);
+    Adapter *adapter = const_cast<Adapter*>(result);
     if (adapter) {
         const Device *result1 = adapter->deviceById(id);
-        Device *device = const_cast<Device *>(result1);
-        if (!device)
-            device = new Device(adapter);
+        Device *device = const_cast<Device*>(result1);
+        if (!device) device = new Device(adapter);
         inflateDevice(device, obj);
         adapter->addDevice(device);
     }
@@ -386,18 +392,17 @@ void BluetoothWorker::removeDevice(const QString &json)
     const QString id = obj["Path"].toString();
 
     const Adapter *result = m_model->adapterById(adapterId);
-    Adapter *adapter = const_cast<Adapter *>(result);
+    Adapter *adapter = const_cast<Adapter*>(result);
     if (adapter) {
         adapter->removeDevice(id);
     }
 }
 
-void BluetoothWorker::refresh()
+void BluetoothWorker::refresh(bool beFirst)
 {
-    if (!m_bluetoothInter->isValid())
-        return;
+    if (!m_bluetoothInter->isValid()) return;
 
-    auto resol = [this](const QDBusReply<QString> &req) {
+    auto resol = [this](const QDBusReply<QString> &req){
         const QString replyStr = req.value();
         QJsonDocument doc = QJsonDocument::fromJson(replyStr.toUtf8());
         QJsonArray arr = doc.array();
@@ -409,9 +414,20 @@ void BluetoothWorker::refresh()
         }
     };
 
+    if (beFirst) {
+        QDBusInterface *inter = new QDBusInterface("com.deepin.daemon.Bluetooth",
+                                                   "/com/deepin/daemon/Bluetooth",
+                                                   "com.deepin.daemon.Bluetooth",
+                                                   QDBusConnection::sessionBus());
+        QDBusReply<QString> reply = inter->call("GetAdapters");
+        resol(reply);
+
+        return;
+    }
+
     QDBusPendingCall call = m_bluetoothInter->GetAdapters();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, [ = ] {
         if (!call.isError()) {
             QDBusReply<QString> reply = call.reply();
             resol(reply);

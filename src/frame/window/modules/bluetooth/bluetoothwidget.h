@@ -28,6 +28,7 @@
 namespace dcc {
 namespace bluetooth {
 class BluetoothModel;
+class BluetoothWorker;
 class Device;
 class Adapter;
 class PinCodeDialog;
@@ -63,11 +64,11 @@ Q_SIGNALS:
     void requestSetAlias(const dcc::bluetooth::Adapter *adapter, const QString &alias);
     void showDeviceDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void requestDiscoverable(const dcc::bluetooth::Adapter *adapter, const bool &discoverable);
-    void requestRefresh(const dcc::bluetooth::Adapter *adapter);
 
 public Q_SLOTS:
     void addAdapter(const dcc::bluetooth::Adapter *adapter);
     void removeAdapter(const dcc::bluetooth::Adapter *adapter);
+    void requestRefresh(const dcc::bluetooth::Adapter *adapter);
 
 private:
     void setVisibleState();
@@ -76,6 +77,7 @@ private:
 
 private:
     dcc::bluetooth::BluetoothModel *m_model;
+    dcc::bluetooth::BluetoothWorker *m_bluetoothWorker;
     QMap<const dcc::bluetooth::Adapter *, AdapterWidget *> m_valueMap;
     dcc::widgets::TranslucentFrame *m_tFrame;
 };

@@ -39,50 +39,33 @@ BluetoothModule::BluetoothModule(FrameProxyInterface *frame, QObject *parent)
     , m_bluetoothModel(nullptr)
     , m_bluetoothWorker(nullptr)
 {
+
 }
 
-BluetoothModule::~BluetoothModule()
-{
-    if (m_workerThread) {
-        m_workerThread->quit();
-        m_workerThread->wait();
-    }
-}
-
-void BluetoothModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
+void BluetoothModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(pushtype);
-    m_workerThread = QSharedPointer<QThread>(new QThread);
-    m_bluetoothModel = QSharedPointer<BluetoothModel>(new BluetoothModel);
-    m_bluetoothWorker = QSharedPointer<BluetoothWorker>(new BluetoothWorker(m_bluetoothModel.get()));
-    m_bluetoothWorker->moveToThread(m_workerThread.get());
-    m_workerThread->start(QThread::Priority::LowestPriority);
+    m_bluetoothWorker = &BluetoothWorker::Instance(sync);
+    m_bluetoothModel = m_bluetoothWorker->model();
+    m_bluetoothModel->moveToThread(qApp->thread());
+    m_bluetoothWorker->moveToThread(qApp->thread());
 
-    connect(m_bluetoothModel.get(), &BluetoothModel::adpaterListChanged, this, [=] {
+    auto updateModuleVisible = [ = ] {
         qDebug() << QString("adapters size(%1) : %2")
-                        .arg(sender() ? "list change" : "first")
-                        .arg(m_bluetoothModel->adapters().size());
+                    .arg(sender() ? "list change" : "first")
+                    .arg(m_bluetoothModel->adapters().size());
         m_frameProxy->setModuleVisible(this, m_bluetoothModel->adapters().size());
-    });
+    };
 
-    QMetaObject::invokeMethod(m_bluetoothWorker.get(), "init", Qt::QueuedConnection);
-    QMetaObject::invokeMethod(m_bluetoothWorker.get(), "activate", Qt::QueuedConnection);
+    connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this, updateModuleVisible);
 
-    Q_EMIT m_bluetoothModel->adpaterListChanged();
+    updateModuleVisible();
 }
 
 void BluetoothModule::initialize()
 {
-    connect(m_bluetoothWorker.get(), &BluetoothWorker::requestConfirmation, this, &BluetoothModule::showPinCode);
-    connect(m_bluetoothWorker.get(), &BluetoothWorker::pinCodeCancel, this, &BluetoothModule::closePinCode);
-    connect(m_bluetoothModel.get(), &BluetoothModel::adapterAdded, this, [=](const Adapter *adapter) {
-        m_bluetoothWorker->setAdapterDiscovering(QDBusObjectPath(adapter->id()), true);
-    });
-    connect(m_bluetoothModel.get(), &BluetoothModel::adapterRemoved, this, [=](const Adapter *adapter) {
-        m_bluetoothWorker->setAdapterDiscovering(QDBusObjectPath(adapter->id()), false);
-    });
-
-    QMetaObject::invokeMethod(m_bluetoothWorker.get(), "activate", Qt::QueuedConnection);
+    connect(m_bluetoothWorker, &BluetoothWorker::requestConfirmation, this, &BluetoothModule::showPinCode);
+    connect(m_bluetoothWorker, &BluetoothWorker::pinCodeCancel, this, &BluetoothModule::closePinCode);
 }
 
 void BluetoothModule::reset()
@@ -91,27 +74,18 @@ void BluetoothModule::reset()
 
 void BluetoothModule::active()
 {
-    m_bluetoothWidget = new BluetoothWidget(m_bluetoothModel.get());
+    m_bluetoothWidget = new BluetoothWidget(m_bluetoothModel);
     m_bluetoothWidget->setVisible(false);
-    connect(m_bluetoothWidget, &BluetoothWidget::requestSetToggleAdapter, m_bluetoothWorker.get(), &BluetoothWorker::setAdapterPowered);
-    connect(m_bluetoothWidget, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker.get(), &BluetoothWorker::connectDevice);
-    connect(m_bluetoothWidget, &BluetoothWidget::requestDisconnectDevice, m_bluetoothWorker.get(), &BluetoothWorker::disconnectDevice);
-    connect(m_bluetoothWidget, &BluetoothWidget::requestSetAlias, m_bluetoothWorker.get(), &BluetoothWorker::setAlias);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestSetToggleAdapter, m_bluetoothWorker, &BluetoothWorker::setAdapterPowered);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestDisconnectDevice, m_bluetoothWorker, &BluetoothWorker::disconnectDevice);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
     connect(m_bluetoothWidget, &BluetoothWidget::showDeviceDetail, this, &BluetoothModule::showDeviceDetail);
-    connect(m_bluetoothWidget, &BluetoothWidget::destroyed, this, [=] {
-        for (const Adapter *adapter : m_bluetoothModel->adapters()) {
-            m_bluetoothWorker->setAdapterDiscovering(QDBusObjectPath(adapter->id()), false);
-        }
-    });
     connect(m_bluetoothWidget, &BluetoothWidget::requestModuleVisible, [this](const bool visible) {
         m_frameProxy->setModuleVisible(this, visible);
     });
-    connect(m_bluetoothWidget, &BluetoothWidget::requestRefresh, [=](const Adapter *adapter) {
-        m_bluetoothWorker->setAdapterDiscoverable(adapter->id());
-    });
-
     m_frameProxy->pushWidget(this, m_bluetoothWidget);
-    connect(m_bluetoothWidget, &BluetoothWidget::requestDiscoverable, m_bluetoothWorker.get(), &BluetoothWorker::onRequestSetDiscoverable);
+    connect(m_bluetoothWidget, &BluetoothWidget::requestDiscoverable, m_bluetoothWorker, &BluetoothWorker::onRequestSetDiscoverable);
     m_bluetoothWidget->setVisible(true);
 }
 
@@ -128,8 +102,8 @@ const QString BluetoothModule::displayName() const
 int BluetoothModule::load(const QString &path)
 {
     if ((path == QStringLiteral("Ignore this device"))
-        || (path == QStringLiteral("Disconnect"))
-        || (path == QStringLiteral("Change Name"))) {
+            || (path == QStringLiteral("Disconnect"))
+            || (path == QStringLiteral("Change Name"))) {
         m_bluetoothWidget->loadDetailPage();
         return 0;
     }
@@ -144,14 +118,14 @@ void BluetoothModule::contentPopped(QWidget *const w)
 
 void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *device)
 {
-    DCC_NAMESPACE::bluetooth::DetailPage *page = new DCC_NAMESPACE::bluetooth::DetailPage(m_bluetoothModel.get(), adapter, device);
+    DCC_NAMESPACE::bluetooth::DetailPage *page = new DCC_NAMESPACE::bluetooth::DetailPage(m_bluetoothModel, adapter, device);
     page->setVisible(false);
-    connect(page, &DetailPage::requestIgnoreDevice, m_bluetoothWorker.get(), &BluetoothWorker::ignoreDevice);
-    connect(page, &DetailPage::requestDisconnectDevice, m_bluetoothWorker.get(), &BluetoothWorker::disconnectDevice);
-    connect(page, &DetailPage::requestConnectDevice, m_bluetoothWorker.get(), &BluetoothWorker::connectDevice);
+    connect(page, &DetailPage::requestIgnoreDevice, m_bluetoothWorker, &BluetoothWorker::ignoreDevice);
+    connect(page, &DetailPage::requestDisconnectDevice, m_bluetoothWorker, &BluetoothWorker::disconnectDevice);
+    connect(page, &DetailPage::requestConnectDevice, m_bluetoothWorker, &BluetoothWorker::connectDevice);
     connect(page, &DetailPage::requestIgnoreDevice, this, &BluetoothModule::popPage);
     connect(page, &DetailPage::back, this, &BluetoothModule::popPage);
-    connect(page, &DetailPage::requestSetDevAlias, m_bluetoothWorker.get(), &BluetoothWorker::setDeviceAlias);
+    connect(page, &DetailPage::requestSetDevAlias, m_bluetoothWorker, &BluetoothWorker::setDeviceAlias);
 
     m_frameProxy->pushWidget(this, page);
     page->setVisible(true);

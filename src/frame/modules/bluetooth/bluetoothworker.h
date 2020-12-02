@@ -27,6 +27,7 @@
 #define DCC_BLUETOOTH_BLUETOOTHWORKER_H
 
 #include <QObject>
+
 #include <com_deepin_daemon_bluetooth.h>
 
 #include "modules/moduleworker.h"
@@ -42,8 +43,15 @@ class BluetoothWorker : public QObject, public ModuleWorker
 {
     Q_OBJECT
 public:
-    explicit BluetoothWorker(BluetoothModel *model, bool sync = false);
-    ~BluetoothWorker();
+    static BluetoothWorker &Instance(bool sync = false);
+
+    BluetoothModel *model() { return m_model; }
+
+    void activate() Q_DECL_OVERRIDE;
+    void deactivate() Q_DECL_OVERRIDE;
+
+    void blockDBusSignals(bool block);
+
 
 Q_SIGNALS:
     void deviceEnableChanged();
@@ -51,10 +59,6 @@ Q_SIGNALS:
     void pinCodeCancel(const QDBusObjectPath &device);
 
 public Q_SLOTS:
-    void activate() Q_DECL_OVERRIDE;
-    void deactivate() Q_DECL_OVERRIDE;
-    void init();
-    void blockDBusSignals(bool block);
     void setAdapterPowered(const Adapter *adapter, const bool &powered);
     void connectDevice(const Device *device, const Adapter *adapter);
     void disconnectDevice(const Device *device);
@@ -80,9 +84,14 @@ private Q_SLOTS:
     void addDevice(const QString &json);
     void removeDevice(const QString &json);
 
-    void refresh();
+    void refresh(bool beFirst = false);
 
 private:
+    explicit BluetoothWorker(BluetoothModel *model, bool sync = false);
+    BluetoothWorker(BluetoothWorker const &) = delete;
+    BluetoothWorker& operator =(BluetoothWorker const &) = delete;
+    ~BluetoothWorker();
+
     DBusBluetooth *m_bluetoothInter;
     BluetoothModel *m_model;
     QMap<QDBusObjectPath, PinCodeDialog*> m_dialogs;
