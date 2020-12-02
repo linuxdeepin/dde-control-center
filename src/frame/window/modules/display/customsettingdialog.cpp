@@ -668,10 +668,11 @@ void CustomSettingDialog::initConnect()
 
         QStandardItemModel *listModel = qobject_cast<QStandardItemModel *>(m_rateList->model());
         const auto curMode = m_monitor->currentMode();
-        int arate = static_cast<int>(curMode.rate());
+        //此处应该保持double类型 当两个刷新率相近时 会导致出现多个被勾选，如59.93 与59.94
+        double arate = curMode.rate();
         for (auto i = 0; i < listModel->rowCount(); i++) {
             QStandardItem * aitem = listModel->item(i);
-            if (aitem->text().left(aitem->text().indexOf('.')).contains(QString::number(arate))) {
+            if (aitem->text().contains(QString::number(arate, 'g', 4))) {
                 m_rateList->setEnabled(false);
                 aitem->setCheckState(Qt::Checked);
                 m_rateList->setEnabled(true);
