@@ -131,7 +131,6 @@ void AccountsWidget::showDefaultAccountInfo()
 {
     if (m_userlistView->count() > 0) {
         QModelIndex qindex = m_userItemModel->index(0, 0);
-        m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex);
         Q_EMIT m_userlistView->clicked(qindex);
     }
