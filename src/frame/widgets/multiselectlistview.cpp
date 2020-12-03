@@ -36,8 +36,10 @@ void MultiSelectListView::mouseMoveEvent(QMouseEvent *event)
 void MultiSelectListView::mouseReleaseEvent(QMouseEvent *event)
 {
     QModelIndex currentIndex = DListView::currentIndex();
-    setCurrentIndex(currentIndex);
-    Q_EMIT clicked(currentIndex);
+    if (currentIndex.isValid() && (currentIndex.row() >= 0)) {
+        setCurrentIndex(currentIndex);
+        Q_EMIT clicked(currentIndex);
+    }
     return DListView::mouseReleaseEvent(event);
 }
 
