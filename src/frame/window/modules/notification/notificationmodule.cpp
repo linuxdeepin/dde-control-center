@@ -26,6 +26,8 @@
 #include "systemnotifywidget.h"
 #include "appnotifywidget.h"
 
+#include <DListView>
+
 using namespace dcc;
 using namespace dcc::notification;
 using namespace DCC_NAMESPACE::notification;
@@ -92,9 +94,15 @@ void NotificationModule::active()
 
 int NotificationModule::load(const QString &path)
 {
-    Q_UNUSED(path);
     if (!m_widget) {
         active();
+    }
+
+    int index = availPage().indexOf(path);
+    if (index == 0) {
+        m_widget->getSysListview()->clicked(m_widget->getSysListview()->model()->index(0, 0));
+    } else if (index > 0) {
+        m_widget->getAppListview()->clicked(m_widget->getAppListview()->model()->index(index - 1, 0));
     }
     return 0;
 }

@@ -56,6 +56,8 @@ public Q_SLOTS:
     void setAppCurrentIndex(int row);
     void onSystemClicked(const QModelIndex &index);
     void refreshList();
+    Dtk::Widget::DListView* getAppListview() const {return m_softwareListView;}
+    Dtk::Widget::DListView* getSysListview() const {return m_systemListView;}
 
 private:
     const QPixmap loadSvg(const QString &fileName, const QSize &size);
