@@ -80,8 +80,10 @@ void RecognizeDialog::paintEvent(QPaintEvent *)
 
         paintMonitorMark(painter, intersectRect, intersectName);
     } else {
-        for (auto mon : m_model->monitorList())
-            paintMonitorMark(painter, mon->rect(), mon->name());
+        for (auto mon : m_model->monitorList()) {
+            if (mon->enable())
+                paintMonitorMark(painter, mon->rect(), mon->name());
+        }
     }
 }
 

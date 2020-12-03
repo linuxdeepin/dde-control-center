@@ -93,7 +93,10 @@ bool DisplayModel::monitorsIsIntersect() const
 
     // only support 2 screens
     Q_ASSERT(m_monitors.size() == 2);
-
+    for (auto mon : m_monitors) {
+        if (!mon->enable())
+            return false;
+    }
     return m_monitors.first()->rect().intersects(m_monitors.last()->rect());
 }
 
