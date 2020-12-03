@@ -588,7 +588,8 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     QDBusPendingReply<QDBusObjectPath> createReply = m_accountsInter->CreateUser(user->name(), user->fullname(), user->userType());
     createReply.waitForFinished();
     if (createReply.isError()) {
-        result->setType(CreationResult::UnknownError);
+        /* 这里由后端保证出错时一定有错误信息返回，如果没有错误信息，就默认用户在认证时点了取消 */
+        result->setType(createReply.error().message().isEmpty() ? CreationResult::Canceled : CreationResult::UnknownError);
         result->setMessage(createReply.error().message());
         return result;
     } else {
