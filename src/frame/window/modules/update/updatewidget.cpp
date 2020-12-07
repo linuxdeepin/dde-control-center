@@ -225,7 +225,7 @@ void UpdateWidget::showUpdateSetting()
     resetUpdateCheckState(false);
     m_work->checkNetselect();
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
-    m_work->refreshMirrors();
+    Q_EMIT m_work->requestRefreshMirrors();
 #endif
     m_mainLayout->setCurrentIndex(1);
 }

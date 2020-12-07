@@ -35,8 +35,6 @@
 
 #include <QVBoxLayout>
 #include <QCheckBox>
-#include <QJsonObject>
-
 #include <QDebug>
 
 DWIDGET_USE_NAMESPACE
@@ -44,21 +42,19 @@ using namespace dcc::widgets;
 using namespace dcc::notification;
 using namespace DCC_NAMESPACE::notification;
 
-SystemNotifyWidget::SystemNotifyWidget(NotificationModel *model, QWidget *parent)
+SystemNotifyWidget::SystemNotifyWidget(SysItemModel *model, QWidget *parent)
     : QWidget(parent)
     , m_model(model)
     , m_btnDisturbMode(new DSwitchButton)
     , m_btnShowInDock(new SwitchWidget(tr("Show icon on Dock")))
     , m_itemTimeSlot(new TimeSlotItem)
-    , m_itemFullScreen(new NotificationItem)
-    , m_itemProjector(new NotificationItem)
     , m_itemLockScreen(new NotificationItem)
 {
     initUI();
     initConnect();
 }
 
-void SystemNotifyWidget::setModel(NotificationModel *model)
+void SystemNotifyWidget::setModel(SysItemModel *model)
 {
     m_model = model;
 }
@@ -77,6 +73,7 @@ void SystemNotifyWidget::initUI()
 
     QHBoxLayout *hLayoutDisturbMode = new QHBoxLayout;
     hLayoutDisturbMode->setContentsMargins(8, 0, 10, 0);
+    //~ contents_path /notification/Do Not Disturb
     DLabel *lblDisturbMode = new DLabel(tr("Do Not Disturb"));
     DFontSizeManager::instance()->bind(lblDisturbMode, DFontSizeManager::T5, QFont::DemiBold);
     hLayoutDisturbMode->addWidget(lblDisturbMode, Qt::AlignLeft);
@@ -115,84 +112,51 @@ void SystemNotifyWidget::initUI()
 
 void SystemNotifyWidget::initConnect()
 {
-    //set connects: model to this
-    auto systemModel = m_model->getSystemModel();
-    connect(systemModel, &SysItemModel::disturbModeChanged, this, [this](bool state) {
+    connect(m_model, &SysItemModel::disturbModeChanged, this, [this](bool state) {
         m_btnDisturbMode->setChecked(state);
         m_settingsGrp->setVisible(state);
     });
-    m_btnDisturbMode->setChecked(systemModel->isDisturbMode());
-    m_settingsGrp->setVisible(systemModel->isDisturbMode());
-    connect(systemModel, &SysItemModel::showInDockChanged, this, [this](bool state) {
+    m_btnDisturbMode->setChecked(m_model->isDisturbMode());
+    m_settingsGrp->setVisible(m_model->isDisturbMode());
+    connect(m_model, &SysItemModel::showInDockChanged, this, [this](bool state) {
         m_btnShowInDock->setChecked(state);
     });
-    m_btnShowInDock->setChecked(systemModel->isShowInDock());
-    connect(systemModel, &SysItemModel::timeSlotChanged, this, [this](bool state) {
+    m_btnShowInDock->setChecked(m_model->isShowInDock());
+    connect(m_model, &SysItemModel::timeSlotChanged, this, [this](bool state) {
         m_itemTimeSlot->setState(state);
     });
-    m_itemTimeSlot->setState(systemModel->isTimeSlot());
-    connect(systemModel, &SysItemModel::timeStartChanged, this, [this](QTime time) {
-        m_itemTimeSlot->setTimeStart(time);
+    m_itemTimeSlot->setState(m_model->isTimeSlot());
+    connect(m_model, &SysItemModel::timeStartChanged, this, [this](QString time) {
+        m_itemTimeSlot->setTimeStart(QTime::fromString(time, "hh:mm"));
     });
-    m_itemTimeSlot->setTimeStart(systemModel->timeStart());
-    connect(systemModel, &SysItemModel::timeEndChanged, this, [this](QTime time) {
-        m_itemTimeSlot->setTimeEnd(time);
+    m_itemTimeSlot->setTimeStart(QTime::fromString(m_model->timeStart(), "hh:mm"));
+    connect(m_model, &SysItemModel::timeEndChanged, this, [this](QString time) {
+        m_itemTimeSlot->setTimeEnd(QTime::fromString(time, "hh:mm"));
     });
-    m_itemTimeSlot->setTimeEnd(systemModel->timeEnd());
-    connect(systemModel, &SysItemModel::fullScreenChanged, this, [this](bool state) {
-        m_itemFullScreen->setState(state);
-    });
-    m_itemFullScreen->setState(systemModel->isFullScreen());
-    connect(systemModel, &SysItemModel::projectorChanged, this, [this](bool state) {
-        m_itemProjector->setState(state);
-    });
-    m_itemProjector->setState(systemModel->isProjector());
-    connect(systemModel, &SysItemModel::lockScreenChanged, this, [this](bool state) {
+    m_itemTimeSlot->setTimeEnd(QTime::fromString(m_model->timeEnd(), "hh:mm"));
+    connect(m_model, &SysItemModel::lockScreenChanged, this, [this](bool state) {
         m_itemLockScreen->setState(state);
     });
-    m_itemLockScreen->setState(systemModel->isLockScreen());
+    m_itemLockScreen->setState(m_model->isLockScreen());
 
     //set connects: this to module
     connect(m_btnDisturbMode, &DSwitchButton::checkedChanged, this, [ = ](bool state) {
         m_settingsGrp->setVisible(state);
-
-        systemModel->setDisturbMode(state);
-
-        Q_EMIT requestSetSysSetting(systemModel->convertQJson());
+        Q_EMIT requestSetSysSetting(SysItemModel::DNDMODE, state);
     });
     connect(m_btnShowInDock, &SwitchWidget::checkedChanged, this, [ = ](bool state) {
-        systemModel->setShowInDock(state);
-
-        Q_EMIT requestSetSysSetting(systemModel->convertQJson());
+        Q_EMIT requestSetSysSetting(SysItemModel::SHOWICON, state);
     });
     connect(m_itemTimeSlot, &TimeSlotItem::stateChanged, this, [ = ](bool state) {
-        systemModel->setTimeSlot(state);
-
-        Q_EMIT requestSetSysSetting(systemModel->convertQJson());
+        Q_EMIT requestSetSysSetting(SysItemModel::OPENBYTIMEINTERVAL, state);
     });
     connect(m_itemTimeSlot, &TimeSlotItem::timeStartChanged, this, [ = ](QTime time) {
-        systemModel->setTimeStart(time);
-
-        Q_EMIT requestSetSysSetting(systemModel->convertQJson());
+        Q_EMIT requestSetSysSetting(SysItemModel::STARTTIME, time.toString("hh:mm"));
     });
     connect(m_itemTimeSlot, &TimeSlotItem::timeEndChanged, this, [ = ](QTime time) {
-        systemModel->setTimeEnd(time);
-
-        Q_EMIT requestSetSysSetting(systemModel->convertQJson());
-    });
-    connect(m_itemFullScreen, &NotificationItem::stateChanged, this, [ = ](bool state) {
-        systemModel->setFullScreen(state);
-
-        Q_EMIT requestSetSysSetting(systemModel->convertQJson());
-    });
-    connect(m_itemProjector, &NotificationItem::stateChanged, this, [ = ](bool state) {
-        systemModel->setProjector(state);
-
-        Q_EMIT requestSetSysSetting(systemModel->convertQJson());
+        Q_EMIT requestSetSysSetting(SysItemModel::ENDTIME, time.toString("hh:mm"));
     });
     connect(m_itemLockScreen, &NotificationItem::stateChanged, this, [ = ](bool state) {
-        systemModel->setLockScreen(state);
-
-        Q_EMIT requestSetSysSetting(systemModel->convertQJson());
+        Q_EMIT requestSetSysSetting(SysItemModel::LOCKSCREENOPENDNDMODE, state);
     });
 }

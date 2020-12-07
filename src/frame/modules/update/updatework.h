@@ -38,7 +38,6 @@
 #include <com_deepin_lastoresessionhelper.h>
 #include <com_deepin_lastore_smartmirror.h>
 #include <com_deepin_abrecovery.h>
-#include <com_deepin_daemon_systeminfo.h>
 #include <com_deepin_daemon_appearance.h>
 
 #include "common.h"
@@ -52,7 +51,6 @@ using Network=com::deepin::daemon::Network;
 using LastoressionHelper=com::deepin::LastoreSessionHelper;
 using SmartMirrorInter = com::deepin::lastore::Smartmirror;
 using RecoveryInter = com::deepin::ABRecovery;
-using SystemInfoInter=com::deepin::daemon::SystemInfo;
 using Appearance = com::deepin::daemon::Appearance;
 namespace dcc{
 namespace update{
@@ -78,7 +76,16 @@ public:
     void getLicenseState();
 #endif
 
+Q_SIGNALS:
+    void requestInit();
+    void requestActive();
+    void requestRefreshLicenseState();
+#ifndef DISABLE_SYS_UPDATE_MIRRORS
+    void requestRefreshMirrors();
+#endif
+
 public Q_SLOTS:
+    void init();
     void checkForUpdates();
     void pauseDownload();
     void resumeDownload();
@@ -145,7 +152,6 @@ private:
     Network *m_networkInter;
     SmartMirrorInter *m_smartMirrorInter;
     RecoveryInter *m_abRecoveryInter;
-    SystemInfoInter *m_systemInfoInter;
     Appearance *m_iconTheme;
     bool m_onBattery;
     double m_batteryPercentage;

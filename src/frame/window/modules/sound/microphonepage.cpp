@@ -67,7 +67,6 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_enablePort(false)
 {
     const int titleLeftMargin = 8;
-    //~ contents_path /sound/Advanced
     TitleLabel *labelInput = new TitleLabel(tr("Input"));
     DFontSizeManager::instance()->bind(labelInput, DFontSizeManager::T5, QFont::DemiBold);
     labelInput->setContentsMargins(titleLeftMargin, 0, 0, 0);
@@ -283,7 +282,6 @@ void MicrophonePage::toggleMute()
 
 void MicrophonePage::initSlider()
 {
-    //~ contents_path /sound/Microphone
     m_inputSlider = new TitledSliderItem(tr("Input Volume"));
     m_inputSlider->addBackground();
     m_layout->insertWidget(3, m_inputSlider);
@@ -328,7 +326,6 @@ void MicrophonePage::initSlider()
     connect(m_volumeBtn, &SoundLabel::clicked, this, &MicrophonePage::toggleMute);
 
 #ifndef DCC_DISABLE_FEEDBACK
-    //~ contents_path /sound/Microphone
     m_feedbackSlider = (new TitledSliderItem(tr("Input Level")));
     m_feedbackSlider->addBackground();
     DCCSlider *slider2 = m_feedbackSlider->slider();

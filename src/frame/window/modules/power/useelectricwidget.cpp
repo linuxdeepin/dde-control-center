@@ -195,6 +195,9 @@ void UseElectricWidget::setModel(const PowerModel *model)
     }
 
     //--------------sp2 add-----------------
+    connect(model, &PowerModel::lidPresentChanged, this, [ = ](bool value) {
+        m_cmbCloseLid->setVisible(value);
+    });
     m_cmbCloseLid->setVisible(model->lidPresent());
     connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
         if (reply - 1 < m_cmbCloseLid->comboBox()->count()) {

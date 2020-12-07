@@ -45,6 +45,7 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     , ModuleInterface(frame)
 {
     m_frameProxy =  frame;
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 }
 
 void AccountsModule::initialize()
@@ -66,7 +67,7 @@ void AccountsModule::initialize()
 
     m_accountsWorker->active();
     connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
-    connect(m_accountsWorker, &AccountsWorker::requesetMainWindowEnabled, this, &AccountsModule::onSetMainWindowEnabled);
+    connect(m_accountsWorker, &AccountsWorker::requestMainWindowEnabled, this, &AccountsModule::onSetMainWindowEnabled);
 }
 
 void AccountsModule::reset()
@@ -102,9 +103,13 @@ void AccountsModule::active()
     m_accountsWidget->setShowFirstUserInfo(true);
     connect(m_accountsWidget, &AccountsWidget::requestShowAccountsDetail, this, &AccountsModule::onShowAccountsDetailWidget);
     connect(m_accountsWidget, &AccountsWidget::requestCreateAccount, this, &AccountsModule::onShowCreateAccountPage);
+    connect(m_accountsWidget, &AccountsWidget::requestBack, this, [ = ] {
+        m_frameProxy->popWidget(this);
+    });
+    connect(m_accountsWidget, &AccountsWidget::requestLoadUserList, m_accountsWorker, &AccountsWorker::loadUserList);
     m_frameProxy->pushWidget(this, m_accountsWidget);
     m_accountsWidget->setVisible(true);
-    m_accountsWidget->selectUserList();
+    m_accountsWidget->showDefaultAccountInfo();
 }
 
 int AccountsModule::load(const QString &path)
@@ -158,6 +163,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     w->setFingerModel(m_fingerModel);
 
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
+    connect(m_userModel, &UserModel::allGroupsChange, w, &AccountsDetailWidget::setAllGroups);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
@@ -167,7 +173,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
         m_accountsWidget->setShowFirstUserInfo(false);
     });
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
-    connect(w, &AccountsDetailWidget::requestShowFullnameSettings, m_accountsWorker, &AccountsWorker::setFullname);
+    connect(w, &AccountsDetailWidget::requestSetFullname, m_accountsWorker, &AccountsWorker::setFullname);
     connect(w, &AccountsDetailWidget::requestAddThumbs, this, &AccountsModule::onShowAddThumb);
     connect(w, &AccountsDetailWidget::requestDeleteFingerItem, m_fingerWorker, &FingerWorker::deleteFingerItem);
     connect(w, &AccountsDetailWidget::requestRenameFingerItem, m_fingerWorker, &FingerWorker::renameFingerItem);
@@ -217,16 +223,13 @@ void AccountsModule::onShowPasswordPage(User *account)
 void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
-    m_pMainWindow = static_cast<MainWindow *>(m_frameProxy);
     connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [=] {
         m_fingerWorker->tryEnroll(name, thumb);
     });
     connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
     connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [=](const QString &userName) {
         m_fingerWorker->refreshUserEnrollList(userName);
-        if (m_pMainWindow) {
-            m_pMainWindow->setEnabled(true);
-        }
+        onSetMainWindowEnabled(true);
         dlg->deleteLater();
     });
 
@@ -235,9 +238,7 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
         // 第一次tryEnroll进入时显示添加指纹对话框
         if (m_pMainWindow->isEnabled()) {
             if (res == FingerWorker::Enroll_Success) {
-                if (m_pMainWindow) {
-                    m_pMainWindow->setEnabled(false);
-                }
+                onSetMainWindowEnabled(false);
                 m_fingerModel->resetProgress();
                 dlg->setFingerModel(m_fingerModel);
                 dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
@@ -252,9 +253,7 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
         } else {
             //　已经在添加指纹对话框中的Enroll处理
             if (res == FingerWorker::Enroll_AuthFailed) {
-                if (m_pMainWindow) {
-                    m_pMainWindow->setEnabled(true);
-                }
+                onSetMainWindowEnabled(true);
                 dlg->deleteLater();
             } else {
                 dlg->setInitStatus();
@@ -287,7 +286,6 @@ void AccountsModule::initFingerData()
 
 void AccountsModule::onSetMainWindowEnabled(bool isEnabled)
 {
-    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     if (m_pMainWindow)
         m_pMainWindow->setEnabled(isEnabled);
 }

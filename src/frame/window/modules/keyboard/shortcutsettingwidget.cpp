@@ -178,6 +178,12 @@ void ShortCutSettingWidget::showCustomShotcut()
 void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::InfoType type)
 {
     if ((m_assistiveToolsGroup == nullptr) && (type == ShortcutModel::AssistiveTools)) {
+        m_assistiveToolsIdList.clear();
+        QList<ShortcutInfo *>::iterator it = list.begin();
+        for (; it != list.end(); ++it) {
+            ShortcutInfo *assistiveToolsinfo = *it;
+            m_assistiveToolsIdList << assistiveToolsinfo->id;
+        }
         return;
     }
     QMap<ShortcutModel::InfoType, QList<ShortcutItem *>*> InfoMap {
@@ -372,6 +378,9 @@ void ShortCutSettingWidget::onSearchStringFinish(const QList<ShortcutInfo*> sear
     QList<ShortcutInfo *> list = searchList;
     qDebug() << "searchList count is " << searchList.count();
     for (int i = 0; i < list.count(); i++) {
+        if (m_assistiveToolsGroup == nullptr && m_assistiveToolsIdList.contains(list[i]->id))
+            continue;
+
         ShortcutItem *item = new ShortcutItem;
         connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
         item->setShortcutInfo(list[i]);

@@ -113,17 +113,23 @@ void SystemInfoWidget::initData()
         m_itemModel->appendRow(item);
     }
 
-   if(InsertPlugin::instance()->needPushPlugin("System Info"))
+   if(InsertPlugin::instance()->needPushPlugin("systeminfo"))
         InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
 
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
-        if (m_lastIndex == index) return;
+        if (m_lastIndex == index)
+            return;
 
         m_lastIndex = index;
-        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
+        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
         m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
+}
+
+DListView *SystemInfoWidget::getSystemListViewPointer()
+{
+    return m_listView;
 }
 
 void SystemInfoWidget::setCurrentIndex(int index)

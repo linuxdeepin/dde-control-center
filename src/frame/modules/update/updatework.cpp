@@ -25,6 +25,7 @@
 
 #include "updatework.h"
 #include "window/utils.h"
+#include "widgets/utils.h"
 #include <QtConcurrent>
 #include <QFuture>
 #include <QFutureWatcher>
@@ -90,16 +91,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_checkUpdateJob(nullptr)
     , m_distUpgradeJob(nullptr)
     , m_otherUpdateJob(nullptr)
-    , m_lastoresessionHelper(new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this))
-    , m_updateInter(new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
-    , m_managerInter(new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this))
-    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
-    , m_powerSystemInter(new PowerSystemInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::sessionBus(), this))
-    , m_networkInter(new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
-    , m_smartMirrorInter(new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this))
-    , m_abRecoveryInter(new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this))
-    , m_systemInfoInter(new SystemInfoInter("com.deepin.daemon.SystemInfo", "/com/deepin/daemon/SystemInfo", QDBusConnection::sessionBus(), this))
-    , m_iconTheme(new Appearance("com.deepin.daemon.Appearance","/com/deepin/daemon/Appearance",QDBusConnection::sessionBus(), this))
     , m_onBattery(true)
     , m_batteryPercentage(0.0)
     , m_batterySystemPercentage(0.0)
@@ -112,17 +103,36 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_iconThemeState("")
     , m_beginUpdatesJob(false)
 {
+
+}
+
+UpdateWorker::~UpdateWorker()
+{
+
+}
+
+void UpdateWorker::init() {
+    qRegisterMetaType<UpdatesStatus>("UpdatesStatus");
+
+    m_lastoresessionHelper = new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this);
+    m_updateInter = new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_managerInter = new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
+    m_powerInter = new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this);
+    m_powerSystemInter = new PowerSystemInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::sessionBus(), this);
+    m_networkInter = new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this);
+    m_smartMirrorInter = new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this);
+    m_abRecoveryInter = new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this);
+    m_iconTheme = new Appearance("com.deepin.daemon.Appearance", "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this);
+
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
     m_powerInter->setSync(false);
     m_powerSystemInter->setSync(false);
     m_lastoresessionHelper->setSync(false);
-    m_smartMirrorInter->setSync(true, false);
+    m_smartMirrorInter->setSync(false, false);
     m_iconTheme->setSync(false);
 
-    QString sVersion = QString("%1 %2 %3").arg(DSysInfo::uosProductTypeName(),
-                                                 DSysInfo::majorVersion(),
-                                                 DSysInfo::uosEditionName());
+    const QString sVersion{ QString("%1 %2 %3").arg(DSysInfo::uosProductTypeName(), DSysInfo::majorVersion(), DSysInfo::uosEditionName()) };
     m_model->setSystemVersionInfo(sVersion);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);
@@ -140,13 +150,13 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
 
     connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
     connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
-    connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [ = ] {
-        QTimer::singleShot(100, this, [ = ] {
+    connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [=] {
+        QTimer::singleShot(100, this, [=] {
             m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
         });
     }, Qt::UniqueConnection);
 
-    connect(m_abRecoveryInter, &RecoveryInter::JobEnd, this, [ = ](const QString & kind, bool success, const QString & errMsg) {
+    connect(m_abRecoveryInter, &RecoveryInter::JobEnd, this, [=](const QString &kind, bool success, const QString &errMsg) {
         qDebug() << " [abRecovery] RecoveryInter::JobEnd 备份结果 -> kind : " << kind << " , success : " << success << " , errMsg : " << errMsg;
         //kind 在备份时为 "backup"，在恢复时为 "restore" (此处为备份)
         if ("backup" == kind) {
@@ -179,17 +189,16 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     connect(m_abRecoveryInter, &RecoveryInter::RestoringChanged, m_model, &UpdateModel::setRecoverRestoring);
     //图片主题
     connect(m_iconTheme, &Appearance::IconThemeChanged, this, &UpdateWorker::onIconThemeChanged);
-}
 
-UpdateWorker::~UpdateWorker()
-{
-
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+    connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged, m_model, &UpdateModel::setSourceCheck);
+#endif
 }
 
 #ifndef DISABLE_ACTIVATOR
 void UpdateWorker::licenseStateChangeSlot()
 {
-    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>();
     connect(watcher, &QFutureWatcher<void>::finished, watcher, &QFutureWatcher<void>::deleteLater);
 
     QFuture<void> future = QtConcurrent::run(this, &UpdateWorker::getLicenseState);
@@ -199,7 +208,7 @@ void UpdateWorker::licenseStateChangeSlot()
 void UpdateWorker::getLicenseState()
 {
     if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
-        m_model->setSystemActivation(true);
+        m_model->setSystemActivation(UiActiveState::Authorized);
         return;
     }
     QDBusInterface licenseInfo("com.deepin.license",
@@ -210,7 +219,7 @@ void UpdateWorker::getLicenseState()
         qDebug() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
-    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    UiActiveState reply = static_cast<UiActiveState>(licenseInfo.property("AuthorizationState").toInt());
     qDebug() << "Authorization State:" << reply;
     m_model->setSystemActivation(reply);
 }
@@ -238,10 +247,6 @@ void UpdateWorker::activate()
 
     m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
 
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    connect(m_lastoresessionHelper, &LastoressionHelper::SourceCheckEnabledChanged,
-            m_model, &UpdateModel::setSourceCheck);
-#endif
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
     // setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
@@ -704,7 +709,7 @@ void UpdateWorker::testMirrorSpeed()
     // reset the data;
     m_model->setMirrorSpeedInfo(QMap<QString, int>());
 
-    QFutureWatcher<int> *watcher = new QFutureWatcher<int>(this);
+    QFutureWatcher<int> *watcher = new QFutureWatcher<int>();
     connect(watcher, &QFutureWatcher<int>::resultReadyAt, [this, urlList, watcher, mirrors](int index) {
         QMap<QString, int> speedInfo = m_model->mirrorSpeedInfo();
 
@@ -835,23 +840,16 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
         resetDownloadInfo();
     }
 
-    QFutureWatcher<CheckUpdateJobRet> *watcher = new QFutureWatcher<CheckUpdateJobRet>(this);
-    connect(watcher, &QFutureWatcher<CheckUpdateJobRet>::finished, [this, watcher] {
-        CheckUpdateJobRet ret = watcher->result();
+    const CheckUpdateJobRet& ret = createCheckUpdateJob(jobPath);
+    if (ret.status == "succeed") {
+        QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
+        connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWorker::onAppUpdateInfoFinished);
+    } else {
+        m_managerInter->CleanJob(ret.jobID);
+        checkDiskSpace(ret.jobDescription);
+    }
 
-        if (ret.status == "succeed") {
-            QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
-            connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWorker::onAppUpdateInfoFinished);
-        } else {
-            m_managerInter->CleanJob(ret.jobID);
-            checkDiskSpace(ret.jobDescription);
-        }
-        m_beginUpdatesJob = false;
-        watcher->deleteLater();
-    });
-
-    QFuture<CheckUpdateJobRet> future = QtConcurrent::run(this,&UpdateWorker::createCheckUpdateJob,jobPath);
-    watcher->setFuture(future);
+    m_beginUpdatesJob = false;
 }
 
 void UpdateWorker::setDownloadJob(const QString &jobPath)

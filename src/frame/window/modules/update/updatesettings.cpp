@@ -96,8 +96,9 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     layout->addWidget(autoLbl);
     layout->addSpacing(8);
 
+# if 0
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsCommunitySystem && !IsDeepinDesktop) {
         SettingsGroup *sourceCheckGrp = new SettingsGroup;
         m_sourceCheck = new SwitchWidget;
         //~ contents_path /update/Update Settings
@@ -114,6 +115,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
         layout->addLayout(sourceCheckLblLayout);
         layout->addSpacing(8);
     }
+#endif
 #endif
 
     ug->setSpacing(List_Interval);
@@ -202,11 +204,13 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     m_freeTimeDownloadLbl->setVisible(false);
     m_setFreeTimeLbl->setVisible(false);
 
+#if 0
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsCommunitySystem && !IsDeepinDesktop) {
         qDebug() << "connect m_sourceCheck";
         connect(m_sourceCheck, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetSourceCheck);
     }
+#endif
 #endif
 
     setModel(model);
@@ -219,8 +223,8 @@ void UpdateSettings::setModel(UpdateModel *model)
     auto setAutoDownload = [this](const bool & autoDownload) {
         m_autoDownloadSwitch->setChecked(autoDownload);
     };
-
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+#if 0
+    if (!IsServerSystem && !IsProfessionalSystem && !IsCommunitySystem && !IsHomeSystem && !IsDeepinDesktop) {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
@@ -240,6 +244,7 @@ void UpdateSettings::setModel(UpdateModel *model)
         connect(model, &UpdateModel::smartMirrorSwitchChanged, this, setMirrorListVisible);
         setMirrorListVisible(model->smartMirrorSwitch());
     }
+#endif
 
     setAutoDownload(model->autoDownloadUpdates());
 
@@ -256,10 +261,12 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
     m_updateLbl->setVisible(model->updateNotify());
 
+#if 0
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsCommunitySystem && !IsDeepinDesktop) {
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
         m_sourceCheck->setChecked(model->sourceCheck());
     }
+#endif
 #endif
 }

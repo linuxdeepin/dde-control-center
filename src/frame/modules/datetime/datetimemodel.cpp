@@ -135,6 +135,14 @@ void DatetimeModel::setNTPServerList(const QStringList &list)
     }
 }
 
+void DatetimeModel::setTimeZoneInfo(const QString &timeZone)
+{
+    if (m_timeZones != timeZone) {
+        m_timeZones = timeZone;
+        Q_EMIT timeZoneChanged(timeZone);
+    }
+}
+
 void DatetimeModel::setWeekdayFormatType(int type)
 {
     if (m_weekdayFormatType == type) return;

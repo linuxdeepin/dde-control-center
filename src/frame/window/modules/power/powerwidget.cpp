@@ -79,7 +79,7 @@ void PowerWidget::initialize(bool hasBattery)
         model->appendRow(item);
     }
 
-    if(InsertPlugin::instance()->needPushPlugin("Power"))
+    if(InsertPlugin::instance()->needPushPlugin("power"))
         InsertPlugin::instance()->pushPlugin(model,m_menuIconText);
 
     m_listview->setFrameShape(QFrame::NoFrame);
@@ -130,7 +130,7 @@ void PowerWidget::onItemClicked(const QModelIndex &index)
 
     m_lastIndex = index;
     m_listview->setCurrentIndex(index);
-    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin?m_menuIconText[index.row()].pulgin:this);
+    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin ? m_menuIconText[index.row()].pulgin : this);
     m_listview->resetStatus(index);
 }
 

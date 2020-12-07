@@ -52,6 +52,7 @@ public:
 
 public:
     int showPath(const QString &path);
+    void setDefaultWidget();
 
 Q_SIGNALS:
     void requsetSpeakerPage();

@@ -137,6 +137,7 @@ int main(int argc, char *argv[])
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
     QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
+    QCommandLineOption dbusOption(QStringList() << "d" << "dbus" << "startup on dbus");
     QCommandLineOption moduleOption("m", "the module' id of which to be shown.", "module");
     QCommandLineOption pageOption("p", "specified module page", "page");
 
@@ -146,6 +147,7 @@ int main(int argc, char *argv[])
     parser.addVersionOption();
     parser.addOption(showOption);
     parser.addOption(toggleOption);
+    parser.addOption(dbusOption);
     parser.addOption(moduleOption);
     parser.addOption(pageOption);
     parser.process(*app);
@@ -173,7 +175,7 @@ int main(int argc, char *argv[])
             .arg(reqPage)
             .call();
         }
-        else if (parser.isSet(showOption)) {
+        else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
             DDBusSender()
             .service("com.deepin.dde.ControlCenter")
             .interface("com.deepin.dde.ControlCenter")
@@ -250,7 +252,7 @@ int main(int argc, char *argv[])
         adaptor.ShowPage(reqModule, reqPage);
     }
 
-    if (parser.isSet(showOption)) {
+    if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
         adaptor.Show();
     }
 

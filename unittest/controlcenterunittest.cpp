@@ -23,7 +23,6 @@
 
 #include <com_deepin_daemon_display.h>
 
-#include <QtTest>
 #include <QDBusInterface>
 #include <QDBusMetaType>
 #include <QDBusMessage>
@@ -32,18 +31,13 @@
 
 using DBusDisplay = com::deepin::daemon::Display;
 
-ControlCenterUnitTest::ControlCenterUnitTest() : displayMode(0)
+/*!
+ * \brief SetPrimary 设置主屏
+ * \param strDisplay
+ */
+TEST_F(ControlCenterUnitTest, SetPrimary)
 {
-
-}
-
-ControlCenterUnitTest::~ControlCenterUnitTest()
-{
-
-}
-
-void ControlCenterUnitTest::SetPrimary(QString strDisplay)
-{
+    QString strDisplay = "HDMI-0";
     QString strPrimary;
 
     {
@@ -64,10 +58,13 @@ void ControlCenterUnitTest::SetPrimary(QString strDisplay)
         qDebug() << reply.toString();
     }
 
-    QCOMPARE(strPrimary, strDisplay);
+    EXPECT_EQ(strPrimary, strDisplay);
 }
 
-void ControlCenterUnitTest::testModules()
+/*!
+ * \brief testModules 测试控制中心每个模块的跳转是否正常
+ */
+TEST_F(ControlCenterUnitTest, testModules)
 {
     QProcess *controlcenterProc = new QProcess();
     controlcenterProc->start("dde-control-center --show");
@@ -76,7 +73,8 @@ void ControlCenterUnitTest::testModules()
                              "/com/deepin/dde/ControlCenter",
                              "com.deepin.dde.ControlCenter",
                              QDBusConnection::sessionBus());
-        QVERIFY(inter.isValid());
+
+        ASSERT_TRUE(inter.isValid());
 
         QStringList moduleList;
         moduleList << "accounts" << "bluetooth" << "commoninfo" << "datetime" << "defapp" << "display"
@@ -90,14 +88,22 @@ void ControlCenterUnitTest::testModules()
         inter.call("exitProc");
     });
     connect(controlcenterProc, &QProcess::errorOccurred, this, [=](QProcess::ProcessError error) {
-        qDebug() << "control center error occurred: " << error;
-        QFAIL("control center error occurred");
+        FAIL() << "control center error occurred" << error;
     });
     controlcenterProc->waitForFinished();
 }
 
-void ControlCenterUnitTest::inputDevieNum(int num)
+/*!
+ * \brief inputDevieNum 测试显示的输出设备数量
+ * \param num 预计显示的输出设备数
+ * 未接入耳机时默认显示１个输出设备，测试通过
+ * 当接入多个耳机时，会导致测试用例失败
+ */
+TEST_F(ControlCenterUnitTest, inputDevieNum)
 {
+    // 手动输入的参数
+    int num = 1;
+
     int actualNum = 0;
     QDBusInterface inter("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
     QString info = inter.property("CardsWithoutUnavailable").toString();
@@ -113,16 +119,19 @@ void ControlCenterUnitTest::inputDevieNum(int num)
             const int portAvai = jPort["Available"].toInt();
             if (jPort["Direction"].toInt() != 1) //1输出, 2输入
                 continue;
-            if (portAvai == 2 || portAvai == 0 ) { // 0 Unknow 1 Not available 2 Available
+            if (portAvai == 2 || portAvai == 0 ) { // 0 Unknown 1 Not available 2 Available
                 actualNum++;
             }
         }
     }
 
-    QCOMPARE(actualNum, num);
+    EXPECT_EQ(actualNum, num);
 }
 
-void ControlCenterUnitTest::testBluetoothIsVisible()
+/*!
+ * \brief testBluetoothIsVisible 测试蓝牙是否正常显示
+ */
+TEST_F(ControlCenterUnitTest, testBluetoothIsVisible)
 {
     QDBusInterface inter("com.deepin.dde.ControlCenter",
                          "/com/deepin/dde/ControlCenter",
@@ -136,35 +145,42 @@ void ControlCenterUnitTest::testBluetoothIsVisible()
                          QDBusConnection::sessionBus());
     auto bluetoothState = bluetoothInter.property("State").toInt();
 
-    QCOMPARE(reply,bluetoothState);
+    EXPECT_EQ(reply, bluetoothState);
 }
 
-void ControlCenterUnitTest::displayMode_check()
+/*!
+ * \brief displayMode_check 显示模式检查
+ */
+TEST_F(ControlCenterUnitTest, displayMode_check)
 {
     QDBusInterface displayInter("com.deepin.daemon.Display", "/com/deepin/daemon/Display", "com.deepin.daemon.Display", QDBusConnection::sessionBus());
     srand(static_cast<unsigned>(time(nullptr)));
     int displayMode = rand() % 3;
     QString primaryScreen = displayInter.property("Primary").toString();
     auto ret = displayInter.call("SwitchMode", displayMode, primaryScreen);
-    this->displayMode = displayInter.property("DisplayMode").toInt();
+    int displayModeReturn = displayInter.property("DisplayMode").toInt();
     switch (displayMode) {
     case 0:
-        qDebug() << "Customised, please check.";
+        qDebug() <<  "Customised, please check.";
         break;
     case 1:
-        qDebug() << "CopyMode, please check.";
+        qDebug() <<  "CopyMode, please check.";
         break;
     case 2:
-        qDebug() << "ExpandMode, please check.";
+        qDebug() <<  "ExpandMode, please check.";
         break;
     default:
-        qDebug() << "Error!";
+        qDebug() <<  "Error!";
         break;
     }
-    QCOMPARE(this->displayMode, displayMode);
+
+    EXPECT_EQ(displayMode, displayModeReturn);
 }
 
-void ControlCenterUnitTest::checkWindowCompositingEnable()
+/*!
+ * \brief checkWindowCompositingEnable 开启和关闭窗口特效检测
+ */
+TEST_F(ControlCenterUnitTest, checkWindowCompositingEnable)
 {
     QDBusInterface wmInter("com.deepin.wm",
                                  "/com/deepin/wm",
@@ -181,25 +197,28 @@ void ControlCenterUnitTest::checkWindowCompositingEnable()
 
     QDBusMessage reply = wmInter.call("Set","com.deepin.wm","compositingEnabled", QVariant::fromValue(QDBusVariant(!compositingEnable)));
     if (reply.type() == QDBusMessage::ErrorMessage) {
-        qDebug() << "reply.type() = " << reply.type();
+        qDebug() <<  "reply.type() = " << reply.type();
     }
 
     QThread::sleep(4);
-    compositingEnable = wmPropertyInter.property("compositingEnabled").toBool();          
-    QCOMPARE(compositingEnable, !lastCompositingEnable);
+    compositingEnable = wmPropertyInter.property("compositingEnabled").toBool();
+    EXPECT_EQ(compositingEnable, !lastCompositingEnable);
 
     lastCompositingEnable = compositingEnable;
     reply = wmInter.call("Set","com.deepin.wm","compositingEnabled", QVariant::fromValue(QDBusVariant(!compositingEnable)));
     if (reply.type() == QDBusMessage::ErrorMessage) {
-        qDebug() << "reply.type() = " << reply.type();
+        qDebug() <<  "reply.type() = " << reply.type();
     }
     QThread::sleep(4);
 
     compositingEnable = wmPropertyInter.property("compositingEnabled").toBool();
-    QCOMPARE(compositingEnable, !lastCompositingEnable);
+    EXPECT_EQ(compositingEnable, !lastCompositingEnable);
 }
 
-void ControlCenterUnitTest::testProcessNumber()
+/*!
+ * \brief testProcessNumber 启动10次，检测控制中心能否保持单例+控制中心能否正常退出
+ */
+TEST_F(ControlCenterUnitTest, testProcessNumber)
 {
     QProcess process;
     for (int i = 0; i < 10; ++i) {
@@ -210,16 +229,15 @@ void ControlCenterUnitTest::testProcessNumber()
     process.start("pidof", QStringList() << "dde-control-center");
     process.waitForFinished(2000);
     const QStringList& pids = QString(process.readAll()).trimmed().split(" ", QString::SkipEmptyParts);
-    QCOMPARE(pids.size(), 1);
+    EXPECT_EQ(pids.size(), 1);
 
     process.start("dbus-send", QStringList() << "--session" << "--type=method_call" << "--print-reply"
                   << "--dest=com.deepin.dde.ControlCenter" << "/com/deepin/dde/ControlCenter"
                   << "com.deepin.dde.ControlCenter.exitProc");
     process.waitForFinished(2000);
+    const QStringList& pidsKilled = QString(process.readAll()).trimmed().split(" ", QString::SkipEmptyParts);
 
-    QCOMPARE(pids.size(), 0);
+    EXPECT_EQ(pidsKilled.size(), 0);
 }
-
-QTEST_APPLESS_MAIN(ControlCenterUnitTest)
 
 #include "controlcenterunittest.moc"

@@ -56,6 +56,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     });
 
     connect(m_timedateInter, &__Timedate::NTPServerChanged, m_model, &DatetimeModel::setNtpServerAddress);
+    connect(m_timedateInter, &__Timedate::TimezoneChanged, m_model, &DatetimeModel::setTimeZoneInfo);
 
     m_model->setCurrentTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
     m_model->setCurrentUseTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
@@ -83,6 +84,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &Timedate::WeekBeginsChanged, m_model, &DatetimeModel::setWeekStartDayFormat);
     refreshNtpServerList();
     m_model->setNtpServerAddress(m_timedateInter->nTPServer());
+    m_model->setTimeZoneInfo(m_timedateInter->timezone());
 }
 
 DatetimeWork::~DatetimeWork()

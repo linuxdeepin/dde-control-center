@@ -35,6 +35,7 @@
 #include "fingerwidget.h"
 
 #include <DLineEdit>
+#include <DDialog>
 
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
@@ -73,9 +74,10 @@ public:
     explicit AccountsDetailWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
     void initHeadPart(QVBoxLayout *headLayout);
     void initBodyPart(QVBoxLayout *bodyLayout);
-    void updateLineEditDisplayStyle(bool valid = false);
     void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
+    //获取其它用户是否开启自动登录开关
+    bool getOtherUserAutoLogin();
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
@@ -84,7 +86,7 @@ Q_SIGNALS:
     void requestDeleteAccount(dcc::accounts::User *user, const bool deleteHome);
     void requestBack();
     void requestSetAvatar(dcc::accounts::User *user, const QString &filePath);
-    void requestShowFullnameSettings(dcc::accounts::User *user, const QString &fullname);
+    void requestSetFullname(dcc::accounts::User *user, const QString &fullname);
     void requestShowFingerSettings(dcc::accounts::User *user);
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
@@ -93,6 +95,9 @@ Q_SIGNALS:
     void requestDeleteFingerItem(const QString &userName, const QString& finger);
     void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
     void noticeEnrollCompleted(QString username);
+
+public Q_SLOTS:
+    void setAllGroups(const QStringList &groups);
 
 protected:
     void initUserInfo(QVBoxLayout *layout);
@@ -121,6 +126,7 @@ private:
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
     QHBoxLayout *m_avatarLayout;
+    DDialog *m_tipDialog;
 };
 
 }   // namespace accounts

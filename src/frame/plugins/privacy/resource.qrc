@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/privacy.svg</file>
+        <file>res/location.svg</file>
+        <file>res/Microphone.svg</file>
+        <file>res/bluetooth.svg</file>
+        <file>res/photo.svg</file>
+    </qresource>
+</RCC>

@@ -88,38 +88,60 @@ void DeviceSettingsItem::initItemActionList()
     m_dActionList.append(m_iconAction);
 }
 
+void DeviceSettingsItem::loadingStart()
+{
+    m_loadingIndicator->start();
+    m_loadingIndicator->show();
+    m_loadingAction->setVisible(true);
+    m_textAction->setVisible(false);
+}
+
+void DeviceSettingsItem::loadingStop()
+{
+    m_loadingIndicator->stop();
+    m_loadingIndicator->hide();
+    m_loadingAction->setVisible(false);
+    m_textAction->setVisible(true);
+}
+
+void DeviceSettingsItem::onUpdateLoading()
+{
+    if (m_parentDListView) {
+        QModelIndex index;
+        BtStandardItem *item = nullptr;
+        for (int i = 0; i < m_parentDListView->count(); ++i) {
+            const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentDListView->model());
+            if (!deviceModel) {
+                return;
+            }
+            item = dynamic_cast<BtStandardItem *>(deviceModel->item(i));
+            if (!item) {
+                continue;
+            }
+            if (m_deviceItem == item) {
+                index = m_parentDListView->model()->index(i, 0);
+                break;
+            }
+        }
+        QRect itemrect = m_parentDListView->visualRect(index);
+        if (item && (itemrect.height() != 0 || index.row() == 1)) {
+            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
+            m_loadingIndicator->move(point);
+            loadingStart();
+            return;
+        }
+
+        loadingStop();
+    }
+}
+
 void DeviceSettingsItem::setLoading(const bool loading)
 {
     if (loading) {
-        if (m_parentDListView) {
-            QModelIndex index;
-            for (int i = 0; i < m_parentDListView->count(); ++i) {
-                const QStandardItemModel *deviceModel = dynamic_cast<const QStandardItemModel *>(m_parentDListView->model());
-                if (!deviceModel) {
-                    return;
-                }
-                BtStandardItem *item = dynamic_cast<BtStandardItem *>(deviceModel->item(i));
-                if (!item) {
-                    return;
-                }
-                if (m_deviceItem == item) {
-                    index = m_parentDListView->model()->index(i, 0);
-                    break;
-                }
-            }
-            QRect itemrect = m_parentDListView->visualRect(index);
-            QPoint point(itemrect.x() + itemrect.width(), itemrect.y());
-            m_loadingIndicator->move(point);
-        }
-        m_loadingIndicator->start();
-        m_loadingIndicator->show();
-        m_loadingAction->setVisible(true);
-        m_textAction->setVisible(false);
+        onUpdateLoading();
+        connect(m_parentDListView, &DListView::indexesMoved, this, &DeviceSettingsItem::onUpdateLoading);
     } else {
-        m_loadingIndicator->stop();
-        m_loadingIndicator->hide();
-        m_loadingAction->setVisible(false);
-        m_textAction->setVisible(true);
+        loadingStop();
     }
     if (m_parentDListView) {
         m_parentDListView->update();
@@ -156,8 +178,6 @@ void DeviceSettingsItem::setDevice(const Device *device)
         if (m_deviceItem) {
             m_deviceItem->setText(alias);
         }
-
-        Q_EMIT requestSort();
     });
 
     onDeviceStateChanged(device->state(), device->connectState());
@@ -169,7 +189,9 @@ BtStandardItem *DeviceSettingsItem::getStandardItem(DListView *parent)
     if (parent != nullptr) {
         m_parentDListView = parent;
         m_loadingIndicator->setParent(parent->viewport());
-        setDevice(m_device);
+
+        if (m_device)
+            setDevice(m_device);
     }
     return m_deviceItem;
 }
@@ -180,7 +202,8 @@ BtStandardItem *DeviceSettingsItem::createStandardItem(DListView *parent)
     if (parent != nullptr) {
         m_parentDListView = parent;
         m_loadingIndicator->setParent(parent->viewport());
-        setDevice(m_device);
+        if (m_device)
+            setDevice(m_device);
     }
     m_deviceItem = new BtStandardItem;
 
@@ -216,8 +239,6 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool c
         setLoading(false);
     }
     m_textAction->setText(tip);
-
-    Q_EMIT requestSort();
 }
 
 void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)

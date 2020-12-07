@@ -69,7 +69,7 @@ Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
     void accountCreationFinished(CreationResult *result) const;
     void accountFullNameChangeFinished() const;
-    void requesetMainWindowEnabled(const bool isEnabled) const;
+    void requestMainWindowEnabled(const bool isEnabled) const;
 
 public Q_SLOTS:
     void randomUserIcon(User *user);
@@ -84,6 +84,7 @@ public Q_SLOTS:
     void deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
     void setMaxPasswordAge(User *user, const int maxAge);
+    void loadUserList();
 
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();

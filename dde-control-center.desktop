@@ -1,7 +1,6 @@
 [Desktop Entry]
 Categories=Application;System;Settings
 Comment=Deepin Desktop Environment Control Center
-Encoding=UTF-8
 Exec=dde-control-center --show
 Icon=preferences-system
 Name=Deepin Control Center

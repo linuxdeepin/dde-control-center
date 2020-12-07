@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/batteryhealth.svg</file>
+    </qresource>
+</RCC>
