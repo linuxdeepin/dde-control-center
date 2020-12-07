@@ -73,8 +73,33 @@ struct ListSubItem {
     QString itemIcon;
     QString itemText;
     QMetaMethod itemSignal;
-    QObject* pulgin = nullptr;
+    QObject *pulgin = nullptr;
 };
+
+inline bool compareVersion(const QString &targetVersion, const QString &baseVersion)
+{
+    QStringList version1 = baseVersion.split(".");
+    QStringList version2 = targetVersion.split(".");
+
+    if (version1.size() != version2.size()) {
+        return false;
+    }
+
+    for (int i = 0; i < version1.size(); ++i) {
+        // 相等判断下一个子版本号
+        if (version1[i] == version2[i])
+            continue;
+
+        // 转成整形比较
+        if (version1[i].toInt() > version2[i].toInt()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    return true;
+}
 }
 
 #endif // V20_DISPLAY_UTILS_H

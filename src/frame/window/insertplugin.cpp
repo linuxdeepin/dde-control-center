@@ -43,11 +43,18 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
     for (auto i : moduleList) {
         QString path = i.absoluteFilePath();
 
-        if (!QLibrary::isLibrary(path)) continue;
+        if (!QLibrary::isLibrary(path))
+            continue;
 
         qDebug() << "loading module: " << i;
 
         QPluginLoader loader(path);
+        const QJsonObject &meta = loader.metaData().value("MetaData").toObject();
+        if (!compareVersion(meta.value("api").toString(), "1.0.0")) {
+            qDebug() << "plugin's version is too low";
+            continue;
+        }
+
         QObject *instance = loader.instance();
         if (!instance) {
             qDebug() << loader.errorString();
@@ -57,7 +64,7 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
         instance->setParent(obj);
 
         auto *module = qobject_cast<ModuleInterface *>(instance);
-        qDebug() << "load plugin Name;" << module->name() <<  module->displayName();
+        qDebug() << "load plugin Name;" << module->name() << module->displayName();
         module->setFrameProxy(frameProxy);
 
         Plugin plugin;
@@ -94,17 +101,19 @@ InsertPlugin *InsertPlugin::instance(QObject *obj, FrameProxyInterface *FramePro
  * @brief dccV20::InsertPlugin::pushPlugin 加载一级菜单插件
  * @param modules 一级菜单所有模块，将插件添加到其中
  */
-void dccV20::InsertPlugin::pushPlugin(QList<QPair<dccV20::ModuleInterface *, QString> > &modules)
+void dccV20::InsertPlugin::pushPlugin(QList<QPair<dccV20::ModuleInterface *, QString>> &modules)
 {
     // 社区版不加载插件
-    if (DCC_NAMESPACE::IsCommunitySystem) return;
+    if (DCC_NAMESPACE::IsCommunitySystem)
+        return;
 
     // 一级菜单插件配置mainwindow
-    for (int i = 0 ; i < m_currentPlugins.size(); i++) {
+    for (int i = 0; i < m_currentPlugins.size(); i++) {
         auto *module = qobject_cast<ModuleInterface *>(m_currentPlugins.at(i).second.first);
 
         // 查看插件是否定义为可用
-        if (!m_currentPlugins.at(i).first.enabled) continue;
+        if (!m_currentPlugins.at(i).first.enabled)
+            continue;
 
         // index类型,字符串就插入模块名字的后面(这个目前不方便汉化,直接配置对应模块的名字),数字就直接插入对应的位置，空值默认添加到最后
         bool ok;
@@ -119,7 +128,7 @@ void dccV20::InsertPlugin::pushPlugin(QList<QPair<dccV20::ModuleInterface *, QSt
             }
 
             // 遍历modules查找插入位置
-            auto res = std::find_if(modules.begin(), modules.end(), [ = ](const QPair<ModuleInterface *, QString> &data)->bool{
+            auto res = std::find_if(modules.begin(), modules.end(), [=](const QPair<ModuleInterface *, QString> &data) -> bool {
                 return data.first->name() == m_currentPlugins.at(i).first.follow;
             });
 
@@ -144,7 +153,7 @@ void dccV20::InsertPlugin::pushPlugin(QList<QPair<dccV20::ModuleInterface *, QSt
  */
 void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::ListSubItem> &itemList)
 {
-    for (int i = 0 ; i < m_currentPlugins.size(); i++) {
+    for (int i = 0; i < m_currentPlugins.size(); i++) {
         QByteArray normalizedSignature = QMetaObject::normalizedSignature("active()");
         int methodIndex = m_allModules.at(i).second.first->metaObject()->indexOfMethod(normalizedSignature);
         // 找不到对应激活的方法
@@ -153,7 +162,8 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
         }
 
         // 查看插件是否定义为可用
-        if (!m_currentPlugins.at(i).first.enabled) continue;
+        if (!m_currentPlugins.at(i).first.enabled)
+            continue;
 
         auto *module = qobject_cast<ModuleInterface *>(m_allModules.at(i).second.first);
         // 调用模块初始化函数
