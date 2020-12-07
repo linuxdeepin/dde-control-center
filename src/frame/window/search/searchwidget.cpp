@@ -350,17 +350,14 @@ void SearchModel::loadxml()
         //不存在时，不加载数据
         //是以上模块才会有此判断，其他模块不用此判断(包含在m_defaultRemoveableList的页面才需要“添加/移除”xml信息)
         if (m_defaultRemoveableList.contains(searchBoxStrcut->fullPagePath.section('/', 2, -1))) {
-            bool bRet = false;
-            auto rets = std::any_of(m_removeableActualExistList.begin(), m_removeableActualExistList.end(),
-                                    [=](const QPair<QString, QString> &date) { return date.second == searchBoxStrcut->fullPagePath.section('/', 2, -1); });
-            //变量list，存在就需要继续加载数据
-            if (rets) {
-                bRet = true;
-                break;
-            }
+            auto result = std::find_if(m_removeableActualExistList.begin(),
+                                       m_removeableActualExistList.end(),
+                                       [=](const QPair<QString, QString> &date) {
+                return date.second == searchBoxStrcut->fullPagePath.section('/', 2, -1);
+            });
 
             //设备不存在，不加载xml数据
-            if (!bRet) {
+            if (result == m_removeableActualExistList.end()) {
                 continue;
             }
         }
@@ -523,30 +520,33 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
         return;
     }
 
-    if ("" == data->childPageName) {
+    // 其他函数存在修改智能指针的数值，复制一份解决。
+    SearchBoxStruct::Ptr dataBackup(new SearchBoxStruct(*data));
+
+    if ("" == dataBackup->childPageName) {
         //先添加使用appenRow添加Qt::EditRole数据(用于下拉框显示),然后添加Qt::UserRole数据(用于输入框搜索)
         //Qt::EditRole数据用于显示搜索到的结果(汉字)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
         appendRow(new QStandardItem(icon.value(),
-                                    QString("%1 --> %2").arg(data->actualModuleName).arg(data->translateContent)));
+                                    QString("%1 --> %2").arg(dataBackup->actualModuleName).arg(dataBackup->translateContent)));
 
         //设置汉字的Qt::UserRole数据
         setData(index(rowCount() - 1, 0),
                          QString("%1 --> %2")
-                         .arg(data->actualModuleName)
-                         .arg(data->translateContent),
+                         .arg(dataBackup->actualModuleName)
+                         .arg(dataBackup->translateContent),
                          Qt::UserRole);
         setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
-        QString hanziTxt = QString("%1 --> %2").arg(data->actualModuleName).arg(data->translateContent);
+        QString hanziTxt = QString("%1 --> %2").arg(dataBackup->actualModuleName).arg(dataBackup->translateContent);
 
         QString pinyinTxt = QString("%1 --> %2")
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data->actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
 
         // 如果模块名称中英文相同则不继续添加拼音搜索显示,否则会重复索引
-        if (data->actualModuleName == DTK_CORE_NAMESPACE::Chinese2Pinyin(data->actualModuleName)) return;
+        if (dataBackup->actualModuleName == DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName)) return;
 
         //添加显示的汉字(用于拼音搜索显示)
         appendRow(new QStandardItem(icon.value(), hanziTxt));
@@ -565,24 +565,24 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
         appendRow(new QStandardItem(icon.value(),
-                                    QString("%1 --> %2 / %3").arg(data->actualModuleName).arg(data->childPageName).arg(data->translateContent)));
+                                    QString("%1 --> %2 / %3").arg(dataBackup->actualModuleName).arg(dataBackup->childPageName).arg(dataBackup->translateContent)));
 
         //设置汉字的Qt::UserRole数据
         setData(index(rowCount() - 1, 0),
                          QString("%1 --> %2 / %3")
-                         .arg(data->actualModuleName)
-                         .arg(data->childPageName)
-                         .arg(data->translateContent),
+                         .arg(dataBackup->actualModuleName)
+                         .arg(dataBackup->childPageName)
+                         .arg(dataBackup->translateContent),
                          Qt::UserRole);
         setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
-        QString hanziTxt = QString("%1 --> %2 / %3").arg(data->actualModuleName).arg(data->childPageName).arg(data->translateContent);
+        QString hanziTxt = QString("%1 --> %2 / %3").arg(dataBackup->actualModuleName).arg(dataBackup->childPageName).arg(dataBackup->translateContent);
         QString pinyinTxt = QString("%1 --> %2 / %3")
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data->actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data->childPageName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->childPageName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
+                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
         //添加显示的汉字(用于拼音搜索显示)
-        auto icons = m_iconMap.find(data->fullPagePath.section('/', 1, 1));
+        auto icons = m_iconMap.find(dataBackup->fullPagePath.section('/', 1, 1));
         if (icons == m_iconMap.end()) {
             return;
         }
