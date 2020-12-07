@@ -208,7 +208,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_model = model;
 
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setVisible);
+    // connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setVisible);
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckSystemUpdate, &SwitchWidget::setVisible);
     connect(model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckSystemUpdate, &SwitchWidget::setChecked);
@@ -222,7 +222,8 @@ void UpdateSettings::setModel(UpdateModel *model)
 
     m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
     m_autoCheckSecureUpdate->setChecked(model->autoCheckSecureUpdates());
-    m_autoCheckSecureUpdate->setVisible(model->autoCheckUpdates());
+    // m_autoCheckSecureUpdate->setVisible(model->autoCheckUpdates());
+    m_autoCheckSecureUpdate->setVisible(false); // 当前阶段暂时隐藏安全更新选项显示
     m_autoCheckSystemUpdate->setChecked(model->autoCheckSystemUpdates());
     m_autoCheckSystemUpdate->setVisible(model->autoCheckUpdates());
     m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
