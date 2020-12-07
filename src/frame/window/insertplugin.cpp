@@ -103,10 +103,6 @@ InsertPlugin *InsertPlugin::instance(QObject *obj, FrameProxyInterface *FramePro
  */
 void dccV20::InsertPlugin::pushPlugin(QList<QPair<dccV20::ModuleInterface *, QString>> &modules)
 {
-    // 社区版不加载插件
-    if (DCC_NAMESPACE::IsCommunitySystem)
-        return;
-
     // 一级菜单插件配置mainwindow
     for (int i = 0; i < m_currentPlugins.size(); i++) {
         auto *module = qobject_cast<ModuleInterface *>(m_currentPlugins.at(i).second.first);
