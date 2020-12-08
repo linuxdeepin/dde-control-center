@@ -254,10 +254,6 @@ void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
 
     m_autoCheckUpdates = autoCheckUpdates;
 
-    if (!autoCheckUpdates) {
-        setUpdateMode(0);
-    }
-
     Q_EMIT autoCheckUpdatesChanged(autoCheckUpdates);
 }
 

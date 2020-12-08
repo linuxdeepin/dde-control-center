@@ -176,6 +176,7 @@ void UpdateSettings::initUi()
 void UpdateSettings::initConnection()
 {
     connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCheckUpdates);
+    connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
     connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
     connect(m_autoCheckSystemUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
     connect(m_autoCheckAppUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
@@ -266,11 +267,13 @@ void UpdateSettings::setModel(UpdateModel *model)
 void UpdateSettings::setUpdateMode()
 {
     quint64 updateMode = 0;
-    if (!m_autoCheckSystemUpdate->checked()) {
-        m_autoCheckAppUpdate->setChecked(false);
+    if (m_autoCheckUpdate->checked()) {
+        if (!m_autoCheckSystemUpdate->checked()) {
+            m_autoCheckAppUpdate->setChecked(false);
+        }
+        updateMode = updateMode | m_autoCheckSecureUpdate->checked();
+        updateMode = (updateMode << 1) | m_autoCheckAppUpdate->checked();
+        updateMode = (updateMode << 1) | m_autoCheckSystemUpdate->checked();
     }
-    updateMode = updateMode | m_autoCheckSecureUpdate->checked();
-    updateMode = (updateMode << 1) | m_autoCheckAppUpdate->checked();
-    updateMode = (updateMode << 1) | m_autoCheckSystemUpdate->checked();
     requestSetUpdateMode(updateMode);
 }
