@@ -297,6 +297,11 @@ private:
    * @brief wifi连接中的状态图标显示，如果要全部关闭的状态化，可以传个nullptr
    */
   bool setApLoadin(APItem *ApItem);
+  /**
+   * @def addHideWifiButton
+   * @brief 创建连接隐藏wifi的选项，防止清理数据后消失
+   */
+  void addHideWifiButton();
 
 private:
     dde::network::WirelessDevice *m_device;

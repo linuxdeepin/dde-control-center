@@ -312,15 +312,7 @@ void WirelessPage::initUI()
     scroller->setScrollerProperties(sp);
 
     m_modelAP->setSortRole(APItem::SortRole);
-
-    //创建隐藏wifi连接选项
-    APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
-    nonbc->setSignalStrength(-1);
-    nonbc->setPath("");
-    nonbc->setSortInfo({-1, "", false});
-    connect(nonbc->action(), &QAction::triggered, this, [this] { showConnectHidePage(); });
-    m_modelAP->appendRow(nonbc);
-
+    addHideWifiButton();
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
 
     TipsItem *tips = new TipsItem;
@@ -362,6 +354,7 @@ void WirelessPage::initConnect()
         //开关的时候做个清空操作，防止出现脏数据
         m_apItems.clear();
         m_modelAP->clear();
+        addHideWifiButton();
         if (m_device->enabled())
             //这里会在页面创建的时候去初始化一次，所以无需在构造函数中再调用
             m_device->initWirelessData();
@@ -382,6 +375,18 @@ void WirelessPage::initConnect()
     connect(m_device, &WirelessDevice::activeConnectionsChanged, this, &WirelessPage::onActivaConnections);
     //当网络需要密码或者是企业wifi的时候，要先去后端判断
     connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
+}
+
+void WirelessPage::addHideWifiButton()
+{
+    //创建隐藏wifi连接选项
+    APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
+    nonbc->setSignalStrength(-1);
+    nonbc->setPath("");
+    nonbc->setSortInfo({-1, "", false});
+    connect(nonbc->action(), &QAction::triggered, this, [this] { showConnectHidePage(); });
+    m_modelAP->appendRow(nonbc);
+
 }
 
 WirelessPage::~WirelessPage()
