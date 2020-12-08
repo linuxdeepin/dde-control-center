@@ -178,9 +178,15 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
 
         //二级菜单插件的位置，为非数字默认置底
         if (ok) {
-            itemList.insert(index, {module->name(), module->displayName(),
-                                    metaMethod, m_allModules.at(i).second.first});
-            Model->insertRow(index, item);
+            if (index > Model->rowCount()) {
+                itemList.append({module->name(), module->displayName(),
+                                 metaMethod, m_allModules.at(i).second.first});
+                Model->appendRow(item);
+            } else {
+                itemList.insert(index - 1, {module->name(), module->displayName(),
+                                        metaMethod, m_allModules.at(i).second.first});
+                Model->insertRow(index - 1, item);
+            }
         } else {
             bool isLoad = false;
             for (int k = 0; k < Model->rowCount(); k++) {
