@@ -43,6 +43,7 @@ MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, DisplayModel *model, QWidge
 {
     connect(m_monitor, &Monitor::xChanged, this, &MonitorProxyWidget::setMovedX);
     connect(m_monitor, &Monitor::yChanged, this, &MonitorProxyWidget::setMovedY);
+    this->setVisible(mon->enable());
 }
 
 int MonitorProxyWidget::w() const
