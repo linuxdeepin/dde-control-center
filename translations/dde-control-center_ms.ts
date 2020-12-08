@@ -18,6 +18,27 @@
     </message>
 </context>
 <context>
+    <name>BatteryHealthPlugin</name>
+    <message>
+        <location filename="../src/frame/plugins/battery-health/batteryhealthplugin.cpp" line="64"/>
+        <source>BatteryHealth</source>
+        <translation>HayatBateri</translation>
+    </message>
+</context>
+<context>
+    <name>BatteryHealthwidget</name>
+    <message>
+        <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="50"/>
+        <source>Optimize battery charging</source>
+        <translation>Optimumkan pengecasan bateri</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="57"/>
+        <source>In order to slow down battery aging, optimize battery charging</source>
+        <translation>Untuk memanjangkan jangka hayat bateri, optimumkan pengecasan bateri</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
@@ -82,8 +103,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="908"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="910"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="909"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="911"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -104,8 +125,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="922"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="921"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="923"/>
         <source>Drawing Tablet</source>
         <translation>Tablet Lukis</translation>
     </message>
@@ -116,8 +137,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="944"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="947"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="945"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="948"/>
         <source>Updates</source>
         <translation>Kemas Kini</translation>
     </message>
@@ -128,24 +149,24 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="941"/>
         <source>General Settings</source>
         <translation>Tetapan Am</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="426"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="427"/>
         <source>Touchpad</source>
         <translation>Pad Sentuh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="427"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="428"/>
         <source>TrackPoint</source>
         <translation>Titik Jejak</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="932"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="934"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="933"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="935"/>
         <source>Cloud Sync</source>
         <translation>Segerak Awan</translation>
     </message>
@@ -155,17 +176,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Tidak lebih dari 15 aksara</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Guna abjad, nombor dan garis bawah sahaja, dan tidak melebihi 15 aksara</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="149"/>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>Guna abjad, nombor dan garis bawah sahaja</translation>
     </message>
 </context>
 <context>
@@ -185,7 +206,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="246"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="255"/>
         <source>The name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Nama sudah wujud</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="354"/>
@@ -220,7 +241,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="410"/>
         <source>Auto Login</source>
-        <translation>Auto Daftar Masuk</translation>
+        <translation>Daftar Masuk Automatik</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
@@ -232,17 +253,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="443"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
-        <translation type="unfinished"/>
+        <translation>Hanya satu akaun boleh guna  &quot;Daftar Masuk Automatik&quot;. Jika diteruskan, pilihan tersebut akan dilumpuhkan untuk akaun lain.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="445"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Batal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="446"/>
         <source>Enable</source>
-        <translation type="unfinished"/>
+        <translation>Benarkan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="523"/>
@@ -327,7 +348,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
@@ -368,114 +389,115 @@
         <translation>Ulang Kata Laluan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="235"/>
-        <source>Username must be between 3 and 32 characters</source>
-        <translation>Nama pengguna mestilah antara 3 hingga 32 aksara</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
-        <source>The name already exists</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="466"/>
         <source>The full name is too long</source>
         <translation>Nama penuh terlalu panjang</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="264"/>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Pengguna Piawai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
         <source>Administrator</source>
         <translation>Pentadbir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="268"/>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>Tersuai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="327"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="329"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="279"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="277"/>
         <source>optional</source>
         <translation>pilihan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="417"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="366"/>
         <source>Go to Settings</source>
         <translation>Pergi ke Tetapan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="472"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="485"/>
-        <source>Password cannot be empty</source>
-        <translation>Kata laluan tidak boleh kosong</translation>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="417"/>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation>Nama pengguna mestilah antara 3 hingga 32 aksara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="477"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="490"/>
-        <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="496"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Kata laluan mestilah tidak lebih daripada %1 aksara</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="501"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="508"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Kata laluan hanya boleh mengandungi abjad Inggeris letters (sensitif-kata), angka atau simbol khas (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="519"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="526"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="552"/>
-        <source>Passwords do not match</source>
-        <translation>Kata laluan tidak sepadan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="577"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="424"/>
         <source>The first character must be a letter or number</source>
         <translation>Aksara pertama mesti satu abjad atau angka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="583"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="430"/>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Nama pengguna anda tidak semestinya nombor sahaja</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
+        <source>The name already exists</source>
+        <translation>Nama sudah wujud</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="526"/>
+        <source>Password cannot be empty</source>
+        <translation>Kata laluan tidak boleh kosong</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="518"/>
+        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara, dan mengandungi sekurang-kurangnya %2 daripada empat jenis aksara yang ada: huruf kecil, huruf besar, angka, dan simbol</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="531"/>
+        <source>The password must have at least %1 characters</source>
+        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Kata laluan mestilah tidak lebih daripada %1 aksara</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="542"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Kata laluan mesti sekurang-kurangnya mengandungi %1 daripada empat jenis aksara yang ada: huruf kecil, huruf besar, angka, dan simbol</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>Kata laluan hanya boleh mengandungi abjad Inggeris letters (sensitif-kata), angka atau simbol khas (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="560"/>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>Kata laluan mesti tidak mengandungi lebih daripada 4 aksara palindrome</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="567"/>
+        <source>Password must not contain common words and combinations</source>
+        <translation>Kata laluan mesti tidak mengandungi perkataan dan gabungan umum</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="585"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation>Kata laluan tidak boleh ulang atau terbalik daripada nama pengguna</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="593"/>
+        <source>Passwords do not match</source>
+        <translation>Kata laluan tidak sepadan</translation>
     </message>
 </context>
 <context>
@@ -494,7 +516,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="50"/>
         <source>You can add up to 10 fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Anda boleh tambah sehingga 10 cap jari</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="87"/>
@@ -504,7 +526,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="148"/>
         <source>The name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Nama sudah wujud</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="194"/>
@@ -572,12 +594,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>The new password should not be similar to the current one</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan baharu seharusnya berbeza dengan yang semasa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
@@ -587,27 +609,27 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti mengandungi abjad huruf besar, abjad huruf kecil, angka dan simbol (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
         <source>Do not use a password you have used before</source>
-        <translation type="unfinished"/>
+        <translation>Jangan guna kata laluan yang anda pernah guna sebelum ini</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>Jangan guna perkataan dan gabungan umum sebagai kata laluan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
         <source>Do not use common words and combinations in reverse order as password</source>
-        <translation type="unfinished"/>
+        <translation>Jangan guna perkataan dan gabungan umum secara terbalik sebagai kata laluan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
         <source>Failed to change the password</source>
-        <translation type="unfinished"/>
+        <translation>Gagal mengubah kata laluan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
@@ -617,12 +639,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara, dan mengandungi sekurang-kurangnya %2 daripada empat jenis aksara yang ada: huruf kecil, huruf besar, angka, dan simbol</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
         <source>The password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="312"/>
@@ -633,7 +655,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti sekurang-kurangnya mengandungi %1 daripada empat jenis aksara yang ada: huruf kecil, huruf besar, angka, dan simbol</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="324"/>
@@ -643,17 +665,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="335"/>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti tidak mengandungi lebih daripada 4 aksara palindrome</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="342"/>
         <source>Password must not contain common words and combinations</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan mesti tidak mengandungi perkataan dan gabungan umum</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="367"/>
         <source>Password should not be the repeated or reversed username</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan tidak boleh ulang atau terbalik daripada nama pengguna</translation>
     </message>
 </context>
 <context>
@@ -661,23 +683,23 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"/>
+        <translation>Tunjuk peranti Bluetooth tanpa nama</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="60"/>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"/>
+        <translation>Izin peranti Bluetooth lain mencari peranti ini</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="93"/>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Peranti Saya</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="97"/>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Peranti Lain</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
@@ -689,7 +711,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="99"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -716,7 +738,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="54"/>
         <source>Send Files</source>
-        <translation type="unfinished"/>
+        <translation>Hantar Fail</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="165"/>
@@ -726,7 +748,7 @@
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="173"/>
         <source>Disconnecting</source>
-        <translation type="unfinished"/>
+        <translation>Memutuskan</translation>
     </message>
 </context>
 <context>
@@ -747,7 +769,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
         <source>Updating...</source>
-        <translation>Mengemaskini...</translation>
+        <translation>Mengemas kini...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="92"/>
@@ -764,7 +786,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Klik pilihan dalam menu but untuk tetapkannya sebagai but pertama, kemudian seret dan lepas satu gambar untuk gantikan latar belakang.</translation>
+        <translation>Klik pilihan dalam menu but untuk tetap ia sebagai but pertama, kemudian seret dan lepas satu gambar untuk mengubah latar belakang.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
@@ -828,7 +850,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="99"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Sila daftar masuk ke ID Union anda terlebih dahulu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="101"/>
@@ -843,12 +865,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="105"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Sijil gagal dimuatkan, tidak boleh mendapatkan capaian root</translation>
+        <translation>Sijil gagal dimuatkan, tidak boleh mendapatkan capaian akar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="107"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Pengesahan tanda tangan gagal, tidak boleh mendapatkan capaian root</translation>
+        <translation>Pengesahan tanda tangan gagal, tidak boleh mendapatkan capaian akar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="245"/>
@@ -863,7 +885,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="305"/>
         <source>Agree and Request Root Access</source>
-        <translation>Setuju dan Mohon Capaian Root</translation>
+        <translation>Setuju dan Mohon Capaian Akar</translation>
     </message>
 </context>
 <context>
@@ -871,7 +893,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="64"/>
         <source>Request Root Access</source>
-        <translation>Mohon Capaian Root</translation>
+        <translation>Mohon Capaian Akar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="73"/>
@@ -887,7 +909,7 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="120"/>
         <source>Please sign in to your Union ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Sila daftar masuk ke ID Union anda terlebih dahulu dan teruskan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="95"/>
@@ -926,23 +948,23 @@
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="203"/>
         <source>Request Root Access</source>
-        <translation>Mohon Capaian Root</translation>
+        <translation>Mohon Capaian Akar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="58"/>
         <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
-        <translation>Mod pembangun membolehkan anda dapatkan kelayakan root, pasang dan jalankan apl tiada tanda tangan yang tidak tersenarai dalam kedai, tetapi integriti sistem anda boleh rosak, sila guna ia dengan hati-hati.</translation>
+        <translation>Mod pembangun membolehkan anda dapatkan kelayakan akar, pasang dan jalankan apl tiada tanda tangan yang tidak tersenarai dalam kedai, tetapi integriti sistem anda boleh rosak, sila guna ia dengan hati-hati.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="101"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="113"/>
         <source>Failed to get root access</source>
-        <translation>Gagal mendapatkan capaian root</translation>
+        <translation>Gagal mendapatkan capaian akar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="103"/>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Sila daftar masuk ke ID Union anda terlebih dahulu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="105"/>
@@ -957,17 +979,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="109"/>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Sijil gagal dimuatkan, tidak boleh mendapatkan capaian root</translation>
+        <translation>Sijil gagal dimuatkan, tidak boleh mendapatkan capaian akar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="111"/>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Pengesahan tanda tangan gagal, tidak boleh mendapatkan capaian root</translation>
+        <translation>Pengesahan tanda tangan gagal, tidak boleh mendapatkan capaian akar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="124"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Fitur ini tidak tersedia masa kini, sila aktifkan sistem anda terlebih dahulu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="157"/>
@@ -987,7 +1009,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="196"/>
         <source>Root Access Allowed</source>
-        <translation>Capaian Root Dibenarkan</translation>
+        <translation>Capaian Akar Dibenarkan</translation>
     </message>
 </context>
 <context>
@@ -1001,12 +1023,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="51"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (https://www.uniontech.com/agreement/deepin-privacy-en).</source>
-        <translation type="unfinished"/>
+        <translation>Dengan menyertai Program Pengalaman Pengguna bermaksud anda telah memberi izin kami mengutip dan menggunakan maklumat peranti, sistem dan aplikasi anda. Jika anda tidak mahu koleksi kami dan penggunan maklumat yang disebut, jangan sertai Program Pengalaman Pengguna. Untuk perincian, sila rujuk Dasar Persendirian Deepin (https://www.uniontech.com/agreement/deepin-privacy-en).</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
-        <translation type="unfinished"/>
+        <translation>Dengan menyertai Program Pengalaman Pengguna bermaksud anda telah memberi izin kami mengutip dan menggunakan maklumat peranti, sistem dan aplikasi anda. Jika anda tidak mahu koleksi kami dan penggunan maklumat yang disebut, jangan sertai Program Pengalaman Pengguna. Untuk mengetahui lebih lanjut berkenaan pengurusan data anda, sila rujuk Dasar Persendirian OS UnionTech (https://www.uniontech.com/agreement/privacy-en).</translation>
     </message>
 </context>
 <context>
@@ -1116,7 +1138,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="65"/>
         <source>Time Format</source>
-        <translation type="unfinished"/>
+        <translation>Format Waktu</translation>
         <extra-contents_path>/datetime/Format Settings</extra-contents_path>
     </message>
     <message>
@@ -1131,32 +1153,32 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="47"/>
         <source>Date and Time Formats</source>
-        <translation type="unfinished"/>
+        <translation>Format Tarikh dan Waktu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="57"/>
         <source>Weeks</source>
-        <translation type="unfinished"/>
+        <translation>Minggu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="60"/>
         <source>Short Date</source>
-        <translation type="unfinished"/>
+        <translation>Tarikh Pendek</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="63"/>
         <source>Long Date</source>
-        <translation type="unfinished"/>
+        <translation>Tarikh Panjang</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="66"/>
         <source>Short Time</source>
-        <translation type="unfinished"/>
+        <translation>Waktu Pendek</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="69"/>
         <source>Long Time</source>
-        <translation type="unfinished"/>
+        <translation>Waktu Panjang</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="72"/>
@@ -1174,7 +1196,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="159"/>
         <source>monday</source>
-        <translation type="unfinished"/>
+        <translation>isnin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="176"/>
@@ -1210,85 +1232,85 @@
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="209"/>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="218"/>
         <source>April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>5 April, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="212"/>
         <source>April 5, 2020, Sunday</source>
-        <translation type="unfinished"/>
+        <translation>5 April, 2020, Ahad</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="215"/>
         <source>Sunday, April 5, 2020</source>
-        <translation type="unfinished"/>
+        <translation>Ahad, 5 April, 2020</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="234"/>
         <source>2020/4/5</source>
-        <translation type="unfinished"/>
+        <translation>2020/4/5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="237"/>
         <source>2020-4-5</source>
-        <translation type="unfinished"/>
+        <translation>2020-4-5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="240"/>
         <source>2020.4.5</source>
-        <translation type="unfinished"/>
+        <translation>2020.4.5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="243"/>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="261"/>
         <source>2020/04/05</source>
-        <translation type="unfinished"/>
+        <translation>2020/04/05</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="246"/>
         <source>2020-04-05</source>
-        <translation type="unfinished"/>
+        <translation>2020-04-05</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="249"/>
         <source>2020.04.05</source>
-        <translation type="unfinished"/>
+        <translation>2020.04.05</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="252"/>
         <source>20/4/5</source>
-        <translation type="unfinished"/>
+        <translation>20/4/5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="255"/>
         <source>20-4-5</source>
-        <translation type="unfinished"/>
+        <translation>20-4-5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="258"/>
         <source>20.4.5</source>
-        <translation type="unfinished"/>
+        <translation>20.4.5</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="277"/>
         <source>9:40:07</source>
-        <translation type="unfinished"/>
+        <translation>9:40:07</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="280"/>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="283"/>
         <source>09:40:07</source>
-        <translation type="unfinished"/>
+        <translation>09:40:07</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="299"/>
         <source>9:40</source>
-        <translation type="unfinished"/>
+        <translation>9:40</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="302"/>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="305"/>
         <source>09:40</source>
-        <translation type="unfinished"/>
+        <translation>09:40</translation>
     </message>
 </context>
 <context>
@@ -1333,7 +1355,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="256"/>
         <source>Open Desktop file</source>
-        <translation>Buka fail Desktop</translation>
+        <translation>Buka fail Atas Meja</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="319"/>
@@ -1354,7 +1376,7 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="52"/>
         <source>Webpage</source>
-        <translation>Halaman sesawang</translation>
+        <translation>Laman sesawang</translation>
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
@@ -1404,7 +1426,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="61"/>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Suhu Warna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="69"/>
@@ -1420,7 +1442,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="82"/>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Ubah Suhu Warna</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
@@ -1437,12 +1459,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="320"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Sejuk</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="320"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>Suam</translation>
     </message>
 </context>
 <context>
@@ -1494,7 +1516,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="468"/>
         <source>Monitor Connected (Multiple)</source>
-        <translation type="unfinished"/>
+        <translation>Monitor Bersambung (Berbilang)</translation>
     </message>
 </context>
 <context>
@@ -1505,7 +1527,7 @@
         <translation>Paparan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="137"/>
         <source>Multiple Displays</source>
         <translation>Paparan Berbilang</translation>
     </message>
@@ -1557,7 +1579,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="182"/>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Skrin Sentuh</translation>
         <extra-contents_path>/display/Touch Screen</extra-contents_path>
     </message>
     <message>
@@ -1666,12 +1688,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="62"/>
         <source>Select your touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Pilih skrin sentuh anda</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="64"/>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation type="unfinished"/>
+        <translation>Pilih skrin sentuh anda bila bersambung atau tetapkannya di sini.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="81"/>
@@ -1686,17 +1708,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="141"/>
         <source>Touch Screen - %1 (%2)</source>
-        <translation type="unfinished"/>
+        <translation>Skrin Sentuh - %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="194"/>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan Skrin Sentuh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="195"/>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan skrin sentuh berubah</translation>
     </message>
 </context>
 <context>
@@ -1987,17 +2009,17 @@
 <context>
     <name>dccV20::mouse::MouseModule</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="63"/>
         <source>Touchpad</source>
         <translation>Pad Sentuh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="67"/>
         <source>TrackPoint</source>
         <translation>Titik Jejak</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="162"/>
         <source>Mouse</source>
         <translation>Tetikus</translation>
     </message>
@@ -2047,25 +2069,25 @@
 <context>
     <name>dccV20::mouse::MouseWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="56"/>
         <source>General</source>
         <translation>Am</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="68"/>
         <source>Mouse</source>
         <translation>Tetikus</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="60"/>
         <source>Touchpad</source>
         <translation>Pad Sentuh</translation>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="62"/>
         <source>TrackPoint</source>
         <translation>Titik Jejak</translation>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
@@ -2507,13 +2529,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="478"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"/>
+        <translation>Topeng rangkaian tidak sah</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="487"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="550"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Get laluan tidak sah</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="497"/>
@@ -2521,7 +2543,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="560"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="569"/>
         <source>Invalid DNS address</source>
-        <translation type="unfinished"/>
+        <translation>Alamat DNS tidak sah</translation>
     </message>
 </context>
 <context>
@@ -2544,13 +2566,13 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="180"/>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>Protokol</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="200"/>
         <source>Security Type</source>
-        <translation type="unfinished"/>
+        <translation>Jenis Keselamatan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="189"/>
@@ -2566,7 +2588,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="205"/>
         <source>Interface</source>
-        <translation>Antaramuka</translation>
+        <translation>Antara Muka</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="209"/>
@@ -2964,17 +2986,17 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
         <source>Save password for this user</source>
-        <translation type="unfinished"/>
+        <translation>Simpan kata laluan bagi pengguna ini</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
         <source>Save password for all users</source>
-        <translation type="unfinished"/>
+        <translation>Simpan kata laluan bagi semua pengguna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
         <source>Ask me always</source>
-        <translation type="unfinished"/>
+        <translation>Sentiasa tanya saya</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="177"/>
@@ -3172,12 +3194,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="165"/>
         <source>Shared key</source>
-        <translation type="unfinished"/>
+        <translation>Kunci terkongsi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="166"/>
         <source>Open system</source>
-        <translation type="unfinished"/>
+        <translation>Sistem terbuka</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
@@ -3737,7 +3759,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="355"/>
         <source>File error</source>
-        <translation type="unfinished"/>
+        <translation>Ralat fail</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="356"/>
@@ -4246,35 +4268,35 @@
 <context>
     <name>dccV20::notification::AppNotifyWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="75"/>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Tunjuk pemberitahuan dari %1 pada atas meja dan dalam pusat pemberitahuan.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="89"/>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Mainkan satu bunyi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="92"/>
         <source>Show messages on lockscreen</source>
-        <translation type="unfinished"/>
+        <translation>Tunjuk mesej atas skrin kunci</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="95"/>
         <source>Show in notification center</source>
-        <translation type="unfinished"/>
+        <translation>Tunjuk dalam pusat pemberitahuan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Tunjuk pratonton mesej</translation>
     </message>
 </context>
 <context>
     <name>dccV20::notification::NotificationModule</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="79"/>
         <source>Notification</source>
         <translation>Pemberitahuan</translation>
     </message>
@@ -4284,37 +4306,37 @@
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="65"/>
         <source>System Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Pemberitahuan Sistem</translation>
         <extra-contents_path>/notification/System Notifications</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="78"/>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Pemberitahuan Apl</translation>
     </message>
 </context>
 <context>
     <name>dccV20::notification::SystemNotifyWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="49"/>
         <source>Show icon on Dock</source>
-        <translation type="unfinished"/>
+        <translation>Tunjuk ikon atas Labuh</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="77"/>
         <source>Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Jangan Ganggu</translation>
         <extra-contents_path>/notification/Do Not Disturb</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="83"/>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Pemberitahuan apl tidak akan ditunjukkan di atas meja dan bunyi akan disenyapkan, tetapi anda masih boleh melihat semua mesej di dalam pusat pemberitahuan.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="101"/>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Bila skrin dikunci</translation>
     </message>
 </context>
 <context>
@@ -4322,12 +4344,12 @@
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="48"/>
         <source>From</source>
-        <translation type="unfinished"/>
+        <translation>Daripada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="50"/>
         <source>To</source>
-        <translation type="unfinished"/>
+        <translation>Kepada</translation>
     </message>
 </context>
 <context>
@@ -4384,37 +4406,37 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="216"/>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"/>
+        <translation>Kesan Minimum Tetingkap</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="219"/>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>Skala</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="219"/>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Lampu Ajaib</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="239"/>
         <source>Rounded Corner</source>
-        <translation type="unfinished"/>
+        <translation>Bucu Terbundar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="246"/>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Kecil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="246"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Sederhana</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="246"/>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Besar</translation>
     </message>
 </context>
 <context>
@@ -4507,17 +4529,17 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Penjimatan kuasa automatik bila kuasa bateri rendah</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="60"/>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Penjimatan kuasa automatik pada bateri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
         <source>Decrease brightness</source>
-        <translation type="unfinished"/>
+        <translation>Kurangkan kecerahan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
@@ -4532,55 +4554,55 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
         <source>Display capacity and remaining charging time</source>
-        <translation type="unfinished"/>
+        <translation>Papar kapasiti dan masa baki mengecas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>Kapasiti maksimum</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
         <source>Show battery capacity</source>
-        <translation type="unfinished"/>
+        <translation>Tunjuk kapasiti bateri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="91"/>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Pelan Kuasa</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="97"/>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>Seimbang</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="98"/>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>Prestasi Tinggi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>Jimat Kuasa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="127"/>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan Penjimatan Kuasa</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="155"/>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan Bangun</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="173"/>
         <source>Battery</source>
-        <translation type="unfinished"/>
+        <translation>Bateri</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -4659,27 +4681,27 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <source>When pressing the power button</source>
-        <translation type="unfinished"/>
+        <translation>Bila menekan butang kuasa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Bila penutup komputer ditutup</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
         <source>Low Battery Notification</source>
-        <translation type="unfinished"/>
+        <translation>Pemberitahuan Kuasa Bateri Rendah</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>Aras kuasa bateri rendah</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>Auto suspend battery level</source>
-        <translation type="unfinished"/>
+        <translation>Aras kuasa bateri ditangguh automatik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="65"/>
@@ -4707,12 +4729,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="118"/>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Matikan monitor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="118"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Jangan buat apa-apa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="355"/>
@@ -4747,12 +4769,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="50"/>
         <source>When pressing the power button</source>
-        <translation type="unfinished"/>
+        <translation>Bila menekan butang kuasa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="51"/>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Bila penutup komputer ditutup</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="64"/>
@@ -4788,12 +4810,12 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="98"/>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Matikan monitor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="98"/>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Jangan buat apa-apa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="123"/>
@@ -4826,187 +4848,187 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="113"/>
         <source>Server</source>
-        <translation type="unfinished"/>
+        <translation>Pelayan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="114"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="389"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="386"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="788"/>
         <source>Window Effect</source>
-        <translation type="unfinished"/>
+        <translation>Kesan Tetingkap</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="115"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
         <source>Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mod Pembangun</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="116"/>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Program Pengalaman Pengguna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="117"/>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Sertai Program Pengalaman Pengguna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="118"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Penskalaan Paparan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Shif Malam</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
         <source>Auto Login</source>
-        <translation type="unfinished"/>
+        <translation>Daftar Masuk Automatik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
         <source>Login Without Password</source>
-        <translation type="unfinished"/>
+        <translation>Daftar Masuk Tanpa Kata Laluan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Kecerahan Automatik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Am</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan diperlukan untuk bangunkan monitor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Kata laluan diperlukan untuk bangunkan komputer</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
         <source>Power Saving Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mod Penjimatan Kuasa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <source>Auto Mode Switch</source>
-        <translation type="unfinished"/>
+        <translation>Suis Mod Automatik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
         <source>Transparency</source>
-        <translation type="unfinished"/>
+        <translation>Kelutsinaran</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"/>
+        <translation>Cipta Sambungan PPPoE</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>Disable the touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>Lumpuhkan pad sentuh ketika menaip</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Disable the touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <translation>Lumpuhkan pad sentuh ketika menyisip tetikus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Computer will suspend after</source>
-        <translation type="unfinished"/>
+        <translation>Komputer akan ditangguh selepas</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Daftar Masuk</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Penjimatan kuasa automatik pada bateri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>Skrin Sentuh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Pelan Kuasa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan Penjimatan Kuasa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetapan Bangun</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
         <source>Battery</source>
-        <translation type="unfinished"/>
+        <translation>Bateri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="154"/>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Pad Sentuh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="155"/>
         <source>TrackPoint</source>
-        <translation type="unfinished"/>
+        <translation>Titik Jejak</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="156"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>Kawasan Khas Peribadi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="157"/>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Dengan Kuasa Bateri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="158"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Rangkaian Berwayar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="159"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Rangkaian Tanpa Wayar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="160"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Paparan Berbilang</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu But</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="379"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="780"/>
         <source>Cloud Account</source>
-        <translation type="unfinished"/>
+        <translation>Akaun Awan</translation>
     </message>
 </context>
 <context>
@@ -5019,17 +5041,17 @@
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="75"/>
         <source>Input Device</source>
-        <translation type="unfinished"/>
+        <translation>Peranti Input</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="79"/>
         <source>On</source>
-        <translation type="unfinished"/>
+        <translation>Hidup</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="84"/>
         <source>Automatic Noise Suppression</source>
-        <translation type="unfinished"/>
+        <translation>Penindasan HIngar Automatik</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="285"/>
@@ -5061,19 +5083,19 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="81"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Output</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="83"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Input</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="85"/>
         <source>Sound Effects</source>
         <translation>Kesan Bunyi</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
@@ -5089,12 +5111,12 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>
         <source>Output Device</source>
-        <translation type="unfinished"/>
+        <translation>Peranti output</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
         <source>On</source>
-        <translation type="unfinished"/>
+        <translation>Hidup</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="87"/>
@@ -5118,18 +5140,18 @@
         <translation>Jika volum lebih kuat dari 100%, ia mungkin menyebabkan audio terherot dan boleh merosakkan pembesar suara anda.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="365"/>
         <source>Left/Right Balance</source>
         <translation>Imbangan Kiri/Kanan</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="370"/>
         <source>Left</source>
         <translation>Kiri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
         <source>Right</source>
         <translation>Kanan</translation>
     </message>
@@ -5144,7 +5166,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Fitur ini tidak tersedia masa kini, sila aktifkan sistem anda terlebih dahulu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
@@ -5169,17 +5191,17 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="180"/>
         <source>Sound Settings</source>
-        <translation>Kesan Tetapan</translation>
+        <translation>Tetapan Bunyi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="181"/>
         <source>Mouse Settings</source>
-        <translation>Tetikus Tetapan</translation>
+        <translation>Tetapan Tetikus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="182"/>
         <source>Update Settings</source>
-        <translation>Tetapan Kemaskini</translation>
+        <translation>Tetapan Kemas Kini</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="183"/>
@@ -5228,17 +5250,17 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="40"/>
         <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
-        <translation type="unfinished"/>
+        <translation>Selepas mendaftar masuk, anda boleh guna segerak awan, kedai apl, klien emel, pelayar dan lain-lain perkhidmatan awan.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="52"/>
         <source>Deepin ID Sign In</source>
-        <translation>Daftar ID Deepin</translation>
+        <translation>Daftar Masuk ID Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="54"/>
         <source>Union ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Daftar Masuk ID Union</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="66"/>
@@ -5264,12 +5286,12 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="34"/>
         <source>Deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>ID Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="36"/>
         <source>Union ID</source>
-        <translation type="unfinished"/>
+        <translation>ID Union</translation>
     </message>
 </context>
 <context>
@@ -5277,37 +5299,37 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="28"/>
         <source>Back Up</source>
-        <translation type="unfinished"/>
+        <translation>Sandar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="35"/>
         <source>Backup Type</source>
-        <translation type="unfinished"/>
+        <translation>Jenis Sandar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="36"/>
         <source>Save to</source>
-        <translation type="unfinished"/>
+        <translation>Simpan ke</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="55"/>
         <source>Full Backup</source>
-        <translation type="unfinished"/>
+        <translation>Sandar Penuh</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="56"/>
         <source>System Backup</source>
-        <translation type="unfinished"/>
+        <translation>Sandar Sistem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="123"/>
         <source>Applying changes to your system...</source>
-        <translation type="unfinished"/>
+        <translation>Menerapkan perubahan pada sistem anda...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="170"/>
         <source>The storage location cannot be in source disk, please reselect</source>
-        <translation type="unfinished"/>
+        <translation>Lokasi storan tidak boleh dalam cakera sumber, sila pilih yang lain</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="174"/>
@@ -5317,12 +5339,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="178"/>
         <source>Insufficient disk space</source>
-        <translation type="unfinished"/>
+        <translation>Ruang cakera tidak mencukupi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="182"/>
         <source>The file system is not supported for backup</source>
-        <translation type="unfinished"/>
+        <translation>Sistem fail tidak disokong untuk disandar</translation>
     </message>
 </context>
 <context>
@@ -5330,32 +5352,32 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="103"/>
         <source>Restore Now</source>
-        <translation type="unfinished"/>
+        <translation>Pulih Sekarang</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="122"/>
         <source>Keep personal files and apps</source>
-        <translation type="unfinished"/>
+        <translation>Kekalkan fail dan apl peribadi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="124"/>
         <source>Reset to factory settings</source>
-        <translation type="unfinished"/>
+        <translation>Tetap semula ke tetapan kilang</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="142"/>
         <source>Backup directory</source>
-        <translation type="unfinished"/>
+        <translation>Direktori sandar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="150"/>
         <source>Restore from backup files</source>
-        <translation type="unfinished"/>
+        <translation>Pulih menerusi fail sandar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="209"/>
         <source>Applying changes to your system...</source>
-        <translation type="unfinished"/>
+        <translation>Menerapkan perubahan pada sistem anda...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="256"/>
@@ -5393,7 +5415,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="79"/>
         <source>OS Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nama OS:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -5535,12 +5557,12 @@
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="83"/>
         <source>Modify Password</source>
-        <translation>Ubahsuai Kata Laluan</translation>
+        <translation>Ubah Suai Kata Laluan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="87"/>
         <source>Change Avatar</source>
-        <translation type="unfinished"/>
+        <translation>Ubah Avatar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="91"/>
@@ -5565,12 +5587,13 @@
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="59"/>
         <source>After signing in, all system features related with Union ID will be available.
 Visit User Center and manage your account there.</source>
-        <translation type="unfinished"/>
+        <translation>Selepas mendaftar masuk, semua fitur sistem yang berkaitan dengan ID Union akan tersedia.
+Lawati Pusat Pengguna dan urus akaun anda di sana.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
         <source>Union ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Daftar Masuk ID Union</translation>
     </message>
 </context>
 <context>
@@ -5586,7 +5609,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidmodule.cpp" line="52"/>
         <source>Union ID</source>
-        <translation type="unfinished"/>
+        <translation>ID Union</translation>
     </message>
 </context>
 <context>
@@ -5594,17 +5617,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="62"/>
         <source>Learn about %1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>Ketahui lagi berkenaan %1 dan %2</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="63"/>
         <source>Union ID Service Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Perjanjian Perkhidmatan ID Union</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="64"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Dasar Persendirian</translation>
     </message>
 </context>
 <context>
@@ -5662,143 +5685,143 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="76"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Mulakan semula komputer supaya dapat guna sistem dan aplikasi dengan baik</translation>
+        <translation>Mulakan semula komputer supaya dapat menggunakan sistem dan aplikasi dengan baik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="77"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Rangkaian terputus, cuba sekali lagi selepas bersambung</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="87"/>
         <source>Your system is not authorized, please activate first</source>
         <translation>Sistem anda tidak disahihkan, sila aktifkan dahulu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="110"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>Kemaskini ini mengambil masa yang lama, jangan matikan atau but semula ketika proses ini masih berlangsung</translation>
+        <translation>Kemas kini ini mengambil masa yang lama, jangan matikan atau but semula ketika proses ini masih berlangsung</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="362"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="372"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="378"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="370"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
         <source>Check Again</source>
-        <translation type="unfinished"/>
+        <translation>Periksa Lagi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="290"/>
         <source>Last checking time: </source>
-        <translation type="unfinished"/>
+        <translation>Masa pemeriksaan terakhir:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="289"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="351"/>
         <source>Your system is up to date</source>
         <translation>Sistem anda sudah dikemaskinikan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="354"/>
         <source>Check for Updates</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="303"/>
-        <source>Checking for updates, please wait...</source>
-        <translation>Memeriksa kemaskini, tunggu sebentar...</translation>
+        <translation>Periksa Kemas Kini</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="311"/>
+        <source>Checking for updates, please wait...</source>
+        <translation>Memeriksa kemas kini, tunggu sebentar...</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="319"/>
         <source>Download and install updates</source>
-        <translation>Muat turun dan pasang kemaskini</translation>
+        <translation>Muat turun dan pasang kemas kini</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="449"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="457"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1 dimuat turun (Klik untuk jeda)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="459"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1 dimuat turun (Klik untuk teruskan)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="344"/>
         <source>Install updates</source>
-        <translation>Pasang kemaskini</translation>
+        <translation>Pasang kemas kini</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="352"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="360"/>
         <source>Updating, please wait...</source>
-        <translation>Mengemaskini, tunggu sebentar...</translation>
+        <translation>Mengemas kini, tunggu sebentar...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>Sistem terbaharu dipasang, mula semula supaya ia berkesan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Kemas kini gagal: ruang cakera tidak mencukupi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation>Ralat dependensi, gagal mengesan kemaskini</translation>
+        <translation>Ralat dependensi, gagal mengesan kemas kini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="399"/>
         <source>Backing up, please wait...</source>
         <translation>Menyandar, tunggu sebentar...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="404"/>
         <source>System backup failed</source>
         <translation>Sandar sistem gagal</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="419"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="427"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>%n kemas kini aplikasi telah tersedia</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="424"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
         <source>New system edition available</source>
         <translation>Edisi sistem baharu telah tersedia</translation>
     </message>
     <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>Edisi sistem dan %n kemas kini aplikasi baharu telah tersedia</numerusform></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="433"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="441"/>
         <source>Downloaded</source>
         <translation>Dimuat turun</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="435"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="443"/>
         <source>Size: %1</source>
         <translation>Saiz: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="467"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>Kuasa bateri anda lebih rendah dari 50%, sila palamkan untuk diteruskan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="469"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Sila pastikan kuasa mencukupi untuk memulakan semula, dan matikan atau tanggalkan pemalam kuasa komputer anda.</translation>
     </message>
@@ -5822,67 +5845,82 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dccV20::update::UpdateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="48"/>
-        <source>Update Settings</source>
-        <translation>Tetapan Kemaskini</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
-        <source>Automatic Updating Settings</source>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="50"/>
+        <source>Security Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="65"/>
-        <source>Clear Package Cache</source>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="51"/>
+        <source>System Updates</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="69"/>
-        <source>Check for Updates</source>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
+        <source>App Updates in App Store</source>
         <translation type="unfinished"/>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
         <source>Updates Notification</source>
-        <translation>Pemberitahuan Kemaskini</translation>
+        <translation>Pemberitahuan Kemas Kini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>Download Updates</source>
-        <translation>Muat Turun Kemaskini</translation>
+        <translation>Muat Turun Kemas Kini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="55"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>Hidupkannya untuk muat turun secara automatik dengan rangkaian tanpa wayar atau berwayar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="65"/>
+        <source>Update Settings</source>
+        <translation>Tetapan Kemas Kini</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="70"/>
+        <source>Automatic Updating Settings</source>
+        <translation>Tetapan Pengemaskinian Automatik</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="77"/>
+        <source>Check for Updates</source>
+        <translation>Periksa Kemas Kini</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="131"/>
+        <source>Clear Package Cache</source>
+        <translation>Kosongkan Cache Pakej</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="138"/>
         <source>System Repository Detection</source>
         <translation>Pengesanan Repositori Sistem</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="141"/>
         <source>Show a notification if system update repository has been modified</source>
         <translation>Tunjuk satu pemberitahuan jika repositori kemas kini telah diubah suai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="151"/>
         <source>Smart Mirror Switch</source>
         <translation>Pertukaran Cermin Pintar</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="156"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>Hidupkannya untuk bersambung dengan tapak cermin terpantas secara automatik</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="164"/>
         <source>Mirror List</source>
         <translation>Senarai Cermin</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
@@ -5899,7 +5937,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="64"/>
         <source>Update Settings</source>
-        <translation>Tetapan Kemaskini</translation>
+        <translation>Tetapan Kemas Kini</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
@@ -5913,13 +5951,13 @@ Visit User Center and manage your account there.</source>
         <translation>Kembali</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="175"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="176"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="182"/>
         <source>Current Edition</source>
         <translation>Edisi Semasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="190"/>
         <source>Update History</source>
         <translation>Sejarah Kemas Kini</translation>
     </message>
@@ -6027,11 +6065,55 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
+    <name>LocationWidget</name>
+    <message>
+        <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="50"/>
+        <source>Location service</source>
+        <translation>Perkhidmatan lokasi</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="57"/>
+        <source>Location services use GPS, Bluetooth and WiFi hotspots and signals to determine your approximate location</source>
+        <translation>Perkhidmatan lokasi menggunakan GPS, Bluetooth dan kawasan khas WiFi serta isyarat untuk menentukan lokasi anggaran anda</translation>
+    </message>
+</context>
+<context>
     <name>NavModel</name>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="187"/>
         <source>Navigation</source>
-        <translation>Navigasi</translation>
+        <translation>Pengemudian</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyPlugin</name>
+    <message>
+        <location filename="../src/frame/plugins/privacy/privacyplugin.cpp" line="70"/>
+        <source>Privacy</source>
+        <translation>Persendirian</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyWidget</name>
+    <message>
+        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="50"/>
+        <source>Location service</source>
+        <translation>Perkhidmatan lokasi</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="51"/>
+        <source>Photo</source>
+        <translation>Foto</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="52"/>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="53"/>
+        <source>Microphone</source>
+        <translation>Mikrofon</translation>
     </message>
 </context>
 <context>
@@ -6044,7 +6126,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="659"/>
         <source>On Battery</source>
-        <translation>Kuasa Bateri</translation>
+        <translation>Dengan Kuasa Bateri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="660"/>
@@ -6098,7 +6180,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Mulakan semula komputer supaya dapat guna sistem dan aplikasi dengan baik</translation>
+        <translation>Mulakan semula komputer supaya dapat menggunakan sistem dan aplikasi dengan baik</translation>
     </message>
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
@@ -6202,7 +6284,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
         <source>Just updated</source>
-        <translation>Baru dikemaskini</translation>
+        <translation>Baru dikemas kini</translation>
     </message>
 </context>
 <context>
@@ -6234,32 +6316,32 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="524"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="471"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Hos anda telah berjaya dibuang daripada pelayan domain</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="525"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="472"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Hos anda berjaya menyertai pelayan domain</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="558"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Hos anda gagal keluar dari pelayan domain</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="559"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="501"/>
         <source>Your host failed to join the domain server</source>
         <translation>Hos anda gagal menyertai pelayan domain</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="562"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="504"/>
         <source>AD domain settings</source>
         <translation>Tetapan domain AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="639"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="573"/>
         <source>Password not match</source>
         <translation>Kata laluan tidak sepadan</translation>
     </message>
@@ -6269,92 +6351,92 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint1</source>
-        <translation type="unfinished"/>
+        <translation>Capjari1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint2</source>
-        <translation type="unfinished"/>
+        <translation>Capjari2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint3</source>
-        <translation type="unfinished"/>
+        <translation>Capjari3</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint4</source>
-        <translation type="unfinished"/>
+        <translation>Capjari4</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint5</source>
-        <translation type="unfinished"/>
+        <translation>Capjari5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint6</source>
-        <translation type="unfinished"/>
+        <translation>Capjari6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint7</source>
-        <translation type="unfinished"/>
+        <translation>Capjari7</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint8</source>
-        <translation type="unfinished"/>
+        <translation>Capjari8</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint9</source>
-        <translation type="unfinished"/>
+        <translation>Capjari9</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
         <source>Fingerprint10</source>
-        <translation type="unfinished"/>
+        <translation>Capjari10</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="107"/>
         <source>Scan failed</source>
-        <translation type="unfinished"/>
+        <translation>Imbas gagal</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="117"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"/>
+        <translation>Cap jari sudah wujud</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="171"/>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"/>
+        <translation>Sila imbas jari yang lain</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="121"/>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Ralat tidak diketahui</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="122"/>
         <source>Scan suspended</source>
-        <translation type="unfinished"/>
+        <translation>Imbas ditangguh</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="184"/>
         <source>Cannot recognize</source>
-        <translation type="unfinished"/>
+        <translation>Tidak dapat kenal pasti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="158"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
         <source>Moved too fast</source>
-        <translation type="unfinished"/>
+        <translation>Gerak terlalu pantas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="159"/>
@@ -6364,7 +6446,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="162"/>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Cap jari tidak jelas</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
@@ -6391,7 +6473,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Angkat jari anda dan letak ia di atas penderia sekali lagi</translation>
     </message>
 </context>
 <context>
@@ -6413,7 +6495,7 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Imbas hujung cap jari anda</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
@@ -6423,22 +6505,22 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Angkat jari anda</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Angkat jari anda dan letak ia di atas penderia sekali lagi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Laras kedudukan untuk mengimbas hujung cap jari anda</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Angkat jari anda dan buat sekali lagi</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
@@ -6451,7 +6533,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>All data under this account will be permanently deleted</source>
-        <translation type="unfinished"/>
+        <translation>Semua data dalam akaun ini akan dipadam secara kekal</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -6603,7 +6685,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="47"/>
         <source>Recognize</source>
-        <translation>Kenalpasti</translation>
+        <translation>Kenal pasti</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="54"/>
@@ -6948,7 +7030,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="240"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Hak Cipta © 2011-2020 Komuniti Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
@@ -7012,7 +7094,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
         <source>Update</source>
-        <translation>Kemaskini</translation>
+        <translation>Kemas kini</translation>
     </message>
 </context>
 <context>
@@ -7032,17 +7114,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="414"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="417"/>
         <source>System Updates</source>
-        <translation type="unfinished"/>
+        <translation>Kemas Kini Sistem</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="423"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="426"/>
         <source>Patches</source>
         <translation>Tampalan</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="424"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="427"/>
         <source>System patches</source>
         <translation>Tampalan sistem</translation>
     </message>
@@ -7060,7 +7142,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/main.cpp" line="213"/>
         <source>Control Center provides the options for system settings.</source>
-        <translation>Pusat Kawalan menyediakan pilihan-pilihan untuk tetapan sistem.</translation>
+        <translation>Pusat Kawalan menyediakan pilihan untuk tetapan sistem.</translation>
     </message>
 </context>
 </TS>
