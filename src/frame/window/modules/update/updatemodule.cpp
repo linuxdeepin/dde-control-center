@@ -133,12 +133,6 @@ void UpdateModule::active()
     mainWidget->initialize();
 #ifndef DISABLE_ACTIVATOR
     Q_EMIT m_work->requestRefreshLicenseState();
-
-    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
-        mainWidget->setSystemVersion(m_model->systemVersionInfo());
-    }
-#else
-    mainWidget->setSystemVersion(m_model->systemVersionInfo());
 #endif
 
     mainWidget->setModel(m_model, m_work.get());
@@ -169,6 +163,20 @@ void UpdateModule::active()
         }
         m_mirrorsWidget->setVisible(true);
     });
+
+#ifndef DISABLE_ACTIVATOR
+    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
+        mainWidget->setSystemVersion(m_model->systemVersionInfo());
+    }
+    connect(m_model, &UpdateModel::systemActivationChanged, this, [=](UiActiveState systemactivation) {
+        if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized) {
+            mainWidget->setSystemVersion(m_model->systemVersionInfo());
+        }
+
+    });
+#else
+    mainWidget->setSystemVersion(m_model->systemVersionInfo());
+#endif
 
     m_frameProxy->pushWidget(this, mainWidget);
     mainWidget->setVisible(true);
