@@ -151,7 +151,7 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
 {
     for (int i = 0; i < m_currentPlugins.size(); i++) {
         QByteArray normalizedSignature = QMetaObject::normalizedSignature("active()");
-        int methodIndex = m_allModules.at(i).second.first->metaObject()->indexOfMethod(normalizedSignature);
+        int methodIndex = m_currentPlugins.at(i).second.first->metaObject()->indexOfMethod(normalizedSignature);
         // 找不到对应激活的方法
         if (methodIndex == -1) {
             continue;
@@ -161,7 +161,7 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
         if (!m_currentPlugins.at(i).first.enabled)
             continue;
 
-        auto *module = qobject_cast<ModuleInterface *>(m_allModules.at(i).second.first);
+        auto *module = qobject_cast<ModuleInterface *>(m_currentPlugins.at(i).second.first);
         // 调用模块初始化函数
         module->preInitialize(false);
         module->initialize();
@@ -171,7 +171,7 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
         item->setText(module->displayName());
 
         // active方法
-        QMetaMethod metaMethod = m_allModules.at(i).second.first->metaObject()->method(methodIndex);
+        QMetaMethod metaMethod = m_currentPlugins.at(i).second.first->metaObject()->method(methodIndex);
 
         bool ok;
         int index = m_currentPlugins.at(i).first.follow.toInt(&ok);
@@ -180,11 +180,11 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
         if (ok) {
             if (index > Model->rowCount()) {
                 itemList.append({module->name(), module->displayName(),
-                                 metaMethod, m_allModules.at(i).second.first});
+                                 metaMethod, m_currentPlugins.at(i).second.first});
                 Model->appendRow(item);
             } else {
                 itemList.insert(index - 1, {module->name(), module->displayName(),
-                                        metaMethod, m_allModules.at(i).second.first});
+                                        metaMethod, m_currentPlugins.at(i).second.first});
                 Model->insertRow(index - 1, item);
             }
         } else {
@@ -192,7 +192,7 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
             for (int k = 0; k < Model->rowCount(); k++) {
                 if (Model->item(k)->text() == m_currentPlugins.at(i).first.follow) {
                     itemList.insert(k + 1, {module->name(), module->displayName(),
-                                            metaMethod, m_allModules.at(i).second.first});
+                                            metaMethod, m_currentPlugins.at(i).second.first});
                     Model->insertRow(k + 1, item);
                     isLoad = true;
                     break;
@@ -200,7 +200,7 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
             }
             if (!isLoad) {
                 itemList.append({module->name(), module->displayName(),
-                                 metaMethod, m_allModules.at(i).second.first});
+                                 metaMethod, m_currentPlugins.at(i).second.first});
                 Model->appendRow(item);
             }
         }
