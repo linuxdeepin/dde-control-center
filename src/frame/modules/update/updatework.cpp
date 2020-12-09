@@ -113,6 +113,7 @@ UpdateWorker::~UpdateWorker()
 
 void UpdateWorker::init() {
     qRegisterMetaType<UpdatesStatus>("UpdatesStatus");
+    qRegisterMetaType<UiActiveState>("UiActiveState");
 
     m_lastoresessionHelper = new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this);
     m_updateInter = new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
