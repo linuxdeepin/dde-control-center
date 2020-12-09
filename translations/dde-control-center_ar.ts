@@ -628,7 +628,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
-        <source>Failed to change the password</source>
+        <source>It does not meet password rules</source>
         <translation type="unfinished"/>
     </message>
     <message>
