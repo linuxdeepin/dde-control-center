@@ -190,8 +190,6 @@ void SecretWirelessSection::initUI()
     eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodTtls);
     eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodPeap);
 
-    init(m_enableWatcher, eapMethodsWantedList);
-
     m_authAlgChooser->setTitle(tr("Authentication"));
     QString curAuthAlgOption = AuthAlgStrMap.at(0).first;
     for (auto it = AuthAlgStrMap.cbegin(); it != AuthAlgStrMap.cend(); ++it) {
@@ -202,10 +200,11 @@ void SecretWirelessSection::initUI()
     }
     m_authAlgChooser->setCurrentText(curAuthAlgOption);
 
-    insertItem(1, m_keyMgmtChooser);
-    insertItem(2, m_passwordFlagsChooser);
-    insertItem(3, m_passwdEdit);
-    insertItem(4, m_authAlgChooser);
+    appendItem(m_keyMgmtChooser);
+    appendItem(m_passwordFlagsChooser);
+    init(m_enableWatcher, eapMethodsWantedList);
+    appendItem(m_passwdEdit);
+    appendItem(m_authAlgChooser);
 
     m_passwdEdit->textEdit()->installEventFilter(this);
 }
