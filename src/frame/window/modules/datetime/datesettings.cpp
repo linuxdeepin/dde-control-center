@@ -423,10 +423,9 @@ void DateSettings::updateTime()
 
 void DateSettings::updateSettingformatTime(const bool &value)
 {
-    if (m_Is24HourType == value)
-        return;
-
-    m_Is24HourType = value;
+    if (m_Is24HourType != value) {
+        m_Is24HourType = value;
+    }
     updateTime();
 }
 
