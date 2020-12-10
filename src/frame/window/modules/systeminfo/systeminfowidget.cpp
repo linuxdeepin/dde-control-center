@@ -90,9 +90,8 @@ void SystemInfoWidget::initData()
             if (device->idUUID() == UUID) {
 #endif
             m_itemList << ListSubItem{
-                "dcc_backup",
-                tr("Backup and Restore"),
-                QMetaMethod::fromSignal(&SystemInfoWidget::requestShowRestore)
+                 //~ contents_path /systeminfo/Backup and Restore
+                "dcc_backup", tr("Backup and Restore"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowRestore)
             };
 #ifndef QT_DEBUG
                 break;
