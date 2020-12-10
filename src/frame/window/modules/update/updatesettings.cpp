@@ -146,9 +146,9 @@ void UpdateSettings::initUi()
     }
 #endif
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (IsCommunitySystem) {
         //~ contents_path /update/Update Settings
-        SwitchWidget *m_smartMirrorBtn = new SwitchWidget(tr("Smart Mirror Switch"), this);
+        m_smartMirrorBtn = new SwitchWidget(tr("Smart Mirror Switch"), this);
         m_smartMirrorBtn->addBackground();
         contentLayout->addWidget(m_smartMirrorBtn);
 
@@ -159,7 +159,7 @@ void UpdateSettings::initUi()
         smartTips->setContentsMargins(10, 0, 10, 0);
         contentLayout->addWidget(smartTips);
 
-        NextPageWidget *m_updateMirrors = new NextPageWidget(nullptr, false);
+        m_updateMirrors = new NextPageWidget(nullptr, false);
         //~ contents_path /update/Update Settings/Mirror List
         m_updateMirrors->setTitle(tr("Mirror List"));
         m_updateMirrors->setRightTxtWordWrap(true);
@@ -195,7 +195,7 @@ void UpdateSettings::initConnection()
 #endif
 #endif
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (IsCommunitySystem) {
         connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
         connect(m_smartMirrorBtn, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestEnableSmartMirror);
     }
@@ -242,7 +242,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     }
 #endif
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (IsCommunitySystem) {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
