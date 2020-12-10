@@ -734,7 +734,7 @@ if (NOT DEFINED DISABLE_RECOVERY)
         )
 endif()
 
-add_library(dccwidgets SHARED
+add_library(dccwidgets STATIC
     ${WIDGETS_FILES}
 )
 target_include_directories(dccwidgets PUBLIC
@@ -786,7 +786,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
 
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION bin)
-install(TARGETS dccwidgets LIBRARY DESTINATION lib)
 
 find_package(Qt5 COMPONENTS
 Test
