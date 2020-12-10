@@ -304,7 +304,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     QString allowContent(tr("Agree and Request Root Access"));
 
     // license内容
-    QString content = getLicensePath(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
+    QString content = getDevelopModeLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
     QString contentPath("/tmp/tmpDeveloperMode.txt"); // 临时存储路径
     QFile file(contentPath);
     // 如果文件不存在，则创建文件
