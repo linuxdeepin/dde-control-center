@@ -59,6 +59,10 @@ install(FILES ${QM_FILES} DESTINATION share/dde-control-center/translations)
 #desktop
 install(FILES dde-control-center.desktop DESTINATION share/applications)
 
+#schemas
+install(FILES com.deepin.dde.control-center.gschema.xml DESTINATION share/glib-2.0/schemas)
+install(CODE "execute_process(COMMAND glib-compile-schemas ${CMAKE_INSTALL_PREFIX}/share/glib-2.0/schemas)")
+
 #service
 install(FILES com.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)
 

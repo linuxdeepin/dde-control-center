@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <enum id="com.deepin.dde.control-center.PasswordType">
+        <value value="0" nick="NormalPassWord" />
+        <value value="1" nick="IncludeBlankSymbol" />
+    </enum>
+	<schema path="/com/deepin/dde/control-center/" id="com.deepin.dde.control-center">
+		<key name="brightness-minimum" type="d">
+			<default>0.1</default>
+			<range min="0.0" max="1.0"></range>
+			<summary>The minimum brightness rate</summary>
+		</key>
+		<key name="auto-exit" type="b">
+			<default>false</default>
+			<summary>auto-exit</summary>
+		</key>
+		<key name="window-width" type="i">
+			<default>820</default>
+			<range min="820" max="9999"></range>
+			<summary>The window width last time</summary>
+		</key>
+		<key name="window-height" type="i">
+			<default>634</default>
+			<range min="634" max="9999"></range>
+			<summary>The window height last time</summary>
+		</key>
+		<key name="hide-module" type="as">
+			<default>[]</default>
+			<summary>The module to display</summary>
+		</key>
+        <key name="show-createuser" type="b">
+			<default>true</default>
+			<summary>The create user module show or not</summary>
+		</key>
+        <key name="show-multiscreen" type="b">
+			<default>true</default>
+			<summary>The multiscreen setting show or not</summary>
+		</key>
+        <key name="show-suspend" type="b">
+			<default>true</default>
+			<summary>The suspend options show or not</summary>
+		</key>
+		<key name="effect-load" type="b">
+			<default>false</default>
+			<summary>Magiclamp is loaded or not</summary>
+		</key>
+		<key name="auto-login-visable" type="b">
+			<default>true</default>
+			<summary>Account module automatic login visable control</summary>
+		</key>
+		<key name="nopasswd-login-visable" type="b">
+			<default>true</default>
+			<summary>Account module no password login visable control</summary>
+		</key>
+        <key name="account-password-type" enum="com.deepin.dde.control-center.PasswordType">
+            <default>'NormalPassWord'</default>
+            <summary></summary>
+            <summary>Account password verification control</summary>
+            <description>NormalPassWord is default IncludeBlankSymbol mean special characters add blank symbol</description>
+        </key>
+        <key name="crash-signal-enable" type="b">
+            <default>true</default>
+            <summary>crash signal enable control</summary>
+        </key>
+		<key name="brightness-enable" type="b">
+			<default>true</default>
+			<summary>Display module show brightness settings or not</summary>
+		</key>
+        <key name="plugin-setting" type="s">
+			<default>'{\"mainwindow\":{\"voice\":{\"enable\":true,\"index\":\"keyboard\",\"maxmenu\":3}}}'</default>
+			<summary>plugin settings about position</summary>
+		</key>
+	<key name="show-hibernate" type="b">
+			<default>true</default>
+			<summary>The hibernate options show or not</summary>
+		</key>
+	</schema>
+</schemalist>

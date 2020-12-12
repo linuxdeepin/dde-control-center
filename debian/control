@@ -50,7 +50,7 @@ Depends: ${shlibs:Depends},
  netselect,
  uos-license-content,
  deepin-recovery-tool,
- deepin-desktop-schemas (>=5.8.0.34),
+ libglib2.0-0,
  libdframeworkdbus2 (>=5.3.0.24),
  libdde-network-utils(>=5.3.0.5)
 Recommends: netselect, deepin-ab-recovery
