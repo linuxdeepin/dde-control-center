@@ -29,6 +29,7 @@
 
 #include <QVBoxLayout>
 #include <QGSettings>
+
 #define GSETTINGS_HIDE_VERSIONTYPR_MODULE "hide-version-type-module"
 
 using namespace dcc;
@@ -103,6 +104,15 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
         m_frameProxy->setModuleVisible(this, bShowUpdate);
     }
 
+#ifndef DISABLE_ACTIVATOR
+    connect(m_model, &UpdateModel::systemActivationChanged, this, [=](UiActiveState systemactivation) {
+        if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized) {
+            if (m_updateWidget)
+                m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
+        }
+    });
+#endif
+
     Q_EMIT m_work->requestInit();
 }
 
@@ -128,20 +138,19 @@ void UpdateModule::active()
     connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work.get(), &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
     connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work.get(), &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
 
-    UpdateWidget *mainWidget = new UpdateWidget;
-    mainWidget->setVisible(false);
-    mainWidget->initialize();
+    m_updateWidget = new UpdateWidget;
+    m_updateWidget->setVisible(false);
+    m_updateWidget->initialize();
 #ifndef DISABLE_ACTIVATOR
     Q_EMIT m_work->requestRefreshLicenseState();
 #endif
 
-    mainWidget->setModel(m_model, m_work.get());
-    m_updateWidget = mainWidget;
+    m_updateWidget->setModel(m_model, m_work.get());
 
-    connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
+    connect(m_updateWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
         m_mirrorsWidget = new MirrorsWidget(m_model);
         m_mirrorsWidget->setVisible(false);
-        int topWidgetWidth = mainWidget->parentWidget()->parentWidget()->width();
+        int topWidgetWidth = m_updateWidget->parentWidget()->parentWidget()->width();
         m_work->checkNetselect();
         m_mirrorsWidget->setMinimumWidth(topWidgetWidth / 2);
         m_mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -166,21 +175,15 @@ void UpdateModule::active()
 
 #ifndef DISABLE_ACTIVATOR
     if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
-        mainWidget->setSystemVersion(m_model->systemVersionInfo());
+        m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
     }
-    connect(m_model, &UpdateModel::systemActivationChanged, this, [=](UiActiveState systemactivation) {
-        if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized) {
-            mainWidget->setSystemVersion(m_model->systemVersionInfo());
-        }
-
-    });
 #else
     mainWidget->setSystemVersion(m_model->systemVersionInfo());
 #endif
 
-    m_frameProxy->pushWidget(this, mainWidget);
-    mainWidget->setVisible(true);
-    mainWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
+    m_frameProxy->pushWidget(this, m_updateWidget);
+    m_updateWidget->setVisible(true);
+    m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
 }
 
 void UpdateModule::deactive()
