@@ -88,6 +88,8 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
 
     QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
     DSuggestButton *addBtn = new DSuggestButton(tr("Create"));
+    cancleBtn->setDefault(true);
+    addBtn->setDefault(true);
     btnLayout->addWidget(cancleBtn);
     btnLayout->addWidget(addBtn);
     mainContentLayout->addSpacing(0);
