@@ -86,6 +86,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
     m_arrowAction->setIcon(m_dStyleHelper.standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
     m_arrowAction->setClickAreaMargins(ArrowEnterClickMargin);
     setActionList(Qt::Edge::RightEdge, {m_arrowAction});
+    Q_EMIT apChange();
 }
 
 APItem::~APItem()
@@ -585,7 +586,8 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
     }
     m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
     m_apItems.erase(m_apItems.find(ssid));
-
+    //删除后刷新一下wifi列表
+    m_sortDelayTimer->start();
 }
 
 void WirelessPage::onHotspotEnableChanged(const bool enabled)
