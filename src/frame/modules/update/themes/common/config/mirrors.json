@@ -64,5 +64,6 @@
 {"id":"VeriTeknik","name":"[TR] VeriTeknik","url":"http://mirror.veriteknik.net.tr/deepin/","name_locale.zh_CN":"[TR] VeriTeknik","name_locale.zh_TW":"[TR] VeriTeknik","weight":"4997","country":"TR"},
 {"id":"Yandex","name":"[RU] Yandex Linux Mirror","url":"http://mirror.yandex.ru/mirrors/deepin/packages/","name_locale.zh_CN":"[RU]Yandex Linux Mirror","name_locale.zh_TW":"[RU]Yandex Linux Mirror","weight":"4998","country":"RU"},
 {"id":"Zetup","name":"[SE] Zetup AB","url":"http://mirror.zetup.net/deepin/","name_locale.zh_CN":"[SE] Zetup AB","name_locale.zh_TW":"[SE] Zetup AB","weight":"4999","country":"SE"},
-{"id":"ZJU","name":"[CN] Zhejiang University","url":"http://mirrors.zju.edu.cn/deepin/","name_locale.zh_CN":"[CN] 浙江大学","name_locale.zh_TW":"[CN] 浙江大學","weight":"5000","country":"CN"}
+{"id":"ZJU","name":"[CN] Zhejiang University","url":"http://mirrors.zju.edu.cn/deepin/","name_locale.zh_CN":"[CN] 浙江大学","name_locale.zh_TW":"[CN] 浙江大學","weight":"5000","country":"CN"},
+{"id":"DeepinES","name":"[ES] DeepinES","url":"https://mirror.deepines.com/deepin/","name_locale.zh_CN":"[ES] DeepinES","name_locale.zh_TW":"[ES] DeepinES","weight":"5001","country":"ES"}
 ]
