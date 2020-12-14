@@ -311,7 +311,11 @@ private:
     dcc::widgets::SettingsGroup *m_tipsGroup;
     QPushButton *m_closeHotspotBtn;
     DListView *m_lvAP;
-    APItem *m_clickedItem;
+    APItem *m_activateItem;
+    //这里使用一个click值保存，由于企业wifi在被连接时，
+    //并不会立即将其变成活动中的wifi，而会ActivateAccessPoint在这个接口中表现出来
+    //所以不能直接用m_activeAp保存状态，这样是不对的
+    APItem *m_clickItem;
     QVBoxLayout *m_mainLayout;
     QStandardItemModel *m_modelAP;
     int m_layoutCount;
