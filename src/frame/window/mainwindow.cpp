@@ -226,9 +226,15 @@ MainWindow::MainWindow(QWidget *parent)
         resetNavList(m_contentStack.isEmpty());
     });
 
+    // 控制中心只显示DP-1屏幕的时候，拔掉HDMI线控制中心不显示
     connect(qApp, &QGuiApplication::primaryScreenChanged, this, [this] {
-        updateWinsize();
+        QTimer::singleShot(100, [this]{
+            QRect mwRect(0, 0, this->width(), this->height());
+            mwRect.moveCenter(QGuiApplication::primaryScreen()->geometry().center());
+            setGeometry(mwRect);
+        });
     });
+
 
     updateViewBackground();
     updateWinsize();
@@ -467,16 +473,10 @@ void MainWindow::updateWinsize()
     WidgetMinimumHeight = qMin(h, 634);
     setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
 
-    //+ 如果当前记录的尺寸超出屏幕分辨率，则使用屏幕分辨率大小；如果当前记录的位置超出屏幕尺寸的1/2，则移动到屏幕中间；
+    //+ 如果当前记录的尺寸超出屏幕分辨率，则使用屏幕分辨率大小；
     QTimer::singleShot(100, this, [this] {
-        if (this->width() > QGuiApplication::primaryScreen()->geometry().width()
-            || this->height() > QGuiApplication::primaryScreen()->geometry().height()) {
+        if (this->width() > QGuiApplication::primaryScreen()->geometry().width()) {
             setGeometry(0, 0, QGuiApplication::primaryScreen()->geometry().width(), QGuiApplication::primaryScreen()->geometry().height());
-        } else if (this->x() > QGuiApplication::primaryScreen()->geometry().width()/2
-                   || this->height() > QGuiApplication::primaryScreen()->geometry().height()/2) {
-            QRect mwRect(0, 0, this->width(), this->height());
-            mwRect.moveCenter(QGuiApplication::primaryScreen()->geometry().center());
-            setGeometry(mwRect);
         }
     });
 }
