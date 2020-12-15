@@ -46,6 +46,7 @@ using namespace dcc::accounts;
 using namespace DCC_NAMESPACE;
 
 const QString AccountsService("com.deepin.daemon.Accounts");
+const QString FingerPrintService("com.deepin.daemon.Authenticate");
 const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 const QString AutoLoginVisable = "auto-login-visable";
@@ -54,6 +55,7 @@ const QString NoPasswordVisable = "nopasswd-login-visable";
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
+    , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
 #endif
@@ -235,6 +237,13 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
     } else {
         getAllGroups();
         Q_EMIT m_userModel->deleteUserSuccess();
+        if (m_fingerPrint->ListFingers(user->name()).value().count()) {
+            QDBusPendingReply<> fingerPrintreply = m_fingerPrint->DeleteAllFingers(user->name());
+            fingerPrintreply.waitForFinished();
+            if (fingerPrintreply.isError()) {
+                qDebug() << Q_FUNC_INFO << fingerPrintreply.error().message();
+            }
+        }
     }
 }
 
