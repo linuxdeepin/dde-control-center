@@ -50,7 +50,7 @@ namespace DCC_NAMESPACE {
 namespace datetime {
 
 DateSettings::DateSettings(QWidget *parent)
-    : QWidget(parent)
+    : ContentWidget(parent)
     , m_datetimeGroup(new SettingsGroup)
     , m_autoSyncTimeSwitch(new SwitchWidget)
     , m_yearWidget(new DateWidget(DateWidget::Year, 1990, 2050))
@@ -183,7 +183,9 @@ DateSettings::DateSettings(QWidget *parent)
 
     layout->addStretch();
     layout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
-    setLayout(layout);
+    TranslucentFrame *w = new TranslucentFrame;
+    w->setLayout(layout);
+    setContent(w);
 
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::setControlVisible);
