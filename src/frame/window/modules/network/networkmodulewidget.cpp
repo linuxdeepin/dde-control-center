@@ -74,7 +74,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 #ifndef DISABLE_NETWORK_AIRPLANE
     //判断当前的机器是否为盘古v，如果为盘古v则不需要飞行模式功能
-    while (!pcType.contains("panguV")) {
+    while (!pcType.contains("PGUV")) {
         qDebug() << "This machine is not PanguV";
         //~ contents_path /network/Airplane
         DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
