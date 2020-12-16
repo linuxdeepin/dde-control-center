@@ -655,7 +655,10 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
             return;
 
         QString connSSid = connectionSsid(uuid);
+        //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
         qDebug() << "connSSid = " << connSSid;
+#endif
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
             if (connSSid == it.key()) {
                 m_clickItem = it.value();
@@ -723,7 +726,10 @@ void WirelessPage::onActivaConnections(const QJsonObject &activeConn)
         //所以可能和当前连接状态的uuid不匹配的情况出现，故使用ssid进行判断连接的是哪个wifi
         if (ssid == it->ssid()) m_activateItem = it;
     }
+    //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
     qDebug() << "m_activateItem is nullptr :" << (m_activateItem == nullptr) << ",connect ssid =" << ssid;
+#endif
     //当state=1代表连接中的状态，这个时候就要保持旋转图标不变
     if (state == Wifi_Connecting) {
         setApLoadin(m_activateItem);

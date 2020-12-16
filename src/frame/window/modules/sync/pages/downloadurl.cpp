@@ -53,7 +53,10 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
 
     QString fileName;
     fileName = fullname ? filePath : filePath + url.right(url.size() - url.lastIndexOf("/"));
+    //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
     qDebug() << " download " << url << " to " << fileName << " ready = " << m_isReady;
+#endif
     if (QFile::exists(fileName)) {
         QPixmap pxmap;
         if (pxmap.load(fileName)) {
@@ -117,7 +120,10 @@ void DownloadUrl::onDownloadFileComplete(QNetworkReply *reply)
         m_file->close();
         if (m_retryMap.contains(m_file->fileName()))
             m_retryMap.remove(m_file->fileName());
+        //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
         qDebug() << " m_file fileName = " << m_file->fileName();
+#endif
         Q_EMIT fileDownloaded(m_file->fileName());
     }
 

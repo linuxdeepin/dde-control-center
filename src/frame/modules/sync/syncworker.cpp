@@ -104,7 +104,10 @@ void SyncWorker::userInfoChanged(QDBusMessage msg)
     QVariantMap userInfo;
     QDBusArgument arg = changedProps.value("UserInfo").value<QDBusArgument>();
     arg >> userInfo;
+    //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
     qDebug() << userInfo;
+#endif
     m_model->setUserinfo(userInfo);
 }
 

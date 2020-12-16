@@ -368,7 +368,10 @@ void AdapterWidget::addDevice(const Device *device)
     connect(deviceItem, &DeviceSettingsItem::requestConnectDevice, this, &AdapterWidget::requestConnectDevice);
     connect(device, &Device::pairedChanged, this, [this, deviceItem](const bool paired) {
         if (paired) {
+            //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
             qDebug() << "paired :" << deviceItem->device()->name();
+#endif
             DStandardItem *item = deviceItem->getStandardItem();
             QModelIndex otherDeviceIndex = m_otherDeviceModel->indexFromItem(item);
             m_otherDeviceModel->removeRow(otherDeviceIndex.row());
@@ -376,7 +379,10 @@ void AdapterWidget::addDevice(const Device *device)
             m_myDevices << deviceItem;
             m_myDeviceModel->appendRow(dListItem);
         } else {
+            //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
             qDebug() << "unpaired :" << deviceItem->device()->name();
+#endif
             for (auto it : m_myDevices) {
                 if (it != NULL && it == deviceItem) {
                     m_myDevices.removeOne(it);

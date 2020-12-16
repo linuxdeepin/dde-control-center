@@ -216,7 +216,10 @@ void BluetoothWorker::connectDevice(const Device *device, const Adapter *adapter
 
     QDBusObjectPath path(device->id());
     m_bluetoothInter->ConnectDevice(path, QDBusObjectPath(adapter->id()));
+    //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
     qDebug() << "connect to device: " << device->name();
+#endif
 }
 
 void BluetoothWorker::inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj)

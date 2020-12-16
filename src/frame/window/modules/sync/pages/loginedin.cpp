@@ -66,7 +66,10 @@ void LoginedIn::onUserInfoChanged(const QVariantMap &infos)
     QDir dir;
     dir.mkpath(avatarPath);
     QString profile_image = infos.value("ProfileImage").toString();
+    //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
     qDebug() << " ProfileImage = " << profile_image << ", avatarPath " << avatarPath;
+#endif
     if (profile_image.isEmpty())
         return;
 
@@ -74,7 +77,10 @@ void LoginedIn::onUserInfoChanged(const QVariantMap &infos)
         m_downloader = new DownloadUrl;
 
     connect(m_downloader, &DownloadUrl::fileDownloaded, this, [this](const QString &fileName) {
+        //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef QT_DEBUG
         qDebug() << "downloaded filename = " << fileName;
+#endif
         m_avatar->setAvatarPath(fileName);
     });
 

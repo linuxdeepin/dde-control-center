@@ -153,7 +153,10 @@ void WiredPage::refreshConnectionList()
     }
 
     const auto connObjList = m_device->connections();
+    //考虑到安全红线问题，个人信息和敏感数据禁止打印
+#ifdef  QT_DEBUG
     qDebug() << connObjList;
+#endif
     QSet<QString> connuuid;
     for (const auto &connObj : connObjList) {
         const QString &uuid = connObj.value("Uuid").toString();
