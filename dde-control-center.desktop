@@ -1,7 +1,7 @@
 [Desktop Entry]
 Categories=Application;System;Settings
 Comment=Deepin Desktop Environment Control Center
-Exec=dde-control-center --show
+Exec=dde-control-center --show %f
 Icon=preferences-system
 Name=Deepin Control Center
 GenericName=Control Center
