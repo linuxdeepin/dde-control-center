@@ -571,13 +571,15 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     }
 
     raise();
-    QTimer::singleShot(10, this, [ = ] {
-        onEnterSearchWidget(module, page);
-    });
-    if (isMinimized() || !isVisible())
-        showNormal();
 
-    activateWindow();
+    onEnterSearchWidget(module, page);
+    // Note: 当直接进入模块界面(二级界面)，先将模块界面显示出来，在加载首界面
+    QTimer::singleShot(0, this, [ = ] {
+        if (isMinimized() || !isVisible())
+            showNormal();
+
+        activateWindow();
+    });
 }
 
 void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDisplay)
