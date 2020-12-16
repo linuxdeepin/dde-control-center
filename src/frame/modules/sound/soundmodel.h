@@ -151,7 +151,6 @@ public:
     void updateSoundEffectPath(DDesktopServices::SystemSoundEffect effect, const QString &path);
     inline QMap<DDesktopServices::SystemSoundEffect, QString> soundEffectPaths() { return m_soundEffectPaths; }
     const QString soundEffectPathByType(DDesktopServices::SystemSoundEffect effect);
-    const QString soundNameByPath(QString soundpath);
 
     const QString getNameByEffectType(DDesktopServices::SystemSoundEffect effect) const;
     DDesktopServices::SystemSoundEffect getEffectTypeByGsettingName(const QString &name);
@@ -207,7 +206,6 @@ private:
 
     SoundEffectList m_soundEffectMapPower;
     SoundEffectList m_soundEffectMapBattery;
-    QMap<QString, QString> m_soundEffectPathData;
     QMap<DDesktopServices::SystemSoundEffect, bool> m_soundEffectData;
     QMap<DDesktopServices::SystemSoundEffect, QString> m_soundEffectPaths;
 };

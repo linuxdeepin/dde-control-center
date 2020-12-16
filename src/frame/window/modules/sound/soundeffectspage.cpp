@@ -49,9 +49,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
     , m_effectList(new DListView)
-    , m_soundeffectInter(new SoundeffectInter("com.deepin.daemon.SoundEffect",
-                                               "/com/deepin/daemon/SoundEffect",
-                                               QDBusConnection::sessionBus(), this))
+    , m_sound(nullptr)
 {
     m_layout->setContentsMargins(ThirdPageContentsMargins);
 
@@ -123,11 +121,10 @@ void SoundEffectsPage::startPlay(const QModelIndex &index)
 
     auto eff = m_model->soundEffectMap()[index.row()].second;
     QString soundPath = m_model->soundEffectPathByType(eff);
-    if (QFile::exists(soundPath))
-    {
-        QString soundName = m_model->soundNameByPath(soundPath);
-        m_soundeffectInter->PlaySound(soundName);
-        qDebug() << "play sound name: " << soundName;
+    if (QFile::exists(soundPath)) {
+        m_sound.reset(new QSound(soundPath));
+        m_sound->stop();
+        m_sound->play();
     }
 
     m_aniTimer->disconnect();
