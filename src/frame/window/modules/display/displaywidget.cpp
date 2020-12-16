@@ -244,9 +244,9 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
     m_currentIdx = idx;
     m_menuList->setCurrentIndex(m_currentIdx);
     if (m_isMultiScreen) {
-        m_multMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].pulgin ? m_singleMenuList[idx.row()].pulgin : this);
+        m_multMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].plugin ? m_singleMenuList[idx.row()].plugin : this);
     } else {
-        m_singleMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].pulgin ? m_singleMenuList[idx.row()].pulgin : this);
+        m_singleMenuList[idx.row()].itemSignal.invoke(m_singleMenuList[idx.row()].plugin ? m_singleMenuList[idx.row()].plugin : this);
     }
     m_menuList->resetStatus(idx);
 }
@@ -254,9 +254,9 @@ void DisplayWidget::onMenuClicked(const QModelIndex &idx)
 void DisplayWidget::setDefaultWidget()
 {
     if (m_isMultiScreen) {
-        m_multMenuList[0].itemSignal.invoke(m_singleMenuList[0].pulgin ? m_singleMenuList[0].pulgin : this);
+        m_multMenuList[0].itemSignal.invoke(m_singleMenuList[0].plugin ? m_singleMenuList[0].plugin : this);
     } else {
-        m_singleMenuList[0].itemSignal.invoke(m_singleMenuList[0].pulgin ? m_singleMenuList[0].pulgin : this);
+        m_singleMenuList[0].itemSignal.invoke(m_singleMenuList[0].plugin ? m_singleMenuList[0].plugin : this);
     }
 }
 

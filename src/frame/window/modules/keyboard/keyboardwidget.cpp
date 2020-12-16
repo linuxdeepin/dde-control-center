@@ -92,7 +92,7 @@ void KeyboardWidget::initSetting(const int settingIndex)
 
 void KeyboardWidget::setDefaultWidget()
 {
-    m_itemList[0].itemSignal.invoke(m_itemList[0].pulgin ? m_itemList[0].pulgin : this);
+    m_itemList[0].itemSignal.invoke(m_itemList[0].plugin ? m_itemList[0].plugin : this);
 }
 
 void KeyboardWidget::onItemClick(const QModelIndex &index)
@@ -101,7 +101,7 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
         return;
     }
 
-    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin ? m_itemList[index.row()].plugin : this);
 
     m_lastIndex = index;
     m_keyboardListView->resetStatus(index);

@@ -73,7 +73,7 @@ struct ListSubItem {
     QString itemIcon;
     QString itemText;
     QMetaMethod itemSignal;
-    QObject *pulgin = nullptr;
+    QObject *plugin = nullptr;
 };
 
 inline bool compareVersion(const QString &targetVersion, const QString &baseVersion)

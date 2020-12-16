@@ -121,7 +121,7 @@ void SystemInfoWidget::initData()
             return;
 
         m_lastIndex = index;
-        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin ? m_itemList[index.row()].plugin : this);
         m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
