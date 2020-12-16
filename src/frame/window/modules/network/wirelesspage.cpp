@@ -657,7 +657,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
             if (connSSid == it.key()) {
                 m_clickItem = it.value();
-                Q_EMIT m_model->requestConnectAp(m_device->path(), m_clickItem->path(), m_activateItem->uuid());
+                Q_EMIT m_model->requestConnectAp(m_device->path(), m_clickItem->path(), m_clickItem->uuid());
                 setApLoadin(m_clickItem);
                 break;
             }
