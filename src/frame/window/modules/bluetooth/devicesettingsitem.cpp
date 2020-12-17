@@ -56,6 +56,16 @@ DeviceSettingsItem::DeviceSettingsItem(const Device *device, QStyle *style)
     }
     m_deviceItem->setText(m_device->alias().isEmpty() ? m_device->name() : m_device->alias());
     m_deviceItem->setActionList(Qt::RightEdge, m_dActionList);
+
+    if (m_device->state() == Device::StateAvailable) {
+        loadingStart();
+    } else if (m_device->state() == Device::StateConnected) {
+        m_textAction->setText(tr("Connected"));
+        setLoading(false);
+    } else if (m_device->state() == Device::StateUnavailable || m_device->state() == Device::StateDisconnecting) {
+        m_textAction->setText(tr("Not connected"));
+        setLoading(false);
+    }
 }
 
 DeviceSettingsItem::~DeviceSettingsItem()
