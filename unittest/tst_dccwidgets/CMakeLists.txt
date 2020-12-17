@@ -1,19 +1,12 @@
 cmake_minimum_required(VERSION 3.7)
 
-set(BIN_NAME dde-control-center-unittest)
+set(BIN_NAME dccwidgets-unittest)
 
 # 自动生成moc文件
 set(CMAKE_AUTOMOC ON)
 
-add_subdirectory("tst_dccwidgets")
-
 # 源文件
-#file(GLOB_RECURSE SRCS "*.h" "*.cpp")
-set(SRCS
-        main.cpp
-        controlcenterunittest.cpp
-        controlcenterunittest.h
-        )
+file(GLOB_RECURSE SRCS "*.cpp")
 
 # 用于测试覆盖率的编译条件
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -lgcov")
@@ -21,6 +14,7 @@ set(SRCS
 # 查找依赖库
 find_package(PkgConfig REQUIRED)
 find_package(Qt5 COMPONENTS Widgets Test DBus REQUIRED)
+find_package(DtkWidget REQUIRED)
 find_package(GTest REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
@@ -28,16 +22,21 @@ pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 # 添加执行文件信息
 add_executable(${BIN_NAME} ${SRCS} ${INTERFACES})
 
-# 包含路径
-target_include_directories(${BIN_NAME} PUBLIC ${DFrameworkDBus_INCLUDE_DIRS})
-
 # 链接库
 target_link_libraries(${BIN_NAME} PRIVATE
+    dccwidgets
     ${Qt5Test_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
     ${DFrameworkDBus_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
     ${GTEST_LIBRARIES}
     -lpthread
     -lm
+)
+
+target_include_directories(dccwidgets PUBLIC
+    ${CMAKE_SOURCE_DIR}/include
+    ${DtkWidget_INCLUDE_DIRS}
+    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
 )
