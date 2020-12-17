@@ -105,6 +105,7 @@ private Q_SLOTS:
     void onMonitorModeChange(const Resolution &r);
     void currentIndexChanged(int index);
     void onGeometryChanged();
+    void onEnableClickTimer();
 
 private:
     void initUI();
@@ -142,6 +143,8 @@ private:
     QList<CustomSettingDialog *> m_otherDialog;
     int m_dialogWidth;
     int m_dialogHeight;
+    bool m_enableClickMinitor;
+    QTimer *m_enableClickTimer;
 };
 }
 

@@ -46,7 +46,19 @@ DWIDGET_USE_NAMESPACE
 CustomSettingDialog::CustomSettingDialog(QWidget *parent)
     : DAbstractDialog(false, parent)
     , m_isPrimary(true)
+    , m_enableClickMinitor(true)
+    , m_enableClickTimer(new QTimer(this))
 {
+    m_enableClickTimer->setInterval(1000);
+    connect(m_enableClickTimer, &QTimer::timeout, this, [=](){
+        if (!m_enableClickMinitor) {
+            m_enableClickMinitor = true;
+        }
+        if (m_enableClickTimer->isActive()) {
+            m_enableClickTimer->stop();
+        }
+    });
+
     initUI();
 }
 
@@ -520,7 +532,17 @@ void CustomSettingDialog::initConnect()
             if (m_displayListModel->item(index.row())->isEnabled() == false) {
                 return;
             }
+            if (m_enableClickMinitor) {
+                m_enableClickMinitor = false;
+                m_enableClickTimer->start();
+            } else {
+                return;
+            }
             dcc::display::Monitor *mon = m_model->monitorList()[m_moniList->currentIndex().row()];
+            connect(mon, &Monitor::geometryChanged, this, &CustomSettingDialog::onEnableClickTimer);
+            connect(mon, &Monitor::enableChanged, this, &CustomSettingDialog::onEnableClickTimer);
+            connect(m_model, &DisplayModel::isMergeChange, this, &CustomSettingDialog::onEnableClickTimer);
+            connect(m_model, &DisplayModel::monitorListChanged, this, &CustomSettingDialog::onEnableClickTimer);
             auto monis = m_model->monitorList();
             int enableCount = 0;
             for (auto *tm : monis) {
@@ -831,6 +853,12 @@ void CustomSettingDialog::onMonitorModeChange(const Resolution &r)
 {
     initWithModel();
     resetDialog();
+}
+
+void CustomSettingDialog::onEnableClickTimer() {
+    if (m_enableClickTimer->isActive())
+        m_enableClickTimer->stop();
+    m_enableClickTimer->start();
 }
 
 void CustomSettingDialog::resetDialog()
