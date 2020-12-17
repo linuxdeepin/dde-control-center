@@ -941,12 +941,11 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 m_searchWidget->addUnExsitData(tr("General Settings"));
             }
         } else if ("update" == find_it->first->name()) {
+            m_updateVisibale = bFinalVisible;
             if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Updates"));
-                m_updateVisibale = false;
             } else {
                 m_searchWidget->addUnExsitData(tr("Updates"));
-                m_updateVisibale = true;
             }
         }
     } else {
