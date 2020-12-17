@@ -81,10 +81,12 @@ void DeviceSettingsItem::initItemActionList()
     m_loadingAction->setWidget(m_loadingIndicator);
     m_iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
     m_textAction = new DViewItemAction(Qt::AlignLeft, QSize(), QSize(), true);
+    m_spaceAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), false);
     m_iconAction->setIcon(m_style->standardIcon(QStyle::SP_ArrowRight));
     m_dActionList.clear();
     m_dActionList.append(m_loadingAction);
     m_dActionList.append(m_textAction);
+    m_dActionList.append(m_spaceAction);
     m_dActionList.append(m_iconAction);
 }
 
@@ -243,11 +245,8 @@ void DeviceSettingsItem::onDeviceStateChanged(const Device::State &state, bool c
 
 void DeviceSettingsItem::onDevicePairedChanged(const bool &paired)
 {
-    if (paired) {
-        m_iconAction->setVisible(true);
-    } else {
-        m_iconAction->setVisible(false);
-    }
+    m_iconAction->setVisible(paired);
+    m_spaceAction->setVisible(paired);
 }
 
 const Device *DeviceSettingsItem::device() const
