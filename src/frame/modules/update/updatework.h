@@ -79,7 +79,11 @@ public:
 Q_SIGNALS:
     void requestInit();
     void requestActive();
+
+#ifndef DISABLE_ACTIVATOR
     void requestRefreshLicenseState();
+#endif
+
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     void requestRefreshMirrors();
 #endif
