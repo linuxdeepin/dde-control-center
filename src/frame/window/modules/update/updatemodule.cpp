@@ -68,7 +68,10 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
 
     connect(m_work.get(), &UpdateWorker::requestInit, m_work.get(), &UpdateWorker::init);
     connect(m_work.get(), &UpdateWorker::requestActive, m_work.get(), &UpdateWorker::activate);
+#ifndef DISABLE_ACTIVATOR
     connect(m_work.get(), &UpdateWorker::requestRefreshLicenseState, m_work.get(), &UpdateWorker::licenseStateChangeSlot);
+#endif
+
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     connect(m_work.get(), &UpdateWorker::requestRefreshMirrors, m_work.get(), &UpdateWorker::refreshMirrors);
 #endif
