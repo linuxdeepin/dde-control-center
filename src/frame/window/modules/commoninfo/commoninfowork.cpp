@@ -58,12 +58,13 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                                 "/com/deepin/deepinid",
                                                 QDBusConnection::sessionBus(), this);
 
-    m_activeInfo = new QDBusInterface("com.deepin.license",
-                                      "/com/deepin/license/Info",
-                                      "com.deepin.license.Info",
-                                      QDBusConnection::systemBus(),this);
-
-    licenseStateChangeSlot();
+    if (DSysInfo::productType() == DSysInfo::Deepin || DSysInfo::productType() == DSysInfo::Uos) {
+        m_activeInfo = new QDBusInterface("com.deepin.license",
+                                          "/com/deepin/license/Info",
+                                          "com.deepin.license.Info",
+                                          QDBusConnection::systemBus(),this);
+        licenseStateChangeSlot();
+    }
 
     m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
 
@@ -126,7 +127,10 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+
+    if (DSysInfo::productType() == DSysInfo::Deepin || DSysInfo::productType() == DSysInfo::Uos) {
+        connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    }
 }
 
 CommonInfoWork::~CommonInfoWork()

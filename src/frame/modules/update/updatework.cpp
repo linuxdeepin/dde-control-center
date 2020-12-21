@@ -196,7 +196,6 @@ void UpdateWorker::init() {
 #endif
 }
 
-#ifndef DISABLE_ACTIVATOR
 void UpdateWorker::licenseStateChangeSlot()
 {
     QFutureWatcher<void> *watcher = new QFutureWatcher<void>();
@@ -224,7 +223,6 @@ void UpdateWorker::getLicenseState()
     qDebug() << "Authorization State:" << reply;
     m_model->setSystemActivation(reply);
 }
-#endif
 
 void UpdateWorker::activate()
 {
@@ -258,13 +256,11 @@ void UpdateWorker::activate()
     refreshMirrors();
 #endif
 
-#ifndef DISABLE_ACTIVATOR
     licenseStateChangeSlot();
 
     QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
                                          "com.deepin.license.Info", "LicenseStateChange",
                                          this, SLOT(licenseStateChangeSlot()));
-#endif
 
     QFutureWatcher<QStringList> *packagesWatcher = new QFutureWatcher<QStringList>();
     connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [=] {

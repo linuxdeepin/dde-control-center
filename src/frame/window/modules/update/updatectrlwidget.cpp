@@ -65,9 +65,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_bRecoverRestoring(false)
     , m_activeState(UiActiveState::Unknown)
     , m_updateList(new ContentWidget)
-#ifndef DISABLE_ACTIVATOR
     , m_authorizationPrompt(new TipsLabel)
-#endif
     , m_checkUpdateBtn(new QPushButton)
     , m_lastCheckTimeTip(new TipsLabel)
 {
@@ -83,15 +81,11 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_fullProcess->setVisible(false);
     m_fullProcess->setProcessValue(100);
 
-#ifndef DISABLE_ACTIVATOR
     m_authorizationPrompt->setText(tr("Your system is not authorized, please activate first"));
     m_authorizationPrompt->setAlignment(Qt::AlignHCenter);
     m_authorizationPrompt->setVisible(false);
-#endif
     fullProcesslayout->addWidget(m_fullProcess);
-#ifndef DISABLE_ACTIVATOR
     fullProcesslayout->addWidget(m_authorizationPrompt);
-#endif
 
     m_summaryGroup->setVisible(true);
 
@@ -173,9 +167,7 @@ void UpdateCtrlWidget::setShowInfo(const UiActiveState value)
     }
 
     m_fullProcess->setEnabled(activation);
-#ifndef DISABLE_ACTIVATOR
     m_authorizationPrompt->setVisible(UpdatesStatus::UpdatesAvailable == m_model->status() && !activation);
-#endif
 }
 
 void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
@@ -256,11 +248,9 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     m_status = status;
 
-#ifndef DISABLE_ACTIVATOR
     if (m_model->systemActivation() == UiActiveState::Unauthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse || m_model->systemActivation() == UiActiveState::TrialExpired) {
         m_status = NoAtive;
     }
-#endif
 
     Q_EMIT notifyUpdateState(m_status);
 
@@ -269,9 +259,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_resultItem->setVisible(false);
     m_progress->setVisible(false);
     m_fullProcess->setVisible(false);
-#ifndef DISABLE_ACTIVATOR
     m_authorizationPrompt->setVisible(false);
-#endif
     m_updateList->setVisible(false);
     m_upgradeWarningGroup->setVisible(false);
     m_reminderTip->setVisible(false);
@@ -319,9 +307,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_fullProcess->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());
-#ifndef DISABLE_ACTIVATOR
         setShowInfo(m_model->systemActivation());
-#endif
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
@@ -527,7 +513,6 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::recoverConfigValidChanged, this, &UpdateCtrlWidget::setRecoverConfigValid);
     connect(m_model, &UpdateModel::recoverRestoringChanged, this, &UpdateCtrlWidget::setRecoverRestoring);
     connect(m_model, &UpdateModel::systemActivationChanged, this, &UpdateCtrlWidget::setActiveState);
-
 
     setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());

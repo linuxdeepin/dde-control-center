@@ -29,7 +29,10 @@
 
 #include <QVBoxLayout>
 #include <QGSettings>
+#include <DSysInfo>
 #define GSETTINGS_HIDE_VERSIONTYPR_MODULE "hide-version-type-module"
+
+DCORE_USE_NAMESPACE
 
 using namespace dcc;
 using namespace dcc::update;
@@ -57,6 +60,12 @@ UpdateModule::~UpdateModule()
 
 void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
+    if (DSysInfo::productType() != DSysInfo::Deepin && DSysInfo::productType() != DSysInfo::Uos) {
+        qInfo() << "module: " << displayName() << " is disable now!";
+        m_frameProxy->setModuleVisible(this, false);
+        return;
+    }
+
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
 
@@ -68,9 +77,10 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
 
     connect(m_work.get(), &UpdateWorker::requestInit, m_work.get(), &UpdateWorker::init);
     connect(m_work.get(), &UpdateWorker::requestActive, m_work.get(), &UpdateWorker::activate);
-#ifndef DISABLE_ACTIVATOR
-    connect(m_work.get(), &UpdateWorker::requestRefreshLicenseState, m_work.get(), &UpdateWorker::licenseStateChangeSlot);
-#endif
+
+    if (DSysInfo::productType() == DSysInfo::Deepin || DSysInfo::productType() == DSysInfo::Uos)  {
+        connect(m_work.get(), &UpdateWorker::requestRefreshLicenseState, m_work.get(), &UpdateWorker::licenseStateChangeSlot);
+    }
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     connect(m_work.get(), &UpdateWorker::requestRefreshMirrors, m_work.get(), &UpdateWorker::refreshMirrors);
@@ -134,15 +144,14 @@ void UpdateModule::active()
     UpdateWidget *mainWidget = new UpdateWidget;
     mainWidget->setVisible(false);
     mainWidget->initialize();
-#ifndef DISABLE_ACTIVATOR
-    Q_EMIT m_work->requestRefreshLicenseState();
+
+    if (DSysInfo::productType() == DSysInfo::Deepin || DSysInfo::productType() == DSysInfo::Uos) {
+        Q_EMIT m_work->requestRefreshLicenseState();
+    }
 
     if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
         mainWidget->setSystemVersion(m_model->systemVersionInfo());
     }
-#else
-    mainWidget->setSystemVersion(m_model->systemVersionInfo());
-#endif
 
     mainWidget->setModel(m_model, m_work.get());
     m_updateWidget = mainWidget;

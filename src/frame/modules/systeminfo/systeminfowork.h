@@ -62,18 +62,14 @@ public Q_SLOTS:
     void grubServerFinished();
     void onBackgroundChanged();
     void setBackground(const QString &path);
-#ifndef DISABLE_ACTIVATOR
     void showActivatorDialog();
     void licenseStateChangeSlot();
-#endif
     void processChanged(QDBusMessage msg);
 
 private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
-#ifndef DISABLE_ACTIVATOR
     void getLicenseState();
-#endif
 
 private:
     SystemInfoModel* m_model;

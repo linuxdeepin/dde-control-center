@@ -60,6 +60,12 @@ void SyncModule::active()
 
 void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
+    if (DSysInfo::productType() != DSysInfo::Deepin && DSysInfo::productType() != DSysInfo::Uos) {
+        qInfo() << "module: " << displayName() << " is disable now!";
+        m_frameProxy->setModuleVisible(this, false);
+        return;
+    }
+
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
     m_model = new dcc::cloudsync::SyncModel;
