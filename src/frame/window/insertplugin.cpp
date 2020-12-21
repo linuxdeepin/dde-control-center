@@ -64,6 +64,9 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
         instance->setParent(obj);
 
         auto *module = qobject_cast<ModuleInterface *>(instance);
+        if (!module) {
+            return;
+        }
         qDebug() << "load plugin Name;" << module->name() << module->displayName();
         module->setFrameProxy(frameProxy);
 
