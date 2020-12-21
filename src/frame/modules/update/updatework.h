@@ -72,17 +72,12 @@ public:
     void setOnBattery(bool onBattery);
     void setBatteryPercentage(const BatteryPercentageInfo &info);
     void setSystemBatteryPercentage(const double &value);
-#ifndef DISABLE_ACTIVATOR
     void getLicenseState();
-#endif
 
 Q_SIGNALS:
     void requestInit();
     void requestActive();
-
-#ifndef DISABLE_ACTIVATOR
     void requestRefreshLicenseState();
-#endif
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     void requestRefreshMirrors();
@@ -112,10 +107,7 @@ public Q_SLOTS:
     void recoveryCanBackup();
     void recoveryStartRestore();
     void onNotifyDownloadInfoChanged();
-#ifndef DISABLE_ACTIVATOR
     void licenseStateChangeSlot();
-#endif
-
     void refreshHistoryAppsInfo();
     void refreshLastTimeAndCheckCircle();
     void setUpdateNotify(const bool notify);

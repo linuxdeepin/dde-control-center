@@ -158,10 +158,8 @@ public:
 
     bool getIsRecoveryBackingup(UpdatesStatus state) const;
 
-#ifndef DISABLE_ACTIVATOR
     inline UiActiveState systemActivation() const {return m_bSystemActivation;}
     void setSystemActivation(const UiActiveState &systemactivation);
-#endif
 
     inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
     void isUpdatablePackages(bool isUpdatablePackages);
@@ -205,9 +203,7 @@ Q_SIGNALS:
     void recoverConfigValidChanged(bool recoverConfigValid);
     void recoverRestoringChanged(bool recoverRestoring);
     void systemVersionChanged(QString version);
-#ifndef DISABLE_ACTIVATOR
     void systemActivationChanged(UiActiveState systemactivation);
-#endif
     void beginCheckUpdate();
     void updateCheckUpdateTime();
     void updateHistoryAppInfos();
@@ -243,10 +239,7 @@ private:
     bool m_bRecoverRestoring;
     QString m_systemVersionInfo;
     QMetaEnum m_metaEnum;
-
-#ifndef DISABLE_ACTIVATOR
     UiActiveState m_bSystemActivation;
-#endif
 
     QString m_lastCheckUpdateTime; //上次检查更新时间
     QList<AppUpdateInfo> m_historyAppInfos; //历史更新应用列表

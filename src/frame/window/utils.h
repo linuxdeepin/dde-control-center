@@ -100,6 +100,11 @@ inline bool compareVersion(const QString &targetVersion, const QString &baseVers
 
     return true;
 }
+
+inline static bool isDeepinOrUOS() {
+    return DSysInfo::isDeepin() && DSysInfo::productType() != DSysInfo::Uos;
+}
+
 }
 
 #endif // V20_DISPLAY_UTILS_H

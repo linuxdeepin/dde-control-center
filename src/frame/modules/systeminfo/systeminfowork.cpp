@@ -27,6 +27,7 @@
 #include "systeminfomodel.h"
 #include "widgets/basiclistdelegate.h"
 #include "dsysinfo.h"
+#include "window/utils.h"
 
 #include <QFutureWatcher>
 #include <QtConcurrent>
@@ -62,10 +63,12 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
 
-    m_activeInfo = new QDBusInterface("com.deepin.license",
-                                      "/com/deepin/license/Info",
-                                      "com.deepin.license.Info",
-                                      QDBusConnection::systemBus(),this);
+    if (DCC_NAMESPACE::isDeepinOrUOS()) {
+        m_activeInfo = new QDBusInterface("com.deepin.license",
+                                          "/com/deepin/license/Info",
+                                          "com.deepin.license.Info",
+                                          QDBusConnection::systemBus(),this);
+    }
 #if 0
     //预留接口
     m_dbusActivator = new GrubThemeDbus("com.deepin.license",
@@ -101,7 +104,11 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
 
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    if (DCC_NAMESPACE::isDeepinOrUOS()) {
+        connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+        licenseStateChangeSlot();
+    }
+
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
     connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this] (const int &value) {
@@ -129,10 +136,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
         output.remove(idx, 1);
     }
     m_model->setKernel(output);
-
-#ifndef DISABLE_ACTIVATOR
-    licenseStateChangeSlot();
-#endif
 }
 
 void SystemInfoWork::activate()
@@ -283,7 +286,6 @@ void SystemInfoWork::setBackground(const QString &path)
     });
 }
 
-#ifndef DISABLE_ACTIVATOR
 void SystemInfoWork::showActivatorDialog()
 {
     QDBusInterface activator("com.deepin.license.activator",
@@ -302,7 +304,6 @@ void SystemInfoWork::licenseStateChangeSlot()
     QFuture<void> future = QtConcurrent::run(this, &SystemInfoWork::getLicenseState);
     watcher->setFuture(future);
 }
-#endif
 
 void SystemInfoWork::getEntryTitles()
 {
