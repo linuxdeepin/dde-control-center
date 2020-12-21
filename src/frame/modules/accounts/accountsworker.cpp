@@ -237,11 +237,18 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
     } else {
         getAllGroups();
         Q_EMIT m_userModel->deleteUserSuccess();
-        if (m_fingerPrint->ListFingers(user->name()).value().count()) {
-            QDBusPendingReply<> fingerPrintreply = m_fingerPrint->DeleteAllFingers(user->name());
-            fingerPrintreply.waitForFinished();
-            if (fingerPrintreply.isError()) {
-                qDebug() << Q_FUNC_INFO << fingerPrintreply.error().message();
+
+        QDBusPendingReply<> listFingersReply = m_fingerPrint->ListFingers(user->name());
+        listFingersReply.waitForFinished();
+        if (listFingersReply.isError()) {
+            qDebug() << Q_FUNC_INFO << listFingersReply.error().message();
+        } else {
+            if (m_fingerPrint->ListFingers(user->name()).value().count()) {
+                QDBusPendingReply<> delAllFingereply = m_fingerPrint->DeleteAllFingers(user->name());
+                delAllFingereply.waitForFinished();
+                if (delAllFingereply.isError()) {
+                    qDebug() << Q_FUNC_INFO << delAllFingereply.error().message();
+                }
             }
         }
     }
