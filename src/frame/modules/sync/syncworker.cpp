@@ -190,7 +190,7 @@ void SyncWorker::getLicenseState()
         m_model->setActivation(true);
         return;
     }
-    
+
     QDBusInterface licenseInfo("com.deepin.license",
                                "/com/deepin/license/Info",
                                "com.deepin.license.Info",

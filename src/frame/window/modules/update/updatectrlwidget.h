@@ -109,9 +109,7 @@ private:
     bool m_bRecoverRestoring;
     UiActiveState m_activeState;
     dcc::ContentWidget *m_updateList;
-#ifndef DISABLE_ACTIVATOR
     dcc::widgets::TipsLabel *m_authorizationPrompt;
-#endif
 
     QPushButton *m_checkUpdateBtn;
     dcc::widgets::TipsLabel *m_lastCheckTimeTip;

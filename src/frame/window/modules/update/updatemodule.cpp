@@ -26,11 +26,14 @@
 #include "modules/systeminfo/systeminfomodel.h"
 #include "modules/systeminfo/systeminfowork.h"
 #include "widgets/utils.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 #include <QGSettings>
 
 #define GSETTINGS_HIDE_VERSIONTYPR_MODULE "hide-version-type-module"
+
+DCORE_USE_NAMESPACE
 
 using namespace dcc;
 using namespace dcc::update;
@@ -58,6 +61,12 @@ UpdateModule::~UpdateModule()
 
 void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
+    if (!DCC_NAMESPACE::isDeepinOrUOS()) {
+        qInfo() << "module: " << displayName() << " is disable now!";
+        m_frameProxy->setModuleVisible(this, false);
+        return;
+    }
+
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
 
@@ -69,9 +78,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
 
     connect(m_work.get(), &UpdateWorker::requestInit, m_work.get(), &UpdateWorker::init);
     connect(m_work.get(), &UpdateWorker::requestActive, m_work.get(), &UpdateWorker::activate);
-#ifndef DISABLE_ACTIVATOR
     connect(m_work.get(), &UpdateWorker::requestRefreshLicenseState, m_work.get(), &UpdateWorker::licenseStateChangeSlot);
-#endif
 
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     connect(m_work.get(), &UpdateWorker::requestRefreshMirrors, m_work.get(), &UpdateWorker::refreshMirrors);
@@ -141,12 +148,15 @@ void UpdateModule::active()
     connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work.get(), &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
     connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work.get(), &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
 
-    m_updateWidget = new UpdateWidget;
-    m_updateWidget->setVisible(false);
-    m_updateWidget->initialize();
-#ifndef DISABLE_ACTIVATOR
+    UpdateWidget *mainWidget = new UpdateWidget;
+    mainWidget->setVisible(false);
+    mainWidget->initialize();
+
     Q_EMIT m_work->requestRefreshLicenseState();
-#endif
+
+    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
+        mainWidget->setSystemVersion(m_model->systemVersionInfo());
+    }
 
     m_updateWidget->setModel(m_model, m_work.get());
 

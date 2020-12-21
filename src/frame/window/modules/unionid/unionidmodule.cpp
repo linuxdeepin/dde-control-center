@@ -75,6 +75,12 @@ void UnionidModule::active()
 
 void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
+    if (!DCC_NAMESPACE::isDeepinOrUOS()) {
+        qInfo() << "module: " << displayName() << " is disable now!";
+        m_frameProxy->setModuleVisible(this, false);
+        return;
+    }
+
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
     m_model = new dcc::unionid::UnionidModel;
