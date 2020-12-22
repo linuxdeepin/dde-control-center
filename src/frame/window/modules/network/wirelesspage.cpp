@@ -500,7 +500,7 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
     qDebug() <<"click enable , set Enable =" << checked;
     //网卡开关
-    Q_EMIT m_model->requestDeviceEnable(m_device->path(), checked);
+    m_model->onDeviceEnable(m_device->path(), checked);
     onSwitch(checked);
     //开启的时候将开关禁用500毫秒，为了防止用户疯狂操作，导致wifi状态切换频繁
     m_switch->switchButton()->setEnabled(false);
