@@ -91,7 +91,7 @@ void RecognizeDialog::onScreenRectChanged()
 {
     const auto ratio = devicePixelRatioF();
 
-    QRect r(0, 0, m_model->screenWidth(), m_model->screenHeight());
+    QRect r(0, 0, m_model->screenWidth() / ratio, m_model->screenHeight() / ratio);
 
     const QScreen *screen = screenForGeometry(r);
 
