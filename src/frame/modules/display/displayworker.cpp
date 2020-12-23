@@ -330,7 +330,8 @@ void DisplayWorker::modifyConfigName(const QString &oldName, const QString &newN
 void DisplayWorker::switchMode(const int mode, const QString &name)
 {
     qDebug() << Q_FUNC_INFO << mode << name;
-
+    if (m_model->monitorList().size() < 2)
+        return ;
     m_displayInter.SwitchMode(static_cast<uchar>(mode), name).waitForFinished();
 }
 
