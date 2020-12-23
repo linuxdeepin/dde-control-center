@@ -273,6 +273,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_switchEnableTimer(new QTimer(this))
+    , m_clickedTimer(new QTimer(this))
 {
     initUI();
     qRegisterMetaType<APSortInfo>();
@@ -282,6 +283,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     //wifi开关禁用定时器
     m_switchEnableTimer->setInterval(500);
     m_switchEnableTimer->setSingleShot(true);
+    //禁止疯狂切换wifi的定时器
+    m_clickedTimer->setInterval(1000);
+    m_clickedTimer->setSingleShot(true);
+
     initConnect();
 }
 
@@ -772,8 +777,9 @@ void WirelessPage::onClickApItem(const QModelIndex & idx)
        return;
     }
     //当点击同一个wifi的时候，不再响应
-    if (deviceModel->item(idx.row()) == m_clickItem)
+    if (deviceModel->item(idx.row()) == m_clickItem && m_clickedTimer->isActive())
         return;
+    m_clickedTimer->start();
     m_clickItem = dynamic_cast<APItem *>(deviceModel->item(idx.row()));
     if (!m_clickItem) {
        qDebug() << "clicked item is nullptr";

@@ -320,7 +320,8 @@ private:
     QStandardItemModel *m_modelAP;
     int m_layoutCount;
     QPointer<ConnectionWirelessEditPage> m_apEditPage;
-
+    //防止用户疯狂点击一个wifi的QTimer
+    QTimer *m_clickedTimer;
     QTimer *m_sortDelayTimer;
     //禁用wifi开关控件，防止用户对wifi开关疯狂操作
     QTimer *m_switchEnableTimer;
