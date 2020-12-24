@@ -114,11 +114,11 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
 #endif
 
     Q_EMIT m_work->requestInit();
+    Q_EMIT m_work->requestActive();
 }
 
 void UpdateModule::initialize()
 {
-    Q_EMIT m_work->requestActive();
 }
 
 const QString UpdateModule::name() const
