@@ -457,11 +457,9 @@ void CustomSettingDialog::initMoniList()
         for (int idx = 0; idx < moniList.size(); ++idx) {
             m_displayComboxWidget->comboBox()->addItem(moniList[idx]->name());
 
-            if (!m_model->isMerge()) {
-                if (!moniList[idx]->enable()) {
-                    QVariant v(0);      //+ 禁用item
-                    m_displayComboxWidget->comboBox()->model()->setData(m_displayComboxWidget->comboBox()->model()->index(idx, 0), v, Qt::UserRole - 1);
-                }
+            if (!moniList[idx]->enable()) {
+                QVariant v(0);      //+ 禁用item
+                m_displayComboxWidget->comboBox()->model()->setData(m_displayComboxWidget->comboBox()->model()->index(idx, 0), v, Qt::UserRole - 1);
             }
             if (moniList[idx]->name() == m_model->primary()) {
                 m_displayComboxWidget->comboBox()->setCurrentIndex(idx);
