@@ -168,6 +168,10 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     connect(m_model, &ShortcutModel::shortcutChanged, this, &ShortCutSettingWidget::onShortcutChanged);
     connect(m_model, &ShortcutModel::keyEvent, this, &ShortCutSettingWidget::onKeyEvent);
     connect(m_model, &ShortcutModel::searchFinished, this, &ShortCutSettingWidget::onSearchStringFinish);
+
+    // TODO：klu暂时屏蔽添加自定义快捷键功能
+    m_resetBtn->setVisible(false);
+    m_addCustomShortcut->setVisible(false);
 }
 
 ShortCutSettingWidget::~ShortCutSettingWidget()

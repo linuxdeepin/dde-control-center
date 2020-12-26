@@ -164,6 +164,10 @@ void ShortcutItem::updateTitleSize()
 
 void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
 {
+    // TODO：klu暂时屏蔽修改快捷键功能
+    Q_UNUSED(e)
+    return;
+
     if (m_delBtn->isVisible())
         return;
 
