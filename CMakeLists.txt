@@ -58,7 +58,7 @@ install(FILES ${QM_FILES} DESTINATION share/dde-control-center/translations)
 
 #desktop
 install(FILES dde-control-center.desktop DESTINATION share/applications)
-install(FILES dde-control-center-wapper DESTINATION bin PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+install(FILES dde-control-center-dbus.desktop DESTINATION share/applications)
 
 #schemas
 install(FILES com.deepin.dde.control-center.gschema.xml DESTINATION share/glib-2.0/schemas)
