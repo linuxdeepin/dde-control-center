@@ -234,6 +234,7 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
     reply.waitForFinished();
     if (reply.isError()) {
         qDebug() << Q_FUNC_INFO << reply.error().message();
+        Q_EMIT m_userModel->isCancelChanged();
     } else {
         getAllGroups();
         Q_EMIT m_userModel->deleteUserSuccess();

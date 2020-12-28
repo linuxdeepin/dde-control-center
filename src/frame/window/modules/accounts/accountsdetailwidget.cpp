@@ -59,6 +59,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_groupItemModel(nullptr)
     , m_avatarLayout(new QHBoxLayout)
     , m_tipDialog(nullptr)
+    , m_deleteAccount(new DWarningButton)
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -132,6 +133,8 @@ void AccountsDetailWidget::deleteUserClicked()
 
     if (ret == 1) {
         Q_EMIT requestDeleteAccount(m_curUser, d.deleteHome());
+    } else {
+        m_deleteAccount->setEnabled(true);
     }
 }
 
@@ -321,13 +324,12 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 {
     QPushButton *modifyPassword = new QPushButton;
-    DWarningButton *deleteAccount = new DWarningButton;
 
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
     modifydelLayout->addWidget(modifyPassword);
     modifydelLayout->addSpacing(10);
-    modifydelLayout->addWidget(deleteAccount);
+    modifydelLayout->addWidget(m_deleteAccount);
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
@@ -405,7 +407,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
     //~ contents_path /accounts/Accounts Detail
-    deleteAccount->setText(tr("Delete Account"));
+    m_deleteAccount->setText(tr("Delete Account"));
     //~ contents_path /accounts/Accounts Detail
     m_autoLogin->setTitle(tr("Auto Login"));
     m_autoLogin->setChecked(m_curUser->autoLogin());
@@ -414,9 +416,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     //当前用户禁止使用删除按钮
-    deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
-    connect(m_curUser, &User::onlineChanged, deleteAccount, [ = ](const bool online) {
-        deleteAccount->setEnabled(!online && !m_curUser->isCurrentUser());
+    m_deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
+    connect(m_curUser, &User::onlineChanged, m_deleteAccount, [ = ](const bool online) {
+        m_deleteAccount->setEnabled(!online && !m_curUser->isCurrentUser());
     });
 
     //修改密码
@@ -425,7 +427,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     });
 
     //删除用户
-    connect(deleteAccount, &DWarningButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
+    connect(m_deleteAccount, &DWarningButton::clicked, this, [ = ] {
+        m_deleteAccount->setEnabled(false);
+        deleteUserClicked();
+    });
 
     //自动登录，无密码登录操作
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
@@ -547,9 +552,14 @@ void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
     m_avatarLayout->setContentsMargins(w / 2 - 1, 0, 0, 0);
 }
 
-void AccountsDetailWidget::setAllGroups(const QStringList &groups)
+void AccountsDetailWidget::setAllGroups()
 {
     setAccountModel(m_userModel);
+}
+
+void AccountsDetailWidget::resetDelButtonState()
+{
+    m_deleteAccount->setEnabled(true);
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
