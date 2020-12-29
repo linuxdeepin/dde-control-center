@@ -975,7 +975,7 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
         const QString &id = jobInter.id();
 
         qDebug() << "[wubw] onJobListChanged, id : " << id << " , m_jobPath : " << m_jobPath;
-        if (id == "update_source") {
+        if (id == "update_source" || id == "custom_update") {
             QTimer::singleShot(0, this, [this]() {
                 setCheckUpdatesJob(m_jobPath);
             });
