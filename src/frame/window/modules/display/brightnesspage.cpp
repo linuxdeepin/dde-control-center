@@ -140,7 +140,6 @@ void BrightnessPage::addSlider()
 
 
         auto onValueChanged = [ = ](int pos) {
-            slideritem->setValueLiteral(QString("%1%").arg(pos));
             this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
             this->requestAmbientLightAdjustBrightness(false);
         };
@@ -150,16 +149,20 @@ void BrightnessPage::addSlider()
 
         connect(monList[i], &Monitor::brightnessChanged, this, [ = ](const double rb) {
             qDebug() << "received Monitor::brightnessChanged" << rb << sender()->objectName();
+            if (slideritem->isSliderPressed()) {
+                return;
+            }
             slider->blockSignals(true);
             int iValue = 0;
             if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
                 iValue = qRound(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
+                slideritem->setValueLiteral(QString("%1%").arg(iValue));
+                slider->setValue(iValue);
             } else {
                 iValue = qRound(rb * BrightnessMaxScale);
-            }
-
-            if (!slideritem->isSliderPressed())
+                slideritem->setValueLiteral(QString("%1%").arg(iValue));
                 slider->setValue(iValue);
+            }
             slider->blockSignals(false);
         });
 
