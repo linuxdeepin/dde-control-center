@@ -325,8 +325,8 @@ void CreateAccountPage::createUser()
     //校验输入的用户名和密码
     if (!checkName()
         || !checkFullname()
-        || !checkPassward(m_passwdEdit)
-        || !checkPassward(m_repeatpasswdEdit)) {
+        || !checkPassword(m_passwdEdit)
+        || !checkPassword(m_repeatpasswdEdit)) {
         return;
     }
 
@@ -502,93 +502,8 @@ bool CreateAccountPage::checkFullname()
     return true;
 }
 
-bool CreateAccountPage::checkPassward(DPasswordEdit *edit)
+bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
 {
-    PassWordType passwordtype = PassWordType::NormalPassWord;
-    const QString &userpassword = edit->lineEdit()->text();
-    QGSettings setting("com.deepin.dde.control-center", QByteArray());
-    if (setting.get("account-password-type").toString() == "IncludeBlankSymbol")
-        passwordtype = PassWordType::IncludeBlankSymbol;
-
-    if (userpassword.isEmpty()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
-        return false;
-    }
-
-    int passResult = PwqualityManager::instance()->verifyPassword(userpassword);
-    QString blanksymbolstr =  tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols")
-            .arg(PwqualityManager::instance()->getPasswordMinLength())
-            .arg(PwqualityManager::instance()->getValidateRequiredString());
-
-    switch (passResult)
-    {
-    case ENUM_PASSWORD_NOTEMPTY:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
-        return false;
-    case ENUM_PASSWORD_TOOSHORT:
-        edit->setAlert(true);
-        if (passwordtype == PassWordType::NormalPassWord)
-            edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), edit, 2000);
-        if (passwordtype == PassWordType::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, edit, 2000);
-        return false;
-    case ENUM_PASSWORD_TOOLONG:
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(PwqualityManager::instance()->getPasswordMaxLength()), edit, 2000);
-        return false;
-    case ENUM_PASSWORD_TYPE:
-        edit->setAlert(true);
-        if (passwordtype == PassWordType::NormalPassWord)
-            edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), edit, 2000);
-        if (passwordtype == PassWordType::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, edit, 2000);
-        return false;
-    case ENUM_PASSWORD_CHARACTER:
-        edit->setAlert(true);
-        if (passwordtype == PassWordType::NormalPassWord)
-            edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), edit, 2000);
-        if (passwordtype == PassWordType::IncludeBlankSymbol)
-            edit->showAlertMessage(blanksymbolstr, edit, 2000);
-        return false;
-    case ENUM_PASSWORD_SEVERAL:
-        edit->setAlert(true);
-        edit->showAlertMessage(blanksymbolstr, edit, 2000);
-        return false;
-    case ENUM_PASSWORD_PALINDROME:
-        if (passwordtype == PassWordType::NormalPassWord) {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"), edit, 2000);
-            return false;
-        }
-        break;
-    case ENUM_PASSWORD_DICT_FORBIDDEN:
-        if (passwordtype == PassWordType::NormalPassWord) {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("Password must not contain common words and combinations"), edit, 2000);
-            return false;
-        }
-        break;
-    }
-
-    if (passwordtype == PassWordType::IncludeBlankSymbol) {
-        QString reversusername;
-        QStringList reversenamelist;
-
-        for (int i = m_nameEdit->lineEdit()->text().count() - 1; i > -1; i--) {
-            reversenamelist << m_nameEdit->lineEdit()->text().at(i);
-        }
-        reversusername = reversenamelist.join("");
-
-        //密码不可为用户名重复或倒置
-        if (userpassword == m_nameEdit->lineEdit()->text() || userpassword == reversusername) {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("Password should not be the repeated or reversed username"), edit, 2000);
-            return false;
-        }
-    }
-
     if (edit == m_repeatpasswdEdit) {
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
             m_repeatpasswdEdit->setAlert(true);
@@ -596,5 +511,17 @@ bool CreateAccountPage::checkPassward(DPasswordEdit *edit)
             return false;
         }
     }
+
+    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(), edit->lineEdit()->text(),
+                                                                                      PwqualityManager::CREATE_USER);
+    if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+        edit->setAlert(true);
+        edit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+        return false;
+    } else {
+        edit->setAlert(false);
+        edit->hideAlertMessage();
+    }
+
     return true;
 }

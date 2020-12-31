@@ -31,7 +31,8 @@ Build-Depends:
  libxcb-ewmh-dev,
  libudisks2-qt5-dev,
  qtmultimedia5-dev,
- libgtest-dev
+ libgtest-dev,
+ libdeepin-pw-check-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
@@ -51,6 +52,7 @@ Depends: ${shlibs:Depends},
  uos-license-content,
  deepin-recovery-tool,
  libglib2.0-0,
+ libdeepin-pw-check,
  libdframeworkdbus2 (>=5.3.0.24),
  libdde-network-utils(>=5.3.0.5)
 Recommends: netselect, deepin-ab-recovery
