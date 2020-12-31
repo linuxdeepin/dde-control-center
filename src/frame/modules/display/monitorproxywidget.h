@@ -27,7 +27,6 @@
 #define MONITORPROXYWIDGET_H
 
 #include <QWidget>
-#include <memory>
 
 namespace dcc {
 
@@ -64,8 +63,8 @@ protected:
     void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
 
 private:
-    Monitor *m_monitor{nullptr};
-    DisplayModel *m_model{nullptr};
+    Monitor *m_monitor;
+    DisplayModel *m_model;
 
     int m_movedX;
     int m_movedY;

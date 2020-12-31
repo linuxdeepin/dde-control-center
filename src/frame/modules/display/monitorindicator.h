@@ -27,7 +27,6 @@
 #define MONITORFULLWIDGET_H
 
 #include <DPlatformWindowHandle>
-#include <DWindowManagerHelper>
 #include <QFrame>
 
 DWIDGET_USE_NAMESPACE
@@ -46,7 +45,8 @@ protected:
     void resizeEvent(QResizeEvent *e);
 };
 
-}
-}
+} // namespace display
+
+} // namespace dcc
 
 #endif // MONITORFULLWIDGET_H

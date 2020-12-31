@@ -57,21 +57,28 @@ public:
     inline quint16 rotate() const { return m_rotate; }
     inline double brightness() const { return m_brightness; }
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
-    inline const QString name() const { Q_ASSERT(!m_name.isEmpty()); return m_name; }
-    inline const QString manufacturer() const { Q_ASSERT(!m_manufacturer.isEmpty()); return m_manufacturer; }
-    inline const QString model() const { Q_ASSERT(!m_model.isEmpty()); return m_model; }
+    inline const QString name() const
+    {
+        Q_ASSERT(!m_name.isEmpty());
+        return m_name;
+    }
+    inline const QString manufacturer() const
+    {
+        Q_ASSERT(!m_manufacturer.isEmpty());
+        return m_manufacturer;
+    }
+    inline const QString model() const
+    {
+        Q_ASSERT(!m_model.isEmpty());
+        return m_model;
+    }
     inline const bool canBrightness() const { return m_canBrightness; }
     inline const QString path() const { return m_path; }
     inline const Resolution currentMode() const { return m_currentMode; }
     inline const QList<quint16> rotateList() const { return m_rotateList; }
     inline const QList<Resolution> modeList() const { return m_modeList; }
     inline bool enable() const { return m_enable; }
-    inline QPoint getLastPoint() {return m_lastPoint; }
     inline const Resolution bestMode() const { return m_bestMode; }
-    void setLastPoint(int x, int y) {
-        m_lastPoint.setX(x);
-        m_lastPoint.setY(y);
-    }
 
 Q_SIGNALS:
     void geometryChanged() const;
@@ -87,8 +94,8 @@ Q_SIGNALS:
     void enableChanged(bool enable) const;
 
 public:
-    static bool isSameResolution(const Resolution &r1,const Resolution &r2);
-    static bool isSameRatefresh(const Resolution &r1,const Resolution &r2);
+    static bool isSameResolution(const Resolution &r1, const Resolution &r2);
+    static bool isSameRatefresh(const Resolution &r1, const Resolution &r2);
     bool hasResolution(const Resolution &r);
     bool hasResolutionAndRate(const Resolution &r);
     bool hasRatefresh(const double r);
@@ -120,7 +127,6 @@ private:
     int m_y;
     int m_w;
     int m_h;
-    QPoint m_lastPoint;
     uint m_mmWidth;
     uint m_mmHeight;
     double m_scale;
@@ -133,8 +139,6 @@ private:
     QString m_primary;
     Resolution m_currentMode;
     QList<quint16> m_rotateList;
-//    QList<QPair<int, int>> m_resolutionList;
-//    QList<double> m_refreshList;
     QList<Resolution> m_modeList;
     bool m_enable;
     bool m_canBrightness;

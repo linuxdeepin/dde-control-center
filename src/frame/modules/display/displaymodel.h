@@ -33,10 +33,10 @@
 #include "types/touchscreeninfolist.h"
 #include "types/touchscreenmap.h"
 
-#define CUSTOM_MODE     0
-#define MERGE_MODE      1
-#define EXTEND_MODE     2
-#define SINGLE_MODE     3
+#define CUSTOM_MODE 0
+#define MERGE_MODE 1
+#define EXTEND_MODE 2
+#define SINGLE_MODE 3
 
 namespace dcc {
 
@@ -48,8 +48,6 @@ class DisplayModel : public QObject
     Q_OBJECT
 
 public:
-    static const QString DDE_Display_Config;
-
     friend class DisplayWorker;
 
 public:
@@ -61,27 +59,26 @@ public:
     inline int displayMode() const { return m_mode; }
     inline double uiScale() const { return m_uiScale; }
     inline double minimumBrightnessScale() const { return m_minimumBrightnessScale; }
-    inline const QString primary() const { Q_ASSERT(!m_primary.isEmpty()); return m_primary; }
-    inline const QString config() const { return m_currentConfig; }
-    inline const QStringList configList() const { return m_configList; }
+    inline const QString primary() const
+    {
+        Q_ASSERT(!m_primary.isEmpty());
+        return m_primary;
+    }
     inline const QList<Monitor *> monitorList() const { return m_monitors; }
-    const QList<Resolution> monitorsSameModeList() const;
     Monitor *primaryMonitor() const;
-
-    bool monitorsIsIntersect() const;
 
     bool isNightMode() const;
     void setIsNightMode(bool isNightMode);
 
     bool redshiftIsValid() const;
 
-    inline int adjustCCTMode() const {return  m_adjustCCTMode; }
+    inline int adjustCCTMode() const { return m_adjustCCTMode; }
     void setAdjustCCTmode(int mode);
 
-    inline int colorTemperature() const {return  m_colorTemperature; }
+    inline int colorTemperature() const { return m_colorTemperature; }
     void setColorTemperature(int value);
 
-    inline bool autoLightAdjustIsValid() const { return m_AutoLightAdjustIsValid;}
+    inline bool autoLightAdjustIsValid() const { return m_AutoLightAdjustIsValid; }
 
     inline bool isAudtoLightAdjust() const { return m_isAutoLightAdjust; }
     void setAutoLightAdjust(bool);
@@ -95,44 +92,39 @@ public:
     inline TouchscreenMap touchMap() const { return m_touchMap; }
     void setTouchMap(const TouchscreenMap &touchMap);
 
-    inline std::pair<int, QString> lastConfig() const { return m_lastConfig; }
-    void setLastConfig(const std::pair<int, QString> &lastConfig);
-
     inline bool allowEnableMultiScaleRatio() { return m_allowEnableMultiScaleRatio; }
     void setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio);
-
-    inline bool isMerge() const { return m_isMerged; }
-    void setIsMerge(bool isMerge);
-
-    inline bool mouseLeftHand() const { return m_mouseLeftHand;}
 
     inline bool isRefreshRateEnable() const { return m_RefreshRateEnable; }
     void setRefreshRateEnable(bool isEnable);
 
     inline uint maxBacklightBrightness() const { return m_maxBacklightBrightness; }
 
+    inline bool resolutionRefreshEnable() const { return m_resolutionRefreshEnable; }
+    void setResolutionRefreshEnable(const bool enable);
+
+    inline bool brightnessEnable() const { return m_brightnessEnable; }
+    void setBrightnessEnable(const bool enable);
+
 Q_SIGNALS:
-    void isMergeChange(bool isMerge) const;
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
     void displayModeChanged(const int mode) const;
     void uiScaleChanged(const double scale) const;
     void minimumBrightnessScaleChanged(const double) const;
     void primaryScreenChanged(const QString &primary) const;
-    void currentConfigChanged(const QString &config) const;
-    void configCreated(const QString &config) const;
-    void configListChanged(const QStringList &configs) const;
     void monitorListChanged() const;
     void nightModeChanged(const bool nightmode) const;
     void redshiftVaildChanged(const bool isvalid) const;
     void autoLightAdjustSettingChanged(bool setting) const;
     void autoLightAdjustVaildChanged(bool isvalid) const;
-    void mouseLeftHandChanged(bool isLeft) const;
     void touchscreenListChanged() const;
     void touchscreenMapChanged() const;
-    void maxBacklightBrightnessChanged (uint value);
+    void maxBacklightBrightnessChanged(uint value);
     void adjustCCTmodeChanged(int mode);
     void colorTemperatureChanged(int value);
+    void resolutionRefreshEnableChanged(const bool enable);
+    void brightnessEnableChanged(const bool enable);
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -141,38 +133,33 @@ private Q_SLOTS:
     void setUIScale(const double scale);
     void setMinimumBrightnessScale(const double scale);
     void setPrimary(const QString &primary);
-    void setCurrentConfig(const QString &config);
-    void setConfigList(const QStringList &configList);
     void setRedshiftIsValid(bool redshiftIsValid);
     void monitorAdded(Monitor *mon);
     void monitorRemoved(Monitor *mon);
     void setAutoLightAdjustIsValid(bool);
-    void setMouseLeftHand(bool isLeft);
     void setmaxBacklightBrightness(const uint value);
+
 private:
     int m_screenHeight;
     int m_screenWidth;
-    int m_mode{-1};
-    int m_colorTemperature{0};    //当前色温对应的颜色值
-    int m_adjustCCTMode{0};       //当前自动调节色温模式   0  不开启      1  自动调节    2 手动调节
+    int m_mode {-1};
+    int m_colorTemperature {0}; //当前色温对应的颜色值
+    int m_adjustCCTMode {0}; //当前自动调节色温模式   0  不开启      1  自动调节    2 手动调节
     double m_uiScale;
     double m_minimumBrightnessScale;
     QString m_primary;
-    QString m_currentConfig;
-    QStringList m_configList;
     QList<Monitor *> m_monitors;
     bool m_redshiftIsValid;
-    bool m_RefreshRateEnable{false};
-    bool m_isAutoLightAdjust{false};
-    bool m_AutoLightAdjustIsValid{false};
+    bool m_RefreshRateEnable {false};
+    bool m_isAutoLightAdjust {false};
+    bool m_AutoLightAdjustIsValid {false};
     bool m_allowEnableMultiScaleRatio;
-    bool m_mouseLeftHand{false};
-    bool m_isMerged;
+    bool m_resolutionRefreshEnable;
+    bool m_brightnessEnable;
     BrightnessMap m_brightnessMap;
     TouchscreenInfoList m_touchscreenList;
     TouchscreenMap m_touchMap;
-    std::pair<int, QString> m_lastConfig;
-    uint m_maxBacklightBrightness{0};
+    uint m_maxBacklightBrightness {0};
 };
 
 } // namespace display

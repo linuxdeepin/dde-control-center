@@ -26,9 +26,12 @@
 #ifndef MONITORCONTROLWIDGET_H
 #define MONITORCONTROLWIDGET_H
 
-#include "iconbutton.h"
 #include <QFrame>
+
+QT_BEGIN_NAMESPACE
+class QVBoxLayout;
 class QPushButton;
+QT_END_NAMESPACE
 
 namespace dcc {
 
@@ -44,22 +47,23 @@ class MonitorControlWidget : public QFrame
 public:
     explicit MonitorControlWidget(QWidget *parent = nullptr);
 
-    void setDisplayModel(DisplayModel *model, Monitor *moni);
-    void setScreensMerged(const bool merged);
+    void setModel(DisplayModel *model, Monitor *moni = nullptr);
+    void setScreensMerged(const int mode);
 
 Q_SIGNALS:
     void requestRecognize() const;
-    void requestMerge() const;
-    void requestSplit() const;
+    void requestGatherWindows(const QPoint cursor) const;
     void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
 
+public Q_SLOTS:
+    void onGatherEnabled(const bool enable);
+
 private:
     MonitorsGround *m_screensGround;
-    IconButton *m_recognize;
-    IconButton *m_split;
-    IconButton *m_join;
+    QPushButton *m_recognize;
+    QPushButton *m_gather;
 };
 
 } // namespace display

@@ -43,7 +43,6 @@ Monitor::Monitor(QObject *parent)
     , m_enable(false)
     , m_canBrightness(true)
 {
-
 }
 
 void Monitor::setX(const int x)
@@ -176,23 +175,17 @@ bool compareResolution(const Resolution &first, const Resolution &second)
 {
     long firstSum = long(first.width()) * first.height();
     long secondSum = long(second.width()) * second.height();
-    if (firstSum > secondSum)
+    if (firstSum > secondSum
+        || (firstSum == secondSum && (first.rate() - second.rate()) > 0.000001)) {
         return true;
-    else if (firstSum == secondSum) {
-        if ((first.rate() - second.rate()) > 0.000001)
-            return true;
-        else
-            return false;
-    } else
-        return false;
+    }
 
+    return false;
 }
 
 void Monitor::setModeList(const ResolutionList &modeList)
 {
     m_modeList.clear();
-
-    Resolution preResolution;
     // NOTE: ignore resolution less than 1024x768
     for (auto m : modeList) {
         if (m.width() >= 1024 && m.height() >= 768) {
@@ -244,9 +237,7 @@ bool Monitor::hasResolution(const Resolution &r)
 bool Monitor::hasResolutionAndRate(const Resolution &r)
 {
     for (auto m : m_modeList) {
-        if (fabs(m.rate() - r.rate()) < 0.000001 &&
-                m.width() == r.width() &&
-                m.height() == r.height()) {
+        if (fabs(m.rate() - r.rate()) < 0.000001 && m.width() == r.width() && m.height() == r.height()) {
             return true;
         }
     }

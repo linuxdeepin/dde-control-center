@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 3</title>
+    <g id="桌面版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="显示-多屏拆分" transform="translate(-692.000000, -434.000000)">
+            <g id="控制中心备份-3" transform="translate(103.000000, 183.000000)">
+                <g id="分辨率-+-亮度-+-色温-+-编组-+-编组-4-+-编组-蒙版" transform="translate(198.000000, 60.000000)">
+                    <g id="编组-4" transform="translate(126.000000, 181.000000)">
+                        <g id="编组-3" transform="translate(265.000000, 10.000000)">
+                            <rect id="矩形" x="0" y="0" width="16" height="16"></rect>
+                            <polygon id="矩形" fill="#536076" transform="translate(8.000000, 6.500000) rotate(-315.000000) translate(-8.000000, -6.500000) " points="5.17157288 3.67157288 12.2426407 2.25735931 10.8284271 9.32842712 3.75735931 10.7426407"></polygon>
+                            <polyline id="路径-7" stroke="#536076" points="2 8.5 8 12.5 14 8.5"></polyline>
+                            <polyline id="路径-7备份" stroke="#536076" points="2 11 8 15 14 11"></polyline>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

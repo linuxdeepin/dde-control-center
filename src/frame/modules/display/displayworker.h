@@ -33,14 +33,12 @@
 #include <com_deepin_daemon_display.h>
 #include <com_deepin_daemon_appearance.h>
 #include <com_deepin_daemon_power.h>
-#include <com_deepin_daemon_inputdevice_mouse.h>
 
 #include <QGSettings>
 
 using DisplayInter = com::deepin::daemon::Display;
 using AppearanceInter = com::deepin::daemon::Appearance;
 using PowerInter = com::deepin::daemon::Power;
-using MouseInter = com::deepin::daemon::inputdevice::Mouse;
 
 namespace dcc {
 
@@ -59,28 +57,13 @@ public:
 
 public Q_SLOTS:
     void saveChanges();
-    void discardChanges();
-    void mergeScreens();
-    void splitScreens();
-    void duplicateMode();
-    void extendMode();
-    void onlyMonitor(const QString &monName);
-    void createConfig(const QString &config);
-    void switchConfig(const QString &config);
-    void deleteConfig(const QString &config);
-    void modifyConfigName(const QString &oldName, const QString &newName);
-    void switchMode(const int mode, const QString &name = QString());
-    void setPrimary(const int index);
-    void setPrimaryByName(const QString &name);
-    void setMonitorEnable(Monitor *mon, const bool enabled);
+    void switchMode(const int mode, const QString &name);
+    void setPrimary(const QString &name);
+    void setMonitorEnable(Monitor *monitor, const bool enable);
     void applyChanges();
-    //响应自定义模式下，禁用/启用指定屏幕并排列位置
-    void onMonitorEnable(Monitor *monitor, const bool enabled);
     void setColorTemperature(int value);
     void SetMethodAdjustCCT(int mode);
-
 #ifndef DCC_DISABLE_ROTATE
-    void setMonitorRotateAll(const quint16 rotate);
     void setMonitorRotate(Monitor *mon, const quint16 rotate);
 #endif
     void setMonitorResolution(Monitor *mon, const int mode);
@@ -89,22 +72,16 @@ public Q_SLOTS:
     void setUiScale(const double value);
     void setIndividualScaling(Monitor *m, const double scaling);
     void setNightMode(const bool nightmode);
-    void record(); // save mutilScreenConfig
-    void restore(); // restore mutilScreenConfig
     void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial);
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
-
-public Q_SLOTS:
     void setAmbientLightAdjustBrightness(bool);
 
 private Q_SLOTS:
     void onGSettingsChanged(const QString &key);
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
-    void onModifyConfigNameFinished(QDBusPendingCallWatcher *w);
     void onGetScaleFinished(QDBusPendingCallWatcher *w);
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
-    void onCreateConfigFinshed(QDBusPendingCallWatcher *w);
 
 private:
     void monitorAdded(const QString &path);
@@ -120,8 +97,7 @@ private:
     double m_currentScale;
     bool m_updateScale;
 
-    PowerInter *m_powerInter{nullptr};
-    MouseInter *m_mouseInter{nullptr};
+    PowerInter *m_powerInter;
 };
 
 } // namespace display

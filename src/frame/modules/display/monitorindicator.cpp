@@ -25,13 +25,10 @@
 
 #include "monitorindicator.h"
 
-#include <QPainter>
-#include <QPainterPath>
 #include <QResizeEvent>
 #include <QX11Info>
 
 #include <X11/extensions/shape.h>
-#include <X11/Xregion.h>
 
 using namespace dcc;
 using namespace dcc::display;

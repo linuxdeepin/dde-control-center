@@ -62,10 +62,10 @@
 #include "./modules/defapp/defappdetailwidget.h"
 
 #include "./modules/display/displaywidget.h"
-#include "./modules/display/scalingpage.h"
-#include "./modules/display/resolutiondetailpage.h"
-#include "./modules/display/brightnesspage.h"
-#include "./modules/display/refreshratepage.h"
+#include "./modules/display/scalingwidget.h"
+#include "./modules/display/resolutionwidget.h"
+#include "./modules/display/brightnesswidget.h"
+#include "./modules/display/refreshratewidget.h"
 
 #include "./modules/keyboard/keyboardwidget.h"
 #include "./modules/keyboard/generalkbsettingwidget.h"
@@ -202,10 +202,10 @@ using namespace DCC_NAMESPACE::display;
 using namespace dcc::widgets;
 
 SET_FORM_ACCESSIBLE(DisplayWidget, "DisplayWidget")
-SET_FORM_ACCESSIBLE(ScalingPage, "ScalingPage")
-SET_FORM_ACCESSIBLE(ResolutionDetailPage, "ResolutionDetailPage")
-SET_FORM_ACCESSIBLE(BrightnessPage, "BrightnessPage")
-SET_FORM_ACCESSIBLE(RefreshRatePage, "RefreshRatePage")
+SET_FORM_ACCESSIBLE(ScalingWidget, "ScalingWidget")
+SET_FORM_ACCESSIBLE(ResolutionWidget, "ResolutionWidget")
+SET_FORM_ACCESSIBLE(BrightnessWidget, "BrightnessWidget")
+SET_FORM_ACCESSIBLE(RefreshRateWidget, "RefreshRateWidget")
 
 // 键盘模块
 using namespace DCC_NAMESPACE::keyboard;
@@ -374,11 +374,11 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
 
     // 屏幕模块
     USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), DisplayWidget);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), ScalingPage);
+    USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), ScalingWidget);
     USE_ACCESSIBLE(QString(classname).replace("dcc::widgets::", ""), TitledSliderItem);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), ResolutionDetailPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), BrightnessPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), RefreshRatePage);
+    USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), ResolutionWidget);
+    USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), BrightnessWidget);
+    USE_ACCESSIBLE(QString(classname).replace("dccV20::display::", ""), RefreshRateWidget);
 
     // 键盘模块
     USE_ACCESSIBLE(QString(classname).replace("dccV20::keyboard::", ""), KeyboardWidget);

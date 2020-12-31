@@ -19,99 +19,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DISPLAYWIDGET_H_V20
-#define DISPLAYWIDGET_H_V20
+#ifndef DISPLAYWIDGET_H
+#define DISPLAYWIDGET_H
 
 #include "interface/namespace.h"
-#include "window/utils.h"
-
-#include <DFloatingButton>
-#include <DListView>
-
-#include <QModelIndex>
-#include <QPoint>
-#include <QGSettings>
-
-QT_BEGIN_NAMESPACE
-class QListView;
-class QStandardItemModel;
-class QVBoxLayout;
-QT_END_NAMESPACE
+#include "widgets/contentwidget.h"
 
 namespace dcc {
-
 namespace display {
 class DisplayModel;
 }
 
-namespace widgets {
-class MultiSelectListView;
-}
-}
+} // namespace dcc
 
 namespace DCC_NAMESPACE {
 
 namespace display {
 
-class DisplayWidget : public QWidget
+class DisplayWidget : public dcc::ContentWidget
 {
     Q_OBJECT
 public:
-    explicit DisplayWidget(dcc::display::DisplayModel *model, QWidget *parent = nullptr);
+    explicit DisplayWidget(QWidget *parent = nullptr);
 
 public:
     void setModel();
     int showPath(const QString &path);
-    QPoint getRotateBtnPos();
-    inline bool isMultiMode() const { return m_isMultiScreen; }
-    inline bool isShowMultiscreen() const { return m_isShowMultiscreen; }
-    int getMenuIndex(QString str, bool isSingle = true);
-    void initMenuUI();
-    void initConnect();
-
-public Q_SLOTS:
-    void onMonitorListChanged();
-
-private Q_SLOTS:
-    void onMenuClicked(const QModelIndex &);
-
-public:
-    static int convertToSlider(const double value);
-    static double convertToScale(const int value);
-    void setDefaultWidget();
 
 Q_SIGNALS:
-    void requestShowMultiScreenPage() const;
-    void requestShowResolutionPage() const;
-    void requestShowBrightnessPage() const;
-    void requestShowScalingPage() const;
-    void requestShowCustomConfigPage() const;
-    void requestShowTouchscreenPage() const;
-    void requestRotate() const;
-    void requestShowRefreshRatePage() const;
-    void requestShowMultiRefreshRatePage() const;
-    void requestShowMultiResolutionPage() const;
-
-private:
-    dcc::display::DisplayModel *m_model{nullptr};
-    DTK_WIDGET_NAMESPACE::DFloatingButton *m_rotate{nullptr};
-    QVBoxLayout *m_centralLayout{nullptr};
-    dcc::widgets::MultiSelectListView *m_menuList{nullptr};
-    QModelIndex m_currentIdx;
-
-    QStandardItemModel *m_multiModel{nullptr};
-    QStandardItemModel *m_singleModel{nullptr};
-
-    QList<ListSubItem> m_multMenuList;
-    QList<ListSubItem> m_singleMenuList;
-
-    bool m_isMultiScreen{true};
-    QGSettings *m_displaySetting{nullptr};
-    bool m_isShowMultiscreen;
+    void requestShowTouchscreenPage();
 };
 
-}  // namespace display
+} // namespace display
 
-}  // namespace dcc
+} // namespace DCC_NAMESPACE
 
-#endif  // DISPLAYWIDGET_H_V20
+#endif // DISPLAYWIDGET_H

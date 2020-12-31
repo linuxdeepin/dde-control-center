@@ -102,14 +102,13 @@ set(WINDOW_FILES
     window/modules/datetime/datetimecombox.cpp
     window/modules/datetime/timespinbox.cpp
     window/modules/display/displaymodule.cpp
-    window/modules/display/scalingpage.cpp
-    window/modules/display/resolutiondetailpage.cpp
-    window/modules/display/brightnesspage.cpp
-    window/modules/display/rotatedialog.cpp
-    window/modules/display/refreshratepage.cpp
-    window/modules/display/multiscreensettingpage.cpp
-    window/modules/display/multiscreendetailpage.cpp
-    window/modules/display/customsettingdialog.cpp
+    window/modules/display/scalingwidget.cpp
+    window/modules/display/resolutionwidget.cpp
+    window/modules/display/brightnesswidget.cpp
+    window/modules/display/rotatewidget.cpp
+    window/modules/display/refreshratewidget.cpp
+    window/modules/display/multiscreenwidget.cpp
+    window/modules/display/secondaryscreendialog.cpp
     window/modules/display/touchscreenpage.cpp
     window/modules/power/powermodule.cpp
     window/modules/power/powerwidget.cpp
@@ -318,9 +317,8 @@ set(DEFAPP_FILES
 
 # load display
 set(DISPLAY_FILES
-                modules/display/iconbutton.cpp
                 modules/display/monitorindicator.cpp
-                modules/display/recognizedialog.cpp
+                modules/display/recognizewidget.cpp
                 modules/display/monitorcontrolwidget.cpp
                 modules/display/displaymodel.cpp
                 modules/display/displayworker.cpp
@@ -564,7 +562,6 @@ set(SRCS
 set(QRC
         notify/images.qrc
         frame.qrc
-        modules/display/display.qrc
         modules/wacom/wacom.qrc
         modules/update/update.qrc
         modules/network/network.qrc

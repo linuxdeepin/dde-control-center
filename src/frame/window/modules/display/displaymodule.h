@@ -19,28 +19,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef DISPLAYMODULE_H_V20
-#define DISPLAYMODULE_H_V20
+#ifndef DISPLAYMODULE_H
+#define DISPLAYMODULE_H
 
 #include "interface/moduleinterface.h"
 #include "interface/namespace.h"
-#include "customsettingdialog.h"
 #include "../../mainwindow.h"
-#include "modules/display/recognizedialog.h"
+#include "modules/display/recognizewidget.h"
 
 using namespace dcc::display;
 
 class Resolution;
 
 namespace dcc {
-
 namespace display {
 class DisplayModel;
 class Monitor;
 class DisplayWorker;
-}
-
-}
+class RecognizeWidget;
+} // namespace display
+} // namespace dcc
 
 namespace DCC_NAMESPACE {
 
@@ -48,7 +46,8 @@ namespace display {
 
 class DisplayWidget;
 
-class DisplayModule : public QObject, public ModuleInterface
+class DisplayModule : public QObject
+    , public ModuleInterface
 {
     Q_OBJECT
     Q_INTERFACES(DCC_NAMESPACE::ModuleInterface)
@@ -63,36 +62,30 @@ public:
     const QString displayName() const override;
     void active() override;
     int load(const QString &path) override;
-    void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
+    void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     QStringList availPage() const override;
 
 private Q_SLOTS:
-    void showScalingPage();
-    void showResolutionDetailPage();
-    void onDetailPageRequestSetResolution(dcc::display::Monitor *mon, const int mode);
-    void onCustomPageRequestSetResolution(dcc::display::Monitor *mon, CustomSettingDialog::ResolutionDate mode);
-    void showBrightnessPage();
-    void showRotate(dcc::display::Monitor *mon = nullptr);
-    void showMultiScreenSettingPage();
-    void showCustomSettingDialog();
-    void showRefreshRotePage();
+    void onRequestSetResolution(dcc::display::Monitor *monitor, const int mode);
+    void onRequestSetRotate(dcc::display::Monitor *monitor, const int rotate);
+    void showSingleScreenWidget();
+    void showMultiScreenWidget();
     void showTouchScreenPage();
-    int showTimeoutDialog(dcc::display::Monitor *mon);
     void showDisplayRecognize();
     void showTouchRecognize();
-    void showMultiResolutionPage();
-    void showMultiRefreshRatePage();
+    void pushScreenWidget();
+    int showTimeoutDialog(dcc::display::Monitor *monitor);
 
 private:
-    dcc::display::DisplayModel *m_displayModel{nullptr};
-    dcc::display::DisplayWorker *m_displayWorker{nullptr};
-    DisplayWidget *m_displayWidget{nullptr};
-    MainWindow *m_pMainWindow = nullptr;
-    QMap<QString, RecognizeDialog*> m_recognizeDialg;
+    dcc::display::DisplayModel *m_displayModel;
+    dcc::display::DisplayWorker *m_displayWorker;
+    DisplayWidget *m_displayWidget;
+    MainWindow *m_pMainWindow;
+    QMap<QString, RecognizeWidget *> m_recognizeWidget;
 };
 
 } // namespace display
 
-} // namespace dcc
+} // namespace DCC_NAMESPACE
 
-#endif // DISPLAYMODULE_H_V20
+#endif // DISPLAYMODULE_H

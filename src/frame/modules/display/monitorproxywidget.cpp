@@ -24,8 +24,6 @@
  */
 
 #include "monitorproxywidget.h"
-#include "monitor.h"
-#include "monitorindicator.h"
 #include "displaymodel.h"
 
 #include <QPainter>
@@ -66,17 +64,14 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
 
     QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing);
-    if (m_monitor->isPrimary()) {
-        painter.fillRect(r, Qt::darkGray);
-    } else
-        painter.fillRect(r, Qt::gray);
-    painter.setPen(Qt::darkGray);
+    painter.fillRect(r, QColor("#5f5f5f"));
+    painter.setPen(QColor("#2e2e2e"));
     painter.drawRect(r);
 
     const QFontMetrics fm(painter.font());
     const int width = fm.boundingRect(m_monitor->name()).width();
     painter.setPen(Qt::white);
-    if (!m_model->isMerge()) {
+    if (m_model->displayMode() == EXTEND_MODE) {
         int xstart = r.width() - width - 20;
         if (xstart > 0) {
             painter.drawText(r.width() - width - 20, 30, m_monitor->name());
@@ -86,7 +81,7 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
     }
 
     // draw dock pattern if it's primary screen
-    if (m_monitor->isPrimary()) {
+    if (m_model->displayMode() == EXTEND_MODE && m_monitor->isPrimary()) {
         const int radius = 5;
         QRectF dockRect = r;
         dockRect.setTop(r.bottom() - 15);
@@ -97,6 +92,13 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
         painter.setPen(Qt::transparent);
         painter.setBrush(Qt::white);
         painter.drawRoundedRect(dockRect, radius, radius);
+
+        // draw blue border if the mode is EXTEND_MODE
+        QPen pen(QColor("#2ca7f8"));
+        pen.setWidth(4);
+        painter.setPen(pen);
+        painter.setBrush(Qt::transparent);
+        painter.drawRect(rect());
     }
 
     // draw blue border if under mouse control
@@ -115,14 +117,16 @@ void MonitorProxyWidget::mousePressEvent(QMouseEvent *e)
 
     m_underMouseMove = true;
 
-    Q_EMIT requestMonitorPress(m_monitor);
+    if (m_model->displayMode() == EXTEND_MODE) {
+        Q_EMIT requestMonitorPress(m_monitor);
+    }
 
     update();
 }
 
 void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
 {
-    if (m_model->isMerge())
+    if (m_model->displayMode() == MERGE_MODE)
         return;
 
     if (!(e->buttons() & Qt::LeftButton))
@@ -135,15 +139,16 @@ void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
 
 void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 {
-    if (!m_model->isMerge())
+    if (m_model->displayMode() == EXTEND_MODE)
         Q_EMIT requestApplyMove(this);
 
     m_underMouseMove = false;
 
-    Q_EMIT requestMonitorRelease(m_monitor);
+    if (m_model->displayMode() == EXTEND_MODE) {
+        Q_EMIT requestMonitorRelease(m_monitor);
+    }
 
     update();
 
     QWidget::mouseReleaseEvent(e);
 }
-

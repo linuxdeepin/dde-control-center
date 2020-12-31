@@ -26,11 +26,8 @@
 #include "monitorcontrolwidget.h"
 #include "monitorsground.h"
 #include "displaymodel.h"
-#include "monitorproxywidget.h"
-#include "widgets/basiclistdelegate.h"
 
 #include <QVBoxLayout>
-#include <QFrame>
 #include <QPushButton>
 
 namespace dcc {
@@ -40,36 +37,16 @@ namespace display {
 MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     : QFrame(parent)
     , m_screensGround(new MonitorsGround)
-    , m_recognize(new IconButton)
-    , m_split(new IconButton)
-    , m_join(new IconButton)
+    , m_recognize(new QPushButton(QIcon::fromTheme("dcc_recognize"), tr("Recognize")))
+    , m_gather(new QPushButton(QIcon::fromTheme("dcc_gather"), tr("Gather Windows")))
 {
-    m_recognize->setText(tr("Recognize"));
-    m_recognize->setCursor(Qt::PointingHandCursor);
-    m_recognize->setObjectName("Recognize");
-    m_recognize->setHoverIcon(QIcon(loadPixmap(":/display/themes/dark/icons/recognize_hover.png")));
-    m_recognize->setPressIcon(QIcon(loadPixmap(":/display/themes/dark/icons/recognize_press.png")));
-    m_recognize->setNormalIcon(QIcon(loadPixmap(":/display/themes/dark/icons/recognize_normal.png")));
-
-    m_split->setText(tr("Split"));
-    m_split->setCursor(Qt::PointingHandCursor);
-    m_split->setObjectName("Split");
-    m_split->setHoverIcon(QIcon(loadPixmap(":/display/themes/dark/icons/split_hover.png")));
-    m_split->setPressIcon(QIcon(loadPixmap(":/display/themes/dark/icons/split_press.png")));
-    m_split->setNormalIcon(QIcon(loadPixmap(":/display/themes/dark/icons/split_normal.png")));
-
-    m_join->setText(tr("Merge"));
-    m_join->setCursor(Qt::PointingHandCursor);
-    m_join->setObjectName("Merge");
-    m_join->setHoverIcon(QIcon(loadPixmap(":/display/themes/dark/icons/union_hover.png")));
-    m_join->setPressIcon(QIcon(loadPixmap(":/display/themes/dark/icons/union_press.png")));
-    m_join->setNormalIcon(QIcon(loadPixmap(":/display/themes/dark/icons/union_normal.png")));
+    m_recognize->setFocusPolicy(Qt::NoFocus);
+    m_gather->setFocusPolicy(Qt::NoFocus);
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addStretch();
     btnsLayout->addWidget(m_recognize);
-    btnsLayout->addWidget(m_split);
-    btnsLayout->addWidget(m_join);
+    btnsLayout->addWidget(m_gather);
     btnsLayout->addStretch();
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
@@ -82,25 +59,29 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     setLayout(mainLayout);
 
     connect(m_recognize, &QPushButton::clicked, this, &MonitorControlWidget::requestRecognize);
-    connect(m_join, &QPushButton::clicked, this, &MonitorControlWidget::requestMerge);
-    connect(m_split, &QPushButton::clicked, this, &MonitorControlWidget::requestSplit);
+    connect(m_gather, &QPushButton::clicked, this, [=] {
+        Q_EMIT requestGatherWindows(QCursor::pos());
+    });
     connect(m_screensGround, &MonitorsGround::requestApplySettings, this, &MonitorControlWidget::requestSetMonitorPosition);
     connect(m_screensGround, &MonitorsGround::requestMonitorPress, this, &MonitorControlWidget::requestMonitorPress);
     connect(m_screensGround, &MonitorsGround::requestMonitorRelease, this, &MonitorControlWidget::requestMonitorRelease);
-    m_recognize->setFocusPolicy(Qt::NoFocus);
-    m_split->setFocusPolicy(Qt::NoFocus);
-    m_join->setFocusPolicy(Qt::NoFocus);
 }
 
-void MonitorControlWidget::setDisplayModel(DisplayModel *model, Monitor *moni)
+void MonitorControlWidget::setModel(DisplayModel *model, Monitor *moni)
 {
-    m_screensGround->setDisplayModel(model, moni);
+    m_screensGround->setModel(model, moni);
 }
 
-void MonitorControlWidget::setScreensMerged(const bool merged)
+void MonitorControlWidget::setScreensMerged(const int mode)
 {
-    m_split->setVisible(merged);
-    m_join->setVisible(!merged);
+    m_recognize->setVisible(mode != SINGLE_MODE);
+    m_gather->setVisible(mode == EXTEND_MODE);
+    m_gather->setEnabled(mode == EXTEND_MODE);
+}
+
+void MonitorControlWidget::onGatherEnabled(const bool enable)
+{
+    m_gather->setEnabled(enable);
 }
 
 } // namespace display

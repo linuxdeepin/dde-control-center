@@ -21,20 +21,14 @@
 
 #include "displaymodule.h"
 #include "displaywidget.h"
-#include "resolutiondetailpage.h"
-#include "brightnesspage.h"
-#include "rotatedialog.h"
-#include "scalingpage.h"
-#include "multiscreensettingpage.h"
-#include "multiscreendetailpage.h"
-#include "refreshratepage.h"
+#include "secondaryscreendialog.h"
+#include "multiscreenwidget.h"
 #include "touchscreenpage.h"
 #include "window/utils.h"
-
 #include "widgets/timeoutdialog.h"
 #include "modules/display/displaymodel.h"
 #include "modules/display/displayworker.h"
-#include "modules/display/recognizedialog.h"
+#include "modules/display/recognizewidget.h"
 
 #include <QApplication>
 
@@ -46,7 +40,10 @@ DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
     , ModuleInterface(frame)
     , m_displayModel(nullptr)
     , m_displayWorker(nullptr)
+    , m_displayWidget(nullptr)
 {
+    // 用于传入MultiScreenWidget销毁副屏窗口
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 }
 
 DisplayModule::~DisplayModule()
@@ -77,38 +74,15 @@ const QString DisplayModule::displayName() const
 
 void DisplayModule::active()
 {
-    m_displayWidget = new DisplayWidget(m_displayModel);
+    m_displayWidget = new DisplayWidget;
     m_displayWidget->setVisible(false);
-    m_displayWidget->setModel();
+    pushScreenWidget();
 
-    connect(m_displayWidget, &DisplayWidget::requestShowScalingPage,
-            this, &DisplayModule::showScalingPage);
-    connect(m_displayWidget, &DisplayWidget::requestShowResolutionPage,
-            this, &DisplayModule::showResolutionDetailPage);
-    connect(m_displayWidget, &DisplayWidget::requestShowBrightnessPage,
-            this, &DisplayModule::showBrightnessPage);
-    connect(m_displayWidget, &DisplayWidget::requestShowRefreshRatePage,
-            this, &DisplayModule::showRefreshRotePage);
-    connect(m_displayWidget, &DisplayWidget::requestRotate, this, [ this ] {
-        windowUpdate();
-        showRotate();
-    });
-    connect(m_displayWidget, &DisplayWidget::requestShowMultiScreenPage,
-            this, &DisplayModule::showMultiScreenSettingPage);
-    connect(m_displayWidget, &DisplayWidget::requestShowCustomConfigPage,
-            this, &DisplayModule::showCustomSettingDialog);
-    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
-            this, &DisplayModule::showTouchScreenPage);
-    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage,
-            this, &DisplayModule::showTouchRecognize);
-    connect(m_displayWidget, &DisplayWidget::requestShowMultiResolutionPage,
-            this, &DisplayModule::showMultiResolutionPage);
-    connect(m_displayWidget, &DisplayWidget::requestShowMultiRefreshRatePage,
-            this, &DisplayModule::showMultiRefreshRatePage);
+    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage, this, &DisplayModule::showTouchScreenPage);
+    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage, this, &DisplayModule::showTouchRecognize);
 
     m_frameProxy->pushWidget(this, m_displayWidget);
     m_displayWidget->setVisible(true);
-    m_displayWidget->setDefaultWidget();
 }
 
 int DisplayModule::load(const QString &path)
@@ -120,7 +94,7 @@ int DisplayModule::load(const QString &path)
     return m_displayWidget->showPath(path);
 }
 
-void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
+void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
@@ -133,17 +107,12 @@ void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType push
     m_displayModel->moveToThread(qApp->thread());
     m_displayWorker->moveToThread(qApp->thread());
 
-    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
-        m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
-        if (m_displayWidget) {
-            m_displayWidget->initMenuUI();
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, [=] {
+        if (m_displayWidget != nullptr) {
+            pushScreenWidget();
         }
     });
-    connect(m_displayModel, &DisplayModel::touchscreenListChanged, this, [this]() {
-        if (m_displayWidget) {
-            m_displayWidget->initMenuUI();
-        }
-    });
+
     QTimer::singleShot(0, m_displayWorker, [=] {
         m_displayWorker->active();
     });
@@ -171,130 +140,65 @@ QStringList DisplayModule::availPage() const
     return sl;
 }
 
-void DisplayModule::showBrightnessPage()
+void DisplayModule::showSingleScreenWidget()
 {
-    BrightnessPage *page = new BrightnessPage;
-    page->setVisible(false);
-    page->setMode(m_displayModel);
-    connect(page, &BrightnessPage::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
-    connect(page, &BrightnessPage::requestSetMonitorBrightness,
-            m_displayWorker, &DisplayWorker::setMonitorBrightness);
-    connect(page, &BrightnessPage::requestAmbientLightAdjustBrightness,
-            m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
-    connect(page, &BrightnessPage::requestSetMethodAdjustCCT,
-                m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
+    QVBoxLayout *contentLayout = new QVBoxLayout;
 
-    m_frameProxy->pushWidget(this, page);
-    page->setVisible(true);
+    BrightnessWidget *brightnessWidget = new BrightnessWidget;
+    brightnessWidget->setMode(m_displayModel);
+    contentLayout->addWidget(brightnessWidget);
+    brightnessWidget->setVisible(m_displayModel->brightnessEnable());
+    connect(brightnessWidget, &BrightnessWidget::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
+    connect(brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
+    connect(brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
+    connect(brightnessWidget, &BrightnessWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
+    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, brightnessWidget, &BrightnessWidget::setVisible);
+
+    ScalingWidget *scalingWidget = new ScalingWidget;
+    scalingWidget->setModel(m_displayModel);
+    contentLayout->addWidget(scalingWidget);
+    connect(scalingWidget, &ScalingWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
+    connect(scalingWidget, &ScalingWidget::requestIndividualScaling, m_displayWorker, &DisplayWorker::setIndividualScaling);
+
+    ResolutionWidget *resolutionWidget = new ResolutionWidget;
+    resolutionWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    contentLayout->addWidget(resolutionWidget);
+    connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
+
+    RefreshRateWidget *refreshRateWidget = new RefreshRateWidget;
+    refreshRateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    contentLayout->addWidget(refreshRateWidget);
+    connect(refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
+
+    RotateWidget *rotateWidget = new RotateWidget;
+    rotateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    contentLayout->addWidget(rotateWidget);
+    connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate);
+
+    QWidget *singleScreenWidget = new QWidget;
+    singleScreenWidget->setLayout(contentLayout);
+    m_displayWidget->setContent(singleScreenWidget);
 }
 
-void DisplayModule::showResolutionDetailPage()
+void DisplayModule::showMultiScreenWidget()
 {
-    ResolutionDetailPage *page = new ResolutionDetailPage;
-    page->setVisible(false);
-    page->setModel(m_displayModel);
+    MultiScreenWidget *multiScreenWidget = new MultiScreenWidget(m_pMainWindow);
+    multiScreenWidget->setModel(m_displayModel);
+    connect(multiScreenWidget, &MultiScreenWidget::requestRecognize, this, &DisplayModule::showDisplayRecognize);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSwitchMode, m_displayWorker, &DisplayWorker::switchMode);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetColorTemperature, m_displayWorker, &DisplayWorker::setColorTemperature);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
+    connect(multiScreenWidget, &MultiScreenWidget::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
+    connect(multiScreenWidget, &MultiScreenWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
+    connect(multiScreenWidget, &MultiScreenWidget::requestIndividualScaling, m_displayWorker, &DisplayWorker::setIndividualScaling);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate);
+    connect(multiScreenWidget, &MultiScreenWidget::requestEnalbeMonitor, m_displayWorker, &DisplayWorker::setMonitorEnable);
 
-    connect(page, &ResolutionDetailPage::requestSetResolution, this,
-            &DisplayModule::onDetailPageRequestSetResolution);
-    connect(page, &ResolutionDetailPage::requestReset, m_displayWorker,
-            &DisplayWorker::discardChanges);
-    connect(page, &ResolutionDetailPage::requestSave, m_displayWorker,
-            &DisplayWorker::saveChanges);
-
-    m_frameProxy->pushWidget(this, page);
-    page->setVisible(true);
-}
-
-void DisplayModule::showScalingPage()
-{
-    ScalingPage *page = new ScalingPage;
-    page->setVisible(false);
-    page->setModel(m_displayModel);
-
-    connect(page, &ScalingPage::requestUiScaleChange,
-            m_displayWorker, &DisplayWorker::setUiScale);
-    connect(page, &ScalingPage::requestIndividualScaling,
-            m_displayWorker, &DisplayWorker::setIndividualScaling);
-
-    m_frameProxy->pushWidget(this, page);
-    page->setVisible(true);
-}
-
-void DisplayModule::showMultiScreenSettingPage()
-{
-    MultiScreenSettingPage *page = new MultiScreenSettingPage();
-    page->setVisible(false);
-    page->setModel(m_displayModel);
-
-    connect(page, &MultiScreenSettingPage::requestDuplicateMode, m_displayWorker,
-            &DisplayWorker::duplicateMode);
-    connect(page, &MultiScreenSettingPage::requestExtendMode, m_displayWorker,
-            &DisplayWorker::extendMode);
-    connect(page, &MultiScreenSettingPage::requestOnlyMonitor, m_displayWorker,
-            &DisplayWorker::onlyMonitor);
-    connect(page, &MultiScreenSettingPage::requestCustomMode, [this]() {
-        m_displayWorker->switchMode(0, m_displayModel->DDE_Display_Config);
-    });
-    connect(page, &MultiScreenSettingPage::requestCustomDiglog, this,
-            &DisplayModule::showCustomSettingDialog);
-    connect(page, &MultiScreenSettingPage::requsetCreateConfig,
-            m_displayWorker, &DisplayWorker::createConfig);
-    connect(page, &MultiScreenSettingPage::requsetRecord,
-            m_displayWorker, &DisplayWorker::record);
-
-    m_frameProxy->pushWidget(this, page);
-    page->setVisible(true);
-}
-
-void DisplayModule::showCustomSettingDialog()
-{
-    auto displayMode = m_displayModel->displayMode();
-    Q_ASSERT(displayMode == CUSTOM_MODE);
-
-    CustomSettingDialog *dlg = new CustomSettingDialog();
-
-    connect(dlg, &CustomSettingDialog::requestShowRotateDialog,
-            this, &DisplayModule::showRotate);
-    connect(dlg, &CustomSettingDialog::requestSetResolution, this,
-            &DisplayModule::onCustomPageRequestSetResolution);
-    connect(dlg, &CustomSettingDialog::requestMerge,
-            m_displayWorker, &DisplayWorker::mergeScreens);
-    connect(dlg, &CustomSettingDialog::requestEnalbeMonitor, [=](Monitor *mon, bool enable) {
-        m_displayWorker->onMonitorEnable(mon, enable);
-    });
-    connect(dlg, &CustomSettingDialog::requestSplit,
-            m_displayWorker, &DisplayWorker::splitScreens);
-    connect(dlg, &CustomSettingDialog::requestSetMonitorPosition,
-            m_displayWorker, &DisplayWorker::setMonitorPosition);
-    connect(dlg, &CustomSettingDialog::requestRecognize, this,
-            &DisplayModule::showDisplayRecognize);
-    connect(dlg, &CustomSettingDialog::requestSetPrimaryMonitor,
-            m_displayWorker, &DisplayWorker::setPrimary);
-    connect(m_displayModel, &DisplayModel::monitorListChanged, dlg, &QDialog::reject);
-
-    m_displayModel->setIsMerge(m_displayModel->monitorsIsIntersect());
-    dlg->setModel(m_displayModel);
-    if (dlg->exec() != QDialog::Accepted) {
-        m_displayWorker->restore();
-    } else {
-        m_displayWorker->saveChanges();
-    }
-
-    dlg->deleteLater();
-}
-
-void DisplayModule::showRefreshRotePage()
-{
-    auto page = new RefreshRatePage();
-    page->setVisible(false);
-    page->setModel(m_displayModel);
-
-    connect(page, &RefreshRatePage::requestSetResolution,
-            this, &DisplayModule::onDetailPageRequestSetResolution);
-
-    m_frameProxy->pushWidget(this, page);
-    page->setVisible(true);
-
+    m_displayWidget->setContent(multiScreenWidget);
 }
 
 void DisplayModule::showTouchScreenPage()
@@ -309,107 +213,82 @@ void DisplayModule::showTouchScreenPage()
     page->setVisible(true);
 }
 
-void DisplayModule::showMultiResolutionPage()
+void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
 {
-    auto page = new MultiScreenDetailPage(true);
-    page->setVisible(false);
-    page->setModel(m_displayModel);
-    page->setVisible(true);
+    Resolution lastRes = monitor->currentMode();
+    Resolution firstRes;
 
-    m_frameProxy->pushWidget(this, page);
-}
-
-void DisplayModule::showMultiRefreshRatePage()
-{
-    auto page = new MultiScreenDetailPage(false);
-    page->setVisible(false);
-    page->setModel(m_displayModel);
-
-    m_frameProxy->pushWidget(this, page);
-    page->setVisible(true);
-}
-
-void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mode)
-{
-    auto lastMode = mon->currentMode().id();
-    m_displayWorker->setMonitorResolution(mon, mode);
-    m_displayWorker->applyChanges();
-
-    if (showTimeoutDialog(mon) == QDialog::Accepted) {
-        m_displayWorker->saveChanges();
-    } else {
-        m_displayWorker->setMonitorResolution(mon, lastMode);
-        m_displayWorker->applyChanges();
-    }
-}
-
-void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSettingDialog::ResolutionDate mode)
-{
-    CustomSettingDialog::ResolutionDate lastres;
-    if (mon) {
-        lastres.id = mon->currentMode().id();
-    } else {
-        lastres.w = qint16(m_displayModel->primaryMonitor()->currentMode().width());
-        lastres.h = qint16(m_displayModel->primaryMonitor()->currentMode().height());
-        lastres.rate = m_displayModel->primaryMonitor()->currentMode().rate();
+    for (auto res : monitor->modeList()) {
+        if (res.id() == mode) {
+            firstRes = res;
+            break;
+        }
     }
 
-    auto tfunc = [this](Monitor *tmon, CustomSettingDialog::ResolutionDate tmode) {
-        if (!tmon) {
-            int w = tmode.w;
-            int h = tmode.h;
-            double r = tmode.rate;
-            qDebug() << "resolution:"<< tmode.w << "x" << tmode.h
-                     << "\t rate:" << tmode.rate
-                     << "\t id: " << tmode.id;
-            for (auto m : m_displayModel->monitorList()) {
-                for (auto res : m->modeList()) {
-                    if (fabs(r) < 0.000001) {
-                        if (res.width() == w && res.height() == h) {
-                            m_displayWorker->setMonitorResolution(m, res.id());
-                            break;
-                        }
-                    } else {
-                        if (res.width() == w && res.height() == h) {
-                            if (m->hasRatefresh(r)) {
-                                if (abs(res.rate() - r) < 0.000001) {
-                                    m_displayWorker->setMonitorResolution(m, res.id());
-                                    break;
-                                }
-                            } else {
-                                m_displayWorker->setMonitorResolutionBySize(m, w, h);
-                                break;
-                            }
-                        }
+    auto tfunc = [this](Monitor *tmon, Resolution tmode) {
+        if (m_displayModel->displayMode() == MERGE_MODE) {
+            for (auto monitor : m_displayModel->monitorList()) {
+                bool bFind = false;
+                for (auto res : monitor->modeList()) {
+                    if (res == tmode) {
+                        m_displayWorker->setMonitorResolution(monitor, res.id());
+                        bFind = true;
+                        break;
                     }
+                }
+                if (!bFind) {
+                    m_displayWorker->setMonitorResolutionBySize(monitor, tmode.width(), tmode.height());
                 }
             }
         } else {
-            qDebug() << "resolution:"<< tmode.w << "x" << tmode.h
-                     << "\t rate:" << tmode.rate
-                     << "\t id: " << tmode.id;
-            m_displayWorker->setMonitorResolution(tmon, tmode.id);
+            m_displayWorker->setMonitorResolution(tmon, tmode.id());
         }
         m_displayWorker->applyChanges();
     };
 
-    tfunc(mon, mode);
+    tfunc(monitor, firstRes);
 
-    if (showTimeoutDialog(mon ? mon : m_displayModel->primaryMonitor()) != QDialog::Accepted) {
-        tfunc(mon, lastres);
+    if (showTimeoutDialog(monitor) == QDialog::Accepted) {
+        m_displayWorker->saveChanges();
+    } else {
+        tfunc(monitor, lastRes);
     }
 }
 
-int DisplayModule::showTimeoutDialog(Monitor *mon)
+void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)
+{
+    auto lastRotate = monitor->rotate();
+    m_displayWorker->setMonitorRotate(monitor, rotate);
+    m_displayWorker->applyChanges();
+
+    if (showTimeoutDialog(monitor) == QDialog::Accepted) {
+        m_displayWorker->saveChanges();
+    } else {
+        m_displayWorker->setMonitorRotate(monitor, lastRotate);
+        m_displayWorker->applyChanges();
+    }
+}
+
+void DisplayModule::pushScreenWidget()
+{
+    if (m_displayModel->monitorList().size() > 1) {
+        showMultiScreenWidget();
+    } else {
+        showSingleScreenWidget();
+    }
+}
+
+int DisplayModule::showTimeoutDialog(Monitor *monitor)
 {
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
     qreal radio = qApp->devicePixelRatio();
-    connect(mon, &Monitor::geometryChanged, timeoutDialog, [ = ] {
+    connect(monitor, &Monitor::geometryChanged, timeoutDialog, [=] {
         if (timeoutDialog) {
-            QRectF rt(mon->x(), mon->y(), mon->w() / radio, mon->h() / radio);
+            QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
             timeoutDialog->moveToCenterByRect(rt.toRect());
         }
-    }, Qt::QueuedConnection);
+    },
+            Qt::QueuedConnection);
     connect(timeoutDialog, &TimeoutDialog::closed,
             timeoutDialog, &TimeoutDialog::deleteLater);
 
@@ -419,32 +298,32 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
 void DisplayModule::showDisplayRecognize()
 {
     // 复制模式
-    if (m_displayModel->monitorsIsIntersect()) {
+    if (m_displayModel->displayMode() == MERGE_MODE) {
         QString text = m_displayModel->monitorList().first()->name();
-        for (int i = 1; i < m_displayModel->monitorList().size(); i++) {
-            text += QString(" = %1").arg(m_displayModel->monitorList()[i]->name());
+        for (int idx = 1; idx < m_displayModel->monitorList().size(); idx++) {
+            text += QString(" = %1").arg(m_displayModel->monitorList()[idx]->name());
         }
 
         // 所在显示器不存在显示框
-        if (m_recognizeDialg.value(text) == nullptr) {
-            RecognizeDialog *dialog = new RecognizeDialog(m_displayModel->monitorList()[0], text);
-            QTimer::singleShot(5000, this, [=]{
-                dialog->deleteLater();
-                m_recognizeDialg.remove(text);
+        if (m_recognizeWidget.value(text) == nullptr) {
+            RecognizeWidget *widget = new RecognizeWidget(m_displayModel->monitorList()[0], text);
+            QTimer::singleShot(5000, this, [=] {
+                widget->deleteLater();
+                m_recognizeWidget.remove(text);
             });
-            m_recognizeDialg[text] = dialog;
+            m_recognizeWidget[text] = widget;
         }
-    } else { // 拓展模式 or 自定义模式
+    } else { // 扩展模式
         for (auto monitor : m_displayModel->monitorList()) {
             // 所在显示器不存在显示框
-            if (m_recognizeDialg.value(monitor->name()) == nullptr) {
-                RecognizeDialog *dialog = new RecognizeDialog(monitor, monitor->name());
-                m_recognizeDialg[monitor->name()] = dialog;
-                QTimer::singleShot(5000, this, [=]{
-                    dialog->deleteLater();
-                    m_recognizeDialg.remove(monitor->name());
+            if (m_recognizeWidget.value(monitor->name()) == nullptr) {
+                RecognizeWidget *widget = new RecognizeWidget(monitor, monitor->name());
+                m_recognizeWidget[monitor->name()] = widget;
+                QTimer::singleShot(5000, this, [=] {
+                    widget->deleteLater();
+                    m_recognizeWidget.remove(monitor->name());
                 });
-                m_recognizeDialg[monitor->name()] = dialog;
+                m_recognizeWidget[monitor->name()] = widget;
             }
         }
     }
@@ -458,71 +337,33 @@ void DisplayModule::showTouchRecognize()
     }
 
     // 复制模式
-    if (m_displayModel->monitorsIsIntersect()) {
+    if (m_displayModel->displayMode() == MERGE_MODE) {
         QString text = m_displayModel->monitorList().first()->name();
         for (int i = 1; i < m_displayModel->monitorList().size(); i++) {
             text += QString(" = %1").arg(m_displayModel->monitorList()[i]->name());
         }
 
         // 所在显示器不存在显示框
-        if (m_recognizeDialg.value(text) == nullptr) {
-            RecognizeDialog *dialog = new RecognizeDialog(m_displayModel->monitorList()[0], text);
-            QTimer::singleShot(5000, this, [=]{
-                dialog->deleteLater();
-                m_recognizeDialg.remove(text);
+        if (m_recognizeWidget.value(text) == nullptr) {
+            RecognizeWidget *widget = new RecognizeWidget(m_displayModel->monitorList()[0], text);
+            QTimer::singleShot(5000, this, [=] {
+                widget->deleteLater();
+                m_recognizeWidget.remove(text);
             });
-            m_recognizeDialg[text] = dialog;
+            m_recognizeWidget[text] = widget;
         }
-    } else { // 拓展模式 or 自定义模式
+    } else { // 扩展模式
         for (auto monitor : m_displayModel->monitorList()) {
             // 所在显示器不存在显示框
-            if (m_recognizeDialg.value(monitor->name()) == nullptr) {
-                RecognizeDialog *dialog = new RecognizeDialog(monitor, monitor->name());
-                m_recognizeDialg[monitor->name()] = dialog;
-                QTimer::singleShot(5000, this, [=]{
-                    dialog->deleteLater();
-                    m_recognizeDialg.remove(monitor->name());
+            if (m_recognizeWidget.value(monitor->name()) == nullptr) {
+                RecognizeWidget *widget = new RecognizeWidget(monitor, monitor->name());
+                m_recognizeWidget[monitor->name()] = widget;
+                QTimer::singleShot(5000, this, [=] {
+                    widget->deleteLater();
+                    m_recognizeWidget.remove(monitor->name());
                 });
-                m_recognizeDialg[monitor->name()] = dialog;
+                m_recognizeWidget[monitor->name()] = widget;
             }
         }
     }
-}
-
-void DisplayModule::showRotate(Monitor *mon)
-{
-    RotateDialog *dialog = new RotateDialog(mon);
-    dialog->setModel(m_displayModel);
-
-    connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
-    connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
-
-    QMap<Monitor *, quint16> mMonitorRotate;
-    for (auto m : m_displayModel->monitorList()) {
-        mMonitorRotate.insert(m, m->rotate());
-    }
-
-    qApp->setOverrideCursor(Qt::BlankCursor);
-    if (QDialog::DialogCode::Accepted == dialog->exec()) {
-        // if monitor list size > 1 means the config file will be saved by CustomSettingDialog
-        qDebug() << "monitor size: " << m_displayModel->monitorList().size() <<
-                    ", displayMode is " << m_displayModel->displayMode();
-        if (m_displayModel->monitorList().size() == 1 || m_displayModel->displayMode() != CUSTOM_MODE) {
-            qDebug() << "m_displayWorker->saveChanges()" << "rotate:" << m_displayModel->monitorList()[0]->rotate();
-            m_displayWorker->saveChanges();
-        }
-    } else {
-        for (auto m : m_displayModel->monitorList()) {
-            if (mMonitorRotate.end() == mMonitorRotate.find(m))
-                continue;
-
-            if (m->rotate() != mMonitorRotate[m]) {
-                m_displayWorker->setMonitorRotate(m, mMonitorRotate[m]);
-            }
-        }
-    }
-
-    qApp->restoreOverrideCursor();
-    QCursor::setPos(m_displayWidget->getRotateBtnPos());
-    dialog->deleteLater();
 }

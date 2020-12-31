@@ -44,7 +44,7 @@ public:
     explicit MonitorsGround(QWidget *parent = nullptr);
     ~MonitorsGround();
 
-    void setDisplayModel(DisplayModel *model, Monitor *moni);
+    void setModel(DisplayModel *model, Monitor *moni = nullptr);
 
 Q_SIGNALS:
     void requestApplySettings(Monitor *mon, const int x, const int y);
@@ -56,6 +56,7 @@ private Q_SLOTS:
     void monitorMoved(MonitorProxyWidget *pw);
     void adjust(MonitorProxyWidget *pw);
     void adjustAll();
+
 private:
     void ensureWidgetPerfect(MonitorProxyWidget *pw);
     void reloadViewPortSize();

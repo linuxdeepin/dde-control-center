@@ -25,7 +25,6 @@
 
 #include "displayworker.h"
 #include "displaymodel.h"
-#include "monitorsettingdialog.h"
 #include "widgets/utils.h"
 
 #include <DApplicationHelper>
@@ -35,32 +34,32 @@
 using namespace dcc;
 using namespace dcc::display;
 
-#define GSETTINGS_MINIMUM_BRIGHTNESS    "brightness-minimum"
+#define GSETTINGS_MINIMUM_BRIGHTNESS "brightness-minimum"
+#define GSETTINGS_SHOW_MUTILSCREEN "show-multiscreen"
+#define GSETTINGS_BRIGHTNESS_ENABLE "brightness-enable"
 
 const QString DisplayInterface("com.deepin.daemon.Display");
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 
 DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
-    : QObject(parent),
-
-      m_model(model),
-      m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this),
-      m_dccSettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this)),
-      m_appearanceInter(new AppearanceInter("com.deepin.daemon.Appearance",
+    : QObject(parent)
+    , m_model(model)
+    , m_displayInter(DisplayInterface, "/com/deepin/daemon/Display", QDBusConnection::sessionBus(), this)
+    , m_dccSettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
+    , m_appearanceInter(new AppearanceInter("com.deepin.daemon.Appearance",
                                             "/com/deepin/daemon/Appearance",
-                                            QDBusConnection::sessionBus(), this)),
-      m_updateScale(false),
-      m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
-      m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
+                                            QDBusConnection::sessionBus(), this))
+    , m_updateScale(false)
+    , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
 {
     m_displayInter.setSync(false);
     m_appearanceInter->setSync(false);
 
     m_displayDBusInter = new QDBusInterface("com.deepin.daemon.Display",
-                               "/com/deepin/daemon/Display",
-                               "com.deepin.daemon.Display",
-                               QDBusConnection::sessionBus());
+                                            "/com/deepin/daemon/Display",
+                                            "com.deepin.daemon.Display",
+                                            QDBusConnection::sessionBus());
 
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
     connect(&m_displayInter, &DisplayInter::BrightnessChanged, this, &DisplayWorker::onMonitorsBrightnessChanged);
@@ -70,17 +69,14 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     connect(&m_displayInter, &DisplayInter::ScreenHeightChanged, model, &DisplayModel::setScreenHeight);
     connect(&m_displayInter, &DisplayInter::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
     connect(&m_displayInter, &DisplayInter::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
-    connect(&m_displayInter, &DisplayInter::CurrentCustomIdChanged, model, &DisplayModel::setCurrentConfig);
-    connect(&m_displayInter, &DisplayInter::CustomIdListChanged, model, &DisplayModel::setConfigList);
     connect(&m_displayInter, &DisplayInter::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
     connect(&m_displayInter, &DisplayInter::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
     connect(&m_displayInter, &DisplayInter::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), model, &DisplayModel::setPrimary);
 
     //display redSfit/autoLight
-    connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged,
-            m_model, &DisplayModel::autoLightAdjustVaildChanged);
-    connect(m_mouseInter, &MouseInter::LeftHandedChanged, m_model, &DisplayModel::setMouseLeftHand);
+    connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged, m_model, &DisplayModel::autoLightAdjustVaildChanged);
+    connect(m_dccSettings, &QGSettings::changed, this, &DisplayWorker::onGSettingsChanged);
 }
 
 DisplayWorker::~DisplayWorker()
@@ -95,8 +91,7 @@ void DisplayWorker::active()
         valueByQSettings<bool>(DCC_CONFIG_FILES,
                                "Display",
                                "AllowEnableMultiScaleRatio",
-                               false)
-    );
+                               false));
 
     QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_appearanceInter->GetScaleFactor());
     connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
@@ -116,190 +111,29 @@ void DisplayWorker::active()
     m_model->setAdjustCCTmode(m_displayInter.colorTemperatureMode());
     m_model->setColorTemperature(m_displayInter.colorTemperatureManual());
     m_model->setmaxBacklightBrightness(m_displayInter.maxBacklightBrightness());
-    m_model->setConfigList(m_displayInter.customIdList());
-    m_model->setCurrentConfig(m_displayInter.currentCustomId());
-
     m_model->setAutoLightAdjustIsValid(m_powerInter->hasAmbientLightSensor());
 
-    m_model->setMouseLeftHand(m_mouseInter->leftHanded());
-
     //redshift 依赖X11，当前isXWindowPlatform返回不准确,所以先用环境变量判断
-    //   DGuiApplicationHelper::isXWindowPlatform() const bool isRedshiftValid = DGuiApplicationHelper::isXWindowPlatform() && QProcess::execute("which", QStringList() << "redshift") == 0;
     auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
     const bool isRedshiftValid =
-        !sessionType.contains("wayland") &&
-        QProcess::execute("which", QStringList() << "redshift") == 0;
+        !sessionType.contains("wayland") && QProcess::execute("which", QStringList() << "redshift") == 0;
 
     m_model->setRedshiftIsValid(isRedshiftValid);
-    m_model->setMinimumBrightnessScale(
-        m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
+    m_model->setMinimumBrightnessScale(m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
+    m_model->setResolutionRefreshEnable(m_dccSettings->get(GSETTINGS_SHOW_MUTILSCREEN).toBool());
+    m_model->setBrightnessEnable(m_dccSettings->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool());
 }
 
 void DisplayWorker::saveChanges()
 {
-    qDebug() << Q_FUNC_INFO;
-
     m_displayInter.Save().waitForFinished();
     if (m_updateScale)
         setUiScale(m_currentScale);
     m_updateScale = false;
 }
 
-void DisplayWorker::discardChanges()
-{
-    qDebug() << Q_FUNC_INFO;
-
-    m_displayInter.ResetChanges().waitForFinished();
-}
-
-void DisplayWorker::mergeScreens()
-{
-    qDebug() << Q_FUNC_INFO;
-
-    m_model->setIsMerge(true);
-
-    m_model->monitorList()[0]->setLastPoint(m_model->monitorList()[0]->x(), m_model->monitorList()[0]->y());
-    m_model->monitorList()[1]->setLastPoint(m_model->monitorList()[1]->x(), m_model->monitorList()[1]->y());
-
-    // TODO: make asynchronous
-    auto monis = m_monitors.keys();
-    auto firstMoni = monis.first();
-    auto modes = firstMoni->modeList();
-
-    int maxSize = 0;
-    Resolution bestMode = modes.first();
-    for (auto m : modes) {
-        bool isCommon = true;
-        for (int i = 1; i < monis.size(); ++i) {
-            if (!monis[i]->hasResolution(m)) {
-                isCommon = false;
-                break;
-            }
-        }
-
-        if (!isCommon) {
-            continue;
-        }
-
-        qDebug() << "get same resolution:" << m.width() << " x " << m.height();
-        auto ts = m.width() * m.height();
-        if (ts <= maxSize)
-            continue;
-
-        bestMode = m;
-        maxSize = ts;
-    }
-
-    qDebug() << "get best Resolution :" << bestMode.width() << " x " << bestMode.height();
-    const auto mode = bestMode;
-    auto rotate = m_model->primaryMonitor()->rotate();
-    const auto brightness = m_model->primaryMonitor()->brightness();
-    for (auto *mon : m_model->monitorList()) {
-        if (mon->rotate() != rotate) {
-            rotate = 1;
-        }
-    }
-    QList<QDBusPendingReply<>> replys;
-
-    for (auto *mon : m_model->monitorList()) {
-        auto *mInter = m_monitors[mon];
-        Q_ASSERT(mInter);
-
-        replys << mInter->SetPosition(0, 0);
-        replys << mInter->SetModeBySize(static_cast<ushort>(mode.width()), static_cast<ushort>(mode.height()));
-        replys << mInter->SetRotation(rotate);
-        replys << m_displayInter.SetBrightness(mon->name(), brightness);
-    }
-
-    for (auto r : replys)
-        r.waitForFinished();
-
-    m_displayInter.ApplyChanges().waitForFinished();
-}
-
-void DisplayWorker::splitScreens()
-{
-    qDebug() << Q_FUNC_INFO;
-
-    m_model->setIsMerge(false);
-
-    const auto mList = m_model->monitorList();
-    Q_ASSERT(mList.size() == 2);
-
-    auto *primary = m_model->primaryMonitor();
-    Q_ASSERT(m_monitors.contains(primary));
-    m_monitors[primary]->SetPosition(static_cast<short>(m_model->primaryMonitor()->getLastPoint().x()), static_cast<short>(m_model->primaryMonitor()->getLastPoint().y())).waitForFinished();
-    int xOffset = primary->bestMode().width();
-
-    for (auto *mon : mList) {
-        // pass primary
-        Q_ASSERT(m_monitors.contains(mon));
-        auto *mInter = m_monitors[mon];
-        // 设置最好模式
-        mInter->SetMode(static_cast<uint>(mon->bestMode().id())).waitForFinished();
-        mInter->SetRotation(1).waitForFinished();
-
-        if (mon == primary)
-            continue;
-
-        if (mon->getLastPoint() == m_model->primaryMonitor()->getLastPoint()) {
-            mInter->SetPosition(static_cast<short>(xOffset), 0).waitForFinished();
-        } else {
-            mInter->SetPosition(static_cast<short>(mon->getLastPoint().x()), static_cast<short>(mon->getLastPoint().y())).waitForFinished();
-        }
-        xOffset += mon->bestMode().width();
-    }
-
-    m_displayInter.ApplyChanges();
-}
-
-void DisplayWorker::duplicateMode()
-{
-    switchMode(MERGE_MODE);
-    saveChanges();
-}
-
-void DisplayWorker::extendMode()
-{
-    switchMode(EXTEND_MODE);
-    saveChanges();
-}
-
-void DisplayWorker::onlyMonitor(const QString &monName)
-{
-    switchMode(SINGLE_MODE, monName);
-}
-
-void DisplayWorker::createConfig(const QString &config)
-{
-    const auto reply = m_displayInter.SwitchMode(CUSTOM_MODE, config);
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply);
-    watcher->setProperty("ConfigName", config);
-
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onCreateConfigFinshed);
-}
-
-void DisplayWorker::switchConfig(const QString &config)
-{
-    switchMode(CUSTOM_MODE, config);
-}
-
-void DisplayWorker::deleteConfig(const QString &config)
-{
-    m_displayInter.DeleteCustomMode(config);
-}
-
-void DisplayWorker::modifyConfigName(const QString &oldName, const QString &newName)
-{
-    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_displayInter.ModifyConfigName(oldName, newName));
-
-    connect(w, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onModifyConfigNameFinished);
-}
-
 void DisplayWorker::switchMode(const int mode, const QString &name)
 {
-    qDebug() << Q_FUNC_INFO << mode << name;
-
     m_displayInter.SwitchMode(static_cast<uchar>(mode), name).waitForFinished();
 }
 
@@ -325,16 +159,12 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
 
 void DisplayWorker::onMonitorsBrightnessChanged(const BrightnessMap &brightness)
 {
-    if (brightness.isEmpty()) return;
+    if (brightness.isEmpty())
+        return;
 
     for (auto it = m_monitors.begin(); it != m_monitors.end(); ++it) {
         it.key()->setBrightness(brightness[it.key()->name()]);
     }
-}
-
-void DisplayWorker::onModifyConfigNameFinished(QDBusPendingCallWatcher *w)
-{
-    w->deleteLater();
 }
 
 void DisplayWorker::onGetScaleFinished(QDBusPendingCallWatcher *w)
@@ -354,19 +184,10 @@ void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
     for (auto &m : m_model->monitorList()) {
         if (rmap.find(m->name()) != rmap.end()) {
             m->setScale(rmap.value(m->name()) < 1.0
-                        ? m_model->uiScale() : rmap.value(m->name()));
+                            ? m_model->uiScale()
+                            : rmap.value(m->name()));
         }
     }
-
-    w->deleteLater();
-}
-
-void DisplayWorker::onCreateConfigFinshed(QDBusPendingCallWatcher *w)
-{
-    const QString &name = w->property("ConfigName").toString();
-
-    Q_EMIT m_model->configCreated(name);
-    m_model->setDisplayMode(0);
 
     w->deleteLater();
 }
@@ -374,148 +195,32 @@ void DisplayWorker::onCreateConfigFinshed(QDBusPendingCallWatcher *w)
 #ifndef DCC_DISABLE_ROTATE
 void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
-    MonitorInter *inter = m_monitors.value(mon);
-    Q_ASSERT(inter);
-
-    inter->SetRotation(rotate).waitForFinished();
-    for (auto tm = m_monitors.begin(); tm != m_monitors.end(); ++tm) {
-        if (m_model->isMerge()) {
-            tm.value()->SetPosition(0, 0);
-        } else {
-            tm.value()->SetPosition(static_cast<short>(tm.key()->x()), static_cast<short>(tm.key()->y()));
+    if (m_model->displayMode() == MERGE_MODE) {
+        for (auto *m : m_monitors) {
+            m->SetRotation(rotate).waitForFinished();
         }
+    } else {
+        MonitorInter *inter = m_monitors.value(mon);
+        inter->SetRotation(rotate).waitForFinished();
     }
-    m_displayInter.ApplyChanges();
-}
-
-void DisplayWorker::setMonitorRotateAll(const quint16 rotate)
-{
-    qDebug() << rotate;
-    for (auto *mi : m_monitors)
-        mi->SetRotation(rotate).waitForFinished();
-
-    qDebug() << m_displayInter.ApplyChanges().error();
 }
 #endif
 
-void DisplayWorker::setPrimary(const int index)
-{
-    m_displayInter.SetPrimary(m_model->monitorList()[index]->name());
-}
-
-void DisplayWorker::setPrimaryByName(const QString &name)
+void DisplayWorker::setPrimary(const QString &name)
 {
     m_displayInter.SetPrimary(name);
 }
 
-void DisplayWorker::setMonitorEnable(Monitor *mon, const bool enabled)
+void DisplayWorker::setMonitorEnable(Monitor *monitor, const bool enable)
 {
-    MonitorInter *inter = m_monitors.value(mon);
-    Q_ASSERT(inter);
-
-    inter->Enable(enabled).waitForFinished();
-    m_displayInter.ApplyChanges();
+    MonitorInter *inter = m_monitors.value(monitor);
+    inter->Enable(enable).waitForFinished();
+    m_displayInter.ApplyChanges().waitForFinished();
+    m_displayInter.Save().waitForFinished();
 }
 
 void DisplayWorker::applyChanges()
 {
-    m_displayInter.ApplyChanges().waitForFinished();
-}
-
-void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
-{
-    //如果是灭屏幕，且当前亮的屏幕只有一个，直接返回
-    if (!enabled) {
-        int enableCount = 0;
-        for (auto *tm : m_model->monitorList()) {
-            // pass primary
-            enableCount += tm->enable() ? 1 : 0;
-        }
-        if (enableCount <= 1) {
-            if (m_monitors.size()) {
-                m_monitors.first()->Enable(true);
-            }
-            return;
-        }
-    }
-    const bool ismerge = m_model->isMerge();
-    auto *primary = m_model->primaryMonitor();
-    //如果设置的是主屏，则先改主屏
-    if (monitor == primary) {
-        for (auto *tm : m_model->monitorList()) {
-            // pass primary
-            if (tm == monitor || !tm->enable())
-                continue;
-
-            setPrimaryByName(tm->name());
-            primary = tm;
-            break;
-        }
-    }
-
-    //灭掉屏幕
-    MonitorInter *inter = m_monitors.value(monitor);
-    if (enabled) {
-        auto modes = monitor->modeList();
-        Resolution bestMode = modes.first();
-        qDebug() << "get best Resolution :" << bestMode.width() << " x " << bestMode.height();
-        auto mode = bestMode;
-        if (ismerge) {
-            Resolution currentmode;
-            for (auto *tm : m_model->monitorList()) {
-                if (tm->enable()) {
-                    currentmode = tm->currentMode();
-                    break;
-                }
-            }
-            if (monitor->hasResolutionAndRate(currentmode)) {
-                mode = currentmode;
-            }
-        }
-
-        const auto rotate = m_model->primaryMonitor()->rotate();
-        const auto brightness = m_model->primaryMonitor()->brightness();
-
-        QList<QDBusPendingReply<>> replys;
-        replys << inter->SetModeBySize(static_cast<ushort>(mode.width()), static_cast<ushort>(mode.height()));
-        replys << inter->SetRotation(rotate);
-        replys << inter->Enable(enabled);
-        replys << m_displayInter.SetBrightness(monitor->name(), brightness);
-
-        //防止customsettingdialog起的时候monitor的属性值不对
-        monitor->setW(mode.width());
-        monitor->setH(mode.height());
-
-        for (auto r : replys)
-            r.waitForFinished();
-    } else
-        inter->Enable(enabled).waitForFinished();
-    Q_ASSERT(m_monitors.contains(primary));
-    m_monitors[primary]->SetPosition(0, 0).waitForFinished();
-
-    //为亮的屏幕排序
-    int xOffset = primary->w();
-    if (ismerge == false) {
-        for (auto *mon : m_model->monitorList()) {
-            // pass primary
-            if (mon == primary)
-                continue;
-            if (monitor == mon) {
-                if(!enabled)
-                    continue;
-            }
-            else {
-                if(!mon->enable())
-                    continue;
-            }
-            Q_ASSERT(m_monitors.contains(mon));
-            auto *mInter = m_monitors[mon];
-            mInter->SetPosition(static_cast<short>(xOffset), 0).waitForFinished();
-            monitor->setW(xOffset);
-            monitor->setH(0);
-            xOffset += mon->w();
-        }
-    }
     m_displayInter.ApplyChanges().waitForFinished();
 }
 
@@ -528,6 +233,7 @@ void DisplayWorker::SetMethodAdjustCCT(int mode)
 {
     m_displayInter.SetMethodAdjustCCT(mode);
 }
+
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 {
     MonitorInter *inter = m_monitors.value(mon);
@@ -548,12 +254,14 @@ void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
 
     inter->SetPosition(static_cast<short>(x), static_cast<short>(y)).waitForFinished();
     m_displayInter.ApplyChanges().waitForFinished();
+    m_displayInter.Save().waitForFinished();
 }
 
 void DisplayWorker::setUiScale(const double value)
 {
     double rv = value;
-    if (rv < 0) rv = m_model->uiScale();
+    if (rv < 0)
+        rv = m_model->uiScale();
 
     for (auto &mm : m_model->monitorList()) {
         mm->setScale(-1);
@@ -595,14 +303,12 @@ void DisplayWorker::setNightMode(const bool nightmode)
         serverCmd = "disable";
     }
 
-    connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [ = ] {
+    connect(process, static_cast<void (QProcess::*)(int exitCode)>(&QProcess::finished), this, [=] {
         process->close();
         process->deleteLater();
     });
 
-    process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service")
-                   .arg(serverCmd)
-                   .arg(cmd));
+    process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service").arg(serverCmd).arg(cmd));
 }
 
 void DisplayWorker::monitorAdded(const QString &path)
@@ -620,15 +326,15 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
     connect(inter, &MonitorInter::BestModeChanged, mon, &Monitor::setBestMode);
-    connect(inter, &MonitorInter::CurrentModeChanged, this,  [ = ] (Resolution  value) {
+    connect(inter, &MonitorInter::CurrentModeChanged, this, [=](Resolution value) {
         if (value.id() == 0) {
-            return ;
+            return;
         }
         auto maxWScale = value.width() / 1024.0;
         auto maxHScale = value.height() / 768.0;
         auto maxScale = maxWScale < maxHScale ? maxWScale : maxHScale;
         if ((m_model->uiScale() - maxScale) > 0.01 && maxScale >= 1.0) {
-            m_currentScale =1.0;
+            m_currentScale = 1.0;
             for (int idx = 0; idx * 0.25 + 1.0 <= maxScale; ++idx) {
                 m_currentScale = idx * 0.25 + 1.0;
             }
@@ -676,27 +382,23 @@ void DisplayWorker::monitorAdded(const QString &path)
 
     m_model->monitorAdded(mon);
     auto getDisplayPriority = [](QString name) {
-        if(name.contains("edp",Qt::CaseInsensitive)) {
+        if (name.contains("edp", Qt::CaseInsensitive)) {
             return 1;
-        }
-        else if(name.contains("hdmi",Qt::CaseInsensitive)) {
+        } else if (name.contains("hdmi", Qt::CaseInsensitive)) {
             return 2;
-        }
-        else if(name.contains("dvi",Qt::CaseInsensitive)) {
+        } else if (name.contains("dvi", Qt::CaseInsensitive)) {
             return 3;
-        }
-        else if(name.contains("vga",Qt::CaseInsensitive)) {
+        } else if (name.contains("vga", Qt::CaseInsensitive)) {
             return 3;
-        }
-        else {
+        } else {
             return 4;
         }
-    } ;
-    if(m_model->displayMode()==EXTEND_MODE) {
-        int  curPriority=getDisplayPriority(m_model->primary());
-        int  monPriority=getDisplayPriority(mon->name());
-        if(monPriority < curPriority) {
-             m_displayInter.SetPrimary(mon->name());
+    };
+    if (m_model->displayMode() == EXTEND_MODE) {
+        int curPriority = getDisplayPriority(m_model->primary());
+        int monPriority = getDisplayPriority(mon->name());
+        if (monPriority < curPriority) {
+            m_displayInter.SetPrimary(mon->name());
         }
     }
     m_monitors.insert(mon, inter);
@@ -728,39 +430,12 @@ void DisplayWorker::onGSettingsChanged(const QString &key)
 {
     const QVariant &value = m_dccSettings->get(key);
 
-    if (key == GSETTINGS_MINIMUM_BRIGHTNESS)
+    if (key == GSETTINGS_MINIMUM_BRIGHTNESS || key == "brightnessMinimum") {
         m_model->setMinimumBrightnessScale(value.toDouble());
-}
-
-void DisplayWorker::record()
-{
-    const int displayMode { m_model->displayMode() };
-    const QString config { displayMode == CUSTOM_MODE ? m_model->config() : m_model->primary() };
-    m_model->setLastConfig(std::pair<int, QString>(displayMode, config));
-}
-
-void DisplayWorker::restore()
-{
-    const std::pair<int, QString> lastConfig { m_model->lastConfig() };
-    m_model->setDisplayMode(lastConfig.first);
-    switch (lastConfig.first) {
-    case CUSTOM_MODE: {
-        discardChanges();
-        switchMode(lastConfig.first, lastConfig.second);
-        saveChanges();
-        break;
-    }
-    case MERGE_MODE:
-        mergeScreens();
-        break;
-    case EXTEND_MODE:
-        extendMode();
-        break;
-    case SINGLE_MODE:
-        onlyMonitor(lastConfig.second);
-        break;
-    default:
-        break;
+    } else if (key == GSETTINGS_SHOW_MUTILSCREEN || key == "showMultiscreen") {
+        m_model->setResolutionRefreshEnable(value.toBool());
+    } else if (key == GSETTINGS_BRIGHTNESS_ENABLE || key == "brightnessEnable") {
+        m_model->setBrightnessEnable(value.toBool());
     }
 }
 

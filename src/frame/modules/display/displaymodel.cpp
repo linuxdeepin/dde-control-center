@@ -28,8 +28,6 @@
 using namespace dcc;
 using namespace dcc::display;
 
-const QString DisplayModel::DDE_Display_Config = "_dde_display_config_private";
-
 const double DoubleZero = 0.000001;
 
 bool contains(const QList<Resolution> &container, const Resolution &item)
@@ -49,33 +47,15 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_minimumBrightnessScale(0.0)
     , m_redshiftIsValid(false)
     , m_allowEnableMultiScaleRatio(false)
-    , m_isMerged(false)
+    , m_resolutionRefreshEnable(true)
+    , m_brightnessEnable(true)
 {
-
 }
 
 double DisplayModel::monitorScale(Monitor *moni)
 {
-    qDebug() << "ui scale : "<< m_uiScale << "\tmonitor scale:" << moni->scale();
+    qDebug() << "ui scale : " << m_uiScale << "\tmonitor scale:" << moni->scale();
     return moni->scale() < 1.0 ? m_uiScale : moni->scale();
-}
-
-const QList<Resolution> DisplayModel::monitorsSameModeList() const
-{
-    Q_ASSERT(m_monitors.size() > 1);
-
-    QList<Resolution> resultList = m_monitors.first()->modeList();
-    for (int i(1); i != m_monitors.size(); ++i) {
-        const QList<Resolution> originList = m_monitors[i]->modeList();
-        QList<Resolution> filteredList;
-
-        for (auto r : resultList)
-            if (contains(originList, r))
-                filteredList.append(r);
-        resultList = filteredList;
-    }
-
-    return resultList;
 }
 
 Monitor *DisplayModel::primaryMonitor() const
@@ -85,17 +65,6 @@ Monitor *DisplayModel::primaryMonitor() const
             return mon;
 
     return nullptr;
-}
-
-bool DisplayModel::monitorsIsIntersect() const
-{
-    if (m_monitors.size() < 2)
-        return false;
-
-    // only support 2 screens
-    Q_ASSERT(m_monitors.size() == 2);
-
-    return m_monitors.first()->rect().intersects(m_monitors.last()->rect());
 }
 
 void DisplayModel::setScreenHeight(const int h)
@@ -146,22 +115,6 @@ void DisplayModel::setPrimary(const QString &primary)
     }
 }
 
-void DisplayModel::setCurrentConfig(const QString &config)
-{
-    if (m_currentConfig != config) {
-        m_currentConfig = config;
-        Q_EMIT currentConfigChanged(m_currentConfig);
-    }
-}
-
-void DisplayModel::setConfigList(const QStringList &configList)
-{
-    if (m_configList != configList) {
-        m_configList = configList;
-        Q_EMIT configListChanged(m_configList);
-    }
-}
-
 void DisplayModel::monitorAdded(Monitor *mon)
 {
     m_monitors.append(mon);
@@ -184,21 +137,18 @@ void DisplayModel::setAutoLightAdjustIsValid(bool ala)
     Q_EMIT autoLightAdjustVaildChanged(ala);
 }
 
-void DisplayModel::setLastConfig(const std::pair<int, QString> &lastConfig)
-{
-    m_lastConfig = lastConfig;
-}
-
 void DisplayModel::setBrightnessMap(const BrightnessMap &brightnessMap)
 {
-    if (brightnessMap == m_brightnessMap) return;
+    if (brightnessMap == m_brightnessMap)
+        return;
 
     m_brightnessMap = brightnessMap;
 }
 
 void DisplayModel::setTouchscreenList(const TouchscreenInfoList &touchscreenList)
 {
-    if (touchscreenList == m_touchscreenList) return;
+    if (touchscreenList == m_touchscreenList)
+        return;
 
     m_touchscreenList = touchscreenList;
 
@@ -207,7 +157,8 @@ void DisplayModel::setTouchscreenList(const TouchscreenInfoList &touchscreenList
 
 void DisplayModel::setTouchMap(const TouchscreenMap &touchMap)
 {
-    if (touchMap == m_touchMap) return;
+    if (touchMap == m_touchMap)
+        return;
 
     m_touchMap = touchMap;
 
@@ -216,7 +167,8 @@ void DisplayModel::setTouchMap(const TouchscreenMap &touchMap)
 
 void DisplayModel::setAutoLightAdjust(bool ala)
 {
-    if (ala == m_isAutoLightAdjust) return;
+    if (ala == m_isAutoLightAdjust)
+        return;
 
     m_isAutoLightAdjust = ala;
 
@@ -260,34 +212,37 @@ void DisplayModel::setRedshiftIsValid(bool redshiftIsValid)
 
 void DisplayModel::setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio)
 {
-    if (m_allowEnableMultiScaleRatio == allowEnableMultiScaleRatio) return;
+    if (m_allowEnableMultiScaleRatio == allowEnableMultiScaleRatio)
+        return;
 
     m_allowEnableMultiScaleRatio = allowEnableMultiScaleRatio;
 }
 
-void DisplayModel::setIsMerge(bool isMerge)
-{
-    if (m_isMerged == isMerge) return;
-
-    m_isMerged = isMerge;
-    Q_EMIT isMergeChange(m_isMerged);
-}
-
-void DisplayModel::setMouseLeftHand(bool isLeft)
-{
-    if(isLeft == m_mouseLeftHand) return;
-
-    m_mouseLeftHand = isLeft;
-    Q_EMIT mouseLeftHandChanged(isLeft);
-}
 void DisplayModel::setRefreshRateEnable(bool isEnable)
 {
     m_RefreshRateEnable = isEnable;
 }
+
 void DisplayModel::setmaxBacklightBrightness(const uint value)
 {
-    if(m_maxBacklightBrightness != value && value < 100){
+    if (m_maxBacklightBrightness != value && value < 100) {
         m_maxBacklightBrightness = value;
         Q_EMIT maxBacklightBrightnessChanged(value);
+    }
+}
+
+void DisplayModel::setResolutionRefreshEnable(const bool enable)
+{
+    if (m_resolutionRefreshEnable != enable) {
+        m_resolutionRefreshEnable = enable;
+        Q_EMIT resolutionRefreshEnableChanged(m_resolutionRefreshEnable);
+    }
+}
+
+void DisplayModel::setBrightnessEnable(const bool enable)
+{
+    if (m_brightnessEnable != enable) {
+        m_brightnessEnable = enable;
+        Q_EMIT brightnessEnableChanged(m_brightnessEnable);
     }
 }

@@ -26,10 +26,6 @@
 #include "monitorsground.h"
 #include "monitorproxywidget.h"
 #include "displaymodel.h"
-#include "monitor.h"
-
-#include <QPainter>
-#include <QDebug>
 
 using namespace dcc::display;
 
@@ -55,14 +51,13 @@ MonitorsGround::~MonitorsGround()
     qDeleteAll(m_monitors.keys());
 }
 
-void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
+void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
 {
     m_model = model;
     m_viewPortWidth = model->screenWidth();
     m_viewPortHeight = model->screenHeight();
 
-    auto initMW = [ this ](Monitor * mon) {
-
+    auto initMW = [this](Monitor *mon) {
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
         m_monitors[pw] = mon;
 
@@ -90,6 +85,7 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
     }
 
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
+    connect(m_model, &DisplayModel::displayModeChanged, this, &MonitorsGround::resetMonitorsView);
 }
 
 void MonitorsGround::resetMonitorsView()
@@ -97,7 +93,7 @@ void MonitorsGround::resetMonitorsView()
     qDebug() << Q_FUNC_INFO;
 
     reloadViewPortSize();
-    if (m_model->isMerge()) {
+    if (m_model->displayMode() == MERGE_MODE) {
         adjustAll();
         return;
     } else {
@@ -114,6 +110,7 @@ void MonitorsGround::resetMonitorsView()
 void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 {
     qDebug() << Q_FUNC_INFO << pw->name();
+    const QPoint preTopLeft = QPoint(pw->x(), pw->y());
 
     const double scale = screenScale();
     const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
@@ -125,19 +122,50 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
     // ensure screens is 贴合但不相交
     ensureWidgetPerfect(pw);
 
-    // clear global offset
-    int minX = INT_MAX;
-    int minY = INT_MAX;
+    // 移至斜对角时，还原显示器位置
+    const QPoint pwTopLeft = QPoint(pw->x(), pw->y());
+    const QPoint pwTopRight = QPoint(pw->x() + pw->w(), pw->y());
+    const QPoint pwBottomLeft = QPoint(pw->x(), pw->y() + pw->h());
+    const QPoint pwBottomRight = QPoint(pw->x() + pw->w(), pw->y() + pw->h());
+    QRect rpw(pwTopLeft, pwBottomRight);
+
+    MonitorProxyWidget *other = nullptr;
     for (auto w : m_monitors.keys()) {
-        minX = std::min(minX, w->x());
-        minY = std::min(minY, w->y());
-    }
-    for (auto w : m_monitors.keys()) {
-        w->setMovedX(w->x() - minX);
-        w->setMovedY(w->y() - minY);
+        if (w != pw) {
+            other = w;
+            break;
+        }
     }
 
-    applySettings();
+    const QPoint otTopLeft = QPoint(other->x(), other->y());
+    const QPoint otBottomRight = QPoint(other->x() + other->w(), other->y() + other->h());
+    QRect rot(otTopLeft, otBottomRight);
+
+    int cnt = 0;
+    cnt += rot.contains(pwTopLeft) ? 1 : 0;
+    cnt += rot.contains(pwTopRight) ? 1 : 0;
+    cnt += rot.contains(pwBottomLeft) ? 1 : 0;
+    cnt += rot.contains(pwBottomRight) ? 1 : 0;
+
+    if (cnt >= 2) {
+        // clear global offset
+        int minX = INT_MAX;
+        int minY = INT_MAX;
+        for (auto w : m_monitors.keys()) {
+            minX = std::min(minX, w->x());
+            minY = std::min(minY, w->y());
+        }
+        for (auto w : m_monitors.keys()) {
+            w->setMovedX(w->x() - minX);
+            w->setMovedY(w->y() - minY);
+        }
+
+        applySettings();
+    } else {
+        pw->setMovedX(preTopLeft.x());
+        pw->setMovedY(preTopLeft.y());
+    }
+
     qApp->processEvents();
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
 }
@@ -146,8 +174,7 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
     bool bSingle = false;
     int enabledCount = 0;
-    for (auto* value : m_monitors)
-    {
+    for (auto *value : m_monitors) {
         if (value->enable()) {
             enabledCount++;
             m_monitors.key(value)->setVisible(true);
@@ -171,8 +198,8 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     if (bSingle) {
         const double wSingle = 0.15 * pw->w();
         const double hSingle = 0.15 * pw->h();
-        pw->setGeometry(static_cast<int>((width() - wSingle)/2), static_cast<int>((height() - hSingle)/2), static_cast<int>(wSingle), static_cast<int>(hSingle));
-        this->setEnabled(false);//单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
+        pw->setGeometry(static_cast<int>((width() - wSingle) / 2), static_cast<int>((height() - hSingle) / 2), static_cast<int>(wSingle), static_cast<int>(hSingle));
+        this->setEnabled(false); //单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
     } else {
         this->setEnabled(true);
         pw->setGeometry(static_cast<int>(x + offsetX), static_cast<int>(y + offsetY), static_cast<int>(w), static_cast<int>(h));
@@ -182,31 +209,24 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 
 void MonitorsGround::adjustAll()
 {
+    int cnt = 0;
+    int offset = 10;
     const double scale = screenScale();
-    int offset = 0;
     const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
     const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
-    MonitorProxyWidget *primarywdt = nullptr;
     for (auto pw : m_monitors.keys()) {
-        if (pw->name() == m_model->primary()) {
-            primarywdt = pw;
-            continue;
-        }
         const double w = scale * pw->w() * 0.5;
         const double h = scale * pw->h() * 0.5;
         const double x = scale * pw->x();
         const double y = scale * pw->y();
 
-        pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
-        offset += 10;
-    }
-    if (primarywdt) {
-        const double w = scale * primarywdt->w() * 0.5;
-        const double h = scale * primarywdt->h() * 0.5;
-        const double x = scale * primarywdt->x();
-        const double y = scale * primarywdt->y();
-
-        primarywdt->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
+        if (++cnt == 1) {
+            pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5), static_cast<int>(y + offsetY + h * 0.5), static_cast<int>(w), static_cast<int>(h));
+        } else if (m_monitors.size() == 3 && cnt == 2) {
+            pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset * 2), static_cast<int>(y + offsetY + h * 0.5), static_cast<int>(w), static_cast<int>(h));
+        } else {
+            pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h + offset * 2));
+        }
     }
 }
 
