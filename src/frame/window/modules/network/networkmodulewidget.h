@@ -35,6 +35,7 @@ QT_BEGIN_NAMESPACE
 class QListView;
 class QVBoxLayout;
 class QStandardItemModel;
+class QProcess;
 QT_END_NAMESPACE
 
 namespace dde {
@@ -73,6 +74,7 @@ public:
     };
 
     explicit NetworkModuleWidget();
+    ~NetworkModuleWidget();
     void setModel(dde::network::NetworkModel *model);
     void initSetting(const int settingIndex, const QString &searchPath);
     //设置当前索引
@@ -111,6 +113,7 @@ private:
         SearchPath
     };
     QModelIndex m_lastIndex;
+    QProcess *m_nmConnectionEditorProcess;
 };
 }   // namespace network
 }   // namespace dcc
