@@ -66,7 +66,7 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type)
         {PW_ERR_LENGTH_LONG, tr("Password must be no more than %1 characters").arg(m_passwordMaxLen)},
         {PW_ERR_CHARACTER_INVALID, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)")},
         {PW_ERR_PALINDROME, tr("Password must not contain more than 4 palindrome characters")},
-        {PW_ERR_WORD, tr("Do not use common words and combinations in reverse order as password")},
+        {PW_ERR_WORD, tr("Do not use common words and combinations as password")},
         {PW_ERR_PW_REPEAT, tr("New password should differ from the current one")}
     };
 
