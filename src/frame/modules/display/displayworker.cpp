@@ -140,6 +140,7 @@ void DisplayWorker::saveChanges()
     qDebug() << Q_FUNC_INFO;
 
     m_displayInter.Save().waitForFinished();
+    Q_EMIT updateUiScale();
 }
 
 void DisplayWorker::discardChanges()
@@ -617,8 +618,8 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
     connect(inter, &MonitorInter::BestModeChanged, mon, &Monitor::setBestMode);
-
-    connect(inter, &MonitorInter::CurrentModeChanged, this,  [ = ] (Resolution  value) {
+    connect(this, &DisplayWorker::updateUiScale, this,  [ = ] {
+        Resolution value = inter->currentMode();
         if (value.id() == 0) {
             return ;
         }
@@ -633,6 +634,7 @@ void DisplayWorker::monitorAdded(const QString &path)
             setUiScale(scale);
         }
     });
+
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
     connect(inter, &MonitorInter::EnabledChanged, mon, &Monitor::setMonitorEnable);

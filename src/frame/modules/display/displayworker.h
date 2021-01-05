@@ -57,6 +57,9 @@ public:
 
     void active();
 
+Q_SIGNALS:
+    void updateUiScale();
+
 public Q_SLOTS:
     void saveChanges();
     void discardChanges();
