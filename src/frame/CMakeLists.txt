@@ -503,17 +503,6 @@ set(SYSTEMINFO_FILES
                 window/modules/systeminfo/userlicensewidget.cpp
 )
 
-if (NOT DEFINED DISABLE_RECOVERY)
-    set(SYSTEMINFO_FILES
-        ${SYSTEMINFO_FILES}
-        window/modules/systeminfo/systemrestore.cpp
-        window/modules/systeminfo/manualbackup.cpp
-        window/modules/systeminfo/manualrestore.cpp
-        window/modules/systeminfo/backupandrestoremodel.cpp
-        window/modules/systeminfo/backupandrestoreworker.cpp
-    )
-endif()
-
 # load update
 set(UPDATE_FILES
                 modules/update/loadingitem.cpp
