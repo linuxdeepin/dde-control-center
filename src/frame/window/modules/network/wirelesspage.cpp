@@ -552,7 +552,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     //当wifi之前小于5且更新后还小于5则直接跳过
     if (!m_apItems.contains(ssid) && strength < 5) return;
     //当wifi之前小于5但是更新后大于5则添加该网络到列表
-    else if (!m_apItems.contains(ssid) && strength > 5) {
+    else if (!m_apItems.contains(ssid) && strength >= 5) {
         onAPAdded(apInfo);
         return;
     //当wifi大于5更新到小于5则删除该网络
@@ -563,15 +563,6 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     //其他情况正常更新
     APItem *it = m_apItems[ssid];
-    if (5 >= strength && !it->checkState() && ssid != m_device->activeApSsid()) {
-        if (nullptr == m_activateItem) {
-            m_lvAP->setRowHidden(it->row(), true);
-        } else if (it->uuid() != m_activateItem->uuid()) {
-            m_lvAP->setRowHidden(it->row(), true);
-        }
-    } else {
-        m_lvAP->setRowHidden(it->row(), false);
-    }
     m_apItems[ssid]->setSignalStrength(strength);
     m_apItems[ssid]->setConnected(ssid == m_device->activeApSsid() && m_device->activeApState() == Wifi_Connected);
     m_apItems[ssid]->setUuid(uuid);
