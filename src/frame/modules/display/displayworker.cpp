@@ -50,9 +50,9 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
       m_appearanceInter(new AppearanceInter("com.deepin.daemon.Appearance",
                                             "/com/deepin/daemon/Appearance",
                                             QDBusConnection::sessionBus(), this)),
+      m_updateScale(false),
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
       m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
-
 {
     m_displayInter.setSync(false);
     m_appearanceInter->setSync(false);
@@ -140,7 +140,9 @@ void DisplayWorker::saveChanges()
     qDebug() << Q_FUNC_INFO;
 
     m_displayInter.Save().waitForFinished();
-    Q_EMIT updateUiScale();
+    if (m_updateScale)
+        setUiScale(m_currentScale);
+    m_updateScale = false;
 }
 
 void DisplayWorker::discardChanges()
@@ -618,8 +620,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::NameChanged, mon, &Monitor::setName);
     connect(inter, &MonitorInter::CurrentModeChanged, mon, &Monitor::setCurrentMode);
     connect(inter, &MonitorInter::BestModeChanged, mon, &Monitor::setBestMode);
-    connect(this, &DisplayWorker::updateUiScale, this,  [ = ] {
-        Resolution value = inter->currentMode();
+    connect(inter, &MonitorInter::CurrentModeChanged, this,  [ = ] (Resolution  value) {
         if (value.id() == 0) {
             return ;
         }
@@ -627,11 +628,11 @@ void DisplayWorker::monitorAdded(const QString &path)
         auto maxHScale = value.height() / 768.0;
         auto maxScale = maxWScale < maxHScale ? maxWScale : maxHScale;
         if ((m_model->uiScale() - maxScale) > 0.01 && maxScale >= 1.0) {
-            double scale =1.0;
+            m_currentScale =1.0;
             for (int idx = 0; idx * 0.25 + 1.0 <= maxScale; ++idx) {
-                scale = idx * 0.25 + 1.0 ;
+                m_currentScale = idx * 0.25 + 1.0;
             }
-            setUiScale(scale);
+            m_updateScale = true;
         }
     });
 
