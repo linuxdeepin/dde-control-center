@@ -30,11 +30,6 @@
 #include <QList>
 #include <QSettings>
 #include <QDebug>
-#ifndef DISABLE_RECOVERY
-#include <udisks2-qt5/dblockdevice.h>
-#include <udisks2-qt5/dblockpartition.h>
-#include <udisks2-qt5/ddiskmanager.h>
-#endif
 #include <QDir>
 
 DWIDGET_USE_NAMESPACE
@@ -76,34 +71,6 @@ void SystemInfoWidget::initData()
         //~ contents_path /systeminfo/End User License Agreement
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
     };
-
-#ifndef DISABLE_RECOVERY
-#ifndef QT_DEBUG
-    const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
-    QSettings settings(recoveryPath, QSettings::IniFormat);
-    const QString UUID {settings.value("UUID").toString() };
-    //因不符合FHS规范，live系统从根目录改为/usr目录
-    if (!UUID.isEmpty() && QDir("/usr/doppel/").exists()) {
-        const QStringList &devices = DDiskManager::blockDevices({});
-        for (const QString &path : devices) {
-            QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));
-            if (device->idUUID() == UUID) {
-#endif
-            m_itemList << ListSubItem{
-                "dcc_backup",
-                tr("Backup and Restore"),
-                QMetaMethod::fromSignal(&SystemInfoWidget::requestShowRestore)
-            };
-#ifndef QT_DEBUG
-                break;
-            }
-        }
-    }
-    else {
-        qDebug() << "Cannot open " << recoveryPath;
-    }
-#endif
-#endif
 
     for (auto m : m_itemList) {
         DStandardItem *item = new DStandardItem;

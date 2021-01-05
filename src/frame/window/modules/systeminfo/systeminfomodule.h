@@ -38,10 +38,6 @@ class SystemInfoWork;
 namespace DCC_NAMESPACE {
 namespace systeminfo {
 class SystemInfoWidget;
-#ifndef DISABLE_RECOVERY
-class BackupAndRestoreModel;
-class BackupAndRestoreWorker;
-#endif
 class SystemInfoModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
@@ -70,17 +66,10 @@ public Q_SLOTS:
     void onShowAboutNativePage();
     void onVersionProtocolPage();
     void onShowEndUserLicenseAgreementPage();
-#ifndef DISABLE_RECOVERY
-    void onShowSystemRestore();
-#endif
 
 private:
     dcc::systeminfo::SystemInfoWork *m_work;
     dcc::systeminfo::SystemInfoModel *m_model;
-#ifndef DISABLE_RECOVERY
-    BackupAndRestoreWorker* m_backupAndRestoreWorker;
-    BackupAndRestoreModel* m_backupAndRestoreModel;
-#endif
     SystemInfoWidget *m_sysinfoWidget;
 };
 

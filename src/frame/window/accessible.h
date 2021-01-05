@@ -111,7 +111,6 @@
 #include "./modules/systeminfo/nativeinfowidget.h"
 #include "./modules/systeminfo/versionprotocolwidget.h"
 #include "./modules/systeminfo/userlicensewidget.h"
-#include "./modules/systeminfo/systemrestore.h"
 
 #include "./modules/update/updatewidget.h"
 
@@ -277,7 +276,6 @@ SET_FORM_ACCESSIBLE(VersionProtocolWidget, "VersionProtocolWidget")
 SET_FORM_ACCESSIBLE(SystemInfoWidget, "SystemInfoWidget")
 SET_FORM_ACCESSIBLE(NativeInfoWidget, "NativeInfoWidget")
 SET_FORM_ACCESSIBLE(UserLicenseWidget, "UserLicenseWidget")
-SET_FORM_ACCESSIBLE(SystemRestore, "SystemRestore")
 
 // 更新模块
 using namespace DCC_NAMESPACE::update;
@@ -436,7 +434,6 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
     USE_ACCESSIBLE(QString(classname).replace("dccV20::systeminfo::", ""), SystemInfoWidget);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::systeminfo::", ""), NativeInfoWidget);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::systeminfo::", ""), UserLicenseWidget);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::systeminfo::", ""), SystemRestore);
 
     // 更新模块
     USE_ACCESSIBLE(QString(classname).replace("dccV20::update::", ""), UpdateWidget);
