@@ -754,6 +754,10 @@ void WirelessPage::onActivaConnections(const QJsonObject &activeConn)
         }
         setApLoadin(nullptr);
     }
+
+    if (!m_apEditPage.isNull()){
+        m_apEditPage->updateDisconnectButtons();
+    }
 }
 
 void WirelessPage::updateAction(APItem *item)
