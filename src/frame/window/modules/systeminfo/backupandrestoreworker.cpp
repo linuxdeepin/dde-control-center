@@ -190,6 +190,13 @@ ErrorType BackupAndRestoreWorker::doSystemBackup()
         return ErrorType::PathError;
     }
 
+    //check choosePath file system type
+    QStringList fileSystems{"ext4", "ntfs-3g", "fuseblk"};
+    QStorageInfo storageInfo(choosePath);
+    if (!fileSystems.contains(storageInfo.fileSystemType().toLower())) {
+        return ErrorType::FsError;
+    }
+
     QSharedPointer<QProcess> process(new QProcess);
     process->start("pkexec", QStringList() << "/bin/deepin-recovery-tool" << "--actionType" << "system_backup" << "--path" << choosePath);
     process->waitForFinished(TimeOut);
