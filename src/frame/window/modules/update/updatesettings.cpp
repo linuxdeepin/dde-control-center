@@ -133,7 +133,7 @@ void UpdateSettings::initUi()
     contentLayout->addWidget(m_autoCleanCache);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
         //~ contents_path /update/Update Settings
         m_sourceCheck = new SwitchWidget(tr("System Repository Detection"), this);
         m_sourceCheck->addBackground();
@@ -236,7 +236,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
         m_sourceCheck->setChecked(model->sourceCheck());
     }
