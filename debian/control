@@ -31,7 +31,8 @@ Build-Depends:
  libxcb-ewmh-dev,
  libudisks2-qt5-dev,
  qtmultimedia5-dev,
- libgtest-dev
+ libgtest-dev,
+ libpolkit-qt5-1-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 

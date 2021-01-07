@@ -41,7 +41,9 @@
 #include <libintl.h>
 #include <random>
 #include <crypt.h>
+#include <polkit-qt5-1/PolkitQt1/Authority>
 
+using namespace PolkitQt1;
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE;
 
@@ -589,6 +591,15 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     if (user->password() != user->repeatPassword()) {
         result->setType(CreationResult::PasswordMatchError);
         result->setMessage(tr("Password not match"));
+        return result;
+    }
+
+    Authority::Result authenticationResult;
+    authenticationResult = Authority::instance()->checkAuthorizationSync("com.deepin.daemon.accounts.user-administration", UnixProcessSubject(getpid()),
+                                                           Authority::AllowUserInteraction);
+
+    if (Authority::Result::Yes != authenticationResult) {
+        result->setType(CreationResult::Canceled);
         return result;
     }
 
