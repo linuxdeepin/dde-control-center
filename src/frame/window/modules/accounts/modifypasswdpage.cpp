@@ -25,8 +25,6 @@
 #include "../../utils.h"
 #include "createaccountpage.h"
 
-#include "deepin_pw_check.h"
-
 #include <DFontSizeManager>
 
 #include <QVBoxLayout>
@@ -143,18 +141,8 @@ void ModifyPasswdPage::clickSaveBtn()
         m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
         return;
     }
-
-    if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
-        m_repeatPasswordEdit->setAlert(true);
-        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
-        return;
-    }
-    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
-                                                                                      m_newPasswordEdit->lineEdit()->text(),
-                                                                                      PwqualityManager::MODIFY_PW);
-    if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-        m_newPasswordEdit->setAlert(true);
-        m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+    if (!onPasswordEditFinished(m_newPasswordEdit) ||
+        !onPasswordEditFinished(m_repeatPasswordEdit)) {
         return;
     }
 
@@ -183,11 +171,89 @@ void ModifyPasswdPage::clickSaveBtn()
 
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 {
-    if (exitCode != 0) {
+    QMap<int, QString> PasswordFlagsStrMap = {
+        {InputOldPwdError, tr("Wrong password")},
+        {InputLongerError, tr("Password must have at least %1 characters")},
+        {InputSimilarError, tr("The new password should not be similar to the current one")},
+        {InputSameError, tr("New password should differ from the current one")},
+        {InputSimpleError, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)")},
+        {InputUsedError, tr("Do not use a password you have used before")},
+        {InputDictionaryError, tr("Do not use common words and combinations as password")},
+        {InputRevDictionaryError, tr("Do not use common words and combinations in reverse order as password")},
+        {InputFailedError, tr("It does not meet password rules")}
+    };
+
+    // 获取密码最小长度，默认最小长度为6
+    auto tfunc = [](int &minlen) {
+        QFile file("/etc/pam.d/common-password");
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream in(&file);
+            QString line = in.readLine();
+            while (!line.isNull()) {
+                line = in.readLine();
+                if (line.trimmed().left(8) == "password" && line.indexOf("pam_unix.so") != -1) {
+                    for (auto sw : line.split(" ")) {
+                        if (sw.indexOf("minlen=") != -1) {
+                            if (minlen < sw.mid(sw.indexOf("minlen=") + 7).toInt()) {
+                                minlen = sw.mid(sw.indexOf("minlen=") + 7).toInt();
+                            }
+                            file.close();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        file.close();
+
+        QFile filepw("/etc/security/pwquality.conf");
+        if (filepw.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream in(&filepw);
+            QString line = in.readLine();
+            while (!line.isNull()) {
+                line = in.readLine();
+                if (line.trimmed().left(6) == "minlen") {
+                    if (minlen < line.mid(line.indexOf("=") + 1).toInt()) {
+                        minlen = line.mid(line.indexOf("=") + 1).toInt();
+                    }
+                    break;
+                }
+            }
+        }
+        filepw.close();
+    };
+
+    switch (exitCode) {
+    case ModifyPasswdPage::ModifyNewPwdSuccess: {
+        DaemonService daemonservice("com.deepin.defender.daemonservice",
+                                    "/com/deepin/defender/daemonservice",
+                                    QDBusConnection::sessionBus());
+        daemonservice.PasswordUpdate();
+
+        Q_EMIT requestBack(AccountsWidget::ModifyPwdSuccess);
+        break;
+    }
+    case ModifyPasswdPage::InputOldPwdError: {
         m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
-    } else {
-        Q_EMIT requestBack();
+        m_oldPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(exitCode), m_oldPasswordEdit, 2000);
+        break;
+    }
+    case ModifyPasswdPage::InputLongerError: {
+        int minlen(6);
+        tfunc(minlen);
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(exitCode).arg(minlen), m_newPasswordEdit, 2000);
+        break;
+    }
+    case ModifyPasswdPage::InputSimilarError:
+    case ModifyPasswdPage::InputSameError:
+    case ModifyPasswdPage::InputSimpleError:
+    case ModifyPasswdPage::InputDictionaryError:
+    case ModifyPasswdPage::InputRevDictionaryError:
+    default:
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(exitCode), m_newPasswordEdit, 2000);
+        break;
     }
 }
 
@@ -198,4 +264,110 @@ void ModifyPasswdPage::showEvent(QShowEvent *event)
     if (m_oldPasswordEdit && !m_oldPasswordEdit->hasFocus()) {
         m_oldPasswordEdit->lineEdit()->setFocus();
     }
+}
+
+bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
+{
+    CreateAccountPage::PassWordType passwordtype = CreateAccountPage::NormalPassWord;
+    const QString &password = edit->lineEdit()->text();
+    QGSettings setting("com.deepin.dde.control-center", QByteArray());
+    if (setting.get("account-password-type").toString() == "IncludeBlankSymbol")
+        passwordtype = CreateAccountPage::IncludeBlankSymbol;
+
+    if (password.isEmpty()) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
+        return false;
+    }
+
+    //重复密码
+    if (edit == m_repeatPasswordEdit) {
+        if (m_newPasswordEdit->lineEdit()->text() != password) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Passwords do not match"), edit, 2000);
+            return false;
+        }
+    }
+
+    int passResult = PwqualityManager::instance()->verifyPassword(password);
+    QString blanksymbolstr =  tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols")
+            .arg(PwqualityManager::instance()->getPasswordMinLength())
+            .arg(PwqualityManager::instance()->getValidateRequiredString());
+
+    switch (passResult)
+    {
+    case ENUM_PASSWORD_NOTEMPTY:
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
+        return false;
+    case ENUM_PASSWORD_TOOSHORT:
+        edit->setAlert(true);
+        if (passwordtype == CreateAccountPage::NormalPassWord)
+            edit->showAlertMessage(tr("The password must have at least %1 characters").arg(PwqualityManager::instance()->getPasswordMinLength()), edit, 2000);
+        if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
+        return false;
+    case ENUM_PASSWORD_TOOLONG:
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(PwqualityManager::instance()->getPasswordMaxLength()), edit, 2000);
+        return false;
+    case ENUM_PASSWORD_TYPE:
+        edit->setAlert(true);
+        if (passwordtype == CreateAccountPage::NormalPassWord)
+            edit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(PwqualityManager::instance()->getValidateRequiredString()), edit, 2000);
+        if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
+        return false;
+    case ENUM_PASSWORD_CHARACTER:
+        edit->setAlert(true);
+        if (passwordtype == CreateAccountPage::NormalPassWord)
+            edit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), edit, 2000);
+        if (passwordtype == CreateAccountPage::IncludeBlankSymbol)
+            edit->showAlertMessage(blanksymbolstr, edit, 2000);
+        return false;
+    case ENUM_PASSWORD_SEVERAL:
+        edit->setAlert(true);
+        edit->showAlertMessage(blanksymbolstr, edit, 2000);
+        return false;
+    case ENUM_PASSWORD_PALINDROME:
+        if (passwordtype == CreateAccountPage::NormalPassWord) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Password must not contain more than 4 palindrome characters"), edit, 2000);
+            return false;
+        }
+        break;
+    case ENUM_PASSWORD_DICT_FORBIDDEN:
+        if (passwordtype == CreateAccountPage::NormalPassWord) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Password must not contain common words and combinations"), edit, 2000);
+            return false;
+        }
+        break;
+    }
+
+    const int maxSize = 512;
+    if (password.size() > maxSize) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), edit, 2000);
+        return false;
+    }
+
+    if (passwordtype == CreateAccountPage::IncludeBlankSymbol) {
+        QString reversusername;
+        QStringList reversenamelist;
+
+        for (int i = m_curUser->name().count() - 1; i > -1; i--) {
+            reversenamelist << m_curUser->name().at(i);
+        }
+        reversusername = reversenamelist.join("");
+
+        //密码不可为用户名重复或倒置
+        if (password == m_curUser->name() || password == reversusername) {
+            edit->setAlert(true);
+            edit->showAlertMessage(tr("Password should not be the repeated or reversed username"), edit, 2000);
+            return false;
+        }
+    }
+
+    return true;
 }

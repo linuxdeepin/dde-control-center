@@ -652,8 +652,6 @@ if (NOT KF5_QT_LIBRARIES)
 endif()
 # end KF5 network manager
 
-set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
-
 function(add_build_macro macro)
     string(TOUPPER ${macro} macro)
     add_definitions(-D${macro})
@@ -782,7 +780,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${LibNM_LIBRARIES}
     ${KF5_QT_LIBRARIES}
     ${Qt5Svg_LIBRARIES}
-    ${DEEPIN_PW_CHECK}
     crypt
     ${LIBS}
 )
