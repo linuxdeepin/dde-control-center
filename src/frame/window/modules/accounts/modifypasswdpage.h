@@ -59,6 +59,19 @@ public:
     void clickSaveBtn();
     void onPasswordChangeFinished(const int exitCode);
 
+    enum ModifyPwdRetFlag {
+        ModifyNewPwdSuccess     = 0,    // 修改密码成功
+        PermissionDenied        = 1,    // 拒绝访问
+        InputOldPwdError        = 10,   // 旧密码错误
+        InputLongerError        = 11,   // 新密码长度不够
+        InputSimilarError       = 12,   // 新旧密码相似
+        InputSameError          = 13,   // 新旧密码相同
+        InputSimpleError        = 14,   // 新密码太简单
+        InputUsedError          = 15,   // 新密码已使用
+        InputDictionaryError    = 16,   // 新密码基于字典词
+        InputRevDictionaryError = 17,   // 新密码基于反向字典词
+        Failure                 = 20,   // 修改密码失败
+    };
 protected:
     void showEvent(QShowEvent *event) override;
 

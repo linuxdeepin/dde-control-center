@@ -20,21 +20,21 @@
 */
 
 #include "pwqualitymanager.h"
+
+#include <QStringList>
+#include <QDebug>
+#include <QSettings>
+#include <QApplication>
+#include <QtGlobal>
+#include <QFileInfo>
+
 #include "window/utils.h"
 
-#include <QDebug>
-
-using namespace DCC_NAMESPACE;
 PwqualityManager::PwqualityManager()
+    : m_passwordMinLength(-1)
+    , m_passwordMaxLength(-1)
+    , m_validateRequiredString(-1)
 {
-    if (IsServerSystem) {
-        m_checkLevel = LEVEL_STRICT_CHECK;
-    } else {
-        m_checkLevel = LEVEL_STANDARD_CHECK;
-    }
-
-    m_passwordMinLen = get_pw_min_length(m_checkLevel);
-    m_passwordMaxLen = get_pw_max_length(m_checkLevel);
 }
 
 PwqualityManager *PwqualityManager::instance()
@@ -43,33 +43,134 @@ PwqualityManager *PwqualityManager::instance()
     return &pwquality;
 }
 
-PwqualityManager::ERROR_TYPE PwqualityManager::verifyPassword(const QString &user, const QString &password, const CHECK_TYPE &type)
+bool PwqualityManager::palindromeChecked(const QString &text)
 {
-    if (type == CREATE_USER) {
-        m_checkLevel |= LEVEL_CREATE_USER;
+    QStringList list;
+    for (int palindromeLength = m_palindromeLength; palindromeLength <= text.size(); palindromeLength++) {
+        for (int pos = 0; pos < text.size() + 1 - palindromeLength; pos++) {
+            list.append(text.mid(pos, palindromeLength));
+        }
     }
 
-    ERROR_TYPE error = deepin_pw_check(user.toLocal8Bit().data(), password.toLocal8Bit().data(), m_checkLevel, nullptr);
-
-    if (error == PW_ERR_PW_REPEAT) {
-        error = PW_NO_ERR;
+    // 判断是否是连续4个字符的回文,如果是就返回false
+    for (QString str : list) {
+        bool isPalindrome = true;
+        int strLength = str.length();
+        for (int i = 0; i < strLength / 2; i++) {
+            if (str[i] == str[strLength - 1 - i]) {
+                continue;
+            } else {
+                isPalindrome = false;
+            }
+        }
+        if (isPalindrome) return false;
     }
 
-    return error;
+    return true;
 }
 
-QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type)
+QString PwqualityManager::dictChecked(const QString &text)
 {
-    QMap<int, QString> PasswordFlagsStrMap = {
-        {PW_ERR_PASSWORD_EMPTY, tr("Password cannot be empty")},
-        {PW_ERR_LENGTH_SHORT, tr("Password must have at least %1 characters").arg(m_passwordMinLen)},
-        {PW_ERR_LENGTH_LONG, tr("Password must be no more than %1 characters").arg(m_passwordMaxLen)},
-        {PW_ERR_CHARACTER_INVALID, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)")},
-        {PW_ERR_PALINDROME, tr("Password must not contain more than 4 palindrome characters")},
-        {PW_ERR_WORD, tr("Do not use common words and combinations in reverse order as password")},
-        {PW_ERR_PW_REPEAT, tr("New password should differ from the current one")}
-    };
+    QFile file("/usr/share/dict/MainEnglishDictionary_ProbWL.txt");
+    if (!file.open(QIODevice::Text | QIODevice::ReadOnly)) {
+        qDebug() << "dict file not found, skip check";
+        return QString();
+    }
 
-    return PasswordFlagsStrMap.value(type);
+    QStringList dictList;
+    QTextStream out(&file);
+    while (!out.atEnd()) {
+        dictList.append(out.readLine());
+    }
+
+    if (!dictList.contains(text))
+        return QString();
+
+    return QString("error password");
 }
 
+int PwqualityManager::verifyPassword(const QString &password)
+{
+    QFileInfo fileInfo("/etc/deepin/dde.conf");
+    if (fileInfo.isFile()) {
+        // NOTE(justforlxz): 配置文件由安装器生成，后续改成PAM模块
+        QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
+        setting.beginGroup("Password");
+        const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
+        m_passwordMinLength   = setting.value("PASSWORD_MIN_LENGTH").toInt();
+        m_passwordMaxLength   = setting.value("PASSWORD_MAX_LENGTH").toInt();
+        const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
+        m_validateRequiredString      = setting.value("VALIDATE_REQUIRED").toInt();
+        QString validate_policy_string = setting.value("VALIDATE_POLICY").toString();
+
+        if (!strong_password_check) {
+            return ENUM_PASSWORD_CHARACTER;
+        }
+        if (password.size() == 0) {
+            return ENUM_PASSWORD_NOTEMPTY;
+        }
+        if (password.size() > 0 && password.size() < m_passwordMinLength) {
+            return ENUM_PASSWORD_TOOSHORT;
+        }
+        if (passwordCompositionType(validate_policy, password) < m_validateRequiredString) {
+            if (password.size() < m_passwordMinLength) {
+                return ENUM_PASSWORD_SEVERAL;
+            }
+            if (!(password.split("").toSet() - validate_policy.join("").split("").toSet()).isEmpty()) {
+                return ENUM_PASSWORD_CHARACTER;
+            }
+            return ENUM_PASSWORD_TYPE;
+        }
+        if (password.size() > m_passwordMaxLength) {
+            return ENUM_PASSWORD_TOOLONG;
+        }
+        if (!containsChar(password, validate_policy_string)) {
+            return ENUM_PASSWORD_CHARACTER;
+        }
+        if (dccV20::IsServerSystem) {
+            if (!PwqualityManager::instance()->palindromeChecked(password)) {
+                return ENUM_PASSWORD_PALINDROME;
+            }
+
+            QString sChkResult = PwqualityManager::instance()->dictChecked(password);
+            if (!sChkResult.isEmpty()) {
+                return ENUM_PASSWORD_DICT_FORBIDDEN;
+            }
+            return ENUM_PASSWORD_SUCCESS;
+        }
+        return ENUM_PASSWORD_SUCCESS;
+    } else {
+        QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
+                                      QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
+        qDebug() << "configuration file not exist";
+        bool ret = containsChar(password, validate_policy);
+        if (!ret) {
+            return ENUM_PASSWORD_CHARACTER;
+        }
+        return ENUM_PASSWORD_SUCCESS;
+    }
+}
+
+int  PwqualityManager::passwordCompositionType(const QStringList &validate, const QString &password)
+{
+    return static_cast<int>(std::count_if(validate.cbegin(), validate.cend(),
+                                          [=](const QString &policy) {
+                                              for (const QChar &c : policy) {
+                                                  if (password.contains(c)) {
+                                                      return true;
+                                                  }
+                                              }
+                                              return false;
+                                          }));
+}
+
+bool PwqualityManager::containsChar(const QString &password, const QString &validate)
+{
+    for (const QChar &p : password) {
+        if (!validate.contains(p)) {
+            return false;
+        }
+    }
+
+    return true;
+}

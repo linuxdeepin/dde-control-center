@@ -89,7 +89,7 @@ protected:
 private Q_SLOTS:
     bool checkName();
     bool checkFullname();
-    bool checkPassword(DPasswordEdit *edit);
+    bool checkPassward(DPasswordEdit *edit);
 
 private:
     dcc::accounts::User *m_newUser;
