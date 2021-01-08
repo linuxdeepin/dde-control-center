@@ -27,6 +27,7 @@ dde-control-center
 *.swp
 
 *.vscode
+*.vim
 
 .transifexrc
 lupdate.sh
