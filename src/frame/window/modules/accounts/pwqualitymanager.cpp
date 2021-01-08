@@ -45,6 +45,10 @@ PwqualityManager *PwqualityManager::instance()
 
 PwqualityManager::ERROR_TYPE PwqualityManager::verifyPassword(const QString &user, const QString &password, const CHECK_TYPE &type)
 {
+    if (type == CREATE_USER) {
+        m_checkLevel |= LEVEL_CREATE_USER;
+    }
+
     ERROR_TYPE error = deepin_pw_check(user.toLocal8Bit().data(), password.toLocal8Bit().data(), m_checkLevel, nullptr);
 
     if (error == PW_ERR_PW_REPEAT) {
