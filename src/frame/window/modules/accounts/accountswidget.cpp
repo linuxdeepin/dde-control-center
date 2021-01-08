@@ -159,26 +159,24 @@ void AccountsWidget::addUser(User *user, bool t1)
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
 
-    if (IsServerSystem) {
-        /* 用户列表显示用户类型 */
-        auto *subTitleAction = new DViewItemAction;
-        if (user->userType() == User::UserType::Administrator) {
+    /* 用户列表显示用户类型 */
+    auto *subTitleAction = new DViewItemAction;
+    if (user->userType() == User::UserType::Administrator) {
+        subTitleAction->setText(tr("Administrator"));
+    } else {
+        subTitleAction->setText(tr("Standard User"));
+    }
+    subTitleAction->setFontSize(DFontSizeManager::T8);
+    subTitleAction->setTextColorRole(DPalette::TextTips);
+    item->setTextActionList({subTitleAction});
+
+    connect(user, &User::userTypeChanged, this, [ = ](int userType) {
+        if (userType == User::UserType::Administrator) {
             subTitleAction->setText(tr("Administrator"));
         } else {
             subTitleAction->setText(tr("Standard User"));
         }
-        subTitleAction->setFontSize(DFontSizeManager::T8);
-        subTitleAction->setTextColorRole(DPalette::TextTips);
-        item->setTextActionList({subTitleAction});
-
-        connect(user, &User::userTypeChanged, this, [=](int userType) {
-            if (userType == User::UserType::Administrator) {
-                subTitleAction->setText(tr("Administrator"));
-            } else {
-                subTitleAction->setText(tr("Standard User"));
-            }
-        });
-    }
+    });
 
     DViewItemAction *onlineFlag = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
     OnlineIcon *onlineIcon = new OnlineIcon(m_userlistView->viewport());
