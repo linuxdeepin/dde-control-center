@@ -24,7 +24,6 @@
  */
 
 #include "accountsworker.h"
-#include "user.h"
 #include "window/utils.h"
 #include "widgets/utils.h"
 
@@ -629,7 +628,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     bool sifResult = !userDBus->SetIconFile(user->currentAvatar()).isError();
     bool spResult = !userDBus->SetPassword(cryptUserPassword(user->password())).isError();
     bool groupResult = true;
-    if (IsServerSystem) {
+    if (IsServerSystem && !user->groups().isEmpty()) {
         groupResult = !userDBus->SetGroups(user->groups()).isError();
     }
 
