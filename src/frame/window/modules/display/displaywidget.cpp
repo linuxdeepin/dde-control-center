@@ -58,6 +58,7 @@ DisplayWidget::DisplayWidget(dcc::display::DisplayModel *model, QWidget *parent)
     setLayout(m_centralLayout);
 
     initMenuUI();
+    initConnect();
 }
 
 void DisplayWidget::setModel()
@@ -224,8 +225,6 @@ void DisplayWidget::initMenuUI()
     m_menuList->setViewportMargins(ScrollAreaMargins);
     m_menuList->setIconSize(ListViweIconSize);
     m_centralLayout->addWidget(m_menuList, 1);
-    connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
-    connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);
 
     //  m_centralLayout->addStretch(1);
     m_rotate->setIcon(QIcon::fromTheme("dcc_rotate"));
@@ -234,6 +233,12 @@ void DisplayWidget::initMenuUI()
     m_rotate->setAccessibleName(tr("Rotate Screen"));
 
     m_centralLayout->addWidget(m_rotate, 0, Qt::AlignCenter);
+}
+
+void DisplayWidget::initConnect()
+{
+    connect(m_menuList, &QListView::clicked, this, &DisplayWidget::onMenuClicked);
+    connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);
     connect(m_rotate, &DFloatingButton::clicked, this, &DisplayWidget::requestRotate);
 }
 

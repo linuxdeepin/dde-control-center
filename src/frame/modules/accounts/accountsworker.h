@@ -32,6 +32,7 @@
 #include <com_deepin_daemon_accounts_user.h>
 #include <org_freedesktop_displaymanager.h>
 #include <org_freedesktop_displaymanager_session.h>
+#include <com_deepin_daemon_authenticate_fingerprint.h>
 
 #ifdef DCC_ENABLE_ADDOMAIN
 #include <org_freedesktop_notifications.h>
@@ -44,6 +45,7 @@
 using Accounts = com::deepin::daemon::Accounts;
 using AccountsUser = com::deepin::daemon::accounts::User;
 using CreationResult = dcc::accounts::CreationResult;
+using Fingerprint = com::deepin::daemon::authenticate::Fingerprint;
 
 using DisplayManager = org::freedesktop::DisplayManager;
 using Session = org::freedesktop::displaymanager::Session;
@@ -111,6 +113,7 @@ private:
 
 private:
     Accounts *m_accountsInter;
+    Fingerprint *m_fingerPrint;
 #ifdef DCC_ENABLE_ADDOMAIN
     Notifications *m_notifyInter;
 #endif

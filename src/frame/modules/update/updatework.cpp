@@ -113,6 +113,7 @@ UpdateWorker::~UpdateWorker()
 
 void UpdateWorker::init() {
     qRegisterMetaType<UpdatesStatus>("UpdatesStatus");
+    qRegisterMetaType<UiActiveState>("UiActiveState");
 
     m_lastoresessionHelper = new LastoressionHelper("com.deepin.LastoreSessionHelper", "/com/deepin/LastoreSessionHelper", QDBusConnection::sessionBus(), this);
     m_updateInter = new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
@@ -503,9 +504,8 @@ bool UpdateWorker::checkDbusIsValid()
 void UpdateWorker::onSmartMirrorServiceIsValid(bool isvalid)
 {
     m_smartMirrorInter->setSync(false);
-    if (isvalid) {
-        m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
-    } else {
+
+    if (!isvalid) {
         m_smartMirrorInter->startServiceProcess();
     }
 }
@@ -771,19 +771,28 @@ void UpdateWorker::setSmartMirror(bool enable)
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
 void UpdateWorker::refreshMirrors()
 {
-    QDBusPendingCall call = m_updateInter->ListMirrorSources(QLocale::system().name());
-    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
-        if (!call.isError()) {
-            QDBusReply<MirrorInfoList> reply = call.reply();
-            MirrorInfoList list  = reply.value();
-            m_model->setMirrorInfos(list);
-        } else {
-            qDebug() << "list mirror sources error: " << call.error().message();
+    qDebug() << QDir::currentPath();
+    QFile file(":/update/themes/common/config/mirrors.json");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << file.errorString();
+        return;
+    }
+    QJsonArray array = QJsonDocument::fromJson(file.readAll()).array();
+    QList<MirrorInfo> list;
+    for (auto item : array) {
+        QJsonObject obj = item.toObject();
+        MirrorInfo info;
+        info.m_id = obj.value("id").toString();
+        QString locale = QLocale::system().name();
+        if (!(QLocale::system().name() == "zh_CN" || QLocale::system().name() == "zh_TW")) {
+            locale = "zh_CN";
         }
-    });
-
-    m_model->setDefaultMirror(m_updateInter->mirrorSource());
+        info.m_name = obj.value(QString("name_locale.%1").arg(locale)).toString();
+        info.m_url = obj.value("url").toString();
+        list << info;
+    }
+    m_model->setMirrorInfos(list);
+    m_model->setDefaultMirror(list[0].m_id);
 }
 #endif
 
@@ -965,7 +974,7 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
         const QString &id = jobInter.id();
 
         qDebug() << "[wubw] onJobListChanged, id : " << id << " , m_jobPath : " << m_jobPath;
-        if (id == "update_source") {
+        if (id == "update_source" || id == "custom_update") {
             QTimer::singleShot(0, this, [this]() {
                 setCheckUpdatesJob(m_jobPath);
             });

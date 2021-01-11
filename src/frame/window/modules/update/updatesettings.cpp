@@ -133,7 +133,7 @@ void UpdateSettings::initUi()
     contentLayout->addWidget(m_autoCleanCache);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
         //~ contents_path /update/Update Settings
         m_sourceCheck = new SwitchWidget(tr("System Repository Detection"), this);
         m_sourceCheck->addBackground();
@@ -146,9 +146,9 @@ void UpdateSettings::initUi()
     }
 #endif
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (IsCommunitySystem) {
         //~ contents_path /update/Update Settings
-        SwitchWidget *m_smartMirrorBtn = new SwitchWidget(tr("Smart Mirror Switch"), this);
+        m_smartMirrorBtn = new SwitchWidget(tr("Smart Mirror Switch"), this);
         m_smartMirrorBtn->addBackground();
         contentLayout->addWidget(m_smartMirrorBtn);
 
@@ -159,7 +159,7 @@ void UpdateSettings::initUi()
         smartTips->setContentsMargins(10, 0, 10, 0);
         contentLayout->addWidget(smartTips);
 
-        NextPageWidget *m_updateMirrors = new NextPageWidget(nullptr, false);
+        m_updateMirrors = new NextPageWidget(nullptr, false);
         //~ contents_path /update/Update Settings/Mirror List
         m_updateMirrors->setTitle(tr("Mirror List"));
         m_updateMirrors->setRightTxtWordWrap(true);
@@ -176,6 +176,7 @@ void UpdateSettings::initUi()
 void UpdateSettings::initConnection()
 {
     connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCheckUpdates);
+    connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
     connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
     connect(m_autoCheckSystemUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
     connect(m_autoCheckAppUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
@@ -194,7 +195,7 @@ void UpdateSettings::initConnection()
 #endif
 #endif
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (IsCommunitySystem) {
         connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
         connect(m_smartMirrorBtn, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestEnableSmartMirror);
     }
@@ -235,13 +236,13 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
         m_sourceCheck->setChecked(model->sourceCheck());
     }
 #endif
 
-    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+    if (IsCommunitySystem) {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
@@ -266,11 +267,13 @@ void UpdateSettings::setModel(UpdateModel *model)
 void UpdateSettings::setUpdateMode()
 {
     quint64 updateMode = 0;
-    if (!m_autoCheckSystemUpdate->checked()) {
-        m_autoCheckAppUpdate->setChecked(false);
+    if (m_autoCheckUpdate->checked()) {
+        if (!m_autoCheckSystemUpdate->checked()) {
+            m_autoCheckAppUpdate->setChecked(false);
+        }
+        updateMode = updateMode | m_autoCheckSecureUpdate->checked();
+        updateMode = (updateMode << 1) | m_autoCheckAppUpdate->checked();
+        updateMode = (updateMode << 1) | m_autoCheckSystemUpdate->checked();
     }
-    updateMode = updateMode | m_autoCheckSecureUpdate->checked();
-    updateMode = (updateMode << 1) | m_autoCheckAppUpdate->checked();
-    updateMode = (updateMode << 1) | m_autoCheckSystemUpdate->checked();
     requestSetUpdateMode(updateMode);
 }

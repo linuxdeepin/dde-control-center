@@ -148,6 +148,8 @@ Q_SIGNALS:
     void sleepDelayChangedOnPower(const int sleepDelay);
     void screenBlackDelayChangedOnBattery(const int screenBlackDelay);
     void sleepDelayChangedOnBattery(const int sleepDelay);
+    void canHibernateChanged(const bool canHibernate);
+    void hibernateChanged(const bool hibernate);
 #ifndef DCC_DISABLE_POWERSAVE
     void autoPowerSavingModeChanged(bool autoPowerSaveMode);
     void powerSaveModeChanged(bool powerSaveMode);

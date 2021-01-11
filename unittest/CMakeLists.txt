@@ -5,8 +5,15 @@ set(BIN_NAME dde-control-center-unittest)
 # 自动生成moc文件
 set(CMAKE_AUTOMOC ON)
 
+add_subdirectory("tst_dccwidgets")
+
 # 源文件
-file(GLOB_RECURSE SRCS "*.h" "*.cpp")
+#file(GLOB_RECURSE SRCS "*.h" "*.cpp")
+set(SRCS
+        main.cpp
+        controlcenterunittest.cpp
+        controlcenterunittest.h
+        )
 
 # 用于测试覆盖率的编译条件
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -lgcov")

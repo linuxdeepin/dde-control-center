@@ -41,11 +41,14 @@
 #include <libintl.h>
 #include <random>
 #include <crypt.h>
+#include <polkit-qt5-1/PolkitQt1/Authority>
 
+using namespace PolkitQt1;
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE;
 
 const QString AccountsService("com.deepin.daemon.Accounts");
+const QString FingerPrintService("com.deepin.daemon.Authenticate");
 const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 const QString AutoLoginVisable = "auto-login-visable";
@@ -54,6 +57,7 @@ const QString NoPasswordVisable = "nopasswd-login-visable";
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
+    , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
 #endif
@@ -232,9 +236,25 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
     reply.waitForFinished();
     if (reply.isError()) {
         qDebug() << Q_FUNC_INFO << reply.error().message();
+        Q_EMIT m_userModel->isCancelChanged();
     } else {
         getAllGroups();
         Q_EMIT m_userModel->deleteUserSuccess();
+        removeUser(m_userInters.value(user)->path());
+
+        QDBusPendingReply<> listFingersReply = m_fingerPrint->ListFingers(user->name());
+        listFingersReply.waitForFinished();
+        if (listFingersReply.isError()) {
+            qDebug() << Q_FUNC_INFO << listFingersReply.error().message();
+        } else {
+            if (m_fingerPrint->ListFingers(user->name()).value().count()) {
+                QDBusPendingReply<> delAllFingereply = m_fingerPrint->DeleteAllFingers(user->name());
+                delAllFingereply.waitForFinished();
+                if (delAllFingereply.isError()) {
+                    qDebug() << Q_FUNC_INFO << delAllFingereply.error().message();
+                }
+            }
+        }
     }
 }
 
@@ -576,12 +596,22 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
         return result;
     }
 
+    Authority::Result authenticationResult;
+    authenticationResult = Authority::instance()->checkAuthorizationSync("com.deepin.daemon.accounts.user-administration", UnixProcessSubject(getpid()),
+                                                           Authority::AllowUserInteraction);
+
+    if (Authority::Result::Yes != authenticationResult) {
+        result->setType(CreationResult::Canceled);
+        return result;
+    }
+
     // default FullName is empty string
     QDBusObjectPath path;
     QDBusPendingReply<QDBusObjectPath> createReply = m_accountsInter->CreateUser(user->name(), user->fullname(), user->userType());
     createReply.waitForFinished();
     if (createReply.isError()) {
-        result->setType(CreationResult::UnknownError);
+        /* 这里由后端保证出错时一定有错误信息返回，如果没有错误信息，就默认用户在认证时点了取消 */
+        result->setType(createReply.error().message().isEmpty() ? CreationResult::Canceled : CreationResult::UnknownError);
         result->setMessage(createReply.error().message());
         return result;
     } else {

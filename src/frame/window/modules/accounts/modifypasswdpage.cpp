@@ -180,7 +180,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         {InputUsedError, tr("Do not use a password you have used before")},
         {InputDictionaryError, tr("Do not use common words and combinations as password")},
         {InputRevDictionaryError, tr("Do not use common words and combinations in reverse order as password")},
-        {Failure, tr("Failed to change the password")}
+        {Failure, tr("It does not meet password rules")}
     };
 
     // 获取密码最小长度，默认最小长度为6

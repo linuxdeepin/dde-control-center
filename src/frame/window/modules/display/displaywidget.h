@@ -67,6 +67,7 @@ public:
     inline bool isShowMultiscreen() const { return m_isShowMultiscreen; }
     int getMenuIndex(QString str, bool isSingle = true);
     void initMenuUI();
+    void initConnect();
 
 public Q_SLOTS:
     void onMonitorListChanged();

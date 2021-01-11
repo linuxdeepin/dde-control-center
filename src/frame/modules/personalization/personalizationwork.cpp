@@ -116,7 +116,6 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
 
     m_dbus->setSync(false);
     m_wmSwitcher->setSync(false);
-
 }
 
 void PersonalizationWork::active()

@@ -36,6 +36,7 @@
 
 #include <DLineEdit>
 #include <DDialog>
+#include <DWarningButton>
 
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
@@ -97,7 +98,8 @@ Q_SIGNALS:
     void noticeEnrollCompleted(QString username);
 
 public Q_SLOTS:
-    void setAllGroups(const QStringList &groups);
+    void setAllGroups();
+    void resetDelButtonState();
 
 protected:
     void initUserInfo(QVBoxLayout *layout);
@@ -127,6 +129,7 @@ private:
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
     QHBoxLayout *m_avatarLayout;
     DDialog *m_tipDialog;
+    DWarningButton *m_deleteAccount;
 };
 
 }   // namespace accounts

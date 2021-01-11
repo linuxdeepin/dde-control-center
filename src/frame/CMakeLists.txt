@@ -589,6 +589,7 @@ find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(DtkCMake REQUIRED)
+find_package(PolkitQt5-1)
 find_package(Qt5 COMPONENTS
     Core
     Widgets
@@ -771,6 +772,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Svg_LIBRARIES}
     crypt
     ${LIBS}
+    PolkitQt5-1::Agent
 )
 
 # bin

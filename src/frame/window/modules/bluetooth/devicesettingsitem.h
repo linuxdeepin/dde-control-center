@@ -93,6 +93,7 @@ private:
     DViewItemActionList m_dActionList;
     QPointer<DViewItemAction> m_loadingAction;
     QPointer<DViewItemAction> m_textAction;
+    QPointer<DViewItemAction> m_spaceAction;
     QPointer<DViewItemAction> m_iconAction;
     QStyle *m_style;
 };
