@@ -77,17 +77,8 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUMaxMHz");
     QList<QVariant> outArgs = reply.arguments();
     double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
-    if (DSysInfo::cpuModelName().contains("Hz")) {
-        m_model->setProcessor(DSysInfo::cpuModelName());
-    } else {
-        if(DSysInfo::cpuModelName().isEmpty()){
-            m_model->setProcessor(QString("%1 @ %2GHz").arg(getHardwareName())
-                                  .arg(cpuMaxMhz / 1000));
-        } else {
-            m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
-                                  .arg(cpuMaxMhz / 1000));
-        }
-    }
+    m_model->setProcessor(QString("%1 @ %2GHz").arg(getHardwareName())
+                          .arg(cpuMaxMhz / 1000));
 
     QDBusConnection::sessionBus().connect("com.deepin.daemon.SystemInfo",
                                           "/com/deepin/daemon/SystemInfo",
@@ -172,17 +163,9 @@ void SystemInfoWork::processChanged(QDBusMessage msg)
 {
     QList<QVariant> outArgs = msg.arguments();
     double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
-    if (DSysInfo::cpuModelName().contains("Hz")) {
-        m_model->setProcessor(DSysInfo::cpuModelName());
-    } else {
-        if(DSysInfo::cpuModelName().isEmpty()){
-            m_model->setProcessor(QString("%1 @ %2GHz").arg(getHardwareName())
-                                  .arg(cpuMaxMhz / 1000));
-        } else {
-            m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
-                                  .arg(cpuMaxMhz / 1000));
-        }
-    }
+    m_model->setProcessor(QString("%1 @ %2GHz").arg(getHardwareName())
+                          .arg(cpuMaxMhz / 1000));
+
 }
 
 void SystemInfoWork::loadGrubSettings()
