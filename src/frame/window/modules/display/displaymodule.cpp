@@ -145,6 +145,9 @@ void DisplayModule::preInitialize(bool sync)
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
         m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
     });
+
+    connect(m_splitTimer, &QTimer::timeout, m_displayWorker, &DisplayWorker::mergeScreens, Qt::UniqueConnection);
+    connect(m_joinTimer, &QTimer::timeout, m_displayWorker, &DisplayWorker::splitScreens, Qt::UniqueConnection);
 }
 
 QStringList DisplayModule::availPage() const
@@ -250,9 +253,6 @@ void DisplayModule::showCustomSettingDialog()
                                      "/com/deepin/daemon/Keybinding",
                                      QDBusConnection::sessionBus(), this);
     keybindInter.DeleteShortcutKeystroke("display", 2, "XF86Display");
-
-    connect(m_splitTimer, &QTimer::timeout, m_displayWorker, &DisplayWorker::mergeScreens);
-    connect(m_joinTimer, &QTimer::timeout, m_displayWorker, &DisplayWorker::splitScreens);
 
     connect(dlg, &CustomSettingDialog::requestShowRotateDialog,
             this, &DisplayModule::showRotate);
