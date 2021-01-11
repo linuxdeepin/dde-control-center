@@ -62,6 +62,8 @@ Q_SIGNALS:
     void requestShowAboutNative();
     void requestShowVersionProtocol();
     void requestShowEndUserLicenseAgreement();
+    void requestShowPrivacyPolicy();
+
 #ifndef DISABLE_RECOVERY
     void requestShowRestore();
 #endif

@@ -22,6 +22,7 @@
 #include "systeminfowidget.h"
 #include "window/utils.h"
 #include "widgets/multiselectlistview.h"
+
 #include <DStandardItem>
 
 #include <QVBoxLayout>
@@ -70,6 +71,8 @@ void SystemInfoWidget::initData()
         {"dcc_version", tr("Edition License"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol)},
         //~ contents_path /systeminfo/End User License Agreement
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
+        //~ contents_path /systeminfo/Privacy Policy
+        {"dcc_privacy_policy", tr("Privacy Policy"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowPrivacyPolicy)}
     };
 
     for (auto m : m_itemList) {

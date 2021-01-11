@@ -24,6 +24,8 @@
 #include "nativeinfowidget.h"
 #include "versionprotocolwidget.h"
 #include "userlicensewidget.h"
+#include "privacypolicywidget.h"
+
 #include "modules/systeminfo/systeminfowork.h"
 #include "modules/systeminfo/systeminfomodel.h"
 #include "window/mainwindow.h"
@@ -75,6 +77,7 @@ void SystemInfoModule::active()
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
+    connect(m_sysinfoWidget, &SystemInfoWidget::requestShowPrivacyPolicy, this, &SystemInfoModule::onShowPrivacyPolicyPage);
 
     m_frameProxy->pushWidget(this, m_sysinfoWidget);
     m_sysinfoWidget->setVisible(true);
@@ -171,5 +174,13 @@ void SystemInfoModule::onShowEndUserLicenseAgreementPage()
         m_frameProxy->pushWidget(this, w);
         w->setVisible(true);
     });
+}
+
+void SystemInfoModule::onShowPrivacyPolicyPage()
+{
+     PrivacyPolicyWidget *w = new PrivacyPolicyWidget;
+     w->setVisible(false);
+     m_frameProxy->pushWidget(this, w);
+     w->setVisible(true);
 }
 
