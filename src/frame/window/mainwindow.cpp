@@ -1029,11 +1029,11 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                     resetNavList(m_contentStack.empty());
                 }
             }
-        }  else if ("cloudsync" == find_it->first->name()) {
+        } else if ("cloudsync" == find_it->first->name()) {
             if (bFinalVisible) {
-                m_searchWidget->removeUnExsitData(tr("Cloud Sync"));
+                m_searchWidget->removeUnExsitData(tr("Union ID"));
             } else {
-                m_searchWidget->addUnExsitData(tr("Cloud Sync"));
+                m_searchWidget->addUnExsitData(tr("Union ID"));
             }
         } else if ("commoninfo" == find_it->first->name()) {
             if (bFinalVisible) {
@@ -1048,6 +1048,72 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
             } else {
                 m_searchWidget->addUnExsitData(tr("Updates"));
                 m_updateVisibale = true;
+            }
+        } else if ("network" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Network"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Network"));
+            }
+        } else if ("power" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Power"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Power"));
+            }
+        } else if ("datetime" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Date and Time"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Date and Time"));
+            }
+        } else if ("accounts" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Accounts"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Accounts"));
+            }
+        } else if ("display" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Display"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Display"));
+            }
+        } else if ("defapp" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Default Applications"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Default Applications"));
+            }
+        } else if ("personalization" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Personalization"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Personalization"));
+            }
+        } else if ("sound" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Sound"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Sound"));
+            }
+        } else if ("mouse" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Mouse"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Mouse"));
+            }
+        } else if ("keyboard" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("Keyboard and Language"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("Keyboard and Language"));
+            }
+        } else if ("systeminfo" == find_it->first->name()) {
+            if (bFinalVisible) {
+                m_searchWidget->removeUnExsitData(tr("System Info"));
+            } else {
+                m_searchWidget->addUnExsitData(tr("System Info"));
             }
         }
     } else {
