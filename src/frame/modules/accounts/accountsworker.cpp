@@ -238,9 +238,9 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
         qDebug() << Q_FUNC_INFO << reply.error().message();
         Q_EMIT m_userModel->isCancelChanged();
     } else {
-        getAllGroups();
         Q_EMIT m_userModel->deleteUserSuccess();
         removeUser(m_userInters.value(user)->path());
+        getAllGroups();
 
         QDBusPendingReply<> listFingersReply = m_fingerPrint->ListFingers(user->name());
         listFingersReply.waitForFinished();
