@@ -320,6 +320,15 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
     m_groupItemModel->sort(0);
 }
 
+//在修改密码页面当前密码处设置焦点
+void CreateAccountPage::showEvent(QShowEvent *event)
+{
+    if (m_nameEdit && !m_nameEdit->hasFocus()) {
+        m_nameEdit->lineEdit()->setFocus();
+    }
+    QWidget::showEvent(event);
+}
+
 void CreateAccountPage::createUser()
 {
     //校验输入的用户名和密码

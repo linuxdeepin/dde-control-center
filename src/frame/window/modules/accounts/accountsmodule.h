@@ -78,6 +78,7 @@ private:
     dcc::accounts::FingerModel *m_fingerModel{nullptr};
     AccountsWidget *m_accountsWidget = nullptr;
     MainWindow *m_pMainWindow = nullptr;
+    bool m_isCreatePage;
 };
 
 }   // namespace accounts
