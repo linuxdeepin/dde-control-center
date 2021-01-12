@@ -108,7 +108,7 @@ void AccountsModule::active()
     });
     connect(m_accountsWidget, &AccountsWidget::requestLoadUserList, m_accountsWorker, &AccountsWorker::loadUserList);
     m_frameProxy->pushWidget(this, m_accountsWidget);
-    m_accountsWidget->setVisible(true);
+    m_accountsWidget->setVisible(false);
     m_accountsWidget->showDefaultAccountInfo();
 }
 
