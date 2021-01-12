@@ -41,12 +41,10 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent) :
     m_dbusManager->setSync(false);
 
     m_stringToCategory.insert("Browser",     Browser);
-    m_stringToCategory.insert("Mail",        Mail);
     m_stringToCategory.insert("Text",        Text);
     m_stringToCategory.insert("Music",       Music);
     m_stringToCategory.insert("Video",       Video);
     m_stringToCategory.insert("Picture",     Picture);
-    m_stringToCategory.insert("Terminal",    Terminal);
 
     connect(m_dbusManager, &Mime::Change, this, &DefAppWorker::onGetListApps);
 
@@ -285,8 +283,6 @@ Category *DefAppWorker::getCategory(const QString &mime) const
     switch (m_stringToCategory[mime]) {
     case Browser:
         return m_defAppModel->getModBrowser();
-    case Mail:
-        return m_defAppModel->getModMail();
     case Text:
         return m_defAppModel->getModText();
     case Music:
@@ -295,8 +291,6 @@ Category *DefAppWorker::getCategory(const QString &mime) const
         return m_defAppModel->getModVideo();
     case Picture:
         return m_defAppModel->getModPicture();
-    case Terminal:
-        return m_defAppModel->getModTerminal();
     }
     return nullptr;
 }
@@ -311,8 +305,6 @@ const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory 
     switch (category) {
     case Browser:       return QStringList() << "x-scheme-handler/http" << "x-scheme-handler/ftp" << "x-scheme-handler/https"
                                    << "text/html" << "text/xml" << "text/xhtml_xml" << "text/xhtml+xml";
-    case Mail:          return QStringList() << "x-scheme-handler/mailto" << "message/rfc822" << "application/x-extension-eml"
-                                   << "application/x-xpinstall";
     case Text:          return QStringList() << "text/plain";
     case Music:         return QStringList() << "audio/mpeg" << "audio/mp3" << "audio/x-mp3" << "audio/mpeg3" << "audio/x-mpeg-3"
                                    << "audio/x-mpeg" << "audio/flac" << "audio/x-flac" << "application/x-flac"
@@ -329,7 +321,6 @@ const QStringList DefAppWorker::getTypeListByCategory(const DefaultAppsCategory 
     case Picture:       return QStringList() << "image/jpeg" << "image/pjpeg" << "image/bmp" << "image/x-bmp" << "image/png"
                                    << "image/x-png" << "image/tiff" << "image/svg+xml" << "image/x-xbitmap" << "image/gif"
                                    << "image/x-xpixmap" << "image/vnd.microsoft.icon";
-    case Terminal:      return QStringList() << "application/x-terminal";
     }
     return QStringList();
 }

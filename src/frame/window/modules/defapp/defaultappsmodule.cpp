@@ -95,12 +95,10 @@ int DefaultAppsModule::load(const QString &path)
 {
     QMap<QString, dcc::defapp::DefAppWorker::DefaultAppsCategory> maps = {
         { QStringLiteral("Webpage"), dcc::defapp::DefAppWorker::Browser},
-        { QStringLiteral("Mail"), dcc::defapp::DefAppWorker::Mail},
         { QStringLiteral("Text"), dcc::defapp::DefAppWorker::Text},
         { QStringLiteral("Music"), dcc::defapp::DefAppWorker::Music},
         { QStringLiteral("Video"), dcc::defapp::DefAppWorker::Video},
         { QStringLiteral("Picture"), dcc::defapp::DefAppWorker::Picture},
-        { QStringLiteral("Terminal"), dcc::defapp::DefAppWorker::Terminal},
     };
     QString loadPath = path.split("/").at(0);
     dcc::defapp::DefAppWorker::DefaultAppsCategory currentCategory = maps.value(loadPath, dcc::defapp::DefAppWorker::Browser);
@@ -113,7 +111,7 @@ int DefaultAppsModule::load(const QString &path)
 QStringList DefaultAppsModule::availPage() const
 {
     QStringList sl;
-    sl << "Webpage" << "Mail" << "Text" << "Music" << "Video" << "Picture" << "Terminal";
+    sl << "Webpage" << "Text" << "Music" << "Video" << "Picture";
 
     return sl;
 }

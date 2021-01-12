@@ -50,8 +50,6 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     QStringList titles;
     //~ contents_path /defapp/Webpage
     titles << tr("Webpage");
-    //~ contents_path /defapp/Mail
-    titles << tr("Mail");
     //~ contents_path /defapp/Text
     titles << tr("Text");
     //~ contents_path /defapp/Music
@@ -60,17 +58,13 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     titles << tr("Video");
     //~ contents_path /defapp/Picture
     titles << tr("Picture");
-    //~ contents_path /defapp/Terminal
-    titles << tr("Terminal");
 
     QStringList icons;
     icons << "dcc_browser"
-          << "dcc_mail"
           << "dcc_text"
           << "dcc_music"
           << "dcc_video"
-          << "dcc_photo"
-          << "dcc_terminal";
+          << "dcc_photo";
 
     //Initialize second page view and model
     QStandardItemModel *model = new QStandardItemModel(this);
