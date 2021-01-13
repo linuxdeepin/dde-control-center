@@ -134,8 +134,8 @@ public:
     virtual QStringList availPage() const { return QStringList(); }
 
 public:
-    inline void setAvailable(bool isAvailable) { m_available = isAvailable; }
-    inline bool isAvailable() const { return m_available; }
+    virtual inline void setAvailable(bool isAvailable) { m_available = isAvailable; }
+    virtual inline bool isAvailable() const { return m_available; }
 
 protected:
     FrameProxyInterface *m_frameProxy{nullptr};

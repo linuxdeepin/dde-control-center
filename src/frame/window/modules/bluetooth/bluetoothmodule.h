@@ -48,6 +48,8 @@ public:
     explicit BluetoothModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     void preInitialize(bool sync = false) override;
     void initialize() override;
+    void setAvailable(bool isAvailable) override;
+    bool isAvailable() const override;
     void reset() override;
     void active() override;
     const QString name() const override;

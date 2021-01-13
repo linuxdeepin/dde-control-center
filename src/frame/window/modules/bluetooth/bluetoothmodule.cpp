@@ -66,6 +66,26 @@ void BluetoothModule::initialize()
     connect(m_bluetoothWorker, &BluetoothWorker::pinCodeCancel, this, &BluetoothModule::closePinCode);
 }
 
+void BluetoothModule::setAvailable(bool isAvailable)
+{
+    // 设备不存在时，available = false
+    if (m_bluetoothModel && (m_bluetoothModel->adapters().size() == 0)) {
+        m_available = false;
+    } else {
+        m_available = isAvailable;
+    }
+}
+
+bool BluetoothModule::isAvailable() const
+{
+    // 设备不存在时，available = false
+    if (m_bluetoothModel && (m_bluetoothModel->adapters().size() == 0)) {
+        return false;
+    } else {
+        return m_available;
+    }
+}
+
 void BluetoothModule::reset()
 {
 }

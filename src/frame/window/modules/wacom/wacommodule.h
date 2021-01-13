@@ -46,6 +46,8 @@ public:
     virtual void initialize() override;
     virtual void active() override;
     virtual void deactive() override;
+    virtual void setAvailable(bool isAvailable) override;
+    virtual bool isAvailable() const override;
     virtual const QString name() const override;
     virtual const QString displayName() const override;
     QStringList availPage() const override;

@@ -90,6 +90,26 @@ void WacomModule::deactive()
     m_worker->deactive();
 }
 
+void WacomModule::setAvailable(bool isAvailable)
+{
+    // 设备不存在时，available = false
+    if (m_model && !m_model->exist()) {
+        m_available = false;
+    } else {
+        m_available = isAvailable;
+    }
+}
+
+bool WacomModule::isAvailable() const
+{
+    // 设备不存在时，available = false
+    if (m_model && !m_model->exist()) {
+        return false;
+    } else {
+        return m_available;
+    }
+}
+
 const QString WacomModule::name() const
 {
     return QStringLiteral("wacom");
