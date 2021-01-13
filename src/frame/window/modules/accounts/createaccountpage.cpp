@@ -507,8 +507,8 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
         }
     }
 
-    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(), edit->lineEdit()->text(),
-                                                                                      PwqualityManager::CREATE_USER);
+    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
+                                                                                      edit->lineEdit()->text());
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         edit->setAlert(true);
         edit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));

@@ -64,6 +64,7 @@ protected:
 
 private:
     bool onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit);
+    bool preCheckPassword();
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password);

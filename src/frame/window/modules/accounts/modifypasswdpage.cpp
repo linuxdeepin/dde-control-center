@@ -137,21 +137,11 @@ void ModifyPasswdPage::initWidget()
 
 void ModifyPasswdPage::clickSaveBtn()
 {
-    //校验输入密码
-    if (m_oldPasswordEdit->lineEdit()->text().isEmpty()) {
-        m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
+    if (!preCheckPassword())
         return;
-    }
 
-    if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
-        m_repeatPasswordEdit->setAlert(true);
-        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
-        return;
-    }
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
-                                                                                      m_newPasswordEdit->lineEdit()->text(),
-                                                                                      PwqualityManager::MODIFY_PW);
+                                                                                      m_newPasswordEdit->lineEdit()->text());
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
@@ -178,4 +168,36 @@ void ModifyPasswdPage::showEvent(QShowEvent *event)
     if (m_oldPasswordEdit && !m_oldPasswordEdit->hasFocus()) {
         m_oldPasswordEdit->lineEdit()->setFocus();
     }
+}
+
+bool ModifyPasswdPage::preCheckPassword()
+{
+    // 验证当前密码输入框非空
+    if (m_oldPasswordEdit->lineEdit()->text().isEmpty()) {
+        m_oldPasswordEdit->setAlert(true);
+        m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
+        return false;
+    }
+
+    // 验证新密码输入框非空
+    if (m_newPasswordEdit->lineEdit()->text().isEmpty()) {
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
+        return false;
+    }
+
+    // 验证重复密码输入框非空
+    if (m_repeatPasswordEdit->lineEdit()->text().isEmpty()) {
+        m_repeatPasswordEdit->setAlert(true);
+        m_repeatPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
+        return false;
+    }
+
+    if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
+        m_repeatPasswordEdit->setAlert(true);
+        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
+        return false;
+    }
+
+    return true;
 }

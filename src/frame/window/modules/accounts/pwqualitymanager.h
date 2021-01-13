@@ -49,7 +49,7 @@ public:
     * @param password 带检密码字符串
     * @return 若找到，返回text，反之返回空
     */
-    ERROR_TYPE verifyPassword(const QString &user, const QString &password, const CHECK_TYPE &type);
+    ERROR_TYPE verifyPassword(const QString &user, const QString &password);
     QString getErrorTips(ERROR_TYPE type);
 
 private:
