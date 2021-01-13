@@ -121,7 +121,6 @@ private:
     QList<ZoneInfo> m_userTimeZones;
     ZoneInfo m_currentTimeZone;
     ZoneInfo m_currentSystemTimeZone;
-    bool m_bSystemIsServer;
     QString m_strNtpServerAddress;
     QStringList m_NtpServerList;
     QString m_timeZones;

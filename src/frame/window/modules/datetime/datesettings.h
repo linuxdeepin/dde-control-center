@@ -104,7 +104,6 @@ private:
     QLineEdit *m_addressContent;
     QString m_ntpServerAddress;
     bool m_bIsUserOperate;
-    bool m_bSystemIsServer;
     QTimer *m_syncSettingTimer;
     qint64 m_timeSec;
     bool m_Is24HourType;

@@ -38,7 +38,6 @@ DatetimeModel::DatetimeModel(QObject *parent)
     , m_ntp(true)
     , m_bUse24HourType(true)
 {
-    m_bSystemIsServer = DCC_NAMESPACE::IsServerSystem;
 }
 
 void DatetimeModel::setNTP(bool ntp)
@@ -121,7 +120,7 @@ void DatetimeModel::setCurrentUseTimeZone(const ZoneInfo &currentSysTimeZone)
 
 void DatetimeModel::setNtpServerAddress(const QString &ntpServer)
 {
-    if (m_bSystemIsServer && m_strNtpServerAddress != ntpServer) {
+    if (m_strNtpServerAddress != ntpServer) {
         m_strNtpServerAddress = ntpServer;
         Q_EMIT NTPServerChanged(ntpServer);
     }
@@ -129,7 +128,7 @@ void DatetimeModel::setNtpServerAddress(const QString &ntpServer)
 
 void DatetimeModel::setNTPServerList(const QStringList &list)
 {
-    if (m_bSystemIsServer && m_NtpServerList != list) {
+    if (m_NtpServerList != list) {
         m_NtpServerList = list;
         Q_EMIT NTPServerListChanged(list);
     }

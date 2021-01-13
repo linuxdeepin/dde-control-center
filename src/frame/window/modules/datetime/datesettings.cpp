@@ -63,19 +63,15 @@ DateSettings::DateSettings(QWidget *parent)
     , m_addressContent(nullptr)
     , m_ntpServerAddress("")
     , m_bIsUserOperate(false)
-    , m_bSystemIsServer(false)
     , m_syncSettingTimer(new QTimer)
     , m_timeSec(0)
     , m_Is24HourType(false)
 {
-    m_bSystemIsServer = IsServerSystem;
 
-    if (m_bSystemIsServer) {
-        m_ntpServerList = new datetimeCombox;
-        m_ntpSrvItem = new SettingsItem;
-        m_address = new SettingsItem;
-        m_addressContent = new QLineEdit;
-    }
+    m_ntpServerList = new datetimeCombox;
+    m_ntpSrvItem = new SettingsItem;
+    m_address = new SettingsItem;
+    m_addressContent = new QLineEdit;
 
     //~ contents_path /datetime/Time Settings
     m_autoSyncTimeSwitch->setTitle(tr("Auto Sync"));
@@ -138,28 +134,26 @@ DateSettings::DateSettings(QWidget *parent)
     timeLayout->addStretch();
     timeItem->setLayout(timeLayout);
 
-    if (m_bSystemIsServer) {
-        QHBoxLayout *ntpServeLayout = new QHBoxLayout;
-        //~ contents_path /datetime/Time Settings
-        QLabel *serverText = new QLabel(tr("Server"));
-        m_ntpSrvItem->setLayout(ntpServeLayout);
-        ntpServeLayout->addSpacing(2);
-        ntpServeLayout->addWidget(serverText, 0, Qt::AlignLeft);
-        ntpServeLayout->addWidget(m_ntpServerList, 0, Qt::AlignRight);
+    QHBoxLayout *ntpServeLayout = new QHBoxLayout;
+    //~ contents_path /datetime/Time Settings
+    QLabel *serverText = new QLabel(tr("Server"));
+    m_ntpSrvItem->setLayout(ntpServeLayout);
+    ntpServeLayout->addSpacing(2);
+    ntpServeLayout->addWidget(serverText, 0, Qt::AlignLeft);
+    ntpServeLayout->addWidget(m_ntpServerList, 0, Qt::AlignRight);
 
-        QHBoxLayout *ntpAddressLayout = new QHBoxLayout;
-        QLabel *addressText = new QLabel(tr("Address"));
-        m_addressContent->setMinimumWidth(240);
-        m_addressContent->setPlaceholderText(tr("Required"));
+    QHBoxLayout *ntpAddressLayout = new QHBoxLayout;
+    QLabel *addressText = new QLabel(tr("Address"));
+    m_addressContent->setMinimumWidth(240);
+    m_addressContent->setPlaceholderText(tr("Required"));
 
-        ntpAddressLayout->addSpacing(2);
-        ntpAddressLayout->addWidget(addressText, 0, Qt::AlignLeft);
-        ntpAddressLayout->addWidget(m_addressContent, 0, Qt::AlignRight);
-        m_address->setLayout(ntpAddressLayout);
+    ntpAddressLayout->addSpacing(2);
+    ntpAddressLayout->addWidget(addressText, 0, Qt::AlignLeft);
+    ntpAddressLayout->addWidget(m_addressContent, 0, Qt::AlignRight);
+    m_address->setLayout(ntpAddressLayout);
 
-        m_ntpServerList->setMinimumWidth(240);
-        m_ntpServerList->addItem(tr("Customize"));
-    }
+    m_ntpServerList->setMinimumWidth(240);
+    m_ntpServerList->addItem(tr("Customize"));
 
     m_datetimeGroup->appendItem(timeItem);
     m_datetimeGroup->appendItem(m_yearWidget);
@@ -173,13 +167,12 @@ DateSettings::DateSettings(QWidget *parent)
     layout->addWidget(m_autoSyncTimeSwitch, 0, Qt::AlignTop);
     layout->addWidget(m_datetimeGroup);
 
-    if (m_bSystemIsServer) {
-        layout->addWidget(m_ntpSrvItem);
-        layout->addWidget(m_address);
+    layout->addWidget(m_ntpSrvItem);
+    layout->addWidget(m_address);
 
-        connect(m_ntpServerList, &datetimeCombox::click, this, &DateSettings::isUserOperate);
-        connect(m_ntpServerList, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &DateSettings::onProcessComboBox);
-    }
+    connect(m_ntpServerList, &datetimeCombox::click, this, &DateSettings::isUserOperate);
+    connect(m_ntpServerList, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),
+            this, &DateSettings::onProcessComboBox);
 
     layout->addStretch();
     layout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
@@ -216,9 +209,7 @@ void DateSettings::onCancelButtonClicked()
 
 void DateSettings::onConfirmButtonClicked()
 {
-    if (m_autoSyncTimeSwitch->checked()
-            && m_bSystemIsServer
-            && m_ntpServerList->currentText() == tr("Customize")) {
+    if (m_autoSyncTimeSwitch->checked() && m_ntpServerList->currentText() == tr("Customize")) {
         if ("" == m_addressContent->text()) {
             qDebug() << "The customize address is nullptr.";
             return;
@@ -247,7 +238,7 @@ void DateSettings::updateDayRange()
 
 void DateSettings::onProcessComboBox(const int &value)
 {
-    if (!m_bSystemIsServer || !m_ntpServerList || m_ntpServerList->count() <= value)
+    if (!m_ntpServerList || m_ntpServerList->count() <= value)
         return;
 
     QString itemText = m_ntpServerList->itemText(value);
@@ -269,9 +260,6 @@ void DateSettings::onProcessComboBox(const int &value)
 
 void DateSettings::isUserOperate()
 {
-    if (!m_bSystemIsServer)
-        return;
-
     if (!m_bIsUserOperate) {
         m_bIsUserOperate = true;
     }
@@ -290,9 +278,6 @@ QDateTime DateSettings::getDatetime() const
 
 void DateSettings::setNtpServerAddress(QString address)
 {
-    if (!m_bSystemIsServer && m_autoSyncTimeSwitch->checked())
-        return;
-
     if (m_ntpServerAddress != address) {
         m_ntpServerAddress = address;
 
@@ -316,9 +301,6 @@ void DateSettings::setNtpServerAddress(QString address)
 //认证选择“取消”，需要将服务器地址设置为旧的地址
 void DateSettings::setLastServerAddress(QString address)
 {
-    if (!m_bSystemIsServer && m_ntpServerAddress != address)
-        return;
-
     m_addressContent->setText(address);
     for (int i = 0; i < m_ntpServerList->count(); i++) {
         if (m_ntpServerList->itemText(i) == address) {
@@ -364,14 +346,9 @@ QSpinBox *DateSettings::createDSpinBox(QWidget *parent, int min, int max)
 void DateSettings::setControlVisible(bool state)
 {
     m_datetimeGroup->setVisible(!state);
-    m_buttonTuple->setVisible(!state);
-
-    if (m_bSystemIsServer) {
-        m_ntpSrvItem->setVisible(state);
-        m_buttonTuple->setVisible(m_buttonTuple->isVisible()
-                                  || m_ntpServerList->currentText() == tr("Customize"));
-        m_address->setVisible(state && m_ntpServerList->currentText() == tr("Customize"));
-    }
+    m_ntpSrvItem->setVisible(state);
+    m_buttonTuple->setVisible(!state || m_ntpServerList->currentText() == tr("Customize"));
+    m_address->setVisible(state && m_ntpServerList->currentText() == tr("Customize"));
 }
 
 void DateSettings::updateSettingTime()
@@ -449,9 +426,6 @@ void DateSettings::updateRealAutoSyncCheckState(const bool &state)
 
 void DateSettings::updateNTPServerList(const QStringList &list)
 {
-    if (!m_bSystemIsServer)
-        return;
-
     if (m_ntpServerList && m_ntpServerList->count() > 0) {
         m_ntpServerList->clear();
     }
