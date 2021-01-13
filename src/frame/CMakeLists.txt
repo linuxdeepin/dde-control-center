@@ -73,6 +73,8 @@ foreach(LETTER ${DEFINED_LIST})
     endif()
 endforeach()
 
+add_definitions(-DUSE_TABLET)
+
 # load files
 set(FRAME_FILES
                 main.cpp

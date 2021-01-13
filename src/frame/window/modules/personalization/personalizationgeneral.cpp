@@ -122,6 +122,8 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     m_themeType = DGuiApplicationHelper::instance()->themeType();
 
+    // 平板一期通用二级菜单只开放主题切换设置，其它隐藏
+#ifndef USE_TABLET
     //active colors
     //~ contents_path /personalization/General
     QLabel *activeL = new TitleLabel(tr("Accent Color"));
@@ -268,7 +270,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
             update();
         }
     }
-
+#endif
     m_centralLayout->addWidget(m_switchWidget);
     m_centralLayout->addStretch(20);
 
@@ -295,6 +297,7 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     m_model = model;
     m_Themes->setModel(model->getWindowModel());
 
+#ifndef USE_TABLET
     if (!m_bSystemIsServer) {
         connect(model, &dcc::personalization::PersonalizationModel::wmChanged, this,
                 [this](bool checked) {
@@ -324,7 +327,7 @@ void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel
     connect(m_model, &dcc::personalization::PersonalizationModel::onWindowRadiusChanged, this,
             &PersonalizationGeneral::onWindowRadiusChanged);
     onWindowRadiusChanged(m_model->windowRadius());
-
+#endif
 }
 
 void PersonalizationGeneral::updateThemeColors(DGuiApplicationHelper::ColorType type)
