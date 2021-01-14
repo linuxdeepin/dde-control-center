@@ -67,6 +67,12 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
         if (!module) {
             return;
         }
+
+#ifdef USE_TABLET
+        //平板项目需求，隐藏辅助功能
+        if (module->name() == "voice")
+            continue;
+#endif
         qDebug() << "load plugin Name;" << module->name() << module->displayName();
         module->setFrameProxy(frameProxy);
 
