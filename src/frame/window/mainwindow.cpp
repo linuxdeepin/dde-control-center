@@ -866,6 +866,7 @@ void MainWindow::resetNavList(bool isIconMode)
 
         DStyle::setFrameRadius(m_navView, 18);
         m_rightView->hide();
+        m_navView->setCurrentIndex(QModelIndex()); //退回菜单模块主界面，设置CurrentIndex为-1
         m_backwardBtn->setEnabled(false);
     } else {
         //The second page will Covered with fill blank areas
