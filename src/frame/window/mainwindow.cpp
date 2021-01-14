@@ -20,7 +20,6 @@
  */
 #include "modules/accounts/accountsmodule.h"
 #include "modules/bluetooth/bluetoothmodule.h"
-#include "modules/commoninfo/commoninfomodule.h"
 #include "modules/datetime/datetimemodule.h"
 #include "modules/defapp/defaultappsmodule.h"
 #include "modules/keyboard/keyboardmodule.h"
@@ -324,7 +323,6 @@ void MainWindow::initAllModule(const QString &m)
     using namespace keyboard;
     using namespace wacom;
     using namespace systeminfo;
-    using namespace commoninfo;
     using namespace notification;
 
     QString idType = "Union ID";
@@ -351,7 +349,6 @@ void MainWindow::initAllModule(const QString &m)
         { new KeyboardModule(this), tr("Keyboard and Language")},
         { new UpdateModule(this), tr("Updates")},
         { new SystemInfoModule(this), tr("System Info")},
-        { new CommonInfoModule(this), tr("General Settings")},
     };
 
     //读取加载一级菜单的插件
@@ -388,9 +385,7 @@ void MainWindow::initAllModule(const QString &m)
         item->setText(it->second);
         if (it->first->name() == "systeminfo" && DSysInfo::DeepinDesktop == DSysInfo::deepinType())
             item->setIcon(QIcon::fromTheme(QString("dcc_nav_deepin_systeminfo")));
-        if (it->first->name() == "commoninfo") {
-            item->setAccessibleText("SECOND_MENU_COMMON");
-        } else {
+        else {
             item->setAccessibleText(it->second);
         }
 
@@ -934,13 +929,7 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
             } else {
                 m_searchWidget->addUnExsitData(tr("Cloud Sync"));
             }
-        } else if ("commoninfo" == find_it->first->name()) {
-            if (bFinalVisible) {
-                m_searchWidget->removeUnExsitData(tr("General Settings"));
-            } else {
-                m_searchWidget->addUnExsitData(tr("General Settings"));
-            }
-        } else if ("update" == find_it->first->name()) {
+        }  else if ("update" == find_it->first->name()) {
             if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Updates"));
                 m_updateVisibale = false;

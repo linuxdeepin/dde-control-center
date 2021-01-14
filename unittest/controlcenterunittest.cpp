@@ -77,7 +77,7 @@ TEST_F(ControlCenterUnitTest, testModules)
         ASSERT_TRUE(inter.isValid());
 
         QStringList moduleList;
-        moduleList << "accounts" << "bluetooth" << "commoninfo" << "datetime" << "defapp" << "display"
+        moduleList << "accounts" << "bluetooth" << "datetime" << "defapp" << "display"
                    << "keyboard" << "mouse" << "network" << "notification" << "personalization" << "power"
                    << "sound" << "cloudsync" << "systeminfo" << "update";
 

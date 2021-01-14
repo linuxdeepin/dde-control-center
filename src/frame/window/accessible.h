@@ -45,11 +45,6 @@
 #include "./modules/bluetooth/detailpage.h"
 #include "./modules/bluetooth/adapterwidget.h"
 
-#include "./modules/commoninfo/commoninfowidget.h"
-#include "./modules/commoninfo/developermodewidget.h"
-#include "./modules/commoninfo/userexperienceprogramwidget.h"
-#include "./modules/commoninfo/bootwidget.h"
-
 #include "./modules/datetime/datetimewidget.h"
 #include "./modules/datetime/systemtimezone.h"
 #include "./modules/datetime/datesettings.h"
@@ -168,14 +163,6 @@ using namespace DCC_NAMESPACE::bluetooth;
 SET_FORM_ACCESSIBLE(DetailPage, "detailpage")
 SET_FORM_ACCESSIBLE(BluetoothWidget, "bluetoothwidget")
 SET_FORM_ACCESSIBLE(AdapterWidget, "adapterwidget")
-
-// 通用模块
-using namespace DCC_NAMESPACE::commoninfo;
-
-SET_FORM_ACCESSIBLE(CommonInfoWidget, "commoninfowidget")
-SET_FORM_ACCESSIBLE(DeveloperModeWidget, "developermodewidget")
-SET_FORM_ACCESSIBLE(UserExperienceProgramWidget, "userexperienceprogramwidget")
-SET_FORM_ACCESSIBLE(BootWidget, "bootwidget")
 
 // 时钟模块
 using namespace DCC_NAMESPACE::datetime;
@@ -352,12 +339,6 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
     USE_ACCESSIBLE(QString(classname).replace("dccV20::bluetooth::", ""), BluetoothWidget);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::bluetooth::", ""), AdapterWidget);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::bluetooth::", ""), DetailPage);
-
-    // 通用模块
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::commoninfo::", ""), CommonInfoWidget);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::commoninfo::", ""), DeveloperModeWidget);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::commoninfo::", ""), UserExperienceProgramWidget);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::commoninfo::", ""), BootWidget);
 
     // 时间模块
     USE_ACCESSIBLE(QString(classname).replace("dccV20::datetime::", ""), DatetimeWidget);
