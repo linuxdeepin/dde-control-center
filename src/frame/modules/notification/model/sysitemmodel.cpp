@@ -26,7 +26,6 @@ using namespace dcc::notification;
 SysItemModel::SysItemModel(QObject *parent)
     : QObject(parent)
     , m_isDisturbMode(false)
-    , m_isShowInDock(false)
     , m_isTimeSlot(false)
     , m_isLockScreen(false)
     , m_timeStart("22:00")
@@ -40,14 +39,6 @@ void SysItemModel::setDisturbMode(const bool disturbMode)
         return;
     m_isDisturbMode = disturbMode;
     Q_EMIT disturbModeChanged(disturbMode);
-}
-
-void SysItemModel::setShowInDock(const bool showInDock)
-{
-    if (m_isShowInDock == showInDock)
-        return;
-    m_isShowInDock = showInDock;
-    Q_EMIT showInDockChanged(showInDock);
 }
 
 void SysItemModel::setTimeSlot(const bool timeSlot)
@@ -99,9 +90,6 @@ void SysItemModel::onSettingChanged(uint item, const QDBusVariant &var)
         break;
     case ENDTIME:
         setTimeEnd(var.variant().toString());
-        break;
-    case SHOWICON:
-        setShowInDock(var.variant().toBool());
         break;
     }
 }

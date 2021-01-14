@@ -46,7 +46,6 @@ SystemNotifyWidget::SystemNotifyWidget(SysItemModel *model, QWidget *parent)
     : QWidget(parent)
     , m_model(model)
     , m_btnDisturbMode(new DSwitchButton)
-    , m_btnShowInDock(new SwitchWidget(tr("Show icon on Dock")))
     , m_itemTimeSlot(new TimeSlotItem)
     , m_itemLockScreen(new NotificationItem)
 {
@@ -101,12 +100,6 @@ void SystemNotifyWidget::initUI()
     m_itemLockScreen->setTitle(tr("When the screen is locked"));
     m_settingsGrp->appendItem(m_itemLockScreen);
     mainLayout->addWidget(m_settingsGrp);
-
-    m_btnShowInDock->addBackground();
-    m_btnShowInDock->layout()->setContentsMargins(10, 0, 10, 0);
-    mainLayout->addWidget(m_btnShowInDock);
-    mainLayout->addStretch();
-
     m_settingsGrp->setVisible(m_btnDisturbMode->isChecked());
 }
 
@@ -118,10 +111,6 @@ void SystemNotifyWidget::initConnect()
     });
     m_btnDisturbMode->setChecked(m_model->isDisturbMode());
     m_settingsGrp->setVisible(m_model->isDisturbMode());
-    connect(m_model, &SysItemModel::showInDockChanged, this, [this](bool state) {
-        m_btnShowInDock->setChecked(state);
-    });
-    m_btnShowInDock->setChecked(m_model->isShowInDock());
     connect(m_model, &SysItemModel::timeSlotChanged, this, [this](bool state) {
         m_itemTimeSlot->setState(state);
     });
@@ -143,9 +132,6 @@ void SystemNotifyWidget::initConnect()
     connect(m_btnDisturbMode, &DSwitchButton::checkedChanged, this, [ = ](bool state) {
         m_settingsGrp->setVisible(state);
         Q_EMIT requestSetSysSetting(SysItemModel::DNDMODE, state);
-    });
-    connect(m_btnShowInDock, &SwitchWidget::checkedChanged, this, [ = ](bool state) {
-        Q_EMIT requestSetSysSetting(SysItemModel::SHOWICON, state);
     });
     connect(m_itemTimeSlot, &TimeSlotItem::stateChanged, this, [ = ](bool state) {
         Q_EMIT requestSetSysSetting(SysItemModel::OPENBYTIMEINTERVAL, state);

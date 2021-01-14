@@ -65,7 +65,6 @@ void NotificationWorker::initSystemSetting()
     item->setDisturbMode(m_dbus->GetSystemInfo(SysItemModel::DNDMODE).value().variant().toBool());
     item->setLockScreen(m_dbus->GetSystemInfo(SysItemModel::LOCKSCREENOPENDNDMODE).value().variant().toBool());
     item->setTimeSlot(m_dbus->GetSystemInfo(SysItemModel::OPENBYTIMEINTERVAL).value().variant().toBool());
-    item->setShowInDock(m_dbus->GetSystemInfo(SysItemModel::SHOWICON).value().variant().toBool());
     connect(m_dbus, &Notification::SystemInfoChanged, item, &SysItemModel::onSettingChanged);
     m_model->setSysSetting(item);
 }
