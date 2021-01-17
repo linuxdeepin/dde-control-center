@@ -102,8 +102,8 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
 
 void DefaultAppsWidget::setDefaultWidget()
 {
-    if(m_itemList[0].pulgin) {
-        m_itemList[0].itemSignal.invoke(m_itemList[0].pulgin);
+    if(m_itemList[0].plugin) {
+        m_itemList[0].itemSignal.invoke(m_itemList[0].plugin);
     } else {
         m_itemList[0].itemSignal.invoke(this, Qt::ConnectionType::DirectConnection, Q_ARG(int, 0));
     }
@@ -123,8 +123,8 @@ void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {
     m_lastIndex = index;
     qDebug() << "DefaultAppsWidget clicked row " << index.row();
 
-    if(m_itemList[index.row()].pulgin) {
-        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin);
+    if(m_itemList[index.row()].plugin) {
+        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin);
     } else {
         m_itemList[index.row()].itemSignal.invoke(this, Qt::ConnectionType::DirectConnection, Q_ARG(int, index.row()));
     }

@@ -90,7 +90,7 @@ PersonalizationList::PersonalizationList(QWidget *parent)
 
 void PersonalizationList::setDefaultWidget()
 {
-    m_itemList[0].itemSignal.invoke(m_itemList[0].pulgin ? m_itemList[0].pulgin : this);
+    m_itemList[0].itemSignal.invoke(m_itemList[0].plugin ? m_itemList[0].plugin : this);
 }
 
 void PersonalizationList::onCategoryClicked(const QModelIndex &index)
@@ -99,7 +99,7 @@ void PersonalizationList::onCategoryClicked(const QModelIndex &index)
 
     m_lastIndex = index;
 
-    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin ? m_itemList[index.row()].plugin : this);
 
     m_categoryListView->resetStatus(index);
 }

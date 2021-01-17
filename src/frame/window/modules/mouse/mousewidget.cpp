@@ -107,7 +107,7 @@ void MouseWidget::initSetting(const int settingIndex)
 
 void MouseWidget::setDefaultWidget()
 {
-    m_menuIconText[0].itemSignal.invoke(m_menuIconText[0].pulgin ? m_menuIconText[0].pulgin : this);
+    m_menuIconText[0].itemSignal.invoke(m_menuIconText[0].plugin ? m_menuIconText[0].plugin : this);
 }
 
 void MouseWidget::onItemClicked(const QModelIndex &index)
@@ -115,6 +115,6 @@ void MouseWidget::onItemClicked(const QModelIndex &index)
     if (m_lastIndex == index) return;
 
     m_lastIndex = index;
-    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin ? m_menuIconText[index.row()].pulgin : this);
+    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].plugin ? m_menuIconText[index.row()].plugin : this);
     m_mouseListView->resetStatus(index);
 }
