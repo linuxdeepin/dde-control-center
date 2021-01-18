@@ -61,7 +61,7 @@ public:
     inline double scale() const { return m_scale; }
     inline bool isPrimary() const { return m_primary == m_name; }
     inline quint16 rotate() const { return m_rotate; }
-    inline double brightness() const { return m_brightness; }
+    inline double brightness() const { return double(m_brightness / 100.0); }
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
     inline const QString name() const { Q_ASSERT(!m_name.isEmpty()); return m_name; }
     inline const QString path() const { return m_path; }
@@ -120,7 +120,7 @@ private:
     QPoint m_lastPoint;
     double m_scale;
     quint16 m_rotate;
-    double m_brightness;
+    int m_brightness;
     QString m_name;
     QString m_path;
     QString m_primary;

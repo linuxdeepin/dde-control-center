@@ -152,9 +152,9 @@ void BrightnessPage::addSlider()
             slider->blockSignals(true);
             int iValue = 0;
             if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
-                iValue = qRound(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
+                iValue = qFloor(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
             } else {
-                iValue = qRound(rb * BrightnessMaxScale);
+                iValue = qFloor(rb * BrightnessMaxScale);
             }
 
             slideritem->setValueLiteral(QString("%1%").arg(iValue));
@@ -183,8 +183,8 @@ void BrightnessPage::addSlider()
 
 QString BrightnessPage::brightnessToTickInterval(const double tb) const
 {
-    int tmini = int(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
-    int tnum = int(tb * BrightnessMaxScale);
+    int tmini = qFloor(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
+    int tnum = qFloor(tb * BrightnessMaxScale);
     tnum = tnum > tmini ? tnum : tmini;
     return QString::number(int(tnum)) + "%";
 }

@@ -33,7 +33,7 @@ const double DoubleZero = 0.000001;
 Monitor::Monitor(QObject *parent)
     : QObject(parent)
     , m_scale(-1.0)
-    , m_brightness(1.0)
+    , m_brightness(100)
 {
 
 }
@@ -109,14 +109,15 @@ void Monitor::setRotate(const quint16 rotate)
 
 void Monitor::setBrightness(const double brightness)
 {
+    int tempBrightness = qFloor(brightness * 100.0);
     //因为亮度变化最小为1%，所以不使用 DoubleZero
-    if (fabs(m_brightness - brightness) < 0.01)
+    if (m_brightness == tempBrightness)
         return;
 
     qDebug() << "Monitor::setBrightness" << brightness;
-    m_brightness = brightness;
+    m_brightness = tempBrightness;
 
-    Q_EMIT brightnessChanged(m_brightness);
+    Q_EMIT brightnessChanged(brightness);
 }
 
 void Monitor::setName(const QString &name)
