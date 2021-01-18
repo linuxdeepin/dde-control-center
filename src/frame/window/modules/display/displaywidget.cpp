@@ -64,6 +64,11 @@ void DisplayWidget::setModel()
 {
     m_isMultiScreen = m_model->monitorList().size() > 1;
 
+    // 平板一期只支持单屏，多屏显示置false
+#ifdef USE_TABLET
+    m_isShowMultiscreen = false;
+#endif
+
     connect(m_model, &DisplayModel::monitorListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::configListChanged, this, &DisplayWidget::onMonitorListChanged);
     connect(m_model, &DisplayModel::configCreated, this, &DisplayWidget::requestShowCustomConfigPage);
@@ -119,7 +124,13 @@ void DisplayWidget::onMonitorListChanged()
     if ((m_isMultiScreen && mons.size() <= 1) || !m_isShowMultiscreen) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
+
+        // 平板一期旋转屏幕按钮隐藏
+#ifdef USE_TABLET
+        m_rotate->hide();
+#else
         m_rotate->show();
+#endif
         onMenuClicked(m_menuList->model()->index(0, 0));
     } else if (!m_isMultiScreen && mons.size() > 1) {
         m_isMultiScreen = true;
@@ -181,8 +192,12 @@ void DisplayWidget::initMenuUI()
         //~ contents_path /display/Touch Screen
         ListSubItem touchscreenMenu = {"dcc_touchscreen",tr("Touch Screen"),
                                       QMetaMethod::fromSignal(&DisplayWidget::requestShowTouchscreenPage)};
+
+        // 平板一期触屏二级菜单隐藏
+#ifndef USE_TABLET
         m_multMenuList << touchscreenMenu;
         m_singleMenuList << touchscreenMenu;
+#endif
     }
 
     if (!m_isShowMultiscreen) {

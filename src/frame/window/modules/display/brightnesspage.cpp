@@ -69,7 +69,13 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     m_nightShift->setTitle(tr("Night Shift"));
     m_nightShift->addBackground();
     m_centralLayout->addWidget(m_nightShift);
+
+    // 平板一期自动调节色温文案调整
+#ifndef USE_TABLET
     m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"));
+#else
+    m_nightTips = new DTipLabel(tr("Auto adjust the color temperature according to the ambient light"));
+#endif
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     m_nightTips->adjustSize();
