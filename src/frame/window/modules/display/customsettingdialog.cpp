@@ -238,11 +238,13 @@ void CustomSettingDialog::initWithModel()
 
 void CustomSettingDialog::initOtherDialog()
 {
-    if (m_otherDialog.size()) {
-        for (auto dlg : m_otherDialog) {
-            dlg->setVisible(false);
-        }
-    }
+    //在“f5f2d6f8f2878e4396c35dca6148401a033bec75”里面将以下代码加回去了，但是会引入bug-61032
+    //当存在三个屏幕或以上时，需要下列代码
+//    if (m_otherDialog.size()) {
+//        for (auto dlg : m_otherDialog) {
+//            dlg->setVisible(false);
+//        }
+//    }
 
     int dlgIdx = 0;
     for (int idx = 0; idx < m_model->monitorList().size(); ++idx) {
