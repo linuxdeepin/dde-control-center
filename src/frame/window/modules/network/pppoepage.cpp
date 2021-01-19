@@ -105,6 +105,10 @@ void PppoePage::createPPPoEConnection()
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
 
     Q_EMIT requestNextPage(m_editPage);
+
+    //only create New Connection can set "Cancel","Save" button
+    //fix: https://pms.uniontech.com/zentao/bug-view-61563.html
+    m_editPage->setButtonTupleEnable(true);
 }
 
 void PppoePage::onConnectionListChanged()
