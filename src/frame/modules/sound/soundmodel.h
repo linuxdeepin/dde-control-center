@@ -159,6 +159,9 @@ public:
     QDBusObjectPath defaultSink() const;
     void setDefaultSink(const QDBusObjectPath &defaultSink);
 
+    void setActivePort(Port *port);
+    Port *activePort() { return m_activePort; }
+
     QString audioCards() const;
     void setAudioCards(const QString &audioCards);
 
@@ -243,6 +246,7 @@ private:
     double m_microphoneFeedback;
 #endif
     QList<Port *> m_ports;
+    Port *m_activePort;
 
     QDBusObjectPath m_defaultSource;
     QDBusObjectPath m_defaultSink;
