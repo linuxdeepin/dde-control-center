@@ -384,18 +384,21 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::AccountTypeChanged, user, &User::setUserType);
     connect(userInter, &AccountsUser::MaxPasswordAgeChanged, user, &User::setPasswordAge);
 
-    user->setName(userInter->userName());
-    user->setFullname(userInter->fullName());
-    user->setAutoLogin(userInter->automaticLogin());
-    user->setAvatars(userInter->iconList());
-    user->setGroups(userInter->groups());
-    user->setCurrentAvatar(userInter->iconFile());
-    user->setNopasswdLogin(userInter->noPasswdLogin());
-    user->setPasswordStatus(userInter->passwordStatus());
-    user->setCreatedTime(userInter->createdTime());
-    user->setUserType(userInter->accountType());
-    user->setPasswordAge(userInter->maxPasswordAge());
-    user->setIsPasswordExpired(userInter->IsPasswordExpired());
+    // 这里直接赋值的话, 由于请求是异步的, 所以一开始会被初始化成乱码,
+    // 然后数据正常了以后会额外产生一次变化信号
+    // 对于计算当前有多少个管理员有干扰.
+    userInter->userName();
+    userInter->fullName();
+    userInter->automaticLogin();
+    userInter->iconList();
+    userInter->groups();
+    userInter->iconFile();
+    userInter->noPasswdLogin();
+    userInter->passwordStatus();
+    userInter->createdTime();
+    userInter->accountType();
+    userInter->maxPasswordAge();
+    userInter->IsPasswordExpired();
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);

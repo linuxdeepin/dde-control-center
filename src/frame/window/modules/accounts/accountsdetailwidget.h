@@ -98,7 +98,6 @@ Q_SIGNALS:
     void noticeEnrollCompleted(QString username);
 
 public Q_SLOTS:
-    void setAllGroups();
     void resetDelButtonState();
 
 protected:

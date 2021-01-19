@@ -163,7 +163,6 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     w->setFingerModel(m_fingerModel);
 
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
-    connect(m_userModel, &UserModel::allGroupsChange, w, &AccountsDetailWidget::setAllGroups);
     connect(m_userModel, &UserModel::isCancelChanged, w, &AccountsDetailWidget::resetDelButtonState);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);

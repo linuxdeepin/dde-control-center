@@ -415,12 +415,6 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
-    //当前用户禁止使用删除按钮
-    m_deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
-    connect(m_curUser, &User::onlineChanged, m_deleteAccount, [ = ](const bool online) {
-        m_deleteAccount->setEnabled(!online && !m_curUser->isCurrentUser());
-    });
-
     //修改密码
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
@@ -499,6 +493,24 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         connect(m_userModel, &UserModel::noPassWordLoginVisableChanged, m_nopasswdLogin, &SwitchWidget::setVisible);
     }
 
+    auto isOnlyAdminOnDesktop = [=]() {                         // 是桌面版中的最后一个管理员
+        return !m_isServerSystem                                // 是桌面版
+                && m_curUser->userType() == User::Administrator // 是管理员
+                && m_userModel->getAdminCnt() == 1;             // 管理员只有一个
+    };
+
+    auto deleteUserBtnEnable = [=]() {      // 可以删除用户
+        return !m_curUser->isCurrentUser()  // 不是当前用户
+                && !m_curUser->online()     // 未登录
+                && !isOnlyAdminOnDesktop(); // 不是桌面版的最后一个管理员
+    };
+
+    m_deleteAccount->setEnabled(deleteUserBtnEnable());
+    connect(m_curUser, &User::onlineChanged, m_deleteAccount,
+            [=]() { m_deleteAccount->setEnabled(deleteUserBtnEnable()); });
+    connect(m_userModel, &UserModel::adminCntChange, m_deleteAccount,
+            [=]() { m_deleteAccount->setEnabled(deleteUserBtnEnable()); });
+
     if (!m_groupItemModel)
         return;
     m_groupItemModel->clear();
@@ -550,11 +562,6 @@ void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
         w = (event->size().width() - 20) % 94;
     }
     m_avatarLayout->setContentsMargins(w / 2 - 1, 0, 0, 0);
-}
-
-void AccountsDetailWidget::setAllGroups()
-{
-    setAccountModel(m_userModel);
 }
 
 void AccountsDetailWidget::resetDelButtonState()
