@@ -80,8 +80,6 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     options << tr("Turn off the monitor") << tr("Do nothing");
 
     m_cmbPowerBtn->setComboxOption(options);
-    //TODO klu临时去掉此功能
-    m_cmbPowerBtn->hide();
     options.pop_front();
 
     //合盖电源选项
