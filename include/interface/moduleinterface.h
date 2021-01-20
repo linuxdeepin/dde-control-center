@@ -37,6 +37,7 @@
 #define DISPLAY "display"
 #define DEFAPP "defapp"
 #define PERSONALIZATION "personalization"
+#define COMMONINFO "commoninfo"
 #define SOUND "sound"
 #define DATETIME "datetime"
 #define POWER "power"

@@ -134,11 +134,20 @@ set(WINDOW_FILES
     window/modules/update/mirrorswidget.cpp
     window/modules/update/mirrorsourceitem.cpp
     window/search/searchwidget.cpp
+    window/modules/commoninfo/commoninfomodule.cpp
+    window/modules/commoninfo/commoninfowidget.cpp
+    window/modules/commoninfo/commoninfomodel.cpp
+    window/modules/commoninfo/commoninfowork.cpp
+    window/modules/commoninfo/bootwidget.cpp
+    window/modules/commoninfo/commonbackgrounditem.cpp
+    window/modules/commoninfo/userexperienceprogramwidget.cpp
     window/modules/wacom/wacommodule.cpp
     window/modules/wacom/wacomwidget.cpp
     window/modules/wacom/wacomworker.cpp
     window/modules/wacom/wacommodel.cpp
     window/modules/wacom/pressuresettings.cpp
+    window/modules/commoninfo/developermodewidget.cpp
+    window/modules/commoninfo/developermodedialog.cpp
 )
 
 # load interfaces
