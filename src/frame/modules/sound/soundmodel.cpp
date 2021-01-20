@@ -98,6 +98,7 @@ SoundModel::SoundModel(QObject *parent)
     , m_isLaptop(false)
     , m_speakerVolume(75)
     , m_speakerBalance(0)
+    , m_supportBalance(false)
     , m_microphoneVolume(75)
     , m_maxUIVolume(0.0)
 #ifndef DCC_DISABLE_FEEDBACK
@@ -190,6 +191,15 @@ void SoundModel::setSpeakerBalance(double speakerBalance)
         m_speakerBalance = speakerBalance;
 
         Q_EMIT speakerBalanceChanged(speakerBalance);
+    }
+}
+
+void SoundModel::setSupportBalance(bool supportBalance)
+{
+    if (supportBalance != m_supportBalance) {
+        m_supportBalance = supportBalance;
+
+        Q_EMIT supportBalanceChanged(supportBalance);
     }
 }
 

@@ -147,7 +147,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     connect(m_model, &SoundModel::portAdded, this, &SpeakerPage::addPort);
     connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
     connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
-    connect(m_model, &SoundModel::setBlanceVisible, this, [ = ](bool flag) {
+    connect(m_model, &SoundModel::supportBalanceChanged, this, [ = ](bool flag) {
             m_balance = flag;
             showDevice();
     });

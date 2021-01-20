@@ -25,6 +25,8 @@
 
 #include "soundworker.h"
 
+#include <DApplicationHelper>
+
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
@@ -248,6 +250,12 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 
     m_model->setSpeakerOn(m_defaultSink->mute());
     m_model->setSpeakerBalance(m_defaultSink->balance());
+
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(m_defaultSink, &Sink::SupportBalanceChanged, m_model, &SoundModel::setSupportBalance);
+        m_model->setSupportBalance(m_defaultSink->supportBalance());
+    }
+
     m_model->setSpeakerVolume(m_defaultSink->volume());
 
     activeSinkPortChanged(m_defaultSink->activePort());
@@ -432,10 +440,8 @@ void SoundWorker::requestBlanceVisible()
 {
     if (!m_defaultSink)
         return;
-    if (m_defaultSink->activePort().name.contains("headset_head_unit"))
-        Q_EMIT m_model->setBlanceVisible(false);
-    else
-        Q_EMIT m_model->setBlanceVisible(true);
+
+   Q_EMIT m_model->supportBalanceChanged(!m_defaultSink->activePort().name.contains("headset_head_unit"));
 }
 
 void SoundWorker::requestNoiseReduceVisible()

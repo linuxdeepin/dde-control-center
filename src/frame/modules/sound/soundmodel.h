@@ -135,6 +135,9 @@ public:
     inline double speakerBalance() const { return m_speakerBalance; }
     void setSpeakerBalance(double speakerBalance);
 
+    inline bool supportBalance() const { return m_supportBalance; }
+    void setSupportBalance(bool supportBalance);
+
     inline double microphoneVolume() const { return m_microphoneVolume; }
     void setMicrophoneVolume(double microphoneVolume);
 
@@ -213,7 +216,7 @@ Q_SIGNALS:
     void requestSwitchEnable(unsigned int cardId,QString cardName);
 
     //声音平衡选项是否可见
-    void setBlanceVisible(bool flag);
+    void supportBalanceChanged(bool flag);
     //噪音抑制是否可见
     void setNoiseReduceVisible(bool flag);
 
@@ -234,6 +237,7 @@ private:
     bool m_increaseVolume{false};
     bool m_reduceNoise{true};
     bool m_portEnable{false};
+    bool m_supportBalance;     // 支持左右平衡
     double m_speakerVolume;
     double m_speakerBalance;
     double m_microphoneVolume;
