@@ -25,6 +25,7 @@
 #include "../../sections/vpn/vpnpppsection.h"
 #include "../../sections/vpn/vpnipsecsection.h"
 #include "../../sections/ipvxsection.h"
+#include "../../sections/dnssection.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -67,32 +68,38 @@ void VpnL2tpSettings::initSections()
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
+    DNSSection *dnsSection = new DNSSection(m_connSettings);
 
     connect(genericSection, &GenericSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
     connect(vpnSection, &VpnSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
     connect(vpnPPPSection, &VpnPPPSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
     connect(vpnIpsecSection, &VpnIpsecSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
     connect(ipv4Section, &IpvxSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
+    connect(dnsSection, &DNSSection::editClicked, this, &VpnL2tpSettings::anyEditClicked);
 
     connect(vpnSection, &VpnSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
     connect(vpnPPPSection, &VpnPPPSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
     connect(vpnIpsecSection, &VpnIpsecSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
+    connect(dnsSection, &DNSSection::requestNextPage, this, &VpnL2tpSettings::requestNextPage);
 
     connect(vpnSection, &VpnSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
     connect(vpnPPPSection, &VpnPPPSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
     connect(vpnIpsecSection, &VpnIpsecSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
     connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
+    connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &VpnL2tpSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnSection);
     m_sectionsLayout->addWidget(vpnPPPSection);
     m_sectionsLayout->addWidget(vpnIpsecSection);
     m_sectionsLayout->addWidget(ipv4Section);
+    m_sectionsLayout->addWidget(dnsSection);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnSection);
     m_settingSections.append(vpnPPPSection);
     m_settingSections.append(vpnIpsecSection);
     m_settingSections.append(ipv4Section);
+    m_settingSections.append(dnsSection);
 }

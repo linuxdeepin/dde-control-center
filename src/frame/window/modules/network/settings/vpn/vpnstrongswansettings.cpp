@@ -23,6 +23,7 @@
 #include "../../sections/genericsection.h"
 #include "../../sections/vpn/vpnstrongswansection.h"
 #include "../../sections/ipvxsection.h"
+#include "../../sections/dnssection.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -56,24 +57,30 @@ void VpnStrongSwanSettings::initSections()
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
+    DNSSection *dnsSection = new DNSSection(m_connSettings);
 
     connect(genericSection, &GenericSection::editClicked, this, &VpnStrongSwanSettings::anyEditClicked);
     connect(vpnStrongSwanSection, &VpnStrongSwanSection::editClicked, this, &VpnStrongSwanSettings::anyEditClicked);
     connect(ipv4Section, &IpvxSection::editClicked, this, &VpnStrongSwanSettings::anyEditClicked);
+    connect(dnsSection, &DNSSection::editClicked, this, &VpnStrongSwanSettings::anyEditClicked);
 
     connect(vpnStrongSwanSection, &VpnStrongSwanSection::requestNextPage,
             this, &VpnStrongSwanSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnStrongSwanSettings::requestNextPage);
+    connect(dnsSection, &DNSSection::requestNextPage, this, &VpnStrongSwanSettings::requestNextPage);
 
     connect(vpnStrongSwanSection, &VpnStrongSwanSection::requestFrameAutoHide,
             this, &VpnStrongSwanSettings::requestFrameAutoHide);
     connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnStrongSwanSettings::requestFrameAutoHide);
+    connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &VpnStrongSwanSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnStrongSwanSection);
     m_sectionsLayout->addWidget(ipv4Section);
+    m_sectionsLayout->addWidget(dnsSection);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnStrongSwanSection);
     m_settingSections.append(ipv4Section);
+    m_settingSections.append(dnsSection);
 }

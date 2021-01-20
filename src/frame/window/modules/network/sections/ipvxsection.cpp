@@ -36,8 +36,6 @@ IpvxSection::IpvxSection(NetworkManager::Ipv4Setting::Ptr ipv4Setting, QFrame *p
     , m_netmaskIpv4(new LineEditWidget(this))
     , m_prefixIpv6(nullptr)
     , m_gateway(new LineEditWidget(this))
-    , m_dnsPrimary(new LineEditWidget(this))
-    , m_dnsSecond(new LineEditWidget(this))
     , m_neverDefault(new SwitchWidget(this))
     , m_currentIpvx(Ipv4)
     , m_ipvxSetting(ipv4Setting)
@@ -56,8 +54,6 @@ IpvxSection::IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *p
     , m_netmaskIpv4(nullptr)
     , m_prefixIpv6(new SpinBoxWidget(this))
     , m_gateway(new LineEditWidget(this))
-    , m_dnsPrimary(new LineEditWidget(this))
-    , m_dnsSecond(new LineEditWidget(this))
     , m_neverDefault(new SwitchWidget(this))
     , m_currentIpvx(Ipv6)
     , m_ipvxSetting(ipv6Setting)
@@ -123,10 +119,6 @@ bool IpvxSection::saveIpv4Settings()
         ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
     }
 
-    const QList<QHostAddress> &mDnsList = dnsList();
-
-    ipv4Setting->setDns(mDnsList);
-
     if (method == NetworkManager::Ipv4Setting::Automatic) {
         QList<NetworkManager::IpAddress>().clear();
         NetworkManager::IpAddress ipAddressAuto;
@@ -134,7 +126,6 @@ bool IpvxSection::saveIpv4Settings()
         ipAddressAuto.setNetmask(QHostAddress(""));
         ipAddressAuto.setGateway(QHostAddress(""));
         ipv4Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddressAuto);
-        ipv4Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
     }
 
     if (m_neverDefault->isVisible()) {
@@ -164,10 +155,6 @@ bool IpvxSection::saveIpv6Settings()
         ipv6Setting->setAddresses(QList<NetworkManager::IpAddress>() << ipAddress);
     }
 
-    const QList<QHostAddress> &mDnsList = dnsList();
-
-    ipv6Setting->setDns(mDnsList);
-
     if (method == NetworkManager::Ipv6Setting::Automatic) {
         QList<NetworkManager::IpAddress> ipAddresses;
         ipAddresses.clear();
@@ -177,7 +164,6 @@ bool IpvxSection::saveIpv6Settings()
         ipAddressAuto.setGateway(QHostAddress(""));
         ipAddresses.append(ipAddressAuto);
         ipv6Setting->setAddresses(ipAddresses);
-        ipv6Setting->setIgnoreAutoDns(!mDnsList.isEmpty());
     }
 
     if (m_neverDefault->isVisible()) {
@@ -239,8 +225,6 @@ void IpvxSection::initUI()
     m_ipAddress->setTitle(tr("IP Address"));
     m_ipAddress->textEdit()->setPlaceholderText(tr("Required"));
     m_gateway->setTitle(tr("Gateway"));
-    m_dnsPrimary->setTitle(tr("Primary DNS"));
-    m_dnsSecond->setTitle(tr("Secondary DNS"));
     m_neverDefault->setTitle(tr("Only applied in corresponding resources"));
     m_neverDefault->setVisible(false);
 
@@ -259,14 +243,10 @@ void IpvxSection::initUI()
     }
 
     appendItem(m_gateway);
-    appendItem(m_dnsPrimary);
-    appendItem(m_dnsSecond);
     appendItem(m_neverDefault);
 
     m_ipAddress->textEdit()->installEventFilter(this);
     m_gateway->textEdit()->installEventFilter(this);
-    m_dnsPrimary->textEdit()->installEventFilter(this);
-    m_dnsSecond->textEdit()->installEventFilter(this);
     if (m_netmaskIpv4) {
         m_netmaskIpv4->textEdit()->installEventFilter(this);
     }
@@ -300,16 +280,6 @@ void IpvxSection::initForIpv4()
     } else {
         m_ipAddress->setText("0.0.0.0");
         m_netmaskIpv4->setText("255.255.255.0");
-    }
-
-    const QList<QHostAddress> &dns = ipv4Setting->dns();
-    for (int i = 0; i < dns.size(); ++i) {
-        if (i == 0) {
-            m_dnsPrimary->setText(dns.at(i).toString());
-        }
-        if (i == 1) {
-            m_dnsSecond->setText(dns.at(i).toString());
-        }
     }
 
     m_netmaskIpv4->setTitle(tr("Netmask"));
@@ -347,16 +317,6 @@ void IpvxSection::initForIpv6()
         m_prefixIpv6->spinBox()->setValue(ipAddress.prefixLength());
         const QString &gateStr = ipAddress.gateway().toString();
         m_gateway->setText(isIpv6Address(gateStr) ? gateStr : "");
-    }
-
-    const QList<QHostAddress> &dns = ipv6Setting->dns();
-    for (int i = 0; i < dns.size(); ++i) {
-        if (i == 0) {
-            m_dnsPrimary->setText(dns.at(i).toString());
-        }
-        if (i == 1) {
-            m_dnsSecond->setText(dns.at(i).toString());
-        }
     }
 
     appendItem(m_prefixIpv6);
@@ -429,22 +389,16 @@ void IpvxSection::onIpv6MethodChanged(NetworkManager::Ipv6Setting::ConfigMethod 
         m_ipAddress->setVisible(false);
         m_prefixIpv6->setVisible(false);
         m_gateway->setVisible(false);
-        m_dnsPrimary->setVisible(true);
-        m_dnsSecond->setVisible(true);
         break;
     case NetworkManager::Ipv6Setting::Manual:
         m_ipAddress->setVisible(true);
         m_prefixIpv6->setVisible(true);
         m_gateway->setVisible(true);
-        m_dnsPrimary->setVisible(true);
-        m_dnsSecond->setVisible(true);
         break;
     case NetworkManager::Ipv6Setting::Ignored:
         m_ipAddress->setVisible(false);
         m_prefixIpv6->setVisible(false);
         m_gateway->setVisible(false);
-        m_dnsPrimary->setVisible(false);
-        m_dnsSecond->setVisible(false);
         break;
     default:
         break;
@@ -490,28 +444,6 @@ bool IpvxSection::ipv4InputIsValid()
         }
     }
 
-    const QString &dnsPri = m_dnsPrimary->text();
-    if (!dnsPri.isEmpty() && !isIpv4Address(dnsPri)) {
-        valid = false;
-        m_dnsPrimary->setIsErr(true);
-        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsPrimary, 2000);
-    } else {
-        m_dnsPrimary->setIsErr(false);
-    }
-
-    const QString &dnsSec = m_dnsSecond->text();
-    if (!dnsSec.isEmpty() && !isIpv4Address(dnsSec)) {
-        valid = false;
-        m_dnsSecond->setIsErr(true);
-        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsSecond, 2000);
-    } else {
-        if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
-            valid = false;
-            m_dnsPrimary->setIsErr(true);
-        }
-        m_dnsSecond->setIsErr(false);
-    }
-
     return valid;
 }
 
@@ -551,28 +483,6 @@ bool IpvxSection::ipv6InputIsValid()
         } else {
             m_gateway->setIsErr(false);
         }
-    }
-
-    const QString &dnsPri = m_dnsPrimary->text();
-    if (!dnsPri.isEmpty() && !isIpv6Address(dnsPri)) {
-        valid = false;
-        m_dnsPrimary->setIsErr(true);
-        m_dnsPrimary->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsPrimary, 2000);
-    } else {
-        m_dnsPrimary->setIsErr(false);
-    }
-
-    const QString &dnsSec = m_dnsSecond->text();
-    if (!dnsSec.isEmpty() && !isIpv6Address(dnsSec)) {
-        valid = false;
-        m_dnsSecond->setIsErr(true);
-        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsSecond, 2000);
-    } else {
-        if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
-            valid = false;
-            m_dnsPrimary->setIsErr(true);
-        }
-        m_dnsSecond->setIsErr(false);
     }
 
     return valid;
@@ -618,21 +528,6 @@ bool IpvxSection::isIpv4SubnetMask(const QString &ip)
     QRegExp regExpIP("^((128|192)|2(24|4[08]|5[245]))(\\.(0|(128|192)|2((24)|(4[08])|(5[245])))){3}$");
     return regExpIP.exactMatch(ip);
 //    return true; // Mask was, or became 0.
-}
-
-QList<QHostAddress> IpvxSection::dnsList()
-{
-    QList<QHostAddress> dnsList;
-    const QString &dnsP = m_dnsPrimary->text();
-    const QString &dnsS = m_dnsSecond->text();
-    if (!dnsP.isEmpty()) {
-        dnsList.append(QHostAddress(dnsP));
-    }
-    if (!dnsS.isEmpty()) {
-        dnsList.append(QHostAddress(dnsS));
-    }
-
-    return dnsList;
 }
 
 bool IpvxSection::eventFilter(QObject *watched, QEvent *event)

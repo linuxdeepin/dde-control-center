@@ -23,6 +23,7 @@
 #include "../sections/genericsection.h"
 #include "../sections/pppoesection.h"
 #include "../sections/ipvxsection.h"
+#include "../sections/dnssection.h"
 #include "../sections/pppsection.h"
 #include "../sections/ethernetsection.h"
 
@@ -46,6 +47,7 @@ void DslPppoeSettings::initSections()
         m_connSettings->setting(Setting::Pppoe).staticCast<NetworkManager::PppoeSetting>());
     IpvxSection *ipv4Section = new IpvxSection(
         m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
+    DNSSection *dnsSection = new DNSSection(m_connSettings);
     EthernetSection *etherNetSection = new EthernetSection(
         m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
     PPPSection *pppSection = new PPPSection(
@@ -54,21 +56,26 @@ void DslPppoeSettings::initSections()
     connect(genericSection, &GenericSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(pppoeSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(ipv4Section, &IpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(dnsSection, &DNSSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(etherNetSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(pppSection, &IpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(dnsSection, &DNSSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
 
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
+    connect(dnsSection, &DNSSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
     connect(etherNetSection, &EthernetSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(pppoeSection);
     m_sectionsLayout->addWidget(ipv4Section);
+    m_sectionsLayout->addWidget(dnsSection);
     m_sectionsLayout->addWidget(etherNetSection);
     m_sectionsLayout->addWidget(pppSection);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(pppoeSection);
     m_settingSections.append(ipv4Section);
+    m_settingSections.append(dnsSection);
     m_settingSections.append(etherNetSection);
     m_settingSections.append(pppSection);
 }

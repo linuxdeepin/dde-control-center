@@ -75,7 +75,6 @@ private:
     bool isIpv6Address(const QString &ip);
     bool isIpv4SubnetMask(const QString &ip);
 
-    QList<QHostAddress> dnsList();
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
@@ -88,8 +87,6 @@ private:
     dcc::widgets::LineEditWidget *m_netmaskIpv4;
     dcc::widgets::SpinBoxWidget *m_prefixIpv6;
     dcc::widgets::LineEditWidget *m_gateway;
-    dcc::widgets::LineEditWidget *m_dnsPrimary;
-    dcc::widgets::LineEditWidget *m_dnsSecond;
     dcc::widgets::SwitchWidget *m_neverDefault;
 
     QList<dcc::widgets::SettingsItem *> m_itemsList;

@@ -23,6 +23,7 @@
 #include "../sections/genericsection.h"
 #include "../sections/secretwiredsection.h"
 #include "../sections/ipvxsection.h"
+#include "../sections/dnssection.h"
 #include "../sections/ethernetsection.h"
 
 using namespace DCC_NAMESPACE::network;
@@ -48,6 +49,7 @@ void WiredSettings::initSections()
         m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     IpvxSection *ipv6Section = new IpvxSection(
         m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+    DNSSection *dnsSection = new DNSSection(m_connSettings);
     EthernetSection *etherNetSection = new EthernetSection(
         m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
 
@@ -55,22 +57,26 @@ void WiredSettings::initSections()
     connect(secretSection, &Secret8021xSection::editClicked, this, &WiredSettings::anyEditClicked);
     connect(ipv4Section, &IpvxSection::editClicked, this, &WiredSettings::anyEditClicked);
     connect(ipv6Section, &IpvxSection::editClicked, this, &WiredSettings::anyEditClicked);
+    connect(dnsSection, &DNSSection::editClicked, this, &WiredSettings::anyEditClicked);
     connect(etherNetSection, &EthernetSection::editClicked, this, &WiredSettings::anyEditClicked);
 
     connect(secretSection, &Secret8021xSection::requestNextPage, this, &WiredSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
     connect(ipv6Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
+    connect(dnsSection, &DNSSection::requestNextPage, this, &WiredSettings::requestNextPage);
     connect(etherNetSection, &EthernetSection::requestNextPage, this, &WiredSettings::requestNextPage);
 
     connect(secretSection, &Secret8021xSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
     connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
     connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
+    connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
     connect(etherNetSection, &EthernetSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(secretSection);
     m_sectionsLayout->addWidget(ipv4Section);
     m_sectionsLayout->addWidget(ipv6Section);
+    m_sectionsLayout->addWidget(dnsSection);
     m_sectionsLayout->addWidget(etherNetSection);
     m_sectionsLayout->addStretch();
 
@@ -78,6 +84,7 @@ void WiredSettings::initSections()
     m_settingSections.append(secretSection);
     m_settingSections.append(ipv4Section);
     m_settingSections.append(ipv6Section);
+    m_settingSections.append(dnsSection);
     m_settingSections.append(etherNetSection);
 }
 

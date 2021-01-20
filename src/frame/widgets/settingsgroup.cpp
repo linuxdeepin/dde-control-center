@@ -99,7 +99,6 @@ void SettingsGroup::insertItem(const int index, SettingsItem *item)
         //当SettingsItem 被加入　SettingsGroup　时，为其加入背景
         item->addBackground();
     }
-
     m_layout->insertWidget(index, item);
     item->installEventFilter(this);
 }

@@ -27,6 +27,7 @@
 #include "../../sections/vpn/vpnproxysection.h"
 #include "../../sections/vpn/vpntlssection.h"
 #include "../../sections/ipvxsection.h"
+#include "../../sections/dnssection.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -72,6 +73,7 @@ void VpnOpenVPNSettings::initSections()
     ipv6Section->setIpv6ConfigMethodEnable(NetworkManager::Ipv6Setting::ConfigMethod::Manual, false);
     ipv6Section->setNeverDefaultEnable(true);
 
+    DNSSection *dnsSection = new DNSSection(m_connSettings);
     VpnTLSSection *vpnTLSSection = new VpnTLSSection(vpnSetting);
     if (vpnOpenVPNSection->authType() == "static-key") {
         vpnTLSSection->setVisible(false);
@@ -84,6 +86,7 @@ void VpnOpenVPNSettings::initSections()
     connect(vpnProxySection, &VpnProxySection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
     connect(ipv4Section, &IpvxSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
     connect(ipv6Section, &IpvxSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
+    connect(dnsSection, &DNSSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
     connect(vpnTLSSection, &VpnTLSSection::editClicked, this, &VpnOpenVPNSettings::anyEditClicked);
 
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
@@ -95,6 +98,7 @@ void VpnOpenVPNSettings::initSections()
     connect(vpnProxySection, &VpnProxySection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(ipv6Section, &IpvxSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
+    connect(dnsSection, &DNSSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
     connect(vpnTLSSection, &VpnTLSSection::requestNextPage, this, &VpnOpenVPNSettings::requestNextPage);
 
     connect(vpnOpenVPNSection, &VpnOpenVPNSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
@@ -103,6 +107,7 @@ void VpnOpenVPNSettings::initSections()
     connect(vpnProxySection, &VpnProxySection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
     connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
     connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
+    connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
     connect(vpnTLSSection, &VpnTLSSection::requestFrameAutoHide, this, &VpnOpenVPNSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
@@ -112,6 +117,7 @@ void VpnOpenVPNSettings::initSections()
     m_sectionsLayout->addWidget(vpnProxySection);
     m_sectionsLayout->addWidget(ipv4Section);
     m_sectionsLayout->addWidget(ipv6Section);
+    m_sectionsLayout->addWidget(dnsSection);
     m_sectionsLayout->addWidget(vpnTLSSection);
 
     m_settingSections.append(genericSection);
@@ -121,5 +127,6 @@ void VpnOpenVPNSettings::initSections()
     m_settingSections.append(vpnProxySection);
     m_settingSections.append(ipv4Section);
     m_settingSections.append(ipv6Section);
+    m_settingSections.append(dnsSection);
     m_settingSections.append(vpnTLSSection);
 }

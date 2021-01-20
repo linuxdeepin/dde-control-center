@@ -59,3 +59,8 @@ void AbstractSection::insertItem(int idx, SettingsItem *item)
 {
     m_group->insertItem(idx, item);
 }
+
+void AbstractSection::setSettingsHead(SettingsHead *settingsHead)
+{
+    m_layout->insertWidget(0, settingsHead);
+}

@@ -187,6 +187,8 @@ set(WIDGETS_FILES
                 ../../include/widgets/settingsitem.h
                 widgets/spinboxwidget.cpp
                 ../../include/widgets/spinboxwidget.h
+                widgets/buttoneditwidget.cpp
+                ../../include/widgets/buttoneditwidget.h
                 widgets/tipsitem.cpp
                 ../../include/widgets/tipsitem.h
                 widgets/titlelabel.cpp
@@ -399,6 +401,7 @@ set(NETWORK_FILES
                 window/modules/network/sections/secretwirelesssection.cpp
                 window/modules/network/sections/wirelesssection.cpp
                 window/modules/network/sections/ipvxsection.cpp
+                window/modules/network/sections/dnssection.cpp
                 window/modules/network/settings/abstractsettings.cpp
                 window/modules/network/settings/dslpppoesettings.cpp
                 window/modules/network/settings/hotspotsettings.cpp

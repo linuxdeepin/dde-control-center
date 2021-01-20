@@ -24,6 +24,7 @@
 #include "../../sections/vpn/vpnvpncsection.h"
 #include "../../sections/vpn/vpnadvvpncsection.h"
 #include "../../sections/ipvxsection.h"
+#include "../../sections/dnssection.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -56,27 +57,33 @@ void VpnVPNCSettings::initSections()
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
+    DNSSection *dnsSection = new DNSSection(m_connSettings);
 
     connect(genericSection, &GenericSection::editClicked, this, &VpnVPNCSettings::anyEditClicked);
     connect(vpnVPNCSection, &VpnVPNCSection::editClicked, this, &VpnVPNCSettings::anyEditClicked);
     connect(vpnAdvVPNCSection, &VpnAdvVPNCSection::editClicked, this, &VpnVPNCSettings::anyEditClicked);
     connect(ipv4Section, &IpvxSection::editClicked, this, &VpnVPNCSettings::anyEditClicked);
+    connect(dnsSection, &DNSSection::editClicked, this, &VpnVPNCSettings::anyEditClicked);
 
     connect(vpnVPNCSection, &VpnVPNCSection::requestNextPage, this, &VpnVPNCSettings::requestNextPage);
     connect(vpnAdvVPNCSection, &VpnAdvVPNCSection::requestNextPage, this, &VpnVPNCSettings::requestNextPage);
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &VpnVPNCSettings::requestNextPage);
+    connect(dnsSection, &DNSSection::requestNextPage, this, &VpnVPNCSettings::requestNextPage);
 
     connect(vpnVPNCSection, &VpnVPNCSection::requestFrameAutoHide, this, &VpnVPNCSettings::requestFrameAutoHide);
     connect(vpnAdvVPNCSection, &VpnAdvVPNCSection::requestFrameAutoHide, this, &VpnVPNCSettings::requestFrameAutoHide);
     connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &VpnVPNCSettings::requestFrameAutoHide);
+    connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &VpnVPNCSettings::requestFrameAutoHide);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(vpnVPNCSection);
     m_sectionsLayout->addWidget(vpnAdvVPNCSection);
     m_sectionsLayout->addWidget(ipv4Section);
+    m_sectionsLayout->addWidget(dnsSection);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(vpnVPNCSection);
     m_settingSections.append(vpnAdvVPNCSection);
     m_settingSections.append(ipv4Section);
+    m_settingSections.append(dnsSection);
 }

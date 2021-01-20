@@ -25,6 +25,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/contentwidget.h"
 #include "interface/namespace.h"
+#include "widgets/settingshead.h"
 
 namespace DCC_NAMESPACE {
 namespace network {
@@ -43,6 +44,7 @@ public:
 
     void appendItem(dcc::widgets::SettingsItem *item);
     void insertItem(int idx, dcc::widgets::SettingsItem *item);
+    void setSettingsHead(dcc::widgets::SettingsHead *settingsHead);
 
 Q_SIGNALS:
     void requestNextPage(dcc::ContentWidget * const page) const;
