@@ -146,6 +146,7 @@ void DisplayModule::preInitialize(bool sync)
         m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
     });
 
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, &DisplayModule::showBrightnessPage);
     connect(m_splitTimer, &QTimer::timeout, m_displayWorker, &DisplayWorker::mergeScreens, Qt::UniqueConnection);
     connect(m_joinTimer, &QTimer::timeout, m_displayWorker, &DisplayWorker::splitScreens, Qt::UniqueConnection);
 }
