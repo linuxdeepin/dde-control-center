@@ -33,18 +33,6 @@
 //    QString title;
 //};
 
-#define MAINWINDOW "mainwindow"
-#define DISPLAY "display"
-#define DEFAPP "defapp"
-#define PERSONALIZATION "personalization"
-#define COMMONINFO "commoninfo"
-#define SOUND "sound"
-#define DATETIME "datetime"
-#define POWER "power"
-#define KEYBOARD "keyboard"
-#define SYSTEMINFO "systeminfo"
-#define MOUSE "mouse"
-
 namespace DCC_NAMESPACE {
 
 // ModuleInterface作为每个规范每个Module的接口，每个Module实现必须实现其所有虚函数。
@@ -145,30 +133,6 @@ public:
     }
 
     virtual QStringList availPage() const { return QStringList(); }
-
-    /**
-     * @brief path
-     * @return 插件级别及二级菜单插件所属模块
-     */
-    virtual QString path() const {
-        return QString();
-    }
-
-    /**
-     * @brief follow
-     * @return 插件插入位置，可以字符串或者数字
-     */
-    virtual QString follow() const {
-        return QString();
-    }
-
-    /**
-     * @brief enabled
-     * @return 插件是否处于可用状态
-     */
-    virtual bool enabled() const {
-        return true;
-    }
 
 public:
     inline void setAvailable(bool isAvailable) { m_available = isAvailable; }

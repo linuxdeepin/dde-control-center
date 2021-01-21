@@ -43,7 +43,6 @@
 #include <QBitmap>
 #include <QPainterPath>
 #include <QScroller>
-#include <QScrollBar>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -92,13 +91,6 @@ AccountsWidget::AccountsWidget(QWidget *parent)
 
     connect(m_userlistView, &QListView::clicked, this, &AccountsWidget::onItemClicked);
     connect(m_userlistView, &DListView::activated, m_userlistView, &QListView::clicked);
-    connect(m_userlistView->verticalScrollBar(), &QScrollBar::valueChanged, this, [ = ](int value) {
-        static int valueTemp = 0;
-        if (value > valueTemp) {
-            requestLoadUserList();
-        }
-        valueTemp = value;
-    });
     connect(m_createBtn, &QPushButton::clicked, this, &AccountsWidget::requestCreateAccount);
 }
 
@@ -129,22 +121,18 @@ void AccountsWidget::setModel(UserModel *model)
 
 void AccountsWidget::showDefaultAccountInfo()
 {
-    if (m_userlistView->count() > 0) {
-        QModelIndex qindex = m_userItemModel->index(0, 0);
-        m_userlistView->setCurrentIndex(qindex);
-        Q_EMIT m_userlistView->clicked(qindex);
-    }
+    QModelIndex qindex = m_userItemModel->index(0, 0);
+    m_userlistView->setCurrentIndex(qindex);
+    Q_EMIT m_userlistView->clicked(qindex);
 }
 
 void AccountsWidget::showLastAccountInfo()
 {
-    if (m_userlistView->count() > 0) {
-        int lastindex = m_userItemModel->rowCount() - 1;
-        QModelIndex qindex = m_userItemModel->index(lastindex, 0);
-        m_userlistView->setFocus();
-        m_userlistView->setCurrentIndex(qindex);
-        Q_EMIT m_userlistView->clicked(qindex);
-    }
+    int lastindex = m_userItemModel->rowCount() - 1;
+    QModelIndex qindex = m_userItemModel->index(lastindex, 0);
+    m_userlistView->setFocus();
+    m_userlistView->setCurrentIndex(qindex);
+    Q_EMIT m_userlistView->clicked(qindex);
 }
 
 void AccountsWidget::setShowFirstUserInfo(bool show)
@@ -158,21 +146,19 @@ void AccountsWidget::addUser(User *user, bool t1)
     m_userList << user;
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
-
     if (IsServerSystem) {
-        /* 用户列表显示用户类型 */
         auto *subTitleAction = new DViewItemAction;
-        if (user->userType() == User::UserType::Administrator) {
+        if (1 == user->userType()) {
             subTitleAction->setText(tr("Administrator"));
-        } else {
+        }else {
             subTitleAction->setText(tr("Standard User"));
         }
         subTitleAction->setFontSize(DFontSizeManager::T8);
         subTitleAction->setTextColorRole(DPalette::TextTips);
         item->setTextActionList({subTitleAction});
 
-        connect(user, &User::userTypeChanged, this, [=](int userType) {
-            if (userType == User::UserType::Administrator) {
+        connect(user, &User::userTypeChanged, this, [ = ](int userType) {
+            if (1 == userType) {
                 subTitleAction->setText(tr("Administrator"));
             } else {
                 subTitleAction->setText(tr("Standard User"));
@@ -186,14 +172,8 @@ void AccountsWidget::addUser(User *user, bool t1)
     onlineFlag->setWidget(onlineIcon);
     item->setActionList(Qt::Edge::RightEdge, {onlineFlag});
     onlineFlag->setVisible(user->online());
-    if (onlineFlag->widget()) {
-        onlineFlag->widget()->setVisible(onlineFlag->isVisible());
-    }
     connect(user, &User::onlineChanged, this, [=](const bool &online) {
         onlineFlag->setVisible(online);
-        if (onlineFlag->widget()) {
-            onlineFlag->widget()->setVisible(onlineFlag->isVisible());
-        }
     });
 
     m_userItemModel->appendRow(item);
@@ -213,8 +193,10 @@ void AccountsWidget::addUser(User *user, bool t1)
         }
     });
 
-    if (t1)
+    if (t1) {
+        handleRequestBack(CreateUserSuccess);
         return;
+    }
 
     auto path = user->currentAvatar();
     path = path.startsWith("file://") ? QUrl(path).toLocalFile() : path;
@@ -234,6 +216,19 @@ void AccountsWidget::addUser(User *user, bool t1)
         m_currentUserAdded = true;
 
         QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
+    } else {
+        int count = m_userItemModel->rowCount();
+        for (int idx = m_currentUserAdded ? 1 : 0; idx < count; ++idx) {
+            if (user->createdTime() < m_userList[idx]->createdTime()) {
+                auto tttitem = m_userItemModel->takeRow(count - 1);
+                Q_ASSERT(tttitem[0] == item);
+                m_userItemModel->insertRow(idx, item);
+
+                m_userList.insert(idx, user);
+                m_userList.pop_back();
+                break;
+            }
+        }
     }
 }
 
@@ -242,12 +237,11 @@ void AccountsWidget::removeUser(User *user)
     m_userItemModel->removeRow(m_userList.indexOf(user)); // It will delete when remove
     m_userList.removeOne(user);
 
-    if (m_userList.isEmpty()) {
-        Q_EMIT requestBack();
-        return;
+    if (m_isShowFirstUserInfo) {
+        showDefaultAccountInfo();
+    } else {
+        showLastAccountInfo();
     }
-
-    m_isShowFirstUserInfo ? showDefaultAccountInfo() : showLastAccountInfo();
 }
 
 void AccountsWidget::onItemClicked(const QModelIndex &index)
@@ -339,5 +333,12 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
         onItemClicked(qindex2);
         }
         break;
+    }
+}
+
+void AccountsWidget::selectUserList()
+{
+    if (m_userModel->userList().size() && !m_userlistView->selectionModel()->selectedIndexes().size()) {
+        showDefaultAccountInfo();
     }
 }

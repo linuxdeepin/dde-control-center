@@ -33,32 +33,27 @@
 
 namespace DCC_NAMESPACE {
 
-struct Plugin {
-    QString path;           // 插件级别及二级菜单插件所属模块
-    QString follow;         // 插件插入位置，可以字符串或者数字
-    bool enabled;           // 插件是否处于可用状态
-};
-
 class InsertPlugin: public QObject
 {
     Q_OBJECT
 public:
     InsertPlugin(QObject *parent, FrameProxyInterface *interface);
-    // 查询改模块是否需要加载插件
+    //查询改模块是否需要加载插件
     bool needPushPlugin(QString moduleName);
-    // 一级菜单插入插件
+    //一级菜单插入插件
     void pushPlugin(QList<QPair<ModuleInterface *, QString>> &modules);
-    // 二级菜单插入插件
+    //二级菜单插入插件
     void pushPlugin(QStandardItemModel *Model, QList<ListSubItem> &itemList);
-    // 获取单例
+    //获取单例
     static InsertPlugin *instance(QObject *obj = nullptr, FrameProxyInterface *interface = nullptr);
 
 private:
     static QPointer<InsertPlugin> INSTANCE;
-    // 保存加载的所有插件
-    QList<QPair<Plugin, QPair<QObject *, QString>>> m_allModules;
-    // 保存插入到某个模块的所有插件
-    QList<QPair<Plugin, QPair<QObject *, QString>>> m_currentPlugins;
+    //保存加载的所有插件
+    QList<QPair<QObject *, QString>> m_allModules;
+
+    QJsonObject m_pluginSettingsObject;
+    QString m_pushModuleName = "";
 };
 }
 #endif // INSERTPLUGIN_H

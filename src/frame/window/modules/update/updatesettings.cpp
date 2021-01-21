@@ -24,14 +24,12 @@
 #include "modules/update/updatemodel.h"
 #include "widgets/translucentframe.h"
 #include "widgets/labels/smalllabel.h"
-#include "widgets/titlelabel.h"
 #include "widgets/switchwidget.h"
 #include "widgets/nextpagewidget.h"
 #include "dsysinfo.h"
 #include "window/utils.h"
 
 #include <DTipLabel>
-#include <DFontSizeManager>
 
 #include <QVBoxLayout>
 
@@ -46,203 +44,183 @@ using namespace DCC_NAMESPACE::update;
 UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(nullptr)
-    , m_autoCheckUpdate(new SwitchWidget(this))
-    , m_autoCheckSecureUpdate(new SwitchWidget(tr("Security Updates"), this))
-    , m_autoCheckSystemUpdate(new SwitchWidget(tr("System Updates"), this))
-    , m_autoCheckAppUpdate(new SwitchWidget(tr("App Updates in App Store"), this))
-    , m_updateNotify(new SwitchWidget(tr("Updates Notification"), this))
-    , m_autoDownloadUpdate(new SwitchWidget(tr("Download Updates"), this))
-    , m_autoDownloadUpdateTips(new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"), this))
-    , m_autoCleanCache(new SwitchWidget(this))
-{
-    initUi();
-    initConnection();
-    setModel(model);
-}
-
-void UpdateSettings::initUi()
 {
     setTitle(tr("Update Settings"));
 
-    TranslucentFrame *contentWidget = new TranslucentFrame(this); // 添加一层半透明框架
-    QVBoxLayout *contentLayout = new QVBoxLayout(contentWidget);
+    TranslucentFrame *widget = new TranslucentFrame;
 
-    QLabel *autoUpdateSettingsLabel = new QLabel(tr("Automatic Updating Settings"), this);
-    DFontSizeManager::instance()->bind(autoUpdateSettingsLabel, DFontSizeManager::T5, QFont::DemiBold);
-    autoUpdateSettingsLabel->setContentsMargins(10, 0, 10, 0); // 左右边距为10
-    contentLayout->addWidget(autoUpdateSettingsLabel);
-    contentLayout->addSpacing(10);
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->setMargin(0);
+    layout->setSpacing(0);
+    layout->addSpacing(71);
 
+    QLabel *autoLbl = new QLabel(QString("<h3>%1</h3>").arg(tr("Automatic Updating Settings")));
+    autoLbl->setAlignment(Qt::AlignLeft);
+
+    SettingsGroup *ug = new SettingsGroup;
+    ug->getLayout()->setContentsMargins(0, 0, 0, 0);
+
+    m_autoCleanCache = new SwitchWidget;
+    //~ contents_path /update/Update Settings
+    m_autoCleanCache->setTitle(tr("Clear Package Cache"));
+
+    m_autoCheckUpdate = new SwitchWidget;
     //~ contents_path /update/Update Settings
     m_autoCheckUpdate->setTitle(tr("Check for Updates"));
 
-    SettingsGroup *checkUpdatesGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    checkUpdatesGrp->appendItem(m_autoCheckUpdate);
-    checkUpdatesGrp->appendItem(m_autoCheckSecureUpdate);
-    checkUpdatesGrp->appendItem(m_autoCheckSystemUpdate);
-    checkUpdatesGrp->appendItem(m_autoCheckAppUpdate);
-    contentLayout->addWidget(checkUpdatesGrp);
-    contentLayout->addSpacing(20);
+    m_updateNotify = new SwitchWidget;
+    m_updateNotify->setTitle(tr("Updates Notification"));
 
-    SettingsGroup *updatesNotificationtGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    updatesNotificationtGrp->appendItem(m_updateNotify);
-    updatesNotificationtGrp->appendItem(m_autoDownloadUpdate);
-    contentLayout->addWidget(updatesNotificationtGrp);
+    m_autoDownloadSwitch = new SwitchWidget;
+    m_autoDownloadSwitch->setTitle(tr("Download Updates"));
+    m_updateLbl = new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"));
+    m_updateLbl->setWordWrap(true);
+    m_updateLbl->setAlignment(Qt::AlignLeft);
 
-    m_autoDownloadUpdateTips->setWordWrap(true);
-    m_autoDownloadUpdateTips->setAlignment(Qt::AlignLeft);
-    m_autoDownloadUpdateTips->setContentsMargins(10, 0, 10, 0);
-    contentLayout->addWidget(m_autoDownloadUpdateTips);
-    contentLayout->addSpacing(20);
-
-#if 0 // 定时、闲时下载功能需添加时再显示
     //自动下载更新控件初始化
-    m_timerDownload = new SwitchWidget("定时下载可用更新", this);
-    m_timerDownloadLbl = new DTipLabel("当前设置时间为：", this);
+    m_timerDownload = new SwitchWidget;
+    m_timerDownload->setTitle("定时下载可用更新");
+    m_timerDownloadLbl = new DTipLabel("当前设置时间为：");
     m_timerDownloadLbl->setWordWrap(true);
     m_timerDownloadLbl->setAlignment(Qt::AlignLeft);
-    m_timerDownloadLbl->setContentsMargins(10, 0, 10, 0);
     m_setTimerLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg("更改"));
 
     //闲时下载更新控件初始化
-    m_freeTimeDownload = new SwitchWidget("闲时下载更新", this);
-    m_freeTimeDownloadLbl = new DTipLabel("当前使用时间段：", this);
+    m_freeTimeDownload = new SwitchWidget;
+    m_freeTimeDownload->setTitle("闲时下载更新");
+    m_freeTimeDownloadLbl = new DTipLabel("当前使用时间段：");
     m_freeTimeDownloadLbl->setWordWrap(true);
     m_freeTimeDownloadLbl->setAlignment(Qt::AlignLeft);
-    m_freeTimeDownloadLbl->setContentsMargins(10, 0, 10, 0);
     m_setFreeTimeLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg("更改"));
 
-    auto setDownloadTimeCtrlLayout = [ & ](SwitchWidget *setSwitch, DTipLabel *timeInfoLbl, QLabel *changeLbl) {
-        setSwitch->addBackground();
-        contentLayout->addWidget(setSwitch);
+    layout->addWidget(autoLbl);
+    layout->addSpacing(8);
+
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+        SettingsGroup *sourceCheckGrp = new SettingsGroup;
+        m_sourceCheck = new SwitchWidget;
+        //~ contents_path /update/Update Settings
+        m_sourceCheck->setTitle(tr("System Repository Detection"));
+        sourceCheckGrp->appendItem(m_sourceCheck);
+        layout->addWidget(sourceCheckGrp);
+        layout->addSpacing(8);
+        DTipLabel *sourceCheckLbl = new DTipLabel(tr("Show a notification if system update repository has been modified"));
+        sourceCheckLbl->setWordWrap(true);
+        sourceCheckLbl->setAlignment(Qt::AlignLeft);
+        QHBoxLayout *sourceCheckLblLayout = new QHBoxLayout;
+        sourceCheckLblLayout->addSpacing(TipLeftInterver);
+        sourceCheckLblLayout->addWidget(sourceCheckLbl);
+        layout->addLayout(sourceCheckLblLayout);
+        layout->addSpacing(8);
+    }
+#endif
+
+    ug->setSpacing(List_Interval);
+    ug->appendItem(m_autoCheckUpdate);
+    ug->appendItem(m_autoCleanCache);
+    ug->appendItem(m_updateNotify);
+    ug->appendItem(m_autoDownloadSwitch);
+
+    layout->addWidget(ug);
+    layout->addSpacing(8);
+    QHBoxLayout *updateLblLayout = new QHBoxLayout;
+    updateLblLayout->addSpacing(TipLeftInterver);
+    updateLblLayout->addWidget(m_updateLbl);
+    layout->addLayout(updateLblLayout);
+    layout->addSpacing(15);
+
+    auto setDownloadTimeCtrlLayout = [&](SwitchWidget * setSwitch, DTipLabel * timeInfoLbl, QLabel * changeLbl) {
+        SettingsGroup *timeDownloadGrp = new SettingsGroup;
+        timeDownloadGrp->appendItem(setSwitch);
+        layout->addWidget(timeDownloadGrp);
+        layout->addSpacing(8);
         QHBoxLayout *downloadLblLayout = new QHBoxLayout;
+        downloadLblLayout->addSpacing(TipLeftInterver);
         downloadLblLayout->addWidget(timeInfoLbl);
+        downloadLblLayout->addSpacing(30);
         downloadLblLayout->addWidget(changeLbl);
-        contentLayout->addLayout(downloadLblLayout);
+        layout->addLayout(downloadLblLayout);
+        layout->addSpacing(8);
+        //功能暂时隐藏
+        timeDownloadGrp->setVisible(false);
     };
 
     //定时下载更新布局
     setDownloadTimeCtrlLayout(m_timerDownload, m_timerDownloadLbl, m_setTimerLbl);
     //闲时下载更新布局
     setDownloadTimeCtrlLayout(m_freeTimeDownload, m_freeTimeDownloadLbl, m_setFreeTimeLbl);
-#endif
 
-    //~ contents_path /update/Update Settings
-    m_autoCleanCache->setTitle(tr("Clear Package Cache"));
-    m_autoCleanCache->addBackground();
-    contentLayout->addWidget(m_autoCleanCache);
-
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
+    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+        m_smartMirrorBtn = new SwitchWidget;
         //~ contents_path /update/Update Settings
-        m_sourceCheck = new SwitchWidget(tr("System Repository Detection"), this);
-        m_sourceCheck->addBackground();
-        contentLayout->addWidget(m_sourceCheck);
-        DTipLabel *sourceCheckTips = new DTipLabel(tr("Show a notification if system update repository has been modified"), this);
-        sourceCheckTips->setWordWrap(true);
-        sourceCheckTips->setAlignment(Qt::AlignLeft);
-        sourceCheckTips->setContentsMargins(10, 0, 10, 0);
-        contentLayout->addWidget(sourceCheckTips);
-    }
-#endif
+        m_smartMirrorBtn->setTitle(tr("Smart Mirror Switch"));
 
-    if (IsCommunitySystem) {
-        //~ contents_path /update/Update Settings
-        m_smartMirrorBtn = new SwitchWidget(tr("Smart Mirror Switch"), this);
-        m_smartMirrorBtn->addBackground();
-        contentLayout->addWidget(m_smartMirrorBtn);
+        SettingsGroup *smartMirrorGrp = new SettingsGroup;
+        smartMirrorGrp->appendItem(m_smartMirrorBtn);
 
+        DTipLabel *smartTips = new DTipLabel("");
         //~ contents_path /update/Update Settings
-        DTipLabel *smartTips = new DTipLabel(tr("Switch it on to connect to the quickest mirror site automatically"), this);
+        smartTips->setText(tr("Switch it on to connect to the quickest mirror site automatically"));
         smartTips->setWordWrap(true);
         smartTips->setAlignment(Qt::AlignLeft);
-        smartTips->setContentsMargins(10, 0, 10, 0);
-        contentLayout->addWidget(smartTips);
+        layout->addWidget(smartMirrorGrp);
+        layout->addSpacing(8);
+        QHBoxLayout *smartTipsLayout = new QHBoxLayout;
+        smartTipsLayout->addSpacing(TipLeftInterver);
+        smartTipsLayout->addWidget(smartTips);
+        layout->addLayout(smartTipsLayout);
+        layout->addSpacing(15);
 
         m_updateMirrors = new NextPageWidget(nullptr, false);
+        m_updateMirrors->setRightTxtWordWrap(true);
         //~ contents_path /update/Update Settings/Mirror List
         m_updateMirrors->setTitle(tr("Mirror List"));
-        m_updateMirrors->setRightTxtWordWrap(true);
-        m_updateMirrors->addBackground();
-        contentLayout->addWidget(m_updateMirrors);
+        m_mirrorGrp = new SettingsGroup;
+        m_mirrorGrp->appendItem(m_updateMirrors);
+        layout->addWidget(m_mirrorGrp);
+
+        connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
+        connect(m_smartMirrorBtn, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestEnableSmartMirror);
     }
 
-    contentLayout->setAlignment(Qt::AlignTop);
-    contentLayout->setContentsMargins(46, 10, 46, 5);
+    layout->addStretch();
 
-    setContent(contentWidget);
-}
+    widget->setLayout(layout);
 
-void UpdateSettings::initConnection()
-{
+    setContent(widget);
+
+    connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
     connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCheckUpdates);
-    connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
-    connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
-    connect(m_autoCheckSystemUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
-    connect(m_autoCheckAppUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
     connect(m_updateNotify, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetUpdateNotify);
-    connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoDownloadUpdates);
+    connect(m_autoDownloadSwitch, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoUpdate);
     //connect(m_setTimerLbl, &QLabel::linkActivated,);
     //connect(m_setFreeTimeLbl, &QLabel::linkActivated,);
-    connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
+    //定时、闲时下载功能需添加时再显示
+    m_timerDownloadLbl->setVisible(false);
+    m_setTimerLbl->setVisible(false);
+    m_freeTimeDownloadLbl->setVisible(false);
+    m_setFreeTimeLbl->setVisible(false);
 
-#if 0
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsCommunitySystem && !IsDeepinDesktop) {
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
         qDebug() << "connect m_sourceCheck";
         connect(m_sourceCheck, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetSourceCheck);
     }
 #endif
-#endif
 
-    if (IsCommunitySystem) {
-        connect(m_updateMirrors, &NextPageWidget::clicked, this, &UpdateSettings::requestShowMirrorsView);
-        connect(m_smartMirrorBtn, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestEnableSmartMirror);
-    }
+    setModel(model);
 }
 
 void UpdateSettings::setModel(UpdateModel *model)
 {
-    if (m_model == model)
-        return;
-
     m_model = model;
 
-    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
-    // connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setVisible);
-    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckSystemUpdate, &SwitchWidget::setVisible);
-    connect(model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckSystemUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckAppUpdate, &SwitchWidget::setVisible);
-    connect(model, &UpdateModel::autoCheckAppUpdatesChanged, m_autoCheckAppUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::updateNotifyChanged, m_updateNotify, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::updateNotifyChanged, m_autoDownloadUpdate, &SwitchWidget::setVisible);
-    connect(model, &UpdateModel::updateNotifyChanged, m_autoDownloadUpdateTips, &DTipLabel::setVisible);
-    connect(model, &UpdateModel::autoDownloadUpdatesChanged, m_autoDownloadUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
+    auto setAutoDownload = [this](const bool & autoDownload) {
+        m_autoDownloadSwitch->setChecked(autoDownload);
+    };
 
-    m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
-    m_autoCheckSecureUpdate->setChecked(model->autoCheckSecureUpdates());
-    // m_autoCheckSecureUpdate->setVisible(model->autoCheckUpdates());
-    m_autoCheckSecureUpdate->setVisible(false); // 当前阶段暂时隐藏安全更新选项显示
-    m_autoCheckSystemUpdate->setChecked(model->autoCheckSystemUpdates());
-    m_autoCheckSystemUpdate->setVisible(model->autoCheckUpdates());
-    m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
-    m_autoCheckAppUpdate->setVisible(model->autoCheckSystemUpdates());
-    m_updateNotify->setChecked(model->updateNotify());
-    m_autoDownloadUpdate->setChecked(model->autoDownloadUpdates());
-    m_autoDownloadUpdate->setVisible(model->updateNotify());
-    m_autoDownloadUpdateTips->setVisible(model->updateNotify());
-    m_autoCleanCache->setChecked(m_model->autoCleanCache());
-
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
-        connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
-        m_sourceCheck->setChecked(model->sourceCheck());
-    }
-#endif
-
-    if (IsCommunitySystem) {
+    if (SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
         auto setDefaultMirror = [this](const MirrorInfo & mirror) {
             m_updateMirrors->setValue(mirror.m_name);
         };
@@ -256,24 +234,32 @@ void UpdateSettings::setModel(UpdateModel *model)
         m_smartMirrorBtn->setChecked(m_model->smartMirrorSwitch());
 
         auto setMirrorListVisible = [ = ](bool visible) {
-            m_updateMirrors->setVisible(!visible);
+            m_mirrorGrp->setVisible(!visible);
         };
 
         connect(model, &UpdateModel::smartMirrorSwitchChanged, this, setMirrorListVisible);
         setMirrorListVisible(model->smartMirrorSwitch());
     }
-}
 
-void UpdateSettings::setUpdateMode()
-{
-    quint64 updateMode = 0;
-    if (m_autoCheckUpdate->checked()) {
-        if (!m_autoCheckSystemUpdate->checked()) {
-            m_autoCheckAppUpdate->setChecked(false);
-        }
-        updateMode = updateMode | m_autoCheckSecureUpdate->checked();
-        updateMode = (updateMode << 1) | m_autoCheckAppUpdate->checked();
-        updateMode = (updateMode << 1) | m_autoCheckSystemUpdate->checked();
+    setAutoDownload(model->autoDownloadUpdates());
+
+    connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, setAutoDownload);
+    connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::updateNotifyChanged, m_updateNotify, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::updateNotifyChanged, m_autoDownloadSwitch, &SwitchWidget::setVisible);
+    connect(model, &UpdateModel::updateNotifyChanged, m_updateLbl, &DTipLabel::setVisible);
+
+    m_autoDownloadSwitch->setVisible(model->updateNotify());
+    m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
+    m_updateNotify->setChecked(model->updateNotify());
+    m_autoCleanCache->setChecked(m_model->autoCleanCache());
+    m_updateLbl->setVisible(model->updateNotify());
+
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+    if (SystemTypeName != "Server" && SystemTypeName != "Professional" && SystemTypeName != "Personal" && DSysInfo::DeepinDesktop != DSysInfo::deepinType()) {
+        connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
+        m_sourceCheck->setChecked(model->sourceCheck());
     }
-    requestSetUpdateMode(updateMode);
+#endif
 }

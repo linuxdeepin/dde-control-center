@@ -23,7 +23,6 @@
 #include "interface/namespace.h"
 #include "widgets/contentwidget.h"
 #include "modules/update/common.h"
-#include "widgets/utils.h"
 
 #include <QWidget>
 
@@ -85,8 +84,7 @@ private:
     void setRecoverBackingUp(const bool value);
     void setRecoverConfigValid(const bool value);
     void setRecoverRestoring(const bool value);
-    void setShowInfo(const UiActiveState value);
-    void setActiveState(const UiActiveState &activestate);
+    void setShowInfo(const bool value);
 
 private:
     dcc::update::UpdateModel *m_model;
@@ -107,7 +105,6 @@ private:
     bool m_bRecoverBackingUp;
     bool m_bRecoverConfigValid;
     bool m_bRecoverRestoring;
-    UiActiveState m_activeState;
     dcc::ContentWidget *m_updateList;
 #ifndef DISABLE_ACTIVATOR
     dcc::widgets::TipsLabel *m_authorizationPrompt;

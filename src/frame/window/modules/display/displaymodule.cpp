@@ -108,7 +108,17 @@ void DisplayModule::active()
 
     m_frameProxy->pushWidget(this, m_displayWidget);
     m_displayWidget->setVisible(true);
-    m_displayWidget->setDefaultWidget();
+    if (m_displayWidget->isMultiMode()) {
+        if (m_displayWidget->isShowMultiscreen())
+            showMultiScreenSettingPage();
+        else
+            showBrightnessPage();
+    } else {
+        if (m_displayWidget->isShowMultiscreen())
+            showResolutionDetailPage();
+        else
+            showMultiResolutionPage();
+    }
 }
 
 int DisplayModule::load(const QString &path)
@@ -333,13 +343,11 @@ void DisplayModule::onDetailPageRequestSetResolution(Monitor *mon, const int mod
 {
     auto lastMode = mon->currentMode().id();
     m_displayWorker->setMonitorResolution(mon, mode);
-    m_displayWorker->applyChanges();
 
     if (showTimeoutDialog(mon) == QDialog::Accepted) {
         m_displayWorker->saveChanges();
     } else {
         m_displayWorker->setMonitorResolution(mon, lastMode);
-        m_displayWorker->applyChanges();
     }
 }
 
@@ -390,7 +398,6 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
                      << "\t id: " << tmode.id;
             m_displayWorker->setMonitorResolution(tmon, tmode.id);
         }
-        m_displayWorker->applyChanges();
     };
 
     tfunc(mon, mode);

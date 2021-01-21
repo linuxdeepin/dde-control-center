@@ -64,42 +64,15 @@ const QString SystemTypeName = DSysInfo::uosEditionName(QLocale::c());
 
 const DSysInfo::UosType UosType = DSysInfo::uosType();
 const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
-const bool IsServerSystem = (DSysInfo::UosServer == UosType);//是否是服务器版
-const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否是社区版
-const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
-const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
-const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
+const bool IsServerSystem = (DSysInfo::UosServer == UosType);
+const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);
+const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);
 struct ListSubItem {
     QString itemIcon;
     QString itemText;
     QMetaMethod itemSignal;
-    QObject *pulgin = nullptr;
+    QObject* pulgin = nullptr;
 };
-
-inline bool compareVersion(const QString &targetVersion, const QString &baseVersion)
-{
-    QStringList version1 = baseVersion.split(".");
-    QStringList version2 = targetVersion.split(".");
-
-    if (version1.size() != version2.size()) {
-        return false;
-    }
-
-    for (int i = 0; i < version1.size(); ++i) {
-        // 相等判断下一个子版本号
-        if (version1[i] == version2[i])
-            continue;
-
-        // 转成整形比较
-        if (version1[i].toInt() > version2[i].toInt()) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    return true;
-}
 }
 
 #endif // V20_DISPLAY_UTILS_H

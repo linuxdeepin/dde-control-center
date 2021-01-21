@@ -123,8 +123,6 @@ int DatetimeModule::load(const QString &path)
         type = TimeSetting;
     } else if (path == "Timezone List/Add Timezone") {
         type = AddTimeZone;
-    } else if (path == "Format Settings") {
-        type = FormatSetting;
     }
 
     QModelIndex index = list->model()->index(type, 0);
@@ -152,15 +150,6 @@ int DatetimeModule::load(const QString &path)
         //Then enter addTimezone
         showSystemTimezone();
         Q_EMIT m_timezonelist->requestAddTimeZone();
-        break;
-    case FormatSetting:
-        //First enter FormatSetting
-        index = list->model()->index(FormatSetting, 0);
-        list->setCurrentIndex(index);
-        list->clicked(index);
-
-        //Then enter FormatSetting
-        showFormatSetting();
         break;
     default:
         break;
@@ -283,11 +272,7 @@ void DatetimeModule::showSystemTimezone()
     ensureZoneChooserDialog();
     m_dialog->setIsAddZone(false);
     m_dialog->show();
-    if (!installer::GetCurrentTimezone().isEmpty()) {
-        m_dialog->setMarkedTimeZone(installer::GetCurrentTimezone());
-    } else {
-        m_dialog->setMarkedTimeZone(m_model->getTimeZone());
-    }
+    m_dialog->setMarkedTimeZone(installer::GetCurrentTimezone());
 }
 
 void DatetimeModule::showTimeSetting()

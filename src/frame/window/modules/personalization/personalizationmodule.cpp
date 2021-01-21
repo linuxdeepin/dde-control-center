@@ -81,7 +81,7 @@ void PersonalizationModule::active()
     m_frameProxy->pushWidget(this, firstWidget);
     firstWidget->setVisible(true);
     //显示默认页
-    firstWidget->setDefaultWidget();
+    showGenaralWidget();
 }
 
 void PersonalizationModule::contentPopped(QWidget *const w)

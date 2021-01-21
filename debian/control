@@ -3,7 +3,7 @@ Section: admin
 Priority: optional
 Maintainer: Deepin Sysdev <sysdev@deepin.com>
 Build-Depends:
- debhelper-compat (= 11),
+ debhelper-compat (= 12),
  pkg-config,
  ninja-build,
  libx11-dev,
@@ -30,9 +30,7 @@ Build-Depends:
  libegl1-mesa-dev,
  libxcb-ewmh-dev,
  libudisks2-qt5-dev,
- qtmultimedia5-dev,
- libgtest-dev,
- libpolkit-qt5-1-dev
+ qtmultimedia5-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
@@ -50,10 +48,7 @@ Depends: ${shlibs:Depends},
  passwd,
  netselect,
  uos-license-content,
- deepin-recovery-tool,
- deepin-desktop-schemas (>=5.8.0.34),
- libdframeworkdbus2 (>=5.3.0.24),
- libdde-network-utils(>=5.3.0.5)
+ deepin-recovery-tool
 Recommends: netselect, deepin-ab-recovery
 Suggests: redshift
 Conflicts:
@@ -62,19 +57,11 @@ Conflicts:
 Replaces:
  dde-control-center-plugin-weather,
  dde-control-center-plugin-notify
-Description: New control center for Deepin Desktop Environment,
- Integrated control center with rich functions,Besides providing rich 
- system setting items, the function level is simple, the logic is clear, 
- the user can easily set the system, and the learning cost is low,
- Provide users with automatic update system and developer mode to meet 
- the various needs of users for the operating system.
- abrecovery -restore system, Determine whether the system is restored
- reboot-reminder-dialog -Update restart, Confirm whether to restart the system 
- after the completion of the update.
+Description: New control center for Deepin Desktop Environment
  DDE Control Center is the control panel of Deepin Desktop Environment.
 
 Package: dde-control-center-dev
 Architecture: any
 Depends: dde-control-center (= ${binary:Version}), ${misc:Depends}, ${shlib:Depends}, ${dist:Depends}
-Description: New control center for Deepin Desktop Environment - development files
+Description: New control center for Deepin Desktop Environment - developement files
  DDE Control Center is the control panel of Deepin Desktop Environment.

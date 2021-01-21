@@ -52,10 +52,9 @@ public:
     void setShowIcon(bool state);
     void setEditTitle(bool state);
     void setHideTitle(bool state);
-    bool onNameEditFinished();
+    bool onNameEditFinished(DLineEdit *edit);
     //判断账户名是否符合规则
     bool validateName(const QString &password);
-    void showAlertMessage(const QString &errMsg);
 
 Q_SIGNALS:
     void removeClicked();

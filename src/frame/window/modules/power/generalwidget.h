@@ -67,8 +67,6 @@ private:
 
 private:
     bool m_bIsBattery;
-    QMap<QString, QString> m_powerPlanMap; // Performance mode dictionary
-
     QVBoxLayout *m_layout;
 
     /* Power Plan Settings */
@@ -85,7 +83,6 @@ private:
     dcc::widgets::SwitchWidget *m_wakeDisplayNeedPassword;
 
     /* Battery Settings */
-    TitleLabel *m_batteryLabel;
     dcc::widgets::SwitchWidget *m_powerShowTimeToFull;
     dcc::widgets::PowerDisplayWidget *m_ShowTimeToFullTips;
     dcc::widgets::SwitchWidget *m_showBatteryCapacity;

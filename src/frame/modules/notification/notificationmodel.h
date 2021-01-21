@@ -38,18 +38,25 @@ class NotificationModel : public QObject
     Q_OBJECT
 public:
     explicit NotificationModel(QObject *parent = nullptr);
-    void setSysSetting(SysItemModel* item);
+    void setAllSetting(const QJsonObject &obj);
+    void setAllAppSetting(const QJsonObject &obj);
+    void setAppSetting(const QJsonObject &object);
+    void setSysSetting(const QJsonObject &object);
+
     inline int getAppSize()const {return m_appItemModels.size();}
+
     inline SysItemModel *getSystemModel()const {return m_sysItemModel;}
     inline AppItemModel *getAppModel(const int &index) {return m_appItemModels[index];}
-    void clearModel();
+    inline QString getTheme() {return m_theme;}
+    void setTheme(const QString &theme);
 
 public Q_SLOTS:
-    void appAdded(AppItemModel* item);
+    void appAdded(const QString &appNamme);
     void appRemoved(const QString &appName);
 
 Q_SIGNALS:
     void appListChanged();
+    void themeChanged(const QString &theme);
 
 private:
     SysItemModel *m_sysItemModel;

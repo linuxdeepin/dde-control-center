@@ -37,7 +37,7 @@ class SettingsGroup;
 }
 
 namespace notification {
-class AppItemModel;
+class NotificationModel;
 }
 }
 
@@ -50,18 +50,19 @@ class AppNotifyWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit AppNotifyWidget(dcc::notification::AppItemModel *model, QWidget *parent = nullptr);
-    void setModel(dcc::notification::AppItemModel *model);
+    explicit AppNotifyWidget(int &index, dcc::notification::NotificationModel *model, QWidget *parent = nullptr);
+    void setModel(dcc::notification::NotificationModel *model);
 
 Q_SIGNALS:
-    void requestSetAppSetting(const QString &appName, uint item, QVariant var);
+    void requestSetAppSetting(const QString &appName, const QJsonObject &obj);
 
 private:
     void initUI();
     void initConnect();
 
 private:
-    dcc::notification::AppItemModel *m_model;
+    dcc::notification::NotificationModel *m_model;
+    int m_index;//应用程序序号
     Dtk::Widget::DSwitchButton *m_btnAllowNotify;//是否允许通知
     NotificationItem *m_itemNotifySound;//播放声音
     NotificationItem *m_itemLockShowNotify;//锁屏通知

@@ -21,7 +21,7 @@ DCORE_USE_NAMESPACE
 #include "window/utils.h"
 
 QString systemName() {
-    if (IsProfessionalSystem)
+    if (SystemTypeName == "Professional")
         return "UOS";
 
     return "Deepin";

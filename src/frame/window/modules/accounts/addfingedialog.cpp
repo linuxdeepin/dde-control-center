@@ -239,15 +239,12 @@ void AddFingeDialog::closeEvent(QCloseEvent *event)
 
 void AddFingeDialog::keyPressEvent(QKeyEvent *event)
 {
-//    switch (event->key()) {
-//        case Qt::Key_Escape:
-//            break;
-//        default:
-//            QDialog::keyPressEvent(event);
-//            break;
-//    }
-    if (event->key() != Qt::Key_Escape) {
-        QDialog::keyPressEvent(event);
+    switch (event->key()) {
+        case Qt::Key_Escape:
+            break;
+        default:
+            QDialog::keyPressEvent(event);
+            break;
     }
 }
 
@@ -265,6 +262,8 @@ bool AddFingeDialog::eventFilter(QObject *o, QEvent *e)
             }
             setFocus();
             return true ;
+       } else {
+           return false ;
        }
     }
     return false ;

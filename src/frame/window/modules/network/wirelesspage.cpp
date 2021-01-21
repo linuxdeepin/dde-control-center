@@ -88,7 +88,7 @@ APItem::APItem(const QString &text, QStyle *style, DTK_WIDGET_NAMESPACE::DListVi
 
 APItem::~APItem()
 {
-    qDebug() << text() << " is destroyed";
+    qDebug() << text() << " is destoryed";
     if (!m_loadingIndicator.isNull()) {
         m_loadingIndicator->stop();
         m_loadingIndicator->hide();

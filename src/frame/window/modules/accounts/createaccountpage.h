@@ -75,9 +75,10 @@ private:
     void initUsrGroup(QVBoxLayout *layout);
     void createUser();
     void showGroupList(const QString &index);
-
-protected:
-    void showEvent(QShowEvent *event) override;
+    bool onPasswordEditFinished(DPasswordEdit *edit);
+    bool validateUsername(const QString &username);
+    bool onNameEditFinished(DLineEdit *edit);
+    bool onFullNameEidtFinished(DLineEdit *edit);
 
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
@@ -88,11 +89,6 @@ public Q_SLOTS:
 
 protected:
     void resizeEvent(QResizeEvent *e) override;
-
-private Q_SLOTS:
-    bool checkName();
-    bool checkFullname();
-    bool checkPassward(DPasswordEdit *edit);
 
 private:
     dcc::accounts::User *m_newUser;

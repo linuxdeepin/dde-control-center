@@ -29,7 +29,6 @@
 
 #include <QVBoxLayout>
 #include <QGSettings>
-
 #define GSETTINGS_HIDE_VERSIONTYPR_MODULE "hide-version-type-module"
 
 using namespace dcc;
@@ -48,31 +47,21 @@ UpdateModule::UpdateModule(FrameProxyInterface *frameProxy, QObject *parent)
 
 }
 
-UpdateModule::~UpdateModule()
-{
-    if (m_workThread) {
-        m_workThread->quit();
-        m_workThread->wait();
-    }
-}
-
 void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
+    if (!m_model)
+        m_model = new UpdateModel(this);
 
-    m_workThread = QSharedPointer<QThread>(new QThread);
-    m_model = new UpdateModel(this);
-    m_work  = QSharedPointer<UpdateWorker>(new UpdateWorker(m_model));
-    m_work->moveToThread(m_workThread.get());
-    m_workThread->start(QThread::LowPriority);
+    if (!m_work) {
+        m_work = new UpdateWorker(m_model);
+        m_work->moveToThread(qApp->thread());
+        m_model->moveToThread(qApp->thread());
+    }
 
-    connect(m_work.get(), &UpdateWorker::requestInit, m_work.get(), &UpdateWorker::init);
-    connect(m_work.get(), &UpdateWorker::requestActive, m_work.get(), &UpdateWorker::activate);
-    connect(m_work.get(), &UpdateWorker::requestRefreshLicenseState, m_work.get(), &UpdateWorker::licenseStateChangeSlot);
-#ifndef DISABLE_SYS_UPDATE_MIRRORS
-    connect(m_work.get(), &UpdateWorker::requestRefreshMirrors, m_work.get(), &UpdateWorker::refreshMirrors);
-#endif
+    m_work->activate(); //refresh data
+
     // 之前自动更新与更新提醒后端为同一处理逻辑，新需求分开处理，前端相应提示角标处理逻辑同步调整
     connect(m_model, &UpdateModel::updateNotifyChanged, this, [this](const bool state) {
         //关闭“自动提醒”，隐藏提示角标
@@ -80,8 +69,13 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
             m_frameProxy->setModuleSubscriptVisible(name(), false);
         } else {
             UpdatesStatus status = m_model->status();
-            if (status == UpdatesStatus::UpdatesAvailable || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
-                status == UpdatesStatus::Installing || status == UpdatesStatus::RecoveryBackingup || status == UpdatesStatus::RecoveryBackingSuccessed || m_model->getUpdatablePackages()) {
+            if (status == UpdatesStatus::UpdatesAvailable ||
+                    status == UpdatesStatus::Downloading ||
+                    status == UpdatesStatus::DownloadPaused ||
+                    status == UpdatesStatus::Downloaded ||
+                    status == UpdatesStatus::Installing ||
+                    status == UpdatesStatus::RecoveryBackingup ||
+                    status == UpdatesStatus::RecoveryBackingSuccessed) {
                 m_frameProxy->setModuleSubscriptVisible(name(), true);
             }
         }
@@ -94,31 +88,21 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
 
     //通过gsetting获取版本类型，设置某模块是否显示
     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
-        m_versionTypeModue = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
-        versionTypeList = m_versionTypeModue->get(GSETTINGS_HIDE_VERSIONTYPR_MODULE).toStringList();
+        m_versionTypeModue  = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
+        versionTypeList =  m_versionTypeModue->get(GSETTINGS_HIDE_VERSIONTYPR_MODULE).toStringList();
     }
-    if (versionTypeList.contains("update")) {
-        m_frameProxy->setModuleVisible(this, false);
-    } else {
-        bool bShowUpdate = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", true);
-        m_frameProxy->setModuleVisible(this, bShowUpdate);
-    }
-
-#ifndef DISABLE_ACTIVATOR
-    connect(m_model, &UpdateModel::systemActivationChanged, this, [=](UiActiveState systemactivation) {
-        if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized) {
-            if (m_updateWidget)
-                m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
+        if (versionTypeList.contains("update")) {
+            m_frameProxy->setModuleVisible(this, false);
+        } else {
+            bool bShowUpdate = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", true);
+            m_frameProxy->setModuleVisible(this, bShowUpdate);
         }
-    });
-#endif
 
-    Q_EMIT m_work->requestInit();
-    Q_EMIT m_work->requestActive();
 }
 
 void UpdateModule::initialize()
 {
+
 }
 
 const QString UpdateModule::name() const
@@ -133,30 +117,37 @@ const QString UpdateModule::displayName() const
 
 void UpdateModule::active()
 {
-    connect(m_model, &UpdateModel::downloadInfoChanged, m_work.get(), &UpdateWorker::onNotifyDownloadInfoChanged);
-    connect(m_model, &UpdateModel::beginCheckUpdate, m_work.get(), &UpdateWorker::checkForUpdates);
-    connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work.get(), &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
-    connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work.get(), &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
+    connect(m_model, &UpdateModel::downloadInfoChanged, m_work, &UpdateWorker::onNotifyDownloadInfoChanged);
+    connect(m_model, &UpdateModel::beginCheckUpdate, m_work, &UpdateWorker::checkForUpdates);
+    connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work, &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
+    connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work, &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
 
-    m_updateWidget = new UpdateWidget;
-    m_updateWidget->setVisible(false);
-    m_updateWidget->initialize();
+    UpdateWidget *mainWidget = new UpdateWidget;
+    mainWidget->setVisible(false);
+    mainWidget->initialize();
 #ifndef DISABLE_ACTIVATOR
-    Q_EMIT m_work->requestRefreshLicenseState();
+    m_work->licenseStateChangeSlot();
+
+    if (m_model->systemActivation()) {
+        mainWidget->setSystemVersion(m_model->systemVersionInfo());
+    }
+#else
+    mainWidget->setSystemVersion(m_model->systemVersionInfo());
 #endif
 
-    m_updateWidget->setModel(m_model, m_work.get());
+    mainWidget->setModel(m_model, m_work);
+    m_updateWidget = mainWidget;
 
-    connect(m_updateWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
+    connect(mainWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
         m_mirrorsWidget = new MirrorsWidget(m_model);
         m_mirrorsWidget->setVisible(false);
-        int topWidgetWidth = m_updateWidget->parentWidget()->parentWidget()->width();
+        int topWidgetWidth = mainWidget->parentWidget()->parentWidget()->width();
         m_work->checkNetselect();
         m_mirrorsWidget->setMinimumWidth(topWidgetWidth / 2);
         m_mirrorsWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-        connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work.get(), &UpdateWorker::setMirrorSource);
-        connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work.get(), &UpdateWorker::testMirrorSpeed);
+        connect(m_mirrorsWidget, &MirrorsWidget::requestSetDefaultMirror, m_work, &UpdateWorker::setMirrorSource);
+        connect(m_mirrorsWidget, &MirrorsWidget::requestTestMirrorSpeed, m_work, &UpdateWorker::testMirrorSpeed);
         connect(m_mirrorsWidget, &MirrorsWidget::notifyDestroy, this, [this]() {
             //notifyDestroy信号是此对象被销毁，析构时发出的，资源销毁了要将其对象赋值为空
             m_mirrorsWidget = nullptr;
@@ -173,17 +164,9 @@ void UpdateModule::active()
         m_mirrorsWidget->setVisible(true);
     });
 
-#ifndef DISABLE_ACTIVATOR
-    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
-        m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
-    }
-#else
-    mainWidget->setSystemVersion(m_model->systemVersionInfo());
-#endif
-
-    m_frameProxy->pushWidget(this, m_updateWidget);
-    m_updateWidget->setVisible(true);
-    m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
+    m_frameProxy->pushWidget(this, mainWidget);
+    mainWidget->setVisible(true);
+    mainWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
 }
 
 void UpdateModule::deactive()
@@ -264,5 +247,8 @@ void UpdateModule::notifyDisplayReminder(UpdatesStatus status)
 
 void UpdateModule::onUpdatablePackagesChanged(const bool isUpdatablePackages)
 {
-    m_frameProxy->setModuleSubscriptVisible(name(), isUpdatablePackages && m_model->updateNotify());
+    if (isUpdatablePackages)
+        m_frameProxy->setModuleSubscriptVisible(name(), true);
+    else
+        m_frameProxy->setModuleSubscriptVisible(name(), false);
 }

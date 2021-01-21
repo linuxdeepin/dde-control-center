@@ -137,7 +137,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
 void SystemInfoWork::activate()
 {
-    qRegisterMetaType<ActiveState>("ActiveState");
     m_model->setDistroID(m_systemInfoInter->distroID());
     m_model->setDistroVer(m_systemInfoInter->distroVer());
     m_model->setDisk(m_systemInfoInter->diskCap());

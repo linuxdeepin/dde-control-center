@@ -26,8 +26,6 @@
 #include "systemnotifywidget.h"
 #include "appnotifywidget.h"
 
-#include <DListView>
-
 using namespace dcc;
 using namespace dcc::notification;
 using namespace DCC_NAMESPACE::notification;
@@ -94,15 +92,9 @@ void NotificationModule::active()
 
 int NotificationModule::load(const QString &path)
 {
+    Q_UNUSED(path);
     if (!m_widget) {
         active();
-    }
-
-    int index = availPage().indexOf(path);
-    if (index == 0) {
-        m_widget->getSysListview()->clicked(m_widget->getSysListview()->model()->index(0, 0));
-    } else if (index > 0) {
-        m_widget->getAppListview()->clicked(m_widget->getAppListview()->model()->index(index - 1, 0));
     }
     return 0;
 }
@@ -119,18 +111,19 @@ QStringList NotificationModule::availPage() const
 
 void NotificationModule::showSystemNotify()
 {
-    SystemNotifyWidget *widget = new SystemNotifyWidget(m_model->getSystemModel(), m_widget);
+    SystemNotifyWidget *widget = new SystemNotifyWidget(m_model, m_widget);
     widget->setVisible(false);
-    connect(widget, &SystemNotifyWidget::requestSetSysSetting, m_worker, &NotificationWorker::setSystemSetting);
+    connect(widget, &SystemNotifyWidget::requestSetSysSetting, m_worker, &NotificationWorker::setBusSysnotify);
     m_frameProxy->pushWidget(this, widget);
     widget->setVisible(true);
 }
 
 void NotificationModule::showAppNotify(int index)
 {
-    AppNotifyWidget *widget = new AppNotifyWidget(m_model->getAppModel(index), m_widget);
+    AppNotifyWidget *widget = new AppNotifyWidget(index, m_model, m_widget);
     widget->setVisible(false);
-    connect(widget, &AppNotifyWidget::requestSetAppSetting, m_worker, &NotificationWorker::setAppSetting);
+    connect(widget, &AppNotifyWidget::requestSetAppSetting, m_worker,
+            static_cast<void (NotificationWorker::*)(const QString &, const QJsonObject &)>(&NotificationWorker::setBusAppnotify));
     m_frameProxy->pushWidget(this, widget);
     widget->setVisible(true);
 }

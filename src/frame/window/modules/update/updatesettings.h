@@ -55,53 +55,38 @@ public:
     void setModel(dcc::update::UpdateModel *model);
 
 Q_SIGNALS:
-    void requestSetAutoCheckUpdates(const bool autocheckUpdate);
-    void requestSetUpdateMode(const quint64 updateMode);
-    void requestSetAutoCheckSystemUpdates(const bool &autoUpdate);
-    void requestSetAutoCheckAppUpdates(const bool &autoUpdate);
-    void requestSetAutoCheckSecureUpdates(const bool &autoUpdate);
-    void requestSetUpdateNotify(bool notify);
-    void requestSetAutoDownloadUpdates(const bool &autoUpdate);
+    void requestShowMirrorsView();
+    void requestSetAutoUpdate(const bool &autoUpdate);
     void requestSetAutoCleanCache(const bool autoClean);
+    void requestSetAutoCheckUpdates(const bool autocheckUpdate);
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void requestSetSourceCheck(const bool check);
 #endif
     void requestEnableSmartMirror(bool enable);
-    void requestShowMirrorsView();
-
-private Q_SLOTS:
-    void setUpdateMode();
-
-private:
-    void initUi();
-    void initConnection();
-
+    void requestSetUpdateNotify(bool notify);
 private:
     dcc::update::UpdateModel *m_model;
+#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
+    dcc::widgets::SwitchWidget *m_sourceCheck;
+#endif
+    dcc::widgets::SwitchWidget *m_autoCheckUpdate; //系统启动自动检测更新配置
+    dcc::widgets::SwitchWidget *m_autoCleanCache; //自动清除缓存包配置
+    dcc::widgets::SwitchWidget *m_updateNotify; //更新提醒配置
+    dcc::widgets::SwitchWidget *m_autoDownloadSwitch; //自动下载更新配置
+    dcc::widgets::SwitchWidget *m_smartMirrorBtn;
+    dcc::widgets::NextPageWidget *m_updateMirrors;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_updateLbl;
+    dcc::widgets::SettingsGroup *m_mirrorGrp;
 
-    dcc::widgets::SwitchWidget *m_autoCheckUpdate;       // 检查更新
-    dcc::widgets::SwitchWidget *m_autoCheckSecureUpdate; // 检查安全更新
-    dcc::widgets::SwitchWidget *m_autoCheckSystemUpdate; // 检查系统更新
-    dcc::widgets::SwitchWidget *m_autoCheckAppUpdate;    // 检查应用商店的应用更新
-    dcc::widgets::SwitchWidget *m_updateNotify;          // 更新提醒
-    dcc::widgets::SwitchWidget *m_autoDownloadUpdate;    // 下载更新
-    DTK_WIDGET_NAMESPACE::DTipLabel *m_autoDownloadUpdateTips;
-
-    dcc::widgets::SwitchWidget *m_timerDownload; // 定时下载更新
+    //定时下载更新
+    dcc::widgets::SwitchWidget *m_timerDownload;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_timerDownloadLbl;
     QLabel *m_setTimerLbl;
 
-    dcc::widgets::SwitchWidget *m_freeTimeDownload; // 闲时下载更新
+    //闲时下载更新
+    dcc::widgets::SwitchWidget *m_freeTimeDownload;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_freeTimeDownloadLbl;
     QLabel *m_setFreeTimeLbl;
-
-    dcc::widgets::SwitchWidget *m_autoCleanCache; // Clear Package Cache
-
-#ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    dcc::widgets::SwitchWidget *m_sourceCheck; // System Repository Detection
-#endif
-    dcc::widgets::SwitchWidget *m_smartMirrorBtn;
-    dcc::widgets::NextPageWidget *m_updateMirrors;
 };
 
 }// namespace datetime

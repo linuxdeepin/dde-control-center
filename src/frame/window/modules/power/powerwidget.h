@@ -68,7 +68,6 @@ private:
     bool m_bhasBattery;
     QList<ListSubItem> m_menuIconText;
     QModelIndex m_lastIndex;
-    int m_batteryIndex;
 };
 
 }// namespace datetime

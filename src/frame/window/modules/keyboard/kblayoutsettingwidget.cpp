@@ -194,7 +194,18 @@ void KBLayoutSettingWidget::onEditClicked()
         for (int i = 0; i < row_count; ++i) {
             DStandardItem *item = dynamic_cast<DStandardItem *>(m_kbLayoutModel->item(i, 0));
             if (item && (item->checkState() == Qt::Unchecked)) {
-                creatDelIconAction(item);
+                DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
+                iconAction->setIcon(DStyle::standardIcon(style(), DStyle::SP_DeleteButton));
+                item->setActionList(Qt::RightEdge, {iconAction});
+                connect(iconAction, &DViewItemAction::triggered, this, [this, item] {
+                    m_kbLangList.removeOne(item->data(KBLangIdRole).toString());
+                    int idx = m_kbLayoutModel->indexFromItem(item).row();
+                    Q_EMIT delUserLayout(item->text());
+                    m_kbLayoutModel->removeRow(idx);
+                    m_kbLayoutListView->adjustSize();
+                    m_kbLayoutListView->update();
+                    setUIVisible();
+                });
             }
         }
     } else {
@@ -224,28 +235,14 @@ void KBLayoutSettingWidget::onDefault(const QString &value)
         } else {
             item->setCheckState(Qt::Unchecked);
             if (m_bEdit) {
-                creatDelIconAction(item);
+                DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
+                iconAction->setIcon(DStyle::standardIcon(style(), DStyle::SP_DeleteButton));
+                item->setActionList(Qt::RightEdge, {iconAction});
             }
         }
     }
 }
 
-
-void KBLayoutSettingWidget::creatDelIconAction(DStandardItem *item)
-{
-    DViewItemAction *iconAction = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
-    iconAction->setIcon(DStyle::standardIcon(style(), DStyle::SP_DeleteButton));
-    item->setActionList(Qt::RightEdge, {iconAction});
-    connect(iconAction, &DViewItemAction::triggered, this, [this, item] {
-        m_kbLangList.removeOne(item->data(KBLangIdRole).toString());
-        int idx = m_kbLayoutModel->indexFromItem(item).row();
-        Q_EMIT delUserLayout(item->text());
-        m_kbLayoutModel->removeRow(idx);
-        m_kbLayoutListView->adjustSize();
-        m_kbLayoutListView->update();
-        setUIVisible();
-    });
-}
 
 void KBLayoutSettingWidget::onKBLayoutChanged(const QModelIndex &index)
 {

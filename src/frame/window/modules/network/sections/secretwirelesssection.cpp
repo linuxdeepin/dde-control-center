@@ -93,7 +93,7 @@ bool SecretWirelessSection::allInputValid()
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             valid = NetworkManager::wepKeyIsValid(m_passwdEdit->text(),
-                                                  NetworkManager::WirelessSecuritySetting::WepKeyType::Passphrase);
+                                                  NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
             m_passwdEdit->setIsErr(!valid);
             if (!valid && !m_passwdEdit->text().isEmpty()) {
                 m_passwdEdit->dTextEdit()->showAlertMessage(tr("Invalid password"), this);
@@ -124,7 +124,7 @@ void SecretWirelessSection::saveSettings()
     }
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
-        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Passphrase);
+        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_wsSetting->setWepKeyFlags(m_currentPasswordType);
         if (m_currentPasswordType != NetworkManager::Setting::NotSaved) {
             m_wsSetting->setWepKey0(m_passwdEdit->text());
@@ -190,6 +190,8 @@ void SecretWirelessSection::initUI()
     eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodTtls);
     eapMethodsWantedList.append(NetworkManager::Security8021xSetting::EapMethod::EapMethodPeap);
 
+    init(m_enableWatcher, eapMethodsWantedList);
+
     m_authAlgChooser->setTitle(tr("Authentication"));
     QString curAuthAlgOption = AuthAlgStrMap.at(0).first;
     for (auto it = AuthAlgStrMap.cbegin(); it != AuthAlgStrMap.cend(); ++it) {
@@ -200,11 +202,10 @@ void SecretWirelessSection::initUI()
     }
     m_authAlgChooser->setCurrentText(curAuthAlgOption);
 
-    appendItem(m_keyMgmtChooser);
-    appendItem(m_passwordFlagsChooser);
-    init(m_enableWatcher, eapMethodsWantedList);
-    appendItem(m_passwdEdit);
-    appendItem(m_authAlgChooser);
+    insertItem(1, m_keyMgmtChooser);
+    insertItem(2, m_passwordFlagsChooser);
+    insertItem(3, m_passwdEdit);
+    insertItem(4, m_authAlgChooser);
 
     m_passwdEdit->textEdit()->installEventFilter(this);
 }

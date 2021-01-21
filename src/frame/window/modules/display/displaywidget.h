@@ -67,7 +67,6 @@ public:
     inline bool isShowMultiscreen() const { return m_isShowMultiscreen; }
     int getMenuIndex(QString str, bool isSingle = true);
     void initMenuUI();
-    void initConnect();
 
 public Q_SLOTS:
     void onMonitorListChanged();
@@ -78,7 +77,6 @@ private Q_SLOTS:
 public:
     static int convertToSlider(const double value);
     static double convertToScale(const int value);
-    void setDefaultWidget();
 
 Q_SIGNALS:
     void requestShowMultiScreenPage() const;

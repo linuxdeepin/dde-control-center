@@ -32,19 +32,18 @@
 #include <com_deepin_daemon_accounts_user.h>
 #include <org_freedesktop_displaymanager.h>
 #include <org_freedesktop_displaymanager_session.h>
-#include <com_deepin_daemon_authenticate_fingerprint.h>
 
 #ifdef DCC_ENABLE_ADDOMAIN
 #include <org_freedesktop_notifications.h>
 #endif
 
+#include "user.h"
 #include "usermodel.h"
 #include "creationresult.h"
 
 using Accounts = com::deepin::daemon::Accounts;
 using AccountsUser = com::deepin::daemon::accounts::User;
 using CreationResult = dcc::accounts::CreationResult;
-using Fingerprint = com::deepin::daemon::authenticate::Fingerprint;
 
 using DisplayManager = org::freedesktop::DisplayManager;
 using Session = org::freedesktop::displaymanager::Session;
@@ -55,8 +54,6 @@ using Notifications = org::freedesktop::Notifications;
 
 namespace dcc {
 namespace accounts {
-
-class User;
 
 class AccountsWorker : public QObject
 {
@@ -72,7 +69,7 @@ Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;
     void accountCreationFinished(CreationResult *result) const;
     void accountFullNameChangeFinished() const;
-    void requestMainWindowEnabled(const bool isEnabled) const;
+    void requesetMainWindowEnabled(const bool isEnabled) const;
 
 public Q_SLOTS:
     void randomUserIcon(User *user);
@@ -87,7 +84,6 @@ public Q_SLOTS:
     void deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
     void setMaxPasswordAge(User *user, const int maxAge);
-    void loadUserList();
 
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();
@@ -114,7 +110,6 @@ private:
 
 private:
     Accounts *m_accountsInter;
-    Fingerprint *m_fingerPrint;
 #ifdef DCC_ENABLE_ADDOMAIN
     Notifications *m_notifyInter;
 #endif

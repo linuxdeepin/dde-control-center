@@ -33,7 +33,7 @@ User::User(QObject *parent)
     , m_autoLogin(false)
     , m_online(false)
     , m_nopasswdLogin(false)
-    , m_userType(UserType::StandardUser)
+    , m_userType(0)
     , m_createdTime(0)
 {
 }

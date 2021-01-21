@@ -36,11 +36,10 @@ class CreationResult : public QObject
     Q_OBJECT
 public:
     enum ResultType {
-        UserNameError,      // 用户名错误
-        PasswordError,      // 密码错误
-        PasswordMatchError, // 两次输入的密码不匹配
-        UnknownError,       // 未知错误
-        Canceled,           // 用户取消认证或关闭认证窗口
+        UserNameError,
+        PasswordError,
+        PasswordMatchError,
+        UnknownError,
         NoError
     };
 

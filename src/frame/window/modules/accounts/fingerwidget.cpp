@@ -145,8 +145,7 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             }
             for (int i = 0; i < thumbs.size(); ++i) {
                 if (newName == thumbs.at(i) && i != n) {
-                    QString errMsg = tr("The name already exists");
-                    item->showAlertMessage(errMsg);
+                    item->alertTitleRepeat();
                     return;
                 }
             }
@@ -156,7 +155,10 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 
         connect(item, &AccounntFingeItem::editClicked, this, [this, item, thumbs]() {
             for (int k = 0; k < thumbs.size(); ++k) {
-                static_cast<AccounntFingeItem *>(m_listGrp->getItem(k))->setEditTitle(item == m_listGrp->getItem(k));
+                if (item != m_listGrp->getItem(k))
+                    static_cast<AccounntFingeItem *>(m_listGrp->getItem(k))->setEditTitle(false);
+                else
+                    static_cast<AccounntFingeItem *>(m_listGrp->getItem(k))->setEditTitle(true);
             }
         });
 

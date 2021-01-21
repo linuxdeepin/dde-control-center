@@ -69,31 +69,24 @@ public:
 private:
     void setDevice(const dcc::bluetooth::Device *device);
     void initItemActionList();
-    void loadingStart();
-    void loadingStop();
 
 Q_SIGNALS:
     void requestConnectDevice(const dcc::bluetooth::Device *device, const dcc::bluetooth::Adapter *adapter) const;
     void requestShowDetail(const dcc::bluetooth::Device *device) const;
+    void requestSort();
 
 private Q_SLOTS:
     void onDeviceStateChanged(const dcc::bluetooth::Device::State &state, bool paired);
     void onDevicePairedChanged(const bool &paired);
 
-    /*!
-     * \brief onUpdateLoadingPos 更新加载动画
-     */
-    void onUpdateLoading();
-
 private:
-    const dcc::bluetooth::Device *m_device{nullptr};
+    const dcc::bluetooth::Device *m_device;
     QPointer<DTK_WIDGET_NAMESPACE::DSpinner> m_loadingIndicator;
-    BtStandardItem *m_deviceItem{nullptr};
+    BtStandardItem *m_deviceItem;
     DTK_WIDGET_NAMESPACE::DListView *m_parentDListView;
     DViewItemActionList m_dActionList;
     QPointer<DViewItemAction> m_loadingAction;
     QPointer<DViewItemAction> m_textAction;
-    QPointer<DViewItemAction> m_spaceAction;
     QPointer<DViewItemAction> m_iconAction;
     QStyle *m_style;
 };

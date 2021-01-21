@@ -61,7 +61,6 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_systemListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_systemListView->setViewportMargins(QMargins(0, 0, 8, 0));
 
-    //~ contents_path /notification/System Notifications
     DStandardItem *systemitem = new DStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("System Notifications"));
 
     systemitem->setData(VListViewItemMargin, Dtk::MarginsRole);
@@ -91,6 +90,8 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
+    m_theme = m_model->getTheme();
+
     //刷新数据
     refreshList();
 
@@ -100,6 +101,14 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     connect(m_softwareListView, &DListView::activated, m_softwareListView, &QListView::clicked);
 
     connect(m_model, &NotificationModel::appListChanged, this, &NotificationWidget::refreshList);
+    connect(m_model, &NotificationModel::themeChanged, this, [ = ](const QString & theme) {
+        m_theme = theme;
+    });
+}
+
+void NotificationWidget::setModel(NotificationModel *model)
+{
+    m_model = model;
 }
 
 void NotificationWidget::onAppClicked(const QModelIndex &index)

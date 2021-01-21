@@ -323,8 +323,6 @@ void IndexPage::onLastSyncTimeChanged(const qlonglong lastSyncTime)
         tr("Last Sync: %1")
         .arg(QDateTime::fromMSecsSinceEpoch(lastSyncTime * 1000)
              .toString(tr("yyyy-MM-dd hh:mm"))));
-
-    onStateChanged(m_state);
 }
 
 void IndexPage::onModuleStateChanged(std::pair<SyncType, bool> state)

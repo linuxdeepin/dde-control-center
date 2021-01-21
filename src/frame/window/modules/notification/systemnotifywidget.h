@@ -35,7 +35,7 @@ class SettingsGroup;
 }
 
 namespace notification {
-class SysItemModel;
+class NotificationModel;
 }
 }
 
@@ -58,21 +58,23 @@ class SystemNotifyWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SystemNotifyWidget(dcc::notification::SysItemModel *model, QWidget *parent = nullptr);
-    void setModel(dcc::notification::SysItemModel *model);
+    explicit SystemNotifyWidget(dcc::notification::NotificationModel *model, QWidget *parent = nullptr);
+    void setModel(dcc::notification::NotificationModel *model);
 
 Q_SIGNALS:
-    void requestSetSysSetting(uint item, QVariant var);
+    void requestSetSysSetting(const QJsonObject &obj);
 
 private:
     void initUI();
     void initConnect();
 
 private:
-    dcc::notification::SysItemModel *m_model;
+    dcc::notification::NotificationModel *m_model;
     Dtk::Widget::DSwitchButton *m_btnDisturbMode;//勿扰模式
     dcc::widgets::SwitchWidget *m_btnShowInDock;//是否显示在Dock
     TimeSlotItem *m_itemTimeSlot;//时间段
+    NotificationItem *m_itemFullScreen;
+    NotificationItem *m_itemProjector;
     NotificationItem *m_itemLockScreen;
     dcc::widgets::SettingsGroup *m_settingsGrp;//自选项
     Dtk::Widget::DLineEdit *m_editTimeStart;//时间段开始

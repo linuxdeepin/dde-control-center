@@ -23,7 +23,6 @@
 #include "interface/namespace.h"
 
 #include <QObject>
-#include <QDBusVariant>
 
 QT_BEGIN_NAMESPACE
 class QJsonObject;
@@ -36,17 +35,9 @@ class AppItemModel : public QObject
 {
     Q_OBJECT
 public:
-    typedef enum {
-        APPNAME,
-        APPICON,
-        ENABELNOTIFICATION,
-        ENABELPREVIEW,
-        ENABELSOUND,
-        SHOWINNOTIFICATIONCENTER,
-        LOCKSCREENSHOWNOTIFICATION
-    } AppConfigurationItem;
-
     explicit AppItemModel(QObject *parent = nullptr);
+    void setItem(const QString &name, const QJsonObject &item);
+    QJsonObject convertQJson();
 
     inline QString getAppName()const {return  m_softName;}
     void setSoftName(const QString &name);
@@ -71,9 +62,6 @@ public:
 
     inline QString getActName()const {return m_actName;}
     void setActName(const QString &name);
-
-public Q_SLOTS:
-    void onSettingChanged(const QString &id, const uint &item, QDBusVariant var);
 
 Q_SIGNALS:
     void softNameChanged(QString name);
