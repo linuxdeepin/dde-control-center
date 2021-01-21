@@ -25,6 +25,8 @@
 
 #include "powermodel.h"
 
+#include <DApplicationHelper>
+
 #include <QDebug>
 
 using namespace dcc;
@@ -64,6 +66,32 @@ PowerModel::PowerModel(QObject *parent)
     , m_powerPlan("")
     , m_isHighPerformanceSupported(false)
 {
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        m_num2Time = {
+            {1, {"10s", 10}},
+            {2, {"20s", 20}},
+            {3, {"30s", 30}},
+            {4, {"40s", 40}},
+            {5, {"50s", 50}},
+            {6, {"1m", 60}},
+            {7, {"5m", 300}},
+            {8, {"10m", 600}},
+            {9, {"15m", 900}},
+            {10, {"30m", 1800}},
+            {11, {"1h", 3600}},
+            {12, {"Never", 0}},
+        };
+    } else {
+        m_num2Time = {
+            {1, {"1m", 60}},
+            {2, {"5m", 300}},
+            {3, {"10m", 600}},
+            {4, {"15m", 900}},
+            {5, {"30m", 1800}},
+            {6, {"1h", 3600}},
+            {7, {"Never", 0}},
+        };
+    }
 }
 
 void PowerModel::setScreenBlackLock(const bool lock)
@@ -335,6 +363,23 @@ void PowerModel::setHighPerformanceSupported(bool isHighSupport)
 
         Q_EMIT highPerformaceChanged(isHighSupport);
     }
+}
+
+int PowerModel::sliderPosition(const int value)
+{
+    if (0 == value) {
+        return m_num2Time.size();
+    }
+
+    auto it = m_num2Time.constBegin();
+    while (it != m_num2Time.constEnd()) {
+        if (value <= it.value().second)
+            return it.key();
+        ++it;
+    }
+
+    // 时间为1小时的标记位
+    return DGuiApplicationHelper::isTabletEnvironment() ? 11 : 6;
 }
 
 void PowerModel::setSuspend(bool suspend)

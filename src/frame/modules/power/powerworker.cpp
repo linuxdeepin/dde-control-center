@@ -27,6 +27,8 @@
 #include "powermodel.h"
 #include "widgets/utils.h"
 
+#include <DApplicationHelper>
+
 #include <QProcessEnvironment>
 #include <QFutureWatcher>
 #include <QtConcurrent>
@@ -315,43 +317,10 @@ void PowerWorker::setAutoEnablePowerSave(const bool isEnable)
 
 int PowerWorker::converToDelayModel(int value)
 {
-    if (value == 0) {
-        return 7;
-    }
-
-    if (value <= 60) {
-        return 1;
-    } else if (value <= 300) {
-        return 2;
-    } else if (value <= 600) {
-        return 3;
-    } else if (value <= 900) {
-        return 4;
-    } else if (value <= 1800) {
-        return 5;
-    } else {
-        return 6;
-    }
+    return m_powerModel->sliderPosition(value);
 }
 
 int PowerWorker::converToDelayDBus(int value)
 {
-    switch (value) {
-    case 1:
-        return 60;
-    case 2:
-        return 300;
-    case 3:
-        return 600;
-    case 4:
-        return 900;
-    case 5:
-        return 1800;
-    case 6:
-        return 3600;
-    case 7:
-        return 0;
-    default:
-        return 900;
-    }
+    return m_powerModel->delayTime(value);
 }

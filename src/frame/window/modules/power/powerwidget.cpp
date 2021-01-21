@@ -53,19 +53,24 @@ void PowerWidget::initialize(bool hasBattery)
 {
     m_bhasBattery = hasBattery;
 
+    //平板项目需求，隐藏通用和使用电源选项
     if (!IsServerSystem) {
         m_menuIconText = {
+    #ifndef USE_TABLET
             //~ contents_path /power/General
             {"dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&PowerWidget::requestShowGeneral)},
             //~ contents_path /power/Plugged In
             {"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
+    #endif
             //~ contents_path /power/On Battery
             {"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
         };
     } else {
         m_menuIconText = {
+    #ifndef USE_TABLET
             //~ contents_path /power/Plugged In
             {"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
+    #endif
             //~ contents_path /power/On Battery
             {"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
         };

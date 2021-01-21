@@ -27,6 +27,7 @@
 #define POWERMODEL_H
 
 #include <QObject>
+#include <QMap>
 
 namespace dcc {
 namespace power {
@@ -137,6 +138,21 @@ public:
     inline bool isHighPerformanceSupported() const { return m_isHighPerformanceSupported; }
     void setHighPerformanceSupported(bool isHighSupport);
 
+    inline const QMap<int, QPair<QString, int>> &num2Time() { return m_num2Time; }
+
+    /**
+     * @brief markPosition 获取滑动条位置
+     * @param value 时间
+     * @return 刻度
+     */
+    int sliderPosition(const int value);
+    /**
+     * @brief delayTime 获取滑动条对应位置的时间信息
+     * @param value  刻度
+     * @return 时间
+     */
+    inline int delayTime(const int value) { m_num2Time.contains(value) ? m_num2Time[value].second : 900; }
+
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
     void canSleepChanged(const bool canSleep);
@@ -211,6 +227,7 @@ private:
 
     QString m_powerPlan;
     bool m_isHighPerformanceSupported;
+    QMap<int, QPair<QString, int>> m_num2Time;  // 息屏时间, key为滑动条刻度, value为相应描述信息
 };
 
 }

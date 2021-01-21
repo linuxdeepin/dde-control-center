@@ -61,18 +61,18 @@ private:
 private:
     QVBoxLayout *m_layout;
     dcc::widgets::TitledSliderItem *m_monitorSleepOnBattery;
+#ifndef USE_TABLET
     dcc::widgets::TitledSliderItem *m_computerSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_autoLockScreen;
-
     dcc::widgets::ComboxWidget *m_cmbPowerBtn; // 电源按钮
     dcc::widgets::ComboxWidget *m_cmbCloseLid; // 合盖
-
-    DTK_WIDGET_NAMESPACE::DListView *m_lowPowerListView = nullptr;
-    QStandardItemModel *m_lowPowerModel = nullptr;
+#endif
+    dcc::power::PowerModel* m_model;
     dcc::widgets::SwitchWidget *m_swBatteryHint;
+#ifndef USE_TABLET
     dcc::widgets::TitledSliderItem *m_sldLowBatteryHint;
-
     dcc::widgets::TitledSliderItem *m_sldAutoSuspend;
+#endif
 
 Q_SIGNALS:
     void requestSetScreenBlackDelayOnBattery(const int delay) const;
@@ -86,13 +86,14 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void setScreenBlackDelayOnBattery(const int delay);
+#ifndef USE_TABLET
     void setSleepDelayOnBattery(const int delay);
     void setAutoLockScreenOnBattery(const int delay);
     void onLowPowerNotifyThreshold(const int value);
     void onLowPowerAutoSleepThreshold(const int value);
     void setCloseLid(const dcc::power::PowerModel *model, int lidIndex);
     void setPowerBtn(const dcc::power::PowerModel *model, int powIndex);
-
+#endif
 };
 
 }// namespace datetime

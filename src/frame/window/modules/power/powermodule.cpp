@@ -30,6 +30,7 @@
 #include "usebatterywidget.h"
 
 #include <DNotifySender>
+#include <DApplicationHelper>
 
 using namespace dcc;
 using namespace dcc::power;
@@ -97,8 +98,8 @@ void PowerModule::active()
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::removeBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
     connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
-    connect(m_widget, &PowerWidget::requestShowUseBattery, this, &PowerModule::showUseBattery);
     connect(m_widget, &PowerWidget::requestShowUseElectric, this, &PowerModule::showUseElectric);
+    connect(m_widget, &PowerWidget::requestShowUseBattery, this, &PowerModule::showUseBattery);
 
     m_frameProxy->pushWidget(this, m_widget);
     m_widget->setVisible(true);
@@ -119,40 +120,53 @@ int PowerModule::load(const QString &path)
         return 0;
     }
 
-    if (IsServerSystem) {
-        if (path == "Plugged In") {
-            serverType = SERVER_USE_ELECTRIC;
-        } else if (path == "On Battery") {
-            serverType = SERVER_USE_BATTERY;
-        }
-
-        if (serverType > SERVER_DEFAULT && serverType < SERVER_COUNT) {
-            QModelIndex index = list->model()->index(serverType, 0);
-            list->setCurrentIndex(index);
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        // 平板模式只有"使用电池"一个二级菜单
+        if (path == "On Battery" && list->model()->rowCount() == 1) {
+            QModelIndex index = list->model()->index(0, 0);
             list->clicked(index);
         }
     } else {
-        if (path == "General") {
-            type = GENERAL;
-        } else if (path == "Plugged In") {
-            type = USE_ELECTRIC;
-        } else if (path == "On Battery") {
-            type = USE_BATTERY;
-        }
+        if (IsServerSystem) {
+            if (path == "Plugged In") {
+                serverType = SERVER_USE_ELECTRIC;
+            } else if (path == "On Battery") {
+                serverType = SERVER_USE_BATTERY;
+            }
 
-        if (type > DEFAULT && type < COUNT) {
-            QModelIndex index = list->model()->index(type, 0);
-            list->setCurrentIndex(index);
-            list->clicked(index);
+            if (serverType > SERVER_DEFAULT && serverType < SERVER_COUNT) {
+                QModelIndex index = list->model()->index(serverType, 0);
+                list->setCurrentIndex(index);
+                list->clicked(index);
+            }
+        } else {
+            if (path == "General") {
+                type = GENERAL;
+            } else if (path == "Plugged In") {
+                type = USE_ELECTRIC;
+            } else if (path == "On Battery") {
+                type = USE_BATTERY;
+            }
+
+            if (type > DEFAULT && type < COUNT) {
+                QModelIndex index = list->model()->index(type, 0);
+                list->setCurrentIndex(index);
+                list->clicked(index);
+            }
         }
     }
+
     return 0;
 }
 
 QStringList PowerModule::availPage() const
 {
     QStringList list;
-    list << "General" << "Plugged In" << "On Battery";
+
+    if (DGuiApplicationHelper::isTabletEnvironment())
+        list << "On Battery";
+    else
+        list << "General" << "Plugged In" << "On Battery";
 
     return list;
 }
@@ -221,15 +235,19 @@ void PowerModule::showUseBattery()
     battery->setVisible(true);
 
     connect(battery, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);
-    connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
-    connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
 
-    //-----------------sp2 add-------------------
-    connect(battery, &UseBatteryWidget::requestSetBatteryPressPowerBtnAction, m_work, &PowerWorker::setBatteryPressPowerBtnAction);
-    connect(battery, &UseBatteryWidget::requestSetBatteryLidClosedAction, m_work, &PowerWorker::setBatteryLidClosedAction);
+    if (!DGuiApplicationHelper::isTabletEnvironment()){
+        connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
+        connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
+
+        //-----------------sp2 add-------------------
+        connect(battery, &UseBatteryWidget::requestSetBatteryPressPowerBtnAction, m_work, &PowerWorker::setBatteryPressPowerBtnAction);
+        connect(battery, &UseBatteryWidget::requestSetBatteryLidClosedAction, m_work, &PowerWorker::setBatteryLidClosedAction);
+        connect(battery, &UseBatteryWidget::requestSetLowPowerNotifyThreshold, m_work, &PowerWorker::setLowPowerNotifyThreshold);
+        connect(battery, &UseBatteryWidget::requestSetLowPowerAutoSleepThreshold, m_work, &PowerWorker::setLowPowerAutoSleepThreshold);
+    }
+
     connect(battery, &UseBatteryWidget::requestSetLowPowerNotifyEnable, m_work, &PowerWorker::setLowPowerNotifyEnable);
-    connect(battery, &UseBatteryWidget::requestSetLowPowerNotifyThreshold, m_work, &PowerWorker::setLowPowerNotifyThreshold);
-    connect(battery, &UseBatteryWidget::requestSetLowPowerAutoSleepThreshold, m_work, &PowerWorker::setLowPowerAutoSleepThreshold);
     //-------------------------------------------
 }
 

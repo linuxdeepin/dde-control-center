@@ -345,8 +345,8 @@ void MainWindow::initAllModule(const QString &m)
         { new SoundModule(this), tr("Sound")},
         { new BluetoothModule(this), tr("Bluetooth")},
         { new DatetimeModule(this), tr("Date and Time")},
-        { new PowerModule(this), tr("Power")},
-// 平板一期,隐藏鼠标模块
+        { new PowerModule(this), DGuiApplicationHelper::isTabletEnvironment() ? tr("Power") : tr("Battery")},
+ // 平板一期,隐藏鼠标模块
 #ifndef USE_TABLET
         { new MouseModule(this), tr("Mouse")},
 #endif
