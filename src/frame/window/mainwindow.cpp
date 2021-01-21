@@ -353,9 +353,12 @@ void MainWindow::initAllModule(const QString &m)
         { new WacomModule(this), tr("Drawing Tablet")},
         { new KeyboardModule(this), tr("Keyboard and Language")},
         { new UpdateModule(this), tr("Updates")},
-        { new SystemInfoModule(this), tr("System Info")},
-        { new CommonInfoModule(this), tr("General Settings")},
+        { new SystemInfoModule(this), tr("System Info")}
     };
+
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        m_modules += { new CommonInfoModule(this), tr("General Settings")};
+    }
 
     //读取加载一级菜单的插件
     if (InsertPlugin::instance(this, this)->needPushPlugin("mainwindow"))
