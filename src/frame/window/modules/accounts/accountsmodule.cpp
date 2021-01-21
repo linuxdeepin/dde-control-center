@@ -32,6 +32,7 @@
 #include "addfingedialog.h"
 
 #include <DDialog>
+#include <DApplicationHelper>
 
 #include <QStringList>
 #include <QTimer>
@@ -108,7 +109,8 @@ void AccountsModule::active()
     });
     connect(m_accountsWidget, &AccountsWidget::requestLoadUserList, m_accountsWorker, &AccountsWorker::loadUserList);
     m_frameProxy->pushWidget(this, m_accountsWidget);
-    m_accountsWidget->setVisible(false);
+    // 平板项目，需要隐藏用户信息
+    m_accountsWidget->setVisible(!DGuiApplicationHelper::isTabletEnvironment());
     m_accountsWidget->showDefaultAccountInfo();
 }
 

@@ -92,6 +92,9 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
+    // 平板模式下不需要初始化用户信息
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        initUserInfo(contentLayout);
     initSetting(contentLayout);
 
     if (m_isServerSystem) {
@@ -123,6 +126,207 @@ bool AccountsDetailWidget::getOtherUserAutoLogin()
     return true;
 }
 
+//删除账户
+void AccountsDetailWidget::deleteUserClicked()
+{
+    RemoveUserDialog d(m_curUser);
+    int ret = d.exec();
+
+    if (ret == 1) {
+        Q_EMIT requestDeleteAccount(m_curUser, d.deleteHome());
+    }
+}
+
+void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
+{
+    layout->addSpacing(35);
+    AvatarWidget *avatar = new AvatarWidget;
+    layout->addWidget(avatar, 0, Qt::AlignTop | Qt::AlignHCenter);
+
+    avatar->setAvatarPath(m_curUser->currentAvatar());
+    avatar->setFixedSize(80, 80);
+    avatar->setArrowed(false);
+
+    QLabel *shortName = new QLabel;
+    shortName->setEnabled(false);
+    shortName->setText(m_curUser->name());
+    QLabel *shortnameBtn = new QLabel(this);
+    shortnameBtn->setPixmap(QIcon::fromTheme("dcc_avatar").pixmap(12, 12));
+
+    QHBoxLayout *shortnameLayout = new QHBoxLayout;
+    shortnameLayout->setMargin(0);
+    shortnameLayout->setAlignment(Qt::AlignHCenter);
+    shortnameLayout->addWidget(shortnameBtn);
+    shortnameLayout->addSpacing(3);
+    shortnameLayout->addWidget(shortName);
+    layout->addSpacing(5);
+    layout->addLayout(shortnameLayout);
+
+    m_fullName = new QLabel;
+    m_fullName->setContentsMargins(0, 6, 0, 6);
+
+    auto fullname = m_curUser->fullname();
+    m_fullName->setEnabled(true);
+    if (fullname.simplified().isEmpty()) {
+        fullname = tr("Full Name");
+        m_fullName->setEnabled(false);
+    } else if (fullname.toLocal8Bit().size() > 32) {
+        for (auto i = 1; i <= fullname.size(); ++i) {
+            if (fullname.left(i).toLocal8Bit().size() > 29) {
+                fullname = fullname.left(i - 1) + QString("...");
+                break;
+            }
+        }
+    }
+    m_fullName->setText(fullname.toHtmlEscaped());
+
+    m_fullNameBtn = new DIconButton(this);
+    m_fullNameBtn->setAccessibleName("fullName_btn");
+    m_fullNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+    m_fullNameBtn->setIconSize(QSize(12, 12));
+    m_fullNameBtn->setFlat(true);//设置背景透明
+
+    m_inputLineEdit = new DLineEdit();
+    m_inputLineEdit->setAccessibleName("fullName_edit");
+    m_inputLineEdit->setMinimumWidth(220);
+    m_inputLineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    m_inputLineEdit->setVisible(false);
+    m_inputLineEdit->lineEdit()->setFrame(false);
+    m_inputLineEdit->lineEdit()->setAlignment(Qt::AlignCenter);
+    m_inputLineEdit->lineEdit()->installEventFilter(this);
+
+    DFontSizeManager::instance()->bind(m_fullName, DFontSizeManager::T5);
+    DFontSizeManager::instance()->bind(m_inputLineEdit, DFontSizeManager::T5);
+
+    QHBoxLayout *fullnameLayout = new QHBoxLayout;
+    fullnameLayout->setSpacing(5);
+    fullnameLayout->setAlignment(Qt::AlignHCenter);
+    fullnameLayout->addWidget(m_fullName);
+    fullnameLayout->addWidget(m_fullNameBtn);
+    fullnameLayout->addWidget(m_inputLineEdit);
+    fullnameLayout->setContentsMargins(10, 0, 10, 0);
+    layout->addLayout(fullnameLayout);
+
+    // 非平板模式下才需要用户头像信息
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        m_avatarListWidget = new AvatarListWidget(m_curUser, this);
+        m_avatarListWidget->setAccessibleName("List_useravatarlist");
+        m_avatarListWidget->setVisible(false);
+        m_avatarListWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+        m_avatarListWidget->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+        m_avatarLayout->addWidget(m_avatarListWidget);
+    }
+    layout->addLayout(m_avatarLayout);
+
+    connect(m_inputLineEdit, &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
+        if (userFullName.size() > 32) {
+            m_inputLineEdit->lineEdit()->backspace();
+            m_inputLineEdit->setAlert(true);
+            m_inputLineEdit->showAlertMessage(tr("The full name is too long"), this);
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        } else if (m_inputLineEdit->isAlert()) {
+            m_inputLineEdit->setAlert(false);
+            m_inputLineEdit->hideAlertMessage();
+        }
+    });
+
+    connect(m_inputLineEdit, &DLineEdit::editingFinished, this, [ = ] {
+        QString userFullName = m_inputLineEdit->lineEdit()->text();
+        if (userFullName == m_curUser->fullname() || (!userFullName.isEmpty() && userFullName.simplified().isEmpty())) {
+            m_inputLineEdit->lineEdit()->clearFocus();
+            m_inputLineEdit->setVisible(false);
+            m_fullName->setVisible(true);
+            m_fullNameBtn->setVisible(true);
+            if (m_inputLineEdit->isAlert()) {
+                m_inputLineEdit->setAlert(false);
+                m_inputLineEdit->hideAlertMessage();
+            }
+            return;
+        }
+        if (!userFullName.isEmpty()) {
+            QList<QString> groupList = m_userModel->getAllGroups();
+            for (QString &group : groupList) {
+                if (userFullName == group && userFullName != m_curUser->name()) {
+                    m_inputLineEdit->setAlert(true);
+                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
+                    m_inputLineEdit->lineEdit()->selectAll();
+                    return;
+                }
+            }
+            QList<User *> userList = m_userModel->userList();
+            for (User *user : userList) {
+                if (userFullName == user->fullname()) {
+                    m_inputLineEdit->setAlert(true);
+                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
+                    m_inputLineEdit->lineEdit()->selectAll();
+                    return;
+                }
+            }
+        }
+        m_inputLineEdit->lineEdit()->clearFocus();
+        m_inputLineEdit->setVisible(false);
+        m_fullName->setVisible(true);
+        m_fullNameBtn->setVisible(true);
+        if (m_inputLineEdit->isAlert()) {
+            m_inputLineEdit->setAlert(false);
+            m_inputLineEdit->hideAlertMessage();
+        }
+
+        Q_EMIT requestSetFullname(m_curUser, m_inputLineEdit->text());
+    });
+
+    // 非平板模式下才有用户图像信息
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        //点击用户图像
+        connect(avatar, &AvatarWidget::clicked, this, [ = ](const QString & iconPath) {
+            Q_UNUSED(iconPath)
+            avatar->setArrowed(!avatar->arrowed());
+            m_avatarListWidget->setVisible(avatar->arrowed());
+        });
+
+        connect(m_avatarListWidget, &AvatarListWidget::requesRetract, this, [ = ] {
+            if (avatar->arrowed())
+            {
+                avatar->setArrowed(!avatar->arrowed());
+                m_avatarListWidget->setVisible(avatar->arrowed());
+            }
+        });
+
+        connect(m_curUser, &User::currentAvatarChanged, m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
+        connect(m_curUser, &User::currentAvatarChanged, avatar, &AvatarWidget::setAvatarPath);
+    }
+
+    //用户名发生变化
+    connect(m_curUser, &User::nameChanged, shortName, &QLabel::setText);
+    connect(m_curUser, &User::fullnameChanged, this, [ = ](const QString & fullname) {
+        auto tstr = fullname;
+        m_fullName->setEnabled(true);
+        if (fullname.simplified().isEmpty()) {
+            tstr = tr("Full Name");
+            m_fullName->setEnabled(false);
+        } else if (fullname.toLocal8Bit().size() > 32) {
+            for (auto i = 1; i <= fullname.size(); ++i) {
+                if (fullname.left(i).toLocal8Bit().size() > 29) {
+                    tstr = fullname.left(i - 1) + QString("...");
+                    break;
+                }
+            }
+        }
+        m_fullName->setText(tstr.toHtmlEscaped());
+    });
+
+    //点击用户全名编辑按钮
+    connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
+        m_fullName->setVisible(false);
+        m_fullNameBtn->setVisible(false);
+        m_inputLineEdit->setVisible(true);
+        m_inputLineEdit->setAlert(false);
+        m_inputLineEdit->setText(m_curUser->fullname());
+        m_inputLineEdit->hideAlertMessage();
+        m_inputLineEdit->lineEdit()->setFocus();
+    });
+}
+
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 {
     QPushButton *modifyPassword = new QPushButton;
@@ -130,22 +334,27 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         modifyPassword->setLayoutDirection(Qt::RightToLeft);
         modifyPassword->setIcon(QIcon(":/frame/themes/dark/icons/expand_normal.svg"));
     }
+    DWarningButton *deleteAccount = new DWarningButton;
 
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
     modifydelLayout->addWidget(modifyPassword);
     modifydelLayout->addSpacing(10);
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        modifydelLayout->addWidget(deleteAccount);
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
-    m_autoLogin = new SwitchWidget;
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        m_autoLogin = new SwitchWidget;
     m_nopasswdLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
     loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
     loginGrp->setContentsMargins(10, 10, 10, 10);
     loginGrp->layout()->setMargin(0);
-    loginGrp->appendItem(m_autoLogin);
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        loginGrp->appendItem(m_autoLogin);
     loginGrp->appendItem(m_nopasswdLogin);
     if (!IsServerSystem) {
         layout->addSpacing(20);
@@ -206,59 +415,83 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
     modifyPassword->setEnabled(isCurUser);
-    m_autoLogin->setEnabled(isCurUser);
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
     //~ contents_path /accounts/Accounts Detail
-    m_autoLogin->setTitle(tr("Auto Login"));
-    // 平板项目，需要默认不设置自动登录
-    m_autoLogin->setChecked(false);
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        deleteAccount->setText(tr("Delete Account"));
+        //~ contents_path /accounts/Accounts Detail
+        m_autoLogin->setTitle(tr("Auto Login"));
+        m_autoLogin->setChecked(m_curUser->autoLogin());
+    } else {
+        // 平板项目，需要默认不设置自动登录
+        Q_EMIT requestSetAutoLogin(m_curUser, false);
+    }
     //~ contents_path /accounts/Accounts Detail
     m_nopasswdLogin->setTitle(DGuiApplicationHelper::isTabletEnvironment() ? tr("Unlock without Password") : tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
+
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        //当前用户禁止使用删除按钮
+        deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
+        connect(m_curUser, &User::onlineChanged, deleteAccount, [ = ](const bool online) {
+            deleteAccount->setEnabled(!online && !m_curUser->isCurrentUser());
+        });
+    }
 
     //修改密码
     connect(modifyPassword, &QPushButton::clicked, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
     });
 
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        //删除用户
+        connect(deleteAccount, &DWarningButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
+
+    }
+
     //自动登录，无密码登录操作
-    connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_curUser, &User::nopasswdLoginChanged,
-            m_nopasswdLogin, &SwitchWidget::setChecked);
-    connect(m_autoLogin, &SwitchWidget::checkedChanged,
-            this, [ = ](const bool autoLogin) {
-        if (autoLogin) {
-            if (getOtherUserAutoLogin()) {
-                Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
-            } else {
-                m_tipDialog = new DDialog(this);
-                m_tipDialog->setModal(true);
-                m_tipDialog->setAttribute(Qt::WA_DeleteOnClose);
-                m_tipDialog->setMessage(tr("Only one account can have \"Auto Login\" enabled. If proceeding,"\
-                                           " that option of other accounts will be disabled."));
-                m_tipDialog->addButton(tr("Cancel"), false, DDialog::ButtonRecommend);
-                m_tipDialog->addButton(tr("Enable"), true, DDialog::ButtonRecommend);
-                m_tipDialog->show();
-                connect(m_tipDialog, &DDialog::buttonClicked, this, [ = ](int index, const QString &text) {
-                    Q_UNUSED(text);
-                    if (!index) {
-                        m_tipDialog->close();
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        // 非平板模式下才需要连接自动登录的信号
+        connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
+        connect(m_autoLogin, &SwitchWidget::checkedChanged,
+                this, [ = ](const bool autoLogin) {
+            if (autoLogin) {
+                if (getOtherUserAutoLogin()) {
+                    Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+                } else {
+                    m_tipDialog = new DDialog(this);
+                    m_tipDialog->setModal(true);
+                    m_tipDialog->setAttribute(Qt::WA_DeleteOnClose);
+                    m_tipDialog->setMessage(tr("Only one account can have \"Auto Login\" enabled. If proceeding,"\
+                                               " that option of other accounts will be disabled."));
+                    m_tipDialog->addButton(tr("Cancel"), false, DDialog::ButtonRecommend);
+                    m_tipDialog->addButton(tr("Enable"), true, DDialog::ButtonRecommend);
+                    m_tipDialog->show();
+                    connect(m_tipDialog, &DDialog::buttonClicked, this, [ = ](int index, const QString &text) {
+                        Q_UNUSED(text);
+                        if (!index) {
+                            m_tipDialog->close();
+                            m_autoLogin->setChecked(false);
+                        } else {
+                            Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
+                        }
+                    });
+                    connect(m_tipDialog, &DDialog::closed, this, [ = ] {
                         m_autoLogin->setChecked(false);
-                    } else {
-                        Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
-                    }
-                });
-                connect(m_tipDialog, &DDialog::closed, this, [ = ] {
-                    m_autoLogin->setChecked(false);
-                });
+                    });
+                }
+            } else {
+                Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
             }
-        } else {
-            Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
-        }
-    });
+        });
+    }
+
+    connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
@@ -269,6 +502,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &AccountsDetailWidget::requestDeleteFingerItem);
     connect(m_fingerWidget, &FingerWidget::requestRenameFingerItem, this, &AccountsDetailWidget::requestRenameFingerItem);
     connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &AccountsDetailWidget::noticeEnrollCompleted);
+
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        //图像列表操作
+        connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
+            Q_EMIT requestSetAvatar(m_curUser, avatarPath);
+        });
+    }
 }
 
 void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
@@ -277,13 +517,17 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
+
     // 平板项目，需要隐藏自动登录
-    m_autoLogin->setVisible(false);
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+         m_autoLogin->setVisible(m_userModel->isAutoLoginVisable());
+
     m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable());
 
     // 非服务器系统，关联配置改变信号，控制自动登陆开关/无密码登陆开关显隐
     if (!IsServerSystem) {
-        connect(m_userModel, &UserModel::autoLoginVisableChanged, m_autoLogin, &SwitchWidget::setVisible);
+        if (!DGuiApplicationHelper::isTabletEnvironment())
+            connect(m_userModel, &UserModel::autoLoginVisableChanged, m_autoLogin, &SwitchWidget::setVisible);
         connect(m_userModel, &UserModel::noPassWordLoginVisableChanged, m_nopasswdLogin, &SwitchWidget::setVisible);
     }
 

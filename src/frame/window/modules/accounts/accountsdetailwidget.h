@@ -100,12 +100,14 @@ public Q_SLOTS:
     void setAllGroups(const QStringList &groups);
 
 protected:
+    void initUserInfo(QVBoxLayout *layout);
     void initSetting(QVBoxLayout *layout);
     void initGroups(QVBoxLayout *layout);
     bool eventFilter(QObject *obj, QEvent *event) override;
     void resizeEvent(QResizeEvent *event);
 
 private Q_SLOTS:
+    void deleteUserClicked();
     void changeUserGroup(const QStringList &groups);
     void userGroupClicked(const QModelIndex &index);
 

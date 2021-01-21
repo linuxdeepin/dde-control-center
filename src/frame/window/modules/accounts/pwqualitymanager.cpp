@@ -22,6 +22,8 @@
 #include "pwqualitymanager.h"
 #include "window/utils.h"
 
+#include <DApplicationHelper>
+
 #include <QDebug>
 
 using namespace DCC_NAMESPACE;
@@ -56,16 +58,29 @@ PwqualityManager::ERROR_TYPE PwqualityManager::verifyPassword(const QString &use
 
 QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type)
 {
-    QMap<int, QString> PasswordFlagsStrMap = {
-        {PW_ERR_PASSWORD_EMPTY, tr("Password cannot be empty")},
+    QMap<int, QString> PasswordFlagsStrMap;
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        PasswordFlagsStrMap = {
+            {PW_ERR_PASSWORD_EMPTY, tr("Password cannot be empty")},
+            {PW_ERR_LENGTH_SHORT, tr("Password must have at least %1 characters").arg(m_passwordMinLen)},
+            {PW_ERR_LENGTH_LONG, tr("Password must be no more than %1 characters").arg(m_passwordMaxLen)},
+            {PW_ERR_CHARACTER_INVALID, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)")},
+            {PW_ERR_PALINDROME, tr("Password must not contain more than 4 palindrome characters")},
+            {PW_ERR_WORD, tr("Do not use common words and combinations in reverse order as password")},
+            {PW_ERR_PW_REPEAT, tr("New password should differ from the current one")}
+        };
+    } else {
         // 平板项目需要验证6位数字密码
-        {PW_ERR_LENGTH_SHORT, tr("Password must have 6 characters")},
-        {PW_ERR_LENGTH_LONG, tr("Password must have 6 characters")},
-        {PW_ERR_CHARACTER_INVALID, tr("Password can only contain numbers")},
-        {PW_ERR_PALINDROME, tr("Password must not contain more than 4 palindrome characters")},
-        {PW_ERR_WORD, tr("Do not use common words and combinations in reverse order as password")},
-        {PW_ERR_PW_REPEAT, tr("New password should differ from the current one")}
-    };
+        PasswordFlagsStrMap = {
+            {PW_ERR_PASSWORD_EMPTY, tr("Password cannot be empty")},
+            {PW_ERR_LENGTH_SHORT, tr("Password must have 6 characters")},
+            {PW_ERR_LENGTH_LONG, tr("Password must have 6 characters")},
+            {PW_ERR_CHARACTER_INVALID, tr("Password can only contain numbers")},
+            {PW_ERR_PALINDROME, tr("Password must not contain more than 4 palindrome characters")},
+            {PW_ERR_WORD, tr("Do not use common words and combinations in reverse order as password")},
+            {PW_ERR_PW_REPEAT, tr("New password should differ from the current one")}
+        };
+    }
 
     return PasswordFlagsStrMap.value(type);
 }

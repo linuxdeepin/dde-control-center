@@ -182,14 +182,14 @@ bool ModifyPasswdPage::preCheckPassword()
     // 验证新密码输入框非空
     if (m_newPasswordEdit->lineEdit()->text().isEmpty()) {
         m_newPasswordEdit->setAlert(true);
-        m_newPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
+        m_newPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_newPasswordEdit, 2000);
         return false;
     }
 
     // 验证重复密码输入框非空
     if (m_repeatPasswordEdit->lineEdit()->text().isEmpty()) {
         m_repeatPasswordEdit->setAlert(true);
-        m_repeatPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
+        m_repeatPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_repeatPasswordEdit, 2000);
         return false;
     }
 
