@@ -344,7 +344,10 @@ void MainWindow::initAllModule(const QString &m)
         { new BluetoothModule(this), tr("Bluetooth")},
         { new DatetimeModule(this), tr("Date and Time")},
         { new PowerModule(this), tr("Power")},
-//        { new MouseModule(this), tr("Mouse")}, // 平板一期,隐藏鼠标模块
+// 平板一期,隐藏鼠标模块
+#ifndef USE_TABLET
+        { new MouseModule(this), tr("Mouse")},
+#endif
         { new WacomModule(this), tr("Drawing Tablet")},
         { new KeyboardModule(this), tr("Keyboard and Language")},
         { new UpdateModule(this), tr("Updates")},

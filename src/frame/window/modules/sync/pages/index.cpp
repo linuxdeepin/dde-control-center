@@ -211,8 +211,12 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
     if (!model->getActivation()) {
         Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
     }
-//    m_autoSyncSwitch->setEnabled(model->getActivation());
-    m_autoSyncSwitch->setVisible(false);  // 平板一期,不实现同步功能
+// 平板一期,不实现同步功能
+#ifndef USE_TABLET
+    m_autoSyncSwitch->setVisible(false);
+#else
+    m_autoSyncSwitch->setEnabled(model->getActivation());
+#endif
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
     m_lastSyncTimeLbl->setVisible(model->enableSync() && model->lastSyncTime());

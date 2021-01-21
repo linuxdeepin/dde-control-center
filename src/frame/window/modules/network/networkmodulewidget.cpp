@@ -68,7 +68,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 #if !defined(DISABLE_NETWORK_PROXY) || !defined(DISABLE_NETWORK_VPN) || !defined(DISABLE_NETWORK_PPPOE)
 // 平板一期,屏蔽DSL模块
-#if 0
+#ifndef USE_TABLET
 #ifndef DISABLE_NETWORK_PPPOE
     //~ contents_path /network/DSL
     DStandardItem *pppit = new DStandardItem(tr("DSL"));
@@ -85,7 +85,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     m_modelpages->appendRow(vpnit);
 #endif
 // 平板一期,屏蔽代理模块
-#if 0
+#ifndef USE_TABLET
 #ifndef DISABLE_NETWORK_PROXY
     //~ contents_path /network/System Proxy
     DStandardItem *prxyit = new DStandardItem(tr("System Proxy"));
@@ -102,7 +102,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 #endif
 // 平板一期,屏蔽网络详情模块
-#if 0
+#ifndef USE_TABLET
     //~ contents_path /network/Network Details
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData(QVariant::fromValue(NetworkInfoPage), SectionRole);
@@ -342,7 +342,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     // add wired device list
     int count = 0;
 // 平板一期,固定不显示有线网络
-#if 0
+#ifndef USE_TABLET
     for (auto const dev : devices) {
         if (dev->type() != NetworkDevice::Wired)
             continue;
