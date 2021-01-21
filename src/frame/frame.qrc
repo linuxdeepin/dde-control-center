@@ -519,5 +519,6 @@
         <file>themes/dark/icons/notifications_toggle_checked.svg</file>
         <file>themes/dark/icons/notifications_toggle_hover.svg</file>
         <file>themes/dark/icons/notifications_toggle_checkedhover.svg</file>
+        <file>themes/dark/icons/expand_normal.svg</file>
     </qresource>
 </RCC>

@@ -126,6 +126,10 @@ bool AccountsDetailWidget::getOtherUserAutoLogin()
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 {
     QPushButton *modifyPassword = new QPushButton;
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        modifyPassword->setLayoutDirection(Qt::RightToLeft);
+        modifyPassword->setIcon(QIcon(":/frame/themes/dark/icons/expand_normal.svg"));
+    }
 
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
@@ -212,7 +216,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     // 平板项目，需要默认不设置自动登录
     m_autoLogin->setChecked(false);
     //~ contents_path /accounts/Accounts Detail
-    m_nopasswdLogin->setTitle(tr("Login Without Password"));
+    m_nopasswdLogin->setTitle(DGuiApplicationHelper::isTabletEnvironment() ? tr("Unlock without Password") : tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
     //修改密码

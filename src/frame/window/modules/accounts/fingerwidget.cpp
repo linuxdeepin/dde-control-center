@@ -51,6 +51,9 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     QFont font;
     font.setPointSizeF(10);
     m_maxFingerTip->setFont(font);
+    font.setPointSizeF(14);
+    font.setBold(true);
+    fingetitleLabel->setFont(font);
 
     m_listGrp->setSpacing(1);
     m_listGrp->setContentsMargins(10, 0, 10, 0);
@@ -199,7 +202,7 @@ void FingerWidget::addFingerButton(const QString &newFingerName)
     m_listGrp->insertItem(m_listGrp->itemCount(), addfingerItem);
     addfingerItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
-    DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
+    DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T8);
     QFontMetrics fontMetrics(font());
     int nFontWidth = fontMetrics.width(strAddFinger);
     addBtn->setMinimumWidth(nFontWidth);
