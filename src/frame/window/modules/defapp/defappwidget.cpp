@@ -24,6 +24,8 @@
 #include "widgets/multiselectlistview.h"
 #include "window/insertplugin.h"
 
+#include <DApplicationHelper>
+
 #include <QStandardItemModel>
 #include <QVBoxLayout>
 #include <QTimer>
@@ -47,24 +49,16 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     m_defAppCatView->setViewportMargins(ScrollAreaMargins);
     m_defAppCatView->setIconSize(ListViweIconSize);
 
-    QStringList titles;
-    //~ contents_path /defapp/Webpage
-    titles << tr("Webpage");
-    //~ contents_path /defapp/Text
-    titles << tr("Text");
-    //~ contents_path /defapp/Music
-    titles << tr("Music");
-    //~ contents_path /defapp/Video
-    titles << tr("Video");
-    //~ contents_path /defapp/Picture
-    titles << tr("Picture");
-
-    QStringList icons;
-    icons << "dcc_browser"
-          << "dcc_text"
-          << "dcc_music"
-          << "dcc_video"
-          << "dcc_photo";
+    QStringList titles, icons;
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        //~ contents_path Webpage Mail Text Music Video Picture Terminal
+        titles << tr("Webpage") << tr("Mail") << tr("Text") << tr("Music") << tr("Video") << tr("Picture") << tr("Terminal");
+        //~ theme icnos
+        icons << "dcc_browser" << "dcc_mail" << "dcc_text" << "dcc_music" << "dcc_video" << "dcc_photo" << "dcc_terminal";
+    } else {
+        titles << tr("Webpage") << tr("Text") << tr("Music") << tr("Video") << tr("Picture");
+        icons << "dcc_browser" << "dcc_text" << "dcc_music" << "dcc_video" << "dcc_photo";
+    }
 
     //Initialize second page view and model
     QStandardItemModel *model = new QStandardItemModel(this);

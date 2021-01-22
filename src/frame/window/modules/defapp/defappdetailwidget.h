@@ -87,6 +87,7 @@ public Q_SLOTS:
     void onDefaultAppSet(const dcc::defapp::App &app);
     void setCategoryName(const QString &name);
     void onListViewClicked(const QModelIndex &index);
+    void onAddBtnClicked();
     void onDelBtnClicked();
     void onClearAll();
 
@@ -100,6 +101,7 @@ private:
     QVBoxLayout *m_centralLayout;
     DTK_WIDGET_NAMESPACE::DListView *m_defApps;
     QStandardItemModel *m_model;
+    DTK_WIDGET_NAMESPACE::DFloatingButton *m_addBtn;
     QString m_categoryName;
     int m_categoryValue;
     dcc::defapp::Category *m_category;

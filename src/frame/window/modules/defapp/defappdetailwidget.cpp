@@ -27,6 +27,7 @@
 #include <DFloatingButton>
 #include <DListView>
 #include <DStyle>
+#include <DApplicationHelper>
 
 #include <QLabel>
 #include <QVBoxLayout>
@@ -45,6 +46,7 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     , m_centralLayout(new QVBoxLayout)
     , m_defApps(new DListView(this))
     , m_model(new QStandardItemModel(this))
+    , m_addBtn(new DFloatingButton(DStyle::SP_IncreaseElement, this))
     , m_categoryValue(category)
     , m_category(nullptr)
     , m_systemAppCnt(0)
@@ -66,6 +68,14 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
 
     m_centralLayout->setMargin(0);
     m_centralLayout->addWidget(m_defApps, 1);
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        m_centralLayout->addWidget(m_addBtn, 0, Qt::AlignHCenter | Qt::AlignBottom);
+        connect(m_addBtn, &Dtk::Widget::DFloatingButton::clicked, this, &DefappDetailWidget::onAddBtnClicked);
+        //~ contents_path /defapp/Webpage
+        m_addBtn->setToolTip(tr("Add Application"));
+        m_addBtn->setAccessibleName(tr("Add Application"));
+    }
+
     setLayout(m_centralLayout);
 }
 
@@ -74,6 +84,9 @@ void DefappDetailWidget::setModel(dcc::defapp::DefAppModel *const model)
     switch(m_categoryValue) {
     case dcc::defapp::DefAppWorker::Browser:
         setCategory(model->getModBrowser());
+        break;
+    case dcc::defapp::DefAppWorker::Mail:
+        setCategory(model->getModMail());
         break;
     case dcc::defapp::DefAppWorker::Text:
         setCategory(model->getModText());
@@ -86,6 +99,9 @@ void DefappDetailWidget::setModel(dcc::defapp::DefAppModel *const model)
         break;
     case dcc::defapp::DefAppWorker::Picture:
         setCategory(model->getModPicture());
+        break;
+    case dcc::defapp::DefAppWorker::Terminal:
+        setCategory(model->getModTerminal());
         break;
     default:
         break;
@@ -192,7 +208,7 @@ void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
 
             DViewItemActionList btnActList;
             QPointer<DViewItemAction> delAction(new DViewItemAction(Qt::AlignVCenter | Qt::AlignRight, QSize(21, 21), QSize(19, 19), true));
-            delAction->setVisible(false);
+            delAction->setVisible(!DGuiApplicationHelper::isTabletEnvironment());
             delAction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_CloseButton, nullptr, this));
             connect(delAction, &QAction::triggered, this, &DefappDetailWidget::onDelBtnClicked);
             btnActList << delAction;
@@ -231,6 +247,34 @@ void DefappDetailWidget::onListViewClicked(const QModelIndex& index) {
     updateListView(app);
     //set default app
     Q_EMIT requestSetDefaultApp(m_categoryName, app);
+}
+
+void DefappDetailWidget::onAddBtnClicked() {
+    do {
+        if (!isEnabled())
+            break;
+
+        Q_EMIT requestFrameAutoHide(false);
+        QFileDialog dialog(this);
+        dialog.setWindowTitle(tr("Open Desktop file"));
+
+        QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+        if (!directory.isEmpty())
+            dialog.setDirectory(directory.first());
+
+        if (dialog.exec() != QDialog::Accepted)
+            break;
+
+        QString path = dialog.selectedFiles()[0];
+
+        if (path.isEmpty())
+            break;
+
+        QFileInfo info(path);
+        Q_EMIT requestCreateFile(m_categoryName, info);
+    } while(false);
+
+    Q_EMIT requestFrameAutoHide(true);
 }
 
 void  DefappDetailWidget::onDelBtnClicked() {

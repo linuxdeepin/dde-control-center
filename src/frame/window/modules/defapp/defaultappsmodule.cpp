@@ -25,6 +25,8 @@
 #include "modules/defapp/defappmodel.h"
 #include "modules/defapp/defappworker.h"
 
+#include <DApplicationHelper>
+
 #include <QObject>
 #include <QWidget>
 #include <QVBoxLayout>
@@ -33,6 +35,16 @@
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::defapp;
+
+const QMap<QString, dcc::defapp::DefAppWorker::DefaultAppsCategory> PageMaps = {
+    { QStringLiteral("Webpage"), dcc::defapp::DefAppWorker::Browser},
+    { QStringLiteral("Mail"), dcc::defapp::DefAppWorker::Mail},
+    { QStringLiteral("Text"), dcc::defapp::DefAppWorker::Text},
+    { QStringLiteral("Music"), dcc::defapp::DefAppWorker::Music},
+    { QStringLiteral("Video"), dcc::defapp::DefAppWorker::Video},
+    { QStringLiteral("Picture"), dcc::defapp::DefAppWorker::Picture},
+    { QStringLiteral("Terminal"), dcc::defapp::DefAppWorker::Terminal},
+};
 
 DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
@@ -93,15 +105,8 @@ void DefaultAppsModule::contentPopped(QWidget *const w)
 
 int DefaultAppsModule::load(const QString &path)
 {
-    QMap<QString, dcc::defapp::DefAppWorker::DefaultAppsCategory> maps = {
-        { QStringLiteral("Webpage"), dcc::defapp::DefAppWorker::Browser},
-        { QStringLiteral("Text"), dcc::defapp::DefAppWorker::Text},
-        { QStringLiteral("Music"), dcc::defapp::DefAppWorker::Music},
-        { QStringLiteral("Video"), dcc::defapp::DefAppWorker::Video},
-        { QStringLiteral("Picture"), dcc::defapp::DefAppWorker::Picture},
-    };
     QString loadPath = path.split("/").at(0);
-    dcc::defapp::DefAppWorker::DefaultAppsCategory currentCategory = maps.value(loadPath, dcc::defapp::DefAppWorker::Browser);
+    dcc::defapp::DefAppWorker::DefaultAppsCategory currentCategory = PageMaps.value(loadPath, dcc::defapp::DefAppWorker::Browser);
 
     showDetailWidget(currentCategory);
     Q_EMIT requestSetDefappCategory(currentCategory);
@@ -110,14 +115,18 @@ int DefaultAppsModule::load(const QString &path)
 
 QStringList DefaultAppsModule::availPage() const
 {
-    QStringList sl;
-    sl << "Webpage" << "Text" << "Music" << "Video" << "Picture";
+    QStringList pages;
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        pages << "Webpage" << "Mail" << "Text" << "Music" << "Video" << "Picture" << "Terminal";
+    else
+        pages << "Webpage" << "Text" << "Music" << "Video" << "Picture";
 
-    return sl;
+    return pages;
 }
 
 void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category) {
-    DefappDetailWidget* detailWidget = new DefappDetailWidget(category);
+    QString page = availPage()[category];
+    DefappDetailWidget* detailWidget = new DefappDetailWidget(PageMaps[page]);
     detailWidget->setVisible(false);
     detailWidget->setModel(m_defAppModel);
     connect(detailWidget, &DefappDetailWidget::requestSetDefaultApp, m_defAppWorker, &dcc::defapp::DefAppWorker::onSetDefaultApp); //设置默认程序
