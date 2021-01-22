@@ -20,9 +20,11 @@
  */
 #include "insertplugin.h"
 
+#include <DStandardItem>
+#include <DApplicationHelper>
+
 #include <QGSettings>
 
-#include <DStandardItem>
 
 const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
 
@@ -68,11 +70,11 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
             return;
         }
 
-#ifdef USE_TABLET
-        //平板项目需求，隐藏辅助功能
-        if (module->name() == "voice")
+        // 平板项目需求，隐藏辅助功能
+        if (DGuiApplicationHelper::isTabletEnvironment() && module->name() == "voice") {
             continue;
-#endif
+        }
+
         qDebug() << "load plugin Name;" << module->name() << module->displayName();
         module->setFrameProxy(frameProxy);
 
