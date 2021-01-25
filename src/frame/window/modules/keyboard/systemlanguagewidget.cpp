@@ -32,6 +32,7 @@
 
 #include <DFloatingButton>
 #include <DAnchors>
+#include <DApplicationHelper>
 
 #include <QStringList>
 #include <QVBoxLayout>
@@ -90,16 +91,21 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     vLayout->setAlignment(Qt::AlignTop);
 
     DFloatingButton *addSystemLanguage = new DFloatingButton(DStyle::SP_IncreaseElement, this);
-    QHBoxLayout *btnLayout = new QHBoxLayout;
-    btnLayout->setMargin(0);
-    btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
-    btnLayout->addWidget(addSystemLanguage);
-    vLayout->addLayout(btnLayout);
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        QHBoxLayout *btnLayout = new QHBoxLayout;
+        btnLayout->setMargin(0);
+        btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
+        btnLayout->addWidget(addSystemLanguage);
+        vLayout->addLayout(btnLayout);
+    }
+
     vLayout->setContentsMargins(10, 10, 10, 5);
     setLayout(vLayout);
 
     connect(m_langListview, &DListView::clicked, this, &SystemLanguageWidget::setCurLangChecked);
-    connect(addSystemLanguage, &DFloatingButton::clicked, this, &SystemLanguageWidget::onSystemLanguageAdded);
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(addSystemLanguage, &DFloatingButton::clicked, this, &SystemLanguageWidget::onSystemLanguageAdded);
+    }
     connect(m_editSystemLang, &QPushButton::clicked, this, &SystemLanguageWidget::onEditClicked);
 
     connect(m_model, &KeyboardModel::curLocalLangChanged, this, [this](const QStringList &curLocalLang) {

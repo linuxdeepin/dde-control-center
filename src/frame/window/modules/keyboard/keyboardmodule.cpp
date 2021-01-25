@@ -35,6 +35,8 @@
 #include "modules/keyboard/customedit.h"
 #include "modules/keyboard/shortcutcontent.h"
 
+#include <DApplicationHelper>
+
 using namespace dcc;
 using namespace dcc::keyboard;
 using namespace DCC_NAMESPACE;
@@ -125,7 +127,7 @@ const QString KeyboardModule::name() const
 
 const QString KeyboardModule::displayName() const
 {
-    return tr("Keyboard and Language");
+    return DGuiApplicationHelper::isTabletEnvironment() ? tr("Language") : tr("Keyboard and Language");
 }
 
 void KeyboardModule::contentPopped(QWidget *const w)

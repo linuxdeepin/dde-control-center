@@ -26,6 +26,9 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
 #include "widgets/multiselectlistview.h"
+
+#include <DApplicationHelper>
+
 #include <QVBoxLayout>
 #include <QList>
 
@@ -47,15 +50,24 @@ void KeyboardWidget::init()
 {
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
     QList<QPair<QString, QString>> menuIconText;
-    menuIconText = {
-        { "dcc_general_purpose", tr("General")},
-        //~ contents_path /keyboard/Keyboard Layout
-        { "dcc_keyboard", tr("Keyboard Layout")},
-        //~ contents_path /keyboard/System Language
-        { "dcc_language", tr("System Language")},
-        //~ contents_path /keyboard/Shortcuts
-        { "dcc_hot_key", tr("Shortcuts")}
-    };
+
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        menuIconText = {
+            { "dcc_general_purpose", tr("General")},
+            //~ contents_path /keyboard/Keyboard Layout
+            { "dcc_keyboard", tr("Keyboard Layout")},
+            //~ contents_path /keyboard/System Language
+            { "dcc_language", tr("System Language")},
+            //~ contents_path /keyboard/Shortcuts
+            { "dcc_hot_key", tr("Shortcuts")}
+        };
+    } else {
+        menuIconText = {
+            //~ contents_path /keyboard/System Language
+            { "dcc_language", tr("System Language")},
+        };
+    }
+
     DStandardItem *keyboardItem = nullptr;
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
         keyboardItem = new DStandardItem(QIcon::fromTheme(it->first), it->second);
@@ -63,10 +75,14 @@ void KeyboardWidget::init()
         m_listviewModel->appendRow(keyboardItem);
     }
 
-    m_itemList.append({menuIconText[0].first,menuIconText[0].second,QMetaMethod::fromSignal(&KeyboardWidget::showGeneralSetting)});
-    m_itemList.append({menuIconText[1].first,menuIconText[1].second,QMetaMethod::fromSignal(&KeyboardWidget::showKBLayoutSetting)});
-    m_itemList.append({menuIconText[2].first,menuIconText[2].second,QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting)});
-    m_itemList.append({menuIconText[3].first,menuIconText[3].second,QMetaMethod::fromSignal(&KeyboardWidget::showShortCutSetting)});
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        m_itemList.append({menuIconText[0].first, menuIconText[0].second, QMetaMethod::fromSignal(&KeyboardWidget::showGeneralSetting)});
+        m_itemList.append({menuIconText[1].first, menuIconText[1].second, QMetaMethod::fromSignal(&KeyboardWidget::showKBLayoutSetting)});
+        m_itemList.append({menuIconText[2].first, menuIconText[2].second, QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting)});
+        m_itemList.append({menuIconText[3].first, menuIconText[3].second, QMetaMethod::fromSignal(&KeyboardWidget::showShortCutSetting)});
+    } else {
+        m_itemList.append({menuIconText[0].first, menuIconText[0].second, QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting)});
+    }
 
     if(InsertPlugin::instance()->needPushPlugin("keyboard"))
         InsertPlugin::instance()->pushPlugin(m_listviewModel,m_itemList);
