@@ -299,6 +299,7 @@ void DatetimeModule::showTimeSetting()
     connect(m_setting, &DateSettings::requestBack, this, &DatetimeModule::onPopWidget);
     connect(m_setting, &DateSettings::requestNTPServer, [this](const QString server) {
         m_work->setNtpServer(server);
+        m_setting->requestBack();
     });
     connect(m_model, &DatetimeModel::systemTimeChanged, m_setting, &DateSettings::requestBack);
     connect(m_model, &dcc::datetime::DatetimeModel::NTPChanged, m_setting, &DateSettings::updateRealAutoSyncCheckState);
