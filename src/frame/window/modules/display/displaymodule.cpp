@@ -142,6 +142,7 @@ void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType push
     connect(m_displayModel, &DisplayModel::touchscreenListChanged, this, [this]() {
         if (m_displayWidget) {
             m_displayWidget->initMenuUI();
+            m_displayWidget->onMonitorListChanged();
         }
     });
     QTimer::singleShot(0, m_displayWorker, [=] {
