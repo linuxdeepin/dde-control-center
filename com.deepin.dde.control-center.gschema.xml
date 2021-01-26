@@ -58,10 +58,6 @@
             <summary>Account password verification control</summary>
             <description>NormalPassWord is default IncludeBlankSymbol mean special characters add blank symbol</description>
         </key>
-        <key name="crash-signal-enable" type="b">
-            <default>true</default>
-            <summary>crash signal enable control</summary>
-        </key>
 		<key name="brightness-enable" type="b">
 			<default>true</default>
 			<summary>Display module show brightness settings or not</summary>
