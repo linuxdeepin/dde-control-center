@@ -25,6 +25,7 @@
 #include "window/utils.h"
 #include "modules/accounts/usermodel.h"
 #include "modules/accounts/removeuserdialog.h"
+#include "custombutton.h"
 
 #include <DIconButton>
 #include <DWarningButton>
@@ -329,24 +330,25 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
 
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 {
-    QPushButton *modifyPassword = new QPushButton;
-    if (DGuiApplicationHelper::isTabletEnvironment()) {
-        modifyPassword->setLayoutDirection(Qt::RightToLeft);
-        modifyPassword->setIcon(QIcon(":/frame/themes/dark/icons/expand_normal.svg"));
-    }
-    DWarningButton *deleteAccount = new DWarningButton;
+    QPushButton *modifyPassword = new QPushButton(this);
+    CustomButton *modifyPasswordDue = new CustomButton(this);
+    DWarningButton *deleteAccount = new DWarningButton(this);
 
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
-    modifydelLayout->addWidget(modifyPassword);
-    modifydelLayout->addSpacing(10);
-    if (!DGuiApplicationHelper::isTabletEnvironment())
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        modifydelLayout->addWidget(modifyPassword);
+        modifydelLayout->addSpacing(10);
         modifydelLayout->addWidget(deleteAccount);
+        m_autoLogin = new SwitchWidget;
+    } else {
+        modifyPasswordDue->setDueModel(true);
+        modifyPasswordDue->setBackOpacity(110);
+        modifyPasswordDue->setIcon(":/frame/themes/dark/icons/expand_normal.svg");
+        modifydelLayout->addWidget(modifyPasswordDue);
+    }
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
-
-    if (!DGuiApplicationHelper::isTabletEnvironment())
-        m_autoLogin = new SwitchWidget;
     m_nopasswdLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
@@ -414,20 +416,21 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
-    modifyPassword->setEnabled(isCurUser);
-    if (!DGuiApplicationHelper::isTabletEnvironment())
-        m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
-    //~ contents_path /accounts/Accounts Detail
-    modifyPassword->setText(tr("Change Password"));
-    //~ contents_path /accounts/Accounts Detail
     if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        modifyPassword->setEnabled(isCurUser);
+        m_autoLogin->setEnabled(isCurUser);
+        //~ contents_path /accounts/Accounts Detail
+        modifyPassword->setText(tr("Change Password"));
+        //~ contents_path /accounts/Accounts Detail
         deleteAccount->setText(tr("Delete Account"));
         //~ contents_path /accounts/Accounts Detail
         m_autoLogin->setTitle(tr("Auto Login"));
         m_autoLogin->setChecked(m_curUser->autoLogin());
     } else {
+        modifyPasswordDue->setEnabled(isCurUser);
+        modifyPasswordDue->setText(tr("Change Password"));
         // 平板项目，需要默认不设置自动登录
         Q_EMIT requestSetAutoLogin(m_curUser, false);
     }
@@ -441,21 +444,15 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         connect(m_curUser, &User::onlineChanged, deleteAccount, [ = ](const bool online) {
             deleteAccount->setEnabled(!online && !m_curUser->isCurrentUser());
         });
-    }
 
-    //修改密码
-    connect(modifyPassword, &QPushButton::clicked, [ = ] {
-        Q_EMIT requestShowPwdSettings(m_curUser);
-    });
+        //修改密码
+        connect(modifyPassword, &QPushButton::clicked, [ = ] {
+            Q_EMIT requestShowPwdSettings(m_curUser);
+        });
 
-    if (!DGuiApplicationHelper::isTabletEnvironment()) {
         //删除用户
         connect(deleteAccount, &DWarningButton::clicked, this, &AccountsDetailWidget::deleteUserClicked);
 
-    }
-
-    //自动登录，无密码登录操作
-    if (!DGuiApplicationHelper::isTabletEnvironment()) {
         // 非平板模式下才需要连接自动登录的信号
         connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
         connect(m_autoLogin, &SwitchWidget::checkedChanged,
@@ -488,6 +485,11 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             } else {
                 Q_EMIT requestSetAutoLogin(m_curUser, autoLogin);
             }
+        });
+    } else {
+        //修改密码
+        connect(modifyPasswordDue, &CustomButton::clicked, [ = ] {
+            Q_EMIT requestShowPwdSettings(m_curUser);
         });
     }
 
