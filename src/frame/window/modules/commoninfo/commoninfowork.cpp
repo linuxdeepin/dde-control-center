@@ -65,7 +65,9 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 
     licenseStateChangeSlot();
 
-    m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
+    if (!IsCommunitySystem) {
+        m_dBusUeProgram = new UeProgramDbus(UeProgramInterface, UeProgramObjPath, QDBusConnection::systemBus(), this);
+    }
 
     m_commomModel->setIsLogin(m_dBusdeepinIdInter->isLogin());
     m_commomModel->setDeveloperModeState(m_dBusdeepinIdInter->deviceUnlocked());

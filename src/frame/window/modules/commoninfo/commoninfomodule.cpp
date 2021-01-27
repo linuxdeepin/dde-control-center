@@ -132,10 +132,10 @@ int CommonInfoModule::load(const QString &path)
     }
 
     if (!IsServerSystem) {
-        if (path == "Developer Mode") {
+        if (!IsCommunitySystem && (path == "Developer Mode")) {
             // 为开发者模式的search预留
             indexRow = 1;
-        } else if (path == "User Experience Program") {
+        } else if (!IsCommunitySystem && (path == "User Experience Program")) {
             // 为用户体验计划的search预留
             indexRow = 2;
         } else if (path == "Tablet Mode") {
@@ -161,7 +161,7 @@ QStringList CommonInfoModule::availPage() const
     QStringList sl;
     sl << "Boot Menu";
 
-    if (!IsServerSystem) {
+    if (!IsServerSystem && !IsCommunitySystem) {
         sl << "User Experience Program" << "Developer mode";
     }
 
@@ -221,7 +221,9 @@ void CommonInfoModule::initUeProgramWidget()
     m_ueProgramWidget = new UserExperienceProgramWidget();
     m_ueProgramWidget->setVisible(false);
     m_ueProgramWidget->setModel(m_commonModel);
-    m_ueProgramWidget->setDefaultUeProgram(m_commonWork->defaultUeProgram());
+    if (!IsCommunitySystem) {
+        m_ueProgramWidget->setDefaultUeProgram(m_commonWork->defaultUeProgram());
+    }
     connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableUeProgram, this, [=](bool enabled) {
         MainWindow *pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
         m_commonWork->setUeProgram(enabled, pMainWindow);
