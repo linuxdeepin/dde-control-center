@@ -20,10 +20,3 @@ jobs:
         uses: justforlxz/deepin-git-action@v1
         with:
           repo: deepin-control-center
-      - name: send message
-        if: ${{ failure() }}
-        uses: yanzay/notify-telegram@v0.1.0
-        with:
-          chat: "@deepingitnews"
-          token: ${{ secrets.ACTION_TELEGRAM_NOTIFY_SECRET }}
-          status: ${{ job.status }}
