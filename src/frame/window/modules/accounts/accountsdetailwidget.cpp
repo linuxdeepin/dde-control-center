@@ -330,9 +330,9 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
 
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 {
-    QPushButton *modifyPassword = new QPushButton(this);
+    QPushButton *modifyPassword = new QPushButton;
     CustomButton *modifyPasswordDue = new CustomButton(this);
-    DWarningButton *deleteAccount = new DWarningButton(this);
+    DWarningButton *deleteAccount = new DWarningButton;
 
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
