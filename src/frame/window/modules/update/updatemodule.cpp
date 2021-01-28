@@ -61,7 +61,7 @@ UpdateModule::~UpdateModule()
 
 void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
-    if (!DCC_NAMESPACE::isDeepinOrUOS()) {
+    if (!DSysInfo::isDeepin()) {
         qInfo() << "module: " << displayName() << " is disable now!";
         m_frameProxy->setModuleVisible(this, false);
         return;
@@ -148,14 +148,14 @@ void UpdateModule::active()
     connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work.get(), &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
     connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work.get(), &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
 
-    UpdateWidget *mainWidget = new UpdateWidget;
-    mainWidget->setVisible(false);
-    mainWidget->initialize();
+    m_updateWidget= new UpdateWidget;
+    m_updateWidget->setVisible(false);
+    m_updateWidget->initialize();
 
     Q_EMIT m_work->requestRefreshLicenseState();
 
     if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
-        mainWidget->setSystemVersion(m_model->systemVersionInfo());
+        m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
     }
 
     m_updateWidget->setModel(m_model, m_work.get());

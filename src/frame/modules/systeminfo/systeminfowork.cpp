@@ -63,7 +63,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
 
-    if (DCC_NAMESPACE::isDeepinOrUOS()) {
+    if (DSysInfo::isDeepin()) {
         m_activeInfo = new QDBusInterface("com.deepin.license",
                                           "/com/deepin/license/Info",
                                           "com.deepin.license.Info",
@@ -104,7 +104,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
 
-    if (DCC_NAMESPACE::isDeepinOrUOS()) {
+    if (DSysInfo::isDeepin()) {
         connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
         licenseStateChangeSlot();
     }

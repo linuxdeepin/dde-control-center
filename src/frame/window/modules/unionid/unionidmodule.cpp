@@ -75,7 +75,7 @@ void UnionidModule::active()
 
 void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
-    if (!DCC_NAMESPACE::isDeepinOrUOS()) {
+    if (!DSysInfo::isDeepin()) {
         qInfo() << "module: " << displayName() << " is disable now!";
         m_frameProxy->setModuleVisible(this, false);
         return;
