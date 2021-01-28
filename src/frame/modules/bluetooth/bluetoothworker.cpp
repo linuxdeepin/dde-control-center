@@ -138,17 +138,7 @@ void BluetoothWorker::blockDBusSignals(bool block)
 
 void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powered)
 {
-    QTimer *timer = new QTimer;
-    timer->setSingleShot(true);
-    // 1秒后后端还不响应,前端就显示一个加载中的状态
-    timer->setInterval(1000);
-
-    connect(timer, &QTimer::timeout, this, [ & ] {
-        m_model->loadStatus();
-    });
-
-    timer->start();
-
+    m_model->loadStatus();
     QDBusObjectPath path(adapter->id());
     // 关闭蓝牙之前删除历史蓝牙设备列表，确保完全是删除后再设置开关
     if (!powered) {
@@ -159,16 +149,16 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                 QDBusPendingCall adapterPoweredOffCall  = m_bluetoothInter->SetAdapterPowered(path, false);
                 QDBusPendingCallWatcher *watchers = new QDBusPendingCallWatcher(adapterPoweredOffCall, this);
 
-                connect(watchers, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOffCall, adapter, timer] {
+                connect(watchers, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOffCall, adapter] {
                     if (!adapterPoweredOffCall.isError()) {
 //                        setAdapterDiscoverable(adapter->id());
 //                        m_model->adpaterPowerd(adapter->powered());
-                        adapter->poweredChanged(adapter->powered(), adapter->discovering());
+                        adapter->poweredChanged(adapter->powered(),false);
                     } else {
+                        adapter->poweredChanged(true, true);
                         qDebug() << adapterPoweredOffCall.error().message();
                     }
                     m_model->adpaterPowerd(adapter->powered());
-                    delete timer;
                 });
             } else {
                 qDebug() << call.error().message();
@@ -177,7 +167,7 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
     } else {
         QDBusPendingCall adapterPoweredOnCall  = m_bluetoothInter->SetAdapterPowered(path, true);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(adapterPoweredOnCall, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOnCall, adapter, timer] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, [this, adapterPoweredOnCall, adapter] {
             if (!adapterPoweredOnCall.isError()) {
                 adapter->poweredChanged(adapter->powered(), adapter->discovering());
             } else {
@@ -186,7 +176,6 @@ void BluetoothWorker::setAdapterPowered(const Adapter *adapter, const bool &powe
                 adapter->poweredChanged(false,false);
             }
             m_model->adpaterPowerd(adapter->powered());
-            delete timer;
         });
     }
 }

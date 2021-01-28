@@ -283,26 +283,22 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
     //bDiscovering说明设备正在搜索设备，蓝牙状态发生了改变
     //如果蓝牙在打开状态则如果bDiscoersing为true时候证明蓝牙打开手开始工作
     if (m_switchFlag == OnPower && bPower && bDiscovering) {
-        m_switch->setEnabled(true);
         m_switchFlag = Finished;
     }
 
     //修复:低概率会出现蓝牙打开失败的情况,返回状态不对应m_switchFlag值,造成前端不允许被点击的问题
     if (m_switchFlag == OnPower && !bPower && !bDiscovering) {
-        m_switch->setEnabled(true);
         m_switchFlag = Finished;
     }
 
     //如果蓝牙在关闭状态则如果bDiscoersing为false时候证明蓝牙已经关闭
     if (m_switchFlag == OffPower && !bPower && !bDiscovering) {
-        m_switch->setEnabled(true);
         m_switchFlag = Finished;
     }
 
     //第一次设置m_switch状态
     if (m_isFirstSetPower) {
         m_isFirstSetPower = false;
-        m_switch->setEnabled(true);
         m_switchFlag = Finished;
     }
 
@@ -320,9 +316,6 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 void AdapterWidget::toggleSwitch(const bool checked)
 {
     QApplication::focusWidget()->clearFocus();
-    Q_ASSERT(m_switchFlag == Finished);
-    //开始关闭或者开启时候switchbutton不可被点击
-    m_switch->setEnabled(false);
 
     //记录当前开关状态
     if (checked) {
