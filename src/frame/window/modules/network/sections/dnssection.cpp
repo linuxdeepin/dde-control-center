@@ -197,7 +197,7 @@ bool DNSSection::allInputValid()
                 valid = false;
                 m_itemsList.at(i)->setIsErr(true);
                 m_itemsList.at(i)->dTextEdit()->setAlert(true);
-                m_itemsList.at(i)->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_itemsList.at(i), 2000);
+                m_itemsList.at(i)->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), parentWidget(), 2000);
             }
         }
     }
