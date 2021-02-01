@@ -23,6 +23,7 @@
 #include "widgets/titlelabel.h"
 
 #include <DFontSizeManager>
+#include <DTipLabel>
 
 #include <QVBoxLayout>
 #include <QDesktopServices>
@@ -45,12 +46,12 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
     layout->addWidget(labelOutput, 0, Qt::AlignTop | Qt::AlignHCenter);
     layout->addSpacing(20);
 
-    auto label = new QLabel(this);
-    label->setTextFormat(Qt::RichText);
+    DTipLabel *label = new DTipLabel(tr("<p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.</p>"
+                                        "<p>You can <a href=\"https://www.uniontech.com/agreement/privacy-en\">click here</a> to view our latest privacy policy or view it online by visiting <a href=\"https://www.uniontech.com/agreement/privacy-en\"> https://www.uniontech.com/agreement/privacy-en</a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.</p>"));
+
     label->setWordWrap(true);
-    QString str = tr("<p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.</p>"
-                    "<p>You can <a href=\"https://www.uniontech.com/agreement/privacy-en\">click here</a> to view our latest privacy policy or view it online by visiting<a href=\"https://www.uniontech.com/agreement/privacy-en\">https://www.uniontech.com/agreement/privacy-en</a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at:support@uniontech.com.</p>");
-    label->setText(str);
+    label->setTextFormat(Qt::RichText);
+    label->setAlignment(Qt::AlignJustify);
     connect(label, &QLabel::linkActivated, this, [](const QString &link) {
         QDesktopServices::openUrl(QUrl(link));
     });
