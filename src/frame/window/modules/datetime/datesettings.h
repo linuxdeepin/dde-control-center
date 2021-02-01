@@ -107,6 +107,7 @@ private:
     QTimer *m_syncSettingTimer;
     qint64 m_timeSec;
     bool m_Is24HourType;
+    QString m_customNtpServer;
 };
 
 }// namespace datetime

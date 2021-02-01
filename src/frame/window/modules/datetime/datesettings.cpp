@@ -41,6 +41,7 @@
 #include <QDate>
 #include <QSettings>
 #include <QFontDatabase>
+#include <QGSettings>
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -66,8 +67,8 @@ DateSettings::DateSettings(QWidget *parent)
     , m_syncSettingTimer(new QTimer)
     , m_timeSec(0)
     , m_Is24HourType(false)
+    , m_customNtpServer(QGSettings("com.deepin.dde.control-center","/com/deepin/dde/control-center/").get("custom-ntpserver").toString())
 {
-
     m_ntpServerList = new datetimeCombox;
     m_ntpSrvItem = new SettingsItem;
     m_address = new SettingsItem;
@@ -215,6 +216,8 @@ void DateSettings::onConfirmButtonClicked()
             return;
         }
         this->setFocus();
+        m_customNtpServer = m_addressContent->text();
+        QGSettings("com.deepin.dde.control-center","/com/deepin/dde/control-center/").set("custom-ntpserver", m_customNtpServer);
         qDebug() << "ok clicked, requestNTPServer";
         Q_EMIT requestNTPServer(m_addressContent->text());
     } else {
@@ -245,6 +248,8 @@ void DateSettings::onProcessComboBox(const int &value)
 
     if (m_autoSyncTimeSwitch->checked()) {
         m_address->setVisible(itemText == tr("Customize"));
+        if (itemText == tr("Customize"))
+            m_addressContent->setText(m_customNtpServer);
         m_buttonTuple->setVisible(itemText == tr("Customize"));
     }
 
@@ -363,14 +368,14 @@ void DateSettings::updateSettingTime()
         m_monthWidget->setValue(datetime.date().month());
         m_dayWidget->setValue(datetime.date().day());
         if (m_Is24HourType) {
-           m_timeHourWidget->setValue(datetime.time().hour());
+            m_timeHourWidget->setValue(datetime.time().hour());
         } else {
             if (datetime.time().hour() == 0) {
                 nHours = 12;
             } else if (datetime.time().hour() > 12) {
                 nHours -= 12;
-        }
-           m_timeHourWidget->setValue(nHours);
+            }
+            m_timeHourWidget->setValue(nHours);
         }
         m_timeMinWidget->setValue(datetime.time().minute());
         m_timeSec = 0;
@@ -388,14 +393,14 @@ void DateSettings::updateTime()
     m_timeHourWidget->setMinimum(m_Is24HourType ? 0 : 1);
 
     if (m_Is24HourType) {
-       m_timeHourWidget->setValue(nHour);
+        m_timeHourWidget->setValue(nHour);
     } else {
         if (datetime.time().hour() == 0) {
-                nHour = 12;
-            } else if (datetime.time().hour() > 12) {
-                nHour -= 12;
+            nHour = 12;
+        } else if (datetime.time().hour() > 12) {
+            nHour -= 12;
         }
-       m_timeHourWidget->setValue(nHour);
+        m_timeHourWidget->setValue(nHour);
     }
     m_timeMinWidget->setValue(datetime.time().minute());
 }
