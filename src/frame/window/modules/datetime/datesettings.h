@@ -40,6 +40,10 @@ class SwitchWidget;
 }
 }
 
+DWIDGET_BEGIN_NAMESPACE
+class DLineEdit;
+DWIDGET_END_NAMESPACE
+
 namespace dcc {
 namespace datetime {
 class DatetimeModel;
@@ -101,7 +105,7 @@ private:
     datetimeCombox *m_ntpServerList;
     dcc::widgets::SettingsItem *m_ntpSrvItem;
     dcc::widgets::SettingsItem *m_address;
-    QLineEdit *m_addressContent;
+    DTK_WIDGET_NAMESPACE::DLineEdit *m_addressContent;
     QString m_ntpServerAddress;
     bool m_bIsUserOperate;
     QTimer *m_syncSettingTimer;

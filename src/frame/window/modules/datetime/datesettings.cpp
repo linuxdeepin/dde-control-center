@@ -36,6 +36,8 @@
 #include "datewidget.h"
 #include "timespinbox.h"
 
+#include <DLineEdit>
+
 #include <QVBoxLayout>
 #include <QDebug>
 #include <QDate>
@@ -72,7 +74,7 @@ DateSettings::DateSettings(QWidget *parent)
     m_ntpServerList = new datetimeCombox;
     m_ntpSrvItem = new SettingsItem;
     m_address = new SettingsItem;
-    m_addressContent = new QLineEdit;
+    m_addressContent = new DLineEdit;
 
     //~ contents_path /datetime/Time Settings
     m_autoSyncTimeSwitch->setTitle(tr("Auto Sync"));
@@ -193,6 +195,11 @@ DateSettings::DateSettings(QWidget *parent)
     connect(m_yearWidget, &DateWidget::notifyClickedState, this, &DateSettings::updateDayRange);
 
     connect(m_syncSettingTimer, &QTimer::timeout, this, &DateSettings::updateSettingTime);
+    connect(m_addressContent, &DLineEdit::textEdited, this, [ = ] {
+        if (m_addressContent->isAlert()) {
+            m_addressContent->setAlert(false);
+        }
+    });
 
     //第一次进入时间设置页面，需要刷新day的天数
     updateDayRange();
@@ -211,8 +218,9 @@ void DateSettings::onCancelButtonClicked()
 void DateSettings::onConfirmButtonClicked()
 {
     if (m_autoSyncTimeSwitch->checked() && m_ntpServerList->currentText() == tr("Customize")) {
-        if ("" == m_addressContent->text()) {
+        if (m_addressContent->text().isEmpty()) {
             qDebug() << "The customize address is nullptr.";
+            m_addressContent->setAlert(true);
             return;
         }
         this->setFocus();
