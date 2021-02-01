@@ -109,12 +109,16 @@ QList<QHostAddress> DNSSection::getIPvxDate()
     NetworkManager::Ipv4Setting::Ptr ipv4Setting = m_ipv4Setting.staticCast<NetworkManager::Ipv4Setting>();
     NetworkManager::Ipv6Setting::Ptr ipv6Setting = m_ipv6Setting.staticCast<NetworkManager::Ipv6Setting>();
 
-    const QList<QHostAddress> &dns4 = ipv4Setting->dns();
-    const QList<QHostAddress> &dns6 = ipv6Setting->dns();
-
     QList<QHostAddress> alldns ;
-    alldns.append(dns4);
-    alldns.append(dns6);
+
+    if (ipv4Setting) {
+        const QList<QHostAddress> &dns4 = ipv4Setting->dns();
+        alldns.append(dns4);
+    }
+    if (ipv6Setting) {
+        const QList<QHostAddress> &dns6 = ipv6Setting->dns();
+        alldns.append(dns6);
+    }
 
     return alldns;
 }
