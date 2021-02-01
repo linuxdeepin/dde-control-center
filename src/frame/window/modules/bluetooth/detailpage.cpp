@@ -50,16 +50,25 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     , m_device(device)
 {
     m_ignoreButton = new QPushButton(tr("Ignore this device"));
+    m_ignoreButton->setObjectName("ignoreButton");
+
     m_disconnectButton = new QPushButton(tr("Disconnect"));
+    m_disconnectButton->setObjectName("disconnectButton");
+
     m_connectButton = new QPushButton(tr("Connect"));
+    m_connectButton->setObjectName("connectButton");
+
     m_transfileButton = new QPushButton(tr("Send Files"));
+    m_transfileButton->setObjectName("transfileButton");
     m_transfileButton->setEnabled(m_bluetoothModel->canTransportable());
     GSettingWatcher::instance()->bind("bluetoothTransfile", m_transfileButton);  // 使用GSettings来控制显示状态
     setTitle(device->name());
+
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(0);
     layout->setMargin(0);
+
     DIconButton *backWidgetBtn = new DIconButton(this);
     backWidgetBtn->setAccessibleName("back_btn");
     backWidgetBtn->setFlat(true);
@@ -67,11 +76,14 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     backWidgetBtn->setIcon(QStyle::SP_ArrowBack);
     DStyle::setFocusRectVisible(backWidgetBtn, false);
     layout->addWidget(backWidgetBtn, Qt::AlignLeft);
+
     m_devNameLabel = new TitleLabel(device->name());
     layout->addWidget(m_devNameLabel, 0, Qt::AlignCenter);
     layout->setSpacing(10);
+
     m_editDevAlias = new QLineEdit;
     m_editDevAlias->setPlaceholderText(device->alias().isEmpty() ? device->name() : device->alias());
+
     layout->addWidget(m_editDevAlias);
     layout->addWidget(m_disconnectButton);
     layout->addWidget(m_connectButton);
@@ -79,18 +91,26 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     layout->addWidget(m_transfileButton);
     layout->addStretch();
     setContent(frame);
+
     onDeviceStatusChanged();
+
     connect(m_ignoreButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestIgnoreDevice(m_adapter, m_device);
-        QApplication::focusWidget()->clearFocus();
+        if (QApplication::focusWidget()) {
+            QApplication::focusWidget()->clearFocus();
+        }
     });
     connect(m_disconnectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestDisconnectDevice(m_device);
-        QApplication::focusWidget()->clearFocus();
+        if (QApplication::focusWidget()) {
+            QApplication::focusWidget()->clearFocus();
+        }
     });
     connect(m_connectButton, &QPushButton::clicked, this, [this] {
         Q_EMIT requestConnectDevice(m_device, m_adapter);
-        QApplication::focusWidget()->clearFocus();
+        if (QApplication::focusWidget()) {
+            QApplication::focusWidget()->clearFocus();
+        }
     });
     connect(m_transfileButton, &QPushButton::clicked, this, [this] {
         // 调用接口选择文件进行传输
@@ -116,7 +136,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
         // 蓝牙传输dbus接口: SendFile(destination string, filename string) 接口支持文件多选
         inter.call("showBluetoothTransDialog", m_device->address(), selectedFiles);
     });
-    connect(m_editDevAlias, &QLineEdit::textEdited, this, [ = ](const QString &str){
+    connect(m_editDevAlias, &QLineEdit::textChanged, this, [ = ](const QString &str){
         if (str.length() > 32) {
             m_editDevAlias->backspace();
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);

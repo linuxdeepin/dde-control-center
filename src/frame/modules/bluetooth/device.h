@@ -65,7 +65,7 @@ public:
     Q_ENUM(State)
 
 public:
-    explicit Device(QObject *parent = 0);
+    explicit Device(QObject *parent = nullptr);
 
     inline QString id() const { return m_id; }
     void setId(const QString &id);

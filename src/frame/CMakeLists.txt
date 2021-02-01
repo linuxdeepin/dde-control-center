@@ -362,6 +362,7 @@ set(MOUSE_FILES
                 modules/mouse/widget/doutestwidget.cpp
                 modules/mouse/widget/palmdetectsetting.cpp
                 modules/mouse/mousemodel.cpp
+                modules/mouse/mousedbusproxy.cpp
 
                 window/modules/mouse/mousemodule.cpp
                 window/modules/mouse/mousewidget.cpp

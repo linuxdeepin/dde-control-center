@@ -27,6 +27,7 @@
 #include "trackpointsettingwidget.h"
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/mouseworker.h"
+#include "modules/mouse/mousedbusproxy.h"
 #include "QDebug"
 
 using namespace DCC_NAMESPACE;
@@ -54,9 +55,11 @@ void MouseModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     }
     m_model  = new dcc::mouse::MouseModel(this);
     m_worker = new dcc::mouse::MouseWorker(m_model, this);
+    m_dbusProxy = new dcc::mouse::MouseDBusProxy(m_worker, this);
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
-    m_worker->active();
+    m_dbusProxy->moveToThread(qApp->thread());
+    m_dbusProxy->active();
 
     connect(m_model, &MouseModel::tpadExistChanged, this, [this](bool state) {
         qDebug() << "[Mouse] Touchpad , exist state : " << state;
@@ -75,7 +78,7 @@ void MouseModule::initialize()
 
 void MouseModule::reset()
 {
-    m_worker->onDefaultReset();
+    m_dbusProxy->onDefaultReset();
 }
 
 void MouseModule::active()
@@ -102,7 +105,7 @@ void MouseModule::showGeneralSetting()
 
     connect(m_generalSettingWidget, &GeneralSettingWidget::requestSetLeftHand, m_worker, &MouseWorker::onLeftHandStateChanged);
     connect(m_generalSettingWidget, &GeneralSettingWidget::requestSetDisTyping, m_worker, &MouseWorker::onDisTypingChanged);
-    connect(m_generalSettingWidget, &GeneralSettingWidget::requestScrollSpeed, m_worker, &MouseWorker::setScrollSpeed);
+    connect(m_generalSettingWidget, &GeneralSettingWidget::requestScrollSpeed, m_worker, &MouseWorker::onScrollSpeedChanged);
     connect(m_generalSettingWidget, &GeneralSettingWidget::requestSetDouClick, m_worker, &MouseWorker::onDouClickChanged);
 
     m_frameProxy->pushWidget(this, m_generalSettingWidget);
@@ -134,9 +137,9 @@ void MouseModule::showTouchpadSetting()
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTapClick, m_worker, &MouseWorker::onTapClick);
     connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestSetTouchNaturalScroll, m_worker, &MouseWorker::onTouchNaturalScrollStateChanged);
 
-    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestDetectState, m_worker, &MouseWorker::setPalmDetect);
-    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestContact, m_worker, &MouseWorker::setPalmMinWidth);
-    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestPressure, m_worker, &MouseWorker::setPalmMinz);
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestDetectState, m_worker, &MouseWorker::onPalmDetectChanged);
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestContact, m_worker, &MouseWorker::onPalmMinWidthChanged);
+    connect(m_touchpadSettingWidget, &TouchPadSettingWidget::requestPressure, m_worker, &MouseWorker::onPalmMinzChanged);
 
     m_frameProxy->pushWidget(this, m_touchpadSettingWidget);
     m_touchpadSettingWidget->setVisible(true);

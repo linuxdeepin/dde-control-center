@@ -43,15 +43,24 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     , m_generalSettingsGrp(nullptr)
 {
     m_generalSettingsGrp = new SettingsGroup;
+
     //~ contents_path /mouse/General
     m_leftHand = new SwitchWidget(tr("Left Hand"));
     GSettingWatcher::instance()->bind("mouseLeftHand", m_leftHand);  // 使用GSettings来控制显示状态
+    m_leftHand->setObjectName("leftHand");
+
     //~ contents_path /mouse/General
     m_disInTyping = new SwitchWidget(tr("Disable touchpad while typing"));
+    m_disInTyping->setObjectName("disInTyping");
+
     //~ contents_path /mouse/General
     m_scrollSpeedSlider = new TitledSliderItem(tr("Scrolling Speed"));
+    m_scrollSpeedSlider->setObjectName("scrollSpeed");
+
     //~ contents_path /mouse/General
     m_doubleSlider = new TitledSliderItem(tr("Double-click Speed"));
+    m_doubleSlider->setObjectName("doubleClicked");
+
     m_doubleTest = new DouTestWidget;
 
     DCCSlider *speedSlider = m_scrollSpeedSlider->slider();

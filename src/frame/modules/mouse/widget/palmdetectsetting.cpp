@@ -41,10 +41,13 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     //~ child_page Touchpad
     m_contactSlider->setToolTip(tr("Minimum Contact Surface"));
     m_contactSlider->addBackground();
+    m_contactSlider->setObjectName("contact");
     //~ contents_path /mouse/Touchpad
     //~ child_page Touchpad
     m_pressureSlider->setToolTip(tr("Minimum Pressure Value"));
     m_pressureSlider->addBackground();
+    m_pressureSlider->setObjectName("pressure");
+
     QStringList contactList;
     for (int i(1); i <= 10; ++i) {
         contactList << QString::number(i);

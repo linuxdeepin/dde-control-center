@@ -37,7 +37,7 @@ class BluetoothModel : public QObject
 {
     Q_OBJECT
 public:
-    explicit BluetoothModel(QObject *parent = 0);
+    explicit BluetoothModel(QObject *parent = nullptr);
 
     QMap<QString, const Adapter *> adapters() const;
     const Adapter *adapterById(const QString &id);

@@ -5,7 +5,9 @@ set(BIN_NAME dde-control-center-unittest)
 # 自动生成moc文件
 set(CMAKE_AUTOMOC ON)
 
-add_subdirectory("tst_dccwidgets")
+add_subdirectory("dccwidgets")
+add_subdirectory("dde-control-center")
+
 
 # 源文件
 #file(GLOB_RECURSE SRCS "*.h" "*.cpp")

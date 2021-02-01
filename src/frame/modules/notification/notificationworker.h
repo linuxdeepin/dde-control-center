@@ -41,6 +41,7 @@ public:
     explicit NotificationWorker(NotificationModel *model, QObject *parent = nullptr);
     void active(bool sync);
     void deactive();
+    Notification *getDbusObject() { return m_dbus; }
 
 public Q_SLOTS:
     void initAllSetting();

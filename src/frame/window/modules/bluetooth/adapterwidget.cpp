@@ -100,6 +100,7 @@ void AdapterWidget::initUI()
     m_titleEdit->setMinimumWidth(10);
     //把动画按钮放在蓝牙开关前面
     m_powerSwitch->getMainLayout()->insertWidget(1, m_spinnerBtn, Qt::AlignVCenter);
+    m_powerSwitch->setObjectName("powerSwitch");
 
     m_spinnerBtn->setFixedSize(24, 24);
     m_spinnerBtn->start();
@@ -128,6 +129,7 @@ void AdapterWidget::initUI()
     m_discoverySwitch->leftWidget()->setMinimumWidth(10);
     m_discoverySwitch->setContentsMargins(0, 0, 0, 0);
     m_discoverySwitch->setFixedHeight(36);
+    m_discoverySwitch->setObjectName("discoverySwitch");
 
     SettingsGroup *settingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     settingsGrp->setContentsMargins(0, 0, 0, 0);
@@ -145,6 +147,7 @@ void AdapterWidget::initUI()
     m_myDeviceListView = new DListView(this);
     m_myDeviceModel = new QStandardItemModel(m_myDeviceListView);
     m_myDeviceListView->setAccessibleName("List_mydevicelist");
+    m_myDeviceListView->setObjectName("myDeviceListView");
     m_myDeviceListView->setFrameShape(QFrame::NoFrame);
     m_myDeviceListView->setModel(m_myDeviceModel);
     m_myDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -159,6 +162,7 @@ void AdapterWidget::initUI()
     m_otherDeviceListView = new DListView(this);
     m_otherDeviceModel = new QStandardItemModel(m_otherDeviceListView);
     m_otherDeviceListView->setAccessibleName("List_otherdevicelist");
+    m_otherDeviceListView->setObjectName("otherDeviceListView");
     m_otherDeviceListView->setFrameShape(QFrame::NoFrame);
     m_otherDeviceListView->setModel(m_otherDeviceModel);
     m_otherDeviceListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -208,7 +212,9 @@ void AdapterWidget::initConnect()
         if (!item) {
             return;
         }
+
         for (auto it : m_myDevices) {
+            qDebug() << it->getStandardItem();
             if (it && it->device() && it->getStandardItem() == item) {
                 if (it->device()->state() != Device::StateConnected) {
                     it->requestConnectDevice(it->device(), m_adapter);
@@ -231,6 +237,7 @@ void AdapterWidget::initConnect()
         if (!item) {
             return;
         }
+
         for (auto it : m_deviceLists) {
             if (it && it->device() && it->getStandardItem() == item) {
                 it->requestConnectDevice(it->device(), m_adapter);

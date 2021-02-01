@@ -35,7 +35,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     -lm
 )
 
-target_include_directories(dccwidgets PUBLIC
+target_include_directories(${BIN_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/include
     ${DtkWidget_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}

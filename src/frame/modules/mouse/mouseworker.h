@@ -28,18 +28,8 @@
 
 #include "mousemodel.h"
 
-
-#include <com_deepin_daemon_inputdevice_mouse.h>
-#include <com_deepin_daemon_inputdevice_touchpad.h>
-#include <com_deepin_daemon_inputdevice_trackpoint.h>
-#include <com_deepin_daemon_inputdevices.h>
-
 #include <QObject>
 
-using Mouse = com::deepin::daemon::inputdevice::Mouse;
-using TouchPad = com::deepin::daemon::inputdevice::TouchPad;
-using TrackPoint = com::deepin::daemon::inputdevice::TrackPoint;
-using InputDevices = com::deepin::daemon::InputDevices;
 
 namespace dcc {
 namespace mouse {
@@ -53,6 +43,9 @@ public:
     void init();
 
 public Q_SLOTS:
+    void setMouseExist(bool exist);
+    void setTpadExist(bool exist);
+    void setRedPointExist(bool exist);
     void setLeftHandState(const bool state);
     void setMouseNaturalScrollState(const bool state);
     void setTouchNaturalScrollState(const bool state);
@@ -67,9 +60,8 @@ public Q_SLOTS:
     void setPalmDetect(bool palmDetect);
     void setPalmMinWidth(int palmMinWidth);
     void setPalmMinz(int palmMinz);
-    void setScrollSpeed(int speed);
+    void setScrollSpeed(uint speed);
 
-    void onDefaultReset();
     void onLeftHandStateChanged(const bool state);
     void onMouseNaturalScrollStateChanged(const bool state);
     void onTouchNaturalScrollStateChanged(const bool state);
@@ -81,6 +73,27 @@ public Q_SLOTS:
     void onAccelProfileChanged(const bool state);
     void onTouchpadMotionAccelerationChanged(const int &value);
     void onTrackPointMotionAccelerationChanged(const int &value);
+    void onPalmDetectChanged(bool palmDetect);
+    void onPalmMinWidthChanged(int palmMinWidth);
+    void onPalmMinzChanged(int palmMinz);
+    void onScrollSpeedChanged(int speed);
+
+Q_SIGNALS:
+    void requestSetPalmDetect(bool palmDetect);
+    void requestSetPalmMinWidth(int palmMinWidth);
+    void requestSetPalmMinz(int palmMinz);
+    void requestSetScrollSpeed(uint speed);
+    void requestSetLeftHandState(const bool state);
+    void requestSetMouseNaturalScrollState(const bool state);
+    void requestSetTouchNaturalScrollState(const bool state);
+    void requestSetDisTyping(const bool state);
+    void requestSetDisTouchPad(const bool state);
+    void requestSetTapClick(const bool state);
+    void requestSetDouClick(const int &value);
+    void requestSetMouseMotionAcceleration(const double &value);
+    void requestSetAccelProfile(const bool state);
+    void requestSetTouchpadMotionAcceleration(const double &value);
+    void requestSetTrackPointMotionAcceleration(const double &value);
 
 private:
     int converToDouble(int value);
@@ -89,10 +102,6 @@ private:
     int converToModelMotionAcceleration(double value);
 
 private:
-    Mouse      *m_dbusMouse;
-    TouchPad   *m_dbusTouchPad;
-    TrackPoint *m_dbusTrackPoint;
-    InputDevices *m_dbusDevices;
     MouseModel *m_model;
 };
 }
