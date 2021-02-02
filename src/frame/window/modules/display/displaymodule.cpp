@@ -122,13 +122,12 @@ int DisplayModule::load(const QString &path)
 
 void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
 {
-    Q_UNUSED(sync);
     Q_UNUSED(pushtype);
     if (m_displayModel) {
         delete m_displayModel;
     }
     m_displayModel = new DisplayModel;
-    m_displayWorker = new DisplayWorker(m_displayModel);
+    m_displayWorker = new DisplayWorker(m_displayModel, nullptr, sync);
 
     m_displayModel->moveToThread(qApp->thread());
     m_displayWorker->moveToThread(qApp->thread());
@@ -145,9 +144,14 @@ void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType push
             m_displayWidget->onMonitorListChanged();
         }
     });
-    QTimer::singleShot(0, m_displayWorker, [=] {
+
+    if(sync) {
         m_displayWorker->active();
-    });
+    } else {
+        QTimer::singleShot(0, m_displayWorker, [=] {
+            m_displayWorker->active();
+        });
+    }
 }
 
 QStringList DisplayModule::availPage() const
