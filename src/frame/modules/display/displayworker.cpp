@@ -511,10 +511,7 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
             if (monitor->name() == "DP-1") {
                 replys << m_displayInter.SetBrightness(monitor->name(), brightness);
             }
-        } else {
-            replys << m_displayInter.SetBrightness(monitor->name(), brightness);
         }
-
         //防止customsettingdialog起的时候monitor的属性值不对
         monitor->setW(mode.width());
         monitor->setH(mode.height());
