@@ -52,7 +52,6 @@ class SystemInfoWidget : public QWidget
 public:
     explicit SystemInfoWidget(QWidget *parent = nullptr);
     void setCurrentIndex(int index);
-    DTK_WIDGET_NAMESPACE::DListView *getSystemListViewPointer();
 
 private:
     void initWidget();

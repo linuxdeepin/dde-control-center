@@ -92,7 +92,7 @@ void RecognizeDialog::onScreenRectChanged()
     int height = fm.height() +2 * VerticalMargin;
 
     const int x = displayRect.center().x() - width / 2;
-    const int y = displayRect.y() + displayRect.height() - height - yoffset;
+    const int y = displayRect.height() - height - yoffset;
     m_rect = QRect(x, y, width, height);
 
     setGeometry(m_rect);

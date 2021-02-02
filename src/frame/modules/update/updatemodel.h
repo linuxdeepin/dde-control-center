@@ -30,7 +30,6 @@
 #include <com_deepin_lastore_updater.h>
 
 #include "common.h"
-#include "widgets/utils.h"
 
 namespace dcc{
 namespace update{
@@ -126,21 +125,8 @@ public:
     bool netselectExist() const;
     void setNetselectExist(bool netselectExist);
 
-    inline bool autoCheckUpdates() const { return m_autoCheckUpdates; }
+    inline bool autoCheckUpdates() { return m_autoCheckUpdates; }
     void setAutoCheckUpdates(bool autoCheckUpdates);
-
-    inline quint64 updateMode() const { return m_updateMode; }
-    void setUpdateMode(quint64 updateMode);
-
-    inline bool autoCheckSecureUpdates() const { return m_autoCheckSecureUpdates; }
-    void setAutoCheckSecureUpdates(bool autoCheckSecureUpdates);
-
-    inline bool autoCheckSystemUpdates() const { return m_autoCheckSystemUpdates; }
-    void setAutoCheckSystemUpdates(bool autoCheckSystemUpdates);
-
-    inline bool autoCheckAppUpdates() const { return m_autoCheckAppUpdates; }
-    void setAutoCheckAppUpdates(bool autoCheckAppUpdates);
-
     bool smartMirrorSwitch() const { return m_smartMirrorSwitch; }
     void setSmartMirrorSwitch(bool smartMirrorSwitch);
 
@@ -159,8 +145,8 @@ public:
     bool getIsRecoveryBackingup(UpdatesStatus state) const;
 
 #ifndef DISABLE_ACTIVATOR
-    inline UiActiveState systemActivation() const {return m_bSystemActivation;}
-    void setSystemActivation(const UiActiveState &systemactivation);
+    inline bool systemActivation() const {return m_bSystemActivation;}
+    void setSystemActivation(uint systemactivation);
 #endif
 
     inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
@@ -198,15 +184,12 @@ Q_SIGNALS:
     void autoCleanCacheChanged(const bool autoCleanCache);
     void netselectExistChanged(const bool netselectExist);
     void autoCheckUpdatesChanged(const bool autoCheckUpdates);
-    void autoCheckSystemUpdatesChanged(const bool autoCheckSystemUpdate);
-    void autoCheckAppUpdatesChanged(const bool autoCheckAppUpdate);
-    void autoCheckSecureUpdatesChanged(const bool autoCheckSecureUpdate);
     void recoverBackingUpChanged(bool recoverBackingUp);
     void recoverConfigValidChanged(bool recoverConfigValid);
     void recoverRestoringChanged(bool recoverRestoring);
     void systemVersionChanged(QString version);
 #ifndef DISABLE_ACTIVATOR
-    void systemActivationChanged(UiActiveState systemactivation);
+    void setSystemActivationChanged(bool systemactivation);
 #endif
     void beginCheckUpdate();
     void updateCheckUpdateTime();
@@ -229,10 +212,6 @@ private:
     bool m_autoCleanCache;
     bool m_autoDownloadUpdates;
     bool m_autoCheckUpdates;
-    quint64 m_updateMode;
-    bool m_autoCheckSecureUpdates;
-    bool m_autoCheckSystemUpdates;
-    bool m_autoCheckAppUpdates;
     bool m_updateNotify;
     bool m_smartMirrorSwitch;
     QString m_mirrorId;
@@ -245,7 +224,7 @@ private:
     QMetaEnum m_metaEnum;
 
 #ifndef DISABLE_ACTIVATOR
-    UiActiveState m_bSystemActivation;
+    bool m_bSystemActivation;
 #endif
 
     QString m_lastCheckUpdateTime; //上次检查更新时间

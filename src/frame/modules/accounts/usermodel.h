@@ -73,11 +73,9 @@ Q_SIGNALS:
     void isJoinADDomainChanged(bool isjoin);
     void isADUserLoginChanged(bool isLogind);
 #endif
-    void allGroupsChange(const QStringList &groups);
     void deleteUserSuccess();
     void autoLoginVisableChanged(bool autoLogin);
     void noPassWordLoginVisableChanged(bool noPassword);
-    void isCancelChanged();
 private:
     bool m_autoLoginVisable;
     bool m_noPassWordLoginVisable;

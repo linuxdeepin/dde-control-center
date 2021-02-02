@@ -69,11 +69,6 @@ int SoundWidget::showPath(const QString &path)
     return -1;
 }
 
-void SoundWidget::setDefaultWidget()
-{
-    m_menuMethod[0].itemSignal.invoke(m_menuMethod[0].pulgin ? m_menuMethod[0].pulgin : this);
-}
-
 void SoundWidget::initMenuUI()
 {
     m_menuMethod = {
@@ -93,7 +88,7 @@ void SoundWidget::initMenuUI()
         listModel->appendRow(item);
     }
 
-    if(InsertPlugin::instance()->needPushPlugin("sound"))
+    if(InsertPlugin::instance()->needPushPlugin("Sound"))
         InsertPlugin::instance()->pushPlugin(listModel,m_menuMethod);
 
     m_menuList->setModel(listModel);
@@ -104,7 +99,7 @@ void SoundWidget::initMenuUI()
             return;
 
         m_currentIdx = idx;
-        m_menuMethod[idx.row()].itemSignal.invoke(m_menuMethod[idx.row()].pulgin ? m_menuMethod[idx.row()].pulgin : this);
+        m_menuMethod[idx.row()].itemSignal.invoke(m_menuMethod[idx.row()].pulgin?m_menuMethod[idx.row()].pulgin:this);
         m_menuList->resetStatus(idx);
     });
     connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);

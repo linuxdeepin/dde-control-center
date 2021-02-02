@@ -77,7 +77,7 @@ void DatetimeWidget::init()
     m_itemList.append({menuIconText.at(1).first, menuIconText.at(1).second,QMetaMethod::fromSignal(&DatetimeWidget::requestTimeSetting)});
     m_itemList.append({menuIconText.at(2).first, menuIconText.at(2).second,QMetaMethod::fromSignal(&DatetimeWidget::requestFormatSetting)});
 
-    if(InsertPlugin::instance()->needPushPlugin("datetime"))
+    if(InsertPlugin::instance()->needPushPlugin("Date and Time"))
         InsertPlugin::instance()->pushPlugin(model,m_itemList);
 
     m_listview->setAccessibleName("List_datetimesettingList");
@@ -149,7 +149,7 @@ void DatetimeWidget::onItemClicked(const QModelIndex &index)
 
     m_lastIndex = index;
 
-    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
     //Q_EMIT requestPushWidget(index.row());
 
     m_listview->resetStatus(index);

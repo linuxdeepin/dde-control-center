@@ -46,14 +46,6 @@ class SystemInfoModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 public:
-    enum SystemType {
-        Default = -1,
-        AboutThisPC,
-        EditionLicense,
-        EndUserLicenseAgreement
-    };
-
-public:
     explicit SystemInfoModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~SystemInfoModule();
 

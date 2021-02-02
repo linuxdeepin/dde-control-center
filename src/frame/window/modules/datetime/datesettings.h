@@ -54,7 +54,7 @@ namespace DCC_NAMESPACE {
 namespace datetime {
 class DateWidget;
 
-class DateSettings : public dcc::ContentWidget
+class DateSettings : public QWidget
 {
     Q_OBJECT
 public:

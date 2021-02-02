@@ -191,7 +191,7 @@ void ClockItem::translateHourType()
                          .arg(currentTime.minute(), 2, 10, QLatin1Char('0'))
                          .arg(currentTime.second(), 2, 10, QLatin1Char('0')));
 
-    m_timeType->setText(currentTime.hour() >= 12 ? tr("PM") : tr("AM"));
+    m_timeType->setText(currentTime.hour() > 12 ? tr("PM") : tr("AM"));
     m_timeType->setVisible(true);
 }
 

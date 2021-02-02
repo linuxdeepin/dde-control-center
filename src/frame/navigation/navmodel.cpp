@@ -202,7 +202,7 @@ QStringList NavModel::validModuleList()
     moduleList.removeOne("cloudsync");
 #endif
 
-#ifdef DISABLE_DISPLAY
+#ifdef DISABLE_DISPALY
     moduleList.removeOne("display");
 #endif
 

@@ -72,7 +72,7 @@ void SoundModule::active()
 
     m_frameProxy->pushWidget(this, m_soundWidget);
     m_soundWidget->setVisible(true);
-    m_soundWidget->setDefaultWidget();
+    showSpeakerPage();
 }
 
 int SoundModule::load(const QString &path)
@@ -86,7 +86,7 @@ int SoundModule::load(const QString &path)
 QStringList SoundModule::availPage() const
 {
     QStringList sl;
-    sl << "Output" << "Input" << "Sound Effects";
+    sl << "Speaker" << "Microphone" << "Advanced" << "Sound Effects";
 
     return sl;
 }

@@ -41,7 +41,6 @@ using namespace dcc::keyboard;
 
 ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *parent)
     : QWidget(parent)
-    , m_workspaceGroup(nullptr)
     , m_assistiveToolsGroup(nullptr)
     , m_model(model)
 {
@@ -67,13 +66,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_windowGroup->getLayout()->setMargin(0);
     m_windowGroup->appendItem(windowHead, SettingsGroup::NoneBackground);
 
-    if (!DCC_NAMESPACE::IsServerSystem) {
-        m_workspaceHead = new SettingsHead();
-        m_workspaceHead->setEditEnable(false);
-        m_workspaceHead->setTitle(tr("Workspace"));
-        m_workspaceGroup = new SettingsGroup();
-        m_workspaceGroup->appendItem(m_workspaceHead, SettingsGroup::NoneBackground);
-    }
+    workspaceHead = new SettingsHead();
+    workspaceHead->setEditEnable(false);
+    workspaceHead->setTitle(tr("Workspace"));
+    m_workspaceGroup = new SettingsGroup();
+    m_workspaceGroup->appendItem(workspaceHead, SettingsGroup::NoneBackground);
 
     if (!DCC_NAMESPACE::IsServerSystem && !DSysInfo::isCommunityEdition()) {
         SettingsHead *speechHead = new SettingsHead();
@@ -113,11 +110,8 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addWidget(m_systemGroup);
     m_layout->addSpacing(List_Interval);
     m_layout->addWidget(m_windowGroup);
-    if (m_workspaceGroup) {
-        m_layout->addSpacing(List_Interval);
-        m_layout->addWidget(m_workspaceGroup);
-    }
-
+    m_layout->addSpacing(List_Interval);
+    m_layout->addWidget(m_workspaceGroup);
     if (m_assistiveToolsGroup) {
         m_layout->addSpacing(List_Interval);
         m_layout->addWidget(m_assistiveToolsGroup);
@@ -184,22 +178,6 @@ void ShortCutSettingWidget::showCustomShotcut()
 void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutModel::InfoType type)
 {
     if ((m_assistiveToolsGroup == nullptr) && (type == ShortcutModel::AssistiveTools)) {
-        m_assistiveToolsIdList.clear();
-        QList<ShortcutInfo *>::iterator it = list.begin();
-        for (; it != list.end(); ++it) {
-            ShortcutInfo *assistiveToolsinfo = *it;
-            m_assistiveToolsIdList << assistiveToolsinfo->id;
-        }
-        return;
-    }
-
-    if ((m_workspaceGroup == nullptr) && (type == ShortcutModel::Workspace)) {
-        m_workspaceIdList.clear();
-        QList<ShortcutInfo *>::iterator it = list.begin();
-        for (; it != list.end(); ++it) {
-            ShortcutInfo *workspaceIdListlsinfo = *it;
-            m_workspaceIdList << workspaceIdListlsinfo->id;
-        }
         return;
     }
     QMap<ShortcutModel::InfoType, QList<ShortcutItem *>*> InfoMap {
@@ -255,7 +233,7 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
             m_workspaceList.append(item);
 
             if (m_workspaceGroup->itemCount() > 1)
-                m_workspaceHead->setVisible(true);
+                workspaceHead->setVisible(true);
             break;
         case ShortcutModel::AssistiveTools:
             m_assistiveToolsGroup->appendItem(item);
@@ -290,10 +268,7 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         if (m_assistiveToolsGroup) {
             m_assistiveToolsGroup->hide();
         }
-        if (m_workspaceGroup) {
-            m_workspaceGroup->hide();
-        }
-
+        m_workspaceGroup->hide();
         m_windowGroup->hide();
         m_systemGroup->hide();
         m_resetBtn->hide();
@@ -302,10 +277,7 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         if (m_assistiveToolsGroup) {
             m_layout->removeWidget(m_assistiveToolsGroup);
         }
-        if (m_workspaceGroup) {
-            m_layout->removeWidget(m_workspaceGroup);
-        }
-
+        m_layout->removeWidget(m_workspaceGroup);
         m_layout->removeWidget(m_windowGroup);
         m_layout->removeWidget(m_systemGroup);
         m_layout->insertWidget(0, m_searchGroup, 0, Qt::AlignTop);
@@ -314,10 +286,7 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         if (m_assistiveToolsGroup) {
             m_assistiveToolsGroup->show();
         }
-        if (m_workspaceGroup) {
-            m_workspaceGroup->show();
-        }
-
+        m_workspaceGroup->show();
         m_windowGroup->show();
         m_systemGroup->show();
         m_resetBtn->show();
@@ -325,22 +294,12 @@ void ShortCutSettingWidget::modifyStatus(bool status)
         m_layout->removeWidget(m_searchGroup);
         m_layout->insertWidget(0, m_systemGroup);
         m_layout->insertWidget(2, m_windowGroup);
-
-        if (m_workspaceGroup) {
-            m_layout->insertWidget(4, m_workspaceGroup);
-            if (m_assistiveToolsGroup) {
-                m_layout->insertWidget(6, m_assistiveToolsGroup);
-                m_layout->insertWidget(8, m_customGroup);
-            } else {
-                m_layout->insertWidget(6, m_customGroup);
-            }
+        m_layout->insertWidget(4, m_workspaceGroup);
+        if (m_assistiveToolsGroup) {
+            m_layout->insertWidget(6, m_assistiveToolsGroup);
+            m_layout->insertWidget(8, m_customGroup);
         } else {
-            if (m_assistiveToolsGroup) {
-                m_layout->insertWidget(4, m_assistiveToolsGroup);
-                m_layout->insertWidget(6, m_customGroup);
-            } else {
-                m_layout->insertWidget(4, m_customGroup);
-            }
+            m_layout->insertWidget(6, m_customGroup);
         }
 
     }
@@ -413,12 +372,6 @@ void ShortCutSettingWidget::onSearchStringFinish(const QList<ShortcutInfo*> sear
     QList<ShortcutInfo *> list = searchList;
     qDebug() << "searchList count is " << searchList.count();
     for (int i = 0; i < list.count(); i++) {
-        if (m_assistiveToolsGroup == nullptr && m_assistiveToolsIdList.contains(list[i]->id))
-            continue;
-
-        if (m_workspaceGroup == nullptr && m_workspaceIdList.contains(list[i]->id))
-            continue;
-
         ShortcutItem *item = new ShortcutItem;
         connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
         item->setShortcutInfo(list[i]);

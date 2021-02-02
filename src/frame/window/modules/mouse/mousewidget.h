@@ -22,7 +22,6 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "window/utils.h"
 
 #include <DListView>
 
@@ -59,7 +58,6 @@ public:
     explicit MouseWidget(QWidget *parent = nullptr);
     void init(bool tpadExist, bool redPointExist);
     void initSetting(const int settingIndex);
-    void setDefaultWidget();
 private:
     void onItemClicked(const QModelIndex &index);
 Q_SIGNALS:
@@ -75,7 +73,6 @@ private:
     QVBoxLayout *m_contentLayout;
     QStandardItemModel *m_listviewModel;
     QModelIndex m_lastIndex;
-    QList<ListSubItem> m_menuIconText;
 };
 }
 }

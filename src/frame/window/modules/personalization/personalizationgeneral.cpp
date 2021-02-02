@@ -44,7 +44,6 @@
 #include <QComboBox>
 #include <QGraphicsDropShadowEffect>
 #include <QPainterPath>
-#include <QScrollArea>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -271,23 +270,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     m_centralLayout->addWidget(m_switchWidget);
     m_centralLayout->addStretch(20);
-
-    QScrollArea *scrollArea = new QScrollArea;
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setFrameStyle(QFrame::NoFrame);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scrollArea->setContentsMargins(0, 0, 0, 0);
-
-    QVBoxLayout *mainContentLayout = new QVBoxLayout;
-    mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    mainContentLayout->setMargin(0);
-    setLayout(mainContentLayout);
-    mainContentLayout->addWidget(scrollArea);
-
-    auto tw = new QWidget();
-    tw->setLayout(m_centralLayout);
-    scrollArea->setWidget(tw);
+    setLayout(m_centralLayout);
 }
 
 void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel *model)

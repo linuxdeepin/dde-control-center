@@ -67,7 +67,7 @@ bool SecretHotspotSection::allInputValid()
 
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         valid = NetworkManager::wepKeyIsValid(m_passwdEdit->text(),
-                                              NetworkManager::WirelessSecuritySetting::WepKeyType::Passphrase);
+                                              NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_passwdEdit->setIsErr(!valid);
         if (!valid && !m_passwdEdit->text().isEmpty()) {
             m_passwdEdit->showAlertMessage(tr("Invalid password"));
@@ -94,7 +94,7 @@ void SecretHotspotSection::saveSettings()
     m_wsSetting->setKeyMgmt(m_currentKeyMgmt);
     if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::Wep) {
         m_wsSetting->setAuthAlg(NetworkManager::WirelessSecuritySetting::AuthAlg::Open);
-        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Passphrase);
+        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::Hex);
         m_wsSetting->setWepKey0(m_passwdEdit->text());
         m_wsSetting->setPsk("");
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {

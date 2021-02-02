@@ -58,7 +58,7 @@ bool GenericSection::allInputValid()
         m_connIdItem->setIsErr(true);
         return false;
     } else {
-        if (m_connType == NetworkManager::ConnectionSettings::Vpn) {
+        if (m_connType != NetworkManager::ConnectionSettings::Unknown) {
             NetworkManager::Connection::List connList = listConnections();
             QStringList connNameList;
             QString curUuid = "";

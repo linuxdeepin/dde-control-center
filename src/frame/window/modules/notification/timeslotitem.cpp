@@ -39,11 +39,9 @@ TimeSlotItem::TimeSlotItem(QWidget *parent)
     m_editStart->setDisplayFormat("h:mm");
     m_editStart->setAlignment(Qt::AlignCenter);
     m_editStart->setAccessibleName("Start_Time_Edit");
-    m_editStart->setProperty("_d_dtk_spinBox", true);
     m_editEnd->setDisplayFormat("h:mm");
     m_editEnd->setAlignment(Qt::AlignCenter);
     m_editEnd->setAccessibleName("End_Time_Edit");
-    m_editEnd->setProperty("_d_dtk_spinBox", true);
     m_chkState->setAccessibleName("Time_CheckBox");
     m_chkState->setMinimumHeight(40);
 

@@ -63,7 +63,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_bRecoverBackingUp(false)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
-    , m_activeState(UiActiveState::Unknown)
     , m_updateList(new ContentWidget)
 #ifndef DISABLE_ACTIVATOR
     , m_authorizationPrompt(new TipsLabel)
@@ -163,18 +162,11 @@ UpdateCtrlWidget::~UpdateCtrlWidget()
 
 }
 
-void UpdateCtrlWidget::setShowInfo(const UiActiveState value)
+void UpdateCtrlWidget::setShowInfo(const bool value)
 {
-    bool activation;
-    if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value) {
-        activation = true;
-    } else {
-        activation = false;
-    }
-
-    m_fullProcess->setEnabled(activation);
+    m_fullProcess->setEnabled(value);
 #ifndef DISABLE_ACTIVATOR
-    m_authorizationPrompt->setVisible(UpdatesStatus::UpdatesAvailable == m_model->status() && !activation);
+    m_authorizationPrompt->setVisible(UpdatesStatus::UpdatesAvailable == m_model->status() && !value);
 #endif
 }
 
@@ -257,7 +249,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_status = status;
 
 #ifndef DISABLE_ACTIVATOR
-    if (m_model->systemActivation() == UiActiveState::Unauthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse || m_model->systemActivation() == UiActiveState::TrialExpired) {
+    if (!m_model->systemActivation()) {
         m_status = NoAtive;
     }
 #endif
@@ -500,20 +492,6 @@ void UpdateCtrlWidget::setRecoverRestoring(const bool value)
     }
 }
 
-void UpdateCtrlWidget::setActiveState(const UiActiveState &activestate)
-{
-    if (m_activeState != activestate) {
-        m_activeState = activestate;
-    }
-
-    if (m_model->enterCheckUpdate()) {
-        setStatus(UpdatesStatus::Checking);
-    } else {
-        setStatus(m_model->status());
-    }
-
-}
-
 void UpdateCtrlWidget::setModel(UpdateModel *model)
 {
     m_model = model;
@@ -526,8 +504,6 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::recoverBackingUpChanged, this, &UpdateCtrlWidget::setRecoverBackingUp);
     connect(m_model, &UpdateModel::recoverConfigValidChanged, this, &UpdateCtrlWidget::setRecoverConfigValid);
     connect(m_model, &UpdateModel::recoverRestoringChanged, this, &UpdateCtrlWidget::setRecoverRestoring);
-    connect(m_model, &UpdateModel::systemActivationChanged, this, &UpdateCtrlWidget::setActiveState);
-
 
     setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());

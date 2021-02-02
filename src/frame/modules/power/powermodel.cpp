@@ -316,8 +316,6 @@ void PowerModel::setCanHibernate(bool value)
 {
     if (m_canHibernate != value) {
         m_canHibernate = value;
-
-        Q_EMIT canHibernateChanged(value);
     }
 }
 
@@ -351,7 +349,5 @@ void PowerModel::setHibernate(bool hibernate)
 {
     if (m_isHibernate != hibernate) {
         m_isHibernate = hibernate;
-
-        Q_EMIT hibernateChanged(hibernate);
     }
 }

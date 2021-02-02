@@ -40,10 +40,6 @@
 #include <QGSettings>
 #include <QDBusInterface>
 
-#define BALANCE "balance"         // 平衡模式
-#define PERFORMANCE "performance" // 高性能模式
-#define POWERSAVE "powersave"     // 节能模式
-
 using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::power;
@@ -62,19 +58,14 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     , m_layout(new QVBoxLayout)
     , m_swLowPowerAutoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on low battery")))
     , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery")))
-    , m_sldLowerBrightness(new TitledSliderItem(tr("Decrease brightness"), this))
+    , m_sldLowerBrightness (new TitledSliderItem(tr("Decrease brightness"), this))
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
-    , m_batteryLabel(new TitleLabel(tr("Battery")))
-    , m_powerShowTimeToFull(new SwitchWidget(tr("Display remaining using and charging time")))
+    , m_powerShowTimeToFull(new SwitchWidget(tr("Display capacity and remaining charging time")))
     , m_ShowTimeToFullTips(new PowerDisplayWidget(tr("Maximum capacity"), this))
     , m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity")))
     , m_batteryCapacity(new TitleValueItem)
 {
-    m_powerPlanMap.insert(BALANCE, tr("Balanced"));
-    m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
-    m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));
-
     initUi();
 
     connect(m_powerplanListview, &DListView::clicked, this, &GeneralWidget::onPowerPlanChanged);
@@ -102,9 +93,14 @@ void GeneralWidget::initUi()
     QVBoxLayout *powerPlansLayout = new QVBoxLayout;                                            // 性能模式布局
     m_powerplanListview = new DListView();                                                      // 电源模式列表
 
+    QMap<QString, QString> powerPlanMap;
+    powerPlanMap.insert("balance", tr("Balanced"));
+    powerPlanMap.insert("performance", tr("High Performance"));
+    powerPlanMap.insert("powersave", tr("Power Saver"));
+
     m_powerPlanModel = new QStandardItemModel(m_powerplanListview);
     QMap<QString, QString>::iterator iter;
-    for (iter = m_powerPlanMap.begin(); iter != m_powerPlanMap.end(); ++iter) {
+    for (iter = powerPlanMap.begin(); iter != powerPlanMap.end(); ++iter) {
         DStandardItem *powerPlanItem = new DStandardItem(iter.value());
         powerPlanItem->setData(iter.key(), PowerPlanRole);
         m_powerPlanModel->appendRow(powerPlanItem);
@@ -174,8 +170,9 @@ void GeneralWidget::initUi()
 
     /**** 电池设置 ************************************************************************/
     //~ contents_path /power/General
-    DFontSizeManager::instance()->bind(m_batteryLabel, DFontSizeManager::T5, QFont::DemiBold); // 电池设置label字体
-    QVBoxLayout *batteyLayout = new QVBoxLayout;                                               // 电池设置布局
+    TitleLabel *batteryLabel = new TitleLabel(tr("Battery"));                                // 电池设置label
+    DFontSizeManager::instance()->bind(batteryLabel, DFontSizeManager::T5, QFont::DemiBold); // 电池设置label字体
+    QVBoxLayout *batteyLayout = new QVBoxLayout;                                             // 电池设置布局
     SettingsGroup *batterySettingsGrp = new SettingsGroup;
 
     QDBusInterface powerInter("com.deepin.system.Power", "/com/deepin/system/Power", "com.deepin.system.Power", QDBusConnection::systemBus());
@@ -185,16 +182,16 @@ void GeneralWidget::initUi()
     batterySettingsGrp->appendItem(m_powerShowTimeToFull);
     batterySettingsGrp->appendItem(m_ShowTimeToFullTips);
 
-    m_batteryLabel->setVisible(m_bIsBattery);
+    batteryLabel->setVisible(m_bIsBattery);
     m_powerShowTimeToFull->setVisible(m_bIsBattery);
     m_ShowTimeToFullTips->setVisible(m_bIsBattery);
 
-    m_batteryLabel->setContentsMargins(10, 0, 10, 0); // 电池设置label与外面布局的边距
-    batteyLayout->addWidget(m_batteryLabel);          // 添加电池设置label
-    batteyLayout->addWidget(batterySettingsGrp);      // 添加电池设置
-    batteyLayout->setSpacing(10);                     // 布局中组件间距
-    batteyLayout->setContentsMargins(10, 0, 10, 0);   // 电池设置与外面总布局的边距
-    m_layout->addLayout(batteyLayout);                // 将唤醒设置布局添加到总布局中
+    batteryLabel->setContentsMargins(10, 0, 10, 0); // 电池设置label与外面布局的边距
+    batteyLayout->addWidget(batteryLabel);          // 添加电池设置label
+    batteyLayout->addWidget(batterySettingsGrp);    // 添加电池设置
+    batteyLayout->setSpacing(10);                   // 布局中组件间距
+    batteyLayout->setContentsMargins(10, 0, 10, 0); // 电池设置与外面总布局的边距
+    m_layout->addLayout(batteyLayout);              // 将唤醒设置布局添加到总布局中
     /*************************************************************************************/
 
     m_layout->setSpacing(30);
@@ -294,9 +291,6 @@ void GeneralWidget::onBatteryChanged(const bool &state)
 {
     m_swLowPowerAutoIntoSaveEnergyMode->setVisible(state);
     m_autoIntoSaveEnergyMode->setVisible(state);
-    m_batteryLabel->setVisible(state);
-    m_powerShowTimeToFull->setVisible(state);
-    m_ShowTimeToFullTips->setVisible(state);
 }
 
 void GeneralWidget::onPowerPlanChanged(const QModelIndex &index)
@@ -321,11 +315,12 @@ void GeneralWidget::onCurPowerPlanChanged(const QString &curPowerPlan)
 
 void GeneralWidget::onHighPerformanceSupportChanged(const bool isSupport)
 {
+    const QString highPerform = "performance";
     int row_count = m_powerPlanModel->rowCount();
     if (!isSupport) {
         for (int i = 0; i < row_count; ++i) {
             QStandardItem *items = m_powerPlanModel->item(i, 0);
-            if (items->data(PowerPlanRole).toString() == PERFORMANCE) {
+            if (items->data(PowerPlanRole).toString() == highPerform) {
                 m_powerPlanModel->removeRow(i);
                 break;
             }
@@ -334,14 +329,15 @@ void GeneralWidget::onHighPerformanceSupportChanged(const bool isSupport)
         bool findHighPerform = false;
         for (int i = 0; i < row_count; ++i) {
             QStandardItem *items = m_powerPlanModel->item(i, 0);
-            if (items->data(PowerPlanRole).toString() == PERFORMANCE) {
+            if (items->data(PowerPlanRole).toString() == highPerform) {
                 findHighPerform = true;
                 break;
             }
         }
         if (!findHighPerform) {
-            DStandardItem *powerPlanItem = new DStandardItem(m_powerPlanMap.value(PERFORMANCE));
-            powerPlanItem->setData(PERFORMANCE, PowerPlanRole);
+            DStandardItem *powerPlanItem = new DStandardItem(highPerform);
+            powerPlanItem->setData(highPerform, PowerPlanRole);
+            m_powerPlanModel->appendRow(powerPlanItem);
             m_powerPlanModel->insertRow(1, powerPlanItem);
         }
     }

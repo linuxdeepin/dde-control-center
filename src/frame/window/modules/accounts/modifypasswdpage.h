@@ -61,7 +61,6 @@ public:
 
     enum ModifyPwdRetFlag {
         ModifyNewPwdSuccess     = 0,    // 修改密码成功
-        PermissionDenied        = 1,    // 拒绝访问
         InputOldPwdError        = 10,   // 旧密码错误
         InputLongerError        = 11,   // 新密码长度不够
         InputSimilarError       = 12,   // 新旧密码相似
@@ -70,8 +69,7 @@ public:
         InputUsedError          = 15,   // 新密码已使用
         InputDictionaryError    = 16,   // 新密码基于字典词
         InputRevDictionaryError = 17,   // 新密码基于反向字典词
-        InputFailedError        = 20,   // 其它原因新密码校验不通过
-        Failure                 = 21,   // 修改密码失败
+        InputFailedError        = 20,   // 修改密码失败
     };
 protected:
     void showEvent(QShowEvent *event) override;

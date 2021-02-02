@@ -73,7 +73,7 @@ void DefaultAppsModule::active()
     m_frameProxy->pushWidget(this, defaultappsWidget);
     defaultappsWidget->setVisible(true);
     //显示默认页
-    defaultappsWidget->setDefaultWidget();
+    showDetailWidget(dcc::defapp::DefAppWorker::Browser);
 }
 
 const QString DefaultAppsModule::name() const

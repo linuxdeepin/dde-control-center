@@ -50,7 +50,6 @@ NetworkModuleWidget::NetworkModuleWidget()
     : QWidget()
     , m_lvnmpages(new dcc::widgets::MultiSelectListView(this))
     , m_modelpages(new QStandardItemModel(this))
-    , m_nmConnectionEditorProcess(nullptr)
 {
     setObjectName("Network");
     m_lvnmpages->setAccessibleName("List_networkmenulist");
@@ -112,15 +111,6 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
     connect(m_lvnmpages, &DListView::clicked, m_lvnmpages, &DListView::activated);
-}
-
-NetworkModuleWidget::~NetworkModuleWidget()
-{
-    if (m_nmConnectionEditorProcess) {
-        m_nmConnectionEditorProcess->close();
-        m_nmConnectionEditorProcess->deleteLater();
-        m_nmConnectionEditorProcess = nullptr;
-    }
 }
 
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
@@ -194,19 +184,16 @@ bool NetworkModuleWidget::handleNMEditor()
     nmConnEditBtn->hide();
     process->start("which nm-connection-editor");
 
-    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [ = ] {
+    connect(process, static_cast<void (QProcess:: *)(int)>(&QProcess::finished), this, [=]{
         m_strNetworkManageOutput = process->readAll();
         if (!m_strNetworkManageOutput.isEmpty()) {
             nmConnEditBtn->show();
-            connect(nmConnEditBtn, &QPushButton::clicked, this, [ = ] {
-                if (!m_nmConnectionEditorProcess) {
-                    m_nmConnectionEditorProcess = new QProcess(this);
-                }
-                m_nmConnectionEditorProcess->start("nm-connection-editor");
+            connect(nmConnEditBtn, &QPushButton::clicked, this, [] {
+                QProcess::startDetached("nm-connection-editor");
             });
         }
-        process->deleteLater();
     });
+    process->deleteLater();
     return true;
 }
 
@@ -253,7 +240,7 @@ void NetworkModuleWidget::setIndexFromPath(const QString &path)
 void NetworkModuleWidget::initProxyStatus()
 {
     QDBusInterface interface("com.deepin.daemon.Network", "/com/deepin/daemon/Network"
-                                 , "com.deepin.daemon.Network", QDBusConnection::sessionBus(), this);
+                             , "com.deepin.daemon.Network", QDBusConnection::sessionBus(), this);
     QDBusMessage msg = interface.call("GetProxyMethod");
     QString method = msg.arguments().first().toString();
     //初始化系统代理状态
@@ -299,7 +286,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     PageType currentType = currentIndex.data(SectionRole).value<PageType>();
 
     while ((m_modelpages->item(0)->data(SectionRole).value<PageType>() == WiredPage)
-            || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
+           || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
         m_modelpages->removeRow(0);
         if ((currentType == WiredPage) || (currentType == WirelessPage)) {
             bRemoveCurrentDevice = true;
@@ -439,7 +426,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
                 m_lvnmpages->update();
             }
         }
-        connect(wirelssDev, &WirelessDevice::hotspotEnabledChanged, this, [this, dummystatus](const bool enabled) {
+        connect(wirelssDev, &WirelessDevice::hotspotEnabledChanged, this, [this, dummystatus] (const bool enabled) {
             if (enabled && !dummystatus.isNull()) {
                 dummystatus->setText(tr("Disconnected"));
                 m_lvnmpages->update();

@@ -70,7 +70,7 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_systemVersionInfo("")
     , m_metaEnum(QMetaEnum::fromType<ModelUpdatesStatus>())
 #ifndef DISABLE_ACTIVATOR
-    , m_bSystemActivation(UiActiveState::Unknown)
+    , m_bSystemActivation(false)
 #endif
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
@@ -257,51 +257,6 @@ void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
     Q_EMIT autoCheckUpdatesChanged(autoCheckUpdates);
 }
 
-void UpdateModel::setUpdateMode(quint64 updateMode)
-{
-    qDebug() << Q_FUNC_INFO << "get UpdateMode from dbus:" << updateMode;
-
-    if (m_updateMode == updateMode) {
-        return;
-    }
-
-    m_updateMode = updateMode;
-
-    setAutoCheckSystemUpdates(m_updateMode & 0b0001);
-    setAutoCheckAppUpdates((m_updateMode & 0b0010) >> 1);
-    setAutoCheckSecureUpdates((m_updateMode & 0b0100) >> 2);
-}
-
-void UpdateModel::setAutoCheckSecureUpdates(bool autoCheckSecureUpdates)
-{
-    if (autoCheckSecureUpdates == m_autoCheckSecureUpdates)
-        return;
-
-    m_autoCheckSecureUpdates = autoCheckSecureUpdates;
-
-    Q_EMIT autoCheckSecureUpdatesChanged(autoCheckSecureUpdates);
-}
-
-void UpdateModel::setAutoCheckSystemUpdates(bool autoCheckSystemUpdates)
-{
-    if (autoCheckSystemUpdates == m_autoCheckSystemUpdates)
-        return;
-
-    m_autoCheckSystemUpdates = autoCheckSystemUpdates;
-
-    Q_EMIT autoCheckSystemUpdatesChanged(autoCheckSystemUpdates);
-}
-
-void UpdateModel::setAutoCheckAppUpdates(bool autoCheckAppUpdates)
-{
-    if (autoCheckAppUpdates == m_autoCheckAppUpdates)
-        return;
-
-    m_autoCheckAppUpdates = autoCheckAppUpdates;
-
-    Q_EMIT autoCheckAppUpdatesChanged(autoCheckAppUpdates);
-}
-
 void UpdateModel::setSmartMirrorSwitch(bool smartMirrorSwitch)
 {
     if (m_smartMirrorSwitch == smartMirrorSwitch) return;
@@ -352,14 +307,20 @@ void UpdateModel::setSystemVersionInfo(const QString &systemVersionInfo)
 }
 
 #ifndef DISABLE_ACTIVATOR
-void UpdateModel::setSystemActivation(const UiActiveState &systemactivation)
+void UpdateModel::setSystemActivation(uint systemactivation)
 {
-    if (m_bSystemActivation == systemactivation) {
+    bool activation;
+    if (systeminfo::ActiveState::Authorized == systemactivation || systeminfo::ActiveState::TrialAuthorized == systemactivation) {
+        activation = true;
+    } else {
+        activation = false;
+    }
+    if (m_bSystemActivation == activation) {
         return;
     }
-    m_bSystemActivation = systemactivation;
+    m_bSystemActivation = activation;
 
-    Q_EMIT systemActivationChanged(systemactivation);
+    Q_EMIT setSystemActivationChanged(systemactivation);
 }
 #endif
 

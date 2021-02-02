@@ -68,7 +68,7 @@ void KeyboardWidget::init()
     m_itemList.append({menuIconText[2].first,menuIconText[2].second,QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting)});
     m_itemList.append({menuIconText[3].first,menuIconText[3].second,QMetaMethod::fromSignal(&KeyboardWidget::showShortCutSetting)});
 
-    if(InsertPlugin::instance()->needPushPlugin("keyboard"))
+    if(InsertPlugin::instance()->needPushPlugin("Keyboard and Language"))
         InsertPlugin::instance()->pushPlugin(m_listviewModel,m_itemList);
 
     m_keyboardListView->setAccessibleName("List_keyboardlist");
@@ -90,18 +90,13 @@ void KeyboardWidget::initSetting(const int settingIndex)
     m_keyboardListView->clicked(m_listviewModel->index(settingIndex, 0));
 }
 
-void KeyboardWidget::setDefaultWidget()
-{
-    m_itemList[0].itemSignal.invoke(m_itemList[0].pulgin ? m_itemList[0].pulgin : this);
-}
-
 void KeyboardWidget::onItemClick(const QModelIndex &index)
 {
     if (index == m_lastIndex) {
         return;
     }
 
-    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
 
     m_lastIndex = index;
     m_keyboardListView->resetStatus(index);

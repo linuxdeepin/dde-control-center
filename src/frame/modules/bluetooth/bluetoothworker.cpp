@@ -117,11 +117,12 @@ BluetoothWorker &BluetoothWorker::Instance(bool sync)
 
 void BluetoothWorker::activate()
 {
+    blockDBusSignals(false);
+
     if (!m_bluetoothInter->isValid()) {
         return;
     }
 
-    blockDBusSignals(false);
     m_bluetoothInter->ClearUnpairedDevice();
 
     refresh();
@@ -134,10 +135,6 @@ void BluetoothWorker::deactivate()
 
 void BluetoothWorker::blockDBusSignals(bool block)
 {
-    if (!m_bluetoothInter->isValid()) {
-        return;
-    }
-
     m_bluetoothInter->blockSignals(block);
 }
 
@@ -333,8 +330,6 @@ void BluetoothWorker::onDevicePropertiesChanged(const QString &json)
             if (device->name() == name) {
                 inflateDevice(device, obj);
             } else {
-                if (!adapterPointer)
-                    return;
                 adapterPointer->removeDevice(device->id());
                 inflateDevice(device, obj);
                 adapterPointer->addDevice(device);

@@ -312,7 +312,7 @@ void SoundWorker::cardsChanged(const QString &cards)
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
             const double portAvai = jPort["Available"].toDouble();
-            if (portAvai == 2.0 || portAvai == 0.0) {  // 0 Unknown 1 Not available 2 Available
+            if (portAvai == 2.0 || portAvai == 0.0) {  // 0 Unknow 1 Not available 2 Available
                 const QString portId = jPort["Name"].toString();
                 const QString portName = jPort["Description"].toString();
 

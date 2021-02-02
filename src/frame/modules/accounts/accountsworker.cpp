@@ -24,6 +24,7 @@
  */
 
 #include "accountsworker.h"
+#include "user.h"
 #include "window/utils.h"
 #include "widgets/utils.h"
 
@@ -40,14 +41,11 @@
 #include <libintl.h>
 #include <random>
 #include <crypt.h>
-#include <polkit-qt5-1/PolkitQt1/Authority>
 
-using namespace PolkitQt1;
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE;
 
 const QString AccountsService("com.deepin.daemon.Accounts");
-const QString FingerPrintService("com.deepin.daemon.Authenticate");
 const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 const QString AutoLoginVisable = "auto-login-visable";
@@ -56,7 +54,6 @@ const QString NoPasswordVisable = "nopasswd-login-visable";
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
-    , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
 #endif
@@ -78,29 +75,22 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 #ifdef DCC_ENABLE_ADDOMAIN
     m_notifyInter->setSync(false);
 #endif
-    QDBusInterface interface(AccountsService, "/com/deepin/daemon/Accounts", AccountsService, QDBusConnection::systemBus());
-    onUserListChanged(interface.property("UserList").toStringList());
+    onUserListChanged(m_accountsInter->userList());
     updateUserOnlineStatus(m_dmInter->sessions());
     getAllGroups();
     getPresetGroups();
 
-    // 非服务器版本关联gsetting自动登陆/无密码登陆配置
-    if (!IsServerSystem) {
-        QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-
-        m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
-        m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
-        connect(gsetting, &QGSettings::changed, m_userModel, [=](const QString &key) {
-            if (key == "autoLoginVisable") {
-                m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
-            } else if (key == "nopasswdLoginVisable") {
-                m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
-            }
-        });
-    } else {
-        m_userModel->setAutoLoginVisable(true);
-        m_userModel->setNoPassWordLoginVisable(false);
-    }
+    // 关联gsetting自动登陆/无密码登陆配置
+    QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
+    m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
+    connect(gsetting, &QGSettings::changed, m_userModel, [=](const QString &key){
+        if (key == "autoLoginVisable") {
+            m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
+        } else if (key == "nopasswdLoginVisable") {
+            m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
+        }
+    });
 
     bool bShowCreateUser = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showCreateUser", true);
     m_userModel->setCreateUserValid(bShowCreateUser);
@@ -186,18 +176,26 @@ void AccountsWorker::createAccount(const User *user)
     qDebug() << "create account";
     Q_EMIT requestFrameAutoHide(false);
 
-    QFutureWatcher<CreationResult *> *watcher = new QFutureWatcher<CreationResult *>(this);
-    connect(watcher, &QFutureWatcher<CreationResult *>::finished, [this, watcher] {
+    QFutureWatcher<CreationResult*> *watcher = new QFutureWatcher<CreationResult*>(this);
+    connect(watcher, &QFutureWatcher<CreationResult*>::finished, [this, watcher] {
         CreationResult *result = watcher->result();
         m_userModel->setAllGroups(m_accountsInter->GetGroups());
         Q_EMIT accountCreationFinished(result);
         Q_EMIT requestFrameAutoHide(true);
-        Q_EMIT requestMainWindowEnabled(true);
         watcher->deleteLater();
     });
 
-    QFuture<CreationResult *> future = QtConcurrent::run(this, &AccountsWorker::createAccountInternal, user);
-    Q_EMIT requestMainWindowEnabled(false);
+    QFuture<CreationResult*> future = QtConcurrent::run(this, &AccountsWorker::createAccountInternal, user);
+    QTimer *timer = new QTimer();
+    timer->start(500);
+    connect(timer, &QTimer::timeout, this, [ = ] {
+        if (future.isFinished()) {
+            timer->stop();
+            requesetMainWindowEnabled(true);
+        } else {
+            requesetMainWindowEnabled(false);
+        }
+    });
     watcher->setFuture(future);
 }
 
@@ -235,25 +233,8 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
     reply.waitForFinished();
     if (reply.isError()) {
         qDebug() << Q_FUNC_INFO << reply.error().message();
-        Q_EMIT m_userModel->isCancelChanged();
     } else {
         Q_EMIT m_userModel->deleteUserSuccess();
-        removeUser(m_userInters.value(user)->path());
-        getAllGroups();
-
-        QDBusPendingReply<> listFingersReply = m_fingerPrint->ListFingers(user->name());
-        listFingersReply.waitForFinished();
-        if (listFingersReply.isError()) {
-            qDebug() << Q_FUNC_INFO << listFingersReply.error().message();
-        } else {
-            if (m_fingerPrint->ListFingers(user->name()).value().count()) {
-                QDBusPendingReply<> delAllFingereply = m_fingerPrint->DeleteAllFingers(user->name());
-                delAllFingereply.waitForFinished();
-                if (delAllFingereply.isError()) {
-                    qDebug() << Q_FUNC_INFO << delAllFingereply.error().message();
-                }
-            }
-        }
     }
 }
 
@@ -277,27 +258,11 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
     });
 }
 
-void AccountsWorker::loadUserList()
-{
-    onUserListChanged(m_accountsInter->userList());
-}
-
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
-    int count = 0;
-    static bool first = true;
-    for (const QString &path : userList) {
-        if (!m_userModel->contains(path)) {
-            count++;
+    for (const auto &path : userList)
+        if (!m_userModel->contains(path))
             addUser(path);
-            if (count > 50 && first) {
-                first = false;
-                break; // 第一次打开用户列表只加载51个用户信息
-            } else if (count > 2 && !first) {
-                break; // 滚动条每滑动一次，加载3个用户
-            }
-        }
-    }
 }
 
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd)
@@ -315,16 +280,12 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     process.closeWriteChannel();
     process.waitForFinished();
 
-    // process.exitCode() = 0 表示密码修改成功
+    // process.exitCode() = 10 表示密码修改失败
     int exitCode = process.exitCode();
-    if (exitCode != 0) {
+    if (exitCode == 10) {
         QString errortxt = process.readAllStandardError();
         qDebug() << errortxt;
-        if (errortxt.contains("Permission denied")) {
-            exitCode = 1;
-        } else if (errortxt.contains("Current password: passwd: Authentication token manipulation error")) {
-            exitCode = 10;
-        } else if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password") || errortxt.contains("The password is shorter than")) {
+        if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password")) {
             exitCode = 11;
         } else if (errortxt.contains("is too similar to the old one") || errortxt.contains("new and old password are too similar")) {
             exitCode = 12;
@@ -338,6 +299,8 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
             exitCode = 16;
         } else if (errortxt.contains("it is based on a (reversed) dictionary word")) {
             exitCode = 17;
+        } else if (errortxt.contains("Authentication token manipulation error")) {
+            exitCode = 10;
         } else {
             exitCode = 20;
         }
@@ -356,8 +319,6 @@ void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
 
 void AccountsWorker::addUser(const QString &userPath)
 {
-    if (userPath.contains("User0", Qt::CaseInsensitive))
-        return;
     AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
     userInter->setSync(false);
 
@@ -471,19 +432,11 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
     const bool isJoin = m_userModel->isJoinADDomain();
     int exitCode = 0;
     if (isJoin) {
-        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli"
-                                                             << "leave"
-                                                             << "--disable"
-                                                             << "ssh");
+        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "leave" << "--disable" << "ssh");
     } else {
         // for safety, restart lwsmd service before join AD Domain
-        QProcess::execute("pkexec", QStringList() << "/bin/systemctl"
-                                                  << "restart"
-                                                  << "lwsmd");
-        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli"
-                                                             << "join"
-                                                             << "--disable"
-                                                             << "ssh" << server << admin << password);
+        QProcess::execute("pkexec", QStringList() << "/bin/systemctl" << "restart" << "lwsmd");
+        exitCode = QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/domainjoin-cli" << "join" << "--disable" << "ssh" << server << admin << password);
     }
 
     QString message;
@@ -494,12 +447,8 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
 
         // Additional operation, need to initialize the user's settings
         if (!isJoin) {
-            QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/config"
-                                                      << "UserDomainPrefix"
-                                                      << "ADS");
-            QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/config"
-                                                      << "LoginShellTemplate"
-                                                      << "/bin/bash");
+            QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/config" << "UserDomainPrefix" << "ADS");
+            QProcess::execute("pkexec", QStringList() << "/opt/pbis/bin/config" << "LoginShellTemplate" << "/bin/bash");
         }
         // save config
         QFile file("/etc/deepin/dde-session-ui.conf");
@@ -512,9 +461,7 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
             QSettings setting("/tmp/.dde-session-ui.conf", QSettings::IniFormat);
             setting.setValue("loginPromptInput", !isJoin);
             setting.sync();
-            QProcess::execute("pkexec", QStringList() << "cp"
-                                                      << "/tmp/.dde-session-ui.conf"
-                                                      << "/etc/deepin/dde-session-ui.conf");
+            QProcess::execute("pkexec", QStringList() << "cp" << "/tmp/.dde-session-ui.conf" << "/etc/deepin/dde-session-ui.conf");
             tmpFile.remove();
         }
     } else {
@@ -595,28 +542,16 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
         return result;
     }
 
-    Authority::Result authenticationResult;
-    authenticationResult = Authority::instance()->checkAuthorizationSync("com.deepin.daemon.accounts.user-administration", UnixProcessSubject(getpid()),
-                                                           Authority::AllowUserInteraction);
-
-    if (Authority::Result::Yes != authenticationResult) {
-        result->setType(CreationResult::Canceled);
-        return result;
-    }
-
     // default FullName is empty string
-    QDBusObjectPath path;
-    QDBusPendingReply<QDBusObjectPath> createReply = m_accountsInter->CreateUser(user->name(), user->fullname(), user->userType());
-    createReply.waitForFinished();
-    if (createReply.isError()) {
-        /* 这里由后端保证出错时一定有错误信息返回，如果没有错误信息，就默认用户在认证时点了取消 */
-        result->setType(createReply.error().message().isEmpty() ? CreationResult::Canceled : CreationResult::UnknownError);
-        result->setMessage(createReply.error().message());
-        return result;
-    } else {
-        path = createReply.argumentAt<0>();
-    }
+    auto type = IsServerSystem ? 0 : 1;
+    QDBusObjectPath path = m_accountsInter->CreateUser(user->name(), user->fullname(), type);
+
     const QString userPath = path.path();
+    if (userPath.isEmpty() || userPath.isNull()) {
+        result->setType(CreationResult::UnknownError);
+        result->setMessage("no method call result on CreateUser");
+        return result;
+    }
 
     AccountsUser *userDBus = new AccountsUser("com.deepin.daemon.Accounts", userPath, QDBusConnection::systemBus(), this);
     if (!userDBus->isValid()) {
@@ -630,18 +565,15 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     bool sifResult = !userDBus->SetIconFile(user->currentAvatar()).isError();
     bool spResult = !userDBus->SetPassword(cryptUserPassword(user->password())).isError();
     bool groupResult = true;
-    if (IsServerSystem && !user->groups().isEmpty()) {
+    if (IsServerSystem) {
         groupResult = !userDBus->SetGroups(user->groups()).isError();
     }
 
     if (!sifResult || !spResult || !groupResult) {
         result->setType(CreationResult::UnknownError);
-        if (!sifResult)
-            result->setMessage("set icon file for new created user failed.");
-        if (!spResult)
-            result->setMessage("set password for new created user failed");
-        if (!groupResult)
-            result->setMessage("set group for new created user failed");
+        if (!sifResult) result->setMessage("set icon file for new created user failed.");
+        if (!spResult) result->setMessage("set password for new created user failed");
+        if (!groupResult) result->setMessage("set group for new created user failed");
         return result;
     }
 
@@ -661,7 +593,7 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
 
     std::random_device r;
     std::default_random_engine e1(r());
-    std::uniform_int_distribution<int> uniform_dist(0, seedchars.size() - 1); //seedchars.size()是64，生成随机数的范围应该写成[0, 63]。
+    std::uniform_int_distribution<int> uniform_dist(0, seedchars.size() - 1);//seedchars.size()是64，生成随机数的范围应该写成[0, 63]。
 
     // Random access to a character in a restricted list
     for (int i = 0; i != 16; i++) {

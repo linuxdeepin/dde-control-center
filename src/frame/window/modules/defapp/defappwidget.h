@@ -54,7 +54,6 @@ class DefaultAppsWidget : public QWidget
 
 public:
     explicit DefaultAppsWidget(QWidget* parent = nullptr);
-    void setDefaultWidget();
 
 Q_SIGNALS:
     void requestCategoryClicked(dcc::defapp::DefAppWorker::DefaultAppsCategory category);

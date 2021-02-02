@@ -418,10 +418,6 @@ void ConnectionEditPage::createConnSettings()
         m_connectionSettings->setId(connName.arg(connectionSuffixNum(connName)));
     }
     m_connectionUuid = m_connectionSettings->createNewUuid();
-    while (findConnectionByUuid(m_connectionUuid) != nullptr) {
-        qint64 second = QDateTime::currentDateTime().toSecsSinceEpoch();
-        m_connectionUuid.replace(24, QString::number(second).length(), QString::number(second));
-    }
     m_connectionSettings->setUuid(m_connectionUuid);
 }
 

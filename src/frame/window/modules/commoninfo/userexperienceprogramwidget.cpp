@@ -50,7 +50,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     if (DSysInfo::isCommunityEdition()) {
         tipLabel = new DTipLabel(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
                                     "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                                    "For details, please refer to Deepin Privacy Policy (https://www.deepin.org/en/agreement/privacy/)."));
+                                    "For details, please refer to Deepin Privacy Policy (https://www.uniontech.com/agreement/deepin-privacy-en)."));
     } else {
         tipLabel = new DTipLabel(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
                                     "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "

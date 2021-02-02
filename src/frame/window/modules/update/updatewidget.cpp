@@ -148,11 +148,10 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 
     UpdateSettings *updateSetting = new UpdateSettings(m_model);
     updateSetting->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    connect(updateSetting, &UpdateSettings::requestSetAutoDownloadUpdates, m_work, &UpdateWorker::setAutoDownloadUpdates);
+    connect(updateSetting, &UpdateSettings::requestSetAutoUpdate, m_work, &UpdateWorker::setAutoDownloadUpdates);
     connect(updateSetting, &UpdateSettings::requestShowMirrorsView, this, &UpdateWidget::pushMirrorsView);
     connect(updateSetting, &UpdateSettings::requestSetAutoCleanCache, m_work, &UpdateWorker::setAutoCleanCache);
     connect(updateSetting, &UpdateSettings::requestSetAutoCheckUpdates, m_work, &UpdateWorker::setAutoCheckUpdates);
-    connect(updateSetting, &UpdateSettings::requestSetUpdateMode, m_work, &UpdateWorker::setUpdateMode);
     connect(updateSetting, &UpdateSettings::requestSetUpdateNotify, m_work, &UpdateWorker::setUpdateNotify);
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(updateSetting, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
@@ -226,7 +225,7 @@ void UpdateWidget::showUpdateSetting()
     resetUpdateCheckState(false);
     m_work->checkNetselect();
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
-    Q_EMIT m_work->requestRefreshMirrors();
+    m_work->refreshMirrors();
 #endif
     m_mainLayout->setCurrentIndex(1);
 }

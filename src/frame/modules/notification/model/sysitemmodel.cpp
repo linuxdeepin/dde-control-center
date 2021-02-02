@@ -20,6 +20,8 @@
  */
 #include "sysitemmodel.h"
 
+#include <QJsonObject>
+
 using namespace dcc;
 using namespace dcc::notification;
 
@@ -28,81 +30,111 @@ SysItemModel::SysItemModel(QObject *parent)
     , m_isDisturbMode(false)
     , m_isShowInDock(false)
     , m_isTimeSlot(false)
+    , m_isFullScreen(false)
+    , m_isProjector(false)
     , m_isLockScreen(false)
-    , m_timeStart("22:00")
-    , m_timeEnd("07:00")
+    , m_timeStart(QTime::fromString("22:00","hh:mm"))
+    , m_timeEnd(QTime::fromString("07:00","hh:mm"))
 {
+}
+
+void SysItemModel::setItem(const QJsonObject &item)
+{
+    setFullScreen(item["AppsInFullscreen"].toBool());
+    setProjector(item["ConnectedProjector"].toBool());
+    setLockScreen(item["ScreenLocked"].toBool());
+    setDisturbMode(item["DoNotDisturb"].toBool());
+    setShowInDock(item["ShowIconOnDock"].toBool());
+    setTimeSlot(item["TimeSlot"].toBool());
+    setTimeStart(QTime::fromString(item["StartTime"].toString(), "hh:mm"));
+    setTimeEnd(QTime::fromString(item["EndTime"].toString(), "hh:mm"));
+}
+
+QJsonObject SysItemModel::convertQJson()
+{
+    QJsonObject jsonObj;
+    jsonObj.insert("AppsInFullscreen", isFullScreen());
+    jsonObj.insert("ScreenLocked", isLockScreen());
+    jsonObj.insert("DoNotDisturb", isDisturbMode());
+    jsonObj.insert("ShowIconOnDock", isShowInDock());
+    jsonObj.insert("ConnectedProjector", isProjector());
+    jsonObj.insert("EndTime", timeEnd().toString("hh:mm"));
+    jsonObj.insert("StartTime", timeStart().toString("hh:mm"));
+    jsonObj.insert("TimeSlot", isTimeSlot());
+    QJsonObject json_fa;
+    json_fa.insert("SystemNotify", jsonObj);
+    return json_fa;
 }
 
 void SysItemModel::setDisturbMode(const bool disturbMode)
 {
-    if (m_isDisturbMode == disturbMode)
-        return;
-    m_isDisturbMode = disturbMode;
-    Q_EMIT disturbModeChanged(disturbMode);
+    if (m_isDisturbMode != disturbMode) {
+        m_isDisturbMode = disturbMode;
+
+        Q_EMIT disturbModeChanged(disturbMode);
+    }
 }
 
 void SysItemModel::setShowInDock(const bool showInDock)
 {
-    if (m_isShowInDock == showInDock)
-        return;
-    m_isShowInDock = showInDock;
-    Q_EMIT showInDockChanged(showInDock);
+    if (m_isShowInDock != showInDock) {
+        m_isShowInDock = showInDock;
+
+        Q_EMIT showInDockChanged(showInDock);
+    }
 }
 
 void SysItemModel::setTimeSlot(const bool timeSlot)
 {
-    if (m_isTimeSlot == timeSlot)
-        return;
-    m_isTimeSlot = timeSlot;
-    Q_EMIT timeSlotChanged(timeSlot);
+    if (m_isTimeSlot != timeSlot) {
+        m_isTimeSlot = timeSlot;
+
+        Q_EMIT timeSlotChanged(timeSlot);
+    }
+}
+
+void SysItemModel::setFullScreen(const bool fullScreen)
+{
+    if (m_isFullScreen != fullScreen) {
+        m_isFullScreen = fullScreen;
+
+        Q_EMIT fullScreenChanged(fullScreen);
+    }
+}
+
+void SysItemModel::setProjector(const bool projector)
+{
+    if (m_isProjector != projector) {
+        m_isProjector = projector;
+
+        Q_EMIT projectorChanged(projector);
+    }
 }
 
 void SysItemModel::setLockScreen(const bool lockScreen)
 {
-    if (m_isLockScreen == lockScreen)
-        return;
-    m_isLockScreen = lockScreen;
-    Q_EMIT lockScreenChanged(lockScreen);
+    if (m_isLockScreen != lockScreen) {
+        m_isLockScreen = lockScreen;
+
+        Q_EMIT lockScreenChanged(lockScreen);
+    }
 }
 
-void SysItemModel::setTimeStart(const QString &timeStart)
+void SysItemModel::setTimeStart(const QTime &timeStart)
 {
-    if (m_timeStart == timeStart)
-        return;
-    m_timeStart = timeStart;
-    Q_EMIT timeStartChanged(timeStart);
+    if (m_timeStart != timeStart) {
+        m_timeStart = timeStart;
+
+        Q_EMIT timeStartChanged(timeStart);
+    }
 }
 
-void SysItemModel::setTimeEnd(const QString &timeEnd)
+void SysItemModel::setTimeEnd(const QTime &timeEnd)
 {
-    if (m_timeEnd == timeEnd)
-        return;
-    m_timeEnd = timeEnd;
-    Q_EMIT timeEndChanged(timeEnd);
-}
+    if (m_timeEnd != timeEnd) {
+        m_timeEnd = timeEnd;
 
-void SysItemModel::onSettingChanged(uint item, const QDBusVariant &var)
-{
-    switch (item) {
-    case DNDMODE:
-        setDisturbMode(var.variant().toBool());
-        break;
-    case LOCKSCREENOPENDNDMODE:
-        setLockScreen(var.variant().toBool());
-        break;
-    case OPENBYTIMEINTERVAL:
-        setTimeSlot(var.variant().toBool());
-        break;
-    case STARTTIME:
-        setTimeStart(var.variant().toString());
-        break;
-    case ENDTIME:
-        setTimeEnd(var.variant().toString());
-        break;
-    case SHOWICON:
-        setShowInDock(var.variant().toBool());
-        break;
+        Q_EMIT timeEndChanged(timeEnd);
     }
 }
 
