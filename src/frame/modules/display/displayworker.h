@@ -128,7 +128,6 @@ private:
     MouseInter *m_mouseInter{nullptr};
 
     SysPowerInter *m_sysPowerInter;
-    QDBusInterface *m_systemInfo;
     struct {
         QMutex  m_brightnessMutex;
         bool    m_hasPendingRequest = false;

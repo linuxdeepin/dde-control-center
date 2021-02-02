@@ -53,8 +53,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
                                             QDBusConnection::sessionBus(), this)),
       m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this)),
       m_mouseInter(new MouseInter("com.deepin.daemon.InputDevices", "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this)) ,
-      m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this)),
-      m_systemInfo(new QDBusInterface("com.deepin.system.SystemInfo", "/com/deepin/system/SystemInfo", "com.deepin.system.SystemInfo", QDBusConnection::systemBus(), this))
+      m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
 {
 
     m_displayInter.setSync(isSync);
@@ -219,7 +218,8 @@ void DisplayWorker::mergeScreens()
         replys << mInter->SetModeBySize(static_cast<ushort>(mode.width()), static_cast<ushort>(mode.height()));
         replys << mInter->SetRotation(rotate);
         //+ 无法使用m_displayInter中的亮度参数，此时m_displayInter中的brightness为空
-        if (m_systemInfo->property("ProductName").toString() == "klu") {
+        QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
+        if (productName.contains("KLVU")) {
             if (mon->name() == "DP-1") {
                 replys << m_displayInter.SetBrightness(mon->name(), brightness);
             }
@@ -507,7 +507,8 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
         replys << inter->SetRotation(rotate);
         replys << inter->Enable(enabled);
 
-        if (m_systemInfo->property("ProductName").toString() == "klu") {
+        QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
+        if (productName.contains("KLVU")) {
             if (monitor->name() == "DP-1") {
                 replys << m_displayInter.SetBrightness(monitor->name(), brightness);
             }

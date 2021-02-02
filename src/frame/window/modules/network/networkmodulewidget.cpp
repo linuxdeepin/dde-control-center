@@ -50,12 +50,6 @@ NetworkModuleWidget::NetworkModuleWidget()
     , m_lvnmpages(new dcc::widgets::MultiSelectListView(this))
     , m_modelpages(new QStandardItemModel(this))
 {
-    QProcess process;
-    process.start("gdbus introspect -y -d com.deepin.system.SystemInfo -o /com/deepin/system/SystemInfo -p");
-    process.waitForFinished();
-    QByteArray pcType = process.readAllStandardOutput();
-    process.close();
-
     setObjectName("Network");
     m_lvnmpages->setAccessibleName("List_networkmenulist");
     m_lvnmpages->setFrameShape(QFrame::NoFrame);
@@ -74,14 +68,14 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 #ifndef DISABLE_NETWORK_AIRPLANE
     //判断当前的机器是否为盘古v，如果为盘古v则不需要飞行模式功能
-    while (!pcType.contains("PGUV")) {
+    QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
+    if (!productName.contains("PGUV")) {
         qDebug() << "This machine is not PanguV";
         //~ contents_path /network/Airplane
         DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
         airplanemode->setData(QVariant::fromValue(AirplaneModepage), SectionRole);
         airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
         m_modelpages->appendRow(airplanemode);
-        break;
     }
 #endif
 

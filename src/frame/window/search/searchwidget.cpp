@@ -503,6 +503,15 @@ void SearchWidget::loadxml()
                             continue;
                         }
 
+                        //PanguV已经去掉了飞行模式功能故不支持此关键字的搜索结果显示
+                        if (m_searchBoxStruct.fullPagePath.contains("Airplane")) {
+                            QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
+                            if (productName.contains("PGUV")) {
+                                clearSearchData();
+                                continue;
+                            }
+                        }
+
                         m_EnterNewPagelist.append(m_searchBoxStruct);
 
                         // Add search result content
