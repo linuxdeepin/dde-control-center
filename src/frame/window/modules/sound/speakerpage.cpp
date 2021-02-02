@@ -177,7 +177,6 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
                 m_outputSoundCbx->comboBox()->hidePopup();
                 model->removeRow(i);
                 connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
-                m_currentPort = m_model->activePort();
             } else {
                 ++i;
             }

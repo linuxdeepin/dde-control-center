@@ -353,8 +353,8 @@ void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
     m_activeSinkPort = activeSinkPort.name;
 
     for (auto port : m_model->ports()) {
-        if (activeSinkPort.description == port->name()) {
-            m_model->setActivePort(port);
+        if (m_activeSinkPort == port->id()) {
+            m_model->setPort(port);
         }
     }
 

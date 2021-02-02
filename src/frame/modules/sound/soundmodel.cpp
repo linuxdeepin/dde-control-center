@@ -298,11 +298,6 @@ void SoundModel::setDefaultSink(const QDBusObjectPath &defaultSink)
     Q_EMIT defaultSinkChanged(m_defaultSink);
 }
 
-void SoundModel::setActivePort(Port *port)
-{
-    m_activePort = port;
-}
-
 QString SoundModel::audioCards() const
 {
     return m_audioCards;

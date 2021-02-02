@@ -159,9 +159,6 @@ public:
     QDBusObjectPath defaultSink() const;
     void setDefaultSink(const QDBusObjectPath &defaultSink);
 
-    void setActivePort(Port *port);
-    Port *activePort() { return m_activePort; }
-
     QString audioCards() const;
     void setAudioCards(const QString &audioCards);
 
