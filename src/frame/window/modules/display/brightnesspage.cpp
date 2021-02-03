@@ -140,7 +140,7 @@ void BrightnessPage::addSlider()
 
 
         auto onValueChanged = [ = ](int pos) {
-            this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
+            this->requestSetMonitorBrightness(m_displayModel->monitorList()[i], pos / BrightnessMaxScale);
             this->requestAmbientLightAdjustBrightness(false);
         };
 
