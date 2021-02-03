@@ -65,7 +65,6 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     , m_sldLowerBrightness(new TitledSliderItem(tr("Decrease brightness"), this))
     , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
     , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
-    , m_batteryLabel(new TitleLabel(tr("Battery")))
     , m_powerShowTimeToFull(new SwitchWidget(tr("Display capacity and remaining charging time")))
     , m_ShowTimeToFullTips(new PowerDisplayWidget(tr("Maximum capacity"), this))
     , m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity")))
@@ -174,6 +173,7 @@ void GeneralWidget::initUi()
 
     /**** 电池设置 ************************************************************************/
     //~ contents_path /power/General
+    m_batteryLabel = new TitleLabel(tr("Battery"));
     DFontSizeManager::instance()->bind(m_batteryLabel, DFontSizeManager::T5, QFont::DemiBold); // 电池设置label字体
     QVBoxLayout *batteyLayout = new QVBoxLayout;                                               // 电池设置布局
     SettingsGroup *batterySettingsGrp = new SettingsGroup;

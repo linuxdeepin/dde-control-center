@@ -1053,48 +1053,48 @@
 <context>
     <name>dccV20::datetime::DateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
         <source>Auto Sync</source>
         <translation>Авто-синхронізація</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="88"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="89"/>
         <source>Confirm</source>
         <translation>Підтвердити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="142"/>
         <source>Server</source>
         <translation>Сервер</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
         <source>Address</source>
         <translation>Адреса</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="151"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="250"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="259"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="301"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="355"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="356"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="446"/>
         <source>Customize</source>
         <translation>Налаштувати</translation>
     </message>
@@ -1331,6 +1331,7 @@
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="50"/>
         <source>System Timezone</source>
         <translation>Часовий пояс системи</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1428,265 +1429,165 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::BrightnessPage</name>
+    <name>dccV20::display::BrightnessWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="57"/>
         <source>Color Temperature</source>
-        <translation>Температура кольорів</translation>
+        <translation>Колірна температура</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="63"/>
         <source>Night Shift</source>
         <translation>Нічна зміна</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="66"/>
         <source>The screen hue will be auto adjusted according to your location</source>
         <translation>Відтінок екрана буде автоматично налаштовано відповідно до вашого розташування</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="76"/>
         <source>Change Color Temperature</source>
-        <translation>Змінити температуру кольорів</translation>
+        <translation>Змінити колірну температуру</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="81"/>
         <source>Auto Brightness</source>
         <translation>Автоматична яскравість</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="157"/>
         <source>Brightness</source>
         <translation>Яскравість</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Cool</source>
-        <translation>Холодні</translation>
+        <translation>Холодне</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Warm</source>
-        <translation>Теплі</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::CustomSettingDialog</name>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
-        <source>Displays</source>
-        <translation>Показувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
-        <source>Resolution</source>
-        <translation>Роздільність</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="112"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="223"/>
-        <source>Refresh Rate</source>
-        <translation>Частота оновлення</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="141"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="145"/>
-        <source>Save</source>
-        <translation>Зберегти</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="322"/>
-        <source>Hz</source>
-        <translation>Гц</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="330"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="396"/>
-        <source>Recommended</source>
-        <translation>Рекомендовано</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="450"/>
-        <source>Main Screen</source>
-        <translation>Головний екран</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="468"/>
-        <source>Monitor Connected (Multiple)</source>
-        <translation>Монітор з&apos;єднано (декілька)</translation>
+        <translation>Тепле</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="72"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="37"/>
         <source>Multiple Displays</source>
         <translation>Кілька дисплеїв</translation>
     </message>
-</context>
-<context>
-    <name>dccV20::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="201"/>
-        <source>Refresh Rate</source>
-        <translation>Частота оновлення</translation>
-        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="39"/>
+        <source>Mode</source>
+        <translation>Режим</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="140"/>
-        <source>Multiple Displays</source>
-        <translation>Кілька дисплеїв</translation>
-        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="41"/>
+        <source>Main Screen</source>
+        <translation>Головний екран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="161"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="163"/>
-        <source>Brightness</source>
-        <translation>Яскравість</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="198"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="199"/>
-        <source>Resolution</source>
-        <translation>Роздільність</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="168"/>
-        <source>Display Scaling</source>
-        <translation>Масштабування дисплея</translation>
-        <extra-contents_path>/display/Display Scaling</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="183"/>
-        <source>Touch Screen</source>
-        <translation>Сенсорний екран</translation>
-        <extra-contents_path>/display/Touch Screen</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="233"/>
-        <source>Rotate Screen</source>
-        <translation>Повернути Екран</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::MultiScreenSettingPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="52"/>
-        <source>Custom Settings</source>
-        <translation>Користувацькі Налаштування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="203"/>
         <source>Duplicate</source>
-        <translation>Дублікат</translation>
+        <translation>Дублювати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="204"/>
         <source>Extend</source>
         <translation>Розширити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="133"/>
-        <source>Show the same image on other screens</source>
-        <translation>Показати те саме зображення на інших екранах</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="134"/>
-        <source>Expand the desktop across the screens</source>
-        <translation>Розгорнути стільницю по екранах</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="138"/>
-        <source>Customize</source>
-        <translation>Налаштувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="139"/>
-        <source>Configure the display according to your needs</source>
-        <translation>Налаштуйте дисплей відповідно до своїх потреб</translation>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="209"/>
+        <source>Only on %1</source>
+        <translation>Лише на %1</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::display::RefreshRatePage</name>
+    <name>dccV20::display::RefreshRateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="31"/>
+        <source>Refresh Rate</source>
+        <translation>Частота оновлення</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="135"/>
         <source>Hz</source>
         <translation>Гц</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="137"/>
         <source>Recommended</source>
         <translation>Рекомендовано</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::display::ResolutionDetailPage</name>
+    <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="35"/>
+        <source>Resolution</source>
+        <translation>Роздільність</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="133"/>
         <source>Recommended</source>
         <translation>Рекомендовано</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>dccV20::display::RotateDialog</name>
+    <name>dccV20::display::RotateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation>Клацніть лівою кнопкою миші, щоб повернути, правою кнопкою миші відновити та вийти, натисніть Ctrl + S, щоб зберегти.</translation>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="34"/>
+        <source>Rotation</source>
+        <translation>Обертання</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
-        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation>Клацніть правою кнопкою миші, щоб повернути; клацніть лівою кнопкою миші відновити та вийти; натисніть Ctrl + S, щоб зберегти.</translation>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <source>Standard</source>
+        <translation>Стандартне</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="169"/>
-        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation>Зберегти параметри показу? Якщо зараз ви нічого не робитимете, попередні параметри показу буде відновлено за %1 с.</translation>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <source>90°</source>
+        <translation>90°</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <source>180°</source>
+        <translation>180°</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <source>270°</source>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::display::ScalingPage</name>
+    <name>dccV20::display::ScalingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="53"/>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="134"/>
-        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation>Деякі програми не можна масштабувати із заданими налаштуваннями в середовищі з кількома дисплеями.</translation>
+        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="51"/>
+        <source>Display Scaling</source>
+        <translation>Масштабування дисплея</translation>
     </message>
+</context>
+<context>
+    <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="130"/>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>Параметрами монітора передбачено лише масштабування у 100%</translation>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="86"/>
+        <source>Brightness</source>
+        <translation>Яскравість</translation>
     </message>
 </context>
 <context>
@@ -2367,7 +2268,7 @@
         <translation>DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="204"/>
         <source>Invalid DNS address</source>
         <translation>Некоректна адреса DNS</translation>
     </message>
@@ -4554,55 +4455,56 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
-        <source>Battery</source>
-        <translation>Акумулятор</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="69"/>
         <source>Display capacity and remaining charging time</source>
         <translation>Показати місткість і час до повного заряджання</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="69"/>
         <source>Maximum capacity</source>
         <translation>Максимальна місткість</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Show battery capacity</source>
         <translation>Показати ємність акумулятора</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="73"/>
         <source>Balanced</source>
         <translation>Збалансований</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="74"/>
         <source>High Performance</source>
         <translation>Висока продуктивність</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="75"/>
         <source>Power Saver</source>
         <translation>Заощадження живлення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
         <source>Power Plans</source>
         <translation>Плани живлення</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="130"/>
         <source>Power Saving Settings</source>
         <translation>Параметри заощадження енергії</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="158"/>
         <source>Wakeup Settings</source>
         <translation>Параметри пробудження</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="176"/>
+        <source>Battery</source>
+        <translation>Акумулятор</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
 </context>
@@ -4777,68 +4679,68 @@
         <translation>Якщо закрито кришку</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="61"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="64"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="67"/>
         <source>Monitor will suspend after</source>
         <translation>Монітор вимкнеться після</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="74"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="80"/>
         <source>Computer will suspend after</source>
         <translation>Комп&apos;ютер вимкнеться після</translation>
         <extra-child_page>Plugged In</extra-child_page>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="88"/>
         <source>Shut down</source>
         <translation>Вимкнути</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="90"/>
         <source>Suspend</source>
         <translation>Призупинити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="93"/>
         <source>Hibernate</source>
         <translation>Приспати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="95"/>
         <source>Turn off the monitor</source>
         <translation>Вимкнути монітор</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="95"/>
         <source>Do nothing</source>
         <translation>Нічого не робити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="123"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="309"/>
         <source>Never</source>
         <translation>Ніколи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="291"/>
         <source>1 Minute</source>
         <translation>1 Хвилина</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="294"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="297"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="300"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="303"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="306"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="312"/>
         <source>%1 Minutes</source>
         <translation>%1 Хвилин</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="306"/>
         <source>1 Hour</source>
         <translation>1 Година</translation>
     </message>
@@ -5394,12 +5296,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="44"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Правила конфіденційності</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="49"/>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy or view it online by visiting &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Ми поважаємо ваші права на конфіденційність ваших особистих даних. Тому нами розроблено правила конфіденційності, які обмежують збирання, використання, оприлюднення, передавання, розкриття для громадськості та зберігання нами відомостей щодо вас.&lt;/p&gt;&lt;p&gt;Можете натиснути &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;тут&lt;/a&gt;, щоб переглянути найсвіжішу версію правил конфіденційності або переглянути ці дані у мережі, відвідавши &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Будь ласка, уважно прочитайте та переконайтеся, що вам повністю зрозумілий наш підхід до конфіденційності даних користувачів. Якщо у вас виникнуть якісь питання, будь ласка, зв&apos;яжіться із нами за адресою support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -5433,7 +5335,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Правила конфіденційності</translation>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
     </message>
 </context>
@@ -6568,47 +6470,14 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::display::MonitorControlWidget</name>
     <message>
-        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="40"/>
         <source>Recognize</source>
         <translation>Розпізнати</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="54"/>
-        <source>Split</source>
-        <translation>Розділити</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="61"/>
-        <source>Merge</source>
-        <translation>Об&apos;єднати</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::MonitorSettingDialog</name>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="107"/>
-        <source>Resolution</source>
-        <translation>Роздільність</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="170"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="172"/>
-        <source>Save</source>
-        <translation>Зберегти</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
-        <source>Primary</source>
-        <translation>Основний</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
-        <source> (Recommended)</source>
-        <translation>(Рекомендовано)</translation>
+        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="41"/>
+        <source>Gather Windows</source>
+        <translation>Зібрати вікна</translation>
     </message>
 </context>
 <context>

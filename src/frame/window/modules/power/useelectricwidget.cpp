@@ -54,9 +54,6 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     //~ contents_path /power/Plugged In
     //~ child_page Plugged In
     m_autoLockScreen->setAccessibleName(tr("Lock screen after"));
-    //~ contents_path /power/Plugged In
-    //~ child_page Plugged In
-//    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
     powerSettingsGrp->setSpacing(List_Interval);
