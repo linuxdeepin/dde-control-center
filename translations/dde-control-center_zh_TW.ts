@@ -614,7 +614,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>密碼必須由大寫字母、小寫字母、數字、符號（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）四種類型組成</translation>
+        <translation>密碼必須由大寫字母、小寫字母、數字、符號（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）三種類型組成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
@@ -1053,48 +1053,48 @@
 <context>
     <name>dccV20::datetime::DateSettings</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="80"/>
         <source>Auto Sync</source>
         <translation>自動同步</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="88"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="89"/>
         <source>Confirm</source>
         <translation>確認</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="142"/>
         <source>Server</source>
         <translation>伺服器</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
         <source>Address</source>
         <translation>位址</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="151"/>
         <source>Required</source>
         <translation>必須</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="250"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="259"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="301"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="355"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="356"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="446"/>
         <source>Customize</source>
         <translation>自訂</translation>
     </message>
@@ -1428,265 +1428,165 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::BrightnessPage</name>
+    <name>dccV20::display::BrightnessWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="57"/>
         <source>Color Temperature</source>
         <translation>色溫</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="63"/>
         <source>Night Shift</source>
         <translation>夜間模式</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="66"/>
         <source>The screen hue will be auto adjusted according to your location</source>
         <translation>螢幕色調會根據位置自動調整</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="76"/>
         <source>Change Color Temperature</source>
         <translation>手動調節</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="81"/>
         <source>Auto Brightness</source>
         <translation>自動亮度調整</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="157"/>
         <source>Brightness</source>
         <translation>螢幕亮度</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Cool</source>
         <translation>較冷</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Warm</source>
         <translation>較暖</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::display::CustomSettingDialog</name>
+    <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
-        <source>Displays</source>
-        <translation>螢幕顯示</translation>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="72"/>
+        <source>Display</source>
+        <translation>螢幕</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="37"/>
+        <source>Multiple Displays</source>
+        <translation>多屏設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
-        <source>Resolution</source>
-        <translation>解析度</translation>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="39"/>
+        <source>Mode</source>
+        <translation>模式</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="112"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="223"/>
-        <source>Refresh Rate</source>
-        <translation>刷新率</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="141"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="145"/>
-        <source>Save</source>
-        <translation>儲存</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="322"/>
-        <source>Hz</source>
-        <translation>Hz</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="330"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="396"/>
-        <source>Recommended</source>
-        <translation>建議</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="41"/>
         <source>Main Screen</source>
         <translation>主螢幕</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="468"/>
-        <source>Monitor Connected (Multiple)</source>
-        <translation>開啟螢幕(可多選)</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::DisplayModule</name>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="75"/>
-        <source>Display</source>
-        <translation>螢幕</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="137"/>
-        <source>Multiple Displays</source>
-        <translation>多顯示器模式</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::DisplayWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="176"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="201"/>
-        <source>Refresh Rate</source>
-        <translation>刷新率</translation>
-        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="140"/>
-        <source>Multiple Displays</source>
-        <translation>多顯示器模式</translation>
-        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="142"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="160"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="161"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="163"/>
-        <source>Brightness</source>
-        <translation>螢幕亮度</translation>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="194"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="198"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="199"/>
-        <source>Resolution</source>
-        <translation>解析度</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="168"/>
-        <source>Display Scaling</source>
-        <translation>縮放螢幕</translation>
-        <extra-contents_path>/display/Display Scaling</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="183"/>
-        <source>Touch Screen</source>
-        <translation>觸控屏</translation>
-        <extra-contents_path>/display/Touch Screen</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="232"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="233"/>
-        <source>Rotate Screen</source>
-        <translation>旋轉螢幕</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::display::MultiScreenSettingPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="52"/>
-        <source>Custom Settings</source>
-        <translation>自訂設定</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="203"/>
         <source>Duplicate</source>
         <translation>同步顯示畫面</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="204"/>
         <source>Extend</source>
         <translation>延伸畫面</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="133"/>
-        <source>Show the same image on other screens</source>
-        <translation>將螢幕內容複製至其他螢幕</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="134"/>
-        <source>Expand the desktop across the screens</source>
-        <translation>跨螢幕展開桌面</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="138"/>
-        <source>Customize</source>
-        <translation>自訂</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="139"/>
-        <source>Configure the display according to your needs</source>
-        <translation>根據需要設定顯示器</translation>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="209"/>
+        <source>Only on %1</source>
+        <translation>僅%1屏</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::display::RefreshRatePage</name>
+    <name>dccV20::display::RefreshRateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="31"/>
+        <source>Refresh Rate</source>
+        <translation>刷新率</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="135"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="137"/>
         <source>Recommended</source>
         <translation>建議</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::display::ResolutionDetailPage</name>
+    <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="35"/>
+        <source>Resolution</source>
+        <translation>解析度</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="133"/>
         <source>Recommended</source>
         <translation>建議</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>dccV20::display::RotateDialog</name>
+    <name>dccV20::display::RotateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
-        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
-        <translation>按左鍵旋轉，按右鍵還原並離開，按 Ctrl+S 儲存。</translation>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="34"/>
+        <source>Rotation</source>
+        <translation>方向</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="166"/>
-        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
-        <translation>按右鍵旋轉，按左鍵還原並離開，按 Ctrl+S 儲存。</translation>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <source>Standard</source>
+        <translation>標準</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="169"/>
-        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
-        <translation>是否儲存顯示設定？如果沒有任何動作，顯示器將會在 %1 秒後還原。</translation>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <source>90°</source>
+        <translation>90度</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <source>180°</source>
+        <translation>180度</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <source>270°</source>
+        <translation>270度</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::display::ScalingPage</name>
+    <name>dccV20::display::ScalingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="53"/>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="134"/>
-        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
-        <translation>部份應用程式可能無法在多顯示器環境依指定設定旋轉。</translation>
+        <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="51"/>
+        <source>Display Scaling</source>
+        <translation>縮放螢幕</translation>
     </message>
+</context>
+<context>
+    <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="130"/>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>顯示器只支援 100% 螢幕縮放</translation>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="86"/>
+        <source>Brightness</source>
+        <translation>螢幕亮度</translation>
     </message>
 </context>
 <context>
@@ -2367,7 +2267,7 @@
         <translation>DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="204"/>
         <source>Invalid DNS address</source>
         <translation>無效的DNS地址</translation>
     </message>
@@ -5124,34 +5024,34 @@
         <translation>喇叭</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="246"/>
         <source>Output Volume</source>
         <translation>輸出音量</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="348"/>
         <source>Volume Boost</source>
         <translation>音量增強</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="355"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>音量大於100%時可能會導致音效失真，同時損害您的揚聲器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="365"/>
         <source>Left/Right Balance</source>
         <translation>左/右平衡</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="370"/>
         <source>Left</source>
         <translation>左聲道</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
         <source>Right</source>
         <translation>右聲道</translation>
     </message>
@@ -5399,7 +5299,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="49"/>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy or view it online by visiting &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;統信軟體非常重視您的隱私。因此我們制定了涵蓋如何收集、使用、共享、轉讓、公開披露以及儲存您的訊息的隱私政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;點擊此處&lt;/a&gt;查看我們最新的隱私政策和/或透過訪問&lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;線上查看。請您務必認真閱讀、充分理解我們針對客戶隱私的做法，如果有任何疑問，請聯絡我們：support@uniontech.com。&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;統信軟體非常重視您的隱私。因此我們制定了涵蓋如何收集、使用、共享、轉讓、公開披露以及儲存您的訊息的隱私政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;點擊此處&lt;/a&gt;查看我們最新的隱私政策和/或透過訪問&lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-cn&lt;/a&gt;線上查看。請您務必認真閱讀、充分理解我們針對客戶隱私的做法，如果有任何疑問，請聯絡我們：support@uniontech.com。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -6567,47 +6467,14 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::display::MonitorControlWidget</name>
     <message>
-        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="47"/>
+        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="40"/>
         <source>Recognize</source>
         <translation>辨識螢幕</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="54"/>
-        <source>Split</source>
-        <translation>分割</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="61"/>
-        <source>Merge</source>
-        <translation>合併</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::MonitorSettingDialog</name>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="107"/>
-        <source>Resolution</source>
-        <translation>解析度</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="170"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="172"/>
-        <source>Save</source>
-        <translation>儲存</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
-        <source>Primary</source>
-        <translation>主要螢幕</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="346"/>
-        <source> (Recommended)</source>
-        <translation>（建議）</translation>
+        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="41"/>
+        <source>Gather Windows</source>
+        <translation>集合視窗</translation>
     </message>
 </context>
 <context>
