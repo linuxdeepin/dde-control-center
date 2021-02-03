@@ -29,6 +29,7 @@
 #include "datetimemodel.h"
 
 #include <com_deepin_daemon_timedate.h>
+#include <com_deepin_daemon_timedated.h>
 
 #include <QObject>
 
@@ -36,6 +37,7 @@ namespace dcc {
 namespace datetime {
 
 using Timedate = com::deepin::daemon::Timedate;
+using Timedated = com::deepin::daemon::Timedated;
 
 class DatetimeWork : public QObject
 {
@@ -81,6 +83,7 @@ private:
 private:
     DatetimeModel *m_model;
     Timedate *m_timedateInter;
+    Timedated *m_systemtimedatedInter;
 };
 }
 }
