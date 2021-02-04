@@ -319,9 +319,9 @@ void DatetimeModule::showTimeSetting()
     //set dbus data to 24 hour format
     m_setting->updateSettingformatTime(m_model->get24HourFormat());
 
-    m_setting->updateRealAutoSyncCheckState(m_model->nTP());
     m_setting->updateNTPServerList(m_model->ntpServerList());
     m_setting->setNtpServerAddress(m_model->ntpServerAddress());
+    m_setting->updateRealAutoSyncCheckState(m_model->nTP());
 
     //fit the two clocks's point to same
     m_setting->setCurrentTimeZone(m_model->currentTimeZone());
