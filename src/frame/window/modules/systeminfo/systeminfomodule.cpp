@@ -113,27 +113,15 @@ int SystemInfoModule::load(const QString &path)
         type = EditionLicense;
     } else if (path == "End User License Agreement") {
         type = EndUserLicenseAgreement;
+    } else if (path == "Privacy Policy") {
+        type = PrivacyPolicy;
     }
 
     QModelIndex index = list->model()->index(type, 0);
-    switch (type) {
-    case AboutThisPC:
-        index = list->model()->index(AboutThisPC, 0);
+    if (type > Default && type < MaxType) {
+        index = list->model()->index(type, 0);
         list->setCurrentIndex(index);
         list->clicked(index);
-        break;
-    case EditionLicense:
-        index = list->model()->index(EditionLicense, 0);
-        list->setCurrentIndex(index);
-        list->clicked(index);
-        break;
-    case EndUserLicenseAgreement:
-        index = list->model()->index(EndUserLicenseAgreement, 0);
-        list->setCurrentIndex(index);
-        list->clicked(index);
-        break;
-    default:
-        break;
     }
 
     return 0;
@@ -142,7 +130,8 @@ int SystemInfoModule::load(const QString &path)
 QStringList SystemInfoModule::availPage() const
 {
     QStringList availList;
-    availList << "About This PC" << "Edition License" << "End User License Agreement";
+    availList << "About This PC" << "Edition License" << "End User License Agreement" << "Privacy Policy";
+
     return availList;
 }
 

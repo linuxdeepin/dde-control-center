@@ -46,7 +46,9 @@ public:
         Default = -1,
         AboutThisPC,
         EditionLicense,
-        EndUserLicenseAgreement
+        EndUserLicenseAgreement,
+        PrivacyPolicy,
+        MaxType
     };
 
 public:
