@@ -109,7 +109,7 @@ void Monitor::setRotate(const quint16 rotate)
 
 void Monitor::setBrightness(const double brightness)
 {
-    int tempBrightness = qFloor(brightness * 100.0);
+    int tempBrightness = qRound(brightness * 100.0);
     //因为亮度变化最小为1%，所以不使用 DoubleZero
     if (m_brightness == tempBrightness)
         return;

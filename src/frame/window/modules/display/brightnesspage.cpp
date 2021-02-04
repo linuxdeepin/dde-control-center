@@ -152,9 +152,9 @@ void BrightnessPage::addSlider()
             slider->blockSignals(true);
             int iValue = 0;
             if ((rb - m_displayModel->minimumBrightnessScale()) < 0.00001) {
-                iValue = qFloor(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
+                iValue = qRound(m_displayModel->minimumBrightnessScale() * BrightnessMaxScale);
             } else {
-                iValue = qFloor(rb * BrightnessMaxScale);
+                iValue = qRound(rb * BrightnessMaxScale);
             }
 
             slideritem->setValueLiteral(QString("%1%").arg(iValue));
