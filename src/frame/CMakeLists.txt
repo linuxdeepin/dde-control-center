@@ -81,6 +81,8 @@ set(FRAME_FILES
 set(WINDOW_FILES
     window/mainwindow.cpp
     window/utils.h
+    window/gsettingwatcher.cpp
+    window/gsettingwatcher.h
     window/accessibleinterface.h
     window/accessible.h
     window/protocolfile.cpp

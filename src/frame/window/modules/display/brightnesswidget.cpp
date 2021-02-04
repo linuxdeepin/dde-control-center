@@ -23,6 +23,7 @@
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include "widgets/labels/tipslabel.h"
 #include "widgets/settingsheaderitem.h"
@@ -156,6 +157,7 @@ void BrightnessWidget::addSlider()
 
     TitleLabel *headTitle = new TitleLabel(tr("Brightness")); //亮度
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
+    GSettingWatcher::instance()->bind("display-light-lighting", headTitle);  // 使用GSettings来控制显示状态
     m_centralLayout->insertWidget(0, headTitle);
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名
@@ -267,6 +269,7 @@ void BrightnessWidget::addSlider()
                         slider->blockSignals(false);
                     });
         }
+        GSettingWatcher::instance()->bind("display-light-lighting", slideritem);  // 使用GSettings来控制显示状态
         m_centralLayout->insertWidget(1, slideritem);
         m_monitorBrightnessMap[monList[i]] = slideritem;
     }
