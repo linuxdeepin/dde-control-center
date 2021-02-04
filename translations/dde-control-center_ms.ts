@@ -454,53 +454,7 @@
         <translation>Nama sudah wujud</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="528"/>
-        <source>Password cannot be empty</source>
-        <translation>Kata laluan tidak boleh kosong</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara, dan mengandungi sekurang-kurangnya %2 daripada empat jenis aksara yang ada: huruf kecil, huruf besar, angka, dan simbol</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="533"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Kata laluan mestilah tidak lebih daripada %1 aksara</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Kata laluan mesti sekurang-kurangnya mengandungi %1 daripada empat jenis aksara yang ada: huruf kecil, huruf besar, angka, dan simbol</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="551"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Kata laluan hanya boleh mengandungi abjad Inggeris letters (sensitif-kata), angka atau simbol khas (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="562"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Kata laluan mesti tidak mengandungi lebih daripada 4 aksara palindrome</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="569"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>Kata laluan mesti tidak mengandungi perkataan dan gabungan umum</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="587"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>Kata laluan tidak boleh ulang atau terbalik daripada nama pengguna</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
         <source>Passwords do not match</source>
         <translation>Kata laluan tidak sepadan</translation>
     </message>
@@ -542,145 +496,67 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
         <source>Change Password</source>
         <translation>Ubah Kata Laluan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
         <source>Current Password</source>
         <translation>Kata Laluan Semasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
         <source>New Password</source>
         <translation>Kata Laluan Baharu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
         <source>Repeat Password</source>
         <translation>Ulang Kata Laluan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>Cancel</source>
         <translation>Batal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Save</source>
         <translation>Simpan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
         <source>Required</source>
         <translation>Diperlukan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="143"/>
         <source>Password cannot be empty</source>
         <translation>Kata laluan tidak boleh kosong</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
-        <source>Go to Settings</source>
-        <translation>Pergi ke Tetapan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
-        <source>Wrong password</source>
-        <translation>Kata laluan salah</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
-        <source>Password must have at least %1 characters</source>
-        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
-        <source>The new password should not be similar to the current one</source>
-        <translation>Kata laluan baharu seharusnya berbeza dengan yang semasa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="149"/>
         <source>New password should differ from the current one</source>
         <translation>Kata laluan baharu seharusnya berbeza dengan nilai semasa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Kata laluan mesti mengandungi abjad huruf besar, abjad huruf kecil, angka dan simbol (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
-        <source>Do not use a password you have used before</source>
-        <translation>Jangan guna kata laluan yang anda pernah guna sebelum ini</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
-        <source>Do not use common words and combinations as password</source>
-        <translation>Jangan guna perkataan dan gabungan umum sebagai kata laluan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
-        <source>Do not use common words and combinations in reverse order as password</source>
-        <translation>Jangan guna perkataan dan gabungan umum secara terbalik sebagai kata laluan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
-        <source>It does not meet password rules</source>
-        <translation>Ia tidak menepati peraturan kata laluan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
         <source>Passwords do not match</source>
         <translation>Kata laluan tidak sepadan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="296"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara, dan mengandungi sekurang-kurangnya %2 daripada empat jenis aksara yang ada: huruf kecil, huruf besar, angka, dan simbol</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
+        <source>Go to Settings</source>
+        <translation>Pergi ke Tetapan</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Kata laluan mesti sekurang-kurangnya %1 aksara</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="354"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Kata laluan mestilah tidak lebih daripada %1 aksara</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Kata laluan mesti sekurang-kurangnya mengandungi %1 daripada empat jenis aksara yang ada: huruf kecil, huruf besar, angka, dan simbol</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Kata laluan hanya boleh mengandungi abjad Inggeris letters (sensitif-kata), angka atau simbol khas (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="338"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Kata laluan mesti tidak mengandungi lebih daripada 4 aksara palindrome</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>Kata laluan mesti tidak mengandungi perkataan dan gabungan umum</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="370"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>Kata laluan tidak boleh ulang atau terbalik daripada nama pengguna</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
+        <source>Wrong password</source>
+        <translation>Kata laluan salah</translation>
     </message>
 </context>
 <context>
@@ -5026,34 +4902,34 @@
         <translation>Pembesar Suara</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="246"/>
         <source>Output Volume</source>
         <translation>Volum Output</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="348"/>
         <source>Volume Boost</source>
         <translation>Galak Volum</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="355"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Jika volum lebih kuat dari 100%, ia mungkin menyebabkan audio terherot dan boleh merosakkan pembesar suara anda.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="365"/>
         <source>Left/Right Balance</source>
         <translation>Imbangan Kiri/Kanan</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="370"/>
         <source>Left</source>
         <translation>Kiri</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
         <source>Right</source>
         <translation>Kanan</translation>
     </message>
@@ -5904,6 +5780,49 @@ Lawati Pusat Pengguna dan urus akaun anda di sana.</translation>
     </message>
 </context>
 <context>
+    <name>PwqualityManager</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
+        <source>Password must have at least %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <source>Do not use common words and combinations in reverse order as password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
+        <source>New password should differ from the current one</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <source>It does not meet password rules</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/frame/main.cpp" line="129"/>
@@ -6103,32 +6022,32 @@ Lawati Pusat Pengguna dan urus akaun anda di sana.</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="496"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="470"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Hos anda telah berjaya dibuang daripada pelayan domain</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="471"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Hos anda berjaya menyertai pelayan domain</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="525"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="499"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Hos anda gagal keluar dari pelayan domain</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="526"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
         <source>Your host failed to join the domain server</source>
         <translation>Hos anda gagal menyertai pelayan domain</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="529"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="503"/>
         <source>AD domain settings</source>
         <translation>Tetapan domain AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="598"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="572"/>
         <source>Password not match</source>
         <translation>Kata laluan tidak sepadan</translation>
     </message>

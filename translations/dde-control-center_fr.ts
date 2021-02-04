@@ -454,53 +454,7 @@
         <translation>Le nom existe déjà</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="528"/>
-        <source>Password cannot be empty</source>
-        <translation>Le mot de passe ne peut être vide</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Le mot de passe doit comporter au moins %1 caractères et contenir au moins %2 des quatre types de caractères disponibles :  lettres minuscules, majuscules, chiffres et symboles</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="533"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Le mot de passe doit comporter au moins %1 caractères</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Le mot de passe ne doit pas comporter plus de %1 caractères</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Le mot de passe doit contenir au moins %1 des 4 types de caractères suivants : minuscules, majuscules, nombres et caractères spéciaux</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="551"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Le mot de passe doit contenir des lettres (sensibles à la casse), des chiffres ou des symboles spéciaux (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="562"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Le mot de passe ne doit pas contenir plus de 4 caractères palindrome</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="569"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>Le mot de passe ne doit pas contenir de mots et de combinaisons courants</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="587"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>Le mot de passe ne doit pas être le nom d&apos;utilisateur répété ou inversé</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
         <source>Passwords do not match</source>
         <translation>Les mots de passe ne correspondent pas</translation>
     </message>
@@ -542,145 +496,67 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
         <source>Change Password</source>
         <translation>Changer le mot de passe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
         <source>Current Password</source>
         <translation>Mot de passe actuel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
         <source>New Password</source>
         <translation>nouveau mot de passe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
         <source>Repeat Password</source>
         <translation>Répétez le mot de passe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Save</source>
         <translation>Sauvegarder</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
         <source>Required</source>
         <translation>Obligatoire</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="143"/>
         <source>Password cannot be empty</source>
         <translation>Le mot de passe ne peut être vide</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
-        <source>Go to Settings</source>
-        <translation>Aller aux paramètres</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
-        <source>Wrong password</source>
-        <translation>Mauvais mot de passe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
-        <source>Password must have at least %1 characters</source>
-        <translation>Le mot de passe doit comporter au moins %1 caractères</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
-        <source>The new password should not be similar to the current one</source>
-        <translation>Le nouveau mot de passe ne doit pas être similaire à l&apos;actuel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="149"/>
         <source>New password should differ from the current one</source>
         <translation>Le nouveau mot de passe doit être différent de celui en cours</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Le mot de passe doit contenir des lettres majuscules, des lettres minuscules, des chiffres et des symboles (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
-        <source>Do not use a password you have used before</source>
-        <translation>N&apos;utilisez pas un mot de passe que vous avez utilisé auparavant</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
-        <source>Do not use common words and combinations as password</source>
-        <translation>N&apos;utiliser pas de mots et de combinaisons courants comme mot de passe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
-        <source>Do not use common words and combinations in reverse order as password</source>
-        <translation>N&apos;utiliser pas de mots communs et de combinaisons dans l&apos;ordre inverse comme mot de passe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
-        <source>It does not meet password rules</source>
-        <translation>Il ne répond pas aux règles de mot de passe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
         <source>Passwords do not match</source>
         <translation>Les mots de passe ne correspondent pas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="296"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Le mot de passe doit comporter au moins %1 caractères et contenir au moins%2 des quatre types de caractères disponibles :  lettres minuscules, majuscules, chiffres et symboles</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
+        <source>Go to Settings</source>
+        <translation>Aller aux paramètres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Le mot de passe doit comporter au moins %1 caractères</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="354"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Le mot de passe ne doit pas comporter plus de %1 caractères</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Le mot de passe doit contenir au moins %1 des 4 types de caractères suivants : minuscules, majuscules, nombres et caractères spéciaux</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Le mot de passe ne peut contenir que des lettres anglaises (sensibles à la casse), des chiffres ou des symboles spéciaux (~ ! @ # $% ^ &amp; * () [] {} \ | / ?,. &lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="338"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Le mot de passe ne doit pas contenir plus de 4 caractères palindrome</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>Le mot de passe ne doit pas contenir de mots et de combinaisons courants</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="370"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>Le mot de passe ne doit pas être le nom d&apos;utilisateur répété ou inversé</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
+        <source>Wrong password</source>
+        <translation>Mauvais mot de passe</translation>
     </message>
 </context>
 <context>
@@ -5026,34 +4902,34 @@
         <translation>Haut-parleur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="246"/>
         <source>Output Volume</source>
         <translation>Volume de sortie</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="348"/>
         <source>Volume Boost</source>
         <translation>Augmentation du volume</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="355"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Si le volume est supérieur à 100%, cela peut déformer le son et être nocif pour votre haut-parleur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="365"/>
         <source>Left/Right Balance</source>
         <translation>Balance gauche/droite</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="370"/>
         <source>Left</source>
         <translation>Gauche</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
         <source>Right</source>
         <translation>Droite</translation>
     </message>
@@ -5904,6 +5780,49 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
     </message>
 </context>
 <context>
+    <name>PwqualityManager</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <source>Password cannot be empty</source>
+        <translation>Le mot de passe ne peut pas être vide</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
+        <source>Password must have at least %1 characters</source>
+        <translation>Le mot de passe doit comporter au moins %1 caractères</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Le mot de passe ne doit pas comporter plus de %1 caractères</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>Le mot de passe ne doit pas contenir plus de 4 caractères palindrome</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <source>Do not use common words and combinations in reverse order as password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
+        <source>New password should differ from the current one</source>
+        <translation>Le nouveau mot de passe doit différer de l&apos;actuel</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <source>It does not meet password rules</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/frame/main.cpp" line="129"/>
@@ -6103,32 +6022,32 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="496"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="470"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Votre hôte a été supprimé du serveur de domaine avec succès</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="471"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Votre hôte rejoint le serveur de domaine avec succès</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="525"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="499"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Votre hôte n&apos;a pas pu quitter le serveur de domaine</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="526"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
         <source>Your host failed to join the domain server</source>
         <translation>Votre hôte n&apos;a pas réussi à rejoindre le serveur de domaine</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="529"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="503"/>
         <source>AD domain settings</source>
         <translation>Paramètres du domaine AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="598"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="572"/>
         <source>Password not match</source>
         <translation>Le mot de passe ne correspond pas</translation>
     </message>

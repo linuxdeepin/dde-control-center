@@ -454,53 +454,7 @@
         <translation>该名称已存在</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="528"/>
-        <source>Password cannot be empty</source>
-        <translation>密码不能为空</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>密码最少%1位，至少同时包含小写字母、大写字母、数字、符号中的%2种</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="533"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>密码应包含至少%1个字符</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>密码长度不能超过%1个字符</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>密码应至少包含小写字母、大写字母、数字、符号中的%1种</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="551"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="562"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>密码不得含有连续4个以上的回文字符</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="569"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>密码不得含有常用单词及组合</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="587"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>密码不可为用户名重复或倒置</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
@@ -542,145 +496,67 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="143"/>
         <source>Password cannot be empty</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
-        <source>Go to Settings</source>
-        <translation>前往设置</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
-        <source>Wrong password</source>
-        <translation>密码错误</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
-        <source>Password must have at least %1 characters</source>
-        <translation>密码长度不能少于%1位</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
-        <source>The new password should not be similar to the current one</source>
-        <translation>新密码和旧密码不得有相似部分</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="149"/>
         <source>New password should differ from the current one</source>
         <translation>新密码和旧密码不能相同</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>密码必须由大写字母、小写字母、数字、符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）三种类型组成</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
-        <source>Do not use a password you have used before</source>
-        <translation>不能使用曾经使用过的密码</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
-        <source>Do not use common words and combinations as password</source>
-        <translation>密码不能是常见单词及组合</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
-        <source>Do not use common words and combinations in reverse order as password</source>
-        <translation>密码不能是常见单词及组合的反向排列</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
-        <source>It does not meet password rules</source>
-        <translation>密码不符合安全要求</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="296"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>密码最少%1位，至少同时包含小写字母、大写字母、数字、符号中的%2种</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
+        <source>Go to Settings</source>
+        <translation>前往设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>密码应包含至少%1个字符</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="354"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>密码长度不能超过%1个字符</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>密码应至少包含小写字母、大写字母、数字、符号中的%1种</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="338"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>密码不得含有连续4个以上的回文字符</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>密码不得含有常用单词及组合</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="370"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>密码不可为用户名重复或倒置</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
+        <source>Wrong password</source>
+        <translation>密码错误</translation>
     </message>
 </context>
 <context>
@@ -5904,6 +5780,49 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
+    <name>PwqualityManager</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <source>Password cannot be empty</source>
+        <translation>密码不能为空</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
+        <source>Password must have at least %1 characters</source>
+        <translation>密码长度不能少于%1个字符</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>密码长度不能超过%1个字符</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>密码必须由大写字母、小写字母、数字、符号（~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/）三种类型组成</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>密码不得含有连续4个以上的回文字符</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <source>Do not use common words and combinations in reverse order as password</source>
+        <translation>密码不能是常见单词及组合的反向排列</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
+        <source>New password should differ from the current one</source>
+        <translation>新密码和旧密码不能相同</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <source>It does not meet password rules</source>
+        <translation>密码不符合安全要求</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/frame/main.cpp" line="129"/>
@@ -6103,32 +6022,32 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="496"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="470"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主机成功退出了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="471"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主机成功加入了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="525"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="499"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主机退出域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="526"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主机加入域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="529"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="503"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="598"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="572"/>
         <source>Password not match</source>
         <translation>密码不一致</translation>
     </message>

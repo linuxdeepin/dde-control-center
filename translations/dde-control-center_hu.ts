@@ -14,7 +14,7 @@
     <message>
         <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>A közeli bluetooth eszközök engedélyezése (hangszóró, billentyűzet, egér)</translation>
+        <translation>Engedélyezze a Bluetooth használatát a közeli eszközök (hangszóró, billentyűzet, egér) megkereséséhez</translation>
     </message>
 </context>
 <context>
@@ -74,7 +74,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Display</source>
-        <translation>Kijelző</translation>
+        <translation>Képernyő</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
@@ -84,7 +84,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Personalization</source>
-        <translation>Személyreszabás</translation>
+        <translation>Felhasználói felület</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
@@ -407,7 +407,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
         <source>Customized</source>
-        <translation>Személyre szabott</translation>
+        <translation>Testreszabott</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="273"/>
@@ -454,53 +454,7 @@
         <translation>A név már létezik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="528"/>
-        <source>Password cannot be empty</source>
-        <translation>A jelszó nem lehet üres</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>A jelszónak legalább %1 karakterből kell állnia, és a rendelkezésre álló négy karaktertípusból legalább %2-t kell tartalmaznia: kisbetűk, nagybetűk, számok és szimbólumok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="533"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>A jelszónak legalább %1 karakterből kell állnia</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Jelszó nem lehet hosszabb mint %1 karakter</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>A jelszónak tartalmaznia kell a rendelkezésre álló négy karaktertípus közül legalább %1-et: kisbetűk, nagybetűk, számok és szimbólumok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="551"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>A jelszó csak angol betűket (kis- és nagybetűket), számokat vagy speciális szimbólumokat tartalmazhat (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="562"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>A jelszó legfeljebb 4 palindróm karaktert tartalmazhat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="569"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>A jelszó nem tartalmazhat általános szavakat és kombinációkat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="587"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>A jelszó nem lehet megismételt, vagy megfordított felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
         <source>Passwords do not match</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
@@ -542,145 +496,67 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
         <source>Change Password</source>
         <translation>Jelszó megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
         <source>Current Password</source>
         <translation>Jelenlegi jelszó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
         <source>New Password</source>
         <translation>Új jelszó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
         <source>Repeat Password</source>
         <translation>Jelszó ismétlése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Save</source>
         <translation>Mentés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
         <source>Required</source>
         <translation>Kötelező</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="143"/>
         <source>Password cannot be empty</source>
         <translation>A jelszó nem lehet üres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
-        <source>Go to Settings</source>
-        <translation>Ugrás a beállításokhoz</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
-        <source>Wrong password</source>
-        <translation>Helytelen jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
-        <source>Password must have at least %1 characters</source>
-        <translation>A jelszónak legalább %1 karakterből kell állnia</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
-        <source>The new password should not be similar to the current one</source>
-        <translation>Az új jelszó nem lehet hasonló a jelenlegi jelszóhoz</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="149"/>
         <source>New password should differ from the current one</source>
         <translation>Az új jelszónak különböznie kell a jelenlegitől </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>A jelszónak tartalmaznia kell nagybetűket, kisbetűket, számokat és szimbólumokat (~! @ # $% ^ &amp; * () [] {} \ | /?,. &lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
-        <source>Do not use a password you have used before</source>
-        <translation>Ne használjon korábban használt jelszót</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
-        <source>Do not use common words and combinations as password</source>
-        <translation>Ne használjon jelszóként gyakori szavakat és kombinációkat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
-        <source>Do not use common words and combinations in reverse order as password</source>
-        <translation>Ne használjon jelszóként fordított sorrendben gyakori szavakat és kombinációkat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
-        <source>It does not meet password rules</source>
-        <translation>Nem felel meg a jelszavakra vonatkozó szabályoknak</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
         <source>Passwords do not match</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="296"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>A jelszónak legalább %1 karakterből kell állnia, és a rendelkezésre álló négy karaktertípusból legalább %2-t kell tartalmaznia: kisbetűk, nagybetűk, számok és szimbólumok</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
+        <source>Go to Settings</source>
+        <translation>Ugrás a beállításokhoz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>A jelszónak legalább %1 karakterből kell állnia</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="354"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Jelszó nem lehet hosszabb mint %1 karakter</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>A jelszónak tartalmaznia kell a rendelkezésre álló négy karaktertípus közül legalább %1-et: kisbetűk, nagybetűk, számok és szimbólumok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>A jelszó csak angol betűket (kis- és nagybetűket), számokat vagy speciális szimbólumokat tartalmazhat (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="338"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>A jelszó legfeljebb 4 palindróm karaktert tartalmazhat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>A jelszó nem tartalmazhat általános szavakat és kombinációkat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="370"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>A jelszó nem lehet megismételt, vagy megfordított felhasználónév</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
+        <source>Wrong password</source>
+        <translation>Helytelen jelszó</translation>
     </message>
 </context>
 <context>
@@ -1096,7 +972,7 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="364"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="446"/>
         <source>Customize</source>
-        <translation>Személyre szabott</translation>
+        <translation>Testreszabás</translation>
     </message>
 </context>
 <context>
@@ -1448,7 +1324,7 @@ időformátum</translation>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="66"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation>A képernyő színárnyalata automatikusan az Ön tartózkodási helyének megfelelően lesz beállítva</translation>
+        <translation>A képernyő színárnyalata automatikusan, az Ön tartózkodási helyének megfelelően lesz beállítva</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="76"/>
@@ -1483,7 +1359,7 @@ időformátum</translation>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="72"/>
         <source>Display</source>
-        <translation>Kijelző</translation>
+        <translation>Képernyő</translation>
     </message>
 </context>
 <context>
@@ -1491,7 +1367,7 @@ időformátum</translation>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="37"/>
         <source>Multiple Displays</source>
-        <translation>Több képernyős mód</translation>
+        <translation>Többképernyős mód</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="39"/>
@@ -4378,7 +4254,7 @@ effektje</translation>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="68"/>
         <source>Personalization</source>
-        <translation>Személyreszabás</translation>
+        <translation>Felhasználói felület</translation>
     </message>
 </context>
 <context>
@@ -5035,34 +4911,34 @@ lecsukásakor</translation>
         <translation>Hangszóró</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="246"/>
         <source>Output Volume</source>
         <translation>Kimeneti hangerő</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="348"/>
         <source>Volume Boost</source>
         <translation>Hangzás felerősítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="355"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Ha a hangerő 100% -nál nagyobb, torzíthatja a hangot és káros lehet a hangszóróra.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="365"/>
         <source>Left/Right Balance</source>
         <translation>Bal / Jobb Balansz</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="370"/>
         <source>Left</source>
         <translation>Bal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
         <source>Right</source>
         <translation>Jobb</translation>
     </message>
@@ -5818,7 +5694,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
         <source>Only Displayed on %1</source>
-        <translation>Megjelenítés csak a %1-n</translation>
+        <translation>Megjelenítés csak a %1 képernyőn</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
@@ -5843,12 +5719,12 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
         <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Kérjük adja meg a megjelenítési módot a saját beállítások módosításához</translation>
+        <translation>Kérjük lépjen be a Képernyő modulba a saját beállításainak módosításához</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation>Kattintson, hogy belépjen a Kijelző modulba</translation>
+        <translation>Kattintson, hogy belépjen a Képernyő modulba</translation>
     </message>
 </context>
 <context>
@@ -5910,6 +5786,49 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="53"/>
         <source>Microphone</source>
         <translation>Mikrofon</translation>
+    </message>
+</context>
+<context>
+    <name>PwqualityManager</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <source>Password cannot be empty</source>
+        <translation>A jelszó nem lehet üres</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
+        <source>Password must have at least %1 characters</source>
+        <translation>A jelszónak legalább %1 karakterből kell állnia</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Jelszó nem lehet hosszabb %1 karakternél</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>A jelszónak tartalmaznia kell nagybetűket, kisbetűket, számokat és szimbólumokat (~! @ # $% ^ &amp; * - + = `| \ () {} [] :;&quot; &apos;&lt;&gt;,.? /)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>A jelszó legfeljebb 4 palindróm karaktert tartalmazhat</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <source>Do not use common words and combinations in reverse order as password</source>
+        <translation>Ne használjon jelszóként fordított sorrendben gyakori szavakat és kombinációkat</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
+        <source>New password should differ from the current one</source>
+        <translation>Az új jelszónak különböznie kell a jelenlegitől </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <source>It does not meet password rules</source>
+        <translation>Nem felel meg a jelszavakra vonatkozó szabályoknak</translation>
     </message>
 </context>
 <context>
@@ -6093,7 +6012,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
         <source>Connect to hidden network</source>
-        <translation>Kapcsolódás rejtett hálózathoz</translation>
+        <translation>Csatlakozás rejtett hálózathoz</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
@@ -6112,32 +6031,32 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="496"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="470"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>A számítógépe sikeresen eltávolítva a tartomány szerverről</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="471"/>
         <source>Your host joins the domain server successfully</source>
         <translation>A számítógépe sikeresen csatlakozott a tartomány szerverhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="525"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="499"/>
         <source>Your host failed to leave the domain server</source>
         <translation>A számítógépe nem tudott lecsatlakozni a tartomány szerverről</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="526"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
         <source>Your host failed to join the domain server</source>
         <translation>A számítógépe nem tudott csatlakozni a tartomány szerverhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="529"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="503"/>
         <source>AD domain settings</source>
         <translation>AD tartományi beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="598"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="572"/>
         <source>Password not match</source>
         <translation>A jelszó nem egyezik</translation>
     </message>
@@ -6365,7 +6284,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="44"/>
         <source>Disconnect</source>
-        <translation>Szétkapcsolás</translation>
+        <translation>Lecsatlakozás</translation>
     </message>
 </context>
 <context>
@@ -6473,7 +6392,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
         <source>Display</source>
-        <translation>Kijelző</translation>
+        <translation>Képernyő</translation>
     </message>
 </context>
 <context>
@@ -6670,7 +6589,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
         <source>Personalization</source>
-        <translation>Személyreszabás</translation>
+        <translation>Felhasználói felület</translation>
     </message>
 </context>
 <context>

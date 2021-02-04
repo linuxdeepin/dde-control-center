@@ -454,53 +454,7 @@
         <translation>མིང་ཡོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="528"/>
-        <source>Password cannot be empty</source>
-        <translation>གསང་ཨང་སྟོང་པ་ཡིན་མི་རུང་། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>གསང་ཨང་ནང་ཡིག་འབྲུ་1དགོས་པ་མ་ཟད། ད་དུང་ཡིག་ཆུང་དང་ཡིག་ཆེན། ཨང་ཀི། མཚོན་རྟགས་བཅས་ལས་2ཡོད་དགོས། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="533"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>གསང་ཨང་ནང་ཉུང་མཐར་ཡང་ཡིག་རྟགས་1ཡོད་དགོས།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>གསང་ཨང་གི་རིང་ཚད་ཡིག་རྟགས་1ལས་བརྒལ་མི་རུང་། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>གསང་ཨང་ནང་ཡིག་ཆུང་དང་། ཡིག་ཆེན། ཨང་ཀི། མཚོན་རྟགས་བཅས་བཞི་ལས་གང་རུང་1ཡོད་དགོས། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="551"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>གསང་ཨང་ནི་དབྱིན་ཡིག་(ཡིག་ཆེན་དང་ཡིག་ཆུང་གི་དབྱེ་བ་འབྱེད་དགོས། )དང་། ཨང་ཀི། ཡང་ན་དམིགས་བསལ་མཚོན་རྟགས་(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)བཅས་ལས་གྲུབ་དགོས།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="562"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་རྟགས་4ཡན་ཡོད་མི་ཆོག </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="569"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>གསང་ཨང་ནང་རྒྱུན་སྤྱོད་ཐ་སྙད་དང་སྡེབ་སྒྲིག་ཡོད་མི་ཆོག </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="587"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>གསང་ཨང་ནི་སྤྱོད་མཁན་མིང་བསྐྱར་ཟློས་སམ་གོ་རིམ་ལྡོག་ནས་བྱེད་མི་ཆོག</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
         <source>Passwords do not match</source>
         <translation>གསང་ཨང་མི་མཐུན་བ། </translation>
     </message>
@@ -542,145 +496,67 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
         <source>Change Password</source>
         <translation>གསང་ཨང་བཟོ་བཅོས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
         <source>Current Password</source>
         <translation>མིག་སྔའི་གསང་ཨང་། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
         <source>New Password</source>
         <translation>གསང་ཨང་གསར་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
         <source>Repeat Password</source>
         <translation>གསང་ཨང་བསྐྱར་ཟློས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>Cancel</source>
         <translation>འདོར་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Save</source>
         <translation>ཉར་ཚགས། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
         <source>Required</source>
         <translation>ངེས་པར་འབྲི་དགོས། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="143"/>
         <source>Password cannot be empty</source>
         <translation>གསང་ཨང་སྟོང་པ་ཡིན་མི་རུང་། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
-        <source>Go to Settings</source>
-        <translation>སྒྲིག་འགོད་བྱེད་དུ་འགྲོ་བ། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
-        <source>Wrong password</source>
-        <translation>གསང་ཨང་ནོར་འདུག</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
-        <source>Password must have at least %1 characters</source>
-        <translation>གསང་ཨང་རིང་ཚད་གྲངས་གནས་%1ལས་ཉུང་མི་རུང་།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
-        <source>The new password should not be similar to the current one</source>
-        <translation>གསང་ཨང་གསར་པ་དང་རྙིང་པར་ཆ་འདྲ་བའི་ཆ་ཤས་ཡོད་མི་རུང་།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="149"/>
         <source>New password should differ from the current one</source>
         <translation>གསང་ཨང་གསར་པ་དང་རྙིང་པ་གཅིག་མཚུངས་ཡིན་མི་རུང་། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>གསང་ཨང་ནི་ངེས་པར་དུ་ཡིག་ཆེན་དང་། ཡིག་ཆུང་། གྲངས་ཀ མཚོན་རྟགས་（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）བཅས་རིགས་བཞི་ལས་གྲུབ་དགོས།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
-        <source>Do not use a password you have used before</source>
-        <translation>དེ་སྔ་སྤྱོད་མྱོང་བའི་གསང་ཨང་སྤྱོད་མི་ཆོག </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
-        <source>Do not use common words and combinations as password</source>
-        <translation>གསང་ཨང་ནི་རྒྱུན་མཐོང་གི་མིང་དང་ཚིག་གྲུབ་ཡིན་མི་ཆོག </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
-        <source>Do not use common words and combinations in reverse order as password</source>
-        <translation>གསང་ཨང་ནི་རྒྱུན་མཐོང་གི་མིང་དང་ཚིག་གྲུབ་ཀྱི་ལྡོག་འབྲི་ཡིན་མི་ཆོག </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
-        <source>It does not meet password rules</source>
-        <translation>གསང་ཨང་བདེ་འཇགས་ཀྱི་བླང་བྱ་དང་མི་འཚམ་པ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
         <source>Passwords do not match</source>
         <translation>གསང་ཨང་མི་མཐུན་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="296"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>གསང་ཨང་ནང་ཡིག་འབྲུ་1དགོས་པ་མ་ཟད། ད་དུང་ཡིག་ཆུང་དང་ཡིག་ཆེན། ཨང་ཀི། མཚོན་རྟགས་བཅས་ལས་2ཡོད་དགོས། </translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
+        <source>Go to Settings</source>
+        <translation>སྒྲིག་འགོད་བྱེད་དུ་འགྲོ་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>གསང་ཨང་ནང་ཉུང་མཐར་ཡང་ཡིག་རྟགས་1ཡོད་དགོས།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="354"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>གསང་ཨང་གི་རིང་ཚད་ཡིག་རྟགས་%1ལས་བརྒལ་མི་རུང་། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>གསང་ཨང་ནང་ཡིག་ཆུང་དང་། ཡིག་ཆེན། ཨང་ཀི། མཚོན་རྟགས་བཅས་བཞི་ལས་གང་རུང་1ཡོད་དགོས། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>གསང་ཨང་ནི་དབྱིན་ཡིག་(ཡིག་ཆེན་དང་ཡིག་ཆུང་གི་དབྱེ་བ་འབྱེད་དགོས། )དང་། ཨང་ཀི། ཡང་ན་དམིགས་བསལ་མཚོན་རྟགས་(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)བཅས་ལས་གྲུབ་དགོས།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="338"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་རྟགས་4ཡན་ཡོད་མི་ཆོག </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>གསང་ཨང་ནང་རྒྱུན་སྤྱོད་ཐ་སྙད་དང་སྡེབ་སྒྲིག་ཡོད་མི་ཆོག </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="370"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>གསང་ཨང་ནི་སྤྱོད་མཁན་མིང་བསྐྱར་ཟློས་སམ་གོ་རིམ་ལྡོག་ནས་བྱེད་མི་ཆོག</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
+        <source>Wrong password</source>
+        <translation>གསང་ཨང་ནོར་འདུག</translation>
     </message>
 </context>
 <context>
@@ -1433,45 +1309,45 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="57"/>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>མདོག་དྲོད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="63"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>མདོག་དྲོད་རང་སྙོམ།</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="66"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>གནས་ས་གནས་ཡུལ་ཐོབ་ཐབས་བྱས་ཏེ་རྒྱུད་ཁོངས་ལ་རམ་འདེགས་བྱས་ནས་བརྙན་ཡོལ་གྱི་ཁ་དོག་རང་སྙོམ་ཡོང་བ་བྱ་དགོས། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="76"/>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>ལག་ཐབས་སྙོམ་སྒྲིག </translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="81"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>གསལ་ཚད་རང་སྙོམ།</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="157"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>གསལ་ཚད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>ཅུང་གྲང་། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>ཅུང་དྲོ།</translation>
     </message>
 </context>
 <context>
@@ -1487,32 +1363,32 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="37"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་མང་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="39"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>དཔེ་རྣམ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="41"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་གཙོ་བོ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="203"/>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>པར་སློག</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="204"/>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱ་སྐྱེད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="209"/>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་%1</translation>
     </message>
 </context>
 <context>
@@ -1520,17 +1396,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="31"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>གསར་འདོན་ཕྱོད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="135"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>ཧོ་ཙི།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="137"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>འོས་སྦྱོར།</translation>
     </message>
 </context>
 <context>
@@ -1538,12 +1414,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="35"/>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>འབྱེད་ཕྱོད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="133"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>འོས་སྦྱོར།</translation>
     </message>
 </context>
 <context>
@@ -1551,27 +1427,27 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="34"/>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>ཁ་ཕྱོགས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>ཚད་ལྡན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>ཏུའུ་90</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>ཏུའུ་180</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>ཏུའུ་270</translation>
     </message>
 </context>
 <context>
@@ -1579,7 +1455,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="51"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་ཡོལ་སྐྱེད་སྐྱུང་།</translation>
     </message>
 </context>
 <context>
@@ -1587,7 +1463,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="86"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>གསལ་ཚད།</translation>
     </message>
 </context>
 <context>
@@ -5026,34 +4902,34 @@
         <translation>སྒྲ་སྐྱེད་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="246"/>
         <source>Output Volume</source>
         <translation>སྒྲ་ཤུགས་ཕྱིར་འདོན།</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="348"/>
         <source>Volume Boost</source>
         <translation>སྐད་ཤུགས་ཆེ་རུ་གཏོང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="355"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>སྒྲ་ཤུགས་100%ལས་ཆེ་བ་ཡོད་སྐབས་སྒྲ་ནུས་ཤོར་སྲིད་པ་མ་ཟད། ཁྱོད་ཀྱི་སྒྲ་སྐྱེད་ཆས་ཀྱང་འཕྲོ་བརླག་གཏོང་ཉེན་ཡོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="365"/>
         <source>Left/Right Balance</source>
         <translation>གཡོན་/གཡས་དོ་སྙོམས།</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="370"/>
         <source>Left</source>
         <translation>གཡོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
         <source>Right</source>
         <translation>གཡས།</translation>
     </message>
@@ -5296,12 +5172,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="44"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>གསང་དོན་སྲིད་ཇུས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="49"/>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy or view it online by visiting &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>ཐུང་ཞིན་མཉེན་ཆས་ཀྱིས་ཁྱེད་ཀྱི་གསང་དོན་ལ་ཧ་ཅང་མཐོང་ཆེན་བྱེད་ཀྱི་ཡོད། དེར་བརྟེན་ང་ཚོས་ཁྱོད་ཀྱི་ཆ་འཕྲིན་ཇི་ལྟར་བསྡུ་ལེན་དང་། བེད་སྤྱོད། མཉམ་སྤྱོད། བཤུག་སྤྲོད། ཡོངས་བསྒྲགས། དེ་བཞིན་གསོག་འཇོག་བྱེད་པའི་ཐད་ཀྱི་གསང་དོན་སྲིད་ཇུས་བཟོས་ཡོད། ཁྱེད་ཀྱིས་འདི་མནན་ནས་ང་ཚོའི་གསང་དོན་སྲིད་ཇུས་གསར་ཤོས་ལ་ལྟ་བཤེར་བྱེད་པའམ་འདྲི་རྩད་བྱེད་ཆོག  https://www.uniontech.com/agreement/privacy-cn4 དྲ་ཐོག་ལྟ་བཤེར། ཁྱོད་ཀྱིས་ངེས་པར་དུ་ནན་ཏན་ངང་ལྟ་ཀློག་བྱས་ཏེ། ང་ཚོས་མཁོ་མཁན་ལ་དམིགས་པའི་གསང་དོན་བྱ་ཐབས་ལ་དགོངས་བཞེས་གང་ལེགས་ཡོད་པ་ཞུ། གལ་ཏེ་དོགས་གནད་གང་ཞིག་ཡོད་ཚེ། ང་ཚོ་དང་འབྲེལ་བ་གནང་རོགས། support@uniontech.com</translation>
     </message>
 </context>
 <context>
@@ -5335,7 +5211,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>གསང་དོན་སྲིད་ཇུས།</translation>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
     </message>
 </context>
@@ -5904,6 +5780,49 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
+    <name>PwqualityManager</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
+        <source>Password must have at least %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <source>Do not use common words and combinations in reverse order as password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
+        <source>New password should differ from the current one</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <source>It does not meet password rules</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/frame/main.cpp" line="129"/>
@@ -6103,32 +6022,32 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="496"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="470"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>ཁྱོད་ཀྱི་རྩིས་འཁོར་ཨ་མ་ཁོངས་ཞབས་ཞུ་ཆས་ལས་ཕྱིར་དོན་ཟིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="471"/>
         <source>Your host joins the domain server successfully</source>
         <translation>ཁྱོད་ཀྱི་རྩིས་འཁོར་ཨ་མ་ཁོངས་ཞབས་ཞུ་ཆས་ནང་ཞུགས་ཟིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="525"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="499"/>
         <source>Your host failed to leave the domain server</source>
         <translation>ཁྱོད་ཀྱི་རྩིས་འཁོར་ཨ་མ་ཁོངས་ཞབས་ཞུ་ཆས་ལས་ཕྱིར་དོན་མ་ཐུབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="526"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
         <source>Your host failed to join the domain server</source>
         <translation>ཁྱོད་ཀྱི་རྩིས་འཁོར་ཨ་མ་ཁོངས་ཞབས་ཞུ་ཆས་ནང་ཞུགས་མ་ཐུབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="529"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="503"/>
         <source>AD domain settings</source>
         <translation>ADཁོངས་ཀྱི་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="598"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="572"/>
         <source>Password not match</source>
         <translation>གསང་ཨང་མི་མཐུན་བ། </translation>
     </message>
@@ -6477,7 +6396,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="41"/>
         <source>Gather Windows</source>
-        <translation type="unfinished"/>
+        <translation>གཅིག་འདུས་སྒེའུ་ཁུང་།</translation>
     </message>
 </context>
 <context>

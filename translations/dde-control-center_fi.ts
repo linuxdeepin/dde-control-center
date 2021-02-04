@@ -152,7 +152,7 @@
         <location filename="../src/frame/window/mainwindow.cpp" line="941"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="943"/>
         <source>General Settings</source>
-        <translation>Yleiset asetukset</translation>
+        <translation>Yleiset</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="427"/>
@@ -454,53 +454,7 @@
         <translation>Nimi on jo olemassa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="515"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="528"/>
-        <source>Password cannot be empty</source>
-        <translation>Salasana on pakollinen kenttä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Salasanassa on olatava vähintään %1 merkkiä ja sisältäen %2 neljästä merkkityypistä: pienet kirjaimet, isot kirjaimet, numerot ja symbolit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="533"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Salasanassa on oltava vähintään %1 merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="539"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Salasanassa saa olla enintään %1 merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Salasanan tulee sisältää vähintään %1 neljästä käytettävissä olevasta merkkityypistä: pienet kirjaimet, isot kirjaimet, numerot ja symbolit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="551"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Salasana voi sisältää vain englanninkielisiä kirjaimia (isot ja pienet kirjaimet), numeroita tai erikoismerkkejä (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="562"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Salasana ei saa sisältää takaperin enempää kuin 4 -merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="569"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>Salasana ei saa sisältää yleisiä sanoja ja yhdistelmiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="587"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>Salasana ei saa olla toistuva tai käänteinen käyttäjätunnus</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="510"/>
         <source>Passwords do not match</source>
         <translation>Salasanat eivät täsmää</translation>
     </message>
@@ -542,145 +496,67 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
         <source>Change Password</source>
         <translation>Vaihda salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
         <source>Current Password</source>
         <translation>Nykyinen salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
         <source>New Password</source>
         <translation>Uusi salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
         <source>Repeat Password</source>
         <translation>Toista salasana</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
         <source>Cancel</source>
         <translation>Peruuta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Save</source>
         <translation>Tallenna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
         <source>Required</source>
         <translation>Vaadittu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="143"/>
         <source>Password cannot be empty</source>
         <translation>Salasana on pakollinen kenttä</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
-        <source>Go to Settings</source>
-        <translation>Mene asetuksiin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
-        <source>Wrong password</source>
-        <translation>Väärä salasana</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
-        <source>Password must have at least %1 characters</source>
-        <translation>Salasanassa on oltava vähintään %1 merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="177"/>
-        <source>The new password should not be similar to the current one</source>
-        <translation>Uuden salasanan ei pitäisi olla samanlainen kuin nykyinen salasana</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="149"/>
         <source>New password should differ from the current one</source>
         <translation>Uusi salasana ei saa olla sama kuin nykyinen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Salasanassa on oltava isoja kirjaimia, pieniä kirjaimia, numeroita ja symboleja (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
-        <source>Do not use a password you have used before</source>
-        <translation>Älä käytä salasanaa, jota olet käyttänyt aiemmin</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
-        <source>Do not use common words and combinations as password</source>
-        <translation>Älä käytä yleisiä sanoja ja yhdistelmiä salasanassa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
-        <source>Do not use common words and combinations in reverse order as password</source>
-        <translation>Älä käytä salasanassa yleisiä sanoja tai yhdistelmiä käänteisessä järjestyksessä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
-        <source>It does not meet password rules</source>
-        <translation>Tämä ei täytä salasanan sääntöjä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
         <source>Passwords do not match</source>
         <translation>Salasanat eivät täsmää</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="296"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Salasanassa on olatava vähintään %1 merkkiä ja sisältäen %2 neljästä merkkityypistä: pienet kirjaimet, isot kirjaimet, numerot ja symbolit</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="176"/>
+        <source>Go to Settings</source>
+        <translation>Mene asetuksiin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
-        <source>The password must have at least %1 characters</source>
-        <translation>Salasanassa on oltava vähintään %1 merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="354"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>Salasanassa saa olla enintään %1 merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>Salasanan tulee sisältää vähintään %1 neljästä käytettävissä olevasta merkkityypistä: pienet kirjaimet, isot kirjaimet, numerot ja symbolit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>Salasana voi sisältää vain englanninkielisiä kirjaimia (isot ja pienet kirjaimet), numeroita tai erikoismerkkejä (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="338"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>Salasana ei saa sisältää takaperin enempää kuin 4 -merkkiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
-        <source>Password must not contain common words and combinations</source>
-        <translation>Salasana ei saa sisältää yleisiä sanoja ja yhdistelmiä</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="370"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>Salasana ei saa olla toistuva tai käänteinen käyttäjätunnus</translation>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
+        <source>Wrong password</source>
+        <translation>Väärä salasana</translation>
     </message>
 </context>
 <context>
@@ -815,7 +691,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="97"/>
         <source>General Settings</source>
-        <translation>Yleiset asetukset</translation>
+        <translation>Yleiset</translation>
     </message>
 </context>
 <context>
@@ -1433,45 +1309,45 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="57"/>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Värilämpötila</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="63"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Yövalo</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="66"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Näytön sävy säädetään automaattisesti sijaintisi mukaan</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="76"/>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Muuta värilämpötilaa</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="81"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Automaattinen kirkkaus</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="157"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Kirkkaus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Kylmä</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>Lämmin</translation>
     </message>
 </context>
 <context>
@@ -1487,32 +1363,32 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="37"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Useita näyttöjä</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="39"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Tila</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="41"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Päänäyttö</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="203"/>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Kahdenna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="204"/>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Laajenna</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="209"/>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Vain %1</translation>
     </message>
 </context>
 <context>
@@ -1520,17 +1396,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="31"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Virkistystaajuus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="135"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="137"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Suositeltava</translation>
     </message>
 </context>
 <context>
@@ -1538,12 +1414,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="35"/>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resoluutio</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="133"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Suositeltava</translation>
     </message>
 </context>
 <context>
@@ -1551,27 +1427,27 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="34"/>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Kääntö</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Vakio</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
@@ -1579,7 +1455,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="51"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Näytön skaalaus</translation>
     </message>
 </context>
 <context>
@@ -1587,7 +1463,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="86"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Kirkkaus</translation>
     </message>
 </context>
 <context>
@@ -4308,12 +4184,12 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="216"/>
         <source>Window Minimize Effect</source>
-        <translation>Ikkunan pienennystehoste</translation>
+        <translation>Minimoi tehoste</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="219"/>
         <source>Scale</source>
-        <translation>Mittakaava</translation>
+        <translation>Skaalaus</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="219"/>
@@ -5026,34 +4902,34 @@
         <translation>Kaiutin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="246"/>
         <source>Output Volume</source>
         <translation>Lähdön äänenvoimakkuus</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="349"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="348"/>
         <source>Volume Boost</source>
         <translation>Äänen lisääminen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="355"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Jos äänenvoimakkuus on yli 100%, se voi vääristää ääntä ja olla haitallista kaiuttimille</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="365"/>
         <source>Left/Right Balance</source>
         <translation>Tasapaino vasen/oikea</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="370"/>
         <source>Left</source>
         <translation>Vasen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="371"/>
         <source>Right</source>
         <translation>Oikea</translation>
     </message>
@@ -5904,6 +5780,49 @@ ovat käytettävissä. Käyttäjäkeskuksessa ja hallinnoit tiliäsi.</translati
     </message>
 </context>
 <context>
+    <name>PwqualityManager</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <source>Password cannot be empty</source>
+        <translation>Salasana ei voi olla tyhjä</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
+        <source>Password must have at least %1 characters</source>
+        <translation>Salasanassa on oltava vähintään %1 merkkiä</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>Salasanassa saa olla enintään %1 merkkiä</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>Salasanassa on oltava isoja kirjaimia, pieniä kirjaimia, numeroita ja symboleja (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>Salasana ei saa sisältää takaperin enempää kuin 4 -merkkiä</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <source>Do not use common words and combinations in reverse order as password</source>
+        <translation>Älä käytä salasanassa yleisiä sanoja tai yhdistelmiä käänteisessä järjestyksessä</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
+        <source>New password should differ from the current one</source>
+        <translation>Uusi salasana ei saa olla sama kuin nykyinen</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <source>It does not meet password rules</source>
+        <translation>Tämä ei täytä salasanan sääntöjä</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <location filename="../src/frame/main.cpp" line="129"/>
@@ -6103,32 +6022,32 @@ ovat käytettävissä. Käyttäjäkeskuksessa ja hallinnoit tiliäsi.</translati
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="496"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="470"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Laitteesi poistettiin toimialapalvelimelta onnistuneesti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="497"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="471"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Laitteesi liittyi toimialapalvelimeen onnistuneesti</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="525"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="499"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Laitteesi poistuminen toimialapalvelimelta epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="526"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="500"/>
         <source>Your host failed to join the domain server</source>
         <translation>Laitteesi liittyminen toimialapalvelimeen epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="529"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="503"/>
         <source>AD domain settings</source>
         <translation>Verkkotunnuksen asetukset</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="598"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="572"/>
         <source>Password not match</source>
         <translation>Salasana ei täsmää</translation>
     </message>
@@ -6477,7 +6396,7 @@ ovat käytettävissä. Käyttäjäkeskuksessa ja hallinnoit tiliäsi.</translati
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="41"/>
         <source>Gather Windows</source>
-        <translation type="unfinished"/>
+        <translation>Ikkunoiden koonti</translation>
     </message>
 </context>
 <context>
