@@ -172,13 +172,13 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 
 void UpdateWidget::setSystemVersion(QString version)
 {
-    qDebug() << Q_FUNC_INFO << QString("%1 %2").arg(tr("Current Edition")).arg(version.toLatin1().data());
+    qDebug() << Q_FUNC_INFO << QString("%1").arg(tr("Current Edition")).arg(version.toLatin1().data());
 
     if (m_systemVersion != version) {
         m_systemVersion = version;
     }
 
-    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(m_systemVersion));
+    m_label->setText(QString("%1 %2").arg(tr("Current Edition")).arg(m_systemVersion)+" "+"20");
 }
 
 void UpdateWidget::resetUpdateCheckState(bool state)
