@@ -82,12 +82,12 @@ void NativeInfoWidget::initWidget()
         m_versionNumber = new TitleValueItem();
         //~ contents_path /systeminfo/About This PC
         m_versionNumber->setTitle(tr("Version:"));
-        m_versionNumber->setValue("1010e");
+        m_versionNumber->setValue(m_model->versionNumber());
     }
     m_version = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_version->setTitle(tr("Edition:"));
-    m_version->setValue(m_model->version());
+    m_version->setValue("1010e");
     m_type = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
@@ -180,12 +180,12 @@ void NativeInfoWidget::setProductName(const QString &edition)
 
 void NativeInfoWidget::setVersionNumber(const QString &type)
 {
-    m_versionNumber->setValue("1010e");
+    m_versionNumber->setValue(type);
 }
 
 void NativeInfoWidget::setEdition(const QString &edition)
 {
-    m_version->setValue(edition);
+    m_version->setValue("1010e");
 }
 
 void NativeInfoWidget::setType(const QString &type)
