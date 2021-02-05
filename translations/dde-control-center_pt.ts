@@ -667,7 +667,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
-        <translation>Clicar na opção no menu de arranque para definir como o primeiro a arrancar e arraste e largue uma imagem para substituir o fundo de ecrã</translation>
+        <translation>Clicar na opção no menu de arranque para definir como o primeiro a arrancar e arraste e largue uma imagem para alterar o fundo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
@@ -677,7 +677,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="126"/>
         <source>Boot Menu</source>
-        <translation>Menu do Arranque</translation>
+        <translation>Menu do arranque</translation>
     </message>
 </context>
 <context>
@@ -699,13 +699,13 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="79"/>
         <source>Boot Menu</source>
-        <translation>Menu de Arranque</translation>
+        <translation>Menu de arranque</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="92"/>
         <source>Developer Mode</source>
-        <translation>Modo de Programador</translation>
+        <translation>Modo de programador</translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
@@ -761,7 +761,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="306"/>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>limitação de Responsabilidade do Modo de Programador</translation>
+        <translation>O aviso de isenção de responsabilidade do modo de programador</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="307"/>
@@ -779,12 +779,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="73"/>
         <source>Online</source>
-        <translation>On-line</translation>
+        <translation>Online</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="74"/>
         <source>Offline</source>
-        <translation>Off-line</translation>
+        <translation>Offline</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="90"/>
@@ -885,7 +885,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="158"/>
         <source>Restart Now</source>
-        <translation>Reiniciar Agora</translation>
+        <translation>Reiniciar agora</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="196"/>
@@ -941,6 +941,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="218"/>
         <source>Confirm</source>
         <translation>Confirmar</translation>
     </message>
@@ -962,17 +963,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="258"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="364"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="470"/>
         <source>Customize</source>
         <translation>Personalizar</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="218"/>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1309,45 +1316,45 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="57"/>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Temperatura da cor</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="63"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Luz noturna</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="66"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>A tonalidade do ecrã será ajustada automaticamente de acordo com a sua localização</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="76"/>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Alterar a temperatura da cor</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="81"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Luminosidade automática</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="157"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Luminosidade</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Fria</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>Quente</translation>
     </message>
 </context>
 <context>
@@ -1363,32 +1370,32 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="37"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Vários ecrãs</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="39"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="41"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ecrã principal</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="203"/>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Duplicar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="204"/>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Estender</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="209"/>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Apenas em %1</translation>
     </message>
 </context>
 <context>
@@ -1396,17 +1403,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="31"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Taxa de atualização</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="135"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="137"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recomendado</translation>
     </message>
 </context>
 <context>
@@ -1414,12 +1421,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="35"/>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resolução</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="133"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recomendado</translation>
     </message>
 </context>
 <context>
@@ -1427,27 +1434,27 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="34"/>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Rotação</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Padrão</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
@@ -1455,7 +1462,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="51"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escala de visualização</translation>
     </message>
 </context>
 <context>
@@ -1463,7 +1470,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="86"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Luminosidade</translation>
     </message>
 </context>
 <context>
@@ -5177,7 +5184,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="49"/>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy or view it online by visiting &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Estamos profundamente conscientes da importância das suas informações pessoais para si. Assim, temos a Política de Privacidade que abrange a forma como recolhemos, utilizamos, partilhamos, transferimos, divulgamos publicamente, e armazenamos as suas informações.&lt;/p&gt; &lt;p&gt;Pode &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;clicar aqui&lt;/a&gt; para ver a nossa mais recente política de privacidade ou vê-la online visitando&lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Por favor, leia atentamente e compreenda totalmente as nossas práticas sobre privacidade do cliente. Se tiver alguma questão, por favor contacte-nos em: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -5782,42 +5789,42 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
 <context>
     <name>PwqualityManager</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="52"/>
         <source>Password cannot be empty</source>
         <translation>A palavra-passe não pode estar em branco</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="53"/>
         <source>Password must have at least %1 characters</source>
         <translation>A palavra-passe deve ter pelo menos %1 caracteres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
         <source>Password must be no more than %1 characters</source>
         <translation>A palavra-passe não deve ter mais do que %1 caracteres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>A palavra-passe deve conter letras maiúsculas, letras minúsculas, números e símbolos (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>A palavra-passe não deve conter mais de 4 caracteres palíndromo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
         <source>Do not use common words and combinations in reverse order as password</source>
         <translation>Não utilizar palavras e combinações comuns em ordem inversa como palavra-passe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
         <source>New password should differ from the current one</source>
         <translation>A nova palavra-passe deve ser diferente da atual</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="62"/>
         <source>It does not meet password rules</source>
         <translation>Não cumpre as regras de palavra-passe</translation>
     </message>
@@ -6396,7 +6403,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="41"/>
         <source>Gather Windows</source>
-        <translation type="unfinished"/>
+        <translation>Juntar janelas</translation>
     </message>
 </context>
 <context>

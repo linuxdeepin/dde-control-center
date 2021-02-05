@@ -941,6 +941,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="218"/>
         <source>Confirm</source>
         <translation>གཏན་ཁེལ། </translation>
     </message>
@@ -962,17 +963,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="258"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="364"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="470"/>
         <source>Customize</source>
         <translation>རང་སྒྲུབ། </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="218"/>
+        <source>Save</source>
+        <translation>ཉར་གསོག་</translation>
     </message>
 </context>
 <context>
@@ -5782,44 +5789,44 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>PwqualityManager</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="52"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་སྟོང་པ་ཡིན་མི་རུང་། </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="53"/>
+        <source>Password must have at least %1 characters</source>
+        <translation>གསང་ཨང་རིང་ཚད་གྲངས་གནས་%1ལས་ཉུང་མི་རུང་།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>གསང་ཨང་གི་རིང་ཚད་%1གཉིས་ལས་བརྒལ་མི་རུང་། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
-        <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>གསང་ཨང་ནི་ངེས་པར་དུ་ཡིག་ཆེན་དང་། ཡིག་ཆུང་། གྲངས་ཀ མཚོན་རྟགས་（~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/）བཅས་རིགས་བཞི་ལས་གྲུབ་དགོས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་འབྲུ་4ཡན་ཡོད་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <source>Do not use common words and combinations in reverse order as password</source>
+        <translation>གསང་ཨང་ནི་རྒྱུན་མཐོང་གི་མིང་དང་ཚིག་གྲུབ་ཀྱི་ལྡོག་འབྲི་ཡིན་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
-        <source>Do not use common words and combinations in reverse order as password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་གསར་པ་དང་རྙིང་པ་གཅིག་མཚུངས་ཡིན་མི་རུང་། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="62"/>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་བདེ་འཇགས་ཀྱི་བླང་བྱ་དང་མི་འཚམ་པ།</translation>
     </message>
 </context>
 <context>

@@ -90,6 +90,7 @@ private Q_SLOTS:
 private:
     QSpinBox *createDSpinBox(QWidget *parent, int min, int max);
     void setControlVisible(bool state);
+    void setButtonShowState(bool state);
     void updateSettingTime();
     void updateTime();
 

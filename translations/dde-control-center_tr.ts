@@ -941,6 +941,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="218"/>
         <source>Confirm</source>
         <translation>Onayla</translation>
     </message>
@@ -962,17 +963,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="220"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="258"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="364"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="470"/>
         <source>Customize</source>
         <translation>Özelleştir</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="218"/>
+        <source>Save</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1309,45 +1316,45 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="57"/>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Renk Sıcaklığı</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="63"/>
         <source>Night Shift</source>
-        <translation type="unfinished"/>
+        <translation>Gece Kipi</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="66"/>
         <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
+        <translation>Ekran tonu bulunduğunuz yere göre otomatik ayarlanacaktır</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="76"/>
         <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Renk Sıcaklığını Değiştir</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="81"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik Parlaklık</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="157"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Parlaklık</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Çok iyi</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>Sıcak</translation>
     </message>
 </context>
 <context>
@@ -1363,32 +1370,32 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="37"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Çoklu Ekran</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="39"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Kip</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="41"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ana Ekran</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="203"/>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Çoğalt</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="204"/>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Genişlet</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="209"/>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Yanlız %1 üzerinde</translation>
     </message>
 </context>
 <context>
@@ -1396,17 +1403,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="31"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Yenileme Hızı</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="135"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="137"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation> Önerilen</translation>
     </message>
 </context>
 <context>
@@ -1414,12 +1421,12 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="35"/>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Çözünürlük</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="133"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation> Önerilen</translation>
     </message>
 </context>
 <context>
@@ -1427,27 +1434,27 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="34"/>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Döndür</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standart</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
@@ -1455,7 +1462,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="51"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü Ölçeği</translation>
     </message>
 </context>
 <context>
@@ -1463,7 +1470,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="86"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Parlaklık</translation>
     </message>
 </context>
 <context>
@@ -5172,12 +5179,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="44"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Gizlilik Politikası</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="49"/>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy or view it online by visiting &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Kişisel bilgilerinizin sizin için ne kadar önemli olduğunun son derece farkındayız. Dolayısıyla, bilgilerinizi nasıl topladığımızı, kullandığımızı, paylaştığımızı, aktardığımızı, kamuya açıkladığımızı ve sakladığımızı kapsayan Gizlilik Politikasına sahibiz.&lt;/p&gt;&lt;p&gt;En son gizlilik politikamızı görüntülemek için &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;buraya&lt;/a&gt;tıklayabilirsiniz&lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Lütfen müşteri gizliliğiyle ilgili uygulamalarımızı dikkatlice okuyun ve tam olarak anlayın.Herhangi bir sorunuz varsa, lütfen bize şu adresten ulaşabilirsiniz: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -5211,7 +5218,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Gizlilik Politikası</translation>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
     </message>
 </context>
@@ -5782,44 +5789,44 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
 <context>
     <name>PwqualityManager</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="52"/>
         <source>Password cannot be empty</source>
         <translation>Parola boş olamaz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="53"/>
         <source>Password must have at least %1 characters</source>
         <translation>Parola en az %1 karakter olmalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="54"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Parola %1 karakterden fazla olmamalıdır</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Parola büyük harfler, küçük harfler, sayılar ve semboller içermeli (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Parola 4&apos;ten fazla tersten okunduğunda aynı olan karakter içermemelidir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
         <source>Do not use common words and combinations in reverse order as password</source>
-        <translation type="unfinished"/>
+        <translation>Parola olarak bilinen kelime ve kombinasyonlarının tersini kullanmayın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
         <source>New password should differ from the current one</source>
         <translation>Yeni parola geçerli paroladan farklı olmalı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="62"/>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Parola kurallarına uymuyor</translation>
     </message>
 </context>
 <context>
@@ -6396,7 +6403,7 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="41"/>
         <source>Gather Windows</source>
-        <translation type="unfinished"/>
+        <translation>Pencereleri Topla</translation>
     </message>
 </context>
 <context>

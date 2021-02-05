@@ -200,9 +200,24 @@ DateSettings::DateSettings(QWidget *parent)
             m_addressContent->setAlert(false);
         }
     });
+    connect(m_addressContent, &DLineEdit::focusChanged, this, [ = ]{
+        m_buttonTuple->rightButton()->setEnabled(true);
+    });
 
     //第一次进入时间设置页面，需要刷新day的天数
     updateDayRange();
+}
+
+void DateSettings::setButtonShowState(bool state)
+{
+    if (m_addressContent->isAlert()) {
+        m_addressContent->setAlert(false);
+    }
+    m_buttonTuple->leftButton()->setVisible(!state);
+    m_buttonTuple->rightButton()->setVisible(!state || m_ntpServerList->currentText() == tr("Customize"));
+    m_buttonTuple->rightButton()->setText(state ? tr("Save") : tr("Confirm"));
+    m_buttonTuple->rightButton()->setEnabled(!state);
+
 }
 
 void DateSettings::setCurrentTimeZone(const ZoneInfo &info)
@@ -218,6 +233,7 @@ void DateSettings::onCancelButtonClicked()
 void DateSettings::onConfirmButtonClicked()
 {
     if (m_autoSyncTimeSwitch->checked() && m_ntpServerList->currentText() == tr("Customize")) {
+        m_buttonTuple->rightButton()->setEnabled(false);
         if (m_addressContent->text().isEmpty()) {
             qDebug() << "The customize address is nullptr.";
             m_addressContent->setAlert(true);
@@ -259,6 +275,9 @@ void DateSettings::onProcessComboBox(const int &value)
         if (itemText == tr("Customize"))
             m_addressContent->setText(m_customNtpServer);
         m_buttonTuple->setVisible(itemText == tr("Customize"));
+        if (m_addressContent->isAlert()) {
+            m_addressContent->setAlert(false);
+        }
     }
 
     if (!m_bIsUserOperate)
@@ -269,6 +288,7 @@ void DateSettings::onProcessComboBox(const int &value)
     if (itemText != tr("Customize") && "" != itemText) {
         Q_EMIT requestNTPServer(itemText);
     }
+    setButtonShowState(m_autoSyncTimeSwitch->checked());
 }
 
 void DateSettings::isUserOperate()
@@ -314,6 +334,9 @@ void DateSettings::setNtpServerAddress(QString address)
 //认证选择“取消”，需要将服务器地址设置为旧的地址
 void DateSettings::setLastServerAddress(QString address)
 {
+    if (m_ntpServerList->currentText() == tr("Customize")) {
+        return;
+    }
     m_addressContent->setText(address);
     for (int i = 0; i < m_ntpServerList->count(); i++) {
         if (m_ntpServerList->itemText(i) == address) {
@@ -360,7 +383,7 @@ void DateSettings::setControlVisible(bool state)
 {
     m_datetimeGroup->setVisible(!state);
     m_ntpSrvItem->setVisible(state);
-    m_buttonTuple->setVisible(!state || m_ntpServerList->currentText() == tr("Customize"));
+    setButtonShowState(state);
     m_address->setVisible(state && m_ntpServerList->currentText() == tr("Customize"));
 }
 
