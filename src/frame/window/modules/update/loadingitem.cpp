@@ -93,10 +93,6 @@ void LoadingItem::setVersionVisible(bool state)
 
 void LoadingItem::setSystemVersion(const QString &version)
 {
-    Q_UNUSED(version);
-    qDebug()<<"DSysInfo::uosProductTypeName()="<<DSysInfo::uosProductTypeName();
-    qDebug()<<"DSysInfo::majorVersion()="<<DSysInfo::majorVersion();
-    qDebug()<<"DSysInfo::uosEditionName()="<<DSysInfo::uosEditionName();
     m_labelText->setText(DSysInfo::uosProductTypeName() + " " + "20");
 }
 
