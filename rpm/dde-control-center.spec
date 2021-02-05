@@ -4,8 +4,8 @@
 %endif
 
 Name:           dde-control-center
-Version:        5.3.0.54.3
-Release:        1%{?dist}
+Version:        5.3.0.54.4
+Release:        %{specrelease}
 Summary:        New control center for Linux Deepin
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/%{name}
@@ -89,10 +89,10 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop ||:
 %{_libdir}/cmake/DdeControlCenter/
 
 %changelog
-* Fri Jul  3 2020 uniontech <uoser@uniontech.com> - 5.3.0.54.3
+* Fri Jul  3 2020 uniontech <uoser@uniontech.com> - 5.3.0.54.4
 - Add dde.sh to profile.d
 
-* Mon Jun 15 2020 uniontech <uoser@uniontech.com> - 5.3.0.54.3
+* Mon Jun 15 2020 uniontech <uoser@uniontech.com> - 5.3.0.54.4
 - Remove the universal menu.
 
 * Fri May 29 2020 uniontech <uoser@uniontech.com> - 5.0.31
