@@ -44,6 +44,7 @@ using namespace DCC_NAMESPACE::power;
 
 UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     : QWidget(parent)
+    , m_model(model)
     , m_layout(new QVBoxLayout)
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
 //    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
@@ -87,19 +88,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
         powerSettingsGrp->appendItem(m_computerSleepOnPower);
     }
 
-    QStringList options;
-    options << tr("Shut down");
-    if (model->getSuspend()) {
-        options << tr("Suspend");
-    }
-    if (model->getHibernate()) {
-        options << tr("Hibernate");
-    }
-    options << tr("Turn off the monitor") << tr("Do nothing");
-    m_cmbPowerBtn->setComboxOption(options);
-    options.pop_front();
-    m_cmbCloseLid->setComboxOption(options);
-
+    updatePowerButtonActionList();
 
     powerSettingsGrp->appendItem(m_autoLockScreen);
     powerSettingsGrp->appendItem(m_cmbCloseLid);
@@ -177,6 +166,11 @@ UseElectricWidget::~UseElectricWidget()
 void UseElectricWidget::setModel(const PowerModel *model)
 {
     connect(model, &PowerModel::powerLockScreenDelayChanged, this, &UseElectricWidget::setLockScreenAfter);
+    connect(model, &PowerModel::hibernateChanged, this, [=] {
+        updatePowerButtonActionList();
+        setPowerBtn(model, model->linePowerPressPowerBtnAction());
+        setCloseLid(model, model->linePowerLidClosedAction());
+    });
 
     if (!IsServerSystem) {
         connect(model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricWidget::setSleepDelayOnPower);
@@ -255,15 +249,15 @@ void UseElectricWidget::setCloseLid(const dcc::power::PowerModel *model, int lid
 {
     if (!model->getSuspend()) {
         if (!model->getHibernate()) {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 3);
+            m_cmbCloseLid->setCurrentIndex(lidIndex - 3);
         } else {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 2);
+            m_cmbCloseLid->setCurrentIndex(lidIndex - 2);
         }
     } else {
         if (!model->getHibernate()) {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex > 2 ? lidIndex - 2 : lidIndex - 1);
+            m_cmbCloseLid->setCurrentIndex(lidIndex > 2 ? lidIndex - 2 : lidIndex - 1);
         } else {
-            m_cmbCloseLid->comboBox()->setCurrentIndex(lidIndex - 1);
+            m_cmbCloseLid->setCurrentIndex(lidIndex - 1);
         }
     }
 }
@@ -272,17 +266,35 @@ void UseElectricWidget::setPowerBtn(const dcc::power::PowerModel *model, int pow
 {
     if (!model->getSuspend()) {
         if (!model->getHibernate()) {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
+            m_cmbPowerBtn->setCurrentIndex(powIndex > 0 ? powIndex - 2 : powIndex);
         } else {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
+            m_cmbPowerBtn->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
         }
     } else {
         if (!model->getHibernate()) {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
+            m_cmbPowerBtn->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
         } else {
-            m_cmbPowerBtn->comboBox()->setCurrentIndex(powIndex);
+            m_cmbPowerBtn->setCurrentIndex(powIndex);
         }
     }
+}
+
+void UseElectricWidget::updatePowerButtonActionList()
+{
+    QStringList options;
+    options << tr("Shut down");
+    if (m_model->getSuspend())
+    {
+        options << tr("Suspend");
+    }
+    if (m_model->getHibernate())
+    {
+        options << tr("Hibernate");
+    }
+    options << tr("Turn off the monitor") << tr("Do nothing");
+    m_cmbPowerBtn->setComboxOption(options);
+    options.pop_front();
+    m_cmbCloseLid->setComboxOption(options);
 }
 
 QString UseElectricWidget::delayToLiteralString(const int delay) const
