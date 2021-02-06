@@ -97,7 +97,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_layEnergySavingMode->addWidget(saveEnergySettingsGrp);
 
     QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
-    if (productName.contains("KLVU")) {
+    if (!productName.contains("KLVU")) {
         label->setVisible(false);
         saveEnergySettingsGrp->setVisible(false);
     }
