@@ -61,6 +61,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
 
     //~ contents_path /display/Brightness
     m_autoLightMode->setTitle(tr("Auto Brightness"));
+    m_autoLightMode->addBackground();
     m_centralLayout->addWidget(m_autoLightMode);
 
     m_tempratureColorTitle = new TitleLabel(tr("Color Temperature")); //色温

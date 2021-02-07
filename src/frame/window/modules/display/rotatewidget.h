@@ -22,17 +22,13 @@
 #ifndef ROTATEWIDGET_H
 #define ROTATEWIDGET_H
 
-#include <QLabel>
-#include <QComboBox>
-#include <QHBoxLayout>
-
 #include "interface/namespace.h"
-#include "modules/display/displaymodel.h"
+#include "widgets/settingsitem.h"
 
 QT_BEGIN_NAMESPACE
 class QLabel;
 class QComboBox;
-class QVBoxLayout;
+class QHBoxLayout;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -44,15 +40,17 @@ class DisplayModel;
 
 } // namespace dcc
 
+using namespace dcc::widgets;
+
 namespace DCC_NAMESPACE {
 
 namespace display {
 
-class RotateWidget : public QWidget
+class RotateWidget : public SettingsItem
 {
     Q_OBJECT
 public:
-    explicit RotateWidget(QWidget *parent = 0);
+    explicit RotateWidget(int comboxWidth = 300, QWidget *parent = nullptr);
 
 public:
     void setModel(dcc::display::DisplayModel *model, dcc::display::Monitor *monitor);

@@ -21,6 +21,11 @@
 
 #include "displaymodule.h"
 #include "displaywidget.h"
+#include "brightnesswidget.h"
+#include "scalingwidget.h"
+#include "resolutionwidget.h"
+#include "refreshratewidget.h"
+#include "rotatewidget.h"
 #include "secondaryscreendialog.h"
 #include "multiscreenwidget.h"
 #include "touchscreenpage.h"

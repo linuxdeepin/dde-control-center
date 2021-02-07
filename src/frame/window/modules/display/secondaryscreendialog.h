@@ -22,15 +22,15 @@
 #ifndef SECONDARYSCREENDIALOG_H
 #define SECONDARYSCREENDIALOG_H
 
+#include "interface/namespace.h"
+
 #include <DAbstractDialog>
 
-#include "interface/namespace.h"
-#include "modules/display/monitorcontrolwidget.h"
-#include "resolutionwidget.h"
-#include "refreshratewidget.h"
-#include "rotatewidget.h"
-
 class Resolution;
+
+QT_BEGIN_NAMESPACE
+class QVBoxLayout;
+QT_END_NAMESPACE
 
 namespace dcc {
 namespace display {
@@ -44,6 +44,9 @@ class MonitorControlWidget;
 namespace DCC_NAMESPACE {
 
 namespace display {
+class ResolutionWidget;
+class RefreshRateWidget;
+class RotateWidget;
 
 class SecondaryScreenDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {

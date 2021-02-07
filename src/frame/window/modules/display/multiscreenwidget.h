@@ -23,40 +23,39 @@
 #define MULTISCREENWIDGET_H
 
 #include "interface/namespace.h"
-
-#include "modules/display/displaymodel.h"
-#include "modules/display/monitorcontrolwidget.h"
-#include "modules/display/monitorindicator.h"
-#include "scalingwidget.h"
-#include "brightnesswidget.h"
-#include "secondaryscreendialog.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/comboxwidget.h"
-#include "../../mainwindow.h"
+#include "widgets/titlelabel.h"
 
 class Resolution;
 
 QT_BEGIN_NAMESPACE
+class QLabel;
+class QComboBox;
+class QHBoxLayout;
 class QVBoxLayout;
 QT_END_NAMESPACE
 
 namespace dcc {
 namespace display {
-class DisplayModel;
 class Monitor;
+class DisplayModel;
 class MonitorControlWidget;
 class MonitorIndicator;
 } // namespace display
 
 namespace widgets {
-class SettingsGroup;
-class ComboxWidget;
+class SettingsItem;
 } // namespace widgets
 } // namespace dcc
 
 namespace DCC_NAMESPACE {
 
 namespace display {
+class BrightnessWidget;
+class ScalingWidget;
+class ResolutionWidget;
+class RefreshRateWidget;
+class RotateWidget;
+class SecondaryScreenDialog;
 
 class MultiScreenWidget : public QWidget
 {
@@ -99,10 +98,12 @@ private:
     dcc::display::MonitorControlWidget *m_monitorControlWidget;
     dcc::display::MonitorIndicator *m_fullIndication;
     TitleLabel *m_multiSettingLabel;
-    dcc::widgets::SettingsGroup *m_modeSettingsGroup;
-    dcc::widgets::ComboxWidget *m_modeComboxWidget;
-    dcc::widgets::SettingsGroup *m_primarySettingsGroup;
-    dcc::widgets::ComboxWidget *m_primaryComboxWidget;
+    dcc::widgets::SettingsItem *m_modeSettingsItem;
+    QLabel *m_modeLabel;
+    QComboBox *m_modeCombox;
+    dcc::widgets::SettingsItem *m_primarySettingsItem;
+    QLabel *m_primaryLabel;
+    QComboBox *m_primaryCombox;
     BrightnessWidget *m_brightnessWidget;
     ScalingWidget *m_scalingWidget;
     ResolutionWidget *m_resolutionWidget;

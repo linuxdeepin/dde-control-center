@@ -22,21 +22,17 @@
 #ifndef REFRESHRATEWIDGET_H
 #define REFRESHRATEWIDGET_H
 
-#include <QLabel>
-#include <QComboBox>
-#include <QHBoxLayout>
+#include "interface/namespace.h"
+#include "widgets/settingsitem.h"
 
 #include <DStandardItem>
-
-#include "interface/namespace.h"
-#include "modules/display/displaymodel.h"
 
 class Resolution;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
 class QComboBox;
-class QVBoxLayout;
+class QHBoxLayout;
 QT_END_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
@@ -51,14 +47,17 @@ class DisplayModel;
 
 } // namespace dcc
 
+using namespace dcc::widgets;
+
 namespace DCC_NAMESPACE {
 
 namespace display {
-class RefreshRateWidget : public QWidget
+
+class RefreshRateWidget : public SettingsItem
 {
     Q_OBJECT
 public:
-    RefreshRateWidget(QWidget *parent = nullptr);
+    RefreshRateWidget(int comboxWidth = 300, QWidget *parent = nullptr);
 
     enum ResolutionRole {
         IdRole = Dtk::UserRole,

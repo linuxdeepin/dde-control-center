@@ -23,24 +23,33 @@
 #include "widgets/dccslider.h"
 #include "widgets/titlelabel.h"
 #include "widgets/titledslideritem.h"
+#include "resolutionwidget.h"
+#include "refreshratewidget.h"
+#include "rotatewidget.h"
+#include "modules/display/displaymodel.h"
+#include "modules/display/monitorcontrolwidget.h"
+
 #include <DFontSizeManager>
+
+#include <QVBoxLayout>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
-const double BrightnessMaxScale = 100.0;
+const int ComboxWidth = 222;
 const int PercentageNum = 100;
+const double BrightnessMaxScale = 100.0;
 const double DoubleZero = 0.01; //后端传入的doube指为浮点型，有效位数为2位小数，存在精度丢失
 
 SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     : DAbstractDialog(parent)
     , m_contentLayout(new QVBoxLayout)
     , m_monitorControlWidget(new MonitorControlWidget)
-    , m_resolutionWidget(new ResolutionWidget)
-    , m_refreshRateWidget(new RefreshRateWidget)
-    , m_rotateWidget(new RotateWidget)
+    , m_resolutionWidget(new ResolutionWidget(ComboxWidth))
+    , m_refreshRateWidget(new RefreshRateWidget(ComboxWidth))
+    , m_rotateWidget(new RotateWidget(ComboxWidth))
     , m_model(nullptr)
     , m_monitor(nullptr)
 {

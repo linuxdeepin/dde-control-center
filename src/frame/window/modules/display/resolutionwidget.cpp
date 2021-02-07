@@ -24,13 +24,18 @@
  */
 
 #include "resolutionwidget.h"
+#include "modules/display/displaymodel.h"
+
+#include <QLabel>
+#include <QComboBox>
+#include <QHBoxLayout>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
-ResolutionWidget::ResolutionWidget(QWidget *parent)
-    : QWidget(parent)
+ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
+    : SettingsItem(parent)
     , m_contentLayout(new QHBoxLayout)
     , m_resolutionLabel(new QLabel(tr("Resolution")))
     , m_resolutionCombox(new QComboBox)
@@ -41,9 +46,9 @@ ResolutionWidget::ResolutionWidget(QWidget *parent)
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_resolutionLabel);
     m_contentLayout->addWidget(m_resolutionCombox);
-
+    m_resolutionCombox->setMinimumWidth(comboxWidth);
     m_resolutionCombox->setModel(m_resoItemModel);
-
+    addBackground();
     setLayout(m_contentLayout);
 }
 

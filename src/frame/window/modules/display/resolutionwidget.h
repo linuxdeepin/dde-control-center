@@ -26,21 +26,17 @@
 #ifndef RESOLUTIONWIDGET_H
 #define RESOLUTIONWIDGET_H
 
-#include <QLabel>
-#include <QComboBox>
-#include <QHBoxLayout>
+#include "interface/namespace.h"
+#include "widgets/settingsitem.h"
 
 #include <DStandardItem>
-
-#include "interface/namespace.h"
-#include "modules/display/displaymodel.h"
 
 class Resolution;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
 class QComboBox;
-class QVBoxLayout;
+class QHBoxLayout;
 QT_END_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
@@ -55,15 +51,17 @@ class DisplayModel;
 
 } // namespace dcc
 
+using namespace dcc::widgets;
+
 namespace DCC_NAMESPACE {
 
 namespace display {
 
-class ResolutionWidget : public QWidget
+class ResolutionWidget : public SettingsItem
 {
     Q_OBJECT
 public:
-    explicit ResolutionWidget(QWidget *parent = nullptr);
+    explicit ResolutionWidget(int comboxWidth = 300, QWidget *parent = nullptr);
 
     enum ResolutionRole {
         IdRole = Dtk::UserRole,

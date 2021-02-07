@@ -20,14 +20,28 @@
  */
 
 #include "multiscreenwidget.h"
+#include "brightnesswidget.h"
+#include "scalingwidget.h"
+#include "resolutionwidget.h"
+#include "refreshratewidget.h"
+#include "rotatewidget.h"
+#include "secondaryscreendialog.h"
+#include "../../mainwindow.h"
+#include "widgets/settingsitem.h"
+#include "modules/display/displaymodel.h"
+#include "modules/display/monitorcontrolwidget.h"
+#include "modules/display/monitorindicator.h"
 
 #include <QVBoxLayout>
 #include <QApplication>
+#include <QComboBox>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
+
+const int ComboxWidth = 300;
 
 MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     : QWidget(parent)
@@ -35,10 +49,12 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_monitorControlWidget(new MonitorControlWidget)
     , m_fullIndication(new MonitorIndicator)
     , m_multiSettingLabel(new TitleLabel(tr("Multiple Displays")))
-    , m_modeSettingsGroup(new SettingsGroup)
-    , m_modeComboxWidget(new ComboxWidget(tr("Mode")))
-    , m_primarySettingsGroup(new SettingsGroup)
-    , m_primaryComboxWidget(new ComboxWidget(tr("Main Screen")))
+    , m_modeSettingsItem(new SettingsItem)
+    , m_modeLabel(new QLabel(tr("Mode")))
+    , m_modeCombox(new QComboBox)
+    , m_primarySettingsItem(new SettingsItem)
+    , m_primaryLabel(new QLabel(tr("Main Screen")))
+    , m_primaryCombox(new QComboBox)
     , m_brightnessWidget(new BrightnessWidget)
     , m_scalingWidget(new ScalingWidget)
     , m_resolutionWidget(new ResolutionWidget)
@@ -49,10 +65,23 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_contentLayout->addWidget(m_monitorControlWidget);
 
     m_contentLayout->addWidget(m_multiSettingLabel);
-    m_modeSettingsGroup->appendItem(m_modeComboxWidget);
-    m_contentLayout->addWidget(m_modeSettingsGroup);
-    m_primarySettingsGroup->appendItem(m_primaryComboxWidget);
-    m_contentLayout->addWidget(m_primarySettingsGroup);
+    QHBoxLayout *modeLayout = new QHBoxLayout;
+    modeLayout->setContentsMargins(10, 0, 10, 0);
+    modeLayout->addWidget(m_modeLabel);
+    modeLayout->addWidget(m_modeCombox);
+    m_modeCombox->setMinimumWidth(ComboxWidth);
+    m_modeSettingsItem->addBackground();
+    m_modeSettingsItem->setLayout(modeLayout);
+    m_contentLayout->addWidget(m_modeSettingsItem);
+
+    QHBoxLayout *primaryLayout = new QHBoxLayout;
+    primaryLayout->setContentsMargins(10, 0, 10, 0);
+    primaryLayout->addWidget(m_primaryLabel);
+    primaryLayout->addWidget(m_primaryCombox);
+    m_primaryCombox->setMinimumWidth(ComboxWidth);
+    m_primarySettingsItem->addBackground();
+    m_primarySettingsItem->setLayout(primaryLayout);
+    m_contentLayout->addWidget(m_primarySettingsItem);
 
     m_contentLayout->addWidget(m_brightnessWidget);
     m_contentLayout->addWidget(m_scalingWidget);
@@ -83,8 +112,8 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_model, &DisplayModel::displayModeChanged, m_monitorControlWidget, &MonitorControlWidget::setScreensMerged);
     connect(m_model, &DisplayModel::displayModeChanged, this, [=](const int mode) {
         if (mode == MERGE_MODE) {
-            m_modeComboxWidget->comboBox()->setCurrentIndex(0);
-            m_primaryComboxWidget->comboBox()->setEnabled(false);
+            m_modeCombox->setCurrentIndex(0);
+            m_primaryCombox->setEnabled(false);
             m_brightnessWidget->showBrightness();
 
             for (auto dlg : m_secondaryScreenDlgList) {
@@ -92,8 +121,8 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             }
             m_secondaryScreenDlgList.clear();
         } else if (mode == EXTEND_MODE) {
-            m_modeComboxWidget->comboBox()->setCurrentIndex(1);
-            m_primaryComboxWidget->comboBox()->setEnabled(true);
+            m_modeCombox->setCurrentIndex(1);
+            m_primaryCombox->setEnabled(true);
             m_brightnessWidget->showBrightness(m_model->primaryMonitor());
 
             initSecondaryScreenDialog();
@@ -102,12 +131,12 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             for (int idx = 0; idx < monitorList.size(); ++idx) {
                 auto monitor = monitorList[idx];
                 if (monitor->enable()) {
-                    m_modeComboxWidget->comboBox()->setCurrentIndex(idx + 2);
+                    m_modeCombox->setCurrentIndex(idx + 2);
                     break;
                 }
             }
 
-            m_primaryComboxWidget->comboBox()->setEnabled(false);
+            m_primaryCombox->setEnabled(false);
             m_brightnessWidget->showBrightness(m_model->primaryMonitor());
 
             for (auto dlg : m_secondaryScreenDlgList) {
@@ -117,11 +146,11 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         }
     });
     connect(m_model, &DisplayModel::primaryScreenChanged, this, [=](const QString &name) {
-        for (int idx = 0; idx < m_primaryComboxWidget->comboBox()->count(); ++idx) {
-            if (name == m_primaryComboxWidget->comboBox()->itemText(idx)) {
-                m_primaryComboxWidget->comboBox()->blockSignals(true);
-                m_primaryComboxWidget->comboBox()->setCurrentIndex(idx);
-                m_primaryComboxWidget->comboBox()->blockSignals(false);
+        for (int idx = 0; idx < m_primaryCombox->count(); ++idx) {
+            if (name == m_primaryCombox->itemText(idx)) {
+                m_primaryCombox->blockSignals(true);
+                m_primaryCombox->setCurrentIndex(idx);
+                m_primaryCombox->blockSignals(false);
                 break;
             }
         }
@@ -150,8 +179,8 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     });
     connect(m_model, &DisplayModel::resolutionRefreshEnableChanged, this, [=](const bool enable) {
         m_multiSettingLabel->setVisible(enable);
-        m_modeSettingsGroup->setVisible(enable);
-        m_primarySettingsGroup->setVisible(enable);
+        m_modeSettingsItem->setVisible(enable);
+        m_primarySettingsItem->setVisible(enable);
     });
     connect(m_model, &DisplayModel::brightnessEnableChanged, m_brightnessWidget, &BrightnessWidget::setVisible);
 
@@ -162,15 +191,15 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_monitorControlWidget, &MonitorControlWidget::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
     connect(this, &MultiScreenWidget::requestGatherEnabled, m_monitorControlWidget, &MonitorControlWidget::onGatherEnabled);
 
-    connect(m_modeComboxWidget->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
+    connect(m_modeCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
         if (idx <= 1) {
             Q_EMIT requestSwitchMode(idx + 1);
         } else {
             Q_EMIT requestSwitchMode(SINGLE_MODE, m_model->monitorList()[idx - 2]->name());
         }
     });
-    connect(m_primaryComboxWidget->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
-        Q_EMIT requestSetPrimary(m_primaryComboxWidget->comboBox()->itemText(idx));
+    connect(m_primaryCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
+        Q_EMIT requestSetPrimary(m_primaryCombox->itemText(idx));
     });
 
     connect(m_brightnessWidget, &BrightnessWidget::requestSetColorTemperature, this, &MultiScreenWidget::requestSetColorTemperature);
@@ -186,9 +215,9 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
     m_monitorControlWidget->setModel(m_model);
     m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable());
-    m_modeSettingsGroup->setVisible(m_model->resolutionRefreshEnable());
-    m_primarySettingsGroup->setVisible(m_model->resolutionRefreshEnable());
-    m_primaryComboxWidget->comboBox()->setEnabled(m_model->displayMode() == EXTEND_MODE);
+    m_modeSettingsItem->setVisible(m_model->resolutionRefreshEnable());
+    m_primarySettingsItem->setVisible(m_model->resolutionRefreshEnable());
+    m_primaryCombox->setEnabled(m_model->displayMode() == EXTEND_MODE);
     m_brightnessWidget->setMode(m_model);
     m_brightnessWidget->showBrightness(m_model->displayMode() == MERGE_MODE ? nullptr : m_model->primaryMonitor());
     m_brightnessWidget->setVisible(m_model->brightnessEnable());
@@ -202,19 +231,19 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
 void MultiScreenWidget::initModeList()
 {
-    m_modeComboxWidget->comboBox()->addItem(tr("Duplicate"));
-    m_modeComboxWidget->comboBox()->addItem(tr("Extend"));
+    m_modeCombox->addItem(tr("Duplicate"));
+    m_modeCombox->addItem(tr("Extend"));
 
     auto monitorList = m_model->monitorList();
     for (int idx = 0; idx < monitorList.size(); ++idx) {
         auto monitor = monitorList[idx];
-        m_modeComboxWidget->comboBox()->addItem(tr("Only on %1").arg(monitor->name()));
+        m_modeCombox->addItem(tr("Only on %1").arg(monitor->name()));
         if (m_model->displayMode() == MERGE_MODE) {
-            m_modeComboxWidget->comboBox()->setCurrentIndex(0);
+            m_modeCombox->setCurrentIndex(0);
         } else if (m_model->displayMode() == EXTEND_MODE) {
-            m_modeComboxWidget->comboBox()->setCurrentIndex(1);
+            m_modeCombox->setCurrentIndex(1);
         } else if (m_model->displayMode() == SINGLE_MODE && monitor->enable()) {
-            m_modeComboxWidget->comboBox()->setCurrentIndex(idx + 2);
+            m_modeCombox->setCurrentIndex(idx + 2);
         }
     }
 }
@@ -222,9 +251,9 @@ void MultiScreenWidget::initModeList()
 void MultiScreenWidget::initPrimaryList()
 {
     for (const auto &monitor : m_model->monitorList()) {
-        m_primaryComboxWidget->comboBox()->addItem(monitor->name());
+        m_primaryCombox->addItem(monitor->name());
         if (monitor->name() == m_model->primary()) {
-            m_primaryComboxWidget->comboBox()->setCurrentText(m_model->primary());
+            m_primaryCombox->setCurrentText(m_model->primary());
         }
     }
 }

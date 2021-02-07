@@ -20,13 +20,18 @@
  */
 
 #include "refreshratewidget.h"
+#include "modules/display/displaymodel.h"
+
+#include <QLabel>
+#include <QComboBox>
+#include <QHBoxLayout>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
-RefreshRateWidget::RefreshRateWidget(QWidget *parent)
-    : QWidget(parent)
+RefreshRateWidget::RefreshRateWidget(int comboxWidth, QWidget *parent)
+    : SettingsItem(parent)
     , m_contentLayout(new QHBoxLayout)
     , m_refreshLabel(new QLabel(tr("Refresh Rate")))
     , m_refreshCombox(new QComboBox)
@@ -37,9 +42,9 @@ RefreshRateWidget::RefreshRateWidget(QWidget *parent)
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_refreshLabel);
     m_contentLayout->addWidget(m_refreshCombox);
-
+    m_refreshCombox->setMinimumWidth(comboxWidth);
     m_refreshCombox->setModel(m_refreshItemModel);
-
+    addBackground();
     setLayout(m_contentLayout);
 }
 

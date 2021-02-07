@@ -24,12 +24,17 @@
  */
 
 #include "rotatewidget.h"
+#include "modules/display/displaymodel.h"
+
+#include <QLabel>
+#include <QComboBox>
+#include <QHBoxLayout>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 
-RotateWidget::RotateWidget(QWidget *parent)
-    : QWidget(parent)
+RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
+    : SettingsItem(parent)
     , m_contentLayout(new QHBoxLayout)
     , m_rotateLabel(new QLabel(tr("Rotation")))
     , m_rotateCombox(new QComboBox)
@@ -39,7 +44,8 @@ RotateWidget::RotateWidget(QWidget *parent)
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_rotateLabel);
     m_contentLayout->addWidget(m_rotateCombox);
-
+    m_rotateCombox->setMinimumWidth(comboxWidth);
+    addBackground();
     setLayout(m_contentLayout);
 
     QStringList rotateList {tr("Standard"), tr("90°"), tr("180°"), tr("270°")};
