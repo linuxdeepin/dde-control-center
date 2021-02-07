@@ -168,19 +168,19 @@ void DisplayModule::showSingleScreenWidget()
     ResolutionWidget *resolutionWidget = new ResolutionWidget;
     resolutionWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
     contentLayout->addWidget(resolutionWidget);
-    connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
+    connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
 
     RefreshRateWidget *refreshRateWidget = new RefreshRateWidget;
     refreshRateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
     contentLayout->addWidget(refreshRateWidget);
-    connect(refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
+    connect(refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
 
     RotateWidget *rotateWidget = new RotateWidget;
     rotateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
     contentLayout->addWidget(rotateWidget);
-    connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate);
-    contentLayout->addStretch();
+    connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
 
+    contentLayout->addStretch();
     contentLayout->setContentsMargins(56, 0, 56, 0);
     QWidget *singleScreenWidget = new QWidget;
     singleScreenWidget->setLayout(contentLayout);
@@ -201,8 +201,8 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
     connect(multiScreenWidget, &MultiScreenWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
     connect(multiScreenWidget, &MultiScreenWidget::requestIndividualScaling, m_displayWorker, &DisplayWorker::setIndividualScaling);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestEnalbeMonitor, m_displayWorker, &DisplayWorker::setMonitorEnable);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi) {
         bool stateChanged = false;
@@ -307,8 +307,7 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor)
         }
     },
             Qt::QueuedConnection);
-    connect(timeoutDialog, &TimeoutDialog::closed,
-            timeoutDialog, &TimeoutDialog::deleteLater);
+    connect(m_displayModel, &DisplayModel::monitorListChanged, timeoutDialog, &TimeoutDialog::deleteLater);
 
     return timeoutDialog->exec();
 }

@@ -41,7 +41,7 @@ TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *p
     m_timeoutRefreshTimer->setInterval(1000);
 
     connect(m_timeoutRefreshTimer, &QTimer::timeout, this, &TimeoutDialog::onRefreshTimeout);
-
+    setAttribute(Qt::WA_DeleteOnClose);
     setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
 }
 
