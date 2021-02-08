@@ -297,7 +297,7 @@ void BrightnessWidget::addSlider()
         this->requestSetColorTemperature(kelvin);
     });
     QStringList fscaleList;
-    fscaleList << tr("Cool") << tr("Warm");
+    fscaleList << tr("Cool") << "" << tr("Warm");
 
     m_cctItem->setAnnotations(fscaleList);
     m_centralLayout->addWidget(m_cctItem);
