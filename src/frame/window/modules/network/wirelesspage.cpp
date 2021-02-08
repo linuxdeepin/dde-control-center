@@ -630,6 +630,11 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
 
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
     connect(m_apEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
+    connect(m_switch, &SwitchWidget::checkedChanged, m_apEditPage, [=](bool checked) {
+        if (!checked) {
+            m_apEditPage->back();
+        }
+    });
 
     Q_EMIT requestNextPage(m_apEditPage);
 }
@@ -680,6 +685,11 @@ void WirelessPage::showConnectHidePage()
     });
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
     connect(m_apEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
+    connect(m_switch, &SwitchWidget::checkedChanged, m_apEditPage, [=](bool checked) {
+        if (!checked) {
+            m_apEditPage->back();
+        }
+    });
     Q_EMIT requestNextPage(m_apEditPage);
 }
 
