@@ -42,7 +42,7 @@ class TitledSliderItem : public SettingsItem
 {
     Q_OBJECT
 public:
-    TitledSliderItem(QString title, QWidget *parent = nullptr);
+    TitledSliderItem(QString title = QString(), QWidget *parent = nullptr);
 
     DCCSlider *slider() const;
     void setAnnotations(const QStringList &annotations);

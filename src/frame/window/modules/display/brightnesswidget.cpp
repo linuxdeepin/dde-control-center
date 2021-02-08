@@ -32,7 +32,6 @@
 #include "widgets/titledslideritem.h"
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QList>
 #include <DFontSizeManager>
 
 using namespace dcc::widgets;
@@ -49,12 +48,17 @@ const double DoubleZero = 0.01; //后端传入的doube指为浮点型，有效�
 
 BrightnessWidget::BrightnessWidget(QWidget *parent)
     : QWidget(parent)
+    , m_displayModel(nullptr)
     , m_centralLayout(new QVBoxLayout)
+    , m_autoLightMode(new SwitchWidget)
+    , m_nightShift(new SwitchWidget)
+    , m_settingsGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
+    , m_nightManual(new SwitchWidget)
+    , m_cctItem(new TitledSliderItem)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
 
-    m_autoLightMode = new SwitchWidget;
     //~ contents_path /display/Brightness
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_centralLayout->addWidget(m_autoLightMode);
@@ -62,7 +66,6 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_tempratureColorTitle = new TitleLabel(tr("Color Temperature")); //色温
     m_centralLayout->addWidget(m_tempratureColorTitle);
 
-    m_nightShift = new SwitchWidget;
     //~ contents_path /display/Brightness
     m_nightShift->setTitle(tr("Night Shift"));
     m_nightShift->addBackground();
@@ -76,11 +79,12 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_nightTips->setContentsMargins(10, 0, 0, 0);
     m_centralLayout->addWidget(m_nightTips);
 
-    m_nightManual = new SwitchWidget;
     //~ contents_path /display/Brightness
     m_nightManual->setTitle(tr("Change Color Temperature"));
-    m_nightManual->addBackground();
-    m_centralLayout->addWidget(m_nightManual);
+    m_cctItem->setAnnotations({tr("Cool"), "", tr("Warm")});
+    m_settingsGroup->appendItem(m_nightManual);
+    m_settingsGroup->appendItem(m_cctItem);
+    m_centralLayout->addWidget(m_settingsGroup);
 
     setLayout(m_centralLayout);
 }
@@ -218,7 +222,6 @@ void BrightnessWidget::addSlider()
                 m_miniScales = 1;
             }
             double brightness = monList[i]->brightness();
-            //slideritem->setValueLiteral(brightnessToTickInterval(brightness));
             slider->setRange(m_miniScales, maxBacklight);
             slider->setType(DCCSlider::Vernier);
             slider->setTickPosition(QSlider::TicksBelow);
@@ -231,7 +234,6 @@ void BrightnessWidget::addSlider()
             QStringList speedList;
             int j = m_miniScales;
             for (; j <= maxBacklight; j++) {
-                //speedList << QString::number(i);
                 speedList << "";
             }
             slideritem->setAnnotations(speedList);
@@ -270,8 +272,7 @@ void BrightnessWidget::addSlider()
         m_centralLayout->insertWidget(1, slideritem);
         m_monitorBrightnessMap[monList[i]] = slideritem;
     }
-    m_cctItem = new TitledSliderItem("", this);
-    m_cctItem->addBackground();
+
     DCCSlider *cctSlider = m_cctItem->slider();
     cctSlider->setRange(0, 100);
     cctSlider->setType(DCCSlider::Vernier);
@@ -297,11 +298,6 @@ void BrightnessWidget::addSlider()
         int kelvin = pos > 50 ? (6500 - (pos - 50) * 100) : (6500 + (50 - pos) * 300);
         this->requestSetColorTemperature(kelvin);
     });
-    QStringList fscaleList;
-    fscaleList << tr("Cool") << "" << tr("Warm");
-
-    m_cctItem->setAnnotations(fscaleList);
-    m_centralLayout->addWidget(m_cctItem);
 }
 
 int BrightnessWidget::colorTemperatureToValue(int kelvin)

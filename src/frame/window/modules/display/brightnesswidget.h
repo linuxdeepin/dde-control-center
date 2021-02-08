@@ -26,7 +26,7 @@
 #include "widgets/titlelabel.h"
 
 #include <DTipLabel>
-#include <dswitchbutton.h>
+
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +39,7 @@ namespace dcc {
 namespace widgets {
 class TipsLabel;
 class SwitchWidget;
+class SettingsGroup;
 class TitledSliderItem;
 } // namespace widgets
 
@@ -76,16 +77,17 @@ private:
     QString brightnessToTickInterval(const double tb) const;
 
 private:
-    dcc::display::DisplayModel *m_displayModel {nullptr};
+    dcc::display::DisplayModel *m_displayModel;
 
-    QVBoxLayout *m_centralLayout {nullptr};
-    DTK_WIDGET_NAMESPACE::DTipLabel *m_nightTips {nullptr};
+    QVBoxLayout *m_centralLayout;
+    dcc::widgets::SwitchWidget *m_autoLightMode;
     TitleLabel *m_tempratureColorTitle;
-    QList<dcc::widgets::TitledSliderItem *> m_sliders;
-    dcc::widgets::TitledSliderItem *m_cctItem {nullptr};
-    dcc::widgets::SwitchWidget *m_nightShift {nullptr};
-    dcc::widgets::SwitchWidget *m_nightManual {nullptr};
-    dcc::widgets::SwitchWidget *m_autoLightMode {nullptr};
+    dcc::widgets::SwitchWidget *m_nightShift;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_nightTips;
+    dcc::widgets::SettingsGroup *m_settingsGroup;
+    dcc::widgets::SwitchWidget *m_nightManual;
+    dcc::widgets::TitledSliderItem *m_cctItem;
+
     int m_miniScales = 0;
     QMap<dcc::display::Monitor *, dcc::widgets::TitledSliderItem *> m_monitorBrightnessMap;
 };
