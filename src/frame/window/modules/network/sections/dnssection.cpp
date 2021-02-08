@@ -210,17 +210,20 @@ bool DNSSection::allInputValid()
 
 void DNSSection::saveSettings()
 {
-    NetworkManager::Ipv4Setting::Ptr ipv4Setting = m_ipv4Setting.staticCast<NetworkManager::Ipv4Setting>();
-    NetworkManager::Ipv6Setting::Ptr ipv6Setting = m_ipv6Setting.staticCast<NetworkManager::Ipv6Setting>();
-
     // TODO： ipvX自动认证未输入直接忽略
-    ipv4Setting->setIgnoreAutoDns(!m_ipv4Dns.isEmpty());
-    ipv6Setting->setIgnoreAutoDns(!m_ipv6Dns.isEmpty());
+    if (m_ipv4Setting) {
+        NetworkManager::Ipv4Setting::Ptr ipv4Setting = m_ipv4Setting.staticCast<NetworkManager::Ipv4Setting>();
+        ipv4Setting->setIgnoreAutoDns(!m_ipv4Dns.isEmpty());
+        ipv4Setting->setDns(m_ipv4Dns);
+        m_ipv4Setting->setInitialized(true);
+    }
 
-    ipv4Setting->setDns(m_ipv4Dns);
-    ipv6Setting->setDns(m_ipv6Dns);
-    m_ipv4Setting->setInitialized(true);
-    m_ipv6Setting->setInitialized(true);
+    if (m_ipv6Setting) {
+        NetworkManager::Ipv6Setting::Ptr ipv6Setting = m_ipv6Setting.staticCast<NetworkManager::Ipv6Setting>();
+        ipv6Setting->setIgnoreAutoDns(!m_ipv6Dns.isEmpty());
+        ipv6Setting->setDns(m_ipv6Dns);
+        m_ipv6Setting->setInitialized(true);
+    }
 }
 
 bool DNSSection::isIpv4Address(const QString &ip)
