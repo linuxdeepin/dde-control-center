@@ -205,7 +205,7 @@ void ChainsProxyPage::onCheckValue()
 
     bool ok = true;
     const uint port = m_port->text().toUInt(&ok);
-    if (!ok) {
+    if (!ok || port > 65535) {
         m_port->setIsErr(true);
         m_port->dTextEdit()->showAlertMessage(tr("Invalid port"), m_port, 2000);
         return;
