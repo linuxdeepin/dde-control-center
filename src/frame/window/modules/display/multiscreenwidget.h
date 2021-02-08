@@ -98,7 +98,7 @@ private:
     QVBoxLayout *m_contentLayout;
     dcc::display::MonitorControlWidget *m_monitorControlWidget;
     dcc::display::MonitorIndicator *m_fullIndication;
-    QLabel *m_multiSettingLabel;
+    TitleLabel *m_multiSettingLabel;
     dcc::widgets::SettingsGroup *m_modeSettingsGroup;
     dcc::widgets::ComboxWidget *m_modeComboxWidget;
     dcc::widgets::SettingsGroup *m_primarySettingsGroup;

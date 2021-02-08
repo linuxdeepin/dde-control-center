@@ -49,7 +49,6 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
 
     m_tip = new TitleLabel(tr("Display Scaling"));
-    DFontSizeManager::instance()->bind(m_tip, DFontSizeManager::T5, QFont::DemiBold);
 
     m_centralLayout->addWidget(m_tip);
     setLayout(m_centralLayout);

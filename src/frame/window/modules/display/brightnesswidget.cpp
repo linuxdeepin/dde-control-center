@@ -55,7 +55,6 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_centralLayout->setSpacing(10);
 
     m_tempratureColorTitle = new TitleLabel(tr("Color Temperature")); //色温
-    DFontSizeManager::instance()->bind(m_tempratureColorTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_centralLayout->addWidget(m_tempratureColorTitle);
 
     m_nightShift = new SwitchWidget;
@@ -156,7 +155,6 @@ void BrightnessWidget::addSlider()
     }
 
     TitleLabel *headTitle = new TitleLabel(tr("Brightness")); //亮度
-    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_centralLayout->insertWidget(0, headTitle);
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名

@@ -29,13 +29,14 @@
 DWIDGET_USE_NAMESPACE
 
 TitleLabel::TitleLabel(QWidget *parent, Qt::WindowFlags f)
-    : QLabel(parent, f)
+    : DLabel(parent, f)
 {
     auto tf = this->font();
     tf.setWeight(QFont::Medium);
     setFont(tf);
 
-    DFontSizeManager::instance()->bind(this,DFontSizeManager::T5);
+    setForegroundRole(DPalette::TextTitle);
+    DFontSizeManager::instance()->bind(this,DFontSizeManager::T5, QFont::DemiBold);
 }
 
 TitleLabel::TitleLabel(const QString &text, QWidget *parent, Qt::WindowFlags f)

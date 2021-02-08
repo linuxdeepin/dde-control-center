@@ -22,9 +22,9 @@
 #ifndef TITLELABEL_H
 #define TITLELABEL_H
 
-#include <QLabel>
+#include <DLabel>
 
-class TitleLabel : public QLabel
+class TitleLabel : public DTK_NAMESPACE::Widget::DLabel
 {
     Q_OBJECT
 public:

@@ -84,7 +84,7 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
 
     if (m_monitor->canBrightness()) {
         TitleLabel *headTitle = new TitleLabel(tr("Brightness")); //亮度
-        DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
+        DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T7, QFont::Normal);
         m_contentLayout->insertWidget(1, headTitle);
 
         //单独显示每个亮度调节名
