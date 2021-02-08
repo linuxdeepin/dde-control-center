@@ -54,6 +54,11 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
 
+    m_autoLightMode = new SwitchWidget;
+    //~ contents_path /display/Brightness
+    m_autoLightMode->setTitle(tr("Auto Brightness"));
+    m_centralLayout->addWidget(m_autoLightMode);
+
     m_tempratureColorTitle = new TitleLabel(tr("Color Temperature")); //色温
     m_centralLayout->addWidget(m_tempratureColorTitle);
 
@@ -76,10 +81,6 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_nightManual->setTitle(tr("Change Color Temperature"));
     m_nightManual->addBackground();
     m_centralLayout->addWidget(m_nightManual);
-    m_autoLightMode = new SwitchWidget;
-    //~ contents_path /display/Brightness
-    m_autoLightMode->setTitle(tr("Auto Brightness"));
-    m_centralLayout->addWidget(m_autoLightMode);
 
     setLayout(m_centralLayout);
 }
