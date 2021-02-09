@@ -175,6 +175,7 @@ void DisplayModule::showSingleScreenWidget()
     contentLayout->addWidget(rotateWidget);
     connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate);
 
+    contentLayout->setContentsMargins(56, 0, 56, 0);
     QWidget *singleScreenWidget = new QWidget;
     singleScreenWidget->setLayout(contentLayout);
     m_displayWidget->setContent(singleScreenWidget);

@@ -53,6 +53,7 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     m_contentLayout->addWidget(m_resolutionWidget);
     m_contentLayout->addWidget(m_refreshRateWidget);
     m_contentLayout->addWidget(m_rotateWidget);
+    m_contentLayout->setContentsMargins(35, 0, 35, 0);
 
     setLayout(m_contentLayout);
 }
