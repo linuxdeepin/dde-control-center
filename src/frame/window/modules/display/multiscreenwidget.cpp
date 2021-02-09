@@ -59,6 +59,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_contentLayout->addWidget(m_resolutionWidget);
     m_contentLayout->addWidget(m_refreshRateWidget);
     m_contentLayout->addWidget(m_rotateWidget);
+    m_contentLayout->addStretch();
     m_contentLayout->setContentsMargins(56, 0, 56, 0);
 
     setLayout(m_contentLayout);
