@@ -71,7 +71,7 @@ TitledSliderItem::TitledSliderItem(QString title, QWidget *parent)
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(8, 8, 8, 8);
+    mainLayout->setContentsMargins(10, 8, 10, 8);
     mainLayout->addLayout(topLayout);
     mainLayout->addSpacing(10);
     mainLayout->addLayout(bottomLayout);

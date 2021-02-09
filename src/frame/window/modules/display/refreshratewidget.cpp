@@ -34,6 +34,7 @@ RefreshRateWidget::RefreshRateWidget(QWidget *parent)
     , m_monitor(nullptr)
     , m_refreshItemModel(new QStandardItemModel)
 {
+    m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_refreshLabel);
     m_contentLayout->addWidget(m_refreshCombox);
 

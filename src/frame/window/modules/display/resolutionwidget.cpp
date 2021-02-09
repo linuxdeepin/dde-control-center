@@ -38,6 +38,7 @@ ResolutionWidget::ResolutionWidget(QWidget *parent)
     , m_monitor(nullptr)
     , m_resoItemModel(new QStandardItemModel)
 {
+    m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_resolutionLabel);
     m_contentLayout->addWidget(m_resolutionCombox);
 

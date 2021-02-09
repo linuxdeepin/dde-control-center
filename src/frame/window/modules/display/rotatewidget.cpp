@@ -36,6 +36,7 @@ RotateWidget::RotateWidget(QWidget *parent)
     , m_model(nullptr)
     , m_monitor(nullptr)
 {
+    m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_rotateLabel);
     m_contentLayout->addWidget(m_rotateCombox);
 
