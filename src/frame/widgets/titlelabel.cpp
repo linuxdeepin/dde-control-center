@@ -35,6 +35,7 @@ TitleLabel::TitleLabel(QWidget *parent, Qt::WindowFlags f)
     tf.setWeight(QFont::Medium);
     setFont(tf);
 
+    setContentsMargins(10, 0, 0, 0);
     setForegroundRole(DPalette::TextTitle);
     DFontSizeManager::instance()->bind(this,DFontSizeManager::T5, QFont::DemiBold);
 }
