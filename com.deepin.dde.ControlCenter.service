@@ -1,3 +1,3 @@
 [D-BUS Service]
 Name=com.deepin.dde.ControlCenter
-Exec=/usr/bin/qdbus --literal com.deepin.SessionManager /com/deepin/StartManager com.deepin.StartManager.LaunchApp /usr/share/applications/dde-control-center.desktop 0 --dbus
+Exec=/usr/bin/qdbus --literal com.deepin.SessionManager /com/deepin/StartManager com.deepin.StartManager.Launch /usr/share/applications/dde-control-center-dbus.desktop

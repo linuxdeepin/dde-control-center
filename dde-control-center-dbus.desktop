@@ -1,0 +1,14 @@
+[Desktop Entry]
+Categories=Application;System;Settings
+Comment=Deepin Desktop Environment Control Center
+Exec=dde-control-center
+Icon=preferences-system
+Name=Deepin Control Center
+GenericName=Control Center
+StartupNotify=false
+Terminal=false
+NoDisplay=true
+Type=Application
+X-MultipleArgs=false
+X-Deepin-Vendor=deepin
+X-Deepin-TurboType=dtkwidget
