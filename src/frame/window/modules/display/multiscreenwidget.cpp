@@ -268,6 +268,7 @@ void MultiScreenWidget::initSecondaryScreenDialog()
 
         for (const auto &monitor : m_model->monitorList()) {
             if (monitor == m_model->primaryMonitor()) {
+                requestSetMainwindowRect(monitor);
                 continue;
             }
 

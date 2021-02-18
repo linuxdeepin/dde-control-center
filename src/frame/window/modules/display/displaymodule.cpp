@@ -204,6 +204,17 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate);
     connect(multiScreenWidget, &MultiScreenWidget::requestEnalbeMonitor, m_displayWorker, &DisplayWorker::setMonitorEnable);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi) {
+        bool stateChanged = false;
+        if (m_pMainWindow->windowState() == Qt::WindowState::WindowMaximized) {
+            m_pMainWindow->setWindowState(Qt::WindowState::WindowNoState);
+            stateChanged = true;
+        }
+        m_pMainWindow->move(moi->x() + moi->w() / 2 - m_pMainWindow->width() / 2, moi->y() + moi->h() / 2 - m_pMainWindow->height() / 2);
+        if (stateChanged) {
+            m_pMainWindow->setWindowState(Qt::WindowState::WindowMaximized);
+        }
+    });
 
     m_displayWidget->setContent(multiScreenWidget);
 }

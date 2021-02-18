@@ -82,6 +82,7 @@ Q_SIGNALS:
     void requestSetRotate(dcc::display::Monitor *monitor, const int rotate);
     void requestEnalbeMonitor(dcc::display::Monitor *monitor, const bool enable);
     void requestGatherEnabled(const bool enable);
+    void requestSetMainwindowRect(dcc::display::Monitor *monitor);
 
 private:
     void initModeList();
