@@ -59,11 +59,7 @@ public:
     inline int displayMode() const { return m_mode; }
     inline double uiScale() const { return m_uiScale; }
     inline double minimumBrightnessScale() const { return m_minimumBrightnessScale; }
-    inline const QString primary() const
-    {
-        Q_ASSERT(!m_primary.isEmpty());
-        return m_primary;
-    }
+    inline const QString primary() const { return m_primary; }
     inline const QList<Monitor *> monitorList() const { return m_monitors; }
     Monitor *primaryMonitor() const;
 

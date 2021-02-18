@@ -381,26 +381,6 @@ void DisplayWorker::monitorAdded(const QString &path)
     }
 
     m_model->monitorAdded(mon);
-    auto getDisplayPriority = [](QString name) {
-        if (name.contains("edp", Qt::CaseInsensitive)) {
-            return 1;
-        } else if (name.contains("hdmi", Qt::CaseInsensitive)) {
-            return 2;
-        } else if (name.contains("dvi", Qt::CaseInsensitive)) {
-            return 3;
-        } else if (name.contains("vga", Qt::CaseInsensitive)) {
-            return 3;
-        } else {
-            return 4;
-        }
-    };
-    if (m_model->displayMode() == EXTEND_MODE) {
-        int curPriority = getDisplayPriority(m_model->primary());
-        int monPriority = getDisplayPriority(mon->name());
-        if (monPriority < curPriority) {
-            m_displayInter.SetPrimary(mon->name());
-        }
-    }
     m_monitors.insert(mon, inter);
 
     inter->setSync(false);
