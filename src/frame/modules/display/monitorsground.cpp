@@ -138,6 +138,8 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
     }
 
     const QPoint otTopLeft = QPoint(other->x(), other->y());
+    const QPoint otTopRight = QPoint(other->x() + other->w(), other->y());
+    const QPoint otBottomLeft = QPoint(other->x(), other->y() + other->h());
     const QPoint otBottomRight = QPoint(other->x() + other->w(), other->y() + other->h());
     QRect rot(otTopLeft, otBottomRight);
 
@@ -147,7 +149,13 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
     cnt += rot.contains(pwBottomLeft) ? 1 : 0;
     cnt += rot.contains(pwBottomRight) ? 1 : 0;
 
-    if (cnt >= 2) {
+    int otCnt = 0;
+    otCnt += rpw.contains(otTopLeft) ? 1 : 0;
+    otCnt += rpw.contains(otTopRight) ? 1 : 0;
+    otCnt += rpw.contains(otBottomLeft) ? 1 : 0;
+    otCnt += rpw.contains(otBottomRight) ? 1 : 0;
+
+    if (cnt >= 2 || otCnt >= 2) {
         // clear global offset
         int minX = INT_MAX;
         int minY = INT_MAX;
