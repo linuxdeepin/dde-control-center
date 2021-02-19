@@ -63,6 +63,8 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
 
 Secret8021xSection::~Secret8021xSection()
 {
+    m_identity->textEdit()->disconnect();
+    m_password->textEdit()->disconnect();
 }
 
 bool Secret8021xSection::allInputValid()
