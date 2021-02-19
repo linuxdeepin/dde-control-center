@@ -44,6 +44,8 @@ class MouseSettingWidget : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit MouseSettingWidget(QWidget *parent = nullptr);
+    ~MouseSettingWidget();
+
     void setModel(dcc::mouse::MouseModel *const model);
 
 Q_SIGNALS:

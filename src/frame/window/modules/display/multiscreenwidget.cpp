@@ -20,6 +20,7 @@
  */
 
 #include "multiscreenwidget.h"
+#include "window/gsettingwatcher.h"
 
 #include <QVBoxLayout>
 #include <QApplication>
@@ -61,6 +62,11 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_contentLayout->addWidget(m_rotateWidget);
 
     setLayout(m_contentLayout);
+
+    // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("displayMultipleDisplays", m_multiSettingLabel);
+    GSettingWatcher::instance()->bind("displayMultipleDisplays", m_modeComboxWidget);
+    GSettingWatcher::instance()->bind("displayMultipleDisplays", m_primaryComboxWidget);
 }
 
 MultiScreenWidget::~MultiScreenWidget()
@@ -69,6 +75,10 @@ MultiScreenWidget::~MultiScreenWidget()
         dlg->deleteLater();
     }
     m_secondaryScreenDlgList.clear();
+
+    GSettingWatcher::instance()->erase("displayMultipleDisplays", m_multiSettingLabel);
+    GSettingWatcher::instance()->erase("displayMultipleDisplays", m_modeComboxWidget);
+    GSettingWatcher::instance()->erase("displayMultipleDisplays", m_primaryComboxWidget);
 }
 
 void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
@@ -147,7 +157,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         initSecondaryScreenDialog();
     });
     connect(m_model, &DisplayModel::resolutionRefreshEnableChanged, this, [=](const bool enable) {
-        m_multiSettingLabel->setVisible(enable);
+        m_multiSettingLabel->setVisible(GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hiden" ? enable : false);
         m_modeSettingsGroup->setVisible(enable);
         m_primarySettingsGroup->setVisible(enable);
     });
@@ -183,7 +193,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
     m_monitorControlWidget->setModel(m_model);
-    m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable());
+    m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable() && (GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hiden"));
     m_modeSettingsGroup->setVisible(m_model->resolutionRefreshEnable());
     m_primarySettingsGroup->setVisible(m_model->resolutionRefreshEnable());
     m_primaryComboxWidget->comboBox()->setEnabled(m_model->displayMode() == EXTEND_MODE);

@@ -21,6 +21,7 @@
 
 #include "soundeffectspage.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include "modules/sound/soundmodel.h"
 #include "widgets/switchwidget.h"
@@ -56,6 +57,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->addBackground();
+    GSettingWatcher::instance()->bind("soundEffects", m_sw);  // 使用GSettings来控制显示状态
     m_sw->switchButton()->setAccessibleName(lblTitle->text());
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
     m_layout->setSpacing(10);
@@ -68,6 +70,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setFrameShape(DListView::NoFrame);
     m_effectList->setViewportMargins(0, 0, 0, 0);
     m_effectList->setItemSpacing(1);
+    GSettingWatcher::instance()->bind("soundEffects", m_effectList);  // 使用GSettings来控制显示状态
 
     m_layout->addWidget(m_effectList, 1);
     m_layout->addStretch();
@@ -91,6 +94,8 @@ SoundEffectsPage::~SoundEffectsPage()
     if (scroller) {
         scroller->stop();
     }
+
+    GSettingWatcher::instance()->erase("soundEffects");
 }
 
 void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)

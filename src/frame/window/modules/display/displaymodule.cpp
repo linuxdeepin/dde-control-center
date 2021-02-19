@@ -25,6 +25,7 @@
 #include "multiscreenwidget.h"
 #include "touchscreenpage.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "widgets/timeoutdialog.h"
 #include "modules/display/displaymodel.h"
 #include "modules/display/displayworker.h"
@@ -50,6 +51,10 @@ DisplayModule::~DisplayModule()
 {
     m_displayModel->deleteLater();
     m_displayWorker->deleteLater();
+
+    GSettingWatcher::instance()->erase("displayResolution");
+    GSettingWatcher::instance()->erase("displayRefreshRate");
+    GSettingWatcher::instance()->erase("displayRotate");
 }
 
 void DisplayModule::windowUpdate()
@@ -162,16 +167,19 @@ void DisplayModule::showSingleScreenWidget()
 
     ResolutionWidget *resolutionWidget = new ResolutionWidget;
     resolutionWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    GSettingWatcher::instance()->bind("displayResolution", resolutionWidget);  // 使用GSettings来控制显示状态
     contentLayout->addWidget(resolutionWidget);
     connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
 
     RefreshRateWidget *refreshRateWidget = new RefreshRateWidget;
     refreshRateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    GSettingWatcher::instance()->bind("displayRefreshRate", refreshRateWidget);  // 使用GSettings来控制显示状态
     contentLayout->addWidget(refreshRateWidget);
     connect(refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution);
 
     RotateWidget *rotateWidget = new RotateWidget;
     rotateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    GSettingWatcher::instance()->bind("displayRotate", rotateWidget);  // 使用GSettings来控制显示状态
     contentLayout->addWidget(rotateWidget);
     connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate);
 

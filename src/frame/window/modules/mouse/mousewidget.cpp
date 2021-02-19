@@ -29,6 +29,7 @@
 #include "modules/mouse/widget/doutestwidget.h"
 #include "widgets/multiselectlistview.h"
 #include "window/insertplugin.h"
+#include "window/gsettingwatcher.h"
 #include <QVBoxLayout>
 #include <QList>
 
@@ -52,15 +53,15 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
 {
     qDebug() << "tpadExist: " << tpadExist << "redPoint: " << redPointExist;
     m_listviewModel = new QStandardItemModel(m_mouseListView);
-    m_menuIconText = {
-        { "dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&MouseWidget::showGeneralSetting)},
-        //~ contents_path /mouse/Mouse
-        { "dcc_mouse", tr("Mouse"), QMetaMethod::fromSignal(&MouseWidget::showMouseSetting)},
-        //~ contents_path /mouse/Touchpad
-        { "dcc_touchpad", tr("Touchpad"), QMetaMethod::fromSignal(&MouseWidget::showTouchpadSetting)},
-        //~ contents_path /mouse/TrackPoint
-        { "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting)}
-    };
+    m_menuIconText.push_back({ "dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&MouseWidget::showGeneralSetting)});
+    //~ contents_path /mouse/Mouse
+    m_menuIconText.push_back({ "dcc_mouse", tr("Mouse"), QMetaMethod::fromSignal(&MouseWidget::showMouseSetting)});
+    //~ contents_path /mouse/Touchpad
+    if (GSettingWatcher::instance()->getStatus("mouseTouchpad") != "Hiden")
+        m_menuIconText.push_back({ "dcc_touchpad", tr("Touchpad"), QMetaMethod::fromSignal(&MouseWidget::showTouchpadSetting)});
+    //~ contents_path /mouse/TrackPoint
+    m_menuIconText.push_back({ "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting)});
+
     QList<DStandardItem *> mouseItems;
     for (auto it = m_menuIconText.cbegin(); it != m_menuIconText.cend(); ++it) {
         DStandardItem *mouseItem = new DStandardItem(QIcon::fromTheme(it->itemIcon), it->itemText);

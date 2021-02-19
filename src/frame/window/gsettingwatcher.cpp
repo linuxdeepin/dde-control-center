@@ -45,8 +45,27 @@ void GSettingWatcher::bind(const QString &gsettingsName, QWidget *binder)
     setStatus(gsettingsName, binder);
 }
 
+void GSettingWatcher::erase(const QString &gsettingsName)
+{
+    if (m_map.isEmpty() || !m_map.contains(gsettingsName))
+        return;
+
+    m_map.remove(gsettingsName);
+}
+
+void GSettingWatcher::erase(const QString &gsettingsName, QWidget *binder)
+{
+    if (m_map.isEmpty() || !m_map.contains(gsettingsName))
+        return;
+
+    m_map.remove(gsettingsName, binder);
+}
+
 void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
 {
+    if (!binder)
+        return;
+
     const QString setting = m_gsettings->get(gsettingsName).toString();
 
     if ("Enabled" == setting)
@@ -57,11 +76,20 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
     binder->setVisible("Hiden" != setting);
 }
 
+const QString GSettingWatcher::getStatus(const QString &gsettingsName)
+{
+    return m_gsettings->get(gsettingsName).toString();
+}
+
 void GSettingWatcher::onStatusModeChanged(const QString &key)
 {
-    if (m_map.isEmpty())
+    if (m_map.isEmpty() || !m_map.contains(key))
         return;
 
     // 重新设置控件对应的显示类型
-    setStatus(key, m_map.find(key).value());
+    for (auto mapUnit = m_map.begin(); mapUnit != m_map.end(); ++mapUnit) {
+        if (key == mapUnit.key()) {
+            setStatus(key, mapUnit.value());
+        }
+    }
 }

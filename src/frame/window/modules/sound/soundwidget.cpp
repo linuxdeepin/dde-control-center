@@ -21,6 +21,7 @@
 
 #include "soundwidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "modules/sound/soundworker.h"
 #include "widgets/multiselectlistview.h"
 #include <DStyleOption>
@@ -76,14 +77,13 @@ void SoundWidget::setDefaultWidget()
 
 void SoundWidget::initMenuUI()
 {
-    m_menuMethod = {
-        //~ contents_path /sound/Speaker
-        { "dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)},
-        //~ contents_path /sound/Microphone
-        { "dcc_noun",tr("Input"),  QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)},
-        //~ contents_path /sound/Sound Effects
-        {"dcc_sound_effect",tr("Sound Effects"),  QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)}
-    };
+    //~ contents_path /sound/Speaker
+    m_menuMethod.push_back({ "dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)});
+    //~ contents_path /sound/Microphone
+    if (GSettingWatcher::instance()->getStatus("soundInput") != "Hiden")
+        m_menuMethod.push_back({ "dcc_noun",tr("Input"),  QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)});
+    //~ contents_path /sound/Sound Effects
+    m_menuMethod.push_back({"dcc_sound_effect",tr("Sound Effects"),  QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)});
 
     QStandardItemModel *listModel = new QStandardItemModel(this);
     for (auto mm : m_menuMethod) {

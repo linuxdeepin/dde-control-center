@@ -33,6 +33,9 @@ public:
     static GSettingWatcher *instance();
 
     void bind(const QString &gsettingsName, QWidget *binder);
+    void erase(const QString &gsettingsName);
+    void erase(const QString &gsettingsName, QWidget *binder);
+    const QString getStatus(const QString &gsettingsName);
 
 private:
     GSettingWatcher(QObject *parent = nullptr);
@@ -41,7 +44,7 @@ private:
     void onStatusModeChanged(const QString &key);
 
 private:
-    QHash<QString, QWidget *> m_map;
+    QMultiHash<QString, QWidget *> m_map;
     QGSettings *m_gsettings;
 };
 

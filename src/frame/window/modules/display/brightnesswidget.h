@@ -58,6 +58,7 @@ class BrightnessWidget : public QWidget
     Q_OBJECT
 public:
     explicit BrightnessWidget(QWidget *parent = 0);
+    ~BrightnessWidget();
 
 public:
     void setMode(dcc::display::DisplayModel *model);

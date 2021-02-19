@@ -57,6 +57,7 @@ class ScalingWidget : public QWidget
 
 public:
     explicit ScalingWidget(QWidget *parent = nullptr);
+    ~ScalingWidget();
 
 public:
     void setModel(dcc::display::DisplayModel *model);

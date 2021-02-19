@@ -79,9 +79,159 @@
             <default>''</default>
             <summary>Used to record custom ntp server</summary>
         </key>
+        <key name="display-multiple-displays" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display multiple displays status</summary>
+            <description>default is Enabled</description>
+        </key>
         <key name="display-light-lighting" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
-            <summary>change lighting button status</summary>
+            <summary>change display lighting button status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-color-temperature" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display color Temperature status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-scaling" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display scaling status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-resolution" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display resolution status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-refresh-rate" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display refresh rate status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-rotate" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display rotate status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-output-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound output slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-volume-boost" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound volume boost status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-balance-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound balance slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-input" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound input status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-input-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound input slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-feedback-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound feedback slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-noise-reduce" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound noise reduce status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-effects" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound effects status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="bluetooth-transfile" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change bluetooth transfile status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-plans-label" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power plans label status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-autointo-saveenergy" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power autointo saveenergy status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-autointo-saveenergy-battery" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power autointo saveenergy battery status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-lower-brightness" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power lower brightness status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-showtime-tofull" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power showtimetofull status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-showtime-tofulltips" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power showtimetofulltips status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-lid-present" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power lid present status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-press-powerbtn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power press powerbtn status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-monitor-configure" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power monitor configure status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-auto-lockscreen" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power auto lockscreen status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="keyboard-shortcut" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change keyboard shortcut status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="mouse-left-hand" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change mouse left hand status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="mouse-touchpad" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change mouse touchpad status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="mouse-speed-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change mouse speed slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="system-suspend" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change system suspend status</summary>
             <description>default is Enabled</description>
         </key>
     </schema>
