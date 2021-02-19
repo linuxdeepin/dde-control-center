@@ -71,7 +71,7 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
     const QFontMetrics fm(painter.font());
     const int width = fm.boundingRect(m_monitor->name()).width();
     painter.setPen(Qt::white);
-    if (m_model->displayMode() == EXTEND_MODE) {
+    if (m_model->displayMode() != MERGE_MODE) {
         int xstart = r.width() - width - 20;
         if (xstart > 0) {
             painter.drawText(r.width() - width - 20, 30, m_monitor->name());
