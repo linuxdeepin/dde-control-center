@@ -69,7 +69,7 @@ IpvxSection::IpvxSection(NetworkManager::Ipv6Setting::Ptr ipv6Setting, QFrame *p
 
 IpvxSection::~IpvxSection()
 {
-
+    m_ipAddress->textEdit()->disconnect();
 }
 
 bool IpvxSection::allInputValid()

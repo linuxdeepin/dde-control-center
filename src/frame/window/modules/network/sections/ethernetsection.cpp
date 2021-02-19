@@ -68,6 +68,7 @@ EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting,
 
 EthernetSection::~EthernetSection()
 {
+    m_clonedMac->textEdit()->disconnect();
 }
 
 bool EthernetSection::allInputValid()
