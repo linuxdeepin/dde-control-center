@@ -494,8 +494,11 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
                     break;
                 }
             }
-            if (monitor->hasResolutionAndRate(currentmode, Monitor::General)) {
-                mode = currentmode;
+            for (auto m : monitor->modeList()) {
+                if (m.width() == currentmode.width() && m.height() == currentmode.height()) {
+                    mode = currentmode;
+                    break;
+                }
             }
         }
 
