@@ -115,7 +115,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             m_modeCombox->setCurrentIndex(0);
             m_primaryCombox->setEnabled(false);
             m_brightnessWidget->showBrightness();
-
+            m_monitorControlWidget->setModel(m_model);
             for (auto dlg : m_secondaryScreenDlgList) {
                 dlg->deleteLater();
             }
@@ -124,14 +124,15 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             m_modeCombox->setCurrentIndex(1);
             m_primaryCombox->setEnabled(true);
             m_brightnessWidget->showBrightness(m_model->primaryMonitor());
-
+            m_monitorControlWidget->setModel(m_model);
             initSecondaryScreenDialog();
-        } else {
+        } else if (m_model->displayMode() == SINGLE_MODE) {
             auto monitorList = m_model->monitorList();
             for (int idx = 0; idx < monitorList.size(); ++idx) {
                 auto monitor = monitorList[idx];
                 if (monitor->enable()) {
                     m_modeCombox->setCurrentIndex(idx + 2);
+                    m_monitorControlWidget->setModel(m_model, monitor);
                     break;
                 }
             }
@@ -157,7 +158,10 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
         if (m_model->displayMode() == MERGE_MODE) {
             m_brightnessWidget->showBrightness();
-        } else {
+        } else if (m_model->displayMode() == EXTEND_MODE) {
+            m_brightnessWidget->showBrightness(m_model->primaryMonitor());
+        } else if (m_model->displayMode() == SINGLE_MODE) {
+            m_monitorControlWidget->setModel(m_model, m_model->primaryMonitor());
             m_brightnessWidget->showBrightness(m_model->primaryMonitor());
         }
 
@@ -213,7 +217,11 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
 
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
-    m_monitorControlWidget->setModel(m_model);
+    if (m_model->displayMode() == SINGLE_MODE) {
+        m_monitorControlWidget->setModel(m_model, m_model->primaryMonitor());
+    } else {
+        m_monitorControlWidget->setModel(m_model);
+    }
     m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable());
     m_modeSettingsItem->setVisible(m_model->resolutionRefreshEnable());
     m_primarySettingsItem->setVisible(m_model->resolutionRefreshEnable());

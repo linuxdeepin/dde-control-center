@@ -53,12 +53,16 @@ MonitorsGround::~MonitorsGround()
 
 void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
 {
+    qDeleteAll(m_monitors.keys());
+    m_monitors.clear();
+
     m_model = model;
     m_viewPortWidth = model->screenWidth();
     m_viewPortHeight = model->screenHeight();
 
     auto initMW = [this](Monitor *mon) {
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
+        pw->setVisible(true);
         m_monitors[pw] = mon;
 
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
@@ -69,23 +73,14 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
     };
 
     if (!moni) {
-        Monitor *primary = nullptr;
         for (auto mon : model->monitorList()) {
-            if (mon->isPrimary()) {
-                primary = mon;
-                continue;
-            }
             initMW(mon);
-        }
-        if (primary) {
-            initMW(primary);
         }
     } else {
         initMW(moni);
     }
 
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
-    connect(m_model, &DisplayModel::displayModeChanged, this, &MonitorsGround::resetMonitorsView);
 }
 
 void MonitorsGround::resetMonitorsView()
@@ -180,17 +175,6 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 
 void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
-    bool bSingle = false;
-    int enabledCount = 0;
-    for (auto *value : m_monitors) {
-        if (value->enable()) {
-            enabledCount++;
-            m_monitors.key(value)->setVisible(true);
-        }
-    }
-    if (1 == enabledCount)
-        bSingle = true;
-
     qDebug() << "adjust" << pw->name();
 
     const double scale = screenScale();
@@ -203,7 +187,7 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
     const double x = scale * pw->x();
     const double y = scale * pw->y();
 
-    if (bSingle) {
+    if (m_monitors.size() == 1) {
         const double wSingle = 0.15 * pw->w();
         const double hSingle = 0.15 * pw->h();
         pw->setGeometry(static_cast<int>((width() - wSingle) / 2), static_cast<int>((height() - hSingle) / 2), static_cast<int>(wSingle), static_cast<int>(hSingle));
