@@ -352,6 +352,12 @@ void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
     qDebug() << "active sink port changed to: " << activeSinkPort.name;
     m_activeSinkPort = activeSinkPort.name;
 
+    for (auto port : m_model->ports()) {
+        if (m_activeSinkPort == port->id()) {
+            m_model->setPort(port);
+        }
+    }
+
     m_activeTimer->start();
 }
 
