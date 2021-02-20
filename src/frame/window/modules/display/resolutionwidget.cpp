@@ -46,6 +46,7 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_resolutionLabel);
     m_contentLayout->addWidget(m_resolutionCombox);
+    m_resolutionCombox->setFocusPolicy(Qt::NoFocus);
     m_resolutionCombox->setMinimumWidth(comboxWidth);
     m_resolutionCombox->setModel(m_resoItemModel);
     addBackground();

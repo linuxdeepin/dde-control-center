@@ -44,6 +44,7 @@ RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_rotateLabel);
     m_contentLayout->addWidget(m_rotateCombox);
+    m_rotateCombox->setFocusPolicy(Qt::NoFocus);
     m_rotateCombox->setMinimumWidth(comboxWidth);
     addBackground();
     setLayout(m_contentLayout);

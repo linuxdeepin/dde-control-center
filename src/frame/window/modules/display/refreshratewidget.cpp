@@ -42,6 +42,7 @@ RefreshRateWidget::RefreshRateWidget(int comboxWidth, QWidget *parent)
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_refreshLabel);
     m_contentLayout->addWidget(m_refreshCombox);
+    m_refreshCombox->setFocusPolicy(Qt::NoFocus);
     m_refreshCombox->setMinimumWidth(comboxWidth);
     m_refreshCombox->setModel(m_refreshItemModel);
     addBackground();

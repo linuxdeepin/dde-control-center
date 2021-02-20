@@ -69,6 +69,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     modeLayout->setContentsMargins(10, 0, 10, 0);
     modeLayout->addWidget(m_modeLabel);
     modeLayout->addWidget(m_modeCombox);
+    m_modeCombox->setFocusPolicy(Qt::NoFocus);
     m_modeCombox->setMinimumWidth(ComboxWidth);
     m_modeSettingsItem->addBackground();
     m_modeSettingsItem->setLayout(modeLayout);
@@ -78,6 +79,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     primaryLayout->setContentsMargins(10, 0, 10, 0);
     primaryLayout->addWidget(m_primaryLabel);
     primaryLayout->addWidget(m_primaryCombox);
+    m_primaryCombox->setFocusPolicy(Qt::NoFocus);
     m_primaryCombox->setMinimumWidth(ComboxWidth);
     m_primarySettingsItem->addBackground();
     m_primarySettingsItem->setLayout(primaryLayout);
