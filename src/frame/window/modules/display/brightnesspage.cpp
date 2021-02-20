@@ -91,6 +91,7 @@ void BrightnessPage::setMode(DisplayModel *model)
     connect(m_displayModel, &DisplayModel::redshiftSettingChanged, m_nightShift->switchButton(), &DSwitchButton::setDisabled);
     connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, m_autoLightMode, &SwitchWidget::setVisible);
     connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);
+    connect(m_displayModel, &DisplayModel::monitorListChanged, this, &BrightnessPage::refreshSlider);
 
     m_autoLightMode->setVisible(model->autoLightAdjustIsValid());
     m_autoLightMode->setChecked(model->isAudtoLightAdjust());
@@ -140,7 +141,7 @@ void BrightnessPage::addSlider()
 
 
         auto onValueChanged = [ = ](int pos) {
-            this->requestSetMonitorBrightness(m_displayModel->monitorList()[i], pos / BrightnessMaxScale);
+            this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
             this->requestAmbientLightAdjustBrightness(false);
         };
 
@@ -176,9 +177,27 @@ void BrightnessPage::addSlider()
             slider->setValue(int(rb * BrightnessMaxScale));
             slider->blockSignals(false);
         });
-
+        m_sliders.push_back(slideritem);
         m_centralLayout->addWidget(slideritem);
     }
+}
+
+void BrightnessPage::removeSlider()
+{
+    for (auto s : m_sliders) {
+        m_centralLayout->removeWidget(s);
+        if (s)
+            delete s;
+    }
+    for (int i = 0; i < m_centralLayout->count(); ++i) {
+        QLayoutItem *layoutItem = m_centralLayout->itemAt(i);
+        if(layoutItem->spacerItem())
+        {
+            m_centralLayout->removeItem(layoutItem);
+            i--;
+        }
+    }
+    m_sliders.clear();
 }
 
 QString BrightnessPage::brightnessToTickInterval(const double tb) const
@@ -187,6 +206,13 @@ QString BrightnessPage::brightnessToTickInterval(const double tb) const
     int tnum = qFloor(tb * BrightnessMaxScale);
     tnum = tnum > tmini ? tnum : tmini;
     return QString::number(int(tnum)) + "%";
+}
+
+void BrightnessPage::refreshSlider()
+{
+    removeSlider();
+    addSlider();
+    m_centralLayout->addStretch(1);
 }
 
 }

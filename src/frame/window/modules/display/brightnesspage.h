@@ -68,7 +68,11 @@ Q_SIGNALS:
 
 private:
     void addSlider();
+    void removeSlider();
     QString brightnessToTickInterval(const double tb) const;
+
+private Q_SLOT:
+    void refreshSlider();
 
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
