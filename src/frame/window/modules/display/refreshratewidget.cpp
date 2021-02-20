@@ -63,7 +63,7 @@ void RefreshRateWidget::setModel(DisplayModel *model, Monitor *monitor)
 
 void RefreshRateWidget::setMonitor(Monitor *monitor)
 {
-    if (m_monitor == monitor) {
+    if (monitor == nullptr || m_monitor == monitor) {
         return;
     }
 
@@ -110,6 +110,10 @@ void RefreshRateWidget::setMonitor(Monitor *monitor)
 
 void RefreshRateWidget::initRefreshRate()
 {
+    if (m_monitor == nullptr) {
+        return;
+    }
+
     // 先断开信号，设置数据再连接信号
     if (m_refreshItemModel != nullptr) {
         disconnect(m_refreshCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);

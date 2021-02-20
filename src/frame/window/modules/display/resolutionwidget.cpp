@@ -67,7 +67,7 @@ void ResolutionWidget::setModel(DisplayModel *model, Monitor *monitor)
 
 void ResolutionWidget::setMonitor(Monitor *monitor)
 {
-    if (m_monitor == monitor) {
+    if (monitor == nullptr || m_monitor == monitor) {
         return;
     }
 
@@ -102,6 +102,10 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
 
 void ResolutionWidget::initResolution()
 {
+    if (m_monitor == nullptr) {
+        return;
+    }
+
     // 先断开信号，设置数据再连接信号
     if (m_resoItemModel != nullptr) {
         disconnect(m_resolutionCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);

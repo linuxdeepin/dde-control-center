@@ -198,9 +198,9 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(this, &MultiScreenWidget::requestGatherEnabled, m_monitorControlWidget, &MonitorControlWidget::onGatherEnabled);
 
     connect(m_modeCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
-        if (idx <= 1) {
+        if (idx <= 1 && m_model->displayMode() != idx + 1) {
             Q_EMIT requestSwitchMode(idx + 1);
-        } else {
+        } else if (idx > 1 && (m_model->displayMode() != SINGLE_MODE || m_model->monitorList()[idx - 2]->name() != m_model->primary())) {
             Q_EMIT requestSwitchMode(SINGLE_MODE, m_model->monitorList()[idx - 2]->name());
         }
     });

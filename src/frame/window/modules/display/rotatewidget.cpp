@@ -66,7 +66,7 @@ void RotateWidget::setModel(DisplayModel *model, Monitor *monitor)
 
 void RotateWidget::setMonitor(Monitor *monitor)
 {
-    if (m_monitor == monitor) {
+    if (monitor == nullptr || m_monitor == monitor) {
         return;
     }
 
@@ -84,6 +84,10 @@ void RotateWidget::setMonitor(Monitor *monitor)
 
 void RotateWidget::initRotate()
 {
+    if (m_monitor == nullptr) {
+        return;
+    }
+
     // 先断开信号，设置数据再连接信号
     disconnect(m_rotateCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);
 
