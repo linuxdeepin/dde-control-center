@@ -292,10 +292,6 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             connect(dlg, &SecondaryScreenDialog::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
             connect(this, &MultiScreenWidget::requestGatherEnabled, dlg, &SecondaryScreenDialog::requestGatherEnabled);
             m_secondaryScreenDlgList.append(dlg);
-
-            if (monitor->enable()) {
-                dlg->show();
-            }
         }
     }
 }

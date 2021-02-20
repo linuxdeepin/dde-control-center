@@ -55,7 +55,7 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
 {
     setMinimumWidth(480);
     setMinimumHeight(480);
-    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_contentLayout->addWidget(m_monitorControlWidget);
@@ -65,6 +65,7 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     m_contentLayout->setContentsMargins(35, 0, 35, 0);
 
     setLayout(m_contentLayout);
+    show();
 }
 
 void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor *monitor)
