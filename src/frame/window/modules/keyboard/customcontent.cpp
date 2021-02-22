@@ -54,17 +54,19 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(10);
-    mainLayout->addSpacing(10);
+    mainLayout->setContentsMargins(10, 35, 10, 0);
     //~ contents_path /keyboard/Shortcuts
     QLabel *shortCutTitle = new QLabel(tr("Add Custom Shortcut"));
+    DFontSizeManager::instance()->bind(shortCutTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     shortCutTitle->setAlignment(Qt::AlignCenter);
     mainLayout->addWidget(shortCutTitle);
     mainLayout->addSpacing(30);
 
     QLabel *shortCutName = new QLabel(tr("Name"));
-    mainLayout->addWidget(shortCutName);
+    QHBoxLayout *shortCutNameLayout = new QHBoxLayout;
+    shortCutNameLayout->addWidget(shortCutName);
+    shortCutNameLayout->setContentsMargins(10, 0, 0, 0);
+    mainLayout->addLayout(shortCutNameLayout);
 
     m_shortCutNameEdit = new DLineEdit;
     m_shortCutNameEdit->lineEdit()->setPlaceholderText(tr("Required"));
@@ -75,9 +77,13 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     });
 
     mainLayout->addWidget(m_shortCutNameEdit);
+    mainLayout->addSpacing(4);
 
     QLabel *shortCutCmd = new QLabel(tr("Command"));
-    mainLayout->addWidget(shortCutCmd);
+    QHBoxLayout *shortCutCmdLayout = new QHBoxLayout;
+    shortCutCmdLayout->addWidget(shortCutCmd);
+    shortCutCmdLayout->setContentsMargins(10, 0, 0, 0);
+    mainLayout->addLayout(shortCutCmdLayout);
 
     m_shortCutCmdEdit = new DFileChooserEdit(this);
     m_shortCutCmdEdit->lineEdit()->setPlaceholderText(tr("Required"));
@@ -91,9 +97,11 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     });
 
     mainLayout->addWidget(m_shortCutCmdEdit);
+    mainLayout->addSpacing(15);
 
     m_shortcut = new CustomItem;
     m_shortcut->setShortcut("");
+    m_shortcut->addBackground();
 
     mainLayout->addWidget(m_shortcut);
 

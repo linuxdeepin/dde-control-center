@@ -43,7 +43,7 @@ CustomItem::CustomItem(QWidget *parent)
 {
     setMouseTracking(true);
     QHBoxLayout *layout = new QHBoxLayout();
-    layout->setContentsMargins(20, 0, 10, 0);
+    layout->setContentsMargins(4, 4, 4, 4);
     layout->setSpacing(2);
 
     m_title = new QLabel();
