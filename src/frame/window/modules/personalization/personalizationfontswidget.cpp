@@ -73,8 +73,6 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 
     m_centralLayout->addWidget(m_fontSizeSlider);
 
-    // 平板一期字体二级菜单只开放字体大小设置，其它隐藏
-#ifndef USE_TABLET
     //standard font
     QHBoxLayout *sfontLayout = new QHBoxLayout();
     sfontLayout->setContentsMargins(10, 6, 10, 6);
@@ -108,10 +106,6 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     mfontLayout->addWidget(m_monoFontsCbBox);
     m_monoFontsCbBox->setModel(new QStandardItemModel(this));
     m_centralLayout->addWidget(mfontitem);
-#endif
-    m_standardFontsCbBox->setVisible(false);
-    m_monoFontsCbBox->setVisible(false);
-
     m_centralLayout->addStretch();
     setLayout(m_centralLayout);
 

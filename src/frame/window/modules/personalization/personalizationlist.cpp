@@ -47,23 +47,17 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     QStringList menus;
     //~ contents_path /personalization/General
     menus << tr("General");
-
-    // 平板一期隐藏图标、光标主题二级菜单
-#ifndef USE_TABLET
     //~ contents_path /personalization/Icon Theme
     menus << tr("Icon Theme");
     //~ contents_path /personalization/Cursor Theme
     menus << tr("Cursor Theme");
-#endif
     //~ contents_path /personalization/Font
     menus << tr("Font");
 
     QStringList icons;
     icons << "dcc_common"
-#ifndef USE_TABLET
           << "dcc_Icon_theme"
           << "dcc_cursor_theme"
-#endif
           << "dcc_Font";
 
     for (int i = 0; i < menus.size(); ++i) {
@@ -75,13 +69,9 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     }
 
     m_itemList.push_back({icons.at(0),menus.at(0),QMetaMethod::fromSignal(&PersonalizationList::requestShowGeneral)});
-#ifndef USE_TABLET
     m_itemList.push_back({icons.at(1),menus.at(1),QMetaMethod::fromSignal(&PersonalizationList::requestShowIconTheme)});
     m_itemList.push_back({icons.at(2),menus.at(2),QMetaMethod::fromSignal(&PersonalizationList::requestShowCursorTheme)});
     m_itemList.push_back({icons.at(3),menus.at(3),QMetaMethod::fromSignal(&PersonalizationList::requestShowFonts)});
-#else
-    m_itemList.push_back({icons.at(1),menus.at(1),QMetaMethod::fromSignal(&PersonalizationList::requestShowFonts)});
-#endif
 
     if(InsertPlugin::instance()->needPushPlugin("personalization"))
         InsertPlugin::instance()->pushPlugin(m_model,m_itemList);
