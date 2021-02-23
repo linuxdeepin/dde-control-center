@@ -122,7 +122,13 @@ QString ProtocolFile::getEnduserAgreement()
     } else if (DSysInfo::isCommunityEdition()) {
         const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/End-User-License-Agreement-CN-%1.txt", "");
         return body;
-    } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosProfessional) {
+    } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosEducation) {
+        const QString bodypath = getLicensePath(educationEnduserAgreement, "");
+        if (QFile::exists(bodypath)) {
+            const QString educationbody = getLicenseText(educationEnduserAgreement, "");
+            return educationbody;
+        }
+    } else {
         const QString bodypath_new = getLicensePath(professionalEnduserAgreement_new, "");
         if (QFile::exists(bodypath_new)) {
             const QString serverbody = getLicenseText(professionalEnduserAgreement_new, "");
@@ -135,12 +141,6 @@ QString ProtocolFile::getEnduserAgreement()
         } else {
             const QString oldPath = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-%1.txt", "");
             return oldPath;
-        }
-    } else {
-        const QString bodypath = getLicensePath(educationEnduserAgreement, "");
-        if (QFile::exists(bodypath)) {
-            const QString educationbody = getLicenseText(educationEnduserAgreement, "");
-            return educationbody;
         }
     }
 }
