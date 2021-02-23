@@ -235,8 +235,7 @@ void UpdateSettings::setModel(UpdateModel *model)
 
     m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
     m_autoCheckSecureUpdate->setChecked(model->autoCheckSecureUpdates());
-    // m_autoCheckSecureUpdate->setVisible(model->autoCheckUpdates());
-    m_autoCheckSecureUpdate->setVisible(false); // 当前阶段暂时隐藏安全更新选项显示
+    m_autoCheckSecureUpdate->setVisible(model->autoCheckUpdates());
     m_autoCheckSystemUpdate->setChecked(model->autoCheckSystemUpdates());
     m_autoCheckSystemUpdate->setVisible(model->autoCheckUpdates());
     m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
