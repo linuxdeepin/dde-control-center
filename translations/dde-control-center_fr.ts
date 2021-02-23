@@ -965,21 +965,21 @@
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="159"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="217"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="274"/>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="275"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="278"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="289"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="330"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="338"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="388"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="288"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="469"/>
         <source>Customize</source>
         <translation>Personnaliser</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="218"/>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Sauvegarder</translation>
     </message>
 </context>
 <context>
@@ -1314,53 +1314,53 @@
 <context>
     <name>dccV20::display::BrightnessWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="57"/>
-        <source>Color Temperature</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="63"/>
-        <source>Night Shift</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="66"/>
-        <source>The screen hue will be auto adjusted according to your location</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="76"/>
-        <source>Change Color Temperature</source>
-        <translation type="unfinished"/>
-        <extra-contents_path>/display/Brightness</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="81"/>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Luminosité automatique</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="157"/>
-        <source>Brightness</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="67"/>
+        <source>Color Temperature</source>
+        <translation>Température de couleur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="71"/>
+        <source>Night Shift</source>
+        <translation>Éclairage nocturne</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="74"/>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation>La teinte de l&apos;écran sera ajustée automatiquement en fonction de votre emplacement</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="84"/>
+        <source>Change Color Temperature</source>
+        <translation>Changer la température de couleur</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="85"/>
         <source>Cool</source>
-        <translation type="unfinished"/>
+        <translation>Froid</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="85"/>
         <source>Warm</source>
-        <translation type="unfinished"/>
+        <translation>Chaud</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/brightnesswidget.cpp" line="163"/>
+        <source>Brightness</source>
+        <translation>Luminosité</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="77"/>
         <source>Display</source>
         <translation>Afficher</translation>
     </message>
@@ -1368,93 +1368,93 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="51"/>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Affichages multiples</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="53"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mode</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="56"/>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Écran principal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="242"/>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Dupliquer</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="243"/>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Étendre</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="248"/>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Uniquement sur %1</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::RefreshRateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="31"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="36"/>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Fréquence de rafraîchissement</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="141"/>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/display/refreshratewidget.cpp" line="143"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recommandé</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="35"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="40"/>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Résolution</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="139"/>
         <source>Recommended</source>
-        <translation type="unfinished"/>
+        <translation>Recommandé</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::RotateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="34"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="39"/>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Rotation</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="51"/>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="51"/>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="51"/>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="51"/>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
@@ -1462,15 +1462,15 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="51"/>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Mise à l&apos;échelle de l&apos;affichage</translation>
     </message>
 </context>
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="96"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Luminosité</translation>
     </message>
 </context>
 <context>
@@ -1514,39 +1514,39 @@
 <context>
     <name>dccV20::keyboard::CustomContent</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="59"/>
         <source>Add Custom Shortcut</source>
         <translation>Ajouter un raccourci personnalisé</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="65"/>
         <source>Name</source>
         <translation>Nom</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="70"/>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="89"/>
         <source>Required</source>
         <translation>Obligatoire</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="82"/>
         <source>Command</source>
         <translation>Commander</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="109"/>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="111"/>
         <source>Add</source>
         <translation>Ajouter</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="142"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>Ce raccourci est en conflit avec %1, cliquer sur Ajouter pour rendre ce raccourci effectif immédiatement</translation>
     </message>
@@ -2169,22 +2169,22 @@
         <translation>Ne pas lier</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="103"/>
         <source>Device MAC Addr</source>
         <translation>Adresse MAC du périphérique</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="119"/>
         <source>Cloned MAC Addr</source>
         <translation>Adresse MAC clonée</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="132"/>
         <source>Customize MTU</source>
         <translation>Personnaliser MTU</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="135"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -2739,159 +2739,159 @@
         <translation>Sécurité</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="163"/>
         <source>TLS</source>
         <translation>TLS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
         <source>MD5</source>
         <translation>MD5</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="163"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
         <source>LEAP</source>
         <translation>SAUT</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
         <source>FAST</source>
         <translation>FAST</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
         <source>Tunneled TLS</source>
         <translation>TLS par tunnel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
         <source>Protected EAP</source>
         <translation>EAP protégé</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
         <source>Save password for this user</source>
         <translation>Enregistrer le mot de passe de cet utilisateur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
         <source>Save password for all users</source>
         <translation>Enregistrer le mot de passe pour tous les utilisateurs</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
         <source>Ask me always</source>
         <translation>Toujours me demander</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="179"/>
         <source>Disabled</source>
         <translation>Désactivé</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="180"/>
         <source>Anonymous</source>
         <translation>Anonyme</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="181"/>
         <source>Authenticated</source>
         <translation>Authentifié</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="182"/>
         <source>Both</source>
         <translation>Tous</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="198"/>
         <source>Automatic</source>
         <translation>Automatique</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="199"/>
         <source>Version 0</source>
         <translation>Version 0</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="200"/>
         <source>Version 1</source>
         <translation>Version 1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="212"/>
         <source>EAP Auth</source>
         <translation>Authentification EAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="236"/>
         <source>Identity</source>
         <translation>Identité</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="236"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="252"/>
         <source>Required</source>
         <translation>Obligatoire</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="240"/>
         <source>Pwd Options</source>
         <translation>Options Pwd</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="353"/>
         <source>Private Key</source>
         <translation>Clé privée</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="356"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="444"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="482"/>
         <source>CA Cert</source>
         <translation>CA Cert</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="363"/>
         <source>User Cert</source>
         <translation>Cert. utilisateur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="388"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="439"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="441"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="477"/>
         <source>Anonymous ID</source>
         <translation>Identifiant anonyme</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="395"/>
         <source>Provisioning</source>
         <translation>Approvisionnement</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="407"/>
         <source>PAC file</source>
         <translation>Fichier PAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="410"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="449"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="496"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="498"/>
         <source>Inner Auth</source>
         <translation>Authentification Interne</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="487"/>
         <source>PEAP Version</source>
         <translation>Version PEAP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="584"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="586"/>
         <source>Private Pwd</source>
         <translation>Pwd privé</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="586"/>
+        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="588"/>
         <source>Password</source>
         <translation>Mot de passe</translation>
     </message>
@@ -2979,7 +2979,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="165"/>
         <source>Shared key</source>
-        <translation>Clef partagée</translation>
+        <translation>Clé partagée</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="166"/>
@@ -3005,7 +3005,7 @@
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="242"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="278"/>
         <source>Key</source>
-        <translation>Clef</translation>
+        <translation>Clé</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
@@ -3238,7 +3238,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="90"/>
         <source>Pre-Shared Key</source>
-        <translation>Clé Pré-Partagée</translation>
+        <translation>Clé pré-partagée</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="93"/>
@@ -3407,7 +3407,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="294"/>
         <source>Key Direction</source>
-        <translation>Direction clé</translation>
+        <translation>Clé de direction</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="301"/>
@@ -3882,12 +3882,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="108"/>
         <source>Customize Key Direction</source>
-        <translation>Personnaliser la direction de la clef</translation>
+        <translation>Personnaliser la clé de direction</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="111"/>
         <source>Key Direction</source>
-        <translation>Direction clé</translation>
+        <translation>Clé de direction</translation>
     </message>
 </context>
 <context>
@@ -4287,7 +4287,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="78"/>
         <source>Light</source>
-        <translation>Lumière</translation>
+        <translation>Clair</translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -4497,7 +4497,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="111"/>
         <source>Shut down</source>
-        <translation>Fermer</translation>
+        <translation>Arrêter</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
@@ -4580,7 +4580,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="88"/>
         <source>Shut down</source>
-        <translation>Fermer</translation>
+        <translation>Arrêter</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="90"/>
@@ -5179,12 +5179,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="44"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Politique de confidentialité</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="49"/>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy or view it online by visiting &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Nous avons conscience de l&apos;importance de vos informations personnelles. Notre politique de confidentialité couvre la façon dont nous collectons, utilisons, partageons, transférons, divulguons publiquement et stockons vos informations.&lt;/p&gt;Vous pouvez &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;cliquer ici&lt;/a&gt; pour consulter notre dernière politique de confidentialité ou la consulter en ligne en visitant &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Veuillez lire attentivement et comprendre nos pratiques en matière de confidentialité. Si vous avez des questions, veuillez nous contacter à : support@uniontech.com.&lt;p&gt;</translation>
     </message>
 </context>
 <context>
@@ -5218,7 +5218,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="75"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Politique de confidentialité</translation>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
     </message>
 </context>
@@ -5643,12 +5643,12 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
         <source>Light</source>
-        <translation>Clair</translation>
+        <translation>Légère</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation>Lourd</translation>
+        <translation>Forte</translation>
     </message>
 </context>
 <context>
@@ -5806,7 +5806,7 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="55"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Le mot de passe doit contenir des lettres majuscules, des lettres minuscules, des chiffres et des symboles (~!@#$%^&amp;*-+=`|\(){}[]:;&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
@@ -5816,7 +5816,7 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
         <source>Do not use common words and combinations in reverse order as password</source>
-        <translation type="unfinished"/>
+        <translation>N&apos;utiliser pas de mots communs et de combinaisons dans l&apos;ordre inverse comme mot de passe</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
@@ -5826,7 +5826,7 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="62"/>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Il ne répond pas aux règles de mot de passe</translation>
     </message>
 </context>
 <context>
@@ -5908,7 +5908,7 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
         <source>Shut down</source>
-        <translation>Éteindre</translation>
+        <translation>Arrêter</translation>
     </message>
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
@@ -6403,7 +6403,7 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="41"/>
         <source>Gather Windows</source>
-        <translation type="unfinished"/>
+        <translation>Rassembler les fenêtres</translation>
     </message>
 </context>
 <context>
@@ -6610,7 +6610,7 @@ Visiter le Centre des utilisateurs et gérer votre compte là-bas.</translation>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="110"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="127"/>
         <source>Shut down</source>
-        <translation>Éteindre</translation>
+        <translation>Arrêter</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>

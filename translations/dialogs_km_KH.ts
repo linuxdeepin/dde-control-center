@@ -1,30 +1,30 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="fr" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="km_KH" version="2.1">
 <context>
     <name>ReminderDialog</name>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Redémarrer l&apos;ordinateur afin de pouvoir utiliser correctement le système et les applications</translation>
+        <translation>ចាប់ផ្ដើមកុំព្យូទ័រឡើងវិញដើម្បីប្រើប្រព័ន្ធនិងកម្មវិធីឱ្យបានត្រឹមត្រូវ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Assurez-vous en premier que toutes les données ont été enregistrées</translation>
+        <translation>ត្រូវប្រាកដថាទិន្នន័យទាំងអស់ត្រូវបានរក្សាទុកមុន</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Cancel</source>
-        <translation>Annuler</translation>
+        <translation>បោះបង់</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
-        <translation>Arrêter</translation>
+        <translation>បិទ</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation>Redémarrer</translation>
+        <translation>ចាប់ផ្តើមឡើងវិញ</translation>
     </message>
 </context>
 </TS>
