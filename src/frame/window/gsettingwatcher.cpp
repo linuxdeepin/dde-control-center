@@ -68,10 +68,11 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
 
     const QString setting = m_gsettings->get(gsettingsName).toString();
 
-    if ("Enabled" == setting)
+    if ("Enabled" == setting) {
         binder->setEnabled(true);
-    else if ("Disabled" == setting)
+    } else if ("Disabled" == setting) {
         binder->setEnabled(false);
+    }
 
     binder->setVisible("Hiden" != setting);
 }

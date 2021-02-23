@@ -29,6 +29,7 @@
 #include "widgets/nextpagewidget.h"
 #include "dsysinfo.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DTipLabel>
 #include <DFontSizeManager>
@@ -58,6 +59,17 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     initUi();
     initConnection();
     setModel(model);
+}
+
+UpdateSettings::~UpdateSettings()
+{
+    GSettingWatcher::instance()->erase("updateAutoCheck", m_autoCheckUpdate);
+    GSettingWatcher::instance()->erase("updateUpdateNotify", m_updateNotify);
+    GSettingWatcher::instance()->erase("updateAutoDownlaod", m_autoDownloadUpdate);
+    GSettingWatcher::instance()->erase("updateCleanCache", m_autoCleanCache);
+    GSettingWatcher::instance()->erase("updateSystemUpdate", m_autoCheckSystemUpdate);
+    GSettingWatcher::instance()->erase("updateAppUpdate", m_autoCheckAppUpdate);
+    GSettingWatcher::instance()->erase("updateSecureUpdate", m_autoCheckSecureUpdate);
 }
 
 void UpdateSettings::initUi()
@@ -234,6 +246,14 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoDownloadUpdate->setVisible(model->updateNotify());
     m_autoDownloadUpdateTips->setVisible(model->updateNotify());
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
+
+    GSettingWatcher::instance()->bind("updateAutoCheck", m_autoCheckUpdate);
+    GSettingWatcher::instance()->bind("updateUpdateNotify", m_updateNotify);
+    GSettingWatcher::instance()->bind("updateAutoDownlaod", m_autoDownloadUpdate);
+    GSettingWatcher::instance()->bind("updateCleanCache", m_autoCleanCache);
+    GSettingWatcher::instance()->bind("updateSystemUpdate", m_autoCheckSystemUpdate);
+    GSettingWatcher::instance()->bind("updateAppUpdate", m_autoCheckAppUpdate);
+    GSettingWatcher::instance()->bind("updateSecureUpdate", m_autoCheckSecureUpdate);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {

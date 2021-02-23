@@ -27,6 +27,7 @@
 #include "modules/personalization/model/fontsizemodel.h"
 #include "modules/personalization/model/fontmodel.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DSlider>
 #include <DFontSizeManager>
@@ -76,9 +77,9 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     //standard font
     QHBoxLayout *sfontLayout = new QHBoxLayout();
     sfontLayout->setContentsMargins(10, 6, 10, 6);
-    SettingsItem *sfontitem = new SettingsItem;
-    sfontitem->addBackground();
-    sfontitem->setLayout(sfontLayout);
+    m_sfontitem = new SettingsItem;
+    m_sfontitem->addBackground();
+    m_sfontitem->setLayout(sfontLayout);
     //~ contents_path /personalization/Font
     QString sf = tr("Standard Font");
     QLabel *sfLabel = new QLabel(sf);
@@ -89,14 +90,16 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 
     m_standardFontsCbBox->setModel(new QStandardItemModel(this));
     m_standardFontsCbBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    m_centralLayout->addWidget(sfontitem);
+    m_centralLayout->addWidget(m_sfontitem);
+    GSettingWatcher::instance()->bind("perssonalFontStandard", m_sfontitem);
+
 
     //mono font
     QHBoxLayout *mfontLayout = new QHBoxLayout();
     mfontLayout->setContentsMargins(10, 6, 10, 6);
-    SettingsItem *mfontitem = new SettingsItem;
-    mfontitem->addBackground();
-    mfontitem->setLayout(mfontLayout);
+    m_mfontitem = new SettingsItem;
+    m_mfontitem->addBackground();
+    m_mfontitem->setLayout(mfontLayout);
     //~ contents_path /personalization/Font
     QString mf = tr("Monospaced Font");
     QLabel *mfLabel = new QLabel(mf);
@@ -105,12 +108,20 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     mfontLayout->addWidget(mfLabel);
     mfontLayout->addWidget(m_monoFontsCbBox);
     m_monoFontsCbBox->setModel(new QStandardItemModel(this));
-    m_centralLayout->addWidget(mfontitem);
+    m_centralLayout->addWidget(m_mfontitem);
     m_centralLayout->addStretch();
     setLayout(m_centralLayout);
+    GSettingWatcher::instance()->bind("perssonalFontMono", m_mfontitem);
 
     connect(slider, &DCCSlider::valueChanged, this, &PersonalizationFontsWidget::requestSetFontSize);
     connect(slider, &DCCSlider::sliderMoved, this, &PersonalizationFontsWidget::requestSetFontSize);
+}
+
+PersonalizationFontsWidget::~PersonalizationFontsWidget()
+{
+    GSettingWatcher::instance()->erase("perssonalFontStandard", m_sfontitem);
+    GSettingWatcher::instance()->erase("perssonalFontMono", m_mfontitem);
+    GSettingWatcher::instance()->erase("perssonalFontSize", m_fontSizeSlider);
 }
 
 void PersonalizationFontsWidget::setModel(dcc::personalization::PersonalizationModel *const model)
@@ -120,6 +131,7 @@ void PersonalizationFontsWidget::setModel(dcc::personalization::PersonalizationM
     //font size
     connect(m_model->getFontSizeModel(), &dcc::personalization::FontSizeModel::sizeChanged, this, &PersonalizationFontsWidget::setFontSize);
     setFontSize(m_model->getFontSizeModel()->getFontSize());
+    GSettingWatcher::instance()->bind("perssonalFontSize", m_fontSizeSlider);
 
     //standard font & mono font
     dcc::personalization::FontModel *standmodel = model->getStandFontModel();

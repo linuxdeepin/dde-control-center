@@ -23,6 +23,7 @@
 #include "modules/defapp/model/category.h"
 #include "modules/defapp/defappmodel.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DFloatingButton>
 #include <DListView>
@@ -74,6 +75,14 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     //~ contents_path /defapp/Webpage
     m_addBtn->setToolTip(tr("Add Application"));
     m_addBtn->setAccessibleName(tr("Add Application"));
+    GSettingWatcher::instance()->bind("defappApplistAddbtn", m_addBtn);
+    GSettingWatcher::instance()->bind("defappApplistDefapp", m_defApps);
+}
+
+DefappDetailWidget::~DefappDetailWidget()
+{
+    GSettingWatcher::instance()->erase("defappApplistAddbtn", m_addBtn);
+    GSettingWatcher::instance()->erase("defappApplistDefapp", m_defApps);
 }
 
 void DefappDetailWidget::setModel(dcc::defapp::DefAppModel *const model)

@@ -24,6 +24,7 @@
 #include "widgets/titlevalueitem.h"
 #include "modules/systeminfo/logoitem.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <QVBoxLayout>
 #include <QApplication>
@@ -49,6 +50,14 @@ NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
     , isContensServers(false)
 {
     initWidget();
+}
+
+NativeInfoWidget::~NativeInfoWidget()
+{
+    GSettingWatcher::instance()->erase("systeminfoNativeinfoAuthorized", m_authorized);
+    GSettingWatcher::instance()->erase("systeminfoNativeinfoKernel", m_kernel);
+    GSettingWatcher::instance()->erase("systeminfoNativeinfoProcessor", m_processor);
+    GSettingWatcher::instance()->erase("systeminfoNativeinfoMemory", m_memory);
 }
 
 void NativeInfoWidget::initWidget()
@@ -118,6 +127,11 @@ void NativeInfoWidget::initWidget()
     //~ contents_path /systeminfo/About This PC
     m_memory->setTitle(tr("Memory:"));
     m_memory->setValue(m_model->memory());
+
+    GSettingWatcher::instance()->bind("systeminfoNativeinfoAuthorized", m_authorized);
+    GSettingWatcher::instance()->bind("systeminfoNativeinfoKernel", m_kernel);
+    GSettingWatcher::instance()->bind("systeminfoNativeinfoProcessor", m_processor);
+    GSettingWatcher::instance()->bind("systeminfoNativeinfoMemory", m_memory);
 
     logoGroup->appendItem(logo);
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||

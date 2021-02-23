@@ -25,6 +25,7 @@
 #include "clockitem.h"
 #include "systemtimezone.h"
 #include "formatsetting.h"
+#include "window/gsettingwatcher.h"
 
 #include <types/zoneinfo.h>
 
@@ -221,20 +222,21 @@ void DatetimeModule::ensureZoneChooserDialog()
 
 void DatetimeModule::showFormatSetting()
 {
-    DCC_NAMESPACE::datetime::FormatSetting* fsetting = new DCC_NAMESPACE::datetime::FormatSetting(m_model);
-    connect(fsetting, &FormatSetting::weekdayFormatChanged, this, &DatetimeModule::weekdayFormatChanged);
-    connect(fsetting, &FormatSetting::shortDateFormatChanged, this, &DatetimeModule::shortDateFormatChanged);
-    connect(fsetting, &FormatSetting::longDateFormatChanged, this, &DatetimeModule::longDateFormatChanged);
-    connect(fsetting, &FormatSetting::longTimeFormatChanged, this, &DatetimeModule::longTimeFormatChanged);
-    connect(fsetting, &FormatSetting::shortTimeFormatChanged, this, &DatetimeModule::shortTimeFormatChanged);
-    connect(fsetting, &FormatSetting::weekStartDayFormatChanged, this, &DatetimeModule::weekStartDayFormatChanged);
-    connect(m_model, &DatetimeModel::weekdayFormatTypeChanged, fsetting, &FormatSetting::setCururentWeekdayFormat);
-    connect(m_model, &DatetimeModel::shortDateFormatChanged, fsetting, &FormatSetting::setCururentShortDateFormat);
-    connect(m_model, &DatetimeModel::longDateFormatChanged, fsetting, &FormatSetting::setCururentLongDateFormat);
-    connect(m_model, &DatetimeModel::longTimeFormatChanged, fsetting, &FormatSetting::setCururentLongTimeFormat);
-    connect(m_model, &DatetimeModel::shorTimeFormatChanged, fsetting, &FormatSetting::setCururentShortTimeFormat);
-    connect(m_model, &DatetimeModel::weekStartDayFormatChanged, fsetting, &FormatSetting::setCururentWeekStartDayFormat);
-    m_frameProxy->pushWidget(this, fsetting);
+    m_fsetting = new DCC_NAMESPACE::datetime::FormatSetting(m_model);
+    connect(m_fsetting, &FormatSetting::weekdayFormatChanged, this, &DatetimeModule::weekdayFormatChanged);
+    connect(m_fsetting, &FormatSetting::shortDateFormatChanged, this, &DatetimeModule::shortDateFormatChanged);
+    connect(m_fsetting, &FormatSetting::longDateFormatChanged, this, &DatetimeModule::longDateFormatChanged);
+    connect(m_fsetting, &FormatSetting::longTimeFormatChanged, this, &DatetimeModule::longTimeFormatChanged);
+    connect(m_fsetting, &FormatSetting::shortTimeFormatChanged, this, &DatetimeModule::shortTimeFormatChanged);
+    connect(m_fsetting, &FormatSetting::weekStartDayFormatChanged, this, &DatetimeModule::weekStartDayFormatChanged);
+    connect(m_model, &DatetimeModel::weekdayFormatTypeChanged, m_fsetting, &FormatSetting::setCururentWeekdayFormat);
+    connect(m_model, &DatetimeModel::shortDateFormatChanged, m_fsetting, &FormatSetting::setCururentShortDateFormat);
+    connect(m_model, &DatetimeModel::longDateFormatChanged, m_fsetting, &FormatSetting::setCururentLongDateFormat);
+    connect(m_model, &DatetimeModel::longTimeFormatChanged, m_fsetting, &FormatSetting::setCururentLongTimeFormat);
+    connect(m_model, &DatetimeModel::shorTimeFormatChanged, m_fsetting, &FormatSetting::setCururentShortTimeFormat);
+    connect(m_model, &DatetimeModel::weekStartDayFormatChanged, m_fsetting, &FormatSetting::setCururentWeekStartDayFormat);
+    m_frameProxy->pushWidget(this, m_fsetting);
+    GSettingWatcher::instance()->bind("datetimeFromatsetting", m_fsetting);
 }
 
 void DatetimeModule::showTimezoneList()
@@ -347,6 +349,7 @@ void DatetimeModule::onPopWidget()
 
 void DatetimeModule::closeDialog()
 {
+    GSettingWatcher::instance()->erase("datetimeFromatsetting", m_fsetting);
     if (!m_dialog.isNull()) {
         m_dialog->close();
     }

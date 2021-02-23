@@ -63,6 +63,7 @@ class DateSettings : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit DateSettings(QWidget *parent = nullptr);
+    virtual ~DateSettings();
     void setCurrentTimeZone(const ZoneInfo &info);
     QDateTime getDatetime() const;
     void setNtpServerAddress(QString address);

@@ -59,6 +59,7 @@ class DefappDetailWidget : public QWidget
     Q_OBJECT
 public:
     explicit DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category, QWidget *parent = nullptr);
+    virtual ~DefappDetailWidget();
     void setModel(dcc::defapp::DefAppModel *const model);
     void setCategory(dcc::defapp::Category *const category);
 

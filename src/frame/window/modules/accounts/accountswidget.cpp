@@ -100,6 +100,8 @@ AccountsWidget::AccountsWidget(QWidget *parent)
         valueTemp = value;
     });
     connect(m_createBtn, &QPushButton::clicked, this, &AccountsWidget::requestCreateAccount);
+
+    connect(m_accountSetting, &QGSettings::changed, this, &AccountsWidget::onFullNameEnableChanged);
 }
 
 AccountsWidget::~AccountsWidget()
@@ -219,7 +221,15 @@ void AccountsWidget::addUser(User *user, bool t1)
     QPixmap pixmap = pixmapToRound(path);
 
     item->setIcon(QIcon(pixmap));
-    item->setText(user->displayName());
+
+    bool needFullName = m_accountSetting->get("accountFullnameEnable").toBool();
+
+    if (!needFullName) {
+        item->setText(user->name());
+    } else {
+        item->setText(user->displayName());
+    }
+
 
     if (user->isCurrentUser()) {
         //如果是当前用户
@@ -253,6 +263,26 @@ void AccountsWidget::onItemClicked(const QModelIndex &index)
     m_saveClickedRow = index.row();
     Q_EMIT requestShowAccountsDetail(m_userList[index.row()]);
     m_userlistView->resetStatus(index);
+}
+
+void AccountsWidget::onFullNameEnableChanged(const QString &key)
+{
+    if (key != "accountFullnameEnable")
+        return;
+
+    bool needFullName = m_accountSetting->get("accountFullnameEnable").toBool();
+
+    for (int index = 0; index < m_userList.size(); ++index) {
+        auto titem = m_userItemModel->item(index);
+        if (!titem)
+            continue;
+
+        if (!needFullName) {
+            titem->setText(m_userList[index]->name());
+        } else {
+            titem->setText(m_userList[index]->displayName());
+        }
+    }
 }
 
 void AccountsWidget::connectUserWithItem(User *user)

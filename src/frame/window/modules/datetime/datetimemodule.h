@@ -39,6 +39,7 @@ namespace datetime {
 class TimezoneList;
 class DatetimeWidget;
 class DateSettings;
+class FormatSetting;
 
 class DatetimeModule : public QObject, public ModuleInterface
 {
@@ -93,6 +94,7 @@ private:
     QPointer<TimezoneList> m_timezonelist;//timezonelist in other page, need exchangle data from this page
     QPointer<DatetimeWidget> m_widget;
     QPointer<DateSettings> m_setting;
+    DCC_NAMESPACE::datetime::FormatSetting *m_fsetting;
 };
 
 }// namespace datetime

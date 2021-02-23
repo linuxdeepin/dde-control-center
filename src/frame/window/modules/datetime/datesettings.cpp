@@ -35,6 +35,7 @@
 #include "widgets/buttontuple.h"
 #include "datewidget.h"
 #include "timespinbox.h"
+#include "window/gsettingwatcher.h"
 
 #include <DLineEdit>
 
@@ -84,6 +85,7 @@ DateSettings::DateSettings(QWidget *parent)
 
     QPushButton *cancelButton = m_buttonTuple->leftButton();
     QPushButton *confirmButton = m_buttonTuple->rightButton();
+    GSettingWatcher::instance()->bind("datetimeDatesettingConfirmbtn", m_buttonTuple->rightButton());
 
     cancelButton->setText(tr("Cancel"));
     confirmButton->setText(tr("Confirm"));
@@ -185,6 +187,7 @@ DateSettings::DateSettings(QWidget *parent)
 
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::setControlVisible);
+    GSettingWatcher::instance()->bind("datetimeDatesettingAutosync", m_autoSyncTimeSwitch);
 
     connect(cancelButton, &QPushButton::clicked, this, &DateSettings::onCancelButtonClicked);
     connect(confirmButton, &QPushButton::clicked, this, &DateSettings::onConfirmButtonClicked);
@@ -203,6 +206,12 @@ DateSettings::DateSettings(QWidget *parent)
 
     //第一次进入时间设置页面，需要刷新day的天数
     updateDayRange();
+}
+
+DateSettings::~DateSettings()
+{
+    GSettingWatcher::instance()->erase("datetimeDatesettingConfirmbtn", m_buttonTuple->rightButton());
+    GSettingWatcher::instance()->erase("datetimeDatesettingAutosync", m_autoSyncTimeSwitch);
 }
 
 void DateSettings::setCurrentTimeZone(const ZoneInfo &info)

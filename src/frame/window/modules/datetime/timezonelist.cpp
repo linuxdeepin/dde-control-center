@@ -26,6 +26,7 @@
 #include "widgets/settingsitem.h"
 #include "widgets/settingshead.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 using namespace dcc;
 using namespace dcc::datetime;
@@ -74,6 +75,8 @@ TimezoneList::TimezoneList(QWidget *parent)
         m_headItem->toCancel();
         requestAddTimeZone();
     });
+    GSettingWatcher::instance()->bind("datetimeZonelistAddtimezone", m_addTimezoneButton);
+
     connect(m_headItem, &SettingsHead::editChanged, m_contentList, &TimezoneContentList::onEditClicked);
     connect(m_contentList, &TimezoneContentList::requestRemoveUserTimeZone, this, [this]() {
         //refresh right button to edit
@@ -87,7 +90,7 @@ TimezoneList::TimezoneList(QWidget *parent)
 
 TimezoneList::~TimezoneList()
 {
-
+    GSettingWatcher::instance()->erase("datetimeZonelistAddtimezone", m_addTimezoneButton);
 }
 
 TimezoneContentList *TimezoneList::getTimezoneContentListPtr()

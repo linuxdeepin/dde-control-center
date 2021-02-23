@@ -234,5 +234,155 @@
             <summary>change system suspend status</summary>
             <description>default is Enabled</description>
         </key>
+        <key name="perssonal-general-effects" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-general-themes" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-font-size" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-font-standard" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-font-mono" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="account-user-fullnamebtn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="account-user-modifypasswd" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="account-user-deleteaccount" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="account-fullname-enable" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="defapp-applist-addbtn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="defapp-applist-defapp" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="datetime-datesetting-autosync" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="datetime-zonelist-addtimezone" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="datetime-datesetting-confirmbtn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="datetime-fromatsetting" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="systeminfo-nativeinfo-authorized" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="systeminfo-nativeinfo-kernel" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="systeminfo-nativeinfo-processor" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="systeminfo-nativeinfo-memory" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="commoninfo-boot-bootlist" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="commoninfo-boot-bootdelay" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="commoninfo-boot-theme" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-auto-check" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-auto-downlaod" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-update-notify" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-clean-cache" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-doc-store" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-system-update" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-app-update" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-secure-update" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
     </schema>
 </schemalist>
