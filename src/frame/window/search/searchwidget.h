@@ -149,6 +149,7 @@ public:
 private Q_SLOTS:
     void onCompleterActivated(const QString &value);
     void onAutoComplete(const QString &text);
+    void onSearchTextChange(const QString &text);
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);

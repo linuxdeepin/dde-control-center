@@ -196,19 +196,14 @@ SearchWidget::SearchWidget(QWidget *parent)
     });
 
     //语音输入不会触发DSearchEdit的textEdited信号，从而不会触发自动补全功能，需要根据textChanged信号手动触发下自动补全
-    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ](const QString &text) {
-        //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
-        Q_EMIT focusChanged(true);
-        //实现自动补全
-        onAutoComplete(text);
-    });
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, &SearchWidget::onSearchTextChange);
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [ = ] {
-
         if (!text().isEmpty()) {
             //enter defalt set first
             if (!jumpContentPathWidget(text())) {
-                const QString &currentCompletion = m_completer->currentCompletion();
+                //m_completer未关联部件时，currentCompletion只会获取到第一个选项并且不会在Edit中补全内容，需要通过popup()获取当前选择项并手动补全edit内容
+                const QString &currentCompletion = m_completer->popup()->currentIndex().data().toString();
                 qDebug() << Q_FUNC_INFO << " [SearchWidget] currentCompletion : " << currentCompletion;
 
                 //中文遍历一遍,若没有匹配再遍历将拼音转化为中文再遍历
@@ -216,6 +211,11 @@ SearchWidget::SearchWidget(QWidget *parent)
                 if (!jumpContentPathWidget(currentCompletion)) {
                     jumpContentPathWidget(m_model->transPinyinToChinese(currentCompletion));
                 }
+
+                //根据匹配的信息补全DSearchEdit的内容，block信号避免重新触发自动补全
+                this->blockSignals(true);
+                this->setText(currentCompletion);
+                this->blockSignals(false);
             }
         }
     });
@@ -855,6 +855,14 @@ void SearchWidget::onAutoComplete(const QString &text)
         m_completer->setCompletionPrefix(text);
         m_completer->complete();
     }
+}
+
+void SearchWidget::onSearchTextChange(const QString &text)
+{
+    //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
+    Q_EMIT focusChanged(true);
+    //实现自动补全
+    onAutoComplete(text);
 }
 
 bool ddeCompleter::eventFilter(QObject *o, QEvent *e)
