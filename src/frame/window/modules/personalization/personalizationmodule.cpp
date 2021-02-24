@@ -26,6 +26,9 @@
 #include "perssonalizationthemewidget.h"
 #include "personalizationthemelist.h"
 #include "personalizationfontswidget.h"
+#include "wallpaperpage.h"
+
+#include <DApplicationHelper>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -70,18 +73,37 @@ const QString PersonalizationModule::displayName() const
 
 void PersonalizationModule::active()
 {
-    PersonalizationList *firstWidget = new PersonalizationList();
-    firstWidget->setVisible(false);
-    firstWidget->setAccessibleName("personanization");
-    connect(firstWidget, &PersonalizationList::requestShowGeneral, this, &PersonalizationModule::showGenaralWidget);
-    connect(firstWidget, &PersonalizationList::requestShowIconTheme, this, &PersonalizationModule::showIconThemeWidget);
-    connect(firstWidget, &PersonalizationList::requestShowCursorTheme, this, &PersonalizationModule::showCursorThemeWidget);
-    connect(firstWidget, &PersonalizationList::requestShowFonts, this, &PersonalizationModule::showFontThemeWidget);
-    connect(this, &PersonalizationModule::requestSetCurrentIndex, firstWidget, &PersonalizationList::setCurrentIndex);
-    m_frameProxy->pushWidget(this, firstWidget);
-    firstWidget->setVisible(true);
-    //显示默认页
-    firstWidget->setDefaultWidget();
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        m_work->refreshTheme();
+        m_work->refreshFont();
+
+        WallpaperPage *widget = new WallpaperPage();
+        widget->setAccessibleName("personanization");
+        connect(widget->getThemeWidget(), &PerssonalizationThemeWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+        connect(widget, &WallpaperPage::requestSetActiveColor, m_work, &dcc::personalization::PersonalizationWork::setActiveColor);
+        connect(widget->getFontWidget(), &PersonalizationFontsWidget::requestSetFontSize, m_work, &dcc::personalization::PersonalizationWork::setFontSize);
+        connect(widget->getFontWidget(), &PersonalizationFontsWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+
+        widget->setVisible(false);
+        widget->setModel(m_model);
+        m_work->active();
+
+        m_frameProxy->pushWidget(this, widget);
+        widget->setVisible(true);
+    } else {
+        PersonalizationList *firstWidget = new PersonalizationList();
+        firstWidget->setVisible(false);
+        firstWidget->setAccessibleName("personanization");
+        connect(firstWidget, &PersonalizationList::requestShowGeneral, this, &PersonalizationModule::showGenaralWidget);
+        connect(firstWidget, &PersonalizationList::requestShowIconTheme, this, &PersonalizationModule::showIconThemeWidget);
+        connect(firstWidget, &PersonalizationList::requestShowCursorTheme, this, &PersonalizationModule::showCursorThemeWidget);
+        connect(firstWidget, &PersonalizationList::requestShowFonts, this, &PersonalizationModule::showFontThemeWidget);
+        connect(this, &PersonalizationModule::requestSetCurrentIndex, firstWidget, &PersonalizationList::setCurrentIndex);
+        m_frameProxy->pushWidget(this, firstWidget);
+        firstWidget->setVisible(true);
+        //显示默认页
+        firstWidget->setDefaultWidget();
+    }
 }
 
 void PersonalizationModule::contentPopped(QWidget *const w)

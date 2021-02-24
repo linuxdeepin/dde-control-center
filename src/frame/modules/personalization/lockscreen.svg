@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="132" viewBox="0 0 240 132">
+  <defs>
+    <text id="pad_锁屏壁纸1备份-b" fill="#FFF" font-family="SourceHanSansSC-ExtraLight, Source Han Sans SC" font-size="11" font-weight="300">
+      <tspan x="0" y="13">07:26</tspan>
+    </text>
+    <filter id="pad_锁屏壁纸1备份-a" width="111.5%" height="118.8%" x="-5.8%" y="-9.4%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0"/>
+    </filter>
+    <text id="pad_锁屏壁纸1备份-d" fill="#FFF" font-family="SourceHanSansSC-Normal, Source Han Sans SC" font-size="2.75" font-weight="normal">
+      <tspan x="1.875" y="17.875">2020-07-26 星期二</tspan>
+    </text>
+    <filter id="pad_锁屏壁纸1备份-c" width="113%" height="175%" x="-6.5%" y="-37.5%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0"/>
+    </filter>
+    <text id="pad_锁屏壁纸1备份-f" fill="#FFF" font-family="SourceHanSansSC-Normal, Source Han Sans SC" font-size="1.875" font-weight="normal">
+      <tspan x="113.375" y="124.875">向上滑动以解锁</tspan>
+    </text>
+    <filter id="pad_锁屏壁纸1备份-e" width="121.4%" height="200%" x="-10.7%" y="-50%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="240" height="132"/>
+    <g fill="#FFF" transform="translate(107.25 7.5)">
+      <use filter="url(#pad_锁屏壁纸1备份-a)" xlink:href="#pad_锁屏壁纸1备份-b"/>
+      <use xlink:href="#pad_锁屏壁纸1备份-b"/>
+      <use filter="url(#pad_锁屏壁纸1备份-c)" xlink:href="#pad_锁屏壁纸1备份-d"/>
+      <use xlink:href="#pad_锁屏壁纸1备份-d"/>
+    </g>
+    <g transform="translate(118 119.75)">
+      <rect width="4" height="4"/>
+      <path fill="#FFF" d="M1.9375,0.75 C2.30793489,0.75 2.60994239,1.0429725 2.6244541,1.40984911 L2.625,1.4375 L2.62647204,1.77186198 C2.77135164,1.82375486 2.875,1.96227324 2.875,2.125 L2.875,2.875 C2.875,3.08210678 2.70710678,3.25 2.5,3.25 L1.375,3.25 C1.16789322,3.25 1,3.08210678 1,2.875 L1,2.125 C1,1.96190341 1.10412003,1.82312536 1.24951641,1.77150951 L1.25,1.4375 C1.25,1.05780423 1.55780423,0.75 1.9375,0.75 Z M1.9375,1 C1.70392957,1 1.51310919,1.1830347 1.50064736,1.4134956 L1.5,1.75 L2.375,1.75 L2.375,1.4375 C2.375,1.19587542 2.17912458,1 1.9375,1 Z"/>
+    </g>
+    <g fill="#FFF">
+      <use filter="url(#pad_锁屏壁纸1备份-e)" xlink:href="#pad_锁屏壁纸1备份-f"/>
+      <use xlink:href="#pad_锁屏壁纸1备份-f"/>
+    </g>
+  </g>
+</svg>

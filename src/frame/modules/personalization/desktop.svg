@@ -1,0 +1,1626 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="132" viewBox="0 0 240 132">
+  <defs>
+    <text id="pad_桌面壁纸2备份-b" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="7.125" y="14.5">终端</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-a" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-c" width="155.6%" height="166.7%" x="-27.8%" y="-33.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-d" cx="50%" cy="0%" r="100%" fx="50%" fy="0%" gradientTransform="matrix(0 1 -.89655 0 .5 -.5)">
+      <stop offset="0%" stop-color="#FF774D"/>
+      <stop offset="100%" stop-color="#BA0E55"/>
+    </radialGradient>
+    <text id="pad_桌面壁纸2备份-f" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="5.5" y="14.5">深度影院</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-e" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-g" width="155.6%" height="155.6%" x="-27.8%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-h" x1="50%" x2="50%" y1="2.375%" y2="100%">
+      <stop offset="0%" stop-color="#3E3E3E"/>
+      <stop offset="100%" stop-color="#0F0F0F"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-i" x1="40.768%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#B0FAFF"/>
+      <stop offset="100%" stop-color="#0D96C2"/>
+    </linearGradient>
+    <text id="pad_桌面壁纸2备份-k" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="7.125" y="14.5">相册</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-j" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-l" width="166.7%" height="177.8%" x="-42.9%" y="-38.9%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <path id="pad_桌面壁纸2备份-n" d="M0.398602929,1.09296523 C0.398810266,0.785793458 0.644866027,0.536616611 0.968966345,0.536399227 L7.75456799,0.531847919 C8.06936367,0.531636776 8.32438571,0.783731386 8.32418057,1.08764931 L8.32014707,7.06328477 C8.31993973,7.37045654 8.07388397,7.61963339 7.74978365,7.61985077 L0.964182014,7.62440208 C0.649386335,7.62461322 0.394364292,7.37251861 0.394569434,7.06860069 L0.398602929,1.09296523 Z"/>
+    <filter id="pad_桌面壁纸2备份-m" width="137.8%" height="142.3%" x="-18.9%" y="-21.1%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <rect id="pad_桌面壁纸2备份-p" width="7.875" height="7.031" x=".422" y=".563" rx=".563"/>
+    <filter id="pad_桌面壁纸2备份-o" width="138.1%" height="142.7%" x="-19%" y="-21.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-s" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF3E7"/>
+    </linearGradient>
+    <rect id="pad_桌面壁纸2备份-r" width="7.926" height="7.088" x="0" y="0" rx=".563"/>
+    <filter id="pad_桌面壁纸2备份-q" width="137.8%" height="142.3%" x="-18.9%" y="-21.2%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-u" x1="50%" x2="50%" y1="100%" y2="0%">
+      <stop offset="0%" stop-color="#D14848"/>
+      <stop offset="100%" stop-color="#FF9E00"/>
+    </linearGradient>
+    <rect id="pad_桌面壁纸2备份-t" width="7.134" height="5.119" x="0" y="0" rx=".375"/>
+    <linearGradient id="pad_桌面壁纸2备份-w" x1="50%" x2="41.314%" y1="34.201%" y2="69.988%">
+      <stop offset="0%" stop-color="#FF3C14" stop-opacity=".8"/>
+      <stop offset="43.748%" stop-color="#6E00F5" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#3900FF" stop-opacity=".655"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-x" x1="50%" x2="50%" y1="11.914%" y2="100%">
+      <stop offset="0%" stop-color="#32F8FF" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#0097FF"/>
+    </linearGradient>
+    <text id="pad_桌面壁纸2备份-z" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="3.875" y="14.5">软件包安装器</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-y" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-A" width="155.6%" height="155.6%" x="-27.8%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-C" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#F0F8FA"/>
+      <stop offset="9.878%" stop-color="#E4F0F7"/>
+      <stop offset="12.866%" stop-color="#CEE1F2"/>
+      <stop offset="13.331%" stop-color="#F6FBFF"/>
+      <stop offset="100%" stop-color="#C9DAE9"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-B" d="M0.020859887,0.963000836 L0.276014025,0.399376777 C0.386091215,0.156221196 0.628296586,4.90308043e-17 0.895207853,0 L6.69854215,0 C6.96545341,-1.60053107e-16 7.20765879,0.156221196 7.31773598,0.399376777 L7.57289011,0.963000836 C7.58663845,0.993370293 7.59375,1.02632323 7.59375,1.05965971 L7.59375,7.125 C7.59375,7.38388348 7.38388348,7.59375 7.125,7.59375 L0.46875,7.59375 C0.209866524,7.59375 3.17040821e-17,7.38388348 0,7.125 L0,1.05965971 C7.9184186e-17,1.02632323 0.0071115516,0.993370293 0.020859887,0.963000836 Z"/>
+    <linearGradient id="pad_桌面壁纸2备份-G" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#E4EAEE"/>
+      <stop offset="39.567%" stop-color="#C2D1DE"/>
+      <stop offset="41.034%" stop-color="#DDE6ED"/>
+      <stop offset="51.913%" stop-color="#DDE8F1"/>
+      <stop offset="100%" stop-color="#C8D9E8"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-F" d="M2.77734375,0 L2.671875,1.125 L2.671875,2.42777815 C2.671875,2.43425024 2.67712166,2.4394969 2.68359375,2.4394969 C2.68713452,2.4394969 2.69048545,2.43789599 2.69271025,2.43514148 L2.98496973,2.0732964 C3.00936965,2.04308698 3.05363926,2.03837745 3.08384868,2.06277736 C3.08815093,2.06625226 3.09202821,2.07022261 3.0954001,2.07460606 L3.37444997,2.4373709 C3.38234217,2.44763076 3.39705733,2.44955013 3.40731719,2.44165792 C3.40877834,2.44053396 3.41010179,2.43924154 3.41126009,2.43780745 L3.70567286,2.0732964 C3.73007277,2.04308698 3.77434238,2.03837745 3.8045518,2.06277736 C3.80885406,2.06625226 3.81273133,2.07022261 3.81610322,2.07460606 L4.09515309,2.4373709 C4.10304529,2.44763076 4.11776045,2.44955013 4.12802031,2.44165792 C4.12948147,2.44053396 4.13080491,2.43924154 4.13196321,2.43780745 L4.43231329,2.06594545 C4.45671321,2.03573603 4.50098282,2.0310265 4.53119224,2.05542641 C4.53348286,2.05727653 4.53565502,2.05926872 4.53769586,2.06139119 L4.90170899,2.43996485 C4.90619485,2.44463014 4.91361332,2.4447756 4.91827862,2.44028974 C4.92057642,2.43808032 4.921875,2.43503018 4.921875,2.43184248 L4.921875,1.125 L4.921875,1.125 L4.74609375,0 L2.77734375,0 Z"/>
+    <filter id="pad_桌面壁纸2备份-E" width="233.3%" height="221.3%" x="-66.7%" y="-61%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-J" x1="50%" x2="50%" y1="6.502%" y2="100%">
+      <stop offset="0%" stop-color="#C3D5E4"/>
+      <stop offset="100%" stop-color="#9BB0C4"/>
+    </linearGradient>
+    <rect id="pad_桌面壁纸2备份-I" width="1.547" height="1" x="0" y="0" rx=".094"/>
+    <filter id="pad_桌面壁纸2备份-H" width="293.9%" height="404.8%" x="-97%" y="-152.4%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0560260052 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-K" width="229.3%" height="303.2%" x="-64.6%" y="-101.6%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.121284965 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-L" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-opacity=".08"/>
+      <stop offset="100%" stop-opacity=".12"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-O" x1="33.841%" x2="62.94%" y1="0%" y2="87.458%">
+      <stop offset="0%" stop-color="#4A4A4A"/>
+      <stop offset="100%" stop-color="#212020"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-M" d="M1.2421875,0 L2.5546875,0 C2.61940837,-2.17682393e-15 2.671875,0.0524666309 2.671875,0.1171875 L2.671875,1.6875 L2.671875,1.6875 L3.6097167,1.6875 C3.67443757,1.6875 3.7269042,1.73996663 3.7269042,1.8046875 C3.7269042,1.8329807 3.71666806,1.86031861 3.69808563,1.88165399 L2.10758978,3.70777887 C2.0395779,3.78586657 1.92114079,3.79403465 1.84305309,3.72602278 C1.83741181,3.7211094 1.83206964,3.71586282 1.82705523,3.71031115 L0.176794412,1.88323667 C0.133412903,1.83520714 0.137180867,1.76110386 0.185210395,1.71772235 C0.206747777,1.69826923 0.234737459,1.6875 0.263759566,1.6875 L1.125,1.6875 L1.125,1.6875 L1.125,0.1171875 C1.125,0.0524666309 1.17746663,3.8005251e-15 1.2421875,0 Z"/>
+    <filter id="pad_桌面壁纸2备份-N" width="170.2%" height="175.1%" x="-35%" y="-38.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-R" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="7.125" y="14.5">相机</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-Q" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-S" width="225%" height="225%" x="-56.2%" y="-56.2%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-T" x1="47.85%" x2="47.85%" y1="3.023%" y2="71.399%">
+      <stop offset="0%" stop-color="#E6E6E6"/>
+      <stop offset="100%" stop-color="#BDBDB6"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-U" d="M1.29020122,0.210303563 L1.31433824,0.140625 C1.34349673,0.0564504755 1.42279295,1.27386365e-16 1.51187475,0 L2.28252359,0 C2.3785456,3.78721954e-17 2.4662401,0.0545163688 2.50873162,0.140625 L2.54911086,0.222453124 C2.56687703,0.2584561 2.60354308,0.28125 2.64369095,0.28125 L2.71875,0.28125 L2.71875,0.28125 L2.71875,0.84375 L1.03125,0.84375 L1.03125,0.28125 L1.19054246,0.28125 C1.23548495,0.28125 1.27549052,0.252770284 1.29020122,0.210303563 Z"/>
+    <filter id="pad_桌面壁纸2备份-V" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.129698822   0 0 0 0 0.129698822   0 0 0 0 0.129698822  0 0 0 0.3 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-W" x1="47.85%" x2="49.964%" y1="7.494%" y2="91.137%">
+      <stop offset="0%" stop-color="#F3F3F3"/>
+      <stop offset="100%" stop-color="#BDBDB6"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-X" d="M7.6875,1.3125 L7.6875,6.5625 C7.6875,7.13204365 7.22579365,7.59375 6.65625,7.59375 L1.03125,7.59375 C0.461706352,7.59375 6.97489806e-17,7.13204365 0,6.5625 L0,1.3125 C-6.97489806e-17,0.742956352 0.461706352,0.28125 1.03125,0.28125 L6.65625,0.28125 C7.22579365,0.28125 7.6875,0.742956352 7.6875,1.3125 Z"/>
+    <filter id="pad_桌面壁纸2备份-Y" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.129698822   0 0 0 0 0.129698822   0 0 0 0 0.129698822  0 0 0 0.3 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-ab" x1="50%" x2="50%" y1="1.972%" y2="95.753%">
+      <stop offset="0%" stop-color="#B8B8B8" stop-opacity=".707"/>
+      <stop offset="52.375%" stop-color="#A3A3A3" stop-opacity=".756"/>
+      <stop offset="100%" stop-color="#707070" stop-opacity=".35"/>
+    </linearGradient>
+    <rect id="pad_桌面壁纸2备份-aa" width="1.031" height="1" x=".656" y=".938" rx=".188"/>
+    <filter id="pad_桌面壁纸2备份-Z" width="390.9%" height="557.1%" x="-145.5%" y="-228.6%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0778313483 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-ac" x1="50%" x2="50%" y1=".854%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity=".677"/>
+    </linearGradient>
+    <radialGradient id="pad_桌面壁纸2备份-af" cx="50.277%" cy="17.553%" r="93.117%" fx="50.277%" fy="17.553%">
+      <stop offset="0%" stop-color="#FE8C6C"/>
+      <stop offset="100%" stop-color="#EC3E3E"/>
+    </radialGradient>
+    <circle id="pad_桌面壁纸2备份-ae" cx=".422" cy=".422" r="1"/>
+    <filter id="pad_桌面壁纸2备份-ad" width="557.1%" height="557.1%" x="-228.6%" y="-228.6%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.26133632 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-ag" width="216.7%" height="216.7%" x="-58.3%" y="-58.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-ah" x1="50%" x2="50%" y1="0%" y2="106.422%">
+      <stop offset="0%" stop-color="#0F0E12"/>
+      <stop offset="100%" stop-color="#2A272D"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-ai" x1="50%" x2="50%" y1="3.47%" y2="99.581%">
+      <stop offset="0%" stop-color="#777"/>
+      <stop offset="40.41%" stop-color="#3D3D3D"/>
+      <stop offset="74.034%" stop-color="#383838"/>
+      <stop offset="100%" stop-color="#343434"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-aj" x1="50%" x2="50%" y1="1.707%" y2="99.868%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="32.755%" stop-color="#D7D7D7"/>
+      <stop offset="75.931%" stop-color="#D6D6D6"/>
+      <stop offset="100%" stop-color="#CCC"/>
+    </linearGradient>
+    <radialGradient id="pad_桌面壁纸2备份-ak" cx="50%" cy="91.444%" r="23.262%" fx="50%" fy="91.444%" gradientTransform="matrix(0 1 -1.92777 0 2.263 .414)">
+      <stop offset="0%" stop-color="#7066AE"/>
+      <stop offset="100%" stop-color="#232327"/>
+    </radialGradient>
+    <linearGradient id="pad_桌面壁纸2备份-am" x1="50%" x2="50%" y1="2.705%" y2="96.19%">
+      <stop offset="0%" stop-color="#9CEAB0" stop-opacity=".02"/>
+      <stop offset="100%" stop-color="#736FD8" stop-opacity=".089"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-al" d="M2.8125,0.720703125 C3.96776751,0.720703125 4.90429687,1.65723249 4.90429687,2.8125 C4.90429687,3.96776751 3.96776751,4.90429688 2.8125,4.90429688 C1.65723249,4.90429688 0.720703125,3.96776751 0.720703125,2.8125 C0.720703125,1.65723249 1.65723249,0.720703125 2.8125,0.720703125 Z M2.8125,1.23046875 C1.93876827,1.23046875 1.23046875,1.93876827 1.23046875,2.8125 C1.23046875,3.68623173 1.93876827,4.39453125 2.8125,4.39453125 C3.68623173,4.39453125 4.39453125,3.68623173 4.39453125,2.8125 C4.39453125,1.93876827 3.68623173,1.23046875 2.8125,1.23046875 Z"/>
+    <radialGradient id="pad_桌面壁纸2备份-an" cx="50%" cy="91.243%" r="23.464%" fx="50%" fy="91.243%" gradientTransform="matrix(0 1 -1.57176 0 1.934 .412)">
+      <stop offset="0%" stop-color="#8784DE"/>
+      <stop offset="100%" stop-color="#232129"/>
+    </radialGradient>
+    <circle id="pad_桌面壁纸2备份-ao" cx="2.813" cy="2.813" r="1.318"/>
+    <linearGradient id="pad_桌面壁纸2备份-ap" x1="50%" x2="60.506%" y1="-27.007%" y2="100%">
+      <stop offset="0%" stop-color="#5B0386"/>
+      <stop offset="17.01%" stop-color="#9F28A1"/>
+      <stop offset="39.319%" stop-color="#622C81"/>
+      <stop offset="74.089%" stop-color="#71BDD2"/>
+      <stop offset="100%" stop-color="#5A38AA"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-aq" x1="50.263%" x2="57.115%" y1="3.698%" y2="100%">
+      <stop offset="0%" stop-color="#CD66E0"/>
+      <stop offset="43.51%" stop-color="#1F296C"/>
+      <stop offset="100%" stop-color="#6BD9F6"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-ar" x1="50%" x2="50%" y1="1.46%" y2="85.758%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity=".9"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="pad_桌面壁纸2备份-as" width="224.3%" height="194.4%" x="-62.1%" y="-47.2%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceGraphic" stdDeviation=".246"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-au" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="6.313" y="14.5">计算器</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-at" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-av" width="155.6%" height="155.6%" x="-27.8%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-aw" cx="50%" cy="9.268%" r="92.618%" fx="50%" fy="9.268%">
+      <stop offset="0%" stop-color="#35DCFF"/>
+      <stop offset="100%" stop-color="#0068FF"/>
+    </radialGradient>
+    <linearGradient id="pad_桌面壁纸2备份-ax" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity=".8"/>
+    </linearGradient>
+    <text id="pad_桌面壁纸2备份-az" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="4.688" y="14.5">语音记事本</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-ay" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-aC" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FD5E5E"/>
+      <stop offset="100%" stop-color="#ED5656"/>
+    </linearGradient>
+    <circle id="pad_桌面壁纸2备份-aB" cx="2.531" cy="2.531" r="2.531"/>
+    <filter id="pad_桌面壁纸2备份-aA" width="159.3%" height="159.3%" x="-29.6%" y="-29.6%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.97254902   0 0 0 0 0.17254902   0 0 0 0 0.277440324  0 0 0 0.4 0"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-aE" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="4.688" y="14.5">文件管理器</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-aD" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-aF" width="166.7%" height="158.9%" x="-38.9%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-aG" x1="50%" x2="50%" y1="0%" y2="37.968%">
+      <stop offset="0%" stop-color="#00B8FF"/>
+      <stop offset="100%" stop-color="#2E5DFF"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-aI" d="M0.62612215,1.98252287 C0.624505695,1.77637287 0.78533994,1.60903526 0.994654002,1.60875124 L6.81118794,1.60085867 C7.01633891,1.6005803 7.18399648,1.77250252 7.18557349,1.97362222 L7.22650862,7.19416722 C7.22812507,7.40031722 7.06729083,7.56765483 6.85797677,7.56793885 L1.04144283,7.57583141 C0.836291855,7.57610979 0.66863429,7.40418756 0.667057278,7.20306786 L0.62612215,1.98252287 Z"/>
+    <filter id="pad_桌面壁纸2备份-aH" width="145.3%" height="150.2%" x="-22.7%" y="-25.1%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+    </filter>
+    <rect id="pad_桌面壁纸2备份-aK" width="6.497" height="5.846" x=".787" y="1.886" rx=".374"/>
+    <filter id="pad_桌面壁纸2备份-aJ" width="146.2%" height="151.3%" x="-23.1%" y="-25.7%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-aN" cx="50%" cy="25.527%" r="96.89%" fx="50%" fy="25.527%" gradientTransform="matrix(0 1 -.71834 0 .683 -.245)">
+      <stop offset="0%" stop-color="#48D5FF"/>
+      <stop offset="100%" stop-color="#0056FF"/>
+    </radialGradient>
+    <path id="pad_桌面壁纸2备份-aM" d="M0,2.63991477 L7.875,2.63991477 L7.875,7.79485752 C7.875,8.07211412 7.64780939,8.296875 7.38238348,8.296875 L0.492616519,8.296875 C0.220551928,8.296875 0,8.0820232 0,7.79485752 L0,2.63991477 Z"/>
+    <filter id="pad_桌面壁纸2备份-aL" width="138.1%" height="153%" x="-19%" y="-26.5%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-aO" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#4ABFFF"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-aR" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#B1E4FF"/>
+    </linearGradient>
+    <circle id="pad_桌面壁纸2备份-aQ" cx="4.008" cy="4.238" r="1"/>
+    <filter id="pad_桌面壁纸2备份-aP" width="277.8%" height="277.8%" x="-88.9%" y="-88.9%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.0392156863   0 0 0 0 0.454901961   0 0 0 0 0.949019608  0 0 0 0.3 0"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-aT" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="6.942" y="14.5">音 乐</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-aS" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-aU" width="157.1%" height="155.6%" x="-33.3%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-aV" x1="98.016%" x2="0%" y1="38.451%" y2="41.845%">
+      <stop offset="0%" stop-color="#0BA186"/>
+      <stop offset="100%" stop-color="#68C639"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-aW" x1="2.055%" x2="96.944%" y1="41.813%" y2="34.714%">
+      <stop offset="0%" stop-color="#417944" stop-opacity=".381"/>
+      <stop offset="100%" stop-color="#002A35"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-aX" x1="50%" x2="50%" y1="0%" y2="98.031%">
+      <stop offset="0%" stop-color="#8DF34C"/>
+      <stop offset="100%" stop-color="#00CCB3"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-aY" x1="50%" x2="50%" y1="0%" y2="98.031%">
+      <stop offset="0%" stop-color="#8DF34C"/>
+      <stop offset="100%" stop-color="#00CCB3"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bb" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity=".7"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-ba" d="M5.05595666,1.78464462 C5.06030921,1.80749551 5.0625,1.83070554 5.0625,1.85396727 L5.0625,4.921875 C5.0625,5.31020021 4.74770021,5.625 4.359375,5.625 C3.97104979,5.625 3.65625,5.31020021 3.65625,4.921875 C3.65625,4.53354979 3.97104979,4.21875 4.359375,4.21875 C4.51772539,4.21875 4.66384978,4.27109576 4.78138821,4.35942735 L4.78125,2.39719733 C4.78125,2.32899251 4.72595906,2.27370157 4.65775424,2.27370157 L4.63629248,2.27558074 L4.63629248,2.27558074 L2.49265901,2.653869 C2.43364564,2.66428312 2.390625,2.71556038 2.390625,2.77548559 L2.390625,5.625 C2.390625,6.01332521 2.07582521,6.328125 1.6875,6.328125 C1.29917479,6.328125 0.984375,6.01332521 0.984375,5.625 C0.984375,5.23667479 1.29917479,4.921875 1.6875,4.921875 C1.84624105,4.921875 1.99269569,4.97447936 2.11038261,5.06320676 L2.109375,2.27532926 C2.109375,2.09744619 2.23579823,1.94466939 2.41053963,1.91138531 L4.62269005,1.49002332 C4.82369075,1.45173748 5.01767082,1.58364392 5.05595666,1.78464462 Z"/>
+    <filter id="pad_桌面壁纸2备份-aZ" width="173.6%" height="163.2%" x="-36.8%" y="-32%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-bd" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="3.875" y="14.5">日志搜集工具</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-bc" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-be" width="177.8%" height="166.7%" x="-27.8%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-bf" x1="39.599%" x2="75.302%" y1="21.875%" y2="78.125%">
+      <stop offset="0%" stop-color="#3C3C3C"/>
+      <stop offset="100%" stop-color="#2E2E2E"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-bg" d="M0.711063511,0.0739604233 L7.41418851,0.0739604233 C7.73779286,0.0739604233 8.00012601,0.336293578 8.00012601,0.659897923 L8.00012601,5.39427292 C8.00012601,5.71787727 7.73779286,5.98021042 7.41418851,5.98021042 L0.711063511,5.98021042 C0.387459165,5.98021042 0.125126011,5.71787727 0.125126011,5.39427292 L0.125126011,0.659897923 C0.125126011,0.336293578 0.387459165,0.0739604233 0.711063511,0.0739604233 Z"/>
+    <filter id="pad_桌面壁纸2备份-bh" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" result="shadowMatrixInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.12 0"/>
+      <feOffset in="SourceAlpha" result="shadowOffsetInner2"/>
+      <feComposite in="shadowOffsetInner2" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner2"/>
+      <feColorMatrix in="shadowInnerInner2" result="shadowMatrixInner2" values="0 0 0 0 0.301290761   0 0 0 0 0.301290761   0 0 0 0 0.301290761  0 0 0 1 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixInner1"/>
+        <feMergeNode in="shadowMatrixInner2"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-bj" x1="9.857%" x2="93.144%" y1="23.299%" y2="76.701%">
+      <stop offset="0%" stop-color="#A655DF"/>
+      <stop offset="100%" stop-color="#2F63AE"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-bi" d="M0.441532261,0.109116673 L6.91028226,0.109116673 C7.14327739,0.109116673 7.33215726,0.297996544 7.33215726,0.530991673 L7.33215726,5.03099167 C7.33215726,5.2639868 7.14327739,5.45286667 6.91028226,5.45286667 L0.441532261,5.45286667 C0.208537132,5.45286667 0.0196572609,5.2639868 0.0196572609,5.03099167 L0.0196572609,0.530991673 C0.0196572609,0.297996544 0.208537132,0.109116673 0.441532261,0.109116673 Z"/>
+    <filter id="pad_桌面壁纸2备份-bk" width="113.7%" height="118.7%" x="-6.8%" y="-9.4%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation=".5"/>
+      <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.402972028 0"/>
+    </filter>
+    <rect id="pad_桌面壁纸2备份-bm" width="3.234" height="5.098" x="0" y="0"/>
+    <linearGradient id="pad_桌面壁纸2备份-bo" x1="0%" x2="99.338%" y1="50%" y2="50%">
+      <stop offset="0%" stop-color="#A09AD3"/>
+      <stop offset="100%" stop-color="#6C89F9"/>
+    </linearGradient>
+    <rect id="pad_桌面壁纸2备份-bp" width="3.234" height="1" x="0" y="0" rx=".012"/>
+    <path id="pad_桌面壁纸2备份-br" d="M0,0 L3.84960937,0 L3.84960937,3.7734375 C3.84960937,4.09704185 3.58727622,4.359375 3.26367187,4.359375 L0,4.359375 L0,4.359375 L0,0 Z"/>
+    <linearGradient id="pad_桌面壁纸2备份-bs" x1="50%" x2="62.308%" y1="14.936%" y2="67.002%">
+      <stop offset="0%" stop-color="#F7FEFF" stop-opacity=".839"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bu" x1="50%" x2="56.28%" y1="-17.393%" y2="82.678%">
+      <stop offset="0%" stop-color="#F7FEFF" stop-opacity=".47"/>
+      <stop offset="100%" stop-color="#FFF" stop-opacity=".05"/>
+    </linearGradient>
+    <filter id="pad_桌面壁纸2备份-bv" width="211.1%" height="211.1%" x="-55.6%" y="-55.6%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15586757 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-bw" x1="31.195%" x2="74.285%" y1="4.862%" y2="92.47%">
+      <stop offset="0%" stop-color="#4F4F4F"/>
+      <stop offset="100%" stop-color="#3F3F3F"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-bx" d="M1.18017185,0.151062012 C0.944765991,0.251770342 0.739575439,0.38961334 0.56459439,0.56459439 C0.389613243,0.739575439 0.251770535,0.944765991 0.151062012,1.18017185 C0.0503534883,1.41557818 0,1.66671624 0,1.93359375 C0,2.20047126 0.0503534883,2.45160932 0.151062012,2.68701565 C0.251770535,2.92242151 0.389613243,3.12761206 0.56459439,3.30259311 C0.739575439,3.47757426 0.944765991,3.61541696 1.18017185,3.71612549 C1.41557818,3.81683401 1.66671624,3.8671875 1.93359375,3.8671875 C2.20047126,3.8671875 2.45160932,3.81683401 2.68701565,3.71612549 C2.92242151,3.61541696 3.12761206,3.47757426 3.30259311,3.30259311 C3.47757416,3.12761206 3.61541716,2.92242151 3.71612549,2.68701565 C3.81683382,2.45160932 3.8671875,2.20047126 3.8671875,1.93359375 C3.8671875,1.66671624 3.81683382,1.41557818 3.71612549,1.18017185 C3.61541716,0.944765991 3.47757416,0.739575439 3.30259311,0.56459439 C3.12761206,0.38961334 2.92242151,0.251770342 2.68701565,0.151062012 C2.45160932,0.0503536816 2.20047126,0 1.93359375,0 C1.66671624,0 1.41557818,0.0503536816 1.18017185,0.151062012 Z"/>
+    <filter id="pad_桌面壁纸2备份-by" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.2 0"/>
+    </filter>
+    <path id="pad_桌面壁纸2备份-bz" d="M1.94242295,0.406142979 C1.73038328,0.406142979 1.53084893,0.446150014 1.34381376,0.526164852 C1.15677897,0.606179689 0.993750863,0.715698784 0.854724823,0.854724823 C0.715698707,0.993750863 0.606179843,1.15677897 0.526164852,1.34381376 C0.446149861,1.53084893 0.406142979,1.73038328 0.406142979,1.94242295 C0.406142979,2.15446261 0.446149861,2.35399696 0.526164852,2.54103213 C0.606179843,2.72806692 0.715698707,2.89109503 0.854724823,3.03012107 C0.993750863,3.16914718 1.15677897,3.27866605 1.34381376,3.35868104 C1.53084893,3.43869603 1.73038328,3.47870291 1.94242295,3.47870291 C2.15446261,3.47870291 2.35399696,3.43869603 2.54103213,3.35868104 C2.72806692,3.27866605 2.89109503,3.16914718 3.03012107,3.03012107 C3.16914711,2.89109503 3.2786662,2.72806692 3.35868104,2.54103213 C3.43869588,2.35399696 3.47870291,2.15446261 3.47870291,1.94242295 C3.47870291,1.73038328 3.43869588,1.53084893 3.35868104,1.34381376 C3.2786662,1.15677897 3.16914711,0.993750863 3.03012107,0.854724823 C2.89109503,0.715698784 2.72806692,0.606179689 2.54103213,0.526164852 C2.35399696,0.446150014 2.15446261,0.406142979 1.94242295,0.406142979 L1.94242295,0.406142979 Z"/>
+    <filter id="pad_桌面壁纸2备份-bA" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0"/>
+    </filter>
+    <path id="pad_桌面壁纸2备份-bC" d="M1.40160802,1.47862238 L1.961006,1.47862238 C2.02896291,1.47862238 2.08405287,1.53371234 2.08405287,1.60166925 L2.08405287,1.63992753 C2.08405287,1.70788444 2.02896291,1.7629744 1.961006,1.7629744 L1.40160802,1.7629744 L1.40160802,1.7629744 L1.40160802,1.47862238 Z"/>
+    <filter id="pad_桌面壁纸2备份-bB" width="68.2%" height="28.4%" x="15.9%" y="35.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0957987325 0"/>
+    </filter>
+    <path id="pad_桌面壁纸2备份-bE" d="M1.76583904,1.87178938 L2.63992937,1.87178938 C2.69356789,1.87178938 2.73705051,1.915272 2.73705051,1.96891053 C2.73705051,2.02254906 2.69356789,2.06603168 2.63992937,2.06603168 L1.81038598,2.06603168 L1.81038598,2.06603168 L1.76583904,1.87178938 Z"/>
+    <filter id="pad_桌面壁纸2备份-bD" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-bG" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="5.5" y="14.5">控制中心</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-bF" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-bH" width="147.6%" height="157.1%" x="-23.8%" y="-33.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-bI" x1="52.703%" x2="47.944%" y1="103.309%" y2="0%">
+      <stop offset="1.926%" stop-color="#410DD9"/>
+      <stop offset="100%" stop-color="#2F54F8"/>
+    </linearGradient>
+    <circle id="pad_桌面壁纸2备份-bJ" cx="4.219" cy="4.219" r="2.685"/>
+    <filter id="pad_桌面壁纸2备份-bK" width="118.6%" height="118.6%" x="-9.3%" y="-9.3%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation=".5"/>
+      <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"/>
+    </filter>
+    <path id="pad_桌面壁纸2备份-bM" d="M4.11082648,1.53407579 C4.25382902,1.55114372 4.39280432,1.58132622 4.52651543,1.62338636 L4.49720511,1.93534176 C4.60448883,1.97508042 4.70730634,2.02420127 4.80468802,2.08172281 L5.03729336,1.85628585 C5.15660058,1.92951625 5.2687184,2.01332067 5.37234199,2.10639426 L5.20279753,2.3938151 C5.2846225,2.47730548 5.35903767,2.56824798 5.42496157,2.66554787 L5.75845381,2.55491101 C5.8331671,2.66836348 5.89811128,2.78881991 5.95208912,2.91508304 L5.65154601,3.11596985 C5.691379,3.22982192 5.72106088,3.34853346 5.73949033,3.47098966 L6.11744823,3.52245505 C6.12992857,3.61949999 6.13636364,3.71843772 6.13636364,3.81887843 C6.13636364,3.85239327 6.13564715,3.88574076 6.13422866,3.91890642 L5.75115272,3.97098736 C5.73797266,4.09938998 5.71248301,4.22409025 5.67589915,4.3438579 L6.0117455,4.56779829 C5.96961198,4.6902723 5.91743215,4.80807226 5.85619033,4.92021382 L5.47315699,4.79389825 C5.40447164,4.9059273 5.32488217,5.01038949 5.23588952,5.10576547 L5.44590757,5.46233238 C5.35621099,5.55025129 5.25934757,5.63088558 5.1562748,5.70327777 L4.86192361,5.41729027 C4.75019359,5.48866902 4.63070984,5.54874191 4.50504034,5.59592173 L4.54248066,6.00928403 C4.42511029,6.04715295 4.30361984,6.07585019 4.17885389,6.09453119 L4.03582836,5.70658683 C3.96989176,5.71349297 3.90296785,5.7170324 3.83522727,5.7170324 C3.7674867,5.7170324 3.70056279,5.71349297 3.63462619,5.70658683 L3.49160065,6.09453119 C3.3668347,6.07585019 3.24534426,6.04715295 3.12797389,6.00928403 L3.16541421,5.59592173 C3.03974471,5.54874191 2.92026096,5.48866902 2.80853094,5.41729027 L2.51417975,5.70327777 C2.41110697,5.63088558 2.31424355,5.55025129 2.22454697,5.46233238 L2.43456502,5.10576547 C2.34557238,5.01038949 2.26598291,4.9059273 2.19729755,4.79389825 L1.81426422,4.92021382 C1.7530224,4.80807226 1.70084256,4.6902723 1.65870905,4.56779829 L1.9945554,4.3438579 C1.95797154,4.22409025 1.93248189,4.09938998 1.91930183,3.97098736 L1.53709091,3.91813859 L1.53409091,3.81887843 C1.53409091,3.71843772 1.54052598,3.61949999 1.55300631,3.52245505 L1.93096421,3.47098966 C1.94939367,3.34853346 1.97907554,3.22982192 2.01890853,3.11596985 L1.71879751,2.91407299 C1.77268973,2.78817748 1.8374867,2.66806092 1.91200073,2.55491101 L2.24549298,2.66554787 C2.31141687,2.56824798 2.38583204,2.47730548 2.46765702,2.3938151 L2.29811256,2.10639426 C2.40173615,2.01332067 2.51385396,1.92951625 2.63316118,1.85628585 L2.86576652,2.08172281 C2.9631482,2.02420127 3.06596571,1.97508042 3.17324944,1.93534176 L3.14493861,1.62307221 C3.27834275,1.5811759 3.41698181,1.55110119 3.55962806,1.53407579 L3.66702451,1.82448376 C3.72245388,1.81963028 3.77855478,1.81715297 3.83522727,1.81715297 C3.89189977,1.81715297 3.94800066,1.81963028 4.00343004,1.82448376 Z M3.83522727,2.23115032 C2.98797226,2.23115032 2.30113636,2.91798621 2.30113636,3.76524123 C2.30113636,4.61249624 2.98797226,5.29933214 3.83522727,5.29933214 C4.68248229,5.29933214 5.36931818,4.61249624 5.36931818,3.76524123 C5.36931818,2.91798621 4.68248229,2.23115032 3.83522727,2.23115032 Z"/>
+    <filter id="pad_桌面壁纸2备份-bL" width="165.2%" height="165.8%" x="-32.6%" y="-32.9%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-bN" cx="50%" cy="50%" r="50.393%" fx="50%" fy="50%" gradientTransform="matrix(0 1 -.95065 0 .975 0)">
+      <stop offset="0%" stop-color="#E2E5ED"/>
+      <stop offset="48.405%" stop-color="#9DA3B5"/>
+      <stop offset="100%" stop-color="#E7ECFF"/>
+    </radialGradient>
+    <text id="pad_桌面壁纸2备份-bP" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="6.942" y="14.5">画 板</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-bO" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-bQ" width="155.6%" height="155.6%" x="-27.8%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-bR" x1="50%" x2="50%" y1="0%" y2="98.139%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#EDEDED"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bS" x1="52.542%" x2="34.145%" y1="0%" y2="86.29%">
+      <stop offset="0%" stop-color="#1B90FF"/>
+      <stop offset="47.525%" stop-color="#53A0FD"/>
+      <stop offset="100%" stop-color="#68FFAD"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bT" x1="51.991%" x2="63.277%" y1="0%" y2="71.03%">
+      <stop offset="0%" stop-color="#BC6FFF"/>
+      <stop offset="100%" stop-color="#3EFF90"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bU" x1="62.941%" x2="32.932%" y1="18.3%" y2="92.174%">
+      <stop offset="0%" stop-color="#D10BFF"/>
+      <stop offset="100%" stop-color="#FFEE28"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bV" x1="96.359%" x2="0%" y1="21.169%" y2="84.175%">
+      <stop offset="0%" stop-color="#FF035B"/>
+      <stop offset="100%" stop-color="#FFC800"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bW" x1="95.792%" x2="0%" y1="18.616%" y2="66.578%">
+      <stop offset="0%" stop-color="#E06C00"/>
+      <stop offset="100%" stop-color="#FFFF46"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bX" x1="0%" x2="98.687%" y1="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#EDEDED"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-bZ" x1="-77.238%" x2="100%" y1="100%" y2="100%">
+      <stop offset="0%" stop-color="#828282"/>
+      <stop offset="100%" stop-color="#353535"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-bY" d="M5.6506957,3.32963965 C5.70670392,3.32947224 5.75598692,3.36658088 5.77130407,3.42045419 L5.9384451,4.00832069 C5.9573249,4.0747245 5.91879907,4.14386053 5.85239526,4.16274033 C5.84127547,4.16590189 5.82977086,4.16750559 5.81821036,4.16750559 L4.67684959,4.16750559 C4.60781399,4.16750559 4.55184959,4.11154119 4.55184959,4.04250559 C4.55184959,4.03184709 4.55321281,4.02123236 4.55590607,4.01091975 L4.70879328,3.42550827 C4.72312861,3.3706177 4.7726318,3.33226425 4.82936317,3.33209468 L5.6506957,3.32963965 Z M5.56688766,1.08556509 L5.56688766,3.14806509 L4.99130626,3.14806509 L4.99130626,1.08556509 L5.56688766,1.08556509 Z M5.44188766,0.148065088 C5.51092325,0.148065088 5.56688766,0.204029494 5.56688766,0.273065088 L5.56688766,0.273065088 L5.56688766,0.898065088 L4.99130626,0.898065088 L4.99130626,0.273065088 C4.99130626,0.204029494 5.04727067,0.148065088 5.11630626,0.148065088 L5.11630626,0.148065088 Z"/>
+    <linearGradient id="pad_桌面壁纸2备份-ca" x1="30.285%" x2="48.436%" y1="78.679%" y2="94.003%">
+      <stop offset="0%" stop-color="#686868"/>
+      <stop offset="100%"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-cb" x1="106.964%" x2="-2.977%" y1="27.653%" y2="35.741%">
+      <stop offset="0%" stop-color="#FFD900"/>
+      <stop offset="14.463%" stop-color="#FFD800"/>
+      <stop offset="25.088%" stop-color="#CE4F02"/>
+      <stop offset="33.457%" stop-color="#D30079"/>
+      <stop offset="53.45%" stop-color="#53A0FD"/>
+      <stop offset="100%" stop-color="#0064A2"/>
+    </linearGradient>
+    <text id="pad_桌面壁纸2备份-cd" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="4.688" y="14.5">系统监视器</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-cc" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-ce" width="155.6%" height="155.6%" x="-27.8%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-cf" cx="38.256%" cy="21.126%" r="100.21%" fx="38.256%" fy="21.126%">
+      <stop offset="0%" stop-color="#665AFF"/>
+      <stop offset="100%" stop-color="#4300D7"/>
+    </radialGradient>
+    <radialGradient id="pad_桌面壁纸2备份-ch" cx="50%" cy="52.28%" r="54.424%" fx="50%" fy="52.28%">
+      <stop offset="0%" stop-color="#00D8FF"/>
+      <stop offset="100%" stop-color="#3D00B5"/>
+    </radialGradient>
+    <circle id="pad_桌面壁纸2备份-cg" cx="3.094" cy="3.094" r="3.094"/>
+    <path id="pad_桌面壁纸2备份-ck" d="M1.40537382,4.61762559 C1.43579639,4.67847071 1.49166374,4.76227175 1.5756335,4.8462415 C1.72022445,4.99083246 1.89871579,5.08007813 2.109375,5.08007812 C2.37098001,5.08007812 2.56403133,4.9343433 2.70529207,4.67536528 C2.80138178,4.49920081 2.85612693,4.33192397 2.96512865,3.932251 C3.15472798,3.23705344 3.27444179,3.01757813 3.515625,3.01757813 C3.7474628,3.01757813 3.84413716,3.23026171 3.96934871,3.91892524 C4.04222728,4.31975739 4.08184663,4.4873777 4.1626178,4.66507429 C4.28275348,4.92937279 4.46868864,5.08007812 4.734375,5.08007812 C5.07011243,5.08007812 5.19745305,4.89372601 5.29801083,4.49149489 C5.30324366,4.47048114 5.30324366,4.47048114 5.30834478,4.44988114 C5.37046536,4.19931071 5.40477767,4.14257813 5.484375,4.14257813 C5.54030683,4.14257813 5.56677876,4.17813931 5.62391277,4.35448564 C5.62718941,4.36459911 5.64320022,4.41458228 5.64785641,4.42891648 C5.65781176,4.45956426 5.66632104,4.48479723 5.67511653,4.50939809 C5.82376038,4.9251527 6.08780713,5.12814577 6.62369804,5.07942842 C6.71071239,5.07151802 6.77483881,4.99456631 6.76692842,4.90755196 C6.75901802,4.82053761 6.68206631,4.75641119 6.59505196,4.76432158 C6.21535144,4.79883981 6.07643959,4.69204757 5.97305321,4.40287743 C5.96544442,4.38159577 5.95786353,4.35911579 5.9487845,4.33116577 C5.94438305,4.3176158 5.9284216,4.26778672 5.92491535,4.25696456 C5.82862463,3.95975952 5.72918129,3.82617188 5.484375,3.82617188 C5.1938632,3.82617188 5.09747902,3.98553524 5.00123567,4.37374368 C4.99611836,4.39440857 4.99611836,4.39440857 4.99105167,4.41475511 C4.92258902,4.68860572 4.87129382,4.76367187 4.734375,4.76367187 C4.5025372,4.76367187 4.40586284,4.55098829 4.28065129,3.86232476 C4.20777272,3.46149261 4.16815337,3.2938723 4.0873822,3.11617571 C3.96724652,2.85187721 3.78131136,2.70117188 3.515625,2.70117188 C3.25401999,2.70117188 3.06096867,2.8469067 2.91970793,3.10588472 C2.82361822,3.28204919 2.76887307,3.44932603 2.65987135,3.848999 C2.47027202,4.54419656 2.35055821,4.76367187 2.109375,4.76367187 C1.99190921,4.76367187 1.88915055,4.71229254 1.7993665,4.6225085 C1.76621395,4.58935595 1.73748549,4.55344536 1.71366421,4.51771345 C1.69993958,4.4971265 1.69144073,4.48225352 1.68837618,4.47612441 C1.64930171,4.39797547 1.55427335,4.36629935 1.47612441,4.40537382 C1.39797547,4.44444829 1.36629935,4.53947665 1.40537382,4.61762559 Z"/>
+    <filter id="pad_桌面壁纸2备份-cj" width="155.8%" height="225.8%" x="-27.9%" y="-62.9%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.243137255   0 0 0 0 0.423529412   0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-cm" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="6.942" y="14.5">日 历</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-cl" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-cn" width="169.9%" height="169.9%" x="-31.2%" y="-31.2%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-co" cx="54.324%" cy="55.779%" r="61.914%" fx="54.324%" fy="55.779%" gradientTransform="matrix(-.81914 -.50611 .72543 -.9141 .584 1.343)">
+      <stop offset="0%"/>
+      <stop offset="100%" stop-opacity=".148"/>
+    </radialGradient>
+    <path id="pad_桌面壁纸2备份-cq" d="M3.53320312,5.37890625 L3.53320312,4.98403221 L2.46102211,4.98403221 L3.36381007,3.87309471 C3.47673877,3.73202328 3.53320312,3.57079879 3.53320312,3.38942124 C3.53063656,3.1626993 3.45299808,2.9756537 3.30028768,2.82828444 C3.15014384,2.67965561 2.95444354,2.60408163 2.71318677,2.6015625 C2.49759561,2.60408163 2.31601139,2.67839605 2.16843412,2.82450574 C2.02214012,2.97439413 1.94386,3.16395886 1.93359375,3.39319994 L1.93359375,3.39319994 L2.33397732,3.39319994 C2.34809341,3.2672433 2.39300824,3.16962691 2.4687218,3.10035077 C2.5418688,3.03107462 2.63362336,2.99643654 2.7439855,2.99643654 C2.86846373,2.99895568 2.96470978,3.03863202 3.03272366,3.11546556 C3.09817097,3.19229911 3.13089463,3.2823581 3.13089463,3.38564254 C3.13089463,3.42468909 3.12576151,3.46625478 3.11549526,3.5103396 C3.10009589,3.55694356 3.07122208,3.60732621 3.02887382,3.66148756 L3.02887382,3.66148756 L1.93359375,5.0067044 L1.93359375,5.37890625 L3.53320312,5.37890625 Z M4.62020896,5.36132812 L5.57226562,2.99716676 L5.57226562,2.6015625 L3.97265625,2.6015625 L3.97265625,3.39655671 L4.37544945,3.39655671 L4.37544945,2.99716676 L5.12129142,2.99716676 L4.17116199,5.36132812 L4.62020896,5.36132812 Z"/>
+    <filter id="pad_桌面壁纸2备份-cp" width="182.4%" height="208%" x="-41.2%" y="-54%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.000854821203   0 0 0 0 0.168099661   0 0 0 0 0.309386322  0 0 0 0.2 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-ct" x1="69.809%" x2="57.001%" y1="71.097%" y2="57.701%">
+      <stop offset="0%" stop-color="#C6C6C6"/>
+      <stop offset="53.052%" stop-color="#E7E7E7"/>
+      <stop offset="100%" stop-color="#F4F4F4"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-cs" d="M7.59375,5.1328125 C7.59375,5.1328125 7.41907734,5.76340781 7.3125,5.9765625 C7.171875,6.2578125 7.02663934,6.20608259 6.75,6.5390625 C6.47336066,6.87204241 6.66009221,6.93632812 6.2451332,7.28638393 C6.02275534,7.47397995 5.4140625,7.59375 5.4140625,7.59375 C7.13441342,7.59375 7.59375,6.04637277 7.59375,5.1328125 Z"/>
+    <filter id="pad_桌面壁纸2备份-cr" width="237.6%" height="221.9%" x="-68.8%" y="-61%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-cv" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="4.688" y="14.5">文本编辑器</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-cu" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-cw" width="166.7%" height="155.6%" x="-33.3%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-cx" cx="60.953%" cy="7.944%" r="114.955%" fx="60.953%" fy="7.944%" gradientTransform="scale(1 .89286) rotate(73.386 .603 .084)">
+      <stop offset="0%" stop-color="#00C2FB"/>
+      <stop offset="100%" stop-color="#003AE3"/>
+    </radialGradient>
+    <text id="pad_桌面壁纸2备份-cz" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="4.688" y="14.5">深度浏览器</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-cy" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-cA" width="161.1%" height="161.1%" x="-33.3%" y="-33.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <rect id="pad_桌面壁纸2备份-cB" width="8.39" height="8.39" x="0" y="0" rx="4.148"/>
+    <filter id="pad_桌面壁纸2备份-cC" width="171.4%" height="171.4%" x="-35.7%" y="-35.7%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0.016769553   0 0 0 0 0.440387228  0 0 0 0.29 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-cE" x1="35.815%" x2="92.602%" y1="3.789%" y2="54.958%">
+      <stop offset="0%" stop-color="#A05FF8"/>
+      <stop offset="100%" stop-color="#47AAFC"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-cF" x1="7.706%" x2="85.146%" y1="15.852%" y2="71.412%">
+      <stop offset="0%" stop-color="#346EFF"/>
+      <stop offset="100%" stop-color="#8056FF"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-cG" d="M3.56437214,1.1128262 C5.06697204,1.52711686 5.87533369,2.56070709 6.22572262,3.5897543 C6.27334558,3.72961683 6.32071918,3.89795474 6.36099265,4.0877639 C5.74822775,5.61494139 4.25474238,6.69257727 2.50956167,6.69257727 L2.41633835,6.69257727 C1.51685233,6.69257727 0.684228903,6.40630448 0.00460782006,5.91989866 C0.0498304987,5.94281224 0.0950959175,5.96471673 0.141353287,5.98531184 C1.32834215,6.51379333 2.71900565,5.97996763 3.24748714,4.79297877 C3.77596863,3.6059899 3.24214293,2.21532641 2.05515407,1.68684491 C1.4634581,1.4234049 0.821151609,1.42393456 0.260259136,1.63775443 L0.27060782,1.62082092 L0.312887482,1.58561032 C0.916187621,1.09940776 2.14085644,0.720340301 3.56437214,1.1128262 Z"/>
+    <linearGradient id="pad_桌面壁纸2备份-cH" x1="31.392%" x2="58.91%" y1="2.341%" y2="100%">
+      <stop offset="0%" stop-color="#523DFF"/>
+      <stop offset="100%" stop-color="#8C22FF"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-cI" d="M2.87626936,1.64871452 C4.18646363,2.337987 4.7562907,3.48683104 4.68828828,4.64327289 C4.65772491,5.16303039 4.47954574,5.77437195 4.11037101,6.3723485 C3.61710543,6.57880217 3.07662035,6.69257727 2.50956167,6.69257727 L2.41633835,6.69257727 C1.51685233,6.69257727 0.684228903,6.40630448 0.00460782006,5.91989866 C0.0498304987,5.94281224 0.0950959175,5.96471673 0.141353287,5.98531184 C1.32834215,6.51379333 2.71900565,5.97996763 3.24748714,4.79297877 C3.77596863,3.6059899 3.24214293,2.21532641 2.05515407,1.68684491 C1.4634581,1.4234049 0.821151609,1.42393456 0.260259136,1.63775443 L0.28736115,1.59785408 C0.924013034,1.26349054 1.86673133,1.11761254 2.87626936,1.64871452 Z"/>
+    <circle id="pad_桌面壁纸2备份-cK" cx="107.75" cy="18.75" r="1"/>
+    <filter id="pad_桌面壁纸2备份-cJ" width="841%" height="879.9%" x="-356.1%" y="-379.9%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+      <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.06 0"/>
+    </filter>
+    <text id="pad_桌面壁纸2备份-cM" fill="#FFF" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size="1.625" font-weight="400">
+      <tspan x="5.5" y="14.5">应用商店</tspan>
+    </text>
+    <filter id="pad_桌面壁纸2备份-cL" width="117.1%" height="300%" x="-8.6%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-cN" width="155.6%" height="155.6%" x="-27.8%" y="-27.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-cO" x1="50%" x2="50%" y1="12.873%" y2="100%">
+      <stop offset="0%" stop-color="#F8F8F8"/>
+      <stop offset="100%" stop-color="#FFE4C5"/>
+    </linearGradient>
+    <radialGradient id="pad_桌面壁纸2备份-cP" cx="50%" cy="0%" r="100%" fx="50%" fy="0%" gradientTransform="matrix(0 1 -.69643 0 .5 -.5)">
+      <stop offset="0%" stop-color="#FFB558"/>
+      <stop offset="100%" stop-color="#FF631C"/>
+    </radialGradient>
+    <linearGradient id="pad_桌面壁纸2备份-cQ" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#F80"/>
+      <stop offset="100%" stop-color="#FF3F00"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-cT" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFEBEB"/>
+      <stop offset="100%" stop-color="#FFD2D2"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-cS" d="M6.10546875,1.24609375 C6.10546875,1.12959619 6.19990869,1.03515625 6.31640625,1.03515625 C6.43290381,1.03515625 6.52734375,1.12959619 6.52734375,1.24609375 C6.52734375,3.15033764 5.68718323,4.40234375 3.9375,4.40234375 C2.18781677,4.40234375 1.34765625,3.15033764 1.34765625,1.24609375 C1.34765625,1.12959619 1.44209619,1.03515625 1.55859375,1.03515625 C1.67509131,1.03515625 1.76953125,1.12959619 1.76953125,1.24609375 C1.76953125,2.94462867 2.46463324,3.98046875 3.9375,3.98046875 C5.41036676,3.98046875 6.10546875,2.94462867 6.10546875,1.24609375 Z"/>
+    <filter id="pad_桌面壁纸2备份-cR" width="157.9%" height="189.1%" x="-29%" y="-44.5%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.788235294   0 0 0 0 0.290196078   0 0 0 0 0  0 0 0 0.4 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-cU" width="157.9%" height="189.1%" x="-29%" y="-44.5%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation=".5"/>
+      <feOffset in="shadowBlurInner1" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" result="shadowMatrixInner1" values="0 0 0 0 1   0 0 0 0 0.568627451   0 0 0 0 0.243137255  0 0 0 0.501217165 0"/>
+      <feGaussianBlur in="SourceAlpha" result="shadowBlurInner2" stdDeviation=".5"/>
+      <feOffset in="shadowBlurInner2" result="shadowOffsetInner2"/>
+      <feComposite in="shadowOffsetInner2" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner2"/>
+      <feColorMatrix in="shadowInnerInner2" result="shadowMatrixInner2" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixInner1"/>
+        <feMergeNode in="shadowMatrixInner2"/>
+      </feMerge>
+    </filter>
+    <path id="pad_桌面壁纸2备份-cW" d="M2.25,0 L29.3153786,0 L29.3153786,0 L29.6198472,0 L29.9326605,0 L34.75,0 C35.9926407,-4.19892675e-15 37,1.00735931 37,2.25 L37,9.25 C37,10.4926407 35.9926407,11.5 34.75,11.5 L2.25,11.5 C1.00735931,11.5 1.52179594e-16,10.4926407 0,9.25 L0,2.25 C-1.52179594e-16,1.00735931 1.00735931,2.28269391e-16 2.25,0 Z"/>
+    <filter id="pad_桌面壁纸2备份-cV" width="110.8%" height="134.8%" x="-5.4%" y="-17.4%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius=".5" result="shadowSpreadOuter1"/>
+      <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-cX" width="155.6%" height="165.1%" x="-27.8%" y="-31.7%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-cY" x1="50%" x2="50%" y1="0%" y2="96.107%">
+      <stop offset="0%" stop-color="#F0EDFF"/>
+      <stop offset="100%" stop-color="#BBA7F6"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-cZ" d="M1.01515043,3.921875 L1.01515043,4.921875 L-1.88737914e-15,4.921875 L-1.88737914e-15,3.921875 L1.01515043,3.921875 Z M7.3125,3.91574571 L7.3125,4.91574571 L6.3125,4.91574571 L6.3125,3.91574571 L7.3125,3.91574571 Z M7.3125,0 L7.3125,1 L6.3125,1 L6.3125,0 L7.3125,0 Z M1,0 L1,1 L-1.88737914e-15,1 L-1.88737914e-15,0 L1,0 Z"/>
+    <linearGradient id="pad_桌面壁纸2备份-dd" x1="39.277%" x2="39.277%" y1="15.304%" y2="105.982%">
+      <stop offset="0%" stop-color="#6B6386"/>
+      <stop offset="72.102%" stop-color="#302B42"/>
+      <stop offset="100%" stop-color="#72639E"/>
+    </linearGradient>
+    <circle id="pad_桌面壁纸2备份-dc" cx="2.333" cy="2.368" r="2.25"/>
+    <filter id="pad_桌面壁纸2备份-db" width="166.7%" height="166.7%" x="-33.3%" y="-33.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0"/>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-de" cx="50%" cy="91.243%" r="23.464%" fx="50%" fy="91.243%" gradientTransform="matrix(0 1 -1.57176 0 1.934 .412)">
+      <stop offset="0%" stop-color="#8462FF"/>
+      <stop offset="100%" stop-color="#232129"/>
+    </radialGradient>
+    <circle id="pad_桌面壁纸2备份-df" cx="2.391" cy="2.391" r="1.547"/>
+    <radialGradient id="pad_桌面壁纸2备份-dg" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#F53E84"/>
+      <stop offset="100%" stop-color="#4F2CA2"/>
+    </radialGradient>
+    <linearGradient id="pad_桌面壁纸2备份-dh" x1="99.23%" x2=".77%" y1="27.849%" y2="67.669%">
+      <stop offset="0%" stop-color="#4B003F"/>
+      <stop offset="14.589%" stop-color="#33036D"/>
+      <stop offset="51.448%" stop-color="#C30B9D"/>
+      <stop offset="80.605%" stop-color="#591A85"/>
+      <stop offset="100%" stop-color="#470437"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-di" x1="50%" x2="50%" y1="0%" y2="50%">
+      <stop offset="0%" stop-color="#FEE" stop-opacity=".85"/>
+      <stop offset="100%" stop-color="#FF578A" stop-opacity=".7"/>
+    </linearGradient>
+    <filter id="pad_桌面壁纸2备份-dj" width="176.2%" height="150%" x="-52.4%" y="-20.8%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-dk" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#D6D9ED"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-dm" x1="50%" x2="50%" y1="100%" y2="1.926%">
+      <stop offset="0%" stop-color="#4B7BCF"/>
+      <stop offset="100%" stop-color="#3A2EC8"/>
+    </linearGradient>
+    <rect id="pad_桌面壁纸2备份-dl" width="6.908" height="4.746" x=".017" y=".013" rx=".375"/>
+    <linearGradient id="pad_桌面壁纸2备份-do" x1="49.803%" x2="41.314%" y1="35.88%" y2="68.829%">
+      <stop offset="0%" stop-color="#40E2E8"/>
+      <stop offset="47.667%" stop-color="#2A7ECA"/>
+      <stop offset="100%" stop-color="#332075"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-dp" x1="50%" x2="50%" y1="11.914%" y2="100%">
+      <stop offset="0%" stop-color="#67CEFF" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#00CDFF"/>
+    </linearGradient>
+    <filter id="pad_桌面壁纸2备份-dq" width="191.2%" height="190.9%" x="-49.5%" y="-49.3%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0.0924666824   0 0 0 0 0.218528561   0 0 0 0 0.62647192  0 0 0 0.302474869 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <circle id="pad_桌面壁纸2备份-dr" cx="1.759" cy="1.758" r="1.758"/>
+    <linearGradient id="pad_桌面壁纸2备份-dv" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#E7E7E7"/>
+    </linearGradient>
+    <rect id="pad_桌面壁纸2备份-du" width="9.299" height="8.068" x=".003" y=".002" rx=".563"/>
+    <filter id="pad_桌面壁纸2备份-dt" width="132.3%" height="137.2%" x="-16.1%" y="-18.6%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-dx" x1="50%" x2="50%" y1="100%" y2="1.926%">
+      <stop offset="0%" stop-color="#4068AD"/>
+      <stop offset="100%" stop-color="#352E86"/>
+    </linearGradient>
+    <rect id="pad_桌面壁纸2备份-dw" width="8.372" height="5.834" x="0" y="0" rx=".375"/>
+    <linearGradient id="pad_桌面壁纸2备份-dz" x1="49.803%" x2="41.314%" y1="35.865%" y2="68.85%">
+      <stop offset="0%" stop-color="#40D0D5"/>
+      <stop offset="47.667%" stop-color="#2A7ECA"/>
+      <stop offset="100%" stop-color="#332075"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-dA" x1="50%" x2="50%" y1="11.914%" y2="100%">
+      <stop offset="0%" stop-color="#32BEFF" stop-opacity=".8"/>
+      <stop offset="100%" stop-color="#00CDFF"/>
+    </linearGradient>
+    <radialGradient id="pad_桌面壁纸2备份-dD" cx="50%" cy="50%" r="55.707%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#01001F" stop-opacity=".036"/>
+      <stop offset="81.152%" stop-color="#000636" stop-opacity=".219"/>
+      <stop offset="100%" stop-color="#01003C" stop-opacity=".688"/>
+    </radialGradient>
+    <circle id="pad_桌面壁纸2备份-dC" cx="2.285" cy="2.303" r="1.758"/>
+    <filter id="pad_桌面壁纸2备份-dB" width="185.3%" height="185.3%" x="-42.7%" y="-42.7%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.279134909   0 0 0 0 0.446591113   0 0 0 0 1  0 0 0 1 0"/>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-dE" cx="20.808%" cy="86.4%" r="74.745%" fx="20.808%" fy="86.4%" gradientTransform="matrix(.4608 -.86004 1.0475 .68809 -.793 .448)">
+      <stop offset=".037%" stop-color="#C0A8FF" stop-opacity=".515"/>
+      <stop offset="100%" stop-color="#B385FF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="pad_桌面壁纸2备份-dF" width="193.3%" height="166.7%" x="-46.7%" y="-38.9%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-dG" cx="55.921%" cy="91.92%" r="39.101%" fx="55.921%" fy="91.92%" gradientTransform="matrix(.00988 .99995 -1.00538 .01045 1.478 .35)">
+      <stop offset=".082%" stop-color="#FFF"/>
+      <stop offset="32.699%" stop-color="#F4EEEE"/>
+      <stop offset="100%" stop-color="#E9E4E4"/>
+    </radialGradient>
+    <linearGradient id="pad_桌面壁纸2备份-dH" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#C4C4C4" stop-opacity=".554"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-dK" x1="64.187%" x2="92.771%" y1="13.388%" y2="89.364%">
+      <stop offset="0%" stop-color="#FFFDFD"/>
+      <stop offset="100%" stop-color="#F2EEEE"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-dJ" d="M1.171875,0.5625 L6.4453125,0.5625 C7.02780032,0.5625 7.5,1.03469968 7.5,1.6171875 L7.5,6.8203125 C7.5,7.40280032 7.02780032,7.875 6.4453125,7.875 L1.0546875,7.875 C0.472199678,7.875 7.13341847e-17,7.40280032 0,6.8203125 L0,1.734375 C-7.92602052e-17,1.08716631 0.524666309,0.5625 1.171875,0.5625 Z"/>
+    <filter id="pad_桌面壁纸2备份-dI" width="140%" height="141%" x="-20%" y="-20.5%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.06 0"/>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-dL" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#C4C4C4" stop-opacity=".554"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-dM" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#FE8B45"/>
+      <stop offset="99.696%" stop-color="#F7B338"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-dN" d="M1.5,7.5 L1.5,8.18664852 C1.5,8.21253687 1.52098665,8.23352352 1.546875,8.23352352 C1.5511503,8.23352352 1.55540551,8.23293863 1.55952225,8.23178512 L2.0625,8.090851 L2.0625,8.090851 L2.56536353,8.23312696 C2.59027403,8.24017493 2.61618148,8.22569448 2.62322944,8.20078399 C2.62440419,8.19663194 2.625,8.19233756 2.625,8.18802252 L2.625,7.5 L2.625,7.5 L1.5,7.5 Z"/>
+    <filter id="pad_桌面壁纸2备份-dO" width="188.9%" height="231.3%" x="-44.4%" y="-66.7%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" result="shadowMatrixInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feGaussianBlur in="SourceAlpha" result="shadowBlurInner2" stdDeviation=".5"/>
+      <feOffset in="shadowBlurInner2" result="shadowOffsetInner2"/>
+      <feComposite in="shadowOffsetInner2" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner2"/>
+      <feColorMatrix in="shadowInnerInner2" result="shadowMatrixInner2" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.08 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixInner1"/>
+        <feMergeNode in="shadowMatrixInner2"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-dP" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-opacity=".04"/>
+      <stop offset="100%" stop-opacity=".07"/>
+    </linearGradient>
+    <linearGradient id="pad_桌面壁纸2备份-dS" x1="54.018%" x2="100%" y1="39.15%" y2="39.15%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#E7DBDB"/>
+    </linearGradient>
+    <path id="pad_桌面壁纸2备份-dR" d="M1.125,6.36774019 L1.125,6.99646501 L1.125,6.99646501 C2.13576814,7.082155 2.67956623,7.125 2.75639428,7.125 C3.70318307,7.125 4.12584992,6.95081625 4.2282307,6.91565752 C4.28705129,6.89545786 4.46707713,6.81725223 4.5569637,6.7301314 C4.62353011,6.66561319 4.65002994,6.60279491 4.65575004,6.58317618 C4.68915961,6.46858832 4.67680418,6.35082674 4.67680418,6.23234358 C4.67680418,5.5298958 4.70086977,4.06058154 4.67680418,2.60458712 C4.67680418,2.44996942 4.67680418,1.83778069 4.67680418,0.768020921 C4.63094078,0.518019217 4.45263772,0.310611293 4.14189503,0.145797147 C3.8222819,-0.0237217708 3.28668989,-0.045415453 2.53511901,0.0807161007 L2.53514762,0.0808865862 C2.47878431,0.0903456958 2.4375,0.139135851 2.4375,0.196287377 L2.4375,0.375215278 L2.4375,0.375215278 L1.125,1.44002017 L1.125,6.36774019 Z"/>
+    <filter id="pad_桌面壁纸2备份-dQ" width="184.2%" height="142.1%" x="-42.1%" y="-21.1%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0.22899683   0 0 0 0 0.22899683   0 0 0 0 0.22899683  0 0 0 0.4 0"/>
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter2"/>
+      <feGaussianBlur in="shadowOffsetOuter2" result="shadowBlurOuter2" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter2" result="shadowMatrixOuter2" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.06 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="shadowMatrixOuter2"/>
+      </feMerge>
+    </filter>
+    <filter id="pad_桌面壁纸2备份-dT" width="100%" height="100%" x="0%" y="0%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feColorMatrix in="shadowOffsetOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.074027535 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient id="pad_桌面壁纸2备份-dV" cx="19.953%" cy="2.931%" r="150.145%" fx="19.953%" fy="2.931%" gradientTransform="matrix(.3625 .62972 -.93198 .24494 .155 -.104)">
+      <stop offset="0%" stop-color="#FF5E4D"/>
+      <stop offset="100%" stop-color="#BA0E55"/>
+    </radialGradient>
+    <path id="pad_桌面壁纸2备份-dU" d="M1.52373914,0.1875 C1.63806974,0.1875 1.94266211,0.1875 2.43751625,0.1875 C2.43752036,3.1164091 2.43752036,4.74121409 2.43751625,5.06191497 C2.43752241,5.53077353 3.11800216,5.61220142 3.2388975,5.625 C3.62306084,5.66566942 3.69654656,5.67403494 4.06061694,5.73687783 C4.42468733,5.79972071 4.60060401,5.97777157 4.65004537,6.06686649 C4.69948674,6.1559614 4.74104694,6.45502708 4.49185201,6.63497552 C4.24087497,6.81621086 3.80939328,7.12479996 2.93311487,7.12479996 C2.61769192,7.12479996 2.0245914,7.125 1.4109951,7.125 C0.584531037,7.125 6.1284311e-14,6.25417443 6.1284311e-14,5.625 L6.1284311e-14,1.6875 C-0.00111388319,0.884314362 0.637724979,0.1875 1.52373914,0.1875 Z"/>
+    <filter id="pad_桌面壁纸2备份-dW" width="121.3%" height="114.4%" x="-10.7%" y="-7.2%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" result="shadowMatrixInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.152890079 0"/>
+      <feGaussianBlur in="SourceAlpha" result="shadowBlurInner2" stdDeviation=".5"/>
+      <feOffset in="shadowBlurInner2" result="shadowOffsetInner2"/>
+      <feComposite in="shadowOffsetInner2" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner2"/>
+      <feColorMatrix in="shadowInnerInner2" result="shadowMatrixInner2" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.06 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixInner1"/>
+        <feMergeNode in="shadowMatrixInner2"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="pad_桌面壁纸2备份-dX" x1="41.053%" x2="100%" y1="55.391%" y2="55.391%">
+      <stop offset="0%" stop-color="#6F0F0F"/>
+      <stop offset="100%" stop-color="#5A0823"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="240" height="132"/>
+    <g transform="translate(7.5 6.25)">
+      <g transform="translate(0 27.5)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-a)" xlink:href="#pad_桌面壁纸2备份-b"/>
+            <use xlink:href="#pad_桌面壁纸2备份-b"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-c)" transform="translate(4.672 3.094)">
+            <rect width="8.156" height="7.313" fill="url(#pad_桌面壁纸2备份-d)" rx=".75"/>
+            <path fill="#FFF0F0" fill-rule="nonzero" d="M4.87073864,4.078125 C4.97664551,4.078125 5.0625,4.17256494 5.0625,4.2890625 C5.0625,4.40556006 4.97664551,4.5 4.87073864,4.5 L4.87073864,4.5 L3.00426136,4.5 C2.89835449,4.5 2.8125,4.40556006 2.8125,4.2890625 C2.8125,4.17256494 2.89835449,4.078125 3.00426136,4.078125 L3.00426136,4.078125 Z M1.15373414,1.44058971 C1.21243389,1.33996157 1.34159466,1.30597189 1.44222279,1.36467164 L1.44222279,1.36467164 L3.12972279,2.34904664 C3.26925907,2.4304428 3.26925907,2.6320572 3.12972279,2.71345336 L3.12972279,2.71345336 L1.44222279,3.69782836 C1.34159466,3.75652811 1.21243389,3.72253843 1.15373414,3.62191029 C1.09503439,3.52128216 1.12902407,3.39212139 1.22965221,3.33342164 L1.22965221,3.33342164 L2.61408538,2.52583562 L1.22965221,1.72907836 C1.12902407,1.67037861 1.09503439,1.54121784 1.15373414,1.44058971 Z"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(45 27.5)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-e)" xlink:href="#pad_桌面壁纸2备份-f"/>
+            <use xlink:href="#pad_桌面壁纸2备份-f"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-g)" transform="translate(4.672 2.672)">
+            <circle cx="4.078" cy="4.078" r="3.828" fill="url(#pad_桌面壁纸2备份-h)" stroke="url(#pad_桌面壁纸2备份-i)" stroke-width=".5"/>
+            <path fill="#FF006B" d="M3.4296011,5.89368188 C3.08878557,6.08819203 2.8125,5.92874235 2.8125,5.53670172 L2.8125,2.68940642 C2.8125,2.29774158 3.09033454,2.13880014 3.4296011,2.33242626 L5.93246888,3.76086229 C6.27328441,3.95537244 6.27173545,4.27161972 5.93246888,4.46524585 L3.4296011,5.89368188 Z"/>
+            <path fill="#FFB600" d="M3.9375,2.62229419 L5.0625,3.26429419 L5.0625,4.96029419 L3.9375,5.60329419 L3.9375,2.62229419 Z"/>
+            <path fill="#1473FF" d="M3.4296011,2.33242626 L3.9375,2.622 L3.9375,5.603 L3.4296011,5.89368188 C3.08878557,6.08819203 2.8125,5.92874235 2.8125,5.53670172 L2.8125,2.68940642 C2.8125,2.29774158 3.09033454,2.13880014 3.4296011,2.33242626 Z"/>
+            <path stroke="#FFF" stroke-opacity=".3" stroke-width=".5" d="M3.0625,2.68940642 L5.81402724,3.98115066 C5.8592266,4.00753852 5.89526485,4.03615326 5.91882556,4.06868039 C5.92906595,4.08281793 5.9375,4.09723155 5.9375,4.11294972 C5.9375,4.12874737 5.9290227,4.14322717 5.91875098,4.15741636 C5.89422989,4.19128942 5.85623355,4.22090496 5.80855019,4.24811879 L5.80855019,4.24811879 L3.30568241,5.67655483 C3.23834453,5.71498589 3.16966048,5.74838485 3.1183476,5.71870141 C3.06735384,5.68920258 3.0625,5.61350774 3.0625,5.53670172 L3.0625,5.53670172 L3.0625,2.68940642 Z"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(90 27.5)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-j)" xlink:href="#pad_桌面壁纸2备份-k"/>
+            <use xlink:href="#pad_桌面壁纸2备份-k"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-l)" transform="translate(4.39 2.672)">
+            <g opacity=".5" transform="rotate(6 4.36 4.078)">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-m)" xlink:href="#pad_桌面壁纸2备份-n"/>
+              <use fill="#FFF" fill-opacity=".8" xlink:href="#pad_桌面壁纸2备份-n"/>
+            </g>
+            <g opacity=".5">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-o)" xlink:href="#pad_桌面壁纸2备份-p"/>
+              <use fill="#FFF" fill-opacity=".8" xlink:href="#pad_桌面壁纸2备份-p"/>
+            </g>
+            <g transform="rotate(-6 9.26 .03)">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-q)" xlink:href="#pad_桌面壁纸2备份-r"/>
+              <use fill="url(#pad_桌面壁纸2备份-s)" xlink:href="#pad_桌面壁纸2备份-r"/>
+              <g transform="translate(.396 .394)">
+                <mask id="pad_桌面壁纸2备份-v" fill="#fff">
+                  <use xlink:href="#pad_桌面壁纸2备份-t"/>
+                </mask>
+                <use fill="url(#pad_桌面壁纸2备份-u)" xlink:href="#pad_桌面壁纸2备份-t"/>
+                <ellipse cx="5.945" cy=".984" fill="#FFF7A1" mask="url(#pad_桌面壁纸2备份-v)" rx="1" ry="1"/>
+                <path fill="url(#pad_桌面壁纸2备份-w)" d="M-0.198153409,5.11875 L2.78122875,1.3512732 C2.94147367,1.14864092 3.1955549,1.14139889 3.36152693,1.3512732 L6.34090909,5.11875 L-0.198153409,5.11875 Z" mask="url(#pad_桌面壁纸2备份-v)"/>
+                <path fill="url(#pad_桌面壁纸2备份-x)" d="M1.98153409,5.5125 L4.56875846,2.1442159 C4.72671193,1.9385777 4.97821739,1.93260498 5.14075858,2.1442159 L7.72798295,5.5125 L1.98153409,5.5125 Z" style="mix-blend-mode:soft-light" mask="url(#pad_桌面壁纸2备份-v)"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(135 27.5)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-y)" xlink:href="#pad_桌面壁纸2备份-z"/>
+            <use xlink:href="#pad_桌面壁纸2备份-z"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-A)" transform="translate(4.953 3.094)">
+            <mask id="pad_桌面壁纸2备份-D" fill="#fff">
+              <use xlink:href="#pad_桌面壁纸2备份-B"/>
+            </mask>
+            <use fill="url(#pad_桌面壁纸2备份-C)" xlink:href="#pad_桌面壁纸2备份-B"/>
+            <g mask="url(#pad_桌面壁纸2备份-D)">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-E)" xlink:href="#pad_桌面壁纸2备份-F"/>
+              <use fill="url(#pad_桌面壁纸2备份-G)" xlink:href="#pad_桌面壁纸2备份-F"/>
+            </g>
+            <g mask="url(#pad_桌面壁纸2备份-D)">
+              <g transform="translate(.563 6.047)">
+                <use fill="#000" filter="url(#pad_桌面壁纸2备份-H)" xlink:href="#pad_桌面壁纸2备份-I"/>
+                <use fill="url(#pad_桌面壁纸2备份-J)" xlink:href="#pad_桌面壁纸2备份-I"/>
+                <use fill="#000" filter="url(#pad_桌面壁纸2备份-K)" xlink:href="#pad_桌面壁纸2备份-I"/>
+                <path fill="url(#pad_桌面壁纸2备份-L)" fill-opacity=".8" d="M1.359375,0.703125 C1.38526335,0.703125 1.40625,0.724111652 1.40625,0.75 L1.40625,0.80625 C1.40625,0.832138348 1.38526335,0.853125 1.359375,0.853125 L0.1875,0.853125 C0.161611652,0.853125 0.140625,0.832138348 0.140625,0.80625 L0.140625,0.75 C0.140625,0.724111652 0.161611652,0.703125 0.1875,0.703125 L1.359375,0.703125 Z M0.9375,0.421875 C0.963388348,0.421875 0.984375,0.442861652 0.984375,0.46875 L0.984375,0.525 C0.984375,0.550888348 0.963388348,0.571875 0.9375,0.571875 L0.1875,0.571875 C0.161611652,0.571875 0.140625,0.550888348 0.140625,0.525 L0.140625,0.46875 C0.140625,0.442861652 0.161611652,0.421875 0.1875,0.421875 L0.9375,0.421875 Z M1.21875,0.140625 C1.24463835,0.140625 1.265625,0.161611652 1.265625,0.1875 L1.265625,0.24375 C1.265625,0.269638348 1.24463835,0.290625 1.21875,0.290625 L0.609375,0.290625 C0.583486652,0.290625 0.5625,0.269638348 0.5625,0.24375 L0.5625,0.1875 C0.5625,0.161611652 0.583486652,0.140625 0.609375,0.140625 L1.21875,0.140625 Z"/>
+              </g>
+            </g>
+            <g mask="url(#pad_桌面壁纸2备份-D)">
+              <g transform="translate(1.828 2.672)">
+                <mask id="pad_桌面壁纸2备份-P" fill="#fff">
+                  <use xlink:href="#pad_桌面壁纸2备份-M"/>
+                </mask>
+                <g fill-rule="nonzero">
+                  <use fill="#000" filter="url(#pad_桌面壁纸2备份-N)" xlink:href="#pad_桌面壁纸2备份-M"/>
+                  <use fill="url(#pad_桌面壁纸2备份-O)" xlink:href="#pad_桌面壁纸2备份-M"/>
+                </g>
+                <path fill="#FFF" fill-opacity=".15" fill-rule="nonzero" d="M2.67532529,1.26395702 L2.65036688,1.316432 C2.68728942,1.20567665 2.66601987,1.08505944 2.67120441,0.980768683 L2.66093517,0.978030955 C2.65189569,0.715720791 2.42334837,0.43691941 2.22005843,0.342556327 C2.04471801,0.262243809 1.77489453,0.248424163 1.65026865,0.308980084 C1.66741712,0.293907035 1.73577868,0.287574404 1.71517389,0.275964564 C1.51999302,0.29519338 1.56362864,0.343512799 1.41397784,0.381409769 C1.37296754,0.420757924 1.53375169,0.34987844 1.44724465,0.400836493 C1.36698554,0.422835839 1.32959765,0.386983773 1.21065472,0.509118176 C1.22125627,0.526070144 1.28616138,0.458852734 1.23202384,0.52633502 C1.12022614,0.512614328 0.87895028,0.780135752 0.82770407,0.868792804 L0.854490344,0.873344585 C0.810522272,0.982747711 0.752629434,1.05250575 0.744819499,1.11800908 C0.733420424,1.27912882 0.676723874,1.57297032 0.755420984,1.66321058 L0.747777274,1.73857569 C0.758544985,1.75998138 0.766753681,1.78171686 0.780146853,1.80186921 L0.762665928,1.80325472 C0.845450792,2.06253056 0.851599088,1.80807022 0.960970801,2.07733968 C0.945085071,2.07202947 0.929066507,2.06622455 0.905969226,2.03528688 C0.903177608,2.05890244 0.939634799,2.12978193 0.982871659,2.18509365 L0.964560019,2.20583966 C0.988654309,2.24934364 1.01088762,2.25887556 1.02760407,2.27398162 C0.937607587,2.22523344 1.11108695,2.4346396 1.12673994,2.46132249 L1.14056514,2.43684941 C1.13853792,2.4720418 1.1659555,2.51745872 1.2173346,2.58032348 L1.26013951,2.57864118 C1.27775333,2.61330579 1.34222641,2.67570857 1.38134247,2.67867722 L1.3553206,2.71235241 C1.45349251,2.74319106 1.40301071,2.75325076 1.52364861,2.79563331 L1.49928845,2.75292096 C1.56083702,2.80592386 1.57984662,2.85226438 1.66668597,2.89289888 C1.78712452,2.93455586 1.80307664,2.91803157 1.92663912,2.953125 C1.82188689,2.95022257 1.69875636,2.951278 1.6159383,2.92182458 C1.05090083,2.76997291 0.533985703,2.11213605 0.571738967,1.43454267 C0.563068002,1.29736829 0.58549771,1.12595793 0.5625,1.09182103 C0.594769934,0.987398316 0.632224139,0.860151678 0.707498195,0.708695815 C0.702047923,0.69853716 0.719894284,0.738347143 0.758146151,0.673602381 C0.781343213,0.623040145 0.800319621,0.567332602 0.829531936,0.518155664 L0.844586815,0.514692586 C0.859641626,0.427849592 1.04864095,0.294765027 1.10487228,0.227777448 L1.10872715,0.2533719 C1.23145871,0.13915334 1.45016896,0.0626008979 1.57329936,0.00804773472 C1.54096317,0.0436029333 1.64574859,0.00455178087 1.72122213,0 C1.69742683,0.0131930419 1.67376455,0.023516537 1.65146487,0.0390513554 C1.74205953,0.0175796548 1.73773917,0.0478575815 1.83032792,0.0357200335 C1.79782551,0.0403705706 1.75837688,0.0532006667 1.76465841,0.0580492472 C1.86811451,0.0699229438 1.88393379,0.0263200052 1.97967966,0.057983231 L1.97363149,0.0298821054 C2.10666541,0.0775089087 2.13451521,0.0694281685 2.27908131,0.145551919 C2.32976253,0.148025379 2.33488049,0.11451536 2.41148393,0.14548597 C2.42497674,0.168969502 2.40842638,0.173356177 2.50261046,0.228931761 C2.51304572,0.224775999 2.4838334,0.198389978 2.46073605,0.177380047 C2.65000144,0.277778966 2.85568409,0.491835654 2.91846234,0.720899452 C2.85963881,0.613442276 2.91241376,0.775716405 2.89217448,0.767239911 C2.91839583,0.837327825 2.93983154,0.909790448 2.953125,0.984561837 C2.93567734,0.923247352 2.8978243,0.775155681 2.83142351,0.679671228 C2.82597317,0.741282643 2.74574732,0.637090778 2.78961561,0.772780972 C2.82298213,0.82086954 2.79636209,0.724032726 2.83757173,0.809457545 C2.83823643,0.850059034 2.85382297,0.890396735 2.86289571,0.943267732 C2.84880465,0.940991977 2.83142351,0.884789658 2.8211544,0.900456368 C2.83541148,0.966982182 2.85890766,1.00168 2.86781431,1.0067921 C2.86326128,1.01794017 2.8513636,0.99640259 2.85053281,1.04165462 C2.85604966,1.14581354 2.87994454,1.10188039 2.8913105,1.10682814 C2.87981164,1.15811599 2.83358375,1.21840813 2.85644836,1.30663642 C2.84990144,1.27988759 2.83704,1.25300679 2.82736901,1.2276762 C2.81839598,1.30300831 2.8441853,1.31768554 2.80912382,1.40894829 C2.83438135,1.32668982 2.83165618,1.25241306 2.80782768,1.28816617 C2.81839598,1.40512226 2.71454104,1.49490082 2.72584048,1.56891365 L2.69566428,1.52768542 C2.61394287,1.64523524 2.69373684,1.59243018 2.6381702,1.68151606 C2.65857551,1.64652158 2.62746895,1.66710262 2.65402261,1.62745761 C2.63637567,1.62844708 2.57535876,1.70189926 2.51945981,1.74510637 C2.29991884,1.91974897 2.03783878,1.94260583 1.78406704,1.84857262 C1.77419664,1.85658735 1.82933118,1.89949766 1.87004228,1.92024367 C1.96668567,1.95570006 2.0759908,1.95711816 2.16206582,1.95395187 C1.97605739,2.03116399 1.62102314,1.87558531 1.50487162,1.6691806 C1.53109297,1.67485356 1.62112278,1.81430376 1.68855377,1.83689683 C1.64870672,1.80523354 1.61789914,1.76492891 1.58931819,1.72346984 C1.6431566,1.78485035 1.70856032,1.83498382 1.78001248,1.86816424 C1.77549277,1.85094733 1.79975329,1.84748418 1.76598794,1.82485817 C1.55086697,1.66123175 1.42371528,1.52221038 1.46788263,1.20030069 C1.50065097,1.17569572 1.50942465,1.04142377 1.58466545,0.99442363 C1.63052784,0.893793932 1.76801529,0.801146224 1.91494085,0.798771177 C2.06485765,0.790657494 2.19144436,0.878292125 2.25498695,0.960946346 C2.13930078,0.853786105 1.94983611,0.821265293 1.78822125,0.900621338 C1.6229839,0.974469193 1.52501126,1.15504867 1.53930167,1.3348365 C1.54541657,1.32593118 1.55089989,1.33147224 1.55382475,1.309308 C1.54877331,1.65879103 1.93335227,1.91496647 2.21018809,1.78567485 L2.21344486,1.79296403 C2.32574123,1.76252119 2.31125134,1.73745446 2.38466433,1.68745288 C2.37894813,1.69916166 2.33521274,1.72913981 2.36130112,1.72970352 C2.39699398,1.72027055 2.50845943,1.61729901 2.56336129,1.56891365 C2.58851912,1.5150531 2.54990175,1.53979003 2.58502968,1.47204389 L2.62800068,1.45083612 C2.65189562,1.38236435 2.67831653,1.3436428 2.67532529,1.26395702 Z" mask="url(#pad_桌面壁纸2备份-P)"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(135)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-Q)" xlink:href="#pad_桌面壁纸2备份-R"/>
+            <use xlink:href="#pad_桌面壁纸2备份-R"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-S)" transform="translate(4.906 2.813)">
+            <use fill="url(#pad_桌面壁纸2备份-T)" xlink:href="#pad_桌面壁纸2备份-U"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-V)" xlink:href="#pad_桌面壁纸2备份-U"/>
+            <use fill="url(#pad_桌面壁纸2备份-W)" xlink:href="#pad_桌面壁纸2备份-X"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-Y)" xlink:href="#pad_桌面壁纸2备份-X"/>
+            <rect width="1.219" height="1" x=".563" y=".844" fill="#FFF" rx=".281"/>
+            <g opacity=".58">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-Z)" xlink:href="#pad_桌面壁纸2备份-aa"/>
+              <use fill="url(#pad_桌面壁纸2备份-ab)" xlink:href="#pad_桌面壁纸2备份-aa"/>
+            </g>
+            <rect width="1" height="1" x=".75" y="1.031" fill="url(#pad_桌面壁纸2备份-ac)" opacity=".683" rx=".094"/>
+            <g transform="translate(6.281 .844)">
+              <circle cx=".422" cy=".422" r="1" fill="#000" fill-opacity=".08"/>
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-ad)" xlink:href="#pad_桌面壁纸2备份-ae"/>
+              <use fill="url(#pad_桌面壁纸2备份-af)" xlink:href="#pad_桌面壁纸2备份-ae"/>
+            </g>
+            <g filter="url(#pad_桌面壁纸2备份-ag)" transform="translate(1.031 1.242)">
+              <ellipse cx="2.826" cy="2.832" fill="url(#pad_桌面壁纸2备份-ah)" rx="1.623" ry="1.61"/>
+              <path fill="url(#pad_桌面壁纸2备份-ai)" stroke="url(#pad_桌面壁纸2备份-aj)" stroke-width=".5" d="M2.8125,-0.25 C3.65818602,-0.25 4.42381102,0.0927819884 4.97801452,0.646985483 C5.53221801,1.20118898 5.875,1.96681398 5.875,2.8125 C5.875,3.65818602 5.53221801,4.42381102 4.97801452,4.97801452 C4.42381102,5.53221801 3.65818602,5.875 2.8125,5.875 C1.96681398,5.875 1.20118898,5.53221801 0.646985483,4.97801452 C0.0927819884,4.42381102 -0.25,3.65818602 -0.25,2.8125 C-0.25,1.96681398 0.0927819884,1.20118898 0.646985483,0.646985483 C1.20118898,0.0927819884 1.96681398,-0.25 2.8125,-0.25 Z M2.77734375,1.12890625 C2.3221403,1.12890625 1.91003093,1.3134139 1.61172242,1.61172242 C1.3134139,1.91003093 1.12890625,2.3221403 1.12890625,2.77734375 C1.12890625,3.2325472 1.3134139,3.64465657 1.61172242,3.94296508 C1.91003093,4.2412736 2.3221403,4.42578125 2.77734375,4.42578125 C3.2325472,4.42578125 3.64465657,4.2412736 3.94296508,3.94296508 C4.2412736,3.64465657 4.42578125,3.2325472 4.42578125,2.77734375 C4.42578125,2.3221403 4.2412736,1.91003093 3.94296508,1.61172242 C3.64465657,1.3134139 3.2325472,1.12890625 2.77734375,1.12890625 Z"/>
+              <use fill="url(#pad_桌面壁纸2备份-ak)" xlink:href="#pad_桌面壁纸2备份-al"/>
+              <path stroke="#000" stroke-opacity=".166" stroke-width=".5" d="M2.8125,0.470703125 C3.45916935,0.470703125 4.04461857,0.732817668 4.46840045,1.15659955 C4.89218233,1.58038143 5.15429687,2.16583065 5.15429687,2.8125 C5.15429687,3.45916935 4.89218233,4.04461857 4.46840045,4.46840045 C4.04461857,4.89218233 3.45916935,5.15429688 2.8125,5.15429688 C2.16583065,5.15429688 1.58038143,4.89218233 1.15659955,4.46840045 C0.732817668,4.04461857 0.470703125,3.45916935 0.470703125,2.8125 C0.470703125,2.16583065 0.732817668,1.58038143 1.15659955,1.15659955 C1.58038143,0.732817668 2.16583065,0.470703125 2.8125,0.470703125 Z M2.8125,1.48046875 C2.44466973,1.48046875 2.11166191,1.62956143 1.87061167,1.87061167 C1.62956143,2.11166191 1.48046875,2.44466973 1.48046875,2.8125 C1.48046875,3.18033027 1.62956143,3.51333809 1.87061167,3.75438833 C2.11166191,3.99543857 2.44466973,4.14453125 2.8125,4.14453125 C3.18033027,4.14453125 3.51333809,3.99543857 3.75438833,3.75438833 C3.99543857,3.51333809 4.14453125,3.18033027 4.14453125,2.8125 C4.14453125,2.44466973 3.99543857,2.11166191 3.75438833,1.87061167 C3.51333809,1.62956143 3.18033027,1.48046875 2.8125,1.48046875 Z"/>
+              <path stroke="url(#pad_桌面壁纸2备份-am)" stroke-linejoin="square" stroke-width=".5" d="M2.8125,0.970703125 C3.32109816,0.970703125 3.78154738,1.17685326 4.11484706,1.51015294 C4.44814674,1.84345262 4.65429687,2.30390184 4.65429687,2.8125 C4.65429687,3.32109816 4.44814674,3.78154738 4.11484706,4.11484706 C3.78154738,4.44814674 3.32109816,4.65429688 2.8125,4.65429688 C2.30390184,4.65429688 1.84345262,4.44814674 1.51015294,4.11484706 C1.17685326,3.78154738 0.970703125,3.32109816 0.970703125,2.8125 C0.970703125,2.30390184 1.17685326,1.84345262 1.51015294,1.51015294 C1.84345262,1.17685326 2.30390184,0.970703125 2.8125,0.970703125 Z M2.8125,0.98046875 C2.30659854,0.98046875 1.84859073,1.18552583 1.51705828,1.51705828 C1.18552583,1.84859073 0.98046875,2.30659854 0.98046875,2.8125 C0.98046875,3.31840146 1.18552583,3.77640927 1.51705828,4.10794172 C1.84859073,4.43947417 2.30659854,4.64453125 2.8125,4.64453125 C3.31840146,4.64453125 3.77640927,4.43947417 4.10794172,4.10794172 C4.43947417,3.77640927 4.64453125,3.31840146 4.64453125,2.8125 C4.64453125,2.30659854 4.43947417,1.84859073 4.10794172,1.51705828 C3.77640927,1.18552583 3.31840146,0.98046875 2.8125,0.98046875 Z"/>
+              <use fill="url(#pad_桌面壁纸2备份-an)" xlink:href="#pad_桌面壁纸2备份-ao"/>
+              <circle cx="2.813" cy="2.813" r="1.568" stroke="#100F0F" stroke-opacity=".229" stroke-width=".5"/>
+              <circle cx="2.813" cy="2.813" r="1.068" stroke="#FFF" stroke-linejoin="square" stroke-opacity=".04" stroke-width=".5"/>
+              <circle cx="2.813" cy="2.813" r="1.217" fill="url(#pad_桌面壁纸2备份-ap)" stroke="#080808" stroke-opacity=".603" stroke-width=".5"/>
+              <circle cx="2.813" cy="2.813" r="1" fill="#0A0611" fill-opacity=".78" stroke="url(#pad_桌面壁纸2备份-aq)" stroke-width=".5"/>
+            </g>
+            <g transform="translate(2.56 2.76)">
+              <path fill="url(#pad_桌面壁纸2备份-ar)" d="M1.21289062,1.16015625 C1.66917275,1.16015625 2.0390625,0.900446427 2.0390625,0.580078125 C2.0390625,0.259709823 1.66917275,0 1.21289062,0 C0.756608498,0 0.38671875,0.259709823 0.38671875,0.580078125 C0.38671875,0.900446427 0.756608498,1.16015625 1.21289062,1.16015625 Z" opacity=".458"/>
+              <path fill="#59AAFF" d="M1.02254604,0.947932538 C0.879919451,0.351133763 0.938513201,0.03515625 1.19832729,0 C0.668482324,0.0834146528 0.0909054174,0.19219826 0.0205929174,0.848632914 C-0.0262820826,1.28625602 0.0868930147,1.52486275 0.360118209,1.56445312 C0.754861765,1.19316111 0.963952292,0.99758467 0.987389792,0.977723818 C1.01082729,0.957862965 1.02254604,0.947932538 1.02254604,0.947932538 Z" filter="url(#pad_桌面壁纸2备份-as)" opacity=".521"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(180 27.5)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-at)" xlink:href="#pad_桌面壁纸2备份-au"/>
+            <use xlink:href="#pad_桌面壁纸2备份-au"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-av)" transform="translate(4.953 2.953)">
+            <path fill="url(#pad_桌面壁纸2备份-aw)" d="M0.736363636,0 L6.85738636,0 C7.26406877,2.86500191e-16 7.59375,0.32968123 7.59375,0.736363636 L7.59375,6.85738636 C7.59375,7.26406877 7.26406877,7.59375 6.85738636,7.59375 L0.736363636,7.59375 C0.32968123,7.59375 5.91614037e-16,7.26406877 0,6.85738636 L0,0.736363636 C-4.98042308e-17,0.32968123 0.32968123,7.47063461e-17 0.736363636,0 Z"/>
+            <polygon fill="#FFF" points="2.012 5.678 2.497 5.194 2.4 5.097 1.916 5.581 1.431 5.097 1.334 5.194 1.819 5.678 1.334 6.163 1.431 6.26 1.916 5.775 2.4 6.26 2.497 6.163 2.012 5.678"/>
+            <path fill="url(#pad_桌面壁纸2备份-ax)" d="M7.59375,3.796875 L7.59375,6.85738636 C7.59375,7.26406877 7.26406877,7.59375 6.85738636,7.59375 L3.796875,7.59375 L3.796875,3.796875 L7.59375,3.796875 Z M6.328125,5.90625 L5.0625,5.90625 L5.0625,6.05625 L6.328125,6.05625 L6.328125,5.90625 Z M6.328125,5.34375 L5.0625,5.34375 L5.0625,5.49375 L6.328125,5.49375 L6.328125,5.34375 Z M3.796875,0 L3.796875,3.796875 L0,3.796875 L0,0.736363636 C0,0.32968123 0.32968123,0 0.736363636,0 L3.796875,0 Z M1.9734375,1.1296875 L1.8234375,1.1296875 L1.823,1.8276875 L1.125,1.828125 L1.125,1.978125 L1.823,1.9776875 L1.8234375,2.6765625 L1.9734375,2.6765625 L1.973,1.9776875 L2.671875,1.978125 L2.671875,1.828125 L1.973,1.8276875 L1.9734375,1.1296875 Z"/>
+            <rect width="1.547" height="1" x="4.922" y="1.828" fill="#FFF"/>
+          </g>
+        </g>
+      </g>
+      <rect width="45" height="27.5"/>
+      <g transform="translate(13.95 5.025)">
+        <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+        <g fill="#FFF">
+          <use filter="url(#pad_桌面壁纸2备份-ay)" xlink:href="#pad_桌面壁纸2备份-az"/>
+          <use xlink:href="#pad_桌面壁纸2备份-az"/>
+        </g>
+        <g transform="translate(4.25 2.25)">
+          <g transform="translate(.984 .563)">
+            <path fill="#FFF" d="M0.75,0 L6.28125,0 C6.69546356,1.80783448e-16 7.03125,0.335786438 7.03125,0.75 L7.03125,7.125 C7.03125,7.53921356 6.69546356,7.875 6.28125,7.875 L0.75,7.875 C0.335786438,7.875 4.9154755e-16,7.53921356 0,7.125 L0,0.75 C-1.61748834e-16,0.335786438 0.335786438,-3.49325055e-17 0.75,0 Z"/>
+            <path fill="#000" fill-opacity=".1" d="M1.134375,0 L1.1335,0.421 L6.328125,0.421875 L6.328125,0.571875 L1.1335,0.571 L1.1335,1.125 L6.328125,1.125 L6.328125,1.275 L1.1335,1.275 L1.1335,1.828 L6.328125,1.828125 L6.328125,1.978125 L1.1335,1.978 L1.1335,2.531 L6.328125,2.53125 L6.328125,2.68125 L1.1335,2.681 L1.1335,3.234 L6.328125,3.234375 L6.328125,3.384375 L1.1335,3.384 L1.1335,3.937 L6.328125,3.9375 L6.328125,4.0875 L1.1335,4.087 L1.1335,4.64 L6.328125,4.640625 L6.328125,4.790625 L1.1335,4.79 L1.1335,5.343 L6.328125,5.34375 L6.328125,5.49375 L1.1335,5.493 L1.1335,6.046 L6.328125,6.046875 L6.328125,6.196875 L1.1335,6.196 L1.1335,6.75 L6.328125,6.75 L6.328125,6.9 L1.1335,6.9 L1.134375,7.734375 L0.984375,7.734375 L0.9835,6.9 L0.5625,6.9 L0.5625,6.75 L0.9835,6.75 L0.9835,6.196 L0.5625,6.196875 L0.5625,6.046875 L0.9835,6.046 L0.9835,5.493 L0.5625,5.49375 L0.5625,5.34375 L0.9835,5.343 L0.9835,4.79 L0.5625,4.790625 L0.5625,4.640625 L0.9835,4.64 L0.9835,4.087 L0.5625,4.0875 L0.5625,3.9375 L0.9835,3.937 L0.9835,3.384 L0.5625,3.384375 L0.5625,3.234375 L0.9835,3.234 L0.9835,2.681 L0.5625,2.68125 L0.5625,2.53125 L0.9835,2.531 L0.9835,1.978 L0.5625,1.978125 L0.5625,1.828125 L0.9835,1.828 L0.9835,1.275 L0.5625,1.275 L0.5625,1.125 L0.9835,1.125 L0.9835,0.571 L0.5625,0.571875 L0.5625,0.421875 L0.9835,0.421 L0.984375,0 L1.134375,0 Z"/>
+          </g>
+          <g transform="translate(1.969 1.969)">
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-aA)" xlink:href="#pad_桌面壁纸2备份-aB"/>
+            <use fill="url(#pad_桌面壁纸2备份-aC)" xlink:href="#pad_桌面壁纸2备份-aB"/>
+            <path fill="#FFF" fill-rule="nonzero" d="M1.8275,2.8125 L1.828125,2.953125 C1.828125,3.34145021 2.14292479,3.65625 2.53125,3.65625 C2.91957521,3.65625 3.234375,3.34145021 3.234375,2.953125 L3.2335,2.8125 L3.3745,2.8125 L3.375,2.953125 C3.375,3.37096996 3.07126675,3.71787422 2.67254108,3.78509695 L2.67295421,3.943214 C2.99335641,3.96943951 3.234375,4.08283617 3.234375,4.21875 L3.234375,4.21875 L1.828125,4.21875 C1.828125,4.08269235 2.06965395,3.96919954 2.3905632,3.94313104 L2.39096515,3.78526596 C1.99174437,3.71845769 1.6875,3.37132139 1.6875,2.953125 L1.6875,2.8125 L1.8275,2.8125 Z M3.0935,2.8125 L3.09375,3.140625 C3.09375,3.34773178 2.92585678,3.515625 2.71875,3.515625 L2.34375,3.515625 C2.13664322,3.515625 1.96875,3.34773178 1.96875,3.140625 L1.9685,2.8125 L3.0935,2.8125 Z M1.96875,2.109375 L1.96875,1.359375 C1.96875,1.15226822 2.13664322,0.984375 2.34375,0.984375 L2.71875,0.984375 C2.92585678,0.984375 3.09375,1.15226822 3.09375,1.359375 L3.09375,2.109375 L2.671875,2.109375 L2.6715,2.249375 L3.09375,2.25 L3.09375,2.4 L2.6715,2.399375 L2.671875,2.53125 L3.09375,2.53125 L3.09375,2.68125 L1.96875,2.68125 L1.96875,2.53125 L2.390625,2.53125 L2.3905,2.399375 L1.96875,2.4 L1.96875,2.25 L2.3905,2.249375 L2.390625,2.109375 L1.96875,2.109375 Z"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(45)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-aD)" xlink:href="#pad_桌面壁纸2备份-aE"/>
+            <use xlink:href="#pad_桌面壁纸2备份-aE"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-aF)" transform="translate(4.813 2.531)">
+            <path fill="url(#pad_桌面壁纸2备份-aG)" d="M0,2.7280002 L0,2.10643736 C0,1.79388958 0.234993925,1.44296625 0.515806642,1.32639216 L3.4929106,0.0905036485 C3.74287482,-0.0132642801 4.15677727,-0.0093239551 4.41170571,0.0969362722 L7.36128792,1.32639216 C7.64500327,1.44465145 7.875,1.79235365 7.875,2.10643736 L7.875,2.7280002 L7.875,7.80267451 C7.875,8.0756139 7.64780939,8.296875 7.38238348,8.296875 L0.492616519,8.296875 C0.220551928,8.296875 0,8.07167124 0,7.80267451 L0,2.7280002 Z"/>
+            <g transform="rotate(-8 3.926 4.588)">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-aH)" xlink:href="#pad_桌面壁纸2备份-aI"/>
+              <use fill="#FF517F" xlink:href="#pad_桌面壁纸2备份-aI"/>
+            </g>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-aJ)" xlink:href="#pad_桌面壁纸2备份-aK"/>
+            <use fill="#FFF" xlink:href="#pad_桌面壁纸2备份-aK"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-aL)" xlink:href="#pad_桌面壁纸2备份-aM"/>
+            <use fill="url(#pad_桌面壁纸2备份-aN)" xlink:href="#pad_桌面壁纸2备份-aM"/>
+            <path fill="url(#pad_桌面壁纸2备份-aO)" stroke="#FFF" stroke-opacity=".4" stroke-width=".5"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-aP)" xlink:href="#pad_桌面壁纸2备份-aQ"/>
+            <circle cx="4.008" cy="4.238" r="1" fill="url(#pad_桌面壁纸2备份-aR)" stroke="#FFF" stroke-linejoin="square" stroke-opacity=".4" stroke-width=".5"/>
+            <ellipse cx="4.031" cy="4.243" fill="#00BFFF" stroke="#FFF" stroke-opacity=".4" stroke-width=".5" rx="1" ry="1"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(0 55)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-aS)" xlink:href="#pad_桌面壁纸2备份-aT"/>
+            <use xlink:href="#pad_桌面壁纸2备份-aT"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-aU)" transform="translate(4.672 2.953)">
+            <circle cx="4.781" cy="3.797" r="3.125" fill="#151E25" stroke="url(#pad_桌面壁纸2备份-aV)" stroke-width=".5" transform="rotate(90 4.781 3.797)"/>
+            <g stroke="url(#pad_桌面壁纸2备份-aW)" stroke-width=".5" opacity=".8" transform="translate(1.713 .785)">
+              <path d="M3.06818182,0.308307927 C3.81462918,0.308307927 4.49041043,0.610865498 4.97957984,1.10003491 C5.46874925,1.58920432 5.77130682,2.26498557 5.77130682,3.01143293 C5.77130682,3.76605488 5.48937562,4.44956199 5.01588254,4.94092274 C4.55442576,5.41979298 3.91128871,5.71455793 3.17556818,5.71455793 C2.41884685,5.71455793 1.70961495,5.40449571 1.19231134,4.90534311 C0.687624384,4.41836446 0.365056818,3.75007681 0.365056818,3.01143293 C0.365056818,2.26498557 0.66761439,1.58920432 1.1567838,1.10003491 C1.64595321,0.610865498 2.32173446,0.308307927 3.06818182,0.308307927 Z" transform="rotate(90 3.068 3.011)"/>
+              <path d="M3.06818182,0.730182927 C3.69813161,0.730182927 4.26844411,0.98552053 4.68126916,1.39834558 C5.09409421,1.81117063 5.34943182,2.38148313 5.34943182,3.01143293 C5.34943182,3.64847891 5.11169229,4.225644 4.71192251,4.64049944 C4.32283665,5.04426778 3.78052864,5.29268293 3.16022727,5.29268293 C2.52104342,5.29268293 1.9220264,5.03068745 1.48509174,4.60908384 C1.0593516,4.19828195 0.786931818,3.63461916 0.786931818,3.01143293 C0.786931818,2.38148313 1.04226942,1.81117063 1.45509447,1.39834558 C1.86791953,0.98552053 2.43823203,0.730182927 3.06818182,0.730182927 Z" transform="rotate(90 3.068 3.011)"/>
+            </g>
+            <ellipse cx="4.912" cy="3.982" fill="url(#pad_桌面壁纸2备份-aX)" rx="1.574" ry="1.576" transform="rotate(90 4.912 3.982)"/>
+            <ellipse cx="4.912" cy="3.982" fill="#2A2A29" rx="1.019" ry="1.02" transform="rotate(90 4.912 3.982)"/>
+            <path fill="url(#pad_桌面壁纸2备份-aY)" d="M0.96145695,-3.88440115e-17 L5.92916805,3.88440115e-17 C6.26348758,-2.25694893e-17 6.38471992,0.0348096042 6.50694214,0.100174764 C6.62916436,0.165539924 6.72508508,0.261460639 6.79045024,0.383682861 C6.8558154,0.505905083 6.890625,0.627137423 6.890625,0.96145695 L6.890625,6.63229305 C6.890625,6.96661258 6.8558154,7.08784492 6.79045024,7.21006714 C6.72508508,7.33228936 6.62916436,7.42821008 6.50694214,7.49357524 C6.38471992,7.5589404 6.26348758,7.59375 5.92916805,7.59375 L0.96145695,7.59375 C0.627137423,7.59375 0.505905083,7.5589404 0.383682861,7.49357524 C0.261460639,7.42821008 0.165539924,7.33228936 0.100174764,7.21006714 C0.0348096042,7.08784492 1.50463262e-17,6.96661258 -2.58960077e-17,6.63229305 L2.58960077e-17,0.96145695 C-1.50463262e-17,0.627137423 0.0348096042,0.505905083 0.100174764,0.383682861 C0.165539924,0.261460639 0.261460639,0.165539924 0.383682861,0.100174764 C0.505905083,0.0348096042 0.627137423,2.25694893e-17 0.96145695,-3.88440115e-17 Z"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-aZ)" xlink:href="#pad_桌面壁纸2备份-ba"/>
+            <path fill="url(#pad_桌面壁纸2备份-bb)" stroke="#FFF" stroke-linejoin="square" stroke-opacity=".3" stroke-width=".5" d="M2.226,3.126 L2.140625,5.625 C2.140625,5.75012701 2.08990726,5.86340826 2.00790776,5.94540776 C1.92590826,6.02740726 1.81262701,6.078125 1.6875,6.078125 C1.56237299,6.078125 1.44909174,6.02740726 1.36709224,5.94540776 C1.28509274,5.86340826 1.234375,5.75012701 1.234375,5.625 C1.234375,5.49987299 1.28509274,5.38659174 1.36709224,5.30459224 C1.49254951,5.17913497 1.69123195,5.12690287 1.89353132,5.21750417 L1.89353132,5.21750417 L2.226,3.126 Z M4.75,3.638 L4.81246897,4.92723307 C4.81104377,5.05023392 4.76061022,5.1614553 4.67978276,5.24228276 C4.59778326,5.32428226 4.48450201,5.375 4.359375,5.375 C4.23424799,5.375 4.12096674,5.32428226 4.03896724,5.24228276 C3.95696774,5.16028326 3.90625,5.04700201 3.90625,4.921875 C3.90625,4.79674799 3.95696774,4.68346674 4.03896724,4.60146724 C4.16106029,4.47937419 4.352504,4.4266318 4.54914108,4.50739735 L4.54914108,4.50739735 L4.75,3.638 Z M4.659,1.74 L4.679,2.157 L2.566,2.394 L4.659,1.74 Z"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(0 82.5)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-bc)" xlink:href="#pad_桌面壁纸2备份-bd"/>
+            <use xlink:href="#pad_桌面壁纸2备份-bd"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-be)" transform="rotate(-5 45.906 -46.692)">
+            <use fill="url(#pad_桌面壁纸2备份-bf)" xlink:href="#pad_桌面壁纸2备份-bg"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-bh)" xlink:href="#pad_桌面壁纸2备份-bg"/>
+            <g transform="translate(.387 .246)">
+              <mask id="pad_桌面壁纸2备份-bl" fill="#fff">
+                <use xlink:href="#pad_桌面壁纸2备份-bi"/>
+              </mask>
+              <use fill="url(#pad_桌面壁纸2备份-bj)" xlink:href="#pad_桌面壁纸2备份-bi"/>
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-bk)" xlink:href="#pad_桌面壁纸2备份-bi"/>
+              <g mask="url(#pad_桌面壁纸2备份-bl)">
+                <g transform="translate(.16 .39)">
+                  <mask id="pad_桌面壁纸2备份-bn" fill="#fff">
+                    <use xlink:href="#pad_桌面壁纸2备份-bm"/>
+                  </mask>
+                  <g mask="url(#pad_桌面壁纸2备份-bn)" opacity=".797">
+                    <g transform="translate(.14 4.078)">
+                      <rect width="7.566" height="1.168" x="-.25" y="-.25" fill="url(#pad_桌面壁纸2备份-bo)" stroke="#000" stroke-opacity=".08" stroke-width=".5" rx=".117"/>
+                      <rect width="1" height="1" x=".809" y=".141" fill="#00C98F" rx=".059"/>
+                      <rect width="1" height="1" x="2.514" y=".141" fill="#75FFAC" rx=".059"/>
+                      <rect width="1" height="1" x="1.354" y=".141" fill="#FF7D52" rx=".059"/>
+                      <rect width="1" height="1" x="3.059" y=".141" fill="#FFB656" rx=".059"/>
+                      <rect width="1" height="1" x="4.184" y=".141" fill="#FF796E" rx=".059"/>
+                      <rect width="1" height="1" x="5.871" y=".141" fill="#000" fill-opacity=".3" rx=".059"/>
+                      <rect width="1" height="1" x="5.326" y=".141" fill="#000" fill-opacity=".3" rx=".059"/>
+                      <rect width="1" height="1" x="6.434" y=".141" fill="#000" fill-opacity=".3" rx=".059"/>
+                      <circle cx=".439" cy=".334" r="1" fill="#326CFF"/>
+                      <circle cx="3.814" cy=".334" r="1" fill="#482AC5"/>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+            <g opacity=".3" transform="translate(3.781 4.574)">
+              <mask id="pad_桌面壁纸2备份-bq" fill="#fff">
+                <use xlink:href="#pad_桌面壁纸2备份-bp"/>
+              </mask>
+              <g stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-bq)" opacity=".797">
+                <g transform="translate(-.422 .14)">
+                  <rect width="3.877" height="1" x=".25" y=".25" rx=".117"/>
+                  <rect width="1" height="1" x=".619" y=".391" rx=".059"/>
+                  <circle cx="1.125" cy=".334" r="1"/>
+                </g>
+              </g>
+            </g>
+            <g transform="translate(3.814 .246)">
+              <mask id="pad_桌面壁纸2备份-bt" fill="#fff">
+                <use xlink:href="#pad_桌面壁纸2备份-br"/>
+              </mask>
+              <g fill="url(#pad_桌面壁纸2备份-bs)" mask="url(#pad_桌面壁纸2备份-bt)" opacity=".56">
+                <path d="M0.52734375,2.79492187 C0.682673836,2.79492187 0.80859375,2.92084179 0.80859375,3.07617187 L0.80859375,3.5859375 C0.80859375,3.74126759 0.682673836,3.8671875 0.52734375,3.8671875 L0.28125,3.8671875 C0.125919914,3.8671875 8.62278403e-14,3.74126759 8.62088179e-14,3.5859375 L8.62088179e-14,3.07617187 C8.61897954e-14,2.92084179 0.125919914,2.79492187 0.28125,2.79492187 L0.52734375,2.79492187 Z M3.5859375,2.79492187 C3.74126759,2.79492187 3.8671875,2.92084179 3.8671875,3.07617187 L3.8671875,3.5859375 C3.8671875,3.74126759 3.74126759,3.8671875 3.5859375,3.8671875 L3.33984375,3.8671875 C3.18451366,3.8671875 3.05859375,3.74126759 3.05859375,3.5859375 L3.05859375,3.07617187 C3.05859375,2.92084179 3.18451366,2.79492187 3.33984375,2.79492187 L3.5859375,2.79492187 Z M1.44726563,2.7421875 C1.51198649,2.7421875 1.56445313,2.79465413 1.56445313,2.859375 L1.56445313,3.69726562 C1.56445313,3.76198649 1.51198649,3.81445312 1.44726563,3.81445312 L1.27734375,3.81445312 C1.21262288,3.81445312 1.16015625,3.76198649 1.16015625,3.69726562 L1.16015625,2.859375 C1.16015625,2.79465413 1.21262288,2.7421875 1.27734375,2.7421875 L1.44726563,2.7421875 Z M4.48828125,2.7421875 C4.55300212,2.7421875 4.60546875,2.79465413 4.60546875,2.859375 L4.60546875,3.69726562 C4.60546875,3.76198649 4.55300212,3.81445312 4.48828125,3.81445312 L4.31835938,3.81445312 C4.25363851,3.81445312 4.20117188,3.76198649 4.20117188,3.69726562 L4.20117188,2.859375 C4.20117188,2.79465413 4.25363851,2.7421875 4.31835938,2.7421875 L4.48828125,2.7421875 Z M5.24414063,2.7421875 C5.30886149,2.7421875 5.36132813,2.79465413 5.36132813,2.859375 L5.36132813,3.69726562 C5.36132813,3.76198649 5.30886149,3.81445312 5.24414063,3.81445312 L5.07421875,3.81445312 C5.00949788,3.81445312 4.95703125,3.76198649 4.95703125,3.69726562 L4.95703125,2.859375 C4.95703125,2.79465413 5.00949788,2.7421875 5.07421875,2.7421875 L5.24414063,2.7421875 Z M2.42578125,2.7421875 C2.58111134,2.7421875 2.70703125,2.86810741 2.70703125,3.0234375 L2.70703125,3.53320312 C2.70703125,3.68853321 2.58111134,3.81445312 2.42578125,3.81445312 L2.1796875,3.81445312 C2.02435741,3.81445312 1.8984375,3.68853321 1.8984375,3.53320312 L1.8984375,3.0234375 C1.8984375,2.86810741 2.02435741,2.7421875 2.1796875,2.7421875 L2.42578125,2.7421875 Z M2.02148438,1.40625 C2.17681446,1.40625 2.30273438,1.53216991 2.30273438,1.6875 L2.30273438,2.19726562 C2.30273438,2.35259571 2.17681446,2.47851562 2.02148438,2.47851562 L1.77539063,2.47851562 C1.62006054,2.47851562 1.49414063,2.35259571 1.49414063,2.19726562 L1.49414063,1.6875 C1.49414063,1.53216991 1.62006054,1.40625 1.77539063,1.40625 L2.02148438,1.40625 Z M0.287109375,1.38867187 C0.351830244,1.38867187 0.404296875,1.44113851 0.404296875,1.50585937 L0.404296875,2.34375 C0.404296875,2.40847087 0.351830244,2.4609375 0.287109375,2.4609375 L0.1171875,2.4609375 C0.0524666309,2.4609375 8.52869321e-14,2.40847087 8.52651283e-14,2.34375 L8.52651283e-14,1.50585937 C8.52710801e-14,1.44113851 0.0524666309,1.38867187 0.1171875,1.38867187 L0.287109375,1.38867187 Z M1.04296875,1.38867187 C1.10768962,1.38867187 1.16015625,1.44113851 1.16015625,1.50585937 L1.16015625,2.34375 C1.16015625,2.40847087 1.10768962,2.4609375 1.04296875,2.4609375 L0.873046875,2.4609375 C0.808326006,2.4609375 0.755859375,2.40847087 0.755859375,2.34375 L0.755859375,1.50585937 C0.755859375,1.44113851 0.808326006,1.38867187 0.873046875,1.38867187 L1.04296875,1.38867187 Z M2.94140625,1.38867187 C3.00612712,1.38867187 3.05859375,1.44113851 3.05859375,1.50585937 L3.05859375,2.34375 C3.05859375,2.40847087 3.00612712,2.4609375 2.94140625,2.4609375 L2.77148438,2.4609375 C2.70676351,2.4609375 2.65429688,2.40847087 2.65429688,2.34375 L2.65429688,1.50585937 C2.65429688,1.44113851 2.70676351,1.38867187 2.77148438,1.38867187 L2.94140625,1.38867187 Z M5.08007813,1.38867187 C5.23540821,1.38867187 5.36132813,1.51459179 5.36132813,1.66992187 L5.36132813,2.1796875 C5.36132813,2.33501759 5.23540821,2.4609375 5.08007813,2.4609375 L4.83398438,2.4609375 C4.67865429,2.4609375 4.55273438,2.33501759 4.55273438,2.1796875 L4.55273438,1.66992187 C4.55273438,1.51459179 4.67865429,1.38867187 4.83398438,1.38867187 L5.08007813,1.38867187 Z M3.91992188,1.38867187 C4.07525196,1.38867187 4.20117188,1.51459179 4.20117188,1.66992187 L4.20117188,2.1796875 C4.20117188,2.33501759 4.07525196,2.4609375 3.91992188,2.4609375 L3.67382813,2.4609375 C3.51849804,2.4609375 3.39257813,2.33501759 3.39257813,2.1796875 L3.39257813,1.66992187 C3.39257813,1.51459179 3.51849804,1.38867187 3.67382813,1.38867187 L3.91992188,1.38867187 Z M0.287109375,-4.26325641e-14 C0.351830244,-4.2658331e-14 0.404296875,0.0524666309 0.404296875,0.1171875 L0.404296875,0.955078125 C0.404296875,1.01979899 0.351830244,1.07226562 0.287109375,1.07226562 L0.1171875,1.07226562 C0.0524666309,1.07226562 8.52869321e-14,1.01979899 8.52651283e-14,0.955078125 L8.52651283e-14,0.1171875 C8.52710801e-14,0.0524666309 0.0524666309,-4.26345529e-14 0.1171875,-4.26325641e-14 L0.287109375,-4.26325641e-14 Z M2.203125,-4.26325641e-14 C2.26784587,-4.2658331e-14 2.3203125,0.0524666309 2.3203125,0.1171875 L2.3203125,0.955078125 C2.3203125,1.01979899 2.26784587,1.07226562 2.203125,1.07226562 L2.03320313,1.07226562 C1.96848226,1.07226562 1.91601563,1.01979899 1.91601563,0.955078125 L1.91601563,0.1171875 C1.91601563,0.0524666309 1.96848226,-4.26345529e-14 2.03320313,-4.26325641e-14 L2.203125,-4.26325641e-14 Z M4.08398438,-4.26325641e-14 C4.14870524,-4.2658331e-14 4.20117188,0.0524666309 4.20117188,0.1171875 L4.20117188,0.955078125 C4.20117188,1.01979899 4.14870524,1.07226562 4.08398438,1.07226562 L3.9140625,1.07226562 C3.84934163,1.07226562 3.796875,1.01979899 3.796875,0.955078125 L3.796875,0.1171875 C3.796875,0.0524666309 3.84934163,-4.26345529e-14 3.9140625,-4.26325641e-14 L4.08398438,-4.26325641e-14 Z M1.265625,-6.39488462e-14 C1.42095509,-6.39218687e-14 1.546875,0.125919914 1.546875,0.28125 L1.546875,0.791015625 C1.546875,0.946345711 1.42095509,1.07226562 1.265625,1.07226562 L1.01953125,1.07226562 C0.864201164,1.07226562 0.73828125,0.946345711 0.73828125,0.791015625 L0.73828125,0.28125 C0.73828125,0.125919914 0.864201164,-6.38648014e-14 1.01953125,-6.39488462e-14 L1.265625,-6.39488462e-14 Z M3.18164063,-4.26325641e-14 C3.33697071,-4.26055867e-14 3.46289063,0.125919914 3.46289063,0.28125 L3.46289063,0.791015625 C3.46289063,0.946345711 3.33697071,1.07226562 3.18164063,1.07226562 L2.93554688,1.07226562 C2.78021679,1.07226562 2.65429688,0.946345711 2.65429688,0.791015625 L2.65429688,0.28125 C2.65429688,0.125919914 2.78021679,-4.25485193e-14 2.93554688,-4.26325641e-14 L3.18164063,-4.26325641e-14 Z M5.08007813,-6.39488462e-14 C5.23540821,-6.39773799e-14 5.36132813,0.125919914 5.36132813,0.28125 L5.36132813,0.791015625 C5.36132813,0.946345711 5.23540821,1.07226562 5.08007813,1.07226562 L4.83398438,1.07226562 C4.67865429,1.07226562 4.55273438,0.946345711 4.55273438,0.791015625 L4.55273438,0.28125 C4.55273438,0.125919914 4.67865429,-6.39203125e-14 4.83398438,-6.39488462e-14 L5.08007813,-6.39488462e-14 Z" transform="translate(-1.898 .65)"/>
+              </g>
+            </g>
+            <path fill="url(#pad_桌面壁纸2备份-bu)" d="M2.21106351,0.917710423 C2.22400768,0.917710423 2.23450101,0.928203749 2.23450101,0.941147923 L2.23450101,4.83177292 C2.23450101,4.8447171 2.22400768,4.85521042 2.21106351,4.85521042 L1.03918851,4.85521042 C0.922690946,4.85521042 0.828251011,4.76077049 0.828251011,4.64427292 L0.828251011,1.09349167 C0.828251011,0.99641037 0.906950957,0.917710423 1.00403226,0.917710423 L2.21106351,0.917710423 Z M3.61731351,1.62083542 C3.63025768,1.62083542 3.64075101,1.63132875 3.64075101,1.64427292 L3.64075101,4.69114792 C3.64075101,4.7040921 3.63025768,4.71458542 3.61731351,4.71458542 L2.53918851,4.71458542 C2.52624434,4.71458542 2.51575101,4.7040921 2.51575101,4.69114792 L2.51575101,1.64427292 C2.51575101,1.63132875 2.52624434,1.62083542 2.53918851,1.62083542 L3.61731351,1.62083542 Z M3.61731351,0.917710423 C3.63025768,0.917710423 3.64075101,0.928203749 3.64075101,0.941147923 L3.64075101,1.31614792 C3.64075101,1.3290921 3.63025768,1.33958542 3.61731351,1.33958542 L2.53918851,1.33958542 C2.52624434,1.33958542 2.51575101,1.3290921 2.51575101,1.31614792 L2.51575101,0.941147923 C2.51575101,0.928203749 2.52624434,0.917710423 2.53918851,0.917710423 L3.61731351,0.917710423 Z" opacity=".423"/>
+            <g filter="url(#pad_桌面壁纸2备份-bv)" transform="translate(4.482 3.27)">
+              <use fill="url(#pad_桌面壁纸2备份-bw)" xlink:href="#pad_桌面壁纸2备份-bx"/>
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-by)" xlink:href="#pad_桌面壁纸2备份-bx"/>
+              <use fill="#FFF" xlink:href="#pad_桌面壁纸2备份-bz"/>
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-bA)" xlink:href="#pad_桌面壁纸2备份-bz"/>
+              <path fill="#2F2F2F"/>
+              <g transform="rotate(-113 1.743 1.62)">
+                <use fill="#000" filter="url(#pad_桌面壁纸2备份-bB)" xlink:href="#pad_桌面壁纸2备份-bC"/>
+                <use fill="#7F7F7F" xlink:href="#pad_桌面壁纸2备份-bC"/>
+              </g>
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-bD)" xlink:href="#pad_桌面壁纸2备份-bE"/>
+              <use fill="#FD6C6C" xlink:href="#pad_桌面壁纸2备份-bE"/>
+              <circle cx="1.881" cy="1.916" r="1" fill="#4D4D4D"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(45 82.5)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-bF)" xlink:href="#pad_桌面壁纸2备份-bG"/>
+            <use xlink:href="#pad_桌面壁纸2备份-bG"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-bH)" transform="translate(4.531 2.531)">
+            <circle cx="4.219" cy="4.219" r="4.219" fill="url(#pad_桌面壁纸2备份-bI)"/>
+            <use fill="#000" fill-opacity=".5" xlink:href="#pad_桌面壁纸2备份-bJ"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-bK)" xlink:href="#pad_桌面壁纸2备份-bJ"/>
+            <g transform="translate(.384 .384)">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-bL)" xlink:href="#pad_桌面壁纸2备份-bM"/>
+              <path fill="#585F6C" stroke="#FFF" stroke-linejoin="square" stroke-opacity=".05" stroke-width=".5"/>
+              <path fill="url(#pad_桌面壁纸2备份-bN)" stroke="#FFF" stroke-opacity=".3" stroke-width=".5" d="M4.42117266,0.324637465 L4.64342695,1.08814273 L5.67074079,0.939022206 L5.82858364,1.7334338 L6.71392728,2.02220359 L6.5201852,2.80038976 L7.20567377,3.47301909 L6.69858906,4.08066554 L7.02476266,5.01227696 L6.31220937,5.32828319 L6.19487876,6.32376476 L5.42070442,6.2859229 L4.87788681,7.13145846 L4.20041591,6.75218152 L3.3479071,7.26058636 L2.89790871,6.60662713 L1.92110687,6.68754625 L1.79301411,5.89139512 L0.890276424,5.54011967 L1.11396762,4.75628265 L0.450575787,4.05877606 L0.994815761,3.4456125 L0.695001666,2.54701917 L1.44275103,2.22445835 L1.54072654,1.29874414 L2.35157648,1.33270346 L2.81933929,0.543064842 L3.53205095,0.920715871 L4.42117266,0.324637465 Z M3.83522727,1.09232955 C3.073522,1.09232955 2.38433492,1.40278899 1.83445722,2.17757446 C2.0003954,2.574658 2.28107013,2.91187759 2.6351287,3.14765579 C2.85507211,3.29412268 3.10328958,3.40151578 3.36986192,3.45984971 C3.33723115,3.52745752 3.28528983,3.64275269 3.20170922,3.83495329 L3.21900372,3.79602508 C2.82156837,3.36519412 2.19767653,3.13503552 1.15122757,3.26740549 C1.11264504,3.45060718 1.09232955,3.64054589 1.09232955,3.83522727 C1.09232955,4.46772318 1.30645449,5.05019118 1.66616471,5.51423879 C2.03374465,5.9884388 2.5535181,6.33880446 3.42590487,6.3838222 C3.63726124,6.04887142 3.75292386,5.66153452 3.76078375,5.26683918 C3.76641993,4.98381078 3.71671846,4.69698562 3.60714939,4.42297427 C3.6755591,4.45303351 3.75359213,4.46847601 3.83523195,4.46847601 C3.9167436,4.46847601 3.99465979,4.45308196 4.06623182,4.42504253 C3.95374578,4.69695035 3.90403752,4.98375385 3.90964903,5.2667517 C3.91747543,5.66145069 4.03309516,6.04877073 4.51785216,6.49244541 C5.14311438,6.33225004 5.68286033,5.95877469 6.0467178,5.37191409 C6.36685892,4.85556299 6.5516247,4.16938056 6.29963888,3.06885149 L6.29963888,3.06885149 L6.12037593,3.05796242 L5.94167817,3.06192478 C5.64483635,3.08076766 5.35422535,3.16046224 5.08922429,3.29586234 C4.85627028,3.41488826 4.6430637,3.57688994 4.46279005,3.77838561 C4.45295183,3.62635893 4.38548155,3.48926645 4.28320016,3.38698507 L4.33824051,3.45124874 C4.59067665,3.39123238 4.826011,3.2870435 5.03565584,3.14729495 C5.38958607,2.91136625 5.67019112,2.57389586 5.78292385,1.90391509 C5.28592562,1.40272458 4.59682433,1.09232955 3.83522727,1.09232955 Z"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(45 55)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-bO)" xlink:href="#pad_桌面壁纸2备份-bP"/>
+            <use xlink:href="#pad_桌面壁纸2备份-bP"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-bQ)" transform="translate(4.672 2.39)">
+            <path fill="url(#pad_桌面壁纸2备份-bR)" d="M4.078125,0.28125 C4.61301549,0.28125 4.39338588,1.3679784 5.04253853,1.36025814 C5.75584574,1.35177489 6.44448457,1.44144249 7.2469421,2.11835902 C7.85556177,2.63176277 8.15625,3.61863535 8.15625,4.359375 C8.15625,6.61166125 6.33041125,8.4375 4.078125,8.4375 C1.82583875,8.4375 0,6.61166125 0,4.359375 C0,2.10708875 1.82583875,0.28125 4.078125,0.28125 Z M2.8674615,1.62517756 C2.66270821,1.97982067 2.74828103,2.41255288 3.05859375,2.59171202 C3.36890647,2.77087115 3.78644998,2.62861328 3.99120327,2.27397017 C4.19595657,1.91932706 4.11038374,1.48659484 3.80007102,1.30743571 C3.4897583,1.12827658 3.0722148,1.27053445 2.8674615,1.62517756 Z"/>
+            <image width="4.922" height="7.172" x="1.792" y=".282" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAzCAYAAAAdD7HCAAAABGdBTUEAALGOfPtRkwAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAI6ADAAQAAAABAAAAMwAAAADYXNQlAAADs0lEQVRYCb3Y63LURhAFYBMnAUIICZcK5g+popz3fzUghDukv/UeR9aOrrtyVx2PNCN1nzndM6P1+dnt2p0Kd164LFwU3P9b2JmB2zKB4UXhceHHwm+F74V3hbMf/LlF+6liPevF+7nuiXLntshElecVtBuTKh/2ZG4MVN+mtpt9RUAg9qkuru+7LPPAFi1l1Idi/afwuRBVXH8r7IpIu6UholZeFhB4X6CI9CDnekdma2W6teJavAeFe4W3BasoZL5bXlubwE96QaQKEep8zdiWykQJK8h1TKqkBwlwD5uvprsV43eBOvaxrtUIXBMxvpUyUSVbvlhMcAWM0Jf9fTVXthUZ3tXKo6sw13+zipC5rpWMbkEmqrRqhSqQfWZXK1uS4ft+oVUrSdGBKl46tTJdVfiPpVYGVfHgqcnw+UuhXytqZFQVL56SzJQqNrhmrSDCTkmGP2cQZboWVW7stt0Hcn3slx41EPir4FRWmGavL76dQYBUNrq6PLRjziZEBLwsWD3sacFWb0Mzjli3Vm4s5Rq7YWvJCASvCiESx0kTEoh1V1CeabbH1MxFefy16fWqE0mfC2plND1Xj68r4KRHXUyZyUrNaHriZK0yasU3iRSMBVIznjWBSVtTMyZg5UiBFSKYvpYv6Zk94ZaDer9pnP5ZUCuZqWBqwj2FksLcIzumXA3/b3PIcOy5vws+C7qGoNUjIFIx91LkkyFfcxkbbKfIhIi9pE+k69RzVg+lLGctVaB5Qlf/gY3lUwB4WejvJQeO9h38efZ14U0BGcRm2ZQy9pH+CTzlWEFDd7ObVTdDylDE2EVhjVlpFEFiFhFBhsgYM7ts7e6XmF8FY76bvoZeoMzDNQ47UUyGn9nWIpMUja2eqQBW0CIiHLbIpH/O2ePZlnX3nNZ4s2+IjFmReY1RJT/mF73fIoNIsMjZ/mFEFu28CdIiY2xxvvcOqWIHPpkye7+rCCGhXpxL2Wfib7IdUsaLS9VBYNFnZp/dqcj4ALf9+wdQzqPZO29IDZGhytyljYjUINI9j+p2mQ2RQcQ/i6csyxgRn6GrVRGof2pTxP7yvDBWM4ozRJDwI40qB/8Aqr7ZFjICO2n/2GMsRQIiQoUoIk1HEan3dypEgSzFHHD6QSEaixpZNRSBEKnL46yrTLZ/M851agoRM88+IiVIrNpP6r2mhYzBzFxAiqSlDCIC69OCVBlbvITrnaYlRUkJRYL0JU2CA9IhkLa6jreQ4SnXadOXgP32+Og9D/8BPA71IhAsdSAAAAAASUVORK5CYII="/>
+            <path fill="url(#pad_桌面壁纸2备份-bS)" d="M3.19900075,3.7556845 C4.76697376,4.16079165 4.69714819,6.453248 3.96742786,7.04158716 C3.80942574,7.16897683 3.64938721,7.23952626 3.49537947,7.26999829 L2.59540364,7.01289191 C2.35822201,6.75919858 2.2228986,6.20303335 2.42583303,5.72029142 C2.78457751,4.86690735 3.96742786,4.38961356 3.19900075,3.7556845 Z" transform="scale(1 -1) rotate(-42 -10.966 0)"/>
+            <path fill="url(#pad_桌面壁纸2备份-bT)" d="M3.3502602,3.85669016 L3.38516792,3.8615925 C4.74394352,4.40359602 4.64892952,6.51986305 3.95200756,7.08175843 C3.79305178,7.20991699 3.63203493,7.2805471 3.47717117,7.31071695 L2.60744549,7.05990281 C2.57531903,6.83679124 2.58536095,6.597206 2.65570681,6.36422173 C2.98546962,5.27205299 4.3737507,4.53467869 3.3502602,3.85669016 Z" transform="scale(1 -1) rotate(-42 -11.026 0)"/>
+            <path fill="url(#pad_桌面壁纸2备份-bU)" d="M3.958805,3.90485101 L3.97466488,3.90959038 C4.80687318,4.70225759 4.65262659,6.33448077 4.05340729,6.81760309 C3.89513815,6.94520805 3.73482571,7.01578049 3.58057813,7.04616837 L2.71548654,6.79732703 C2.72600803,6.58939249 2.7759598,6.37476665 2.8768766,6.17499269 C3.37404983,5.19079317 4.81919244,4.7219448 3.958805,3.90485101 Z" transform="scale(1 -1) rotate(-42 -10.632 0)"/>
+            <path fill="url(#pad_桌面壁纸2备份-bV)" d="M4.49715648,5.66159692 C4.33915436,5.7889866 4.17911583,5.85953603 4.02510809,5.89000806 L3.16551561,5.64294686 C3.22404963,5.49609535 3.30776677,5.35413608 3.41949868,5.22917445 C3.90747434,4.68341962 4.77493818,4.49816516 4.98725963,4.07929893 C5.03669722,4.73418802 4.83958131,5.3855159 4.49715648,5.66159692 Z" transform="scale(1 -1) rotate(-42 -8.904 0)"/>
+            <path fill="url(#pad_桌面壁纸2备份-bW)" d="M5.23663457,3.73519064 C5.07793946,3.86313904 4.91719004,3.93374751 4.7625601,3.96400041 L3.94980199,3.72838612 C3.98189054,3.70960465 4.01523017,3.69233811 4.04977766,3.67681247 C4.55554295,3.44952153 5.20665891,3.57366082 5.51276692,3.37762875 C5.43655119,3.52587371 5.34369504,3.64887283 5.23663457,3.73519064 Z" transform="scale(1 -1) rotate(-42 -6.025 0)"/>
+            <g transform="rotate(27 5.32 2.158)">
+              <use fill="url(#pad_桌面壁纸2备份-bX)" xlink:href="#pad_桌面壁纸2备份-bY"/>
+              <use fill="url(#pad_桌面壁纸2备份-bZ)" xlink:href="#pad_桌面壁纸2备份-bY"/>
+            </g>
+            <path fill="url(#pad_桌面壁纸2备份-ca)" fill-rule="nonzero" d="M4.76672361,2.82932996 L5.0289748,2.96295361 L5.83764538,1.37584824 L5.57539418,1.24222459 L4.76672361,2.82932996 Z M5.51393881,1.05308438 L6.02678559,1.31439286 L5.09043018,3.15209382 L4.5775834,2.89078534 L5.51393881,1.05308438 Z M4.32922028,3.12844422 C4.3102359,3.11884257 4.28716599,3.12322976 4.27303124,3.13912967 L3.95677346,3.49488192 C3.95411788,3.49786912 3.95185527,3.50118372 3.9500407,3.50474501 C3.93828763,3.5278117 3.94745913,3.55603868 3.97052582,3.56779175 L4.8416584,4.01165597 C4.84552108,4.0136241 4.84963811,4.01504688 4.85389178,4.01588362 C4.87929333,4.02088037 4.90393603,4.00433901 4.90893279,3.97893746 L5.00178384,3.50691876 C5.00583769,3.48631052 4.9956885,3.46552124 4.97694612,3.45604198 L4.32922028,3.12844422 Z M4.39268788,3.00295616 L5.04041373,3.33055392 C5.11538326,3.36847097 5.15598002,3.45162806 5.13976459,3.53406102 L5.04691354,4.00607972 C5.02692652,4.10768594 4.92835573,4.17385138 4.82674951,4.15386437 C4.80973483,4.1505174 4.7932667,4.14482629 4.77781598,4.13695376 L3.90668341,3.69308954 C3.81441666,3.64607729 3.77773065,3.53316935 3.8247429,3.4409026 C3.83200119,3.42665741 3.84105163,3.41339905 3.85167394,3.40145021 L4.16793173,3.04569797 C4.22447073,2.98209834 4.31675038,2.96454954 4.39268788,3.00295616 Z M6.05045343,0.958188935 L6.24198067,0.582295557 C6.25373373,0.559228871 6.24456223,0.531001886 6.22149554,0.519248822 L6.04277621,0.428186774 C6.01970952,0.41643371 5.99148254,0.425605214 5.97972947,0.4486719 L5.78820223,0.824565278 L6.05045343,0.958188935 Z M5.59906203,0.886020656 L5.85443168,0.384829486 C5.90144394,0.29256274 6.01435188,0.255876726 6.10661862,0.302888982 L6.28533796,0.39395103 C6.3776047,0.440963285 6.41429072,0.553871225 6.36727846,0.646137972 L6.1119088,1.14732914 L5.59906203,0.886020656 Z"/>
+            <path fill="url(#pad_桌面壁纸2备份-cb)" fill-rule="nonzero" d="M3.9607908,6.24491268 C4.45945444,5.81353875 4.76985769,5.18924066 4.70447947,4.7820902 C4.67952273,4.6266692 4.6275934,4.49509448 4.55210746,4.38538463 L3.77792971,4.00779291 C3.45688535,4.05666891 3.08179367,4.36755719 2.9463818,4.75642565 C2.898724,4.89328672 2.87106909,5.04658618 2.85806396,5.22723015 C2.84893525,5.35402998 2.84739909,5.45827896 2.84848179,5.68386248 C2.85057168,6.11929571 2.83789584,6.28559493 2.76079366,6.46464811 C2.71640856,6.56772293 2.65284043,6.64926 2.56947824,6.70885782 C3.04294026,6.78835017 3.53057635,6.61707397 3.9607908,6.24491268 Z M3.80235427,3.86324592 L4.64561922,4.27453371 C4.73955324,4.40017724 4.811177,4.55958433 4.84332583,4.75979494 C4.99193798,5.68529434 3.50987578,7.43564385 2.07357517,6.68751839 C3.06880913,6.73059539 2.5091519,5.58441561 2.81357819,4.71018074 C2.98542819,4.21667124 3.45653534,3.89422336 3.80235427,3.86324592 Z" opacity=".5"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(90 55)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-cc)" xlink:href="#pad_桌面壁纸2备份-cd"/>
+            <use xlink:href="#pad_桌面壁纸2备份-cd"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-ce)" transform="translate(4.672 2.672)">
+            <circle cx="4.078" cy="4.078" r="4.078" fill="url(#pad_桌面壁纸2备份-cf)"/>
+            <g transform="translate(.984 .984)">
+              <mask id="pad_桌面壁纸2备份-ci" fill="#fff">
+                <use xlink:href="#pad_桌面壁纸2备份-cg"/>
+              </mask>
+              <use fill="url(#pad_桌面壁纸2备份-ch)" xlink:href="#pad_桌面壁纸2备份-cg"/>
+              <line x1=".141" x2="6.117" y1="3.169" y2="3.169" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1=".141" x2="6.117" y1="1.762" y2="1.762" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1="1.219" x2="4.875" y1=".356" y2=".356" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1=".094" x2="6" y1="4.575" y2="4.575" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1="4.57" x2="4.57" y1="6.188" y2=".094" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1="5.841" x2="5.841" y1="4.781" y2="1.406" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1="1.688" x2="1.688" y1="6.141" y2="-.141" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1="3.094" x2="3.094" y1="6.141" y2="-.141" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1=".356" x2=".356" y1="4.781" y2="1.406" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+              <line x1="1.219" x2="4.969" y1="5.7" y2="5.7" stroke="#FFF" stroke-width=".5" mask="url(#pad_桌面壁纸2备份-ci)" opacity=".2"/>
+            </g>
+            <rect width="2.848" height="1.266" x="2.672" y="6.328" fill="#0A8BFF" rx=".633"/>
+            <path fill="#FFF" d="M3.45128906,7.419375 C3.55253906,7.419375 3.63585937,7.37929687 3.70019531,7.30441406 L3.61792969,7.20738281 C3.57574219,7.25273437 3.52300781,7.284375 3.4565625,7.284375 C3.33316406,7.284375 3.25300781,7.18207031 3.25300781,7.01226562 C3.25300781,6.84457031 3.34160156,6.74332031 3.45972656,6.74332031 C3.51878906,6.74332031 3.56414062,6.77074219 3.60316406,6.80871094 L3.68542969,6.70957031 C3.63480469,6.65683594 3.55570312,6.609375 3.4565625,6.609375 C3.25933594,6.609375 3.09375,6.76019531 3.09375,7.01753906 C3.09375,7.27804687 3.2540625,7.419375 3.45128906,7.419375 Z M3.82570313,7.40460937 L3.82570313,6.62414062 L4.08199219,6.62414062 C4.25496094,6.62414062 4.38785156,6.68425781 4.38785156,6.86882812 C4.38785156,7.04707031 4.25390625,7.12722656 4.08621094,7.12722656 L3.98179688,7.12722656 L3.98179688,7.40460937 L3.82570313,7.40460937 Z M3.98179687,7.00382812 L4.07566406,7.00382812 C4.18324219,7.00382812 4.23492187,6.95847656 4.23492187,6.86882812 C4.23492187,6.778125 4.17796875,6.74753906 4.07039062,6.74753906 L3.98179687,6.74753906 L3.98179687,7.00382812 Z M4.82871094,7.419375 C5.01960937,7.419375 5.13035156,7.31285156 5.13035156,7.05339844 L5.13035156,6.62414062 L4.98058594,6.62414062 L4.98058594,7.06710937 C4.98058594,7.22953125 4.92152344,7.284375 4.82871094,7.284375 C4.73695312,7.284375 4.68105469,7.22953125 4.68105469,7.06710937 L4.68105469,6.62414062 L4.52496094,6.62414062 L4.52496094,7.05339844 C4.52496094,7.31285156 4.63886719,7.419375 4.82871094,7.419375 Z"/>
+            <path stroke="#FFF" stroke-linecap="round" stroke-width=".5" d="M5.49791739,6.98503 C6.57248894,6.4592009 7.3125,5.35508237 7.3125,4.078125 C7.3125,2.29182901 5.86442099,0.84375 4.078125,0.84375 C2.29182901,0.84375 0.84375,2.29182901 0.84375,4.078125 C0.84375,5.35789382 1.58702318,6.46406189 2.66543506,6.98849471" opacity=".497"/>
+            <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" d="M4.078125,0.84375 C2.29182901,0.84375 0.84375,2.29182901 0.84375,4.078125 C0.84375,5.35789382 1.58702318,6.46406189 2.66543506,6.98849471"/>
+            <g fill-rule="nonzero">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-cj)" xlink:href="#pad_桌面壁纸2备份-ck"/>
+              <use fill="#FFF" xlink:href="#pad_桌面壁纸2备份-ck"/>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(135 55)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-cl)" xlink:href="#pad_桌面壁纸2备份-cm"/>
+            <use xlink:href="#pad_桌面壁纸2备份-cm"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-cn)" transform="rotate(-8 27.39 -30.143)">
+            <rect width="7.594" height="7.594" fill="#FFF" rx=".914"/>
+            <path fill="url(#pad_桌面壁纸2备份-co)" fill-opacity=".39" d="M7.59375,5.203125 L7.59375,6.6796875 C7.59375,7.18451028 7.18451028,7.59375 6.6796875,7.59375 L5.484375,7.59375 C6.20507812,7.50585938 6.71191406,7.22753906 7.00488281,6.75878906 C7.29785156,6.29003906 7.49414062,5.77148437 7.59375,5.203125 Z"/>
+            <text fill="#E06164" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size=".82" font-weight="400">
+              <tspan x="1.617" y="1.672">MARCH</tspan>
+            </text>
+            <g fill-rule="nonzero">
+              <use fill="#000" filter="url(#pad_桌面壁纸2备份-cp)" xlink:href="#pad_桌面壁纸2备份-cq"/>
+              <use fill="#2D394F" xlink:href="#pad_桌面壁纸2备份-cq"/>
+            </g>
+            <text fill="#2D394F" font-family="SourceHanSansSC-Medium, Source Han Sans SC" font-size=".469" font-weight="400">
+              <tspan x="2.268" y="6.945">MONDAY</tspan>
+            </text>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-cr)" xlink:href="#pad_桌面壁纸2备份-cs"/>
+            <use fill="url(#pad_桌面壁纸2备份-ct)" xlink:href="#pad_桌面壁纸2备份-cs"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(180 55)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-cu)" xlink:href="#pad_桌面壁纸2备份-cv"/>
+            <use xlink:href="#pad_桌面壁纸2备份-cv"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-cw)" transform="translate(5.234 2.813)">
+            <path fill="url(#pad_桌面壁纸2备份-cx)" d="M0.75,0 L6.28125,0 C6.69546356,1.80783448e-16 7.03125,0.335786438 7.03125,0.75 L7.03125,7.125 C7.03125,7.53921356 6.69546356,7.875 6.28125,7.875 L0.75,7.875 C0.335786438,7.875 4.9154755e-16,7.53921356 0,7.125 L0,0.75 C-1.61748834e-16,0.335786438 0.335786438,-3.49325055e-17 0.75,0 Z"/>
+            <path fill="#FFF" fill-opacity=".3" d="M1.134375,0 L1.1335,0.421 L6.328125,0.421875 L6.328125,0.571875 L1.1335,0.571 L1.1335,1.125 L6.328125,1.125 L6.328125,1.275 L1.1335,1.275 L1.1335,1.828 L1.546875,1.828125 L1.5465,1.978 L1.1335,1.978 L1.1335,2.531 L1.5465,2.531 L1.546875,2.547709 C1.546875,2.59352255 1.54790344,2.6384552 1.54996544,2.68250264 L1.1335,2.681 L1.1335,3.234 L1.64507226,3.23540979 C1.66204287,3.28726302 1.68123321,3.33721592 1.70265881,3.38525541 L1.1335,3.384 L1.1335,3.937 L2.16931826,3.93869918 C2.26188927,3.99873413 2.36451978,4.04855719 2.47689035,4.08816828 L1.1335,4.087 L1.1335,4.64 L6.328125,4.640625 L6.328125,4.790625 L1.1335,4.79 L1.1335,5.343 L4.2185,5.343 L4.2185,5.493 L1.1335,5.493 L1.1335,6.046 L4.2185,6.046 L4.2185,6.196 L1.1335,6.196 L1.1335,6.75 L6.328125,6.75 L6.328125,6.9 L1.1335,6.9 L1.134375,7.734375 L0.984375,7.734375 L0.9835,6.9 L0.5625,6.9 L0.5625,6.75 L0.9835,6.75 L0.9835,6.196 L0.5625,6.196875 L0.5625,6.046875 L0.9835,6.046 L0.9835,5.493 L0.5625,5.49375 L0.5625,5.34375 L0.9835,5.343 L0.9835,4.79 L0.5625,4.790625 L0.5625,4.640625 L0.9835,4.64 L0.9835,4.087 L0.5625,4.0875 L0.5625,3.9375 L0.9835,3.937 L0.9835,3.384 L0.5625,3.384375 L0.5625,3.234375 L0.9835,3.234 L0.9835,2.681 L0.5625,2.68125 L0.5625,2.53125 L0.9835,2.531 L0.9835,1.978 L0.5625,1.978125 L0.5625,1.828125 L0.9835,1.828 L0.9835,1.275 L0.5625,1.275 L0.5625,1.125 L0.9835,1.125 L0.9835,0.571 L0.5625,0.571875 L0.5625,0.421875 L0.9835,0.421 L0.984375,0 L1.134375,0 Z M5.5535,6.046 L6.328125,6.046875 L6.328125,6.196875 L5.36240339,6.19750246 C5.46187306,6.14422133 5.54440471,6.07208505 5.60814346,5.98111832 L5.5535,6.046 Z M4.3165,3.937 L6.328125,3.9375 L6.328125,4.0875 L4.3165,4.087 L4.3165,3.937 Z M2.9335,3.937 L3.55290896,3.93869918 C3.64575387,3.99891176 3.74871791,4.04885193 3.86147877,4.08851962 L2.9335,4.086 L2.9335,3.937 Z M4.3165,3.234 L6.328125,3.234375 L6.328125,3.384375 L4.21236404,3.3850008 C4.20581322,3.38139399 4.1995156,3.37782669 4.19347136,3.37430454 L4.19347136,3.37430454 L4.31748962,3.37430454 L4.3165,3.234 Z M4.3165,2.531 L6.328125,2.53125 L6.328125,2.68125 L4.3165,2.681 L4.3165,2.531 Z M4.31748962,1.828125 L6.328125,1.828125 L6.328125,1.978125 L4.3165,1.978 L4.31748962,1.828125 Z"/>
+            <path fill="#FFF" d="M5.625,5.45530146 C5.625,5.66147019 5.58233647,5.82594793 5.49700813,5.9487396 C5.4116798,6.07153128 5.28069528,6.15111728 5.10405065,6.1875 L5.10405065,5.96465696 C5.1759061,5.92524235 5.21931811,5.86612132 5.23428799,5.7872921 L5.10405065,5.7872921 L5.10405065,5.17788462 L5.625,5.17788462 L5.625,5.45530146 Z M4.92890389,5.17788462 L4.92890389,5.45530146 C4.92890389,5.66147019 4.88624036,5.82594793 4.80091203,5.9487396 C4.71558369,6.07153128 4.58459917,6.15111728 4.40795455,6.1875 L4.40795455,5.96465696 C4.4528642,5.94040182 4.48430048,5.91614704 4.50226434,5.89189189 C4.5202282,5.86763675 4.53220393,5.8327705 4.53819188,5.7872921 L4.40795455,5.7872921 L4.40795455,5.17788462 L4.92890389,5.17788462 Z M2.741788,1.96875 L2.741788,3.19555664 L2.478216,3.19555664 C2.50851178,3.35424884 2.59636824,3.4732662 2.741788,3.5526123 L2.741788,3.5526123 L2.741788,4.0012207 C2.38429775,3.92797815 2.11921362,3.76776247 1.94652765,3.52056885 C1.77384169,3.27337523 1.6875,2.94226282 1.6875,2.52722168 L1.6875,2.52722168 L1.6875,1.96875 L2.741788,1.96875 Z M4.15053489,1.96875 L4.15053489,3.19555664 L3.88696289,3.19555664 C3.8990812,3.28710983 3.92331747,3.35729956 3.95967241,3.40612793 C3.99602735,3.4549563 4.05964754,3.50378394 4.15053489,3.5526123 L4.15053489,3.5526123 L4.15053489,4.0012207 C3.79304464,3.92797815 3.52796051,3.76776247 3.35527455,3.52056885 C3.18258858,3.27337523 3.09624689,2.94226282 3.09624689,2.52722168 L3.09624689,2.52722168 L3.09624689,1.96875 L4.15053489,1.96875 Z"/>
+          </g>
+        </g>
+      </g>
+      <g transform="translate(90)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-cy)" xlink:href="#pad_桌面壁纸2备份-cz"/>
+            <use xlink:href="#pad_桌面壁纸2备份-cz"/>
+          </g>
+          <g filter="url(#pad_桌面壁纸2备份-cA)" transform="translate(4.531 2.438)">
+            <mask id="pad_桌面壁纸2备份-cD" fill="#fff">
+              <use xlink:href="#pad_桌面壁纸2备份-cB"/>
+            </mask>
+            <rect width="8.89" height="8.89" x="-.25" y="-.25" stroke="#000" stroke-opacity=".08" stroke-width=".5" rx="4.148"/>
+            <g filter="url(#pad_桌面壁纸2备份-cC)" mask="url(#pad_桌面壁纸2备份-cD)">
+              <g transform="translate(1.732 1.698)">
+                <path fill="url(#pad_桌面壁纸2备份-cE)" d="M6.24763354,0.711528244 L6.28795188,0.735769382 C6.52562115,1.25850868 6.65799917,1.8392533 6.65799917,2.45091646 L6.65799917,2.54413977 C6.65799917,4.83525854 4.80068043,6.69257727 2.50956167,6.69257727 L2.41633835,6.69257727 C1.51685233,6.69257727 0.684228903,6.40630448 0.00460782006,5.91989866 C0.0498304987,5.94281224 0.0950959175,5.96471673 0.141353287,5.98531184 C1.32834215,6.51379333 2.71900565,5.97996763 3.24748714,4.79297877 C3.77596863,3.6059899 3.24214293,2.21532641 2.05515407,1.68684491 C1.4634581,1.4234049 0.821151609,1.42393456 0.260259136,1.63775443 L0.251491162,1.64933242 C1.07858716,0.417683794 3.65939982,-0.820602699 6.24763354,0.711528244 Z"/>
+                <use fill="url(#pad_桌面壁纸2备份-cF)" xlink:href="#pad_桌面壁纸2备份-cG"/>
+                <use fill="url(#pad_桌面壁纸2备份-cH)" xlink:href="#pad_桌面壁纸2备份-cI"/>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <use fill="#000" filter="url(#pad_桌面壁纸2备份-cJ)" xlink:href="#pad_桌面壁纸2备份-cK"/>
+      <circle cx="107.75" cy="18.75" r="1" fill="#4B87EB" stroke="#000" stroke-opacity=".161" stroke-width=".5"/>
+      <g transform="translate(180)">
+        <rect width="45" height="27.5"/>
+        <g transform="translate(13.95 5.025)">
+          <rect width="18" height="18" x="-.25" y="-.25" fill="#000" fill-opacity=".3" stroke="#FFF" stroke-opacity=".2" stroke-width=".5" opacity="0" rx=".5"/>
+          <g fill="#FFF">
+            <use filter="url(#pad_桌面壁纸2备份-cL)" xlink:href="#pad_桌面壁纸2备份-cM"/>
+            <use xlink:href="#pad_桌面壁纸2备份-cM"/>
+          </g>
+          <g fill-rule="nonzero" filter="url(#pad_桌面壁纸2备份-cN)" transform="translate(4.813 2.813)">
+            <path fill="url(#pad_桌面壁纸2备份-cO)" d="M0.75,0 L7.125,0 C7.53921356,-7.6089797e-17 7.875,0.335786438 7.875,0.75 L7.875,2.390625 L7.875,2.390625 L0,2.390625 L0,0.75 C-5.07265313e-17,0.335786438 0.335786438,7.6089797e-17 0.75,0 Z M1.546875,1.546875 C1.74103761,1.546875 1.8984375,1.38947511 1.8984375,1.1953125 C1.8984375,1.00114989 1.74103761,0.84375 1.546875,0.84375 C1.35271239,0.84375 1.1953125,1.00114989 1.1953125,1.1953125 C1.1953125,1.38947511 1.35271239,1.546875 1.546875,1.546875 Z M6.328125,1.546875 C6.52228761,1.546875 6.6796875,1.38947511 6.6796875,1.1953125 C6.6796875,1.00114989 6.52228761,0.84375 6.328125,0.84375 C6.13396239,0.84375 5.9765625,1.00114989 5.9765625,1.1953125 C5.9765625,1.38947511 6.13396239,1.546875 6.328125,1.546875 Z"/>
+            <path fill="url(#pad_桌面壁纸2备份-cP)" d="M0,2.390625 L7.875,2.390625 L7.875,7.125 C7.875,7.53921356 7.53921356,7.875 7.125,7.875 L0.75,7.875 C0.335786438,7.875 5.07265313e-17,7.53921356 0,7.125 L0,2.390625 L0,2.390625 Z"/>
+            <path fill="url(#pad_桌面壁纸2备份-cQ)" d="M6.75,2.390625 L6.75,7.875 L5.625,7.875 L5.625,2.390625 L6.75,2.390625 Z M4.5,2.390625 L4.5,7.875 L3.375,7.875 L3.375,2.390625 L4.5,2.390625 Z M2.25,2.390625 L2.25,7.875 L1.125,7.875 L1.125,2.390625 L2.25,2.390625 Z"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-cR)" xlink:href="#pad_桌面壁纸2备份-cS"/>
+            <use fill="url(#pad_桌面壁纸2备份-cT)" xlink:href="#pad_桌面壁纸2备份-cS"/>
+            <use fill="#000" filter="url(#pad_桌面壁纸2备份-cU)" xlink:href="#pad_桌面壁纸2备份-cS"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(101.5 118)">
+      <use fill="#000" filter="url(#pad_桌面壁纸2备份-cV)" xlink:href="#pad_桌面壁纸2备份-cW"/>
+      <path fill="#D2D2D2" fill-opacity=".3" stroke="#000" stroke-opacity=".1" stroke-width=".5" d="M34.75,-0.25 C35.4403559,-0.25 36.0653559,0.0298220314 36.517767,0.482233047 C36.970178,0.934644063 37.25,1.55964406 37.25,2.25 L37.25,2.25 L37.25,9.25 C37.25,9.94035594 36.970178,10.5653559 36.517767,11.017767 C36.0653559,11.470178 35.4403559,11.75 34.75,11.75 L34.75,11.75 L2.25,11.75 C1.55964406,11.75 0.934644063,11.470178 0.482233047,11.017767 C0.0298220314,10.5653559 -0.25,9.94035594 -0.25,9.25 L-0.25,9.25 L-0.25,2.25 C-0.25,1.55964406 0.0298220314,0.934644063 0.482233047,0.482233047 C0.934644063,0.0298220314 1.55964406,-0.25 2.25,-0.25 L2.25,-0.25 Z"/>
+      <g filter="url(#pad_桌面壁纸2备份-cX)" transform="translate(25.781 2.234)">
+        <path fill="url(#pad_桌面壁纸2备份-cY)" d="M1.94317869,0.435682041 C2.06701979,0.169915885 2.33365455,0 2.62685801,0 L5.81064199,0 C6.10384545,0 6.37048021,0.169915885 6.49432131,0.435682041 L6.61541925,0.695561293 C6.69751354,0.871737728 6.87426578,0.984375 7.06863041,0.984375 L7.3125,0.984375 L7.3125,0.984375 C7.93382034,0.984375 8.4375,1.48805466 8.4375,2.109375 L8.4375,5.90625 C8.4375,6.52757034 7.93382034,7.03125 7.3125,7.03125 L1.125,7.03125 C0.503679656,7.03125 0,6.52757034 0,5.90625 L0,2.109375 C0,1.48805466 0.503679656,0.984375 1.125,0.984375 L1.36886959,0.984375 C1.56323422,0.984375 1.73998646,0.871737728 1.82208075,0.695561293 L1.94317869,0.435682041 L1.94317869,0.435682041 Z"/>
+        <g transform="translate(.563 1.547)">
+          <mask id="pad_桌面壁纸2备份-da" fill="#fff">
+            <use xlink:href="#pad_桌面壁纸2备份-cZ"/>
+          </mask>
+          <path stroke="#000" stroke-opacity=".4" stroke-width=".5" d="M6.59093273,0.265541315 L7.03485399,4.19147 L0.684099368,4.6548812 L0.275260593,0.692290002 L6.59093273,0.265541315 Z" mask="url(#pad_桌面壁纸2备份-da)"/>
+        </g>
+        <ellipse cx="7.118" cy="2.28" fill="#F55" stroke="#D51818" stroke-width=".5" rx="1" ry="1"/>
+        <g transform="translate(1.886 1.57)">
+          <use fill="#000" filter="url(#pad_桌面壁纸2备份-db)" xlink:href="#pad_桌面壁纸2备份-dc"/>
+          <use fill="url(#pad_桌面壁纸2备份-dd)" xlink:href="#pad_桌面壁纸2备份-dc"/>
+          <use fill="url(#pad_桌面壁纸2备份-de)" xlink:href="#pad_桌面壁纸2备份-df"/>
+          <circle cx="2.391" cy="2.391" r="1.797" stroke="#000" stroke-width=".5"/>
+          <circle cx="2.391" cy="2.391" r="1.297" stroke="#FFF" stroke-linejoin="square" stroke-opacity=".05" stroke-width=".5"/>
+          <circle cx="2.391" cy="2.391" r="1.234" fill="url(#pad_桌面壁纸2备份-dg)" stroke="#080808" stroke-width=".5"/>
+          <ellipse cx="2.391" cy="2.396" fill="url(#pad_桌面壁纸2备份-dh)" rx="1" ry="1"/>
+          <circle cx="2.391" cy="2.391" r="1" fill="#38000E"/>
+          <ellipse cx="2.255" cy="1.745" fill="url(#pad_桌面壁纸2备份-di)" opacity=".5" rx="1" ry="1"/>
+        </g>
+      </g>
+      <g filter="url(#pad_桌面壁纸2备份-dj)" transform="translate(14.188 .313)">
+        <g transform="rotate(-8 18.387 1.284)">
+          <rect width="7.611" height="6.592" fill="url(#pad_桌面壁纸2备份-dk)" rx=".563"/>
+          <g transform="translate(.334 .338)">
+            <mask id="pad_桌面壁纸2备份-dn" fill="#fff">
+              <use xlink:href="#pad_桌面壁纸2备份-dl"/>
+            </mask>
+            <use fill="url(#pad_桌面壁纸2备份-dm)" xlink:href="#pad_桌面壁纸2备份-dl"/>
+            <circle cx="5.812" cy=".952" r="1" fill="#FFF5D0" mask="url(#pad_桌面壁纸2备份-dn)"/>
+            <path fill="url(#pad_桌面壁纸2备份-do)" d="M-0.175965348,4.87021873 L2.72279233,1.31248442 C2.88555597,1.11271961 3.15472126,1.1191917 3.31221159,1.31248442 L6.21096927,4.87021873 L-0.175965348,4.87021873 Z" mask="url(#pad_桌面壁纸2备份-dn)"/>
+            <path fill="url(#pad_桌面壁纸2备份-dp)" fill-opacity=".65" d="M1.95301286,5.24349878 L4.46963137,2.0634833 C4.62966242,1.86126702 4.89475078,1.86837703 5.04915508,2.0634833 L7.56577359,5.24349878 L1.95301286,5.24349878 Z" style="mix-blend-mode:soft-light" mask="url(#pad_桌面壁纸2备份-dn)"/>
+          </g>
+        </g>
+        <g filter="url(#pad_桌面壁纸2备份-dq)" transform="translate(.14 4.752)">
+          <circle cx="2.285" cy="2.268" r="2.232" fill="#FFF"/>
+          <g transform="translate(.527 .545)">
+            <mask id="pad_桌面壁纸2备份-ds" fill="#fff">
+              <use xlink:href="#pad_桌面壁纸2备份-dr"/>
+            </mask>
+            <use fill="#FFF" fill-opacity=".188" xlink:href="#pad_桌面壁纸2备份-dr"/>
+            <g mask="url(#pad_桌面壁纸2备份-ds)">
+              <g transform="rotate(-8 -15.926 19.095)">
+                <use fill="#000" filter="url(#pad_桌面壁纸2备份-dt)" xlink:href="#pad_桌面壁纸2备份-du"/>
+                <use fill="url(#pad_桌面壁纸2备份-dv)" xlink:href="#pad_桌面壁纸2备份-du"/>
+                <g transform="translate(.466 .436)">
+                  <mask id="pad_桌面壁纸2备份-dy" fill="#fff">
+                    <use xlink:href="#pad_桌面壁纸2备份-dw"/>
+                  </mask>
+                  <use fill="url(#pad_桌面壁纸2备份-dx)" xlink:href="#pad_桌面壁纸2备份-dw"/>
+                  <ellipse cx="6.944" cy="1.108" fill="#FFF5D0" mask="url(#pad_桌面壁纸2备份-dy)" rx="1" ry="1"/>
+                  <path fill="url(#pad_桌面壁纸2备份-dz)" d="M-0.232544677,5.83367987 L3.30336055,1.49159 C3.46964352,1.28739459 3.73210593,1.27863214 3.90552444,1.49159 L7.44142967,5.83367987 L-0.232544677,5.83367987 Z" mask="url(#pad_桌面壁纸2备份-dy)"/>
+                  <path fill="url(#pad_桌面壁纸2备份-dA)" fill-opacity=".65" d="M2.32544677,6.28242447 L5.40985848,2.38281799 C5.56863267,2.18208056 5.82540954,2.1812626 5.9848307,2.38281799 L9.06924241,6.28242447 L2.32544677,6.28242447 Z" style="mix-blend-mode:soft-light" mask="url(#pad_桌面壁纸2备份-dy)"/>
+                </g>
+              </g>
+            </g>
+          </g>
+          <use fill="#000" filter="url(#pad_桌面壁纸2备份-dB)" xlink:href="#pad_桌面壁纸2备份-dC"/>
+          <circle cx="2.285" cy="2.303" r="1.508" fill="url(#pad_桌面壁纸2备份-dD)" stroke="#000" stroke-linejoin="square" stroke-opacity=".3" stroke-width=".5"/>
+          <path fill="url(#pad_桌面壁纸2备份-dE)" d="M1.3564912,0.785089196 C1.33817003,0.754355492 1.35095626,0.794649324 1.33106326,0.82424893 C0.890779111,1.47936587 1.05793742,2.34636202 1.67790351,2.83258498 C2.29786959,3.31880793 3.18370342,3.2349457 3.71481551,2.66241321 C3.39370895,2.57084711 3.09227479,2.43833717 2.81324989,2.2712303 C2.21607272,1.91358333 1.72154295,1.39746236 1.3564912,0.785089196 Z" style="mix-blend-mode:lighten" transform="rotate(168 2.4 1.962)"/>
+        </g>
+      </g>
+      <g filter="url(#pad_桌面壁纸2备份-dF)" transform="translate(3.25 1.625)">
+        <path fill="url(#pad_桌面壁纸2备份-dG)" stroke="url(#pad_桌面壁纸2备份-dH)" stroke-width=".5" d="M6.4453125,0.8125 C6.66752082,0.8125 6.86869269,0.902567716 7.01431249,1.04818751 C7.15993228,1.19380731 7.25,1.39497918 7.25,1.6171875 L7.25,1.6171875 L7.25,6.8203125 C7.25,7.04252082 7.15993228,7.24369269 7.01431249,7.38931249 C6.86869269,7.53493228 6.66752082,7.625 6.4453125,7.625 L6.4453125,7.625 L1.0078125,7.625 C0.798548357,7.625 0.609095232,7.54017895 0.471958142,7.40304186 C0.334821053,7.26590477 0.25,7.07645164 0.25,6.8671875 L0.25,6.8671875 L0.25,1.6171875 C0.25,1.39497918 0.340067716,1.19380731 0.485687512,1.04818751 C0.631307308,0.902567716 0.832479183,0.8125 1.0546875,0.8125 L1.0546875,0.8125 Z"/>
+        <use fill="#000" filter="url(#pad_桌面壁纸2备份-dI)" xlink:href="#pad_桌面壁纸2备份-dJ"/>
+        <use fill="url(#pad_桌面壁纸2备份-dK)" xlink:href="#pad_桌面壁纸2备份-dJ"/>
+        <rect width="7.5" height="7.313" y=".563" rx="1.055"/>
+        <rect width="7" height="6.813" x=".25" y=".813" stroke="url(#pad_桌面壁纸2备份-dH)" stroke-width=".5" rx="1.055"/>
+        <rect width="7" height="6.625" x=".25" y=".813" stroke="url(#pad_桌面壁纸2备份-dL)" stroke-width=".5" rx="1.055"/>
+        <rect width="7" height="6.813" x=".25" y=".813" stroke="url(#pad_桌面壁纸2备份-dH)" stroke-width=".5" rx="1.055"/>
+        <use fill="url(#pad_桌面壁纸2备份-dM)" xlink:href="#pad_桌面壁纸2备份-dN"/>
+        <use fill="#000" filter="url(#pad_桌面壁纸2备份-dO)" xlink:href="#pad_桌面壁纸2备份-dN"/>
+        <path fill="url(#pad_桌面壁纸2备份-dP)" d="M3.66393437,5.625 C3.68982272,5.625 3.71080937,5.64598665 3.71080937,5.671875 L3.71080937,5.953125 C3.71080937,5.97901335 3.68982272,6 3.66393437,6 L1.88268437,6 C1.85679602,6 1.83580937,5.97901335 1.83580937,5.953125 L1.83580937,5.671875 C1.83580937,5.64598665 1.85679602,5.625 1.88268437,5.625 L3.66393437,5.625 Z M2.71710327,4.875 C2.74299161,4.875 2.76397827,4.89598665 2.76397827,4.921875 L2.76397827,5.203125 C2.76397827,5.22901335 2.74299161,5.25 2.71710327,5.25 L1.87335327,5.25 C1.84746492,5.25 1.82647827,5.22901335 1.82647827,5.203125 L1.82647827,4.921875 C1.82647827,4.89598665 1.84746492,4.875 1.87335327,4.875 L2.71710327,4.875 Z M4.02960327,4.875 C4.05549161,4.875 4.07647827,4.89598665 4.07647827,4.921875 L4.07647827,5.203125 C4.07647827,5.22901335 4.05549161,5.25 4.02960327,5.25 L3.18585327,5.25 C3.15996492,5.25 3.13897827,5.22901335 3.13897827,5.203125 L3.13897827,4.921875 C3.13897827,4.89598665 3.15996492,4.875 3.18585327,4.875 L4.02960327,4.875 Z M6.6937939,4.125 C6.71968224,4.125 6.7406689,4.14598665 6.7406689,4.171875 L6.7406689,4.453125 C6.7406689,4.47901335 6.71968224,4.5 6.6937939,4.5 L1.9125439,4.5 C1.88665555,4.5 1.8656689,4.47901335 1.8656689,4.453125 L1.8656689,4.171875 C1.8656689,4.14598665 1.88665555,4.125 1.9125439,4.125 L6.6937939,4.125 Z M6.60892899,2.25 C6.63481733,2.25 6.65580399,2.27098665 6.65580399,2.296875 L6.65580399,3.890625 C6.65580399,3.91651335 6.63481733,3.9375 6.60892899,3.9375 L5.39017899,3.9375 C5.36429064,3.9375 5.34330399,3.91651335 5.34330399,3.890625 L5.34330399,2.296875 C5.34330399,2.27098665 5.36429064,2.25 5.39017899,2.25 L6.60892899,2.25 Z M4.80013169,2.0625 C4.82602004,2.0625 4.84700669,2.08348665 4.84700669,2.109375 L4.84700669,3.703125 C4.84700669,3.72901335 4.82602004,3.75 4.80013169,3.75 L1.89388169,3.75 C1.86799334,3.75 1.84700669,3.72901335 1.84700669,3.703125 L1.84700669,2.109375 C1.84700669,2.08348665 1.86799334,2.0625 1.89388169,2.0625 L4.80013169,2.0625 Z" transform="matrix(-1 0 0 1 8.567 0)"/>
+        <use fill="#000" filter="url(#pad_桌面壁纸2备份-dQ)" xlink:href="#pad_桌面壁纸2备份-dR"/>
+        <use fill="url(#pad_桌面壁纸2备份-dS)" xlink:href="#pad_桌面壁纸2备份-dR"/>
+        <g filter="url(#pad_桌面壁纸2备份-dT)" transform="translate(0 .188)">
+          <mask id="pad_桌面壁纸2备份-dY" fill="#fff">
+            <use xlink:href="#pad_桌面壁纸2备份-dU"/>
+          </mask>
+          <use fill="url(#pad_桌面壁纸2备份-dV)" xlink:href="#pad_桌面壁纸2备份-dU"/>
+          <use fill="#000" filter="url(#pad_桌面壁纸2备份-dW)" xlink:href="#pad_桌面壁纸2备份-dU"/>
+          <polygon fill="url(#pad_桌面壁纸2备份-dX)" fill-opacity=".18" points="0 .286 1.125 .188 1.125 6.938 0 6.938" mask="url(#pad_桌面壁纸2备份-dY)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

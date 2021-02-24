@@ -12,5 +12,13 @@
         <file>themes/dark/icons/nav_personalization_normal.svg</file>
         <file>themes/dark/icons/transparency_high.svg</file>
         <file>themes/dark/icons/transparency_low.svg</file>
+        <file>fount_big.svg</file>
+        <file>fount_small.svg</file>
+        <file>auto.svg</file>
+        <file>light.svg</file>
+        <file>dark.svg</file>
+        <file>check.svg</file>
+        <file>lockscreen.svg</file>
+        <file>desktop.svg</file>
     </qresource>
 </RCC>

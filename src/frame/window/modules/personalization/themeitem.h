@@ -37,7 +37,7 @@ DWIDGET_END_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace personalization {
 class ThemeItemPic;
-
+class SelectIcon;
 class ThemeItem : public QWidget
 {
     Q_OBJECT
@@ -56,6 +56,7 @@ Q_SIGNALS:
 private:
     QVBoxLayout *m_mainLayout;
     QLabel *m_title;
+    SelectIcon *m_select;
     bool m_state;
     ThemeItemPic *m_itemPic;  //picture of theme
     QVariant m_id;

@@ -446,6 +446,11 @@ set(PERSONALIZATION_FILES
                 window/modules/personalization/themeitem.cpp
                 window/modules/personalization/personalizationfontswidget.cpp
                 window/modules/personalization/personalizationthemelist.cpp
+                window/modules/personalization/wallpaperpage.cpp
+                window/modules/personalization/wallpaper.cpp
+                window/modules/personalization/groupview.cpp
+                window/modules/personalization/wallpapersnippet.cpp
+                window/modules/personalization/selecticon.cpp
 )
 
 # load power

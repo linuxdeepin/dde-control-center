@@ -22,6 +22,8 @@
 #include "themeitem.h"
 #include "modules/personalization/model/thememodel.h"
 
+#include <DApplicationHelper>
+
 #include <QMap>
 #include <QJsonObject>
 #include <QBoxLayout>
@@ -31,12 +33,15 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 
-PerssonalizationThemeWidget::PerssonalizationThemeWidget(QWidget *parent)
-    : QWidget(parent)
+PerssonalizationThemeWidget::PerssonalizationThemeWidget(SettingsItem *parent)
+    : SettingsItem(parent)
     , m_centerLayout(nullptr)
     , m_model(nullptr)
     , m_titleBelowPic(true)
 {
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        addBackground();
+    }
 }
 
 void PerssonalizationThemeWidget::setModel(dcc::personalization::ThemeModel *const model)
@@ -154,7 +159,13 @@ void PerssonalizationThemeWidget::mouseMoveEvent(QMouseEvent *event)
 void PerssonalizationThemeWidget::setMainLayout(QBoxLayout *layout, bool titleBelowPic)
 {
     m_centerLayout = layout;
-    m_centerLayout->setMargin(0);
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        m_centerLayout->setSpacing(80);
+        m_centerLayout->setContentsMargins(80, 42, 80, 76);
+    } else {
+        m_centerLayout->setMargin(0);
+    }
+
     m_centerLayout->setAlignment(Qt::AlignLeft);
     setLayout(m_centerLayout);
     m_titleBelowPic = titleBelowPic;

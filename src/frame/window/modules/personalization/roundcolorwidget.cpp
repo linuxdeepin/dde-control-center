@@ -21,6 +21,7 @@
 #include "roundcolorwidget.h"
 
 #include <DStyle>
+#include <DGuiApplicationHelper>
 
 #include <QColor>
 #include <QPainter>
@@ -98,4 +99,11 @@ void RoundColorWidget::paintEvent(QPaintEvent *event)
     painter.setPen(Qt::NoPen);
     painter.drawPath(path);
     painter.fillPath(path, QBrush(m_color));
+
+    if (m_isSelected && DGuiApplicationHelper::isTabletEnvironment()) {
+        QPixmap pix(":/personalization/check.svg");
+        // 图标中心点和圆重合
+        QRect rect(r.x() + (r.width() - 20) / 2, r.y() + (r.height() - 20) / 2, 20, 20);
+        painter.drawPixmap(rect, pix);
+    }
 }

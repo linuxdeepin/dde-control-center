@@ -28,6 +28,8 @@
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
 
+#include <com_deepin_daemon_accounts.h>
+
 #include <DApplicationHelper>
 
 #include <QGuiApplication>
@@ -35,8 +37,6 @@
 #include <QDebug>
 
 #include <pwd.h>
-#include <com_deepin_daemon_accounts.h>
-
 #include <unistd.h>
 
 using Accounts = com::deepin::daemon::Accounts;
@@ -255,8 +255,17 @@ void PersonalizationWork::onGetPicFinished(QDBusPendingCallWatcher *w)
     if (!reply.isError()) {
         const QString &category = w->property("category").toString();
         const QString &id = w->property("id").toString();
-
-        m_themeModels[category]->addPic(id, reply.value());
+        QString path = reply.value();
+        if (DGuiApplicationHelper::isTabletEnvironment() && category == "gtk") {
+            if (id == "deepin") {
+                path = ":/personalization/light.svg";
+            } else if (id == "deepin-dark") {
+                path = ":/personalization/dark.svg";
+            } else if (id == "deepin-auto") {
+                path = ":/personalization/auto.svg";
+            }
+        }
+        m_themeModels[category]->addPic(id, path);
     } else {
         qDebug() << reply.error();
     }

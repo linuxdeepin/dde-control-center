@@ -21,10 +21,13 @@
 #pragma once
 
 #include "themeitem.h"
+#include "widgets/settingsitem.h"
 
 #include <QWidget>
 #include <QBoxLayout>
 #include <QJsonObject>
+
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace personalization {
@@ -35,11 +38,11 @@ class ThemeModel;
 namespace DCC_NAMESPACE {
 namespace personalization {
 class ThemeItem;
-class PerssonalizationThemeWidget : public QWidget
+class PerssonalizationThemeWidget : public SettingsItem
 {
     Q_OBJECT
 public:
-    explicit PerssonalizationThemeWidget(QWidget *parent = nullptr);
+    explicit PerssonalizationThemeWidget(SettingsItem *parent = nullptr);
     void setModel(dcc::personalization::ThemeModel *const model);
     void setMainLayout(QBoxLayout *layout, bool titleBelowPic);
 

@@ -455,6 +455,14 @@ void PersonalizationGeneral::onActiveColorClicked()
     Q_EMIT requestSetActiveColor(strColor);
 }
 
+RingColorWidget::RingColorWidget(SettingsItem *parent)
+    : m_selectedItem(nullptr)
+{
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        addBackground();
+    }
+}
+
 void RingColorWidget::paintEvent(QPaintEvent *event)
 {
     QWidget::paintEvent(event);
@@ -472,6 +480,11 @@ void RingColorWidget::paintEvent(QPaintEvent *event)
     pen.setWidth(borderWidth);  //pen width
     painter.setPen(pen);
     QRect rc = m_selectedItem->geometry();
-    painter.drawEllipse(QRect(rc.center().x() - 14, rc.center().y() - 14, 30, 30));
+
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        painter.drawEllipse(QRect(rc.center().x() - 24, rc.center().y() - 24, 50, 50));
+    } else {
+        painter.drawEllipse(QRect(rc.center().x() - 14, rc.center().y() - 14, 30, 30));
+    }
     painter.setRenderHint(QPainter::SmoothPixmapTransform);
 }

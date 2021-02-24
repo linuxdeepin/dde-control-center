@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="132" viewBox="0 0 240 132">
+  <defs>
+    <linearGradient id="主题-自动-a" x1="25.52%" x2="2.165%" y1="40.253%" y2="62.676%">
+      <stop offset="0%" stop-color="#202E6D"/>
+      <stop offset="100%" stop-color="#0B1346"/>
+    </linearGradient>
+    <linearGradient id="主题-自动-b" x1="107.866%" x2="8.945%" y1="60.744%" y2="21.196%">
+      <stop offset="0%" stop-color="#242773"/>
+      <stop offset="100%" stop-color="#4679CA"/>
+    </linearGradient>
+    <linearGradient id="主题-自动-c" x1="21.263%" x2="76.11%" y1="75.218%" y2="52.552%">
+      <stop offset="0%" stop-color="#A75E89"/>
+      <stop offset="100%" stop-color="#BA5B8D"/>
+    </linearGradient>
+    <rect id="主题-自动-e" width="182" height="82" x=".2" y="0" rx="19.2"/>
+    <filter id="主题-自动-d" width="117.6%" height="139%" x="-8.8%" y="-17.1%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"/>
+    </filter>
+    <linearGradient id="主题-自动-h" x1="50%" x2="50%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#232323" stop-opacity=".5"/>
+      <stop offset="100%" stop-color="#1C1C1C" stop-opacity=".5"/>
+    </linearGradient>
+    <path id="主题-自动-g" d="M19.4,0 L163,0 C173.603867,-1.9478988e-15 182.2,8.5961328 182.2,19.2 L182.2,41 L182.2,41 L0.2,41 L0.2,19.2 C0.2,8.5961328 8.7961328,1.9478988e-15 19.4,0 Z"/>
+    <filter id="主题-自动-f" width="126.9%" height="219.5%" x="-13.5%" y="-42.7%" filterUnits="objectBoundingBox">
+      <feOffset dy="7" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0"/>
+    </filter>
+    <filter id="主题-自动-i" width="116.5%" height="173.2%" x="-8.2%" y="-19.5%" filterUnits="objectBoundingBox">
+      <feOffset dy="-2" in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+    </filter>
+    <path id="主题-自动-j" d="M18.2,0 L90.7027322,0 L90.7027322,0 L91.2,82 L18.2,82 C8.2588745,82 0.2,73.9411255 0.2,64 L0.2,18 C0.2,8.0588745 8.2588745,-5.27927223e-15 18.2,0 Z"/>
+    <path id="主题-自动-m" d="M18.2,0 L164.2,0 C174.141125,-1.82615513e-15 182.2,8.0588745 182.2,18 L182.2,41 L182.2,41 L0.2,41 L0.2,18 C0.2,8.0588745 8.2588745,-1.72655855e-15 18.2,0 Z"/>
+    <filter id="主题-自动-l" width="145.1%" height="300%" x="-22.5%" y="-75.6%" filterUnits="objectBoundingBox">
+      <feOffset dy="10" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="12"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.03 0"/>
+    </filter>
+    <filter id="主题-自动-n" width="127.5%" height="222%" x="-13.7%" y="-36.6%" filterUnits="objectBoundingBox">
+      <feOffset dy="-2" in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0.833408522   0 0 0 0 0.833408522   0 0 0 0 0.833408522  0 0 0 0.6 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="240" height="132" fill="url(#主题-自动-a)" rx="12"/>
+    <path fill="url(#主题-自动-b)" d="M90,0 L228,0 C234.627417,-1.21743675e-15 240,5.372583 240,12 L240,120 C240,126.627417 234.627417,132 228,132 L143,132 L143,132 L90,0 Z"/>
+    <path fill="url(#主题-自动-c)" d="M35,0 C53,25.6666667 62,48.8333333 62,69.5 C62,90.1666667 68,111 80,132 L178,132 C159.333333,88.6666667 144.666667,58 134,40 C123.333333,22 113.333333,8.66666667 104,0 L35,0 Z"/>
+    <path fill="#DF9CCD" d="M114,0 C130,20.3333333 143,39.8333333 153,58.5 C163,77.1666667 175,101.666667 189,132 L174,132 C160,101.333333 147.666667,76.8333333 137,58.5 C126.333333,40.1666667 113.333333,20.6666667 98,0 L114,0 Z"/>
+    <g transform="translate(28.8 12)">
+      <use fill="#000" filter="url(#主题-自动-d)" xlink:href="#主题-自动-e"/>
+      <use fill="#343434" xlink:href="#主题-自动-e"/>
+      <use fill="#000" filter="url(#主题-自动-f)" xlink:href="#主题-自动-g"/>
+      <use fill="url(#主题-自动-h)" xlink:href="#主题-自动-g"/>
+      <use fill="#000" filter="url(#主题-自动-i)" xlink:href="#主题-自动-g"/>
+      <g transform="translate(141.6 1.2)">
+        <rect width="38.4" height="38.4"/>
+        <circle cx="19.2" cy="19.2" r="11.25" stroke="#C5CFE0" stroke-width="1.5"/>
+        <path fill="#C5CFE0" d="M1.2,2.4 C1.8627417,2.4 2.4,2.9372583 2.4,3.6 C2.4,4.2627417 1.8627417,4.8 1.2,4.8 C0.5372583,4.8 0,4.2627417 0,3.6 C0,2.9372583 0.5372583,2.4 1.2,2.4 Z M6,2.4 C6.6627417,2.4 7.2,2.9372583 7.2,3.6 C7.2,4.2627417 6.6627417,4.8 6,4.8 C5.3372583,4.8 4.8,4.2627417 4.8,3.6 C4.8,2.9372583 5.3372583,2.4 6,2.4 Z M10.8,2.4 C11.4627417,2.4 12,2.9372583 12,3.6 C12,4.2627417 11.4627417,4.8 10.8,4.8 C10.1372583,4.8 9.6,4.2627417 9.6,3.6 C9.6,2.9372583 10.1372583,2.4 10.8,2.4 Z" transform="translate(13.2 15.6)"/>
+      </g>
+    </g>
+    <g transform="translate(28.8 12)">
+      <mask id="主题-自动-k" fill="#fff">
+        <use xlink:href="#主题-自动-j"/>
+      </mask>
+      <use fill="#F4F4F4" xlink:href="#主题-自动-j"/>
+      <g mask="url(#主题-自动-k)">
+        <use fill="#000" filter="url(#主题-自动-l)" xlink:href="#主题-自动-m"/>
+        <use fill="#FFF" fill-opacity=".8" xlink:href="#主题-自动-m"/>
+        <use fill="#000" filter="url(#主题-自动-n)" xlink:href="#主题-自动-m"/>
+      </g>
+      <g mask="url(#主题-自动-k)">
+        <g transform="translate(96 14.4)">
+          <polygon fill="#626E88" fill-rule="nonzero" points="2.546 12.728 1.697 13.576 0 11.879 .849 11.031 5.091 6.788 .849 2.546 0 1.697 1.697 0 2.546 .849 6.788 5.091 11.031 .849 11.879 0 13.576 1.697 12.728 2.546 8.485 6.788 12.728 11.031 13.576 11.879 11.879 13.576 11.031 12.728 6.788 8.485" transform="translate(52.8)"/>
+          <path fill="#626E88" fill-rule="nonzero" d="M14.4,1.81188398e-13 L14.4,12 L0,12 L0,1.81188398e-13 L14.4,1.81188398e-13 Z M12,2.4 L2.4,2.4 L2.4,9.6 L12,9.6 L12,2.4 Z"/>
+        </g>
+      </g>
+    </g>
+    <g transform="translate(46 104)">
+      <path fill="#FFF" fill-opacity=".6" d="M6,0 L74,0 L74,0 L74,20 L6,20 C2.6862915,20 4.05812251e-16,17.3137085 0,14 L0,6 C-4.05812251e-16,2.6862915 2.6862915,6.08718376e-16 6,0 Z"/>
+      <path fill="#000" fill-opacity=".6" d="M74,0 L142,0 C145.313708,-6.08718376e-16 148,2.6862915 148,6 L148,14 C148,17.3137085 145.313708,20 142,20 L74,20 L74,20 L74,0 Z"/>
+      <circle cx="10" cy="10" r="6" fill="#2876E8"/>
+      <rect width="12" height="12" x="20" y="4" fill="#11B46F" rx="3"/>
+      <rect width="12" height="12" x="68" y="4" fill="#11B46F" rx="3"/>
+      <rect width="12" height="12" x="116" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
+      <rect width="12" height="12" x="52" y="4" fill="#11B46F" rx="3"/>
+      <rect width="12" height="12" x="100" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
+      <rect width="12" height="12" x="36" y="4" fill="#E0704A" rx="3"/>
+      <rect width="12" height="12" x="84" y="4" fill="#E0704A" rx="3"/>
+      <rect width="12" height="12" x="132" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
+    </g>
+  </g>
+</svg>

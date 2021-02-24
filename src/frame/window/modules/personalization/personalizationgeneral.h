@@ -23,11 +23,15 @@
 #include "interface/namespace.h"
 #include "modules/modulewidget.h"
 #include "modules/personalization/personalizationmodel.h"
+#include "widgets/settingsitem.h"
 
 #include "dtkwidget_global.h"
 
-#include <QWidget>
 #include <DGuiApplicationHelper>
+
+#include <QWidget>
+
+using namespace dcc::widgets;
 
 namespace dcc {
 namespace personalization {
@@ -55,11 +59,11 @@ namespace personalization {
 class PerssonalizationThemeWidget;
 class RoundColorWidget;
 
-class RingColorWidget : public QWidget
+class RingColorWidget : public SettingsItem
 {
     Q_OBJECT
 public:
-    explicit RingColorWidget(QWidget *parent = nullptr) : m_selectedItem(nullptr){}
+    explicit RingColorWidget(SettingsItem *parent = nullptr);
     virtual ~RingColorWidget() {}
 
     void setSelectedItem(RoundColorWidget* item)

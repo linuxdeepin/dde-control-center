@@ -20,8 +20,10 @@
  */
 #include "themeitem.h"
 #include "themeitempic.h"
+#include "selecticon.h"
 
 #include <DIconButton>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QLabel>
@@ -32,6 +34,7 @@ DWIDGET_USE_NAMESPACE
 
 ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
     : QWidget(parent)
+    , m_select(nullptr)
     , m_titleBelowPic(titleBelowPic)
     , m_imgBtn(nullptr)
 {
@@ -62,6 +65,7 @@ ThemeItem::ThemeItem(bool titleBelowPic, QWidget *parent)
     }
 
     m_mainLayout->setSpacing(5);
+    m_mainLayout->addStretch();
 
     setLayout(m_mainLayout);
 }
@@ -80,6 +84,20 @@ void ThemeItem::setSelected(bool selected)
         m_itemPic->setSelected(selected);
     } else {
         m_imgBtn->setVisible(selected);
+    }
+
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        if (selected) {
+            auto selectIcon = qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_IndicatorChecked);
+            if (!m_select) {
+                m_select = new SelectIcon();
+                m_mainLayout->addWidget(m_select, 0, Qt::AlignCenter);
+            } else {
+                m_select->show();
+            }
+        } else if (m_select) {
+            m_select->hide();
+        }
     }
 }
 

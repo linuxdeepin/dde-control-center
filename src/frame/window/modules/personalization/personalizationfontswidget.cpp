@@ -30,6 +30,8 @@
 
 #include <DSlider>
 #include <DFontSizeManager>
+#include <DApplicationHelper>
+#include <DStyle>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -48,7 +50,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
     //~ contents_path /personalization/Font
-    , m_fontSizeSlider(new TitledSliderItem(tr("Size")))
+    , m_fontSizeSlider(new TitledSliderItem(DGuiApplicationHelper::isTabletEnvironment() ? "" : tr("Size")))
     , m_standardFontsCbBox(new QComboBox(this))
     , m_monoFontsCbBox(new QComboBox(this))
     , m_isAppend(false)
@@ -63,7 +65,37 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 
     DCCSlider *slider = m_fontSizeSlider->slider();
     QStringList annotions;
-    annotions << "11" << "12" << "13" << "14" << "15" << "16" << "18" << "20";
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        QLayout *layout = m_fontSizeSlider->layout();
+        if (layout && layout->itemAt(0)) {
+            layout->setSpacing(0);
+            layout->removeItem(layout->itemAt(0));
+            layout->setContentsMargins(8, 0, 8, 8);
+        }
+
+        m_fontSizeSlider->setLeftIcon(QIcon(":/personalization/fount_small.svg"));
+        m_fontSizeSlider->setRightIcon(QIcon(":/personalization/fount_big.svg"));
+        m_fontSizeSlider->setIconSize(QSize(24, 24));
+
+        m_centralLayout->setContentsMargins(0, 0, 0, 0);
+
+        annotions << "13"
+                  << "14"
+                  << "15"
+                  << "16"
+                  << "18"
+                  << "20";
+    } else {
+        annotions << "11"
+                  << "12"
+                  << "13"
+                  << "14"
+                  << "15"
+                  << "16"
+                  << "18"
+                  << "20";
+    }
+
     m_fontSizeSlider->setAnnotations(annotions);
     slider->setRange(0, annotions.size() - 1);
     slider->setType(DCCSlider::Vernier);
@@ -73,39 +105,45 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
 
     m_centralLayout->addWidget(m_fontSizeSlider);
 
-    //standard font
-    QHBoxLayout *sfontLayout = new QHBoxLayout();
-    sfontLayout->setContentsMargins(10, 6, 10, 6);
-    SettingsItem *sfontitem = new SettingsItem;
-    sfontitem->addBackground();
-    sfontitem->setLayout(sfontLayout);
-    //~ contents_path /personalization/Font
-    QString sf = tr("Standard Font");
-    QLabel *sfLabel = new QLabel(sf);
-    sfLabel->setWordWrap(true);
-    sfLabel->setFixedWidth(140);
-    sfontLayout->addWidget(sfLabel);
-    sfontLayout->addWidget(m_standardFontsCbBox);
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        //standard font
+        QHBoxLayout *sfontLayout = new QHBoxLayout();
+        sfontLayout->setContentsMargins(10, 6, 10, 6);
+        SettingsItem *sfontitem = new SettingsItem;
+        sfontitem->addBackground();
+        sfontitem->setLayout(sfontLayout);
+        //~ contents_path /personalization/Font
+        QString sf = tr("Standard Font");
+        QLabel *sfLabel = new QLabel(sf);
+        sfLabel->setWordWrap(true);
+        sfLabel->setFixedWidth(140);
+        sfontLayout->addWidget(sfLabel);
+        sfontLayout->addWidget(m_standardFontsCbBox);
 
-    m_standardFontsCbBox->setModel(new QStandardItemModel(this));
-    m_standardFontsCbBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
-    m_centralLayout->addWidget(sfontitem);
+        m_standardFontsCbBox->setModel(new QStandardItemModel(this));
+        m_standardFontsCbBox->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        m_centralLayout->addWidget(sfontitem);
 
-    //mono font
-    QHBoxLayout *mfontLayout = new QHBoxLayout();
-    mfontLayout->setContentsMargins(10, 6, 10, 6);
-    SettingsItem *mfontitem = new SettingsItem;
-    mfontitem->addBackground();
-    mfontitem->setLayout(mfontLayout);
-    //~ contents_path /personalization/Font
-    QString mf = tr("Monospaced Font");
-    QLabel *mfLabel = new QLabel(mf);
-    mfLabel->setWordWrap(true);
-    mfLabel->setFixedWidth(140);
-    mfontLayout->addWidget(mfLabel);
-    mfontLayout->addWidget(m_monoFontsCbBox);
-    m_monoFontsCbBox->setModel(new QStandardItemModel(this));
-    m_centralLayout->addWidget(mfontitem);
+        //mono font
+        QHBoxLayout *mfontLayout = new QHBoxLayout();
+        mfontLayout->setContentsMargins(10, 6, 10, 6);
+        SettingsItem *mfontitem = new SettingsItem;
+        mfontitem->addBackground();
+        mfontitem->setLayout(mfontLayout);
+        //~ contents_path /personalization/Font
+        QString mf = tr("Monospaced Font");
+        QLabel *mfLabel = new QLabel(mf);
+        mfLabel->setWordWrap(true);
+        mfLabel->setFixedWidth(140);
+        mfontLayout->addWidget(mfLabel);
+        mfontLayout->addWidget(m_monoFontsCbBox);
+        m_monoFontsCbBox->setModel(new QStandardItemModel(this));
+        m_centralLayout->addWidget(mfontitem);
+    } else {
+        m_standardFontsCbBox->setVisible(false);
+        m_monoFontsCbBox->setVisible(false);
+    }
+
     m_centralLayout->addStretch();
     setLayout(m_centralLayout);
 
@@ -215,7 +253,6 @@ void PersonalizationFontsWidget::onSelectChanged(const QString &name)
         Q_EMIT requestSetDefault(*res);
         return;
     }
-
 }
 
 void PersonalizationFontsWidget::onDefaultFontChanged(const QString &name, dcc::personalization::FontModel *sender)
