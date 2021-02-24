@@ -31,6 +31,7 @@
 #include "personalizationgeneral.h"
 #include "wallpaper.h"
 #include "personalizationfontswidget.h"
+#include "wallpaper/papersettingwidget.h"
 
 #include <DStyle>
 #include <DSwitchButton>
@@ -108,6 +109,7 @@ WallpaperPage::WallpaperPage(QWidget *parent)
     , m_fonts(new PersonalizationFontsWidget)
     , m_bgWidget(new RingColorWidget)
     , m_wallpaper(new Wallpaper(this))
+    , m_wallpaperSetting(nullptr)
 {
     // appearance
     // ~ contents_path /personalization/General
@@ -189,19 +191,19 @@ WallpaperPage::WallpaperPage(QWidget *parent)
     centralLayout->addWidget(font);
     centralLayout->addWidget(m_fonts);
 
-    QScrollArea *scrollArea = new QScrollArea;
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setFrameStyle(QFrame::NoFrame);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scrollArea->setContentsMargins(0, 0, 0, 0);
-    scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
+    m_scrollArea = new QScrollArea;
+    m_scrollArea->setWidgetResizable(true);
+    m_scrollArea->setFrameStyle(QFrame::NoFrame);
+    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_scrollArea->setContentsMargins(0, 0, 0, 0);
+    m_scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
 
-    QVBoxLayout *mainContentLayout = new QVBoxLayout;
-    mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    mainContentLayout->setMargin(0);
-    setLayout(mainContentLayout);
-    mainContentLayout->addWidget(scrollArea);
+    m_contentLayout = new QVBoxLayout;
+    m_contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+    m_contentLayout->setMargin(0);
+    setLayout(m_contentLayout);
+    m_contentLayout->addWidget(m_scrollArea);
 
     QHBoxLayout* mainLayout =  new QHBoxLayout;
     mainLayout->setContentsMargins(20, 20, 20, 20);
@@ -211,7 +213,9 @@ WallpaperPage::WallpaperPage(QWidget *parent)
 
     auto tw = new QWidget();
     tw->setLayout(mainLayout);
-    scrollArea->setWidget(tw);
+    m_scrollArea->setWidget(tw);
+
+    connect(m_wallpaper, &Wallpaper::requestSetWallpaper, this, &WallpaperPage::showWallpaperWidget);
 }
 
 void WallpaperPage::setModel(dcc::personalization::PersonalizationModel *model)
@@ -232,6 +236,11 @@ void WallpaperPage::setModel(dcc::personalization::PersonalizationModel *model)
     });
 
     onActiveColorChanged(model->getActiveColor());
+}
+
+void WallpaperPage::setWorker(dcc::personalization::PersonalizationWork *work)
+{
+    m_work = work;
 }
 
 void WallpaperPage::updateThemeColors(DGuiApplicationHelper::ColorType type)
@@ -306,4 +315,20 @@ void WallpaperPage::onActiveColorClicked()
     QString strColor = ACTIVE_COLORS[m_activeColorsList.indexOf(activeColor)];
     qDebug() << Q_FUNC_INFO << " strColor : " << strColor;
     Q_EMIT requestSetActiveColor(strColor);
+}
+
+void WallpaperPage::showWallpaperWidget()
+{
+    m_wallpaperSetting = new PaperSettingWidget(m_work, m_model);
+    m_contentLayout->addWidget(m_wallpaperSetting);
+    connect(m_wallpaperSetting, &PaperSettingWidget::requestExit, this, &WallpaperPage::rebackMainWidget);
+    m_scrollArea->setVisible(false);
+    m_wallpaperSetting->setVisible(true);
+    m_wallpaperSetting->setFocus();
+}
+
+void WallpaperPage::rebackMainWidget()
+{
+    m_scrollArea->setVisible(true);
+    m_wallpaperSetting->deleteLater();
 }

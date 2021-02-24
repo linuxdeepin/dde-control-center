@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="39" viewBox="0 0 40 39">
+  <g fill="none" fill-rule="evenodd" transform="translate(1 1)">
+    <rect width="36" height="36" x="1"/>
+    <g stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="rotate(45 8.802 23.135)">
+      <line x1=".707" x2="25.248" y1="14.448" y2="9.678" transform="rotate(11 12.977 12.063)"/>
+      <line x1="14.863" x2="10.092" y1="24.834" y2=".293" transform="rotate(11 12.477 12.563)"/>
+    </g>
+  </g>
+</svg>

@@ -86,6 +86,7 @@ void PersonalizationModule::active()
 
         widget->setVisible(false);
         widget->setModel(m_model);
+        widget->setWorker(m_work);
         m_work->active();
 
         m_frameProxy->pushWidget(this, widget);

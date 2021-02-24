@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="41" viewBox="0 0 40 41">
+  <defs>
+    <path id="arrows_right-b" d="M13.7928932,7.29289322 C14.1533772,6.93240926 14.7206082,6.90467972 15.1128994,7.20970461 L15.2071068,7.29289322 L28.4142136,20.5 L15.2071068,33.7071068 C14.8165825,34.0976311 14.1834175,34.0976311 13.7928932,33.7071068 C13.4324093,33.3466228 13.4046797,32.7793918 13.7097046,32.3871006 L13.7928932,32.2928932 L25.585,20.5 L13.7928932,8.70710678 C13.4324093,8.34662282 13.4046797,7.77939176 13.7097046,7.38710056 L13.7928932,7.29289322 Z"/>
+    <filter id="arrows_right-a" width="210.1%" height="159.2%" x="-53.6%" y="-22.2%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
+      <feOffset dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0828148902 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="40" height="40"/>
+    <g fill-rule="nonzero">
+      <use fill="#000" filter="url(#arrows_right-a)" xlink:href="#arrows_right-b"/>
+      <path fill="#FFF" fill-opacity=".6" fill-rule="evenodd" stroke="#000" stroke-opacity=".1" d="M14.3463243,6.5199394 C14.7446207,6.46958562 15.1339665,6.58181428 15.4465131,6.83622791 L15.4465131,6.83622791 L29.1214669,20.4998535 L15.5606602,34.0606602 C15.267767,34.3535534 14.8838835,34.5 14.5,34.5 C14.1161165,34.5 13.732233,34.3535534 13.4393398,34.0606602 C13.1705484,33.7918687 13.025147,33.4464372 13.0029819,33.0947293 C12.9798615,32.7278639 13.0912167,32.3542848 13.3362491,32.0534689 L13.3362491,32.0534689 L24.8780806,20.5001638 L13.4393398,9.06066017 C13.1705484,8.79186871 13.025147,8.4464372 13.0029819,8.0947293 C12.9805412,7.73864954 13.0847853,7.37624498 13.3149844,7.08018699 C13.6577603,6.72439373 14.0080163,6.56270928 14.3463243,6.5199394 Z"/>
+    </g>
+  </g>
+</svg>

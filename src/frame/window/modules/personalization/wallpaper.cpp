@@ -65,9 +65,7 @@ void Wallpaper::initUi()
     m_model->appendRow(it);
     listView->setResizeMode(QListView::Fixed);
     it->setActionList(Qt::Edge::RightEdge, {editaction});
-    connect(editaction, &QAction::triggered, [ = ] {
-        // TODO
-    });
+    connect(editaction, &QAction::triggered, this, &Wallpaper::requestSetWallpaper);
 
     QHBoxLayout *m_mainLayout = new QHBoxLayout(this);
     m_group->appendItem(viewItem);

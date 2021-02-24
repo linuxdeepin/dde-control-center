@@ -49,6 +49,9 @@ public:
     void setLockPaperPath(QString path);
     void setDesktopPaperPath(QString path);
 
+Q_SIGNALS:
+    void requestSetWallpaper();
+
 private:
     QStandardItemModel *m_model;
     dcc::widgets::SettingsGroup *m_group;
