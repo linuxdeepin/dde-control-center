@@ -28,10 +28,18 @@
 #include "model/fontmodel.h"
 #include "model/fontsizemodel.h"
 
+#include <DApplicationHelper>
+
 #include <QGuiApplication>
 #include <QScreen>
 #include <QDebug>
 
+#include <pwd.h>
+#include <com_deepin_daemon_accounts.h>
+
+#include <unistd.h>
+
+using Accounts = com::deepin::daemon::Accounts;
 using namespace dcc;
 using namespace dcc::personalization;
 
@@ -61,6 +69,7 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
       m_wmSwitcher(new WMSwitcher("com.deepin.WMSwitcher", "/com/deepin/WMSwitcher", QDBusConnection::sessionBus(), this)),
       m_wm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this)),
       m_effects(new Effects("org.kde.KWin", "/Effects", QDBusConnection::sessionBus(), this))
+    , m_userInter(nullptr)
 {
     ThemeModel *cursorTheme      = m_model->getMouseModel();
     ThemeModel *windowTheme      = m_model->getWindowModel();
@@ -117,6 +126,9 @@ PersonalizationWork::PersonalizationWork(PersonalizationModel *model, QObject *p
     m_dbus->setSync(false);
     m_wmSwitcher->setSync(false);
 
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        initWallpaper();
+    }
 }
 
 void PersonalizationWork::active()
@@ -574,4 +586,46 @@ T PersonalizationWork::toSliderValue(std::vector<T> list, T value)
     }
 
     return list.end() - list.begin();
+}
+
+void PersonalizationWork::initWallpaper()
+{
+    Accounts accountsInter("com.deepin.daemon.Accounts"
+                           , "/com/deepin/daemon/Accounts"
+                           , QDBusConnection::systemBus());
+
+    const QStringList &users = accountsInter.userList();
+
+    struct passwd *pws;
+    pws = getpwuid(getuid());
+    for (const QString &path : users) {
+        m_userInter = new User("com.deepin.daemon.Accounts", path, QDBusConnection::systemBus(), this);
+        if (m_userInter->userName() == pws->pw_name) {
+            break;
+        }
+        delete m_userInter;
+        m_userInter = nullptr;
+    }
+
+    if (m_userInter) {
+        m_model->setDesktopPaper(m_userInter->desktopBackgrounds());
+        m_model->setLockPaper(m_userInter->greeterBackground());
+
+        connect(m_userInter, &User::DesktopBackgroundsChanged, m_model, &PersonalizationModel::setDesktopPaper);
+        connect(m_userInter, &User::GreeterBackgroundChanged, m_model, &PersonalizationModel::setLockPaper);
+    }
+}
+
+void PersonalizationWork::setDesktopWallpaper(const QString &wallpaper)
+{
+    if (m_userInter) {
+        m_userInter->SetDesktopBackgrounds(QStringList() << wallpaper);
+    }
+}
+
+void PersonalizationWork::setLockWallpaper(const QString &wallpaper)
+{
+    if (m_userInter) {
+        m_userInter->SetGreeterBackground(wallpaper);
+    }
 }

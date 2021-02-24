@@ -113,3 +113,27 @@ void PersonalizationModel::setCompositingAllowSwitch(bool value)
 
     Q_EMIT onCompositingAllowSwitch(value);
 }
+
+void PersonalizationModel::setDesktopPaper(const QStringList &wallpaper)
+{
+    if (wallpaper.isEmpty()) {
+        return;
+    }
+    const QString &desktopPaper = wallpaper.at(0);
+    if (m_desktopPaper == desktopPaper) {
+        return;
+    }
+
+    m_desktopPaper = desktopPaper;
+    Q_EMIT desktopPaperChanged(desktopPaper);
+}
+
+void PersonalizationModel::setLockPaper(const QString &wallpaper)
+{
+    if (m_lockPaper == wallpaper) {
+        return;
+    }
+
+    m_lockPaper = wallpaper;
+    Q_EMIT lockPaperChanged(wallpaper);
+}

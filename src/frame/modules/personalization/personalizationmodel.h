@@ -67,6 +67,12 @@ public:
     inline bool getAllowSwitch() {return m_allowSwitch;}
     void setCompositingAllowSwitch(bool value);
 
+    inline QString desktopPaper() const { return m_desktopPaper; }
+    void setDesktopPaper(const QStringList &wallpaper);
+
+    inline QString lockPaper() const { return m_lockPaper; }
+    void setLockPaper(const QString &wallpaper);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void onOpacityChanged(std::pair<int, double> opacity);
@@ -75,6 +81,8 @@ Q_SIGNALS:
     void onCompositingAllowSwitch(bool value);
     void onWindowRadiusChanged(int radius);
     void onSaveWindowRadiusChanged(int radius);
+    void desktopPaperChanged(const QString &wallpaper);
+    void lockPaperChanged(const QString &wallpaper);
 
 private:
     ThemeModel    *m_windowModel;
@@ -89,6 +97,8 @@ private:
     QString m_activeColor;
     bool m_allowSwitch;
     int m_windowRadius;
+    QString m_desktopPaper;
+    QString m_lockPaper;
 };
 }
 }

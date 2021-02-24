@@ -38,11 +38,13 @@
 #include <com_deepin_wmswitcher.h>
 #include <com_deepin_wm.h>
 #include <org_kde_kwin_effects.h>
+#include <com_deepin_daemon_accounts_user.h>
 
 using Appearance = com::deepin::daemon::Appearance;
 using WMSwitcher = com::deepin::WMSwitcher;
 using WM = com::deepin::wm;
 using Effects=org::kde::kwin::Effects;
+using User = com::deepin::daemon::accounts::User;
 
 namespace dcc
 {
@@ -69,6 +71,8 @@ public Q_SLOTS:
     void setMiniEffect(int effect);
     void setActiveColor(const QString &hexColor);
     void setWindowRadius(int radius);
+    void setDesktopWallpaper(const QString &wallpaper);
+    void setLockWallpaper(const QString &wallpaper);
 
 private Q_SLOTS:
     void FontSizeChanged(const double value) const;
@@ -98,6 +102,7 @@ private:
 
     template<typename T>
     T toSliderValue(std::vector<T> list, T value);
+    void initWallpaper();
 
 private:
     PersonalizationModel *m_model;
@@ -108,6 +113,7 @@ private:
     QMap<QString, ThemeModel*> m_themeModels;
     QMap<QString, FontModel*> m_fontModels;
     QGSettings *m_setting;
+    User *m_userInter;
 };
 }
 }
