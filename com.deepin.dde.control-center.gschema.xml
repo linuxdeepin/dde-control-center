@@ -384,5 +384,100 @@
             <summary></summary>
             <description>default is Enabled</description>
         </key>
+		<key name="wired-switch" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="add-connection" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="remove-connection" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wired-edit-connection-name" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wired-auto-connect" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wired-security" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wired-ipv4" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wired-ipv6" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wired-ether-net" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wireless" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wireless-auto-connect" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wireless-security" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wireless-ipv4" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wireless-ipv6" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="wireless-wlan" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="create-pppoe" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="create-vpn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="import-vpn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+		<key name="create-hotspot" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
     </schema>
 </schemalist>

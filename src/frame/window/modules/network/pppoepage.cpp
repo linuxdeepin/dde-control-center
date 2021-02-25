@@ -31,6 +31,7 @@
 #include "widgets/loadingnextpagewidget.h"
 #include "widgets/switchwidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <networkmodel.h>
 #include <wireddevice.h>
@@ -55,6 +56,7 @@ PppoePage::PppoePage(QWidget *parent)
     m_createBtn->setMinimumSize(QSize(47, 47));
     m_createBtn->setToolTip(tr("Create PPPoE Connection"));
     m_createBtn->setAccessibleName(tr("Create PPPoE Connection"));
+    GSettingWatcher::instance()->bind("createPppoe", m_createBtn);
 
     m_lvsettings->setAccessibleName("List_pppoelist");
     m_lvsettings->setModel(m_modelSettings);
@@ -83,6 +85,7 @@ PppoePage::PppoePage(QWidget *parent)
 
 PppoePage::~PppoePage()
 {
+    GSettingWatcher::instance()->erase("createPppoe", m_createBtn);
     if (!m_editPage.isNull())
         m_editPage->deleteLater();
 }

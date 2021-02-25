@@ -32,6 +32,7 @@
 #include "widgets/tipsitem.h"
 #include "widgets/titlelabel.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DStyle>
 #include <DStyleHelper>
@@ -51,6 +52,7 @@
 #include <QStandardItemModel>
 #include <QThread>
 #include <QScroller>
+#include <QGSettings>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
@@ -292,12 +294,25 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);
     m_switch->setChecked(dev->enabled());
-    m_lvAP->setVisible(dev->enabled());
+
+    QGSettings *gsettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    GSettingWatcher::instance()->bind("wireless", m_switch);
+    m_lvAP->setVisible(dev->enabled() && gsettings->get("wireless").toString() != "Hiden");
+    connect(gsettings, &QGSettings::changed, this, [ = ](const QString &key){
+        if ("wireless" == key) {
+            m_lvAP->setVisible(dev->enabled() && gsettings->get("wireless").toString() != "Hiden");
+            if (gsettings->get("wireless").toString() == "Enabled")
+                m_lvAP->setEnabled(true);
+            else if(gsettings->get("wireless").toString() == "Disabled")
+                m_lvAP->setEnabled(false);
+        }
+    });
+
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
         m_switch->setChecked(enabled);
         if (m_lvAP) {
-            m_lvAP->setVisible(enabled);
+            m_lvAP->setVisible(enabled && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hiden");
             updateLayout(!m_lvAP->isHidden());
         }
     });
@@ -439,7 +454,7 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
 void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
-    m_lvAP->setVisible(m_switch->checked());
+    m_lvAP->setVisible(m_switch->checked() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hiden");
     connect(m_model, &NetworkModel::deviceEnableChanged, this, [this] { m_switch->setChecked(m_device->enabled()); });
     connect(m_device,
             static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
@@ -470,7 +485,7 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
         Q_EMIT requestWirelessScan();
 
     m_clickedItem = nullptr;
-    m_lvAP->setVisible(checked);
+    m_lvAP->setVisible(checked && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hiden");
     updateLayout(!m_lvAP->isHidden());
 }
 
@@ -567,7 +582,7 @@ void WirelessPage::onHotspotEnableChanged(const bool enabled)
 {
     m_closeHotspotBtn->setVisible(enabled);
     m_tipsGroup->setVisible(enabled);
-    m_lvAP->setVisible(!enabled && m_device->enabled());
+    m_lvAP->setVisible(!enabled && m_device->enabled() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hiden");
     updateLayout(!m_lvAP->isHidden());
 }
 
@@ -708,7 +723,7 @@ void WirelessPage::updateActiveAp()
                 });
             }
         } else {
-//            bool isReconnect = it.value()->setLoading(false);
+            //            bool isReconnect = it.value()->setLoading(false);
             //if (isReconnect) {
             connect(it.value()->action(), &QAction::triggered, this, [this, it] {
                 this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),

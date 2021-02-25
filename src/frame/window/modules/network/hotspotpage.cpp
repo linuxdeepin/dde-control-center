@@ -29,6 +29,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/titlelabel.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DFloatingButton>
 
@@ -269,6 +270,7 @@ HotspotPage::HotspotPage(QWidget *parent)
 
     //~ contents_path /network/Personal Hotspot
     m_newprofile->setToolTip(tr("Create Hotspot"));
+    GSettingWatcher::instance()->bind("createHotspot", m_newprofile);
 
     connect(m_newprofile, &QAbstractButton::clicked, [this] {
         if (this->m_listdevw.empty()) {
@@ -276,6 +278,11 @@ HotspotPage::HotspotPage(QWidget *parent)
         }
         this->m_listdevw.front()->openEditPage();
     });
+}
+
+HotspotPage::~HotspotPage()
+{
+    GSettingWatcher::instance()->erase("createHotspot", m_newprofile);
 }
 
 void HotspotPage::setModel(dde::network::NetworkModel *model)

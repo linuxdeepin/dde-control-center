@@ -34,6 +34,7 @@
 #include "widgets/nextpagewidget.h"
 #include "widgets/loadingnextpagewidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <networkmodel.h>
 #include <DFloatingButton>
@@ -120,6 +121,7 @@ VpnPage::VpnPage(QWidget *parent)
     createVpnBtn->setMinimumSize(QSize(47, 47));
     createVpnBtn->setToolTip(tr("Create VPN"));
     createVpnBtn->setAccessibleName(tr("Create VPN"));
+    GSettingWatcher::instance()->bind("createVpn", createVpnBtn);
     buttonsLayout->addWidget(createVpnBtn);
 
     //~ contents_path /network/VPN/Import VPN
@@ -128,6 +130,7 @@ VpnPage::VpnPage(QWidget *parent)
     importVpnBtn->setMinimumSize(QSize(47, 47));
     importVpnBtn->setToolTip(tr("Import VPN"));
     importVpnBtn->setAccessibleName(tr("Import VPN"));
+    GSettingWatcher::instance()->bind("importVpn", importVpnBtn);
     buttonsLayout->addWidget(importVpnBtn);
     buttonsLayout->addStretch();
     mainLayout->addLayout(buttonsLayout);
@@ -142,6 +145,9 @@ VpnPage::VpnPage(QWidget *parent)
 
 VpnPage::~VpnPage()
 {
+    GSettingWatcher::instance()->erase("createVpn");
+    GSettingWatcher::instance()->erase("importVpn");
+
     if (!m_editPage.isNull())
         m_editPage->deleteLater();
 }

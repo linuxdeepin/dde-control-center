@@ -43,6 +43,11 @@ void GSettingWatcher::bind(const QString &gsettingsName, QWidget *binder)
     m_map.insert(gsettingsName, binder);
 
     setStatus(gsettingsName, binder);
+
+    // 自动解绑
+    connect(binder, &QObject::destroyed, this, [=]{
+        erase(m_map.key(binder));
+    });
 }
 
 void GSettingWatcher::erase(const QString &gsettingsName)

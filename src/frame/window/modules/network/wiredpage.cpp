@@ -32,6 +32,7 @@
 #include "widgets/nextpagewidget.h"
 #include "widgets/tipsitem.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DStyleOption>
 
@@ -75,6 +76,8 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);
     m_switch->setChecked(dev->enabled());
+    GSettingWatcher::instance()->bind("wiredSwitch", m_switch);
+    GSettingWatcher::instance()->bind("wiredSwitch", m_lvProfiles);
     m_tipsGrp->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
         Q_EMIT requestDeviceEnabled(m_device->path(), checked);
@@ -87,6 +90,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_createBtn->setMinimumSize(QSize(47, 47));
     //~ contents_path /network/Wired Network/addWiredConnection
     m_createBtn->setToolTip(tr("Add Network Connection"));
+    GSettingWatcher::instance()->bind("addConnection", m_createBtn);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addWidget(m_switch, 0, Qt::AlignTop);
@@ -117,6 +121,12 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     onDeviceStatusChanged(m_device->status());
     QTimer::singleShot(1, this, &WiredPage::refreshConnectionList);
+}
+
+WiredPage::~WiredPage()
+{
+    GSettingWatcher::instance()->erase("addConnection");
+    GSettingWatcher::instance()->erase("wiredSwitch");
 }
 
 void WiredPage::setModel(NetworkModel *model)

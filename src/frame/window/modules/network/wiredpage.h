@@ -59,6 +59,7 @@ class WiredPage : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit WiredPage(dde::network::WiredDevice *dev, QWidget *parent = nullptr);
+    ~ WiredPage();
 
     void setModel(dde::network::NetworkModel *model);
     void jumpPath(const QString &searchPath);
