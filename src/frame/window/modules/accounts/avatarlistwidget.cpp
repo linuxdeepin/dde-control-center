@@ -173,7 +173,10 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
         }
 
         if (fd.exec() == QFileDialog::Accepted) {
-            filepath = fd.selectedFiles().first();
+            QStringList filePaths = fd.selectedFiles();
+            if (!filePaths.isEmpty()) {
+                filepath = filePaths.first();
+            }
         }
     }
 
