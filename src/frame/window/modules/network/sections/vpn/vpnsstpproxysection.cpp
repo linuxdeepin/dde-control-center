@@ -43,6 +43,7 @@ VpnSstpProxySection::VpnSstpProxySection(NetworkManager::VpnSetting::Ptr vpnSett
 
 VpnSstpProxySection::~VpnSstpProxySection()
 {
+    disconnect(m_server->textEdit(), &QLineEdit::editingFinished, this, &VpnSstpProxySection::allInputValid);
 }
 
 bool VpnSstpProxySection::allInputValid()

@@ -118,6 +118,7 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
 
 SecretWirelessSection::~SecretWirelessSection()
 {
+    disconnect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretWirelessSection::saveUserInputPassword);
 }
 
 bool SecretWirelessSection::allInputValid()

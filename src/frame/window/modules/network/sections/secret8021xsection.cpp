@@ -63,6 +63,8 @@ Secret8021xSection::Secret8021xSection(NetworkManager::Security8021xSetting::Ptr
 
 Secret8021xSection::~Secret8021xSection()
 {
+    disconnect(m_password->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::saveUserInputPassword);
+    disconnect(m_identity->textEdit(), &QLineEdit::editingFinished, this, &Secret8021xSection::saveUserInputIdentify);
 }
 
 bool Secret8021xSection::allInputValid()

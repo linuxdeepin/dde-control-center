@@ -59,6 +59,7 @@ SecretHotspotSection::SecretHotspotSection(NetworkManager::WirelessSecuritySetti
 
 SecretHotspotSection::~SecretHotspotSection()
 {
+    disconnect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretHotspotSection::saveUserInputPassword);
 }
 
 bool SecretHotspotSection::allInputValid()
