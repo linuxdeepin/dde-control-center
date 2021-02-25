@@ -41,12 +41,14 @@ RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     , m_model(nullptr)
     , m_monitor(nullptr)
 {
+    addBackground();
+    setMinimumHeight(48);
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
     m_contentLayout->addWidget(m_rotateLabel);
     m_contentLayout->addWidget(m_rotateCombox);
     m_rotateCombox->setFocusPolicy(Qt::NoFocus);
     m_rotateCombox->setMinimumWidth(comboxWidth);
-    addBackground();
+    m_rotateCombox->setMinimumHeight(36);
     setLayout(m_contentLayout);
 
     QStringList rotateList {tr("Standard"), tr("90°"), tr("180°"), tr("270°")};

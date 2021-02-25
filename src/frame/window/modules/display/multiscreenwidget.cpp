@@ -56,6 +56,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_primarySettingsItem(new SettingsItem)
     , m_primaryLabel(new QLabel(tr("Main Screen")))
     , m_primaryCombox(new QComboBox)
+    , m_brightnessSpacerItem(new QSpacerItem(0, 20))
     , m_brightnessWidget(new BrightnessWidget)
     , m_scalingWidget(new ScalingWidget)
     , m_resolutionWidget(new ResolutionWidget)
@@ -63,8 +64,9 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_rotateWidget(new RotateWidget)
     , m_model(nullptr)
 {
+    m_contentLayout->setContentsMargins(56, 0, 56, 0);
     m_contentLayout->addWidget(m_monitorControlWidget);
-
+    m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_multiSettingLabel);
     QHBoxLayout *modeLayout = new QHBoxLayout;
     modeLayout->setContentsMargins(10, 0, 10, 0);
@@ -72,8 +74,11 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     modeLayout->addWidget(m_modeCombox);
     m_modeCombox->setFocusPolicy(Qt::NoFocus);
     m_modeCombox->setMinimumWidth(ComboxWidth);
+    m_modeCombox->setMinimumHeight(36);
     m_modeSettingsItem->addBackground();
+    m_modeSettingsItem->setMinimumHeight(48);
     m_modeSettingsItem->setLayout(modeLayout);
+    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_modeSettingsItem);
 
     QHBoxLayout *primaryLayout = new QHBoxLayout;
@@ -82,17 +87,24 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     primaryLayout->addWidget(m_primaryCombox);
     m_primaryCombox->setFocusPolicy(Qt::NoFocus);
     m_primaryCombox->setMinimumWidth(ComboxWidth);
+    m_primaryCombox->setMinimumHeight(36);
     m_primarySettingsItem->addBackground();
+    m_primarySettingsItem->setMinimumHeight(48);
     m_primarySettingsItem->setLayout(primaryLayout);
+    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_primarySettingsItem);
 
+    m_contentLayout->addSpacerItem(m_brightnessSpacerItem);
     m_contentLayout->addWidget(m_brightnessWidget);
+    m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_scalingWidget);
+    m_contentLayout->addSpacing(30);
     m_contentLayout->addWidget(m_resolutionWidget);
+    m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_refreshRateWidget);
+    m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_rotateWidget);
     m_contentLayout->addStretch();
-    m_contentLayout->setContentsMargins(56, 0, 56, 0);
 
     setLayout(m_contentLayout);
 
@@ -198,7 +210,10 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         m_modeSettingsItem->setVisible(enable);
         m_primarySettingsItem->setVisible(enable);
     });
-    connect(m_model, &DisplayModel::brightnessEnableChanged, m_brightnessWidget, &BrightnessWidget::setVisible);
+    connect(m_model, &DisplayModel::brightnessEnableChanged, this, [=](const bool enable) {
+        m_brightnessSpacerItem->changeSize(0, enable ? 20 : 0);
+        m_brightnessWidget->setVisible(enable);
+    });
 
     connect(m_monitorControlWidget, &MonitorControlWidget::requestMonitorPress, this, &MultiScreenWidget::onMonitorPress);
     connect(m_monitorControlWidget, &MonitorControlWidget::requestMonitorRelease, this, &MultiScreenWidget::onMonitorRelease);
@@ -229,11 +244,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
 
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
-    if (m_model->displayMode() == SINGLE_MODE) {
-        m_monitorControlWidget->setModel(m_model, m_model->primaryMonitor());
-    } else {
-        m_monitorControlWidget->setModel(m_model);
-    }
+    m_monitorControlWidget->setModel(m_model, m_model->displayMode() == SINGLE_MODE ? m_model->primaryMonitor() : nullptr);
     m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable() && (GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hiden"));
     m_modeSettingsItem->setVisible(m_model->resolutionRefreshEnable());
     m_primarySettingsItem->setVisible(m_model->resolutionRefreshEnable());
@@ -241,6 +252,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     m_brightnessWidget->setMode(m_model);
     m_brightnessWidget->showBrightness(m_model->displayMode() == MERGE_MODE ? nullptr : m_model->primaryMonitor());
     m_brightnessWidget->setVisible(m_model->brightnessEnable());
+    m_brightnessSpacerItem->changeSize(0, m_model->brightnessEnable() ? 20 : 0);
     m_scalingWidget->setModel(m_model);
     m_resolutionWidget->setModel(m_model, m_model->primaryMonitor());
     m_refreshRateWidget->setModel(m_model, m_model->primaryMonitor());

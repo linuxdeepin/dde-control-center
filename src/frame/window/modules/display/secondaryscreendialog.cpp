@@ -58,11 +58,15 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
+    m_contentLayout->setContentsMargins(35, 0, 35, 40);
     m_contentLayout->addWidget(m_monitorControlWidget);
+    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_resolutionWidget);
+    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_refreshRateWidget);
+    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_rotateWidget);
-    m_contentLayout->setContentsMargins(35, 0, 35, 0);
+    m_contentLayout->addStretch();
 
     setLayout(m_contentLayout);
     show();
@@ -96,7 +100,6 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
     if (m_monitor->canBrightness()) {
         TitleLabel *headTitle = new TitleLabel(tr("Brightness")); //亮度
         DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T7, QFont::Normal);
-        m_contentLayout->insertWidget(1, headTitle);
 
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(m_monitor->name());
@@ -202,12 +205,18 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
                         slider->blockSignals(false);
                     });
         }
-        m_contentLayout->insertWidget(2, slideritem);
-        headTitle->setVisible(m_model->brightnessEnable());
-        slideritem->setVisible(m_model->brightnessEnable());
-        connect(m_model, &DisplayModel::brightnessEnableChanged, this, [=](const bool enable) {
-            headTitle->setVisible(enable);
-            slideritem->setVisible(enable);
+        QWidget *brightnessWidget = new QWidget;
+        QVBoxLayout *brightnessLayout = new QVBoxLayout;
+        brightnessLayout->setContentsMargins(0, 10, 0, 10);
+        brightnessLayout->addWidget(headTitle);
+        brightnessLayout->addSpacing(10);
+        brightnessLayout->addWidget(slideritem);
+        brightnessWidget->setLayout(brightnessLayout);
+        m_contentLayout->insertWidget(1, brightnessWidget);
+        brightnessWidget->setVisible(m_model->brightnessEnable());
+        connect(m_model, &DisplayModel::brightnessEnableChanged, this, [this, brightnessWidget](const bool enable) {
+            brightnessWidget->setVisible(enable);
+            resetDialog();
         });
     }
 

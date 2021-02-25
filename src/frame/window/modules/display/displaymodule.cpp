@@ -161,7 +161,9 @@ void DisplayModule::showSingleScreenWidget()
     connect(brightnessWidget, &BrightnessWidget::requestSetMonitorBrightness, m_displayWorker, &DisplayWorker::setMonitorBrightness);
     connect(brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
     connect(brightnessWidget, &BrightnessWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
-    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, brightnessWidget, &BrightnessWidget::setVisible);
+
+    QSpacerItem *scalingSpacerItem = new QSpacerItem(0, m_displayModel->brightnessEnable() ? 20 : 0);
+    contentLayout->addSpacerItem(scalingSpacerItem);
 
     ScalingWidget *scalingWidget = new ScalingWidget;
     scalingWidget->setModel(m_displayModel);
@@ -169,21 +171,27 @@ void DisplayModule::showSingleScreenWidget()
     connect(scalingWidget, &ScalingWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
     connect(scalingWidget, &ScalingWidget::requestIndividualScaling, m_displayWorker, &DisplayWorker::setIndividualScaling);
 
+    QSpacerItem *resolutionSpacerItem = new QSpacerItem(0, 30);
+    contentLayout->addSpacerItem(resolutionSpacerItem);
+
     ResolutionWidget *resolutionWidget = new ResolutionWidget;
     resolutionWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
     GSettingWatcher::instance()->bind("displayResolution", resolutionWidget);  // 使用GSettings来控制显示状态
+    contentLayout->addSpacing(20);
     contentLayout->addWidget(resolutionWidget);
     connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
 
     RefreshRateWidget *refreshRateWidget = new RefreshRateWidget;
     refreshRateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
     GSettingWatcher::instance()->bind("displayRefreshRate", refreshRateWidget);  // 使用GSettings来控制显示状态
+    contentLayout->addSpacing(20);
     contentLayout->addWidget(refreshRateWidget);
     connect(refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
 
     RotateWidget *rotateWidget = new RotateWidget;
     rotateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
     GSettingWatcher::instance()->bind("displayRotate", rotateWidget);  // 使用GSettings来控制显示状态
+    contentLayout->addSpacing(20);
     contentLayout->addWidget(rotateWidget);
     connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
 
@@ -192,6 +200,11 @@ void DisplayModule::showSingleScreenWidget()
     QWidget *singleScreenWidget = new QWidget;
     singleScreenWidget->setLayout(contentLayout);
     m_displayWidget->setContent(singleScreenWidget);
+
+    connect(m_displayModel, &DisplayModel::brightnessEnableChanged, this, [brightnessWidget, scalingSpacerItem](const bool enable) {
+        scalingSpacerItem->changeSize(0, enable ? 20 : 0);
+        brightnessWidget->setVisible(enable);
+    });
 }
 
 void DisplayModule::showMultiScreenWidget()

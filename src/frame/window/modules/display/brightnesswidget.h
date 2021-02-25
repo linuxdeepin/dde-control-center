@@ -31,6 +31,7 @@
 
 QT_BEGIN_NAMESPACE
 class QLabel;
+class QSpacerItem;
 class QVBoxLayout;
 QT_END_NAMESPACE
 
@@ -81,7 +82,11 @@ private:
     dcc::display::DisplayModel *m_displayModel;
 
     QVBoxLayout *m_centralLayout;
+    TitleLabel *m_brightnessTitle;
+    QSpacerItem *m_autoLightSpacerItem;
     dcc::widgets::SwitchWidget *m_autoLightMode;
+    QSpacerItem *m_colorSpacerItem;
+    QWidget *m_tempratureColorWidget;
     TitleLabel *m_tempratureColorTitle;
     dcc::widgets::SwitchWidget *m_nightShift;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_nightTips;
@@ -90,7 +95,7 @@ private:
     dcc::widgets::TitledSliderItem *m_cctItem;
 
     int m_miniScales = 0;
-    QMap<dcc::display::Monitor *, dcc::widgets::TitledSliderItem *> m_monitorBrightnessMap;
+    QMap<dcc::display::Monitor *, QWidget *> m_monitorBrightnessMap;
 };
 
 } // namespace display

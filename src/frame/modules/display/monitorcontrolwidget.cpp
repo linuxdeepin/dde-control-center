@@ -41,11 +41,16 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     , m_gather(new QPushButton(QIcon::fromTheme("dcc_gather"), tr("Gather Windows")))
 {
     m_recognize->setFocusPolicy(Qt::NoFocus);
+    m_recognize->setMinimumWidth(106);
+    m_recognize->setMinimumHeight(36);
     m_gather->setFocusPolicy(Qt::NoFocus);
+    m_gather->setMinimumWidth(106);
+    m_gather->setMinimumHeight(36);
 
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addStretch();
     btnsLayout->addWidget(m_recognize);
+    btnsLayout->addSpacing(20);
     btnsLayout->addWidget(m_gather);
     btnsLayout->addStretch();
 

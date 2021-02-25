@@ -54,6 +54,7 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     DFontSizeManager::instance()->bind(m_tip, DFontSizeManager::T5, QFont::DemiBold);
 
     m_centralLayout->addWidget(m_tip);
+    m_centralLayout->addSpacing(10);
     setLayout(m_centralLayout);
 }
 
@@ -105,10 +106,9 @@ void ScalingWidget::addSlider(int monitorID)
     if (m_displayModel->monitorList().size() == 0)
         return;
 
-    m_slider = new TitledSliderItem("");
+    m_slider = new TitledSliderItem;
     m_slider->addBackground();
     const QStringList maxList = {"1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"};
-    ;
     QStringList fscaleList = maxList;
     for (auto moni : m_displayModel->monitorList()) {
         if (!moni->enable()) {

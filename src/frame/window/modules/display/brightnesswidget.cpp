@@ -51,27 +51,41 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     : QWidget(parent)
     , m_displayModel(nullptr)
     , m_centralLayout(new QVBoxLayout)
+    , m_brightnessTitle(new TitleLabel(tr("Brightness")))
+    , m_autoLightSpacerItem(new QSpacerItem(0, 10))
     , m_autoLightMode(new SwitchWidget)
+    , m_colorSpacerItem(new QSpacerItem(0, 20))
+    , m_tempratureColorWidget(new QWidget)
+    , m_tempratureColorTitle(new TitleLabel(tr("Color Temperature")))
     , m_nightShift(new SwitchWidget)
     , m_settingsGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_nightManual(new SwitchWidget)
     , m_cctItem(new TitledSliderItem)
 {
     m_centralLayout->setMargin(0);
-    m_centralLayout->setSpacing(10);
+
+    GSettingWatcher::instance()->bind("displayLightLighting", m_brightnessTitle);  // 使用GSettings来控制显示状态
+    m_centralLayout->addWidget(m_brightnessTitle);
+
+    m_centralLayout->addSpacerItem(m_autoLightSpacerItem);
 
     //~ contents_path /display/Brightness
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_autoLightMode->addBackground();
     m_centralLayout->addWidget(m_autoLightMode);
 
-    m_tempratureColorTitle = new TitleLabel(tr("Color Temperature")); //色温
-    m_centralLayout->addWidget(m_tempratureColorTitle);
+    m_centralLayout->addSpacerItem(m_colorSpacerItem);
+
+    QVBoxLayout *colorLayout = new QVBoxLayout;
+    colorLayout->setMargin(0);
+    colorLayout->addWidget(m_tempratureColorTitle);
 
     //~ contents_path /display/Brightness
     m_nightShift->setTitle(tr("Night Shift"));
     m_nightShift->addBackground();
-    m_centralLayout->addWidget(m_nightShift);
+    colorLayout->addSpacing(10);
+    colorLayout->addWidget(m_nightShift);
+
     m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"));
     m_nightTips->setForegroundRole(DPalette::TextTips);
     m_nightTips->setWordWrap(true);
@@ -79,15 +93,20 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_nightTips->adjustSize();
     m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_nightTips->setContentsMargins(10, 0, 0, 0);
-    m_centralLayout->addWidget(m_nightTips);
+    colorLayout->addSpacing(6);
+    colorLayout->addWidget(m_nightTips);
 
     //~ contents_path /display/Brightness
     m_nightManual->setTitle(tr("Change Color Temperature"));
     m_cctItem->setAnnotations({tr("Cool"), "", tr("Warm")});
     m_settingsGroup->appendItem(m_nightManual);
     m_settingsGroup->appendItem(m_cctItem);
-    m_centralLayout->addWidget(m_settingsGroup);
+    colorLayout->addSpacing(20);
+    colorLayout->addWidget(m_settingsGroup);
 
+    m_tempratureColorWidget->setLayout(colorLayout);
+    GSettingWatcher::instance()->bind("displayColorTemperature", m_tempratureColorWidget);  // 使用GSettings来控制显示状态
+    m_centralLayout->addWidget(m_tempratureColorWidget);
     setLayout(m_centralLayout);
 }
 
@@ -102,12 +121,9 @@ void BrightnessWidget::setMode(DisplayModel *model)
 
     connect(m_autoLightMode, &SwitchWidget::checkedChanged, this, &BrightnessWidget::requestAmbientLightAdjustBrightness);
     connect(m_displayModel, &DisplayModel::adjustCCTmodeChanged, this, &BrightnessWidget::setAdjustCCTmode);
-    connect(m_displayModel, &DisplayModel::redshiftVaildChanged, this, [ = ](const bool visible) {
+    connect(m_displayModel, &DisplayModel::redshiftVaildChanged, this, [=](const bool visible) {
         if ("Hiden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) {
-            m_tempratureColorTitle->setVisible(visible);
-            m_nightTips->setVisible(visible);
-            m_nightShift->setVisible(visible);
-            m_autoLightMode->setVisible(visible);
+            m_tempratureColorWidget->setVisible(visible);
         }
     });
     connect(m_nightManual, &SwitchWidget::checkedChanged, this, [=](const bool enable) {
@@ -124,25 +140,20 @@ void BrightnessWidget::setMode(DisplayModel *model)
             Q_EMIT requestSetMethodAdjustCCT(0);
         }
     });
+    connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, this, [=](const bool enable) {
+        m_autoLightSpacerItem->changeSize(0, enable ? 10 : 0);
+        m_autoLightMode->setVisible(enable);
+    });
     connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);
 
-    // 使用GSettings来控制显示状态
-    GSettingWatcher::instance()->bind("displayColorTemperature", m_tempratureColorTitle);
-    GSettingWatcher::instance()->bind("displayColorTemperature", m_nightShift);
-    GSettingWatcher::instance()->bind("displayColorTemperature", m_nightTips);
-    GSettingWatcher::instance()->bind("displayColorTemperature", m_nightManual);
-    GSettingWatcher::instance()->bind("displayColorTemperature", m_autoLightMode);
-
     if ("Hiden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) {
+        m_autoLightSpacerItem->changeSize(0, model->autoLightAdjustIsValid() ? 10 : 0);
         m_autoLightMode->setVisible(model->autoLightAdjustIsValid());
         m_autoLightMode->setChecked(model->isAudtoLightAdjust());
-        int cctmode = model->adjustCCTMode(); //0不调节色温  1  自动调节   2手动调节
-        m_nightShift->setVisible(model->redshiftIsValid());
-        m_tempratureColorTitle->setVisible(model->redshiftIsValid());
-        m_nightManual->setVisible(model->redshiftIsValid());
-        m_nightTips->setVisible(model->redshiftIsValid());
-        setAdjustCCTmode(cctmode);
+        m_tempratureColorWidget->setVisible(model->redshiftIsValid());
+        setAdjustCCTmode(model->adjustCCTMode()); //0不调节色温  1  自动调节   2手动调节
     }
+
     addSlider();
 }
 
@@ -152,19 +163,16 @@ void BrightnessWidget::setAdjustCCTmode(int mode)
     m_nightManual->blockSignals(true);
     m_nightShift->switchButton()->setChecked(mode == 1);
     m_nightManual->switchButton()->setChecked(mode == 2);
-    if (m_cctItem) {
-        m_cctItem->blockSignals(true);
-        m_cctItem->setVisible(m_displayModel->adjustCCTMode() == 2);
-        m_cctItem->blockSignals(false);
-    }
-
+    m_cctItem->blockSignals(true);
+    m_cctItem->setVisible(m_displayModel->adjustCCTMode() == 2);
+    m_cctItem->blockSignals(false);
     m_nightShift->blockSignals(false);
     m_nightManual->blockSignals(false);
 }
 
 void BrightnessWidget::showBrightness(Monitor *monitor)
 {
-    QMap<Monitor *, TitledSliderItem *>::Iterator iter;
+    QMap<Monitor *, QWidget *>::Iterator iter;
     for (iter = m_monitorBrightnessMap.begin(); iter != m_monitorBrightnessMap.end(); ++iter) {
         iter.value()->setVisible(monitor == nullptr || iter.key() == monitor);
     }
@@ -179,14 +187,9 @@ void BrightnessWidget::addSlider()
         }
     }
 
-    TitleLabel *headTitle = new TitleLabel(tr("Brightness")); //亮度
-    DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
-    GSettingWatcher::instance()->bind("displayLightLighting", headTitle);  // 使用GSettings来控制显示状态
-    m_centralLayout->insertWidget(0, headTitle);
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name());
-
         slideritem->addBackground();
         DCCSlider *slider = slideritem->slider();
         int maxBacklight = static_cast<int>(m_displayModel->maxBacklightBrightness());
@@ -291,9 +294,14 @@ void BrightnessWidget::addSlider()
                         slider->blockSignals(false);
                     });
         }
+        QWidget *brightnessSlideritem = new QWidget;
+        QVBoxLayout *sliderLayout = new QVBoxLayout;
+        sliderLayout->setContentsMargins(0, 10, 0, 0);
         GSettingWatcher::instance()->bind("displayLightLighting", slideritem);  // 使用GSettings来控制显示状态
-        m_centralLayout->insertWidget(1, slideritem);
-        m_monitorBrightnessMap[monList[i]] = slideritem;
+        sliderLayout->addWidget(slideritem);
+        brightnessSlideritem->setLayout(sliderLayout);
+        m_centralLayout->insertWidget(1, brightnessSlideritem);
+        m_monitorBrightnessMap[monList[i]] = brightnessSlideritem;
     }
 
     DCCSlider *cctSlider = m_cctItem->slider();
@@ -303,11 +311,6 @@ void BrightnessWidget::addSlider()
     cctSlider->setTickInterval(10);
     cctSlider->setPageStep(1);
     cctSlider->setValue(colorTemperatureToValue(m_displayModel->colorTemperature()));
-    if (m_displayModel->redshiftIsValid()) {
-        m_cctItem->setVisible(m_displayModel->adjustCCTMode() == 2);
-    } else
-        m_cctItem->setVisible(false);
-    GSettingWatcher::instance()->bind("displayColorTemperature", m_cctItem);  // 使用GSettings来控制显示状态
     connect(m_displayModel, &DisplayModel::colorTemperatureChanged, this, [=](int value) {
         cctSlider->blockSignals(true);
         cctSlider->setValue(colorTemperatureToValue(value));

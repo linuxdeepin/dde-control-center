@@ -30,6 +30,7 @@ class Resolution;
 QT_BEGIN_NAMESPACE
 class QLabel;
 class QComboBox;
+class QSpacerItem;
 class QHBoxLayout;
 class QVBoxLayout;
 QT_END_NAMESPACE
@@ -104,6 +105,7 @@ private:
     dcc::widgets::SettingsItem *m_primarySettingsItem;
     QLabel *m_primaryLabel;
     QComboBox *m_primaryCombox;
+    QSpacerItem *m_brightnessSpacerItem;
     BrightnessWidget *m_brightnessWidget;
     ScalingWidget *m_scalingWidget;
     ResolutionWidget *m_resolutionWidget;
