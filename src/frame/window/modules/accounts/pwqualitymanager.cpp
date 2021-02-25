@@ -24,9 +24,9 @@
 
 using namespace DCC_NAMESPACE;
 PwqualityManager::PwqualityManager()
+    : m_passwordMinLen(0)
+    , m_passwordMaxLen(0)
 {
-    m_passwordMinLen = get_pw_min_length(LEVEL_STRICT_CHECK);
-    m_passwordMaxLen = get_pw_max_length(LEVEL_STRICT_CHECK);
 }
 
 PwqualityManager *PwqualityManager::instance()
@@ -48,6 +48,9 @@ PwqualityManager::ERROR_TYPE PwqualityManager::verifyPassword(const QString &use
 
 QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type)
 {
+    m_passwordMinLen = get_pw_min_length(LEVEL_STRICT_CHECK);
+    m_passwordMaxLen = get_pw_max_length(LEVEL_STRICT_CHECK);
+
     QMap<int, QString> PasswordFlagsStrMap = {
         {PW_ERR_PASSWORD_EMPTY, tr("Password cannot be empty")},
         {PW_ERR_LENGTH_SHORT, tr("Password must have at least %1 characters").arg(m_passwordMinLen)},

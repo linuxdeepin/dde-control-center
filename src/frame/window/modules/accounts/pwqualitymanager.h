@@ -53,7 +53,6 @@ private:
 
     int m_passwordMinLen;
     int m_passwordMaxLen;
-    int m_checkLevel;
 };
 
 #endif  // DEEPIN_INSTALLER_PWQUALITY_MANAGER_H
