@@ -2,5 +2,6 @@
        "type": "homebrew",
        "3rdparty": [],
        "ignore": ["translations"],
-       "license": []
+       "license": [],
+       "importantFile": ["com.deepin.controlcenter.addomain.policy", "com.deepin.controlcenter.develop.policy", "com.deepin.dde.control-center.gschema.xml", "com.deepin.dde.ControlCenter.service", "files/dde-control-center.conf.in"， "dde-control-center.desktop"]
    }
