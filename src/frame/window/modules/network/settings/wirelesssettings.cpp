@@ -25,6 +25,7 @@
 #include "../sections/ipvxsection.h"
 #include "../sections/dnssection.h"
 #include "../sections/wirelesssection.h"
+#include "window/gsettingwatcher.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -61,6 +62,13 @@ void WirelessSettings::initSections()
     if (!wirelessSection->ssid().isEmpty()) {
         wirelessSection->setSsidEditable(false);
     }
+
+    // 不用解绑，需要监控的控件有限，不会无限增长
+    GSettingWatcher::instance()->bind("wirelessAutoConnect", genericSection->autoConnItem());
+    GSettingWatcher::instance()->bind("wirelessSecurity", secretSection);
+    GSettingWatcher::instance()->bind("wirelessIpv4", ipv4Section);
+    GSettingWatcher::instance()->bind("wirelessIpv6", ipv6Section);
+    GSettingWatcher::instance()->bind("wirelessWlan", wirelessSection);
 
     connect(genericSection, &GenericSection::editClicked, this, &WirelessSettings::anyEditClicked);
     connect(secretSection, &Secret8021xSection::editClicked, this, &WirelessSettings::anyEditClicked);

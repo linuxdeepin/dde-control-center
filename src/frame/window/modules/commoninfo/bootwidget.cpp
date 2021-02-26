@@ -27,6 +27,7 @@
 #include "widgets/switchwidget.h"
 #include "widgets/labels/tipslabel.h"
 #include "widgets/settingsgroup.h"
+#include "window/gsettingwatcher.h"
 
 #include <DTipLabel>
 #include <DApplicationHelper>
@@ -132,6 +133,17 @@ BootWidget::BootWidget(QWidget *parent)
     connect(m_bootList, &DListView::clicked, this ,&BootWidget::onCurrentItem);
     connect(m_background, &CommonBackgroundItem::requestEnableTheme, this, &BootWidget::enableTheme);
     connect(m_background, &CommonBackgroundItem::requestSetBackground, this, &BootWidget::requestSetBackground);
+
+    GSettingWatcher::instance()->bind("commoninfoBootBootlist", m_bootList);
+    GSettingWatcher::instance()->bind("commoninfoBootBootdelay", m_bootDelay);
+    GSettingWatcher::instance()->bind("commoninfoBootTheme", m_theme);
+}
+
+BootWidget::~BootWidget()
+{
+    GSettingWatcher::instance()->erase("commoninfoBootBootlist", m_bootList);
+    GSettingWatcher::instance()->erase("commoninfoBootBootdelay", m_bootDelay);
+    GSettingWatcher::instance()->erase("commoninfoBootTheme", m_theme);
 }
 
 void BootWidget::setDefaultEntry(const QString &value)

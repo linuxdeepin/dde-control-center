@@ -106,6 +106,7 @@ class HotspotPage : public QWidget
     Q_OBJECT
 public:
     explicit HotspotPage(QWidget *parent = nullptr);
+    ~ HotspotPage();
     void setModel(dde::network::NetworkModel *model);
 
 Q_SIGNALS:

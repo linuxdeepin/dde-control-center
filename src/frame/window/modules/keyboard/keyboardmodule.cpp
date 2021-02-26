@@ -29,6 +29,7 @@
 #include "systemlanguagewidget.h"
 #include "systemlanguagesettingwidget.h"
 #include "widgets/settingshead.h"
+#include "window/gsettingwatcher.h"
 #include "modules/keyboard/keyboardwork.h"
 #include "modules/keyboard/keyboardmodel.h"
 #include "modules/keyboard/shortcutmodel.h"
@@ -45,6 +46,11 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
     , ModuleInterface(frame)
     , m_keyboardWidget(nullptr)
 {
+}
+
+KeyboardModule::~KeyboardModule()
+{
+    GSettingWatcher::instance()->erase("keyboardShortcut");
 }
 
 void KeyboardModule::initialize()
@@ -221,6 +227,7 @@ void KeyboardModule::showShortCutSetting()
 {
     m_work->refreshShortcut();
     m_shortcutSettingWidget = new ShortCutSettingWidget(m_shortcutModel);
+    GSettingWatcher::instance()->bind("keyboardShortcut", m_shortcutSettingWidget);  // 使用GSettings来控制显示状态
     m_shortcutSettingWidget->setVisible(false);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::customShortcut, this, &KeyboardModule::onPushCustomShortcut);
     connect(m_shortcutSettingWidget, &ShortCutSettingWidget::delShortcutInfo, m_work, &KeyboardWorker::delShortcut);
@@ -236,7 +243,7 @@ void KeyboardModule::showShortCutSetting()
     connect(m_work, &KeyboardWorker::onResetFinished, m_shortcutSettingWidget, &ShortCutSettingWidget::onResetFinished);
 
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
-    m_shortcutSettingWidget->setVisible(true);
+    m_shortcutSettingWidget->setVisible(GSettingWatcher::instance()->getStatus("keyboardShortcut") != "Hiden");
 }
 
 void KeyboardModule::onPushSystemLanguageSetting()

@@ -22,6 +22,7 @@
 #include "microphonepage.h"
 #include "modules/sound/soundmodel.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <com_deepin_daemon_audio_source.h>
 
@@ -111,6 +112,10 @@ MicrophonePage::~MicrophonePage()
         m_feedbackSlider->disconnect(m_conn);
     m_feedbackSlider->deleteLater();
 #endif
+
+    GSettingWatcher::instance()->erase("soundInputSlider");
+    GSettingWatcher::instance()->erase("soundFeedbackSlider");
+    GSettingWatcher::instance()->erase("soundNoiseReduce");
 }
 
 /**当用户进入扬声器端口手动切换蓝牙输出端口后，再进入麦克风页面时
@@ -352,6 +357,11 @@ void MicrophonePage::initSlider()
 
     refreshIcon();
     showDevice();
+
+    // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("soundInputSlider", m_inputSlider);
+    GSettingWatcher::instance()->bind("soundFeedbackSlider", m_feedbackSlider);
+    GSettingWatcher::instance()->bind("soundNoiseReduce", m_noiseReductionsw);
 }
 
 void MicrophonePage::refreshIcon()
@@ -393,9 +403,12 @@ void MicrophonePage::showDevice()
 void MicrophonePage::setDeviceVisible(bool visable)
 {
     if (visable) {
-        m_feedbackSlider->show();
-        m_inputSlider->show();
-        m_noiseReductionsw->setVisible(m_noiseReduce);
+        if (GSettingWatcher::instance()->getStatus("soundFeedbackSlider") != "Hiden")
+            m_feedbackSlider->show();
+        if (GSettingWatcher::instance()->getStatus("soundInputSlider") != "Hiden")
+            m_inputSlider->show();
+        if (GSettingWatcher::instance()->getStatus("soundNoiseReduce") != "Hiden")
+            m_noiseReductionsw->setVisible(m_noiseReduce);
     } else {
         m_feedbackSlider->hide();
         m_inputSlider->hide();

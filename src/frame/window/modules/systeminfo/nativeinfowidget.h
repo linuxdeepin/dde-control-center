@@ -44,6 +44,7 @@ class NativeInfoWidget : public ContentWidget
     Q_OBJECT
 public:
     explicit NativeInfoWidget(dcc::systeminfo::SystemInfoModel *model, QWidget *parent = nullptr);
+    virtual ~NativeInfoWidget();
 
 private:
     void initWidget();

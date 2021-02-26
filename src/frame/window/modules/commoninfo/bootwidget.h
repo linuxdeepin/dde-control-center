@@ -45,6 +45,7 @@ class BootWidget : public QWidget
     Q_OBJECT
 public:
     explicit BootWidget(QWidget *parent = nullptr);
+    virtual ~BootWidget();
 
     void setDefaultEntry(const QString &value);
     void setModel(CommonInfoModel *model);

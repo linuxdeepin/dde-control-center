@@ -81,6 +81,7 @@ class PersonalizationGeneral : public QWidget
     Q_OBJECT
 public:
     explicit PersonalizationGeneral(QWidget *parent = nullptr);
+    virtual ~PersonalizationGeneral();
     void setModel(dcc::personalization::PersonalizationModel *model);
     inline PerssonalizationThemeWidget *getThemeWidget() { return m_Themes; }
 

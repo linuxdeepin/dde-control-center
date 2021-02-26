@@ -24,6 +24,7 @@
 #include "settings/wiredsettings.h"
 #include "settings/wirelesssettings.h"
 #include "settings/dslpppoesettings.h"
+#include "window/gsettingwatcher.h"
 
 #include <networkmanagerqt/settings.h>
 #include <networkmanagerqt/security8021xsetting.h>
@@ -88,6 +89,7 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
 
 ConnectionEditPage::~ConnectionEditPage()
 {
+    GSettingWatcher::instance()->erase("removeConnection", m_removeBtn);
 }
 
 void ConnectionEditPage::initUI()
@@ -101,6 +103,7 @@ void ConnectionEditPage::initUI()
     m_disconnectBtn->setVisible(false);
     m_removeBtn->setText(tr("Delete"));
     m_removeBtn->setVisible(false);
+    GSettingWatcher::instance()->bind("removeConnection", m_removeBtn);
 
     QPushButton *cancelBtn = m_buttonTuple->leftButton();
     QPushButton *acceptBtn = m_buttonTuple->rightButton();

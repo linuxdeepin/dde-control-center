@@ -23,6 +23,7 @@
 #include "widgets/filechoosewidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/comboxwidget.h"
+#include "window/gsettingwatcher.h"
 
 #include <QComboBox>
 

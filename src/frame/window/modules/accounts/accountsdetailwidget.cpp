@@ -25,6 +25,7 @@
 #include "window/utils.h"
 #include "modules/accounts/usermodel.h"
 #include "modules/accounts/removeuserdialog.h"
+#include "window/gsettingwatcher.h"
 
 #include <DIconButton>
 #include <DWarningButton>
@@ -46,6 +47,9 @@
 #include <QScrollArea>
 #include <QScroller>
 #include <QValidator>
+#include <QGSettings>
+#include <QByteArray>
+#include <QPointer>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -60,6 +64,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_avatarLayout(new QHBoxLayout)
     , m_tipDialog(nullptr)
     , m_deleteAccount(new DWarningButton)
+    , m_modifyPassword(new QPushButton)
+    , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -99,6 +105,12 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     if (m_isServerSystem) {
         initGroups(contentLayout);
     }
+}
+
+AccountsDetailWidget::~AccountsDetailWidget()
+{
+    GSettingWatcher::instance()->erase("accountUserFullnamebtn", m_fullNameBtn);
+    GSettingWatcher::instance()->erase("accountUserModifypasswd", m_modifyPassword);
 }
 
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
@@ -207,6 +219,8 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     fullnameLayout->addWidget(m_inputLineEdit);
     fullnameLayout->setContentsMargins(10, 0, 10, 0);
     layout->addLayout(fullnameLayout);
+
+    GSettingWatcher::instance()->bind("accountUserFullnamebtn", m_fullNameBtn);
 
     m_avatarListWidget = new AvatarListWidget(m_curUser, this);
     m_avatarListWidget->setAccessibleName("List_useravatarlist");
@@ -323,11 +337,9 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
 
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 {
-    QPushButton *modifyPassword = new QPushButton;
-
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
-    modifydelLayout->addWidget(modifyPassword);
+    modifydelLayout->addWidget(m_modifyPassword);
     modifydelLayout->addSpacing(10);
     modifydelLayout->addWidget(m_deleteAccount);
     layout->addSpacing(40);
@@ -400,12 +412,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
-    modifyPassword->setEnabled(isCurUser);
+    m_modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
     //~ contents_path /accounts/Accounts Detail
-    modifyPassword->setText(tr("Change Password"));
+    m_modifyPassword->setText(tr("Change Password"));
     //~ contents_path /accounts/Accounts Detail
     m_deleteAccount->setText(tr("Delete Account"));
     //~ contents_path /accounts/Accounts Detail
@@ -415,8 +427,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
+    GSettingWatcher::instance()->bind("accountUserModifypasswd", m_modifyPassword);
+
     //修改密码
-    connect(modifyPassword, &QPushButton::clicked, [ = ] {
+    connect(m_modifyPassword, &QPushButton::clicked, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
     });
 
@@ -505,11 +519,16 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
                 && !isOnlyAdminOnDesktop(); // 不是桌面版的最后一个管理员
     };
 
-    m_deleteAccount->setEnabled(deleteUserBtnEnable());
+    setDeleteBtnStatus("accountUserDeleteaccount", deleteUserBtnEnable());
+
     connect(m_curUser, &User::onlineChanged, m_deleteAccount,
             [=]() { m_deleteAccount->setEnabled(deleteUserBtnEnable()); });
     connect(m_userModel, &UserModel::adminCntChange, m_deleteAccount,
             [=]() { m_deleteAccount->setEnabled(deleteUserBtnEnable()); });
+
+    connect(m_gsettings, &QGSettings::changed, m_deleteAccount, [=](const QString &key) {
+        setDeleteBtnStatus(key, deleteUserBtnEnable());
+    });
 
     if (!m_groupItemModel)
         return;
@@ -567,6 +586,22 @@ void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
 void AccountsDetailWidget::resetDelButtonState()
 {
     m_deleteAccount->setEnabled(true);
+}
+
+void AccountsDetailWidget::setDeleteBtnStatus(const QString &key, const bool &status)
+{
+    if ("accountUserDeleteaccount" != key)
+        return;
+
+    const QString deleteBtnStatus = m_gsettings->get(key).toString();
+
+    if ("Enabled" == deleteBtnStatus) {
+        m_deleteAccount->setEnabled(status);
+    } else if ("Disabled" == deleteBtnStatus) {
+        m_deleteAccount->setEnabled(false);
+    }
+
+    m_deleteAccount->setVisible("Hiden" != deleteBtnStatus);
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)

@@ -51,6 +51,7 @@ class UpdateSettings : public dcc::ContentWidget
 
 public:
     explicit UpdateSettings(dcc::update::UpdateModel *model, QWidget *parent = 0);
+    virtual ~UpdateSettings();
 
     void setModel(dcc::update::UpdateModel *model);
 

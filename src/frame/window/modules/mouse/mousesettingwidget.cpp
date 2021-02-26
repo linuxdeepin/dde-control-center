@@ -20,6 +20,7 @@
  */
 #include "mousesettingwidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
@@ -63,6 +64,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     speedSlider->setTickInterval(1);
     speedSlider->setPageStep(1);
     m_mouseMoveSlider->setAnnotations(speedList);
+    GSettingWatcher::instance()->bind("mouseSpeedSlider", m_mouseMoveSlider);
 
     m_mouseSettingsGrp->setSpacing(List_Interval);
     m_mouseSettingsGrp->appendItem(m_mouseMoveSlider);
@@ -85,6 +87,11 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);
     connect(m_disTchStn, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetDisTouchPad);
     connect(m_mouseNaturalScroll, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetMouseNaturalScroll);
+}
+
+MouseSettingWidget::~MouseSettingWidget()
+{
+    GSettingWatcher::instance()->erase("mouseSpeedSlider");
 }
 
 void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
