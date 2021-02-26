@@ -49,6 +49,7 @@ class DetailPage : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit DetailPage(const dcc::bluetooth::BluetoothModel *model, const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
+    ~DetailPage();
 
 Q_SIGNALS:
     void requestIgnoreDevice(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);

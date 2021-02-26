@@ -20,6 +20,7 @@
  */
 #include "generalsettingwidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "widgets/switchwidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
@@ -44,6 +45,7 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_generalSettingsGrp = new SettingsGroup;
     //~ contents_path /mouse/General
     m_leftHand = new SwitchWidget(tr("Left Hand"));
+    GSettingWatcher::instance()->bind("mouseLeftHand", m_leftHand);  // 使用GSettings来控制显示状态
     //~ contents_path /mouse/General
     m_disInTyping = new SwitchWidget(tr("Disable touchpad while typing"));
     //~ contents_path /mouse/General
@@ -97,6 +99,11 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     connect(m_disInTyping, &SwitchWidget::checkedChanged, this, &GeneralSettingWidget::requestSetDisTyping);
     connect(m_scrollSpeedSlider->slider(), &DCCSlider::valueChanged, this, &GeneralSettingWidget::requestScrollSpeed);
     connect(m_doubleSlider->slider(), &DCCSlider::valueChanged, this, &GeneralSettingWidget::requestSetDouClick);
+}
+
+GeneralSettingWidget::~GeneralSettingWidget()
+{
+    GSettingWatcher::instance()->erase("mouseLeftHand");
 }
 
 void GeneralSettingWidget::setModel(dcc::mouse::MouseModel *const model)

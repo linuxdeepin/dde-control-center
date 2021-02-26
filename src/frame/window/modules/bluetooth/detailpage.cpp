@@ -25,6 +25,7 @@
 #include "modules/bluetooth/bluetoothmodel.h"
 #include "widgets/translucentframe.h"
 #include "widgets/titlelabel.h"
+#include "window/gsettingwatcher.h"
 
 #include <QVBoxLayout>
 #include <QPushButton>
@@ -53,6 +54,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     m_connectButton = new QPushButton(tr("Connect"));
     m_transfileButton = new QPushButton(tr("Send Files"));
     m_transfileButton->setEnabled(m_bluetoothModel->canTransportable());
+    GSettingWatcher::instance()->bind("bluetoothTransfile", m_transfileButton);  // 使用GSettings来控制显示状态
     setTitle(device->name());
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
@@ -142,6 +144,11 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     connect(backWidgetBtn, &DIconButton::clicked, this, &DetailPage::back);
 }
 
+DetailPage::~DetailPage()
+{
+    GSettingWatcher::instance()->erase("bluetoothTransfile", m_transfileButton);
+}
+
 void DetailPage::onDeviceStatusChanged()
 {
     switch (m_device->state()) {
@@ -149,7 +156,7 @@ void DetailPage::onDeviceStatusChanged()
         if (m_device->connectState()) {
             m_disconnectButton->show();
             m_connectButton->hide();
-            m_transfileButton->setVisible(m_device->canSendFile());
+            m_transfileButton->setVisible(m_device->canSendFile() && GSettingWatcher::instance()->getStatus("bluetoothTransfile") != "Hiden");
             m_ignoreButton->setEnabled(true);
         } else {
             m_connectButton->show();

@@ -33,6 +33,7 @@
 #include "widgets/settingsgroup.h"
 #include "modules/power/powermodel.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/contentwidget.h"
 
@@ -90,6 +91,12 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     powerSettingsGrp->appendItem(m_autoLockScreen);
     powerSettingsGrp->appendItem(m_cmbCloseLid);
     powerSettingsGrp->appendItem(m_cmbPowerBtn);
+    // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("powerLidPresent", m_cmbCloseLid);
+    GSettingWatcher::instance()->bind("powerPressPowerbtn", m_cmbPowerBtn);
+    GSettingWatcher::instance()->bind("powerAutoLockscreen", m_autoLockScreen);
+    GSettingWatcher::instance()->bind("powerMonitorConfigure", m_monitorSleepOnPower);
+    GSettingWatcher::instance()->bind("systemSuspend", m_computerSleepOnPower);
 
     m_layout->setContentsMargins(10, 10, 10, 5);
     m_layout->addWidget(powerSettingsGrp);
@@ -157,7 +164,11 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
 
 UseElectricWidget::~UseElectricWidget()
 {
-
+    GSettingWatcher::instance()->erase("powerLidPresent", m_cmbCloseLid);
+    GSettingWatcher::instance()->erase("powerPressPowerbtn", m_cmbPowerBtn);
+    GSettingWatcher::instance()->erase("powerAutoLockscreen", m_autoLockScreen);
+    GSettingWatcher::instance()->erase("powerMonitorConfigure", m_monitorSleepOnPower);
+    GSettingWatcher::instance()->erase("systemSuspend", m_computerSleepOnPower);
 }
 
 void UseElectricWidget::setModel(const PowerModel *model)
@@ -182,14 +193,15 @@ void UseElectricWidget::setModel(const PowerModel *model)
     }
 
     if (m_computerSleepOnPower) {
-        m_computerSleepOnPower->setVisible(model->canSleep() && model->getSuspend());
+        m_computerSleepOnPower->setVisible(model->canSleep() && model->getSuspend()
+                                                             && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hiden"));
     }
 
     //--------------sp2 add-----------------
     connect(model, &PowerModel::lidPresentChanged, this, [ = ](bool value) {
-        m_cmbCloseLid->setVisible(value);
+        m_cmbCloseLid->setVisible(value && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hiden");
     });
-    m_cmbCloseLid->setVisible(model->lidPresent());
+    m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hiden");
     connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
         if (reply - 1 < m_cmbCloseLid->comboBox()->count()) {
             setCloseLid(model, reply);

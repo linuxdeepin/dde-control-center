@@ -21,6 +21,7 @@
 
 #include "scalingwidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
@@ -49,9 +50,16 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
 
     m_tip = new TitleLabel(tr("Display Scaling"));
+    GSettingWatcher::instance()->bind("displayScaling", m_tip);  // 使用GSettings来控制显示状态
+    DFontSizeManager::instance()->bind(m_tip, DFontSizeManager::T5, QFont::DemiBold);
 
     m_centralLayout->addWidget(m_tip);
     setLayout(m_centralLayout);
+}
+
+ScalingWidget::~ScalingWidget()
+{
+    GSettingWatcher::instance()->erase("displayScaling");
 }
 
 void ScalingWidget::setModel(DisplayModel *model)
@@ -134,6 +142,7 @@ void ScalingWidget::addSlider(int monitorID)
     slider->setPageStep(1);
     m_slider->setAnnotations(fscaleList);
     m_centralLayout->addWidget(m_slider);
+    GSettingWatcher::instance()->bind("displayScaling", m_slider);  // 使用GSettings来控制显示状态
 
     double scaling = m_displayModel->uiScale();
     if (scaling < 1.0)

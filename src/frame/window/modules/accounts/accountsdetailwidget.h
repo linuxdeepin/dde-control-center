@@ -54,6 +54,7 @@ class QLineEdit;
 class QEvent;
 class QCommandLinkButton;
 class QStackedWidget;
+class QGSettings;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -73,12 +74,14 @@ class AccountsDetailWidget : public QWidget
 
 public:
     explicit AccountsDetailWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
+    virtual ~AccountsDetailWidget();
     void initHeadPart(QVBoxLayout *headLayout);
     void initBodyPart(QVBoxLayout *bodyLayout);
     void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
     //获取其它用户是否开启自动登录开关
     bool getOtherUserAutoLogin();
+    void setDeleteBtnStatus(const QString &key, const bool &status);
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
@@ -129,6 +132,8 @@ private:
     QHBoxLayout *m_avatarLayout;
     DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;
+    QPushButton *m_modifyPassword;
+    QGSettings *m_gsettings;
 };
 
 }   // namespace accounts

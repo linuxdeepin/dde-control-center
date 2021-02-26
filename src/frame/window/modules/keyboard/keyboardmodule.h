@@ -54,6 +54,7 @@ class KeyboardModule : public QObject, public ModuleInterface
 
 public:
     explicit KeyboardModule(FrameProxyInterface *frame, QObject *parent = nullptr);
+    ~KeyboardModule();
 
     void initialize() override;
     void reset() override;

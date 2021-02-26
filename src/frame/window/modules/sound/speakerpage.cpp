@@ -23,6 +23,7 @@
 #include "modules/sound/soundmodel.h"
 #include "widgets/switchwidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "widgets/titlelabel.h"
 #include "widgets/settingsgroup.h"
 
@@ -97,6 +98,9 @@ SpeakerPage::SpeakerPage(QWidget *parent)
 
 SpeakerPage::~SpeakerPage()
 {
+    GSettingWatcher::instance()->erase("soundOutputSlider");
+    GSettingWatcher::instance()->erase("soundVolumeBoost");
+    GSettingWatcher::instance()->erase("soundBalanceSlider");
 }
 
 void SpeakerPage::setModel(dcc::sound::SoundModel *model)
@@ -397,6 +401,12 @@ void SpeakerPage::initSlider()
     m_layout->addStretch(10);
     refreshIcon();
     showDevice();
+
+    // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("soundOutputSlider", m_outputSlider);
+    GSettingWatcher::instance()->bind("soundVolumeBoost", volumeBoost);
+    GSettingWatcher::instance()->bind("soundVolumeBoost", volumeBoostTip);
+    GSettingWatcher::instance()->bind("soundBalanceSlider", m_balanceSlider);
 }
 
 void SpeakerPage::refreshIcon()
@@ -435,8 +445,10 @@ void SpeakerPage::setDeviceVisible(bool visable)
     if (visable) {
         m_speakSlider->show();
         m_vbWidget->show();
-        m_balanceSlider->setVisible(m_balance);
-        m_outputSlider->show();
+        if (GSettingWatcher::instance()->getStatus("soundBalanceSlider") != "Hiden")
+            m_balanceSlider->setVisible(m_balance);
+        if (GSettingWatcher::instance()->getStatus("soundOutputSlider") != "Hiden")
+            m_outputSlider->show();
     } else {
         m_speakSlider->hide();
         m_vbWidget->hide();

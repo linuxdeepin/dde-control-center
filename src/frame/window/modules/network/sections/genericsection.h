@@ -46,6 +46,8 @@ public:
     bool autoConnectChecked() const;
     void setConnectionNameEditable(const bool editable);
     void setConnectionType(NetworkManager::ConnectionSettings::ConnectionType connType);
+    inline dcc::widgets::LineEditWidget *connIdItem() { return m_connIdItem; }
+    inline dcc::widgets::SwitchWidget *autoConnItem() { return m_autoConnItem; }
     inline bool connectionNameIsEditable() const { return m_connIdItem->isEnabled(); }
     inline const QString connectionName() const { return m_connIdItem->text(); }
     inline void setConnectionName(const QString &name) { m_connIdItem->setText(name); }

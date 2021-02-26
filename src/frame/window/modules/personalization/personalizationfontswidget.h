@@ -39,6 +39,7 @@ class FontModel;
 namespace dcc {
 namespace widgets {
 class TitledSliderItem;
+class SettingsItem;
 }
 }
 
@@ -49,6 +50,7 @@ class PersonalizationFontsWidget : public QWidget
     Q_OBJECT
 public:
     explicit PersonalizationFontsWidget(QWidget *parent = nullptr);
+    virtual ~PersonalizationFontsWidget();
 
 Q_SIGNALS:
     void requestSetFontSize(const int value);
@@ -70,6 +72,8 @@ private:
     QComboBox *m_standardFontsCbBox;
     QComboBox *m_monoFontsCbBox;
     bool m_isAppend; //true : comboBox is appending data, ignoring currentTextChange signal
+    dcc::widgets::SettingsItem *m_sfontitem;
+    dcc::widgets::SettingsItem *m_mfontitem;
 };
 }
 }

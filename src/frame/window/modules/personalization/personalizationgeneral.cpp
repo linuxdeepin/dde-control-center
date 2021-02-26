@@ -27,6 +27,7 @@
 #include "widgets/settingsitem.h"
 #include "widgets/titlelabel.h"
 #include "widgets/comboxwidget.h"
+#include "window/gsettingwatcher.h"
 
 #include <DStyle>
 #include <DSwitchButton>
@@ -290,10 +291,17 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     scrollArea->setWidget(tw);
 }
 
+PersonalizationGeneral::~PersonalizationGeneral()
+{
+    GSettingWatcher::instance()->erase("perssonalGeneralThemes", m_Themes);
+    GSettingWatcher::instance()->erase("perssonalGeneralEffects", m_switchWidget);
+}
+
 void PersonalizationGeneral::setModel(dcc::personalization::PersonalizationModel *model)
 {
     m_model = model;
     m_Themes->setModel(model->getWindowModel());
+    GSettingWatcher::instance()->bind("perssonalGeneralThemes", m_Themes);
 
     if (!m_bSystemIsServer) {
         connect(model, &dcc::personalization::PersonalizationModel::wmChanged, this,
@@ -393,6 +401,7 @@ void PersonalizationGeneral::onCompositingAllowSwitchChanged(bool value)
 {
     if (!m_bSystemIsServer && value) {
         m_switchWidget->setVisible(true);
+        GSettingWatcher::instance()->bind("perssonalGeneralEffects", m_switchWidget);
     } else {
         m_switchWidget->setVisible(false);
     }

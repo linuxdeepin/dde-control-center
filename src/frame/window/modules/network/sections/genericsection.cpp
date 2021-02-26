@@ -20,6 +20,7 @@
  */
 
 #include "genericsection.h"
+#include "window/gsettingwatcher.h"
 
 #include <networkmanagerqt/settings.h>
 
@@ -43,6 +44,10 @@ GenericSection::GenericSection(NetworkManager::ConnectionSettings::Ptr connSetti
 
 GenericSection::~GenericSection()
 {
+    delete m_connIdItem;
+    m_connIdItem = nullptr;
+    delete m_autoConnItem;
+    m_autoConnItem = nullptr;
 }
 
 void GenericSection::setConnectionType(NetworkManager::ConnectionSettings::ConnectionType connType)

@@ -25,6 +25,7 @@
 #include "../sections/ipvxsection.h"
 #include "../sections/dnssection.h"
 #include "../sections/ethernetsection.h"
+#include "window/gsettingwatcher.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -52,6 +53,14 @@ void WiredSettings::initSections()
     DNSSection *dnsSection = new DNSSection(m_connSettings);
     EthernetSection *etherNetSection = new EthernetSection(
         m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
+
+    // 指针destroyed时自动解绑
+    GSettingWatcher::instance()->bind("wiredEditConnectionName", genericSection->connIdItem());
+    GSettingWatcher::instance()->bind("wiredAutoConnect", genericSection->autoConnItem());
+    GSettingWatcher::instance()->bind("wiredSecurity", secretSection);
+    GSettingWatcher::instance()->bind("wiredIpv4", ipv4Section);
+    GSettingWatcher::instance()->bind("wiredIpv6", ipv6Section);
+    GSettingWatcher::instance()->bind("wiredEtherNet", etherNetSection);
 
     connect(genericSection, &GenericSection::editClicked, this, &WiredSettings::anyEditClicked);
     connect(secretSection, &Secret8021xSection::editClicked, this, &WiredSettings::anyEditClicked);
