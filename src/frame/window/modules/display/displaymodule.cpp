@@ -306,6 +306,8 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor)
 {
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
     qreal radio = qApp->devicePixelRatio();
+    QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
+    QTimer::singleShot(1, this, [=] { timeoutDialog->moveToCenterByRect(rt.toRect()); });
     connect(monitor, &Monitor::geometryChanged, timeoutDialog, [=] {
         if (timeoutDialog) {
             QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
