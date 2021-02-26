@@ -175,8 +175,8 @@
         <file>icons/dcc_nav_deepin_systeminfo_42px.svg</file>
         <file>icons/dcc_nav_deepin_systeminfo_84px.svg</file>
         <file>actions/dcc_privacy_policy_32px.svg</file>
-        <file>actions/dcc_recognize_16px.svg</file>
-        <file>actions/dcc_gather_16px.svg</file>
+        <file>texts/dcc_recognize_16px.svg</file>
+        <file>texts/dcc_gather_16px.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
