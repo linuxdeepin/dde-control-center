@@ -53,9 +53,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     SettingsHead *systemHead = new SettingsHead();
     systemHead->setEditEnable(false);
     systemHead->setTitle(tr("System"));
-    QHBoxLayout *systemLayout = new QHBoxLayout();
-    systemLayout->addWidget(systemHead);
-    systemLayout->setContentsMargins(15,0,0,0);
     m_systemGroup = new SettingsGroup();
     m_systemGroup->getLayout()->setMargin(0);
     m_systemGroup->appendItem(systemHead, SettingsGroup::NoneBackground);
@@ -108,7 +105,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     m_layout = new QVBoxLayout;
     m_layout->setContentsMargins(0,0,10,0);
-    m_layout->addLayout(systemLayout);
     m_layout->addSpacing(3);
     m_layout->addWidget(m_systemGroup);
     m_layout->addSpacing(List_Interval);

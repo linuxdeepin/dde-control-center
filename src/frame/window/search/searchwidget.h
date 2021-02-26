@@ -148,6 +148,8 @@ public:
 
 private Q_SLOTS:
     void onCompleterActivated(const QString &value);
+    void onAutoComplete(const QString &text);
+    void onSearchTextChange(const QString &text);
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
@@ -155,8 +157,6 @@ Q_SIGNALS:
 private:
     SearchModel *m_model;
     QCompleter *m_completer;
-    QString m_searchValue;
-    bool m_speechState;
     DCompleterStyledItemDelegate styledItemDelegate;
 };
 

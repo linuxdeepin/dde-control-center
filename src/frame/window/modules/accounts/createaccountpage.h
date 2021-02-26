@@ -76,6 +76,9 @@ private:
     void createUser();
     void showGroupList(const QString &index);
 
+protected:
+    void showEvent(QShowEvent *event) override;
+
 Q_SIGNALS:
     void requestCreateUser(const dcc::accounts::User *user);
     void requestBack(DCC_NAMESPACE::accounts::AccountsWidget::ActionOption option = DCC_NAMESPACE::accounts::AccountsWidget::ClickCancel);

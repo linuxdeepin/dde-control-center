@@ -57,6 +57,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->addBackground();
     m_sw->switchButton()->setAccessibleName(lblTitle->text());
+    m_sw->setFocusPolicy(Qt::ClickFocus);
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
     m_layout->setSpacing(10);
 

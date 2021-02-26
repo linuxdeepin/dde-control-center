@@ -379,6 +379,10 @@ void VpnPage::createVPN()
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
+
+    //only create New Connection can set "Cancel","Save" button
+    //fix: https://pms.uniontech.com/zentao/bug-view-61563.html
+    m_editPage->setButtonTupleEnable(true);
 }
 
 void VpnPage::jumpPath(const QString &searchPath)
