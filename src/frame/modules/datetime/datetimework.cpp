@@ -41,6 +41,7 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_timedateInter(new Timedate("com.deepin.daemon.Timedate", "/com/deepin/daemon/Timedate", QDBusConnection::sessionBus(), this))
+    , m_systemtimedatedInter(new Timedated("com.deepin.daemon.Timedated", "/com/deepin/daemon/Timedated", QDBusConnection::systemBus(), this))
 {
     m_timedateInter->setSync(false);
 
@@ -171,7 +172,7 @@ void DatetimeWork::set24HourType(bool state)
 #ifndef DCC_DISABLE_TIMEZONE
 void DatetimeWork::setTimezone(const QString &timezone)
 {
-    m_timedateInter->SetTimezone(timezone);
+    m_systemtimedatedInter->SetTimezone(timezone, tr("Authentication is required to set the system timezone"));
 }
 
 void DatetimeWork::removeUserTimeZone(const ZoneInfo &info)
@@ -191,7 +192,7 @@ void DatetimeWork::setNtpServer(QString server)
     if (server == m_timedateInter->nTPServer())
         return;
 
-    QDBusPendingCall call = m_timedateInter->SetNTPServer(server);
+    QDBusPendingCall call = m_systemtimedatedInter->SetNTPServer(server, tr("Authentication is required to change NTP server"));
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         //call.isError() : true表示取消，false表示确定

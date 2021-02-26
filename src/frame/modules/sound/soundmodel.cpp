@@ -404,20 +404,34 @@ bool SoundModel::isShow(QStandardItemModel *model, const Port *port)
     //输入或输出设备数小于2,直接返回
     if (model->rowCount() < 2) return false;
 
-    //有端口启用时,直接返回true
+
+    bool isShow = false;
+    int enablecount = 0;
+    QDBusReply<bool> reply;
     QDBusInterface inter("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
+
     for (int i = 0; i < model->rowCount(); i++) {
         auto temp = model->index(i, 0);
         const auto * it = model->data(temp, Qt::WhatsThisPropertyRole).value<const Port *>();
         if (!it)
-            return false;
-        if (it->cardId() != port->cardId() || it->name() != port->name()) {
-            QDBusReply<bool> reply = inter.call("IsPortEnabled", it->cardId(), it->id());
-            if (reply.value())
-                return true;
+            continue;
+        reply = inter.call("IsPortEnabled", it->cardId(), it->id());
+
+        if (reply.value()) {
+            enablecount++;
+        }
+
+        //排除当前端口以后还有端口为开启状态需要显示
+        if ((it->cardId() != port->cardId() || it->name() != port->name()) && reply.value()) {
+            isShow = true;
         }
     }
-    return false;
+
+    //当开启的端口为0个时需要显示
+    if (enablecount == 0)
+        isShow =  true;
+
+    return isShow;
 }
 
 void Port::setId(const QString &id)

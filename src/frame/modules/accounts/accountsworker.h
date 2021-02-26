@@ -38,7 +38,6 @@
 #include <org_freedesktop_notifications.h>
 #endif
 
-#include "user.h"
 #include "usermodel.h"
 #include "creationresult.h"
 
@@ -56,6 +55,8 @@ using Notifications = org::freedesktop::Notifications;
 
 namespace dcc {
 namespace accounts {
+
+class User;
 
 class AccountsWorker : public QObject
 {

@@ -210,6 +210,10 @@ void WiredPage::createNewConnection()
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
     Q_EMIT requestNextPage(m_editPage);
+
+    //only create New Connection can set "Cancel","Save" button
+    //fix: https://pms.uniontech.com/zentao/bug-view-61563.html
+    m_editPage->setButtonTupleEnable(true);
 }
 
 void WiredPage::activateConnection(const QString &connectionPath)

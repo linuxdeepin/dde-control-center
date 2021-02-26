@@ -40,6 +40,7 @@ PowerWidget::PowerWidget(QWidget *parent)
     , m_listview(new dcc::widgets::MultiSelectListView(this))
     , m_model(nullptr)
     , m_bhasBattery(false)
+    , m_batteryIndex(0)
 {
 
 }
@@ -62,6 +63,7 @@ void PowerWidget::initialize(bool hasBattery)
             //~ contents_path /power/On Battery
             {"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
         };
+        m_batteryIndex = 2;
     } else {
         m_menuIconText = {
             //~ contents_path /power/Plugged In
@@ -69,6 +71,7 @@ void PowerWidget::initialize(bool hasBattery)
             //~ contents_path /power/On Battery
             {"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
         };
+        m_batteryIndex = 1;
     }
 
     auto model = new QStandardItemModel(this);
@@ -88,11 +91,7 @@ void PowerWidget::initialize(bool hasBattery)
     m_listview->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_listview->setViewportMargins(ScrollAreaMargins);
     m_listview->setIconSize(ListViweIconSize);
-    if (!IsServerSystem)
-        m_listview->setRowHidden(2, !hasBattery);
-    else {
-        m_listview->setRowHidden(1, !hasBattery);
-    }
+    m_listview->setRowHidden(m_batteryIndex, !hasBattery);
 
     connect(m_listview, &DListView::clicked, this, &PowerWidget::onItemClicked);
     connect(m_listview, &DListView::activated, m_listview, &QListView::clicked);
@@ -136,7 +135,12 @@ void PowerWidget::onItemClicked(const QModelIndex &index)
 
 void PowerWidget::removeBattery(bool state)
 {
-    m_listview->setRowHidden(2, !state);
+    m_listview->setRowHidden(m_batteryIndex, !state);
     m_bhasBattery = state;
-    Q_EMIT requestShowUseElectric();
+
+    /* 当电池被移除时，显示电池设置的上一个界面，如果电池在第一个，则显示电池界面移除后的第一个界面 */
+    if (!state && m_lastIndex.row() == m_batteryIndex && m_batteryIndex > 0) {
+        QModelIndex index = m_listview->model()->index(m_batteryIndex - 1, 0);
+        onItemClicked(index);
+    }
 }

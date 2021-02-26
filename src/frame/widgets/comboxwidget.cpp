@@ -78,6 +78,7 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
 void ComboxWidget::setComboxOption(const QStringList &options)
 {
     m_switchComboBox->blockSignals(true);
+    m_switchComboBox->clear();
     for (QString item : options) {
         m_switchComboBox->addItem(item);
     }
@@ -88,6 +89,13 @@ void ComboxWidget::setCurrentText(const QString &curText)
 {
     m_switchComboBox->blockSignals(true);
     m_switchComboBox->setCurrentText(curText);
+    m_switchComboBox->blockSignals(false);
+}
+
+void ComboxWidget::setCurrentIndex(const int index)
+{
+    m_switchComboBox->blockSignals(true);
+    m_switchComboBox->setCurrentIndex(index);
     m_switchComboBox->blockSignals(false);
 }
 

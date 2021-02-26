@@ -99,6 +99,7 @@ void SoundWidget::initMenuUI()
     m_menuList->setModel(listModel);
     m_menuList->setCurrentIndex(listModel->index(0, 0));
     m_currentIdx = m_menuList->currentIndex();
+    m_menuList->resetStatus(m_currentIdx);
     connect(m_menuList, &QListView::clicked, [ = ](const QModelIndex & idx) {
         if (idx == m_currentIdx)
             return;

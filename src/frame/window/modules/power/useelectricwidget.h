@@ -71,11 +71,13 @@ public Q_SLOTS:
     void setLockScreenAfter(const int delay);
     void setCloseLid(const dcc::power::PowerModel *model, int lidIndex);
     void setPowerBtn(const dcc::power::PowerModel *model, int powIndex);
+    void updatePowerButtonActionList();
 
 private:
     QString delayToLiteralString(const int delay) const;
 
 private:
+    dcc::power::PowerModel *m_model;
     QVBoxLayout *m_layout = nullptr;
     dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
     dcc::widgets::TitledSliderItem *m_computerSleepOnPower = nullptr;

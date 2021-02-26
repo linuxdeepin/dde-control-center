@@ -89,7 +89,7 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     m_defAppCatView->setModel(model);
     //show default browser app
     m_lastIndex = model->indexFromItem(model->item(0));
-    m_defAppCatView->setCurrentIndex(m_lastIndex);
+    m_defAppCatView->resetStatus(m_lastIndex);
 
     m_centralLayout->setMargin(0);
     m_centralLayout->addWidget(m_defAppCatView);
