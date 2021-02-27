@@ -136,14 +136,18 @@ BootWidget::BootWidget(QWidget *parent)
 
     GSettingWatcher::instance()->bind("commoninfoBootBootlist", m_bootList);
     GSettingWatcher::instance()->bind("commoninfoBootBootdelay", m_bootDelay);
+#ifndef DCC_DISABLE_GRUB_THEME
     GSettingWatcher::instance()->bind("commoninfoBootTheme", m_theme);
+#endif
 }
 
 BootWidget::~BootWidget()
 {
     GSettingWatcher::instance()->erase("commoninfoBootBootlist", m_bootList);
     GSettingWatcher::instance()->erase("commoninfoBootBootdelay", m_bootDelay);
+#ifndef DCC_DISABLE_GRUB_THEME
     GSettingWatcher::instance()->erase("commoninfoBootTheme", m_theme);
+#endif
 }
 
 void BootWidget::setDefaultEntry(const QString &value)
