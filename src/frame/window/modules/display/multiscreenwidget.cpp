@@ -109,6 +109,9 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     setLayout(m_contentLayout);
 
     // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("displayResolution", m_resolutionWidget);
+    GSettingWatcher::instance()->bind("displayRefreshRate", m_refreshRateWidget);
+    GSettingWatcher::instance()->bind("displayRotate", m_rotateWidget);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_multiSettingLabel);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_modeSettingsItem);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_primarySettingsItem);
@@ -121,6 +124,9 @@ MultiScreenWidget::~MultiScreenWidget()
     }
     m_secondaryScreenDlgList.clear();
 
+    GSettingWatcher::instance()->erase("displayResolution", m_resolutionWidget);
+    GSettingWatcher::instance()->erase("displayRefreshRate", m_refreshRateWidget);
+    GSettingWatcher::instance()->erase("displayRotate", m_rotateWidget);
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_multiSettingLabel);
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_modeSettingsItem);
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_primarySettingsItem);

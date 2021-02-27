@@ -109,7 +109,9 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
 //    m_suspendOnLidClose->setAccessibleName(tr("Suspend on lid close"));
 
     /*** 笔记本合盖功能与按电源按钮功能 ***/
-    options << tr("Shut down");
+    if (model->getShutdown()) {
+        options << tr("Shut down");
+    }
     if (model->getSuspend()) {
         options << tr("Suspend");
     }

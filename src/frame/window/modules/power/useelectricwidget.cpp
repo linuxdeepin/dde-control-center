@@ -291,7 +291,9 @@ void UseElectricWidget::setPowerBtn(const dcc::power::PowerModel *model, int pow
 void UseElectricWidget::updatePowerButtonActionList()
 {
     QStringList options;
-    options << tr("Shut down");
+    if (m_model->getShutdown()) {
+        options << tr("Shut down");
+    }
     if (m_model->getSuspend())
     {
         options << tr("Suspend");

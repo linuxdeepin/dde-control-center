@@ -75,6 +75,10 @@
             <default>true</default>
             <summary>The hibernate options show or not</summary>
         </key>
+        <key name="show-shutdown" type="b">
+            <default>true</default>
+            <summary>The shutdown options show or not</summary>
+        </key>
         <key name="custom-ntpserver" type="s">
             <default>''</default>
             <summary>Used to record custom ntp server</summary>

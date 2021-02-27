@@ -23,6 +23,7 @@
 #include "widgets/dccslider.h"
 #include "widgets/titlelabel.h"
 #include "widgets/titledslideritem.h"
+#include "window/gsettingwatcher.h"
 #include "resolutionwidget.h"
 #include "refreshratewidget.h"
 #include "rotatewidget.h"
@@ -68,8 +69,19 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     m_contentLayout->addWidget(m_rotateWidget);
     m_contentLayout->addStretch();
 
+    GSettingWatcher::instance()->bind("displayResolution", m_resolutionWidget);
+    GSettingWatcher::instance()->bind("displayRefreshRate", m_refreshRateWidget);
+    GSettingWatcher::instance()->bind("displayRotate", m_rotateWidget);
+
     setLayout(m_contentLayout);
     show();
+}
+
+SecondaryScreenDialog::~SecondaryScreenDialog()
+{
+    GSettingWatcher::instance()->erase("displayResolution", m_resolutionWidget);
+    GSettingWatcher::instance()->erase("displayRefreshRate", m_refreshRateWidget);
+    GSettingWatcher::instance()->erase("displayRotate", m_rotateWidget);
 }
 
 void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor *monitor)

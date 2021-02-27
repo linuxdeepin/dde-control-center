@@ -53,6 +53,7 @@ class SecondaryScreenDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
     Q_OBJECT
 public:
     SecondaryScreenDialog(QWidget *parent = nullptr);
+    ~SecondaryScreenDialog();
 
 public:
     void setModel(dcc::display::DisplayModel *model, dcc::display::Monitor *monitor);

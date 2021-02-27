@@ -37,6 +37,7 @@
 #include <QStandardItem>
 #include <QSound>
 #include <QScroller>
+#include <QGSettings>
 
 using namespace dcc::sound;
 using namespace dcc::widgets;
@@ -57,7 +58,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->addBackground();
-    GSettingWatcher::instance()->bind("soundEffects", m_sw);  // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("soundEffects", this);  // 使用GSettings来控制显示状态
     m_sw->switchButton()->setAccessibleName(lblTitle->text());
     m_sw->setFocusPolicy(Qt::ClickFocus);
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
@@ -71,7 +72,6 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setFrameShape(DListView::NoFrame);
     m_effectList->setViewportMargins(0, 0, 0, 0);
     m_effectList->setItemSpacing(1);
-    GSettingWatcher::instance()->bind("soundEffects", m_effectList);  // 使用GSettings来控制显示状态
 
     m_layout->addWidget(m_effectList, 1);
     m_layout->addStretch();
@@ -96,7 +96,7 @@ SoundEffectsPage::~SoundEffectsPage()
         scroller->stop();
     }
 
-    GSettingWatcher::instance()->erase("soundEffects");
+    GSettingWatcher::instance()->erase("soundEffects", this);
 }
 
 void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)
@@ -112,10 +112,7 @@ void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)
         m_sw->blockSignals(false);
         m_effectList->setVisible(on);
     });
-    connect(m_sw, &SwitchWidget::checkedChanged,
-    this, [ = ](bool on) {
-        this->requestSwitchSoundEffects(on);
-    });
+    connect(m_sw, &SwitchWidget::checkedChanged, this, &SoundEffectsPage::requestSwitchSoundEffects);
 }
 
 void SoundEffectsPage::startPlay(const QModelIndex &index)
@@ -170,8 +167,7 @@ void SoundEffectsPage::initList()
         item = new DStandardItem(se.first);
         item->setFontSize(DFontSizeManager::T8);
         auto action = new DViewItemAction(Qt::AlignVCenter, size, size, true);
-        auto checkstatus = m_model->queryEffectData(se.second) ?
-                           DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
+        auto checkstatus = m_model->queryEffectData(se.second) ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
         auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
         action->setIcon(icon);
         auto aniAction = new DViewItemAction(Qt::AlignVCenter, size, size);
@@ -180,6 +176,8 @@ void SoundEffectsPage::initList()
         m_listModel->appendRow(item);
 
         connect(action, &DViewItemAction::triggered, this, [ = ] {
+            if (QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("soundEffects").toString() == "Disabled")
+                return;
             auto isSelected = m_model->queryEffectData(se.second);
             this->requestSetEffectAble(se.second, !isSelected);
             requestRefreshList();
@@ -189,21 +187,20 @@ void SoundEffectsPage::initList()
     connect(m_effectList, &DListView::clicked, this, &SoundEffectsPage::startPlay);
     connect(m_effectList, &DListView::activated, m_effectList, &QListView::clicked);
     connect(m_model, &SoundModel::soundEffectDataChanged, this,
-    [ = ](DDesktopServices::SystemSoundEffect effect, const bool enable) {
-        for (int idx = 0; idx < m_model->soundEffectMap().size(); ++idx) {
-            auto ite = m_model->soundEffectMap().at(idx);
-            if (ite.second != effect) {
-                continue;
-            }
+            [ = ](DDesktopServices::SystemSoundEffect effect, const bool enable) {
+                for (int idx = 0; idx < m_model->soundEffectMap().size(); ++idx) {
+                    auto ite = m_model->soundEffectMap().at(idx);
+                    if (ite.second != effect) {
+                        continue;
+                    }
 
-auto items = static_cast<DStandardItem *>(m_listModel->item(idx));
-            auto action = items->actionList(Qt::Edge::RightEdge)[1];
-            auto checkstatus = enable ?
-                               DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
-            auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
-            action->setIcon(icon);
-            m_effectList->update(items->index());
-            break;
-        }
-    });
+                    auto items = static_cast<DStandardItem *>(m_listModel->item(idx));
+                    auto action = items->actionList(Qt::Edge::RightEdge)[1];
+                    auto checkstatus = enable ? DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked;
+                    auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
+                    action->setIcon(icon);
+                    m_effectList->update(items->index());
+                    break;
+                }
+            });
 }

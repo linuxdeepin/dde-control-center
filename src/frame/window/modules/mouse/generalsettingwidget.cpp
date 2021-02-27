@@ -52,6 +52,7 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     //~ contents_path /mouse/General
     m_disInTyping = new SwitchWidget(tr("Disable touchpad while typing"));
     m_disInTyping->setObjectName("disInTyping");
+    GSettingWatcher::instance()->bind("mouseTouchpad", m_disInTyping);
 
     //~ contents_path /mouse/General
     m_scrollSpeedSlider = new TitledSliderItem(tr("Scrolling Speed"));
@@ -112,7 +113,8 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
 
 GeneralSettingWidget::~GeneralSettingWidget()
 {
-    GSettingWatcher::instance()->erase("mouseLeftHand");
+    GSettingWatcher::instance()->erase("mouseLeftHand", m_leftHand);
+    GSettingWatcher::instance()->erase("mouseTouchpad", m_disInTyping);
 }
 
 void GeneralSettingWidget::setModel(dcc::mouse::MouseModel *const model)

@@ -131,6 +131,9 @@ public:
     inline bool getHibernate() const { return m_isHibernate; }
     void setHibernate(bool hibernate);
 
+    inline bool getShutdown() const { return m_isShutdown; }
+    void setShutdown(bool shutdown);
+
     inline QString getPowerPlan() const { return m_powerPlan; }
     void setPowerPlan(const QString &powerPlan);
 
@@ -150,6 +153,7 @@ Q_SIGNALS:
     void sleepDelayChangedOnBattery(const int sleepDelay);
     void canHibernateChanged(const bool canHibernate);
     void hibernateChanged(const bool hibernate);
+    void shutdownChanged(const bool shutdown);
 #ifndef DCC_DISABLE_POWERSAVE
     void autoPowerSavingModeChanged(bool autoPowerSaveMode);
     void powerSaveModeChanged(bool powerSaveMode);
@@ -210,6 +214,7 @@ private:
     //--------------------------------------
     bool m_isSuspend;
     bool m_isHibernate;
+    bool m_isShutdown;
 
     QString m_powerPlan;
     bool m_isHighPerformanceSupported;

@@ -61,6 +61,7 @@ PowerModel::PowerModel(QObject *parent)
     , m_dLowPowerAutoSleepThreshold(0)
     , m_isSuspend(false)
     , m_isHibernate(false)
+    , m_isShutdown(false)
     , m_powerPlan("")
     , m_isHighPerformanceSupported(false)
 {
@@ -353,5 +354,14 @@ void PowerModel::setHibernate(bool hibernate)
         m_isHibernate = hibernate;
 
         Q_EMIT hibernateChanged(hibernate);
+    }
+}
+
+void PowerModel::setShutdown(bool shutdown)
+{
+    if (m_isShutdown != shutdown) {
+        m_isShutdown = shutdown;
+
+        Q_EMIT shutdownChanged(shutdown);
     }
 }
