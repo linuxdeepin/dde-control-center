@@ -43,6 +43,7 @@ class DIconButton;
 class DWarningButton;
 class DCommandLinkButton;
 class DLineEdit;
+class DLabel;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -118,7 +119,7 @@ private Q_SLOTS:
 private:
     dcc::accounts::User *m_curUser;
     dcc::accounts::UserModel *m_userModel;
-    QLabel *m_fullName;//账户全名
+    DLabel *m_fullName;//账户全名
     DTK_WIDGET_NAMESPACE::DIconButton *m_fullNameBtn;//账户全名编辑按钮
     DLineEdit *m_inputLineEdit;//账户全名编辑框
     dcc::accounts::FingerModel *m_model;

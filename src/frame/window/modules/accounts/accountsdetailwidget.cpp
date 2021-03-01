@@ -36,6 +36,7 @@
 #include <DFontSizeManager>
 #include <DTipLabel>
 #include <DDesktopServices>
+#include <DLabel>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -85,11 +86,9 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     mainContentLayout->addWidget(scrollArea);
     auto contentLayout = new QVBoxLayout();
     contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    auto tw = new QWidget();
-    tw->setLayout(contentLayout);
     contentLayout->setSpacing(0);
     contentLayout->setContentsMargins(0, 0, 0, 0);
-    scrollArea->setWidget(tw);
+    scrollArea->setLayout(contentLayout);
 
     /* 设置账户详情列表支持触屏滑动，不使用TouchGesture的原因，TouchGesture qt内部存在bug。1、滚动区滑动过程中，主窗口也跟随move；
      * 2、滑动回弹过程中，点击头像，窗口出现错位*/
@@ -175,7 +174,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     layout->addSpacing(5);
     layout->addLayout(shortnameLayout);
 
-    m_fullName = new QLabel;
+    m_fullName = new DLabel;
     m_fullName->setContentsMargins(0, 6, 0, 6);
 
     auto fullname = m_curUser->fullname();
@@ -192,6 +191,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         }
     }
     m_fullName->setText(fullname.toHtmlEscaped());
+    m_fullName->setElideMode(Qt::ElideRight);
 
     m_fullNameBtn = new DIconButton(this);
     m_fullNameBtn->setAccessibleName("fullName_btn");
