@@ -241,3 +241,15 @@ void SecondaryScreenDialog::resetDialog()
 
     setGeometry(rt);
 }
+
+void SecondaryScreenDialog::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key())
+    {
+    case Qt::Key_Escape:
+        break;
+    default:
+        QDialog::keyPressEvent(event);
+        break;
+    }
+}

@@ -58,6 +58,9 @@ public:
     void setModel(dcc::display::DisplayModel *model, dcc::display::Monitor *monitor);
     void resetDialog();
 
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
+
 Q_SIGNALS:
     void requestRecognize();
     void requestSetMonitorBrightness(dcc::display::Monitor *monitor, const double brightness);
