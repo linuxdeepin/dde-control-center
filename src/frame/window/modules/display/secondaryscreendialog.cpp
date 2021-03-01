@@ -55,7 +55,7 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
 {
     setMinimumWidth(480);
     setMinimumHeight(480);
-    setWindowFlags(Qt::Tool | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_contentLayout->setContentsMargins(35, 0, 35, 40);
