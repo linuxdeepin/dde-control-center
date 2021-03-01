@@ -321,6 +321,8 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             connect(this, &MultiScreenWidget::requestGatherEnabled, dlg, &SecondaryScreenDialog::requestGatherEnabled);
             m_secondaryScreenDlgList.append(dlg);
         }
+
+        activateWindow();
     }
 }
 
