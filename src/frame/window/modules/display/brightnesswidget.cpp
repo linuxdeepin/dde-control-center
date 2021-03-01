@@ -172,10 +172,15 @@ void BrightnessWidget::setAdjustCCTmode(int mode)
 
 void BrightnessWidget::showBrightness(Monitor *monitor)
 {
-    QMap<Monitor *, QWidget *>::Iterator iter;
-    for (iter = m_monitorBrightnessMap.begin(); iter != m_monitorBrightnessMap.end(); ++iter) {
+    bool bTitle(false);
+    QMap<Monitor *, QWidget *>::const_iterator iter;
+    for (iter = m_monitorBrightnessMap.cbegin(); iter != m_monitorBrightnessMap.cend(); ++iter) {
         iter.value()->setVisible(monitor == nullptr || iter.key() == monitor);
+        if (!bTitle && (monitor == nullptr || iter.key() == monitor)) {
+            bTitle = true;
+        }
     }
+    m_brightnessTitle->setVisible(bTitle);
 }
 
 void BrightnessWidget::addSlider()
