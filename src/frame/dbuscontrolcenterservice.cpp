@@ -153,6 +153,10 @@ void DBusControlCenterService::ShowModule(const QString &module)
 
 void DBusControlCenterService::ShowPage(const QString &module, const QString &page)
 {
+    //控制中心有其他模态窗口，就不响应一级菜单改变
+    if (QThread::currentThread()->loopLevel() > 1) {
+        return ;
+    }
     parent()->initAllModule(module);
 
     static bool firstEnter = true;
