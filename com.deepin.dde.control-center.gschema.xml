@@ -483,5 +483,10 @@
             <summary></summary>
             <description>default is Enabled</description>
         </key>
+		<key name="edition" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
     </schema>
 </schemalist>

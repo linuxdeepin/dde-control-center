@@ -58,6 +58,7 @@ NativeInfoWidget::~NativeInfoWidget()
     GSettingWatcher::instance()->erase("systeminfoNativeinfoKernel", m_kernel);
     GSettingWatcher::instance()->erase("systeminfoNativeinfoProcessor", m_processor);
     GSettingWatcher::instance()->erase("systeminfoNativeinfoMemory", m_memory);
+    GSettingWatcher::instance()->erase("edition", m_version);
 }
 
 void NativeInfoWidget::initWidget()
@@ -98,6 +99,7 @@ void NativeInfoWidget::initWidget()
     m_version->setTitle(tr("Edition:"));
     m_version->setValue(m_model->version());
     m_version->setVisible(!DSysInfo::isCommunityEdition());
+    GSettingWatcher::instance()->bind("edition", m_version);
     m_type = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
