@@ -48,9 +48,11 @@ public:
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     bool m_isErr;
+    bool m_hasBack;
 
     DTK_WIDGET_NAMESPACE::DFrame *m_bgGroup{nullptr};
 };

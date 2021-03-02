@@ -27,10 +27,12 @@
 
 #include <DPalette>
 #include <DStyle>
+#include <DApplicationHelper>
 
 #include <QStyle>
 #include <QVBoxLayout>
 #include <QResizeEvent>
+#include <QPalette>
 
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
@@ -41,6 +43,7 @@ namespace widgets {
 SettingsItem::SettingsItem(QWidget *parent)
     : QFrame(parent)
     , m_isErr(false)
+    , m_hasBack(false)
 {
 }
 
@@ -60,27 +63,27 @@ void SettingsItem::setIsErr(const bool err)
 
 void SettingsItem::addBackground()
 {
-    //加入一个 DFrame 作为圆角背景
-    if (m_bgGroup)
-        m_bgGroup->deleteLater();
-    m_bgGroup = new DFrame(this);
-    m_bgGroup->setBackgroundRole(DPalette::ItemBackground);
-    m_bgGroup->setLineWidth(0);
-    DStyle::setFrameRadius(m_bgGroup, 8);
+    m_hasBack = true;
 
-    //将 m_bgGroup 沉底
-    m_bgGroup->lower();
-    //设置m_bgGroup 的大小
-    m_bgGroup->setFixedSize(size());
+    update();
 }
 
 void SettingsItem::resizeEvent(QResizeEvent *event)
 {
     QFrame::resizeEvent(event);
+}
 
-    //设置m_bgGroup 的大小
-    if (m_bgGroup)
-        m_bgGroup->setFixedSize(size());
+void SettingsItem::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event)
+    if (m_hasBack) {
+        const DPalette &dp = DApplicationHelper::instance()->palette(this);
+        QPainter p(this);
+        p.setPen(Qt::NoPen);
+        p.setBrush(dp.brush(DPalette::ItemBackground));
+        p.drawRoundedRect(rect(), 8, 8);
+    }
+    return QFrame::paintEvent(event);
 }
 }
 }
