@@ -35,6 +35,7 @@ class TimeZoneChooser;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace datetime {
 class TimezoneList;
 class DatetimeWidget;
@@ -95,6 +96,7 @@ private:
     QPointer<DatetimeWidget> m_widget;
     QPointer<DateSettings> m_setting;
     DCC_NAMESPACE::datetime::FormatSetting *m_fsetting;
+    MainWindow *m_pMainWindow;
 };
 
 }// namespace datetime

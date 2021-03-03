@@ -207,8 +207,8 @@ void GeneralWidget::initUi()
     GSettingWatcher::instance()->bind("powerShowtimeTofull", m_powerShowTimeToFull);
     GSettingWatcher::instance()->bind("powerShowtimeTofulltips", m_ShowTimeToFullTips);
     m_batteryLabel->setVisible(m_bIsBattery);
-    m_powerShowTimeToFull->setVisible(m_bIsBattery && (GSettingWatcher::instance()->getStatus("powerShowtimeTofull") != "Hiden"));
-    m_ShowTimeToFullTips->setVisible(m_bIsBattery && (GSettingWatcher::instance()->getStatus("powerShowtimeTofulltips") != "Hiden"));
+    m_powerShowTimeToFull->setVisible(m_bIsBattery && (GSettingWatcher::instance()->getStatus("powerShowtimeTofull") != "Hidden"));
+    m_ShowTimeToFullTips->setVisible(m_bIsBattery && (GSettingWatcher::instance()->getStatus("powerShowtimeTofulltips") != "Hidden"));
 
     m_batteryLabel->setContentsMargins(10, 0, 10, 0); // 电池设置label与外面布局的边距
     batteyLayout->addWidget(m_batteryLabel);          // 添加电池设置label
@@ -259,7 +259,7 @@ void GeneralWidget::setModel(const PowerModel *model)
 #endif
 
     m_wakeComputerNeedPassword->setVisible(model->canSleep() && model->getSuspend()
-                                                             && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hiden"));
+                                                             && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
 
     //-------------sp2 add-------------------------
     m_swLowPowerAutoIntoSaveEnergyMode->setChecked(model->powerSavingModeAutoWhenQuantifyLow());
@@ -278,9 +278,9 @@ void GeneralWidget::setModel(const PowerModel *model)
 
     bool bStatus = model->haveBettary();
 
-    if (GSettingWatcher::instance()->getStatus("powerAutointoSaveenergyBattery") != "Hiden")
+    if (GSettingWatcher::instance()->getStatus("powerAutointoSaveenergyBattery") != "Hidden")
         m_swLowPowerAutoIntoSaveEnergyMode->setVisible(bStatus);
-    if (GSettingWatcher::instance()->getStatus("powerAutointoSaveenergy") != "Hiden")
+    if (GSettingWatcher::instance()->getStatus("powerAutointoSaveenergy") != "Hidden")
         m_autoIntoSaveEnergyMode->setVisible(bStatus);
 
     connect(model, &PowerModel::haveBettaryChanged, this, &GeneralWidget::onBatteryChanged);

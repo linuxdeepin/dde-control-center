@@ -57,7 +57,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     //~ contents_path /mouse/Mouse
     m_menuIconText.push_back({ "dcc_mouse", tr("Mouse"), QMetaMethod::fromSignal(&MouseWidget::showMouseSetting)});
     //~ contents_path /mouse/Touchpad
-    if (GSettingWatcher::instance()->getStatus("mouseTouchpad") != "Hiden")
+    if (GSettingWatcher::instance()->getStatus("mouseTouchpad") != "Hidden")
         m_menuIconText.push_back({ "dcc_touchpad", tr("Touchpad"), QMetaMethod::fromSignal(&MouseWidget::showTouchpadSetting)});
     //~ contents_path /mouse/TrackPoint
     m_menuIconText.push_back({ "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting)});

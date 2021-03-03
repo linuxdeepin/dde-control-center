@@ -24,6 +24,9 @@
 #include <QGSettings>
 #include <QVariant>
 #include <QWidget>
+#include <QListView>
+#include <QStandardItem>
+#include <QStandardItemModel>
 
 GSettingWatcher::GSettingWatcher(QObject *parent)
     : QObject(parent)
@@ -50,6 +53,13 @@ void GSettingWatcher::bind(const QString &gsettingsName, QWidget *binder)
     });
 }
 
+void GSettingWatcher::bind(const QString &gsettingsName, QListView *viewer, QStandardItem *item)
+{
+    m_menuMap.insert(gsettingsName, QPair<QListView *, QStandardItem *>(viewer, item));
+
+    setStatus(gsettingsName, viewer, item);
+}
+
 void GSettingWatcher::erase(const QString &gsettingsName)
 {
     if (m_map.isEmpty() || !m_map.contains(gsettingsName))
@@ -66,6 +76,11 @@ void GSettingWatcher::erase(const QString &gsettingsName, QWidget *binder)
     m_map.remove(gsettingsName, binder);
 }
 
+void GSettingWatcher::clearMenuMap()
+{
+    m_menuMap.clear();
+}
+
 void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
 {
     if (!binder)
@@ -79,7 +94,16 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
         binder->setEnabled(false);
     }
 
-    binder->setVisible("Hiden" != setting);
+    binder->setVisible("Hidden" != setting);
+}
+
+void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer, QStandardItem *item)
+{
+    bool visible = m_gsettings->get(gsettingsName).toBool();
+
+    viewer->setRowHidden(item->row(), !visible);
+
+    if (!visible) Q_EMIT requestUpdateSecondMenu(item->row());
 }
 
 const QString GSettingWatcher::getStatus(const QString &gsettingsName)
@@ -87,15 +111,39 @@ const QString GSettingWatcher::getStatus(const QString &gsettingsName)
     return m_gsettings->get(gsettingsName).toString();
 }
 
+QMap<QString, bool> GSettingWatcher::getMenuState()
+{
+    QMap<QString, bool> menuStates;
+    menuStates.insert("bootMenu", m_gsettings->get("bootMenu").toBool());
+    menuStates.insert("developerMode", m_gsettings->get("developerMode").toBool());
+    menuStates.insert("userExperienceProgram", m_gsettings->get("userExperienceProgram").toBool());
+    menuStates.insert("timezoneList", m_gsettings->get("timezoneList").toBool());
+    menuStates.insert("timeSettings", m_gsettings->get("timeSettings").toBool());
+    menuStates.insert("timeFormat", m_gsettings->get("timeFormat").toBool());
+    return menuStates;
+}
+
 void GSettingWatcher::onStatusModeChanged(const QString &key)
 {
-    if (m_map.isEmpty() || !m_map.contains(key))
-        return;
-
-    // 重新设置控件对应的显示类型
-    for (auto mapUnit = m_map.begin(); mapUnit != m_map.end(); ++mapUnit) {
-        if (key == mapUnit.key()) {
-            setStatus(key, mapUnit.value());
+    if (!m_map.isEmpty() && m_map.contains(key)) {
+        // 重新设置控件对应的显示类型
+        for (auto mapUnit = m_map.begin(); mapUnit != m_map.end(); ++mapUnit) {
+            if (key == mapUnit.key()) {
+                setStatus(key, mapUnit.value());
+            }
         }
+    }
+
+    if (!m_menuMap.isEmpty() && m_menuMap.contains(key)) {
+        for (auto mapUnit = m_menuMap.begin(); mapUnit != m_menuMap.end(); ++mapUnit) {
+            if (key == mapUnit.key()) {
+                setStatus(key, mapUnit->first, mapUnit->second);
+            }
+        }
+    }
+
+    QMap<QString, bool> map = getMenuState();
+    if (map.keys().contains(key)) {
+        Q_EMIT requestUpdateSearchMenu(key, map.value(key));
     }
 }

@@ -243,7 +243,7 @@ void KeyboardModule::showShortCutSetting()
     connect(m_work, &KeyboardWorker::onResetFinished, m_shortcutSettingWidget, &ShortCutSettingWidget::onResetFinished);
 
     m_frameProxy->pushWidget(this, m_shortcutSettingWidget);
-    m_shortcutSettingWidget->setVisible(GSettingWatcher::instance()->getStatus("keyboardShortcut") != "Hiden");
+    m_shortcutSettingWidget->setVisible(GSettingWatcher::instance()->getStatus("keyboardShortcut") != "Hidden");
 }
 
 void KeyboardModule::onPushSystemLanguageSetting()

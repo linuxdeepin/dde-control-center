@@ -445,9 +445,9 @@ void SpeakerPage::setDeviceVisible(bool visable)
     if (visable) {
         m_speakSlider->show();
         m_vbWidget->show();
-        if (GSettingWatcher::instance()->getStatus("soundBalanceSlider") != "Hiden")
+        if (GSettingWatcher::instance()->getStatus("soundBalanceSlider") != "Hidden")
             m_balanceSlider->setVisible(m_balance);
-        if (GSettingWatcher::instance()->getStatus("soundOutputSlider") != "Hiden")
+        if (GSettingWatcher::instance()->getStatus("soundOutputSlider") != "Hidden")
             m_outputSlider->show();
     } else {
         m_speakSlider->hide();

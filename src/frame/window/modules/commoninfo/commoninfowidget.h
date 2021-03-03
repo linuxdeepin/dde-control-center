@@ -53,12 +53,16 @@ class CommonInfoWidget : public QWidget
 
 public:
     explicit CommonInfoWidget(QWidget *parent = nullptr);
+    virtual ~CommonInfoWidget() override;
     dcc::widgets::MultiSelectListView *getCommonListView();
+    void showDefaultWidget();
+
 Q_SIGNALS:
     void requestShowBootWidget();
     void requestShowDeveloperModeWidget();
     void requestShowUEPlanWidget();
     void requestShowTabletModeWidget();
+    void requestUpdateSecondMenu(bool);
 
 private:
     void initWidget();

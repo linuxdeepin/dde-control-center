@@ -74,6 +74,7 @@ Q_SIGNALS:
     void requestFormatSetting();
     void requestTimeSetting();
     void requestCloseWidget();
+    void requestUpdateSecondMenu(bool);
 
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);

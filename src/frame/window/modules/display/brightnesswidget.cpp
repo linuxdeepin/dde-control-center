@@ -122,7 +122,7 @@ void BrightnessWidget::setMode(DisplayModel *model)
     connect(m_autoLightMode, &SwitchWidget::checkedChanged, this, &BrightnessWidget::requestAmbientLightAdjustBrightness);
     connect(m_displayModel, &DisplayModel::adjustCCTmodeChanged, this, &BrightnessWidget::setAdjustCCTmode);
     connect(m_displayModel, &DisplayModel::redshiftVaildChanged, this, [=](const bool visible) {
-        if ("Hiden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) {
+        if ("Hidden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) {
             m_tempratureColorWidget->setVisible(visible);
         }
     });
@@ -146,7 +146,7 @@ void BrightnessWidget::setMode(DisplayModel *model)
     });
     connect(m_displayModel, &DisplayModel::autoLightAdjustSettingChanged, m_autoLightMode, &SwitchWidget::setChecked);
 
-    if ("Hiden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) {
+    if ("Hidden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) {
         m_autoLightSpacerItem->changeSize(0, model->autoLightAdjustIsValid() ? 10 : 0);
         m_autoLightMode->setVisible(model->autoLightAdjustIsValid());
         m_autoLightMode->setChecked(model->isAudtoLightAdjust());

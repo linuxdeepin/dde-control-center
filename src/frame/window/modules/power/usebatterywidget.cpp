@@ -251,12 +251,12 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
     m_computerSleepOnBattery->setVisible(model->canSleep() && model->getSuspend()
-                                                           && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hiden"));
-    m_sldAutoSuspend->setVisible(model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hiden"));
+                                                           && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
+    m_sldAutoSuspend->setVisible(model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
 //    m_suspendOnLidClose->setVisible(model->canSleep());
 
     //--------------sp2 add-----------------
-    m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hiden");
+    m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");
 
     connect(model, &PowerModel::batteryLidClosedActionChanged, this, [ = ](const int reply) {
         if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1) {

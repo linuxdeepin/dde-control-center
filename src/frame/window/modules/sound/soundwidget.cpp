@@ -80,7 +80,7 @@ void SoundWidget::initMenuUI()
     //~ contents_path /sound/Speaker
     m_menuMethod.push_back({ "dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)});
     //~ contents_path /sound/Microphone
-    if (GSettingWatcher::instance()->getStatus("soundInput") != "Hiden")
+    if (GSettingWatcher::instance()->getStatus("soundInput") != "Hidden")
         m_menuMethod.push_back({ "dcc_noun",tr("Input"),  QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)});
     //~ contents_path /sound/Sound Effects
     m_menuMethod.push_back({"dcc_sound_effect",tr("Sound Effects"),  QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)});

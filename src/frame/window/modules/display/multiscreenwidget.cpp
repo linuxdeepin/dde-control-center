@@ -212,7 +212,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         initSecondaryScreenDialog();
     });
     connect(m_model, &DisplayModel::resolutionRefreshEnableChanged, this, [=](const bool enable) {
-        m_multiSettingLabel->setVisible(GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hiden" ? enable : false);
+        m_multiSettingLabel->setVisible(GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hidden" ? enable : false);
         m_modeSettingsItem->setVisible(enable);
         m_primarySettingsItem->setVisible(enable);
     });
@@ -251,7 +251,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
     m_monitorControlWidget->setModel(m_model, m_model->displayMode() == SINGLE_MODE ? m_model->primaryMonitor() : nullptr);
-    m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable() && (GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hiden"));
+    m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable() && (GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hidden"));
     m_modeSettingsItem->setVisible(m_model->resolutionRefreshEnable());
     m_primarySettingsItem->setVisible(m_model->resolutionRefreshEnable());
     m_primaryCombox->setEnabled(m_model->displayMode() == EXTEND_MODE);

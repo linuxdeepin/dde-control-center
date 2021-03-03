@@ -30,6 +30,7 @@ QT_BEGIN_NAMESPACE
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace commoninfo {
 class CommonInfoModel;
 class CommonInfoWork;
@@ -40,13 +41,14 @@ class UserExperienceProgramWidget;
 // 以下内容为平板模式做预留
 //class TabletModeWidget;
 
-class CommonInfoModule : public QObject, public ModuleInterface
+class CommonInfoModule : public QObject
+    , public ModuleInterface
 {
     Q_OBJECT
 public:
     explicit CommonInfoModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~CommonInfoModule();
-    void preInitialize(bool sync , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal);
+    void preInitialize(bool sync, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal);
     //　初始化模块
     virtual void initialize() override;
     // 返回模块名
@@ -58,23 +60,27 @@ public:
     // 当搜索到相关字段后，load会被调用
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+
 public Q_SLOTS:
-    void onShowBootWidget(); // for bootmenu
-    void onShowDeveloperWidget(); // for developer mode
-    void onShowUEPlanWidget(); // for user exprience program
+    void onShowBootWidget();       // for bootmenu
+    void onShowDeveloperWidget();  // for developer mode
+    void onShowUEPlanWidget();     // for user exprience program
     void onShowTabletModeWidget(); // for tablet mode
+
 private:
     void initBootWidget();
     void initUeProgramWidget(); // for user experience program
+
 private:
-    CommonInfoWork *m_commonWork{nullptr};
-    CommonInfoModel *m_commonModel{nullptr};
-    CommonInfoWidget *m_commonWidget{nullptr}; // main widget
-    BootWidget *m_bootWidget{nullptr}; // for bootmenu
-    UserExperienceProgramWidget *m_ueProgramWidget{nullptr}; // for user experience program
+    CommonInfoWork *m_commonWork {nullptr};
+    CommonInfoModel *m_commonModel {nullptr};
+    CommonInfoWidget *m_commonWidget {nullptr};               // main widget
+    BootWidget *m_bootWidget {nullptr};                       // for bootmenu
+    UserExperienceProgramWidget *m_ueProgramWidget {nullptr}; // for user experience program
+    MainWindow *m_pMainWindow;
     // 以下内容为平板模式做预留
     //TabletModeWidget* mTabletModeWidget;
 };
 
-}// namespace commoninfo
-}// namespace DCC_NAMESPACE
+} // namespace commoninfo
+} // namespace DCC_NAMESPACE

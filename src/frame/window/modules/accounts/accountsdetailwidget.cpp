@@ -601,7 +601,7 @@ void AccountsDetailWidget::setDeleteBtnStatus(const QString &key, const bool &st
         m_deleteAccount->setEnabled(false);
     }
 
-    m_deleteAccount->setVisible("Hiden" != deleteBtnStatus);
+    m_deleteAccount->setVisible("Hidden" != deleteBtnStatus);
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)

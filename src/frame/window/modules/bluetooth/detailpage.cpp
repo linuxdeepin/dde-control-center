@@ -176,7 +176,7 @@ void DetailPage::onDeviceStatusChanged()
         if (m_device->connectState()) {
             m_disconnectButton->show();
             m_connectButton->hide();
-            m_transfileButton->setVisible(m_device->canSendFile() && GSettingWatcher::instance()->getStatus("bluetoothTransfile") != "Hiden");
+            m_transfileButton->setVisible(m_device->canSendFile() && GSettingWatcher::instance()->getStatus("bluetoothTransfile") != "Hidden");
             m_ignoreButton->setEnabled(true);
         } else {
             m_connectButton->show();

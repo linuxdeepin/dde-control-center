@@ -28,7 +28,9 @@
 #include "modules/mouse/widget/palmdetectsetting.h"
 #include "modules/mouse/widget/doutestwidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "widgets/multiselectlistview.h"
+
 #include <QStandardItemModel>
 #include <QVBoxLayout>
 
@@ -52,6 +54,7 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
 DatetimeWidget::~DatetimeWidget()
 {
     requestCloseWidget();
+    GSettingWatcher::instance()->clearMenuMap();
 }
 
 void DatetimeWidget::init()
@@ -67,18 +70,6 @@ void DatetimeWidget::init()
 
     DStandardItem *item = nullptr;
     auto model = new QStandardItemModel(this);
-    for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
-        item = new DStandardItem(QIcon::fromTheme(it->first), it->second);
-        item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        model->appendRow(item);
-    }
-
-    m_itemList.append({menuIconText.at(0).first, menuIconText.at(0).second,QMetaMethod::fromSignal(&DatetimeWidget::requestTimezoneList)});
-    m_itemList.append({menuIconText.at(1).first, menuIconText.at(1).second,QMetaMethod::fromSignal(&DatetimeWidget::requestTimeSetting)});
-    m_itemList.append({menuIconText.at(2).first, menuIconText.at(2).second,QMetaMethod::fromSignal(&DatetimeWidget::requestFormatSetting)});
-
-    if(InsertPlugin::instance()->needPushPlugin("datetime"))
-        InsertPlugin::instance()->pushPlugin(model,m_itemList);
 
     m_listview->setAccessibleName("List_datetimesettingList");
     m_listview->setFrameShape(QFrame::NoFrame);
@@ -89,6 +80,20 @@ void DatetimeWidget::init()
     m_listview->setItemSpacing(10);
     m_listview->setViewportMargins(0, 0, 0, 0);
     m_listview->setIconSize(ListViweIconSize);
+
+    m_itemList.append({menuIconText.at(0).first, menuIconText.at(0).second,QMetaMethod::fromSignal(&DatetimeWidget::requestTimezoneList), nullptr, "timezoneList"});
+    m_itemList.append({menuIconText.at(1).first, menuIconText.at(1).second,QMetaMethod::fromSignal(&DatetimeWidget::requestTimeSetting), nullptr, "timeSettings"});
+    m_itemList.append({menuIconText.at(2).first, menuIconText.at(2).second,QMetaMethod::fromSignal(&DatetimeWidget::requestFormatSetting), nullptr, "timeFormat"});
+
+    for (auto it = m_itemList.cbegin(); it != m_itemList.cend(); ++it) {
+        item = new DStandardItem(QIcon::fromTheme(it->itemIcon), it->itemText);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
+        model->appendRow(item);
+        GSettingWatcher::instance()->bind(it->gsettingsName, m_listview, item);
+    }
+
+    if(InsertPlugin::instance()->needPushPlugin("datetime"))
+        InsertPlugin::instance()->pushPlugin(model,m_itemList);
 
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
     //~ contents_path /datetime/Timezone List
@@ -110,6 +115,25 @@ void DatetimeWidget::init()
     connect(m_listview, &DListView::activated, m_listview, &QListView::clicked);
     // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
     connect(m_hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+        bool isAllHidden = true;
+        for (int i = 0; i < m_listview->model()->rowCount(); i++) {
+            if (!m_listview->isRowHidden(i))
+                isAllHidden = false;
+        }
+
+        if (m_listview->selectionModel()->selectedRows().size() > 0) {
+            int index = m_listview->selectionModel()->selectedRows()[0].row();
+            Q_EMIT requestUpdateSecondMenu(index == row);
+        } else {
+            Q_EMIT requestUpdateSecondMenu(false);
+        }
+
+        if (isAllHidden) {
+            m_lastIndex = QModelIndex();
+            m_listview->clearSelection();
+        }
+    });
 }
 
 void DatetimeWidget::setModel(const DatetimeModel *model)
@@ -141,6 +165,13 @@ void DatetimeWidget::setDefaultWidget()
 {
     m_listview->setCurrentIndex(m_listview->model()->index(0, 0));
     m_listview->clicked(m_listview->model()->index(0, 0));
+
+    for(int i = 0; i < m_listview->model()->rowCount(); i++) {
+        if (!m_listview->isRowHidden(i)) {
+            m_listview->activated(m_listview->model()->index(i, 0));
+            break;
+        }
+    }
 }
 
 void DatetimeWidget::onItemClicked(const QModelIndex &index)

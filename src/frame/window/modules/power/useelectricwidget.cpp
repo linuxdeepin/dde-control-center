@@ -194,14 +194,14 @@ void UseElectricWidget::setModel(const PowerModel *model)
 
     if (m_computerSleepOnPower) {
         m_computerSleepOnPower->setVisible(model->canSleep() && model->getSuspend()
-                                                             && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hiden"));
+                                                             && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
     }
 
     //--------------sp2 add-----------------
     connect(model, &PowerModel::lidPresentChanged, this, [ = ](bool value) {
-        m_cmbCloseLid->setVisible(value && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hiden");
+        m_cmbCloseLid->setVisible(value && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");
     });
-    m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hiden");
+    m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");
     connect(model, &PowerModel::linePowerLidClosedActionChanged, this, [=](const int reply){
         if (reply - 1 < m_cmbCloseLid->comboBox()->count()) {
             setCloseLid(model, reply);

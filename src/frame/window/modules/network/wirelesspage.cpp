@@ -297,10 +297,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     QGSettings *gsettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     GSettingWatcher::instance()->bind("wireless", m_switch);
-    m_lvAP->setVisible(dev->enabled() && gsettings->get("wireless").toString() != "Hiden");
+    m_lvAP->setVisible(dev->enabled() && gsettings->get("wireless").toString() != "Hidden");
     connect(gsettings, &QGSettings::changed, this, [ = ](const QString &key){
         if ("wireless" == key) {
-            m_lvAP->setVisible(dev->enabled() && gsettings->get("wireless").toString() != "Hiden");
+            m_lvAP->setVisible(dev->enabled() && gsettings->get("wireless").toString() != "Hidden");
             if (gsettings->get("wireless").toString() == "Enabled")
                 m_lvAP->setEnabled(true);
             else if(gsettings->get("wireless").toString() == "Disabled")
@@ -312,7 +312,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
         m_switch->setChecked(enabled);
         if (m_lvAP) {
-            m_lvAP->setVisible(enabled && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hiden");
+            m_lvAP->setVisible(enabled && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
             updateLayout(!m_lvAP->isHidden());
         }
     });
@@ -454,7 +454,7 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
 void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
-    m_lvAP->setVisible(m_switch->checked() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hiden");
+    m_lvAP->setVisible(m_switch->checked() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
     connect(m_model, &NetworkModel::deviceEnableChanged, this, [this] { m_switch->setChecked(m_device->enabled()); });
     connect(m_device,
             static_cast<void (WirelessDevice::*)(WirelessDevice::DeviceStatus) const>(&WirelessDevice::statusChanged),
@@ -485,7 +485,7 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
         Q_EMIT requestWirelessScan();
 
     m_clickedItem = nullptr;
-    m_lvAP->setVisible(checked && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hiden");
+    m_lvAP->setVisible(checked && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
     updateLayout(!m_lvAP->isHidden());
 }
 
@@ -582,7 +582,7 @@ void WirelessPage::onHotspotEnableChanged(const bool enabled)
 {
     m_closeHotspotBtn->setVisible(enabled);
     m_tipsGroup->setVisible(enabled);
-    m_lvAP->setVisible(!enabled && m_device->enabled() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hiden");
+    m_lvAP->setVisible(!enabled && m_device->enabled() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
     updateLayout(!m_lvAP->isHidden());
 }
 

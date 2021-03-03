@@ -403,11 +403,11 @@ void MicrophonePage::showDevice()
 void MicrophonePage::setDeviceVisible(bool visable)
 {
     if (visable) {
-        if (GSettingWatcher::instance()->getStatus("soundFeedbackSlider") != "Hiden")
+        if (GSettingWatcher::instance()->getStatus("soundFeedbackSlider") != "Hidden")
             m_feedbackSlider->show();
-        if (GSettingWatcher::instance()->getStatus("soundInputSlider") != "Hiden")
+        if (GSettingWatcher::instance()->getStatus("soundInputSlider") != "Hidden")
             m_inputSlider->show();
-        if (GSettingWatcher::instance()->getStatus("soundNoiseReduce") != "Hiden")
+        if (GSettingWatcher::instance()->getStatus("soundNoiseReduce") != "Hidden")
             m_noiseReductionsw->setVisible(m_noiseReduce);
     } else {
         m_feedbackSlider->hide();

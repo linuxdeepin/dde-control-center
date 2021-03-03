@@ -26,6 +26,7 @@
 #include "systemtimezone.h"
 #include "formatsetting.h"
 #include "window/gsettingwatcher.h"
+#include "window/mainwindow.h"
 
 #include <types/zoneinfo.h>
 
@@ -46,7 +47,7 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     , m_timezonelist(nullptr)
     , m_widget(nullptr)
 {
-
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 }
 
 void DatetimeModule::initialize()
@@ -90,6 +91,11 @@ void DatetimeModule::active()
     connect(m_widget, &DatetimeWidget::requestSetHourType, m_work, &DatetimeWork::set24HourType);
     connect(m_model,  &DatetimeModel::hourTypeChanged, m_widget, &DatetimeWidget::onHourTypeChanged);
     connect(m_widget, &DatetimeWidget::requestCloseWidget, this, &DatetimeModule::closeDialog);
+    connect(m_widget, &DatetimeWidget::requestUpdateSecondMenu, this, [=](bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop)
+            m_frameProxy->popWidget(this);
+        m_widget->setDefaultWidget();
+    });
     m_widget->setModel(m_model);
     m_work->activate(); //refresh data
     m_widget->setCurrentTimeZone(m_model->currentTimeZone());

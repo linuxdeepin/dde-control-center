@@ -7,7 +7,7 @@
     <enum id="com.deepin.dde.control-center.StatusMode">
         <value value="0" nick="Enabled" />
         <value value="1" nick="Disabled" />
-        <value value="2" nick="Hiden" />
+        <value value="2" nick="Hidden" />
     </enum>
     <schema path="/com/deepin/dde/control-center/" id="com.deepin.dde.control-center">
         <key name="brightness-minimum" type="d">
@@ -487,6 +487,36 @@
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
+        </key>
+        <key name="boot-menu" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="developer-mode" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="user-experience-program" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="timezone-list" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="time-settings" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="time-format" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
         </key>
     </schema>
 </schemalist>
