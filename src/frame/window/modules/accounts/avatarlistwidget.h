@@ -37,6 +37,7 @@ class QLabel;
 class QListView;
 class QStandardItemModel;
 class QModelIndex;
+class QFileDialog;
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -85,6 +86,8 @@ private:
     QSize m_avatarSize;
     QModelIndex m_currentSelectIndex;
     bool m_displayLastItem;
+    QFileDialog *m_fd;
+    QString m_filePath;
 };
 
 }

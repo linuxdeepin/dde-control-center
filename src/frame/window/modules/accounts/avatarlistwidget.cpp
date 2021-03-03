@@ -51,6 +51,7 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
     , m_avatarItemModel(new QStandardItemModel(this))
     , m_avatarItemDelegate(new AvatarItemDelegate(this))
     , m_avatarSize(QSize(74, 74))
+    , m_fd(new QFileDialog(this))
 {
     initWidgets();
 
@@ -59,6 +60,9 @@ AvatarListWidget::AvatarListWidget(User *usr, QWidget *parent)
 
 AvatarListWidget::~AvatarListWidget()
 {
+    m_fd->reject();
+    m_fd->deleteLater();
+
     if (m_avatarItemModel) {
         m_avatarItemModel->clear();
         m_avatarItemModel->deleteLater();
@@ -86,6 +90,8 @@ void AvatarListWidget::initWidgets()
     setModel(m_avatarItemModel);
 
     addItemFromDefaultDir();
+
+    m_fd->setModal(true);
 
     if (m_curUser)
         refreshCustomAvatar(getUserAddedCustomPicPath(m_curUser->name()));
@@ -162,24 +168,28 @@ void AvatarListWidget::onItemClicked(const QModelIndex &index)
     if (index.data(Qt::CheckStateRole) == Qt::Checked)
         return;
 
-    auto filepath = index.data(SaveAvatarRole).toString();
-    if (filepath.isEmpty()) {
-        QFileDialog fd;
-        fd.setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
+    m_filePath = index.data(SaveAvatarRole).toString();
+    if (m_filePath.isEmpty()) {
+        m_fd->setNameFilter(tr("Images") + "(*.png *.bmp *.jpg *.jpeg)");
+        m_fd->show();
 
         QStringList directory = QStandardPaths::standardLocations(QStandardPaths::PicturesLocation);
         if (!directory.isEmpty()) {
-            fd.setDirectory(directory.first());
+            m_fd->setDirectory(directory.first());
         }
 
-        if (fd.exec() == QFileDialog::Accepted) {
-            filepath = fd.selectedFiles().first();
-        }
+        connect(m_fd, &QFileDialog::finished, this, [ = ] (int result){
+           if (result == QFileDialog::Accepted) {
+               m_filePath = m_fd->selectedFiles().first();
+               Q_EMIT requestSetAvatar(m_filePath);
+           }
+        });
     }
 
-    if (!filepath.isEmpty()) {
-        Q_EMIT requestSetAvatar(filepath);
+    if (!m_filePath.isEmpty()) {
+        Q_EMIT requestSetAvatar(m_filePath);
     }
+
 }
 
 void AvatarListWidget::addItemFromDefaultDir()
