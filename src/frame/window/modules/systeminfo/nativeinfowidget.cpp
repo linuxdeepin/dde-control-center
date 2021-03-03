@@ -146,6 +146,7 @@ void NativeInfoWidget::initWidget()
     infoGroup->appendItem(m_type);
     if (!DSysInfo::isCommunityEdition())
         infoGroup->appendItem(m_authorized);
+    m_authorized->setVisible(!DSysInfo::isCommunityEdition());
     infoGroup->appendItem(m_kernel);
     infoGroup->appendItem(m_processor);
     infoGroup->appendItem(m_memory);
