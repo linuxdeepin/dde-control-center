@@ -78,7 +78,6 @@ Q_SIGNALS:
     void requestAmbientLightAdjustBrightness(const bool able);
     void requestSetMethodAdjustCCT(const int mode);
     void requestUiScaleChange(const double scale);
-    void requestIndividualScaling(dcc::display::Monitor *monitor, const double scale);
     void requestSetResolution(dcc::display::Monitor *monitor, const int mode);
     void requestSetRotate(dcc::display::Monitor *monitor, const int rotate);
     void requestGatherEnabled(const bool enable);

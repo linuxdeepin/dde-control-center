@@ -169,7 +169,6 @@ void DisplayModule::showSingleScreenWidget()
     scalingWidget->setModel(m_displayModel);
     contentLayout->addWidget(scalingWidget);
     connect(scalingWidget, &ScalingWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
-    connect(scalingWidget, &ScalingWidget::requestIndividualScaling, m_displayWorker, &DisplayWorker::setIndividualScaling);
 
     QSpacerItem *resolutionSpacerItem = new QSpacerItem(0, 30);
     contentLayout->addSpacerItem(resolutionSpacerItem);
@@ -220,7 +219,6 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
     connect(multiScreenWidget, &MultiScreenWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
-    connect(multiScreenWidget, &MultiScreenWidget::requestIndividualScaling, m_displayWorker, &DisplayWorker::setIndividualScaling);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi) {

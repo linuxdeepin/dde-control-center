@@ -25,12 +25,9 @@
 #include "widgets/switchwidget.h"
 #include "widgets/titledslideritem.h"
 #include "widgets/titlelabel.h"
-
 #include "interface/namespace.h"
 
-#include <DFontSizeManager>
-
-#include <QWidget>
+#include <DTipLabel>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -44,8 +41,6 @@ class Monitor;
 class DisplayModel;
 } // namespace display
 } // namespace dcc
-
-#define ALL_MONITOR_SAME_SCALE
 
 namespace DCC_NAMESPACE {
 
@@ -64,28 +59,23 @@ public:
 
 Q_SIGNALS:
     void requestUiScaleChange(const double scale);
-    void requestIndividualScaling(dcc::display::Monitor *monitor, const double scale);
 
-private
-    Q_SLOT : void onResolutionChanged();
+private Q_SLOTS:
+    void onResolutionChanged();
 
 private:
-    void setupSliders();
-    void addSlider(int monitorID);
-
+    void addSlider();
     QStringList getScaleList(const Resolution &r);
     int convertToSlider(const double value);
-    double convertToScale(const int value);
 
 private:
     dcc::display::DisplayModel *m_displayModel;
     QVBoxLayout *m_centralLayout;
-    TitleLabel *m_tip;
-#ifdef ALL_MONITOR_SAME_SCALE
-    dcc::widgets::TitledSliderItem *m_slider {nullptr};
-#else
-    QList<dcc::widgets::TitledSliderItem *> m_sliders;
-#endif
+    TitleLabel *m_title;
+    QWidget *m_tipWidget;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_tipLabel;
+    dcc::widgets::TitledSliderItem *m_slider;
+    QStringList m_scaleList;
 };
 
 } // namespace display

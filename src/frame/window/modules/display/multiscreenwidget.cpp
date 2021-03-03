@@ -244,7 +244,6 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_brightnessWidget, &BrightnessWidget::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);
     connect(m_brightnessWidget, &BrightnessWidget::requestSetMethodAdjustCCT, this, &MultiScreenWidget::requestSetMethodAdjustCCT);
     connect(m_scalingWidget, &ScalingWidget::requestUiScaleChange, this, &MultiScreenWidget::requestUiScaleChange);
-    connect(m_scalingWidget, &ScalingWidget::requestIndividualScaling, this, &MultiScreenWidget::requestIndividualScaling);
     connect(m_resolutionWidget, &ResolutionWidget::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
     connect(m_refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
