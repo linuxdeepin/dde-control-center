@@ -70,8 +70,6 @@ private:
     int m_movedY;
 
     QPoint m_lastPos;
-
-    bool m_underMouseMove;
 };
 
 } // namespace display

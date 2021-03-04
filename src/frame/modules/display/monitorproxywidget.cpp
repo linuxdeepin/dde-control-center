@@ -37,7 +37,6 @@ MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, DisplayModel *model, QWidge
     , m_model(model)
     , m_movedX(m_monitor->x())
     , m_movedY(m_monitor->y())
-    , m_underMouseMove(false)
 {
     connect(m_monitor, &Monitor::xChanged, this, &MonitorProxyWidget::setMovedX);
     connect(m_monitor, &Monitor::yChanged, this, &MonitorProxyWidget::setMovedY);
@@ -61,12 +60,12 @@ const QString MonitorProxyWidget::name() const
 void MonitorProxyWidget::paintEvent(QPaintEvent *)
 {
     const QRect r(rect());
-
+    const int arc = 8;
     QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
-    painter.fillRect(r, QColor("#5f5f5f"));
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    painter.setBrush(QColor("#5f5f5f"));
     painter.setPen(QColor("#2e2e2e"));
-    painter.drawRect(r);
+    painter.drawRoundedRect(r, arc, arc);
 
     const QFontMetrics fm(painter.font());
     const int width = fm.boundingRect(m_monitor->name()).width();
@@ -94,28 +93,24 @@ void MonitorProxyWidget::paintEvent(QPaintEvent *)
         painter.drawRoundedRect(dockRect, radius, radius);
 
         // draw blue border if the mode is EXTEND_MODE
-        QPen pen(QColor("#2ca7f8"));
-        pen.setWidth(4);
-        painter.setPen(pen);
+        QPen penWhite(QColor("#FFFFFF"));
+        penWhite.setWidth(3);
+        painter.setWindow(rect());
+        painter.setPen(penWhite);
         painter.setBrush(Qt::transparent);
-        painter.drawRect(rect());
-    }
+        painter.drawRoundedRect(r, arc, arc);
 
-    // draw blue border if under mouse control
-    if (m_underMouseMove) {
         QPen pen(QColor("#2ca7f8"));
-        pen.setWidth(4);
+        pen.setWidth(2);
         painter.setPen(pen);
         painter.setBrush(Qt::transparent);
-        painter.drawRect(rect());
+        painter.drawRoundedRect(r, arc, arc);
     }
 }
 
 void MonitorProxyWidget::mousePressEvent(QMouseEvent *e)
 {
     m_lastPos = e->globalPos();
-
-    m_underMouseMove = true;
 
     if (m_model->displayMode() == EXTEND_MODE) {
         Q_EMIT requestMonitorPress(m_monitor);
@@ -141,8 +136,6 @@ void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 {
     if (m_model->displayMode() == EXTEND_MODE)
         Q_EMIT requestApplyMove(this);
-
-    m_underMouseMove = false;
 
     if (m_model->displayMode() == EXTEND_MODE) {
         Q_EMIT requestMonitorRelease(m_monitor);
