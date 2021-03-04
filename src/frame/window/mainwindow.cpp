@@ -226,16 +226,6 @@ MainWindow::MainWindow(QWidget *parent)
         resetNavList(m_contentStack.isEmpty());
     });
 
-    // 控制中心只显示DP-1屏幕的时候，拔掉HDMI线控制中心不显示
-    connect(qApp, &QGuiApplication::primaryScreenChanged, this, [this] {
-        QTimer::singleShot(100, [this]{
-            QRect mwRect(0, 0, this->width(), this->height());
-            mwRect.moveCenter(QGuiApplication::primaryScreen()->geometry().center());
-            setGeometry(mwRect);
-        });
-    });
-
-
     updateViewBackground();
     updateWinsize();
 }
