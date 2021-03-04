@@ -174,7 +174,7 @@ void ModifyPasswdPage::clickSaveBtn()
             dlg.setIcon(QIcon::fromTheme("preferences-system"));
             dlg.addButton(tr("Go to Settings"));
             dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-            connect(&dlg, &DDialog::buttonClicked, this, [](int idx){
+            connect(&dlg, &DDialog::buttonClicked, this, [ = ] (int idx) {
                 if (idx == 0) {
                     DDBusSender()
                     .service("com.deepin.defender.hmiscreen")

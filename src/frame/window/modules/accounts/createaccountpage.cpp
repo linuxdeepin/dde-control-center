@@ -27,6 +27,7 @@
 
 #include <DFontSizeManager>
 #include <DDesktopServices>
+#include <DDBusSender>
 
 #include <QtGlobal>
 #include <QVBoxLayout>
@@ -332,10 +333,7 @@ void CreateAccountPage::showEvent(QShowEvent *event)
 void CreateAccountPage::createUser()
 {
     //校验输入的用户名和密码
-    if (!checkName()
-        || !checkFullname()
-        || !checkPassword(m_passwdEdit)
-        || !checkPassword(m_repeatpasswdEdit)) {
+    if (!checkName() || !checkFullname() || !checkPassword(m_repeatpasswdEdit) || !checkPassword(m_passwdEdit)) {
         return;
     }
 
@@ -364,28 +362,7 @@ void CreateAccountPage::createUser()
         m_newUser->setGroups(usrGroups);
         m_newUser->setUserType(User::UserType::StandardUser);
     }
-
-    DaemonService daemonservice("com.deepin.defender.daemonservice",
-                                "/com/deepin/defender/daemonservice",
-                                QDBusConnection::sessionBus());
-    QString strPwd = m_passwdEdit->lineEdit()->text();
-    if (strPwd.length() >= daemonservice.GetPwdLen() && m_newUser->charactertypes(strPwd) >= daemonservice.GetPwdTypeLen()) {
-        Q_EMIT requestCreateUser(m_newUser); // 请求创建用户
-    } else {
-        DDialog dlg("", daemonservice.GetPwdError());
-        dlg.setIcon(QIcon::fromTheme("preferences-system"));
-        dlg.addButton(tr("Go to Settings"));
-        dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-        connect(&dlg, &DDialog::buttonClicked, this, [](int idx){
-            if (idx == 0) {
-                Defender defender("com.deepin.defender.hmiscreen",
-                                  "/com/deepin/defender/hmiscreen",
-                                  QDBusConnection::sessionBus());
-                defender.ShowModule("systemsafety");
-            }
-        });
-        dlg.exec();
-    }
+    Q_EMIT requestCreateUser(m_newUser); // 请求创建用户
 }
 
 void CreateAccountPage::setCreationResult(CreationResult *result)
@@ -528,10 +505,36 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
 
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
                                                                                       edit->lineEdit()->text());
-
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-        edit->setAlert(true);
-        edit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+        m_passwdEdit->setAlert(true);
+        m_passwdEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+
+        QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
+                                                QStringLiteral("/com/deepin/defender/daemonservice"),
+                                                QStringLiteral("com.deepin.defender.daemonservice"));
+        QDBusReply<int> level = interface.call("GetPwdLimitLevel");
+
+        if (level != 1) {
+            QDBusReply<QString> errorTips = interface.call("GetPwdError");
+            DDialog dlg("", errorTips);
+            dlg.setIcon(QIcon::fromTheme("preferences-system"));
+            dlg.addButton(tr("Go to Settings"));
+            dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
+            connect(&dlg, &DDialog::buttonClicked, this, [ = ] (int idx) {
+                if (idx == 0) {
+                    DDBusSender()
+                    .service("com.deepin.defender.hmiscreen")
+                    .interface("com.deepin.defender.hmiscreen")
+                    .path("/com/deepin/defender/hmiscreen")
+                    .method(QString("ShowPage"))
+                    .arg(QString("securitytools"))
+                    .arg(QString("login-safety"))
+                    .call();
+                }
+            });
+            dlg.exec();
+        }
+
         return false;
     } else {
         edit->setAlert(false);
