@@ -301,6 +301,11 @@ void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj
     const bool connectState = deviceObj["ConnectState"].toBool();
     const QString icon = deviceObj["Icon"].toString();
 
+    // FIXME: If the name and alias of the Bluetooth device are both empty, it will not be updated by default.
+    // To solve the problem of blank device name display.
+    if (alias.isEmpty() && name.isEmpty())
+        return ;
+
     device->setId(id);
     device->setAddress(addr);
     device->setName(name);
