@@ -216,6 +216,7 @@ void BrightnessWidget::addSlider()
             auto onValueChanged = [=](int pos) {
                 this->requestSetMonitorBrightness(monList[i], pos / BrightnessMaxScale);
                 this->requestAmbientLightAdjustBrightness(false);
+                this->m_autoLightMode->setChecked(false);
             };
 
             connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
@@ -271,6 +272,7 @@ void BrightnessWidget::addSlider()
             auto onValueChanged = [=](int pos) {
                 this->requestSetMonitorBrightness(monList[i], pos / double(maxBacklight));
                 this->requestAmbientLightAdjustBrightness(false);
+                this->m_autoLightMode->setChecked(false);
             };
 
             connect(slider, &DCCSlider::valueChanged, this, onValueChanged);
