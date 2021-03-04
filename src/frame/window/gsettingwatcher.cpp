@@ -114,12 +114,17 @@ const QString GSettingWatcher::getStatus(const QString &gsettingsName)
 QMap<QString, bool> GSettingWatcher::getMenuState()
 {
     QMap<QString, bool> menuStates;
+
+    // commoninfo
     menuStates.insert("bootMenu", m_gsettings->get("bootMenu").toBool());
     menuStates.insert("developerMode", m_gsettings->get("developerMode").toBool());
     menuStates.insert("userExperienceProgram", m_gsettings->get("userExperienceProgram").toBool());
+
+    // datetime
     menuStates.insert("timezoneList", m_gsettings->get("timezoneList").toBool());
     menuStates.insert("timeSettings", m_gsettings->get("timeSettings").toBool());
     menuStates.insert("timeFormat", m_gsettings->get("timeFormat").toBool());
+
     return menuStates;
 }
 

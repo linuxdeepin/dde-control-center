@@ -597,7 +597,8 @@ void SearchModel::setLanguage(const QString &type)
         for (const QString &key : menuState.keys()) {
             if (!menuState.value(key)) {
                 for (int j = 0; j < m_originList.size(); ++j) {
-                    QString name = m_originList[j].get()->fullPagePath.remove(QChar(' '));
+                    QString originName = m_originList[j].get()->fullPagePath;
+                    QString name = originName.remove(QRegularExpression("[^A-Za-z]"));
                     if (name.contains(key, Qt::CaseInsensitive)) {
                         m_hideList.append(m_originList.takeAt(j--));
                     }
