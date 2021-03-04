@@ -133,11 +133,6 @@
             <summary>change sound balance slider status</summary>
             <description>default is Enabled</description>
         </key>
-        <key name="sound-input" enum="com.deepin.dde.control-center.StatusMode">
-            <default>'Enabled'</default>
-            <summary>change sound input status</summary>
-            <description>default is Enabled</description>
-        </key>
         <key name="sound-input-slider" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary>change sound input slider status</summary>
@@ -153,7 +148,7 @@
             <summary>change sound noise reduce status</summary>
             <description>default is Enabled</description>
         </key>
-        <key name="sound-effects" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="sound-effect-page" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary>change sound effects status</summary>
             <description>default is Enabled</description>
@@ -388,102 +383,102 @@
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wired-switch" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wired-switch" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="add-connection" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="add-connection" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="remove-connection" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="remove-connection" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wired-edit-connection-name" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wired-edit-connection-name" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wired-auto-connect" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wired-auto-connect" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wired-security" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wired-security" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wired-ipv4" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wired-ipv4" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wired-ipv6" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wired-ipv6" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wired-ether-net" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wired-ether-net" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wireless" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wireless" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wireless-auto-connect" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wireless-auto-connect" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wireless-security" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wireless-security" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wireless-ipv4" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wireless-ipv4" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wireless-ipv6" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wireless-ipv6" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="wireless-wlan" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="wireless-wlan" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="create-pppoe" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="create-pppoe" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="create-vpn" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="create-vpn" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="import-vpn" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="import-vpn" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="create-hotspot" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="create-hotspot" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
-		<key name="edition" enum="com.deepin.dde.control-center.StatusMode">
+        <key name="edition" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
@@ -514,6 +509,38 @@
             <description>default is true</description>
         </key>
         <key name="time-format" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <!-- Power module configuration -->
+        <key name="general" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="plugged-in" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="on-battery" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <!-- Sound module configuration -->
+        <key name="sound-output" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="sound-input" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="sound-effects" type="b">
             <default>true</default>
             <summary></summary>
             <description>default is true</description>

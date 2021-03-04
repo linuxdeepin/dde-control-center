@@ -49,23 +49,28 @@ class SoundWidget : public QWidget
     Q_OBJECT
 public:
     SoundWidget(QWidget *parent = nullptr);
+    virtual ~SoundWidget();
 
 public:
     int showPath(const QString &path);
-    void setDefaultWidget();
+    void showDefaultWidget();
 
 Q_SIGNALS:
     void requsetSpeakerPage();
     void requestMicrophonePage();
     void requestAdvancedPage();
     void requsetSoundEffectsPage();
+    void requestUpdateSecondMenu(bool);
 
 private:
-    void initMenuUI();
+    void initUi();
+    void initMembers();
+    void initConnections();
 
 private:
     QList<ListSubItem> m_menuMethod;
-    dcc::widgets::MultiSelectListView *m_menuList{nullptr};
+    dcc::widgets::MultiSelectListView *m_listView;
+    QStandardItemModel *m_itemModel;
     QModelIndex m_currentIdx;
 };
 }

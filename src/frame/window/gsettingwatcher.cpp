@@ -22,11 +22,11 @@
 #include "gsettingwatcher.h"
 
 #include <QGSettings>
-#include <QVariant>
-#include <QWidget>
 #include <QListView>
 #include <QStandardItem>
 #include <QStandardItemModel>
+#include <QVariant>
+#include <QWidget>
 
 GSettingWatcher::GSettingWatcher(QObject *parent)
     : QObject(parent)
@@ -48,7 +48,7 @@ void GSettingWatcher::bind(const QString &gsettingsName, QWidget *binder)
     setStatus(gsettingsName, binder);
 
     // 自动解绑
-    connect(binder, &QObject::destroyed, this, [=]{
+    connect(binder, &QObject::destroyed, this, [=] {
         erase(m_map.key(binder));
     });
 }
@@ -58,14 +58,22 @@ void GSettingWatcher::bind(const QString &gsettingsName, QListView *viewer, QSta
     m_menuMap.insert(gsettingsName, QPair<QListView *, QStandardItem *>(viewer, item));
 
     setStatus(gsettingsName, viewer, item);
+
+    connect(viewer, &QObject::destroyed, this, [=] {
+        erase(gsettingsName);
+    });
 }
 
 void GSettingWatcher::erase(const QString &gsettingsName)
 {
-    if (m_map.isEmpty() || !m_map.contains(gsettingsName))
-        return;
+    if (!m_map.isEmpty() && m_map.contains(gsettingsName)) {
+        m_map.remove(gsettingsName);
+    }
 
-    m_map.remove(gsettingsName);
+    if (!m_menuMap.isEmpty() && m_menuMap.contains(gsettingsName)) {
+        m_menuMap.remove(gsettingsName);
+    }
+
 }
 
 void GSettingWatcher::erase(const QString &gsettingsName, QWidget *binder)
@@ -78,7 +86,7 @@ void GSettingWatcher::erase(const QString &gsettingsName, QWidget *binder)
 
 void GSettingWatcher::clearMenuMap()
 {
-    m_menuMap.clear();
+    // m_menuMap.clear();
 }
 
 void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
@@ -103,7 +111,9 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer,
 
     viewer->setRowHidden(item->row(), !visible);
 
-    if (!visible) Q_EMIT requestUpdateSecondMenu(item->row());
+    if (!visible) {
+        Q_EMIT requestUpdateSecondMenu(item->row());
+    }
 }
 
 const QString GSettingWatcher::getStatus(const QString &gsettingsName)
@@ -124,25 +134,38 @@ QMap<QString, bool> GSettingWatcher::getMenuState()
     menuStates.insert("timezoneList", m_gsettings->get("timezoneList").toBool());
     menuStates.insert("timeSettings", m_gsettings->get("timeSettings").toBool());
     menuStates.insert("timeFormat", m_gsettings->get("timeFormat").toBool());
-
+    /* sound module */
+    menuStates.insert("soundInput", m_gsettings->get("soundInput").toBool());
+    menuStates.insert("soundOutput", m_gsettings->get("soundOutput").toBool());
+    menuStates.insert("soundEffects", m_gsettings->get("soundEffects").toBool());
+    /* power module */
+    menuStates.insert("general", m_gsettings->get("general").toBool());
+    menuStates.insert("pluggedIn", m_gsettings->get("pluggedIn").toBool());
+    menuStates.insert("onBattery", m_gsettings->get("onBattery").toBool());
     return menuStates;
 }
 
+/**
+ * @brief 设置控件对应的显示类型
+ *
+ * @param key
+ */
 void GSettingWatcher::onStatusModeChanged(const QString &key)
 {
     if (!m_map.isEmpty() && m_map.contains(key)) {
-        // 重新设置控件对应的显示类型
-        for (auto mapUnit = m_map.begin(); mapUnit != m_map.end(); ++mapUnit) {
-            if (key == mapUnit.key()) {
-                setStatus(key, mapUnit.value());
+        for (QString &nameKey : m_map.keys()) {
+            if (key == nameKey) {
+                setStatus(key, m_map.value(nameKey));
+                break;
             }
         }
     }
 
     if (!m_menuMap.isEmpty() && m_menuMap.contains(key)) {
-        for (auto mapUnit = m_menuMap.begin(); mapUnit != m_menuMap.end(); ++mapUnit) {
-            if (key == mapUnit.key()) {
-                setStatus(key, mapUnit->first, mapUnit->second);
+        for (QString &nameKey : m_menuMap.keys()) {
+            if (key == nameKey) {
+                setStatus(key, m_menuMap.value(nameKey).first, m_menuMap.value(nameKey).second);
+                break;
             }
         }
     }

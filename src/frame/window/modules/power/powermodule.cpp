@@ -20,14 +20,15 @@
  */
 
 #include "powermodule.h"
+
+#include "generalwidget.h"
 #include "modules/power/powermodel.h"
 #include "modules/power/powerworker.h"
 #include "powerwidget.h"
-#include "window/utils.h"
-
-#include "generalwidget.h"
-#include "useelectricwidget.h"
 #include "usebatterywidget.h"
+#include "useelectricwidget.h"
+#include "window/mainwindow.h"
+#include "window/utils.h"
 
 #include <DNotifySender>
 
@@ -47,7 +48,7 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_timer(new QTimer(this))
     , m_widget(nullptr)
 {
-
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 }
 
 void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
@@ -68,7 +69,6 @@ void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
 
 void PowerModule::initialize()
 {
-
 }
 
 const QString PowerModule::name() const
@@ -86,19 +86,17 @@ void PowerModule::active()
     m_widget = new PowerWidget;
     m_widget->setVisible(false);
 
-    m_widget->initialize(m_model->haveBettary());
-
     m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
     m_model->setSuspend(m_isSuspend && m_model->canSleep());
 
     bool hibernate = m_powerSetting->get(GSETTING_SHOW_HIBERNATE).toBool();
     m_model->setHibernate(!IsServerSystem && hibernate && m_model->canHibernate());
-    connect(m_model, &PowerModel::canHibernateChanged, this, [=](const bool &value){
+    connect(m_model, &PowerModel::canHibernateChanged, this, [=](const bool &value) {
         m_model->setHibernate(!IsServerSystem && hibernate && value);
     });
 
-    bool isShutdown =  m_powerSetting->get(GSETTING_SHOW_SHUTDOWN).toBool();
+    bool isShutdown = m_powerSetting->get(GSETTING_SHOW_SHUTDOWN).toBool();
     m_model->setShutdown(isShutdown);
 
     connect(m_model, &PowerModel::hibernateChanged, this, &PowerModule::showUseElectric);
@@ -108,10 +106,17 @@ void PowerModule::active()
     connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
     connect(m_widget, &PowerWidget::requestShowUseBattery, this, &PowerModule::showUseBattery);
     connect(m_widget, &PowerWidget::requestShowUseElectric, this, &PowerModule::showUseElectric);
+    connect(m_widget, &PowerWidget::requestUpdateSecondMenu, this, [=](bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop) {
+            m_frameProxy->popWidget(this);
+        }
+        m_widget->showDefaultWidget();
+    });
 
     m_frameProxy->pushWidget(this, m_widget);
+    m_widget->initialize(m_model->haveBettary());
     m_widget->setVisible(true);
-    m_widget->setDefaultWidget();
+    m_widget->showDefaultWidget();
 }
 
 int PowerModule::load(const QString &path)
@@ -185,7 +190,6 @@ void PowerModule::showGeneral()
     connect(general, &GeneralWidget::requestSetPowerSaveMode, m_work, &PowerWorker::setEnablePowerSave);
 #endif
 
-
     //-----------------sp2 add-------------------
     connect(general, &GeneralWidget::requestSetPowerSavingModeAutoWhenQuantifyLow, m_work, &PowerWorker::setPowerSavingModeAutoWhenQuantifyLow);
     connect(general, &GeneralWidget::requestSetPowerSavingModeAuto, m_work, &PowerWorker::setPowerSavingModeAuto);
@@ -208,7 +212,7 @@ void PowerModule::showUseElectric()
     electric->setAutoLockScreenOnPower(m_model->getPowerLockScreenDelay());
     connect(electric, &UseElectricWidget::requestSetScreenBlackDelayOnPower, m_work, &PowerWorker::setScreenBlackDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);
-    connect(electric, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed, m_work, &PowerWorker::setSleepOnLidOnPowerClosed);//Suspend on lid close
+    connect(electric, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed, m_work, &PowerWorker::setSleepOnLidOnPowerClosed); //Suspend on lid close
     connect(electric, &UseElectricWidget::requestSetAutoLockScreenOnPower, m_work, &PowerWorker::setLockScreenDelayOnPower);
 
     //-----------------sp2 add-------------------
@@ -249,8 +253,8 @@ void PowerModule::onBatteryPercentageChanged(const double value)
 
         QString remindData = "";
         if (m_model->getDoubleCompare(value, 20.0)
-                || m_model->getDoubleCompare(value, 15.0)
-                || m_model->getDoubleCompare(value, 10.0)) {
+            || m_model->getDoubleCompare(value, 15.0)
+            || m_model->getDoubleCompare(value, 10.0)) {
             remindData = tr("Battery low, please plug in");
         } else if (m_model->getDoubleCompare(value, 5.0)) {
             remindData = tr("Battery critically low");

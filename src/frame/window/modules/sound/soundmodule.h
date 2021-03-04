@@ -22,8 +22,8 @@
 #ifndef SOUNDMODULE_H_V20
 #define SOUNDMODULE_H_V20
 
-#include "interface/namespace.h"
 #include "interface/moduleinterface.h"
+#include "interface/namespace.h"
 
 #include <QObject>
 
@@ -32,16 +32,17 @@ namespace dcc {
 namespace sound {
 class SoundModel;
 class SoundWorker;
-}
-}
+} // namespace sound
+} // namespace dcc
 
 namespace DCC_NAMESPACE {
-
+class MainWindow;
 namespace sound {
 
 class SoundWidget;
 
-class SoundModule : public QObject, public ModuleInterface
+class SoundModule : public QObject
+    , public ModuleInterface
 {
     Q_OBJECT
 public:
@@ -61,10 +62,11 @@ public Q_SLOTS:
     void showSoundEffectsPage();
 
 private:
-    dcc::sound::SoundModel *m_model{nullptr};
-    dcc::sound::SoundWorker *m_worker{nullptr};
-    DCC_NAMESPACE::sound::SoundWidget *m_soundWidget{nullptr};
+    dcc::sound::SoundModel *m_model {nullptr};
+    dcc::sound::SoundWorker *m_worker {nullptr};
+    DCC_NAMESPACE::sound::SoundWidget *m_soundWidget {nullptr};
+    MainWindow *m_pMainWindow;
 };
-}
-}
+} // namespace sound
+} // namespace DCC_NAMESPACE
 #endif // SOUNDMODULE_H_V20

@@ -58,7 +58,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->addBackground();
-    GSettingWatcher::instance()->bind("soundEffects", this);  // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("soundEffectPage", this);  // 使用GSettings来控制显示状态
     m_sw->switchButton()->setAccessibleName(lblTitle->text());
     m_sw->setFocusPolicy(Qt::ClickFocus);
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
@@ -96,7 +96,7 @@ SoundEffectsPage::~SoundEffectsPage()
         scroller->stop();
     }
 
-    GSettingWatcher::instance()->erase("soundEffects", this);
+    GSettingWatcher::instance()->erase("soundEffectPage", this);
 }
 
 void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)
@@ -176,7 +176,7 @@ void SoundEffectsPage::initList()
         m_listModel->appendRow(item);
 
         connect(action, &DViewItemAction::triggered, this, [ = ] {
-            if (QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("soundEffects").toString() == "Disabled")
+            if (QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("soundEffectPage").toString() == "Disabled")
                 return;
             auto isSelected = m_model->queryEffectData(se.second);
             this->requestSetEffectAble(se.second, !isSelected);

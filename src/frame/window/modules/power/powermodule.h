@@ -22,23 +22,26 @@
 
 #include "interface/moduleinterface.h"
 
-#include <QObject>
 #include <QGSettings>
+#include <QObject>
+
 #include <types/zoneinfo.h>
 
 namespace dcc {
 namespace power {
 class PowerWorker;
 class PowerModel;
-}
-}
+} // namespace power
+} // namespace dcc
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace power {
 
 class PowerWidget;
 
-class PowerModule : public QObject, public ModuleInterface
+class PowerModule : public QObject
+    , public ModuleInterface
 {
     Q_OBJECT
 public:
@@ -59,7 +62,7 @@ public:
 
     PowerModule(FrameProxyInterface *frameProxy, QObject *parent = nullptr);
 
-    virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
+    virtual void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual const QString displayName() const override;
@@ -86,8 +89,8 @@ private:
     double m_nBatteryPercentage;
     QGSettings *m_powerSetting;
     bool m_isSuspend;
+    MainWindow *m_pMainWindow;
 };
 
-
-}// namespace datetime
-}// namespace DCC_NAMESPACE
+} // namespace power
+} // namespace DCC_NAMESPACE

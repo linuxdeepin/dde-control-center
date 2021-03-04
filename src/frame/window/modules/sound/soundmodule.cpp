@@ -20,14 +20,14 @@
  */
 
 #include "soundmodule.h"
-#include "soundwidget.h"
-#include "speakerpage.h"
-#include "microphonepage.h"
-#include "soundeffectspage.h"
 
+#include "microphonepage.h"
 #include "modules/sound/soundmodel.h"
 #include "modules/sound/soundworker.h"
-#include "modules/sound/soundmodel.h"
+#include "soundeffectspage.h"
+#include "soundwidget.h"
+#include "speakerpage.h"
+#include "window/mainwindow.h"
 
 using namespace dcc::sound;
 using namespace DCC_NAMESPACE::sound;
@@ -36,7 +36,7 @@ SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frameProxy)
 {
-
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 }
 
 void SoundModule::initialize()
@@ -69,10 +69,16 @@ void SoundModule::active()
     connect(m_soundWidget, &SoundWidget::requsetSpeakerPage, this, &SoundModule::showSpeakerPage);
     connect(m_soundWidget, &SoundWidget::requestMicrophonePage, this, &SoundModule::showMicrophonePage);
     connect(m_soundWidget, &SoundWidget::requsetSoundEffectsPage, this, &SoundModule::showSoundEffectsPage);
+    connect(m_soundWidget, &SoundWidget::requestUpdateSecondMenu, this, [=](bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop) {
+            m_frameProxy->popWidget(this);
+        }
+        m_soundWidget->showDefaultWidget();
+    });
 
     m_frameProxy->pushWidget(this, m_soundWidget);
     m_soundWidget->setVisible(true);
-    m_soundWidget->setDefaultWidget();
+    m_soundWidget->showDefaultWidget();
 }
 
 int SoundModule::load(const QString &path)

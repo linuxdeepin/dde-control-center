@@ -20,40 +20,110 @@
  */
 
 #include "soundwidget.h"
-#include "window/utils.h"
-#include "window/gsettingwatcher.h"
+
 #include "modules/sound/soundworker.h"
 #include "widgets/multiselectlistview.h"
+#include "window/gsettingwatcher.h"
+#include "window/utils.h"
+
 #include <DStyleOption>
 
-#include <QVBoxLayout>
-#include <QStandardItemModel>
-#include <QStandardItem>
 #include <QListView>
 #include <QMargins>
+#include <QStandardItem>
+#include <QStandardItemModel>
+#include <QVBoxLayout>
 
 using namespace DCC_NAMESPACE::sound;
 
 SoundWidget::SoundWidget(QWidget *parent)
     : QWidget(parent)
-    , m_menuList(new dcc::widgets::MultiSelectListView)
+    , m_listView(new dcc::widgets::MultiSelectListView)
+    , m_itemModel(new QStandardItemModel(this))
 {
-    setObjectName("Display");
+    setObjectName("Sound");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setMargin(0);
-
-    m_menuList->setAccessibleName("List_soundmenulist");
-    m_menuList->setEditTriggers(DListView::NoEditTriggers);
-    m_menuList->setFrameShape(QFrame::NoFrame);
-    m_menuList->setViewportMargins(ScrollAreaMargins);
-    m_menuList->setIconSize(ListViweIconSize);
-    layout->addWidget(m_menuList, 1);
-    initMenuUI();
-
-    setLayout(layout);
+    initUi();
+    initMembers();
+    initConnections();
 }
+
+SoundWidget::~SoundWidget()
+{
+}
+
+void SoundWidget::initUi()
+{
+    QVBoxLayout *soundLayout = new QVBoxLayout(this);
+    soundLayout->setContentsMargins(0, 0, 0, 0);
+
+    m_listView->setAccessibleName("List_soundmenulist");
+    m_listView->setEditTriggers(DListView::NoEditTriggers);
+    m_listView->setFrameShape(QFrame::NoFrame);
+    m_listView->setViewportMargins(ScrollAreaMargins);
+    m_listView->setIconSize(ListViweIconSize);
+    m_listView->setModel(m_itemModel);
+    m_listView->setCurrentIndex(m_itemModel->index(0, 0));
+    m_currentIdx = m_listView->currentIndex();
+    m_listView->resetStatus(m_currentIdx);
+    soundLayout->addWidget(m_listView);
+}
+
+void SoundWidget::initMembers()
+{
+    //~ contents_path /sound/Speaker
+    m_menuMethod.append({"dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage), nullptr, "soundOutput"});
+    //~ contents_path /sound/Microphone
+    m_menuMethod.append({"dcc_noun", tr("Input"), QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage), nullptr, "soundInput"});
+    //~ contents_path /sound/Sound Effects
+    m_menuMethod.append({"dcc_sound_effect", tr("Sound Effects"), QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage), nullptr, "soundEffects"});
+
+    for (auto mm : m_menuMethod) {
+        DStandardItem *item = new DStandardItem(mm.itemText);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
+        item->setIcon(QIcon::fromTheme(mm.itemIcon));
+        m_itemModel->appendRow(item);
+        GSettingWatcher::instance()->bind(mm.gsettingsName, m_listView, item);
+    }
+
+    if (InsertPlugin::instance()->needPushPlugin("sound")) {
+        InsertPlugin::instance()->pushPlugin(m_itemModel, m_menuMethod);
+    }
+}
+
+void SoundWidget::initConnections()
+{
+    connect(m_listView, &QListView::clicked, [=](const QModelIndex &idx) {
+        if (idx == m_currentIdx)
+            return;
+
+        m_currentIdx = idx;
+        m_menuMethod[idx.row()].itemSignal.invoke(m_menuMethod[idx.row()].pulgin ? m_menuMethod[idx.row()].pulgin : this);
+        m_listView->resetStatus(idx);
+    });
+    connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+        bool isAllHidden = true;
+        for (int i = 0; i < m_itemModel->rowCount(); i++) {
+            if (!m_listView->isRowHidden(i))
+                isAllHidden = false;
+        }
+
+        if (m_listView->selectionModel()->selectedRows().size() > 0) {
+            int index = m_listView->selectionModel()->selectedRows()[0].row();
+            Q_EMIT requestUpdateSecondMenu(index == row);
+        } else {
+            Q_EMIT requestUpdateSecondMenu(false);
+        }
+
+        if (isAllHidden) {
+            m_currentIdx = QModelIndex();
+            m_listView->clearSelection();
+        }
+    });
+}
+
 
 int SoundWidget::showPath(const QString &path)
 {
@@ -61,8 +131,8 @@ int SoundWidget::showPath(const QString &path)
         auto menu = m_menuMethod[i];
         if (tr(path.toStdString().c_str()) == menu.itemText) {
             menu.itemSignal.invoke(this);
-            m_currentIdx = m_menuList->model()->index(i, 0);
-            m_menuList->setCurrentIndex(m_currentIdx);
+            m_currentIdx = m_listView->model()->index(i, 0);
+            m_listView->setCurrentIndex(m_currentIdx);
             return 0;
         }
     }
@@ -70,43 +140,12 @@ int SoundWidget::showPath(const QString &path)
     return -1;
 }
 
-void SoundWidget::setDefaultWidget()
+void SoundWidget::showDefaultWidget()
 {
-    m_menuMethod[0].itemSignal.invoke(m_menuMethod[0].pulgin ? m_menuMethod[0].pulgin : this);
-}
-
-void SoundWidget::initMenuUI()
-{
-    //~ contents_path /sound/Speaker
-    m_menuMethod.push_back({ "dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage)});
-    //~ contents_path /sound/Microphone
-    if (GSettingWatcher::instance()->getStatus("soundInput") != "Hidden")
-        m_menuMethod.push_back({ "dcc_noun",tr("Input"),  QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage)});
-    //~ contents_path /sound/Sound Effects
-    m_menuMethod.push_back({"dcc_sound_effect",tr("Sound Effects"),  QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage)});
-
-    QStandardItemModel *listModel = new QStandardItemModel(this);
-    for (auto mm : m_menuMethod) {
-        DStandardItem *item = new DStandardItem(mm.itemText);
-        item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        item->setIcon(QIcon::fromTheme(mm.itemIcon));
-        listModel->appendRow(item);
+    for (int i = 0; i < m_listView->model()->rowCount(); i++) {
+        if (!m_listView->isRowHidden(i)) {
+            m_listView->activated(m_listView->model()->index(i, 0));
+            break;
+        }
     }
-
-    if(InsertPlugin::instance()->needPushPlugin("sound"))
-        InsertPlugin::instance()->pushPlugin(listModel,m_menuMethod);
-
-    m_menuList->setModel(listModel);
-    m_menuList->setCurrentIndex(listModel->index(0, 0));
-    m_currentIdx = m_menuList->currentIndex();
-    m_menuList->resetStatus(m_currentIdx);
-    connect(m_menuList, &QListView::clicked, [ = ](const QModelIndex & idx) {
-        if (idx == m_currentIdx)
-            return;
-
-        m_currentIdx = idx;
-        m_menuMethod[idx.row()].itemSignal.invoke(m_menuMethod[idx.row()].pulgin ? m_menuMethod[idx.row()].pulgin : this);
-        m_menuList->resetStatus(idx);
-    });
-    connect(m_menuList, &DListView::activated, m_menuList, &QListView::clicked);
 }

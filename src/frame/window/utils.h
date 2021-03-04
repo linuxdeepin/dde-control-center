@@ -71,7 +71,8 @@ const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
 struct ListSubItem {
     ListSubItem();
-    ListSubItem(QString icon, QString text, QMetaMethod signal, QObject *plugin = nullptr, QString gsettingsName = QString()) {
+    ListSubItem(QString icon, QString text, QMetaMethod signal, QObject *plugin = nullptr, QString gsettingsName = QString())
+    {
         this->itemIcon = icon;
         this->itemText = text;
         this->itemSignal = signal;
@@ -82,7 +83,7 @@ struct ListSubItem {
     QString itemText;
     QMetaMethod itemSignal;
     QObject *pulgin = nullptr;
-    QString gsettingsName = QString();
+    QString gsettingsName;
 };
 
 inline bool compareVersion(const QString &targetVersion, const QString &baseVersion)

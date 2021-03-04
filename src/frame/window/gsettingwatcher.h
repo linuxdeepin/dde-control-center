@@ -38,7 +38,7 @@ public:
     void bind(const QString &gsettingsName, QListView *viewer, QStandardItem *item);
     void erase(const QString &gsettingsName);
     void erase(const QString &gsettingsName, QWidget *binder);
-    void clearMenuMap();
+    void clearMenuMap(); // obsolete
     const QString getStatus(const QString &gsettingsName);
     QMap<QString, bool> getMenuState();
 
