@@ -41,6 +41,7 @@ class DTipLabel;
 DWIDGET_END_NAMESPACE
 
 const int TipLeftInterver = 10;
+const int GroupSpace = 10;
 
 namespace DCC_NAMESPACE {
 namespace update {
@@ -80,12 +81,12 @@ private:
 private:
     dcc::update::UpdateModel *m_model;
 
-    dcc::widgets::SwitchWidget *m_autoCheckUpdate;       // 检查更新
-    dcc::widgets::SwitchWidget *m_autoCheckSecureUpdate; // 检查安全更新
-    dcc::widgets::SwitchWidget *m_autoCheckSystemUpdate; // 检查系统更新
-    dcc::widgets::SwitchWidget *m_autoCheckAppUpdate;    // 检查应用商店的应用更新
+    dcc::widgets::SwitchWidget *m_autoCheckUpdate;       // 自动检测
+    dcc::widgets::SwitchWidget *m_autoCheckSecureUpdate; // 安全性更新
+    dcc::widgets::SwitchWidget *m_autoCheckSystemUpdate; // 统信UOS
+    dcc::widgets::SwitchWidget *m_autoCheckAppUpdate;    // 应用商店的应用
     dcc::widgets::SwitchWidget *m_updateNotify;          // 更新提醒
-    dcc::widgets::SwitchWidget *m_autoDownloadUpdate;    // 下载更新
+    dcc::widgets::SwitchWidget *m_autoDownloadUpdate;    // 自动下载
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoDownloadUpdateTips;
 
     dcc::widgets::SwitchWidget *m_timerDownload; // 定时下载更新
@@ -96,7 +97,7 @@ private:
     DTK_WIDGET_NAMESPACE::DTipLabel *m_freeTimeDownloadLbl;
     QLabel *m_setFreeTimeLbl;
 
-    dcc::widgets::SwitchWidget *m_autoCleanCache; // Clear Package Cache
+    dcc::widgets::SwitchWidget *m_autoCleanCache; // 自动清除缓存
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     dcc::widgets::SwitchWidget *m_sourceCheck; // System Repository Detection
