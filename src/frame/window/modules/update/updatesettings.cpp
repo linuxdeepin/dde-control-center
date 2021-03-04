@@ -235,7 +235,8 @@ void UpdateSettings::setModel(UpdateModel *model)
 
     m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
     m_autoCheckSecureUpdate->setChecked(model->autoCheckSecureUpdates());
-    m_autoCheckSecureUpdate->setVisible(model->autoCheckUpdates());
+//    m_autoCheckSecureUpdate->setVisible(model->autoCheckUpdates());//未列入计划，暂时屏蔽
+    m_autoCheckSecureUpdate->setVisible(false);//未列入计划，暂时屏蔽
     m_autoCheckSystemUpdate->setChecked(model->autoCheckSystemUpdates());
     m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
     m_autoCheckAppUpdate->setEnabled(model->autoCheckSystemUpdates());
@@ -249,7 +250,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     GSettingWatcher::instance()->bind("updateCleanCache", m_autoCleanCache);
     GSettingWatcher::instance()->bind("updateSystemUpdate", m_autoCheckSystemUpdate);
     GSettingWatcher::instance()->bind("updateAppUpdate", m_autoCheckAppUpdate);
-    GSettingWatcher::instance()->bind("updateSecureUpdate", m_autoCheckSecureUpdate);
+//    GSettingWatcher::instance()->bind("updateSecureUpdate", m_autoCheckSecureUpdate);//未列入计划，暂时屏蔽
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
