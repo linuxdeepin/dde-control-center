@@ -36,6 +36,7 @@ class SystemInfoWork;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace systeminfo {
 class SystemInfoWidget;
 class SystemInfoModule : public QObject, public ModuleInterface
@@ -74,6 +75,7 @@ private:
     dcc::systeminfo::SystemInfoWork *m_work;
     dcc::systeminfo::SystemInfoModel *m_model;
     SystemInfoWidget *m_sysinfoWidget;
+    MainWindow *m_pMainWindow;
 };
 
 }

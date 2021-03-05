@@ -32,6 +32,7 @@ class NotificationModel;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace notification {
 
 class NotificationWidget;
@@ -54,10 +55,12 @@ public:
 private Q_SLOTS:
     void showSystemNotify();
     void showAppNotify(int index);
+
 private:
     dcc::notification::NotificationModel *m_model;
     dcc::notification::NotificationWorker *m_worker;
     QPointer<NotificationWidget> m_widget;
+    MainWindow * m_pMainWindow;
 };
 
 }// namespace msgnotify

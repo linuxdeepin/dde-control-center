@@ -51,8 +51,11 @@ class SystemInfoWidget : public QWidget
     Q_OBJECT
 public:
     explicit SystemInfoWidget(QWidget *parent = nullptr);
+    virtual ~SystemInfoWidget() override;
+
     void setCurrentIndex(int index);
     DTK_WIDGET_NAMESPACE::DListView *getSystemListViewPointer();
+    void showDefaultWidget();
 
 private:
     void initWidget();
@@ -63,6 +66,7 @@ Q_SIGNALS:
     void requestShowVersionProtocol();
     void requestShowEndUserLicenseAgreement();
     void requestShowPrivacyPolicy();
+    void requestUpdateSecondMenu(bool);
 
 #ifndef DISABLE_RECOVERY
     void requestShowRestore();

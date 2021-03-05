@@ -142,6 +142,14 @@ QMap<QString, bool> GSettingWatcher::getMenuState()
     menuStates.insert("general", m_gsettings->get("general").toBool());
     menuStates.insert("pluggedIn", m_gsettings->get("pluggedIn").toBool());
     menuStates.insert("onBattery", m_gsettings->get("onBattery").toBool());
+    /* systeminfo */
+    menuStates.insert("aboutThisPc", m_gsettings->get("aboutThisPc").toBool());
+    menuStates.insert("editionLicense", m_gsettings->get("editionLicense").toBool());
+    menuStates.insert("endUserLicenseAgreement", m_gsettings->get("endUserLicenseAgreement").toBool());
+    menuStates.insert("privacyPolicy", m_gsettings->get("privacyPolicy").toBool());
+    /* notification */
+    menuStates.insert("systemNotification", m_gsettings->get("systemNotification").toBool());
+    menuStates.insert("appNotifications", m_gsettings->get("appNotifications").toBool());
     return menuStates;
 }
 

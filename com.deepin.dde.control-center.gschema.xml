@@ -545,5 +545,35 @@
             <summary></summary>
             <description>default is true</description>
         </key>
+        <key name="about-this-pc" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="edition-license" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="end-user-license-agreement" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="privacy-policy" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="system-notification" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="app-notifications" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
     </schema>
 </schemalist>

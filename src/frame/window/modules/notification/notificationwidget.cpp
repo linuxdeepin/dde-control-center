@@ -34,6 +34,7 @@
 #include <QMessageBox>
 #include <QScroller>
 #include <QFile>
+#include <QGSettings>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::notification;
@@ -47,6 +48,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     , m_softwaremodel(new QStandardItemModel(this))
     , m_centralLayout(new QVBoxLayout())
     , m_model(model)
+    , m_setting(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
     setObjectName("notification");
 
@@ -67,7 +69,8 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     systemitem->setData(VListViewItemMargin, Dtk::MarginsRole);
     m_sysmodel->appendRow(systemitem);
     m_systemListView->setModel(m_sysmodel);
-    m_centralLayout->addWidget(m_systemListView);
+    m_centralLayout->addWidget(m_systemListView, 0, Qt::AlignTop);
+    m_centralLayout->addSpacing(0);
     m_centralLayout->setContentsMargins(10,10,0,0);
 
     connect(m_systemListView, &DListView::clicked, this, &NotificationWidget::onSystemClicked);
@@ -75,9 +78,9 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_lastIndex = m_sysmodel->indexFromItem(m_sysmodel->item(0));
     m_systemListView->setCurrentIndex(m_lastIndex);
 
-    QLabel *themeL = new QLabel(tr("App Notifications"));
-    themeL->setMargin(3);
-    m_centralLayout->addWidget(themeL);
+    m_appTitleLable = new QLabel(tr("App Notifications"));
+    m_appTitleLable->setMargin(3);
+    m_centralLayout->addWidget(m_appTitleLable);
     m_softwareListView->setResizeMode(QListView::Adjust);
     m_softwareListView->setMovement(QListView::Static);
     m_softwareListView->setModel(m_softwaremodel);
@@ -100,6 +103,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     connect(m_softwareListView, &DListView::activated, m_softwareListView, &QListView::clicked);
 
     connect(m_model, &NotificationModel::appListChanged, this, &NotificationWidget::refreshList);
+    connect(m_setting, &QGSettings::changed, this,  &NotificationWidget::onSettingChanged);
 }
 
 void NotificationWidget::onAppClicked(const QModelIndex &index)
@@ -147,6 +151,63 @@ void NotificationWidget::refreshList()
         DStandardItem *item = new DStandardItem(icon, softName);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_softwaremodel->appendRow(item);
+    }
+}
+
+void NotificationWidget::showDefaultWidget()
+{
+    bool isShowSystemNotify = m_setting->get("systemNotification").toBool();
+    bool isShowAppNotify = m_setting->get("appNotifications").toBool();
+    m_systemListView->setVisible(isShowSystemNotify);
+    m_softwareListView->setVisible(isShowAppNotify);
+    m_appTitleLable->setVisible(isShowAppNotify);
+    if (isShowSystemNotify) {
+        onSystemClicked(m_sysmodel->index(0, 0));
+        Q_EMIT requestShowSystem();
+    } else if (isShowAppNotify) {
+        onAppClicked(m_softwaremodel->index(0, 0));
+    }
+}
+
+void NotificationWidget::onSettingChanged(const QString &key)
+{
+    bool isShow;
+    if (key == "systemNotification") {
+        isShow = m_setting->get("systemNotification").toBool();
+
+        if (isShow == m_systemListView->isVisible())
+            return;
+        m_systemListView->setVisible(isShow);
+
+        if (!isShow) {
+            if (!m_softwareListView->isVisible()) {
+                Q_EMIT popWidget();
+            } else if (m_lastIndex.model() == m_softwaremodel) {
+                onAppClicked(m_lastIndex);
+            } else if (m_softwareListView->isVisible()) {
+                onAppClicked(m_softwaremodel->index(0, 0));
+            }
+        } else if (!m_softwareListView->isVisible()) {
+            onSystemClicked(m_sysmodel->index(0, 0));
+            Q_EMIT requestShowSystem();
+        }
+    } else if (key == "appNotifications") {
+        isShow = m_setting->get("appNotifications").toBool();
+
+        if (isShow == m_softwareListView->isVisible())
+            return;
+        m_softwareListView->setVisible(isShow);
+        m_appTitleLable->setVisible(isShow);
+
+        if (!isShow) {
+            if (!m_systemListView->isVisible()) {
+                Q_EMIT popWidget();
+            } else if (m_lastIndex.model() != m_sysmodel) {
+                onSystemClicked(m_sysmodel->index(0, 0));
+            }
+        } else if (!m_systemListView->isVisible()) {
+            onAppClicked(m_softwaremodel->index(0, 0));
+        }
     }
 }
 

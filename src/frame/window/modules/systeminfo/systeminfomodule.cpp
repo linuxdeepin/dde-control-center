@@ -40,6 +40,7 @@ SystemInfoModule::SystemInfoModule(FrameProxyInterface *frame, QObject *parent)
     , m_model(nullptr)
     , m_sysinfoWidget(nullptr)
 {
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     m_frameProxy = frame;
 }
 
@@ -78,6 +79,11 @@ void SystemInfoModule::active()
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowPrivacyPolicy, this, &SystemInfoModule::onShowPrivacyPolicyPage);
+    connect(m_sysinfoWidget, &SystemInfoWidget::requestUpdateSecondMenu, this, [=] (bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop)
+            m_frameProxy->popWidget(this);
+        m_sysinfoWidget->showDefaultWidget();
+    });
 
     m_frameProxy->pushWidget(this, m_sysinfoWidget);
     m_sysinfoWidget->setVisible(true);
@@ -172,4 +178,5 @@ void SystemInfoModule::onShowPrivacyPolicyPage()
      m_frameProxy->pushWidget(this, w);
      w->setVisible(true);
 }
+
 

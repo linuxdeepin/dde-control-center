@@ -66,7 +66,7 @@ file(GLOB_RECURSE NOTIFICATION_SRCS "notification/*.cpp" "notification/*.h")
 #通知模块依赖文件
 file(GLOB_RECURSE NOTIFICATION_Tasks_SRCS
   ../../src/frame/modules/notification/*.cpp
-
+  ../../src/frame/window/gsettingwatcher.cpp
   ../../src/frame/window/modules/notification/notificationwidget.cpp
   ../../src/frame/window/modules/notification/appnotifywidget.cpp
   ../../src/frame/window/modules/notification/notificationitem.cpp

@@ -21,6 +21,7 @@
 
 #include "systeminfowidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "widgets/multiselectlistview.h"
 
 #include <DStandardItem>
@@ -46,6 +47,11 @@ SystemInfoWidget::SystemInfoWidget(QWidget *parent)
     initData();
 }
 
+SystemInfoWidget::~SystemInfoWidget()
+{
+    GSettingWatcher::instance()->clearMenuMap();
+}
+
 void SystemInfoWidget::initWidget()
 {
     m_listView->setAccessibleName("List_ systeminfomenulist");
@@ -66,13 +72,13 @@ void SystemInfoWidget::initData()
 {
     m_itemList = {
         //~ contents_path /systeminfo/About This PC
-        {"dcc_on_sel", tr("About This PC"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative)},
+        {"dcc_on_sel", tr("About This PC"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative), nullptr, "aboutThisPc"},
         //~ contents_path /systeminfo/Edition License
-        {"dcc_version", tr("Edition License"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol)},
+        {"dcc_version", tr("Edition License"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol), nullptr, "editionLicense"},
         //~ contents_path /systeminfo/End User License Agreement
-        {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
+        {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement), nullptr, "endUserLicenseAgreement"},
         //~ contents_path /systeminfo/Privacy Policy
-        {"dcc_privacy_policy", tr("Privacy Policy"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowPrivacyPolicy)}
+        {"dcc_privacy_policy", tr("Privacy Policy"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowPrivacyPolicy), nullptr, "privacyPolicy"}
     };
 
     for (auto m : m_itemList) {
@@ -81,6 +87,7 @@ void SystemInfoWidget::initData()
         item->setText(m.itemText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_itemModel->appendRow(item);
+        GSettingWatcher::instance()->bind(m.gsettingsName, m_listView, item);
     }
 
    if(InsertPlugin::instance()->needPushPlugin("systeminfo"))
@@ -95,11 +102,43 @@ void SystemInfoWidget::initData()
         m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+            bool isAllHiden = true;
+            for (int i = 0; i < m_itemModel->rowCount(); i++) {
+                if (!m_listView->isRowHidden(i))
+                    isAllHiden = false;
+            }
+
+            if (m_listView->selectionModel()->selectedRows().size() > 0) {
+                int index = m_listView->selectionModel()->selectedRows()[0].row();
+                Q_EMIT requestUpdateSecondMenu(index == row);
+            } else {
+                Q_EMIT requestUpdateSecondMenu(false);
+            }
+
+            if (isAllHiden) {
+                m_lastIndex = QModelIndex();
+                m_listView->clearSelection();
+            }
+        });
 }
 
 DListView *SystemInfoWidget::getSystemListViewPointer()
 {
     return m_listView;
+}
+
+void SystemInfoWidget::showDefaultWidget()
+{
+    if (!m_listView)
+        return;
+
+    for(int i = 0; i < m_listView->model()->rowCount(); i++) {
+        if (!m_listView->isRowHidden(i)) {
+            m_listView->activated(m_listView->model()->index(i, 0));
+            break;
+        }
+    }
 }
 
 void SystemInfoWidget::setCurrentIndex(int index)
