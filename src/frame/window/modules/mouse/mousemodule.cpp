@@ -28,7 +28,10 @@
 #include "modules/mouse/mousemodel.h"
 #include "modules/mouse/mouseworker.h"
 #include "modules/mouse/mousedbusproxy.h"
-#include "QDebug"
+#include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
+
+#include <QDebug>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::mouse;
@@ -43,6 +46,11 @@ MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
     , m_touchpadSettingWidget(nullptr)
     , m_trackPointSettingWidget(nullptr)
 {
+     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+     GSettingWatcher::instance()->insertState("mouseGeneral");
+     GSettingWatcher::instance()->insertState("mouseMouse");
+     GSettingWatcher::instance()->insertState("mouseTouch");
+     GSettingWatcher::instance()->insertState("mouseTrackpoint");
 }
 
 void MouseModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
@@ -95,6 +103,12 @@ void MouseModule::active()
     m_frameProxy->pushWidget(this, m_mouseWidget);
     m_mouseWidget->setVisible(true);
     m_mouseWidget->setDefaultWidget();
+    connect(m_mouseWidget, &MouseWidget::requestUpdateSecondMenu, this, [ = ](const bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop) {
+            m_frameProxy->popWidget(this);
+        }
+        m_mouseWidget->setDefaultWidget();
+    });
 }
 
 void MouseModule::showGeneralSetting()

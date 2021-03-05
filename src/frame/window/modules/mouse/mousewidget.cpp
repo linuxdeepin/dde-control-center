@@ -49,18 +49,32 @@ MouseWidget::MouseWidget(QWidget *parent)
     setLayout(m_contentLayout);
 }
 
+MouseWidget::~MouseWidget()
+{
+
+}
+
 void MouseWidget::init(bool tpadExist, bool redPointExist)
 {
     qDebug() << "tpadExist: " << tpadExist << "redPoint: " << redPointExist;
     m_listviewModel = new QStandardItemModel(m_mouseListView);
-    m_menuIconText.push_back({ "dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&MouseWidget::showGeneralSetting)});
+    m_mouseListView->setAccessibleName("List_mousemenulist");
+    m_mouseListView->setFrameShape(QFrame::NoFrame);
+    m_mouseListView->setModel(m_listviewModel);
+    m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_mouseListView->resetStatus(m_lastIndex);
+    m_mouseListView->setViewportMargins(ScrollAreaMargins);
+    m_mouseListView->setIconSize(ListViweIconSize);
+
+    m_menuIconText.push_back({ "dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&MouseWidget::showGeneralSetting), nullptr, "mouseGeneral"});
     //~ contents_path /mouse/Mouse
-    m_menuIconText.push_back({ "dcc_mouse", tr("Mouse"), QMetaMethod::fromSignal(&MouseWidget::showMouseSetting)});
+    m_menuIconText.push_back({ "dcc_mouse", tr("Mouse"), QMetaMethod::fromSignal(&MouseWidget::showMouseSetting), nullptr, "mouseMouse"});
     //~ contents_path /mouse/Touchpad
     if (GSettingWatcher::instance()->getStatus("mouseTouchpad") != "Hidden")
-        m_menuIconText.push_back({ "dcc_touchpad", tr("Touchpad"), QMetaMethod::fromSignal(&MouseWidget::showTouchpadSetting)});
+        m_menuIconText.push_back({ "dcc_touchpad", tr("Touchpad"), QMetaMethod::fromSignal(&MouseWidget::showTouchpadSetting), nullptr, "mouseTouch"});
     //~ contents_path /mouse/TrackPoint
-    m_menuIconText.push_back({ "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting)});
+    m_menuIconText.push_back({ "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting), nullptr, "mouseTrackpoint"});
 
     QList<DStandardItem *> mouseItems;
     for (auto it = m_menuIconText.cbegin(); it != m_menuIconText.cend(); ++it) {
@@ -77,21 +91,13 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
         }
         m_listviewModel->appendRow(mouseItem);
         m_mouseItems << mouseItem;
+        GSettingWatcher::instance()->bind(it->gsettingsName, m_mouseListView, mouseItem);
     }
 
     if (InsertPlugin::instance()->needPushPlugin("mouse")) {
         InsertPlugin::instance()->pushPlugin(m_listviewModel, m_menuIconText);
     }
 
-    m_mouseListView->setAccessibleName("List_mousemenulist");
-    m_mouseListView->setFrameShape(QFrame::NoFrame);
-    m_mouseListView->setModel(m_listviewModel);
-    m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_lastIndex = m_listviewModel->index(0, 0);
-    m_mouseListView->resetStatus(m_lastIndex);
-    m_mouseListView->setViewportMargins(ScrollAreaMargins);
-    m_mouseListView->setIconSize(ListViweIconSize);
     connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClicked);
     connect(m_mouseListView, &DListView::activated, m_mouseListView, &QListView::clicked);
     connect(this, &MouseWidget::tpadExistChanged, this, [ = ](bool bExist) {
@@ -101,6 +107,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
 
                 m_listviewModel->insertRow(2, mouseTouchpadItem);
                 m_mouseItems << mouseTouchpadItem;
+                GSettingWatcher::instance()->bind("mouseTouch", m_mouseListView, mouseTouchpadItem);
         } else {
             DStandardItem *touchItem = nullptr;
             for (auto item : m_mouseItems) {
@@ -114,8 +121,8 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
                     m_mouseListView->resetStatus(m_listviewModel->index(0, 0));
                 }
                 m_mouseListView->removeItem(m_listviewModel->indexFromItem(touchItem).row());
+                GSettingWatcher::instance()->erase("mouseTouch");
             }
-
         }
     });
     connect(this, &MouseWidget::redPointExistChanged, this, [ = ](bool bExist) {
@@ -125,6 +132,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
 
             m_listviewModel->insertRow(3, mouseTrackPointItem);
             m_mouseItems << mouseTrackPointItem;
+            GSettingWatcher::instance()->bind("mouseTrackpoint", m_mouseListView, mouseTrackPointItem);
         } else {
             DStandardItem *trackPointItem = nullptr;
             for (auto item : m_mouseItems) {
@@ -133,8 +141,30 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
                     break;
                 }
             }
-            if (trackPointItem)
+            if (trackPointItem) {
                 m_mouseListView->removeItem(m_listviewModel->indexFromItem(trackPointItem).row());
+                GSettingWatcher::instance()->erase("mouseTrackpoint");
+            }
+        }
+    });
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](const int row) {
+        bool isAllHidden = true;
+        for (int i = 0; i < m_mouseListView->model()->rowCount(); i++) {
+            if (!m_mouseListView->isRowHidden(i))
+                isAllHidden = false;
+        }
+
+        if (m_mouseListView->selectionModel()->selectedRows().size() > 0) {
+            const int index = m_mouseListView->selectionModel()->selectedRows()[0].row();
+            Q_EMIT requestUpdateSecondMenu(index == row);
+        } else {
+            Q_EMIT requestUpdateSecondMenu(false);
+        }
+
+        if (isAllHidden) {
+            m_lastIndex = QModelIndex();
+            m_mouseListView->clearSelection();
         }
     });
 }
@@ -147,7 +177,12 @@ void MouseWidget::initSetting(const int settingIndex)
 
 void MouseWidget::setDefaultWidget()
 {
-    m_menuIconText[0].itemSignal.invoke(m_menuIconText[0].pulgin ? m_menuIconText[0].pulgin : this);
+    for(int i = 0; i < m_mouseListView->model()->rowCount(); i++) {
+        if (!m_mouseListView->isRowHidden(i)) {
+            m_mouseListView->activated(m_mouseListView->model()->index(i, 0));
+            break;
+        }
+    }
 }
 
 void MouseWidget::onItemClicked(const QModelIndex &index)

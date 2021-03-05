@@ -29,6 +29,7 @@
 #include "modules/systeminfo/systeminfowork.h"
 #include "modules/systeminfo/systeminfomodel.h"
 #include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
 
 using namespace dcc::systeminfo;
 using namespace DCC_NAMESPACE::systeminfo;
@@ -42,6 +43,10 @@ SystemInfoModule::SystemInfoModule(FrameProxyInterface *frame, QObject *parent)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     m_frameProxy = frame;
+    GSettingWatcher::instance()->insertState("aboutThisPc");
+    GSettingWatcher::instance()->insertState("editionLicense");
+    GSettingWatcher::instance()->insertState("endUserLicenseAgreement");
+    GSettingWatcher::instance()->insertState("privacyPolicy");
 }
 
 SystemInfoModule::~SystemInfoModule()

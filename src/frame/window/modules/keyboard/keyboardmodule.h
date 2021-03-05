@@ -40,6 +40,7 @@ class ShortcutContent;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace keyboard {
 class KeyboardWidget;
 class GeneralKBSettingWidget;
@@ -92,6 +93,7 @@ private:
     CustomContent *m_customContent = nullptr;
     dcc::keyboard::CustomEdit    *m_customEdit = nullptr;
     dcc::keyboard::ShortcutContent *m_scContent = nullptr;
+    MainWindow *m_pMainWindow;
 };
 }
 }

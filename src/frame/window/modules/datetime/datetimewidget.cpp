@@ -54,7 +54,6 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
 DatetimeWidget::~DatetimeWidget()
 {
     requestCloseWidget();
-    GSettingWatcher::instance()->clearMenuMap();
 }
 
 void DatetimeWidget::init()

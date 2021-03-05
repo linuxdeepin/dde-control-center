@@ -213,6 +213,26 @@
             <summary>change keyboard shortcut status</summary>
             <description>default is Enabled</description>
         </key>
+        <key name="keyboard-general" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>keyboard general menu is visible</description>
+        </key>
+        <key name="keyboard-layout" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>keyboard lauout menu is visible</description>
+        </key>
+        <key name="keyboard-language" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>keyboard system language menu is visible</description>
+        </key>
+        <key name="keyboard-shortcuts" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>keyboard shortcut menu is visible</description>
+        </key>
         <key name="mouse-left-hand" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary>change mouse left hand status</summary>
@@ -227,6 +247,26 @@
             <default>'Enabled'</default>
             <summary>change mouse speed slider status</summary>
             <description>default is Enabled</description>
+        </key>
+        <key name="mouse-general" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>general menu is visible</description>
+        </key>
+        <key name="mouse-mouse" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>mouse menu is visible</description>
+        </key>
+        <key name="mouse-touch" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>touchpad menu is visible</description>
+        </key>
+        <key name="mouse-trackpoint" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>trackpoint menu is visible</description>
         </key>
         <key name="system-suspend" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
@@ -287,6 +327,61 @@
             <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
+        </key>
+        <key name="defapp-webpage" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>browser is visible</description>
+        </key>
+        <key name="defapp-mail" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>mail is visible</description>
+        </key>
+        <key name="defapp-text" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>text is visible</description>
+        </key>
+        <key name="defapp-music" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>music is visible</description>
+        </key>
+        <key name="defapp-video" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>video is visible</description>
+        </key>
+        <key name="defapp-picture" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>picture is visible</description>
+        </key>
+        <key name="defapp-terminal" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>terminal is visible</description>
+        </key>
+        <key name="personalization-general" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>general is visible</description>
+        </key>
+        <key name="personalization-icon-theme" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>IconTheme is visible</description>
+        </key>
+        <key name="personalization-font" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>font is visible</description>
+        </key>
+        <key name="personalization-cursor-theme" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>CursorTheme is visible</description>
         </key>
         <key name="datetime-datesetting-autosync" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
@@ -509,6 +604,46 @@
             <description>default is true</description>
         </key>
         <key name="time-format" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-dsl" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-vpn" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="system-proxy" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="application-proxy" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-details" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="personal-hotspot" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-wired" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-wireless" type="b">
             <default>true</default>
             <summary></summary>
             <description>default is true</description>

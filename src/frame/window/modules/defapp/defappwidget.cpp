@@ -23,6 +23,7 @@
 #include "window/utils.h"
 #include "widgets/multiselectlistview.h"
 #include "window/insertplugin.h"
+#include "window/gsettingwatcher.h"
 
 #include <QStandardItemModel>
 #include <QVBoxLayout>
@@ -72,23 +73,25 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
           << "dcc_photo"
           << "dcc_terminal";
 
+    QStringList defappGsetting;
+    defappGsetting << "defappWebpage"
+          << "defappMail"
+          << "defappText"
+          << "defappMusic"
+          << "defappVideo"
+          << "defappPicture"
+          << "defappTerminal";
+
+
     //Initialize second page view and model
-    QStandardItemModel *model = new QStandardItemModel(this);
+    m_itemModel = new QStandardItemModel(this);
 
-    for (int i = 0; i < icons.size(); i++) {
-        DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), titles.at(i));
-
-        item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        model->appendRow(item);
-
-        m_itemList.push_back({icons.at(i),titles.at(i),QMetaMethod::fromSignal(&DefaultAppsWidget::requestCategoryClicked)});
-    }
     if(InsertPlugin::instance()->needPushPlugin("defapp"))
-        InsertPlugin::instance()->pushPlugin(model,m_itemList);
+        InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
 
-    m_defAppCatView->setModel(model);
+    m_defAppCatView->setModel(m_itemModel);
     //show default browser app
-    m_lastIndex = model->indexFromItem(model->item(0));
+    m_lastIndex = m_itemModel->indexFromItem(m_itemModel->item(0));
     m_defAppCatView->resetStatus(m_lastIndex);
 
     m_centralLayout->setMargin(0);
@@ -96,17 +99,42 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
 
     connect(m_defAppCatView, &QListView::clicked, this, &DefaultAppsWidget::onCategoryClicked);
     connect(m_defAppCatView, &DListView::activated, m_defAppCatView, &QListView::clicked);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+        bool isAllHiden = true;
+        for (int i = 0; i < m_itemModel->rowCount(); i++) {
+            if (!m_defAppCatView->isRowHidden(i))
+                isAllHiden = false;
+        }
+
+        if (m_defAppCatView->selectionModel()->selectedRows().size() > 0) {
+            int index = m_defAppCatView->selectionModel()->selectedRows()[0].row();
+            Q_EMIT requestUpdateSecondMenu(index == row);
+        } else {
+            Q_EMIT requestUpdateSecondMenu(false);
+        }
+
+        if (isAllHiden) {
+            m_lastIndex = QModelIndex();
+            m_defAppCatView->clearSelection();
+        }
+    });
+
+    for (int i = 0; i < icons.size(); i++) {
+        DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), titles.at(i));
+
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
+        m_itemModel->appendRow(item);
+
+        m_itemList.push_back({icons.at(i),titles.at(i),QMetaMethod::fromSignal(&DefaultAppsWidget::requestCategoryClicked),nullptr,defappGsetting.at(i)});
+        GSettingWatcher::instance()->bind(defappGsetting.at(i), m_defAppCatView, item);
+    }
 
     setAccessibleName(tr("Default Applications"));
 }
 
-void DefaultAppsWidget::setDefaultWidget()
+DefaultAppsWidget::~DefaultAppsWidget()
 {
-    if(m_itemList[0].pulgin) {
-        m_itemList[0].itemSignal.invoke(m_itemList[0].pulgin);
-    } else {
-        m_itemList[0].itemSignal.invoke(this, Qt::ConnectionType::DirectConnection, Q_ARG(int, 0));
-    }
+
 }
 
 void DefaultAppsWidget::setCurrentIndex(int row)
@@ -130,4 +158,14 @@ void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {
     }
 
     m_defAppCatView->resetStatus(index);
+}
+
+void DefaultAppsWidget::showDefaultWidget()
+{
+    for (int i = 0; i < m_itemModel->rowCount(); i++) {
+        if (!m_defAppCatView->isRowHidden(i)) {
+            m_defAppCatView->activated(m_itemModel->index(i, 0));
+            break;
+        }
+    }
 }

@@ -40,6 +40,7 @@ class NetworkModel;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace network {
 class ConnectionEditPage;
 class NetworkModuleWidget;
@@ -85,6 +86,7 @@ private:
     NetworkModuleWidget *m_networkWidget;
     ConnectionEditPage *m_connEditPage;
     QTimer *m_initSettingTimer;
+    MainWindow *m_pMainWindow;
 
     bool m_hasAp = false;
     bool m_hasWired = false;

@@ -31,6 +31,7 @@ class DefAppWorker;
 }
 }
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace defapp {
 class DefaultAppsModule : public QObject, public ModuleInterface
 {
@@ -57,6 +58,7 @@ private Q_SLOTS:
 private:
     dcc::defapp::DefAppModel *m_defAppModel{nullptr};
     dcc::defapp::DefAppWorker *m_defAppWorker{nullptr};
+    MainWindow *m_pMainWindow;
 };
 }
 }

@@ -24,6 +24,7 @@
 
 #include <QObject>
 #include <QHash>
+#include <QMap>
 
 class QGSettings;
 class QListView;
@@ -38,7 +39,7 @@ public:
     void bind(const QString &gsettingsName, QListView *viewer, QStandardItem *item);
     void erase(const QString &gsettingsName);
     void erase(const QString &gsettingsName, QWidget *binder);
-    void clearMenuMap(); // obsolete
+    void insertState(const QString &);
     const QString getStatus(const QString &gsettingsName);
     QMap<QString, bool> getMenuState();
 
@@ -57,6 +58,7 @@ private:
     QMultiHash<QString, QWidget *> m_map;
     QGSettings *m_gsettings;
     QHash<QString, QPair<QListView *, QStandardItem *>> m_menuMap;
+    QMap<QString, bool> m_menuState;
 };
 
 #endif // GSETTINGWATCHER_H

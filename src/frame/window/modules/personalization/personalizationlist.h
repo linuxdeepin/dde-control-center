@@ -51,13 +51,15 @@ class PersonalizationList : public QWidget
     Q_OBJECT
 public:
     explicit PersonalizationList(QWidget *parent = nullptr);
-    void setDefaultWidget();
+    virtual ~PersonalizationList() override;
+    void showDefaultWidget();
 
 Q_SIGNALS:
     void requestShowGeneral();
     void requestShowIconTheme();
     void requestShowCursorTheme();
     void requestShowFonts();
+    void requestUpdateSecondMenu(bool);
 
 public Q_SLOTS:
     void onCategoryClicked(const QModelIndex &index);

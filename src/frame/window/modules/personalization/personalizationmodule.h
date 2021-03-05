@@ -36,6 +36,7 @@ class PersonalizationWork;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace personalization {
 class PersonalizationList;
 class PersonalizationModule : public QObject, public ModuleInterface
@@ -65,6 +66,7 @@ private Q_SLOTS:
 private:
     dcc::personalization::PersonalizationModel  *m_model;
     dcc::personalization::PersonalizationWork   *m_work;
+    MainWindow *m_pMainWindow;
 };
 }
 }

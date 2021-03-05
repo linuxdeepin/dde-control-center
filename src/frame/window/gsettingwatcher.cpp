@@ -41,6 +41,11 @@ GSettingWatcher *GSettingWatcher::instance()
     return &w;
 }
 
+/**
+ * @brief GSettingWatcher::bind 三级控件绑定gsettings
+ * @param gsettingsName         key值
+ * @param binder                控件指针
+ */
 void GSettingWatcher::bind(const QString &gsettingsName, QWidget *binder)
 {
     m_map.insert(gsettingsName, binder);
@@ -53,17 +58,27 @@ void GSettingWatcher::bind(const QString &gsettingsName, QWidget *binder)
     });
 }
 
+/**
+ * @brief GSettingWatcher::bind 二级菜单绑定gsettings
+ * @param gsettingsName         key值
+ * @param viewer                listview指针
+ * @param item                  item指针
+ */
 void GSettingWatcher::bind(const QString &gsettingsName, QListView *viewer, QStandardItem *item)
 {
     m_menuMap.insert(gsettingsName, QPair<QListView *, QStandardItem *>(viewer, item));
 
     setStatus(gsettingsName, viewer, item);
 
-    connect(viewer, &QObject::destroyed, this, [=] {
+    connect(viewer, &QListView::destroyed, this, [=] {
         erase(gsettingsName);
     });
 }
 
+/**
+ * @brief GSettingWatcher::erase 清楚map中已被析构的值
+ * @param gsettingsName          key值
+ */
 void GSettingWatcher::erase(const QString &gsettingsName)
 {
     if (!m_map.isEmpty() && m_map.contains(gsettingsName)) {
@@ -73,9 +88,13 @@ void GSettingWatcher::erase(const QString &gsettingsName)
     if (!m_menuMap.isEmpty() && m_menuMap.contains(gsettingsName)) {
         m_menuMap.remove(gsettingsName);
     }
-
 }
 
+/**
+ * @brief GSettingWatcher::erase erase重载，指定删除特定key
+ * @param gsettingsName          key值
+ * @param binder                 控件指针
+ */
 void GSettingWatcher::erase(const QString &gsettingsName, QWidget *binder)
 {
     if (m_map.isEmpty() || !m_map.contains(gsettingsName))
@@ -84,11 +103,20 @@ void GSettingWatcher::erase(const QString &gsettingsName, QWidget *binder)
     m_map.remove(gsettingsName, binder);
 }
 
-void GSettingWatcher::clearMenuMap()
+/**
+ * @brief GSettingWatcher::insertState 插入二级菜单初始状态
+ * @param key                          key值
+ */
+void GSettingWatcher::insertState(const QString &key)
 {
-    // m_menuMap.clear();
+    m_menuState.insert(key, m_gsettings->get(key).toBool());
 }
 
+/**
+ * @brief GSettingWatcher::setStatus 设置三级控件状态
+ * @param gsettingsName              key值
+ * @param binder                     控件指针
+ */
 void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
 {
     if (!binder)
@@ -105,6 +133,12 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
     binder->setVisible("Hidden" != setting);
 }
 
+/**
+ * @brief GSettingWatcher::setStatus 设置二级菜单状态
+ * @param gsettingsName              key值
+ * @param viewer                     listview指针
+ * @param item                       item指针
+ */
 void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer, QStandardItem *item)
 {
     bool visible = m_gsettings->get(gsettingsName).toBool();
@@ -116,41 +150,24 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer,
     }
 }
 
+/**
+ * @brief GSettingWatcher::getStatus 获取三级控件状态
+ * @param gsettingsName              key值
+ * @return
+ */
 const QString GSettingWatcher::getStatus(const QString &gsettingsName)
 {
     return m_gsettings->get(gsettingsName).toString();
 }
 
+/**
+ * @brief GSettingWatcher::getMenuState
+ *
+ * @return second menu state
+ */
 QMap<QString, bool> GSettingWatcher::getMenuState()
 {
-    QMap<QString, bool> menuStates;
-
-    // commoninfo
-    menuStates.insert("bootMenu", m_gsettings->get("bootMenu").toBool());
-    menuStates.insert("developerMode", m_gsettings->get("developerMode").toBool());
-    menuStates.insert("userExperienceProgram", m_gsettings->get("userExperienceProgram").toBool());
-
-    // datetime
-    menuStates.insert("timezoneList", m_gsettings->get("timezoneList").toBool());
-    menuStates.insert("timeSettings", m_gsettings->get("timeSettings").toBool());
-    menuStates.insert("timeFormat", m_gsettings->get("timeFormat").toBool());
-    /* sound module */
-    menuStates.insert("soundInput", m_gsettings->get("soundInput").toBool());
-    menuStates.insert("soundOutput", m_gsettings->get("soundOutput").toBool());
-    menuStates.insert("soundEffects", m_gsettings->get("soundEffects").toBool());
-    /* power module */
-    menuStates.insert("general", m_gsettings->get("general").toBool());
-    menuStates.insert("pluggedIn", m_gsettings->get("pluggedIn").toBool());
-    menuStates.insert("onBattery", m_gsettings->get("onBattery").toBool());
-    /* systeminfo */
-    menuStates.insert("aboutThisPc", m_gsettings->get("aboutThisPc").toBool());
-    menuStates.insert("editionLicense", m_gsettings->get("editionLicense").toBool());
-    menuStates.insert("endUserLicenseAgreement", m_gsettings->get("endUserLicenseAgreement").toBool());
-    menuStates.insert("privacyPolicy", m_gsettings->get("privacyPolicy").toBool());
-    /* notification */
-    menuStates.insert("systemNotification", m_gsettings->get("systemNotification").toBool());
-    menuStates.insert("appNotifications", m_gsettings->get("appNotifications").toBool());
-    return menuStates;
+    return m_menuState;
 }
 
 /**
@@ -178,8 +195,8 @@ void GSettingWatcher::onStatusModeChanged(const QString &key)
         }
     }
 
-    QMap<QString, bool> map = getMenuState();
-    if (map.keys().contains(key)) {
-        Q_EMIT requestUpdateSearchMenu(key, map.value(key));
+    if (!m_menuState.isEmpty() && m_menuState.keys().contains(key)) {
+        insertState(key);
+        Q_EMIT requestUpdateSearchMenu(key, m_menuState.value(key));
     }
 }

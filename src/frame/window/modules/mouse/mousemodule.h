@@ -35,6 +35,7 @@ class MouseDBusProxy;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace mouse {
 class MouseWidget;
 class GeneralSettingWidget;
@@ -76,6 +77,7 @@ private:
     dcc::mouse::MouseModel  *m_model = nullptr;
     dcc::mouse::MouseWorker *m_worker = nullptr;
     dcc::mouse::MouseDBusProxy *m_dbusProxy = nullptr;
+    MainWindow *m_pMainWindow;
 };
 }
 }

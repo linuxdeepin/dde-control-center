@@ -48,6 +48,9 @@ DatetimeModule::DatetimeModule(FrameProxyInterface *frameProxy, QObject *parent)
     , m_widget(nullptr)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("timezoneList");
+    GSettingWatcher::instance()->insertState("timeSettings");
+    GSettingWatcher::instance()->insertState("timeFormat");
 }
 
 void DatetimeModule::initialize()

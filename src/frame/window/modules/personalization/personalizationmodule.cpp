@@ -26,6 +26,8 @@
 #include "perssonalizationthemewidget.h"
 #include "personalizationthemelist.h"
 #include "personalizationfontswidget.h"
+#include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -36,6 +38,11 @@ PersonalizationModule::PersonalizationModule(FrameProxyInterface *frame, QObject
     , m_model(nullptr)
     , m_work(nullptr)
 {
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("personalizationGeneral");
+    GSettingWatcher::instance()->insertState("personalizationIconTheme");
+    GSettingWatcher::instance()->insertState("personalizationCursorTheme");
+    GSettingWatcher::instance()->insertState("personalizationFont");
 }
 
 PersonalizationModule::~PersonalizationModule()
@@ -80,8 +87,14 @@ void PersonalizationModule::active()
     connect(this, &PersonalizationModule::requestSetCurrentIndex, firstWidget, &PersonalizationList::setCurrentIndex);
     m_frameProxy->pushWidget(this, firstWidget);
     firstWidget->setVisible(true);
-    //显示默认页
-    firstWidget->setDefaultWidget();
+
+    connect(firstWidget, &PersonalizationList::requestUpdateSecondMenu, this, [=] (bool needPop) {
+           if (m_pMainWindow->getcontentStack().size() >= 2 && needPop)
+               m_frameProxy->popWidget(this);
+           firstWidget->showDefaultWidget();
+       });
+
+    firstWidget->showDefaultWidget();
 }
 
 void PersonalizationModule::contentPopped(QWidget *const w)

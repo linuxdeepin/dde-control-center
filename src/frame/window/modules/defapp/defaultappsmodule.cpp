@@ -24,6 +24,8 @@
 #include "defappdetailwidget.h"
 #include "modules/defapp/defappmodel.h"
 #include "modules/defapp/defappworker.h"
+#include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
 
 #include <QObject>
 #include <QWidget>
@@ -38,7 +40,13 @@ DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent
     : QObject(parent)
     , ModuleInterface(frame)
 {
-
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("defappWebpage");
+    GSettingWatcher::instance()->insertState("defappMail");
+    GSettingWatcher::instance()->insertState("defappMusic");
+    GSettingWatcher::instance()->insertState("defappVideo");
+    GSettingWatcher::instance()->insertState("defappPicture");
+    GSettingWatcher::instance()->insertState("defappTerminal");
 }
 
 DefaultAppsModule::~DefaultAppsModule()
@@ -72,8 +80,13 @@ void DefaultAppsModule::active()
     connect(defaultappsWidget, &DefaultAppsWidget::requestCategoryClicked, this, &DefaultAppsModule::showDetailWidget);
     m_frameProxy->pushWidget(this, defaultappsWidget);
     defaultappsWidget->setVisible(true);
-    //显示默认页
-    defaultappsWidget->setDefaultWidget();
+    connect(defaultappsWidget, &DefaultAppsWidget::requestUpdateSecondMenu, this, [=] (bool needPop) {
+           if (m_pMainWindow->getcontentStack().size() >= 2 && needPop)
+               m_frameProxy->popWidget(this);
+           defaultappsWidget->showDefaultWidget();
+       });
+
+    defaultappsWidget->showDefaultWidget();
 }
 
 const QString DefaultAppsModule::name() const

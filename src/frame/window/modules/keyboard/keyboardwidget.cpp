@@ -26,6 +26,8 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/dccslider.h"
 #include "widgets/multiselectlistview.h"
+#include "window/gsettingwatcher.h"
+
 #include <QVBoxLayout>
 #include <QList>
 
@@ -43,9 +45,24 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) : QWidget(parent)
     setLayout(m_contentLayout);
 }
 
+KeyboardWidget::~KeyboardWidget()
+{
+
+}
+
 void KeyboardWidget::init()
 {
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
+    m_keyboardListView->setAccessibleName("List_keyboardlist");
+    m_keyboardListView->setFrameShape(QFrame::NoFrame);
+    m_keyboardListView->setModel(m_listviewModel);
+    m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_keyboardListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_keyboardListView->setCurrentIndex(m_listviewModel->index(0, 0));
+    m_keyboardListView->setViewportMargins(ScrollAreaMargins);
+    m_keyboardListView->setIconSize(ListViweIconSize);
+    m_keyboardListView->resetStatus(m_lastIndex);
+
     QList<QPair<QString, QString>> menuIconText;
     menuIconText = {
         { "dcc_general_purpose", tr("General")},
@@ -56,33 +73,47 @@ void KeyboardWidget::init()
         //~ contents_path /keyboard/Shortcuts
         { "dcc_hot_key", tr("Shortcuts")}
     };
+
+    // gsetting配置名字与menuIconText顺序对应，有相关顺序调整需对应修改
+    m_itemList.append({menuIconText[0].first, menuIconText[0].second, QMetaMethod::fromSignal(&KeyboardWidget::showGeneralSetting), nullptr, "keyboardGeneral"});
+    m_itemList.append({menuIconText[1].first, menuIconText[1].second, QMetaMethod::fromSignal(&KeyboardWidget::showKBLayoutSetting), nullptr, "keyboardLayout"});
+    m_itemList.append({menuIconText[2].first, menuIconText[2].second, QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting), nullptr, "keyboardLanguage"});
+    m_itemList.append({menuIconText[3].first, menuIconText[3].second, QMetaMethod::fromSignal(&KeyboardWidget::showShortCutSetting), nullptr, "keyboardShortcuts"});
+
+    int index = 0;
     DStandardItem *keyboardItem = nullptr;
     for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
         keyboardItem = new DStandardItem(QIcon::fromTheme(it->first), it->second);
         keyboardItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listviewModel->appendRow(keyboardItem);
+        GSettingWatcher::instance()->bind(m_itemList.at(index).gsettingsName, m_keyboardListView, keyboardItem);
+        ++index;
     }
-
-    m_itemList.append({menuIconText[0].first,menuIconText[0].second,QMetaMethod::fromSignal(&KeyboardWidget::showGeneralSetting)});
-    m_itemList.append({menuIconText[1].first,menuIconText[1].second,QMetaMethod::fromSignal(&KeyboardWidget::showKBLayoutSetting)});
-    m_itemList.append({menuIconText[2].first,menuIconText[2].second,QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting)});
-    m_itemList.append({menuIconText[3].first,menuIconText[3].second,QMetaMethod::fromSignal(&KeyboardWidget::showShortCutSetting)});
 
     if(InsertPlugin::instance()->needPushPlugin("keyboard"))
         InsertPlugin::instance()->pushPlugin(m_listviewModel,m_itemList);
 
-    m_keyboardListView->setAccessibleName("List_keyboardlist");
-    m_keyboardListView->setFrameShape(QFrame::NoFrame);
-    m_keyboardListView->setModel(m_listviewModel);
-    m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_keyboardListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_keyboardListView->setCurrentIndex(m_listviewModel->index(0, 0));
-    m_keyboardListView->setViewportMargins(ScrollAreaMargins);
-    m_keyboardListView->setIconSize(ListViweIconSize);
-    m_lastIndex = m_keyboardListView->currentIndex();
-    m_keyboardListView->resetStatus(m_lastIndex);
     connect(m_keyboardListView, &DListView::clicked, this, &KeyboardWidget::onItemClick);
     connect(m_keyboardListView, &DListView::activated, m_keyboardListView, &QListView::clicked);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](const int row) {
+        bool isAllHidden = true;
+        for (int i = 0; i < m_keyboardListView->model()->rowCount(); i++) {
+            if (!m_keyboardListView->isRowHidden(i))
+                isAllHidden = false;
+        }
+
+        if (m_keyboardListView->selectionModel()->selectedRows().size() > 0) {
+            const int index = m_keyboardListView->selectionModel()->selectedRows()[0].row();
+            Q_EMIT requestUpdateSecondMenu(index == row);
+        } else {
+            Q_EMIT requestUpdateSecondMenu(false);
+        }
+
+        if (isAllHidden) {
+            m_lastIndex = QModelIndex();
+            m_keyboardListView->clearSelection();
+        }
+    });
 }
 
 void KeyboardWidget::initSetting(const int settingIndex)
@@ -93,7 +124,12 @@ void KeyboardWidget::initSetting(const int settingIndex)
 
 void KeyboardWidget::setDefaultWidget()
 {
-    m_itemList[0].itemSignal.invoke(m_itemList[0].pulgin ? m_itemList[0].pulgin : this);
+    for(int i = 0; i < m_keyboardListView->model()->rowCount(); i++) {
+        if (!m_keyboardListView->isRowHidden(i)) {
+            m_keyboardListView->activated(m_keyboardListView->model()->index(i, 0));
+            break;
+        }
+    }
 }
 
 void KeyboardWidget::onItemClick(const QModelIndex &index)

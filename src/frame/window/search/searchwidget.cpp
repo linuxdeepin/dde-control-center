@@ -612,14 +612,16 @@ void SearchModel::setLanguage(const QString &type)
     connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSearchMenu, this, [=](const QString &text, bool visible) {
         if (visible) {
             for (int i = 0; i < m_hideList.size(); ++i) {
-                QString name = m_hideList[i]->fullPagePath.remove(QChar(' '));
+                QString hideName = m_hideList[i].get()->fullPagePath;
+                QString name = hideName.remove(QRegularExpression("[^A-Za-z]"));
                 if (name.contains(text, Qt::CaseInsensitive)) {
                     m_originList.append(m_hideList.takeAt(i--));
                 }
             }
         } else {
             for (int i = 0; i < m_originList.size(); ++i) {
-                QString name = m_originList[i]->fullPagePath.remove(QChar(' '));
+                QString originName = m_originList[i].get()->fullPagePath;
+                QString name = originName.remove(QRegularExpression("[^A-Za-z]"));
                 if (name.contains(text, Qt::CaseInsensitive)) {
                     m_hideList.append(m_originList.takeAt(i--));
                 }

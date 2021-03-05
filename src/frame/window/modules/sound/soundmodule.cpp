@@ -20,7 +20,6 @@
  */
 
 #include "soundmodule.h"
-
 #include "microphonepage.h"
 #include "modules/sound/soundmodel.h"
 #include "modules/sound/soundworker.h"
@@ -28,6 +27,7 @@
 #include "soundwidget.h"
 #include "speakerpage.h"
 #include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
 
 using namespace dcc::sound;
 using namespace DCC_NAMESPACE::sound;
@@ -37,6 +37,9 @@ SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
     , ModuleInterface(frameProxy)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("soundInput");
+    GSettingWatcher::instance()->insertState("soundOutput");
+    GSettingWatcher::instance()->insertState("soundEffects");
 }
 
 void SoundModule::initialize()

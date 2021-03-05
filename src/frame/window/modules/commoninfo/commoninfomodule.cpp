@@ -29,6 +29,7 @@
 #include "window/modules/commoninfo/developermodewidget.h"
 #include "window/utils.h"
 #include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::commoninfo;
@@ -46,6 +47,9 @@ CommonInfoModule::CommonInfoModule(dccV20::FrameProxyInterface *frame, QObject *
     if (IsServerSystem)
         m_frameProxy->setModuleVisible(this, false);
 #endif
+    GSettingWatcher::instance()->insertState("bootMenu");
+    GSettingWatcher::instance()->insertState("developerMode");
+    GSettingWatcher::instance()->insertState("userExperienceProgram");
 }
 
 CommonInfoModule::~CommonInfoModule()

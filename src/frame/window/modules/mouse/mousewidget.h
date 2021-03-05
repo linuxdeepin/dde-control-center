@@ -63,6 +63,7 @@ class MouseWidget : public QWidget
 
 public:
     explicit MouseWidget(QWidget *parent = nullptr);
+    ~MouseWidget();
     void init(bool tpadExist, bool redPointExist);
     void initSetting(const int settingIndex);
     void setDefaultWidget();
@@ -75,6 +76,8 @@ Q_SIGNALS:
     void showMouseSetting();
     void showTouchpadSetting();
     void showTrackPointSetting();
+    void requestUpdateSecondMenu(const bool needPop);
+
 private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::widgets::MultiSelectListView *m_mouseListView;

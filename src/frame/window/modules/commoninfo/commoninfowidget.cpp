@@ -53,7 +53,7 @@ CommonInfoWidget::CommonInfoWidget(QWidget *parent)
 
 CommonInfoWidget::~CommonInfoWidget()
 {
-    GSettingWatcher::instance()->clearMenuMap();
+
 }
 
 dcc::widgets::MultiSelectListView *CommonInfoWidget::getCommonListView()

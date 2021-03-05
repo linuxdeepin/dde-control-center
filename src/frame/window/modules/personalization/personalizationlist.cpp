@@ -21,6 +21,7 @@
 #include "personalizationlist.h"
 #include "window/utils.h"
 #include "widgets/multiselectlistview.h"
+#include "window/gsettingwatcher.h"
 #include <DListView>
 
 #include <QVBoxLayout>
@@ -60,18 +61,12 @@ PersonalizationList::PersonalizationList(QWidget *parent)
           << "dcc_cursor_theme"
           << "dcc_Font";
 
-    for (int i = 0; i < menus.size(); ++i) {
-        DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), menus.at(i));
-        item->setAccessibleText(menus.at(i));
+    QStringList personalizationGsetting;
+    personalizationGsetting << "personalizationGeneral"
+          << "personalizationIconTheme"
+          << "personalizationCursorTheme"
+          << "personalizationFont";
 
-        item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        m_model->appendRow(item);
-    }
-
-    m_itemList.push_back({icons.at(0),menus.at(0),QMetaMethod::fromSignal(&PersonalizationList::requestShowGeneral)});
-    m_itemList.push_back({icons.at(1),menus.at(1),QMetaMethod::fromSignal(&PersonalizationList::requestShowIconTheme)});
-    m_itemList.push_back({icons.at(2),menus.at(2),QMetaMethod::fromSignal(&PersonalizationList::requestShowCursorTheme)});
-    m_itemList.push_back({icons.at(3),menus.at(3),QMetaMethod::fromSignal(&PersonalizationList::requestShowFonts)});
 
     if(InsertPlugin::instance()->needPushPlugin("personalization"))
         InsertPlugin::instance()->pushPlugin(m_model,m_itemList);
@@ -84,13 +79,48 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     setLayout(m_centralLayout);
     connect(m_categoryListView, &QListView::clicked, this, &PersonalizationList::onCategoryClicked);
     connect(m_categoryListView, &DListView::activated, m_categoryListView, &QListView::clicked);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+         bool isAllHiden = true;
+         for (int i = 0; i < m_model->rowCount(); i++) {
+             if (!m_categoryListView->isRowHidden(i))
+                 isAllHiden = false;
+         }
+
+         if (m_categoryListView->selectionModel()->selectedRows().size() > 0) {
+             int index = m_categoryListView->selectionModel()->selectedRows()[0].row();
+             Q_EMIT requestUpdateSecondMenu(index == row);
+         } else {
+             Q_EMIT requestUpdateSecondMenu(false);
+         }
+
+         if (isAllHiden) {
+             m_lastIndex = QModelIndex();
+             m_categoryListView->clearSelection();
+         }
+     });
+
+     for (int i = 0; i < icons.size(); i++) {
+         DStandardItem *item = new DStandardItem(QIcon::fromTheme(icons.at(i)), menus.at(i));
+         item->setAccessibleText(menus.at(i));
+
+         item->setData(VListViewItemMargin, Dtk::MarginsRole);
+         m_model->appendRow(item);
+
+         GSettingWatcher::instance()->bind(personalizationGsetting.at(i), m_categoryListView, item);
+     }
+
+     m_itemList.push_back({icons.at(0),menus.at(0),QMetaMethod::fromSignal(&PersonalizationList::requestShowGeneral),nullptr,personalizationGsetting.at(0)});
+     m_itemList.push_back({icons.at(1),menus.at(1),QMetaMethod::fromSignal(&PersonalizationList::requestShowIconTheme),nullptr,personalizationGsetting.at(1)});
+     m_itemList.push_back({icons.at(2),menus.at(2),QMetaMethod::fromSignal(&PersonalizationList::requestShowCursorTheme),nullptr,personalizationGsetting.at(2)});
+     m_itemList.push_back({icons.at(3),menus.at(3),QMetaMethod::fromSignal(&PersonalizationList::requestShowFonts),nullptr,personalizationGsetting.at(3)});
+
     //set default show page
     m_categoryListView->setCurrentIndex(m_model->indexFromItem(m_model->item(0)));
 }
 
-void PersonalizationList::setDefaultWidget()
+PersonalizationList::~PersonalizationList()
 {
-    m_itemList[0].itemSignal.invoke(m_itemList[0].pulgin ? m_itemList[0].pulgin : this);
+
 }
 
 void PersonalizationList::onCategoryClicked(const QModelIndex &index)
@@ -111,3 +141,14 @@ void PersonalizationList::setCurrentIndex(int row)
     m_lastIndex = m_model->indexFromItem(m_model->item(row));
     m_categoryListView->setCurrentIndex(m_lastIndex);
 }
+
+void PersonalizationList::showDefaultWidget()
+{
+    for (int i = 0; i < m_model->rowCount(); i++) {
+        if (!m_categoryListView->isRowHidden(i)) {
+            m_categoryListView->activated(m_model->index(i, 0));
+            break;
+        }
+    }
+}
+

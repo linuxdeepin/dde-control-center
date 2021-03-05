@@ -49,7 +49,7 @@ SystemInfoWidget::SystemInfoWidget(QWidget *parent)
 
 SystemInfoWidget::~SystemInfoWidget()
 {
-    GSettingWatcher::instance()->clearMenuMap();
+
 }
 
 void SystemInfoWidget::initWidget()

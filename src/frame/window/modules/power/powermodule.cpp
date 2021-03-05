@@ -29,6 +29,7 @@
 #include "useelectricwidget.h"
 #include "window/mainwindow.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DNotifySender>
 
@@ -49,6 +50,9 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_widget(nullptr)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("general");
+    GSettingWatcher::instance()->insertState("pluggedIn");
+    GSettingWatcher::instance()->insertState("onBattery");
 }
 
 void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)

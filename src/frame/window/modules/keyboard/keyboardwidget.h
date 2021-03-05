@@ -58,6 +58,7 @@ class KeyboardWidget : public QWidget
 
 public:
     explicit KeyboardWidget(QWidget *parent = nullptr);
+    ~KeyboardWidget();
     void initSetting(const int settingIndex);
     void setDefaultWidget();
 private:
@@ -68,6 +69,8 @@ Q_SIGNALS:
     void showKBLayoutSetting();
     void showSystemLanguageSetting();
     void showShortCutSetting();
+    void requestUpdateSecondMenu(const bool needPop);
+
 private:
     QList<ListSubItem> m_itemList;
     dcc::keyboard::KeyboardModel *m_keyboardModel;

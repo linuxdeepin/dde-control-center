@@ -54,10 +54,12 @@ class DefaultAppsWidget : public QWidget
 
 public:
     explicit DefaultAppsWidget(QWidget* parent = nullptr);
-    void setDefaultWidget();
+    virtual ~DefaultAppsWidget() override;
+    void showDefaultWidget();
 
 Q_SIGNALS:
     void requestCategoryClicked(dcc::defapp::DefAppWorker::DefaultAppsCategory category);
+    void requestUpdateSecondMenu(bool);
 
 public Q_SLOTS:
     void onCategoryClicked(const QModelIndex &index);
@@ -66,6 +68,7 @@ public Q_SLOTS:
 private:
     QList<ListSubItem> m_itemList;
     dcc::widgets::MultiSelectListView *m_defAppCatView;
+    QStandardItemModel *m_itemModel;
     QVBoxLayout *m_centralLayout;
     QModelIndex m_lastIndex;
 };

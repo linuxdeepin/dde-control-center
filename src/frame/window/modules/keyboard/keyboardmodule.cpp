@@ -35,6 +35,7 @@
 #include "modules/keyboard/shortcutmodel.h"
 #include "modules/keyboard/customedit.h"
 #include "modules/keyboard/shortcutcontent.h"
+#include "window/mainwindow.h"
 
 using namespace dcc;
 using namespace dcc::keyboard;
@@ -46,6 +47,11 @@ KeyboardModule::KeyboardModule(FrameProxyInterface *frame, QObject *parent)
     , ModuleInterface(frame)
     , m_keyboardWidget(nullptr)
 {
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("keyboardGeneral");
+    GSettingWatcher::instance()->insertState("keyboardLayout");
+    GSettingWatcher::instance()->insertState("keyboardLanguage");
+    GSettingWatcher::instance()->insertState("keyboardShortcuts");
 }
 
 KeyboardModule::~KeyboardModule()
@@ -86,6 +92,13 @@ void KeyboardModule::active()
     m_frameProxy->pushWidget(this, m_keyboardWidget);
     m_keyboardWidget->setVisible(true);
     m_keyboardWidget->setDefaultWidget();
+
+    connect(m_keyboardWidget, &KeyboardWidget::requestUpdateSecondMenu, this, [ = ](const bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop) {
+            m_frameProxy->popWidget(this);
+        }
+        m_keyboardWidget->setDefaultWidget();
+    });
 }
 
 int KeyboardModule::load(const QString &path)

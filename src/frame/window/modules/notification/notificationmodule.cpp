@@ -26,6 +26,7 @@
 #include "systemnotifywidget.h"
 #include "appnotifywidget.h"
 #include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
 
 #include <DListView>
 
@@ -41,6 +42,8 @@ NotificationModule::NotificationModule(dccV20::FrameProxyInterface *frameProxy, 
     , m_widget(nullptr)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("systemNotification");
+    GSettingWatcher::instance()->insertState("appNotifications");
 }
 
 NotificationModule::~NotificationModule()
