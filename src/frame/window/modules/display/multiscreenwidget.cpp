@@ -64,7 +64,8 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_rotateWidget(new RotateWidget)
     , m_model(nullptr)
 {
-    m_contentLayout->setContentsMargins(56, 0, 56, 0);
+    m_contentLayout->setSpacing(0);
+    m_contentLayout->setContentsMargins(56, 20, 56, 0);
     m_contentLayout->addWidget(m_monitorControlWidget);
     m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_multiSettingLabel);

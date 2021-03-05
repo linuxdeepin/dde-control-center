@@ -63,6 +63,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     , m_cctItem(new TitledSliderItem)
 {
     m_centralLayout->setMargin(0);
+    m_centralLayout->setSpacing(0);
 
     GSettingWatcher::instance()->bind("displayLightLighting", m_brightnessTitle);  // 使用GSettings来控制显示状态
     m_centralLayout->addWidget(m_brightnessTitle);
@@ -78,6 +79,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
 
     QVBoxLayout *colorLayout = new QVBoxLayout;
     colorLayout->setMargin(0);
+    colorLayout->setSpacing(0);
     colorLayout->addWidget(m_tempratureColorTitle);
 
     //~ contents_path /display/Brightness
@@ -181,6 +183,7 @@ void BrightnessWidget::showBrightness(Monitor *monitor)
         }
     }
     m_brightnessTitle->setVisible(bTitle);
+    m_colorSpacerItem->changeSize(0, bTitle ? 20 : 0);
 }
 
 void BrightnessWidget::addSlider()

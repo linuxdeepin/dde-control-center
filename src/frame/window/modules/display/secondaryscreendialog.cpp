@@ -54,18 +54,17 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     , m_model(nullptr)
     , m_monitor(nullptr)
 {
-    setMinimumWidth(480);
+    setFixedWidth(410);
     setMinimumHeight(480);
     setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint);
-    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
-    m_contentLayout->setContentsMargins(35, 0, 35, 40);
+    m_contentLayout->setSpacing(10);
+    m_contentLayout->setContentsMargins(35, 20, 35, 40);
     m_contentLayout->addWidget(m_monitorControlWidget);
     m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_resolutionWidget);
-    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_refreshRateWidget);
-    m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_rotateWidget);
     m_contentLayout->addStretch();
 
@@ -219,9 +218,9 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
         }
         QWidget *brightnessWidget = new QWidget;
         QVBoxLayout *brightnessLayout = new QVBoxLayout;
-        brightnessLayout->setContentsMargins(0, 10, 0, 10);
+        brightnessLayout->setContentsMargins(0, 10, 0, 0);
         brightnessLayout->addWidget(headTitle);
-        brightnessLayout->addSpacing(10);
+        brightnessLayout->setSpacing(10);
         brightnessLayout->addWidget(slideritem);
         brightnessWidget->setLayout(brightnessLayout);
         m_contentLayout->insertWidget(1, brightnessWidget);

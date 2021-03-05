@@ -50,13 +50,13 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     QHBoxLayout *btnsLayout = new QHBoxLayout;
     btnsLayout->addStretch();
     btnsLayout->addWidget(m_recognize);
-    btnsLayout->addSpacing(20);
+    btnsLayout->setSpacing(20);
     btnsLayout->addWidget(m_gather);
     btnsLayout->addStretch();
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
-    mainLayout->setSpacing(0);
+    mainLayout->setSpacing(20);
     mainLayout->addWidget(m_screensGround);
     mainLayout->setAlignment(m_screensGround, Qt::AlignHCenter);
     mainLayout->addLayout(btnsLayout);

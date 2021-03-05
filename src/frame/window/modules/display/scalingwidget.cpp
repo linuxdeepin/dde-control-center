@@ -47,19 +47,19 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     , m_slider(new TitledSliderItem)
 {
     m_centralLayout->setMargin(0);
+    m_centralLayout->setSpacing(8);
     GSettingWatcher::instance()->bind("displayScaling", m_title);  // 使用GSettings来控制显示状态
     m_centralLayout->addWidget(m_title);
 
     m_tipLabel->setForegroundRole(DPalette::TextTips);
     m_tipLabel->setAlignment(Qt::AlignTop | Qt::AlignLeft);
     QVBoxLayout *tipLayout = new QVBoxLayout;
-    tipLayout->setContentsMargins(10, 10, 0, 0);
+    tipLayout->setContentsMargins(10, 0, 0, 0);
     GSettingWatcher::instance()->bind("displayScaling", m_tipLabel);  // 使用GSettings来控制显示状态
     tipLayout->addWidget(m_tipLabel);
     m_tipWidget->setLayout(tipLayout);
     m_centralLayout->addWidget(m_tipWidget);
 
-    m_centralLayout->addSpacing(10);
     m_slider->addBackground();
     GSettingWatcher::instance()->bind("displayScaling", m_slider);  // 使用GSettings来控制显示状态
     m_centralLayout->addWidget(m_slider);

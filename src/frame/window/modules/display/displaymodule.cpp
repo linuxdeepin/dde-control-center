@@ -152,6 +152,8 @@ QStringList DisplayModule::availPage() const
 void DisplayModule::showSingleScreenWidget()
 {
     QVBoxLayout *contentLayout = new QVBoxLayout;
+    contentLayout->setSpacing(0);
+    contentLayout->setContentsMargins(56, 20, 56, 0);
 
     BrightnessWidget *brightnessWidget = new BrightnessWidget;
     brightnessWidget->setMode(m_displayModel);
@@ -176,7 +178,6 @@ void DisplayModule::showSingleScreenWidget()
     ResolutionWidget *resolutionWidget = new ResolutionWidget;
     resolutionWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
     GSettingWatcher::instance()->bind("displayResolution", resolutionWidget);  // 使用GSettings来控制显示状态
-    contentLayout->addSpacing(20);
     contentLayout->addWidget(resolutionWidget);
     connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
 
@@ -195,7 +196,6 @@ void DisplayModule::showSingleScreenWidget()
     connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
 
     contentLayout->addStretch();
-    contentLayout->setContentsMargins(56, 0, 56, 0);
     QWidget *singleScreenWidget = new QWidget;
     singleScreenWidget->setLayout(contentLayout);
     m_displayWidget->setContent(singleScreenWidget);
