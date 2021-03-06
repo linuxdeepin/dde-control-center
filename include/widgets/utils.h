@@ -26,21 +26,22 @@ enum UiActiveState {
     TrialExpired //试用期已过期
 };
 
+inline bool isFileExist(const QString &path){
+    QFile file(path);
+    return file.exists();
+}
+
 static const QString getLicensePath(const QString &filePath, const QString &type)
 {
     const QString& locale { QLocale::system().name() };
-    QString lang;
-    if (SYSTEM_LOCAL_MAP.keys().contains(locale)) {
-        lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
-    }
-
-    if (lang.isEmpty()) {
-        lang = { SYSTEM_LOCAL_MAP.value(QLocale::system().name(), "en_US") };
-    }
+    QString lang = SYSTEM_LOCAL_MAP.keys().contains(locale) ? locale : "en_US";
 
     QString path = QString(filePath).arg(lang).arg(type);
+    if (isFileExist(path))
+        return path;
+    else
+        return QString(filePath).arg("en_US").arg(type);
 
-    return path;
 }
 
 inline const QString getLicenseText(const QString &filePath, const QString &type)
