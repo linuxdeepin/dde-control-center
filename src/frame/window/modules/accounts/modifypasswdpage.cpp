@@ -160,6 +160,14 @@ void ModifyPasswdPage::clickSaveBtn()
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
                                                                                       m_newPasswordEdit->lineEdit()->text());
 
+    // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
+    if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC)) {
+        if (error == PwqualityManager::ERROR_TYPE::PW_NO_ERR)
+            Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
+
+        return;
+    }
+
     QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
                                             QStringLiteral("/com/deepin/defender/daemonservice"),
                                             QStringLiteral("com.deepin.defender.daemonservice"));

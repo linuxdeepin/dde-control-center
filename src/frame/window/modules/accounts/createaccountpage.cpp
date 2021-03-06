@@ -505,9 +505,14 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
 
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
                                                                                       edit->lineEdit()->text());
+
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         m_passwdEdit->setAlert(true);
         m_passwdEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+
+        // 企业版控制中心用户创建屏蔽安全中心登录安全的接口需求
+        if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
+            return false;
 
         QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
                                                 QStringLiteral("/com/deepin/defender/daemonservice"),
