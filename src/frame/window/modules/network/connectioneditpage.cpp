@@ -33,7 +33,6 @@
 #include <networkmanagerqt/vpnsetting.h>
 
 #include <DDialog>
-
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -85,6 +84,8 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
 
     initHeaderButtons();
     initConnection();
+
+    m_removeBtn->installEventFilter(this);
 }
 
 ConnectionEditPage::~ConnectionEditPage()
@@ -98,12 +99,12 @@ void ConnectionEditPage::initUI()
 
     m_disconnectBtn = m_buttonTuple_conn->leftButton();
     m_removeBtn = m_buttonTuple_conn->rightButton();
+    GSettingWatcher::instance()->bind("removeConnection", m_removeBtn);
 
     m_disconnectBtn->setText(tr("Disconnect"));
     m_disconnectBtn->setVisible(false);
     m_removeBtn->setText(tr("Delete"));
     m_removeBtn->setVisible(false);
-    GSettingWatcher::instance()->bind("removeConnection", m_removeBtn);
 
     QPushButton *cancelBtn = m_buttonTuple->leftButton();
     QPushButton *acceptBtn = m_buttonTuple->rightButton();
@@ -459,6 +460,19 @@ int ConnectionEditPage::connectionSuffixNum(const QString &matchConnName)
 void ConnectionEditPage::addHeaderButton(QPushButton *button)
 {
     m_mainLayout->insertWidget(m_mainLayout->indexOf(m_buttonTuple_conn) + 1, button);
+}
+
+bool ConnectionEditPage::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::Show && obj == m_removeBtn) {
+        QWidget *widget = static_cast<QWidget *>(obj);
+        bool visible = "Hidden" != GSettingWatcher::instance()->getStatus("removeConnection");
+        if (m_isNewConnection)
+            widget->setVisible(false);
+        else if (visible != widget->isVisible())
+            widget->setVisible(visible);
+    }
+    return QObject::eventFilter(obj, event);
 }
 
 void ConnectionEditPage::setFrameProxy(dccV20::FrameProxyInterface *_frame)

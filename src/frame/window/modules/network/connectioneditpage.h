@@ -81,6 +81,9 @@ protected:
     int connectionSuffixNum(const QString &matchConnName);
     void addHeaderButton(QPushButton *button);
 
+protected:
+    bool eventFilter(QObject *obj, QEvent *event) override;
+
 private:
     void initUI();
     void initHeaderButtons();
