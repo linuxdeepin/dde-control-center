@@ -109,7 +109,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 AccountsDetailWidget::~AccountsDetailWidget()
 {
     GSettingWatcher::instance()->erase("accountUserFullnamebtn", m_fullNameBtn);
-    GSettingWatcher::instance()->erase("accountUserModifypasswd", m_modifyPassword);
 }
 
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
@@ -412,7 +411,6 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
-    m_modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
@@ -427,7 +425,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
-    GSettingWatcher::instance()->bind("accountUserModifypasswd", m_modifyPassword);
+    //修改密码状态判断
+    connect(m_gsettings, &QGSettings::changed, this, &AccountsDetailWidget::setModifyPwdBtnStatus);
+    setModifyPwdBtnStatus("accountUserModifypasswd");
 
     //修改密码
     connect(m_modifyPassword, &QPushButton::clicked, [ = ] {
@@ -602,6 +602,18 @@ void AccountsDetailWidget::setDeleteBtnStatus(const QString &key, const bool &st
     }
 
     m_deleteAccount->setVisible("Hidden" != deleteBtnStatus);
+}
+
+void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
+{
+    if ("accountUserModifypasswd" != key)
+        return;
+
+    const QString btnStatus = m_gsettings->get(key).toString();
+
+    m_modifyPassword->setEnabled("Enabled" == btnStatus && m_curUser->isCurrentUser());
+
+    m_modifyPassword->setVisible("Hidden" != btnStatus);
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)

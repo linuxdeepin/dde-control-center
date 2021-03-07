@@ -83,6 +83,7 @@ public:
     //获取其它用户是否开启自动登录开关
     bool getOtherUserAutoLogin();
     void setDeleteBtnStatus(const QString &key, const bool &status);
+    void setModifyPwdBtnStatus(const QString &key);
 
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
