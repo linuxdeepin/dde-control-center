@@ -47,7 +47,7 @@ const double DoubleZero = 0.01; //后端传入的doube指为浮点型，有效�
 SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     : DAbstractDialog(parent)
     , m_contentLayout(new QVBoxLayout)
-    , m_monitorControlWidget(new MonitorControlWidget)
+    , m_monitorControlWidget(new MonitorControlWidget(180))
     , m_resolutionWidget(new ResolutionWidget(ComboxWidth))
     , m_refreshRateWidget(new RefreshRateWidget(ComboxWidth))
     , m_rotateWidget(new RotateWidget(ComboxWidth))

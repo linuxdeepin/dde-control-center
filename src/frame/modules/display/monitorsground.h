@@ -41,7 +41,7 @@ class MonitorsGround : public QFrame
     Q_OBJECT
 
 public:
-    explicit MonitorsGround(QWidget *parent = nullptr);
+    explicit MonitorsGround(int activateHeight, QWidget *parent = nullptr);
     ~MonitorsGround();
 
     void setModel(DisplayModel *model, Monitor *moni = nullptr);
@@ -56,6 +56,9 @@ private Q_SLOTS:
     void monitorMoved(MonitorProxyWidget *pw);
     void adjust(MonitorProxyWidget *pw);
     void adjustAll();
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
 
 private:
     void ensureWidgetPerfect(MonitorProxyWidget *pw);

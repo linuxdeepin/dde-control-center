@@ -34,9 +34,9 @@ namespace dcc {
 
 namespace display {
 
-MonitorControlWidget::MonitorControlWidget(QWidget *parent)
+MonitorControlWidget::MonitorControlWidget(int activateHeight, QWidget *parent)
     : QFrame(parent)
-    , m_screensGround(new MonitorsGround)
+    , m_screensGround(new MonitorsGround(activateHeight))
     , m_recognize(new QPushButton(QIcon::fromTheme("dcc_recognize"), tr("Recognize")))
     , m_gather(new QPushButton(QIcon::fromTheme("dcc_gather"), tr("Gather Windows")))
 {
@@ -58,7 +58,6 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     mainLayout->setMargin(0);
     mainLayout->setSpacing(20);
     mainLayout->addWidget(m_screensGround);
-    mainLayout->setAlignment(m_screensGround, Qt::AlignHCenter);
     mainLayout->addLayout(btnsLayout);
 
     setLayout(mainLayout);

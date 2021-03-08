@@ -45,7 +45,7 @@ class MonitorControlWidget : public QFrame
     Q_OBJECT
 
 public:
-    explicit MonitorControlWidget(QWidget *parent = nullptr);
+    explicit MonitorControlWidget(int activateHeight = 200, QWidget *parent = nullptr);
 
     void setModel(DisplayModel *model, Monitor *moni = nullptr);
     void setScreensMerged(const int mode);

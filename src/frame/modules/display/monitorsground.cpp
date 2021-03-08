@@ -31,19 +31,17 @@ using namespace dcc::display;
 
 const int MARGIN_W = 20;
 const int MARGIN_H = 10;
-const int VIEW_WIDTH = 400;
-const int VIEW_HEIGHT = 200;
 
-MonitorsGround::MonitorsGround(QWidget *parent)
+MonitorsGround::MonitorsGround(int activateHeight, QWidget *parent)
     : QFrame(parent)
     , m_refershTimer(new QTimer(this))
 {
+    setFixedHeight(activateHeight);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
     m_refershTimer->setInterval(100);
     m_refershTimer->setSingleShot(true);
-
     connect(m_refershTimer, &QTimer::timeout, this, &MonitorsGround::resetMonitorsView);
-
-    setFixedSize(VIEW_WIDTH + MARGIN_W * 2, VIEW_HEIGHT + MARGIN_H * 2);
 }
 
 MonitorsGround::~MonitorsGround()
@@ -85,20 +83,17 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
 
 void MonitorsGround::resetMonitorsView()
 {
-    qDebug() << Q_FUNC_INFO;
-
     reloadViewPortSize();
     if (m_model->displayMode() == MERGE_MODE) {
         adjustAll();
-        return;
     } else {
         for (auto pw : m_monitors.keys())
             adjust(pw);
-    }
 
-    // recheck settings
-    if (!isScreenPerfect()) {
-        monitorMoved(m_monitors.firstKey());
+        // recheck settings
+        if (!isScreenPerfect()) {
+            monitorMoved(m_monitors.firstKey());
+        }
     }
 }
 
@@ -107,10 +102,14 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
     qDebug() << Q_FUNC_INFO << pw->name();
     const QPoint preTopLeft = QPoint(pw->x(), pw->y());
 
-    const double scale = screenScale();
-    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
-
+    double scale = 0.1;
+    if (width() < m_viewPortWidth * 0.1 || height() < m_viewPortHeight * 0.1) {
+        const double scaleW = double(width() - MARGIN_W * 2) / m_viewPortWidth;
+        const double scaleH = double(height() - MARGIN_H * 2) / m_viewPortHeight;
+        scale = std::min(scaleW, scaleH);
+    }
+    const double offsetX = (width() - m_viewPortWidth * scale) / 2;
+    const double offsetY = (height() - m_viewPortHeight * scale) / 2;
     pw->setMovedX(static_cast<int>((pw->pos().x() - offsetX) / scale));
     pw->setMovedY(static_cast<int>((pw->pos().y() - offsetY) / scale));
 
@@ -177,24 +176,37 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
     qDebug() << "adjust" << pw->name();
 
-    const double scale = screenScale();
-
-    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
-
-    const double w = scale * pw->w();
-    const double h = scale * pw->h();
-    const double x = scale * pw->x();
-    const double y = scale * pw->y();
-
     if (m_monitors.size() == 1) {
-        const double wSingle = 0.15 * pw->w();
-        const double hSingle = 0.15 * pw->h();
-        pw->setGeometry(static_cast<int>((width() - wSingle) / 2), static_cast<int>((height() - hSingle) / 2), static_cast<int>(wSingle), static_cast<int>(hSingle));
-        this->setEnabled(false); //单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
+        double wSingle = 0.1 * pw->w();
+        double hSingle = 0.1 * pw->h();
+        const double wTemp = 0.1 * pw->w();
+        const double hTemp = 0.1 * pw->h();
+        for (double d = 1; wSingle < 192 && hSingle < 108; d += 0.01) {
+            wSingle = wTemp * d;
+            hSingle = hTemp * d;
+        }
+        for (double d = 1; wSingle > width() || hSingle > height() || d <= 0; d -= 0.01) {
+            wSingle = wTemp * d;
+            hSingle = hTemp * d;
+        }
+        pw->setGeometry((width() - wSingle) / 2, (height() - hSingle) / 2, wSingle, hSingle);
+        this->setEnabled(false); //单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发放大
     } else {
         this->setEnabled(true);
-        pw->setGeometry(static_cast<int>(x + offsetX), static_cast<int>(y + offsetY), static_cast<int>(w), static_cast<int>(h));
+        double scale = 0.1;
+        if (width() < m_viewPortWidth * 0.1 || height() < m_viewPortHeight * 0.1) {
+            const double scaleW = double(width() - MARGIN_W * 2) / m_viewPortWidth;
+            const double scaleH = double(height() - MARGIN_H * 2) / m_viewPortHeight;
+            scale = std::min(scaleW, scaleH);
+        }
+
+        const double offsetX = (width() - m_viewPortWidth * scale) / 2;
+        const double offsetY = (height() - m_viewPortHeight * scale) / 2;
+        const double w = scale * pw->w();
+        const double h = scale * pw->h();
+        const double x = scale * pw->x();
+        const double y = scale * pw->y();
+        pw->setGeometry(x + offsetX, y + offsetY, w, h);
     }
     pw->update();
 }
@@ -204,22 +216,28 @@ void MonitorsGround::adjustAll()
     int cnt = 0;
     int offset = 10;
     const double scale = screenScale();
-    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
+    const double offsetX = (width() - m_viewPortWidth * scale) / 2;
+    const double offsetY = (height() - m_viewPortHeight * scale) / 2;
     for (auto pw : m_monitors.keys()) {
-        const double w = scale * pw->w() * 0.5;
-        const double h = scale * pw->h() * 0.5;
+        const double w = scale * pw->w() / 2;
+        const double h = scale * pw->h() / 2;
         const double x = scale * pw->x();
         const double y = scale * pw->y();
 
         if (++cnt == 1) {
-            pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5), static_cast<int>(y + offsetY + h * 0.5), static_cast<int>(w), static_cast<int>(h));
+            pw->setGeometry(x + offsetX + w / 2 + offset, y + offsetY + h / 2, w, h);
         } else if (m_monitors.size() == 3 && cnt == 2) {
-            pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset * 2), static_cast<int>(y + offsetY + h * 0.5), static_cast<int>(w), static_cast<int>(h));
+            pw->setGeometry(x + offsetX + w / 2 - offset, y + offsetY + h / 2, w, h);
         } else {
-            pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h + offset * 2));
+            pw->setGeometry(x + offsetX + w / 2, y + offsetY + h / 2 - offset, w, h + offset * 2);
         }
     }
+}
+
+void MonitorsGround::resizeEvent(QResizeEvent *event)
+{
+    QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
+    QFrame::resizeEvent(event);
 }
 
 void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
