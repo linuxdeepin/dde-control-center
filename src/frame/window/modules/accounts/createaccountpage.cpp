@@ -512,6 +512,9 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
         QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
                                                 QStringLiteral("/com/deepin/defender/daemonservice"),
                                                 QStringLiteral("com.deepin.defender.daemonservice"));
+        if (!interface.isValid()) {
+            return false;
+        }
         QDBusReply<int> level = interface.call("GetPwdLimitLevel");
 
         if (level != 1) {

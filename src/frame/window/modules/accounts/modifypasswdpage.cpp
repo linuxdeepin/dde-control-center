@@ -168,6 +168,9 @@ void ModifyPasswdPage::clickSaveBtn()
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+        if (!interface.isValid()) {
+            return;
+        }
         if (level != 1) {
             QDBusReply<QString> errorTips = interface.call("GetPwdError");
             DDialog dlg("", errorTips);
