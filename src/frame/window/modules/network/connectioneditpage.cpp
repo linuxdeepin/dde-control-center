@@ -313,6 +313,7 @@ void ConnectionEditPage::saveConnSettings()
     if (!m_settingsWidget->allInputValid()) {
         return;
     }
+    Q_EMIT back();
     Q_EMIT requestUpdateLoader(m_connectionUuid);
     m_settingsWidget->saveSettings();
     Q_EMIT saveSettingsDone();
@@ -328,7 +329,6 @@ void ConnectionEditPage::prepareConnection()
         m_connection = findConnection(connPath);
         if (!m_connection) {
             qDebug() << "create connection failed..." << reply.error();
-            Q_EMIT back();
             return;
         }
     }
@@ -345,7 +345,6 @@ void ConnectionEditPage::updateConnection()
     reply.waitForFinished();
     if (reply.isError()) {
         qDebug() << "error occurred while updating the connection" << reply.error();
-        Q_EMIT back();
         return;
     }
 
@@ -362,8 +361,6 @@ void ConnectionEditPage::updateConnection()
             }
         }
     }
-
-    Q_EMIT back();
 }
 
 void ConnectionEditPage::createConnSettings()
