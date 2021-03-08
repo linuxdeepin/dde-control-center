@@ -184,27 +184,35 @@ bool DNSSection::allInputValid()
 {
     // 对 DNS 内容进行验证
     bool valid = true;
-
+    QStringList dnsDates;
     for (int i = 0; i < m_itemsList.size(); i++) {
         QString dnsDate = m_itemsList.at(i)->dTextEdit()->text();
         // 合理性验证
         if (isIpv4Address(dnsDate) || isIpv6Address(dnsDate)) {
-            // 将对应的 数据分类
-            if (isIpv4Address(dnsDate))
-                m_ipv4Dns.append(QHostAddress(dnsDate));
-            if (isIpv6Address(dnsDate))
-                m_ipv6Dns.append(QHostAddress(dnsDate));
-
+            dnsDates.append(dnsDate);
             m_itemsList.at(i)->setIsErr(false);
          } else {
             if (!dnsDate.isEmpty()) {
                 valid = false;
+                dnsDates.clear();
                 m_itemsList.at(i)->setIsErr(true);
                 m_itemsList.at(i)->dTextEdit()->setAlert(true);
                 m_itemsList.at(i)->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), parentWidget(), 2000);
             }
         }
     }
+
+    // 将合格数据分类保存
+    if (valid) {
+        for (int i = 0; i < dnsDates.size(); i++) {
+            QString date = dnsDates.at(i);
+            if (isIpv4Address(date))
+                m_ipv4Dns.append(QHostAddress(date));
+            if (isIpv6Address(date))
+                m_ipv6Dns.append(QHostAddress(date));
+        }
+    }
+
     return valid;
 }
 
