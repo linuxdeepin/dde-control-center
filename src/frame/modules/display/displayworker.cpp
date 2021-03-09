@@ -56,21 +56,17 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
       m_sysPowerInter(new SysPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
 {
 
-    m_displayInter.setSync(isSync);
+    m_displayInter.setSync(true);
     m_appearanceInter->setSync(isSync);
 
     model->setPrimary(m_displayInter.primary());
-    QDBusInterface monitorList("com.deepin.daemon.Display",
-                               "/com/deepin/daemon/Display",
-                               "com.deepin.daemon.Display",
-                               QDBusConnection::sessionBus());
-    auto reply = monitorList.property("Monitors");
-    onMonitorListChanged(reply.value<QList<QDBusObjectPath>>());
+
+    auto reply = m_displayInter.monitors();
+    onMonitorListChanged(reply);
     model->setDisplayMode(m_displayInter.displayMode());
     model->setTouchscreenList(m_displayInter.touchscreens());
     model->setTouchMap(m_displayInter.touchMap());
 
-    m_displayInter.setSync(false);
     m_appearanceInter->setSync(false);
 
     connect(&m_displayInter, &DisplayInter::MonitorsChanged, this, &DisplayWorker::onMonitorListChanged);
@@ -112,6 +108,8 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
 
     m_model->setRedshiftIsValid(isRedshiftValid);
     m_model->setMinimumBrightnessScale(m_dccSettings->get(GSETTINGS_MINIMUM_BRIGHTNESS).toDouble());
+
+    m_displayInter.setSync(false);
 }
 
 DisplayWorker::~DisplayWorker()
