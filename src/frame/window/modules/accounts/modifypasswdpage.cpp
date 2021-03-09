@@ -160,22 +160,18 @@ void ModifyPasswdPage::clickSaveBtn()
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
                                                                                       m_newPasswordEdit->lineEdit()->text());
 
-    // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
-    if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC)) {
-        if (error == PwqualityManager::ERROR_TYPE::PW_NO_ERR)
-            Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
-
-        return;
-    }
-
-    QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
-                                            QStringLiteral("/com/deepin/defender/daemonservice"),
-                                            QStringLiteral("com.deepin.defender.daemonservice"));
-    QDBusReply<int> level = interface.call("GetPwdLimitLevel");
-    // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+        // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
+        if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
+            return;
+
+        // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
+        QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
+                                                QStringLiteral("/com/deepin/defender/daemonservice"),
+                                                QStringLiteral("com.deepin.defender.daemonservice"));
+        QDBusReply<int> level = interface.call("GetPwdLimitLevel");
         if (!interface.isValid()) {
             return;
         }
