@@ -1,4 +1,4 @@
-#include "bluetooth_dbus.h"
+#include "defapp_dbus.h"
 
 #include <QApplication>
 #include <QDebug>
@@ -17,20 +17,20 @@ int main(int argc, char **argv)
 
     setenv("DBUS_SESSION_BUS_ADDRESS", path.toStdString().data(), 1);
     setenv("QT_QPA_PLATFORM", "offscreen", 1);
-    qDebug() << getenv("DBUS_SESSION_BUS_ADDRESS");
 
     QApplication app(argc, argv);
 
     QDBusConnection conn = QDBusConnection::sessionBus();
-    bool bOk = conn.registerService(BLUETOOTH_SERVICE_NAME);
+    bool bOk = conn.registerService(DEFAPP_SERVICE_NAME);
     if (!bOk) {
         QDBusError err = conn.lastError();
         qWarning() << err.name() << ", " << err.message();
         process.close();
         return -1;
     }
-    Bluetooth service;
-    bOk = conn.registerObject(BLUETOOTH_SERVICE_PATH, &service, QDBusConnection::ExportAllContents);
+
+    Defapp_DBUS service;
+    bOk = conn.registerObject(DEFAPP_SERVICE_PATH, &service, QDBusConnection::ExportAllContents);
     if (!bOk) {
         QDBusError err = conn.lastError();
         qWarning() << err.name() << ", " << err.message();
@@ -40,11 +40,8 @@ int main(int argc, char **argv)
 
     ::testing::InitGoogleTest(&argc, argv);
 
-    // 蓝牙用例会造成进程崩溃，暂未定位到原因，暂时屏蔽
-//    int result = RUN_ALL_TESTS();
+    int result = RUN_ALL_TESTS();
 
     process.close();
-
-//    return result;
-    return 0;
+    return result;
 }

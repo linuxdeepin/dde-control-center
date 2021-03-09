@@ -64,9 +64,11 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
 
     QPushButton *cancel = m_buttonTuple->leftButton();
     cancel->setText(tr("Cancel"));
+    cancel->setObjectName("Cancel");
     QPushButton *ok = m_buttonTuple->rightButton();
     ok->setText(tr("Add"));
     ok->setEnabled(false);
+    ok->setObjectName("Ok");
 
     m_search = new SearchInput();
     //~ contents_path /keyboard/System Language

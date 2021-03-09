@@ -90,6 +90,7 @@ public Q_SLOTS:
     void onAddBtnClicked();
     void onDelBtnClicked();
     void onClearAll();
+    DTK_WIDGET_NAMESPACE::DListView *getAppListview() const { return m_defApps; }
 
 private:
     void AppsItemChanged(const QList<dcc::defapp::App> &list);

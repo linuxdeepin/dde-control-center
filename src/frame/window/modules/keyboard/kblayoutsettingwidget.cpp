@@ -63,6 +63,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     m_kbLayoutModel = new QStandardItemModel(m_kbLayoutListView);
     m_kbLayoutListView->setAccessibleName("List_kblayoutlist");
+    m_kbLayoutListView->setObjectName("KbLayoutListView");
     m_kbLayoutListView->setModel(m_kbLayoutModel);
     m_kbLayoutListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_kbLayoutListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -120,6 +121,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     vLayout->addWidget(m_contentWidget);
 
     DFloatingButton *addLayout = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    addLayout->setObjectName("AddLayout");
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setContentsMargins(0, 0, 0, 0);
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);

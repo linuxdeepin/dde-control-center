@@ -60,6 +60,7 @@ public:
 
     void active();
     void deactive();
+    Mime *getDbusObject() { return m_dbusManager; }
 
 public Q_SLOTS:
     void onSetDefaultApp(const QString &category, const App &item);
