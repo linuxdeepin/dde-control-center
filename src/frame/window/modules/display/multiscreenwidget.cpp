@@ -306,20 +306,20 @@ void MultiScreenWidget::initSecondaryScreenDialog()
 
         for (const auto &monitor : m_model->monitorList()) {
             if (monitor == m_model->primaryMonitor()) {
-                requestSetMainwindowRect(monitor);
+                QTimer::singleShot(1000, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor()); });
                 continue;
             }
 
-            SecondaryScreenDialog *dlg(new SecondaryScreenDialog(this));
-            dlg->setModel(m_model, monitor);
-            connect(dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);
-            connect(dlg, &SecondaryScreenDialog::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
-            connect(dlg, &SecondaryScreenDialog::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);
-            connect(dlg, &SecondaryScreenDialog::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
-            connect(dlg, &SecondaryScreenDialog::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
-            connect(dlg, &SecondaryScreenDialog::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
-            connect(this, &MultiScreenWidget::requestGatherEnabled, dlg, &SecondaryScreenDialog::requestGatherEnabled);
-            m_secondaryScreenDlgList.append(dlg);
+            m_dlg = new SecondaryScreenDialog(this);
+            m_dlg->setModel(m_model, monitor);
+            connect(m_dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);
+            connect(m_dlg, &SecondaryScreenDialog::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
+            connect(m_dlg, &SecondaryScreenDialog::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);
+            connect(m_dlg, &SecondaryScreenDialog::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
+            connect(m_dlg, &SecondaryScreenDialog::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
+            connect(m_dlg, &SecondaryScreenDialog::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
+            connect(this, &MultiScreenWidget::requestGatherEnabled, m_dlg, &SecondaryScreenDialog::requestGatherEnabled);
+            m_secondaryScreenDlgList.append(m_dlg);
         }
 
         activateWindow();
@@ -373,5 +373,8 @@ void MultiScreenWidget::onMonitorPress(Monitor *monitor)
 
 void MultiScreenWidget::onMonitorRelease(Monitor *monitor)
 {
+    Q_UNUSED(monitor)
     m_fullIndication->setVisible(false);
+    QTimer::singleShot(1000, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor()); });
+    m_dlg->resetDialog();
 }

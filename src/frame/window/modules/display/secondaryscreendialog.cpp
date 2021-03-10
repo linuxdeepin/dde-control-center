@@ -247,7 +247,6 @@ void SecondaryScreenDialog::resetDialog()
 
     auto mrt = m_monitor->rect();
     auto tsize = (mrt.size() / m_model->monitorScale(m_monitor) - rt.size()) / 2;
-
     rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
 
     setGeometry(rt);

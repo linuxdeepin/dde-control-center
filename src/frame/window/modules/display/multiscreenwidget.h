@@ -110,6 +110,7 @@ private:
     ResolutionWidget *m_resolutionWidget;
     RefreshRateWidget *m_refreshRateWidget;
     RotateWidget *m_rotateWidget;
+    SecondaryScreenDialog *m_dlg;
 
     dcc::display::DisplayModel *m_model;
 

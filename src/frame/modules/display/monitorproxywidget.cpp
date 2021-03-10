@@ -134,10 +134,8 @@ void MonitorProxyWidget::mouseMoveEvent(QMouseEvent *e)
 
 void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 {
-    if (m_model->displayMode() == EXTEND_MODE)
-        Q_EMIT requestApplyMove(this);
-
     if (m_model->displayMode() == EXTEND_MODE) {
+        Q_EMIT requestApplyMove(this);
         Q_EMIT requestMonitorRelease(m_monitor);
     }
 
