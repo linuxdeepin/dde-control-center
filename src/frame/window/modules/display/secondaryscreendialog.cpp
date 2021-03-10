@@ -88,6 +88,8 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
     m_model = model;
     m_monitor = monitor;
 
+    // 缩放大于1时,adjustSize()后对话框高度错误,设置最小高度
+    setMinimumHeight(m_model->brightnessEnable() ? 610 : 480);
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
     m_monitorControlWidget->setModel(m_model, m_monitor);
     m_resolutionWidget->setModel(m_model, m_monitor);
