@@ -97,6 +97,8 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
         btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
         btnLayout->addWidget(addSystemLanguage);
         vLayout->addLayout(btnLayout);
+    } else {
+        addSystemLanguage->setVisible(false);
     }
 
     vLayout->setContentsMargins(10, 10, 10, 5);

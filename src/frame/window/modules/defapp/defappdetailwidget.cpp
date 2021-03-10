@@ -74,6 +74,8 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
         //~ contents_path /defapp/Webpage
         m_addBtn->setToolTip(tr("Add Application"));
         m_addBtn->setAccessibleName(tr("Add Application"));
+    } else {
+        m_addBtn->setVisible(false);
     }
 
     setLayout(m_centralLayout);
