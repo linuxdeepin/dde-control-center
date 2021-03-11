@@ -67,6 +67,8 @@
 #include "./modules/display/brightnesswidget.h"
 #include "./modules/display/refreshratewidget.h"
 
+#include "./modules/touchscreen/touchscreenwidget.h"
+
 #include "./modules/keyboard/keyboardwidget.h"
 #include "./modules/keyboard/generalkbsettingwidget.h"
 #include "./modules/keyboard/kblayoutsettingwidget.h"

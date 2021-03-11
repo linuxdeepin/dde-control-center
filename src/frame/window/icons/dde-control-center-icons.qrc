@@ -96,6 +96,8 @@
         <file>icons/dcc_unionid_128px.svg</file>
         <file>icons/dcc_nav_unionid_84px.svg</file>
         <file>icons/dcc_nav_unionid_42px.svg</file>
+        <file>icons/dcc_nav_touchscreen_42px.svg</file>
+        <file>icons/dcc_nav_touchscreen_84px.svg</file>
         <file>texts/dcc_avatar_12px.svg</file>
         <file>texts/dcc_edit_12px.svg</file>
         <file>texts/dcc_rotate_24px.svg</file>

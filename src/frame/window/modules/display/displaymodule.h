@@ -70,9 +70,7 @@ private Q_SLOTS:
     void onRequestSetRotate(dcc::display::Monitor *monitor, const int rotate);
     void showSingleScreenWidget();
     void showMultiScreenWidget();
-    void showTouchScreenPage();
     void showDisplayRecognize();
-    void showTouchRecognize();
     void pushScreenWidget();
     int showTimeoutDialog(dcc::display::Monitor *monitor);
 

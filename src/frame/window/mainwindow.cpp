@@ -31,6 +31,7 @@
 #include "modules/mouse/mousemodule.h"
 #include "modules/wacom/wacommodule.h"
 #include "modules/display/displaymodule.h"
+#include "modules/touchscreen/touchscreenmodule.h"
 #include "modules/personalization/personalizationmodule.h"
 #include "modules/sync/syncmodule.h"
 #include "modules/notification/notificationmodule.h"
@@ -315,6 +316,7 @@ void MainWindow::initAllModule(const QString &m)
     using namespace defapp;
     using namespace network;
     using namespace display;
+    using namespace touchscreen;
     using namespace accounts;
     using namespace mouse;
     using namespace bluetooth;
@@ -339,6 +341,7 @@ void MainWindow::initAllModule(const QString &m)
         //~ contents_path /cloudsync/Cloud Sync
         { new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "Union ID"},
         { new DisplayModule(this), tr("Display")},
+        { new TouchscreenModule(this), tr("Touch Screen")},
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},
         { new NetworkModule(this), tr("Network")},

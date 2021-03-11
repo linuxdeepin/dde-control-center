@@ -1,11 +1,9 @@
 /*
- * Copyright (C) 2011 ~ 2019 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2021 Uniontech Technology Co., Ltd.
  *
- * Author: quezhiyong@uniontech.com
- *         wangwei@uniontech.com
+ * Author:     huangweihua <huangweihua@uniontech.com>
  *
- * Maintainer: quezhiyong@uniontech.com
- *             wangwei@uniontech.com
+ * Maintainer: huangweihua <huangweihua@uniontech.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,41 +18,40 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef TOUCHSCREENPAGE_H
-#define TOUCHSCREENPAGE_H
+
+#ifndef TOUCHSCREENWIDGET_H
+#define TOUCHSCREENWIDGET_H
 
 #include <interface/namespace.h>
 
-#include "widgets/contentwidget.h"
-
 #include <org_freedesktop_notifications.h>
 
-#include <DListView>
 #include <DTipLabel>
 
-#include <QWidget>
 #include <QComboBox>
 
 using Notifications = org::freedesktop::Notifications;
 
+QT_BEGIN_NAMESPACE
 class QVBoxLayout;
-class QGridLayout;
+QT_END_NAMESPACE
 
 namespace dcc {
 
 namespace display {
-class DisplayModel;
+class TouchscreenModel;
 }
 
 namespace widgets {
 class ButtonTuple;
-}
+class SettingsItem;
+} // namespace widgets
 
 } // namespace dcc
 
 namespace DCC_NAMESPACE {
 
-namespace display {
+namespace touchscreen {
 
 class MCombobox : public QComboBox
 {
@@ -63,38 +60,35 @@ protected:
     void showPopup() override;
 };
 
-class TouchscreenPage : public dcc::ContentWidget
+class TouchscreenWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit TouchscreenPage(QWidget *parent = nullptr);
+    explicit TouchscreenWidget(QWidget *parent = nullptr);
 
-    void setModel(dcc::display::DisplayModel *model);
+    void setModel(dcc::display::TouchscreenModel *model);
 
 private Q_SLOTS:
     void onMonitorChanged();
     void save();
 
-protected:
-    bool eventFilter(QObject *obj, QEvent *event);
-
 Q_SIGNALS:
     void requestAssociateTouch(const QString &monitor, const QString &touchscreenSerial);
 
 private:
-    dcc::display::DisplayModel *m_model{nullptr};
-    dcc::widgets::ButtonTuple *m_buttonTuple;
-    QScrollArea *m_contentArea;
+    dcc::display::TouchscreenModel *m_model;
+
+    QVBoxLayout *m_contentLayout;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_dTipLabel;
+    QList<dcc::widgets::SettingsItem *> m_settingsItem;
     QList<MCombobox *> m_list;
+    dcc::widgets::ButtonTuple *m_buttonTuple;
+
     Notifications *m_notifyInter;
-    QStringList m_titleName;
-    QList<QLabel *> m_labels;
-    DTipLabel *m_dTipLabel;
-    QString m_titleString;
 };
 
-} // namespace display
+} // namespace touchscreen
 
 } // namespace DCC_NAMESPACE
 
-#endif //! TOUCHSCREENWIDGET_H
+#endif // TOUCHSCREENWIDGET_H

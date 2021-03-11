@@ -37,11 +37,13 @@ namespace dcc {
 namespace display {
 
 class DisplayWorker;
+class TouchscreenWorker;
 class Monitor : public QObject
 {
     Q_OBJECT
 
     friend class DisplayWorker;
+    friend class TouchscreenWorker;
 
 public:
     explicit Monitor(QObject *parent = 0);

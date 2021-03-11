@@ -111,7 +111,8 @@ set(WINDOW_FILES
     window/modules/display/refreshratewidget.cpp
     window/modules/display/multiscreenwidget.cpp
     window/modules/display/secondaryscreendialog.cpp
-    window/modules/display/touchscreenpage.cpp
+    window/modules/touchscreen/touchscreenmodule.cpp
+    window/modules/touchscreen/touchscreenwidget.cpp
     window/modules/power/powermodule.cpp
     window/modules/power/powerwidget.cpp
     window/modules/power/generalwidget.cpp
@@ -327,6 +328,12 @@ set(DISPLAY_FILES
                 modules/display/monitor.cpp
                 modules/display/monitorproxywidget.cpp
                 modules/display/monitorsground.cpp
+)
+
+# load touchscreen
+set(TOUCHSCREEN_FILES
+                modules/touchscreen/touchscreenmodel.cpp
+                modules/touchscreen/touchscreenworker.cpp
 )
 
 # load keyboard
@@ -548,6 +555,7 @@ set(SRCS
         ${DATETIME_FILES}
         ${DEFAPP_FILES}
         ${DISPLAY_FILES}
+        ${TOUCHSCREEN_FILES}
         ${KEYBOARD_FILES}
         ${MOUSE_FILES}
         ${NETWORK_FILES}

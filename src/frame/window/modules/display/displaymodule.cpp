@@ -28,7 +28,6 @@
 #include "rotatewidget.h"
 #include "secondaryscreendialog.h"
 #include "multiscreenwidget.h"
-#include "touchscreenpage.h"
 #include "window/utils.h"
 #include "window/gsettingwatcher.h"
 #include "widgets/timeoutdialog.h"
@@ -87,10 +86,6 @@ void DisplayModule::active()
     m_displayWidget = new DisplayWidget;
     m_displayWidget->setVisible(false);
     pushScreenWidget();
-
-    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage, this, &DisplayModule::showTouchScreenPage);
-    connect(m_displayWidget, &DisplayWidget::requestShowTouchscreenPage, this, &DisplayModule::showTouchRecognize);
-
     m_frameProxy->pushWidget(this, m_displayWidget);
     m_displayWidget->setVisible(true);
 }
@@ -236,18 +231,6 @@ void DisplayModule::showMultiScreenWidget()
     m_displayWidget->setContent(multiScreenWidget);
 }
 
-void DisplayModule::showTouchScreenPage()
-{
-    auto page = new TouchscreenPage();
-    page->setVisible(false);
-    page->setModel(m_displayModel);
-
-    connect(page, &TouchscreenPage::requestAssociateTouch, m_displayWorker, &DisplayWorker::setTouchScreenAssociation);
-
-    m_frameProxy->pushWidget(this, page);
-    page->setVisible(true);
-}
-
 void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
 {
     Resolution lastRes = monitor->currentMode();
@@ -338,45 +321,6 @@ void DisplayModule::showDisplayRecognize()
         QString text = m_displayModel->monitorList().first()->name();
         for (int idx = 1; idx < m_displayModel->monitorList().size(); idx++) {
             text += QString(" = %1").arg(m_displayModel->monitorList()[idx]->name());
-        }
-
-        // 所在显示器不存在显示框
-        if (m_recognizeWidget.value(text) == nullptr) {
-            RecognizeWidget *widget = new RecognizeWidget(m_displayModel->monitorList()[0], text);
-            QTimer::singleShot(5000, this, [=] {
-                widget->deleteLater();
-                m_recognizeWidget.remove(text);
-            });
-            m_recognizeWidget[text] = widget;
-        }
-    } else { // 扩展模式
-        for (auto monitor : m_displayModel->monitorList()) {
-            // 所在显示器不存在显示框
-            if (m_recognizeWidget.value(monitor->name()) == nullptr) {
-                RecognizeWidget *widget = new RecognizeWidget(monitor, monitor->name());
-                m_recognizeWidget[monitor->name()] = widget;
-                QTimer::singleShot(5000, this, [=] {
-                    widget->deleteLater();
-                    m_recognizeWidget.remove(monitor->name());
-                });
-                m_recognizeWidget[monitor->name()] = widget;
-            }
-        }
-    }
-}
-
-void DisplayModule::showTouchRecognize()
-{
-    // 只有一块屏幕不显示触摸提示
-    if (m_displayModel->monitorList().size() < 2) {
-        return;
-    }
-
-    // 复制模式
-    if (m_displayModel->displayMode() == MERGE_MODE) {
-        QString text = m_displayModel->monitorList().first()->name();
-        for (int i = 1; i < m_displayModel->monitorList().size(); i++) {
-            text += QString(" = %1").arg(m_displayModel->monitorList()[i]->name());
         }
 
         // 所在显示器不存在显示框

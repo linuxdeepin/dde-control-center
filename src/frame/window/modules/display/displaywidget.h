@@ -45,9 +45,6 @@ public:
 public:
     void setModel();
     int showPath(const QString &path);
-
-Q_SIGNALS:
-    void requestShowTouchscreenPage();
 };
 
 } // namespace display
