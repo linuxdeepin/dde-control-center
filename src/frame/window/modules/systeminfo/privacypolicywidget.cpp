@@ -21,6 +21,7 @@
 #include "privacypolicywidget.h"
 #include "widgets/translucentframe.h"
 #include "widgets/titlelabel.h"
+#include "window/utils.h"
 
 #include <DFontSizeManager>
 #include <DTipLabel>
@@ -46,8 +47,13 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
     layout->addWidget(labelOutput, 0, Qt::AlignTop | Qt::AlignHCenter);
     layout->addSpacing(20);
 
-    DTipLabel *label = new DTipLabel(tr("<p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.</p>"
-                                        "<p>You can <a href=\"https://www.uniontech.com/agreement/privacy-en\">click here</a> to view our latest privacy policy or view it online by visiting <a href=\"https://www.uniontech.com/agreement/privacy-en\"> https://www.uniontech.com/agreement/privacy-en</a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.</p>"));
+    QString text;
+    QString http = IsCommunitySystem ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
+    text = tr("<p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.</p>"
+              "<p>You can <a href=\"%1\">click here</a> to view our latest privacy policy or view it online by visiting <a href=\"%1\"> %1</a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.</p>")
+               .arg(http);
+
+    DTipLabel *label = new DTipLabel(text);
 
     label->setWordWrap(true);
     label->setTextFormat(Qt::RichText);

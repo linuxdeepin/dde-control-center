@@ -5169,13 +5169,23 @@
 <context>
     <name>dccV20::systeminfo::PrivacyPolicyWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="44"/>
+        <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="45"/>
         <source>Privacy Policy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="49"/>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy or view it online by visiting &lt;a href=&quot;https://www.uniontech.com/agreement/privacy-en&quot;&gt; https://www.uniontech.com/agreement/privacy-en&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
+        <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="51"/>
+        <source>https://www.deepin.org/en/agreement/privacy/</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="51"/>
+        <source>https://www.uniontech.com/agreement/privacy-en</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="52"/>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
