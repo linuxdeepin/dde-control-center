@@ -178,10 +178,10 @@ QMap<QString, bool> GSettingWatcher::getMenuState()
 void GSettingWatcher::onStatusModeChanged(const QString &key)
 {
     if (!m_map.isEmpty() && m_map.contains(key)) {
-        for (QString &nameKey : m_map.keys()) {
-            if (key == nameKey) {
-                setStatus(key, m_map.value(nameKey));
-                break;
+        // 重新设置控件对应的显示类型
+        for (auto mapUnit = m_map.begin(); mapUnit != m_map.end(); ++mapUnit) {
+            if (key == mapUnit.key()) {
+                setStatus(key, mapUnit.value());
             }
         }
     }
