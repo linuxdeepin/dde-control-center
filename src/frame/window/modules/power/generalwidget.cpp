@@ -158,8 +158,8 @@ void GeneralWidget::initUi()
     energySavingGrp->appendItem(m_autoIntoSaveEnergyMode);
     energySavingGrp->appendItem(m_sldLowerBrightness);
     // 使用GSettings来控制显示状态
-    GSettingWatcher::instance()->bind("powerAutointoSaveenergyBattery", m_swLowPowerAutoIntoSaveEnergyMode);
-    GSettingWatcher::instance()->bind("powerAutointoSaveenergy", m_autoIntoSaveEnergyMode);
+    GSettingWatcher::instance()->bind("powerAutointoSaveenergyBattery", m_autoIntoSaveEnergyMode);
+    GSettingWatcher::instance()->bind("powerAutointoSaveenergy", m_swLowPowerAutoIntoSaveEnergyMode);
     GSettingWatcher::instance()->bind("powerLowerBrightness", m_sldLowerBrightness);
 
     energySavingLabel->setContentsMargins(10, 0, 10, 0);  // 节能设置label与外面布局的边距
