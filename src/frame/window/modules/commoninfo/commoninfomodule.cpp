@@ -154,7 +154,7 @@ int CommonInfoModule::load(const QString &path)
     }
 
 #ifdef DCC_DISABLE_GRUB
-    indexRow -= 1;
+    indexRow ? indexRow-- : indexRow;
     Q_ASSERT(indexRow >= 0);
 #endif
 
