@@ -1,21 +1,22 @@
+%define specrelease 1%{?dist}
+%if 0%{?openeuler}
+%define specrelease 1
+%endif
+
 Name:           dde-control-center
-Version:        5.1.0.19
-Release:        2
+Version:        5.4.13
+Release:        %{specrelease}
 Summary:        New control center for Linux Deepin
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/%{name}
 Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
-#BuildRequires:  dtkcore-devel >= 5.1.1
 BuildRequires:  gcc-c++
 BuildRequires:  desktop-file-utils
 BuildRequires:  dde-dock-devel
 BuildRequires:  pkgconfig(dde-network-utils)
-#BuildRequires:  pkgconfig(dtkwidget) >= 5.1
 BuildRequires:  dtkwidget-devel
 BuildRequires:  dtkgui-devel dtkcore-devel
-#BuildRequires:  pkgconfig(dtkwidget2)
-#BuildRequires:  pkgconfig(dframeworkdbus) >= 2.0
 BuildRequires:  dde-qt-dbus-factory-devel
 BuildRequires:  pkgconfig(gsettings-qt)
 BuildRequires:  pkgconfig(geoip)
@@ -27,6 +28,7 @@ BuildRequires:  kf5-networkmanager-qt-devel
 BuildRequires:  udisks2-qt5-devel
 BuildRequires:  qt5-linguist
 BuildRequires:  cmake
+BuildRequires:  libXext-devel
 Requires:       dde-account-faces
 Requires:       dde-api
 Requires:       dde-daemon
@@ -87,12 +89,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop ||:
 %{_libdir}/cmake/DdeControlCenter/
 
 %changelog
-* Fri Jul  3 2020 uniontech <uoser@uniontech.com> - 5.1.0.19-2
-- Add dde.sh to profile.d
+* Wed Mar 12 2021 uoser <uoser@uniontech.com> - 5.4.13-1
+- Update to 5.4.13
 
-* Mon Jun 15 2020 uniontech <uoser@uniontech.com> - 5.1.0.19
-- Remove the universal menu.
-
-* Fri May 29 2020 uniontech <uoser@uniontech.com> - 5.0.30
-- Project init.
 
