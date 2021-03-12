@@ -203,8 +203,17 @@ SearchWidget::SearchWidget(QWidget *parent)
             //enter defalt set first
             if (!jumpContentPathWidget(text())) {
                 //m_completer未关联部件时，currentCompletion只会获取到第一个选项并且不会在Edit中补全内容，需要通过popup()获取当前选择项并手动补全edit内容
-                const QString &currentCompletion = m_completer->popup()->currentIndex().data().toString();
+                QString currentCompletion = m_completer->popup()->currentIndex().data().toString();
+                //如果通过popup()未获取当前选择项,再通过currentCompletion获取第一个选项
+                if (m_completer->completionCount() > 0 && currentCompletion.isEmpty()) {
+                    currentCompletion = m_completer->currentCompletion();
+                }
                 qDebug() << Q_FUNC_INFO << " [SearchWidget] currentCompletion : " << currentCompletion;
+
+                //若未获取到任何补全项直接退出,以免将已输入内容清空
+                if (currentCompletion.isEmpty()) {
+                    return ;
+                }
 
                 //中文遍历一遍,若没有匹配再遍历将拼音转化为中文再遍历
                 //解决输入拼音时,有配置数据后,直接回车无法进入第一个匹配数据页面的问题
