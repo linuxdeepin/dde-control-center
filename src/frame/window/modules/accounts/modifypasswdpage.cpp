@@ -28,6 +28,7 @@
 #include "deepin_pw_check.h"
 
 #include <DFontSizeManager>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -121,6 +122,12 @@ void ModifyPasswdPage::initWidget()
         }
     });
 
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        QRegExpValidator *reg = new QRegExpValidator(QRegExp("^\\d{6}$"), this);
+        m_oldPasswordEdit->lineEdit()->setValidator(reg);
+        m_newPasswordEdit->lineEdit()->setValidator(reg);
+        m_repeatPasswordEdit->lineEdit()->setValidator(reg);
+    }
     m_oldPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));
     m_oldPasswordEdit->setAccessibleName("oldpasswordedit");
     m_newPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));

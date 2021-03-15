@@ -78,7 +78,7 @@ const QString PowerModule::name() const
 
 const QString PowerModule::displayName() const
 {
-    return tr("Power");
+    return DGuiApplicationHelper::isTabletEnvironment() ? tr("Battery") : tr("Power");
 }
 
 void PowerModule::active()
