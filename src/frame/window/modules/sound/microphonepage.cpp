@@ -346,7 +346,8 @@ void MicrophonePage::initSlider()
 
     connect(m_model, &SoundModel::isPortEnableChanged, m_noiseReductionsw, &ComboxWidget::setVisible);
     m_conn = connect(m_model, &SoundModel::microphoneFeedbackChanged, [ = ](double vol2) {
-        slider2->setSliderPosition(int(vol2 * 100));
+        int pos = GSettingWatcher::instance()->getStatus("soundFeedbackSlider") == "Disabled" ? 0 : (int(vol2 * 100));
+        slider2->setSliderPosition(pos);
     });
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &MicrophonePage::refreshIcon);
     connect(qApp, &DApplication::iconThemeChanged, this, &MicrophonePage::refreshIcon);
