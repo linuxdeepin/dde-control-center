@@ -35,6 +35,7 @@
 #include <QDBusInterface>
 #include <QFileDialog>
 #include <QApplication>
+#include <QDir>
 
 #include <DDesktopServices>
 
@@ -48,6 +49,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     , m_bluetoothModel(model)
     , m_adapter(adapter)
     , m_device(device)
+    , m_transFile(new QFileDialog(this))
 {
     m_ignoreButton = new QPushButton(tr("Ignore this device"));
     m_ignoreButton->setObjectName("ignoreButton");
@@ -63,6 +65,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     m_transfileButton->setEnabled(m_bluetoothModel->canTransportable());
     GSettingWatcher::instance()->bind("bluetoothTransfile", m_transfileButton);  // 使用GSettings来控制显示状态
     setTitle(device->name());
+    m_transFile->setModal(true);
 
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
@@ -114,27 +117,32 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     });
     connect(m_transfileButton, &QPushButton::clicked, this, [this] {
         // 调用接口选择文件进行传输
-        QStringList selectedFiles;
-        QFileDialog transFileDia(this);
-        transFileDia.setFileMode(QFileDialog::ExistingFiles);
-        if (transFileDia.exec() != QDialog::Accepted) {
+        if (!m_transFile)
             return;
-        }
-        selectedFiles = transFileDia.selectedFiles();
-        if (selectedFiles.count() <= 0) {
-            return;
-        }
 
-        QDBusInterface inter("com.deepin.filemanager.filedialog"
-                                 , "/com/deepin/filemanager/filedialogmanager"
-                                 , "com.deepin.filemanager.filedialogmanager"
-                                 , QDBusConnection::sessionBus());
-        if (!inter.isValid()) {
-            qDebug() << "send file interface is not valid: " << QDBusConnection::sessionBus().lastError().message();
-            return;
-        }
-        // 蓝牙传输dbus接口: SendFile(destination string, filename string) 接口支持文件多选
-        inter.call("showBluetoothTransDialog", m_device->address(), selectedFiles);
+        m_transFile->setFileMode(QFileDialog::ExistingFiles);
+        m_transFile->setAcceptMode(QFileDialog::AcceptOpen);
+        m_transFile->setDirectory(QDir::homePath());
+        m_transFile->show();
+        connect(m_transFile, &QFileDialog::finished, this, [ = ] (int result) {
+           if (result == QFileDialog::Accepted) {
+               QStringList selectedFiles = m_transFile->selectedFiles();
+               if (selectedFiles.count() <= 0) {
+                   return;
+               }
+
+               QDBusInterface inter("com.deepin.filemanager.filedialog"
+                                        , "/com/deepin/filemanager/filedialogmanager"
+                                        , "com.deepin.filemanager.filedialogmanager"
+                                        , QDBusConnection::sessionBus());
+               if (!inter.isValid()) {
+                   qDebug() << "send file interface is not valid: " << QDBusConnection::sessionBus().lastError().message();
+                   return;
+               }
+               // 蓝牙传输dbus接口: SendFile(destination string, filename string) 接口支持文件多选
+               inter.call("showBluetoothTransDialog", m_device->address(), selectedFiles);
+           }
+        });
     });
     connect(m_editDevAlias, &QLineEdit::textChanged, this, [ = ](const QString &str){
         if (str.length() > 32) {
@@ -166,6 +174,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
 
 DetailPage::~DetailPage()
 {
+    m_transFile->deleteLater();
     GSettingWatcher::instance()->erase("bluetoothTransfile", m_transfileButton);
 }
 

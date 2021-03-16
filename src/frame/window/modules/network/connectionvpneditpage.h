@@ -35,6 +35,7 @@
 #define ServiceTypeOpenConnect "org.freedesktop.NetworkManager.openconnect"
 #define ServiceTypeSSTP "org.freedesktop.NetworkManager.sstp"
 
+class QFileDialog;
 namespace DCC_NAMESPACE {
 namespace network {
 
@@ -62,6 +63,7 @@ private:
 
 private:
     QPushButton *m_exportButton;
+    QFileDialog *m_saveConfig;
 };
 
 } /* network */ 

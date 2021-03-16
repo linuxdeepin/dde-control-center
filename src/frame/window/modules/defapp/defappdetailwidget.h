@@ -50,6 +50,7 @@ class QStandardItemModel;
 class QVBoxLayout;
 class QFileInfo;
 class QIcon;
+class QFileDialog;
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -109,6 +110,7 @@ private:
     QMap<DTK_WIDGET_NAMESPACE::DViewItemAction *, QString> m_actionMap;
     int m_systemAppCnt;
     int m_userAppCnt;
+    QFileDialog *m_createFile;
 };
 }
 }

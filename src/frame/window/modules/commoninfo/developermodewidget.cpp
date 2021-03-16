@@ -154,7 +154,7 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
             return;
 
         //弹窗提示重启
-        DDialog dlg("", tr("To make some features effective, a restart is required. Restart now?"));
+        DDialog dlg("", tr("To make some features effective, a restart is required. Restart now?"), this);
         dlg.addButtons({tr("Cancel"), tr("Restart Now")});
         connect(&dlg, &DDialog::buttonClicked, this, [](int idx, QString str){
             Q_UNUSED(str);

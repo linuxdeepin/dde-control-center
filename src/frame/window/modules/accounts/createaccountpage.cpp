@@ -524,7 +524,7 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
 
         if (level != 1) {
             QDBusReply<QString> errorTips = interface.call("GetPwdError");
-            DDialog dlg("", errorTips);
+            DDialog dlg("", errorTips, this);
             dlg.setIcon(QIcon::fromTheme("preferences-system"));
             dlg.addButton(tr("Go to Settings"));
             dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);

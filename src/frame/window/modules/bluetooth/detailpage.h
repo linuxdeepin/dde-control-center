@@ -30,6 +30,7 @@ QT_BEGIN_NAMESPACE
 class QLabel;
 class QLineEdit;
 class QPushButton;
+class QFileDialog;
 QT_END_NAMESPACE
 
 class TitleLabel;
@@ -70,6 +71,7 @@ private:
     QPushButton *m_transfileButton;
     QLineEdit *m_editDevAlias;
     TitleLabel *m_devNameLabel;
+    QFileDialog *m_transFile;
 };
 }
 }

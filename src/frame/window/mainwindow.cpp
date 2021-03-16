@@ -65,6 +65,7 @@
 #include <QScreen>
 #include <QMouseEvent>
 #include <QResizeEvent>
+#include <QDialog>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -523,6 +524,17 @@ void MainWindow::popWidget(ModuleInterface *const inter)
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
 {
     Q_UNUSED(animation)
+    // FIXME: 通过dbus触发切换page菜单界面时，应先检测当前page界面是否存在模态对话框在上层显示，
+    // 若存在则先将其所有对话框强制关闭，再执行切换page界面显示
+    if (m_lastPushWidget && m_lastPushWidget->isVisible()) {
+        QList<QDialog *> dialogList = m_lastPushWidget->findChildren<QDialog *>();
+        for (QDialog *dlg : dialogList) {
+            if (dlg && dlg->isVisible()) {
+                dlg->done(QDialog::Rejected);
+            }
+        }
+    }
+
 //    qDebug() << Q_FUNC_INFO;
     if (!isModuleAvailable(module) && !module.isEmpty()) {
         qDebug() << QString("get error module name %1!").arg(module);
@@ -967,6 +979,7 @@ void MainWindow::pushWidget(ModuleInterface *const inter, QWidget *const w, Push
         return;
     }
 
+    m_lastPushWidget = w;
     switch (type) {
     case Replace:
         replaceThirdWidget(inter, w);

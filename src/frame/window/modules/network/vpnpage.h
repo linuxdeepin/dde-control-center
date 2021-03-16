@@ -33,6 +33,7 @@
 
 #include <QPointer>
 
+class QFileDialog;
 namespace dde {
 namespace network {
 class NetworkModel;
@@ -88,6 +89,7 @@ private:
 
     DTK_WIDGET_NAMESPACE::DListView *m_lvprofiles;
     QStandardItemModel *m_modelprofiles;
+    QFileDialog *m_importFile;
 
     static const int VpnInfoRole = Dtk::UserRole + 1;
 };

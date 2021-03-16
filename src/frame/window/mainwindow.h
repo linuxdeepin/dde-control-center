@@ -162,6 +162,7 @@ private:
     QGSettings *m_versionType{nullptr};
     QStringList m_hideModuleNames;
     bool m_updateVisibale = true;
+    QWidget *m_lastPushWidget{nullptr};     //用于记录最后push进来的widget控件
 };
 }
 

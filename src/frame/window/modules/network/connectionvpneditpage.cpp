@@ -49,12 +49,15 @@ const QList<ConnectionVpnEditPage::VpnType> SupportedExportVpnList {
 
 ConnectionVpnEditPage::ConnectionVpnEditPage(const QString &connUuid, QWidget *parent)
     : ConnectionEditPage(ConnectionEditPage::ConnectionType::VpnConnection, QString(), connUuid, parent)
+    , m_saveConfig(new QFileDialog(this))
 {
     m_exportButton = nullptr;
+    m_saveConfig->setModal(true);
 }
 
 ConnectionVpnEditPage::~ConnectionVpnEditPage()
 {
+    m_saveConfig->deleteLater();
 }
 
 void ConnectionVpnEditPage::initSettingsWidget()
@@ -237,30 +240,39 @@ void ConnectionVpnEditPage::resetConnectionIdByType(ConnectionVpnEditPage::VpnTy
 
 void ConnectionVpnEditPage::exportConnConfig()
 {
-    const QString uuid = connectionUuid();
-
-    Q_EMIT requestFrameAutoHide(false);
-    const QUrl u = QFileDialog::getSaveFileUrl(nullptr, QString(), QUrl::fromLocalFile(QDir::homePath()), "Config File (*.conf)");
-    Q_EMIT requestFrameAutoHide(true);
-
-    if (u.isEmpty() || !u.isLocalFile())
+    if (!m_saveConfig)
         return;
 
-    QString file = u.path();
-    if (!file.endsWith(".conf"))
-        file.append(".conf");
+    const QString uuid = connectionUuid();
+    Q_EMIT requestFrameAutoHide(false);
+    m_saveConfig->setNameFilter("Config File (*.conf)");
+    m_saveConfig->setAcceptMode(QFileDialog::AcceptSave);
+    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+    if (!directory.isEmpty()) {
+        m_saveConfig->setDirectory(directory.first());
+    }
 
-    const auto args = QStringList() << "connection" << "export" << uuid << file;
-    qDebug() << Q_FUNC_INFO;
+    m_saveConfig->show();
+    connect(m_saveConfig, &QFileDialog::finished, this, [ = ] (int result) {
+        Q_EMIT requestFrameAutoHide(true);
+        if (result == QFileDialog::Accepted) {
+            QString file = m_saveConfig->selectedFiles().first();
+            if (!file.endsWith(".conf"))
+               file.append(".conf");
 
-    QProcess p;
-    p.start("nmcli", args);
-    p.waitForFinished();
-    qDebug() << p.readAllStandardOutput();
-    qDebug() << p.readAllStandardError();
+            const auto args = QStringList() << "connection" << "export" << uuid << file;
+            qDebug() << Q_FUNC_INFO;
 
-    // process ca
-    processConfigCA(file);
+            QProcess p;
+            p.start("nmcli", args);
+            p.waitForFinished();
+            qDebug() << p.readAllStandardOutput();
+            qDebug() << p.readAllStandardError();
+
+            // process ca
+            processConfigCA(file);
+        }
+    });
 }
 
 void ConnectionVpnEditPage::processConfigCA(const QString &file)

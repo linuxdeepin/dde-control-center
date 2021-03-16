@@ -51,6 +51,7 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     , m_category(nullptr)
     , m_systemAppCnt(0)
     , m_userAppCnt(0)
+    , m_createFile(new QFileDialog(this))
 {
     m_defApps->setAccessibleName("List_defapplist");
     m_defApps->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
@@ -75,12 +76,14 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     //~ contents_path /defapp/Webpage
     m_addBtn->setToolTip(tr("Add Application"));
     m_addBtn->setAccessibleName(tr("Add Application"));
+    m_createFile->setModal(true);
     GSettingWatcher::instance()->bind("defappApplistAddbtn", m_addBtn);
     GSettingWatcher::instance()->bind("defappApplistDefapp", m_defApps);
 }
 
 DefappDetailWidget::~DefappDetailWidget()
 {
+    m_createFile->deleteLater();
     GSettingWatcher::instance()->erase("defappApplistAddbtn", m_addBtn);
     GSettingWatcher::instance()->erase("defappApplistDefapp", m_defApps);
 }
@@ -256,31 +259,28 @@ void DefappDetailWidget::onListViewClicked(const QModelIndex& index) {
 }
 
 void DefappDetailWidget::onAddBtnClicked() {
-    do {
-        if (!isEnabled())
-            break;
+    if (!isEnabled() || !m_createFile)
+        return;
 
-        Q_EMIT requestFrameAutoHide(false);
-        QFileDialog dialog(this);
-        dialog.setWindowTitle(tr("Open Desktop file"));
+    Q_EMIT requestFrameAutoHide(false);
+    m_createFile->setWindowTitle(tr("Open Desktop file"));
+    m_createFile->setAcceptMode(QFileDialog::AcceptOpen);
+    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+    if (!directory.isEmpty())
+        m_createFile->setDirectory(directory.first());
 
-        QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
-        if (!directory.isEmpty())
-            dialog.setDirectory(directory.first());
+    m_createFile->show();
+    connect(m_createFile, &QFileDialog::finished, this, [ = ] (int result) {
+        Q_EMIT requestFrameAutoHide(true);
+        if (result == QFileDialog::Accepted) {
+            QString path = m_createFile->selectedFiles().first();
+            if (path.isEmpty())
+               return;
 
-        if (dialog.exec() != QDialog::Accepted)
-            break;
-
-        QString path = dialog.selectedFiles()[0];
-
-        if (path.isEmpty())
-            break;
-
-        QFileInfo info(path);
-        Q_EMIT requestCreateFile(m_categoryName, info);
-    } while(false);
-
-    Q_EMIT requestFrameAutoHide(true);
+            QFileInfo info(path);
+            Q_EMIT requestCreateFile(m_categoryName, info);
+        }
+    });
 }
 
 void  DefappDetailWidget::onDelBtnClicked() {
