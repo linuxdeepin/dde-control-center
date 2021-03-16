@@ -203,5 +203,5 @@ void SyncWorker::getLicenseState()
 
     quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
     qDebug() << "authorize result:" << reply;
-    m_model->setActivation(reply == 1 || reply == 3);
+    m_model->setActivation(reply >= 1 && reply <= 3);
 }

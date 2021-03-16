@@ -116,7 +116,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
 
 #ifndef DISABLE_ACTIVATOR
     connect(m_model, &UpdateModel::systemActivationChanged, this, [=](UiActiveState systemactivation) {
-        if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized) {
+        if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized || systemactivation == UiActiveState::AuthorizedLapse) {
             if (m_updateWidget)
                 m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
         }
@@ -154,7 +154,7 @@ void UpdateModule::active()
 
     Q_EMIT m_work->requestRefreshLicenseState();
 
-    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
+    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
         m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
     }
 
@@ -187,7 +187,7 @@ void UpdateModule::active()
     });
 
 #ifndef DISABLE_ACTIVATOR
-    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized) {
+    if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
         m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
     }
 #else

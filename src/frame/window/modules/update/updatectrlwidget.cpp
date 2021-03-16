@@ -160,7 +160,7 @@ UpdateCtrlWidget::~UpdateCtrlWidget()
 void UpdateCtrlWidget::setShowInfo(const UiActiveState value)
 {
     bool activation;
-    if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value) {
+    if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value || UiActiveState::AuthorizedLapse == value) {
         activation = true;
     } else {
         activation = false;
@@ -248,7 +248,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     m_status = status;
 
-    if (m_model->systemActivation() == UiActiveState::Unauthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse || m_model->systemActivation() == UiActiveState::TrialExpired) {
+    if (m_model->systemActivation() == UiActiveState::Unauthorized || m_model->systemActivation() == UiActiveState::TrialExpired) {
         m_status = NoAtive;
     }
 
