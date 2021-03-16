@@ -101,10 +101,10 @@ BootWidget::BootWidget(QWidget *parent)
     backgroundLabel->setContentsMargins(5, 0, 10, 0);
     backgroundLabel->setAlignment(Qt::AlignLeft);
 #ifndef DCC_DISABLE_GRUB_THEME
-    DTipLabel *themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"));
-    themeLbl->setWordWrap(true);
-    themeLbl->setContentsMargins(5, 0, 10, 0);
-    themeLbl->setAlignment(Qt::AlignLeft);
+    m_themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"));
+    m_themeLbl->setWordWrap(true);
+    m_themeLbl->setContentsMargins(5, 0, 10, 0);
+    m_themeLbl->setAlignment(Qt::AlignLeft);
 #endif
     groupOther->appendItem(m_bootDelay);
     groupOther->setSpacing(List_Interval);
@@ -119,7 +119,7 @@ BootWidget::BootWidget(QWidget *parent)
     layout->addSpacing(List_Interval);
     layout->addWidget(groupOther);
 #ifndef DCC_DISABLE_GRUB_THEME
-    layout->addWidget(themeLbl);
+    layout->addWidget(m_themeLbl);
 #endif
     layout->addStretch();
     layout->setContentsMargins(ThirdPageContentsMargins);
@@ -138,6 +138,7 @@ BootWidget::BootWidget(QWidget *parent)
     GSettingWatcher::instance()->bind("commoninfoBootBootdelay", m_bootDelay);
 #ifndef DCC_DISABLE_GRUB_THEME
     GSettingWatcher::instance()->bind("commoninfoBootTheme", m_theme);
+    GSettingWatcher::instance()->bind("commoninfoBootTheme", m_themeLbl);
 #endif
 }
 
@@ -147,6 +148,7 @@ BootWidget::~BootWidget()
     GSettingWatcher::instance()->erase("commoninfoBootBootdelay", m_bootDelay);
 #ifndef DCC_DISABLE_GRUB_THEME
     GSettingWatcher::instance()->erase("commoninfoBootTheme", m_theme);
+    GSettingWatcher::instance()->erase("commoninfoBootTheme", m_themeLbl);
 #endif
 }
 

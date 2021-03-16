@@ -27,6 +27,10 @@
 #include <QVBoxLayout>
 #include <QResizeEvent>
 
+DWIDGET_BEGIN_NAMESPACE
+class DTipLabel;
+DWIDGET_END_NAMESPACE
+
 namespace dcc {
 namespace widgets {
 class SwitchWidget;
@@ -67,6 +71,7 @@ private:
     dcc::widgets::SwitchWidget *m_bootDelay;       // 延时启动功能
 #ifndef DCC_DISABLE_GRUB_THEME
     dcc::widgets::SwitchWidget *m_theme;           // 主题功能
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_themeLbl;    // 主题提示
 #endif
     DTK_WIDGET_NAMESPACE::DListView *m_bootList; // 启动项目列表
     dcc::widgets::TipsLabel *m_updatingLabel;    // Updating标签
