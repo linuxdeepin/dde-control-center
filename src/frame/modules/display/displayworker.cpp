@@ -100,6 +100,7 @@ void DisplayWorker::active()
     connect(screenscaleswatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScreenScalesFinished);
 
     onMonitorsBrightnessChanged(m_displayInter.brightness());
+    m_model->setBrightnessMap(m_displayInter.brightness());
     onMonitorListChanged(m_displayInter.monitors());
 
     m_model->setDisplayMode(m_displayInter.displayMode());
