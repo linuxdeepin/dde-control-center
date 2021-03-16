@@ -54,11 +54,15 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
 {
     m_layout->setContentsMargins(ThirdPageContentsMargins);
 
+    QWidget *widget = new QWidget;
+    QVBoxLayout *layout = new QVBoxLayout;
+    layout->setContentsMargins(0, 0, 0, 0);
+
     TitleLabel *lblTitle = new TitleLabel(tr("Sound Effects"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->addBackground();
-    GSettingWatcher::instance()->bind("soundEffectPage", this);  // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("soundEffectPage", widget);  // 使用GSettings来控制显示状态
     m_sw->switchButton()->setAccessibleName(lblTitle->text());
     m_sw->setFocusPolicy(Qt::ClickFocus);
     m_layout->addWidget(m_sw, 0, Qt::AlignTop);
@@ -86,7 +90,9 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_aniTimer = new QTimer(this);
     m_aniTimer->setSingleShot(false);
 
-    setLayout(m_layout);
+    widget->setLayout(m_layout);
+    layout->addWidget(widget);
+    setLayout(layout);
 }
 
 SoundEffectsPage::~SoundEffectsPage()
@@ -96,7 +102,7 @@ SoundEffectsPage::~SoundEffectsPage()
         scroller->stop();
     }
 
-    GSettingWatcher::instance()->erase("soundEffectPage", this);
+    GSettingWatcher::instance()->erase("soundEffectPage");
 }
 
 void SoundEffectsPage::setModel(dcc::sound::SoundModel *model)
