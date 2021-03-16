@@ -38,10 +38,15 @@ TimeSlotItem::TimeSlotItem(QWidget *parent)
 {
     m_editStart->setDisplayFormat("h:mm");
     m_editStart->setAccessibleName("Start_Time_Edit");
+
+    m_editStart->setTime(QTime(22, 0));
+
     m_editStart->setFixedWidth(90);
     m_editEnd->setDisplayFormat("h:mm");
     m_editEnd->setAccessibleName("End_Time_Edit");
     m_editEnd->setFixedWidth(90);
+    m_editEnd->setTime(QTime(7, 0));
+
     m_chkState->setAccessibleName("Time_CheckBox");
 
     QLabel *lblFrom = new QLabel(tr("From"));
