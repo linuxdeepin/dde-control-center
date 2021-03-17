@@ -524,16 +524,6 @@ void MainWindow::popWidget(ModuleInterface *const inter)
 void MainWindow::showModulePage(const QString &module, const QString &page, bool animation)
 {
     Q_UNUSED(animation)
-    // FIXME: 通过dbus触发切换page菜单界面时，应先检测当前page界面是否存在模态对话框在上层显示，
-    // 若存在则先将其所有对话框强制关闭，再执行切换page界面显示
-    if (m_lastPushWidget && m_lastPushWidget->isVisible()) {
-        QList<QDialog *> dialogList = m_lastPushWidget->findChildren<QDialog *>();
-        for (QDialog *dlg : dialogList) {
-            if (dlg && dlg->isVisible()) {
-                dlg->done(QDialog::Rejected);
-            }
-        }
-    }
 
 //    qDebug() << Q_FUNC_INFO;
     if (!isModuleAvailable(module) && !module.isEmpty()) {
@@ -564,6 +554,19 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
 
     auto pm = findModule(module);
     Q_ASSERT(pm);
+
+    // FIXME: 通过dbus触发显示page菜单界面时，应先检测当前page界面是否存在模态对话框在上层显示，
+    // 若存在则先将其所有对话框强制关闭，再执行切换page界面显示
+    if ((pm->name() != currModule()->name())
+            && m_lastPushWidget
+            && m_lastPushWidget->isVisible()) {   // 若相同界面显示则不执行检测对话框及关闭操作
+        QList<QDialog *> dialogList = m_lastPushWidget->findChildren<QDialog *>();
+        for (QDialog *dlg : dialogList) {
+            if (dlg && dlg->isVisible()) {
+                dlg->done(QDialog::Rejected);
+            }
+        }
+    }
 
     qDebug() << page;
     QStringList pages = page.split(",");
