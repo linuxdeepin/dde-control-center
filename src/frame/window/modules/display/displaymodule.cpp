@@ -174,7 +174,10 @@ void DisplayModule::showSingleScreenWidget()
     resolutionWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
     GSettingWatcher::instance()->bind("displayResolution", resolutionWidget);  // 使用GSettings来控制显示状态
     contentLayout->addWidget(resolutionWidget);
-    connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
+    connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, [=](dcc::display::Monitor *monitor, const int mode) {
+        onRequestSetResolution(monitor, mode);
+        windowUpdate();
+    }, Qt::QueuedConnection);
 
     RefreshRateWidget *refreshRateWidget = new RefreshRateWidget;
     refreshRateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
@@ -214,7 +217,10 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestAmbientLightAdjustBrightness, m_displayWorker, &DisplayWorker::setAmbientLightAdjustBrightness);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMethodAdjustCCT, m_displayWorker, &DisplayWorker::SetMethodAdjustCCT);
     connect(multiScreenWidget, &MultiScreenWidget::requestUiScaleChange, m_displayWorker, &DisplayWorker::setUiScale);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetResolution, this, [=](dcc::display::Monitor *monitor, const int mode) {
+        onRequestSetResolution(monitor, mode);
+        windowUpdate();
+    }, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi) {
         bool stateChanged = false;

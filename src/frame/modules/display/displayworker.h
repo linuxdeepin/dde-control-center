@@ -87,6 +87,9 @@ private:
     void monitorAdded(const QString &path);
     void monitorRemoved(const QString &path);
 
+Q_SIGNALS:
+    void requestUpdateModeList();
+
 private:
     DisplayModel *m_model;
     DisplayInter m_displayInter;

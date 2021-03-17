@@ -25,6 +25,8 @@
 
 #include "monitor.h"
 
+#include <QGSettings>
+
 using namespace dcc::display;
 
 const double DoubleZero = 0.000001;
@@ -186,9 +188,27 @@ bool compareResolution(const Resolution &first, const Resolution &second)
 void Monitor::setModeList(const ResolutionList &modeList)
 {
     m_modeList.clear();
-    // NOTE: ignore resolution less than 1024x768
+    // NOTE: limit resolution by gsettings config
+    QGSettings *settings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    QStringList value = settings->get("resolutionConfig").toString().split("*");
+    settings->deleteLater();
+
+    QList<int> miniMode;
+    for (auto str : value) {
+        bool ok;
+        int res = str.toInt(&ok);
+        if (ok) {
+            miniMode << res;
+        }
+    }
+
+    if (miniMode.size() != 2) {
+        miniMode.clear();
+        miniMode << 1024 << 768;
+    }
+
     for (auto m : modeList) {
-        if (m.width() >= 1024 && m.height() >= 768) {
+        if (m.width() >= miniMode.at(0) && m.height() >= miniMode.at(1)) {
             m_modeList.append(m);
         }
     }

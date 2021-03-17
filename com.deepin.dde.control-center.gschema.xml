@@ -710,5 +710,10 @@
             <summary></summary>
             <description>default is true</description>
         </key>
+        <key name="resolution-config" type="s">
+            <default>'1024*768'</default>
+            <summary></summary>
+            <description>resolution config</description>
+        </key>
     </schema>
 </schemalist>

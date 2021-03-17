@@ -347,6 +347,9 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
     connect(inter, &MonitorInter::EnabledChanged, mon, &Monitor::setMonitorEnable);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), mon, &Monitor::setPrimary);
+    connect(this, &DisplayWorker::requestUpdateModeList, this, [=] {
+        mon->setModeList(inter->modes());
+    });
 
     // NOTE: DO NOT using async dbus call. because we need to have a unique name to distinguish each monitor
     Q_ASSERT(inter->isValid());
@@ -417,6 +420,8 @@ void DisplayWorker::onGSettingsChanged(const QString &key)
         m_model->setResolutionRefreshEnable(value.toBool());
     } else if (key == GSETTINGS_BRIGHTNESS_ENABLE || key == "brightnessEnable") {
         m_model->setBrightnessEnable(value.toBool());
+    } else if (key == "resolutionConfig") {
+        Q_EMIT requestUpdateModeList();
     }
 }
 
