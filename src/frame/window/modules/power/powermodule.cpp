@@ -103,8 +103,6 @@ void PowerModule::active()
     bool isShutdown = m_powerSetting->get(GSETTING_SHOW_SHUTDOWN).toBool();
     m_model->setShutdown(isShutdown);
 
-    connect(m_model, &PowerModel::hibernateChanged, this, &PowerModule::showUseElectric);
-
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::removeBattery);
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
     connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
