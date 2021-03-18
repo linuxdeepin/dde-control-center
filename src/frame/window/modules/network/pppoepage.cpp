@@ -63,12 +63,13 @@ PppoePage::PppoePage(QWidget *parent)
     m_lvsettings->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvsettings->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvsettings->setSelectionMode(QAbstractItemView::NoSelection);
+    m_lvsettings->setItemMargins(ListViweItemMargin);           // 设置列表内文字到列表的背景底间距为10
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(m_lvsettings);
     mainLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
     mainLayout->setSpacing(10);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins(ThirdPageContentsMargins);   // 设置列表项与背景左右间距分别为10
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);

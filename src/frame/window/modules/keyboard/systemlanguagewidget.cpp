@@ -86,6 +86,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
 
     QVBoxLayout *vLayout = new QVBoxLayout();
     vLayout->addLayout(headLayout);
+    vLayout->setSpacing(List_Interval);
     vLayout->addWidget(contentWidget);
     vLayout->setAlignment(Qt::AlignTop);
 
