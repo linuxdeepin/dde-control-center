@@ -48,6 +48,7 @@ TimezoneList::TimezoneList(QWidget *parent)
     //~ contents_path /datetime/Timezone List
     m_headItem->setTitle(tr("Timezone List"));
     m_headGroup->appendItem(m_headItem);
+    m_headItem->removeBackground();
 
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);

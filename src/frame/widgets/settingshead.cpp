@@ -50,7 +50,7 @@ SettingsHead::SettingsHead(QFrame *parent)
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
-    mainLayout->setContentsMargins(20, 0, 10, 0);
+    mainLayout->setContentsMargins(0, 0, 10, 0);
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_edit);

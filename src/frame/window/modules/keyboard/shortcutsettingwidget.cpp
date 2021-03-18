@@ -53,6 +53,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     SettingsHead *systemHead = new SettingsHead();
     systemHead->setEditEnable(false);
     systemHead->setTitle(tr("System"));
+    systemHead->layout()->setContentsMargins(10, 0, 10, 0);
     m_systemGroup = new SettingsGroup();
     m_systemGroup->getLayout()->setMargin(0);
     m_systemGroup->appendItem(systemHead, SettingsGroup::NoneBackground);
@@ -60,6 +61,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     SettingsHead *windowHead = new SettingsHead();
     windowHead->setEditEnable(false);
     windowHead->setTitle(tr("Window"));
+    windowHead->layout()->setContentsMargins(10, 0, 10, 0);
     m_windowGroup = new SettingsGroup();
     m_windowGroup->getLayout()->setMargin(0);
     m_windowGroup->appendItem(windowHead, SettingsGroup::NoneBackground);
@@ -68,6 +70,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
         m_workspaceHead = new SettingsHead();
         m_workspaceHead->setEditEnable(false);
         m_workspaceHead->setTitle(tr("Workspace"));
+        m_workspaceHead->layout()->setContentsMargins(10, 0, 10, 0);
         m_workspaceGroup = new SettingsGroup();
         m_workspaceGroup->appendItem(m_workspaceHead, SettingsGroup::NoneBackground);
     }
@@ -76,6 +79,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
         SettingsHead *speechHead = new SettingsHead();
         speechHead->setTitle(tr("Assistive Tools"));
         speechHead->setEditEnable(false);
+        speechHead->layout()->setContentsMargins(10, 0, 10, 0);
         m_assistiveToolsGroup = new SettingsGroup();
         m_assistiveToolsGroup->appendItem(speechHead, SettingsGroup::NoneBackground);
     }
@@ -90,6 +94,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_head->setEditEnable(true);
     m_head->setVisible(false);
     m_head->setTitle(tr("Custom Shortcut"));
+    m_head->layout()->setContentsMargins(10, 0, 10, 0);
     m_customGroup->appendItem(m_head, SettingsGroup::NoneBackground);
 
     QVBoxLayout *vlayout = new QVBoxLayout();
@@ -104,7 +109,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     //vlayout->addSpacing(10);
 
     m_layout = new QVBoxLayout;
-    m_layout->setContentsMargins(0,0,10,0);
+    m_layout->setContentsMargins(0, 0, 10, 0);
     m_layout->addSpacing(3);
     m_layout->addWidget(m_systemGroup);
     m_layout->addSpacing(List_Interval);

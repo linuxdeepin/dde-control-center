@@ -45,6 +45,7 @@ public:
     virtual void setIsErr(const bool err = true);
 
     void addBackground();
+    void removeBackground();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

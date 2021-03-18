@@ -68,6 +68,13 @@ void SettingsItem::addBackground()
     update();
 }
 
+void SettingsItem::removeBackground()
+{
+    m_hasBack = false;
+
+    update();
+}
+
 void SettingsItem::resizeEvent(QResizeEvent *event)
 {
     QFrame::resizeEvent(event);
