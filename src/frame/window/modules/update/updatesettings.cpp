@@ -88,7 +88,7 @@ void UpdateSettings::initUi()
     //~ contents_path /update/Update Settings
     m_autoCheckUpdate->setTitle(tr("Check for Updates"));
 
-    SettingsGroup *checkUpdatesGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    SettingsGroup *checkUpdatesGrp = new SettingsGroup;
     checkUpdatesGrp->appendItem(m_autoCheckUpdate);
     checkUpdatesGrp->appendItem(m_autoCheckSecureUpdate);
     checkUpdatesGrp->appendItem(m_autoCheckSystemUpdate);
@@ -96,7 +96,7 @@ void UpdateSettings::initUi()
     contentLayout->addWidget(checkUpdatesGrp);
     contentLayout->addSpacing(20);
 
-    SettingsGroup *updatesNotificationtGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    SettingsGroup *updatesNotificationtGrp = new SettingsGroup;
     updatesNotificationtGrp->appendItem(m_updateNotify);
     updatesNotificationtGrp->appendItem(m_autoDownloadUpdate);
     contentLayout->addWidget(updatesNotificationtGrp);
