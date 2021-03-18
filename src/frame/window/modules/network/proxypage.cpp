@@ -91,9 +91,9 @@ ProxyPage::ProxyPage(QWidget *parent)
         group->appendItem(portEdit);
         connect(portEdit->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
             if (str.toInt() < 0) {
-                m_httpPort->setText("0");
+                portEdit->setText("0");
             } else if(str.toInt() > 65535) {
-                m_httpPort->setText("65535");
+                portEdit->setText("65535");
             }
         });
     };

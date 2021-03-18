@@ -59,6 +59,7 @@ class KeyboardWidget : public QWidget
 public:
     explicit KeyboardWidget(QWidget *parent = nullptr);
     void initSetting(const int settingIndex);
+    void setDefaultWidget();
 private:
     void init();
     void onItemClick(const QModelIndex &index);

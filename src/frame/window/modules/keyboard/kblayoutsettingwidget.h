@@ -72,6 +72,7 @@ class KBLayoutSettingWidget : public QWidget
 public:
     explicit KBLayoutSettingWidget(QWidget *parent = nullptr);
     void setModel(dcc::keyboard::KeyboardModel *model);
+    void creatDelIconAction(DStandardItem *item);
 
 Q_SIGNALS:
     void layoutAdded(const QStringList &kblist);

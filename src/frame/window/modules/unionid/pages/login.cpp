@@ -39,7 +39,7 @@ namespace DCC_NAMESPACE {
 namespace unionid {
 QString systemName()
 {
-    if (SystemTypeName == "Professional")
+    if (IsProfessionalSystem)
         return "UOS";
 
     return "Deepin";

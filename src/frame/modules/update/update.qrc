@@ -10,5 +10,6 @@
         <file>themes/dark/icons/nav_update.svg</file>
         <file>themes/dde.svg</file>
         <file>themes/common/icons/noactive.svg</file>
+        <file>themes/common/config/mirrors.json</file>
     </qresource>
 </RCC>

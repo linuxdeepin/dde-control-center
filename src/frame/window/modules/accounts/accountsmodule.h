@@ -57,6 +57,9 @@ public:
     int load(const QString &path) override;
     QStringList availPage() const override;
 
+Q_SIGNALS:
+    void requestLoadUserList();
+
 public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);
     void onShowCreateAccountPage();
@@ -75,6 +78,7 @@ private:
     dcc::accounts::FingerModel *m_fingerModel{nullptr};
     AccountsWidget *m_accountsWidget = nullptr;
     MainWindow *m_pMainWindow = nullptr;
+    bool m_isCreatePage;
 };
 
 }   // namespace accounts

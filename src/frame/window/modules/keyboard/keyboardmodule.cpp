@@ -79,7 +79,7 @@ void KeyboardModule::active()
     connect(m_keyboardWidget, &KeyboardWidget::showShortCutSetting, this, &KeyboardModule::showShortCutSetting);
     m_frameProxy->pushWidget(this, m_keyboardWidget);
     m_keyboardWidget->setVisible(true);
-    showGeneralSetting();
+    m_keyboardWidget->setDefaultWidget();
 }
 
 int KeyboardModule::load(const QString &path)

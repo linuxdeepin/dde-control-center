@@ -112,16 +112,15 @@ void CommonInfoWidget::initData()
         m_itemModel->appendRow(item);
     }
 
-    if(InsertPlugin::instance()->needPushPlugin("General Settings"))
+    if(InsertPlugin::instance()->needPushPlugin("commoninfo"))
         InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
 
-    m_lastIndex = m_listView->model()->index(0, 0);
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
         if (m_lastIndex == index) return;
 
         m_lastIndex = index;
 
-        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin?m_itemList[index.row()].pulgin:this);
+        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
         m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);

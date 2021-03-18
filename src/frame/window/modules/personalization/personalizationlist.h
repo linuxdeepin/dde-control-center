@@ -51,6 +51,7 @@ class PersonalizationList : public QWidget
     Q_OBJECT
 public:
     explicit PersonalizationList(QWidget *parent = nullptr);
+    void setDefaultWidget();
 
 Q_SIGNALS:
     void requestShowGeneral();

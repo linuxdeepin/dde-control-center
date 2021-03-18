@@ -9,12 +9,13 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
-set(CMAKE_CXX_FLAGS "-g -Wall")
+set(CMAKE_CXX_FLAGS "-g -Wall -Wl,--as-need -fPIE")
 
 if (${CMAKE_SYSTEM_PROCESSOR} MATCHES "mips64")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -ftree-vectorize -march=loongson3a -mhard-float -mno-micromips -mno-mips16 -flax-vector-conversions -mloongson-ext2 -mloongson-mmi -fPIE")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -ftree-vectorize -march=loongson3a -mhard-float -mno-micromips -mno-mips16 -flax-vector-conversions -mloongson-ext2 -mloongson-mmi")
 endif()
+
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pie")
 
 # disable qt keywords, cause gio have signals member;
 ADD_DEFINITIONS(-DQT_NO_KEYWORDS)
@@ -33,7 +34,7 @@ DISABLE_OPACITY_ANIMATION
 DISABLE_CLOUD_SYNC
 DISABLE_SYS_UPDATE
 DISABLE_ACCOUNT
-DISABLE_DISPALY
+DISABLE_DISPLAY
 DISABLE_DEFAULT_APPLICATIONS
 DISABLE_PERSONALIZATION
 DISABLE_NETWORK
@@ -599,6 +600,7 @@ find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 find_package(DtkCMake REQUIRED)
+find_package(PolkitQt5-1)
 find_package(Qt5 COMPONENTS
     Core
     Widgets
@@ -781,6 +783,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Svg_LIBRARIES}
     crypt
     ${LIBS}
+    PolkitQt5-1::Agent
 )
 
 # bin

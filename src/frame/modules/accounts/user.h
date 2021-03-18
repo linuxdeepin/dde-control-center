@@ -40,6 +40,11 @@ class User : public QObject
     Q_OBJECT
 
 public:
+    enum UserType {
+        StandardUser = 0,
+        Administrator,
+        Customized
+    };
     explicit User(QObject *parent = 0);
 
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)

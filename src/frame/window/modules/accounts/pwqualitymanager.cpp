@@ -46,15 +46,18 @@ PwqualityManager *PwqualityManager::instance()
 bool PwqualityManager::palindromeChecked(const QString &text)
 {
     QStringList list;
-    for (int pos = 0; pos < text.size() + 1 - m_palindromeLength; pos++) {
-        list.append(text.mid(pos, m_palindromeLength));
+    for (int palindromeLength = m_palindromeLength; palindromeLength <= text.size(); palindromeLength++) {
+        for (int pos = 0; pos < text.size() + 1 - palindromeLength; pos++) {
+            list.append(text.mid(pos, palindromeLength));
+        }
     }
 
     // 判断是否是连续4个字符的回文,如果是就返回false
     for (QString str : list) {
         bool isPalindrome = true;
-        for (int i = 0; i < m_palindromeLength / 2; i++) {
-            if (str[i] == str[m_palindromeLength - 1 - i]) {
+        int strLength = str.length();
+        for (int i = 0; i < strLength / 2; i++) {
+            if (str[i] == str[strLength - 1 - i]) {
                 continue;
             } else {
                 isPalindrome = false;

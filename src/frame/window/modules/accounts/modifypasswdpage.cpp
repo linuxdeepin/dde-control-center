@@ -141,10 +141,8 @@ void ModifyPasswdPage::clickSaveBtn()
         m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
         return;
     }
-    if (!onPasswordEditFinished(m_newPasswordEdit)) {
-        return;
-    }
-    if (!onPasswordEditFinished(m_repeatPasswordEdit)) {
+    if (!onPasswordEditFinished(m_newPasswordEdit) ||
+        !onPasswordEditFinished(m_repeatPasswordEdit)) {
         return;
     }
 
@@ -174,15 +172,16 @@ void ModifyPasswdPage::clickSaveBtn()
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
 {
     QMap<int, QString> PasswordFlagsStrMap = {
-        {ModifyPasswdPage::InputOldPwdError, tr("Wrong password")},
-        {ModifyPasswdPage::InputLongerError, tr("Password must have at least %1 characters")},
-        {ModifyPasswdPage::InputSimilarError, tr("The new password should not be similar to the current one")},
-        {ModifyPasswdPage::InputSameError, tr("New password should differ from the current one")},
-        {ModifyPasswdPage::InputSimpleError, tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)")},
-        {ModifyPasswdPage::InputUsedError, tr("Do not use a password you have used before")},
-        {ModifyPasswdPage::InputDictionaryError, tr("Do not use common words and combinations as password")},
-        {ModifyPasswdPage::InputRevDictionaryError, tr("Do not use common words and combinations in reverse order as password")},
-        {ModifyPasswdPage::InputFailedError, tr("Failed to change the password")}
+        {InputOldPwdError, tr("Wrong password")},
+        {InputLongerError, tr("Password must have at least %1 characters")},
+        {InputSimilarError, tr("The new password should not be similar to the current one")},
+        {InputSameError, tr("New password should differ from the current one")},
+        {InputSimpleError, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&*()[]{}\\|/?,.<>)")},
+        {InputUsedError, tr("Do not use a password you have used before")},
+        {InputDictionaryError, tr("Do not use common words and combinations as password")},
+        {InputRevDictionaryError, tr("Do not use common words and combinations in reverse order as password")},
+        {InputFailedError, tr("It does not meet password rules")},
+        {Failure, tr("Failed to change the password")}
     };
 
     // 获取密码最小长度，默认最小长度为6
@@ -199,13 +198,30 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
                             if (minlen < sw.mid(sw.indexOf("minlen=") + 7).toInt()) {
                                 minlen = sw.mid(sw.indexOf("minlen=") + 7).toInt();
                             }
-                            break;
+                            file.close();
+                            return;
                         }
+                    }
+                }
+            }
+        }
+        file.close();
+
+        QFile filepw("/etc/security/pwquality.conf");
+        if (filepw.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            QTextStream in(&filepw);
+            QString line = in.readLine();
+            while (!line.isNull()) {
+                line = in.readLine();
+                if (line.trimmed().left(6) == "minlen") {
+                    if (minlen < line.mid(line.indexOf("=") + 1).toInt()) {
+                        minlen = line.mid(line.indexOf("=") + 1).toInt();
                     }
                     break;
                 }
             }
         }
+        filepw.close();
     };
 
     switch (exitCode) {
@@ -235,9 +251,13 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
     case ModifyPasswdPage::InputSimpleError:
     case ModifyPasswdPage::InputDictionaryError:
     case ModifyPasswdPage::InputRevDictionaryError:
-    default:
+    case ModifyPasswdPage::InputFailedError:
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(exitCode), m_newPasswordEdit, 2000);
+        break;
+    default:
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PasswordFlagsStrMap.value(Failure), m_newPasswordEdit, 2000);
         break;
     }
 }
@@ -328,12 +348,6 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
             return false;
         }
         break;
-    }
-
-    if (m_oldPasswordEdit->lineEdit()->text() == password) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("New password should differ from the current one"), edit, 2000);
-        return false;
     }
 
     const int maxSize = 512;
