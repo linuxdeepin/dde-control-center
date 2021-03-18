@@ -136,6 +136,7 @@ private:
     bool m_isNewConnection;
     QString m_connectionUuid;
     bool m_isHotSpot;
+    bool m_isSupportClicked;
 };
 
 } /* network */

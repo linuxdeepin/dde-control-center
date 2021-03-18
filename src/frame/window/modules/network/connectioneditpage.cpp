@@ -64,6 +64,7 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
     , m_isHotSpot(isHotSpot)
 {
     DevicePath = devPath;
+    m_isSupportClicked = true;
 
     initUI();
 
@@ -310,13 +311,14 @@ void ConnectionEditPage::initConnectionSecrets()
 
 void ConnectionEditPage::saveConnSettings()
 {
-    if (!m_settingsWidget->allInputValid()) {
+    //加m_isSupportClicked判断是为了防止疯狂点击保存按钮，导致信号处理延迟没有退出4级界面
+    if (!m_settingsWidget->allInputValid() || (!m_isSupportClicked)) {
         return;
     }
-    Q_EMIT back();
     Q_EMIT requestUpdateLoader(m_connectionUuid);
     m_settingsWidget->saveSettings();
     Q_EMIT saveSettingsDone();
+    m_isSupportClicked = false;
 }
 
 void ConnectionEditPage::prepareConnection()
@@ -329,6 +331,7 @@ void ConnectionEditPage::prepareConnection()
         m_connection = findConnection(connPath);
         if (!m_connection) {
             qDebug() << "create connection failed..." << reply.error();
+            Q_EMIT back();
             return;
         }
     }
@@ -345,6 +348,7 @@ void ConnectionEditPage::updateConnection()
     reply.waitForFinished();
     if (reply.isError()) {
         qDebug() << "error occurred while updating the connection" << reply.error();
+        Q_EMIT back();
         return;
     }
 
@@ -361,6 +365,9 @@ void ConnectionEditPage::updateConnection()
             }
         }
     }
+
+    m_isSupportClicked = true;
+    Q_EMIT back();
 }
 
 void ConnectionEditPage::createConnSettings()
