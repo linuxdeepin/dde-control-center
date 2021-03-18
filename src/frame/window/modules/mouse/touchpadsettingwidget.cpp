@@ -37,23 +37,26 @@ using namespace DCC_NAMESPACE::mouse;
 using namespace dcc::mouse;
 using namespace dcc::widgets;
 
-TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
+TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent)
+    : QWidget(parent)
 {
     auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
     m_isNotWayland = !sessionType.contains("wayland");
-    m_touchpadSettingsGrp = new SettingsGroup;
     //~ contents_path /mouse/Touchpad
     //~ child_page Touchpad
     m_touchMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     //~ contents_path /mouse/Touchpad
     m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
     m_touchClickStn->setObjectName("touchClicked");
+    m_touchClickStn->addBackground();
     //~ contents_path /mouse/Touchpad
     //~ child_page Touchpad
     m_touchNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
     m_touchNaturalScroll->setObjectName("touchNaturalScroll");
+    m_touchNaturalScroll->addBackground();
 
     m_palmDetectSetting = new PalmDetectSetting;
+    m_palmDetectSetting->setVisible(false);
 
     QStringList touchMoveList;
     touchMoveList << tr("Slow") << "" << "" << "" << "" << "";
@@ -66,24 +69,17 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     touchSlider->setTickInterval(1);
     touchSlider->setPageStep(1);
     m_touchMoveSlider->setAnnotations(touchMoveList);
-
-    m_touchpadSettingsGrp->setContentsMargins(0, 0, 10, 0);
-    m_touchpadSettingsGrp->setSpacing(List_Interval);
-    m_touchpadSettingsGrp->appendItem(m_touchMoveSlider);
-    m_touchpadSettingsGrp->appendItem(m_touchClickStn);
-    m_touchpadSettingsGrp->appendItem(m_touchNaturalScroll);
+    m_touchMoveSlider->addBackground();
 
     m_contentLayout = new QVBoxLayout();
-    m_contentLayout->setMargin(0);
-    m_contentLayout->addWidget(m_touchpadSettingsGrp);
     m_contentLayout->setSpacing(List_Interval);
+    m_contentLayout->setContentsMargins(ThirdPageContentsMargins);
+    m_contentLayout->addWidget(m_touchMoveSlider);
+    m_contentLayout->addWidget(m_touchClickStn);
+    m_contentLayout->addWidget(m_touchNaturalScroll);
     m_contentLayout->addWidget(m_palmDetectSetting);
-    m_palmDetectSetting->setVisible(false);
     m_contentLayout->addStretch();
-    TranslucentFrame *tFrame = new TranslucentFrame;
-    tFrame->setLayout(m_contentLayout);
-    layout()->setContentsMargins(ThirdPageContentsMargins);
-    setContent(tFrame);
+    setLayout(m_contentLayout);
 
     connect(m_touchMoveSlider->slider(), &DCCSlider::valueChanged, [this](int value) {
         if(m_isNotWayland)

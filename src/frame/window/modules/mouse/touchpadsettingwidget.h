@@ -41,7 +41,7 @@ class TitledSliderItem;
 
 namespace DCC_NAMESPACE {
 namespace mouse {
-class TouchPadSettingWidget : public dcc::ContentWidget
+class TouchPadSettingWidget : public QWidget
 {
     Q_OBJECT
 public:
@@ -62,7 +62,6 @@ private Q_SLOTS:
 private:
     dcc::mouse::MouseModel *m_mouseModel;
     dcc::mouse::PalmDetectSetting *m_palmDetectSetting;
-    dcc::widgets::SettingsGroup *m_touchpadSettingsGrp;
     dcc::widgets::TitledSliderItem *m_touchMoveSlider;
     dcc::widgets::SwitchWidget *m_touchClickStn;
     dcc::widgets::SwitchWidget *m_touchNaturalScroll;
