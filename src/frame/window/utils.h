@@ -43,7 +43,7 @@ const QMargins ListViweItemMargin(10, 8, 10, 8);
 const QVariant VListViewItemMargin = QVariant::fromValue(ListViweItemMargin);
 const QMargins ThirdPageCmbMargins(0, 0, 0, 0);
 
-const int ComboxWidgetHeight = 56;
+const int ComboxWidgetHeight = 48;
 const int SwitchWidgetHeight = 36;
 const int ComboxTitleWidth = 110;
 

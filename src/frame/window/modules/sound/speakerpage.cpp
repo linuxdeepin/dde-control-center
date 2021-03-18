@@ -70,7 +70,6 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     labelOutput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     m_outputSoundCbx = new ComboxWidget(tr("Output Device"));
-    m_outputSoundCbx->setFixedHeight(ComboxWidgetHeight);
 
     m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);

@@ -52,6 +52,8 @@ ComboxWidget::ComboxWidget(QWidget *widget, QFrame *parent)
     , m_switchComboBox(new QComboBox)
     , m_str("")
 {
+    // FIXME: 默认统一控件高度
+    setFixedHeight(ComboxWidgetHeight);
     QHBoxLayout *mainLayout = new QHBoxLayout;
     m_titleLabel = qobject_cast<QLabel *>(m_leftWidget);
     if (m_titleLabel) {
