@@ -157,10 +157,17 @@ void ModifyPasswdPage::clickSaveBtn()
         return;
     }
 
+    Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
+}
+
+void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QString &errorTxt)
+{
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
                                                                                       m_newPasswordEdit->lineEdit()->text());
-
-    if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+    if (exitCode != 0 && errorTxt.startsWith("Current password: passwd:")) {
+        m_oldPasswordEdit->setAlert(true);
+        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
+    } else if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
         // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
@@ -169,8 +176,8 @@ void ModifyPasswdPage::clickSaveBtn()
 
         // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
         QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
-                                                QStringLiteral("/com/deepin/defender/daemonservice"),
-                                                QStringLiteral("com.deepin.defender.daemonservice"));
+                                 QStringLiteral("/com/deepin/defender/daemonservice"),
+                                 QStringLiteral("com.deepin.defender.daemonservice"));
         QDBusReply<int> level = interface.call("GetPwdLimitLevel");
         if (!interface.isValid()) {
             return;
@@ -181,31 +188,21 @@ void ModifyPasswdPage::clickSaveBtn()
             dlg.setIcon(QIcon::fromTheme("preferences-system"));
             dlg.addButton(tr("Go to Settings"));
             dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-            connect(&dlg, &DDialog::buttonClicked, this, [ = ] (int idx) {
+            connect(&dlg, &DDialog::buttonClicked, this, [=](int idx) {
                 if (idx == 0) {
                     DDBusSender()
-                    .service("com.deepin.defender.hmiscreen")
-                    .interface("com.deepin.defender.hmiscreen")
-                    .path("/com/deepin/defender/hmiscreen")
-                    .method(QString("ShowPage"))
-                    .arg(QString("securitytools"))
-                    .arg(QString("login-safety"))
-                    .call();
+                        .service("com.deepin.defender.hmiscreen")
+                        .interface("com.deepin.defender.hmiscreen")
+                        .path("/com/deepin/defender/hmiscreen")
+                        .method(QString("ShowPage"))
+                        .arg(QString("securitytools"))
+                        .arg(QString("login-safety"))
+                        .call();
                 }
             });
             dlg.exec();
         }
-    } else {
-        Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
-    }
-}
-
-void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
-{
-    if (exitCode != 0) {
-        m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
-    } else {
+    } else if (exitCode == 0) {
         Q_EMIT requestBack();
     }
 }

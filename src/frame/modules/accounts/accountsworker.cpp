@@ -317,7 +317,8 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
 
     // process.exitCode() = 0 表示密码修改成功
     int exitCode = process.exitCode();
-    Q_EMIT user->passwordModifyFinished(exitCode);
+    QString errorTxt = process.readAllStandardError();
+    Q_EMIT user->passwordModifyFinished(exitCode, errorTxt);
 }
 
 void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)

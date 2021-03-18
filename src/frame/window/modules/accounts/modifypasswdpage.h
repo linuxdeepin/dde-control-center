@@ -57,7 +57,7 @@ public:
     ~ModifyPasswdPage();
     void initWidget();
     void clickSaveBtn();
-    void onPasswordChangeFinished(const int exitCode);
+    void onPasswordChangeFinished(const int exitCode, const QString &errorTxt);
 
 protected:
     void showEvent(QShowEvent *event) override;
