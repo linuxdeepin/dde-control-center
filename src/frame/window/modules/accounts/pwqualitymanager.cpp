@@ -51,21 +51,25 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type)
     m_passwordMinLen = get_pw_min_length(LEVEL_STRICT_CHECK);
     m_passwordMaxLen = get_pw_max_length(LEVEL_STRICT_CHECK);
 
+    //通用校验规则
     QMap<int, QString> PasswordFlagsStrMap = {
         {PW_ERR_PASSWORD_EMPTY, tr("Password cannot be empty")},
         {PW_ERR_LENGTH_SHORT, tr("Password must have at least %1 characters").arg(m_passwordMinLen)},
         {PW_ERR_LENGTH_LONG, tr("Password must be no more than %1 characters").arg(m_passwordMaxLen)},
-        {PW_ERR_PALINDROME, tr("Password must not contain more than 4 palindrome characters")},
-        {PW_ERR_WORD, tr("Do not use common words and combinations in reverse order as password")},
-        {PW_ERR_PW_REPEAT, tr("New password should differ from the current one")}
+        {PW_ERR_CHARACTER_INVALID, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)")},
     };
 
-    if(IsServerSystem) {
-        PasswordFlagsStrMap[PW_ERR_CHARACTER_INVALID] = tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)");
-    } else {
+    //服务器版校验规则
+    if (IsServerSystem) {
         PasswordFlagsStrMap[PW_ERR_CHARACTER_INVALID] = tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)");
+        PasswordFlagsStrMap[PW_ERR_PALINDROME] = tr("Password must not contain more than 4 palindrome characters");
+        PasswordFlagsStrMap[PW_ERR_WORD] = tr("Do not use common words and combinations as password");
+        PasswordFlagsStrMap[PW_ERR_PW_MONOTONE] = tr("Create a strong password please");
+        PasswordFlagsStrMap[PW_ERR_PW_CONSECUTIVE_SAME] = tr("Create a strong password please");
+        PasswordFlagsStrMap[PW_ERR_PW_FIRST_UPPERM] = tr("Do not use common words and combinations as password");
     }
 
+    //规则校验以外的情况统一返回密码不符合安全要求
     if (PasswordFlagsStrMap.value(type).isEmpty()) {
         PasswordFlagsStrMap[type] = tr("It does not meet password rules");
     }
