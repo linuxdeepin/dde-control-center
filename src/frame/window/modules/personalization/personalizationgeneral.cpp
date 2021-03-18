@@ -358,16 +358,6 @@ void PersonalizationGeneral::paintEvent(QPaintEvent *event)
         m_themeType = DGuiApplicationHelper::instance()->themeType();
         updateThemeColors(m_themeType);
     }
-
-    DStylePainter painter(this);
-
-    QRect r = m_bgWidget->geometry();
-    int frame_radius = 18;
-
-    QPainterPath path;
-    path.addRoundedRect(r, frame_radius, frame_radius);
-    const DPalette &pal = DApplicationHelper::instance()->palette(this);
-    painter.fillPath(path, pal.brush(DPalette::ItemBackground));
 }
 
 void PersonalizationGeneral::updateActiveColors(RoundColorWidget *selectedWidget)
@@ -463,11 +453,16 @@ void PersonalizationGeneral::onActiveColorClicked()
 
 void RingColorWidget::paintEvent(QPaintEvent *event)
 {
+    const DPalette &dp = DApplicationHelper::instance()->palette(this);
+    QPainter painter(this);
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(dp.brush(DPalette::ItemBackground));
+    painter.drawRoundedRect(rect(), 18, 18);
+
     QWidget::paintEvent(event);
     if(nullptr == m_selectedItem)
         return;
 
-    QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
 
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
