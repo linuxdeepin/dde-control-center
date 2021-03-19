@@ -13,10 +13,10 @@
 
 PLUGIN_NAME 	= privacy
 
-QT              += core gui dbus x11extras svg sql dtkwidget
+QT              += core gui dbus x11extras svg sql dtkwidget5.5
 TEMPLATE         = lib
 CONFIG          += plugin c++11 link_pkgconfig
-PKGCONFIG       += dframeworkdbus dtkgui dtkwidget gsettings-qt
+PKGCONFIG       += dframeworkdbus dtkgui5.5 dtkwidget5.5 gsettings-qt
 
 TARGET          = privacy
 DESTDIR          = $$_PRO_FILE_PWD_/../

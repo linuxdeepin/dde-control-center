@@ -595,13 +595,13 @@ set(QRC
         window/modules/datetime/datetime.qrc
         window/modules/update/dccv20update.qrc
 )
-
 # Find the library
 find_package(PkgConfig REQUIRED)
-find_package(DtkWidget REQUIRED)
-find_package(DtkGui REQUIRED)
+find_package(DtkWidget5.5 REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
-find_package(DtkCMake REQUIRED)
+find_package(DtkCMake5.5 REQUIRED)
+find_package(DtkGui5.5 REQUIRED)
+find_package(DtkCore5.5 REQUIRED)
 find_package(Qt5 COMPONENTS
     Core
     Widgets
@@ -743,18 +743,18 @@ add_library(dccwidgets SHARED
 )
 target_include_directories(dccwidgets PUBLIC
     ${CMAKE_SOURCE_DIR}/include
-    ${DtkWidget_INCLUDE_DIRS}
+    ${DtkWidget5.5_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
 )
 target_link_libraries(dccwidgets PRIVATE
-    ${DtkWidget_LIBRARIES}
+    ${DtkWidget5.5_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
 )
 
 add_executable(${BIN_NAME} ${SRCS} ${QRC})
 target_include_directories(${BIN_NAME} PUBLIC
     ${CMAKE_SOURCE_DIR}/include
-    ${DtkWidget_INCLUDE_DIRS}
+    ${DtkWidget5.5_INCLUDE_DIRS}
     ${XCB_EWMH_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
@@ -771,7 +771,8 @@ target_link_libraries(${BIN_NAME} PRIVATE
     dccwidgets
     ${XCB_EWMH_LIBRARIES}
     ${DFrameworkDBus_LIBRARIES}
-    ${DtkWidget_LIBRARIES}
+    ${DtkWidget5.5_LIBRARIES}
+    ${DtkCore5.5_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
     ${Qt5Concurrent_LIBRARIES}
     ${Qt5X11Extras_LIBRARIES}
@@ -788,7 +789,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
     crypt
     ${LIBS}
 )
-
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION bin)
 install(TARGETS dccwidgets LIBRARY DESTINATION lib)

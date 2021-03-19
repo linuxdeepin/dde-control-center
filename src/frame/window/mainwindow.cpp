@@ -203,6 +203,7 @@ MainWindow::MainWindow(QWidget *parent)
     btnLayout->addSpacing(5);
     btnLayout->addWidget(m_backwardBtn);
     backWidget->setLayout(btnLayout);
+
     titlebar->addWidget(backWidget, Qt::AlignLeft | Qt::AlignVCenter);
     titlebar->setIcon(QIcon::fromTheme("preferences-system"));
 

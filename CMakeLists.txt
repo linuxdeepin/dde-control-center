@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.7)
 
 project(dde-control-center)
 
-find_package(DtkCMake REQUIRED)
+find_package(DtkCMake5.5 REQUIRED)
 include(Dart)
 include(CTest)
 
