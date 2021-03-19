@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Redémarrez l&apos;ordinateur afin de pouvoir utiliser correctement le système et les applications</translation>
+        <translation>Redémarrer l&apos;ordinateur afin de pouvoir utiliser correctement le système et les applications</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
@@ -19,7 +19,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
         <source>Shut down</source>
-        <translation>Éteindre</translation>
+        <translation>Arrêter</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>

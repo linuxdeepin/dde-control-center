@@ -4,12 +4,12 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation type="unfinished"/>
+        <translation>Sistemdən və tətbiqlərdən lazımi qaydada istifadə etmək üçün kompüteri yenidən başladın</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation type="unfinished"/>
+        <translation>Öncə bütün verilənləri saxladığınıza əmin olun</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="48"/>
         <source>Reboot</source>
-        <translation type="unfinished"/>
+        <translation>Yenidən başlatmaq</translation>
     </message>
 </context>
 </TS>

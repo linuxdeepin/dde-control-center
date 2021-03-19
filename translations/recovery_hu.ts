@@ -23,7 +23,7 @@
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
         <source>Are you sure you want to roll back to %1 backed up on %2?</source>
-        <translation>Biztosan vissza szeretne állni %1 verzióra, mely %2 hordozón található?</translation>
+        <translation>Biztosan vissza szeretne állni a %1 verzióra, mely a %2 hordozón található?</translation>
     </message>
     <message>
         <location filename="../abrecovery/recoverydialog.cpp" line="274"/>

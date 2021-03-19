@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>
         <source>Make sure all data had been saved first</source>
-        <translation>Sigurohuni së pari se krejt të dhënat janë ruajtur</translation>
+        <translation>Sigurohuni së pari se janë ruajtur krejt të dhënat</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="45"/>

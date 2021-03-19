@@ -6,4 +6,4 @@ sed -e 's/DCC_NAMESPACE/dccV20/g' dde-control-center_en_US.ts > tmp.ts
 mv tmp.ts dde-control-center_en_US.ts
 cd ../
 
-tx push -s -b m20
+tx push -s -b tab
