@@ -25,6 +25,7 @@
 #include <cstddef>
 #include <QString>
 #include <QScopedPointer>
+#include <QPair>
 
 enum ErrorType {
     ENUM_PASSWORD_NOTEMPTY,
@@ -82,6 +83,22 @@ public:
     * @return 密码字符合法返回true,反之返回false
     */
     bool containsChar(const QString &password, const QString &validate);
+
+    /**
+     * @brief duplicateCheck 字符重复次数不超过3次
+     * @param password 密码字符串
+     * @return 密码字符合法返回true,反之返回false
+     */
+    bool duplicateCheck(const QString &password, const int count);
+
+    /**
+     * @brief continuousCheck 顺序字符长度不超过3个
+     * @param password 密码字符串
+     * @return 密码字符合法返回true,反之返回false
+     */
+    bool continuousCheck(const QString &password, const int count);
+
+    QPair<int, int> SpecialCharCount(const QString &password, const QString &upper, const QString &symbol);
 
     inline int getPasswordMinLength() const {
         return m_passwordMinLength;

@@ -94,20 +94,24 @@ int PwqualityManager::verifyPassword(const QString &password)
         QSettings setting("/etc/deepin/dde.conf", QSettings::IniFormat);
         setting.beginGroup("Password");
         const bool strong_password_check = setting.value("STRONG_PASSWORD", false).toBool();
-        m_passwordMinLength   = setting.value("PASSWORD_MIN_LENGTH").toInt();
-        m_passwordMaxLength   = setting.value("PASSWORD_MAX_LENGTH").toInt();
-        const QStringList validate_policy= setting.value("VALIDATE_POLICY").toString().split(";");
-        m_validateRequiredString      = setting.value("VALIDATE_REQUIRED").toInt();
+        m_passwordMinLength = setting.value("PASSWORD_MIN_LENGTH").toInt();
+        m_passwordMaxLength = setting.value("PASSWORD_MAX_LENGTH").toInt();
+        m_validateRequiredString = setting.value("VALIDATE_REQUIRED").toInt();
         QString validate_policy_string = setting.value("VALIDATE_POLICY").toString();
+        if (validate_policy_string.isEmpty()) {
+            validate_policy_string = R"(1234567890;abcdefghijklmnopqrstuvwxyz;ABCDEFGHIJKLMNOPQRSTUVWXYZ;~`!@#$%^&*()-_+=|\{}[]:"'<>,.?/)";
+        }
+        const QStringList validate_policy = validate_policy_string.split(";");
+        int max_repeat = setting.value("maxrepeat").toInt();
+        int max_sequence = setting.value("maxsequence").toInt();
+        int ucredit = setting.value("ucredit").toInt();
+        int ocredit = setting.value("ocredit").toInt();
 
         if (!strong_password_check) {
             return ENUM_PASSWORD_CHARACTER;
         }
         if (password.size() == 0) {
             return ENUM_PASSWORD_NOTEMPTY;
-        }
-        if (password.size() > 0 && password.size() < m_passwordMinLength) {
-            return ENUM_PASSWORD_TOOSHORT;
         }
         if (passwordCompositionType(validate_policy, password) < m_validateRequiredString) {
             if (password.size() < m_passwordMinLength) {
@@ -117,6 +121,9 @@ int PwqualityManager::verifyPassword(const QString &password)
                 return ENUM_PASSWORD_CHARACTER;
             }
             return ENUM_PASSWORD_TYPE;
+        }
+        if (password.size() < m_passwordMinLength) {
+            return ENUM_PASSWORD_TOOSHORT;
         }
         if (password.size() > m_passwordMaxLength) {
             return ENUM_PASSWORD_TOOLONG;
@@ -134,6 +141,16 @@ int PwqualityManager::verifyPassword(const QString &password)
                 return ENUM_PASSWORD_DICT_FORBIDDEN;
             }
             return ENUM_PASSWORD_SUCCESS;
+        }
+        if (!duplicateCheck(password, max_repeat)) {
+            return ENUM_PASSWORD_DICT_FORBIDDEN;
+        }
+        if (!continuousCheck(password, max_sequence)) {
+            return ENUM_PASSWORD_DICT_FORBIDDEN;
+        }
+        QPair<int, int> result = SpecialCharCount(password, validate_policy.at(2), validate_policy.at(3));
+        if (result.first < ucredit || result.second < ocredit) {
+            return ENUM_PASSWORD_DICT_FORBIDDEN;
         }
         return ENUM_PASSWORD_SUCCESS;
     } else {
@@ -171,3 +188,51 @@ bool PwqualityManager::containsChar(const QString &password, const QString &vali
 
     return true;
 }
+
+bool PwqualityManager::duplicateCheck(const QString &password, const int count)
+{
+    int duplicateCount(0);
+    for (int i = 0; i < password.size(); ++i) {
+        if (i == 0) continue;
+        if (password.at(i) == password.at(i - 1)) {
+            duplicateCount++;
+        } else {
+            duplicateCount = 0;
+        }
+        if (duplicateCount >= count) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool PwqualityManager::continuousCheck(const QString &password, const int count)
+{
+    int continuousCount(0);
+    for (int i = 0; i < password.size(); ++i) {
+        if (i == 0) continue;
+        if (password.at(i).toLatin1() - password.at(i - 1).toLatin1() == 1) {
+            continuousCount++;
+        } else {
+            continuousCount = 0;
+        }
+        if (continuousCount >= count) {
+            return false;
+        }
+    }
+    return true;
+}
+
+QPair<int, int> PwqualityManager::SpecialCharCount(const QString &password, const QString &upper, const QString &symbol)
+{
+    int upperCount(0);
+    int symbolCount(0);
+
+    for(auto c : password) {
+        if (upper.contains(c)) upperCount++;
+        if (symbol.contains(c)) symbolCount++;
+    }
+
+    return QPair<int, int>(upperCount, symbolCount);
+}
+
