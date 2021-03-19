@@ -65,7 +65,8 @@ private:
     int m_index;//应用程序序号
     Dtk::Widget::DSwitchButton *m_btnAllowNotify;//是否允许通知
     NotificationItem *m_itemNotifySound;//播放声音
-    NotificationItem *m_itemLockShowNotify;//锁屏通知
+    //TODO: KLU panguV上窗口层级关系导致该功能不能使用,所以注释掉
+//    NotificationItem *m_itemLockShowNotify;//锁屏通知
     NotificationItem *m_itemShowInNotifyCenter;//仅通知中心显示
     NotificationItem *m_itemShowNotifyPreview;//显示预览
     Dtk::Widget::DLabel *m_lblTip;

@@ -42,7 +42,7 @@ AppNotifyWidget::AppNotifyWidget(int &index, NotificationModel *model, QWidget *
     , m_index(index)
     , m_btnAllowNotify(new DSwitchButton)
     , m_itemNotifySound(new NotificationItem)
-    , m_itemLockShowNotify(new NotificationItem)
+//    , m_itemLockShowNotify(new NotificationItem)
     , m_itemShowInNotifyCenter(new NotificationItem)
     , m_itemShowNotifyPreview(new NotificationItem)
 {
@@ -88,9 +88,9 @@ void AppNotifyWidget::initUI()
     m_itemNotifySound = new NotificationItem;
     m_itemNotifySound->setTitle(tr("Play a sound"));
     m_settingsGrp->appendItem(m_itemNotifySound);
-    m_itemLockShowNotify = new NotificationItem;
-    m_itemLockShowNotify->setTitle(tr("Show messages on lockscreen"));
-    m_settingsGrp->appendItem(m_itemLockShowNotify);
+//    m_itemLockShowNotify = new NotificationItem;
+//    m_itemLockShowNotify->setTitle(tr("Show messages on lockscreen"));
+//    m_settingsGrp->appendItem(m_itemLockShowNotify);
     m_itemShowInNotifyCenter = new NotificationItem;
     m_itemShowInNotifyCenter->setTitle(tr("Show in notification center"));
     m_settingsGrp->appendItem(m_itemShowInNotifyCenter);
@@ -111,10 +111,10 @@ void AppNotifyWidget::initConnect()
         m_btnAllowNotify->setChecked(state);
     });
     m_btnAllowNotify->setChecked(appModel->isAllowNotify());
-    connect(appModel, &AppItemModel::lockShowNotifyChanged, this, [this](bool state) {
-        m_itemLockShowNotify->setState(state);
-    });
-    m_itemLockShowNotify->setState(appModel->isLockShowNotify());
+//    connect(appModel, &AppItemModel::lockShowNotifyChanged, this, [this](bool state) {
+//        m_itemLockShowNotify->setState(state);
+//    });
+//    m_itemLockShowNotify->setState(appModel->isLockShowNotify());
     connect(appModel, &AppItemModel::notifySoundChanged, this, [this](bool state) {
         m_itemNotifySound->setState(state);
     });
@@ -136,11 +136,11 @@ void AppNotifyWidget::initConnect()
 
         Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
     });
-    connect(m_itemLockShowNotify, &NotificationItem::stateChanged, this, [ = ](bool state) {
-        appModel->setLockShowNotify(state);
+//    connect(m_itemLockShowNotify, &NotificationItem::stateChanged, this, [ = ](bool state) {
+//        appModel->setLockShowNotify(state);
 
-        Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
-    });
+//        Q_EMIT requestSetAppSetting(appModel->getActName(), appModel->convertQJson());
+//    });
     connect(m_itemNotifySound, &NotificationItem::stateChanged, this, [ = ](bool state) {
         appModel->setNotifySound(state);
 
