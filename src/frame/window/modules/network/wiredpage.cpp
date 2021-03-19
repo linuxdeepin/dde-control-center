@@ -72,7 +72,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_tipsGrp->appendItem(tips);
 
     //~ contents_path /network/Wired Network
-    TitleLabel *lblTitle = new TitleLabel(tr("Wired Network Adapter"));//有线网卡
+    QLabel *lblTitle = new QLabel(tr("Wired Network Adapter"));//有线网卡
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);
     m_switch->setChecked(dev->enabled());
@@ -95,6 +95,9 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     QVBoxLayout *centralLayout = new QVBoxLayout;
     centralLayout->addWidget(m_switch, 0, Qt::AlignTop);
     centralLayout->addWidget(m_tipsGrp);
+    QMargins itemMargins(m_lvProfiles->itemMargins());
+    itemMargins.setLeft(0);
+    m_lvProfiles->setItemMargins(itemMargins);
     centralLayout->addWidget(m_lvProfiles);
     centralLayout->addStretch();
     centralLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);

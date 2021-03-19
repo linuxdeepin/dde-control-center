@@ -113,9 +113,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
     //appearance
     //~ contents_path /personalization/General
-    QLabel *themeL = new TitleLabel(tr("Theme"));
-    DFontSizeManager::instance()->bind(themeL, DFontSizeManager::T5, QFont::DemiBold);
-    themeL->setMargin(10);
+    TitleLabel *themeL = new TitleLabel(tr("Theme"));
     m_centralLayout->addWidget(themeL);
     //pictures and types
     m_Themes->setMainLayout(new QHBoxLayout(), true);
@@ -125,9 +123,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     //active colors
     //~ contents_path /personalization/General
-    QLabel *activeL = new TitleLabel(tr("Accent Color"));
-    DFontSizeManager::instance()->bind(activeL, DFontSizeManager::T5, QFont::DemiBold);
-    activeL->setMargin(10);
+    TitleLabel *activeL = new TitleLabel(tr("Accent Color"));
     m_centralLayout->addWidget(activeL);
 
     QHBoxLayout *colorLayout = new QHBoxLayout();
