@@ -143,6 +143,7 @@ DateSettings::DateSettings(QWidget *parent)
     //~ contents_path /datetime/Time Settings
     QLabel *serverText = new QLabel(tr("Server"));
     m_ntpSrvItem->setLayout(ntpServeLayout);
+    m_ntpSrvItem->addBackground();
     ntpServeLayout->addSpacing(2);
     ntpServeLayout->addWidget(serverText, 0, Qt::AlignLeft);
     ntpServeLayout->addWidget(m_ntpServerList, 0, Qt::AlignRight);
@@ -156,10 +157,12 @@ DateSettings::DateSettings(QWidget *parent)
     ntpAddressLayout->addWidget(addressText, 0, Qt::AlignLeft);
     ntpAddressLayout->addWidget(m_addressContent, 0, Qt::AlignRight);
     m_address->setLayout(ntpAddressLayout);
+    m_address->addBackground();
 
     m_ntpServerList->setMinimumWidth(240);
     m_ntpServerList->addItem(tr("Customize"));
 
+    m_datetimeGroup->setContentsMargins(0, 20, 0, 0);
     m_datetimeGroup->appendItem(timeItem);
     m_datetimeGroup->appendItem(m_yearWidget);
     m_datetimeGroup->appendItem(m_monthWidget);
@@ -172,7 +175,9 @@ DateSettings::DateSettings(QWidget *parent)
     layout->addWidget(m_autoSyncTimeSwitch, 0, Qt::AlignTop);
     layout->addWidget(m_datetimeGroup);
 
+    layout->addSpacing(20);
     layout->addWidget(m_ntpSrvItem);
+    layout->addSpacing(10);
     layout->addWidget(m_address);
 
     connect(m_ntpServerList, &datetimeCombox::click, this, &DateSettings::isUserOperate);
