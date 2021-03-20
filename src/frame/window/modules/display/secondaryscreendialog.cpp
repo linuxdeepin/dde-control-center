@@ -31,7 +31,7 @@
 #include "modules/display/monitorcontrolwidget.h"
 
 #include <DFontSizeManager>
-
+#include <QKeyEvent>
 #include <QVBoxLayout>
 
 using namespace dcc::widgets;
@@ -256,8 +256,7 @@ void SecondaryScreenDialog::resetDialog()
 
 void SecondaryScreenDialog::keyPressEvent(QKeyEvent *event)
 {
-    switch (event->key())
-    {
+    switch (event->key()) {
     case Qt::Key_Escape:
         break;
     default:
