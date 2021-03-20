@@ -34,14 +34,14 @@ set(SRCS
 find_package(PkgConfig REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5DBus REQUIRED)
-find_package(DtkWidget5.5 REQUIRED)
-find_package(DtkGui5.5 REQUIRED)
+find_package(DtkWidget REQUIRED)
+find_package(DtkGui REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 
 add_executable(${BIN_NAME} ${SRCS})
 target_include_directories(${BIN_NAME} PUBLIC
-    ${DtkWidget5.5_INCLUDE_DIRS}
+    ${DtkWidget_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${PROJECT_BINARY_DIR}
@@ -49,7 +49,7 @@ target_include_directories(${BIN_NAME} PUBLIC
 
 target_link_libraries(${BIN_NAME} PRIVATE
     ${DFrameworkDBus_LIBRARIES}
-    ${DtkWidget5.5_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
 )
