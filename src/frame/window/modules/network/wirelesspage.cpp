@@ -396,7 +396,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_wirelessScanTimer->start(gsetting->get("wireless-scan-interval").toInt() * 1000);
 
     QTimer::singleShot(100, this, [ = ] {
-        Q_EMIT requestDeviceAPList(m_device->path());
         Q_EMIT requestWirelessScan();
     });
 }
@@ -609,7 +608,7 @@ void WirelessPage::onDeviceRemoved()
     if (!m_apEditPage.isNull()) {
         m_apEditPage->onDeviceRemoved();
     }
-    Q_EMIT requestDeviceAPList(m_device->path());
+
     Q_EMIT requestWirelessScan();
     // destroy self page
     Q_EMIT back();

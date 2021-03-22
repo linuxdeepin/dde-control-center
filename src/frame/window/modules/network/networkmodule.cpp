@@ -305,7 +305,6 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
         p = m_wirelessPage;
         m_networkWorker->queryDeviceStatus(dev->path());
         connect(m_wirelessPage, &WirelessPage::back, this, &NetworkModule::popPage);
-        connect(m_wirelessPage, &WirelessPage::requestDeviceAPList, m_networkWorker, &NetworkWorker::queryAccessPoints);
         connect(m_wirelessPage, &WirelessPage::requestWirelessScan, m_networkWorker, &NetworkWorker::requestWirelessScan);
         connect(m_wirelessPage, &WirelessPage::requestConnectAp, m_networkWorker, &NetworkWorker::activateAccessPoint);
         connect(m_wirelessPage, &WirelessPage::requestDeviceEnabled, m_networkWorker, &NetworkWorker::setDeviceEnable);
