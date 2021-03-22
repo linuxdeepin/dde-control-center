@@ -248,12 +248,14 @@ void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
     m_displayInter.SetAndSaveBrightness(mon->name(), std::max(brightness, m_model->minimumBrightnessScale())).waitForFinished();
 }
 
-void DisplayWorker::setMonitorPosition(Monitor *mon, const int x, const int y)
+void DisplayWorker::setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition)
 {
-    MonitorInter *inter = m_monitors.value(mon);
-    Q_ASSERT(inter);
+    for (auto it(monitorPosition.cbegin()); it != monitorPosition.cend(); ++it) {
+        MonitorInter *inter = m_monitors.value(it.key());
+        Q_ASSERT(inter);
+        inter->SetPosition(static_cast<short>(it.value().first), static_cast<short>(it.value().second)).waitForFinished();
+    }
 
-    inter->SetPosition(static_cast<short>(x), static_cast<short>(y)).waitForFinished();
     m_displayInter.ApplyChanges().waitForFinished();
     m_displayInter.Save().waitForFinished();
 }

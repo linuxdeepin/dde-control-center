@@ -281,8 +281,14 @@ void MonitorsGround::reloadViewPortSize()
 
 void MonitorsGround::applySettings()
 {
-    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
-        Q_EMIT requestApplySettings(it.value(), it.key()->x(), it.key()->y());
+    qRegisterMetaType<QHash<Monitor *, QPair<int, int>>>("QHash<Monitor *, QPair<int, int>>");
+    QHash<Monitor *, QPair<int, int>> monitorPosition;
+    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it) {
+        monitorPosition.insert(it.value(), QPair<int, int>(it.key()->x(), it.key()->y()));
+        qWarning() << "applySettings" << it.value()->name() << it.key()->x() << it.key()->y();
+    }
+
+    Q_EMIT requestApplySettings(monitorPosition);
 }
 
 bool MonitorsGround::isScreenPerfect() const

@@ -53,7 +53,7 @@ public:
 Q_SIGNALS:
     void requestRecognize() const;
     void requestGatherWindows(const QPoint cursor) const;
-    void requestSetMonitorPosition(Monitor *mon, const int x, const int y) const;
+    void requestSetMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition) const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
 

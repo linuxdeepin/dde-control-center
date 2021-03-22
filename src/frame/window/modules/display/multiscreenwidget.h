@@ -71,7 +71,7 @@ public:
 Q_SIGNALS:
     void requestRecognize();
     void requestSwitchMode(const int mode, const QString &name = QString());
-    void requestSetMonitorPosition(dcc::display::Monitor *monitor, const int x, const int y);
+    void requestSetMonitorPosition(QHash<dcc::display::Monitor *, QPair<int, int>> monitorPosition);
     void requestSetPrimary(const QString &name);
     void requestSetColorTemperature(const int value);
     void requestSetMonitorBrightness(dcc::display::Monitor *monitor, const double brightness);

@@ -47,7 +47,7 @@ public:
     void setModel(DisplayModel *model, Monitor *moni = nullptr);
 
 Q_SIGNALS:
-    void requestApplySettings(Monitor *mon, const int x, const int y);
+    void requestApplySettings(QHash<Monitor *, QPair<int, int>> monitorposition);
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
 
