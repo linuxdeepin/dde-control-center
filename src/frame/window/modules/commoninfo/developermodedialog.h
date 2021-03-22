@@ -32,6 +32,7 @@ struct TS{
     QString ts2;
 };
 
+class QFileDialog;
 namespace DCC_NAMESPACE {
 namespace commoninfo {
 
@@ -41,16 +42,17 @@ class DeveloperModeDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
 {
     Q_OBJECT
 public:
-    explicit DeveloperModeDialog(DAbstractDialog *parent = nullptr);
+    explicit DeveloperModeDialog(QObject *parent = nullptr);
+    ~DeveloperModeDialog();
 
 public:
      void setModel(CommonInfoModel *model);
+     void shutdown();
 
 Q_SIGNALS:
      void requestDeveloperMode(bool enabled);
      void requestLogin();
      void requestCommit(QString filePathName);
-     void requestSetNextBtnStatus(bool state);
 private Q_SLOTS:
      void setLogin();
 
@@ -60,6 +62,8 @@ private:
     DTK_WIDGET_NAMESPACE::DSuggestButton *m_nextButton{nullptr};
     CommonInfoModel *m_model{nullptr};
     bool m_enterDev{false};
+    QFileDialog *m_importFile;
+    QFileDialog *m_exportFile;
 };
 }
 }

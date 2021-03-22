@@ -46,6 +46,7 @@ class DeveloperModeWidget : public QWidget
     Q_OBJECT
 public:
     explicit DeveloperModeWidget(QWidget *parent = nullptr);
+    ~DeveloperModeWidget();
     void setModel(CommonInfoModel *model);
 
 Q_SIGNALS:
@@ -65,6 +66,7 @@ private:
     QDBusInterface *m_inter;
     DTK_NAMESPACE::Widget::DLabel *m_lab;
     DTK_NAMESPACE::Widget::DLabel *m_dtip;
+    DeveloperModeDialog *m_developerDialog;
 };
 }
 }

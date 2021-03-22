@@ -87,7 +87,6 @@ private:
     QModelIndex m_currentSelectIndex;
     bool m_displayLastItem;
     QFileDialog *m_fd;
-    QString m_filePath;
 };
 
 }

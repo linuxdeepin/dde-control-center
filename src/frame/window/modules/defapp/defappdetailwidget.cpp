@@ -77,20 +77,40 @@ DefappDetailWidget::DefappDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCat
     m_addBtn->setToolTip(tr("Add Application"));
     m_addBtn->setAccessibleName(tr("Add Application"));
     m_createFile->setModal(true);
+    m_createFile->setWindowTitle(tr("Open Desktop file"));
+    m_createFile->setAcceptMode(QFileDialog::AcceptOpen);
+    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+    if (!directory.isEmpty())
+        m_createFile->setDirectory(directory.first());
+
+    connect(m_createFile, &QFileDialog::finished, this, [ = ](int result) {
+        Q_EMIT requestFrameAutoHide(true);
+        if (result == QFileDialog::Accepted) {
+            QString path = m_createFile->selectedFiles().first();
+            if (path.isEmpty())
+                return;
+
+            QFileInfo info(path);
+            Q_EMIT requestCreateFile(m_categoryName, info);
+        }
+    });
+
     GSettingWatcher::instance()->bind("defappApplistAddbtn", m_addBtn);
     GSettingWatcher::instance()->bind("defappApplistDefapp", m_defApps);
 }
 
 DefappDetailWidget::~DefappDetailWidget()
 {
-    m_createFile->deleteLater();
+    if (m_createFile)
+        m_createFile->deleteLater();
+
     GSettingWatcher::instance()->erase("defappApplistAddbtn", m_addBtn);
     GSettingWatcher::instance()->erase("defappApplistDefapp", m_defApps);
 }
 
 void DefappDetailWidget::setModel(dcc::defapp::DefAppModel *const model)
 {
-    switch(m_categoryValue) {
+    switch (m_categoryValue) {
     case dcc::defapp::DefAppWorker::Browser:
         setCategory(model->getModBrowser());
         break;
@@ -133,7 +153,8 @@ void DefappDetailWidget::setCategory(dcc::defapp::Category *const category)
     setCategoryName(m_category->getName());
 }
 
-QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size) {
+QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
+{
     QIcon icon = QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
 
     const qreal ratio = devicePixelRatioF();
@@ -164,9 +185,11 @@ void DefappDetailWidget::removeItem(const dcc::defapp::App &item)
             } else {
                 m_systemAppCnt--;
             }
+
             break;
         }
     }
+
     updateListView(m_category->getDefault());
 }
 
@@ -190,7 +213,8 @@ void DefappDetailWidget::setCategoryName(const QString &name)
     m_categoryName = name;
 }
 
-void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
+void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp)
+{
     int cnt = m_model->rowCount();
     for (int row = 0; row < cnt; row++) {
         DStandardItem *modelItem = dynamic_cast<DStandardItem *>(m_model->item(row));
@@ -231,14 +255,13 @@ void DefappDetailWidget::updateListView(const dcc::defapp::App &defaultApp) {
 void DefappDetailWidget::onDefaultAppSet(const dcc::defapp::App &app)
 {
     qDebug() << Q_FUNC_INFO << app.Name;
-
     updateListView(app);
 }
 
 
 void DefappDetailWidget::AppsItemChanged(const QList<dcc::defapp::App> &list)
 {
-    for (const dcc::defapp::App& app : list) {
+    for (const dcc::defapp::App &app : list) {
         appendItemData(app);
     }
 
@@ -246,44 +269,30 @@ void DefappDetailWidget::AppsItemChanged(const QList<dcc::defapp::App> &list)
     connect(m_defApps, &DListView::activated, m_defApps, &QListView::clicked);
 }
 
-void DefappDetailWidget::onListViewClicked(const QModelIndex& index) {
-    if (!index.isValid()) return;
+void DefappDetailWidget::onListViewClicked(const QModelIndex &index)
+{
+    if (!index.isValid())
+        return;
+
     QString id = m_defApps->model()->data(m_defApps->currentIndex(), DefAppIdRole).toString();
     dcc::defapp::App app = getAppById(id);
     if (!isValid(app))
         return;
+
     qDebug()  <<  "set default app "  << app.Name;
     updateListView(app);
     //set default app
     Q_EMIT requestSetDefaultApp(m_categoryName, app);
 }
 
-void DefappDetailWidget::onAddBtnClicked() {
-    if (!isEnabled() || !m_createFile)
-        return;
-
+void DefappDetailWidget::onAddBtnClicked()
+{
     Q_EMIT requestFrameAutoHide(false);
-    m_createFile->setWindowTitle(tr("Open Desktop file"));
-    m_createFile->setAcceptMode(QFileDialog::AcceptOpen);
-    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
-    if (!directory.isEmpty())
-        m_createFile->setDirectory(directory.first());
-
     m_createFile->show();
-    connect(m_createFile, &QFileDialog::finished, this, [ = ] (int result) {
-        Q_EMIT requestFrameAutoHide(true);
-        if (result == QFileDialog::Accepted) {
-            QString path = m_createFile->selectedFiles().first();
-            if (path.isEmpty())
-               return;
-
-            QFileInfo info(path);
-            Q_EMIT requestCreateFile(m_categoryName, info);
-        }
-    });
 }
 
-void  DefappDetailWidget::onDelBtnClicked() {
+void  DefappDetailWidget::onDelBtnClicked()
+{
     DViewItemAction *action = qobject_cast<DViewItemAction *>(sender());
     if (!m_actionMap.contains(action))
         return;
@@ -293,6 +302,7 @@ void  DefappDetailWidget::onDelBtnClicked() {
     dcc::defapp::App app = getAppById(id);
     if (!isValid(app) || !(app.isUser || app.CanDelete))
         return;
+
     qDebug() << "delete app " << app.Id;
     //delete user app
     Q_EMIT requestDelUserApp(m_categoryName, app);
@@ -308,13 +318,14 @@ void DefappDetailWidget::onClearAll()
 
 dcc::defapp::App DefappDetailWidget::getAppById(const QString &appId)
 {
-    auto res = std::find_if(m_category->getappItem().cbegin(), m_category->getappItem().cend(), [ = ] (const dcc::defapp::App &item)->bool{
+    auto res = std::find_if(m_category->getappItem().cbegin(), m_category->getappItem().cend(), [ = ](const dcc::defapp::App & item)->bool{
         return item.Id == appId;
     });
 
     if (res != m_category->getappItem().cend()) {
         return *res;
     }
+
     dcc::defapp::App app;
     app.Id = nullptr;
     return app;
@@ -325,7 +336,7 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
     qDebug() << "appendItemData=" << app.MimeTypeFit;
     DStandardItem *item = new DStandardItem;
     QString appName = (!app.isUser || app.MimeTypeFit)
-            ? app.Name : QString("%1(%2)").arg(app.Name).arg(tr("Invalid"));
+                      ? app.Name : QString("%1(%2)").arg(app.Name).arg(tr("Invalid"));
 
     if (!app.isUser || app.MimeTypeFit) {
         item->setText(appName);
@@ -334,6 +345,7 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
         item->setData(appName, DefAppNameRole);
         item->setData(app.Icon, DefAppIconRole);
     }
+
     item->setData(app.Id, DefAppIdRole);
     item->setData(app.isUser, DefAppIsUserRole);
     item->setData(app.CanDelete, DefAppCanDeleteRole);
@@ -347,6 +359,7 @@ void DefappDetailWidget::appendItemData(const dcc::defapp::App &app)
         index = m_systemAppCnt;
         m_systemAppCnt++;
     }
+
     m_model->insertRow(index, item);
 }
 

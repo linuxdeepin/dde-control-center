@@ -71,7 +71,7 @@ private:
     void appendItemData(const dcc::defapp::App &app);
     bool isDesktopOrBinaryFile(const QString &fileName);
     bool isValid(const dcc::defapp::App &app);
-    enum DefAppDataRole{
+    enum DefAppDataRole {
         DefAppIsUserRole = DTK_NAMESPACE::UserRole + 1,
         DefAppIdRole,
         DefAppCanDeleteRole,

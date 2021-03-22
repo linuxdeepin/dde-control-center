@@ -89,7 +89,14 @@ VpnPage::VpnPage(QWidget *parent)
     m_lvprofiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvprofiles->setSelectionMode(QAbstractItemView::NoSelection);
+
     m_importFile->setModal(true);
+    m_importFile->setNameFilter("*.conf");
+    m_importFile->setAcceptMode(QFileDialog::AcceptOpen);
+    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
+    if (!directory.isEmpty()) {
+        m_importFile->setDirectory(directory.first());
+    }
 
     TitleLabel *lblTitle = new TitleLabel(tr("VPN Status"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
@@ -143,11 +150,57 @@ VpnPage::VpnPage(QWidget *parent)
     connect(createVpnBtn, &QPushButton::clicked, this, &VpnPage::createVPN);
     connect(importVpnBtn, &QPushButton::clicked, this, &VpnPage::importVPN);
     connect(m_lvprofiles, &DListView::clicked, this, &VpnPage::onVpnSelected);
+    connect(m_importFile, &QFileDialog::finished, this, [ = ] (int result) {
+        Q_EMIT requestFrameKeepAutoHide(true);
+        if (result == QFileDialog::Accepted) {
+            QString file = m_importFile->selectedFiles().first();
+            if (file.isEmpty())
+                return;
+
+            const auto args = QStringList { "connection", "import", "type", vpnConfigType(file), "file", file };
+
+            QProcess p;
+            p.start("nmcli", args);
+            p.waitForFinished();
+            const auto stat = p.exitCode();
+            const QString output = p.readAllStandardOutput();
+            QString error = p.readAllStandardError();
+
+            qDebug() << stat << ",output:" << output << ",err:" << error;
+
+            if (stat) {
+                const auto ratio = devicePixelRatioF();
+                QPixmap icon = QIcon::fromTheme("dialog-error").pixmap(QSize(48, 48) * ratio);
+                icon.setDevicePixelRatio(ratio);
+
+                DDialog dialog(this);
+                dialog.setTitle(tr("Import Error"));
+                dialog.setMessage(tr("File error"));
+                dialog.addButton(tr("OK"));
+                dialog.setIcon(icon);
+                dialog.exec();
+                return;
+            }
+
+            const QRegularExpression regexp("\\(\\w{8}(-\\w{4}){3}-\\w{12}\\)");
+            const auto match = regexp.match(output);
+
+            if (match.hasMatch()) {
+                m_editingConnUuid = match.captured();
+                m_editingConnUuid.replace("(", "");
+                m_editingConnUuid.replace(")", "");
+                qDebug() << "editing connection Uuid";
+                QTimer::singleShot(10, this, &VpnPage::changeVpnId);
+            }
+        }
+    });
 }
 
 VpnPage::~VpnPage()
 {
-    m_importFile->deleteLater();
+    if (m_importFile)
+        m_importFile->deleteLater();
+
     GSettingWatcher::instance()->erase("createVpn");
     GSettingWatcher::instance()->erase("importVpn");
 
@@ -337,62 +390,8 @@ void VpnPage::changeVpnId()
 
 void VpnPage::importVPN()
 {
-    if (!m_importFile)
-        return;
-
     Q_EMIT requestFrameKeepAutoHide(false);
-    m_importFile->setNameFilter("*.conf");
-    m_importFile->setAcceptMode(QFileDialog::AcceptOpen);
-    QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
-    if (!directory.isEmpty()) {
-        m_importFile->setDirectory(directory.first());
-    }
-
     m_importFile->show();
-    connect(m_importFile, &QFileDialog::finished, this, [ = ] (int result) {
-        Q_EMIT requestFrameKeepAutoHide(true);
-        if (result == QFileDialog::Accepted) {
-            QString file = m_importFile->selectedFiles().first();
-            if (file.isEmpty())
-                return;
-
-            const auto args = QStringList { "connection", "import", "type", vpnConfigType(file), "file", file };
-
-            QProcess p;
-            p.start("nmcli", args);
-            p.waitForFinished();
-            const auto stat = p.exitCode();
-            const QString output = p.readAllStandardOutput();
-            QString error = p.readAllStandardError();
-
-            qDebug() << stat << ",output:" << output << ",err:" << error;
-
-            if (stat) {
-                const auto ratio = devicePixelRatioF();
-                QPixmap icon = QIcon::fromTheme("dialog-error").pixmap(QSize(48, 48) * ratio);
-                icon.setDevicePixelRatio(ratio);
-
-                DDialog dialog(this);
-                dialog.setTitle(tr("Import Error"));
-                dialog.setMessage(tr("File error"));
-                dialog.addButton(tr("OK"));
-                dialog.setIcon(icon);
-                dialog.exec();
-                return;
-            }
-
-            const QRegularExpression regexp("\\(\\w{8}(-\\w{4}){3}-\\w{12}\\)");
-            const auto match = regexp.match(output);
-
-            if (match.hasMatch()) {
-                m_editingConnUuid = match.captured();
-                m_editingConnUuid.replace("(", "");
-                m_editingConnUuid.replace(")", "");
-                qDebug() << "editing connection Uuid";
-                QTimer::singleShot(10, this, &VpnPage::changeVpnId);
-            }
-        }
-    });
 }
 
 void VpnPage::createVPN()

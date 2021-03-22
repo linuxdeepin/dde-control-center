@@ -85,6 +85,10 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     shortCutCmdLayout->setContentsMargins(10, 0, 0, 0);
     mainLayout->addLayout(shortCutCmdLayout);
 
+    // TODO: DFileChooserEdit控件包含有button按钮，点击触发QFileDialog文件弹窗，其为exec模态显示。
+    // 该显示方式方式会触发程序异常崩溃，具体详情为当控制中心存在exec()模态显示的对话框界面时，若通过dbus调用切换菜单时，会导致程序崩溃。
+    // 模态对话框处于事件监听阻塞状态没有被主动关闭，此时触发切换其他界面则会使阻塞的模态对话框关闭异常而导致程序崩溃。
+    // 目前该DFileChooserEdit控件类会触发上诉所描述问题，暂时未解决，待后续完善。。
     m_shortCutCmdEdit = new DFileChooserEdit(this);
     m_shortCutCmdEdit->lineEdit()->setPlaceholderText(tr("Required"));
     m_shortCutNameEdit->setAccessibleName("SHORTCUT_NAME_EDIT");
