@@ -81,10 +81,8 @@ public:
 
     void setRepeatDelay(uint value);
     void setRepeatInterval(int value);
-    void setLayoutScope(const int value);
     void setModelRepeatDelay(uint value);
     void setModelRepeatInterval(uint value);
-    void setModelLayoutScope(const int value);
 
     void setNumLock(bool value);
     void setCapsLock(bool value);
@@ -120,7 +118,6 @@ public Q_SLOTS:
     void onDisableShortcut(ShortcutInfo* info);
     void onAddedFinished(QDBusPendingCallWatcher *watch);
     void onLocalListsFinished(QDBusPendingCallWatcher *watch);
-    void onSetSwitchKBLayout(int value);
     void onGetWindowWM(bool value);
 #ifndef DCC_DISABLE_KBLAYOUT
     void onLayoutListsFinished(QDBusPendingCallWatcher *watch);

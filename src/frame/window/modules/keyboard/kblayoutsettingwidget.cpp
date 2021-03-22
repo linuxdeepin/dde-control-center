@@ -46,7 +46,6 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     : QWidget(parent)
     , m_bEdit(false)
     , m_kbLayoutListView(new MyListView())
-    , m_switchLayoutListView(new DListView())
 {
     QVBoxLayout *mainLayout = new QVBoxLayout();
     QHBoxLayout *headLayout = new QHBoxLayout();
@@ -73,43 +72,9 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setSelectionMode(QAbstractItemView::NoSelection);
     m_kbLayoutListView->setContentsMargins(10, 0, 10, 0);
     mainLayout->addWidget(m_kbLayoutListView);
-    m_switchTitle = new TitleLabel(tr("Switch Layouts (Multiple)"));
-    mainLayout->addWidget(m_switchTitle);
-    mainLayout->addWidget(m_switchLayoutListView);
     mainLayout->setAlignment(Qt::AlignTop);
     mainLayout->setSpacing(10);
     mainLayout->setContentsMargins(10, 0, 10, 0);
-
-    QMap<int, QString> shortCutMap;
-    shortCutMap.insert(1, QString("Ctrl+Shift"));
-    shortCutMap.insert(2, QString("Alt+Shift"));
-    shortCutMap.insert(4, QString("Super+Space"));
-
-    m_switchLayoutModel = new QStandardItemModel(m_switchLayoutListView);
-    QMap<int, QString>::iterator iter;
-    for (iter = shortCutMap.begin(); iter != shortCutMap.end(); ++iter) {
-        DStandardItem *shortCutItem = new DStandardItem(iter.value());
-        shortCutItem->setData(iter.key(), SwitchValueRole);
-        m_switchLayoutModel->appendRow(shortCutItem);
-    }
-    m_switchLayoutListView->setAccessibleName("List_kbswitchlayoutlist");
-    m_switchLayoutListView->setModel(m_switchLayoutModel);
-    m_switchLayoutListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_switchLayoutListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_switchLayoutListView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-    m_switchLayoutListView->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    m_switchLayoutListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_switchLayoutListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_switchLayoutListView->setSelectionMode(QAbstractItemView::NoSelection);
-    m_switchLayoutListView->setContentsMargins(10, 0, 10, 0);
-
-    m_comboWidget = new ComboxWidget;
-    //~ contents_path /keyboard/Keyboard Layout
-    m_comboWidget->setTitle(tr("Applies to"));
-    QStringList comboxOptions;
-    comboxOptions << tr("System") << tr("Application");
-    m_comboWidget->setComboxOption(comboxOptions);
-    mainLayout->addWidget(m_comboWidget);
 
     QWidget *widget = new QWidget(this);
     widget->setLayout(mainLayout);
@@ -131,9 +96,7 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
 
     connect(addLayout, &DFloatingButton::clicked, this, &KBLayoutSettingWidget::onLayoutAdded);
     connect(m_editKBLayout, &QPushButton::clicked, this, &KBLayoutSettingWidget::onEditClicked);
-    connect(m_comboWidget, &ComboxWidget::onIndexChanged, this, &KBLayoutSettingWidget::onSwitchKBLayoutScope);
     connect(m_kbLayoutListView, &DListView::clicked, this, &KBLayoutSettingWidget::onKBLayoutChanged);
-    connect(m_switchLayoutListView, &DListView::clicked, this, &KBLayoutSettingWidget::onSwitchKBChanged);
     connect(m_kbLayoutListView, &MyListView::currentChangedSignal, this, &KBLayoutSettingWidget::onKBCurrentChanged);
 }
 
@@ -143,17 +106,12 @@ void KBLayoutSettingWidget::setModel(KeyboardModel *model)
 
     connect(model, &KeyboardModel::userLayoutChanged, this, &KBLayoutSettingWidget::onAddKeyboard);
     connect(model, &KeyboardModel::curLayoutChanged, this, &KBLayoutSettingWidget::onDefault);
-    connect(model, &KeyboardModel::kbSwitchChanged, this, &KBLayoutSettingWidget::onSwitchKB);
-    connect(model, &KeyboardModel::layoutScopeChanged, this, &KBLayoutSettingWidget::onLayoutScope);
 
     QMap<QString, QString> map = model->userLayout();
 
     for (auto i(map.begin()); i != map.end(); ++i) {
         onAddKeyboard(i.key(), i.value());
     }
-
-    onSwitchKB(model->kbSwitch());
-    onLayoutScope(model->layoutScope());
 }
 
 void KBLayoutSettingWidget::onAddKeyboard(const QString &id, const QString &value)
@@ -176,7 +134,7 @@ void KBLayoutSettingWidget::onAddKeyboard(const QString &id, const QString &valu
     }
     m_kbLayoutModel->insertRow(index, kbLayoutItem);
     m_kbLangList << id;
-    setUIVisible();
+    m_editKBLayout->setVisible(m_kbLangList.size() > 1);
     onDefault(m_model->curLayout());
     m_kbLayoutListView->adjustSize();
     m_kbLayoutListView->update();
@@ -243,7 +201,7 @@ void KBLayoutSettingWidget::creatDelIconAction(DStandardItem *item)
         m_kbLayoutModel->removeRow(idx);
         m_kbLayoutListView->adjustSize();
         m_kbLayoutListView->update();
-        setUIVisible();
+        m_editKBLayout->setVisible(m_kbLangList.size() > 1);
     });
 }
 
@@ -281,58 +239,7 @@ void KBLayoutSettingWidget::onKBCurrentChanged(const QModelIndex &current)
     }
 }
 
-void KBLayoutSettingWidget::onSwitchKBChanged(const QModelIndex &index)
-{
-    QStandardItem *item = m_switchLayoutModel->item(index.row(), index.column());
-    Qt::CheckState state = item->checkState();
-    if (state == Qt::Checked) {
-        item->setCheckState(Qt::Unchecked);
-    } else {
-        item->setCheckState(Qt::Checked);
-    }
-    int median = 0;
-    int row_count = m_switchLayoutModel->rowCount();
-    for (int i = 0; i < row_count; ++i) {
-        QStandardItem *items = m_switchLayoutModel->item(i, 0);
-        if (items && (items->checkState() == Qt::Checked)) {
-            median = items->data(SwitchValueRole).toInt() | median;
-        }
-    }
-
-    Q_EMIT requestSwitchKBLayout(median);
-}
-
-void KBLayoutSettingWidget::onSwitchKB(int kbSwitch)
-{
-    int row_count = m_switchLayoutModel->rowCount();
-    for (int i = 0; i < row_count; ++i) {
-        QStandardItem *item = m_switchLayoutModel->item(i, 0);
-        if (item && ((kbSwitch & item->data(SwitchValueRole).toInt()) != 0)) {
-            item->setCheckState(Qt::Checked);
-        }
-    }
-}
-
-void KBLayoutSettingWidget::onLayoutScope(const int value)
-{
-    m_comboWidget->comboBox()->setCurrentIndex(value);
-}
-
 void KBLayoutSettingWidget::onLayoutAdded()
 {
     Q_EMIT layoutAdded(m_kbLangList);
-}
-
-void KBLayoutSettingWidget::setUIVisible()
-{
-    bool uiVisible = true;
-    if (m_kbLangList.size() > 1) {
-        uiVisible = true;
-    } else {
-        uiVisible = false;
-    }
-    m_editKBLayout->setVisible(uiVisible);
-    m_switchTitle->setVisible(uiVisible);
-    m_switchLayoutListView->setVisible(uiVisible);
-    m_comboWidget->setVisible(uiVisible);
 }

@@ -210,8 +210,6 @@ void KeyboardModule::showKBLayoutSetting()
     connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::layoutAdded, this, &KeyboardModule::onPushKeyboard);
     connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::requestCurLayoutAdded, this, &KeyboardModule::setCurrentLayout);
     connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::delUserLayout, m_work, &KeyboardWorker::delUserLayout);
-    connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::requestSwitchKBLayout, m_work, &KeyboardWorker::onSetSwitchKBLayout);
-    connect(m_kbLayoutSettingWidget, &KBLayoutSettingWidget::onSwitchKBLayoutScope, m_work, &KeyboardWorker::setLayoutScope);
 
     m_frameProxy->pushWidget(this, m_kbLayoutSettingWidget);
     m_kbLayoutSettingWidget->setVisible(true);

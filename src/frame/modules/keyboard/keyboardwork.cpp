@@ -60,7 +60,6 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 #ifndef DCC_DISABLE_KBLAYOUT
     connect(m_keyboardInter, &KeyboardInter::UserLayoutListChanged, this, &KeyboardWorker::onUserLayout);
     connect(m_keyboardInter, &KeyboardInter::CurrentLayoutChanged, this, &KeyboardWorker::onCurrentLayout);
-    connect(m_keyboardInter, &KeyboardInter::LayoutScopeChanged, this, &KeyboardWorker::setModelLayoutScope);
 #endif
     connect(m_keyboardInter, SIGNAL(CapslockToggleChanged(bool)), m_model, SLOT(setCapsLock(bool)));
     connect(m_keybindInter, &KeybingdingInter::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
@@ -73,7 +72,6 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 #endif
     connect(m_keyboardInter, &KeyboardInter::RepeatDelayChanged, this, &KeyboardWorker::setModelRepeatDelay);
     connect(m_keyboardInter, &KeyboardInter::RepeatIntervalChanged, this, &KeyboardWorker::setModelRepeatInterval);
-    connect(m_keybindInter, &KeybingdingInter::ShortcutSwitchLayoutChanged, m_model, &KeyboardModel::setKbSwitch);
 
     connect(m_keybindInter, &KeybingdingInter::Changed, this, &KeyboardWorker::onShortcutChanged);
 
@@ -150,7 +148,6 @@ void KeyboardWorker::active()
 
     setModelRepeatDelay(m_keyboardInter->repeatDelay());
     setModelRepeatInterval(m_keyboardInter->repeatInterval());
-    setModelLayoutScope(m_keyboardInter->layoutScope());
 
     m_metaDatas.clear();
     m_letters.clear();
@@ -209,14 +206,11 @@ bool KeyboardWorker::keyOccupy(const QStringList &list)
 #ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWorker::onRefreshKBLayout()
 {
-    m_model->setKbSwitch(static_cast<int>(m_keybindInter->shortcutSwitchLayout()));
-
     QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardInter->LayoutList(), this);
     connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onLayoutListsFinished);
 
     onCurrentLayout(m_keyboardInter->currentLayout());
     onUserLayout(m_keyboardInter->userLayoutList());
-    setModelLayoutScope(m_keyboardInter->layoutScope());
 }
 #endif
 
@@ -475,11 +469,6 @@ void KeyboardWorker::onLocalListsFinished(QDBusPendingCallWatcher *watch)
     m_model->setLang(m_langSelector->currentLocale());
 }
 
-void KeyboardWorker::onSetSwitchKBLayout(int value)
-{
-    m_keybindInter->setShortcutSwitchLayout(static_cast<uint>(value));
-}
-
 #ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWorker::onUserLayout(const QStringList &list)
 {
@@ -515,15 +504,6 @@ void KeyboardWorker::onSearchShortcuts(const QString &searchKey)
     QDBusPendingCallWatcher *searchResult = new QDBusPendingCallWatcher(reply, this);
     connect(searchResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onSearchFinished);
 }
-void KeyboardWorker::setLayoutScope(const int value)
-{
-    m_keyboardInter->setLayoutScope(value);
-}
-
-void KeyboardWorker::setModelLayoutScope(const int value)
-{
-    m_model->setLayoutScope(value);
-}
 
 void KeyboardWorker::onCurrentLayoutFinished(QDBusPendingCallWatcher *watch)
 {
@@ -552,7 +532,7 @@ void KeyboardWorker::onPinyin()
     QDBusInterface dbus_pinyin("com.deepin.api.Pinyin", "/com/deepin/api/Pinyin",
                                "com.deepin.api.Pinyin");
 
-    Q_FOREACH(const QString & str, m_model->kbLayout().keys()) {
+    Q_FOREACH(const QString &str, m_model->kbLayout().keys()) {
         MetaData md;
         QString title = m_model->kbLayout()[str];
         md.setText(title);

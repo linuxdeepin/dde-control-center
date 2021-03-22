@@ -66,7 +66,6 @@ public:
     QString langFromText(const QString &text) const;
 
     QString curLayout() const;
-    int layoutScope() const;
     QString curLang() const;
     QMap<QString, QString> userLayout() const;
     QMap<QString, QString> kbLayout() const;
@@ -86,9 +85,6 @@ public:
 
     void cleanUserLayout();
 
-    int kbSwitch() const;
-    void setKbSwitch(int kbSwitch);
-
     inline int getLangChangedState() const { return m_status; }
     void setLangChangedState(const int state);
     inline QStringList &getUserLayoutList() { return m_userLaylist; }
@@ -96,7 +92,6 @@ public:
 Q_SIGNALS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void curLayoutChanged(const QString &layout);
-    void layoutScopeChanged(int value);
 #endif
     void curLangChanged(const QString &lang);
     void capsLockChanged(bool value);
@@ -105,7 +100,6 @@ Q_SIGNALS:
     void repeatIntervalChanged(const uint value);
     void userLayoutChanged(const QString &id, const QString &value);
     void langChanged(const QList<MetaData> &data);
-    void kbSwitchChanged(int kbSwitch);
 
     void curLocalLangChanged(const QStringList &localLangList);    
     void onSetCurLangFinish(const int value);
@@ -113,7 +107,6 @@ Q_SIGNALS:
 public Q_SLOTS:
 #ifndef DCC_DISABLE_KBLAYOUT
     void setLayout(const QString &key);
-    void setLayoutScope(int value);
 #endif
     void setLang(const QString &value);
     void setLocaleLang(const QStringList &localLangList);
@@ -129,7 +122,6 @@ private:
     uint m_repeatInterval;
     uint m_repeatDelay;
     QString m_layout;
-    int m_layoutScope;
     QString m_currentLangKey;
     QStringList m_localLangList;
     QStringList m_userLaylist;
@@ -137,7 +129,6 @@ private:
     QMap<QString, QString> m_layouts;
     QList<MetaData> m_langList;
     QMap<QStringList, int> m_shortcutMap;
-    int m_kbSwitch;
     int m_status{0};
 };
 }

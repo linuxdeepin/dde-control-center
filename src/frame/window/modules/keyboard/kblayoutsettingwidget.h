@@ -79,8 +79,6 @@ Q_SIGNALS:
     void requestCurLayoutAdded(const QString &value);
     void curLang(const QString &value);
     void delUserLayout(const QString &value);
-    void requestSwitchKBLayout(int value);
-    void onSwitchKBLayoutScope(const int index);
 
 public Q_SLOTS:
     void onAddKeyboard(const QString &id, const QString &value);
@@ -88,24 +86,15 @@ public Q_SLOTS:
     void onDefault(const QString &value);
     void onKBLayoutChanged(const QModelIndex &index);
     void onKBCurrentChanged(const QModelIndex &current);
-    void onSwitchKBChanged(const QModelIndex &index);
-    void onSwitchKB(int kbSwitch);
     void onLayoutAdded();
-    void onLayoutScope(const int value);
-private:
-    void setUIVisible();
+
 private:
     bool m_bEdit = false;
-    QList<dcc::keyboard::MetaData> m_datas;
     QStringList m_kbLangList;
     dcc::keyboard::KeyboardModel *m_model;
-    dcc::widgets::ComboxWidget *m_comboWidget;
-    QLabel *m_switchTitle;
     MyListView *m_kbLayoutListView;
-    DListView *m_switchLayoutListView;
     DCommandLinkButton *m_editKBLayout;
     QStandardItemModel *m_kbLayoutModel;
-    QStandardItemModel *m_switchLayoutModel;
     dcc::ContentWidget *m_contentWidget;
 private:
     enum {
