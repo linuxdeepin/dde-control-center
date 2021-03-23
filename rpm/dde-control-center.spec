@@ -4,7 +4,7 @@
 %endif
 
 Name:           dde-control-center
-Version:        5.4.13
+Version:        5.4.17
 Release:        %{specrelease}
 Summary:        New control center for Linux Deepin
 License:        GPLv3
@@ -29,6 +29,8 @@ BuildRequires:  udisks2-qt5-devel
 BuildRequires:  qt5-linguist
 BuildRequires:  cmake
 BuildRequires:  libXext-devel
+BuildRequires:	gtest-devel
+BuildRequires:	polkit-qt5-1-devel
 Requires:       dde-account-faces
 Requires:       dde-api
 Requires:       dde-daemon
@@ -36,6 +38,7 @@ Requires:       dde-qt5integration
 Requires:       dde-network-utils
 Requires:       startdde
 Requires:       dde-server-industry-config
+Requires:       deepin-pw-check
 
 %description
 New control center for Linux Deepin.
@@ -89,7 +92,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop ||:
 %{_libdir}/cmake/DdeControlCenter/
 
 %changelog
-* Wed Mar 12 2021 uoser <uoser@uniontech.com> - 5.4.13-1
-- Update to 5.4.13
+* Wed Mar 12 2021 uoser <uoser@uniontech.com> - 5.4.17-1
+- Update to 5.4.17
 
 
