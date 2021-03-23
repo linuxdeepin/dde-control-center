@@ -83,12 +83,18 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollArea->setContentsMargins(0, 0, 0, 0);
+
+    QWidget *widget = new QWidget;
+    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    widget->setContentsMargins(0, 0, 0, 0);
+
     mainContentLayout->addWidget(scrollArea);
     auto contentLayout = new QVBoxLayout();
     contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     contentLayout->setSpacing(0);
     contentLayout->setContentsMargins(0, 0, 0, 0);
-    scrollArea->setLayout(contentLayout);
+    widget->setLayout(contentLayout);
+    scrollArea->setWidget(widget);
 
     /* 设置账户详情列表支持触屏滑动，不使用TouchGesture的原因，TouchGesture qt内部存在bug。1、滚动区滑动过程中，主窗口也跟随move；
      * 2、滑动回弹过程中，点击头像，窗口出现错位*/
