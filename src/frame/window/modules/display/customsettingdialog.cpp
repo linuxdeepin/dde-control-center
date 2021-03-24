@@ -238,13 +238,13 @@ void CustomSettingDialog::initWithModel()
 
 void CustomSettingDialog::initOtherDialog()
 {
-    //在“f5f2d6f8f2878e4396c35dca6148401a033bec75”里面将以下代码加回去了，但是会引入bug-61032
-    //当存在三个屏幕或以上时，需要下列代码
-//    if (m_otherDialog.size()) {
-//        for (auto dlg : m_otherDialog) {
-//            dlg->setVisible(false);
-//        }
-//    }
+    //bug-61032: 自定义-拆分，调用隐藏对话框，导致HDMI设置页面丢失 -> 不设置隐藏
+    //bug-68419: 自定义-合并，未调用隐藏对话框，导致出现两个设置对话框 -> 设置隐藏
+    if (m_otherDialog.size() && m_model->isMerge()) {
+        for (auto dlg : m_otherDialog) {
+            dlg->setVisible(false);
+        }
+    }
 
     int dlgIdx = 0;
     for (int idx = 0; idx < m_model->monitorList().size(); ++idx) {
