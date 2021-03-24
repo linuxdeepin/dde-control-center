@@ -28,6 +28,7 @@
 #include "window/utils.h"
 
 #include <DIconButton>
+#include <DApplicationHelper>
 
 #include <QDebug>
 #include <QDBusInterface>
@@ -137,9 +138,20 @@ SoundModel::SoundModel(QObject *parent)
         { tr("Error"), DDesktopServices::SSE_Error },
     };
 
-    if(IsServerSystem) {
+    if (IsServerSystem) {
         m_soundEffectMapBattery.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
         m_soundEffectMapPower.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
+    }
+
+    auto rmFunc = [ = ](SoundEffectList &map) {
+        map.removeOne({ tr("Log out"), DDesktopServices::SSE_Logout });
+        map.removeOne({ tr("Volume +/-"), DDesktopServices::SSE_VolumeChange });
+        map.removeOne({ tr("Send icon in Launcher to Desktop"), DDesktopServices::SSE_SendFileComplete });
+    };
+
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        rmFunc(m_soundEffectMapBattery);
+        rmFunc(m_soundEffectMapPower);
     }
 }
 
