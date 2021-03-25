@@ -151,7 +151,7 @@ public:
      * @param value  刻度
      * @return 时间
      */
-    inline int delayTime(const int value) { m_num2Time.contains(value) ? m_num2Time[value].second : 900; }
+    inline int delayTime(const int value) { return m_num2Time[value].second; }
 
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);

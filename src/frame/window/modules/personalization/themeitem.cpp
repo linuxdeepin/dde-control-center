@@ -92,6 +92,7 @@ void ThemeItem::setSelected(bool selected)
             if (!m_select) {
                 m_select = new SelectIcon();
                 m_mainLayout->addWidget(m_select, 0, Qt::AlignCenter);
+                m_mainLayout->addStretch();
             } else {
                 m_select->show();
             }

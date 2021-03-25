@@ -73,13 +73,6 @@ PowerModel::PowerModel(QObject *parent)
             {3, {"30s", 30}},
             {4, {"40s", 40}},
             {5, {"50s", 50}},
-            {6, {"1m", 60}},
-            {7, {"5m", 300}},
-            {8, {"10m", 600}},
-            {9, {"15m", 900}},
-            {10, {"30m", 1800}},
-            {11, {"1h", 3600}},
-            {12, {"Never", 0}},
         };
     } else {
         m_num2Time = {
@@ -378,8 +371,7 @@ int PowerModel::sliderPosition(const int value)
         ++it;
     }
 
-    // 时间为1小时的标记位
-    return DGuiApplicationHelper::isTabletEnvironment() ? 11 : 6;
+    return DGuiApplicationHelper::isTabletEnvironment() ? 1 : m_num2Time.size() - 1;
 }
 
 void PowerModel::setSuspend(bool suspend)
