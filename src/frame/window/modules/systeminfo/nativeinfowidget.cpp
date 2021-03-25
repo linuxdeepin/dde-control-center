@@ -99,7 +99,9 @@ void NativeInfoWidget::initWidget()
     m_version->setTitle(tr("Edition:"));
     m_version->setValue(m_model->version());
     m_version->setVisible(!DSysInfo::isCommunityEdition());
-    GSettingWatcher::instance()->bind("edition", m_version);
+    if (!DSysInfo::isCommunityEdition()) {
+        GSettingWatcher::instance()->bind("edition", m_version);
+    }
     m_type = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
@@ -130,7 +132,6 @@ void NativeInfoWidget::initWidget()
     m_memory->setTitle(tr("Memory:"));
     m_memory->setValue(m_model->memory());
 
-    GSettingWatcher::instance()->bind("edition", m_version);
     GSettingWatcher::instance()->bind("systeminfoNativeinfoAuthorized", m_authorized);
     GSettingWatcher::instance()->bind("systeminfoNativeinfoKernel", m_kernel);
     GSettingWatcher::instance()->bind("systeminfoNativeinfoProcessor", m_processor);
