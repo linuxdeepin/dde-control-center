@@ -22,7 +22,7 @@
 #pragma once
 
 #include "interface/moduleinterface.h"
-
+#include "unionidwidget.h"
 #include <QObject>
 
 namespace dcc {
@@ -47,11 +47,15 @@ public:
     virtual void active() override;
     virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     QStringList availPage() const override;
+public:
+    void getAccessToken(const QString &code, const QString &state);
+
 public Q_SLOTS:
     void onShowPopup(QString fileName); // for user exprience program
 private:
     dcc::unionid::UnionidModel  *m_model;
     dcc::unionid::UnionidWorker *m_worker;
+    UnionidWidget *m_unionidWidget;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

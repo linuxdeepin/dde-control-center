@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>-mockplus-</title>
+    <defs>
+        <polygon id="path-1" points="0 8.07238477 7.96893475 0.103450022 12.3567049 0.103450022 12.3567049 18.2452902"></polygon>
+    </defs>
+    <g id="6UID" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="帐号管理/dark" transform="translate(-1292.000000, -509.000000)">
+            <g id="UID备份-2" transform="translate(960.000000, 47.000000)">
+                <g id="自动同步配置备份-12" transform="translate(332.000000, 445.000000)">
+                    <g id="-mockplus-" transform="translate(0.000000, 17.000000)">
+                        <g id="icon/Dock/音量" transform="translate(3.000000, 4.000000)">
+                            <path d="M7.1298286,1.48723243 C7.61789127,1.48723243 8.01354423,1.88288539 8.01354423,2.37094806 L8.01354423,13.6288507 C8.01354423,14.1169134 7.61789127,14.5125663 7.1298286,14.5125663 L6.6936099,14.5125663 C6.40888299,14.5125663 6.13765694,14.3911935 5.94793922,14.178881 L3.008,10.8892324 L1,10.8895797 C0.44771525,10.8895797 6.76353751e-17,10.4418645 0,9.88957971 L0,6.38957971 C-6.76353751e-17,5.83729496 0.44771525,5.38957971 1,5.38957971 L3.011,5.38923243 L5.94618858,1.8491127 C6.13616906,1.61988764 6.41840654,1.48723243 6.71612572,1.48723243 L7.1298286,1.48723243 Z" id="形状结合" fill="#C5CFE0"></path>
+                            <g id="椭圆形-+-椭圆形-+-椭圆形-蒙版" transform="translate(8.000000, 0.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="蒙版"></g>
+                                <circle id="椭圆形" stroke="#C5CFE0" mask="url(#mask-2)" cx="0" cy="8" r="3.5"></circle>
+                                <circle id="椭圆形" stroke="#C5CFE0" mask="url(#mask-2)" cx="0" cy="8" r="6.5"></circle>
+                                <circle id="椭圆形" stroke="#C5CFE0" mask="url(#mask-2)" cx="0" cy="8" r="9.5"></circle>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

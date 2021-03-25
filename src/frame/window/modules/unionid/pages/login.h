@@ -23,21 +23,46 @@
 #include "interface/namespace.h"
 
 #include <QWidget>
+#include <QProcess>
+#include <DGuiApplicationHelper>
+
+using namespace Dtk;
+using namespace Gui;
 
 class QVBoxLayout;
+class QLabel;
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace unionid {
 class LoginPage : public QWidget
 {
     Q_OBJECT
 public:
     LoginPage(QWidget *parent = nullptr);
+    void setMainWindow(MainWindow *pMainWindow);
 
 Q_SIGNALS:
     void requestLoginUser() const;
+
+private Q_SLOT:
+    void licenceDialog();
+
+    void onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType);
+
+    void onSignInButtonClicked();
+
+    void onSignUpButtonClicked();
+
 private:
     QVBoxLayout *m_mainLayout;
+    MainWindow *m_pMainWindow;
+    QLabel *m_iconLabel;
+    QLabel *m_titleLabel;
+    QLabel *m_tipLabel;
+    QProcess *m_licenceProcess;
+    bool m_bIsLoginActived;
 };
+
 } // namespace sync
 } // namespace DCC_NAMESPACE

@@ -28,6 +28,8 @@ public:
     inline bool enableSync() const { return m_enableSync; }
     void setEnableSync(bool enableSync);
 
+    static std::list<std::pair<dcc::cloudsync::SyncType, QStringList>> moduleMap();
+
     inline QMap<dcc::cloudsync::SyncType, bool> moduleSyncState() const { return m_moduleSyncState; }
     inline bool getModuleStateByType(dcc::cloudsync::SyncType type) {
         return m_moduleSyncState[type];
@@ -35,10 +37,14 @@ public:
 
     void setModuleSyncState(dcc::cloudsync::SyncType type, bool state);
 
-    inline bool syncIsValid() const { return m_syncIsValid; }
+    inline bool syncIsValid() const { return /*m_syncIsValid*/true; }
     void setSyncIsValid(bool syncIsValid);
     QString userDisplayName() const;
     QString userEmail() const;
+
+    void setActivation(bool value);
+    inline bool getActivation() const { return m_activation; }
+
 
 Q_SIGNALS:
     void userInfoChanged(const QVariantMap &userInfo);
@@ -47,10 +53,12 @@ Q_SIGNALS:
     void enableSyncChanged(bool enableSync);
     void moduleSyncStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
     void syncIsValidChanged(bool syncIsValid);
+    void licenseStateChanged(bool activation);
 
 private:
     bool m_syncIsValid;
     bool m_enableSync;
+    bool m_activation;
     QMap<dcc::cloudsync::SyncType, bool> m_moduleSyncState;
     QVariantMap m_userinfo;
     std::pair<qint32, QString> m_syncState;

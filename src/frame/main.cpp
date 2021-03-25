@@ -26,6 +26,7 @@
 #include "dbuscontrolcenterservice.h"
 #include "window/mainwindow.h"
 #include "window/accessible.h"
+#include "window/modules/unionid/pages/authenticationwindow.h"
 
 #include <DApplication>
 #include <DDBusSender>
@@ -268,5 +269,7 @@ int main(int argc, char *argv[])
     .call();
 #endif
 
+//    AuthenticationWindow a;
+//    a.show();
     return app->exec();
 }

@@ -81,6 +81,21 @@ void UnionidModel::setEnableSync(bool enableSync)
     Q_EMIT enableSyncChanged(enableSync);
 }
 
+std::list<std::pair<dcc::cloudsync::SyncType, QStringList>> UnionidModel::moduleMap()
+{
+    return std::list<std::pair<dcc::cloudsync::SyncType, QStringList>>{
+        { dcc::cloudsync::Network, { "network" } },
+        { dcc::cloudsync::Sound, { "audio" } },
+        { dcc::cloudsync::Mouse, { "peripherals" } },
+        { dcc::cloudsync::Update, { "updater" } },
+        { dcc::cloudsync::Dock, { "dock" } },
+        { dcc::cloudsync::Launcher, { "launcher" } },
+        { dcc::cloudsync::Wallpaper, { "background", "screensaver" } },
+        { dcc::cloudsync::Theme, { "appearance" } },
+        { dcc::cloudsync::Power, { "power" } },
+    };
+}
+
 
 void UnionidModel::setModuleSyncState(dcc::cloudsync::SyncType type, bool state)
 {
@@ -111,4 +126,12 @@ QString UnionidModel::userEmail() const
 {
     QString email = m_userinfo["Email"].toString();
     return email;
+}
+
+void UnionidModel::setActivation(bool value)
+{
+    if (m_activation == value)
+        return;
+    m_activation = value;
+    Q_EMIT licenseStateChanged(value);
 }

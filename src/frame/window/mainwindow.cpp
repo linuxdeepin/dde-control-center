@@ -68,6 +68,7 @@
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
+using namespace DCC_NAMESPACE::unionid;
 DTK_USE_NAMESPACE
 #define GSETTINGS_HIDE_MODULE "hide-module"
 #define GSETTINGS_HIDE_VERSIONTYPR "hide-version-type-module"
@@ -334,9 +335,9 @@ void MainWindow::initAllModule(const QString &m)
     m_modules = {
         { new AccountsModule(this), tr("Accounts")},
         // 原union ID 暂时隐藏
-        // { new UnionidModule(this), "Union ID"},
+        { new UnionidModule(this),  tr("Union ID")},
         //~ contents_path /cloudsync/Cloud Sync
-        { new SyncModule(this), idType},
+//        { new SyncModule(this), idType},
         { new DisplayModule(this), tr("Display")},
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},
@@ -441,6 +442,17 @@ void MainWindow::updateWinsize()
     WidgetMinimumWidth = qMin(w, 820);
     WidgetMinimumHeight = qMin(h, 634);
     setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
+}
+
+void MainWindow::getAccessToken(const QString &code, const QString &state)
+{
+    for (auto i : m_modules) {
+        if (i.first->name() == tr("unionid")) {
+            UnionidModule *unionidModule = static_cast<UnionidModule *>(i.first);
+            unionidModule->getAccessToken(code,state);
+            break;
+        }
+    }
 }
 
 void MainWindow::updateModuleVisible()

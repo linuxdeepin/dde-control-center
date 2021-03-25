@@ -22,21 +22,28 @@ public:
 
     virtual void activate();
     virtual void deactivate();
-
+    void refreshSyncState();
+    void getLicenseState();
 
 public Q_SLOTS:
+    void signInUser();
     void loginUser();
     void logoutUser();
     void setAutoSync(bool autoSync);
     void requestAgreementPopup(const QString &fileName);
-    void  requestModifyDialog(QString dilogName);
+    void requestModifyDialog(QString dilogName);
+    void licenseStateChangeSlot();
+    void setSync(std::pair<dcc::cloudsync::SyncType, bool> state);
+
 private:
+    void onSyncModuleStateChanged(const QString& module, bool enable);
     void onStateChanged(const IntString& state);
 
 private:
     UnionidModel *m_model;
     SyncInter *m_syncInter;
     DeepinId *m_deepinId_inter;
+    QDBusInterface *m_activeInfo;
 };
 }
 }

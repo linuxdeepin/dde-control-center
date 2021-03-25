@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>电源/dark</title>
+    <g id="电源/dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="电源" transform="translate(4.000000, 4.000000)">
+            <circle id="椭圆形" fill="#C5CFE0" cx="8" cy="8" r="8"></circle>
+            <path d="M4.39008609,4.39697442 C3.29109335,5.34178255 2.6,6.71155096 2.6,8.23560002 C2.6,11.0861484 5.01766235,13.3969744 8,13.3969744 C10.9823376,13.3969744 13.4,11.0861484 13.4,8.23560002 C13.4,6.76672988 12.7580435,5.44117101 11.7276651,4.50125441" id="路径" stroke-opacity="0.9" stroke="#141414" stroke-linecap="round"></path>
+            <line x1="8" y1="3" x2="8" y2="7" id="路径-5" stroke-opacity="0.9" stroke="#141414" stroke-linecap="round"></line>
+        </g>
+    </g>
+</svg>

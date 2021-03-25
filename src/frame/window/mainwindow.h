@@ -100,6 +100,7 @@ public:
     void initAllModule(const QString &m = "");
     inline QStack<QPair<ModuleInterface *, QWidget *>> getcontentStack() {return m_contentStack;}
     void updateWinsize();
+    void getAccessToken(const QString &code, const QString &state);
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);

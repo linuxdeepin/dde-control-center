@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="62px" height="62px" viewBox="0 0 62 62" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>刷新icon</title>
+    <defs>
+        <circle id="path-1" cx="21.8181818" cy="21.8181818" r="21.8181818"></circle>
+        <filter x="-33.2%" y="-28.6%" width="166.5%" height="166.5%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.3 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.7关于本机激活/light" transform="translate(-690.000000, -523.000000)">
+            <g id="-mockplus-" transform="translate(489.000000, 304.000000)">
+                <g id="-mockplus-" transform="translate(152.000000, 168.000000)">
+                    <g id="刷新icon" transform="translate(58.181818, 58.181818)">
+                        <g id="椭圆形">
+                            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        </g>
+                        <g id="icon/磁盘管理/导航栏/常态-桌面备份-3" transform="translate(10.909091, 10.000000)">
+                            <path d="M16.9492535,3.84777453 C15.2711055,2.57406005 13.1783706,1.81818182 10.9090909,1.81818182 C5.38624341,1.81818182 0.909090909,6.29533432 0.909090909,11.8181818 C0.909090909,17.3410293 5.38624341,21.8181818 10.9090909,21.8181818 C16.4319384,21.8181818 20.9090909,17.3410293 20.9090909,11.8181818" id="路径" stroke="#0080FF" stroke-width="1.81818182" stroke-linecap="round"></path>
+                            <path d="M19.7137248,2.11328626 L20.2937727,6.3847363 C20.3613329,6.88224708 20.0127891,7.34032763 19.5152783,7.40788785 C19.4340985,7.41891179 19.351801,7.41891179 19.2706212,7.40788785 L14.9991711,6.82783996 C14.5016603,6.76027975 14.1531165,6.3021992 14.2206767,5.80468842 C14.2474349,5.60764203 14.3380637,5.42480432 14.4786754,5.28419266 L18.1700775,1.5927905 C18.5250996,1.23776841 19.1007041,1.23776841 19.4557262,1.5927905 C19.5963379,1.73340216 19.6869666,1.91623988 19.7137248,2.11328626 Z" id="矩形" fill="#0080FF"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

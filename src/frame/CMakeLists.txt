@@ -477,19 +477,30 @@ set(SYNC_FILES
 set(UNIONID_FILES
      modules/unionid/unionidmodel.cpp
    modules/unionid/unionidworker.cpp
+   modules/unionid/requestservice.cpp
+   modules/unionid/shttpsocket.cpp
 
-    window/modules/unionid/unionidmodule.h
-    window/modules/unionid/unionidmodule.cpp
-    window/modules/unionid/unionidwidget.h
-    window/modules/unionid/unionidwidget.cpp
-    window/modules/unionid/pages/index.h
-    window/modules/unionid/pages/index.cpp
-    window/modules/unionid/pages/login.h
-    window/modules/unionid/pages/login.cpp
-    window/modules/unionid/pages/logout.cpp
-    window/modules/unionid/pages/downloadurl.cpp
-    window/modules/unionid/pages/avatarwidget.cpp
-    window/modules/unionid/pages/loginedin.cpp
+   window/modules/unionid/unionidmodule.h
+   window/modules/unionid/unionidmodule.cpp
+   window/modules/unionid/unionidwidget.h
+   window/modules/unionid/unionidwidget.cpp
+   window/modules/unionid/pages/index.h
+   window/modules/unionid/pages/index.cpp
+   window/modules/unionid/pages/login.h
+   window/modules/unionid/pages/login.cpp
+   window/modules/unionid/pages/logout.cpp
+   window/modules/unionid/pages/downloadurl.cpp
+   window/modules/unionid/pages/avatarwidget.cpp
+   window/modules/unionid/pages/loginedin.cpp
+   window/modules/unionid/pages/custombutton.h
+   window/modules/unionid/pages/custombutton.cpp
+   window/modules/unionid/pages/newstyle.cpp
+   window/modules/unionid/pages/syncitemwidget.cpp
+   window/modules/unionid/pages/bindwechatwindow.cpp
+   window/modules/unionid/pages/QrCode.cpp
+   window/modules/unionid/pages/uqrwidget.cpp
+   window/modules/unionid/pages/authenticationwindow.cpp
+   window/modules/unionid/define.h
 )
 # load systeminfo
 set(SYSTEMINFO_FILES
@@ -588,6 +599,7 @@ set(QRC
         modules/keyboard/keyboard.qrc
         modules/mouse/mouse.qrc
         modules/sync/sync.qrc
+        modules/unionid/unionid.qrc
         window/search/translator/languages.qrc
         window/icons/dde-control-center-icons.qrc
         window/modules/datetime/datetime.qrc

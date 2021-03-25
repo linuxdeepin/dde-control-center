@@ -25,9 +25,13 @@
 #include <QProcess>
 #include <QDBusConnection>
 #include <QDesktopServices>
+#include <QtConcurrent>
+#include <DSysInfo>
 
+DCORE_USE_NAMESPACE
 using namespace dcc;
 using namespace dcc::unionid;
+using namespace dcc::cloudsync;
 
 static QString SYNC_INTERFACE = "com.deepin.sync.Daemon";
 const QString UeProgramInterface("com.deepin.userexperience.Daemon");
@@ -41,11 +45,29 @@ UnionidWorker::UnionidWorker(UnionidModel *model, QObject *parent)
     m_syncInter->setSync(false, false);
     m_deepinId_inter->setSync(false, false);
 
+    QDBusConnection::sessionBus().connect("com.deepin.sync.Daemon",
+                                          "/com/deepin/sync/Daemon",
+                                          "org.freedesktop.DBus.Properties",
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this, SLOT(userInfoChanged(QDBusMessage)));
+
+    m_activeInfo = new QDBusInterface("com.deepin.license",
+                                      "/com/deepin/license/Info",
+                                      "com.deepin.license.Info",
+                                      QDBusConnection::systemBus(),this);
+
+    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &UnionidModel::setUserinfo, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::StateChanged, this, &UnionidWorker::onStateChanged, Qt::QueuedConnection);
+    connect(m_syncInter, &SyncInter::SwitcherChange, this, &UnionidWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
 
     auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
     m_model->setSyncIsValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
+
+    licenseStateChangeSlot();
+
+    m_model->setUserinfo(m_deepinId_inter->userInfo());
 }
 
 void UnionidWorker::activate()
@@ -55,6 +77,7 @@ void UnionidWorker::activate()
 
     m_model->setUserinfo(m_deepinId_inter->userInfo());
     onStateChanged(m_syncInter->state());
+    refreshSyncState();
 }
 
 void UnionidWorker::deactivate()
@@ -63,6 +86,42 @@ void UnionidWorker::deactivate()
     m_deepinId_inter->blockSignals(true);
 }
 
+void UnionidWorker::refreshSyncState()
+{
+    QFutureWatcher<QJsonObject> *watcher = new QFutureWatcher<QJsonObject>(this);
+    connect(watcher, &QFutureWatcher<QJsonObject>::finished, this, [=] {
+        watcher->deleteLater();
+        QJsonObject obj = std::move(watcher->result());
+
+        if (obj.isEmpty()) {
+            qDebug() << "Sync Info is Wrong!";
+            return;
+        }
+
+        m_model->setEnableSync(obj["enabled"].toBool());
+
+        const std::list<std::pair<SyncType, QStringList>> moduleMap{
+            m_model->moduleMap()
+        };
+
+        for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it) {
+            m_model->setModuleSyncState(it->first, obj[it->second.first()].toBool());
+        }
+    });
+
+    QFuture<QJsonObject> future = QtConcurrent::run([=]() -> QJsonObject {
+        QDBusPendingReply<QString> reply = m_syncInter->SwitcherDump();
+        reply.waitForFinished();
+        return QJsonDocument::fromJson(reply.value().toUtf8()).object();
+    });
+
+    watcher->setFuture(future);
+}
+
+void UnionidWorker::signInUser()
+{
+    //m_deepinId_inter->SignIn();
+}
 
 void UnionidWorker::loginUser()
 {
@@ -77,6 +136,21 @@ void UnionidWorker::logoutUser()
 void UnionidWorker::setAutoSync(bool autoSync)
 {
     m_syncInter->SwitcherSet("enabled", autoSync);
+}
+
+void UnionidWorker::onSyncModuleStateChanged(const QString &module, bool enable)
+{
+    if (module == "enabled") {
+        return m_model->setEnableSync(enable);
+    }
+
+    const std::list<std::pair<dcc::cloudsync::SyncType, QStringList>> list = m_model->moduleMap();
+    for (auto it = list.cbegin(); it != list.cend(); ++it) {
+        if (it->second.contains(module)) {
+            m_model->setModuleSyncState(it->first, enable);
+            break;
+        }
+    }
 }
 
 void UnionidWorker::requestAgreementPopup(const QString &fileName)
@@ -115,4 +189,50 @@ void UnionidWorker::onStateChanged(const IntString &state)
     }
 }
 
+void UnionidWorker::licenseStateChangeSlot()
+{
+    QFutureWatcher<void> *watcher = new QFutureWatcher<void>(this);
+    connect(watcher, &QFutureWatcher<void>::finished, watcher,
+            &QFutureWatcher<void>::deleteLater);
+
+    QFuture<void> future = QtConcurrent::run(this, &UnionidWorker::getLicenseState);
+    watcher->setFuture(future);
+}
+
+void UnionidWorker::setSync(std::pair<dcc::cloudsync::SyncType, bool> state)
+{
+
+    // TODO(justforlxz): Maybe will add screensaver in the future
+    // you don't need a multimap.
+    const std::list<std::pair<dcc::cloudsync::SyncType, QStringList>> map { m_model->moduleMap() };
+    for (auto it = map.cbegin(); it != map.cend(); ++it) {
+        if (it->first == state.first) {
+            for (const QString &value : it->second) {
+                m_syncInter->SwitcherSet(value, state.second);
+            }
+        }
+    }
+}
+
+void UnionidWorker::getLicenseState()
+{
+    if (DSysInfo::DeepinDesktop == DSysInfo::deepinType()) {
+        m_model->setActivation(true);
+        return;
+    }
+
+    QDBusInterface licenseInfo("com.deepin.license",
+                               "/com/deepin/license/Info",
+                               "com.deepin.license.Info",
+                               QDBusConnection::systemBus());
+
+    if (!licenseInfo.isValid()) {
+        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        return;
+    }
+
+    quint32 reply = licenseInfo.property("AuthorizationState").toUInt();
+    qDebug() << "authorize result:" << reply;
+    m_model->setActivation(reply == 1 || reply == 3);
+}
 

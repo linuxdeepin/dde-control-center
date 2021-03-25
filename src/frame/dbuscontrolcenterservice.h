@@ -92,6 +92,8 @@ public Q_SLOTS: // METHODS
     void ToggleInLeft();
     bool isNetworkCanShowPassword();
     bool isModuleAvailable(const QString &m);
+    void OnAuthorized(const QString &code, const QString &state);
+    void OnCancel();
 
 Q_SIGNALS: // SIGNALS
     void rectChanged(const QRect &rect);

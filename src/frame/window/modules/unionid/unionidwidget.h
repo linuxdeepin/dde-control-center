@@ -23,12 +23,15 @@
 
 #include "interface/namespace.h"
 #include "modules/modulewidget.h"
+#include "modules/sync/utils.h"
 #include <QWidget>
 
 QT_BEGIN_NAMESPACE
 class QStackedLayout;
 class QLabel;
 QT_END_NAMESPACE
+
+using namespace dcc::cloudsync;
 
 namespace dcc {
 namespace unionid {
@@ -37,6 +40,7 @@ class UnionidModel;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace unionid {
 class LoginPage;
 class IndexPage;
@@ -46,14 +50,22 @@ class UnionidWidget : public QWidget
     Q_OBJECT
 public:
    explicit UnionidWidget(QWidget *parent = nullptr);
-    void setModel(dcc::unionid::UnionidModel *model);
+    void setModel(dcc::unionid::UnionidModel *model, MainWindow *pMainWindow);
+    void getAccessToken(const QString &code, const QString &state);
+
+public Q_SLOTS:
+    void onGetAccessToken();
+    void onRequestLogout();
 
 Q_SIGNALS:
+    void requestSignInUser() const;
     void requestLoginUser() const;
     void requestLogoutUser() const;
     void requestSetAutoSync(bool enable) const;
     void requestPopupDialog(QString) const;
     void requesUserDialog(QString) const;
+    void requestSetModuleState(std::pair<SyncType, bool> state) const;
+
 private:
     void onUserInfoChanged(const QVariantMap &userInfo);
 

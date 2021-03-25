@@ -1,10 +1,36 @@
 <RCC>
-    <qresource prefix="/cloudsync">
-        <file>themes/dark/cloud.svg</file>
-        <file>themes/dark/icons/nav_cloudsync_normal.svg</file>
-        <file>themes/dark/icons/nav_cloudsync.svg</file>
-        <file>themes/dark/sync_ok.svg</file>
-        <file>themes/dark/syncing.svg</file>
-        <file>themes/dark/dark.qss</file>
+    <qresource prefix="/">
+        <file>themes/dark/icons/right_normal_24px.svg</file>
+        <file>themes/dark/icons/right_hover_24px.svg</file>
+        <file>themes/dark/icons/left_nomal_24px.svg</file>
+        <file>themes/dark/icons/background.png</file>
+        <file>themes/light/icons/background.png</file>
+        <file>themes/light/icons/sync_dock_light_24px.svg</file>
+        <file>themes/light/icons/sync_mouse_light_24px.svg</file>
+        <file>themes/light/icons/sync_launcher_light_24px.svg</file>
+        <file>themes/light/icons/sync_net_light_24px.svg</file>
+        <file>themes/light/icons/sync_power_light_24px.svg</file>
+        <file>themes/light/icons/sync_theme_light_24px.svg</file>
+        <file>themes/light/icons/sync_sound_light_24px.svg</file>
+        <file>themes/light/icons/sync_update_light_24px.svg</file>
+        <file>themes/light/icons/sync_wallpaper_light_24px.svg</file>
+        <file>themes/dark/icons/sync_mouse_dark_24px.svg</file>
+        <file>themes/dark/icons/sync_net_dark_24px.svg</file>
+        <file>themes/dark/icons/sync_sound_dark_24px.svg</file>
+        <file>themes/dark/icons/sync_theme_dark_24px.svg</file>
+        <file>themes/dark/icons/sync_update_dark_24px.svg</file>
+        <file>themes/dark/icons/sync_wallpaper_dark_24px.svg</file>
+        <file>themes/dark/icons/sync_dock_dark_24px.svg</file>
+        <file>themes/dark/icons/sync_launcher_dark_24px.svg</file>
+        <file>themes/dark/icons/sync_power_dark_24px.svg</file>
+        <file>themes/dark/icons/checkbox_checked.svg</file>
+        <file>themes/dark/icons/checkbox_disable.svg</file>
+        <file>themes/dark/icons/checkbox_hover.svg</file>
+        <file>themes/dark/icons/checkbox_normal.svg</file>
+        <file>themes/light/icons/checkbox_checked.svg</file>
+        <file>themes/light/icons/checkbox_disable.svg</file>
+        <file>themes/light/icons/checkbox_hover.svg</file>
+        <file>themes/light/icons/checkbox_normal.svg</file>
+        <file>themes/light/icons/qrcode_refresh_24px.svg</file>
     </qresource>
 </RCC>

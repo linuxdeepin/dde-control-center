@@ -189,3 +189,16 @@ bool DBusControlCenterService::isModuleAvailable(const QString &m)
     return parent()->isModuleAvailable(m);
 }
 
+void DBusControlCenterService::OnAuthorized(const QString &code, const QString &state)
+{
+    qInfo() << "OnAuthorized" << code << state;
+    parent()->getAccessToken(code,state);
+//    QNetworkReply *reply = RequestService::instance()->getAccessToken(CLIENT_ID,code,state);
+//    connect(reply,&QNetworkReply::finished,activationwindow::instance(),&activationwindow::onGetAccessToken);
+}
+
+void DBusControlCenterService::OnCancel()
+{
+    qInfo() << "OnCancel";
+}
+

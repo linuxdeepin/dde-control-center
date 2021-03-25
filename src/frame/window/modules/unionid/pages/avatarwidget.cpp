@@ -3,7 +3,7 @@
  *
  * Author:     liuxueming <liuxueming@uniontech.com>
  *
- * Maintainer: liuxueming <liuxueming@uniontech.com>
+ * Maintainer: liumaochuan <liumaochuan@uniontech.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -66,6 +66,7 @@ void AvatarWidget::setAvatarPath(const QString &avatar)
 
 void AvatarWidget::paintEvent(QPaintEvent *e)
 {
+    //NOTE [HOME]
     Q_UNUSED(e)
     QRect r = rect();
     QPainterPath painterPath;

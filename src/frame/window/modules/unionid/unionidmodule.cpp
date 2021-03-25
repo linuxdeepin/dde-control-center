@@ -23,7 +23,6 @@
 #include "unionidmodule.h"
 #include "../../../modules/unionid/unionidworker.h"
 #include "../../../modules/unionid/unionidmodel.h"
-#include "unionidwidget.h"
 #include "window/utils.h"
 #include "window/mainwindow.h"
 
@@ -59,18 +58,22 @@ void UnionidModule::contentPopped(QWidget *const w)
 
 void UnionidModule::active()
 {
-    UnionidWidget *widget = new UnionidWidget;
-    widget->setVisible(false);
-    connect(widget, &UnionidWidget::requestLoginUser, m_worker, &dcc::unionid::UnionidWorker::loginUser, Qt::UniqueConnection);
-    connect(widget, &UnionidWidget::requestSetAutoSync, m_worker, &dcc::unionid::UnionidWorker::setAutoSync, Qt::UniqueConnection);
-    connect(widget, &UnionidWidget::requestLogoutUser, m_worker, &dcc::unionid::UnionidWorker::logoutUser, Qt::QueuedConnection);
-    connect(widget, &UnionidWidget::requesUserDialog, m_worker, &dcc::unionid::UnionidWorker::requestModifyDialog, Qt::UniqueConnection);
-    connect(widget, &UnionidWidget::requestPopupDialog, this, &UnionidModule::onShowPopup, Qt::UniqueConnection);
-    widget->setModel(m_model);
-    m_worker->activate(); //refresh data
+    m_unionidWidget = new UnionidWidget;
+    m_unionidWidget->setVisible(false);
+    connect(m_unionidWidget, &UnionidWidget::requestSignInUser, m_worker, &dcc::unionid::UnionidWorker::signInUser, Qt::UniqueConnection);
+    connect(m_unionidWidget, &UnionidWidget::requestLoginUser, m_worker, &dcc::unionid::UnionidWorker::loginUser, Qt::UniqueConnection);
+    connect(m_unionidWidget, &UnionidWidget::requestSetAutoSync, m_worker, &dcc::unionid::UnionidWorker::setAutoSync, Qt::UniqueConnection);
+    connect(m_unionidWidget, &UnionidWidget::requestLogoutUser, m_worker, &dcc::unionid::UnionidWorker::logoutUser, Qt::QueuedConnection);
+    connect(m_unionidWidget, &UnionidWidget::requesUserDialog, m_worker, &dcc::unionid::UnionidWorker::requestModifyDialog, Qt::UniqueConnection);
+    connect(m_unionidWidget, &UnionidWidget::requestSetModuleState, m_worker, &dcc::unionid::UnionidWorker::setSync, Qt::UniqueConnection);
+//    connect(widget, &UnionidWidget::requestPopupDialog, this, &UnionidModule::onShowPopup, Qt::UniqueConnection);
+    MainWindow *pMainWindow = static_cast<MainWindow *>(m_frameProxy);
+    m_unionidWidget->setModel(m_model,pMainWindow);
 
-    m_frameProxy->pushWidget(this, widget);
-    widget->setVisible(true);
+    m_frameProxy->pushWidget(this, m_unionidWidget);
+    m_unionidWidget->setVisible(true);
+
+    m_worker->activate(); //refresh data
 }
 
 void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
@@ -79,8 +82,8 @@ void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     Q_UNUSED(pushtype);
     m_model = new dcc::unionid::UnionidModel;
     m_worker = new dcc::unionid::UnionidWorker(m_model);
-
-    m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !IsServerSystem && false);
+    qInfo() << " IsServerSystem" << IsServerSystem << m_model->syncIsValid();
+    m_frameProxy->setModuleVisible(this, /*m_model->syncIsValid() && !IsServerSystem && false*/true);
 }
 
 QStringList UnionidModule::availPage() const
@@ -88,6 +91,11 @@ QStringList UnionidModule::availPage() const
     QStringList sl;
     sl << "unionid " << "Unionid Sign In";
     return sl;
+}
+
+void UnionidModule::getAccessToken(const QString &code, const QString &state)
+{
+    m_unionidWidget->getAccessToken(code,state);
 }
 
 void UnionidModule::onShowPopup(QString fileName)

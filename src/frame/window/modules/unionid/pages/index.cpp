@@ -21,17 +21,27 @@
 
 #include "index.h"
 #include "modules/unionid/unionidmodel.h"
-
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
 #include "avatarwidget.h"
 #include "downloadurl.h"
 #include "window/utils.h"
+#include "newstyle.h"
+#include "syncitemwidget.h"
+#include "../define.h"
+#include "modules/unionid/requestservice.h"
+#include "authenticationwindow.h"
 
+#include <DWarningButton>
 #include <DListView>
+#include <DTipLabel>
+#include <DCommandLinkButton>
 
+#include <QJsonObject>
+#include <QJsonParseError>
 #include <QScrollArea>
 #include <QScrollBar>
+#include <QScroller>
 #include <QLabel>
 #include <QStandardItemModel>
 #include <QVBoxLayout>
@@ -39,13 +49,14 @@
 #include <QDateTime>
 #include <QMap>
 #include <QDir>
-
-DWIDGET_USE_NAMESPACE
+#include <QSplitter>
+#include <QDesktopServices>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
 using namespace dcc::widgets;
 using namespace dcc::unionid;
+using namespace dcc::cloudsync;
 
 namespace DCC_NAMESPACE {
 namespace unionid {
@@ -53,74 +64,457 @@ namespace unionid {
 IndexPage::IndexPage(QWidget *parent)
     : LoginedIn(parent)
     , m_mainLayout(new QVBoxLayout)
+    , m_listView(new DListView)
     , m_listModel(new QStandardItemModel(this))
 {
-    m_mainLayout->setMargin(0);
-    m_mainLayout->setSpacing(0);
-    m_mainLayout->addSpacing(100);
-    m_mainLayout->addWidget(m_avatar, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(20);
-    QHBoxLayout *shortnameLayout = new QHBoxLayout;
-    shortnameLayout->setMargin(0);
-    shortnameLayout->setAlignment(Qt::AlignHCenter);
-    QLabel *inconLabel = new QLabel(this);
-    inconLabel->setPixmap(QIcon::fromTheme("dcc_avatar").pixmap(12, 12));
+    m_userAvatar = new AvatarWidget;
+    m_userAvatar->setAvatarPath(":/themes/dark/icons/desktop.jpg");
+    m_userAvatar->setFixedSize(80, 80);
 
-    shortnameLayout->addWidget(inconLabel);
-    shortnameLayout->addSpacing(3);
-    shortnameLayout->addWidget(m_username);
-    QFont font;
-    font.setBold(true);
-    m_username->setFont(font);
-    auto nameWidget = new QWidget();
-    nameWidget->setLayout(shortnameLayout);
-    m_mainLayout->addWidget(nameWidget, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(10);
-    m_mainLayout->addWidget(m_email, 0, Qt::AlignHCenter);
-    m_mainLayout->addSpacing(15);
+    m_nameLabel = new QLabel;
+    QPalette nameLabelPa = m_nameLabel->palette();
+    nameLabelPa.setColor(QPalette::Text,textTitleLightColor);
+    m_nameLabel->setPalette(nameLabelPa);
+    m_nameLabel->setText("name");
+    m_nameLabel->setContentsMargins(8,0,0,4);
 
-    QLabel *passwdlabel = new QLabel();
-    passwdlabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"modifypass\">%1</a>").arg(tr("Modify Password")));
-    passwdlabel->setAccessibleName("MODIFY_PASSWORD");
-    connect(passwdlabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
-    QLabel *photolabel = new QLabel();
-    photolabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"modifyOic\">%1</a>").arg(tr("Change Avatar")));
-    photolabel->setAccessibleName("CHANGE_AVATAR");
-    connect(photolabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
-    QLabel *userlabel = new QLabel();
-    userlabel->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"UserCenter\">%1</a>").arg(tr("User Center")));
-    userlabel->setAccessibleName("USER_CENTER");
-    connect(userlabel, &QLabel::linkActivated, this, &IndexPage::requesUserDialog);
-    m_logout = new QLabel();
-    m_logout->setText(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"UserCenter\">%1</a>").arg(tr("Sign Out")));
-    m_logout->setAccessibleName("SIGN_OUT");
-    connect(m_logout, &QLabel::linkActivated, this, &IndexPage::requestLogout);
-    auto modifyWidget = new QWidget();
-    QHBoxLayout *modifyLayout = new QHBoxLayout;
-    modifyLayout->setSpacing(10);
-    modifyLayout->setMargin(0);
-    modifyLayout->addWidget(passwdlabel, 0, Qt::AlignHCenter);
-    modifyLayout->addWidget(new QLabel("|"), 0, Qt::AlignHCenter);
-    modifyLayout->addWidget(photolabel, 0, Qt::AlignHCenter);
-    modifyLayout->addWidget(new QLabel("|"), 0, Qt::AlignHCenter);
-    modifyLayout->addWidget(userlabel, 0, Qt::AlignHCenter);
-    modifyLayout->addSpacing(30);
-    modifyLayout->addWidget(new QLabel("|"), 0, Qt::AlignHCenter);
-    modifyLayout->addWidget(m_logout, 0, Qt::AlignHCenter);
-    modifyLayout->setSizeConstraint(QLayout::SetMinimumSize);
-    modifyWidget->setLayout(modifyLayout);
+    m_uidLabel = new QLabel;
+    QPalette uidLabelPa = m_uidLabel->palette();
+    uidLabelPa.setColor(QPalette::Text,textTipLightColor);
+    m_uidLabel->setPalette(uidLabelPa);
+    m_uidLabel->setText("UID: uid_sdk457896");
+    m_uidLabel->setContentsMargins(0,0,0,24);
 
-    m_mainLayout->addWidget(modifyWidget, 0, Qt::AlignHCenter);
-    m_mainLayout->addStretch(0);
+    QPushButton *modifyInfoButton = new QPushButton(tr("Modify information"));
+    newStyle *modifyInfoStyle = new newStyle(newStyle::TextRim);
+    modifyInfoStyle->setTextColor(textTitleLightColor);
+    modifyInfoStyle->setBorderColor(buttonNormalBorderLightColor,buttonHoverBorderLightColor,buttonPressBorderLightColor);
+    modifyInfoButton->setStyle(modifyInfoStyle);
+
+    m_wxlabel = new QLabel;
+    m_wxlabel->setText(tr("bondWX"));
+    m_wxlabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+
+    m_wxNameLabel = new QLabel;
+    QPalette pa = m_wxNameLabel->palette();
+    pa.setColor(QPalette::Text,textTipLightColor);
+    m_wxNameLabel->setPalette(pa);
+
+    m_modButton = new DCommandLinkButton(tr("Change"));
+    connect(m_modButton,&DCommandLinkButton::clicked,this,&IndexPage::onModButtonClicked);
+
+    QHBoxLayout *bondWXHlayout = new QHBoxLayout;
+    bondWXHlayout->addWidget(m_wxlabel);
+    bondWXHlayout->addWidget(m_wxNameLabel);
+    bondWXHlayout->addStretch();
+    bondWXHlayout->addWidget(m_modButton);
+    bondWXHlayout->setContentsMargins(0,0,0,0);
+
+    QFrame *line1 = new QFrame;
+    line1->setFrameShape(QFrame::HLine);
+    line1->setMinimumSize(QSize(400,1));
+    line1->setContentsMargins(0,0,0,0);
+
+//    QSplitter * line1 = new QSplitter(Qt::Horizontal);
+//    line1->setMinimumSize(QSize(400,1));
+//    line1->setContentsMargins(0,0,0,0);
+//    line1->setHandleWidth(1);
+//    line1->setFixedWidth(1);
+//    QPalette line1pa = line1->palette();
+//    line1pa.setColor(QPalette::Base,lineLightColor);
+//    line1->setPalette(line1pa);
+//    newStyle *line1Style = new newStyle;
+//    line1Style->setLineColor(lineLightColor);
+//    line1->setStyle(line1Style);
+
+    QVBoxLayout *bondWXVlayout = new QVBoxLayout;
+    bondWXVlayout->addLayout(bondWXHlayout);
+    bondWXVlayout->addWidget(line1);
+    bondWXVlayout->setContentsMargins(0,0,0,0);
+
+    QWidget *bondWXWidget = new QWidget;
+    bondWXWidget->setLayout(bondWXVlayout);
+    bondWXWidget->setMinimumSize(QSize(400,56));
+    bondWXWidget->setContentsMargins(0,0,0,0);
+
+    QFrame *line2 = new QFrame;
+    line2->setFrameShape(QFrame::HLine);
+    line2->setMinimumSize(QSize(400,1));
+    line2->setContentsMargins(0,0,0,0);
+    QPalette line2Pa = line2->palette();
+    line2Pa.setColor(QPalette::Light, Qt::green);
+    line2->setPalette(line2Pa);
+
+    m_autoSync = new QLabel;
+    m_autoSync->setText(tr("autoSync"));
+    m_autoSync->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    m_autoSyncSwitch = new DSwitchButton;
+
+    QHBoxLayout *autoSyncHlayout = new QHBoxLayout;
+    autoSyncHlayout->addWidget(m_autoSync);
+    autoSyncHlayout->addStretch();
+    autoSyncHlayout->addWidget(m_autoSyncSwitch);
+    autoSyncHlayout->setContentsMargins(0,0,0,0);
+
+    QVBoxLayout *autoSyncVlayout = new QVBoxLayout;
+    autoSyncVlayout->addLayout(autoSyncHlayout);
+    autoSyncVlayout->addWidget(line2);
+    autoSyncVlayout->setContentsMargins(0,0,0,0);
+
+    QWidget *autoSyncWidget = new QWidget;
+    autoSyncWidget->setContentsMargins(0,0,0,0);
+    autoSyncWidget->setMinimumSize(QSize(400,56));
+    autoSyncWidget->setLayout(autoSyncVlayout);
+
+    QPushButton *quitButton = new  QPushButton(tr("loginout >"));
+    newStyle *quitStyle = new newStyle(newStyle::Text);
+    quitStyle->setTextColor(textTipLightColor,textTitleLightColor,textTipLightColor);
+    quitButton->setStyle(quitStyle);
+
+    QHBoxLayout *loginOutHlayout = new QHBoxLayout;
+    loginOutHlayout->addStretch();
+    loginOutHlayout->addWidget(quitButton);
+    loginOutHlayout->setContentsMargins(0,0,0,0);
+
+    QWidget *loginOutWidget = new QWidget;
+    loginOutWidget->setContentsMargins(0,0,0,0);
+    loginOutWidget->setMinimumSize(QSize(410,28));
+    loginOutWidget->setLayout(loginOutHlayout);
+
+    m_syncLayout = new QVBoxLayout;
+    m_syncLayout->setContentsMargins(0,0,0,0);
+
+    m_syncWidget = new QWidget;
+    m_syncWidget->setContentsMargins(0,0,0,0);
+    m_syncWidget->setLayout(m_syncLayout);
+
+    QVBoxLayout *areaLayout = new QVBoxLayout;
+    areaLayout->setContentsMargins(0,24,0,43);
+    areaLayout->addWidget(m_userAvatar,0, Qt::AlignHCenter);
+    areaLayout->addWidget(m_nameLabel,0, Qt::AlignHCenter);
+    areaLayout->addWidget(m_uidLabel,0, Qt::AlignHCenter);
+    areaLayout->addWidget(modifyInfoButton,0, Qt::AlignHCenter);
+    areaLayout->addWidget(bondWXWidget, 0, Qt::AlignHCenter);
+    areaLayout->addWidget(autoSyncWidget, 0, Qt::AlignHCenter);
+    areaLayout->addWidget(m_syncWidget, 0, Qt::AlignHCenter);
+    areaLayout->addWidget(loginOutWidget, 0, Qt::AlignHCenter);
+    areaLayout->addStretch();
+
+    QWidget *areaWidget = new QWidget;
+    areaWidget->setLayout(areaLayout);
+    areaWidget->setContentsMargins(0, 0, 0, 0);
+
+    QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setFrameStyle(QFrame::NoFrame);
+    scrollArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
+    scrollArea->setContentsMargins(0, 0, 0, 0);
+//    scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);//暂时没效果,最好还是加上
+    scrollArea->setWidget(areaWidget);
+
+    DFontSizeManager::instance()->bind(m_nameLabel, DFontSizeManager::T6,QFont::Bold);
+    DFontSizeManager::instance()->bind(m_uidLabel, DFontSizeManager::T7,QFont::Normal);
+    DFontSizeManager::instance()->bind(modifyInfoButton, DFontSizeManager::T7,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_wxlabel, DFontSizeManager::T6,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_wxNameLabel, DFontSizeManager::T6,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_modButton, DFontSizeManager::T6,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_autoSync, DFontSizeManager::T6,QFont::Normal);
+    DFontSizeManager::instance()->bind(quitButton, DFontSizeManager::T7,QFont::Normal);
+
+    connect(m_autoSyncSwitch, &DSwitchButton::checkedChanged, this, &IndexPage::onSwitchButtoncheckedChanged);
+    connect(modifyInfoButton, &QPushButton::clicked, this, &IndexPage::onModifyInfo);
+//    connect(quitButton, &QPushButton::clicked, this, &IndexPage::requestLogout);
+    connect(quitButton, &QPushButton::clicked, this, &IndexPage::requestLogout);
+
+    m_mainLayout->addWidget(scrollArea);
+    m_mainLayout->setContentsMargins(135,24,135,42);
     setLayout(m_mainLayout);
+
+    onThemeTypeChanged(DGuiApplicationHelper::instance()->themeType());
+
+    connect(DGuiApplicationHelper::instance(),&DGuiApplicationHelper::themeTypeChanged,this,&IndexPage::onThemeTypeChanged);
 }
 
-void IndexPage::setModel(dcc::unionid::UnionidModel *model)
+void IndexPage::setModel(UnionidModel *model)
 {
     LoginedIn::setModel(model);
-    connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
+//    m_lab->setVisible(!model->getActivation());
+
+    connect(model, &UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
+    connect(model, &UnionidModel::enableSyncChanged, this, &IndexPage::onChecked);
+//    connect(model, &UnionidModel::enableSyncChanged, m_listView, &QListView::setVisible);
+//    connect(model, &UnionidModel::enableSyncChanged, m_networkTip, &QLabel::setVisible);
+    connect(model, &UnionidModel::syncStateChanged, this, &IndexPage::onStateChanged);
+    connect(model, &UnionidModel::moduleSyncStateChanged, this, &IndexPage::onModuleStateChanged);
+    connect(model, &UnionidModel::licenseStateChanged, this, [ = ] (const bool &value) {
+       m_autoSyncSwitch->setEnabled(value);
+        if (m_autoSyncSwitch->isChecked()&& !value) {
+            m_autoSyncSwitch->setChecked(false);
+            Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->isChecked());
+        }
+        m_lab->setVisible(!value);
+    });
+
+    QMap<SyncType, QPair<QString, QString>> moduleTs{
+        { SyncType::Network, {("sync_net"), tr("Network Settings") }},
+        { SyncType::Sound, {("sync_sound"), tr("Sound Settings") }},
+        { SyncType::Mouse, {("sync_mouse"), tr("Mouse Settings") }},
+        { SyncType::Update, {("sync_update"), tr("Update Settings") }},
+        { SyncType::Dock, {("sync_dock"), tr("Dock") }},
+        { SyncType::Launcher, {("sync_launcher"), tr("Launcher") }},
+        { SyncType::Wallpaper, {("sync_wallpaper"), tr("Wallpaper") }},
+        { SyncType::Theme, {("sync_theme"), tr("Theme") }},
+        { SyncType::Power, {("sync_power"), tr("Power Settings") }},
+    };
+
+    m_listModel->clear(); // will delete all items
+
+    const std::list<std::pair<SyncType, QStringList>> list = m_model->moduleMap();
+
+    for (auto it = list.cbegin(); it != list.cend(); ++it) {
+        syncItemwiget *item = new syncItemwiget(moduleTs[it->first].first,moduleTs[it->first].second,false);
+        connect(item,&syncItemwiget::toTellStateChanged,this,&IndexPage::onCheckboxStateChanged);
+        item->setSyncType(it->first);
+        m_itemMap[it->first] = item->getCheckBox();
+        m_syncLayout->addWidget(item);
+    }
+
+    std::map<SyncType, bool> moduleState = m_model->moduleSyncState().toStdMap();
+
+    for (auto it = moduleState.cbegin(); it != moduleState.cend(); ++it) {
+        onModuleStateChanged(*it);
+    };
 
     onUserInfoChanged(model->userinfo());
+    m_autoSyncSwitch->setChecked(model->enableSync() && model->getActivation());
+
+    if (!model->getActivation()) {
+        Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->isChecked());
+    }
+
+    m_autoSyncSwitch->setEnabled(model->getActivation());
+//    m_networkTip->setVisible(model->enableSync());
+    m_syncWidget->setVisible(model->enableSync());
+//    m_listView->setVisible(model->enableSync());
+    onStateChanged(model->syncState());
+    LoginedIn::setModel(model);
+    connect(model, &UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
+    connect(model, &UnionidModel::enableSyncChanged, this, &IndexPage::onChecked);
+//    connect(model, &UnionidModel::enableSyncChanged, m_listView, &QListView::setVisible);
+
+    onUserInfoChanged(model->userinfo());
+}
+
+void IndexPage::setUserInfo(QString usrInfo)
+{
+    QByteArray byteJson = usrInfo.toLocal8Bit();
+    QJsonParseError jsonError;
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+    QJsonObject jsonObj = jsonDoc.object();
+    QJsonValue jsonValueResult = jsonObj.value("data");
+
+    if (jsonValueResult.isObject()) {
+        jsonObj = jsonValueResult.toObject();
+        jsonValueResult = jsonObj.value("AccessToken");
+        QString nResult = jsonValueResult.toString();
+        m_accessToken = nResult;
+        qInfo() << "m_accessToken" << m_accessToken;
+
+        jsonValueResult = jsonObj.value("RefreshToken");
+        nResult = jsonValueResult.toString();
+        m_refreshToken = nResult;
+
+        jsonValueResult = jsonObj.value("userNick");
+        nResult = jsonValueResult.toString();
+        m_nameLabel->setText(nResult);
+
+        m_wxNameLabel->setText(nResult);
+
+        jsonValueResult = jsonObj.value("avatar");
+        nResult = jsonValueResult.toString();
+ //       m_userAvatar->setAvatarPath(nResult);
+
+        jsonValueResult = jsonObj.value("userName");
+        nResult = jsonValueResult.toString();
+        m_uidLabel->setText(nResult);
+
+        jsonValueResult = jsonObj.value("wechatunionid");
+        m_wechatunionid = jsonValueResult.toString();
+        qInfo() << " wechatunionid" << m_wechatunionid;
+
+        if (m_wechatunionid.isEmpty()) {
+            m_modButton->setText(QObject::tr("Link"));
+        } else {
+            m_modButton->setText(QObject::tr("Change"));
+        }
+    }
+}
+
+void IndexPage::onRefreshUserInfo(QString usrInfo)
+{
+    setUserInfo(usrInfo);
+}
+
+void IndexPage::onListViewClicked(const QModelIndex &index)
+{
+//    QStandardItem *item = (m_itemMap.begin() + index.row()).value();
+//    const bool enable = item->checkState() == Qt::Checked;
+//    Q_EMIT requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool>(item->data(Qt::WhatsThisPropertyRole).value<dcc::cloudsync::SyncType>()
+//                                , !enable));
+}
+
+void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
+{
+    if (!UnionidModel::isSyncStateValid(state)) {
+        return;
+    }
+
+    SyncState syncState;
+
+    do {
+        // check is sync succeed
+        if (UnionidModel::isSyncSucceed(state)) {
+            syncState = SyncState::Succeed;
+            break;
+        }
+
+        // check is syncing
+        if (UnionidModel::isSyncing(state)) {
+            syncState = SyncState::Syncing;
+            break;
+        }
+
+        // check is sync faild
+        if (UnionidModel::isSyncFailed(state)) {
+            syncState = SyncState::Failed;
+            break;
+        }
+
+        Q_UNREACHABLE();
+
+    } while (false);
+
+//    if (!m_autoSyncSwitch->checked()) {
+//        m_lastSyncTimeLbl->hide();
+//        m_stateLbl->hide();
+//        m_stateIcon->setRotatePixmap(QPixmap());
+//        m_stateIcon->stop();
+//        return;
+//    }
+//    qDebug() << "syncState: " << syncState << "m_lastSyncTime:" << m_lastSyncTime;
+//    switch (syncState) {
+//    case dcc::cloudsync::SyncState::Succeed:
+//        if (m_model->lastSyncTime() > 0) {
+//            m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(16, 16)));
+//        } else {
+//            m_stateIcon->setRotatePixmap(QPixmap());
+//        }
+//        m_stateIcon->stop();
+//        break;
+//    case dcc::cloudsync::SyncState::Syncing:
+//        m_lastSyncTimeLbl->hide();
+//        m_stateLbl->show();
+//        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_syncing").pixmap(QSize(16, 16)));
+//        m_stateIcon->play();
+//        break;
+//    case dcc::cloudsync::SyncState::Failed:
+//        m_lastSyncTimeLbl->setVisible(m_model->lastSyncTime() > 0);
+//        m_stateLbl->hide();
+//        m_stateIcon->setRotatePixmap(QPixmap());
+//        m_stateIcon->stop();
+//        break;
+//    }
+//    m_state = state;
+}
+
+void IndexPage::onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state)
+{
+
+    QCheckBox *item = m_itemMap[state.first];
+    Q_ASSERT(item);
+
+    item->setChecked(state.second);
+//    qInfo() << "m_itemMap" << state.first << state.second;
+//    item->setCheckState(state.second ? Qt::Checked : Qt::Unchecked);
+}
+
+void IndexPage::onChecked(bool bIschecked)
+{
+    m_autoSyncSwitch->setChecked(bIschecked);
+}
+
+void IndexPage::onSwitchButtoncheckedChanged(bool bIschecked)
+{
+    m_syncWidget->setVisible(bIschecked);
+}
+
+void IndexPage::onModifyInfo()
+{
+    QDesktopServices::openUrl(QUrl("http://login-dev.uniontech.com/", QUrl::TolerantMode));
+}
+
+void IndexPage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
+{
+    QColor textTitleColor, textTipColor;
+
+    if (themeType == DGuiApplicationHelper::LightType) {
+        textTitleColor = textTitleLightColor;
+        textTipColor = textTipLightColor;
+    } else if (themeType == DGuiApplicationHelper::DarkType){
+        textTitleColor = textTitleDarkColor;
+        textTipColor = textTiptDarkColor;
+    }
+
+    QPalette pa = m_nameLabel->palette();
+    pa.setColor(QPalette::Text,textTitleColor);
+    m_nameLabel->setPalette(pa);
+
+    pa = m_uidLabel->palette();
+    pa.setColor(QPalette::Text,textTipColor);
+    m_uidLabel->setPalette(pa);
+
+    pa = m_wxlabel->palette();
+    pa.setColor(QPalette::Text,textTitleColor);
+    m_wxlabel->setPalette(pa);
+
+    pa = m_wxNameLabel->palette();
+    pa.setColor(QPalette::Text,textTipColor);
+    m_wxNameLabel->setPalette(pa);
+
+    pa = m_autoSync->palette();
+    pa.setColor(QPalette::Text,textTitleColor);
+    m_autoSync->setPalette(pa);
+}
+
+void IndexPage::onCheckboxStateChanged(bool state, dcc::cloudsync::SyncType syncType)
+{
+    Q_EMIT requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool>(syncType,state));
+}
+
+void IndexPage::onModButtonClicked()
+{
+    QNetworkReply *reply =  RequestService::instance()->getUserInfo(m_accessToken);
+    connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetUserInfoResult);
+}
+
+void IndexPage::onGetUserInfoResult()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
+    QString result = RequestService::instance()->checkReply(reply);
+
+    if (!result.isEmpty()) {
+        QByteArray byteJson = result.toLocal8Bit();
+        QJsonParseError jsonError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+        QJsonObject jsonObj = jsonDoc.object();
+        QJsonValue jsonValueResult = jsonObj.value("phone_number");
+        m_phoneNumber = jsonValueResult.toString();
+        AuthenticationWindow *authWindow = new AuthenticationWindow;
+        connect(authWindow,&AuthenticationWindow::toTellrefreshUserInfo,this,&IndexPage::onRefreshUserInfo);
+        authWindow->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_refreshToken);
+        authWindow->show();
+        m_wechatunionid = "";
+    }
 }
 
 IndexPage::~IndexPage()
