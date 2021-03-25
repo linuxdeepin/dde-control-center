@@ -300,7 +300,7 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
     }
 }
 
-void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd)
+void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd)
 {
     QProcess process;
     QProcessEnvironment env;
@@ -308,9 +308,9 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     process.setProcessEnvironment(env);
     process.start("/bin/bash", QStringList() << "-c" << QString("passwd"));
     if (user->passwordStatus() == NO_PASSWORD) {
-        process.write(QString("%1\n%2\n").arg(passwd).arg(passwd).toLatin1());
+        process.write(QString("%1\n%2\n").arg(passwd).arg(repeatPasswd).toLatin1());
     } else {
-        process.write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(passwd).toLatin1());
+        process.write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(repeatPasswd).toLatin1());
     }
     process.closeWriteChannel();
     process.waitForFinished();

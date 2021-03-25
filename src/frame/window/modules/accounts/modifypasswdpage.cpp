@@ -136,38 +136,49 @@ void ModifyPasswdPage::initWidget()
     setFocusPolicy(Qt::StrongFocus);
 }
 
+bool ModifyPasswdPage::judgeTextEmpty(DPasswordEdit *edit)
+{
+    if (edit->text().isEmpty()) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
+    }
+
+    return edit->text().isEmpty();
+}
+
 void ModifyPasswdPage::clickSaveBtn()
 {
     //校验输入密码
-    if (m_oldPasswordEdit->lineEdit()->text().isEmpty()) {
-        m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
-        return;
-    }
+    if (judgeTextEmpty(m_oldPasswordEdit) || judgeTextEmpty(m_newPasswordEdit) || judgeTextEmpty(m_repeatPasswordEdit)) return;
 
-    if (m_newPasswordEdit->lineEdit()->text() == m_oldPasswordEdit->lineEdit()->text() ) {
-        m_newPasswordEdit->setAlert(true);
-        m_newPasswordEdit->showAlertMessage(tr("New password should differ from the current one"), m_oldPasswordEdit, 2000);
-        return;
-    }
-
-    if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
-        m_repeatPasswordEdit->setAlert(true);
-        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
-        return;
-    }
-
-    Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
+    Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text(), m_repeatPasswordEdit->lineEdit()->text());
 }
 
 void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QString &errorTxt)
 {
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
                                                                                       m_newPasswordEdit->lineEdit()->text());
-    if (exitCode != 0 && errorTxt.startsWith("Current password: passwd:")) {
-        m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
-    } else if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+    if (exitCode != 0) {
+        if (errorTxt.startsWith("Current password: passwd:")) {
+            m_oldPasswordEdit->setAlert(true);
+            m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
+            return;
+        }
+
+        if (m_newPasswordEdit->lineEdit()->text() == m_oldPasswordEdit->lineEdit()->text() ) {
+            m_newPasswordEdit->setAlert(true);
+            m_newPasswordEdit->showAlertMessage(tr("New password should differ from the current one"), m_oldPasswordEdit, 2000);
+            return;
+        }
+
+        if (error == PW_NO_ERR) {
+            if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
+                m_repeatPasswordEdit->setAlert(true);
+                m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
+                return;
+            }
+        }
+
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
         // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
@@ -202,7 +213,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
             });
             dlg.exec();
         }
-    } else if (exitCode == 0) {
+    } else {
         Q_EMIT requestBack();
     }
 }
