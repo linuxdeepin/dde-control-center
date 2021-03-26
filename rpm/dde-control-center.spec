@@ -32,7 +32,7 @@ BuildRequires:  libXext-devel
 BuildRequires:  gtest-devel
 BuildRequires:  polkit-qt5-1-devel
 BuildRequires:  deepin-pw-check
-BuildRequires:  deepin-pw-check-dev
+BuildRequires:  deepin-pw-check-devel
 Requires:       dde-account-faces
 Requires:       dde-api
 Requires:       dde-daemon
