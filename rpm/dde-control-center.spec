@@ -40,6 +40,7 @@ Requires:       dde-qt5integration
 Requires:       dde-network-utils
 Requires:       startdde
 Requires:       dde-server-industry-config
+Requires:	   deepin-pw-check
 
 %description
 New control center for Linux Deepin.
@@ -84,6 +85,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop ||:
 %{_sysconfdir}/
 %{_bindir}/abrecovery
 %{_bindir}/dde-control-center
+%{_bindir}/dde-control-center-wapper
 %{_datadir}/
 %{_libdir}/libdccwidgets.so
 /etc/xdg/autostart/deepin-ab-recovery.desktop
