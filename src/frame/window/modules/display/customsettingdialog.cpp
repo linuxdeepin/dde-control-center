@@ -360,7 +360,6 @@ void CustomSettingDialog::initResolutionList()
         m_resolutionListModel = new QStandardItemModel(this);
     m_resolutionList->setModel(m_resolutionListModel);
 
-    bool first = true;
     auto modes = m_monitor->modeList();
     const auto curMode = m_monitor->currentMode();
 
@@ -393,8 +392,8 @@ void CustomSettingDialog::initResolutionList()
         item->setData(QVariant(m.rate()), RateRole);
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
-        if (first) {
-            first = false;
+
+        if (Monitor::isSameResolution(m, m_monitor->bestMode())) {
             item->setText(res + QString(" (%1)").arg(tr("Recommended")));
         } else {
             item->setText(res);
