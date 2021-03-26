@@ -387,21 +387,20 @@ void CustomSettingDialog::initResolutionList()
 
         const QString res = QString::number(m.width()) + "×" + QString::number(m.height());
         auto *item = new DStandardItem();
-
         item->setData(QVariant(m.id()), IdRole);
         item->setData(QVariant(m.rate()), RateRole);
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
-
         if (Monitor::isSameResolution(m, m_monitor->bestMode())) {
             item->setText(res + QString(" (%1)").arg(tr("Recommended")));
+            m_resolutionListModel->insertRow(0, item);
         } else {
             item->setText(res);
+            m_resolutionListModel->appendRow(item);
         }
 
         if (Monitor::isSameResolution(curMode, m))
             curIdx = item;
-        m_resolutionListModel->appendRow(item);
     }
 
     m_resolutionList->setModel(m_resolutionListModel);

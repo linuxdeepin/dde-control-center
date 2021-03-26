@@ -127,18 +127,18 @@ void ResolutionDetailPage::initResoList()
         const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
 
         DStandardItem *item = new DStandardItem();
-        if (Monitor::isSameResolution(m, moni->bestMode())) {
-            //~ contents_path /display/Resolution
-            item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
-        } else {
-            item->setText(res);
-        }
-
         item->setData(QVariant(m.id()), IdRole);
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        itemModel->appendRow(item);
+        if (Monitor::isSameResolution(m, moni->bestMode())) {
+            //~ contents_path /display/Resolution
+            item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
+            itemModel->insertRow(0, item);
+        } else {
+            item->setText(res);
+            itemModel->appendRow(item);
+        }
 
         if (Monitor::isSameResolution(m, moni->currentMode()))
             curIdx = item;
