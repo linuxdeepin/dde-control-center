@@ -9,23 +9,21 @@ class Tst_TimeoutDialog : public testing::Test
 public:
     void SetUp() override
     {
-        obj = new TimeoutDialog(1);
+
     }
 
     void TearDown() override
     {
-        delete obj;
-        obj = nullptr;
+
     }
 
 public:
-    TimeoutDialog *obj = nullptr;
+
 };
 
 TEST_F(Tst_TimeoutDialog, coverage)
 {
+    TimeoutDialog *obj = new TimeoutDialog(3);
     obj->setMessageModel("aaa");
     obj->messageModel();
-    obj->exec();
-    obj->open();
 }

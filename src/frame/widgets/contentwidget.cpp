@@ -82,10 +82,12 @@ ContentWidget::ContentWidget(QWidget *parent)
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
+#ifndef WINDOW_MODE
     QHBoxLayout *titleLayout = new QHBoxLayout;
     titleLayout->addWidget(m_backBtn);
     titleLayout->addWidget(m_title);
     titleLayout->setContentsMargins(0, 0, m_backBtn->width(), 0);
+#endif
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
 #ifndef WINDOW_MODE
@@ -111,6 +113,7 @@ ContentWidget::~ContentWidget()
     QScroller *scroller = QScroller::scroller(m_contentArea->viewport());
     if (scroller) {
         scroller->stop();
+        scroller->deleteLater();
     }
 }
 

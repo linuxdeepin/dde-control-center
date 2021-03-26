@@ -26,7 +26,8 @@ public:
 
 TEST_F(Tst_BasicListView, coverage)
 {
-    obj->setModel(new QStandardItemModel());
+    QStandardItemModel model;
+    obj->setModel(&model);
     obj->onContentHeightChanged();
     obj->setAutoFitHeight(false);
     obj->sizeHint();
