@@ -28,6 +28,8 @@
 
 #include <QPainter>
 #include <QMouseEvent>
+#include <QScroller>
+#include <QScrollArea>
 
 using namespace dcc::display;
 
@@ -37,6 +39,7 @@ MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, DisplayModel *model, QWidge
     , m_model(model)
     , m_movedX(m_monitor->x())
     , m_movedY(m_monitor->y())
+    , m_scrollArea(nullptr)
 {
     connect(m_monitor, &Monitor::xChanged, this, &MonitorProxyWidget::setMovedX);
     connect(m_monitor, &Monitor::yChanged, this, &MonitorProxyWidget::setMovedY);
@@ -142,4 +145,25 @@ void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
     update();
 
     QWidget::mouseReleaseEvent(e);
+}
+
+void MonitorProxyWidget::enterEvent(QEvent *)
+{
+    if (m_scrollArea)
+        return;
+    auto p = parentWidget();
+    while (p) {
+        m_scrollArea = qobject_cast<QScrollArea *>(p);
+        if (m_scrollArea)
+            break;
+        p = p->parentWidget();
+    }
+    if (m_scrollArea)
+        QScroller::ungrabGesture(m_scrollArea->viewport());
+}
+
+void MonitorProxyWidget::leaveEvent(QEvent *)
+{
+    if (m_scrollArea)
+        QScroller::grabGesture(m_scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
 }

@@ -28,6 +28,8 @@
 
 #include <QWidget>
 
+class QScrollArea;
+
 namespace dcc {
 
 namespace display {
@@ -61,6 +63,8 @@ protected:
     void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
     void mouseMoveEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
     void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
+    void enterEvent(QEvent *) override;
+    void leaveEvent(QEvent *) override;
 
 private:
     Monitor *m_monitor;
@@ -70,6 +74,7 @@ private:
     int m_movedY;
 
     QPoint m_lastPos;
+    QScrollArea *m_scrollArea;
 };
 
 } // namespace display
