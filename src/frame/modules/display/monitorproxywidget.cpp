@@ -149,10 +149,8 @@ void MonitorProxyWidget::mouseReleaseEvent(QMouseEvent *e)
 
 void MonitorProxyWidget::enterEvent(QEvent *)
 {
-    if (m_scrollArea)
-        return;
     auto p = parentWidget();
-    while (p) {
+    while (p && !m_scrollArea) {
         m_scrollArea = qobject_cast<QScrollArea *>(p);
         if (m_scrollArea)
             break;
