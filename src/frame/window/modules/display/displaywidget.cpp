@@ -27,6 +27,7 @@
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitor.h"
 
+#include <DApplicationHelper>
 #include <DStyleOption>
 
 #include <QStandardItemModel>
@@ -174,12 +175,14 @@ void DisplayWidget::initMenuUI()
     }
 
     if (!IsServerSystem) {
-        //~ contents_path /display/Display Scaling
-        ListSubItem scaleMenu = {"dcc_screen",tr("Display Scaling"),
-                                QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)
-                               };
-        m_multMenuList << scaleMenu;
-        m_singleMenuList << scaleMenu;
+        // 平板下屏蔽屏幕缩放
+        if (!DGuiApplicationHelper::isTabletEnvironment()) {
+            //~ contents_path /display/Display Scaling
+            ListSubItem scaleMenu = {"dcc_screen",tr("Display Scaling"),
+                                    QMetaMethod::fromSignal(&DisplayWidget::requestShowScalingPage)};
+            m_multMenuList << scaleMenu;
+            m_singleMenuList << scaleMenu;
+        }
     }
 
     //~ contents_path /display/Refresh Rate
