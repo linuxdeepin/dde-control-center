@@ -492,8 +492,6 @@ set(UNIONID_FILES
    window/modules/unionid/pages/downloadurl.cpp
    window/modules/unionid/pages/avatarwidget.cpp
    window/modules/unionid/pages/loginedin.cpp
-   window/modules/unionid/pages/custombutton.h
-   window/modules/unionid/pages/custombutton.cpp
    window/modules/unionid/pages/newstyle.cpp
    window/modules/unionid/pages/syncitemwidget.cpp
    window/modules/unionid/pages/bindwechatwindow.cpp

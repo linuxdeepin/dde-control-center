@@ -1,16 +1,17 @@
 #ifndef AUTHENTICATIONWINDOW_H
 #define AUTHENTICATIONWINDOW_H
-#include <DMainWindow>
+#include <DAbstractDialog>
+#include <QLineEdit>
 #include <QLabel>
 #include <DSuggestButton>
 
 DWIDGET_USE_NAMESPACE
 
-class AuthenticationWindow : public DMainWindow
+class AuthenticationWindow : public DAbstractDialog
 {
     Q_OBJECT
 public:
-    AuthenticationWindow(DMainWindow *prarent = nullptr);
+    AuthenticationWindow(QWidget *parent = nullptr);
 
     void setData(QString phoneNumber,QString weChatUnionId,QString acccessToken,QString refreshToken);
 

@@ -1,40 +1,32 @@
 #include "bindwechatwindow.h"
 #include "modules/unionid/requestservice.h"
 #include "window/modules/unionid/define.h"
+
 #include <DTitlebar>
+#include <DSuggestButton>
+#include <DFontSizeManager>
+#include <DWindowCloseButton>
+
 #include <QLabel>
 #include <QVBoxLayout>
-#include <DSuggestButton>
 #include <QGraphicsView>
 #include <QScrollArea>
-#include <DFontSizeManager>
 //#include <QNetworkReply>
 
 const QColor windowColor = QColor::fromRgbF(0,0,0,0.1);
-BindWeChatWindow::BindWeChatWindow(DMainWindow *prarent)
-    : DMainWindow(prarent)
+BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
+    : DAbstractDialog(prarent)
 {
-    QGraphicsView *widget = new QGraphicsView;
-    widget->setFrameShape(QFrame::NoFrame);
-    QColor backgroundColor(255,255,255);
-    backgroundColor.setAlphaF(0.9);
-    QPalette pa = widget->palette();
-    pa.setColor(QPalette::Window,backgroundColor);
-    auto flag = windowFlags();
-    flag &= ~Qt::WindowMinMaxButtonsHint;
-    flag |= Qt::WindowStaysOnTopHint;
-    //flag |= Qt::FramelessWindowHint;//特效模式下，设置无边框的时候会让登陆客户端第一次打开的时候显示直角
-    setWindowFlags(flag);
-    this->titlebar()->setMenuVisible(false);
-    this->titlebar()->setMenuDisabled(true);
-    // TODO: workaround for old version dtk, remove as soon as possible.
-    this->titlebar()->setDisableFlags(Qt::WindowSystemMenuHint);
-    this->titlebar()->setBackgroundTransparent(true);
-    widget->setAutoFillBackground(true);
-    widget->setPalette(pa);
-    QPalette titlePa = titlebar()->palette();
-    titlePa.setColor(QPalette::Text,backgroundColor);
-    titlebar()->setPalette(titlePa);
+    DWindowCloseButton *closeButton = new DWindowCloseButton;
+    closeButton->setFixedHeight(48);
+    closeButton->setIconSize(QSize(48,48));
+    closeButton->setContentsMargins(0,0,0,0);
+    connect(closeButton,&DWindowCloseButton::clicked,this,&BindWeChatWindow::close);
+
+    QHBoxLayout *titberLayout = new QHBoxLayout;
+    titberLayout->addStretch();
+    titberLayout->addWidget(closeButton);
+    titberLayout->setContentsMargins(0,0,4,0);
 
     QLabel *titleLabel= new QLabel(QObject::tr("Link to WeChat"));
     titleLabel->setContentsMargins(0,0,0,72);
@@ -94,15 +86,15 @@ BindWeChatWindow::BindWeChatWindow(DMainWindow *prarent)
     DFontSizeManager::instance()->bind(m_tipLabel, DFontSizeManager::T6,QFont::Normal);
 
     QVBoxLayout *vlayout = new QVBoxLayout;
+    vlayout->addLayout(titberLayout);
     vlayout->addWidget(titleLabel,0,Qt::AlignCenter);
     vlayout->addWidget(indexWidget,0,Qt::AlignCenter);
     vlayout->addStretch();
     vlayout->setContentsMargins(0,0,0,0);
 
-    widget->setLayout(vlayout);
-    setCentralWidget(widget);
+    setLayout(vlayout);
     setMinimumSize(376,516);
-    setWindowModality(Qt::WindowModal);
+    setWindowModality(Qt::ApplicationModal);
 
     m_qrCodeStatusTimer = new QTimer;
     connect(m_qrCodeStatusTimer,&QTimer::timeout,this,&BindWeChatWindow::onQrCodeStatusTimeOut);

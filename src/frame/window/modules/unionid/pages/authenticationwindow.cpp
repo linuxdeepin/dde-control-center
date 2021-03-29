@@ -3,51 +3,43 @@
 #include "modules/unionid/requestservice.h"
 #include "window/modules/unionid/define.h"
 #include <DTitlebar>
+#include <DFontSizeManager>
+#include <DWindowCloseButton>
+
 #include <QLabel>
 #include <QVBoxLayout>
-#include <QGraphicsView>
-#include <DFontSizeManager>
 #include <QLineEdit>
 #include <QTimer>
 #include <QDBusInterface>
 
-AuthenticationWindow::AuthenticationWindow(DMainWindow *prarent)
-    : DMainWindow(prarent)
+AuthenticationWindow::AuthenticationWindow(QWidget *parent)
+    : DAbstractDialog(parent)
 {
     m_second = 0;
-    QGraphicsView *widget = new QGraphicsView;
-    widget->setFrameShape(QFrame::NoFrame);
-    QColor color(255,255,255);
-    color.setAlphaF(0.9);
-    QPalette pa = widget->palette();
-    pa.setColor(QPalette::Window,color);
 
-    setWindowFlag(Qt::Dialog);
-    auto flag = windowFlags();
-    flag &= ~Qt::WindowMinMaxButtonsHint;
-    //flag |= Qt::WindowStaysOnTopHint;
-    //flag |= Qt::FramelessWindowHint;//特效模式下，设置无边框的时候会让登陆客户端第一次打开的时候显示直角
-    setWindowFlags(flag);
-    this->titlebar()->setMenuVisible(false);
-    this->titlebar()->setMenuDisabled(true);
-    // TODO: workaround for old version dtk, remove as soon as possible.
-    this->titlebar()->setDisableFlags(Qt::WindowSystemMenuHint);
-    this->titlebar()->setBackgroundTransparent(true);
-    widget->setAutoFillBackground(true);
-    widget->setPalette(pa);
-    QPalette titlePa = titlebar()->palette();
-    titlePa.setColor(QPalette::Base,color);
-    titlebar()->setPalette(titlePa);
-//    qInfo() << "QPalette::Base" << pa.color(QPalette::Base) << pa.color(QPalette::Background);
+    DWindowCloseButton *closeButton = new DWindowCloseButton;
+    closeButton->setFixedHeight(48);
+    closeButton->setIconSize(QSize(48,48));
+    closeButton->setContentsMargins(0,0,0,0);
+    connect(closeButton,&DWindowCloseButton::clicked,this,&AuthenticationWindow::close);
+
+    QHBoxLayout *titberLayout = new QHBoxLayout;
+    titberLayout->addStretch();
+    titberLayout->addWidget(closeButton);
+    titberLayout->setContentsMargins(0,0,4,0);
 
     QLabel * titleLabel= new QLabel(QObject::tr("Identity Varification"));
     titleLabel->setContentsMargins(0,0,0,72);
 
     QLabel *contentsLabel = new QLabel(QObject::tr("Varification your phone number"));
+    contentsLabel->setAlignment(Qt::AlignCenter);
+    contentsLabel->setWordWrap(true);
     contentsLabel->setContentsMargins(0,0,0,8);
 
-    m_tipLabel = new QLabel(QObject::tr("Get a verification code by phone number %1"));
-    m_tipLabel->setContentsMargins(0,0,0,16);
+    m_tipLabel = new QLabel(QObject::tr("Get a verification code by phone number xxx-xxxx-%1"));
+    m_tipLabel->setContentsMargins(0,0,0,0);
+    m_tipLabel->setAlignment(Qt::AlignCenter);
+    m_tipLabel->setWordWrap(true);
 
     m_lineEdit = new QLineEdit;
     m_lineEdit->setPlaceholderText(QObject::tr("Verification code"));
@@ -61,15 +53,15 @@ AuthenticationWindow::AuthenticationWindow(DMainWindow *prarent)
     connect(m_getCodeButton,&DSuggestButton::clicked,this,&AuthenticationWindow::onGetCodeButtonClicked);
 
     QHBoxLayout *hLineLayout = new QHBoxLayout;
-    hLineLayout->setContentsMargins(32,0,32,34);
     hLineLayout->addWidget(m_lineEdit);
     hLineLayout->addStretch();
     hLineLayout->addWidget(m_getCodeButton);
+    hLineLayout->setContentsMargins(32,16,32,34);
 
     m_nextButton = new DSuggestButton;
     m_nextButton ->setMinimumSize(QSize(312,40));
     m_nextButton->setText(QObject::tr("Next"));
-    m_nextButton->setContentsMargins(32,0,32,0);
+    m_nextButton->setContentsMargins(32,34,32,181);
     m_nextButton->setEnabled(false);
     connect(m_nextButton,&DSuggestButton::clicked,this,&AuthenticationWindow::onNextButtonClicked);
 
@@ -86,25 +78,29 @@ AuthenticationWindow::AuthenticationWindow(DMainWindow *prarent)
     DFontSizeManager::instance()->bind(contentsLabel, DFontSizeManager::T6,QFont::Normal);
 
     QVBoxLayout *vlayout = new QVBoxLayout;
+    vlayout->addLayout(titberLayout);
     vlayout->addWidget(titleLabel,0,Qt::AlignCenter);
     vlayout->addWidget(contentsLabel,0,Qt::AlignCenter);
     vlayout->addWidget(m_tipLabel,0,Qt::AlignCenter);
-    vlayout->addLayout(hLineLayout);
+    vlayout->addLayout(hLineLayout);   
     vlayout->addWidget(m_nextButton,0,Qt::AlignCenter);
     vlayout->addStretch();
     vlayout->setContentsMargins(0,0,0,0);
 
-    widget->setLayout(vlayout);
-    setCentralWidget(widget);
+//    widget->setLayout(vlayout);
+//    setCentralWidget(widget);
+    setContentsMargins(0,0,0,0);
+    setLayout(vlayout);
     setFixedSize(376,516);
-    //   setWindowModality(Qt::WindowModal);
+    setWindowModality(Qt::ApplicationModal);
     m_timer = new QTimer;
     connect(m_timer,&QTimer::timeout,this,&AuthenticationWindow::onTimeOut);
+    qInfo() << "child" << this->children();
 }
 
 void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, QString acccessToken,QString refreshToken)
 {
-    m_tipLabel->setText(QObject::tr("Get a verification code by phone number %1").arg(phoneNumber));
+    m_tipLabel->setText(QObject::tr("Get a verification code by phone number xxx-xxxx-%1").arg(phoneNumber.right(4)));
     m_phoneNumber = phoneNumber;
     m_acccessToken = acccessToken;
     m_weChatUnionId = weChatUnionId;

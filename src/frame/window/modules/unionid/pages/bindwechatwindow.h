@@ -1,18 +1,18 @@
 #ifndef BINDWECHATWINDOW_H
 #define BINDWECHATWINDOW_H
-#include <DMainWindow>
+#include <DAbstractDialog>
 #include <QStackedLayout>
 #include "uqrwidget.h"
 #include "avatarwidget.h"
 
-using namespace DCC_NAMESPACE::unionid;
 DWIDGET_USE_NAMESPACE
+using namespace DCC_NAMESPACE::unionid;
 
-class BindWeChatWindow : public DMainWindow
+class BindWeChatWindow : public DAbstractDialog
 {
     Q_OBJECT
 public:
-    BindWeChatWindow(DMainWindow *prarent = nullptr);
+    BindWeChatWindow(QWidget *prarent = nullptr);
 
     void setData(QString accessToken,QString hardwareID,QString weChatUnionId,QString refreshToken);
 

@@ -509,6 +509,7 @@ void IndexPage::onGetUserInfoResult()
         QJsonObject jsonObj = jsonDoc.object();
         QJsonValue jsonValueResult = jsonObj.value("phone_number");
         m_phoneNumber = jsonValueResult.toString();
+
         AuthenticationWindow *authWindow = new AuthenticationWindow;
         connect(authWindow,&AuthenticationWindow::toTellrefreshUserInfo,this,&IndexPage::onRefreshUserInfo);
         authWindow->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_refreshToken);
