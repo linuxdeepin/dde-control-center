@@ -2,13 +2,55 @@
 <svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>dcc_nav_cloudsync_42px</title>
     <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="96.1840679%" id="linearGradient-1">
-            <stop stop-color="#4BDEFA" offset="0%"></stop>
-            <stop stop-color="#3978FF" offset="100%"></stop>
+        <filter x="-15.5%" y="-15.5%" width="131.0%" height="131.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <radialGradient cx="29.4931324%" cy="20.6862887%" fx="29.4931324%" fy="20.6862887%" r="90.0720134%" gradientTransform="translate(0.294931,0.206863),scale(0.816764,1.000000),rotate(47.750929),translate(-0.294931,-0.206863)" id="radialGradient-2">
+            <stop stop-color="#35ABFF" offset="0%"></stop>
+            <stop stop-color="#0080FF" offset="100%"></stop>
+        </radialGradient>
+        <path d="M21.0991356,6.87273936 C28.8915283,6.87273936 35.2085106,13.1897217 35.2085106,20.9821144 C35.2085106,28.774507 28.8915283,35.0914894 21.0991356,35.0914894 C21.0396313,35.0914894 20.980213,35.091121 20.9208829,35.0903865 L20.7765957,35.0914894 L20.7765957,35.0914894 L9.41648936,35.0914894 C4.57988504,35.0914894 0.659042553,31.1706469 0.659042553,26.3340426 C0.659042553,22.2109592 3.50837093,18.7533722 7.34536585,17.8229433 C8.77894749,11.5518498 14.3926092,6.87273936 21.0991356,6.87273936 Z" id="path-3"></path>
+        <filter x="-1.4%" y="-1.8%" width="102.9%" height="103.5%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="3.5537781%" x2="83.3064316%" y2="92.6131238%" id="linearGradient-5">
+            <stop stop-color="#AED1FF" stop-opacity="0.178623866" offset="0%"></stop>
+            <stop stop-color="#6FB2FF" stop-opacity="0.558711552" offset="100%"></stop>
         </linearGradient>
+        <circle id="path-6" cx="31.84375" cy="25.84375" r="9.84375"></circle>
+        <filter x="-1.8%" y="-1.8%" width="103.6%" height="103.6%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="-0.7" dy="-0.7" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.574554592   0 0 0 0 0.755744851   0 0 0 0 1  0 0 0 0.874957318 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feOffset dx="0.7" dy="0.7" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.934689822 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
     </defs>
     <g id="dcc_nav_cloudsync_42px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <image id="位图" x="1" y="8" width="41" height="30" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACkAAAAeCAYAAACxHzfjAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKaADAAQAAAABAAAAHgAAAADTIeDJAAAIIElEQVRYCbVYvW8byRV/b2Z2l9+U6NCGfcbBMK4Su7g+REXKtHKd/0RimTZFgCBVWqv0NQECWO7S6DqqycFALnd2zryTRInkcndn3uT3lv6Q7YsjCeexVzvk7rz3m9/7HDL9AiPGyOPxmIl2aTLZZ9rZoenRAQ+3tqOKHx0R7mPa3d2tPzNzfb+sagi+3lBgunI8Jj6gAzOlm2ZILVPM7nHZJ67mP9TPk47ELhUypaUMaUuGk/04Gh1FBXxZsNcCuWZuDW5I2+YZkXO4DC6ez13FHSMJQfaSHEWJse2DkK/CD/6zz2/5/JjCNpHs7tKlgEL21cZrgI+fH9q0/YV7lp6kWUiyKutkVSiyJKapWLI2VMYHFzEPRqgUWZXN7NYKAItzelHu04mfPJwEyJP/x+iVmHwD8DZZekFJOjtrSJK0Apl2jKbNxE2AyhjEglUToo82Oo97GTnmTMmCmRbkz5fd7mo1pGFJk/3w6NHOR4Femsk1wDE/fv47S/QgsQU1V61ex3jqEfk+2OiSUAshAZDkggSjDAU8NOyKyCE34ufRxDNOuq6cs5l2iKajUfnw4T59jFEovNyAQnNAvzEkn9cAyzTrJp42YvQ3ouEbALYJOvos3I0U2wRWiW0DzDWgoQEQGbNLKMITYsVCTVnFudDKyZmx8uLrv8SDg4OfjfqPMqns6RZeRzDRPZfHTpaYpM1F2Q8mHbBxA5awEYnb2EdKBrECUyMuYH2kHo0bMp6NzSRKajg6g93gHcmiC87d8u5OHiZbu3hxF1x8mJ5+lkkFx7xn/jQl84c/HtrTculOWr9OMtrI2IIl2+wFjgOieINj3BTiLtQ2wV4K5Qho+CwxgJJVCzAJgLPOLagyGvesLmudLwJ5W234aZPCi68IbI4/YPMdkGtwbMZPyS7onv3uG0qSdpqWWTezq0ZzGQjBkfSC95vQNABFG9ANgLFJ0SSQDnkCcGqBixfcM4qBfIMN1OjxHF+Id9FUKzf3nKfhBRb/fpvpyZMnsN4Ye1wPpb0eClDNqqmle+eBzek49TRI04oyj9QShDNj0oYEgrtT33CAD1oEjQC4SQFYAb6R90rshZtR1IIvSuBbRmNOSPyPyAQvE7s65kbjjGaUZ32qtvHexRxa++RFgHTnTuJXlBnbbLmSWsHgiqZpDDegpAE7tQCwgz11YMYmwGnaXvvgBUgfTgXOZgxeBHmQT9QWw0hNvpRoQ8hJUjqjYtajx4tDT+MHmkNJfbQ2t/rNASoHyR1EbmwWNnalshtk40DYDCB9M7Lr495HKuliWZtg4iiUYunaz2rzfgjt3W9AZh2ManV1TtyBmIylGMooiZHUOTFG5LvG1/FfT/9KGvFOWUSe4uaXZM9zSl3stWAR5D0zwD6QYkIXTMHnJAUTjoE2IhAwRyBgG7UP4o1Ljog40kAC+RmKjTppFDiBZXiMJal8Lj5ty8ZPd2Xyny3Ag0KVPR3tcPotykRKDR/hc5L24V2bAIgAsW3sOsNr+i4i1RgFBlQgtgZ3aYCqS/0W6xRpolxijv+gAMgp+BCoWWWhWX6flX4w2kEtqFPEnlng/u/laUPSRif6atNYO4DmTcRhHRjYLEDGBKUNDGpwQsWbKFYxVx5Yr2luLaeecMCOnRdTVYFtaU2nuptQOHo6jnY4HJnpzZGrqqrhTNZFR7BBEpADTR9bRIKGHZBnwBvAKXOvU8uVgb2/ALLW8LTHwByC2YOvwqEOQWNROfL3aBuxiwYVXYlxiOcoZWKtzyJbJGVJ10kYNvloanlf91U+1ylLXcfBQAnsjarkM3xKXIUYAS5tomufJLoNjyUWUwKQQ7YJVuDhWKiFDTI+3dAsozpgeKQni4TvrZfSClfAcpuURDUhBnI9Oii4RWRB6OAfvLu+wGL9xqf7g6LKGoui9oKj4gIOtAfwNsUFBxjRyCyyz2yZNhK22rVwS9g14R8IFjW55t/aHz8JTsgHC+JhtRyUzZnlDE3omad8mS3ysvePvwUzGu3EDb+Sdux4a1P0fQ59H+Uw9gq5sAAyD0GaCjRV/JIDgVLLhelMofpUr+pXHO0YvOJSfGBpTC+LGbqoH31VLgvQvQCac4lhDm/ReY6dot5SBRfwMA1AU7j2peshR+Wp3Fo+9Kg+1av6FUdEWldcig+dFirOPpnpESXF7KwVs16vCjRg1mbWbXAIXaRumN9okKF+ATo6W03EVx/Qida8DhVsFI7ojcQcffA5YuE0RvdTYumYi7OzrN9bDreoerSj5QkFfG9vL+JYEKre3aLPvUWwcJQATDjhQWCBuoBSGVI0AhbQ0M5o1rjOQMKo22AtWUGtUUL+EnrOAXCGEn6agMmZzYvy+T/DNn2FQNrTxIzNreu3ORqNLM7G6ayYN7PYaXtDnVhWbXbcjOTQTJCDi2tfcE2QUCbg0pG263AbHNA8DmhpskACnxc8X/SzTj6lo3JrMnlzQKvzpLKJIXogOhpRaasbSAMSQuLKpNFaoKBmEI5aW6ExSOrScB0edQ12By4rXIkH2so2UFngg0nlVwEMTrNvq4sAX615q+41o8827xttfPHE+dUswfnKrTxZDfOUclgcJ4Vrjxw2bmobJQ0Hv4wz7xp9BBEOus8Pw/2TZ/L+EfdVxVlrfM0oWvc42Xogz/5+GG5m/erUnZvCJmbQVl8cUrVEQ33NkbR+hbPGlI7nEt2qEk0zL4+/kfu/fSDqg7t/3tXOA4H+dvxPZcoqwOL5uz9CEW2/XX3t2QHVP2bt75PmQU0zH/tt6L9yi2hXCt74tQAAAABJRU5ErkJggg=="></image>
-        <path d="M23.6,10 C28.3384976,10 32.2751528,13.3568045 33.0583355,17.7710419 C35.9408039,18.793681 38,21.4950422 38,24.6666667 C38,28.7167548 34.6421356,32 30.5,32 C27.9041085,32 15.5044802,32 12.5,32 C8.35786438,32 5,28.7167548 5,24.6666667 C5,20.6165785 8.35786438,17.3333333 12.5,17.3333333 C13.0810624,17.3333333 13.6466913,17.3979434 14.1897822,17.5202169 C15.0749551,13.2302698 18.9516691,10 23.6,10 Z" id="Path" fill="url(#linearGradient-1)"></path>
+        <g id="编组" filter="url(#filter-1)">
+            <rect id="矩形" x="0" y="0" width="42" height="42"></rect>
+            <circle id="椭圆形备份" fill-opacity="0.85" fill="#FFFFFF" fill-rule="nonzero" cx="31.84375" cy="25.84375" r="9.84375"></circle>
+            <g id="形状结合备份">
+                <use fill="url(#radialGradient-2)" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+            </g>
+            <g id="椭圆形备份" fill-rule="nonzero">
+                <use fill="url(#linearGradient-5)" xlink:href="#path-6"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+            </g>
+        </g>
     </g>
 </svg>
