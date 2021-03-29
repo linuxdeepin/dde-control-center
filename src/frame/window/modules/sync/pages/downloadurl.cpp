@@ -53,6 +53,9 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
 
     QString fileName;
     fileName = fullname ? filePath : filePath + url.right(url.size() - url.lastIndexOf("/"));
+    if (fileName.contains("default.png", Qt::CaseInsensitive)) {
+        fileName = fileName.remove("png").append("svg");
+    }
     qDebug() << " download " << url << " to " << fileName << " ready = " << m_isReady;
     if (QFile::exists(fileName)) {
         QPixmap pxmap;
