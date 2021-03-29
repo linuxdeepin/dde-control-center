@@ -32,6 +32,7 @@
 #include <QLabel>
 #include <QNetworkReply>
 #include <DFontSizeManager>
+#include <QDBusInterface>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
@@ -112,7 +113,21 @@ void UnionidWidget::onGetAccessToken()
 
 void UnionidWidget::onRequestLogout()
 {
-    m_pageLayout->setCurrentWidget(m_loginPage);
+    QDBusInterface interface("com.deepin.deepinid.Client",
+                              "/com/deepin/deepinid/Client",
+                              "com.deepin.deepinid.Client");
+
+    QDBusMessage msg = interface.call(QDBus::Block, "ConfirmLogout");
+
+    if (msg.type() == QDBusMessage::ReplyMessage) {
+        bool bIsSuccess = msg.arguments().takeFirst().toBool();
+
+        if (bIsSuccess) {
+            m_pageLayout->setCurrentWidget(m_loginPage);
+        } else {
+            qInfo() << "退出登录失败";
+        }
+    }
 }
 
 void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
