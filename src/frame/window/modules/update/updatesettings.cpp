@@ -35,6 +35,7 @@
 #include <DFontSizeManager>
 
 #include <QVBoxLayout>
+#include <QGSettings>
 
 DCORE_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
@@ -55,6 +56,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     , m_autoDownloadUpdate(new SwitchWidget(tr("Download Updates"), this))
     , m_autoDownloadUpdateTips(new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"), this))
     , m_autoCleanCache(new SwitchWidget(this))
+    , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
     initUi();
     initConnection();
@@ -197,6 +199,11 @@ void UpdateSettings::initConnection()
     //connect(m_setTimerLbl, &QLabel::linkActivated,);
     //connect(m_setFreeTimeLbl, &QLabel::linkActivated,);
     connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
+    connect(m_settings, &QGSettings::changed, this, [ = ](const QString &key) {
+        if (key == "updateSystemUpdate") setCheckStatus(m_autoCheckSystemUpdate, m_model->autoCheckUpdates(), key);
+        if (key == "updateAppUpdate") setCheckStatus(m_autoCheckAppUpdate, m_model->autoCheckSystemUpdates(), key);
+        if (key == "updateAutoDownlaod") setCheckStatus(m_autoDownloadUpdate, m_model->updateNotify(), key);
+    });
 
 #if 0
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
@@ -222,13 +229,19 @@ void UpdateSettings::setModel(UpdateModel *model)
 
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
     // connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setVisible);
-    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckSystemUpdate, &SwitchWidget::setVisible);
+    connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckSystemUpdate, [ = ](bool state) {
+        setCheckStatus(m_autoCheckSystemUpdate, state, "updateSystemUpdate");
+    });
     connect(model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckSystemUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckAppUpdate, &SwitchWidget::setVisible);
+    connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckAppUpdate, [ = ](bool state) {
+        setCheckStatus(m_autoCheckAppUpdate, state, "updateAppUpdate");
+    });
     connect(model, &UpdateModel::autoCheckAppUpdatesChanged, m_autoCheckAppUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::updateNotifyChanged, m_updateNotify, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::updateNotifyChanged, m_autoDownloadUpdate, &SwitchWidget::setVisible);
+    connect(model, &UpdateModel::updateNotifyChanged, m_autoDownloadUpdate, [ = ](bool state) {
+        setCheckStatus(m_autoDownloadUpdate, state, "updateAutoDownlaod");
+    });
     connect(model, &UpdateModel::updateNotifyChanged, m_autoDownloadUpdateTips, &DTipLabel::setVisible);
     connect(model, &UpdateModel::autoDownloadUpdatesChanged, m_autoDownloadUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
@@ -238,21 +251,18 @@ void UpdateSettings::setModel(UpdateModel *model)
 //    m_autoCheckSecureUpdate->setVisible(model->autoCheckUpdates());//未列入计划，暂时屏蔽
     m_autoCheckSecureUpdate->setVisible(false);//未列入计划，暂时屏蔽
     m_autoCheckSystemUpdate->setChecked(model->autoCheckSystemUpdates());
-    m_autoCheckSystemUpdate->setVisible(model->autoCheckUpdates());
+    setCheckStatus(m_autoCheckSystemUpdate, model->autoCheckUpdates(), "updateSystemUpdate");
     m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
-    m_autoCheckAppUpdate->setVisible(model->autoCheckSystemUpdates());
+    setCheckStatus(m_autoCheckAppUpdate, model->autoCheckSystemUpdates(), "updateAppUpdate");
     m_updateNotify->setChecked(model->updateNotify());
     m_autoDownloadUpdate->setChecked(model->autoDownloadUpdates());
-    m_autoDownloadUpdate->setVisible(model->updateNotify());
+    setCheckStatus(m_autoDownloadUpdate, model->updateNotify(), "updateAutoDownlaod");
     m_autoDownloadUpdateTips->setVisible(model->updateNotify());
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
 
     GSettingWatcher::instance()->bind("updateAutoCheck", m_autoCheckUpdate);
     GSettingWatcher::instance()->bind("updateUpdateNotify", m_updateNotify);
-    GSettingWatcher::instance()->bind("updateAutoDownlaod", m_autoDownloadUpdate);
     GSettingWatcher::instance()->bind("updateCleanCache", m_autoCleanCache);
-    GSettingWatcher::instance()->bind("updateSystemUpdate", m_autoCheckSystemUpdate);
-    GSettingWatcher::instance()->bind("updateAppUpdate", m_autoCheckAppUpdate);
 //    GSettingWatcher::instance()->bind("updateSecureUpdate", m_autoCheckSecureUpdate);//未列入计划，暂时屏蔽
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
@@ -296,4 +306,17 @@ void UpdateSettings::setUpdateMode()
         updateMode = (updateMode << 1) | m_autoCheckSystemUpdate->checked();
     }
     requestSetUpdateMode(updateMode);
+}
+
+void UpdateSettings::setCheckStatus(SwitchWidget *widget, bool state, const QString &key)
+{
+    const QString status = m_settings->get(key).toString();
+
+    if ("Enabled" == status) {
+        widget->setEnabled(true);
+    } else if ("Disabled" == status) {
+        widget->setEnabled(false);
+    }
+
+    widget->setVisible("Hidden" != status && state);
 }

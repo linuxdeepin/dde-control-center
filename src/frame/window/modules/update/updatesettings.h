@@ -36,6 +36,10 @@ class UpdateModel;
 }
 }
 
+QT_BEGIN_NAMESPACE
+class QGSettings;
+QT_END_NAMESPACE
+
 DWIDGET_BEGIN_NAMESPACE
 class DTipLabel;
 DWIDGET_END_NAMESPACE
@@ -72,6 +76,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void setUpdateMode();
+    void setCheckStatus(dcc::widgets::SwitchWidget *widget, bool state, const QString &key);
 
 private:
     void initUi();
@@ -103,6 +108,8 @@ private:
 #endif
     dcc::widgets::SwitchWidget *m_smartMirrorBtn;
     dcc::widgets::NextPageWidget *m_updateMirrors;
+
+    QGSettings *m_settings;
 };
 
 }// namespace datetime
