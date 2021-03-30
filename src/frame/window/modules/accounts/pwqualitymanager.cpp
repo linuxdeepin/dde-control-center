@@ -56,12 +56,12 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type)
         {PW_ERR_PASSWORD_EMPTY, tr("Password cannot be empty")},
         {PW_ERR_LENGTH_SHORT, tr("Password must have at least %1 characters").arg(m_passwordMinLen)},
         {PW_ERR_LENGTH_LONG, tr("Password must be no more than %1 characters").arg(m_passwordMaxLen)},
-        {PW_ERR_CHARACTER_INVALID, tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)")},
+        {PW_ERR_CHARACTER_INVALID, tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)")},
     };
 
     //服务器版校验规则
     if (IsServerSystem) {
-        PasswordFlagsStrMap[PW_ERR_CHARACTER_INVALID] = tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)");
+        PasswordFlagsStrMap[PW_ERR_CHARACTER_INVALID] = tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)");
         PasswordFlagsStrMap[PW_ERR_PALINDROME] = tr("Password must not contain more than 4 palindrome characters");
         PasswordFlagsStrMap[PW_ERR_WORD] = tr("Do not use common words and combinations as password");
         PasswordFlagsStrMap[PW_ERR_PW_MONOTONE] = tr("Create a strong password please");
