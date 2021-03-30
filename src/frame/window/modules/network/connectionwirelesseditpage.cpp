@@ -34,6 +34,7 @@ using namespace NetworkManager;
 ConnectionWirelessEditPage::ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid, bool isHidden, QWidget *parent)
     : ConnectionEditPage(ConnectionEditPage::ConnectionType::WirelessConnection, devPath, connUuid, parent)
 {
+    qDebug() << "ConnectionWirelessEditPage: " << devPath << "," << connUuid << "," << isHidden;
     if (isHidden) {
         m_connectionSettings->setting(NetworkManager::Setting::SettingType::Wireless)
                 .staticCast<NetworkManager::WirelessSetting>()->setHidden(isHidden);
@@ -46,9 +47,9 @@ ConnectionWirelessEditPage::~ConnectionWirelessEditPage()
 
 void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
 {
-    qDebug() << "create wireless connection from ap:" << apPath;
-
     NetworkManager::AccessPoint::Ptr nmAp = QSharedPointer<AccessPoint>(new NetworkManager::AccessPoint(apPath));
+
+    qDebug() << "create wireless connection from ap:" << apPath << "," << nmAp->ssid();
 
     if (!m_connectionSettings) {
         qDebug() << "ConnectionSettings of base class is invalid..." << m_connectionSettings;

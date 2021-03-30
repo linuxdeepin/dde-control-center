@@ -65,6 +65,8 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
 {
     DevicePath = devPath;
 
+    qDebug() << "ConnectionEditPage: " << m_connectionUuid << "," << devPath << "," << devPath;
+
     initUI();
 
     if (m_connectionUuid.isEmpty()) {
@@ -254,7 +256,7 @@ void ConnectionEditPage::initConnectionSecrets()
 {
     NetworkManager::Setting::SettingType sType;
     NMVariantMapMap sSecretsMapMap;
-
+    qDebug() << "initConnectionSecrets: " << m_connType;
     switch (m_connType) {
     case NetworkManager::ConnectionSettings::ConnectionType::Wired: {
         sType = NetworkManager::Setting::SettingType::Security8021x;
@@ -405,6 +407,7 @@ void ConnectionEditPage::createConnSettings()
     }
     m_connectionUuid = m_connectionSettings->createNewUuid();
     m_connectionSettings->setUuid(m_connectionUuid);
+    qDebug() << "m_connectionSettings->setUuid: " << m_connectionUuid;
 }
 
 int ConnectionEditPage::connectionSuffixNum(const QString &matchConnName)
