@@ -5,6 +5,7 @@ set(BLUETOOTH_NAME bluetooth-unittest)
 set(MOUSE_NAME mouse-unittest)
 set(DATETIME_NAME datetime-unittest)
 set(NOTIFICATION_NAME notification-unittest)
+set(DEFAPP_NAME defapp-unittest)
 
 # 自动生成moc文件
 set(CMAKE_AUTOMOC ON)
@@ -76,6 +77,24 @@ file(GLOB_RECURSE NOTIFICATION_Tasks_SRCS
   fakedbus/notification_dbus.cpp
 )
 
+# 默认程序源文件
+file(GLOB_RECURSE DEFAPP_SRCS "defapp/*.cpp" "defapp/*.h")
+
+# 默认程序依赖文件
+file(GLOB_RECURSE DEFAPP_Tasks_SRCS
+  ../../src/frame/modules/defapp/defappworker.cpp
+  ../../src/frame/modules/defapp/defappmodel.cpp
+  ../../src/frame/modules/defapp/model/category.cpp
+  ../../src/frame/window/gsettingwatcher.cpp
+  ../../src/frame/window/insertplugin.cpp
+  ../../src/frame/widgets/multiselectlistview.cpp
+
+  ../../src/frame/window/modules/defapp/defappdetailwidget.cpp
+  ../../src/frame/window/modules/defapp/defappwidget.cpp
+
+  fakedbus/defapp_dbus.cpp
+)
+
 # 用于测试覆盖率的编译条件
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -lgcov")
 
@@ -97,8 +116,11 @@ add_executable(${DATETIME_NAME} ${DATETIME_SRCS} ${DATETIME_Tasks_SRCS})
 # 添加鼠标模块执行文件信息
 add_executable(${MOUSE_NAME} ${MOUSE_SRCS} ${MOUSE_Tasks_SRCS})
 
-# 添加鼠标模块执行文件信息
+# 添加通知模块执行文件信息
 add_executable(${NOTIFICATION_NAME} ${NOTIFICATION_SRCS} ${NOTIFICATION_Tasks_SRCS})
+
+# 添加默认程序模块执行文件信息
+add_executable(${DEFAPP_NAME} ${DEFAPP_SRCS} ${DEFAPP_Tasks_SRCS})
 
 # 蓝牙模块链接库
 target_link_libraries(${BLUETOOTH_NAME} PRIVATE
@@ -187,6 +209,30 @@ target_include_directories(${NOTIFICATION_NAME} PUBLIC
     ${DFrameworkDBus_INCLUDE_DIRS}
 )
 
+# 默认程序模块链接库
+target_link_libraries(${DEFAPP_NAME} PRIVATE
+    dccwidgets
+    ${Qt5Test_LIBRARIES}
+    ${Qt5DBus_LIBRARIES}
+    ${Qt5Widgets_LIBRARIES}
+    ${QGSettings_LIBRARIES}
+    ${Qt5Concurrent_LIBRARIES}
+    ${Qt5Svg_LIBRARIES}
+    ${DFrameworkDBus_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
+    ${GTEST_LIBRARIES}
+    -lpthread
+)
+
+# 默认程序模块引用头文件
+target_include_directories(${DEFAPP_NAME} PUBLIC
+    ${DtkWidget_INCLUDE_DIRS}
+    ${QGSettings_INCLUDE_DIRS}
+    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
+    ${Qt5Concurrent_INCLUDE_DIRS}
+    ${DFrameworkDBus_INCLUDE_DIRS}
+)
+
 add_custom_target(check
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/tests/dde-control-center)
 
@@ -198,10 +244,12 @@ add_custom_command(TARGET check
     COMMAND lcov --directory ./CMakeFiles/${MOUSE_NAME}.dir --zerocounters
     COMMAND lcov --directory ./CMakeFiles/${DATETIME_NAME}.dir --zerocounters
     COMMAND lcov --directory ./CMakeFiles/${NOTIFICATION_NAME}.dir --zerocounters
+    COMMAND lcov --directory ./CMakeFiles/${DEFAPP_NAME}.dir --zerocounters
     COMMAND ./${BLUETOOTH_NAME}
     COMMAND ./${MOUSE_NAME}
     COMMAND ./${DATETIME_NAME}
     COMMAND ./${NOTIFICATION_NAME}
+    COMMAND ./${DEFAPP_NAME}
 
     #2.收集gcov信息到.info文件中
     COMMAND lcov --directory . --capture --output-file ./coverage.info
@@ -209,7 +257,7 @@ add_custom_command(TARGET check
     #3.过滤一些我们不感兴趣的文件的覆盖率信息
     COMMAND echo " =================== do filter begin ==================== "
     COMMAND lcov --remove ./coverage.info
-    '*/${BLUETOOTH_NAME}_autogen/*' '*/${MOUSE_NAME}_autogen/*' '*/${DATETIME_NAME}_autogen/*' '*/${NOTIFICATION_NAME}_autogen/*' '*/usr/include/*' '*/tests/*' '*/googletest/*' '*/widgets/*' '*/interface/*'
+    '*/${BLUETOOTH_NAME}_autogen/*' '*/${MOUSE_NAME}_autogen/*' '*/${DATETIME_NAME}_autogen/*' '*/${NOTIFICATION_NAME}_autogen/*' '*/${DEFAPP_NAME}_autogen/*' '*/usr/include/*' '*/tests/*' '*/googletest/*' '*/widgets/*' '*/interface/*'
     -o ./coverage.info
     COMMAND echo " =================== do filter end ==================== "
 
@@ -224,7 +272,7 @@ add_custom_command(TARGET check
 )
 
 #'make check'命令依赖与我们的测试程序
-add_dependencies(check ${BLUETOOTH_NAME} ${MOUSE_NAME} ${DATETIME_NAME} ${NOTIFICATION_NAME})
+add_dependencies(check ${BLUETOOTH_NAME} ${MOUSE_NAME} ${DATETIME_NAME} ${NOTIFICATION_NAME} ${DEFAPP_NAME})
 
 include_directories(../../src/frame)
 include_directories(fakedbus)

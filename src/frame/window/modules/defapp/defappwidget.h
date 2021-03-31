@@ -64,6 +64,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onCategoryClicked(const QModelIndex &index);
     void setCurrentIndex(int row);
+    dcc::widgets::MultiSelectListView *getCatView() const { return m_defAppCatView; }
 
 private:
     QList<ListSubItem> m_itemList;
