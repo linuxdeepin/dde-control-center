@@ -585,6 +585,10 @@ void WirelessPage::sortAPList()
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
 {
+    if (ssid.isEmpty()) {
+        qDebug() << "ssid is empty return";
+        return;
+    }
     const QString uuid = connectionUuid(ssid);
     qDebug() << "onApWidgetEditRequested: " << ssid << "," << uuid << "," << m_device->path();
 
@@ -609,6 +613,12 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
 
 void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString &ssid)
 {
+    qDebug() << "onApWidgetConnectRequested path, " << path << ", ssid, " << ssid;
+    if (path.isEmpty() || ssid.isEmpty()) {
+        qDebug() << "onApWidgetConnectRequested is error";
+        return;
+    }
+
     const QString uuid = connectionUuid(ssid);
     // uuid could be empty
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
@@ -639,6 +649,7 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
         }
     }
     if (m_switch && m_switch->checked()) {
+        qDebug() << "requestConnectAp: " << m_device->path() << "," << path << "," << uuid;
         Q_EMIT requestConnectAp(m_device->path(), path, uuid);
     }
 }
@@ -705,10 +716,13 @@ QString WirelessPage::connectionUuid(const QString &ssid)
     QString uuid;
     QList<QJsonObject> connections = m_device->connections();
     for (auto item : connections) {
+        QJsonDocument doc(item);
+        qDebug() << "m_device connections: " << doc.toJson();
         if (item.value("Ssid").toString() != ssid) continue;
         uuid = item.value("Uuid").toString();
         if (!uuid.isEmpty()) break;
     }
+    qDebug() << "connectionUuid: " << uuid;
     return uuid;
 }
 
