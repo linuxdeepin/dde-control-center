@@ -29,7 +29,7 @@
 #include "newstyle.h"
 #include "syncitemwidget.h"
 #include "../define.h"
-#include "modules/unionid/requestservice.h"
+#include "modules/unionid/httpclient.h"
 #include "authenticationwindow.h"
 
 #include <DWarningButton>
@@ -97,6 +97,8 @@ IndexPage::IndexPage(QWidget *parent)
 
     m_wxNameLabel = new QLabel;
     QPalette pa = m_wxNameLabel->palette();
+    m_wxNameLabel->setMinimumWidth(100);
+    m_wxNameLabel->setAlignment(Qt::AlignCenter);
     pa.setColor(QPalette::Text,textTipLightColor);
     m_wxNameLabel->setPalette(pa);
 
@@ -114,18 +116,6 @@ IndexPage::IndexPage(QWidget *parent)
     line1->setFrameShape(QFrame::HLine);
     line1->setMinimumSize(QSize(400,1));
     line1->setContentsMargins(0,0,0,0);
-
-//    QSplitter * line1 = new QSplitter(Qt::Horizontal);
-//    line1->setMinimumSize(QSize(400,1));
-//    line1->setContentsMargins(0,0,0,0);
-//    line1->setHandleWidth(1);
-//    line1->setFixedWidth(1);
-//    QPalette line1pa = line1->palette();
-//    line1pa.setColor(QPalette::Base,lineLightColor);
-//    line1->setPalette(line1pa);
-//    newStyle *line1Style = new newStyle;
-//    line1Style->setLineColor(lineLightColor);
-//    line1->setStyle(line1Style);
 
     QVBoxLayout *bondWXVlayout = new QVBoxLayout;
     bondWXVlayout->addLayout(bondWXHlayout);
@@ -332,7 +322,7 @@ void IndexPage::setUserInfo(QString usrInfo)
 
         jsonValueResult = jsonObj.value("avatar");
         nResult = jsonValueResult.toString();
- //       m_userAvatar->setAvatarPath(nResult);
+        m_userAvatar->setAvatarPath(nResult,true);
 
         jsonValueResult = jsonObj.value("userName");
         nResult = jsonValueResult.toString();
@@ -353,14 +343,6 @@ void IndexPage::setUserInfo(QString usrInfo)
 void IndexPage::onRefreshUserInfo(QString usrInfo)
 {
     setUserInfo(usrInfo);
-}
-
-void IndexPage::onListViewClicked(const QModelIndex &index)
-{
-//    QStandardItem *item = (m_itemMap.begin() + index.row()).value();
-//    const bool enable = item->checkState() == Qt::Checked;
-//    Q_EMIT requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool>(item->data(Qt::WhatsThisPropertyRole).value<dcc::cloudsync::SyncType>()
-//                                , !enable));
 }
 
 void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
@@ -393,38 +375,6 @@ void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
         Q_UNREACHABLE();
 
     } while (false);
-
-//    if (!m_autoSyncSwitch->checked()) {
-//        m_lastSyncTimeLbl->hide();
-//        m_stateLbl->hide();
-//        m_stateIcon->setRotatePixmap(QPixmap());
-//        m_stateIcon->stop();
-//        return;
-//    }
-//    qDebug() << "syncState: " << syncState << "m_lastSyncTime:" << m_lastSyncTime;
-//    switch (syncState) {
-//    case dcc::cloudsync::SyncState::Succeed:
-//        if (m_model->lastSyncTime() > 0) {
-//            m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_sync_ok").pixmap(QSize(16, 16)));
-//        } else {
-//            m_stateIcon->setRotatePixmap(QPixmap());
-//        }
-//        m_stateIcon->stop();
-//        break;
-//    case dcc::cloudsync::SyncState::Syncing:
-//        m_lastSyncTimeLbl->hide();
-//        m_stateLbl->show();
-//        m_stateIcon->setRotatePixmap(QIcon::fromTheme("dcc_syncing").pixmap(QSize(16, 16)));
-//        m_stateIcon->play();
-//        break;
-//    case dcc::cloudsync::SyncState::Failed:
-//        m_lastSyncTimeLbl->setVisible(m_model->lastSyncTime() > 0);
-//        m_stateLbl->hide();
-//        m_stateIcon->setRotatePixmap(QPixmap());
-//        m_stateIcon->stop();
-//        break;
-//    }
-//    m_state = state;
 }
 
 void IndexPage::onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state)
@@ -493,14 +443,14 @@ void IndexPage::onCheckboxStateChanged(bool state, dcc::cloudsync::SyncType sync
 
 void IndexPage::onModButtonClicked()
 {
-    QNetworkReply *reply =  RequestService::instance()->getUserInfo(m_accessToken);
+    QNetworkReply *reply =  HttpClient::instance()->getUserInfo(m_accessToken);
     connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetUserInfoResult);
 }
 
 void IndexPage::onGetUserInfoResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
 
     if (!result.isEmpty()) {
         QByteArray byteJson = result.toLocal8Bit();

@@ -1,6 +1,7 @@
 #include "bindwechatwindow.h"
-#include "modules/unionid/requestservice.h"
+#include "modules/unionid/httpclient.h"
 #include "window/modules/unionid/define.h"
+#include "customwidget.h"
 
 #include <DTitlebar>
 #include <DSuggestButton>
@@ -26,13 +27,13 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     QHBoxLayout *titberLayout = new QHBoxLayout;
     titberLayout->addStretch();
     titberLayout->addWidget(closeButton);
-    titberLayout->setContentsMargins(0,0,4,0);
+    titberLayout->setContentsMargins(0,0,0,0);
 
     QLabel *titleLabel= new QLabel(QObject::tr("Link to WeChat"));
     titleLabel->setContentsMargins(0,0,0,72);
 
     m_qrCode = new UQrFrame;
-    m_qrCode->setMinimumSize(QSize(160,160));
+    m_qrCode->setMinimumSize(QSize(176,176));
     connect(m_qrCode,&UQrFrame::refreshsignal,this,&BindWeChatWindow::onRefreshQrCode);
 
     m_tipLabel = new QLabel(QObject::tr("Scan and log in by WeChat to get linked"));
@@ -92,7 +93,15 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     vlayout->addStretch();
     vlayout->setContentsMargins(0,0,0,0);
 
-    setLayout(vlayout);
+    CustomWidget *mainWidget = new CustomWidget;
+    mainWidget->setLayout(vlayout);
+    mainWidget->setContentsMargins(0,0,0,0);
+
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->addWidget(mainWidget);
+    mainLayout->setContentsMargins(0,0,0,0);
+
+    setLayout(mainLayout);
     setMinimumSize(376,516);
     setWindowModality(Qt::ApplicationModal);
 
@@ -115,10 +124,10 @@ void BindWeChatWindow::setData(QString accessToken,QString hardwareID,QString we
 void BindWeChatWindow::onRequestQrCodeResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
 
-    qInfo() << "onRequestQrCodeResult" << RequestService::instance()->solveJson(result);
-    if (RequestService::instance()->solveJson(result)) {
+    qInfo() << "onRequestQrCodeResult" << HttpClient::instance()->solveJson(result);
+    if (HttpClient::instance()->solveJson(result)) {
         QByteArray byteJson = result.toLocal8Bit();
         QJsonParseError jsonError;
         QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
@@ -135,7 +144,7 @@ void BindWeChatWindow::onRequestQrCodeResult()
             jsonValueResult = jsonObj1.value("codeId");
             m_codeId = jsonValueResult.toString();
             qInfo() << "codeId" << jsonValueResult;
-            m_qrCode->showQRcodePicture(nResult + m_codeId);
+            m_qrCode->showQRcodePicture(nResult + m_codeId,QSize(158,158),m_qrCode->size());
             qInfo() << "showQRcodePicture" << nResult + m_codeId;
             m_qrCodeStatusTimer->start(1000*60*2);
             m_qrCode->setWidgetType(NormalScanCode);
@@ -155,7 +164,7 @@ void BindWeChatWindow::onQrCodeStatusTimeOut()
 
 void BindWeChatWindow::onQueryTimeOut()
 {
-    QNetworkReply *reply = RequestService::instance()->getQrCodeStatus(m_codeId);
+    QNetworkReply *reply = HttpClient::instance()->getQrCodeStatus(m_codeId);
     connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onQrCodeStatusResult);
 }
 
@@ -166,16 +175,16 @@ void BindWeChatWindow::onScanSuccess()
 
 void BindWeChatWindow::onRefreshQrCode()
 {
-    QNetworkReply *reply1 = RequestService::instance()->requestQrCode(CLIENT_ID,m_hardwareID,3,REDIRECT_URI);
+    QNetworkReply *reply1 = HttpClient::instance()->requestQrCode(CLIENT_ID,m_hardwareID,3,REDIRECT_URI);
     connect(reply1,&QNetworkReply::finished,this,&BindWeChatWindow::onRequestQrCodeResult);
 }
 
 void BindWeChatWindow::onQrCodeStatusResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
 
-    if (RequestService::instance()->solveJson(result)) {
+    if (HttpClient::instance()->solveJson(result)) {
         QByteArray byteJson = result.toLocal8Bit();
         QJsonParseError jsonError;
         QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
@@ -202,8 +211,13 @@ void BindWeChatWindow::onQrCodeStatusResult()
                         jsonValueResult = jsonObj.value("sessionId");
                         m_sessionId = jsonValueResult.toString();
 
-                        QNetworkReply *reply = RequestService::instance()->unbindAccount(0,1,m_accessToken,1,0,m_weChatUnionId);
-                        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onUnbindAccountResult);
+                        if (!m_weChatUnionId.isEmpty()) {
+                            QNetworkReply *reply = HttpClient::instance()->unbindAccount(0,1,m_accessToken,1,0,m_weChatUnionId);
+                            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onUnbindAccountResult);
+                        } else {
+                            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId);
+                            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
+                        }
                     }
                 } else if (nResult == 15) {
                     m_queryTimer->stop();
@@ -224,14 +238,14 @@ void BindWeChatWindow::onQrCodeStatusResult()
 void BindWeChatWindow::onReportStatusResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
 
     if (!result.isEmpty()) {
         m_indexLayout->setCurrentWidget(m_avatarWidget);
         m_secTipLabel->setVisible(true);
         m_resultTipLabel->setText(QObject::tr("Go to \"Accounts\" and switch on \"Login by Union ID\""));
 
-        QNetworkReply *reply = RequestService::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
+        QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
         connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onRefreshAccessToken);
     }
 }
@@ -239,7 +253,7 @@ void BindWeChatWindow::onReportStatusResult()
 void BindWeChatWindow::onGetUserInfoResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
 
     if (!result.isEmpty()) {
         QByteArray byteJson = result.toLocal8Bit();
@@ -253,10 +267,10 @@ void BindWeChatWindow::onGetUserInfoResult()
 void BindWeChatWindow::onBindAccountResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
     reply->deleteLater();
 
-    if (RequestService::instance()->solveJson(result)) {
+    if (HttpClient::instance()->solveJson(result)) {
         QByteArray byteJson = result.toLocal8Bit();
         QJsonParseError jsonError;
         QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
@@ -264,7 +278,7 @@ void BindWeChatWindow::onBindAccountResult()
         QJsonValue jsonValueResult = jsonObj.value("msg");
 
         if (jsonValueResult == "success") {
-            QNetworkReply *reply = RequestService::instance()->reportQrCodeStatus(m_codeId, 2);
+            QNetworkReply *reply = HttpClient::instance()->reportQrCodeStatus(m_codeId, 2,m_sessionId);
             connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onReportStatusResult);
         }
     }
@@ -273,10 +287,10 @@ void BindWeChatWindow::onBindAccountResult()
 void BindWeChatWindow::onUnbindAccountResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
     reply->deleteLater();
 
-    if (RequestService::instance()->solveJson(result)) {
+    if (HttpClient::instance()->solveJson(result)) {
         QByteArray byteJson = result.toLocal8Bit();
         QJsonParseError jsonError;
         QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
@@ -284,7 +298,7 @@ void BindWeChatWindow::onUnbindAccountResult()
         QJsonValue jsonValueResult = jsonObj.value("msg");
 
         if (jsonValueResult == "success") {
-            QNetworkReply *reply = RequestService::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId);
+            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId);
             connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
         }
     }
@@ -293,10 +307,10 @@ void BindWeChatWindow::onUnbindAccountResult()
 void BindWeChatWindow::onRefreshAccessToken()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
     reply->deleteLater();
 
-    if (RequestService::instance()->solveJson(result)) {
+    if (HttpClient::instance()->solveJson(result)) {
         Q_EMIT toTellrefreshUserInfo(result);
     }
 }

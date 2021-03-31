@@ -33,6 +33,7 @@ private Q_SLOTS:
 
 private:
     QLabel *m_tipLabel;
+    QLabel *m_warningLabel;
     QString m_phoneNumber;
     QString m_acccessToken;
     QString m_refreshToken;

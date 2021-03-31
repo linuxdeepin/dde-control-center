@@ -1,5 +1,4 @@
-#include "uqrwidget.h"
-#include "modules/unionid/requestservice.h"
+﻿#include "uqrwidget.h"
 
 #include <QPen>
 #include <QBrush>
@@ -7,7 +6,6 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QDebug>
-
 
 UQrFrame::UQrFrame(QWidget *parent)
     : DFrame(parent)
@@ -43,18 +41,24 @@ void UQrFrame::initUIType(qRStyle type)
     case TimeoutScanCode:
         initUITimeout();
         break;
+    case AshingScanCode:
+        initUIAshing();
+        break;
     case RefreshScanCode:
         initUIRefresh();
         break;
     case SuccessScanCode:
         initUISuccesss();
         break;
+    case QuestionScanCode:
+        initUIQuestion();
+        break;
     }
 }
 
 void UQrFrame::initUI()
 {
-    m_qrLabel->setFixedSize(164, 164);
+    m_qrLabel->setFixedSize(158, 158);
     m_qrLabel->setContentsMargins(0, 0, 0, 0);
     opacityEffect->setOpacity(1.0);
     m_qrLabel->setGraphicsEffect(opacityEffect);
@@ -85,19 +89,33 @@ void UQrFrame::initUITimeout()
     m_qrLabel->setGraphicsEffect(opacityEffect);
 }
 
+void UQrFrame::initUIAshing()
+{
+    opacityEffect->setOpacity(0.06);
+    m_qrLabel->setGraphicsEffect(opacityEffect);
+}
+
 void UQrFrame::initUIRefresh()
 {
-    opacityEffect->setOpacity(0.10);
+    opacityEffect->setOpacity(0.06);
     m_qrLabel->setGraphicsEffect(opacityEffect);
-    m_refreshbutton->setIcon(QIcon(":/themes/light/icons/qrcode_refresh_24px.svg"));
+//    m_refreshbutton->setIcon(QIcon(REFUSHPATH));
     m_refreshbutton->show();
 }
 
 void UQrFrame::initUISuccesss()
 {
-    opacityEffect->setOpacity(0.10);
+    opacityEffect->setOpacity(0.06);
     m_qrLabel->setGraphicsEffect(opacityEffect);
 //    m_refreshbutton->setIcon(QIcon(CHECKPATH));
+    m_refreshbutton->show();
+}
+
+void UQrFrame::initUIQuestion()
+{
+    opacityEffect->setOpacity(0.06);
+    m_qrLabel->setGraphicsEffect(opacityEffect);
+//    m_refreshbutton->setIcon(QIcon(QUESTIONPATH));
     m_refreshbutton->show();
 }
 
@@ -107,8 +125,10 @@ void UQrFrame::initUISuccesss()
  3. @日期:    2021-03-13
  4. @说明:    二维码画图布局
 *******************************************************************************/
-void UQrFrame::showQRcodePicture(QString url)
+void UQrFrame::showQRcodePicture(QString url,QSize qrCodeSize,QSize frameSize)
 {
+    m_qrLabel->setFixedSize(qrCodeSize);
+    setFixedSize(frameSize);
     std::vector<QrSegment> segs = QrSegment::makeSegments(url.toLatin1());
     QrCode qr1 = QrCode::encodeSegments(segs, QrCode::Ecc::HIGH, 5, 40, 2, false);
     //创建二维码画布
@@ -128,7 +148,6 @@ void UQrFrame::showQRcodePicture(QString url)
                                        Qt::KeepAspectRatio);
     //转换为QPixmap在Label中显示
     m_qrLabel->setPixmap(QPixmap::fromImage(QrCode_Image));
-
 }
 
 DIconButton *UQrFrame::getFreshButton()
@@ -150,10 +169,29 @@ void UQrFrame::initConnect()
 void UQrFrame::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
+    QColor color(0,0,0);
+    color.setAlphaF(0.15);
     QPen pen;
-    pen.setColor(QColor(0, 0, 0, 100));
-//    QRect r = rect();
-//    painter.drawRoundRect(r, 5, 5);
+    pen.setWidth(1);
+    pen.setStyle(Qt::SolidLine);
+    pen.setColor(color);
+    QRect rect = this->rect();
+    QPainter painter(this);
+    QRect roundRect = rect.adjusted(+1,+1,-1,-1);
+    painter.setRenderHint(QPainter::Antialiasing,true);
+    int diameter=12;
+    int cx = 100*diameter/roundRect.width();
+    int cy = 100*diameter/roundRect.height();
+    painter.save();
+    painter.setPen(pen);
+    painter.drawRoundRect(roundRect,cx,cy);
+    QPainterPath path;
+    path.addRect(rect);
+    path.addRoundRect(roundRect,cx,cy);
+    QColor fillColor(255,255,255);
+    fillColor.setAlphaF(0.9);
+    painter.fillPath(path,fillColor);
+    painter.restore();
 }
 
 

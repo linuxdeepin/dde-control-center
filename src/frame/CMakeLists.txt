@@ -475,10 +475,9 @@ set(SYNC_FILES
 
 # load unionid
 set(UNIONID_FILES
-     modules/unionid/unionidmodel.cpp
+   modules/unionid/unionidmodel.cpp
    modules/unionid/unionidworker.cpp
-   modules/unionid/requestservice.cpp
-   modules/unionid/shttpsocket.cpp
+   modules/unionid/httpclient.cpp
 
    window/modules/unionid/unionidmodule.h
    window/modules/unionid/unionidmodule.cpp
@@ -495,6 +494,7 @@ set(UNIONID_FILES
    window/modules/unionid/pages/newstyle.cpp
    window/modules/unionid/pages/syncitemwidget.cpp
    window/modules/unionid/pages/bindwechatwindow.cpp
+   window/modules/unionid/pages/customwidget.cpp
    window/modules/unionid/pages/QrCode.cpp
    window/modules/unionid/pages/uqrwidget.cpp
    window/modules/unionid/pages/authenticationwindow.cpp

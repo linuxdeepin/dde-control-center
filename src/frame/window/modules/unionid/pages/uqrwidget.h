@@ -15,19 +15,11 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QGraphicsEffect>
+#include "../define.h"
 
 DWIDGET_USE_NAMESPACE
 using namespace qrcodegen;
 
-//二维码状态
-enum qRStyle {
-    NormalScanCode,       //正常扫码
-    TimeoutScanCode,      //超时扫码模糊
-    RefreshScanCode,      //等待扫码刷新
-    SuccessScanCode       //成功扫码模糊
-};
-
-class RequestService;
 class UQrFrame : public DFrame
 {
     Q_OBJECT
@@ -36,7 +28,7 @@ public:
     // 切换窗口类型
     void setWidgetType(qRStyle type);
     // 二维码图片显示添加
-    void showQRcodePicture(QString url);
+    void showQRcodePicture(QString url,QSize qrCodeSize = QSize(150,150),QSize frameSize = QSize(160,160));
     // 刷新按钮不可用
     DIconButton * getFreshButton();
     // 设置阴影
@@ -57,10 +49,14 @@ private:
     void initUINormal();
     // 超时模糊
     void initUITimeout();
+    // 灰化扫码
+    void initUIAshing();
     // 等待刷新
     void initUIRefresh();
     // 扫码成功
     void initUISuccesss();
+    // 扫码模糊问号
+    void initUIQuestion();
     // 二维码图片
     DLabel *m_qrLabel = nullptr;
     // 边框布局
@@ -72,8 +68,8 @@ private:
     // 窗口类型
     qRStyle m_type;
     QGraphicsOpacityEffect *opacityEffect = nullptr;
-    RequestService *requestQrCode =nullptr;
-
+    int m_qrCodeWidth;
+    int m_qrCodeHeight;
 };
 
 #endif // UQRFRAME_H

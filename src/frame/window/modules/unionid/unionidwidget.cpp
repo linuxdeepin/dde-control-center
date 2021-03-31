@@ -24,7 +24,7 @@
 #include "pages/index.h"
 #include "pages/logout.h"
 #include "modules/unionid/unionidmodel.h"
-#include "../../../modules/unionid/requestservice.h"
+#include "modules/unionid/httpclient.h"
 #include "define.h"
 
 #include <QVBoxLayout>
@@ -94,17 +94,17 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 void UnionidWidget::getAccessToken(const QString &code, const QString &state)
 {
     Q_UNUSED(state)
-    QNetworkReply *reply = RequestService::instance()->getAccessToken(CLIENT_ID,code);
+    QNetworkReply *reply = HttpClient::instance()->getAccessToken(CLIENT_ID,code);
     connect(reply,&QNetworkReply::finished,this,&UnionidWidget::onGetAccessToken);
 }
 
 void UnionidWidget::onGetAccessToken()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
 
-    qInfo() << "solveJson" << RequestService::instance()->solveJson(result);
-    if (RequestService::instance()->solveJson(result)) {
+    qInfo() << "solveJson" << HttpClient::instance()->solveJson(result);
+    if (HttpClient::instance()->solveJson(result)) {
         m_indexPage->setUserInfo(result);
 //        RequestService::instance()->getBoundAccount()
         m_pageLayout->setCurrentWidget(m_indexPage);

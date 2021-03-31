@@ -80,7 +80,6 @@ public Q_SLOTS:
     void onRefreshUserInfo(QString usrInfo);
 
 private Q_SLOTS:
-    void onListViewClicked(const QModelIndex &index);
     void onStateChanged(const std::pair<qint32, QString> &state);
     void onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
     void onChecked(bool bIschecked);

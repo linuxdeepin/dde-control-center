@@ -20,11 +20,13 @@
  */
 
 #include "avatarwidget.h"
+#include "modules/unionid/httpclient.h"
 
 #include <QVBoxLayout>
 #include <QPainter>
 #include <QPainterPath>
 #include <QPaintEvent>
+#include <QDebug>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
@@ -46,22 +48,71 @@ AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
     setAvatarPath(avatar);
 }
 
+/*******************************************************************************
+ 1. @函数:    avatarPath
+ 2. @作者:    ut000610 戴正文
+ 3. @日期:    2021-03-05
+ 4. @说明:    获取当前头像地址
+*******************************************************************************/
 const QString AvatarWidget::avatarPath() const
 {
     return m_avatarPath;
 }
 
-void AvatarWidget::setAvatarPath(const QString &avatar)
+/*******************************************************************************
+ 1. @函数:    setAvatarPath
+ 2. @作者:    ut000610 戴正文
+ 3. @日期:    2021-03-05
+ 4. @说明:    根据当前设备分辨率设置图像
+*******************************************************************************/
+void AvatarWidget::setAvatarPath(const QString &avatar, bool isUrl)
 {
+    m_avatarPath = avatar;
+    setAccessibleName(m_avatarPath);
+    if (isUrl) {
+        // url
+        qInfo() << "setAvatarPath" << avatar;
+        QNetworkReply *reply = HttpClient::instance()->getPictureFromUrl(avatar);
+        connect(reply, &QNetworkReply::finished, this, &AvatarWidget::readAvatarFromUrl);
+    } else {
+        // 适应当前设备分辨率
+        const auto ratio = devicePixelRatioF();
+
+        // 图片地址
+        m_avatar = QPixmap(avatar).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+        m_avatar.setDevicePixelRatio(ratio);
+
+        setAccessibleName(m_avatarPath);
+
+        update();
+    }
+}
+
+/*******************************************************************************
+ 1. @函数:    readAvatarFromUrl
+ 2. @作者:    ut000610 戴正文
+ 3. @日期:    2021-03-28
+ 4. @说明:    读取从Url里读取的数据
+*******************************************************************************/
+void AvatarWidget::readAvatarFromUrl()
+{
+    // 适应当前设备分辨率
     const auto ratio = devicePixelRatioF();
 
-    m_avatarPath = avatar;
-    m_avatar = QPixmap(avatar).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
-    m_avatar.setDevicePixelRatio(ratio);
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    qInfo() << "reply :" << reply << endl;
 
-    setAccessibleName(m_avatarPath);
+    QByteArray result = HttpClient::instance()->checkReply(reply);
 
-    update();
+    if (!result.isEmpty()) {
+//            QByteArray data_bytes = reply->readAll();
+            m_avatar.loadFromData(result);
+            m_avatar.scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+            m_avatar.setDevicePixelRatio(ratio);
+            update();
+    }
+
+    reply->deleteLater();
 }
 
 void AvatarWidget::paintEvent(QPaintEvent *e)

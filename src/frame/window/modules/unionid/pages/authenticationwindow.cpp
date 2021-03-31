@@ -1,7 +1,9 @@
 #include "authenticationwindow.h"
 #include "bindwechatwindow.h"
-#include "modules/unionid/requestservice.h"
+#include "modules/unionid/httpclient.h"
 #include "window/modules/unionid/define.h"
+#include "customwidget.h"
+
 #include <DTitlebar>
 #include <DFontSizeManager>
 #include <DWindowCloseButton>
@@ -26,7 +28,7 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
     QHBoxLayout *titberLayout = new QHBoxLayout;
     titberLayout->addStretch();
     titberLayout->addWidget(closeButton);
-    titberLayout->setContentsMargins(0,0,4,0);
+    titberLayout->setContentsMargins(0,0,0,0);
 
     QLabel * titleLabel= new QLabel(QObject::tr("Identity Varification"));
     titleLabel->setContentsMargins(0,0,0,72);
@@ -38,8 +40,13 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
 
     m_tipLabel = new QLabel(QObject::tr("Get a verification code by phone number xxx-xxxx-%1"));
     m_tipLabel->setContentsMargins(0,0,0,0);
+    m_tipLabel->setMinimumSize(312,44);
     m_tipLabel->setAlignment(Qt::AlignCenter);
     m_tipLabel->setWordWrap(true);
+
+    QPalette pa = m_tipLabel->palette();
+    pa.setColor(QPalette::WindowText,QColor(121,129,144));
+    m_tipLabel->setPalette(pa);
 
     m_lineEdit = new QLineEdit;
     m_lineEdit->setPlaceholderText(QObject::tr("Verification code"));
@@ -56,26 +63,28 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
     hLineLayout->addWidget(m_lineEdit);
     hLineLayout->addStretch();
     hLineLayout->addWidget(m_getCodeButton);
-    hLineLayout->setContentsMargins(32,16,32,34);
+    hLineLayout->setContentsMargins(32,16,32,8);
 
     m_nextButton = new DSuggestButton;
     m_nextButton ->setMinimumSize(QSize(312,40));
     m_nextButton->setText(QObject::tr("Next"));
-    m_nextButton->setContentsMargins(32,34,32,181);
+    m_nextButton->setContentsMargins(8,34,32,0);
     m_nextButton->setEnabled(false);
     connect(m_nextButton,&DSuggestButton::clicked,this,&AuthenticationWindow::onNextButtonClicked);
 
-    QLabel *warningLabel = new QLabel(QObject::tr("Wrong verification code"));
-    warningLabel->setContentsMargins(0,0,0,0);
-    warningLabel->setVisible(false);
+    m_warningLabel = new QLabel;
+    m_warningLabel->setContentsMargins(32,0,0,0);
+    m_warningLabel->setAlignment(Qt::AlignLeft);
+    m_warningLabel->setMinimumHeight(18);
 
-    QPalette pe = warningLabel->palette();
-    pe.setColor(QPalette::Text,QColor(249,112,79));
-    warningLabel->setPalette(pe);
+    QPalette pe = m_warningLabel->palette();
+    pe.setColor(QPalette::WindowText,QColor(249,112,79));
+    m_warningLabel->setPalette(pe);
 
     DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T4,QFont::Bold);
     DFontSizeManager::instance()->bind(m_tipLabel, DFontSizeManager::T6,QFont::Normal);
-    DFontSizeManager::instance()->bind(contentsLabel, DFontSizeManager::T6,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_warningLabel, DFontSizeManager::T7,QFont::Normal);
+    DFontSizeManager::instance()->bind(contentsLabel, DFontSizeManager::T5,QFont::Normal);
 
     QVBoxLayout *vlayout = new QVBoxLayout;
     vlayout->addLayout(titberLayout);
@@ -83,19 +92,26 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
     vlayout->addWidget(contentsLabel,0,Qt::AlignCenter);
     vlayout->addWidget(m_tipLabel,0,Qt::AlignCenter);
     vlayout->addLayout(hLineLayout);   
+    vlayout->addWidget(m_warningLabel);
     vlayout->addWidget(m_nextButton,0,Qt::AlignCenter);
     vlayout->addStretch();
     vlayout->setContentsMargins(0,0,0,0);
 
-//    widget->setLayout(vlayout);
+    CustomWidget *mainWidget = new CustomWidget;
+    mainWidget->setLayout(vlayout);
+    mainWidget->setContentsMargins(0,0,0,0);
+
+    QHBoxLayout *mainLayout = new QHBoxLayout;
+    mainLayout->addWidget(mainWidget);
+    mainLayout->setContentsMargins(0,0,0,0);
 //    setCentralWidget(widget);
     setContentsMargins(0,0,0,0);
-    setLayout(vlayout);
+    setLayout(mainLayout);
     setFixedSize(376,516);
     setWindowModality(Qt::ApplicationModal);
+
     m_timer = new QTimer;
     connect(m_timer,&QTimer::timeout,this,&AuthenticationWindow::onTimeOut);
-    qInfo() << "child" << this->children();
 }
 
 void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, QString acccessToken,QString refreshToken)
@@ -109,17 +125,17 @@ void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, Q
 
 void AuthenticationWindow::onGetCodeButtonClicked()
 {
-    QNetworkReply *reply = RequestService::instance()->sendSmsCode(m_phoneNumber, m_acccessToken);
+    QNetworkReply *reply = HttpClient::instance()->sendSmsCode(m_phoneNumber, m_acccessToken);
     connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onSendSmsCodeResult);
 }
 
 void AuthenticationWindow::onSendSmsCodeResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
 
     if (!result.isEmpty()) {
-        if (RequestService::instance()->solveJson(result)) {
+        if (HttpClient::instance()->solveJson(result)) {
             m_getCodeButton->setEnabled(false);
             m_timer->start(1000);
         }
@@ -128,9 +144,8 @@ void AuthenticationWindow::onSendSmsCodeResult()
 
 void AuthenticationWindow::onLineEditTextChanged(QString text)
 {
-    qInfo() << "onLineEditTextChanged " << text;
-    if (m_tipLabel->isVisible()) {
-        m_tipLabel->setVisible(false);
+    if (!m_warningLabel->text().isEmpty()) {
+        m_warningLabel->clear();
     }
 
     if (text.isEmpty()) {
@@ -142,17 +157,17 @@ void AuthenticationWindow::onLineEditTextChanged(QString text)
 
 void AuthenticationWindow::onNextButtonClicked()
 {
-    QNetworkReply *reply = RequestService::instance()->verifySmsCode(m_phoneNumber,m_lineEdit->text(), m_acccessToken);
+    QNetworkReply *reply = HttpClient::instance()->verifySmsCode(m_phoneNumber,m_lineEdit->text(), m_acccessToken);
     connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onVerifySmsCodeResult);
 }
 
 void AuthenticationWindow::onVerifySmsCodeResult()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
-    QString result = RequestService::instance()->checkReply(reply);
+    QString result = HttpClient::instance()->checkReply(reply);
 
     if (!result.isEmpty()) {
-        if (RequestService::instance()->solveJson(result)) {
+        if (HttpClient::instance()->solveJson(result)) {
             BindWeChatWindow *bindWeChatWindow = new BindWeChatWindow;
             connect(bindWeChatWindow,&BindWeChatWindow::toTellrefreshUserInfo,this,&AuthenticationWindow::toTellrefreshUserInfo);
             connect(bindWeChatWindow,&BindWeChatWindow::close,this,&AuthenticationWindow::close);
@@ -165,21 +180,15 @@ void AuthenticationWindow::onVerifySmsCodeResult()
             QVariant strReply = interface1.property("HardwareID");
 
             bindWeChatWindow ->setData(m_acccessToken,strReply.toString(),m_weChatUnionId,m_refreshToken);
-
-            if (m_weChatUnionId.isEmpty()) {
-                QNetworkReply *reply = RequestService::instance()->requestQrCode(CLIENT_ID,strReply.toString(),3,REDIRECT_URI);
-                connect(reply,&QNetworkReply::finished,bindWeChatWindow,&BindWeChatWindow::onRequestQrCodeResult);
-                hide();
-                bindWeChatWindow->show();
-            } else {
-                    QNetworkReply *reply = RequestService::instance()->requestQrCode(CLIENT_ID,strReply.toString(),3,REDIRECT_URI);
-                    connect(reply,&QNetworkReply::finished,bindWeChatWindow,&BindWeChatWindow::onRequestQrCodeResult);
-                    hide();
-                    bindWeChatWindow->show();
-            }
+            QNetworkReply *reply = HttpClient::instance()->requestQrCode(CLIENT_ID,strReply.toString(),3,REDIRECT_URI);
+            connect(reply,&QNetworkReply::finished,bindWeChatWindow,&BindWeChatWindow::onRequestQrCodeResult);
+            hide();
+            bindWeChatWindow->show();
 
         } else {
-            m_tipLabel->setVisible(true);
+            if (m_warningLabel->text().isEmpty()) {
+                m_warningLabel->setText(QObject::tr("Wrong verification code"));
+            }
         }
     }
 }

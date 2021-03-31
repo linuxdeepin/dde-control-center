@@ -22,10 +22,13 @@
 
 #include "interface/namespace.h"
 
+// qt
 #include <QLabel>
+#include <QResizeEvent>
 
 namespace DCC_NAMESPACE {
 namespace unionid {
+// 头像类
 class AvatarWidget : public QLabel
 {
     Q_OBJECT
@@ -33,15 +36,23 @@ public:
     explicit AvatarWidget(QWidget *parent = nullptr);
     explicit AvatarWidget(const QString &avatar, QWidget *parent = nullptr);
 
+    // 头像路径
     const QString avatarPath() const;
-    void setAvatarPath(const QString &avatar);
+    // 设置头像图片路径
+    void setAvatarPath(const QString &avatar, bool isUrl = true);
+
+public Q_SLOTS:
+    // 读取从Url中读取的数据
+    void readAvatarFromUrl();
 
 protected:
+    // 将label设置为圆形
     void paintEvent(QPaintEvent *e);
-
 private:
     QPixmap m_avatar;
     QString m_avatarPath;
 };
 }
 }
+
+
