@@ -107,6 +107,7 @@ void TouchscreenWidget::onMonitorChanged()
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new DLabel(title);
         label->setElideMode(Qt::ElideRight);
+        label->setToolTip(title);
 
         MCombobox *listCombo = new MCombobox;
         listCombo->setProperty("touchscreenName", i.name);
