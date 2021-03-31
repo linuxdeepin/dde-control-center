@@ -104,6 +104,7 @@ private Q_SLOTS:
     void deleteUserClicked();
     void changeUserGroup(const QStringList &groups);
     void userGroupClicked(const QModelIndex &index);
+    void dealDevicesStatus(bool status);
 
 private:
     dcc::accounts::User *m_curUser;
@@ -113,6 +114,7 @@ private:
     DLineEdit *m_inputLineEdit;//账户全名编辑框
     dcc::accounts::FingerModel *m_model;
     FingerWidget *m_fingerWidget;//指纹界面
+    bool m_fingerWidgetVisible;//VisiableStatus
     AvatarListWidget *m_avatarListWidget;//图像列表
     DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
     QStandardItemModel *m_groupItemModel;

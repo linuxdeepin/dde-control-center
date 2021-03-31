@@ -94,12 +94,17 @@ void AccountsDetailWidget::setFingerModel(FingerModel *model)
     m_fingerWidget->setFingerModel(model);
     connect(model, &FingerModel::vaildChanged, this, [this](const bool isVaild) {
         if (m_curUser->isCurrentUser()) {
-            m_fingerWidget->setVisible(!IsServerSystem && isVaild);
+            m_fingerWidgetVisible = !IsServerSystem && isVaild;
+            m_fingerWidget->setVisible(m_fingerWidgetVisible);
         }
     });
     if (m_curUser->isCurrentUser()) {
-        m_fingerWidget->setVisible(!IsServerSystem && model->isVaild());
+        m_fingerWidgetVisible = !IsServerSystem && model->isVaild();
+        m_fingerWidget->setVisible(m_fingerWidgetVisible);
     }
+
+    connect(m_model, &FingerModel::DevicesStatus, this, &AccountsDetailWidget::dealDevicesStatus);
+
 }
 
 void AccountsDetailWidget::mousePressEvent(QMouseEvent *e)
@@ -395,7 +400,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
-    m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
+    m_fingerWidgetVisible = !IsServerSystem && isCurUser;
+    m_fingerWidget->setVisible(m_fingerWidgetVisible);
 
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
@@ -522,6 +528,18 @@ void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
     }
 
     Q_EMIT requestSetGroups(m_curUser, curUserGroup);
+}
+
+void AccountsDetailWidget::dealDevicesStatus(bool status)
+{
+    if(m_fingerWidgetVisible == status) return;
+
+    m_fingerWidgetVisible = status;
+
+    m_fingerWidget->setVisible(status);
+
+    qDebug() << "m_fingerWidgetVisible:" << m_fingerWidgetVisible;
+    m_fingerWidget->displayAccountFingerItemInfo();//DebugInfo
 }
 
 void AccountsDetailWidget::changeUserGroup(const QStringList &groups)

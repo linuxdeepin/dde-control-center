@@ -66,6 +66,10 @@ private:
     void initWidget();
     void initData();
     void keyPressEvent(QKeyEvent *event) override;
+
+    void enrollActivate();
+    void enrollDeviceDisconnected();
+
 protected:
     void closeEvent(QCloseEvent *event) override;
     bool eventFilter(QObject *o, QEvent *e) override;
@@ -75,6 +79,9 @@ Q_SIGNALS:
     void requestReEnrollThumb();
     void requestEnrollThumb();
     void requesetCloseDlg(const QString &name);
+
+public Q_SLOT:
+    void dealDevicesStatus(bool status);
 
 private:
     QTimer *m_timer;

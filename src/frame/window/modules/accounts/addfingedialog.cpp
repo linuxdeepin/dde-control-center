@@ -63,7 +63,7 @@ void AddFingeDialog::initWidget()
     titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
     titleIcon->setBackgroundTransparent(true);//透明
     titleIcon->setMenuVisible(false);
-    titleIcon->setTitle("");
+    titleIcon->setTitle(tr("Enroll Fingerprints"));
     m_titleHLayout->addWidget(titleIcon, Qt::AlignTop | Qt::AlignRight);
     m_mainLayout->addLayout(m_titleHLayout);
     m_mainLayout->addWidget(m_fingeWidget, 1);
@@ -145,7 +145,7 @@ void AddFingeDialog::enrollStagePass(int pro)
     if (!m_isEnrolling) {
         return;
     }
-
+    qDebug() << "addfingeDialog pro ===" << pro; 
     m_addBtn->setEnabled(false);
     m_fingeWidget->setProsses(pro);
     m_timer->start(1000 * 60);//1min
@@ -166,6 +166,7 @@ void AddFingeDialog::enrollFailed(QString title, QString msg)
 
     Q_EMIT requestStopEnroll(m_username);
 }
+
 void AddFingeDialog::enrollDisconnected()
 {
     Q_EMIT requestStopEnroll(m_username);
@@ -252,6 +253,30 @@ void AddFingeDialog::keyPressEvent(QKeyEvent *event)
     }
 }
 
+void AddFingeDialog::enrollActivate()
+{
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr(""), false);
+    m_addBtn->show();
+    m_addBtn->setText(tr("Scan Again"));
+    m_addBtn->setEnabled(true);
+}
+
+void AddFingeDialog::enrollDeviceDisconnected()
+{
+    Q_EMIT requestStopEnroll(m_username);
+
+    m_isEnrolling = false;
+    m_fingeWidget->setStatueMsg(tr("Scan Suspended"), tr("Connect a fingerprint sensor and click \"Scan Again\""), true);
+    m_addBtn->show();
+    m_addBtn->setText(tr("Scan Again"));
+    m_addBtn->setEnabled(false);
+    m_timer->stop();
+
+    //会出现末知情况，需要与后端确认中断时是否可以停止
+    Q_EMIT requestStopEnroll(m_username);
+}
+
 bool AddFingeDialog::eventFilter(QObject *o, QEvent *e)
 {
     if (o == this) {
@@ -271,4 +296,15 @@ bool AddFingeDialog::eventFilter(QObject *o, QEvent *e)
        }
     }
     return false ;
+}
+
+void AddFingeDialog::dealDevicesStatus(bool status)
+{
+    qDebug() << __FILE__ << __LINE__<< __FUNCTION__  << "available:"<< status;
+
+    if(status){
+        enrollActivate();
+    }else {
+        enrollDeviceDisconnected();
+    }
 }

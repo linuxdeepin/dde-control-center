@@ -203,6 +203,14 @@ void FingerModel::onTouch(const QString &id, bool pressed)
 
 }
 
+
+void FingerModel::dealDevicesStatus(bool status)
+{
+    qDebug() << __FILE__ << __LINE__<< __FUNCTION__ << "available:" << status;
+
+    Q_EMIT DevicesStatus(status);
+}
+
 void FingerModel::setThumbsList(const QStringList &thumbs)
 {
     if (thumbs != m_thumbsList) {

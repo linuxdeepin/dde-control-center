@@ -212,6 +212,7 @@ void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
 {
     AddFingeDialog *dlg = new AddFingeDialog(thumb);
     m_pMainWindow = static_cast<MainWindow *>(m_frameProxy);
+    connect(m_fingerModel, &FingerModel::DevicesStatus, dlg, &AddFingeDialog::dealDevicesStatus);
     connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [=] {
         m_fingerWorker->tryEnroll(name, thumb);
     });

@@ -193,3 +193,14 @@ void FingerWidget::addFingerButton(const QString &newFingerName)
         Q_EMIT requestAddThumbs(m_curUser->name(), newFingerName);
     });
 }
+
+void FingerWidget::displayAccountFingerItemInfo()
+{
+    for (int i=0; i<m_listGrp->itemCount()-1; i++) {
+        qDebug() <<"showproblem! pos:" << i << " Title:" << static_cast<AccounntFingeItem*>(m_listGrp->getItem(i))->getTitle();
+    }
+
+    for(AccounntFingeItem* item : m_vecItem) {
+        qDebug() << "showproblem! m_vecItem Title:" << item->getTitle();
+    }
+}

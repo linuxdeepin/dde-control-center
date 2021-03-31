@@ -59,6 +59,13 @@ Q_SIGNALS:
     void enrollDisconnected();
 
     void lockedChanged(bool locked);
+
+    void DevicesStatus(bool status);
+
+public Q_SLOT:
+    void dealDevicesStatus(bool status);
+
+
 private:
     bool m_isVaild{false};
     int m_progress;

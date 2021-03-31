@@ -50,6 +50,8 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::onTouch);
     connect(m_SMInter, &SessionManagerInter::LockedChanged, m_model, &FingerModel::lockedChanged);
 
+    connect(m_fingerPrintInter, &Fingerprint::DeviceStatus, m_model, &FingerModel::dealDevicesStatus);
+
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
     m_model->setIsVaild(!defualtDevice.isEmpty());
 
@@ -97,7 +99,7 @@ void FingerWorker::refreshUserEnrollList(const QString &id)
     call.waitForFinished();
     if (call.isError()) {
         qDebug() << "call ListFingers Error : " << call.error();
-        m_model->setThumbsList(QStringList());
+//        m_model->setThumbsList(QStringList());
         return;
     } else {
         qDebug() << "ListFingers  : " << call.value();
