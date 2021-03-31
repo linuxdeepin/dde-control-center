@@ -131,6 +131,7 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
     void jumpByUuid(const QString &uuid);
+    QString connectionUuid(const QString &ssid);
 Q_SIGNALS:
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid);
@@ -162,7 +163,7 @@ private Q_SLOTS:
 
 private:
     void updateActiveAp();
-    QString connectionUuid(const QString &ssid);
+
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);
 

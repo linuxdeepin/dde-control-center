@@ -45,6 +45,11 @@
 #include <networkdevice.h>
 #include <wirelessdevice.h>
 #include <wireddevice.h>
+#include <QSharedPointer>
+
+#include <networkmanagerqt/accesspoint.h>
+#include <networkmanagerqt/wirelesssetting.h>
+#include <networkmanagerqt/wirelesssecuritysetting.h>
 
 #include <QTimer>
 
@@ -106,7 +111,7 @@ void NetworkModule::showPage(const QString &jsonData)
             return;
         }
 
-        const QString &connUuid = jsonObj.value("conn-uuid").toString();
+        QString connUuid = jsonObj.value("conn-uuid").toString();
         if (connType == "wired") {
             showWiredEditPage(device, connUuid);
         } else if (connType == "wireless") {
@@ -440,8 +445,20 @@ void NetworkModule::showWiredEditPage(NetworkDevice *dev, const QString &connUui
     m_connEditPage->setVisible(true);
 }
 
-void NetworkModule::showWirelessEditPage(dde::network::NetworkDevice *dev, const QString &connUuid, const QString &apPath)
+void NetworkModule::showWirelessEditPage(dde::network::NetworkDevice *dev, QString connUuid, const QString &apPath)
 {
+    qDebug() << "showWirelessEditPage: " << connUuid << ", " << apPath;
+    if(connUuid == "" || connUuid == "/") {
+        qDebug() << "uuid is empty, need to adjust uuid";
+        NetworkManager::AccessPoint::Ptr nmAp = QSharedPointer<NetworkManager::AccessPoint>(new NetworkManager::AccessPoint(apPath));
+        auto ssid = nmAp->ssid();
+        if ((ssid != "") && (ssid != "/")) {
+                if (m_wirelessPage) {
+                   connUuid = m_wirelessPage->connectionUuid(ssid);
+                }
+        }
+    }
+
     // it will be destroyed by Frame
     m_connEditPage = new ConnectionWirelessEditPage(dev->path(), connUuid);
     m_connEditPage->setVisible(false);

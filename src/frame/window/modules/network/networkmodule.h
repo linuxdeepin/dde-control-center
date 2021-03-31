@@ -75,7 +75,7 @@ private Q_SLOTS:
     void onSetFrameAutoHide(const bool autoHide);
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
     void showWiredEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString());
-    void showWirelessEditPage(dde::network::NetworkDevice *dev, const QString &connUuid = QString(), const QString &apPath = QString());
+    void showWirelessEditPage(dde::network::NetworkDevice *dev, QString connUuid = QString(), const QString &apPath = QString());
     void removeConnEditPageByDevice(dde::network::NetworkDevice *dev);
 
 private:
