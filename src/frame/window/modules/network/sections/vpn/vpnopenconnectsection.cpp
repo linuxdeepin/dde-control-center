@@ -57,6 +57,20 @@ bool VpnOpenConnectSection::allInputValid()
         m_gateway->setIsErr(false);
     }
 
+    if (m_userCert->edit()->text().isEmpty()) {
+        valid = false;
+        m_userCert->setIsErr(true);
+    } else {
+        m_userCert->setIsErr(false);
+    }
+
+    if (m_userKey->edit()->text().isEmpty()) {
+        valid = false;
+        m_userKey->setIsErr(true);
+    } else {
+        m_userKey->setIsErr(false);
+    }
+
     return valid;
 }
 
@@ -99,9 +113,11 @@ void VpnOpenConnectSection::initUI()
     m_csdScript->setText(m_dataMap.value("csd_wrapper"));
 
     m_userCert->setTitle(tr("User Cert"));
+    m_userCert->edit()->setPlaceholderText(tr("Required"));
     m_userCert->edit()->setText(m_dataMap.value("usercert"));
 
     m_userKey->setTitle(tr("Private Key"));
+    m_userKey->edit()->setPlaceholderText(tr("Required"));
     m_userKey->edit()->setText(m_dataMap.value("userkey"));
 
     m_useFSID->setTitle(tr("Use FSID for Key Passphrase"));
