@@ -238,9 +238,17 @@ void LoginPage::onSignUpButtonClicked()
 {
     qInfo() << "onSignInButtonClicked";
     QDBusInterface interface("com.deepin.deepinid.Client",
-                             "/com/deepin/deepinid/Client",
-                             "com.deepin.deepinid.Client");
+                              "/com/deepin/deepinid/Client",
+                              "com.deepin.deepinid.Client");
+
     QList<QVariant> argumentList;
+    argumentList << "388340d186f311eb983b0242ac130002";
+    argumentList << "com.deepin.dde.ControlCenter";
+    argumentList << "/com/deepin/dde/ControlCenter";
+    argumentList << "com.deepin.dde.ControlCenter";
+    interface.callWithArgumentList(QDBus::NoBlock, "Register", argumentList);
+
+    argumentList = {};
     argumentList << "388340d186f311eb983b0242ac130002";
     argumentList << QStringList{"base","user.api:contact","user:contact:read"};
     argumentList << "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-managment";
