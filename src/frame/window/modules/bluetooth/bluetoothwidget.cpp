@@ -38,7 +38,7 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
     , m_model(model)
     , m_tFrame(new TranslucentFrame)
 {
-    layout()->setContentsMargins(8, 8, 8, 8);
+    layout()->setContentsMargins(0, 8, 0, 8);
     setContent(m_tFrame);
 
     setObjectName("Bluetooth");
