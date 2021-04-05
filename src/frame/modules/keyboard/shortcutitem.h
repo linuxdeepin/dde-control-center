@@ -48,6 +48,7 @@ class ShortcutItem : public SettingsItem
 
 public:
     explicit ShortcutItem(QFrame *parent = nullptr);
+    ~ShortcutItem();
 
     void setShortcutInfo(ShortcutInfo *info);
     inline ShortcutInfo *curInfo() { return m_info; }
@@ -55,6 +56,9 @@ public:
     void setChecked(bool checked);
     void setTitle(const QString &title);
     void setShortcut(const QString &shortcut);
+
+    QString configName() const;
+    void setConfigName(const QString &configName);
 
 Q_SIGNALS:
     void shortcutEditChanged(ShortcutInfo *info);
@@ -80,6 +84,7 @@ private:
     DTK_WIDGET_NAMESPACE::DIconButton *m_delBtn;
     DTK_WIDGET_NAMESPACE::DIconButton *m_editBtn;
     ShortcutKey *m_key;
+    QString m_configName;
 };
 }
 }

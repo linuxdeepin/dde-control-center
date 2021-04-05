@@ -29,6 +29,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/searchinput.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DAnchors>
 
@@ -239,9 +240,13 @@ void ShortCutSettingWidget::addShortcut(QList<ShortcutInfo *> list, ShortcutMode
         item->setShortcutInfo(info);
         item->setTitle(info->name);
         info->item = item;
+        item->setConfigName(info->id + "Config");
         m_searchInfos[info->toString()] = info;
 
         m_allList << item;
+        if (type != ShortcutModel::Custom) {
+            GSettingWatcher::instance()->bind(item->configName(), item);
+        }
         switch (type) {
         case ShortcutModel::System:
             m_systemGroup->appendItem(item);

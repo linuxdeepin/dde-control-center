@@ -715,5 +715,149 @@
             <summary></summary>
             <description>resolution config</description>
         </key>
+        <key name="terminal-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="terminal-quake-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-delayed-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-fullscreen-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-window-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="deepin-screen-recorder-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-group-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-group-backward-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="preview-workspace-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="expose-windows-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="expose-all-windows-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="launcher-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-applications-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-applications-backward-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="show-desktop-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="file-manager-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="lock-screen-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="logout-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="wm-switcher-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="system-monitor-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="clipboard-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="maximize-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="unmaximize-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="minimize-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="begin-move-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="begin-resize-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="close-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-to-workspace-left-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-to-workspace-right-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="move-to-workspace-left-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="move-to-workspace-right-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="ai-assistant-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="text-to-speech-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="speech-to-text-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="translation-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
     </schema>
 </schemalist>

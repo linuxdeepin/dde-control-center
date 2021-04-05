@@ -26,6 +26,7 @@
 #include "shortcutitem.h"
 #include "shortcutmodel.h"
 #include "keylabel.h"
+#include "window/gsettingwatcher.h"
 
 #include <DStyle>
 
@@ -88,6 +89,11 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     connect(m_editBtn, &DIconButton::clicked, this, &ShortcutItem::onShortcutEdit);
     connect(m_delBtn, &DIconButton::clicked, this, &ShortcutItem::onRemoveClick);
+}
+
+ShortcutItem::~ShortcutItem()
+{
+    GSettingWatcher::instance()->erase(configName(), this);
 }
 
 void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
@@ -186,5 +192,23 @@ void ShortcutItem::resizeEvent(QResizeEvent *event)
     } else {
         QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
     }
+    
+}
 
+QString ShortcutItem::configName() const
+{
+    QString configName = m_configName;
+    for (int i = 0; i < configName.size(); i++) {
+        if (configName[i] == "-") {
+            QChar upperChar = configName.at(i + 1).toUpper();
+            configName.remove(i, 2);
+            configName.insert(i, upperChar);
+        }
+    }
+    return configName;
+}
+
+void ShortcutItem::setConfigName(const QString &configName)
+{
+    m_configName = configName;
 }
