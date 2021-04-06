@@ -46,6 +46,7 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     , ModuleInterface(frame)
 {
     m_frameProxy =  frame;
+    m_selectName = "";
 }
 
 void AccountsModule::initialize()
@@ -68,6 +69,14 @@ void AccountsModule::initialize()
     m_accountsWorker->active();
     connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
     connect(m_accountsWorker, &AccountsWorker::requesetMainWindowEnabled, this, &AccountsModule::onSetMainWindowEnabled);
+
+    m_inter = new QDBusInterface("org.freedesktop.login1",
+                                 "/org/freedesktop/login1/session/self",
+                                  "org.freedesktop.login1.Session",
+                                 QDBusConnection::systemBus(), this);
+    m_curName = m_inter->property("Name").toString();
+
+    connect(m_fingerModel, &FingerModel::DevicesStatus, this, &AccountsModule::dealDevicesStatus);
 }
 
 void AccountsModule::reset()
@@ -155,6 +164,8 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     w->setAccountModel(m_userModel);
     m_fingerWorker->refreshUserEnrollList(account->name());
     w->setFingerModel(m_fingerModel);
+
+    m_selectName = account->name();
 
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
@@ -286,4 +297,16 @@ void AccountsModule::onSetMainWindowEnabled(bool isEnabled)
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     if (m_pMainWindow)
         m_pMainWindow->setEnabled(isEnabled);
+}
+
+void AccountsModule::dealDevicesStatus(const bool &status)
+{
+    if(true == status){
+        qDebug() << "AccountsModule::dealDevicesStatus " << m_selectName << m_curName;
+        //获取当前账户名
+        if(!m_selectName.isEmpty() && m_selectName == m_curName)
+        {
+            m_fingerWorker->refreshUserEnrollList(m_selectName);
+        }
+     }
 }

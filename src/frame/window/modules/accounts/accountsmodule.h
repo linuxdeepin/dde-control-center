@@ -65,6 +65,8 @@ public Q_SLOTS:
     void onHandleVaildChanged(const bool isVaild);
     void onSetMainWindowEnabled(const bool isEnabled);
 
+    void dealDevicesStatus(const bool &status);
+
 private:
     ~AccountsModule();
 
@@ -75,6 +77,10 @@ private:
     dcc::accounts::FingerModel *m_fingerModel{nullptr};
     AccountsWidget *m_accountsWidget = nullptr;
     MainWindow *m_pMainWindow = nullptr;
+
+    QDBusInterface *m_inter;
+    QString m_curName;
+    QString m_selectName;
 };
 
 }   // namespace accounts
