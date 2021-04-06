@@ -73,6 +73,10 @@ void KeyboardModule::reset()
 void KeyboardModule::active()
 {
     m_work->active();
+    // 平板环境只要三级菜单
+    if (DGuiApplicationHelper::isTabletEnvironment())
+           return showSystemLanguageSetting();
+
     m_keyboardWidget = new KeyboardWidget;
     m_keyboardWidget->setVisible(false);
     connect(m_keyboardWidget, &KeyboardWidget::showGeneralSetting, this, &KeyboardModule::showGeneralSetting);

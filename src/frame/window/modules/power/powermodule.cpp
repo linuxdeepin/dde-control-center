@@ -83,20 +83,22 @@ const QString PowerModule::displayName() const
 
 void PowerModule::active()
 {
+    m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
+    m_model->setSuspend(m_isSuspend && m_model->canSleep());
+    bool hibernate = m_powerSetting->get(GSETTING_SHOW_HIBERNATE).toBool();
+    m_model->setHibernate(hibernate && m_model->canHibernate() && !IsServerSystem);
+    connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
+    // 平板环境只要三级菜单
+    if (DGuiApplicationHelper::isTabletEnvironment())
+           return showUseBattery();
+
     m_widget = new PowerWidget;
     m_widget->setVisible(false);
 
     m_widget->initialize(m_model->haveBettary());
 
-    m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
-    m_model->setSuspend(m_isSuspend && m_model->canSleep());
-
-    bool hibernate = m_powerSetting->get(GSETTING_SHOW_HIBERNATE).toBool();
-    m_model->setHibernate(hibernate && m_model->canHibernate() && !IsServerSystem);
-
     connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::removeBattery);
-    connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
     connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
     connect(m_widget, &PowerWidget::requestShowUseElectric, this, &PowerModule::showUseElectric);
     connect(m_widget, &PowerWidget::requestShowUseBattery, this, &PowerModule::showUseBattery);

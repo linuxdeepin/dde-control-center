@@ -193,6 +193,7 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
     m_frameProxy->pushWidget(this, m_networkWidget);
     m_networkWidget->setVisible(true);
+
     m_networkWidget->initSetting(0, "");
 }
 
