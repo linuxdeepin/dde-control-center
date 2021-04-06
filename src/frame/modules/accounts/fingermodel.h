@@ -65,7 +65,6 @@ Q_SIGNALS:
 public Q_SLOTS:
     void dealDevicesStatus(bool status);
 
-
 private:
     bool m_isVaild{false};
     int m_progress;

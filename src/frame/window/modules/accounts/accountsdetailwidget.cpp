@@ -532,14 +532,9 @@ void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
 
 void AccountsDetailWidget::dealDevicesStatus(bool status)
 {
-    if(m_fingerWidgetVisible == status) return;
+    bool isCurUser = m_curUser->isCurrentUser();
 
-    m_fingerWidgetVisible = status;
-
-    m_fingerWidget->setVisible(status);
-
-    qDebug() << "m_fingerWidgetVisible:" << m_fingerWidgetVisible;
-    m_fingerWidget->displayAccountFingerItemInfo();//DebugInfo
+    m_fingerWidget->setVisible(status && isCurUser);
 }
 
 void AccountsDetailWidget::changeUserGroup(const QStringList &groups)

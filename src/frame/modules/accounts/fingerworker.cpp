@@ -52,6 +52,7 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
 
     connect(m_fingerPrintInter, &Fingerprint::DeviceStatus, m_model, &FingerModel::dealDevicesStatus);
 
+    //获取后端设备状态
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
     m_model->setIsVaild(!defualtDevice.isEmpty());
 
