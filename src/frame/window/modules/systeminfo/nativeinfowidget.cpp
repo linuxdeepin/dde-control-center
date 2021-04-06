@@ -162,6 +162,7 @@ void NativeInfoWidget::initWidget()
     m_mainLayout->addStretch(10);
     m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
     setLayout(m_mainLayout);
+    setContentsMargins(0, 0, 8, 0);
 
     QScroller::grabGesture(this->window(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(this->window());

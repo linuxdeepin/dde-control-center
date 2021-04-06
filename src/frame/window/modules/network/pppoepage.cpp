@@ -74,6 +74,7 @@ PppoePage::PppoePage(QWidget *parent)
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);
 
+    setContentsMargins(0, 8, 0, 8);
     setContent(mainWidget);
     setTitle(tr("PPP"));
     //~ contents_path /network/DSL/Create PPPoE Connection

@@ -72,7 +72,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     //整体布局
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    mainContentLayout->setMargin(0);
 
     setLayout(mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);

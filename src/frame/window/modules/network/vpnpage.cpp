@@ -117,7 +117,6 @@ VpnPage::VpnPage(QWidget *parent)
     contentWidget->setContent(widget);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setMargin(0);
     mainLayout->addWidget(contentWidget);
 
     QHBoxLayout *buttonsLayout = new QHBoxLayout;

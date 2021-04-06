@@ -60,6 +60,7 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
 
     widget->setLayout(m_mainLayout);
     setContent(widget);
+    setContentsMargins(0, 8, 0, 8);
 
     QFutureWatcher<QPair<QString, QString>> *w = new QFutureWatcher<QPair<QString, QString>>(this);
     w->setFuture(QtConcurrent::run(loadLicenses));

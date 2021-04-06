@@ -98,7 +98,7 @@ NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     mainWidget->setLayout(m_groupsLayout);
 
     setTitle(tr("Network Details"));
-    layout()->setMargin(0);
+    layout()->setContentsMargins(0, 8, 0, 8);
     setContent(mainWidget);
 }
 

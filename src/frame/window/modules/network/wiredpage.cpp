@@ -108,6 +108,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     QWidget *centralWidget = new TranslucentFrame;
     centralWidget->setLayout(centralLayout);
 
+    setContentsMargins(0, 0, 8, 0);
     setContent(centralWidget);
     setTitle(tr("Select Settings"));
     //点击有线连接按钮

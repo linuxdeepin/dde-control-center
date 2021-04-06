@@ -65,4 +65,5 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
     layout->addWidget(label);
     widget->setLayout(layout);
     setContent(widget);
+    setContentsMargins(0, 8, 0, 8);
 }

@@ -278,7 +278,6 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    mainContentLayout->setMargin(0);
     setLayout(mainContentLayout);
     mainContentLayout->addWidget(scrollArea);
 

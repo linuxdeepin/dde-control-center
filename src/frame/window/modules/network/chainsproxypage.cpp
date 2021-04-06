@@ -111,6 +111,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(layout);
 
+    setContentsMargins(0, 0, 8, 0);
     setContent(w);
 
     connect(m_btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::onRestoreValue);

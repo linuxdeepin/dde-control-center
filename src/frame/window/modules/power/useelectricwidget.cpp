@@ -108,7 +108,6 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setMargin(0);
     mainLayout->addWidget(contentWgt);
     setLayout(mainLayout);
 

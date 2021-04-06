@@ -50,6 +50,7 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
 
     widget->setLayout(layout);
     setContent(widget);
+    setContentsMargins(0, 8, 0, 8);
 
     QFutureWatcher<QString> *w = new QFutureWatcher<QString>(this);
     w->setFuture(QtConcurrent::run(ProtocolFile::getEnduserAgreement));

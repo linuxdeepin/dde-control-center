@@ -62,7 +62,6 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     m_isServerSystem = IsServerSystem;
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    mainContentLayout->setMargin(0);
     setLayout(mainContentLayout);
 
     m_scrollArea = new QScrollArea;
