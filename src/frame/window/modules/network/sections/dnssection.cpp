@@ -141,8 +141,16 @@ void DNSSection::addNewDnsEdit(const int &index)
     ButtonEditWidget *dnsNewSpinbox = new ButtonEditWidget(this);
     insertItem(index,dnsNewSpinbox);
     dnsNewSpinbox->dTextEdit()->lineEdit()->installEventFilter(this);
+    dnsNewSpinbox->addBtn()->setFocusPolicy(Qt::NoFocus);
+    dnsNewSpinbox->reduceBtn()->setFocusPolicy(Qt::NoFocus);
     m_itemsList.insert(index, dnsNewSpinbox);
+
     onDnsDateListChanged();
+
+    // 设置 tab 顺序
+    for (int i = 0; i < m_itemsList.size() - 1; i++) {
+        setTabOrder(m_itemsList.at(i)->dTextEdit(), m_itemsList.at(i+1)->dTextEdit());
+    }
 
     connect(dnsNewSpinbox, &ButtonEditWidget::addNewDnsEdit, this, [=]() {
         addNewDnsEdit(m_itemsList.indexOf(dnsNewSpinbox) + 1);
