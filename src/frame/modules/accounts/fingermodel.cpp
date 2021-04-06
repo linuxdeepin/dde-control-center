@@ -206,7 +206,7 @@ void FingerModel::onTouch(const QString &id, bool pressed)
 
 void FingerModel::dealDevicesStatus(bool status)
 {
-    qDebug() << __FILE__ << __LINE__<< __FUNCTION__ << "available:" << status;
+    setIsVaild(status);
 
     Q_EMIT DevicesStatus(status);
 }

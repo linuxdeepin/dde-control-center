@@ -45,8 +45,6 @@ public:
     void setFingerModel(dcc::accounts::FingerModel *model);
     void addFingerButton(const QString &newFingerName);
 
-    void displayAccountFingerItemInfo();////DebugInfo
-
 Q_SIGNALS:
     void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
