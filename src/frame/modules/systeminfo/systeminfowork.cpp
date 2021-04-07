@@ -63,12 +63,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
                                         "/com/deepin/daemon/Grub2/Theme",
                                         QDBusConnection::systemBus(), this);
 
-    if (DSysInfo::isDeepin()) {
-        m_activeInfo = new QDBusInterface("com.deepin.license",
-                                          "/com/deepin/license/Info",
-                                          "com.deepin.license.Info",
-                                          QDBusConnection::systemBus(),this);
-    }
 #if 0
     //预留接口
     m_dbusActivator = new GrubThemeDbus("com.deepin.license",
@@ -105,7 +99,9 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_dbusGrubTheme->setSync(false, false);
 
     if (DSysInfo::isDeepin()) {
-        connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+        QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
+                                             "com.deepin.license.Info", "LicenseStateChange",
+                                             this, SLOT(licenseStateChangeSlot()));
         licenseStateChangeSlot();
     }
 

@@ -77,7 +77,6 @@ private:
     UeProgramDbus *m_dBusUeProgram; // for user experience program
     QProcess *m_process = nullptr;
     GrubDevelopMode *m_dBusdeepinIdInter;
-    QDBusInterface *m_activeInfo;
     QString m_title;
     QString m_content;
 };

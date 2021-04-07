@@ -42,7 +42,6 @@ private:
     SyncModel *m_model;
     SyncInter *m_syncInter;
     DeepinId *m_deepinId_inter;
-    QDBusInterface *m_activeInfo;
 };
 }
 }

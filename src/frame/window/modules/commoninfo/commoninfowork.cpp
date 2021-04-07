@@ -58,11 +58,6 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                                 "/com/deepin/deepinid",
                                                 QDBusConnection::sessionBus(), this);
 
-    m_activeInfo = new QDBusInterface("com.deepin.license",
-                                      "/com/deepin/license/Info",
-                                      "com.deepin.license.Info",
-                                      QDBusConnection::systemBus(),this);
-
     licenseStateChangeSlot();
 
     if (!IsCommunitySystem) {
@@ -128,7 +123,9 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
+                                         "com.deepin.license.Info", "LicenseStateChange",
+                                         this, SLOT(licenseStateChangeSlot()));
 }
 
 CommonInfoWork::~CommonInfoWork()

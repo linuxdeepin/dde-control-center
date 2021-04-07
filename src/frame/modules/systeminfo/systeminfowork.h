@@ -77,7 +77,6 @@ private:
     GrubDbus* m_dbusGrub;
     GrubThemeDbus *m_dbusGrubTheme;
     QDBusInterface *m_systemInfo;
-    QDBusInterface *m_activeInfo;
 };
 
 }

@@ -30,12 +30,10 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
                                           "sa{sv}as",
                                           this, SLOT(userInfoChanged(QDBusMessage)));
 
-    m_activeInfo = new QDBusInterface("com.deepin.license",
-                                      "/com/deepin/license/Info",
-                                      "com.deepin.license.Info",
-                                      QDBusConnection::systemBus(),this);
+    QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
+                                         "com.deepin.license.Info", "LicenseStateChange",
+                                         this, SLOT(licenseStateChangeSlot()));
 
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
