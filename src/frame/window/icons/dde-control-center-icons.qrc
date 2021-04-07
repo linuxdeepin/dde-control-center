@@ -142,7 +142,6 @@
         <file>icons/dcc_nav_bluetooth_84px.png</file>
         <file>icons/dcc_nav_bluetooth_512px.png</file>
         <file>icons/dcc_nav_commoninfo_42px.png</file>
-        <file>icons/dcc_nav_commoninfo_84px.svg.png</file>
         <file>icons/dcc_nav_commoninfo_512px.png</file>
         <file>icons/dcc_nav_datetime_42px.png</file>
         <file>icons/dcc_nav_datetime_84px.png</file>
@@ -186,6 +185,7 @@
         <file>icons/dcc_nav_unionid_42px.png</file>
         <file>icons/dcc_nav_unionid_84px.png</file>
         <file>icons/dcc_nav_unionid_512px.png</file>
+        <file>icons/dcc_nav_commoninfo_84px.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -42,6 +42,8 @@ public:
     LoginPage(QWidget *parent = nullptr);
     void setMainWindow(MainWindow *pMainWindow);
 
+    void login();
+
 Q_SIGNALS:
     void requestLoginUser() const;
 

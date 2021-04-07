@@ -101,11 +101,11 @@ LoginPage::LoginPage(QWidget *parent)
         m_tipLabel->setPalette(pa);
     }
 
-    DSuggestButton *signInButton = new DSuggestButton(tr("Sign in"));
+    DSuggestButton *signInButton = new DSuggestButton(tr("Sign In"));
     signInButton->setMinimumSize(QSize(72,28));
     connect(signInButton,&DSuggestButton::clicked,this,&LoginPage::onSignInButtonClicked);
 
-    DSuggestButton *signUpButton = new DSuggestButton(tr("Sign up"));
+    DSuggestButton *signUpButton = new DSuggestButton(tr("Sign Up"));
     signUpButton->setMinimumSize(QSize(72,28));
     connect(signUpButton,&DSuggestButton::clicked,this,&LoginPage::onSignUpButtonClicked);
 
@@ -141,6 +141,11 @@ LoginPage::LoginPage(QWidget *parent)
 void LoginPage::setMainWindow(MainWindow *pMainWindow)
 {
     m_pMainWindow = pMainWindow;
+}
+
+void LoginPage::login()
+{
+    onSignInButtonClicked();
 }
 
 void LoginPage::licenceDialog()

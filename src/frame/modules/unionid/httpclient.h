@@ -95,9 +95,11 @@ public:
                                                     1:AT
                                                     2:sessionid
      * @param bindAccountIdValue     绑定账号标识取值
+     * @param attribute              昵称
      */
-    QNetworkReply* bindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue
-                     , const int &bindAccountType, const int &bindAccountId, const QString &bindAccountIdValue);
+    QNetworkReply* bindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue,
+                               const int &bindAccountType, const int &bindAccountId, const QString &bindAccountIdValue,
+                               const QString &attribute);
     /**
      * @brief unbindAccount           解绑微信
      * @param platformType            平台类型
@@ -118,6 +120,9 @@ public:
      */
     QNetworkReply* unbindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue
                        , const int &bindAccountType, const int &bindAccountId, const QString &bindAccountIdValue);
+
+
+    QNetworkReply* getBindAccountInfo(const int &accountType, const int &id, const QString &idValue);
 
     /**
      * @brief getAccessToken  获取凭证token

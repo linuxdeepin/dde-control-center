@@ -86,8 +86,9 @@ QNetworkReply *HttpClient::verifySmsCode(const QString &phoneNumber, const QStri
     return manager->post(requset, QJsonDocument(json).toJson(QJsonDocument::Compact));
 }
 
-QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue
-                                       , const int &bindAccountType, const int &bindAccountId, const QString &bindAccountIdValue)
+QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue,
+                                       const int &bindAccountType, const int &bindAccountId, const QString &bindAccountIdValue,
+                                       const QString &attribute)
 {
     QJsonObject json1;
     json1.insert("accountType", currentAccountType);
@@ -98,6 +99,7 @@ QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int 
     json2.insert("accountType", bindAccountType);
     json2.insert("id", bindAccountId);
     json2.insert("idValue", bindAccountIdValue);
+    json2.insert("attribute",attribute);
 
     QJsonObject jsonRoot;
     jsonRoot.insert("currentAccount", json1);
@@ -128,6 +130,16 @@ QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const in
     return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
+QNetworkReply *HttpClient::getBindAccountInfo(const int &accountType, const int &id, const QString &idValue)
+{
+    QString requestApi = QString("/bind-accountInfo?accountType=%1&id=%2&idValue=%3")
+            .arg(accountType)
+            .arg(id)
+            .arg(idValue);
+    QNetworkRequest requset = setNetWorkRequest(requestApi);
+    return manager->get(requset);
+}
+
 QNetworkReply *HttpClient::getAccessToken(const QString &clientId, const QString &code)
 {
     QString requestApi = QString("/account/unionid/access-token?clientId=%1&code=%2")
@@ -139,7 +151,7 @@ QNetworkReply *HttpClient::getAccessToken(const QString &clientId, const QString
 
 QNetworkReply *HttpClient::refreshAccessToken(const QString &clientId, const QString &refreshtoken)
 {
-    QString requestApi = QString("/account/unionid/access-token?clientId=%1&refreshtoken=%2")
+    QString requestApi = QString("/account/unionid/access-token?clientId=%1&refreshToken=%2")
             .arg(clientId)
             .arg(refreshtoken);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
@@ -188,7 +200,10 @@ QByteArray HttpClient::checkReply(QNetworkReply *pReply)
 
     QByteArray byteJson = pReply->readAll();
     //QString strJson(byteJson);
-    qInfo() << "byteJson" << byteJson;
+    if (byteJson.length() < 1000) {
+        qInfo() << "byteJson" << byteJson;
+    }
+
     return byteJson;
 }
 

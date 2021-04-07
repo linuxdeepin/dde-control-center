@@ -7,6 +7,7 @@
 #include <QPainter>
 #include <QDebug>
 
+const QString REFUSHPATH = ":/themes/light/icons/qrcode_refresh_24px.svg";
 UQrFrame::UQrFrame(QWidget *parent)
     : DFrame(parent)
     , m_qrLabel(new DLabel(this))
@@ -99,7 +100,7 @@ void UQrFrame::initUIRefresh()
 {
     opacityEffect->setOpacity(0.06);
     m_qrLabel->setGraphicsEffect(opacityEffect);
-//    m_refreshbutton->setIcon(QIcon(REFUSHPATH));
+    m_refreshbutton->setIcon(QIcon(REFUSHPATH));
     m_refreshbutton->show();
 }
 

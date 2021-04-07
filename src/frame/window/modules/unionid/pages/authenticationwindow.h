@@ -13,10 +13,11 @@ class AuthenticationWindow : public DAbstractDialog
 public:
     AuthenticationWindow(QWidget *parent = nullptr);
 
-    void setData(QString phoneNumber,QString weChatUnionId,QString acccessToken,QString refreshToken);
+    void setData(QString phoneNumber, QString weChatUnionId, QString acccessToken, QString refreshToken,
+                 QString userAvatar, QString nickName);
 
 Q_SIGNALS:
-    void toTellrefreshUserInfo(QString);
+    void toTellrefreshWechatName(QString);
 
 private Q_SLOTS:
     void onGetCodeButtonClicked();
@@ -38,6 +39,8 @@ private:
     QString m_acccessToken;
     QString m_refreshToken;
     QString m_weChatUnionId;
+    QString m_userAvatar;
+    QString m_nickName;
     DSuggestButton *m_getCodeButton;
     DSuggestButton *m_nextButton;
     QLineEdit *m_lineEdit;

@@ -67,9 +67,9 @@ IndexPage::IndexPage(QWidget *parent)
     , m_listView(new DListView)
     , m_listModel(new QStandardItemModel(this))
 {
-    m_userAvatar = new AvatarWidget;
-    m_userAvatar->setAvatarPath(":/themes/dark/icons/desktop.jpg");
-    m_userAvatar->setFixedSize(80, 80);
+    m_avatarWidget = new AvatarWidget;
+    m_avatarWidget->setAvatarPath(":/themes/dark/icons/desktop.jpg");
+    m_avatarWidget->setFixedSize(80, 80);
 
     m_nameLabel = new QLabel;
     QPalette nameLabelPa = m_nameLabel->palette();
@@ -85,14 +85,14 @@ IndexPage::IndexPage(QWidget *parent)
     m_uidLabel->setText("UID: uid_sdk457896");
     m_uidLabel->setContentsMargins(0,0,0,24);
 
-    QPushButton *modifyInfoButton = new QPushButton(tr("Modify information"));
+    QPushButton *modifyInfoButton = new QPushButton(tr("Edit Profile"));
     newStyle *modifyInfoStyle = new newStyle(newStyle::TextRim);
     modifyInfoStyle->setTextColor(textTitleLightColor);
     modifyInfoStyle->setBorderColor(buttonNormalBorderLightColor,buttonHoverBorderLightColor,buttonPressBorderLightColor);
     modifyInfoButton->setStyle(modifyInfoStyle);
 
     m_wxlabel = new QLabel;
-    m_wxlabel->setText(tr("bondWX"));
+    m_wxlabel->setText(tr("Link to WeChat"));
     m_wxlabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
     m_wxNameLabel = new QLabel;
@@ -136,7 +136,7 @@ IndexPage::IndexPage(QWidget *parent)
     line2->setPalette(line2Pa);
 
     m_autoSync = new QLabel;
-    m_autoSync->setText(tr("autoSync"));
+    m_autoSync->setText(tr("Auto Sync"));
     m_autoSync->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     m_autoSyncSwitch = new DSwitchButton;
 
@@ -156,14 +156,14 @@ IndexPage::IndexPage(QWidget *parent)
     autoSyncWidget->setMinimumSize(QSize(400,56));
     autoSyncWidget->setLayout(autoSyncVlayout);
 
-    QPushButton *quitButton = new  QPushButton(tr("loginout >"));
+    m_quitButton = new  QPushButton(tr("Sign Out >"));
     newStyle *quitStyle = new newStyle(newStyle::Text);
     quitStyle->setTextColor(textTipLightColor,textTitleLightColor,textTipLightColor);
-    quitButton->setStyle(quitStyle);
+    m_quitButton->setStyle(quitStyle);
 
     QHBoxLayout *loginOutHlayout = new QHBoxLayout;
     loginOutHlayout->addStretch();
-    loginOutHlayout->addWidget(quitButton);
+    loginOutHlayout->addWidget(m_quitButton);
     loginOutHlayout->setContentsMargins(0,0,0,0);
 
     QWidget *loginOutWidget = new QWidget;
@@ -180,7 +180,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     QVBoxLayout *areaLayout = new QVBoxLayout;
     areaLayout->setContentsMargins(0,24,0,43);
-    areaLayout->addWidget(m_userAvatar,0, Qt::AlignHCenter);
+    areaLayout->addWidget(m_avatarWidget,0, Qt::AlignHCenter);
     areaLayout->addWidget(m_nameLabel,0, Qt::AlignHCenter);
     areaLayout->addWidget(m_uidLabel,0, Qt::AlignHCenter);
     areaLayout->addWidget(modifyInfoButton,0, Qt::AlignHCenter);
@@ -189,6 +189,7 @@ IndexPage::IndexPage(QWidget *parent)
     areaLayout->addWidget(m_syncWidget, 0, Qt::AlignHCenter);
     areaLayout->addWidget(loginOutWidget, 0, Qt::AlignHCenter);
     areaLayout->addStretch();
+    areaLayout->setContentsMargins(135,24,135,42);
 
     QWidget *areaWidget = new QWidget;
     areaWidget->setLayout(areaLayout);
@@ -209,15 +210,15 @@ IndexPage::IndexPage(QWidget *parent)
     DFontSizeManager::instance()->bind(m_wxNameLabel, DFontSizeManager::T6,QFont::Normal);
     DFontSizeManager::instance()->bind(m_modButton, DFontSizeManager::T6,QFont::Normal);
     DFontSizeManager::instance()->bind(m_autoSync, DFontSizeManager::T6,QFont::Normal);
-    DFontSizeManager::instance()->bind(quitButton, DFontSizeManager::T7,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_quitButton, DFontSizeManager::T7,QFont::Normal);
 
     connect(m_autoSyncSwitch, &DSwitchButton::checkedChanged, this, &IndexPage::onSwitchButtoncheckedChanged);
     connect(modifyInfoButton, &QPushButton::clicked, this, &IndexPage::onModifyInfo);
 //    connect(quitButton, &QPushButton::clicked, this, &IndexPage::requestLogout);
-    connect(quitButton, &QPushButton::clicked, this, &IndexPage::requestLogout);
+    connect(m_quitButton, &QPushButton::clicked, this, &IndexPage::requestLogout);
 
     m_mainLayout->addWidget(scrollArea);
-    m_mainLayout->setContentsMargins(135,24,135,42);
+    m_mainLayout->setContentsMargins(0,0,0,0);
     setLayout(m_mainLayout);
 
     onThemeTypeChanged(DGuiApplicationHelper::instance()->themeType());
@@ -318,11 +319,9 @@ void IndexPage::setUserInfo(QString usrInfo)
         nResult = jsonValueResult.toString();
         m_nameLabel->setText(nResult);
 
-        m_wxNameLabel->setText(nResult);
-
         jsonValueResult = jsonObj.value("avatar");
-        nResult = jsonValueResult.toString();
-        m_userAvatar->setAvatarPath(nResult,true);
+        m_userAvatar = jsonValueResult.toString();
+        m_avatarWidget->setAvatarPath(m_userAvatar,true);
 
         jsonValueResult = jsonObj.value("userName");
         nResult = jsonValueResult.toString();
@@ -337,12 +336,15 @@ void IndexPage::setUserInfo(QString usrInfo)
         } else {
             m_modButton->setText(QObject::tr("Change"));
         }
+
+        QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_wechatunionid);
+        connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetBindAccountInfo);
     }
 }
 
-void IndexPage::onRefreshUserInfo(QString usrInfo)
+void IndexPage::onRefreshWechatName(QString wechatName)
 {
-    setUserInfo(usrInfo);
+    m_wxNameLabel->setText(wechatName);
 }
 
 void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
@@ -415,6 +417,10 @@ void IndexPage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
         textTipColor = textTiptDarkColor;
     }
 
+    newStyle *quitStyle = new newStyle(newStyle::Text);
+    quitStyle->setTextColor(textTipColor,textTitleColor,textTipColor);
+    m_quitButton->setStyle(quitStyle);
+
     QPalette pa = m_nameLabel->palette();
     pa.setColor(QPalette::Text,textTitleColor);
     m_nameLabel->setPalette(pa);
@@ -461,10 +467,28 @@ void IndexPage::onGetUserInfoResult()
         m_phoneNumber = jsonValueResult.toString();
 
         AuthenticationWindow *authWindow = new AuthenticationWindow;
-        connect(authWindow,&AuthenticationWindow::toTellrefreshUserInfo,this,&IndexPage::onRefreshUserInfo);
-        authWindow->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_refreshToken);
+        connect(authWindow,&AuthenticationWindow::toTellrefreshWechatName,this,&IndexPage::onRefreshWechatName);
+        authWindow->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_refreshToken,m_userAvatar,m_nameLabel->text());
         authWindow->show();
         m_wechatunionid = "";
+    }
+}
+
+void IndexPage::onGetBindAccountInfo()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
+    QString result = HttpClient::instance()->checkReply(reply);
+
+    if (!result.isEmpty()) {
+
+        if (HttpClient::instance()->solveJson(result)) {
+            QByteArray byteJson = result.toLocal8Bit();
+            QJsonParseError jsonError;
+            QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+            QJsonObject jsonObj = jsonDoc.object();
+            QJsonValue jsonValueResult = jsonObj.value("wechatNickName");
+            m_wxNameLabel->setText(jsonValueResult.toString());
+        }
     }
 }
 

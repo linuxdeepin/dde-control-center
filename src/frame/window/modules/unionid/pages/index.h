@@ -27,6 +27,7 @@
 #include <dtkwidget_global.h>
 
 #include <QWidget>
+#include <QPushButton>
 #include <QCheckBox>
 #include <DSwitchButton>
 #include <DGuiApplicationHelper>
@@ -77,7 +78,7 @@ Q_SIGNALS:
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
 
 public Q_SLOTS:
-    void onRefreshUserInfo(QString usrInfo);
+    void onRefreshWechatName(QString wechatName);
 
 private Q_SLOTS:
     void onStateChanged(const std::pair<qint32, QString> &state);
@@ -89,6 +90,7 @@ private Q_SLOTS:
     void onCheckboxStateChanged(bool state, dcc::cloudsync::SyncType syncType);
     void onModButtonClicked();
     void onGetUserInfoResult();
+    void onGetBindAccountInfo();
 
 private:
     QVBoxLayout *m_mainLayout;
@@ -107,11 +109,14 @@ private:
     QLabel *m_wxlabel;
     QLabel *m_wxNameLabel;
     QLabel *m_autoSync;
-    AvatarWidget *m_userAvatar;
+    AvatarWidget *m_avatarWidget;
+    QPushButton *m_quitButton;
     QString m_accessToken;
     QString m_refreshToken;
     QString m_phoneNumber;
     QString m_wechatunionid;
+    QString m_userAvatar;
+    QString m_nickName;
     DCommandLinkButton *m_modButton;
 };
 } // namespace sync

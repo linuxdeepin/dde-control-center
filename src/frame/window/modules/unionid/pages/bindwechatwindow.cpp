@@ -18,6 +18,7 @@ const QColor windowColor = QColor::fromRgbF(0,0,0,0.1);
 BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     : DAbstractDialog(prarent)
 {
+    setAttribute(Qt::WA_DeleteOnClose);
     DWindowCloseButton *closeButton = new DWindowCloseButton;
     closeButton->setFixedHeight(48);
     closeButton->setIconSize(QSize(48,48));
@@ -49,10 +50,10 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 
     m_avatar = new AvatarWidget;
     m_avatar->setFixedSize(QSize(104,104));
-    m_avatar->setAvatarPath(":/images/desktop.jpg");
+    m_avatar->setAvatarPath(m_userAvatar,true);
     m_avatar->setContentsMargins(0,0,0,0);
 
-    m_nameLabel = new QLabel(QObject::tr("123456"));
+    m_nameLabel = new QLabel(m_nickName);
     m_nameLabel->setAlignment(Qt::AlignCenter);
     m_nameLabel->setContentsMargins(0,8,0,0);
 
@@ -113,12 +114,17 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     connect(m_queryTimer,&QTimer::timeout,this,&BindWeChatWindow::onQueryTimeOut);
 }
 
-void BindWeChatWindow::setData(QString accessToken,QString hardwareID,QString weChatUnionId,QString refreshToken)
+void BindWeChatWindow::setData(QString accessToken,QString hardwareID,QString weChatUnionId,
+                               QString refreshToken,QString userAvatar,QString nickName)
 {
     m_accessToken = accessToken;
     m_hardwareID = hardwareID;
     m_weChatUnionId = weChatUnionId;
     m_refreshToken = refreshToken;
+    m_userAvatar = userAvatar;
+    m_nickName = nickName;
+    m_avatar->setAvatarPath(m_userAvatar,true);
+    m_nameLabel->setText(m_nickName);
 }
 
 void BindWeChatWindow::onRequestQrCodeResult()
@@ -211,18 +217,24 @@ void BindWeChatWindow::onQrCodeStatusResult()
                         jsonValueResult = jsonObj.value("sessionId");
                         m_sessionId = jsonValueResult.toString();
 
+                        jsonValueResult = jsonObj.value("nickName");
+                        m_nickName = jsonValueResult.toString();
+
+
                         if (!m_weChatUnionId.isEmpty()) {
                             QNetworkReply *reply = HttpClient::instance()->unbindAccount(0,1,m_accessToken,1,0,m_weChatUnionId);
                             connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onUnbindAccountResult);
                         } else {
-                            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId);
+                            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId,m_nickName);
                             connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
                         }
                     }
                 } else if (nResult == 15) {
                     m_queryTimer->stop();
                     m_windowStatus = 1;
-
+                    m_indexLayout->setCurrentWidget(m_qrCodeWidget);
+                    onRefreshQrCode();
+                    m_secTipLabel->setVisible(true);
                 } else if (nResult == 1) {
                     m_qrCodeStatusTimer->stop();
                     m_windowStatus = 1;
@@ -245,8 +257,8 @@ void BindWeChatWindow::onReportStatusResult()
         m_secTipLabel->setVisible(true);
         m_resultTipLabel->setText(QObject::tr("Go to \"Accounts\" and switch on \"Login by Union ID\""));
 
-        QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
-        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onRefreshAccessToken);
+        QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
+        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onGetBindAccountInfo);
     }
 }
 
@@ -298,19 +310,26 @@ void BindWeChatWindow::onUnbindAccountResult()
         QJsonValue jsonValueResult = jsonObj.value("msg");
 
         if (jsonValueResult == "success") {
-            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId);
+            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId,m_nickName);
             connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
         }
     }
 }
 
-void BindWeChatWindow::onRefreshAccessToken()
+void BindWeChatWindow::onGetBindAccountInfo()
 {
-    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
     QString result = HttpClient::instance()->checkReply(reply);
-    reply->deleteLater();
 
-    if (HttpClient::instance()->solveJson(result)) {
-        Q_EMIT toTellrefreshUserInfo(result);
+    if (!result.isEmpty()) {
+
+        if (HttpClient::instance()->solveJson(result)) {
+            QByteArray byteJson = result.toLocal8Bit();
+            QJsonParseError jsonError;
+            QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+            QJsonObject jsonObj = jsonDoc.object();
+            QJsonValue jsonValueResult = jsonObj.value("wechatNickName");
+            Q_EMIT toTellrefreshWechatName(jsonValueResult.toString());
+        }
     }
 }

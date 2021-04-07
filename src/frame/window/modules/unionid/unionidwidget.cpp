@@ -137,12 +137,14 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 
     if (isLogind) {
         if (region == "CN") {
-            m_pageLayout->setCurrentWidget(m_indexPage);
+            m_loginPage->login();
+//            m_pageLayout->setCurrentWidget(m_indexPage);
         } else {
             m_pageLayout->setCurrentWidget(m_cnonlyPage);
         }
     }
     else {
-        m_pageLayout->setCurrentWidget(m_loginPage);
+        m_indexPage->requestLogout();
+        //m_pageLayout->setCurrentWidget(m_loginPage);
     }
 }
