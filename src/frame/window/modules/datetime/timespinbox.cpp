@@ -20,13 +20,15 @@
  */
 #include "timespinbox.h"
 
+#include <QLineEdit>
+
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::datetime;
 
 TimeSpinBox::TimeSpinBox(QWidget *parent)
     : QSpinBox (parent)
 {
-
+    this->lineEdit()->setMaxLength(2);
 }
 
 QString TimeSpinBox::textFromValue(int value) const

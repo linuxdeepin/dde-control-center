@@ -63,16 +63,19 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
         m_reducedBtn->setAccessibleName("yearreduced");
         m_label->setText(tr("Year"));
         m_lineEdit->setAccessibleName(tr("Year"));
+        m_lineEdit->setMaxLength(4);
     } else if (m_type == Month) {
         m_addBtn->setAccessibleName("monthadd");
         m_reducedBtn->setAccessibleName("monthreduced");
         m_label->setText(tr("Month"));
         m_lineEdit->setAccessibleName(tr("Month"));
+        m_lineEdit->setMaxLength(2);
     } else {
         m_addBtn->setAccessibleName("dayadd");
         m_reducedBtn->setAccessibleName("dayreduced");
         m_label->setText(tr("Day"));
         m_lineEdit->setAccessibleName(tr("Day"));
+        m_lineEdit->setMaxLength(2);
     }
 
     m_lineEdit->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
