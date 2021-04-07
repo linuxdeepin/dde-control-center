@@ -32,6 +32,8 @@ public:
 
     virtual void setRemoveableDeviceStatus(QString type, bool state) = 0;
     virtual bool getRemoveableDeviceStatus(QString type) const = 0;
+
+    virtual void setSearchPath(ModuleInterface *const inter) const = 0;
 public:
     ModuleInterface *currModule() const { return m_currModule; }
 

@@ -56,6 +56,7 @@ public:
     void setCurrentIndex(int index);
     DTK_WIDGET_NAMESPACE::DListView *getSystemListViewPointer();
     void showDefaultWidget();
+    int showPath(const QString &path);
 
 private:
     void initWidget();

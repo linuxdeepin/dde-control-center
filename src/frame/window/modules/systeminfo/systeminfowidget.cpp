@@ -141,6 +141,24 @@ void SystemInfoWidget::showDefaultWidget()
     }
 }
 
+int SystemInfoWidget::showPath(const QString &path)
+{
+    for (int i = 0; i < m_itemList.size(); ++i) {
+        auto menu = m_itemList[i];
+        if (tr(path.toStdString().c_str()) == menu.itemText) {
+            setCurrentIndex(i);
+            return 0;
+        }
+    }
+
+    if (path == "Backup and Restore") {
+        setCurrentIndex(m_itemModel->rowCount() - 1);
+        return 0;
+    }
+
+    return -1;
+}
+
 void SystemInfoWidget::setCurrentIndex(int index)
 {
     QModelIndex mindex = m_itemModel->index(index, 0);

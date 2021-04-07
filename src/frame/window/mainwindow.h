@@ -92,6 +92,7 @@ public:
     void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) override;
     void setRemoveableDeviceStatus(QString type, bool state) override;
     bool getRemoveableDeviceStatus(QString type) const override;
+    void setSearchPath(ModuleInterface *const inter) const override;
 
 public:
     bool isModuleAvailable(const QString &m);

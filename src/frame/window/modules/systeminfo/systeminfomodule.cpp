@@ -111,31 +111,7 @@ int SystemInfoModule::load(const QString &path)
         active();
     }
 
-    QListView *list = m_sysinfoWidget->getSystemListViewPointer();
-    SystemType type = Default;
-
-    if (!list) {
-        return 0;
-    }
-
-    if (path == "About This PC") {
-        type = AboutThisPC;
-    } else if (path == "Edition License") {
-        type = EditionLicense;
-    } else if (path == "End User License Agreement") {
-        type = EndUserLicenseAgreement;
-    } else if (path == "Privacy Policy") {
-        type = PrivacyPolicy;
-    }
-
-    QModelIndex index = list->model()->index(type, 0);
-    if (type > Default && type < MaxType) {
-        index = list->model()->index(type, 0);
-        list->setCurrentIndex(index);
-        list->clicked(index);
-    }
-
-    return 0;
+    return m_sysinfoWidget->showPath(path);
 }
 
 QStringList SystemInfoModule::availPage() const

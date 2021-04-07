@@ -1253,3 +1253,8 @@ bool MainWindow::getRemoveableDeviceStatus(QString type) const
 {
     return m_removeableDeviceList.contains(type);
 }
+
+void MainWindow::setSearchPath(ModuleInterface * const inter) const
+{
+    m_searchWidget->addModulesName(inter->name(), inter->displayName(), inter->icon(), inter->translationPath());
+}
