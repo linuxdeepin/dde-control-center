@@ -115,16 +115,15 @@ void DisplayWidget::onMonitorListChanged()
 {
     const auto mons = m_model->monitorList();
 
-    m_rotate->setVisible(mons.size() <= 1);
+    //只有一个显示器时显示旋转屏幕按钮
+    m_rotate->setVisible(mons.size() == 1);
     // 配置文件关闭多屏显示模式按显示菜单显示单屏配置
     if ((m_isMultiScreen && mons.size() <= 1) || !m_isShowMultiscreen) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
-        m_rotate->show();
     } else if (!m_isMultiScreen && mons.size() > 1) {
         m_isMultiScreen = true;
         m_menuList->setModel(m_multiModel);
-        m_rotate->hide();
     }
     onMenuClicked(m_menuList->model()->index(0, 0));
 }
