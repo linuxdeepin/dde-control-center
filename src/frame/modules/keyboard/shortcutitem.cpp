@@ -34,6 +34,7 @@
 #include <QMouseEvent>
 #include <QLineEdit>
 #include <QTimer>
+#include <QGSettings>
 
 using namespace dcc;
 DWIDGET_USE_NAMESPACE
@@ -43,6 +44,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     : SettingsItem(parent)
     , m_info(nullptr)
 {
+    installEventFilter(this);
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     setMinimumHeight(36);
 
@@ -193,6 +195,17 @@ void ShortcutItem::resizeEvent(QResizeEvent *event)
         QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
     }
     
+}
+
+bool ShortcutItem::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::Show) {
+        if (m_info->type != ShortcutModel::Custom) {
+            setVisible("Hidden" != GSettingWatcher::instance()->getStatus(configName()));
+        }
+    }
+
+    return QObject::eventFilter(watched, event);
 }
 
 QString ShortcutItem::configName() const

@@ -76,6 +76,7 @@ private:
 protected:
     void mouseReleaseEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
     void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+    bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 private:
     QLineEdit *m_shortcutEdit;
