@@ -288,7 +288,7 @@ void DateSettings::onProcessComboBox(const int &value)
         m_address->setVisible(itemText == tr("Customize"));
         if (itemText == tr("Customize"))
             m_addressContent->setText(m_customNtpServer);
-        m_buttonTuple->setVisible(itemText == tr("Customize"));
+
         if (m_addressContent->isAlert()) {
             m_addressContent->setAlert(false);
         }
