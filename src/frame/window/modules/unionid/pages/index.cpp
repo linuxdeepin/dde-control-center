@@ -486,8 +486,13 @@ void IndexPage::onGetBindAccountInfo()
             QJsonParseError jsonError;
             QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
             QJsonObject jsonObj = jsonDoc.object();
-            QJsonValue jsonValueResult = jsonObj.value("wechatNickName");
-            m_wxNameLabel->setText(jsonValueResult.toString());
+            QJsonValue jsonValueResult = jsonObj.value("data");
+
+            if (jsonValueResult.isObject()) {
+                jsonObj = jsonValueResult.toObject();
+                jsonValueResult = jsonObj.value("wechatNickName");
+                m_wxNameLabel->setText(jsonValueResult.toString());
+            }
         }
     }
 }

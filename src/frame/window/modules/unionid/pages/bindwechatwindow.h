@@ -41,6 +41,8 @@ private Q_SLOTS:
 
     void onUnbindAccountResult();
 
+    void onRefreshAccessToken();
+
     void onGetBindAccountInfo();
 
 private:

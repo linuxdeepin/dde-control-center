@@ -143,11 +143,17 @@ void UnionidWorker::loginUser()
     argumentList << "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-managment";
     argumentList << "state";
     interface.callWithArgumentList(QDBus::NoBlock, "Authorize", argumentList);
-    //m_deepinId_inter->Login();
+    m_deepinId_inter->Login();
 }
 
 void UnionidWorker::logoutUser()
 {
+    qInfo() << "logoutUser";
+    QDBusInterface interface("com.deepin.deepinid.Client",
+                              "/com/deepin/deepinid/Client",
+                              "com.deepin.deepinid.Client");
+
+    QDBusMessage msg = interface.call(QDBus::NoBlock, "ConfirmLogout");
     m_deepinId_inter->Logout();
 }
 

@@ -257,8 +257,8 @@ void BindWeChatWindow::onReportStatusResult()
         m_secTipLabel->setVisible(true);
         m_resultTipLabel->setText(QObject::tr("Go to \"Accounts\" and switch on \"Login by Union ID\""));
 
-        QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
-        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onGetBindAccountInfo);
+        QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
+        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onRefreshAccessToken);
     }
 }
 
@@ -316,6 +316,28 @@ void BindWeChatWindow::onUnbindAccountResult()
     }
 }
 
+void BindWeChatWindow::onRefreshAccessToken()
+{QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    QString result = HttpClient::instance()->checkReply(reply);
+
+    if (HttpClient::instance()->solveJson(result)) {
+        QByteArray byteJson = result.toLocal8Bit();
+        QJsonParseError jsonError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+        QJsonObject jsonObj = jsonDoc.object();
+        QJsonValue jsonValueResult = jsonObj.value("data");
+
+        if (jsonValueResult.isObject()) {
+            jsonObj = jsonValueResult.toObject();
+            jsonValueResult = jsonObj.value("wechatunionid");
+            QString nResult = jsonValueResult.toString();
+
+            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, nResult);
+            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onGetBindAccountInfo);
+        }
+    }
+}
+
 void BindWeChatWindow::onGetBindAccountInfo()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
@@ -328,8 +350,13 @@ void BindWeChatWindow::onGetBindAccountInfo()
             QJsonParseError jsonError;
             QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
             QJsonObject jsonObj = jsonDoc.object();
-            QJsonValue jsonValueResult = jsonObj.value("wechatNickName");
-            Q_EMIT toTellrefreshWechatName(jsonValueResult.toString());
+            QJsonValue jsonValueResult = jsonObj.value("data");
+
+            if (jsonValueResult.isObject()) {
+                jsonObj = jsonValueResult.toObject();
+                jsonValueResult = jsonObj.value("wechatNickName");
+                Q_EMIT toTellrefreshWechatName(jsonValueResult.toString());
+            }
         }
     }
 }

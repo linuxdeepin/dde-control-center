@@ -58,7 +58,7 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     connect(m_loginPage, &LoginPage::requestLoginUser, this, &UnionidWidget::requestLoginUser);
     connect(m_indexPage, &IndexPage::requestSetAutoSync, this, &UnionidWidget::requestSetAutoSync);
 //    connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
-    connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::onRequestLogout);
+    connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
     connect(m_indexPage, &IndexPage::requestSetModuleState, this, &UnionidWidget::requestSetModuleState);
     connect(m_indexPage, &IndexPage::requesUserDialog, this, &UnionidWidget::requesUserDialog);
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
@@ -103,10 +103,8 @@ void UnionidWidget::onGetAccessToken()
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
     QString result = HttpClient::instance()->checkReply(reply);
 
-    qInfo() << "solveJson" << HttpClient::instance()->solveJson(result);
     if (HttpClient::instance()->solveJson(result)) {
         m_indexPage->setUserInfo(result);
-//        RequestService::instance()->getBoundAccount()
         m_pageLayout->setCurrentWidget(m_indexPage);
     }
 }
@@ -117,7 +115,7 @@ void UnionidWidget::onRequestLogout()
                               "/com/deepin/deepinid/Client",
                               "com.deepin.deepinid.Client");
 
-    QDBusMessage msg = interface.call(QDBus::Block, "ConfirmLogout");
+    QDBusMessage msg = interface.call(QDBus::NoBlock, "ConfirmLogout");
 
     if (msg.type() == QDBusMessage::ReplyMessage) {
         bool bIsSuccess = msg.arguments().takeFirst().toBool();
@@ -136,12 +134,12 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
     const QString region = userInfo["Region"].toString();
 
     if (isLogind) {
-        if (region == "CN") {
+//        if (region == "CN") {
             m_loginPage->login();
 //            m_pageLayout->setCurrentWidget(m_indexPage);
-        } else {
-            m_pageLayout->setCurrentWidget(m_cnonlyPage);
-        }
+//        } else {
+//            m_pageLayout->setCurrentWidget(m_cnonlyPage);
+//        }
     }
     else {
         m_indexPage->requestLogout();
