@@ -184,8 +184,9 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
     };
 
     rmFunc(m_outputModel);
-    if (m_currentPort)
-        m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
+    dcc::sound::Port *port = m_model->findPort(portId, cardId);
+    if (port)
+        m_sw->setHidden(!m_model->isShow(m_outputModel, port));
     showDevice();
 }
 
@@ -233,9 +234,8 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
             connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
-        }
-        if (m_currentPort)
             m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
+        }
         showDevice();
     }
 }
