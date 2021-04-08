@@ -4,7 +4,7 @@
 %endif
 
 Name:           dde-control-center
-Version:        5.4.18
+Version:        5.4.21
 Release:        %{specrelease}
 Summary:        New control center for Linux Deepin
 License:        GPLv3
@@ -47,7 +47,6 @@ New control center for Linux Deepin.
 
 %package devel
 Summary:        %{summary}
-BuildArch:      noarch
 
 %description devel
 %{summary}.
@@ -95,7 +94,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop ||:
 %{_libdir}/cmake/DdeControlCenter/
 
 %changelog
-* Wed Mar 26 2021 uoser <uoser@uniontech.com> - 5.4.18-1
-- Update to 5.4.18
+* Wed Mar 26 2021 uoser <uoser@uniontech.com> - 5.4.21-1
+- Update to 5.4.21
 
 
