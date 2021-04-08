@@ -352,8 +352,9 @@ void MicrophonePage::initSlider()
     connect(qApp, &DApplication::iconThemeChanged, this, &MicrophonePage::refreshIcon);
     m_layout->setSpacing(10);
     m_layout->insertWidget(4, m_feedbackSlider);
-    m_layout->addStretch(10);
 #endif
+    //放到宏外面修复sw架构下音频布局异常的问题
+    m_layout->addStretch(10);
 
     refreshIcon();
     showDevice();
