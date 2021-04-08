@@ -208,7 +208,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(m_backwardBtn, &DIconButton::clicked, this, [this] {
         //说明：只有"update"模块/"镜像源列表"页面需要从第三级页面返回第二级页面(若其他模块还有需求可以在此处添加处理)
-        if (m_contentStack.last().first->name() != "update") {
+        if (!m_contentStack.isEmpty() && m_contentStack.last().first->name() != "update") {
             popAllWidgets();
         } else {
             popWidget();
@@ -355,7 +355,8 @@ void MainWindow::initAllModule(const QString &m)
     };
 
     //读取加载一级菜单的插件
-    InsertPlugin::instance(this, this)->pushPlugin(m_modules);
+    if (InsertPlugin::instance(this, this)->needPushPlugin("mainwindow"))
+        InsertPlugin::instance()->pushPlugin(m_modules);
 
     //通过gsetting设置某模块是否显示,默认都显示
     m_moduleSettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
@@ -460,7 +461,7 @@ void MainWindow::modulePreInitialize(const QString &m)
         QElapsedTimer et;
         et.start();
         it->first->preInitialize(m == it->first->name());
-        qDebug() << QString("initalize %1 module using time: %2ms")
+        qDebug() << QString("initialize %1 module using time: %2ms")
                  .arg(it->first->name())
                  .arg(et.elapsed());
 
@@ -570,13 +571,15 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     }
 
     raise();
-    QTimer::singleShot(10, this, [ = ] {
-        onEnterSearchWidget(module, page);
-    });
-    if (isMinimized() || !isVisible())
-        showNormal();
 
-    activateWindow();
+    onEnterSearchWidget(module, page);
+    // Note: 当直接进入模块界面(二级界面)，先将模块界面显示出来，在加载首界面
+    QTimer::singleShot(0, this, [ = ] {
+        if (isMinimized() || !isVisible())
+            showNormal();
+
+        activateWindow();
+    });
 }
 
 void MainWindow::setModuleSubscriptVisible(const QString &module, bool bIsDisplay)
@@ -940,12 +943,11 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 m_searchWidget->addUnExsitData(tr("General Settings"));
             }
         } else if ("update" == find_it->first->name()) {
+            m_updateVisibale = bFinalVisible;
             if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Updates"));
-                m_updateVisibale = false;
             } else {
                 m_searchWidget->addUnExsitData(tr("Updates"));
-                m_updateVisibale = true;
             }
         }
     } else {

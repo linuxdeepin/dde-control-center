@@ -103,7 +103,7 @@ void MirrorsWidget::setModel(UpdateModel *model)
     }
 
     setMirrorInfoList(model->mirrorInfos());
-
+    qRegisterMetaType<QMap<QString, int>>("QMap<QString, int>");
     connect(model, &UpdateModel::defaultMirrorChanged, this, &MirrorsWidget::setDefaultMirror);
     connect(model, &UpdateModel::mirrorSpeedInfoAvaiable, this, &MirrorsWidget::onSpeedInfoAvailable);
     connect(model, &UpdateModel::netselectExistChanged, m_testButton, &QPushButton::setVisible);

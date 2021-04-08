@@ -43,13 +43,13 @@ public:
     void deactive();
 
 public Q_SLOTS:
-    void setBusSysnotify(const QJsonObject &jObj);
-    void setBusAppnotify(const QJsonObject &jObj);
-    void setBusAppnotify(const QString &appName, const QJsonObject &jObj);
-    void getDbusAllSetting(const QString &jObj = "");
-    void getDbusAppsetting(const QString &jObj);
-    void getDbusSyssetting(const QString &jObj = "");
-    void setIconTheme(const QString &theme);
+    void initAllSetting();
+    void initSystemSetting();
+    void initAppSetting();
+    void onAppAdded(const QString &id);
+    void onAppRemoved(const QString &id);
+    void setAppSetting(const QString &id, uint item, QVariant var);
+    void setSystemSetting(uint item, QVariant var);
 
 private:
     NotificationModel *m_model;

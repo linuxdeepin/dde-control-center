@@ -43,9 +43,14 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     m_listview->setModel(model);
     m_listview->setEditTriggers(QListView::NoEditTriggers);
     m_listview->setSelectionMode(QAbstractItemView::NoSelection);
-    m_listview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_listview->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_listview->setViewportMargins(ScrollAreaOffsetMargins);
+
     layout->addWidget(m_listview);
-    layout->setContentsMargins(ThirdPageContentsMargins);
+    // 右侧偏移10像素给滚动条
+    QMargins pageMargins(ThirdPageContentsMargins.left(), ThirdPageContentsMargins.top()
+                         , ThirdPageContentsMargins.right() - 10, ThirdPageContentsMargins.bottom());
+    layout->setContentsMargins(pageMargins);
     this->setLayout(layout);
     connect(m_listview, &DListView::clicked, this, &PerssonalizationThemeList::onClicked);
 

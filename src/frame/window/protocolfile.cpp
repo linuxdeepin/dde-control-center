@@ -21,11 +21,8 @@
 #include "protocolfile.h"
 #include "../include/widgets/utils.h"
 
-// dtk
 #include <DSysInfo>
 
-// qt
-#include <QDebug>
 #include <QFile>
 
 DCORE_USE_NAMESPACE
@@ -37,9 +34,6 @@ const static QString homeEnduserAgreement_new = "/usr/share/protocol/enduser-agr
 const static QString homeEnduserAgreement_old = "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/End-User-License-Agreement-Home-CN-%1.txt";
 const static QString professionalEnduserAgreement_new = "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-CN-%1.txt";
 const static QString professionalEnduserAgreement_old = "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Professional/End-User-License-Agreement-Professional-CN-%1.txt";
-// Educatin End User
-const static QString educationEnduserAgreement = "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Education-CN-%1.txt";
-
 
 void ProtocolFile::getPrivacyFile(QString &zhCN_Content, QString &enUS_Content)
 {
@@ -122,12 +116,6 @@ QString ProtocolFile::getEnduserAgreement()
     } else if (DSysInfo::isCommunityEdition()) {
         const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/End-User-License-Agreement-CN-%1.txt", "");
         return body;
-    } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosEducation) {
-        const QString bodypath = getLicensePath(educationEnduserAgreement, "");
-        if (QFile::exists(bodypath)) {
-            const QString educationbody = getLicenseText(educationEnduserAgreement, "");
-            return educationbody;
-        }
     } else {
         const QString bodypath_new = getLicensePath(professionalEnduserAgreement_new, "");
         if (QFile::exists(bodypath_new)) {

@@ -71,7 +71,7 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
             //读取机器信息证书
             QFile fFile(filePathName);
             if(!fFile.open(QIODevice::ReadOnly)){
-                qDebug()<<"Can't open file for writting";
+                qDebug()<<"Can't open file for writing";
             }
             QByteArray data = fFile.readAll();
             QDBusMessage msg =  m_inter->call("EnableDeveloperMode", data);

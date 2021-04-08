@@ -57,6 +57,9 @@ public:
     int load(const QString &path) override;
     QStringList availPage() const override;
 
+Q_SIGNALS:
+    void requestLoadUserList();
+
 public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);
     void onShowCreateAccountPage();

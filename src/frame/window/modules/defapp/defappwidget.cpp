@@ -83,7 +83,7 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
 
         m_itemList.push_back({icons.at(i),titles.at(i),QMetaMethod::fromSignal(&DefaultAppsWidget::requestCategoryClicked)});
     }
-    if(InsertPlugin::instance()->needPushPlugin("Default Applications"))
+    if(InsertPlugin::instance()->needPushPlugin("defapp"))
         InsertPlugin::instance()->pushPlugin(model,m_itemList);
 
     m_defAppCatView->setModel(model);
@@ -98,6 +98,15 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     connect(m_defAppCatView, &DListView::activated, m_defAppCatView, &QListView::clicked);
 
     setAccessibleName(tr("Default Applications"));
+}
+
+void DefaultAppsWidget::setDefaultWidget()
+{
+    if(m_itemList[0].pulgin) {
+        m_itemList[0].itemSignal.invoke(m_itemList[0].pulgin);
+    } else {
+        m_itemList[0].itemSignal.invoke(this, Qt::ConnectionType::DirectConnection, Q_ARG(int, 0));
+    }
 }
 
 void DefaultAppsWidget::setCurrentIndex(int row)

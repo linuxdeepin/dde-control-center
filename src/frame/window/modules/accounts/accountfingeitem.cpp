@@ -78,7 +78,7 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
         m_editTitle->hideAlertMessage();
     });
     connect(m_editTitle->lineEdit(), &QLineEdit::editingFinished, this, [this] {
-        if (onNameEditFinished(m_editTitle)) {
+        if (onNameEditFinished()) {
             Q_EMIT editTextFinished(m_editTitle->text());
         }
         m_editTitle->lineEdit()->clearFocus();
@@ -88,19 +88,8 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
 
 void AccounntFingeItem::setTitle(const QString &title)
 {
-    if (title.isEmpty()) {
-        m_layout->removeWidget(m_title);
-    } else {
-        m_title->setText(title);
-    }
+    title.isEmpty() ? m_layout->removeWidget(m_title) : m_title->setText(title);
     m_fingerName = title;
-}
-
-void AccounntFingeItem::alertTitleRepeat()
-{
-    m_editTitle->setAlert(true);
-    m_editTitle->showAlertMessage(tr("The name already exists"), parentWidget()->parentWidget());
-    m_editTitle->lineEdit()->selectAll();
 }
 
 void AccounntFingeItem::appendItem(QWidget *widget)
@@ -135,9 +124,8 @@ bool AccounntFingeItem::validateName(const QString &password)
     for (const QChar &p : password) {
         if (!validate_policy.contains(p)) {
             ushort uNum = p.unicode();
-            if (uNum >= 0x4E00 && uNum <= 0x9FA5) {
-                continue; // 这个字符是中文
-            } else {
+            // 片段非validate_policy中的字符是否为汉子
+            if (uNum < 0x4E00 || uNum > 0x9FA5) {
                 return false;
             }
         }
@@ -145,29 +133,30 @@ bool AccounntFingeItem::validateName(const QString &password)
     return true;
 }
 
-bool AccounntFingeItem::onNameEditFinished(DLineEdit *edit)
+bool AccounntFingeItem::onNameEditFinished()
 {
-    QString editName = edit->lineEdit()->text();
+    QString editName = m_editTitle->lineEdit()->text();
     if (editName.isEmpty())
         return false;
     //正则表达式判断是否由字母、数字、中文、下划线组成
-    bool regResult = editName.contains(QRegExp("(^[\\w\u4e00-\u9fa5]+$)"));
+    bool regResult = editName.contains(QRegularExpression("(^[\\w\u4e00-\u9fa5]+$)"));
     if (editName.size() > 15) {
-        edit->setAlert(true);
-        if (!regResult) {
-            edit->showAlertMessage(tr("Use letters, numbers and underscores only, and no more than 15 characters"), parentWidget()->parentWidget(), 2000);
-        } else {
-            edit->showAlertMessage(tr("No more than 15 characters"), parentWidget()->parentWidget(), 2000);
-        }
-        edit->lineEdit()->selectAll();
+        QString errMsg = regResult ? tr("No more than 15 characters") : tr("Use letters, numbers and underscores only, and no more than 15 characters");
+        showAlertMessage(errMsg);
         return false;
     } else {
         if (!regResult) {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("Use letters, numbers and underscores only"), parentWidget()->parentWidget(), 2000);
-            edit->lineEdit()->selectAll();
+            QString errMsg = tr("Use letters, numbers and underscores only");
+            showAlertMessage(errMsg);
             return false;
         }
     }
     return true;
+}
+
+void AccounntFingeItem::showAlertMessage(const QString &errMsg)
+{
+    m_editTitle->setAlert(true);
+    m_editTitle->showAlertMessage(errMsg, parentWidget()->parentWidget(), 2000);
+    m_editTitle->lineEdit()->selectAll();
 }

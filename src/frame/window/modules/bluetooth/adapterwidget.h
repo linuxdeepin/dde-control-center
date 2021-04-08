@@ -126,7 +126,6 @@ private:
     dcc::bluetooth::BluetoothModel *m_model;
     dcc::widgets::SwitchWidget *m_discoverySwitch;
     bool m_lastPowerCheck;     // 蓝牙适配器Power开关按钮的最后一次的状态
-    QTimer *m_delaySortTimer;
     bool m_showUnnamedDevices;
     BluetoothInter m_bluetoothInter;
 };

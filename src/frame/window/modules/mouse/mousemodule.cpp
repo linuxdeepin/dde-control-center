@@ -47,6 +47,7 @@ MouseModule::MouseModule(FrameProxyInterface *frame, QObject *parent)
 void MouseModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
     Q_UNUSED(pushtype);
+    Q_UNUSED(sync)
     //添加此判断是因为公共功能可能泄露。在分配指针“m_model”之前未释放它
     if (m_model) {
         delete m_model;
@@ -90,7 +91,7 @@ void MouseModule::active()
     connect(m_mouseWidget, &MouseWidget::showTrackPointSetting, this, &MouseModule::showTrackPointSetting);
     m_frameProxy->pushWidget(this, m_mouseWidget);
     m_mouseWidget->setVisible(true);
-    showGeneralSetting();
+    m_mouseWidget->setDefaultWidget();
 }
 
 void MouseModule::showGeneralSetting()

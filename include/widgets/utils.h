@@ -17,6 +17,15 @@ static const QMap<QString, QString> SYSTEM_LOCAL_MAP {
     {"zh_TW", "zh_TW"},
 };
 
+enum UiActiveState {
+    Unknown = -1,  //未知
+    Unauthorized = 0,  //未授权
+    Authorized,  //已授权
+    AuthorizedLapse,  //授权失效
+    TrialAuthorized, //试用期已授权
+    TrialExpired //试用期已过期
+};
+
 static const QString getLicensePath(const QString &filePath, const QString &type)
 {
     const QString& locale { QLocale::system().name() };

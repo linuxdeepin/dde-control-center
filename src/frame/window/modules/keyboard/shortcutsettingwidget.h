@@ -101,7 +101,7 @@ private:
     bool m_bIsResting = false;
 
     dcc::widgets::SettingsHead *m_head;
-    dcc::widgets::SettingsHead *workspaceHead;
+    dcc::widgets::SettingsHead *m_workspaceHead;
     dcc::widgets::SettingsGroup *m_systemGroup;
     dcc::widgets::SettingsGroup *m_windowGroup;
     dcc::widgets::SettingsGroup *m_workspaceGroup;
@@ -118,6 +118,8 @@ private:
     QList<dcc::keyboard::ShortcutItem *> m_workspaceList;
     QList<dcc::keyboard::ShortcutItem *> m_assistiveToolsList;
     QList<dcc::keyboard::ShortcutItem *> m_customList;
+    QStringList m_assistiveToolsIdList;
+    QStringList m_workspaceIdList;
 };
 }
 }

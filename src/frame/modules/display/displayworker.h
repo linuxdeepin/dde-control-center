@@ -117,6 +117,8 @@ private:
     QGSettings *m_dccSettings;
     AppearanceInter *m_appearanceInter;
     QMap<Monitor *, MonitorInter *> m_monitors;
+    double m_currentScale;
+    bool m_updateScale;
 
     PowerInter *m_powerInter{nullptr};
     MouseInter *m_mouseInter{nullptr};
