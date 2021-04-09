@@ -229,7 +229,7 @@ void SecretWirelessSection::initConnection()
         }
     });
 
-    connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretWirelessSection::saveUserInputPassword);
+    connect(m_passwdEdit->textEdit(), &QLineEdit::editingFinished, this, &SecretWirelessSection::saveUserInputPassword, Qt::QueuedConnection);
     connect(m_enableWatcher, &Secret8021xEnableWatcher::passwdEnableChanged, this,  [ = ](const bool enabled) {
         switch (m_currentKeyMgmt) {
         case NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone:
