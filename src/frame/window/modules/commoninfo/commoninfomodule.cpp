@@ -61,8 +61,8 @@ CommonInfoModule::~CommonInfoModule()
     m_commonModel = nullptr;
 }
 
-void CommonInfoModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
-{   
+void CommonInfoModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
+{
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
 #ifdef DCC_DISABLE_GRUB
@@ -145,7 +145,7 @@ int CommonInfoModule::load(const QString &path)
     }
 
 #ifdef DCC_DISABLE_GRUB
-    indexRow -= 1;
+    indexRow ? indexRow-- : indexRow;
     Q_ASSERT(indexRow >= 0);
 #endif
 
@@ -182,7 +182,7 @@ void CommonInfoModule::onShowDeveloperWidget()
     pWidget->setVisible(false);
     pWidget->setModel(m_commonModel);
     connect(pWidget, &DeveloperModeWidget::requestLogin, m_commonWork, &CommonInfoWork::login);
-    connect(pWidget, &DeveloperModeWidget::enableDeveloperMode, this, [=](bool enabled) {
+    connect(pWidget, &DeveloperModeWidget::enableDeveloperMode, this, [ = ](bool enabled) {
         MainWindow *pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
         m_commonWork->setEnableDeveloperMode(enabled, pMainWindow);
     });
@@ -222,7 +222,7 @@ void CommonInfoModule::initUeProgramWidget()
     m_ueProgramWidget->setVisible(false);
     m_ueProgramWidget->setModel(m_commonModel);
     m_ueProgramWidget->setDefaultUeProgram(m_commonWork->defaultUeProgram());
-    connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableUeProgram, this, [=](bool enabled) {
+    connect(m_ueProgramWidget, &UserExperienceProgramWidget::enableUeProgram, this, [ = ](bool enabled) {
         MainWindow *pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
         m_commonWork->setUeProgram(enabled, pMainWindow);
     });
