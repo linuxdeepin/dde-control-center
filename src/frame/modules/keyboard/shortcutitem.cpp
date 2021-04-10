@@ -103,6 +103,11 @@ void ShortcutItem::setShortcutInfo(ShortcutInfo *info)
     m_info = info;
     setTitle(m_info->name);
     setShortcut(info->accels);
+
+    if (info->type != ShortcutModel::Custom) {
+        setConfigName(info->id + "Config");
+        GSettingWatcher::instance()->bind(configName(), this);
+    }
 }
 
 void ShortcutItem::setTitle(const QString &title)
