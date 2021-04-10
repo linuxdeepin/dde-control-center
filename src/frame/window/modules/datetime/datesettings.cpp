@@ -299,9 +299,14 @@ void DateSettings::onProcessComboBox(const int &value)
 
     m_bIsUserOperate = false;
 
-    if (itemText != tr("Customize") && "" != itemText) {
-        Q_EMIT requestNTPServer(itemText);
+    if (itemText != tr("Customize")) {
+        if ("" != itemText) {
+            Q_EMIT requestNTPServer(itemText);
+        }
+    } else {
+        Q_EMIT requestNTPServer(m_customNtpServer);
     }
+
     setButtonShowState(m_autoSyncTimeSwitch->checked());
 }
 
@@ -352,13 +357,18 @@ void DateSettings::setLastServerAddress(QString address)
         return;
     }
     m_addressContent->setText(address);
-    for (int i = 0; i < m_ntpServerList->count(); i++) {
+    int i = 0;
+    for (; i < m_ntpServerList->count(); i++) {
         if (m_ntpServerList->itemText(i) == address) {
             onProcessComboBox(i);
             m_ntpServerList->setCurrentIndex(i);
             m_addressContent->setText("");
             break;
         }
+    }
+    if (m_ntpServerList->count() == i) {
+        onProcessComboBox(--i);
+        m_ntpServerList->setCurrentIndex(i);
     }
 }
 
