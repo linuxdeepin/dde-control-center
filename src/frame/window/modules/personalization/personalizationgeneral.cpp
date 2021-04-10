@@ -130,7 +130,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     colorLayout->setAlignment(Qt::AlignLeft);
     m_bgWidget->setLayout(colorLayout);
     m_bgWidget->setFixedHeight(40);
-    colorLayout->setContentsMargins(16, 0, 16, 0);
+    colorLayout->setContentsMargins(10, 0, 10, 0);
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
     int totalSpace = borderWidth + borderSpacing + RoundColorWidget::EXTRA; //2px extra space to avoid line cutted off
