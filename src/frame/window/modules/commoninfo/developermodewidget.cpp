@@ -73,7 +73,6 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
     vBoxLayout->addStretch();
     setLayout(vBoxLayout);
 
-    m_developerDialog->setModel(m_model);
     connect(m_developerDialog, &DeveloperModeDialog::requestDeveloperMode, this, &DeveloperModeWidget::enableDeveloperMode);
     connect(this, &DeveloperModeWidget::enableDeveloperMode, m_developerDialog, &DeveloperModeDialog::close);
     connect(m_developerDialog, &DeveloperModeDialog::requestLogin, this, &DeveloperModeWidget::requestLogin);
@@ -146,6 +145,7 @@ DeveloperModeWidget::~DeveloperModeWidget()
 void DeveloperModeWidget::setModel(CommonInfoModel *model)
 {
     m_model = model;
+    m_developerDialog->setModel(m_model);
     onLoginChanged();
     if (!model->developerModeState()) {
         m_devBtn->setEnabled(model->isActivate());
