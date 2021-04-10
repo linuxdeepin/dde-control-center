@@ -155,7 +155,9 @@ void DefappDetailWidget::setCategory(dcc::defapp::Category *const category)
 
 QIcon DefappDetailWidget::getAppIcon(const QString &appIcon, const QSize &size)
 {
-    QIcon icon = QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
+    QIcon icon(appIcon);
+    if (icon.pixmap(size).isNull())
+        icon = QIcon::fromTheme(appIcon, QIcon::fromTheme("application-x-desktop"));
 
     const qreal ratio = devicePixelRatioF();
     QPixmap pixmap = icon.pixmap(size * ratio).scaled(size * ratio, Qt::KeepAspectRatio, Qt::SmoothTransformation);
