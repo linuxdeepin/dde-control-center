@@ -96,7 +96,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     centralLayout->addWidget(m_switch, 0, Qt::AlignTop);
     centralLayout->addWidget(m_tipsGrp);
     QMargins itemMargins(m_lvProfiles->itemMargins());
-    itemMargins.setLeft(0);
+    itemMargins.setLeft(10);
     m_lvProfiles->setItemMargins(itemMargins);
     centralLayout->addWidget(m_lvProfiles);
     centralLayout->addStretch();

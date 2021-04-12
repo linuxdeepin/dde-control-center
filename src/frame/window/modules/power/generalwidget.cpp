@@ -130,6 +130,9 @@ void GeneralWidget::initUi()
     m_powerplanListview->setSelectionMode(QAbstractItemView::NoSelection);
 
     powerPlansLabel->setContentsMargins(10, 0, 10, 0);  // 性能设置label与外面布局的边距
+    QMargins itemMargins(m_powerplanListview->itemMargins()); // 添加性能模式标题间隔
+    itemMargins.setLeft(10);
+    m_powerplanListview->setItemMargins(itemMargins);
     powerPlansLayout->addWidget(powerPlansLabel);       // 添加性能设置label
     powerPlansLayout->addWidget(m_powerplanListview);   // 添加性能模式列表
     powerPlansLayout->setSpacing(10);                   // 布局中组件间距
