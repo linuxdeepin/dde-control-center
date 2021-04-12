@@ -83,7 +83,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
 
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
-    layout()->setContentsMargins(8, 0, 8, 0);
+    layout()->setContentsMargins(0, 0, 8, 0);
     setContent(tFrame);
 
     connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseSettingWidget::requestSetMouseMotionAcceleration);
