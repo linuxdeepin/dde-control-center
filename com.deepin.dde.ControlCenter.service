@@ -1,3 +1,3 @@
 [D-BUS Service]
 Name=com.deepin.dde.ControlCenter
-Exec=dbus-send --print-reply --session --dest=com.deepin.SessionManager /com/deepin/StartManager com.deepin.StartManager.LaunchApp string:/usr/share/applications/dde-control-center.desktop uint32:0 array:string:--dbus
+Exec=/usr/bin/dbus-send --print-reply --session --dest=com.deepin.SessionManager /com/deepin/StartManager com.deepin.StartManager.LaunchApp string:/usr/share/applications/dde-control-center.desktop uint32:0 array:string:--dbus
