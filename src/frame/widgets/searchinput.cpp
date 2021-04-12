@@ -77,7 +77,7 @@ void SearchInput::paintEvent(QPaintEvent *e)
         if(m_iconVisible)
         {
             QFontMetrics fm(qApp->font());
-            int w = fm.width(m_search);
+            int w = fm.horizontalAdvance(m_search);
             int iw = m_icon.width();
             int x = (rect.width() - w - iw -8)/2;
             QRect iconRect(x, 0, iw, rect.height());

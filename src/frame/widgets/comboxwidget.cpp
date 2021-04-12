@@ -133,7 +133,7 @@ void ComboxWidget::resizeEvent(QResizeEvent *event)
     if (event->type() == QEvent::Resize) {
         if (m_titleLabel) {
             QFontMetrics fontMetrics(m_titleLabel->font());
-            int fontSize = fontMetrics.width(m_str);
+            int fontSize = fontMetrics.horizontalAdvance(m_str);
             if (fontSize > m_titleLabel->width()) {
                 m_titleLabel->setText(fontMetrics.elidedText(m_str, Qt::ElideRight, m_titleLabel->width()));
 
