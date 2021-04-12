@@ -98,13 +98,17 @@ VpnPage::VpnPage(QWidget *parent)
         m_importFile->setDirectory(directory.first());
     }
 
-    TitleLabel *lblTitle = new TitleLabel(tr("VPN Status"));
+    QLabel *lblTitle = new QLabel(tr("VPN Status"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_vpnSwitch = new SwitchWidget(nullptr, lblTitle);
     m_vpnSwitch->switchButton()->setAccessibleName(lblTitle->text());
 
     QVBoxLayout *scrollLayout = new QVBoxLayout;
-    scrollLayout->addWidget(m_vpnSwitch);
+    scrollLayout->addWidget(m_vpnSwitch, 0, Qt::AlignTop);
+    // 控制lisview字体间距
+    QMargins itemMargins(m_lvprofiles->itemMargins());
+    itemMargins.setLeft(10);
+    m_lvprofiles->setItemMargins(itemMargins);
     scrollLayout->addWidget(m_lvprofiles);
     scrollLayout->setSpacing(10);
     scrollLayout->setContentsMargins(ThirdPageContentsMargins);
@@ -117,6 +121,7 @@ VpnPage::VpnPage(QWidget *parent)
     contentWidget->setContent(widget);
 
     QVBoxLayout *mainLayout = new QVBoxLayout;
+    mainLayout->setMargin(0);
     mainLayout->addWidget(contentWidget);
 
     QHBoxLayout *buttonsLayout = new QHBoxLayout;
@@ -143,6 +148,7 @@ VpnPage::VpnPage(QWidget *parent)
     buttonsLayout->addStretch();
     mainLayout->addLayout(buttonsLayout);
 
+    setContentsMargins(0, 0, 8, 8);
     setLayout(mainLayout);
 
     connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, &VpnPage::requestVpnEnabled);
