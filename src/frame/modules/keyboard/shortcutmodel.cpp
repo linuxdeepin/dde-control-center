@@ -161,7 +161,6 @@ void ShortcutModel::onParseInfo(const QString &info)
     QStringList systemShortKeys;
     if (DCC_NAMESPACE::IsServerSystem) {
         QStringList systemFilterServer = systemFilter;
-        systemFilterServer.removeOne("deepin-screen-recorder");
         systemFilterServer.removeOne("wm-switcher");
         systemFilterServer.removeOne("preview-workspace");
         systemFilterServer.removeOne("expose-windows");
