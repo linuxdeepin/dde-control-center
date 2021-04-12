@@ -325,7 +325,11 @@ void SoundWorker::cardsChanged(const QString &cards)
                 port->setDirection(Port::Direction(jPort["Direction"].toDouble()));
                 port->setCardId(cardId);
                 port->setCardName(cardName);
-                port->setIsActive(portId == m_activeSinkPort || portId == m_activeSourcePort);
+
+                const bool isActiveOuputPort = (portId == m_activeSinkPort) && (cardId == m_activeOutputCard);
+                const bool isActiveInputPort = (portId == m_activeSourcePort) && (cardId == m_activeInputCard);
+
+                port->setIsActive(isActiveInputPort || isActiveOuputPort);
 
                 if (!include) { m_model->addPort(port); }
 
