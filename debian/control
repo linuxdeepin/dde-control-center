@@ -18,7 +18,6 @@ Build-Depends:
  libgsettings-qt-dev,
  qttools5-dev-tools,
  clang [amd64],
- deepin-desktop-base,
  libdde-network-utils-dev,
  libdtkcore5-bin,
  libkf5networkmanagerqt-dev,
@@ -31,6 +30,7 @@ Build-Depends:
  libxcb-ewmh-dev,
  libudisks2-qt5-dev,
  qtmultimedia5-dev,
+ deepin-desktop-base | deepin-desktop-server | deepin-desktop-device,
  libgtest-dev,
  libdeepin-pw-check-dev,
  libpolkit-qt5-1-dev
