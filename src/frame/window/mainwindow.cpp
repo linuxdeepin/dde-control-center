@@ -350,8 +350,8 @@ void MainWindow::initAllModule(const QString &m)
  // 平板一期,隐藏鼠标模块
 #ifndef USE_TABLET
         { new MouseModule(this), tr("Mouse")},
-#endif
         { new WacomModule(this), tr("Drawing Tablet")},
+#endif
         { new KeyboardModule(this), DGuiApplicationHelper::isTabletEnvironment() ? tr("Language") : tr("Keyboard and Language")},
         { new UpdateModule(this), tr("Updates")},
         { new SystemInfoModule(this), tr("System Info")}
