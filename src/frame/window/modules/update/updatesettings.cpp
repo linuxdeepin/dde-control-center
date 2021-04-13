@@ -236,7 +236,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem  && !IsEducationSystem && !IsDeepinDesktop) {
         connect(model, &UpdateModel::sourceCheckChanged, m_sourceCheck, &SwitchWidget::setChecked);
         m_sourceCheck->setChecked(model->sourceCheck());
     }
