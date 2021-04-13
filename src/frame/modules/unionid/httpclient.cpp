@@ -132,12 +132,11 @@ QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const in
 
 QNetworkReply *HttpClient::getBindAccountInfo(const int &accountType, const int &id, const QString &idValue)
 {
-    QString requestApi = QString("http://10.5.11.205:9310/bind-accountInfo?accountType=%1&id=%2&idValue=%3")
+    QString requestApi = QString("/account/bind-accountInfo?accountType=%1&id=%2&idValue=%3")
             .arg(accountType)
             .arg(id)
             .arg(idValue);
-    qInfo() << requestApi;
-    QNetworkRequest requset(requestApi)/* = setNetWorkRequest(requestApi)*/;
+    QNetworkRequest requset = setNetWorkRequest(requestApi);
     return manager->get(requset);
 }
 

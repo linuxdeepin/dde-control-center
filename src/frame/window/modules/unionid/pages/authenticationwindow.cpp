@@ -114,21 +114,20 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
     connect(m_timer,&QTimer::timeout,this,&AuthenticationWindow::onTimeOut);
 }
 
-void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, QString acccessToken,
-                                   QString refreshToken, QString userAvatar, QString nickName)
+void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, QString accessToken,
+                                   QString userAvatar, QString nickName)
 {
     m_tipLabel->setText(QObject::tr("Get a verification code by phone number xxx-xxxx-%1").arg(phoneNumber.right(4)));
     m_phoneNumber = phoneNumber;
-    m_acccessToken = acccessToken;
+    m_accessToken = accessToken;
     m_weChatUnionId = weChatUnionId;
-    m_refreshToken = refreshToken;
     m_userAvatar = userAvatar;
     m_nickName = nickName;
 }
 
 void AuthenticationWindow::onGetCodeButtonClicked()
 {
-    QNetworkReply *reply = HttpClient::instance()->sendSmsCode(m_phoneNumber, m_acccessToken);
+    QNetworkReply *reply = HttpClient::instance()->sendSmsCode(m_phoneNumber, m_accessToken);
     connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onSendSmsCodeResult);
 }
 
@@ -160,7 +159,7 @@ void AuthenticationWindow::onLineEditTextChanged(QString text)
 
 void AuthenticationWindow::onNextButtonClicked()
 {
-    QNetworkReply *reply = HttpClient::instance()->verifySmsCode(m_phoneNumber,m_lineEdit->text(), m_acccessToken);
+    QNetworkReply *reply = HttpClient::instance()->verifySmsCode(m_phoneNumber,m_lineEdit->text(), m_accessToken);
     connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onVerifySmsCodeResult);
 }
 
@@ -172,7 +171,7 @@ void AuthenticationWindow::onVerifySmsCodeResult()
     if (!result.isEmpty()) {
         if (HttpClient::instance()->solveJson(result)) {
             BindWeChatWindow *bindWeChatWindow = new BindWeChatWindow;
-            connect(bindWeChatWindow,&BindWeChatWindow::toTellrefreshWechatName,this,&AuthenticationWindow::toTellrefreshWechatName);
+            connect(bindWeChatWindow,&BindWeChatWindow::toTellrefreshUserInfo,this,&AuthenticationWindow::toTellrefreshUserInfo);
             connect(bindWeChatWindow,&BindWeChatWindow::close,this,&AuthenticationWindow::close);
 
             QDBusInterface interface1("com.deepin.deepinid",
@@ -182,7 +181,7 @@ void AuthenticationWindow::onVerifySmsCodeResult()
 
             QVariant strReply = interface1.property("HardwareID");
 
-            bindWeChatWindow->setData(m_acccessToken,strReply.toString(),m_weChatUnionId,m_refreshToken,m_userAvatar,m_nickName);
+            bindWeChatWindow->setData(m_accessToken,strReply.toString(),m_weChatUnionId,m_userAvatar,m_nickName);
             QNetworkReply *reply = HttpClient::instance()->requestQrCode(CLIENT_ID,strReply.toString(),3,REDIRECT_URI);
             connect(reply,&QNetworkReply::finished,bindWeChatWindow,&BindWeChatWindow::onRequestQrCodeResult);
             hide();

@@ -35,6 +35,8 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 
     m_qrCode = new UQrFrame;
     m_qrCode->setMinimumSize(QSize(176,176));
+    m_qrCode->showQRcodePicture("");
+    m_qrCode->setWidgetType(RefreshScanCode);
     connect(m_qrCode,&UQrFrame::refreshsignal,this,&BindWeChatWindow::onRefreshQrCode);
 
     m_tipLabel = new QLabel(QObject::tr("Scan and log in by WeChat to get linked"));
@@ -115,12 +117,11 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 }
 
 void BindWeChatWindow::setData(QString accessToken,QString hardwareID,QString weChatUnionId,
-                               QString refreshToken,QString userAvatar,QString nickName)
+                               QString userAvatar,QString nickName)
 {
     m_accessToken = accessToken;
     m_hardwareID = hardwareID;
     m_weChatUnionId = weChatUnionId;
-    m_refreshToken = refreshToken;
     m_userAvatar = userAvatar;
     m_nickName = nickName;
     m_avatar->setAvatarPath(m_userAvatar,true);
@@ -219,7 +220,10 @@ void BindWeChatWindow::onQrCodeStatusResult()
 
                         jsonValueResult = jsonObj.value("nickName");
                         m_nickName = jsonValueResult.toString();
+                        m_nameLabel->setText(m_nickName);
 
+                        jsonValueResult = jsonObj.value("avatarUrl");
+                        m_avatar->setAvatarPath(jsonValueResult.toString(),true);
 
                         if (!m_weChatUnionId.isEmpty()) {
                             QNetworkReply *reply = HttpClient::instance()->unbindAccount(0,1,m_accessToken,1,0,m_weChatUnionId);
@@ -236,6 +240,8 @@ void BindWeChatWindow::onQrCodeStatusResult()
                     onRefreshQrCode();
                     m_secTipLabel->setVisible(true);
                 } else if (nResult == 1) {
+                    m_nameLabel->clear();
+                    m_avatar->setAvatarPath(":/themes/light/icons/avatar_24px.png",false);
                     m_qrCodeStatusTimer->stop();
                     m_windowStatus = 1;
                     m_indexLayout->setCurrentWidget(m_avatarWidget);
@@ -257,8 +263,7 @@ void BindWeChatWindow::onReportStatusResult()
         m_secTipLabel->setVisible(true);
         m_resultTipLabel->setText(QObject::tr("Go to \"Accounts\" and switch on \"Login by Union ID\""));
 
-        QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
-        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onRefreshAccessToken);
+        Q_EMIT toTellrefreshUserInfo();
     }
 }
 
@@ -312,51 +317,6 @@ void BindWeChatWindow::onUnbindAccountResult()
         if (jsonValueResult == "success") {
             QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId,m_nickName);
             connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
-        }
-    }
-}
-
-void BindWeChatWindow::onRefreshAccessToken()
-{QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = HttpClient::instance()->checkReply(reply);
-
-    if (HttpClient::instance()->solveJson(result)) {
-        QByteArray byteJson = result.toLocal8Bit();
-        QJsonParseError jsonError;
-        QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
-        QJsonObject jsonObj = jsonDoc.object();
-        QJsonValue jsonValueResult = jsonObj.value("data");
-
-        if (jsonValueResult.isObject()) {
-            jsonObj = jsonValueResult.toObject();
-            jsonValueResult = jsonObj.value("wechatunionid");
-            QString nResult = jsonValueResult.toString();
-
-            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, nResult);
-            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onGetBindAccountInfo);
-        }
-    }
-}
-
-void BindWeChatWindow::onGetBindAccountInfo()
-{
-    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
-    QString result = HttpClient::instance()->checkReply(reply);
-
-    if (!result.isEmpty()) {
-
-        if (HttpClient::instance()->solveJson(result)) {
-            QByteArray byteJson = result.toLocal8Bit();
-            QJsonParseError jsonError;
-            QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
-            QJsonObject jsonObj = jsonDoc.object();
-            QJsonValue jsonValueResult = jsonObj.value("data");
-
-            if (jsonValueResult.isObject()) {
-                jsonObj = jsonValueResult.toObject();
-                jsonValueResult = jsonObj.value("wechatNickName");
-                Q_EMIT toTellrefreshWechatName(jsonValueResult.toString());
-            }
         }
     }
 }

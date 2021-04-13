@@ -30,3 +30,18 @@ dde-control-center
 
 .transifexrc
 lupdate.sh
+
+.vscode/
+build/
+.idea/
+cmake-build-debug/
+debian/.debhelper/
+debian/dde-control-center-dev.debhelper.log
+debian/dde-control-center-dev.substvars
+debian/dde-control-center-dev/
+debian/dde-control-center.debhelper.log
+debian/dde-control-center.substvars
+debian/debhelper-build-stamp
+debian/files
+debian/tmp/
+obj-x86_64-linux-gnu/

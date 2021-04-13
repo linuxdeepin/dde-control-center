@@ -14,10 +14,10 @@ class BindWeChatWindow : public DAbstractDialog
 public:
     BindWeChatWindow(QWidget *prarent = nullptr);
 
-    void setData(QString accessToken,QString hardwareID,QString weChatUnionId,QString refreshToken,QString userAvatar,QString nickName);
+    void setData(QString accessToken,QString hardwareID,QString weChatUnionId,QString userAvatar,QString nickName);
 
 Q_SIGNALS:
-    void toTellrefreshWechatName(QString);
+    void toTellrefreshUserInfo();
 
 public Q_SLOTS:
     void onRequestQrCodeResult();
@@ -41,10 +41,6 @@ private Q_SLOTS:
 
     void onUnbindAccountResult();
 
-    void onRefreshAccessToken();
-
-    void onGetBindAccountInfo();
-
 private:
     UQrFrame *m_qrCode;
     QWidget *m_qrCodeWidget;
@@ -63,7 +59,6 @@ private:
     QString m_hardwareID;
     QString m_weChatUnionId;
     QString m_sessionId;
-    QString m_refreshToken;
     QString m_nickName;
     QString m_userAvatar;
 };

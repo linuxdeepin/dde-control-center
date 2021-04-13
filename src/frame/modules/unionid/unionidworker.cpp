@@ -149,12 +149,7 @@ void UnionidWorker::loginUser()
 void UnionidWorker::logoutUser()
 {
     qInfo() << "logoutUser";
-    QDBusInterface interface("com.deepin.deepinid.Client",
-                              "/com/deepin/deepinid/Client",
-                              "com.deepin.deepinid.Client");
-
-    QDBusMessage msg = interface.call(QDBus::NoBlock, "ConfirmLogout");
-    m_deepinId_inter->Logout();
+    //m_deepinId_inter->Logout();
 }
 
 void UnionidWorker::setAutoSync(bool autoSync)

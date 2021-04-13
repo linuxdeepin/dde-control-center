@@ -51,6 +51,7 @@
 #include <QDir>
 #include <QSplitter>
 #include <QDesktopServices>
+#include <QDBusInterface>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
@@ -215,7 +216,7 @@ IndexPage::IndexPage(QWidget *parent)
     connect(m_autoSyncSwitch, &DSwitchButton::checkedChanged, this, &IndexPage::onSwitchButtoncheckedChanged);
     connect(modifyInfoButton, &QPushButton::clicked, this, &IndexPage::onModifyInfo);
 //    connect(quitButton, &QPushButton::clicked, this, &IndexPage::requestLogout);
-    connect(m_quitButton, &QPushButton::clicked, this, &IndexPage::requestLogout);
+    connect(m_quitButton, &QPushButton::clicked, this, &IndexPage::onQuitButtonClicked);
 
     m_mainLayout->addWidget(scrollArea);
     m_mainLayout->setContentsMargins(0,0,0,0);
@@ -224,6 +225,9 @@ IndexPage::IndexPage(QWidget *parent)
     onThemeTypeChanged(DGuiApplicationHelper::instance()->themeType());
 
     connect(DGuiApplicationHelper::instance(),&DGuiApplicationHelper::themeTypeChanged,this,&IndexPage::onThemeTypeChanged);
+
+    m_refreshTimer = new QTimer;
+    connect(m_refreshTimer, &QTimer::timeout, this, &IndexPage::onTokenTimeout);
 }
 
 void IndexPage::setModel(UnionidModel *model)
@@ -306,6 +310,11 @@ void IndexPage::setUserInfo(QString usrInfo)
 
     if (jsonValueResult.isObject()) {
         jsonObj = jsonValueResult.toObject();
+
+        //AT有效期
+        jsonValueResult = jsonObj.value("expires_in");
+        m_refreshTimer->start(jsonValueResult.toInt() * 1000);
+
         jsonValueResult = jsonObj.value("AccessToken");
         QString nResult = jsonValueResult.toString();
         m_accessToken = nResult;
@@ -316,8 +325,9 @@ void IndexPage::setUserInfo(QString usrInfo)
         m_refreshToken = nResult;
 
         jsonValueResult = jsonObj.value("userNick");
-        nResult = jsonValueResult.toString();
-        m_nameLabel->setText(nResult);
+        qInfo() << "userNick" << jsonValueResult.type();
+        m_nickName = jsonValueResult.toString();
+        m_nameLabel->setText(m_nickName);
 
         jsonValueResult = jsonObj.value("avatar");
         m_userAvatar = jsonValueResult.toString();
@@ -340,11 +350,6 @@ void IndexPage::setUserInfo(QString usrInfo)
         QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_wechatunionid);
         connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetBindAccountInfo);
     }
-}
-
-void IndexPage::onRefreshWechatName(QString wechatName)
-{
-    m_wxNameLabel->setText(wechatName);
 }
 
 void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
@@ -467,8 +472,8 @@ void IndexPage::onGetUserInfoResult()
         m_phoneNumber = jsonValueResult.toString();
 
         AuthenticationWindow *authWindow = new AuthenticationWindow;
-        connect(authWindow,&AuthenticationWindow::toTellrefreshWechatName,this,&IndexPage::onRefreshWechatName);
-        authWindow->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_refreshToken,m_userAvatar,m_nameLabel->text());
+        connect(authWindow,&AuthenticationWindow::toTellrefreshUserInfo,this,&IndexPage::onTokenTimeout);
+        authWindow->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_userAvatar,m_nameLabel->text());
         authWindow->show();
         m_wechatunionid = "";
     }
@@ -495,6 +500,61 @@ void IndexPage::onGetBindAccountInfo()
             }
         }
     }
+}
+
+void IndexPage::onQuitButtonClicked()
+{
+    QDBusInterface interface("com.deepin.deepinid.Client",
+                              "/com/deepin/deepinid/Client",
+                              "com.deepin.deepinid.Client");
+
+
+    QList<QVariant> argumentList;
+    argumentList << m_userAvatar;
+    argumentList << m_nickName;
+
+    interface.callWithArgumentList(QDBus::NoBlock, "ConfirmLogout", argumentList);
+
+    Q_EMIT requestLogout();
+}
+
+void IndexPage::onRefreshAccessToken()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    QString result = HttpClient::instance()->checkReply(reply);
+    reply->deleteLater();
+
+    if (HttpClient::instance()->solveJson(result)) {
+        QByteArray byteJson = result.toLocal8Bit();
+        QJsonParseError jsonError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+        QJsonObject jsonObj = jsonDoc.object();
+        QJsonValue jsonValueResult = jsonObj.value("data");
+
+        if (jsonValueResult.isObject()) {
+            jsonObj = jsonValueResult.toObject();
+            jsonValueResult = jsonObj.value("AccessToken");
+            m_accessToken = jsonValueResult.toString();
+
+            jsonValueResult = jsonObj.value("RefreshToken");
+            m_refreshToken = jsonValueResult.toString();
+
+            jsonValueResult = jsonObj.value("expires_in");
+            m_refreshTimer->start(jsonValueResult.toInt());
+
+            jsonValueResult = jsonObj.value("wechatunionid");
+            QString result = jsonValueResult.toString();
+
+            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, result);
+            connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetBindAccountInfo);
+        }
+    }
+}
+
+void IndexPage::onTokenTimeout()
+{
+    QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
+    connect(reply,&QNetworkReply::finished,this,&IndexPage::onRefreshAccessToken);
 }
 
 IndexPage::~IndexPage()

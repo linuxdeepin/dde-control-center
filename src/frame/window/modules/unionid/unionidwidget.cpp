@@ -130,19 +130,22 @@ void UnionidWidget::onRequestLogout()
 
 void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 {
+    qInfo() << "onUserInfoChanged";
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
     const QString region = userInfo["Region"].toString();
 
     if (isLogind) {
 //        if (region == "CN") {
             m_loginPage->login();
-//            m_pageLayout->setCurrentWidget(m_indexPage);
+            m_pageLayout->setCurrentWidget(m_indexPage);
+            qInfo() << "已登录";
 //        } else {
 //            m_pageLayout->setCurrentWidget(m_cnonlyPage);
 //        }
     }
     else {
-        m_indexPage->requestLogout();
-        //m_pageLayout->setCurrentWidget(m_loginPage);
+//        m_indexPage->requestLogout();
+        m_pageLayout->setCurrentWidget(m_loginPage);
+        qInfo() << "未登录";
     }
 }

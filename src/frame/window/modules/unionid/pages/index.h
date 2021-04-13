@@ -77,9 +77,6 @@ Q_SIGNALS:
     void requesUserDialog(QString) const;
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
 
-public Q_SLOTS:
-    void onRefreshWechatName(QString wechatName);
-
 private Q_SLOTS:
     void onStateChanged(const std::pair<qint32, QString> &state);
     void onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
@@ -91,6 +88,10 @@ private Q_SLOTS:
     void onModButtonClicked();
     void onGetUserInfoResult();
     void onGetBindAccountInfo();
+    void onQuitButtonClicked();
+    void onRefreshAccessToken();
+    //AT超时刷新
+    void onTokenTimeout();
 
 private:
     QVBoxLayout *m_mainLayout;
@@ -100,6 +101,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_listView;
     QStandardItemModel *m_listModel;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
+    QTimer *m_refreshTimer;
     QLabel *m_logout;
     QLabel *m_lab;
     QVBoxLayout *m_syncLayout;

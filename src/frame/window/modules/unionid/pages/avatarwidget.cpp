@@ -103,7 +103,7 @@ void AvatarWidget::readAvatarFromUrl()
     qInfo() << "reply :" << reply << endl;
 
     QByteArray result = HttpClient::instance()->checkReply(reply);
-
+    reply->deleteLater();
     if (!result.isEmpty()) {
 //            QByteArray data_bytes = reply->readAll();
             m_avatar.loadFromData(result);
