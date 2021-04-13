@@ -160,7 +160,7 @@ void PerssonalizationThemeWidget::setMainLayout(QBoxLayout *layout, bool titleBe
 {
     m_centerLayout = layout;
     if (DGuiApplicationHelper::isTabletEnvironment()) {
-        m_centerLayout->setSpacing(80);
+        m_centerLayout->setSpacing(40);
         m_centerLayout->setContentsMargins(80, 42, 80, 13);
     } else {
         m_centerLayout->setMargin(0);

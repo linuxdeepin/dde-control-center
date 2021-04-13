@@ -1,66 +1,64 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="240" height="132" viewBox="0 0 240 132">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="156" height="156" viewBox="0 0 156 156">
   <defs>
-    <linearGradient id="主题-深色-a" x1="25.52%" x2="2.165%" y1="40.253%" y2="62.676%">
+    <linearGradient id="1-a" x1="25.52%" x2="2.165%" y1="17.78%" y2="91.903%">
       <stop offset="0%" stop-color="#202E6D"/>
       <stop offset="100%" stop-color="#0B1346"/>
     </linearGradient>
-    <linearGradient id="主题-深色-b" x1="107.866%" x2="8.945%" y1="60.744%" y2="21.196%">
+    <linearGradient id="1-b" x1="67.998%" x2="37.231%" y1="63.874%" y2="12.804%">
       <stop offset="0%" stop-color="#242773"/>
       <stop offset="100%" stop-color="#4679CA"/>
     </linearGradient>
-    <linearGradient id="主题-深色-c" x1="21.263%" x2="76.11%" y1="75.218%" y2="52.552%">
-      <stop offset="0%" stop-color="#A75E89"/>
+    <linearGradient id="1-c" x1="36.534%" x2="62.235%" y1="79.596%" y2="52.995%">
+      <stop offset="0%" stop-color="#A75EA6" stop-opacity=".528"/>
       <stop offset="100%" stop-color="#BA5B8D"/>
     </linearGradient>
-    <rect id="主题-深色-e" width="182" height="82" x="0" y="0" rx="18"/>
-    <filter id="主题-深色-d" width="117.6%" height="139%" x="-8.8%" y="-17.1%" filterUnits="objectBoundingBox">
+    <rect id="1-e" width="116" height="86" x="0" y="0" rx="19.2"/>
+    <filter id="1-d" width="127.6%" height="137.2%" x="-13.8%" y="-16.3%" filterUnits="objectBoundingBox">
       <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
       <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="5"/>
       <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"/>
     </filter>
-    <linearGradient id="主题-深色-h" x1="50%" x2="50%" y1="0%" y2="100%">
+    <linearGradient id="1-h" x1="50%" x2="50%" y1="0%" y2="100%">
       <stop offset="0%" stop-color="#232323" stop-opacity=".5"/>
       <stop offset="100%" stop-color="#1C1C1C" stop-opacity=".5"/>
     </linearGradient>
-    <path id="主题-深色-g" d="M18,0 L164,0 C173.941125,-1.82615513e-15 182,8.0588745 182,18 L182,41 L182,41 L0,41 L0,18 C-1.21743675e-15,8.0588745 8.0588745,-1.72655855e-15 18,0 Z"/>
-    <filter id="主题-深色-f" width="126.9%" height="219.5%" x="-13.5%" y="-42.7%" filterUnits="objectBoundingBox">
+    <path id="1-g" d="M19.2,1.13686838e-13 L96.8,1.13686838e-13 C107.403867,1.11738939e-13 116,8.5961328 116,19.2 L116,40 L116,40 L0,40 L0,19.2 C-1.2985992e-15,8.5961328 8.5961328,1.15634737e-13 19.2,1.13686838e-13 Z"/>
+    <filter id="1-f" width="142.2%" height="222.5%" x="-21.1%" y="-43.8%" filterUnits="objectBoundingBox">
       <feOffset dy="7" in="SourceAlpha" result="shadowOffsetOuter1"/>
       <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7"/>
       <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
       <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0"/>
     </filter>
-    <filter id="主题-深色-i" width="116.5%" height="173.2%" x="-8.2%" y="-19.5%" filterUnits="objectBoundingBox">
+    <filter id="1-i" width="125.9%" height="175%" x="-12.9%" y="-20%" filterUnits="objectBoundingBox">
       <feOffset dy="-2" in="SourceAlpha" result="shadowOffsetInner1"/>
       <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
       <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
     </filter>
   </defs>
   <g fill="none" fill-rule="evenodd">
-    <rect width="240" height="132" fill="url(#主题-深色-a)" rx="12"/>
-    <path fill="url(#主题-深色-b)" d="M90,0 L228,0 C234.627417,-1.21743675e-15 240,5.372583 240,12 L240,120 C240,126.627417 234.627417,132 228,132 L143,132 L143,132 L90,0 Z"/>
-    <path fill="url(#主题-深色-c)" d="M35,0 C53,25.6666667 62,48.8333333 62,69.5 C62,90.1666667 68,111 80,132 L178,132 C159.333333,88.6666667 144.666667,58 134,40 C123.333333,22 113.333333,8.66666667 104,0 L35,0 Z"/>
-    <path fill="#DF9CCD" d="M114,0 C130,20.3333333 143,39.8333333 153,58.5 C163,77.1666667 175,101.666667 189,132 L174,132 C160,101.333333 147.666667,76.8333333 137,58.5 C126.333333,40.1666667 113.333333,20.6666667 98,0 L114,0 Z"/>
-    <g transform="translate(46 104)">
-      <rect width="148" height="20" fill="#000" fill-opacity=".6" rx="6"/>
+    <rect width="156" height="156" fill="url(#1-a)" rx="12"/>
+    <path fill="url(#1-b)" d="M69,0 L144,0 C150.627417,-1.21743675e-15 156,5.372583 156,12 L156,144 C156,150.627417 150.627417,156 144,156 L125.053333,156 L125.053333,156 L69,0 Z"/>
+    <path fill="url(#1-c)" d="M14.1717791,0 C27.6133376,30.3333333 34.3341168,57.7121212 34.3341168,82.1363636 C34.3341168,106.560606 38.8146363,131.181818 47.7756752,156 L120.957493,156 C107.018099,104.787879 96.0657185,68.5454545 88.1003506,47.2727273 C80.1349826,26 72.6674501,10.2424242 65.6977532,0 L14.1717791,0 Z"/>
+    <path fill="#DF9CCD" d="M70.1652856,0 C82.1133376,24.030303 91.8211298,47.0757576 99.2886623,69.1363636 C106.756195,91.1969697 115.717234,120.151515 126.171779,156 L114.97048,156 C104.515935,119.757576 95.3059783,90.8030303 87.3406103,69.1363636 C79.3752423,47.469697 69.6674501,24.4242424 58.2172337,0 L70.1652856,0 Z"/>
+    <g transform="translate(28 118)">
+      <rect width="100" height="20" fill="#000" fill-opacity=".6" rx="6"/>
       <circle cx="10" cy="10" r="6" fill="#2876E8"/>
-      <rect width="12" height="12" x="20" y="4" fill="#11B46F" rx="3"/>
-      <rect width="12" height="12" x="68" y="4" fill="#11B46F" rx="3"/>
-      <rect width="12" height="12" x="116" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
-      <rect width="12" height="12" x="52" y="4" fill="#11B46F" rx="3"/>
-      <rect width="12" height="12" x="100" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
-      <rect width="12" height="12" x="36" y="4" fill="#E0704A" rx="3"/>
-      <rect width="12" height="12" x="84" y="4" fill="#E0704A" rx="3"/>
-      <rect width="12" height="12" x="132" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
+      <rect width="12" height="12" x="84" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
+      <rect width="12" height="12" x="36" y="4" fill="#11B46F" rx="3"/>
+      <rect width="12" height="12" x="68" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
+      <rect width="12" height="12" x="52" y="4" fill="#FFF" fill-opacity=".352" rx="3"/>
+      <rect width="12" height="12" x="20" y="4" fill="#E0704A" rx="3"/>
     </g>
-    <g transform="translate(29 12)">
-      <use fill="#000" filter="url(#主题-深色-d)" xlink:href="#主题-深色-e"/>
-      <use fill="#343434" xlink:href="#主题-深色-e"/>
-      <use fill="#000" filter="url(#主题-深色-f)" xlink:href="#主题-深色-g"/>
-      <use fill="url(#主题-深色-h)" xlink:href="#主题-深色-g"/>
-      <use fill="#000" filter="url(#主题-深色-i)" xlink:href="#主题-深色-g"/>
-      <g transform="translate(149 10)">
-        <circle cx="10" cy="10" r="9.375" stroke="#C5CFE0" stroke-width="1.25"/>
-        <path fill="#C5CFE0" d="M1,2 C1.55228475,2 2,2.44771525 2,3 C2,3.55228475 1.55228475,4 1,4 C0.44771525,4 0,3.55228475 0,3 C0,2.44771525 0.44771525,2 1,2 Z M5,2 C5.55228475,2 6,2.44771525 6,3 C6,3.55228475 5.55228475,4 5,4 C4.44771525,4 4,3.55228475 4,3 C4,2.44771525 4.44771525,2 5,2 Z M9,2 C9.55228475,2 10,2.44771525 10,3 C10,3.55228475 9.55228475,4 9,4 C8.44771525,4 8,3.55228475 8,3 C8,2.44771525 8.44771525,2 9,2 Z" transform="translate(5 7)"/>
+    <g transform="translate(20 20)">
+      <use fill="#000" filter="url(#1-d)" xlink:href="#1-e"/>
+      <use fill="#343434" xlink:href="#1-e"/>
+      <use fill="#000" filter="url(#1-f)" xlink:href="#1-g"/>
+      <use fill="url(#1-h)" xlink:href="#1-g"/>
+      <use fill="#000" filter="url(#1-i)" xlink:href="#1-g"/>
+      <g transform="translate(78 4)">
+        <rect width="32" height="32"/>
+        <circle cx="16" cy="16" r="9.375" stroke="#C5CFE0" stroke-width="1.25"/>
+        <path fill="#C5CFE0" d="M1,2 C1.55228475,2 2,2.44771525 2,3 C2,3.55228475 1.55228475,4 1,4 C0.44771525,4 0,3.55228475 0,3 C0,2.44771525 0.44771525,2 1,2 Z M5,2 C5.55228475,2 6,2.44771525 6,3 C6,3.55228475 5.55228475,4 5,4 C4.44771525,4 4,3.55228475 4,3 C4,2.44771525 4.44771525,2 5,2 Z M9,2 C9.55228475,2 10,2.44771525 10,3 C10,3.55228475 9.55228475,4 9,4 C8.44771525,4 8,3.55228475 8,3 C8,2.44771525 8.44771525,2 9,2 Z" transform="translate(11 13)"/>
       </g>
     </g>
   </g>
