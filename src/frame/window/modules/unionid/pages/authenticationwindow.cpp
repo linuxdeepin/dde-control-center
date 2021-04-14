@@ -30,10 +30,10 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
     titberLayout->addWidget(closeButton);
     titberLayout->setContentsMargins(0,0,0,0);
 
-    QLabel * titleLabel= new QLabel(QObject::tr("Identity Varification"));
+    QLabel * titleLabel= new QLabel(QObject::tr("Identity Verification"));
     titleLabel->setContentsMargins(0,0,0,72);
 
-    QLabel *contentsLabel = new QLabel(QObject::tr("Varification your phone number"));
+    QLabel *contentsLabel = new QLabel(QObject::tr("Verification your phone number"));
     contentsLabel->setAlignment(Qt::AlignCenter);
     contentsLabel->setWordWrap(true);
     contentsLabel->setContentsMargins(0,0,0,8);

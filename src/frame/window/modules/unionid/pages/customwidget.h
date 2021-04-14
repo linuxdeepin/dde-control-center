@@ -14,7 +14,7 @@ public:
     explicit CustomWidget(QWidget *parent = nullptr);
 
 protected:
-    void paintEvent(QPaintEvent *event);
+//    void paintEvent(QPaintEvent *event);
 
 private Q_SLOTS:
     void onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType);

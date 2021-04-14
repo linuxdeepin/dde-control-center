@@ -69,21 +69,18 @@ IndexPage::IndexPage(QWidget *parent)
     , m_listModel(new QStandardItemModel(this))
 {
     m_avatarWidget = new AvatarWidget;
-    m_avatarWidget->setAvatarPath(":/themes/dark/icons/desktop.jpg");
     m_avatarWidget->setFixedSize(80, 80);
 
     m_nameLabel = new QLabel;
     QPalette nameLabelPa = m_nameLabel->palette();
     nameLabelPa.setColor(QPalette::Text,textTitleLightColor);
     m_nameLabel->setPalette(nameLabelPa);
-    m_nameLabel->setText("name");
     m_nameLabel->setContentsMargins(8,0,0,4);
 
     m_uidLabel = new QLabel;
     QPalette uidLabelPa = m_uidLabel->palette();
     uidLabelPa.setColor(QPalette::Text,textTipLightColor);
     m_uidLabel->setPalette(uidLabelPa);
-    m_uidLabel->setText("UID: uid_sdk457896");
     m_uidLabel->setContentsMargins(0,0,0,24);
 
     QPushButton *modifyInfoButton = new QPushButton(tr("Edit Profile"));
@@ -204,7 +201,7 @@ IndexPage::IndexPage(QWidget *parent)
 //    scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);//暂时没效果,最好还是加上
     scrollArea->setWidget(areaWidget);
 
-    DFontSizeManager::instance()->bind(m_nameLabel, DFontSizeManager::T6,QFont::Bold);
+    DFontSizeManager::instance()->bind(m_nameLabel, DFontSizeManager::T6,QFont::Medium);
     DFontSizeManager::instance()->bind(m_uidLabel, DFontSizeManager::T7,QFont::Normal);
     DFontSizeManager::instance()->bind(modifyInfoButton, DFontSizeManager::T7,QFont::Normal);
     DFontSizeManager::instance()->bind(m_wxlabel, DFontSizeManager::T6,QFont::Normal);

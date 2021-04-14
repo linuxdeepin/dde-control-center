@@ -68,8 +68,8 @@ void UQrFrame::initUI()
     pal.setColor(QPalette::Background, Qt::white);
     setPalette(pal);
     m_refreshbutton->hide();
-    m_refreshbutton->setFixedSize(48, 48);
-    m_refreshbutton->setIconSize(QSize(48, 48));
+    m_refreshbutton->setFixedSize(68, 68);
+    m_refreshbutton->setIconSize(QSize(68, 68));
     m_refreshbutton->setFlat(true);
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
     m_mainLayout->addWidget(m_qrLabel, 0, 0, 1, 1, Qt::AlignCenter);
