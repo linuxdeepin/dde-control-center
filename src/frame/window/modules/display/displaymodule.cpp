@@ -228,7 +228,9 @@ void DisplayModule::showMultiScreenWidget()
             m_pMainWindow->setWindowState(Qt::WindowState::WindowNoState);
             stateChanged = true;
         }
-        m_pMainWindow->move(moi->x() + moi->w() / 2 - m_pMainWindow->width() / 2, moi->y() + moi->h() / 2 - m_pMainWindow->height() / 2);
+
+        double scale = m_displayModel->monitorScale(moi);
+        m_pMainWindow->move(int(moi->x() + moi->w() / scale / 2 - m_pMainWindow->width() / 2), int(moi->y() + moi->h() / scale / 2 - m_pMainWindow->height() / 2));
         if (stateChanged) {
             m_pMainWindow->setWindowState(Qt::WindowState::WindowMaximized);
         }
