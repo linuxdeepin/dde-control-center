@@ -9,7 +9,7 @@
 
 const QString REFUSHPATH = ":/themes/light/icons/qrcode_refresh_24px.svg";
 UQrFrame::UQrFrame(QWidget *parent)
-    : DFrame(parent)
+    : QWidget(parent)
     , m_qrLabel(new DLabel(this))
     , m_borderwidget(new QWidget(this))
     , m_refreshbutton(new DIconButton(this))
@@ -66,7 +66,6 @@ void UQrFrame::initUI()
     setFixedSize(176, 176);
     QPalette pal(palette());
     pal.setColor(QPalette::Background, Qt::white);
-    setAutoFillBackground(true);
     setPalette(pal);
     m_refreshbutton->hide();
     m_refreshbutton->setFixedSize(48, 48);
@@ -170,29 +169,26 @@ void UQrFrame::initConnect()
 void UQrFrame::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
-    QColor color(0,0,0);
-    color.setAlphaF(0.15);
+    QColor penColor = QColor::fromRgbF(0, 0, 0,0.15);
     QPen pen;
-    pen.setWidth(1);
     pen.setStyle(Qt::SolidLine);
-    pen.setColor(color);
+    pen.setColor(penColor);
+
     QRect rect = this->rect();
-    QPainter painter(this);
     QRect roundRect = rect.adjusted(+1,+1,-1,-1);
+
+    QPainter painter(this);
     painter.setRenderHint(QPainter::Antialiasing,true);
-    int diameter=12;
+
+    int diameter = 16;
     int cx = 100*diameter/roundRect.width();
     int cy = 100*diameter/roundRect.height();
     painter.save();
     painter.setPen(pen);
-    painter.drawRoundRect(roundRect,cx,cy);
-    QPainterPath path;
-    path.addRect(rect);
-    path.addRoundRect(roundRect,cx,cy);
-    QColor fillColor(255,255,255);
-    fillColor.setAlphaF(0.9);
-    painter.fillPath(path,fillColor);
+    painter.setBrush(Qt::white);
+    painter.drawRoundRect(roundRect, cx, cy);
     painter.restore();
+    return QWidget::paintEvent(event);
 }
 
 

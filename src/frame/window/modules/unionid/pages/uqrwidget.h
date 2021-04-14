@@ -7,7 +7,6 @@
 #include <QTimer>
 
 // dtk
-#include <DFrame>
 #include <DLabel>
 #include <DIconButton>
 
@@ -20,7 +19,7 @@
 DWIDGET_USE_NAMESPACE
 using namespace qrcodegen;
 
-class UQrFrame : public DFrame
+class UQrFrame : public QWidget
 {
     Q_OBJECT
 public:
@@ -28,7 +27,7 @@ public:
     // 切换窗口类型
     void setWidgetType(qRStyle type);
     // 二维码图片显示添加
-    void showQRcodePicture(QString url,QSize qrCodeSize = QSize(150,150),QSize frameSize = QSize(160,160));
+    void showQRcodePicture(QString url,QSize qrCodeSize = QSize(164,164),QSize frameSize = QSize(176,176));
     // 刷新按钮不可用
     DIconButton * getFreshButton();
     // 设置阴影
