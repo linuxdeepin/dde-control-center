@@ -77,9 +77,9 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setContentsMargins(0, 0, 0, 0);
 
     QScroller::grabGesture(m_contentArea->viewport(), QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(m_contentArea->viewport());
+    QScroller *scroller = QScroller::scroller(m_contentArea);
     QScrollerProperties sp;
-    sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
+    sp.setScrollMetric(QScrollerProperties::HorizontalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
 #ifndef WINDOW_MODE
@@ -146,12 +146,6 @@ QWidget *ContentWidget::setContent(QWidget *const w)
 void ContentWidget::scrollTo(int dy)
 {
     m_contentArea->verticalScrollBar()->setValue(m_contentArea->verticalScrollBar()->value() + dy);
-}
-
-void ContentWidget::resizeEvent(QResizeEvent *event)
-{
-    if (m_content)
-        m_content->setFixedWidth(event->size().width());
 }
 
 }
