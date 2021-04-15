@@ -88,7 +88,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     m_model->setDefaultSink(m_audioInter->defaultSink());
     m_model->setDefaultSource(m_audioInter->defaultSource());
     m_model->setAudioCards(m_audioInter->cardsWithoutUnavailable());
-    m_model->setIsLaptop(m_powerInter->lidIsPresent());
+    m_model->setIsLaptop(DGuiApplicationHelper::isTabletEnvironment() ? true : m_powerInter->lidIsPresent());
     m_model->setMaxUIVolume(m_audioInter->maxUIVolume());
     m_model->setIncreaseVolume(m_audioInter->increaseVolume());
     m_model->setReduceNoise(m_audioInter->reduceNoise());

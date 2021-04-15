@@ -92,7 +92,7 @@ void PowerWorker::active()
     // refersh data
     m_powerModel->setScreenBlackLock(m_powerInter->screenBlackLock());
     m_powerModel->setSleepLock(m_powerInter->sleepLock());
-    m_powerModel->setLidPresent(m_powerInter->lidIsPresent());
+    m_powerModel->setLidPresent(DGuiApplicationHelper::isTabletEnvironment() ? true : m_powerInter->lidIsPresent());
     m_powerModel->setSleepOnLidOnPowerClose(m_powerInter->lidClosedSleep());
     m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
     m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(m_sysPowerInter->powerSavingModeAutoWhenBatteryLow());
