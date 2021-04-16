@@ -90,6 +90,7 @@ private Q_SLOTS:
     bool checkName();
     bool checkFullname();
     bool checkPassword(DPasswordEdit *edit);
+    void imKeyBoardControl();
 
 private:
     dcc::accounts::User *m_newUser;

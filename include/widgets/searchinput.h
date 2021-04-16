@@ -44,6 +44,8 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *);
+    virtual void focusInEvent(QFocusEvent *event) override;
+    virtual void focusOutEvent(QFocusEvent *event) override;
 
 private:
     bool m_iconVisible;

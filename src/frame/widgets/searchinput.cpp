@@ -26,6 +26,8 @@
 #include "widgets/searchinput.h"
 #include "widgets/basiclistdelegate.h"
 
+#include <DApplicationHelper>
+
 #include <QPainter>
 #include <QApplication>
 
@@ -62,6 +64,22 @@ void SearchInput::setIcon(const QString &filepath)
     m_iconPath = filepath;
 
     m_icon = loadPixmap(filepath);
+}
+
+void SearchInput::focusInEvent(QFocusEvent *event)
+{
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
+        this->hasFocus() ? m_inputmethod->show() : m_inputmethod->hide();
+    }
+}
+
+void SearchInput::focusOutEvent(QFocusEvent *event)
+{
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
+        this->hasFocus() ? m_inputmethod->show() : m_inputmethod->hide();
+    }
 }
 
 void SearchInput::paintEvent(QPaintEvent *e)

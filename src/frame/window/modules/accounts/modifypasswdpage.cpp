@@ -140,6 +140,25 @@ void ModifyPasswdPage::initWidget()
     DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T5);
 
     setFocusPolicy(Qt::StrongFocus);
+
+    // 虚拟键盘
+    connect(m_oldPasswordEdit, &DLineEdit::focusChanged, this, &ModifyPasswdPage::imKeyBoardControl);
+    connect(m_newPasswordEdit, &DLineEdit::focusChanged, this, &ModifyPasswdPage::imKeyBoardControl);
+    connect(m_repeatPasswordEdit, &DLineEdit::focusChanged, this, &ModifyPasswdPage::imKeyBoardControl);
+}
+
+void ModifyPasswdPage::imKeyBoardControl()
+{
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
+        if (m_oldPasswordEdit->hasFocus()
+            || m_newPasswordEdit->hasFocus()
+            || m_repeatPasswordEdit->hasFocus()) {
+            m_inputmethod->show();
+        } else {
+            m_inputmethod->hide();
+        }
+    }
 }
 
 void ModifyPasswdPage::clickSaveBtn()

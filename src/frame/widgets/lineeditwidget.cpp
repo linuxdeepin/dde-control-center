@@ -26,8 +26,11 @@
 #include "widgets/lineeditwidget.h"
 
 #include <dpasswordedit.h>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
+#include <QInputMethod>
+#include <QGuiApplication>
 
 namespace dcc {
 namespace widgets {
@@ -85,6 +88,13 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     setObjectName("LineEditWidget");
 
     connect(m_edit, &DLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
+    // 虚拟键盘
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(m_edit, &DLineEdit::focusChanged, this, [ = ] {
+            QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
+            m_edit->hasFocus() ? m_inputmethod->show() : m_inputmethod->hide();
+        });
+    }
 }
 
 LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
@@ -108,6 +118,13 @@ LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
     setObjectName("LineEditWidget");
 
     connect(m_edit, &DLineEdit::textChanged, this, &LineEditWidget::hideAlertMessage);
+    // 虚拟键盘
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(m_edit, &DLineEdit::focusChanged, this, [ = ] {
+            QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
+            m_edit->hasFocus() ? m_inputmethod->show() : m_inputmethod->hide();
+        });
+    }
 }
 
 void LineEditWidget::addRightWidget(QWidget *widget)

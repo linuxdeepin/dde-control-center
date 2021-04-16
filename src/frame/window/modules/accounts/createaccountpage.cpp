@@ -27,6 +27,7 @@
 
 #include <DFontSizeManager>
 #include <DDesktopServices>
+#include <DApplicationHelper>
 
 #include <QtGlobal>
 #include <QVBoxLayout>
@@ -99,6 +100,26 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
         Q_EMIT requestBack();
     });
     connect(addBtn, &DSuggestButton::clicked, this, &CreateAccountPage::createUser);
+    // 虚拟键盘
+    connect(m_nameEdit, &DLineEdit::focusChanged, this, &CreateAccountPage::imKeyBoardControl);
+    connect(m_fullnameEdit, &DLineEdit::focusChanged, this, &CreateAccountPage::imKeyBoardControl);
+    connect(m_passwdEdit, &DLineEdit::focusChanged, this, &CreateAccountPage::imKeyBoardControl);
+    connect(m_repeatpasswdEdit, &DLineEdit::focusChanged, this, &CreateAccountPage::imKeyBoardControl);
+}
+
+void CreateAccountPage::imKeyBoardControl()
+{
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
+        if (m_nameEdit->hasFocus()
+            || m_fullnameEdit->hasFocus()
+            || m_passwdEdit->hasFocus()
+            || m_repeatpasswdEdit->hasFocus()) {
+            m_inputmethod->show();
+        } else {
+            m_inputmethod->hide();
+        }
+    }
 }
 
 CreateAccountPage::~CreateAccountPage()

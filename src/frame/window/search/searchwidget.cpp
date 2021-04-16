@@ -23,6 +23,8 @@
 #include "interface/moduleinterface.h"
 
 #include <DPinyin>
+#include <DApplicationHelper>
+
 #include <QDebug>
 #include <QLineEdit>
 #include <QListWidget>
@@ -279,6 +281,13 @@ SearchWidget::SearchWidget(QWidget *parent)
 
     //鼠标点击后直接页面跳转(存在同名信号)
     connect(m_completer, SIGNAL(activated(QString)), this, SLOT(onCompleterActivated(QString)));
+    // 虚拟键盘
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(this, &DLineEdit::focusChanged, this, [ = ] {
+            QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
+            this->hasFocus() ? m_inputmethod->show() : m_inputmethod->hide();
+        });
+    }
 }
 
 SearchWidget::~SearchWidget()

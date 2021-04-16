@@ -58,6 +58,7 @@ public:
     void initWidget();
     void clickSaveBtn();
     void onPasswordChangeFinished(const int exitCode);
+    void imKeyBoardControl();
 
 protected:
     void showEvent(QShowEvent *event) override;
