@@ -79,7 +79,7 @@ void SystemInfoWidget::initData()
     const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
     QSettings settings(recoveryPath, QSettings::IniFormat);
     const QString UUID {settings.value("UUID").toString() };
-    if (!UUID.isEmpty() && QDir("/recovery/doppel/").exists()) {
+    if (!UUID.isEmpty() && QDir("/usr/doppel/").exists()) {
         const QStringList &devices = DDiskManager::blockDevices({});
         for (const QString &path : devices) {
             QScopedPointer<DBlockDevice> device(DDiskManager::createBlockDevice(path));

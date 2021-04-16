@@ -226,6 +226,10 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
     if (selectPath.isEmpty() || !QDir(selectPath).exists()) {
         return ErrorType::PathError2;
     }
+    const QString &recoveryPath{ "/etc/deepin/system-recovery.conf" };
+    QSettings settings(recoveryPath, QSettings::IniFormat);
+    const bool isFullDiskEncryption{ settings.value("FDE").toBool() };
+
     auto checkValid = [](const QString& filePath) -> bool {
         QScopedPointer<QProcess> process(new QProcess);
         process->setProgram("deepin-clone");
@@ -236,7 +240,10 @@ ErrorType BackupAndRestoreWorker::doManualRestore()
         return process->exitCode() == 0 && process->exitStatus() == QProcess::NormalExit;
     };
 
-    if (!checkValid(QString("%1/system.dim").arg(selectPath))) {
+    QString file;
+    isFullDiskEncryption ? file = "boot" : file = "system";
+
+    if (!checkValid(QString("%1/%2.dim").arg(selectPath).arg(file))) {
         qDebug() << Q_FUNC_INFO << "md5 check failed!";
         return ErrorType::MD5Error;
     }
