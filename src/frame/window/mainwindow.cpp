@@ -687,6 +687,10 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 
             DApplicationHelper::instance()->setPalette(m_navView, pa);
         }
+        // 点击空白区域收起键盘
+        if (QEvent::MouseButtonPress == event->type() || QEvent::MouseButtonRelease == event->type()) {
+            this->setFocus();
+        }
     }
 
     return  DMainWindow::eventFilter(watched, event);
