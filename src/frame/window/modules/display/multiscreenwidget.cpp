@@ -194,6 +194,14 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
         } else if (m_model->displayMode() == SINGLE_MODE) {
             m_monitorControlWidget->setModel(m_model, m_model->primaryMonitor());
             m_brightnessWidget->showBrightness(m_model->primaryMonitor());
+            auto monitorList = m_model->monitorList();
+            for (int idx = 0; idx < monitorList.size(); ++idx) {
+                auto monitor = monitorList[idx];
+                if (monitor->enable()) {
+                    m_modeCombox->setCurrentIndex(idx + 2);
+                    break;
+                }
+            }
         }
 
         m_resolutionWidget->setMonitor(m_model->primaryMonitor());
