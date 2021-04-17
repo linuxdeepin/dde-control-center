@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AdapterWidget</name>
     <message>
@@ -18,11 +20,20 @@
     </message>
 </context>
 <context>
+    <name>BackgroundWidget</name>
+    <message>
+        <location filename="../abrecovery/backgroundwidget.cpp" line="49"/>
+        <location filename="../abrecovery/backgroundwidget.cpp" line="65"/>
+        <source>Rolling back the system, please wait...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BatteryHealthPlugin</name>
     <message>
         <location filename="../src/frame/plugins/battery-health/batteryhealthplugin.cpp" line="64"/>
         <source>BatteryHealth</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -30,12 +41,12 @@
     <message>
         <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="50"/>
         <source>Optimize battery charging</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="57"/>
         <source>In order to slow down battery aging, optimize battery charging</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -60,119 +71,130 @@
     </message>
 </context>
 <context>
-    <name>dccV20::MainWindow</name>
+    <name>DCC_NAMESPACE::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="181"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="182"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Accounts</source>
         <translation>帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
-        <source>Display</source>
-        <translation>显示</translation>
+        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
+        <source>Union ID</source>
+        <translation>Union ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <source>Display</source>
+        <translation>显示</translation>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="909"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="911"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="923"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="925"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Date and Time</source>
         <translation>时间日期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Power</source>
-        <translation>电源管理</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="921"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="923"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="935"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="937"/>
         <source>Drawing Tablet</source>
         <translation>数位板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="945"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="948"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
         <source>Updates</source>
-        <translation>更新</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
         <source>System Info</source>
         <translation>系统信息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="941"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="953"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="955"/>
         <source>General Settings</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="427"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="428"/>
         <source>Touchpad</source>
         <translation>触控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="428"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="429"/>
         <source>TrackPoint</source>
         <translation>指点杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="933"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="935"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="450"/>
+        <source>unionid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="947"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="949"/>
         <source>Cloud Sync</source>
         <translation>云同步</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AccounntFingeItem</name>
+    <name>DCC_NAMESPACE::accounts::AccounntFingeItem</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
         <source>No more than 15 characters</source>
@@ -190,97 +212,97 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <name>DCC_NAMESPACE::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="169"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="299"/>
         <source>Full Name</source>
-        <translation>设置全名</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="223"/>
         <source>The full name is too long</source>
         <translation>名称过长</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="246"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="258"/>
         <source>The name already exists</source>
-        <translation>该名称已存在</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="354"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="356"/>
         <source>Validity Days</source>
         <translation>密码有效天数</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="356"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="357"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="368"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="370"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="389"/>
         <source>Always</source>
         <translation>长期有效</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="382"/>
         <source>Please input a number between 1-99999</source>
         <translation>请输入1到99999之间的数字</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="408"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="410"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="412"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="415"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="443"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="448"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>只允许开启一个自动登录帐户，确认开启后将关闭其他帐户的自动登录选项</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="450"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="451"/>
         <source>Enable</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="523"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="528"/>
         <source>Group</source>
         <translation>用户组</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AccountsModule</name>
+    <name>DCC_NAMESPACE::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="86"/>
         <source>Accounts</source>
         <translation>帐户</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AccountsWidget</name>
+    <name>DCC_NAMESPACE::accounts::AccountsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="62"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="63"/>
@@ -302,7 +324,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AddFingeDialog</name>
+    <name>DCC_NAMESPACE::accounts::AddFingeDialog</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
         <source>Cancel</source>
@@ -332,7 +354,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AvatarListWidget</name>
+    <name>DCC_NAMESPACE::accounts::AvatarListWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="168"/>
         <source>Images</source>
@@ -340,7 +362,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::CreateAccountPage</name>
+    <name>DCC_NAMESPACE::accounts::CreateAccountPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="58"/>
         <source>Group</source>
@@ -348,7 +370,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="378"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -358,155 +380,155 @@
         <translation>创建</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="151"/>
         <source>New Account</source>
         <translation>新帐户</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="166"/>
         <source>Account Type</source>
         <translation>帐户类型</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="171"/>
         <source>Username</source>
         <translation>用户名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="177"/>
         <source>Full Name</source>
-        <translation>全名</translation>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="183"/>
         <source>Password</source>
         <translation>密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="189"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="238"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="482"/>
         <source>The full name is too long</source>
         <translation>名称过长</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
         <source>Standard User</source>
         <translation>标准用户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="267"/>
         <source>Administrator</source>
         <translation>管理员</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="268"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
         <source>Customized</source>
         <translation>自定义用户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="278"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="281"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="279"/>
         <source>optional</source>
         <translation>选填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="377"/>
         <source>Go to Settings</source>
         <translation>前往设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
         <source>Policykit authentication failed</source>
         <translation>认证失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="422"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="433"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>用户名长度必须介于3到32个字符之间</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
         <source>The first character must be a letter or number</source>
         <translation>首字符必须为字母或数字</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="435"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="446"/>
         <source>Your username should not only have numbers</source>
         <translation>用户名不能只包含数字</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="443"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="481"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="492"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="502"/>
         <source>The name already exists</source>
-        <translation>该名称已存在</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="518"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="531"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="529"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="542"/>
         <source>Password cannot be empty</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="523"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密码最少%1位，至少同时包含小写字母、大写字母、数字、符号中的%2种</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
         <source>The password must have at least %1 characters</source>
         <translation>密码应包含至少%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="542"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="553"/>
         <source>Password must be no more than %1 characters</source>
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="547"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="558"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密码应至少包含小写字母、大写字母、数字、符号中的%1种</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="554"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="565"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="565"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="576"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>密码不得含有连续4个以上的回文字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="572"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="583"/>
         <source>Password must not contain common words and combinations</source>
         <translation>密码不得含有常用单词及组合</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="590"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="601"/>
         <source>Password should not be the repeated or reversed username</source>
         <translation>密码不可为用户名重复或倒置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="598"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="609"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::FingerWidget</name>
+    <name>DCC_NAMESPACE::accounts::FingerWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="46"/>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="91"/>
@@ -531,7 +553,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="148"/>
         <source>The name already exists</source>
-        <translation>该名称已存在</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="194"/>
@@ -540,7 +562,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <name>DCC_NAMESPACE::accounts::ModifyPasswdPage</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="61"/>
         <source>Change Password</source>
@@ -581,8 +603,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
         <source>Password cannot be empty</source>
         <translation>密码不能为空</translation>
     </message>
@@ -637,54 +659,59 @@
         <translation>密码不符合安全要求</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="184"/>
+        <source>Failed to change the password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="298"/>
         <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密码最少%1位，至少同时包含小写字母、大写字母、数字、符号中的%2种</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="311"/>
         <source>The password must have at least %1 characters</source>
         <translation>密码应包含至少%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="312"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="356"/>
         <source>Password must be no more than %1 characters</source>
         <translation>密码长度不能超过%1个字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="317"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="322"/>
         <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密码应至少包含小写字母、大写字母、数字、符号中的%1种</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="329"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
         <translation>密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="340"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>密码不得含有连续4个以上的回文字符</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="347"/>
         <source>Password must not contain common words and combinations</source>
         <translation>密码不得含有常用单词及组合</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="372"/>
         <source>Password should not be the repeated or reversed username</source>
         <translation>密码不可为用户名重复或倒置</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::bluetooth::AdapterWidget</name>
+    <name>DCC_NAMESPACE::bluetooth::AdapterWidget</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
         <source>Show Bluetooth devices without names</source>
@@ -714,7 +741,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::bluetooth::BluetoothModule</name>
+    <name>DCC_NAMESPACE::bluetooth::BluetoothModule</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="99"/>
         <source>Bluetooth</source>
@@ -722,7 +749,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::bluetooth::DetailPage</name>
+    <name>DCC_NAMESPACE::bluetooth::DetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="51"/>
         <source>Ignore this device</source>
@@ -757,20 +784,20 @@
     </message>
 </context>
 <context>
-    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <name>DCC_NAMESPACE::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="235"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="241"/>
         <source>Connected</source>
         <translation>已连接</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="244"/>
         <source>Not connected</source>
         <translation>未连接</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::commoninfo::BootWidget</name>
+    <name>DCC_NAMESPACE::commoninfo::BootWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="81"/>
         <source>Updating...</source>
@@ -805,7 +832,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::commoninfo::CommonInfoModule</name>
+    <name>DCC_NAMESPACE::commoninfo::CommonInfoModule</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="69"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="74"/>
@@ -819,7 +846,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <name>DCC_NAMESPACE::commoninfo::CommonInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="79"/>
         <source>Boot Menu</source>
@@ -845,7 +872,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <name>DCC_NAMESPACE::commoninfo::CommonInfoWork</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="97"/>
         <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="109"/>
@@ -894,7 +921,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <name>DCC_NAMESPACE::commoninfo::DeveloperModeDialog</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodedialog.cpp" line="64"/>
         <source>Request Root Access</source>
@@ -948,7 +975,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <name>DCC_NAMESPACE::commoninfo::DeveloperModeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="57"/>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="203"/>
@@ -1018,7 +1045,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <name>DCC_NAMESPACE::commoninfo::UserExperienceProgramWidget</name>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="47"/>
         <source>Join User Experience Program</source>
@@ -1037,7 +1064,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::ClockItem</name>
+    <name>DCC_NAMESPACE::datetime::ClockItem</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="81"/>
         <location filename="../src/frame/window/modules/datetime/clockitem.cpp" line="194"/>
@@ -1051,7 +1078,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::DateSettings</name>
+    <name>DCC_NAMESPACE::datetime::DateSettings</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="81"/>
         <source>Auto Sync</source>
@@ -1099,7 +1126,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::DateWidget</name>
+    <name>DCC_NAMESPACE::datetime::DateWidget</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="64"/>
         <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="65"/>
@@ -1120,7 +1147,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::DatetimeModule</name>
+    <name>DCC_NAMESPACE::datetime::DatetimeModule</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="79"/>
         <source>Date and Time</source>
@@ -1128,7 +1155,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::DatetimeWidget</name>
+    <name>DCC_NAMESPACE::datetime::DatetimeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="61"/>
         <source>Timezone List</source>
@@ -1154,7 +1181,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::FormatSetting</name>
+    <name>DCC_NAMESPACE::datetime::FormatSetting</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/formatsetting.cpp" line="47"/>
         <source>Date and Time Formats</source>
@@ -1319,7 +1346,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::SystemTimezone</name>
+    <name>DCC_NAMESPACE::datetime::SystemTimezone</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/systemtimezone.cpp" line="45"/>
         <source>Change System Timezone</source>
@@ -1333,7 +1360,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::datetime::TimezoneList</name>
+    <name>DCC_NAMESPACE::datetime::TimezoneList</name>
     <message>
         <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="48"/>
         <source>Timezone List</source>
@@ -1349,7 +1376,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::defapp::DefappDetailWidget</name>
+    <name>DCC_NAMESPACE::defapp::DefappDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="75"/>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="76"/>
@@ -1369,7 +1396,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::defapp::DefaultAppsModule</name>
+    <name>DCC_NAMESPACE::defapp::DefaultAppsModule</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="86"/>
         <source>Default Applications</source>
@@ -1377,7 +1404,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <name>DCC_NAMESPACE::defapp::DefaultAppsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="52"/>
         <source>Webpage</source>
@@ -1427,7 +1454,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::BrightnessPage</name>
+    <name>DCC_NAMESPACE::display::BrightnessPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="61"/>
         <source>Color Temperature</source>
@@ -1473,7 +1500,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::CustomSettingDialog</name>
+    <name>DCC_NAMESPACE::display::CustomSettingDialog</name>
     <message>
         <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
         <source>Displays</source>
@@ -1525,7 +1552,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::DisplayModule</name>
+    <name>DCC_NAMESPACE::display::DisplayModule</name>
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="75"/>
         <source>Display</source>
@@ -1538,9 +1565,9 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::DisplayWidget</name>
+    <name>DCC_NAMESPACE::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="77"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="175"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="190"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="199"/>
@@ -1588,15 +1615,15 @@
         <extra-contents_path>/display/Touch Screen</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="233"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="234"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="232"/>
         <source>Rotate Screen</source>
         <translation>旋转屏幕</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>dccV20::display::MultiScreenSettingPage</name>
+    <name>DCC_NAMESPACE::display::MultiScreenSettingPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="52"/>
         <source>Custom Settings</source>
@@ -1634,7 +1661,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::RefreshRatePage</name>
+    <name>DCC_NAMESPACE::display::RefreshRatePage</name>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="82"/>
         <source>Hz</source>
@@ -1648,7 +1675,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::ResolutionDetailPage</name>
+    <name>DCC_NAMESPACE::display::ResolutionDetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="134"/>
         <source>Recommended</source>
@@ -1657,7 +1684,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::RotateDialog</name>
+    <name>DCC_NAMESPACE::display::RotateDialog</name>
     <message>
         <location filename="../src/frame/window/modules/display/rotatedialog.cpp" line="164"/>
         <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
@@ -1675,7 +1702,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::ScalingPage</name>
+    <name>DCC_NAMESPACE::display::ScalingPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="53"/>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="134"/>
@@ -1689,7 +1716,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::display::TouchscreenPage</name>
+    <name>DCC_NAMESPACE::display::TouchscreenPage</name>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="62"/>
         <source>Select your touch screen</source>
@@ -1727,7 +1754,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::keyboard::CustomContent</name>
+    <name>DCC_NAMESPACE::keyboard::CustomContent</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="61"/>
         <source>Add Custom Shortcut</source>
@@ -1767,7 +1794,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <name>DCC_NAMESPACE::keyboard::GeneralKBSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="49"/>
         <source>Repeat Delay</source>
@@ -1820,7 +1847,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <name>DCC_NAMESPACE::keyboard::KBLayoutSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="54"/>
         <source>Keyboard Layout</source>
@@ -1828,7 +1855,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="201"/>
         <source>Edit</source>
         <translation>编辑</translation>
     </message>
@@ -1860,7 +1887,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::keyboard::KeyboardModule</name>
+    <name>DCC_NAMESPACE::keyboard::KeyboardModule</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="128"/>
         <source>Keyboard and Language</source>
@@ -1873,7 +1900,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::keyboard::KeyboardWidget</name>
+    <name>DCC_NAMESPACE::keyboard::KeyboardWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="51"/>
         <source>General</source>
@@ -1899,7 +1926,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <name>DCC_NAMESPACE::keyboard::ShortCutSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="55"/>
         <source>System</source>
@@ -1937,7 +1964,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <name>DCC_NAMESPACE::keyboard::SystemLanguageSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
@@ -1956,7 +1983,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <name>DCC_NAMESPACE::keyboard::SystemLanguageWidget</name>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="58"/>
         <source>Language List</source>
@@ -1975,7 +2002,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <name>DCC_NAMESPACE::mouse::GeneralSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/generalsettingwidget.cpp" line="46"/>
         <source>Left Hand</source>
@@ -2012,7 +2039,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::mouse::MouseModule</name>
+    <name>DCC_NAMESPACE::mouse::MouseModule</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="63"/>
         <source>Touchpad</source>
@@ -2030,7 +2057,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::mouse::MouseSettingWidget</name>
+    <name>DCC_NAMESPACE::mouse::MouseSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="44"/>
         <source>Pointer Speed</source>
@@ -2072,7 +2099,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::mouse::MouseWidget</name>
+    <name>DCC_NAMESPACE::mouse::MouseWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousewidget.cpp" line="56"/>
         <source>General</source>
@@ -2099,7 +2126,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <name>DCC_NAMESPACE::mouse::TouchPadSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
         <source>Pointer Speed</source>
@@ -2132,7 +2159,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <name>DCC_NAMESPACE::mouse::TrackPointSettingWidget</name>
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="39"/>
         <source>Pointer Speed</source>
@@ -2152,7 +2179,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::ChainsProxyPage</name>
+    <name>DCC_NAMESPACE::network::ChainsProxyPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
         <source>Application Proxy</source>
@@ -2222,7 +2249,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::ChainsTypePage</name>
+    <name>DCC_NAMESPACE::network::ChainsTypePage</name>
     <message>
         <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
         <source>Proxy Type</source>
@@ -2230,7 +2257,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::ConnectionEditPage</name>
+    <name>DCC_NAMESPACE::network::ConnectionEditPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
         <source>Disconnect</source>
@@ -2281,7 +2308,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <name>DCC_NAMESPACE::network::ConnectionVpnEditPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="104"/>
         <source>New VPN</source>
@@ -2359,7 +2386,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::EthernetSection</name>
+    <name>DCC_NAMESPACE::network::EthernetSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="38"/>
         <source>Ethernet</source>
@@ -2392,7 +2419,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::GenericHotspotSection</name>
+    <name>DCC_NAMESPACE::network::GenericHotspotSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
         <source>General</source>
@@ -2405,7 +2432,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::GenericSection</name>
+    <name>DCC_NAMESPACE::network::GenericSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="33"/>
         <source>General</source>
@@ -2414,7 +2441,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="72"/>
         <source>The name already exists</source>
-        <translation>名称已被占用</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="102"/>
@@ -2428,7 +2455,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::HotspotDeviceWidget</name>
+    <name>DCC_NAMESPACE::network::HotspotDeviceWidget</name>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="67"/>
         <source>Hotspot</source>
@@ -2442,7 +2469,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::HotspotPage</name>
+    <name>DCC_NAMESPACE::network::HotspotPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="271"/>
         <source>Create Hotspot</source>
@@ -2451,7 +2478,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::IpvxSection</name>
+    <name>DCC_NAMESPACE::network::IpvxSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="33"/>
         <source>IPv4</source>
@@ -2552,7 +2579,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::NetworkDetailPage</name>
+    <name>DCC_NAMESPACE::network::NetworkDetailPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="100"/>
         <source>Network Details</source>
@@ -2639,7 +2666,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::NetworkModule</name>
+    <name>DCC_NAMESPACE::network::NetworkModule</name>
     <message>
         <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="158"/>
         <source>Wired Network</source>
@@ -2662,98 +2689,98 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::NetworkModuleWidget</name>
+    <name>DCC_NAMESPACE::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="72"/>
         <source>DSL</source>
         <translation>DSL</translation>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="80"/>
         <source>VPN</source>
         <translation>VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="88"/>
         <source>System Proxy</source>
         <translation>系统代理</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="94"/>
         <source>Application Proxy</source>
         <translation>应用代理</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="102"/>
         <source>Network Details</source>
         <translation>网络详情</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="398"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="405"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="428"/>
         <source>Disabled</source>
         <translation>已禁用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="177"/>
         <source>Manual</source>
         <translation>手动</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="179"/>
         <source>Auto</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="192"/>
         <source>Configure by Network Manager</source>
         <translation>用网络管理器配置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="366"/>
         <source>Personal Hotspot</source>
         <translation>个人热点</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="385"/>
         <source>Wired Network %1</source>
         <translation>有线网络%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="388"/>
         <source>Wired Network</source>
         <translation>有线网络</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="392"/>
         <source>Wireless Network %1</source>
         <translation>无线网络%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="395"/>
         <source>Wireless Network</source>
         <translation>无线网络</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="425"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="444"/>
         <source>Disconnected</source>
         <translation>已断开</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::network::PPPOESection</name>
+    <name>DCC_NAMESPACE::network::PPPOESection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="31"/>
         <source>PPPoE</source>
@@ -2782,7 +2809,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::PPPSection</name>
+    <name>DCC_NAMESPACE::network::PPPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="31"/>
         <source>PPP</source>
@@ -2860,7 +2887,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::PppoePage</name>
+    <name>DCC_NAMESPACE::network::PppoePage</name>
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="56"/>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="57"/>
@@ -2876,7 +2903,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::ProxyPage</name>
+    <name>DCC_NAMESPACE::network::ProxyPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="64"/>
         <source>Cancel</source>
@@ -2952,7 +2979,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::Secret8021xSection</name>
+    <name>DCC_NAMESPACE::network::Secret8021xSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="34"/>
         <source>Security</source>
@@ -3117,7 +3144,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::SecretHotspotSection</name>
+    <name>DCC_NAMESPACE::network::SecretHotspotSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
         <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
@@ -3161,7 +3188,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::SecretWiredSection</name>
+    <name>DCC_NAMESPACE::network::SecretWiredSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="34"/>
         <source>Security Required</source>
@@ -3169,7 +3196,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::SecretWirelessSection</name>
+    <name>DCC_NAMESPACE::network::SecretWirelessSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
         <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
@@ -3235,7 +3262,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <name>DCC_NAMESPACE::network::VpnAdvOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="33"/>
         <source>VPN Advanced</source>
@@ -3308,7 +3335,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <name>DCC_NAMESPACE::network::VpnAdvVPNCSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
         <source>VPN Advanced</source>
@@ -3434,7 +3461,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnIpsecSection</name>
+    <name>DCC_NAMESPACE::network::VpnIpsecSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
         <source>VPN IPsec</source>
@@ -3472,7 +3499,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnOpenConnectSection</name>
+    <name>DCC_NAMESPACE::network::VpnOpenConnectSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
         <source>VPN</source>
@@ -3525,7 +3552,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnOpenVPNSection</name>
+    <name>DCC_NAMESPACE::network::VpnOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
         <source>VPN</source>
@@ -3641,7 +3668,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnPPPSection</name>
+    <name>DCC_NAMESPACE::network::VpnPPPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
         <source>VPN PPP</source>
@@ -3734,7 +3761,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnPage</name>
+    <name>DCC_NAMESPACE::network::VpnPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="91"/>
         <source>VPN Status</source>
@@ -3773,7 +3800,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnProxySection</name>
+    <name>DCC_NAMESPACE::network::VpnProxySection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
         <source>VPN Proxy</source>
@@ -3833,7 +3860,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnSSTPSection</name>
+    <name>DCC_NAMESPACE::network::VpnSSTPSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
         <source>CA File</source>
@@ -3851,7 +3878,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <name>DCC_NAMESPACE::network::VpnSecOpenVPNSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
         <source>VPN Security</source>
@@ -3881,7 +3908,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnSection</name>
+    <name>DCC_NAMESPACE::network::VpnSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
         <source>VPN</source>
@@ -3936,7 +3963,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnSstpProxySection</name>
+    <name>DCC_NAMESPACE::network::VpnSstpProxySection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
         <source>VPN Proxy</source>
@@ -3964,7 +3991,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnStrongSwanSection</name>
+    <name>DCC_NAMESPACE::network::VpnStrongSwanSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
         <source>VPN</source>
@@ -4063,7 +4090,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnTLSSection</name>
+    <name>DCC_NAMESPACE::network::VpnTLSSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
         <source>VPN TLS Authentication</source>
@@ -4111,7 +4138,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::VpnVPNCSection</name>
+    <name>DCC_NAMESPACE::network::VpnVPNCSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
         <source>VPN</source>
@@ -4184,7 +4211,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::WiredPage</name>
+    <name>DCC_NAMESPACE::network::WiredPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="68"/>
         <source>Plug in the network cable first</source>
@@ -4209,7 +4236,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::WirelessPage</name>
+    <name>DCC_NAMESPACE::network::WirelessPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="283"/>
         <source>Connect to hidden network</source>
@@ -4233,7 +4260,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::network::WirelessSection</name>
+    <name>DCC_NAMESPACE::network::WirelessSection</name>
     <message>
         <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
         <source>WLAN</source>
@@ -4271,7 +4298,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::notification::AppNotifyWidget</name>
+    <name>DCC_NAMESPACE::notification::AppNotifyWidget</name>
     <message>
         <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="75"/>
         <source>Show notifications from %1 on desktop and in the notification center.</source>
@@ -4299,7 +4326,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::notification::NotificationModule</name>
+    <name>DCC_NAMESPACE::notification::NotificationModule</name>
     <message>
         <location filename="../src/frame/window/modules/notification/notificationmodule.cpp" line="79"/>
         <source>Notification</source>
@@ -4307,7 +4334,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::notification::NotificationWidget</name>
+    <name>DCC_NAMESPACE::notification::NotificationWidget</name>
     <message>
         <location filename="../src/frame/window/modules/notification/notificationwidget.cpp" line="65"/>
         <source>System Notifications</source>
@@ -4321,7 +4348,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::notification::SystemNotifyWidget</name>
+    <name>DCC_NAMESPACE::notification::SystemNotifyWidget</name>
     <message>
         <location filename="../src/frame/window/modules/notification/systemnotifywidget.cpp" line="49"/>
         <source>Show icon on Dock</source>
@@ -4345,20 +4372,20 @@
     </message>
 </context>
 <context>
-    <name>dccV20::notification::TimeSlotItem</name>
+    <name>DCC_NAMESPACE::notification::TimeSlotItem</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="50"/>
         <source>From</source>
         <translation>从</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="52"/>
         <source>To</source>
         <translation>到</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <name>DCC_NAMESPACE::personalization::PersonalizationFontsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="51"/>
         <source>Size</source>
@@ -4383,7 +4410,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <name>DCC_NAMESPACE::personalization::PersonalizationGeneral</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="115"/>
         <source>Theme</source>
@@ -4445,7 +4472,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::personalization::PersonalizationList</name>
+    <name>DCC_NAMESPACE::personalization::PersonalizationList</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="49"/>
         <source>General</source>
@@ -4472,7 +4499,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::personalization::PersonalizationModule</name>
+    <name>DCC_NAMESPACE::personalization::PersonalizationModule</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationmodule.cpp" line="68"/>
         <source>Personalization</source>
@@ -4480,11 +4507,11 @@
     </message>
 </context>
 <context>
-    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <name>DCC_NAMESPACE::personalization::PerssonalizationThemeList</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="107"/>
         <source>Light</source>
-        <translation>浅色</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="109"/>
@@ -4503,11 +4530,11 @@
     </message>
 </context>
 <context>
-    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <name>DCC_NAMESPACE::personalization::PerssonalizationThemeWidget</name>
     <message>
         <location filename="../src/frame/window/modules/personalization/perssonalizationthemewidget.cpp" line="78"/>
         <source>Light</source>
-        <translation>浅色</translation>
+        <translation></translation>
         <extra-contents_path>/personalization/General</extra-contents_path>
     </message>
     <message>
@@ -4530,89 +4557,88 @@
     </message>
 </context>
 <context>
-    <name>dccV20::power::GeneralWidget</name>
+    <name>DCC_NAMESPACE::power::GeneralWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
         <source>Auto power saving on low battery</source>
         <translation>低电量时自动开启</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
         <source>Auto power saving on battery</source>
         <translation>使用电池时自动开启</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
         <source>Decrease brightness</source>
         <translation>自动降低亮度</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
         <source>Password is required to wake up the computer</source>
         <translation>待机恢复时需要密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="67"/>
         <source>Password is required to wake up the monitor</source>
         <translation>唤醒显示器时需要密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="68"/>
+        <source>Battery</source>
+        <translation>电池</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="69"/>
         <source>Display capacity and remaining charging time</source>
         <translation>显示剩余电量及剩余充电时间</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Maximum capacity</source>
         <translation>最大容量</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="71"/>
         <source>Show battery capacity</source>
         <translation>显示电池电量</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="74"/>
+        <source>Balanced</source>
+        <translation>平衡模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="75"/>
+        <source>High Performance</source>
+        <translation>高性能模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="76"/>
+        <source>Power Saver</source>
+        <translation>节能模式</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="100"/>
         <source>Power Plans</source>
         <translation>性能模式</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="97"/>
-        <source>Balanced</source>
-        <translation>平衡模式</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="98"/>
-        <source>High Performance</source>
-        <translation>高性能模式</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
-        <source>Power Saver</source>
-        <translation>节能模式</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="131"/>
         <source>Power Saving Settings</source>
         <translation>节能设置</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="159"/>
         <source>Wakeup Settings</source>
         <translation>唤醒设置</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="173"/>
-        <source>Battery</source>
-        <translation>电池</translation>
-        <extra-contents_path>/power/General</extra-contents_path>
-    </message>
 </context>
 <context>
-    <name>dccV20::power::PowerModule</name>
+    <name>DCC_NAMESPACE::power::PowerModule</name>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="65"/>
         <source>On Battery</source>
@@ -4621,44 +4647,44 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="80"/>
         <source>Power</source>
-        <translation>电源</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="247"/>
         <source>Battery low, please plug in</source>
         <translation>电池电量低，请连接电源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="249"/>
         <source>Battery critically low</source>
         <translation>电池电量耗尽</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::power::PowerWidget</name>
+    <name>DCC_NAMESPACE::power::PowerWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="60"/>
         <source>General</source>
         <translation>通用</translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="70"/>
         <source>Plugged In</source>
         <translation>使用电源</translation>
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="63"/>
-        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/power/powerwidget.cpp" line="72"/>
         <source>On Battery</source>
         <translation>使用电池</translation>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
 </context>
 <context>
-    <name>dccV20::power::UseBatteryWidget</name>
+    <name>DCC_NAMESPACE::power::UseBatteryWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="47"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="70"/>
@@ -4762,7 +4788,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::power::UseElectricWidget</name>
+    <name>DCC_NAMESPACE::power::UseElectricWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="48"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="56"/>
@@ -4849,7 +4875,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::search::SearchModel</name>
+    <name>DCC_NAMESPACE::search::SearchModel</name>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="113"/>
         <source>Server</source>
@@ -5037,7 +5063,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sound::MicrophonePage</name>
+    <name>DCC_NAMESPACE::sound::MicrophonePage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="70"/>
         <source>Input</source>
@@ -5070,7 +5096,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sound::SoundEffectsPage</name>
+    <name>DCC_NAMESPACE::sound::SoundEffectsPage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundeffectspage.cpp" line="55"/>
         <source>Sound Effects</source>
@@ -5078,7 +5104,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sound::SoundModule</name>
+    <name>DCC_NAMESPACE::sound::SoundModule</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="61"/>
         <source>Sound</source>
@@ -5086,7 +5112,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sound::SoundWidget</name>
+    <name>DCC_NAMESPACE::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="81"/>
         <source>Output</source>
@@ -5107,7 +5133,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sound::SpeakerPage</name>
+    <name>DCC_NAMESPACE::sound::SpeakerPage</name>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="66"/>
         <source>Output</source>
@@ -5162,7 +5188,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sync::IndexPage</name>
+    <name>DCC_NAMESPACE::sync::IndexPage</name>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="46"/>
         <source>Auto Sync</source>
@@ -5206,7 +5232,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="182"/>
         <source>Update Settings</source>
-        <translation>更新</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="183"/>
@@ -5245,7 +5271,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sync::LoginPage</name>
+    <name>DCC_NAMESPACE::sync::LoginPage</name>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="38"/>
         <source>Sign In</source>
@@ -5274,7 +5300,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sync::LogoutPage</name>
+    <name>DCC_NAMESPACE::sync::LogoutPage</name>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/logout.cpp" line="43"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
@@ -5287,7 +5313,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::sync::SyncModule</name>
+    <name>DCC_NAMESPACE::sync::SyncModule</name>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="34"/>
         <source>Deepin ID</source>
@@ -5300,7 +5326,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::systeminfo::ManualBackup</name>
+    <name>DCC_NAMESPACE::systeminfo::ManualBackup</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualbackup.cpp" line="28"/>
         <source>Back Up</source>
@@ -5353,7 +5379,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::systeminfo::ManualRestore</name>
+    <name>DCC_NAMESPACE::systeminfo::ManualRestore</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="103"/>
         <source>Restore Now</source>
@@ -5416,7 +5442,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <name>DCC_NAMESPACE::systeminfo::NativeInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="79"/>
         <source>OS Name:</source>
@@ -5511,7 +5537,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::systeminfo::SystemInfoModule</name>
+    <name>DCC_NAMESPACE::systeminfo::SystemInfoModule</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="110"/>
         <source>System Info</source>
@@ -5519,7 +5545,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <name>DCC_NAMESPACE::systeminfo::SystemInfoWidget</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="73"/>
         <source>About This PC</source>
@@ -5546,7 +5572,7 @@
     </message>
 </context>
 <context>
-    <name>dccV20::systeminfo::SystemRestore</name>
+    <name>DCC_NAMESPACE::systeminfo::SystemRestore</name>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/systemrestore.cpp" line="30"/>
         <source>Backup</source>
@@ -5559,51 +5585,103 @@
     </message>
 </context>
 <context>
-    <name>dccV20::unionid::IndexPage</name>
+    <name>DCC_NAMESPACE::unionid::IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="83"/>
-        <source>Modify Password</source>
-        <translation>修改密码</translation>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="86"/>
+        <source>Edit Profile</source>
+        <translation>修改资料</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="87"/>
-        <source>Change Avatar</source>
-        <translation>修改头像</translation>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="93"/>
+        <source>Link to WeChat</source>
+        <translation>绑定微信</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="91"/>
-        <source>User Center</source>
-        <translation>用户中心</translation>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="103"/>
+        <source>Change</source>
+        <translation>修改</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="137"/>
+        <source>Auto Sync</source>
+        <translation>自动同步配置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="157"/>
         <source>Sign Out</source>
-        <translation>登出</translation>
+        <translation type="unfinished">登出</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="251"/>
+        <source>Network Settings</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="252"/>
+        <source>Sound Settings</source>
+        <translation>声音</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="253"/>
+        <source>Mouse Settings</source>
+        <translation>鼠标</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="254"/>
+        <source>Update Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="255"/>
+        <source>Dock</source>
+        <translation>任务栏</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="256"/>
+        <source>Launcher</source>
+        <translation>启动器</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="257"/>
+        <source>Wallpaper</source>
+        <translation>壁纸</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="258"/>
+        <source>Theme</source>
+        <translation>主题</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="259"/>
+        <source>Power Settings</source>
+        <translation>电源</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::unionid::LoginPage</name>
+    <name>DCC_NAMESPACE::unionid::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="73"/>
+        <source>Sign in or sign up Union ID</source>
+        <translation>注册登录Union ID</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="78"/>
+        <source>To get more personalized services</source>
+        <translation>获取更多属于您的个性化服务</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="104"/>
         <source>Sign In</source>
         <translation>登录</translation>
-        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="59"/>
-        <source>After signing in, all system features related with Union ID will be available.
-Visit User Center and manage your account there.</source>
-        <translation>登录后，系统内需要使用Union ID的功能都将处于登录状态。
-您可以在这里快速访问用户中心并管理您的登录状态。</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
-        <source>Union ID Sign In</source>
-        <translation>Union ID 登录</translation>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="108"/>
+        <source>Sign Up</source>
+        <translation>注册</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::unionid::LogoutPage</name>
+    <name>DCC_NAMESPACE::unionid::LogoutPage</name>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/logout.cpp" line="44"/>
         <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
@@ -5611,33 +5689,15 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::unionid::UnionidModule</name>
+    <name>DCC_NAMESPACE::unionid::UnionidModule</name>
     <message>
-        <location filename="../src/frame/window/modules/unionid/unionidmodule.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/unionid/unionidmodule.cpp" line="51"/>
         <source>Union ID</source>
         <translation>Union ID</translation>
     </message>
 </context>
 <context>
-    <name>dccV20::unionid::UnionidWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="62"/>
-        <source>Learn about %1 and %2</source>
-        <translation>了解%1和%2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="63"/>
-        <source>Union ID Service Agreement</source>
-        <translation>《统信账号使用协议》</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/unionidwidget.cpp" line="64"/>
-        <source>Privacy Policy</source>
-        <translation>《隐私政策》</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::update::MirrorSourceItem</name>
+    <name>DCC_NAMESPACE::update::MirrorSourceItem</name>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorsourceitem.cpp" line="10"/>
         <source>Untested</source>
@@ -5665,7 +5725,7 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::update::MirrorsWidget</name>
+    <name>DCC_NAMESPACE::update::MirrorsWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/update/mirrorswidget.cpp" line="62"/>
@@ -5689,7 +5749,7 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::update::UpdateCtrlWidget</name>
+    <name>DCC_NAMESPACE::update::UpdateCtrlWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="76"/>
         <source>Restart the computer to use the system and the applications properly</source>
@@ -5799,7 +5859,9 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="427"/>
         <source>%n application update(s) available</source>
-        <translation><numerusform>检测到%n个应用更新</numerusform></translation>
+        <translation>
+            <numerusform>检测到%n个应用更新</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
@@ -5809,7 +5871,9 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation><numerusform>检测到新系统版本和%n个应用更新</numerusform></translation>
+        <translation>
+            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
+        </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="441"/>
@@ -5833,7 +5897,7 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::update::UpdateHistoryButton</name>
+    <name>DCC_NAMESPACE::update::UpdateHistoryButton</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatehistorybutton.cpp" line="49"/>
         <source>Update History</source>
@@ -5841,15 +5905,15 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::update::UpdateModule</name>
+    <name>DCC_NAMESPACE::update::UpdateModule</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="131"/>
         <source>Updates</source>
-        <translation>更新</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dccV20::update::UpdateSettings</name>
+    <name>DCC_NAMESPACE::update::UpdateSettings</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="50"/>
         <source>Security Updates</source>
@@ -5858,7 +5922,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="51"/>
         <source>System Updates</source>
-        <translation>检查系统更新</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
@@ -5883,7 +5947,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="65"/>
         <source>Update Settings</source>
-        <translation>更新设置</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="70"/>
@@ -5933,17 +5997,17 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::update::UpdateWidget</name>
+    <name>DCC_NAMESPACE::update::UpdateWidget</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="60"/>
         <source>Updates</source>
-        <translation>检查更新</translation>
+        <translation type="unfinished"></translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="64"/>
         <source>Update Settings</source>
-        <translation>更新设置</translation>
+        <translation type="unfinished"></translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
@@ -5969,7 +6033,7 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::wacom::PressureSettings</name>
+    <name>DCC_NAMESPACE::wacom::PressureSettings</name>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
@@ -5979,7 +6043,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
         <source>Light</source>
-        <translation>轻</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/pressuresettings.cpp" line="52"/>
@@ -5988,7 +6052,7 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::wacom::WacomModule</name>
+    <name>DCC_NAMESPACE::wacom::WacomModule</name>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="99"/>
         <source>Drawing Tablet</source>
@@ -5996,7 +6060,7 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dccV20::wacom::WacomWidget</name>
+    <name>DCC_NAMESPACE::wacom::WacomWidget</name>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacomwidget.cpp" line="65"/>
         <source>Mode</source>
@@ -6075,12 +6139,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="50"/>
         <source>Location service</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="57"/>
         <source>Location services use GPS, Bluetooth and WiFi hotspots and signals to determine your approximate location</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6096,7 +6160,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/privacy/privacyplugin.cpp" line="70"/>
         <source>Privacy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6104,22 +6168,22 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="50"/>
         <source>Location service</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="51"/>
         <source>Photo</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="52"/>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>蓝牙</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="53"/>
         <source>Microphone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6179,6 +6243,117 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="668"/>
         <source>Change System Timezone</source>
         <translation>修改系统时区</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="33"/>
+        <source>Identity Verification</source>
+        <translation>身份验证</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="36"/>
+        <source>Verify your phone number</source>
+        <translation>为了您的帐号安全，请先验证手机号</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="41"/>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="120"/>
+        <source>Get a verification code by phone number xxx-xxxx-%1</source>
+        <translation>请通过尾号为%1的手机号获取验证码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="52"/>
+        <source>Verification code</source>
+        <translation>请输入手机验证码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="207"/>
+        <source>Get code</source>
+        <translation>获取验证码</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="70"/>
+        <source>Next</source>
+        <translation>下一步</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="191"/>
+        <source>Wrong verification code</source>
+        <translation>验证码有误</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="201"/>
+        <source>Resend (%1s)</source>
+        <translation>%1s重发</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="33"/>
+        <source>Link to WeChat</source>
+        <translation>绑定微信</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="42"/>
+        <source>Scan and log in by WeChat to get linked</source>
+        <translation>请使用微信扫码，确认登录即绑定成功</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="62"/>
+        <source>Linking successful</source>
+        <translation>微信绑定成功</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="246"/>
+        <source>Confirm your login on WeChat</source>
+        <translation>扫码成功，请在微信确认登录</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="167"/>
+        <source>Invalid QR code, click to refresh</source>
+        <translation>二维码已失效，点击刷新</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="261"/>
+        <source>Go to &quot;Accounts&quot; and switch on &quot;Login by Union ID&quot;</source>
+        <translation>可到帐户设置中绑定Union ID扫码登录系统</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="342"/>
+        <source>Link</source>
+        <translation>确认绑定</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="344"/>
+        <source>Change</source>
+        <translation>修改</translation>
+    </message>
+</context>
+<context>
+    <name>RecoveryDialog</name>
+    <message>
+        <location filename="../abrecovery/recoverydialog.cpp" line="266"/>
+        <source>Rollback failed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../abrecovery/recoverydialog.cpp" line="271"/>
+        <source>Reboot</source>
+        <translation>重启</translation>
+    </message>
+    <message>
+        <location filename="../abrecovery/recoverydialog.cpp" line="280"/>
+        <source>Are you sure you want to roll back to %1 backed up on %2?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../abrecovery/recoverydialog.cpp" line="283"/>
+        <source>Cancel and Reboot</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../abrecovery/recoverydialog.cpp" line="284"/>
+        <source>Confirm</source>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
@@ -6322,32 +6497,32 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="480"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="492"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主机成功退出了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="481"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="493"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主机成功加入了域服务器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="509"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="521"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主机退出域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="510"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="522"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主机加入域服务器失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="513"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="525"/>
         <source>AD domain settings</source>
         <translation>AD域设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="582"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="594"/>
         <source>Password not match</source>
         <translation>密码不一致</translation>
     </message>
@@ -7141,6 +7316,4731 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
         <source>Wacom</source>
         <translation>Wacom 数位板</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::MainWindow</name>
+    <message>
+        <source>Help</source>
+        <translation type="vanished">帮助</translation>
+    </message>
+    <message>
+        <source>Accounts</source>
+        <translation type="vanished">帐户</translation>
+    </message>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">显示</translation>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">默认程序</translation>
+    </message>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">个性化</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">网络</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation type="vanished">通知</translation>
+    </message>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">声音</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">蓝牙</translation>
+    </message>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">时间日期</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">电源管理</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">鼠标</translation>
+    </message>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">数位板</translation>
+    </message>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">键盘和语言</translation>
+    </message>
+    <message>
+        <source>Updates</source>
+        <translation type="vanished">更新</translation>
+    </message>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">系统信息</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">通用</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">触控板</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">指点杆</translation>
+    </message>
+    <message>
+        <source>Cloud Sync</source>
+        <translation type="vanished">云同步</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccounntFingeItem</name>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation type="vanished">不得超过15个字符</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation type="vanished">只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation type="vanished">只能由字母、数字、中文、下划线组成</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsDetailWidget</name>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">设置全名</translation>
+    </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="vanished">名称过长</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">该名称已存在</translation>
+    </message>
+    <message>
+        <source>Validity Days</source>
+        <translation type="vanished">密码有效天数</translation>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation type="vanished">长期有效</translation>
+    </message>
+    <message>
+        <source>Please input a number between 1-99999</source>
+        <translation type="vanished">请输入1到99999之间的数字</translation>
+    </message>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">修改密码</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Delete Account</source>
+        <translation type="vanished">删除帐户</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">自动登录</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">无密码登录</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
+        <translation type="vanished">只允许开启一个自动登录帐户，确认开启后将关闭其他帐户的自动登录选项</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Enable</source>
+        <translation type="vanished">开启</translation>
+    </message>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">用户组</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsModule</name>
+    <message>
+        <source>Accounts</source>
+        <translation type="vanished">帐户</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AccountsWidget</name>
+    <message>
+        <source>Create Account</source>
+        <translation type="vanished">创建帐户</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="vanished">管理员</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation type="vanished">标准用户</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AddFingeDialog</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">完成</translation>
+    </message>
+    <message>
+        <source>Scan Again</source>
+        <translation type="vanished">重新录入</translation>
+    </message>
+    <message>
+        <source>Scan Suspended</source>
+        <translation type="vanished">录入中断</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::AvatarListWidget</name>
+    <message>
+        <source>Images</source>
+        <translation type="vanished">图片</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::CreateAccountPage</name>
+    <message>
+        <source>Group</source>
+        <translation type="vanished">用户组</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Create</source>
+        <translation type="vanished">创建</translation>
+    </message>
+    <message>
+        <source>New Account</source>
+        <translation type="vanished">新帐户</translation>
+        <extra-contents_path>/accounts/New Account</extra-contents_path>
+    </message>
+    <message>
+        <source>Account Type</source>
+        <translation type="vanished">帐户类型</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Full Name</source>
+        <translation type="vanished">全名</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">重复密码</translation>
+    </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation type="vanished">名称过长</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation type="vanished">标准用户</translation>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation type="vanished">管理员</translation>
+    </message>
+    <message>
+        <source>Customized</source>
+        <translation type="vanished">自定义用户</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>optional</source>
+        <translation type="vanished">选填</translation>
+    </message>
+    <message>
+        <source>Go to Settings</source>
+        <translation type="vanished">前往设置</translation>
+    </message>
+    <message>
+        <source>Policykit authentication failed</source>
+        <translation type="vanished">认证失败</translation>
+    </message>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation type="vanished">用户名长度必须介于3到32个字符之间</translation>
+    </message>
+    <message>
+        <source>The first character must be a letter or number</source>
+        <translation type="vanished">首字符必须为字母或数字</translation>
+    </message>
+    <message>
+        <source>Your username should not only have numbers</source>
+        <translation type="vanished">用户名不能只包含数字</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">该名称已存在</translation>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation type="vanished">密码不能为空</translation>
+    </message>
+    <message>
+        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="vanished">密码最少%1位，至少同时包含小写字母、大写字母、数字、符号中的%2种</translation>
+    </message>
+    <message>
+        <source>The password must have at least %1 characters</source>
+        <translation type="vanished">密码应包含至少%1个字符</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">密码长度不能超过%1个字符</translation>
+    </message>
+    <message>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="vanished">密码应至少包含小写字母、大写字母、数字、符号中的%1种</translation>
+    </message>
+    <message>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="vanished">密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation type="vanished">密码不得含有连续4个以上的回文字符</translation>
+    </message>
+    <message>
+        <source>Password must not contain common words and combinations</source>
+        <translation type="vanished">密码不得含有常用单词及组合</translation>
+    </message>
+    <message>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation type="vanished">密码不可为用户名重复或倒置</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">密码不一致</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::FingerWidget</name>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">编辑</translation>
+    </message>
+    <message>
+        <source>Fingerprint Password</source>
+        <translation type="vanished">指纹密码</translation>
+    </message>
+    <message>
+        <source>You can add up to 10 fingerprints</source>
+        <translation type="vanished">您最多可录入10个指纹</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">完成</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">该名称已存在</translation>
+    </message>
+    <message>
+        <source>Add Fingerprint</source>
+        <translation type="vanished">添加指纹</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::accounts::ModifyPasswdPage</name>
+    <message>
+        <source>Change Password</source>
+        <translation type="vanished">修改密码</translation>
+    </message>
+    <message>
+        <source>Current Password</source>
+        <translation type="vanished">当前密码</translation>
+    </message>
+    <message>
+        <source>New Password</source>
+        <translation type="vanished">新密码</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation type="vanished">重复密码</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">保存</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation type="vanished">密码不能为空</translation>
+    </message>
+    <message>
+        <source>Go to Settings</source>
+        <translation type="vanished">前往设置</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation type="vanished">密码错误</translation>
+    </message>
+    <message>
+        <source>Password must have at least %1 characters</source>
+        <translation type="vanished">密码长度不能少于%1位</translation>
+    </message>
+    <message>
+        <source>The new password should not be similar to the current one</source>
+        <translation type="vanished">新密码和旧密码不得有相似部分</translation>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation type="vanished">新密码和旧密码不能相同</translation>
+    </message>
+    <message>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="vanished">密码必须由大写字母、小写字母、数字、符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）四种类型组成</translation>
+    </message>
+    <message>
+        <source>Do not use a password you have used before</source>
+        <translation type="vanished">不能使用曾经使用过的密码</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation type="vanished">密码不能是常见单词及组合</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations in reverse order as password</source>
+        <translation type="vanished">密码不能是常见单词及组合的反向排列</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation type="vanished">密码不符合安全要求</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation type="vanished">密码不一致</translation>
+    </message>
+    <message>
+        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="vanished">密码最少%1位，至少同时包含小写字母、大写字母、数字、符号中的%2种</translation>
+    </message>
+    <message>
+        <source>The password must have at least %1 characters</source>
+        <translation type="vanished">密码应包含至少%1个字符</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="vanished">密码长度不能超过%1个字符</translation>
+    </message>
+    <message>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="vanished">密码应至少包含小写字母、大写字母、数字、符号中的%1种</translation>
+    </message>
+    <message>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="vanished">密码只能由英文（区分大小写）、数字或特殊符号（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）组成</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation type="vanished">密码不得含有连续4个以上的回文字符</translation>
+    </message>
+    <message>
+        <source>Password must not contain common words and combinations</source>
+        <translation type="vanished">密码不得含有常用单词及组合</translation>
+    </message>
+    <message>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation type="vanished">密码不可为用户名重复或倒置</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::AdapterWidget</name>
+    <message>
+        <source>Show Bluetooth devices without names</source>
+        <translation type="vanished">显示没有名称的蓝牙设备</translation>
+    </message>
+    <message>
+        <source>Allow other Bluetooth devices to find this device</source>
+        <translation type="vanished">允许蓝牙设备可被发现</translation>
+    </message>
+    <message>
+        <source>My Devices</source>
+        <translation type="vanished">我的设备</translation>
+        <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Other Devices</source>
+        <translation type="vanished">其他设备</translation>
+        <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
+    </message>
+    <message>
+        <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
+        <translation type="vanished">启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::BluetoothModule</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="vanished">蓝牙</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DetailPage</name>
+    <message>
+        <source>Ignore this device</source>
+        <translation type="vanished">忽略此设备</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">断开连接</translation>
+    </message>
+    <message>
+        <source>Connect</source>
+        <translation type="vanished">连接</translation>
+    </message>
+    <message>
+        <source>Send Files</source>
+        <translation type="vanished">发送文件</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="vanished">正在连接</translation>
+    </message>
+    <message>
+        <source>Disconnecting</source>
+        <translation type="vanished">正在断开</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::bluetooth::DeviceSettingsItem</name>
+    <message>
+        <source>Connected</source>
+        <translation type="vanished">已连接</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="vanished">未连接</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::BootWidget</name>
+    <message>
+        <source>Updating...</source>
+        <translation type="vanished">正在更新...</translation>
+    </message>
+    <message>
+        <source>Startup Delay</source>
+        <translation type="vanished">启动延时</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">主题</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
+        <translation type="vanished">您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
+    </message>
+    <message>
+        <source>Switch theme on to view it in boot menu</source>
+        <translation type="vanished">开启主题后您可以在开机时看到主题背景</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">启动菜单</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoModule</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">启动菜单</translation>
+    </message>
+    <message>
+        <source>General Settings</source>
+        <translation type="vanished">通用</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWidget</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">启动菜单</translation>
+        <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">开发者模式</translation>
+        <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">用户体验计划</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Tablet Mode</source>
+        <translation type="vanished">平板模式</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::CommonInfoWork</name>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="vanished">进入开发者模式失败</translation>
+    </message>
+    <message>
+        <source>Please sign in to your Union ID first</source>
+        <translation type="vanished">请先登录Union ID</translation>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="vanished">无法获取硬件信息</translation>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="vanished">无网络连接</translation>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="vanished">证书加载失败，无法进入开发者模式</translation>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="vanished">签名验证失败，无法进入开发者模式</translation>
+    </message>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="vanished">同意并加入用户体验计划</translation>
+    </message>
+    <message>
+        <source>The Disclaimer of Developer Mode</source>
+        <translation type="vanished">开发者模式免责声明</translation>
+    </message>
+    <message>
+        <source>Agree and Request Root Access</source>
+        <translation type="vanished">同意并进入开发者模式</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeDialog</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="vanished">进入开发者模式</translation>
+    </message>
+    <message>
+        <source>Online</source>
+        <translation type="vanished">在线激活</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="vanished">离线激活</translation>
+    </message>
+    <message>
+        <source>Please sign in to your Union ID first and continue</source>
+        <translation type="vanished">进入开发者模式需要登录Union ID</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="vanished">下一步</translation>
+    </message>
+    <message>
+        <source>Export PC Info</source>
+        <translation type="vanished">导出机器信息</translation>
+    </message>
+    <message>
+        <source>Import Certificate</source>
+        <translation type="vanished">导入证书</translation>
+    </message>
+    <message>
+        <source>1. Export your PC information</source>
+        <translation type="vanished">1. 导出机器信息</translation>
+    </message>
+    <message>
+        <source>2. Go to https://www.chinauos.com/developMode to download an offline certificate</source>
+        <translation type="vanished">2. 前往https://www.chinauos.com/developMode 下载离线证书</translation>
+    </message>
+    <message>
+        <source>3. Import the certificate</source>
+        <translation type="vanished">3. 导入证书</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::DeveloperModeWidget</name>
+    <message>
+        <source>Request Root Access</source>
+        <translation type="vanished">进入开发者模式</translation>
+    </message>
+    <message>
+        <source>Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully.</source>
+        <translation type="vanished">进入开发者模式后可以获得root使用权限，安装和运行非商店签名应用，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
+    </message>
+    <message>
+        <source>Failed to get root access</source>
+        <translation type="vanished">进入开发者模式失败</translation>
+    </message>
+    <message>
+        <source>Please sign in to your Union ID first</source>
+        <translation type="vanished">请先登录Union ID</translation>
+    </message>
+    <message>
+        <source>Cannot read your PC information</source>
+        <translation type="vanished">无法获取硬件信息</translation>
+    </message>
+    <message>
+        <source>No network connection</source>
+        <translation type="vanished">无网络连接</translation>
+    </message>
+    <message>
+        <source>Certificate loading failed, unable to get root access</source>
+        <translation type="vanished">证书加载失败，无法进入开发者模式</translation>
+    </message>
+    <message>
+        <source>Signature verification failed, unable to get root access</source>
+        <translation type="vanished">签名验证失败，无法进入开发者模式</translation>
+    </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first</source>
+        <translation type="vanished">当前系统未激活，暂无法使用该功能</translation>
+    </message>
+    <message>
+        <source>To make some features effective, a restart is required. Restart now?</source>
+        <translation type="vanished">开发者模式部分功能需要重启后生效，是否立即重启？</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Restart Now</source>
+        <translation type="vanished">现在重启</translation>
+    </message>
+    <message>
+        <source>Root Access Allowed</source>
+        <translation type="vanished">已进入开发者模式</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">加入用户体验计划</translation>
+        <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
+    </message>
+    <message>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (https://www.deepin.org/en/agreement/privacy/).</source>
+        <translation type="vanished">开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策(https://www.deepin.org/zh/agreement/privacy/)。</translation>
+    </message>
+    <message>
+        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
+        <translation type="vanished">开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策(https://www.uniontech.com/agreement/privacy-cn)。</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::ClockItem</name>
+    <message>
+        <source>AM</source>
+        <translation type="vanished">上午</translation>
+    </message>
+    <message>
+        <source>PM</source>
+        <translation type="vanished">下午</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateSettings</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">自动同步配置</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">确定</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">服务器</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation type="vanished">地址</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">自定义</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DateWidget</name>
+    <message>
+        <source>Year</source>
+        <translation type="vanished">年</translation>
+    </message>
+    <message>
+        <source>Month</source>
+        <translation type="vanished">月</translation>
+    </message>
+    <message>
+        <source>Day</source>
+        <translation type="vanished">日</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeModule</name>
+    <message>
+        <source>Date and Time</source>
+        <translation type="vanished">时间日期</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::DatetimeWidget</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">时区列表</translation>
+    </message>
+    <message>
+        <source>Time Settings</source>
+        <translation type="vanished">时间设置</translation>
+        <extra-contents_path>/datetime/Time Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Time Format</source>
+        <translation type="vanished">格式设置</translation>
+        <extra-contents_path>/datetime/Format Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>24-hour Time</source>
+        <translation type="vanished">24小时制</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::FormatSetting</name>
+    <message>
+        <source>Date and Time Formats</source>
+        <translation type="vanished">时间格式设置</translation>
+    </message>
+    <message>
+        <source>Weeks</source>
+        <translation type="vanished">星期</translation>
+    </message>
+    <message>
+        <source>Short Date</source>
+        <translation type="vanished">短日期</translation>
+    </message>
+    <message>
+        <source>Long Date</source>
+        <translation type="vanished">长日期</translation>
+    </message>
+    <message>
+        <source>Short Time</source>
+        <translation type="vanished">短时间</translation>
+    </message>
+    <message>
+        <source>Long Time</source>
+        <translation type="vanished">长时间</translation>
+    </message>
+    <message>
+        <source>First Day of Week</source>
+        <translation type="vanished">一周首日</translation>
+    </message>
+    <message>
+        <source>Monday</source>
+        <translation type="vanished">星期一</translation>
+    </message>
+    <message>
+        <source>monday</source>
+        <translation type="vanished">周一</translation>
+    </message>
+    <message>
+        <source>Tuesday</source>
+        <translation type="vanished">星期二</translation>
+    </message>
+    <message>
+        <source>Wednesday</source>
+        <translation type="vanished">星期三</translation>
+    </message>
+    <message>
+        <source>Thursday</source>
+        <translation type="vanished">星期四</translation>
+    </message>
+    <message>
+        <source>Friday</source>
+        <translation type="vanished">星期五</translation>
+    </message>
+    <message>
+        <source>Saturday</source>
+        <translation type="vanished">星期六</translation>
+    </message>
+    <message>
+        <source>Sunday</source>
+        <translation type="vanished">星期天</translation>
+    </message>
+    <message>
+        <source>April 5, 2020</source>
+        <translation type="vanished">2020年4月5日</translation>
+    </message>
+    <message>
+        <source>April 5, 2020, Sunday</source>
+        <translation type="vanished">2020年4月5日 星期天</translation>
+    </message>
+    <message>
+        <source>Sunday, April 5, 2020</source>
+        <translation type="vanished">星期天 2020年4月5日</translation>
+    </message>
+    <message>
+        <source>2020/4/5</source>
+        <translation type="vanished">2020/4/5</translation>
+    </message>
+    <message>
+        <source>2020-4-5</source>
+        <translation type="vanished">2020-4-5</translation>
+    </message>
+    <message>
+        <source>2020.4.5</source>
+        <translation type="vanished">2020.4.5</translation>
+    </message>
+    <message>
+        <source>2020/04/05</source>
+        <translation type="vanished">2020/04/05</translation>
+    </message>
+    <message>
+        <source>2020-04-05</source>
+        <translation type="vanished">2020-04-05</translation>
+    </message>
+    <message>
+        <source>2020.04.05</source>
+        <translation type="vanished">2020.04.05</translation>
+    </message>
+    <message>
+        <source>20/4/5</source>
+        <translation type="vanished">20/4/5</translation>
+    </message>
+    <message>
+        <source>20-4-5</source>
+        <translation type="vanished">20-4-5</translation>
+    </message>
+    <message>
+        <source>20.4.5</source>
+        <translation type="vanished">20.4.5</translation>
+    </message>
+    <message>
+        <source>9:40:07</source>
+        <translation type="vanished">9:40:07</translation>
+    </message>
+    <message>
+        <source>09:40:07</source>
+        <translation type="vanished">09:40:07</translation>
+    </message>
+    <message>
+        <source>9:40</source>
+        <translation type="vanished">9:40</translation>
+    </message>
+    <message>
+        <source>09:40</source>
+        <translation type="vanished">09:40</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::SystemTimezone</name>
+    <message>
+        <source>Change System Timezone</source>
+        <translation type="vanished">修改系统时区</translation>
+        <extra-contents_path>/datetime/Timezone List/Change System Timezone</extra-contents_path>
+    </message>
+    <message>
+        <source>System Timezone</source>
+        <translation type="vanished">系统时区</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::datetime::TimezoneList</name>
+    <message>
+        <source>Timezone List</source>
+        <translation type="vanished">时区列表</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Timezone</source>
+        <translation type="vanished">添加时区</translation>
+        <extra-contents_path>/datetime/Timezone List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefappDetailWidget</name>
+    <message>
+        <source>Add Application</source>
+        <translation type="vanished">添加默认程序</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Open Desktop file</source>
+        <translation type="vanished">打开Desktop文件</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation type="vanished">无效</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsModule</name>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">默认程序</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::defapp::DefaultAppsWidget</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="vanished">网页</translation>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="vanished">邮件</translation>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="vanished">文本</translation>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="vanished">音乐</translation>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="vanished">视频</translation>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="vanished">图片</translation>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation type="vanished">终端</translation>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
+    </message>
+    <message>
+        <source>Default Applications</source>
+        <translation type="vanished">默认程序</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::BrightnessPage</name>
+    <message>
+        <source>Color Temperature</source>
+        <translation type="vanished">色温</translation>
+    </message>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">自动调节色温</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>The screen hue will be auto adjusted according to your location</source>
+        <translation type="vanished">通过获取地址位置来辅助系统实现自动调节屏幕颜色偏色</translation>
+    </message>
+    <message>
+        <source>Change Color Temperature</source>
+        <translation type="vanished">手动调节</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">自动调节亮度</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">亮度</translation>
+    </message>
+    <message>
+        <source>Cool</source>
+        <translation type="vanished">较冷</translation>
+    </message>
+    <message>
+        <source>Warm</source>
+        <translation type="vanished">较暖</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::CustomSettingDialog</name>
+    <message>
+        <source>Displays</source>
+        <translation type="vanished">屏幕显示</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">分辨率</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">刷新率</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">保存</translation>
+    </message>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">赫兹</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">推荐</translation>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation type="vanished">主屏幕</translation>
+    </message>
+    <message>
+        <source>Monitor Connected (Multiple)</source>
+        <translation type="vanished">开启屏幕(可多选)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayModule</name>
+    <message>
+        <source>Display</source>
+        <translation type="vanished">显示</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">多屏显示模式</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::DisplayWidget</name>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="vanished">刷新率</translation>
+        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">多屏显示模式</translation>
+        <extra-contents_path>/display/Multiple Displays</extra-contents_path>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="vanished">亮度</translation>
+        <extra-contents_path>/display/Brightness</extra-contents_path>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="vanished">分辨率</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">屏幕缩放</translation>
+        <extra-contents_path>/display/Display Scaling</extra-contents_path>
+    </message>
+    <message>
+        <source>Touch Screen</source>
+        <translation type="vanished">触控屏</translation>
+        <extra-contents_path>/display/Touch Screen</extra-contents_path>
+    </message>
+    <message>
+        <source>Rotate Screen</source>
+        <translation type="vanished">旋转屏幕</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::MultiScreenSettingPage</name>
+    <message>
+        <source>Custom Settings</source>
+        <translation type="vanished">自定义设置</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="vanished">复制</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="vanished">扩展</translation>
+    </message>
+    <message>
+        <source>Show the same image on other screens</source>
+        <translation type="vanished">将屏幕内容复制到一个或者多个屏幕</translation>
+    </message>
+    <message>
+        <source>Expand the desktop across the screens</source>
+        <translation type="vanished">扩展屏幕并在不同屏幕显示不同内容</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation type="vanished">自定义</translation>
+    </message>
+    <message>
+        <source>Configure the display according to your needs</source>
+        <translation type="vanished">根据您需要的方式进行自定义配置</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RefreshRatePage</name>
+    <message>
+        <source>Hz</source>
+        <translation type="vanished">赫兹</translation>
+    </message>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">推荐</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ResolutionDetailPage</name>
+    <message>
+        <source>Recommended</source>
+        <translation type="vanished">推荐</translation>
+        <extra-contents_path>/display/Resolution</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::RotateDialog</name>
+    <message>
+        <source>Left click to rotate, right click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">鼠标左键逆时针旋转，右键还原并退出，按Ctrl+S键保存。</translation>
+    </message>
+    <message>
+        <source>Right click to rotate, left click to restore and exit, press Ctrl+S to save.</source>
+        <translation type="vanished">鼠标右键顺时针旋转， 左键还原并退出，按Ctrl+S键保存。</translation>
+    </message>
+    <message>
+        <source>Save the display settings? If no operation occurs, the display will be restored in %1s.</source>
+        <translation type="vanished">是否要保存显示设置？如无任何操作将在%1秒后还原。</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::ScalingPage</name>
+    <message>
+        <source>Some applications cannot be scaled with the specified settings in multi-display environment.</source>
+        <translation type="vanished">多屏情况下屏幕缩放对某些应用可能无效</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="vanished">当前屏幕仅支持1倍缩放</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::display::TouchscreenPage</name>
+    <message>
+        <source>Select your touch screen</source>
+        <translation type="vanished">选择触控屏</translation>
+    </message>
+    <message>
+        <source>Select your touch screen when connected or set it here.</source>
+        <translation type="vanished">您可在接入触控屏时设置所在屏幕，或在此进行调整。</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">确定</translation>
+    </message>
+    <message>
+        <source>Touch Screen - %1 (%2)</source>
+        <translation type="vanished">触控屏 - %1 (%2)</translation>
+    </message>
+    <message>
+        <source>Touch Screen Settings</source>
+        <translation type="vanished">触控屏设置</translation>
+    </message>
+    <message>
+        <source>The settings of touch screen changed</source>
+        <translation type="vanished">已变更触控屏设置</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::CustomContent</name>
+    <message>
+        <source>Add Custom Shortcut</source>
+        <translation type="vanished">添加自定义快捷键</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">名称</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Command</source>
+        <translation type="vanished">命令</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">添加</translation>
+    </message>
+    <message>
+        <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
+        <translation type="vanished">此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::GeneralKBSettingWidget</name>
+    <message>
+        <source>Repeat Delay</source>
+        <translation type="vanished">重复延迟</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Short</source>
+        <translation type="vanished">短</translation>
+    </message>
+    <message>
+        <source>Long</source>
+        <translation type="vanished">长</translation>
+    </message>
+    <message>
+        <source>Repeat Rate</source>
+        <translation type="vanished">重复速度</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">快</translation>
+    </message>
+    <message>
+        <source>Test here</source>
+        <translation type="vanished">请在此测试</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Numeric Keypad</source>
+        <translation type="vanished">启用数字键盘</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Caps Lock Prompt</source>
+        <translation type="vanished">大写锁定提示</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KBLayoutSettingWidget</name>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">键盘布局</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">编辑</translation>
+    </message>
+    <message>
+        <source>Switch Layouts (Multiple)</source>
+        <translation type="vanished">切换键盘布局(可多选)</translation>
+    </message>
+    <message>
+        <source>Applies to</source>
+        <translation type="vanished">切换方式</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="vanished">系统</translation>
+    </message>
+    <message>
+        <source>Application</source>
+        <translation type="vanished">应用</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">完成</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardModule</name>
+    <message>
+        <source>Keyboard and Language</source>
+        <translation type="vanished">键盘和语言</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">自定义快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::KeyboardWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">通用</translation>
+    </message>
+    <message>
+        <source>Keyboard Layout</source>
+        <translation type="vanished">键盘布局</translation>
+        <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
+    </message>
+    <message>
+        <source>System Language</source>
+        <translation type="vanished">系统语言</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+    <message>
+        <source>Shortcuts</source>
+        <translation type="vanished">快捷键</translation>
+        <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::ShortCutSettingWidget</name>
+    <message>
+        <source>System</source>
+        <translation type="vanished">系统</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation type="vanished">窗口</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation type="vanished">工作区</translation>
+    </message>
+    <message>
+        <source>Assistive Tools</source>
+        <translation type="vanished">辅助功能</translation>
+    </message>
+    <message>
+        <source>Custom Shortcut</source>
+        <translation type="vanished">自定义快捷键</translation>
+    </message>
+    <message>
+        <source>Restore Defaults</source>
+        <translation type="vanished">恢复默认</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation type="vanished">快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="vanished">添加</translation>
+    </message>
+    <message>
+        <source>Add System Language</source>
+        <translation type="vanished">添加系统语言</translation>
+        <extra-contents_path>/keyboard/System Language</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::keyboard::SystemLanguageWidget</name>
+    <message>
+        <source>Language List</source>
+        <translation type="vanished">语言列表</translation>
+    </message>
+    <message>
+        <source>Edit</source>
+        <translation type="vanished">编辑</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="vanished">完成</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::GeneralSettingWidget</name>
+    <message>
+        <source>Left Hand</source>
+        <translation type="vanished">左手模式</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad while typing</source>
+        <translation type="vanished">输入时禁用触控板</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="vanished">滚动速度</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Double-click Speed</source>
+        <translation type="vanished">双击速度</translation>
+        <extra-contents_path>/mouse/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">快</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseModule</name>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">触控板</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">指点杆</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">鼠标</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">指针速度</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation type="vanished">鼠标加速</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation type="vanished">插入鼠标时禁用触控板</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">自然滚动</translation>
+        <extra-child_page>Mouse</extra-child_page>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">快</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::MouseWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">通用</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">鼠标</translation>
+        <extra-contents_path>/mouse/Mouse</extra-contents_path>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">触控板</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">指点杆</translation>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TouchPadSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">指针速度</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation type="vanished">轻触以点击</translation>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation type="vanished">自然滚动</translation>
+        <extra-child_page>Touchpad</extra-child_page>
+        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">快</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::mouse::TrackPointSettingWidget</name>
+    <message>
+        <source>Pointer Speed</source>
+        <translation type="vanished">指针速度</translation>
+        <extra-child_page>TrackPoint</extra-child_page>
+        <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">慢</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">快</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsProxyPage</name>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">应用代理</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">代理类型</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP 地址</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">端口</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">选填</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+    <message>
+        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
+        <translation type="vanished">配置好代理后，可在启动器的应用右键菜单查看“使用代理”选项，勾选后即可使用代理</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">保存</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="vanished">无效的IP地址</translation>
+    </message>
+    <message>
+        <source>Invalid port</source>
+        <translation type="vanished">无效的端口</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ChainsTypePage</name>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">代理类型</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionEditPage</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="vanished">断开连接</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="vanished">删除</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">保存</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="vanished">您确定要删除当前配置吗？</translation>
+    </message>
+    <message>
+        <source>Wired Connection %1</source>
+        <translation type="vanished">有线连接 %1</translation>
+    </message>
+    <message>
+        <source>hotspot</source>
+        <translation type="vanished">热点</translation>
+    </message>
+    <message>
+        <source>Wireless Connection %1</source>
+        <translation type="vanished">无线连接 %1</translation>
+    </message>
+    <message>
+        <source>PPPoE Connection %1</source>
+        <translation type="vanished">PPPoE连接 %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ConnectionVpnEditPage</name>
+    <message>
+        <source>New VPN</source>
+        <translation type="vanished">新建VPN</translation>
+    </message>
+    <message>
+        <source>VPN Type</source>
+        <translation type="vanished">VPN类型</translation>
+    </message>
+    <message>
+        <source>L2TP</source>
+        <translation type="vanished">L2TP</translation>
+    </message>
+    <message>
+        <source>PPTP</source>
+        <translation type="vanished">PPTP</translation>
+    </message>
+    <message>
+        <source>OpenVPN</source>
+        <translation type="vanished">OpenVPN</translation>
+    </message>
+    <message>
+        <source>OpenConnect</source>
+        <translation type="vanished">OpenConnect</translation>
+    </message>
+    <message>
+        <source>StrongSwan</source>
+        <translation type="vanished">StrongSwan</translation>
+    </message>
+    <message>
+        <source>VPNC</source>
+        <translation type="vanished">VPNC</translation>
+    </message>
+    <message>
+        <source>Export</source>
+        <translation type="vanished">导出</translation>
+    </message>
+    <message>
+        <source>VPN L2TP %1</source>
+        <translation type="vanished">VPN L2TP %1</translation>
+    </message>
+    <message>
+        <source>VPN PPTP %1</source>
+        <translation type="vanished">VPN PPTP %1</translation>
+    </message>
+    <message>
+        <source>VPN VPNC %1</source>
+        <translation type="vanished">VPN VPNC %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenVPN %1</source>
+        <translation type="vanished">VPN OpenVPN %1</translation>
+    </message>
+    <message>
+        <source>VPN StrongSwan %1</source>
+        <translation type="vanished">VPN StrongSwan %1</translation>
+    </message>
+    <message>
+        <source>VPN OpenConnect %1</source>
+        <translation type="vanished">VPN OpenConnect %1</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::EthernetSection</name>
+    <message>
+        <source>Ethernet</source>
+        <translation type="vanished">以太网</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">不指定设备</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">设备MAC地址</translation>
+    </message>
+    <message>
+        <source>Cloned MAC Addr</source>
+        <translation type="vanished">克隆MAC地址</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">自定义MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericHotspotSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">通用</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">名称</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::GenericSection</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">通用</translation>
+    </message>
+    <message>
+        <source>The name already exists</source>
+        <translation type="vanished">名称已被占用</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation type="vanished">名称</translation>
+    </message>
+    <message>
+        <source>Auto Connect</source>
+        <translation type="vanished">自动连接</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotDeviceWidget</name>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">热点</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Settings</source>
+        <translation type="vanished">添加设置</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::HotspotPage</name>
+    <message>
+        <source>Create Hotspot</source>
+        <translation type="vanished">添加热点</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::IpvxSection</name>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">自动</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">手动</translation>
+    </message>
+    <message>
+        <source>Ignore</source>
+        <translation type="vanished">忽略</translation>
+    </message>
+    <message>
+        <source>IP Address</source>
+        <translation type="vanished">IP 地址</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">网关</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">首选DNS</translation>
+    </message>
+    <message>
+        <source>Secondary DNS</source>
+        <translation type="vanished">备用DNS</translation>
+    </message>
+    <message>
+        <source>Only applied in corresponding resources</source>
+        <translation type="vanished">仅用于相对应的网络上的资源</translation>
+    </message>
+    <message>
+        <source>Method</source>
+        <translation type="vanished">方法</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">子网掩码</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">前缀</translation>
+    </message>
+    <message>
+        <source>Invalid IP address</source>
+        <translation type="vanished">无效的IP地址</translation>
+    </message>
+    <message>
+        <source>Invalid netmask</source>
+        <translation type="vanished">无效的子网掩码</translation>
+    </message>
+    <message>
+        <source>Invalid gateway</source>
+        <translation type="vanished">无效的网关地址</translation>
+    </message>
+    <message>
+        <source>Invalid DNS address</source>
+        <translation type="vanished">无效的DNS地址</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkDetailPage</name>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">网络详情</translation>
+    </message>
+    <message>
+        <source>Hotspot</source>
+        <translation type="vanished">热点</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Protocol</source>
+        <translation type="vanished">协议</translation>
+    </message>
+    <message>
+        <source>Security Type</source>
+        <translation type="vanished">安全类型</translation>
+    </message>
+    <message>
+        <source>Band</source>
+        <translation type="vanished">频段</translation>
+    </message>
+    <message>
+        <source>Channel</source>
+        <translation type="vanished">网络通道</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation type="vanished">接口</translation>
+    </message>
+    <message>
+        <source>MAC</source>
+        <translation type="vanished">MAC</translation>
+    </message>
+    <message>
+        <source>IPv4</source>
+        <translation type="vanished">IPv4</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">网关</translation>
+    </message>
+    <message>
+        <source>Primary DNS</source>
+        <translation type="vanished">首选DNS</translation>
+    </message>
+    <message>
+        <source>Netmask</source>
+        <translation type="vanished">子网掩码</translation>
+    </message>
+    <message>
+        <source>IPv6</source>
+        <translation type="vanished">IPv6</translation>
+    </message>
+    <message>
+        <source>Prefix</source>
+        <translation type="vanished">前缀</translation>
+    </message>
+    <message>
+        <source>Speed</source>
+        <translation type="vanished">速率</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModule</name>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">有线网络</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">无线网络</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">个人热点</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation type="vanished">网络</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::NetworkModuleWidget</name>
+    <message>
+        <source>DSL</source>
+        <translation type="vanished">DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
+    </message>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+        <extra-contents_path>/network/VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">系统代理</translation>
+        <extra-contents_path>/network/System Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Application Proxy</source>
+        <translation type="vanished">应用代理</translation>
+        <extra-contents_path>/network/Application Proxy</extra-contents_path>
+    </message>
+    <message>
+        <source>Network Details</source>
+        <translation type="vanished">网络详情</translation>
+        <extra-contents_path>/network/Network Details</extra-contents_path>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">已禁用</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">手动</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">自动</translation>
+    </message>
+    <message>
+        <source>Configure by Network Manager</source>
+        <translation type="vanished">用网络管理器配置</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">个人热点</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <source>Wired Network %1</source>
+        <translation type="vanished">有线网络%1</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">有线网络</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Wireless Network %1</source>
+        <translation type="vanished">无线网络%1</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">无线网络</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Disconnected</source>
+        <translation type="vanished">已断开</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPOESection</name>
+    <message>
+        <source>PPPoE</source>
+        <translation type="vanished">拨号</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Service</source>
+        <translation type="vanished">服务</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PPPSection</name>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">拒绝EAP认证</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">拒绝PAP认证</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">拒绝CHAP认证</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">拒绝MSCHAP认证</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">拒绝MSCHAPv2认证</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">无BSD数据压缩</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">无Deflate数据压缩</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">无TCP头压缩</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">无协议字段压缩</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">无地址/控制压缩</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">发送PPP回响包</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">使用MPPE点到点加密</translation>
+    </message>
+    <message>
+        <source>128-bit MPPE</source>
+        <translation type="vanished">使用128位MPPE</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">使用带状态的MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::PppoePage</name>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation type="vanished">创建PPPoE连接</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
+    </message>
+    <message>
+        <source>PPP</source>
+        <translation type="vanished">PPP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::ProxyPage</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="vanished">保存</translation>
+    </message>
+    <message>
+        <source>System Proxy</source>
+        <translation type="vanished">系统代理</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">代理类型</translation>
+    </message>
+    <message>
+        <source>Manual</source>
+        <translation type="vanished">手动</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">自动</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation type="vanished">选填</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">端口</translation>
+    </message>
+    <message>
+        <source>HTTP Proxy</source>
+        <translation type="vanished">HTTP代理</translation>
+    </message>
+    <message>
+        <source>HTTPS Proxy</source>
+        <translation type="vanished">HTTPS代理</translation>
+    </message>
+    <message>
+        <source>FTP Proxy</source>
+        <translation type="vanished">FTP代理</translation>
+    </message>
+    <message>
+        <source>SOCKS Proxy</source>
+        <translation type="vanished">SOCKS代理</translation>
+    </message>
+    <message>
+        <source>Ignore the proxy configurations for the above hosts and domains</source>
+        <translation type="vanished">忽略以上主机和域的代理配置</translation>
+    </message>
+    <message>
+        <source>Configuration URL</source>
+        <translation type="vanished">配置URL</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::Secret8021xSection</name>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">安全</translation>
+    </message>
+    <message>
+        <source>TLS</source>
+        <translation type="vanished">TLS</translation>
+    </message>
+    <message>
+        <source>MD5</source>
+        <translation type="vanished">MD5</translation>
+    </message>
+    <message>
+        <source>LEAP</source>
+        <translation type="vanished">LEAP</translation>
+    </message>
+    <message>
+        <source>FAST</source>
+        <translation type="vanished">FAST</translation>
+    </message>
+    <message>
+        <source>Tunneled TLS</source>
+        <translation type="vanished">隧道TLS</translation>
+    </message>
+    <message>
+        <source>Protected EAP</source>
+        <translation type="vanished">受保护的EAP</translation>
+    </message>
+    <message>
+        <source>Save password for this user</source>
+        <translation type="vanished">仅为该用户存储密码</translation>
+    </message>
+    <message>
+        <source>Save password for all users</source>
+        <translation type="vanished">存储所有用户密码</translation>
+    </message>
+    <message>
+        <source>Ask me always</source>
+        <translation type="vanished">总是询问</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">已禁用</translation>
+    </message>
+    <message>
+        <source>Anonymous</source>
+        <translation type="vanished">匿名</translation>
+    </message>
+    <message>
+        <source>Authenticated</source>
+        <translation type="vanished">已认证</translation>
+    </message>
+    <message>
+        <source>Both</source>
+        <translation type="vanished">兼有</translation>
+    </message>
+    <message>
+        <source>Automatic</source>
+        <translation type="vanished">自动</translation>
+    </message>
+    <message>
+        <source>Version 0</source>
+        <translation type="vanished">版本0</translation>
+    </message>
+    <message>
+        <source>Version 1</source>
+        <translation type="vanished">版本1</translation>
+    </message>
+    <message>
+        <source>EAP Auth</source>
+        <translation type="vanished">EAP认证</translation>
+    </message>
+    <message>
+        <source>Identity</source>
+        <translation type="vanished">身份</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">密码选项</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">私钥</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA证书</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">用户证书</translation>
+    </message>
+    <message>
+        <source>Anonymous ID</source>
+        <translation type="vanished">匿名身份</translation>
+    </message>
+    <message>
+        <source>Provisioning</source>
+        <translation type="vanished">自动PAC配置</translation>
+    </message>
+    <message>
+        <source>PAC file</source>
+        <translation type="vanished">PAC文件</translation>
+    </message>
+    <message>
+        <source>Inner Auth</source>
+        <translation type="vanished">内部认证</translation>
+    </message>
+    <message>
+        <source>PEAP Version</source>
+        <translation type="vanished">PEAP版本</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">私钥密码</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretHotspotSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">密码无效</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">无</translation>
+    </message>
+    <message>
+        <source>WEP</source>
+        <translation type="vanished">WEP</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2个人版</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">安全</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">密钥</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWiredSection</name>
+    <message>
+        <source>Security Required</source>
+        <translation type="vanished">安全</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::SecretWirelessSection</name>
+    <message>
+        <source>Invalid password</source>
+        <translation type="vanished">密码无效</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">无</translation>
+    </message>
+    <message>
+        <source>WEP</source>
+        <translation type="vanished">WEP</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Personal</source>
+        <translation type="vanished">WPA/WPA2个人版</translation>
+    </message>
+    <message>
+        <source>WPA/WPA2 Enterprise</source>
+        <translation type="vanished">WPA/WPA2企业版</translation>
+    </message>
+    <message>
+        <source>Shared key</source>
+        <translation type="vanished">共享密钥</translation>
+    </message>
+    <message>
+        <source>Open system</source>
+        <translation type="vanished">开放式系统</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">安全</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Authentication</source>
+        <translation type="vanished">安全认证类型</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation type="vanished">密钥</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvOpenVPNSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN高级选项</translation>
+    </message>
+    <message>
+        <source>Customize Gateway Port</source>
+        <translation type="vanished">自定义网关端口</translation>
+    </message>
+    <message>
+        <source>Gateway Port</source>
+        <translation type="vanished">网关端口</translation>
+    </message>
+    <message>
+        <source>Customize Renegotiation Interval</source>
+        <translation type="vanished">自定义重新协商间隔</translation>
+    </message>
+    <message>
+        <source>Renegotiation Interval</source>
+        <translation type="vanished">重新协商间隔</translation>
+    </message>
+    <message>
+        <source>Use LZO Data Compression</source>
+        <translation type="vanished">使用LZO压缩</translation>
+    </message>
+    <message>
+        <source>Use TCP Connection</source>
+        <translation type="vanished">使用TCP连接</translation>
+    </message>
+    <message>
+        <source>Use TAP Device</source>
+        <translation type="vanished">使用TAP设备</translation>
+    </message>
+    <message>
+        <source>Customize Tunnel MTU</source>
+        <translation type="vanished">自定义最大传输单元(MTU)</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+    <message>
+        <source>Customize UDP Fragment Size</source>
+        <translation type="vanished">自定义UDP数据报段长度</translation>
+    </message>
+    <message>
+        <source>UDP Fragment Size</source>
+        <translation type="vanished">UDP数据报段长度</translation>
+    </message>
+    <message>
+        <source>Restrict Tunnel TCP MSS</source>
+        <translation type="vanished">限制隧道TCP最大段长度(MSS)</translation>
+    </message>
+    <message>
+        <source>Randomize Remote Hosts</source>
+        <translation type="vanished">随机远程主机</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnAdvVPNCSection</name>
+    <message>
+        <source>VPN Advanced</source>
+        <translation type="vanished">VPN高级选项</translation>
+    </message>
+    <message>
+        <source>Cisco (default)</source>
+        <translation type="vanished">思科（默认）</translation>
+    </message>
+    <message>
+        <source>Netscreen</source>
+        <translation type="vanished">网屏</translation>
+    </message>
+    <message>
+        <source>Secure (default)</source>
+        <translation type="vanished">安全（默认）</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation type="vanished">弱</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">无</translation>
+    </message>
+    <message>
+        <source>NAT-T When Available (default)</source>
+        <translation type="vanished">NAT-T若可用（默认）</translation>
+    </message>
+    <message>
+        <source>NAT-T Always</source>
+        <translation type="vanished">总是NAT-T</translation>
+    </message>
+    <message>
+        <source>Cisco UDP</source>
+        <translation type="vanished">思科UDP</translation>
+    </message>
+    <message>
+        <source>Disabled</source>
+        <translation type="vanished">已禁用</translation>
+    </message>
+    <message>
+        <source>DH Group 1</source>
+        <translation type="vanished">DH Group 1</translation>
+    </message>
+    <message>
+        <source>DH Group 2 (default)</source>
+        <translation type="vanished">DH Group 2（默认）</translation>
+    </message>
+    <message>
+        <source>DH Group 5</source>
+        <translation type="vanished">DH Group 5</translation>
+    </message>
+    <message>
+        <source>Server (default)</source>
+        <translation type="vanished">服务器（默认）</translation>
+    </message>
+    <message>
+        <source>DH Group 2</source>
+        <translation type="vanished">DH Group 2</translation>
+    </message>
+    <message>
+        <source>Domain</source>
+        <translation type="vanished">域</translation>
+    </message>
+    <message>
+        <source>Vendor</source>
+        <translation type="vanished">供应商</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation type="vanished">版本</translation>
+    </message>
+    <message>
+        <source>Encryption</source>
+        <translation type="vanished">加密</translation>
+    </message>
+    <message>
+        <source>NAT Traversal Mode</source>
+        <translation type="vanished">NAT遍历</translation>
+    </message>
+    <message>
+        <source>IKE DH Group</source>
+        <translation type="vanished">IKE DH 组</translation>
+    </message>
+    <message>
+        <source>Forward Secrecy</source>
+        <translation type="vanished">前向保密</translation>
+    </message>
+    <message>
+        <source>Local Port</source>
+        <translation type="vanished">本地端口</translation>
+    </message>
+    <message>
+        <source>Disable Dead Peer Detection</source>
+        <translation type="vanished">禁用死端检测</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnIpsecSection</name>
+    <message>
+        <source>VPN IPsec</source>
+        <translation type="vanished">VPN IPsec</translation>
+    </message>
+    <message>
+        <source>Enable IPsec</source>
+        <translation type="vanished">启用IPsec</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">组名</translation>
+    </message>
+    <message>
+        <source>Group ID</source>
+        <translation type="vanished">组ID</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">预共享密钥</translation>
+    </message>
+    <message>
+        <source>Phase1 Algorithms</source>
+        <translation type="vanished">密钥交换协议</translation>
+    </message>
+    <message>
+        <source>Phase2 Algorithms</source>
+        <translation type="vanished">安全封装协议</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenConnectSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">网关</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA证书</translation>
+    </message>
+    <message>
+        <source>Proxy</source>
+        <translation type="vanished">代理</translation>
+    </message>
+    <message>
+        <source>Allow Cisco Secure Desktop Trojan</source>
+        <translation type="vanished">允许思科安全桌面木马</translation>
+    </message>
+    <message>
+        <source>CSD Script</source>
+        <translation type="vanished">CSD 脚本</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">用户证书</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">私钥</translation>
+    </message>
+    <message>
+        <source>Use FSID for Key Passphrase</source>
+        <translation type="vanished">为密钥口令句使用FSID</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnOpenVPNSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Certificates (TLS)</source>
+        <translation type="vanished">证书（TLS）</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+    <message>
+        <source>Certificates with Password (TLS)</source>
+        <translation type="vanished">证书和密码（TLS）</translation>
+    </message>
+    <message>
+        <source>Static Key</source>
+        <translation type="vanished">静态密钥</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">已保存的</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">总是询问</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">不要求</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">网关</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">认证类型</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA证书</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">用户证书</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">私钥</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">密码选项</translation>
+    </message>
+    <message>
+        <source>Private Pwd</source>
+        <translation type="vanished">私钥密码</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">自定义密钥方向</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">密钥方向</translation>
+    </message>
+    <message>
+        <source>Remote IP</source>
+        <translation type="vanished">远程IP</translation>
+    </message>
+    <message>
+        <source>Local IP</source>
+        <translation type="vanished">本地IP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPPPSection</name>
+    <message>
+        <source>VPN PPP</source>
+        <translation type="vanished">VPN PPP</translation>
+    </message>
+    <message>
+        <source>All Available (default)</source>
+        <translation type="vanished">都可用（默认）</translation>
+    </message>
+    <message>
+        <source>40-bit (less secure)</source>
+        <translation type="vanished">40位（较安全）</translation>
+    </message>
+    <message>
+        <source>128-bit (most secure)</source>
+        <translation type="vanished">128位（最安全）</translation>
+    </message>
+    <message>
+        <source>Refuse EAP Authentication</source>
+        <translation type="vanished">拒绝EAP认证</translation>
+    </message>
+    <message>
+        <source>Refuse PAP Authentication</source>
+        <translation type="vanished">拒绝PAP认证</translation>
+    </message>
+    <message>
+        <source>Refuse CHAP Authentication</source>
+        <translation type="vanished">拒绝CHAP认证</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAP Authentication</source>
+        <translation type="vanished">拒绝MSCHAP认证</translation>
+    </message>
+    <message>
+        <source>Refuse MSCHAPv2 Authentication</source>
+        <translation type="vanished">拒绝MSCHAPv2认证</translation>
+    </message>
+    <message>
+        <source>No BSD Data Compression</source>
+        <translation type="vanished">无BSD数据压缩</translation>
+    </message>
+    <message>
+        <source>No Deflate Data Compression</source>
+        <translation type="vanished">无Deflate数据压缩</translation>
+    </message>
+    <message>
+        <source>No TCP Header Compression</source>
+        <translation type="vanished">无TCP头压缩</translation>
+    </message>
+    <message>
+        <source>No Protocol Field Compression</source>
+        <translation type="vanished">无协议字段压缩</translation>
+    </message>
+    <message>
+        <source>No Address/Control Compression</source>
+        <translation type="vanished">无地址/控制压缩</translation>
+    </message>
+    <message>
+        <source>Send PPP Echo Packets</source>
+        <translation type="vanished">发送PPP回响包</translation>
+    </message>
+    <message>
+        <source>Use MPPE</source>
+        <translation type="vanished">使用MPPE点到点加密</translation>
+    </message>
+    <message>
+        <source>Security</source>
+        <translation type="vanished">安全</translation>
+    </message>
+    <message>
+        <source>Stateful MPPE</source>
+        <translation type="vanished">使用带状态的MPPE</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnPage</name>
+    <message>
+        <source>VPN Status</source>
+        <translation type="vanished">VPN状态</translation>
+    </message>
+    <message>
+        <source>Create VPN</source>
+        <translation type="vanished">添加VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import VPN</source>
+        <translation type="vanished">导入VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
+    </message>
+    <message>
+        <source>Import Error</source>
+        <translation type="vanished">导入错误</translation>
+    </message>
+    <message>
+        <source>File error</source>
+        <translation type="vanished">导入文件错误</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="vanished">确定</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN代理</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">不要求</translation>
+    </message>
+    <message>
+        <source>HTTP</source>
+        <translation type="vanished">HTTP</translation>
+    </message>
+    <message>
+        <source>SOCKS</source>
+        <translation type="vanished">SOCKS</translation>
+    </message>
+    <message>
+        <source>Proxy Type</source>
+        <translation type="vanished">代理类型</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">服务器地址</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">端口</translation>
+    </message>
+    <message>
+        <source>Retry Indefinitely When Failed</source>
+        <translation type="vanished">失败时重试</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSSTPSection</name>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA文件</translation>
+    </message>
+    <message>
+        <source>Ignore Certificate Warnings</source>
+        <translation type="vanished">忽略证书警告</translation>
+    </message>
+    <message>
+        <source>Use TLS Hostname Extensions</source>
+        <translation type="vanished">使用TLS主机名扩展</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSecOpenVPNSection</name>
+    <message>
+        <source>VPN Security</source>
+        <translation type="vanished">VPN安全</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">默认</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="vanished">无</translation>
+    </message>
+    <message>
+        <source>Cipher</source>
+        <translation type="vanished">加密</translation>
+    </message>
+    <message>
+        <source>HMAC Auth</source>
+        <translation type="vanished">HMAC认证</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">已保存的</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">总是询问</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">不要求</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">网关</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">密码选项</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+    <message>
+        <source>NT Domain</source>
+        <translation type="vanished">NT域</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnSstpProxySection</name>
+    <message>
+        <source>VPN Proxy</source>
+        <translation type="vanished">VPN代理</translation>
+    </message>
+    <message>
+        <source>Server IP</source>
+        <translation type="vanished">服务器地址</translation>
+    </message>
+    <message>
+        <source>Port</source>
+        <translation type="vanished">端口</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnStrongSwanSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Private Key</source>
+        <translation type="vanished">私钥</translation>
+    </message>
+    <message>
+        <source>SSH Agent</source>
+        <translation type="vanished">SSH代理</translation>
+    </message>
+    <message>
+        <source>Smart Card</source>
+        <translation type="vanished">智能卡</translation>
+    </message>
+    <message>
+        <source>EAP</source>
+        <translation type="vanished">EAP</translation>
+    </message>
+    <message>
+        <source>Pre-Shared Key</source>
+        <translation type="vanished">预共享密钥</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">网关</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>CA Cert</source>
+        <translation type="vanished">CA证书</translation>
+    </message>
+    <message>
+        <source>Auth Type</source>
+        <translation type="vanished">认证类型</translation>
+    </message>
+    <message>
+        <source>User Cert</source>
+        <translation type="vanished">用户证书</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+    <message>
+        <source>Request an Inner IP Address</source>
+        <translation type="vanished">请求内部IP地址</translation>
+    </message>
+    <message>
+        <source>Enforce UDP Encapsulation</source>
+        <translation type="vanished">强制使用UDP封装</translation>
+    </message>
+    <message>
+        <source>Use IP Compression</source>
+        <translation type="vanished">使用IP压缩 </translation>
+    </message>
+    <message>
+        <source>Enable Custom Cipher Proposals</source>
+        <translation type="vanished">启用自定义加密方案</translation>
+    </message>
+    <message>
+        <source>IKE</source>
+        <translation type="vanished">IKE</translation>
+    </message>
+    <message>
+        <source>ESP</source>
+        <translation type="vanished">ESP</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnTLSSection</name>
+    <message>
+        <source>VPN TLS Authentication</source>
+        <translation type="vanished">VPN TLS 认证</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">默认</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation type="vanished">客户端</translation>
+    </message>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">服务器</translation>
+    </message>
+    <message>
+        <source>Subject Match</source>
+        <translation type="vanished">主题匹配</translation>
+    </message>
+    <message>
+        <source>Remote Cert Type</source>
+        <translation type="vanished">远程证书类型</translation>
+    </message>
+    <message>
+        <source>Key File</source>
+        <translation type="vanished">密钥文件</translation>
+    </message>
+    <message>
+        <source>Customize Key Direction</source>
+        <translation type="vanished">自定义密钥方向</translation>
+    </message>
+    <message>
+        <source>Key Direction</source>
+        <translation type="vanished">密钥方向</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::VpnVPNCSection</name>
+    <message>
+        <source>VPN</source>
+        <translation type="vanished">VPN</translation>
+    </message>
+    <message>
+        <source>Saved</source>
+        <translation type="vanished">已保存的</translation>
+    </message>
+    <message>
+        <source>Ask</source>
+        <translation type="vanished">总是询问</translation>
+    </message>
+    <message>
+        <source>Not Required</source>
+        <translation type="vanished">不要求</translation>
+    </message>
+    <message>
+        <source>Gateway</source>
+        <translation type="vanished">网关</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Username</source>
+        <translation type="vanished">用户名</translation>
+    </message>
+    <message>
+        <source>Pwd Options</source>
+        <translation type="vanished">密码选项</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="vanished">密码</translation>
+    </message>
+    <message>
+        <source>Group Name</source>
+        <translation type="vanished">组名</translation>
+    </message>
+    <message>
+        <source>Group Pwd</source>
+        <translation type="vanished">组密码</translation>
+    </message>
+    <message>
+        <source>Use Hybrid Authentication</source>
+        <translation type="vanished">使用混合认证</translation>
+    </message>
+    <message>
+        <source>CA File</source>
+        <translation type="vanished">CA文件</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WiredPage</name>
+    <message>
+        <source>Plug in the network cable first</source>
+        <translation type="vanished">请您先插入网线！</translation>
+    </message>
+    <message>
+        <source>Wired Network Adapter</source>
+        <translation type="vanished">有线网卡</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <source>Add Network Connection</source>
+        <translation type="vanished">添加网络设置</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
+    </message>
+    <message>
+        <source>Select Settings</source>
+        <translation type="vanished">选择设置</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessPage</name>
+    <message>
+        <source>Connect to hidden network</source>
+        <translation type="vanished">连接到隐藏网络</translation>
+    </message>
+    <message>
+        <source>Wireless Network Adapter</source>
+        <translation type="vanished">无线网卡</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
+    </message>
+    <message>
+        <source>Close Hotspot</source>
+        <translation type="vanished">关闭热点</translation>
+    </message>
+    <message>
+        <source>Disable hotspot first if you want to connect to a wireless network</source>
+        <translation type="vanished">若要连接并使用无线网络功能，请先关闭热点分享</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::network::WirelessSection</name>
+    <message>
+        <source>WLAN</source>
+        <translation type="vanished">WLAN</translation>
+    </message>
+    <message>
+        <source>Not Bind</source>
+        <translation type="vanished">不指定设备</translation>
+    </message>
+    <message>
+        <source>SSID</source>
+        <translation type="vanished">SSID</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation type="vanished">必填</translation>
+    </message>
+    <message>
+        <source>Device MAC Addr</source>
+        <translation type="vanished">设备MAC地址</translation>
+    </message>
+    <message>
+        <source>Customize MTU</source>
+        <translation type="vanished">自定义MTU</translation>
+    </message>
+    <message>
+        <source>MTU</source>
+        <translation type="vanished">MTU</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::AppNotifyWidget</name>
+    <message>
+        <source>Show notifications from %1 on desktop and in the notification center.</source>
+        <translation type="vanished">允许来自%1的通知，可在屏幕中显示消息横幅，也可在通知中心查看历史未读消息。</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation type="vanished">通知时提示声音</translation>
+    </message>
+    <message>
+        <source>Show messages on lockscreen</source>
+        <translation type="vanished">锁屏时显示消息</translation>
+    </message>
+    <message>
+        <source>Show in notification center</source>
+        <translation type="vanished">在通知中心显示</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation type="vanished">显示消息预览</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::NotificationModule</name>
+    <message>
+        <source>Notification</source>
+        <translation type="vanished">通知</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::NotificationWidget</name>
+    <message>
+        <source>System Notifications</source>
+        <translation type="vanished">系统通知</translation>
+        <extra-contents_path>/notification/System Notifications</extra-contents_path>
+    </message>
+    <message>
+        <source>App Notifications</source>
+        <translation type="vanished">应用通知</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::SystemNotifyWidget</name>
+    <message>
+        <source>Show icon on Dock</source>
+        <translation type="vanished">在任务栏显示图标</translation>
+    </message>
+    <message>
+        <source>Do Not Disturb</source>
+        <translation type="vanished">勿扰模式</translation>
+        <extra-contents_path>/notification/Do Not Disturb</extra-contents_path>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation type="vanished">所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
+    </message>
+    <message>
+        <source>When the screen is locked</source>
+        <translation type="vanished">在屏幕锁屏时</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::notification::TimeSlotItem</name>
+    <message>
+        <source>From</source>
+        <translation type="vanished">从</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="vanished">到</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationFontsWidget</name>
+    <message>
+        <source>Size</source>
+        <translation type="vanished">字号</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation type="vanished">标准字体</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation type="vanished">等宽字体</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+    <message>
+        <source> (Unsupported font)</source>
+        <translation type="vanished">(不支持的字体)</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationGeneral</name>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">主题</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Accent Color</source>
+        <translation type="vanished">活动用色</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">窗口特效</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">透明度调节</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Window Minimize Effect</source>
+        <translation type="vanished">最小化时效果</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="vanished">缩放</translation>
+    </message>
+    <message>
+        <source>Magic Lamp</source>
+        <translation type="vanished">魔灯</translation>
+    </message>
+    <message>
+        <source>Rounded Corner</source>
+        <translation type="vanished">窗口圆角</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="vanished">小</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">中</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="vanished">大</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationList</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">通用</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Icon Theme</source>
+        <translation type="vanished">图标主题</translation>
+        <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Cursor Theme</source>
+        <translation type="vanished">光标主题</translation>
+        <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
+    </message>
+    <message>
+        <source>Font</source>
+        <translation type="vanished">字体</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PersonalizationModule</name>
+    <message>
+        <source>Personalization</source>
+        <translation type="vanished">个性化</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeList</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">浅色</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">深色</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">自动</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">默认</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::personalization::PerssonalizationThemeWidget</name>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">浅色</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="vanished">深色</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="vanished">自动</translation>
+        <extra-contents_path>/personalization/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="vanished">默认</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::GeneralWidget</name>
+    <message>
+        <source>Auto power saving on low battery</source>
+        <translation type="vanished">低电量时自动开启</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation type="vanished">使用电池时自动开启</translation>
+    </message>
+    <message>
+        <source>Decrease brightness</source>
+        <translation type="vanished">自动降低亮度</translation>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="vanished">待机恢复时需要密码</translation>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="vanished">唤醒显示器时需要密码</translation>
+    </message>
+    <message>
+        <source>Display capacity and remaining charging time</source>
+        <translation type="vanished">显示剩余电量及剩余充电时间</translation>
+    </message>
+    <message>
+        <source>Maximum capacity</source>
+        <translation type="vanished">最大容量</translation>
+    </message>
+    <message>
+        <source>Show battery capacity</source>
+        <translation type="vanished">显示电池电量</translation>
+    </message>
+    <message>
+        <source>Power Plans</source>
+        <translation type="vanished">性能模式</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Balanced</source>
+        <translation type="vanished">平衡模式</translation>
+    </message>
+    <message>
+        <source>High Performance</source>
+        <translation type="vanished">高性能模式</translation>
+    </message>
+    <message>
+        <source>Power Saver</source>
+        <translation type="vanished">节能模式</translation>
+    </message>
+    <message>
+        <source>Power Saving Settings</source>
+        <translation type="vanished">节能设置</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Wakeup Settings</source>
+        <translation type="vanished">唤醒设置</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Battery</source>
+        <translation type="vanished">电池</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerModule</name>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">使用电池</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="vanished">电源</translation>
+    </message>
+    <message>
+        <source>Battery low, please plug in</source>
+        <translation type="vanished">电池电量低，请连接电源</translation>
+    </message>
+    <message>
+        <source>Battery critically low</source>
+        <translation type="vanished">电池电量耗尽</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::PowerWidget</name>
+    <message>
+        <source>General</source>
+        <translation type="vanished">通用</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="vanished">使用电源</translation>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">使用电池</translation>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseBatteryWidget</name>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">关闭显示器于</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">电脑进入待机模式</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">自动锁屏</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>When pressing the power button</source>
+        <translation type="vanished">按电源按钮时</translation>
+    </message>
+    <message>
+        <source>When the lid is closed</source>
+        <translation type="vanished">笔记本合盖时</translation>
+    </message>
+    <message>
+        <source>Low Battery Notification</source>
+        <translation type="vanished">低电量通知</translation>
+    </message>
+    <message>
+        <source>Low battery level</source>
+        <translation type="vanished">低电量</translation>
+    </message>
+    <message>
+        <source>Auto suspend battery level</source>
+        <translation type="vanished">自动待机电量</translation>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">从不</translation>
+    </message>
+    <message>
+        <source>Shut down</source>
+        <translation type="vanished">关机</translation>
+        <extra-child_page>On Battery</extra-child_page>
+        <extra-contents_path>/power/On Battery</extra-contents_path>
+    </message>
+    <message>
+        <source>Suspend</source>
+        <translation type="vanished">待机</translation>
+    </message>
+    <message>
+        <source>Hibernate</source>
+        <translation type="vanished">休眠</translation>
+    </message>
+    <message>
+        <source>Turn off the monitor</source>
+        <translation type="vanished">关闭显示器</translation>
+    </message>
+    <message>
+        <source>Do nothing</source>
+        <translation type="vanished">无任何操作</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 分钟</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 分钟</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 小时</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::power::UseElectricWidget</name>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="vanished">自动锁屏</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>When pressing the power button</source>
+        <translation type="vanished">按电源按钮时</translation>
+    </message>
+    <message>
+        <source>When the lid is closed</source>
+        <translation type="vanished">笔记本合盖时</translation>
+    </message>
+    <message>
+        <source>Monitor will suspend after</source>
+        <translation type="vanished">关闭显示器于</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">电脑进入待机模式</translation>
+        <extra-child_page>Plugged In</extra-child_page>
+        <extra-contents_path>/power/Plugged In</extra-contents_path>
+    </message>
+    <message>
+        <source>Shut down</source>
+        <translation type="vanished">关机</translation>
+    </message>
+    <message>
+        <source>Suspend</source>
+        <translation type="vanished">待机</translation>
+    </message>
+    <message>
+        <source>Hibernate</source>
+        <translation type="vanished">休眠</translation>
+    </message>
+    <message>
+        <source>Turn off the monitor</source>
+        <translation type="vanished">关闭显示器</translation>
+    </message>
+    <message>
+        <source>Do nothing</source>
+        <translation type="vanished">无任何操作</translation>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="vanished">从不</translation>
+    </message>
+    <message>
+        <source>1 Minute</source>
+        <translation type="vanished">1 分钟</translation>
+    </message>
+    <message>
+        <source>%1 Minutes</source>
+        <translation type="vanished">%1 分钟</translation>
+    </message>
+    <message>
+        <source>1 Hour</source>
+        <translation type="vanished">1 小时</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::search::SearchModel</name>
+    <message>
+        <source>Server</source>
+        <translation type="vanished">服务器</translation>
+    </message>
+    <message>
+        <source>Window Effect</source>
+        <translation type="vanished">窗口特效</translation>
+    </message>
+    <message>
+        <source>Developer Mode</source>
+        <translation type="vanished">开发者模式</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="vanished">用户体验计划</translation>
+    </message>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="vanished">加入用户体验计划</translation>
+    </message>
+    <message>
+        <source>Display Scaling</source>
+        <translation type="vanished">屏幕缩放</translation>
+    </message>
+    <message>
+        <source>Night Shift</source>
+        <translation type="vanished">自动调节色温</translation>
+    </message>
+    <message>
+        <source>Auto Login</source>
+        <translation type="vanished">自动登录</translation>
+    </message>
+    <message>
+        <source>Login Without Password</source>
+        <translation type="vanished">无密码登录</translation>
+    </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="vanished">自动调节亮度</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="vanished">通用</translation>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation type="vanished">唤醒显示器时需要密码</translation>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation type="vanished">待机恢复时需要密码</translation>
+    </message>
+    <message>
+        <source>Power Saving Mode</source>
+        <translation type="vanished">节能模式</translation>
+    </message>
+    <message>
+        <source>Auto Mode Switch</source>
+        <translation type="vanished">自动切换节能模式</translation>
+    </message>
+    <message>
+        <source>Transparency</source>
+        <translation type="vanished">透明度调节</translation>
+    </message>
+    <message>
+        <source>Create PPPoE Connection</source>
+        <translation type="vanished">创建PPPoE连接</translation>
+    </message>
+    <message>
+        <source>Disable the touchpad while typing</source>
+        <translation type="vanished">输入时禁用触控板</translation>
+    </message>
+    <message>
+        <source>Disable the touchpad when inserting the mouse</source>
+        <translation type="vanished">插入鼠标时禁用触控板</translation>
+    </message>
+    <message>
+        <source>Computer will suspend after</source>
+        <translation type="vanished">电脑进入待机模式</translation>
+    </message>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">登录</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation type="vanished">使用电池时自动开启</translation>
+    </message>
+    <message>
+        <source>Touch Screen</source>
+        <translation type="vanished">触控屏</translation>
+    </message>
+    <message>
+        <source>Power Plans</source>
+        <translation type="vanished">性能模式</translation>
+    </message>
+    <message>
+        <source>Power Saving Settings</source>
+        <translation type="vanished">节能设置</translation>
+    </message>
+    <message>
+        <source>Wakeup Settings</source>
+        <translation type="vanished">唤醒设置</translation>
+    </message>
+    <message>
+        <source>Battery</source>
+        <translation type="vanished">电池</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="vanished">触控板</translation>
+    </message>
+    <message>
+        <source>TrackPoint</source>
+        <translation type="vanished">指点杆</translation>
+    </message>
+    <message>
+        <source>Personal Hotspot</source>
+        <translation type="vanished">个人热点</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="vanished">使用电池</translation>
+    </message>
+    <message>
+        <source>Wired Network</source>
+        <translation type="vanished">有线网络</translation>
+    </message>
+    <message>
+        <source>Wireless Network</source>
+        <translation type="vanished">无线网络</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="vanished">多屏显示模式</translation>
+    </message>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="vanished">启动菜单</translation>
+    </message>
+    <message>
+        <source>Cloud Account</source>
+        <translation type="vanished">网络帐户</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::MicrophonePage</name>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">输入</translation>
+    </message>
+    <message>
+        <source>Input Device</source>
+        <translation type="vanished">输入设备</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="vanished">启用</translation>
+    </message>
+    <message>
+        <source>Automatic Noise Suppression</source>
+        <translation type="vanished">噪音抑制</translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation type="vanished">输入音量</translation>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation type="vanished">反馈音量</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">系统音效</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundModule</name>
+    <message>
+        <source>Sound</source>
+        <translation type="vanished">声音</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SoundWidget</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">输出</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation type="vanished">输入</translation>
+        <extra-contents_path>/sound/Microphone</extra-contents_path>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="vanished">系统音效</translation>
+        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::sound::SpeakerPage</name>
+    <message>
+        <source>Output</source>
+        <translation type="vanished">输出</translation>
+    </message>
+    <message>
+        <source>Output Device</source>
+        <translation type="vanished">输出设备</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation type="vanished">启用</translation>
+    </message>
+    <message>
+        <source>Speaker</source>
+        <translation type="vanished">扬声器</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation type="vanished">输出音量</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation type="vanished">音量增强</translation>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
+        <translation type="vanished">音量大于100%时可能会导致音效失真，同时损害您的扬声器</translation>
+    </message>
+    <message>
+        <source>Left/Right Balance</source>
+        <translation type="vanished">左/右平衡</translation>
+        <extra-contents_path>/sound/Speaker</extra-contents_path>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="vanished">左</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="vanished">右</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::IndexPage</name>
+    <message>
+        <source>Auto Sync</source>
+        <translation type="vanished">自动同步配置</translation>
+    </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first</source>
+        <translation type="vanished">当前系统未激活，暂无法使用该功能</translation>
+    </message>
+    <message>
+        <source>Syncing...</source>
+        <translation type="vanished">正在同步...</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">登出</translation>
+    </message>
+    <message>
+        <source>Your WLAN password will be synced if Network Settings is turned on</source>
+        <translation type="vanished">开启网络同步会同步您的WLAN密码</translation>
+    </message>
+    <message>
+        <source>Network Settings</source>
+        <translation type="vanished">网络</translation>
+    </message>
+    <message>
+        <source>Sound Settings</source>
+        <translation type="vanished">声音</translation>
+    </message>
+    <message>
+        <source>Mouse Settings</source>
+        <translation type="vanished">鼠标</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">更新</translation>
+    </message>
+    <message>
+        <source>Dock</source>
+        <translation type="vanished">任务栏</translation>
+    </message>
+    <message>
+        <source>Launcher</source>
+        <translation type="vanished">启动器</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="vanished">壁纸</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation type="vanished">主题</translation>
+    </message>
+    <message>
+        <source>Power Settings</source>
+        <translation type="vanished">电源</translation>
+    </message>
+    <message>
+        <source>Last Sync: %1</source>
+        <translation type="vanished">上次同步时间：%1</translation>
+    </message>
+    <message>
+        <source>yyyy-MM-dd hh:mm</source>
+        <translation type="vanished">yyyy-MM-dd hh:mm</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">登录</translation>
+        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>After signing in, you can use cloud sync, app store, email client, browser and other cloud services.</source>
+        <translation type="vanished">登录后，您可以使用云同步、商店、邮件客户端、浏览器等相关云服务功能。</translation>
+    </message>
+    <message>
+        <source>Deepin ID Sign In</source>
+        <translation type="vanished">Deepin ID登录</translation>
+    </message>
+    <message>
+        <source>Union ID Sign In</source>
+        <translation type="vanished">Union ID 登录</translation>
+    </message>
+    <message>
+        <source>Only supported in Mainland China at present</source>
+        <translation type="vanished">目前仅支持中国大陆地区</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">非常抱歉，您所在的地区暂未开通此项服务，我们在努力开发中，敬请期待！</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">登出</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::sync::SyncModule</name>
+    <message>
+        <source>Deepin ID</source>
+        <translation type="vanished">Deepin ID</translation>
+    </message>
+    <message>
+        <source>Union ID</source>
+        <translation type="vanished">Union ID</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::ManualBackup</name>
+    <message>
+        <source>Back Up</source>
+        <translation type="vanished">开始备份</translation>
+    </message>
+    <message>
+        <source>Backup Type</source>
+        <translation type="vanished">备份模式</translation>
+    </message>
+    <message>
+        <source>Save to</source>
+        <translation type="vanished">保存路径</translation>
+    </message>
+    <message>
+        <source>Full Backup</source>
+        <translation type="vanished">全盘备份</translation>
+    </message>
+    <message>
+        <source>System Backup</source>
+        <translation type="vanished">系统备份</translation>
+    </message>
+    <message>
+        <source>Applying changes to your system...</source>
+        <translation type="vanished">正在配置中...</translation>
+    </message>
+    <message>
+        <source>The storage location cannot be in source disk, please reselect</source>
+        <translation type="vanished">存储位置不能在您要备份的磁盘内，请重新选择</translation>
+    </message>
+    <message>
+        <source>Invalid path</source>
+        <translation type="vanished">此路径无效</translation>
+    </message>
+    <message>
+        <source>Insufficient disk space</source>
+        <translation type="vanished">磁盘空间不足</translation>
+    </message>
+    <message>
+        <source>The file system is not supported for backup</source>
+        <translation type="vanished">该存储介质的文件系统不支持备份</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::ManualRestore</name>
+    <message>
+        <source>Restore Now</source>
+        <translation type="vanished">开始还原</translation>
+    </message>
+    <message>
+        <source>Keep personal files and apps</source>
+        <translation type="vanished">保留个人数据</translation>
+    </message>
+    <message>
+        <source>Reset to factory settings</source>
+        <translation type="vanished">恢复出厂设置</translation>
+    </message>
+    <message>
+        <source>Backup directory</source>
+        <translation type="vanished">选择备份文件</translation>
+    </message>
+    <message>
+        <source>Restore from backup files</source>
+        <translation type="vanished">自定义恢复</translation>
+    </message>
+    <message>
+        <source>Applying changes to your system...</source>
+        <translation type="vanished">正在配置中...</translation>
+    </message>
+    <message>
+        <source>Backup file is invalid</source>
+        <translation type="vanished">备份文件无效</translation>
+    </message>
+    <message>
+        <source>Invalid path</source>
+        <translation type="vanished">此路径无效</translation>
+    </message>
+    <message>
+        <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
+        <translation type="vanished">还原所有设置会将系统盘恢复到您安装系统时的状态，您的数据将保留而用户名和密码会清空，请确认后操作</translation>
+    </message>
+    <message>
+        <source>It will reinstall the system and clear all user data, which is highly risky, please confirm before proceeding</source>
+        <translation type="vanished">还原所有数据和设置会彻底抹掉您的所有数据，系统会被重新安装，并清空所有用户数据。此操作非常危险，请确认后再操作</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="vanished">取消</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="vanished">确定</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::NativeInfoWidget</name>
+    <message>
+        <source>OS Name:</source>
+        <translation type="vanished">产品名称：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Version:</source>
+        <translation type="vanished">版本号：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition:</source>
+        <translation type="vanished">版本：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Type:</source>
+        <translation type="vanished">类型：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation type="vanished">版本授权</translation>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation type="vanished">待激活</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation type="vanished">激活</translation>
+    </message>
+    <message>
+        <source>Kernel:</source>
+        <translation type="vanished">内核版本：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Processor:</source>
+        <translation type="vanished">处理器：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Memory:</source>
+        <translation type="vanished">内存：</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>%1-bit</source>
+        <translation type="vanished">%1位</translation>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation type="vanished">已激活</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation type="vanished">查看</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation type="vanished">已过期</translation>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation type="vanished">试用期</translation>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation type="vanished">试用期过期</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoModule</name>
+    <message>
+        <source>System Info</source>
+        <translation type="vanished">系统信息</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemInfoWidget</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="vanished">关于本机</translation>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <source>Edition License</source>
+        <translation type="vanished">版本协议</translation>
+        <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="vanished">最终用户许可协议</translation>
+        <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
+    </message>
+    <message>
+        <source>Backup and Restore</source>
+        <translation type="vanished">备份/还原</translation>
+        <extra-contents_path>/systeminfo/Backup and Restore</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::SystemRestore</name>
+    <message>
+        <source>Backup</source>
+        <translation type="vanished">备份</translation>
+    </message>
+    <message>
+        <source>Restore</source>
+        <translation type="vanished">还原</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::unionid::IndexPage</name>
+    <message>
+        <source>Modify Password</source>
+        <translation type="vanished">修改密码</translation>
+    </message>
+    <message>
+        <source>Change Avatar</source>
+        <translation type="vanished">修改头像</translation>
+    </message>
+    <message>
+        <source>User Center</source>
+        <translation type="vanished">用户中心</translation>
+    </message>
+    <message>
+        <source>Sign Out</source>
+        <translation type="vanished">登出</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::unionid::LoginPage</name>
+    <message>
+        <source>Sign In</source>
+        <translation type="vanished">登录</translation>
+        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
+    </message>
+    <message>
+        <source>After signing in, all system features related with Union ID will be available.
+Visit User Center and manage your account there.</source>
+        <translation type="vanished">登录后，系统内需要使用Union ID的功能都将处于登录状态。
+您可以在这里快速访问用户中心并管理您的登录状态。</translation>
+    </message>
+    <message>
+        <source>Union ID Sign In</source>
+        <translation type="vanished">Union ID 登录</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::unionid::LogoutPage</name>
+    <message>
+        <source>Sorry, it is not supported in your region at present, and will be coming soon</source>
+        <translation type="vanished">非常抱歉，您所在的地区暂未开通此项服务，我们在努力开发中，敬请期待！</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::unionid::UnionidModule</name>
+    <message>
+        <source>Union ID</source>
+        <translation type="vanished">Union ID</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::unionid::UnionidWidget</name>
+    <message>
+        <source>Learn about %1 and %2</source>
+        <translation type="vanished">了解%1和%2</translation>
+    </message>
+    <message>
+        <source>Union ID Service Agreement</source>
+        <translation type="vanished">《统信账号使用协议》</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="vanished">《隐私政策》</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorSourceItem</name>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">未检测</translation>
+    </message>
+    <message>
+        <source>Timeout</source>
+        <translation type="vanished">超时</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation type="vanished">慢</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="vanished">中</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation type="vanished">快</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::MirrorsWidget</name>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">镜像源列表</translation>
+    </message>
+    <message>
+        <source>Test Speed</source>
+        <translation type="vanished">测速</translation>
+    </message>
+    <message>
+        <source>Untested</source>
+        <translation type="vanished">未检测</translation>
+    </message>
+    <message>
+        <source>Retest</source>
+        <translation type="vanished">重新测速</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateCtrlWidget</name>
+    <message>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation type="vanished">为了您能够正常的使用系统和应用，更新后请重新启动</translation>
+    </message>
+    <message>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="vanished">网络断开，请联网后重试</translation>
+    </message>
+    <message>
+        <source>Your system is not authorized, please activate first</source>
+        <translation type="vanished">当前系统未授权，请激活后再更新</translation>
+    </message>
+    <message>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation type="vanished">本次更新可能会用时较长，更新完成前请不要关机或重启</translation>
+    </message>
+    <message>
+        <source>Check Again</source>
+        <translation type="vanished">重新检查更新</translation>
+    </message>
+    <message>
+        <source>Last checking time: </source>
+        <translation type="vanished">上次检查更新时间：</translation>
+    </message>
+    <message>
+        <source>Your system is up to date</source>
+        <translation type="vanished">您的系统已经是最新的</translation>
+    </message>
+    <message>
+        <source>Check for Updates</source>
+        <translation type="vanished">检查更新</translation>
+    </message>
+    <message>
+        <source>Checking for updates, please wait...</source>
+        <translation type="vanished">检查更新中，请稍候...</translation>
+    </message>
+    <message>
+        <source>Download and install updates</source>
+        <translation type="vanished">下载并安装更新</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation type="vanished">已下载%1%（点击暂停）</translation>
+    </message>
+    <message>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation type="vanished">已下载%1%（点击继续）</translation>
+    </message>
+    <message>
+        <source>Install updates</source>
+        <translation type="vanished">安装更新</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Updating, please wait...</source>
+        <translation type="vanished">正在更新，请稍候...</translation>
+    </message>
+    <message>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="vanished">您已安装最新版本，重启生效！</translation>
+    </message>
+    <message>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="vanished">当前硬盘空间不足，无法进行系统更新</translation>
+    </message>
+    <message>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="vanished">依赖错误，检测更新失败</translation>
+    </message>
+    <message>
+        <source>Backing up, please wait...</source>
+        <translation type="vanished">正在备份，请稍候...</translation>
+    </message>
+    <message>
+        <source>System backup failed</source>
+        <translation type="vanished">系统备份失败</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n application update(s) available</source>
+        <translation type="vanished">
+            <numerusform>检测到%n个应用更新</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>New system edition available</source>
+        <translation type="vanished">检测到有新系统版本</translation>
+    </message>
+    <message numerus="yes">
+        <source>New system edition and %n application update(s) available</source>
+        <translation type="vanished">
+            <numerusform>检测到新系统版本和%n个应用更新</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Downloaded</source>
+        <translation type="vanished">已下载</translation>
+    </message>
+    <message>
+        <source>Size: %1</source>
+        <translation type="vanished">下载大小：%1</translation>
+    </message>
+    <message>
+        <source>Your battery is lower than 50%, please plug in to continue</source>
+        <translation type="vanished">您的电池电量少于50%，请插入电源后继续</translation>
+    </message>
+    <message>
+        <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
+        <translation type="vanished">请确保重启后有充足的电源，并不要关机或者拔出电源</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateHistoryButton</name>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">历史更新</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateModule</name>
+    <message>
+        <source>Updates</source>
+        <translation type="vanished">更新</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateSettings</name>
+    <message>
+        <source>Security Updates</source>
+        <translation type="vanished">检查安全更新</translation>
+    </message>
+    <message>
+        <source>System Updates</source>
+        <translation type="vanished">检查系统更新</translation>
+    </message>
+    <message>
+        <source>App Updates in App Store</source>
+        <translation type="vanished">检查应用商店的应用更新</translation>
+    </message>
+    <message>
+        <source>Updates Notification</source>
+        <translation type="vanished">更新提醒</translation>
+    </message>
+    <message>
+        <source>Download Updates</source>
+        <translation type="vanished">下载更新</translation>
+    </message>
+    <message>
+        <source>Switch it on to automatically download the updates in wireless or wired network</source>
+        <translation type="vanished">开启“自动下载更新”，会在有无线网络和有线网络的情况下自动下载</translation>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">更新设置</translation>
+    </message>
+    <message>
+        <source>Automatic Updating Settings</source>
+        <translation type="vanished">自动设置</translation>
+    </message>
+    <message>
+        <source>Check for Updates</source>
+        <translation type="vanished">检查更新</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Clear Package Cache</source>
+        <translation type="vanished">清除软件包缓存</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>System Repository Detection</source>
+        <translation type="vanished">系统源检测</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Show a notification if system update repository has been modified</source>
+        <translation type="vanished">系统更新源被修改后会弹出通知</translation>
+    </message>
+    <message>
+        <source>Smart Mirror Switch</source>
+        <translation type="vanished">智能镜像源</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Switch it on to connect to the quickest mirror site automatically</source>
+        <translation type="vanished">开启智能镜像源会自动匹配响应最快的镜像源</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Mirror List</source>
+        <translation type="vanished">镜像源列表</translation>
+        <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+</context>
+<context>
+    <name>dccV20::update::UpdateWidget</name>
+    <message>
+        <source>Updates</source>
+        <translation type="vanished">检查更新</translation>
+        <extra-contents_path>/update/Update</extra-contents_path>
+    </message>
+    <message>
+        <source>Update Settings</source>
+        <translation type="vanished">更新设置</translation>
+        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <source>Last Update</source>
+        <translation type="vanished">最近更新</translation>
+    </message>
+    <message>
+        <source>Return</source>
+        <translation type="vanished">返回</translation>
+    </message>
+    <message>
+        <source>Current Edition</source>
+        <translation type="vanished">当前版本：</translation>
+    </message>
+    <message>
+        <source>Update History</source>
+        <translation type="vanished">历史更新</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::PressureSettings</name>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="vanished">压感</translation>
+        <extra-contents_path>/wacon/Pressure Sensitivity</extra-contents_path>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="vanished">轻</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="vanished">重</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomModule</name>
+    <message>
+        <source>Drawing Tablet</source>
+        <translation type="vanished">数位板</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::wacom::WacomWidget</name>
+    <message>
+        <source>Mode</source>
+        <translation type="vanished">模式</translation>
+    </message>
+    <message>
+        <source>Pen</source>
+        <translation type="vanished">笔</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="vanished">鼠标</translation>
     </message>
 </context>
 <context>
