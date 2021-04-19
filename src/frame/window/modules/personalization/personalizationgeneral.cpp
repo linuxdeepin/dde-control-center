@@ -283,6 +283,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     auto tw = new QWidget();
     tw->setLayout(m_centralLayout);
+    m_centralLayout->setContentsMargins(0, 0, 0, 0);
     scrollArea->setWidget(tw);
 }
 

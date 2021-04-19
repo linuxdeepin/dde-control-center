@@ -134,6 +134,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addStretch();
 
     QWidget *widget = new QWidget(this);
+    widget->setContentsMargins(0, 0, 0, 0);
     widget->setLayout(m_layout);
     ContentWidget *contentWidget = new ContentWidget(this);
     contentWidget->setContent(widget);

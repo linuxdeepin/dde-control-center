@@ -65,7 +65,7 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvprofiles->setSelectionMode(QAbstractItemView::NoSelection);
     //~ contents_path /network/Personal Hotspot
-    TitleLabel *lblTitle = new TitleLabel(tr("Hotspot"));//个人热点
+    QLabel *lblTitle = new QLabel(tr("Hotspot"));//个人热点
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_hotspotSwitch = new SwitchWidget(nullptr, lblTitle);
     m_createBtn->setText(tr("Add Settings"));
@@ -75,13 +75,13 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     m_refreshActiveTimer->setSingleShot(true);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
-    centralLayout->setContentsMargins(0, 10, 0, 0);
 
-    centralLayout->addWidget(m_hotspotSwitch);
+    centralLayout->addWidget(m_hotspotSwitch, 0, Qt::AlignTop);
     centralLayout->addWidget(m_lvprofiles);
     centralLayout->addWidget(m_createBtn);
     centralLayout->addStretch();
 
+    centralLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(centralLayout);
 
     connect(m_lvprofiles, &QListView::clicked, [ = ](const QModelIndex &idx) {
@@ -261,11 +261,14 @@ HotspotPage::HotspotPage(QWidget *parent)
     m_contents = new QWidget(this);
     m_vScrollLayout = new QVBoxLayout;
     m_contents->setLayout(m_vScrollLayout);
+    m_contents->setContentsMargins(0, 0, 0, 0);
     ContentWidget *contentWidget = new ContentWidget(this);
     contentWidget->setContent(m_contents);
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(contentWidget);
     m_mainLayout->addWidget(m_newprofile, 0, Qt::AlignHCenter);
+
+    setContentsMargins(0, 0, 8, 8);
     setLayout(m_mainLayout);
 
     //~ contents_path /network/Personal Hotspot
@@ -336,6 +339,7 @@ void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> &
             connect(w, &HotspotDeviceWidget::requestDeviceRemanage, this, &HotspotPage::requestDeviceRemanage);
             w->setPage(this);
             w->setModel(m_model);
+            m_vScrollLayout->setContentsMargins(0, 0, 0, 0);
             m_vScrollLayout->addWidget(w);
             m_listdevw.append(w);
             hotspotDev++;

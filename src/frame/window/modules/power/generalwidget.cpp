@@ -231,6 +231,7 @@ void GeneralWidget::initUi()
     contentWgt->setContent(mainWgt);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(contentWgt);
+    mainLayout->setContentsMargins(0, 0, 8, 8);
     setLayout(mainLayout);
 }
 

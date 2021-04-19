@@ -59,6 +59,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     layout->setContentsMargins(0, 0, 0, 0);
 
     TitleLabel *lblTitle = new TitleLabel(tr("Sound Effects"));
+    lblTitle->setContentsMargins(0, 0, 0, 0);
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->addBackground();
@@ -76,6 +77,10 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_effectList->setFrameShape(DListView::NoFrame);
     m_effectList->setViewportMargins(0, 0, 0, 0);
     m_effectList->setItemSpacing(1);
+
+    QMargins itemMargins(m_effectList->itemMargins());
+    itemMargins.setLeft(14);
+    m_effectList->setItemMargins(itemMargins);
 
     m_layout->addWidget(m_effectList, 1);
     m_layout->addStretch();

@@ -50,7 +50,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 
     setMouseTracking(true);
     QHBoxLayout *layout = new QHBoxLayout();
-    layout->setContentsMargins(20, 2, 10, 2);
+    layout->setContentsMargins(10, 2, 10, 2);
     layout->setSpacing(2);
 
     m_title = new QLabel();

@@ -69,7 +69,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     QHBoxLayout *hlayout = new QHBoxLayout();
     hlayout->setMargin(0);
     hlayout->setSpacing(0);
-    hlayout->setContentsMargins(20, 0, 10, 0);
+    hlayout->setContentsMargins(14, 0, 10, 0);  // TODO: 设计沟通设置 14
     hlayout->addLayout(vlayout);
     hlayout->addStretch();
     hlayout->addWidget(m_clock, 0, Qt::AlignVCenter);

@@ -157,6 +157,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     mainLayout->addWidget(m_manualWidget);
     mainLayout->addWidget(m_autoWidget);
     mainLayout->addSpacing(10);
+    mainLayout->setContentsMargins(ThirdPageContentsMargins);
     mainLayout->addStretch();
 
     // 加入button布局
@@ -168,12 +169,12 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     QVBoxLayout *vLayout = new QVBoxLayout;
     vLayout->setMargin(0);
-    vLayout->setContentsMargins(ThirdPageContentsMargins);
     QVBoxLayout *btnLayout = new QVBoxLayout;
     btnLayout->setMargin(0);
     btnLayout->addWidget(m_buttonTuple);
     vLayout->addWidget(conentwidget);
     vLayout->addLayout(btnLayout);
+    setContentsMargins(0, 0, 8, 0); // 圆角
     setLayout(vLayout);
 
     // 响应系统代理开关

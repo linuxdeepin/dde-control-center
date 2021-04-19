@@ -54,6 +54,7 @@ SettingsHead::SettingsHead(QFrame *parent)
     mainLayout->addWidget(m_title);
     mainLayout->addStretch();
     mainLayout->addWidget(m_edit);
+    m_title->setContentsMargins(0, 0, 0, 0);
 
     setLayout(mainLayout);
 
