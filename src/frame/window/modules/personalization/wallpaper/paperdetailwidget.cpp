@@ -39,7 +39,7 @@ const int SettingHeight = 40;
 const int MarginWidth = 10;
 
 PaperDetailWidget::PaperDetailWidget(QWidget *parent)
-    : DWidget(parent)
+    : QDialog(parent)
     , m_curIndex(0)
     , m_previewWidget(new QWidget)
     , m_toPrevious(new PaperIconButton)

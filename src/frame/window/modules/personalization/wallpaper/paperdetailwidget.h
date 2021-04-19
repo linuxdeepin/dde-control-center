@@ -24,7 +24,7 @@
 
 #include "interface/namespace.h"
 
-#include <DWidget>
+#include <QDialog>
 #include <DPushButton>
 
 const QString WallPaperPath = "/usr/share/wallpapers/deepin/";
@@ -34,7 +34,7 @@ namespace personalization {
 
 class PaperIconButton;
 
-class PaperDetailWidget : public Dtk::Widget::DWidget
+class PaperDetailWidget : public QDialog
 {
     Q_OBJECT
 public:

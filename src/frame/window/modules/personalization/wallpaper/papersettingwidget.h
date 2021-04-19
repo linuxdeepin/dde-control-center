@@ -25,6 +25,7 @@
 #include "interface/namespace.h"
 
 #include <DWidget>
+#include <QDialog>
 
 namespace dcc {
 namespace personalization {
@@ -33,7 +34,7 @@ class PersonalizationWork;
 }
 }
 
-class QStackedLayout;
+class QVBoxLayout;
 
 namespace DCC_NAMESPACE {
 namespace personalization {
@@ -48,6 +49,7 @@ public:
     explicit PaperSettingWidget(dcc::personalization::PersonalizationWork *work
                                 , dcc::personalization::PersonalizationModel *model
                                 , Dtk::Widget::DWidget *parent = nullptr);
+    ~PaperSettingWidget();
 
 Q_SIGNALS:
     void requestExit();
@@ -61,7 +63,7 @@ private:
     void initConnect();
 
 private:
-    QStackedLayout *m_mainLayout;
+    QVBoxLayout *m_mainLayout;
     PaperDetailWidget *m_settingPage;
     WallpaperView *m_paperView;
     dcc::personalization::PersonalizationWork *m_work;

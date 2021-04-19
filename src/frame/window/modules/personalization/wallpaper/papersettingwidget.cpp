@@ -28,19 +28,17 @@
 #include <DLabel>
 
 #include <QVBoxLayout>
-#include <QStackedLayout>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::personalization;
 using namespace DCC_NAMESPACE::personalization;
 
 const int ViewIndex = 0;
-const int SettingIndex = 1;
 
 PaperSettingWidget::PaperSettingWidget(PersonalizationWork *work, PersonalizationModel *model, QWidget *parent)
     : DWidget(parent)
-    , m_mainLayout(new QStackedLayout(this))
-    , m_settingPage(new PaperDetailWidget)
+    , m_mainLayout(new QVBoxLayout(this))
+    , m_settingPage(nullptr)
     , m_work(work)
     , m_model(model)
 {
@@ -55,40 +53,54 @@ PaperSettingWidget::PaperSettingWidget(PersonalizationWork *work, Personalizatio
 
     // 壁纸列表
     m_paperView = new WallpaperView;
-    m_paperView->resetModel(m_settingPage->allWallpaperPaths(), WallPaperPath, m_model->desktopPaper(), m_model->lockPaper());
+    QStringList paths = QDir(WallPaperPath).entryList(QStringList() << "*.jpg", QDir::Files);
+    m_paperView->resetModel(paths, WallPaperPath, m_model->desktopPaper(), m_model->lockPaper());
     viewLayout->addWidget(m_paperView);
 
     m_mainLayout->setContentsMargins(0, 0, 0, 0);
     m_mainLayout->insertWidget(ViewIndex, viewPage);
-    m_mainLayout->insertWidget(SettingIndex, m_settingPage);
-    m_mainLayout->setCurrentIndex(ViewIndex);
 
     initConnect();
 }
 
+PaperSettingWidget::~PaperSettingWidget()
+{
+    if (m_settingPage)
+        delete m_settingPage;
+}
+
+
 void PaperSettingWidget::initConnect()
 {
     connect(m_paperView, &WallpaperView::clicked, this, &PaperSettingWidget::onItemClicked);
-    connect(m_settingPage, &PaperDetailWidget::cancelClicked, this, &PaperSettingWidget::onCancelClicked);
-    connect(m_settingPage, &PaperDetailWidget::requestSetDesktop, m_work, &PersonalizationWork::setDesktopWallpaper);
-    connect(m_settingPage, &PaperDetailWidget::requestSetLock, m_work, &PersonalizationWork::setLockWallpaper);
-    connect(m_settingPage, &PaperDetailWidget::finishSetWallpaper, this, &PaperSettingWidget::requestExit);
     connect(m_model, &PersonalizationModel::desktopPaperChanged, this, &PaperSettingWidget::updateView);
     connect(m_model, &PersonalizationModel::lockPaperChanged, this, &PaperSettingWidget::updateView);
 }
 
 void PaperSettingWidget::onItemClicked(const QModelIndex &index)
 {
+    if (!m_settingPage) {
+        m_settingPage = new PaperDetailWidget();
+        m_settingPage->setWindowFlags(Qt::FramelessWindowHint);
+        m_settingPage->setWindowState(Qt::WindowFullScreen);
+        connect(m_settingPage, &PaperDetailWidget::cancelClicked, this, &PaperSettingWidget::onCancelClicked);
+        connect(m_settingPage, &PaperDetailWidget::requestSetDesktop, m_work, &PersonalizationWork::setDesktopWallpaper);
+        connect(m_settingPage, &PaperDetailWidget::requestSetLock, m_work, &PersonalizationWork::setLockWallpaper);
+        connect(m_settingPage, &PaperDetailWidget::finishSetWallpaper, this, &PaperSettingWidget::requestExit);
+    }
     m_settingPage->setPixmapIndex(index.row());
-    m_mainLayout->setCurrentIndex(SettingIndex);
+    m_settingPage->show();
 }
+
 
 void PaperSettingWidget::onCancelClicked()
 {
-    m_mainLayout->setCurrentIndex(ViewIndex);
+    if (m_settingPage)
+     m_settingPage->hide();
 }
 
 void PaperSettingWidget::updateView()
 {
-    m_paperView->resetModel(m_settingPage->allWallpaperPaths(), WallPaperPath, m_model->desktopPaper(), m_model->lockPaper());
+    QStringList paths = QDir(WallPaperPath).entryList(QStringList() << "*.jpg", QDir::Files);
+    m_paperView->resetModel(paths, WallPaperPath, m_model->desktopPaper(), m_model->lockPaper());
 }
