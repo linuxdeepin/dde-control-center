@@ -105,28 +105,8 @@ int KeyboardModule::load(const QString &path)
 {
     QStringList pathList = path.split("/");
     QString loadPath = pathList.at(0);
-    int hasPage = -1;
-    if (loadPath == QStringLiteral("General")) {
-        m_keyboardWidget->initSetting(0);
-        hasPage = 0;
-    } else if (loadPath == QStringLiteral("Keyboard Layout")) {
-        m_keyboardWidget->initSetting(1);
-        hasPage = 0;
-    } else if (loadPath == QStringLiteral("System Language")) {
-        m_keyboardWidget->initSetting(2);
-        hasPage = 0;
-    } else if (loadPath == QStringLiteral("Shortcuts")) {
-        if ((pathList.length() > 1) && (pathList.at(1) == QStringLiteral("Custom Shortcut"))) {
-            showShortCutSetting();
-            m_shortcutSettingWidget->showCustomShotcut();
-            hasPage = 0;
-        } else {
-            m_keyboardWidget->initSetting(3);
-            hasPage = 0;
-        }
-    }
 
-    return hasPage;
+    return m_keyboardWidget->showPath(loadPath);
 }
 
 QStringList KeyboardModule::availPage() const

@@ -132,6 +132,28 @@ void KeyboardWidget::setDefaultWidget()
     }
 }
 
+int KeyboardWidget::showPath(const QString &path)
+{
+    for (int i = 0; i < m_itemList.size(); ++i) {
+        auto menu = m_itemList[i];
+        if (tr(path.toStdString().c_str()) == menu.itemText) {
+            menu.itemSignal.invoke(this);
+            m_lastIndex = m_listviewModel->index(i, 0);
+            m_keyboardListView->setCurrentIndex(m_lastIndex);
+            return 0;
+        }
+
+        if (menu.pulgin && path == "Manage Input Methods") {
+            menu.itemSignal.invoke(menu.pulgin);
+            m_lastIndex = m_listviewModel->index(i, 0);
+            m_keyboardListView->setCurrentIndex(m_lastIndex);
+            return 0;
+        }
+    }
+
+    return -1;
+}
+
 void KeyboardWidget::onItemClick(const QModelIndex &index)
 {
     if (index == m_lastIndex) {

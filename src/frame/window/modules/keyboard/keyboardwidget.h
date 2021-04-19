@@ -61,6 +61,7 @@ public:
     ~KeyboardWidget();
     void initSetting(const int settingIndex);
     void setDefaultWidget();
+    int showPath(const QString &path);
 private:
     void init();
     void onItemClick(const QModelIndex &index);
