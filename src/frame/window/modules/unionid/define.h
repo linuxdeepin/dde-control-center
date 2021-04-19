@@ -10,6 +10,9 @@ const QColor textTiptDarkColor = QColor(121,129,144);
 const QColor buttonNormalBorderLightColor = QColor::fromRgbF(0,0,0,0.15);
 const QColor buttonHoverBorderLightColor = QColor::fromRgbF(0,0,0,0.25);
 const QColor buttonPressBorderLightColor = QColor::fromRgbF(0,0,0,0.15);
+const QColor buttonNormalBorderDarkColor = QColor::fromRgbF(255,255,255,0.15);
+const QColor buttonHoverBorderDarkColor = QColor::fromRgbF(255,255,255,0.25);
+const QColor buttonPressBorderDarkColor = QColor::fromRgbF(255,255,255,0.15);
 const QColor lineLightColor = QColor::fromRgbF(0,0,0,0.1);
 
 const QString CLIENT_ID = "388340d186f311eb983b0242ac130002";

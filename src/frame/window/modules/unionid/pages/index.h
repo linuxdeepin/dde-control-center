@@ -113,6 +113,7 @@ private:
     QLabel *m_autoSync;
     AvatarWidget *m_avatarWidget;
     QPushButton *m_quitButton;
+    QPushButton *m_modifyInfoButton;
     QString m_accessToken;
     QString m_refreshToken;
     QString m_phoneNumber;

@@ -54,6 +54,7 @@ Q_SIGNALS:
     void moduleSyncStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
     void syncIsValidChanged(bool syncIsValid);
     void licenseStateChanged(bool activation);
+    void loopFinished();
 
 private:
     bool m_syncIsValid;

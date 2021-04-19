@@ -47,6 +47,8 @@ public:
 Q_SIGNALS:
     void requestLoginUser() const;
 
+    void toTellLoopFinished();
+
 private Q_SLOT:
     void licenceDialog();
 

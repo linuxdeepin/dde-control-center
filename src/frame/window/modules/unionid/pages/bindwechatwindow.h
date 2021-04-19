@@ -22,6 +22,9 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onRequestQrCodeResult();
 
+protected:
+    void closeEvent(QCloseEvent *event);
+
 private Q_SLOTS:
     void onQrCodeStatusTimeOut();
 
@@ -40,6 +43,8 @@ private Q_SLOTS:
     void onBindAccountResult();
 
     void onUnbindAccountResult();
+
+    void onCloseReportQrCodeStatus();
 
 private:
     UQrFrame *m_qrCode;

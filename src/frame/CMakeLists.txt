@@ -483,6 +483,7 @@ set(UNIONID_FILES
    window/modules/unionid/unionidmodule.cpp
    window/modules/unionid/unionidwidget.h
    window/modules/unionid/unionidwidget.cpp
+   window/modules/unionid/notificationmanager.cpp
    window/modules/unionid/pages/index.h
    window/modules/unionid/pages/index.cpp
    window/modules/unionid/pages/login.h
@@ -498,6 +499,7 @@ set(UNIONID_FILES
    window/modules/unionid/pages/QrCode.cpp
    window/modules/unionid/pages/uqrwidget.cpp
    window/modules/unionid/pages/authenticationwindow.cpp
+   window/modules/unionid/pages/customfloatingmessage.cpp
    window/modules/unionid/define.h
 )
 # load systeminfo

@@ -88,12 +88,13 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 
     connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
 
-    onUserInfoChanged(model->userinfo());
+    //onUserInfoChanged(model->userinfo());
 }
 
 void UnionidWidget::getAccessToken(const QString &code, const QString &state)
 {
     Q_UNUSED(state)
+    m_loginPage->toTellLoopFinished();
     QNetworkReply *reply = HttpClient::instance()->getAccessToken(CLIENT_ID,code);
     connect(reply,&QNetworkReply::finished,this,&UnionidWidget::onGetAccessToken);
 }
@@ -136,8 +137,8 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 
     if (isLogind) {
 //        if (region == "CN") {
-            m_loginPage->login();
-            m_pageLayout->setCurrentWidget(m_indexPage);
+        m_pageLayout->setCurrentWidget(m_indexPage);
+        m_loginPage->login();
             qInfo() << "已登录";
 //        } else {
 //            m_pageLayout->setCurrentWidget(m_cnonlyPage);

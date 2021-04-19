@@ -94,7 +94,7 @@ QStringList UnionidModule::availPage() const
 }
 
 void UnionidModule::getAccessToken(const QString &code, const QString &state)
-{
+{ 
     m_unionidWidget->getAccessToken(code,state);
 }
 

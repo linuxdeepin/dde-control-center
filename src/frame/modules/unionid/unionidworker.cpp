@@ -22,7 +22,6 @@
 #include "unionidworker.h"
 #include "widgets/utils.h"
 
-#include <QProcess>
 #include <QDBusConnection>
 #include <QDesktopServices>
 #include <QtConcurrent>
@@ -126,6 +125,7 @@ void UnionidWorker::signInUser()
 void UnionidWorker::loginUser()
 {
     qInfo() << "loginUser";
+
     QDBusInterface interface("com.deepin.deepinid.Client",
                               "/com/deepin/deepinid/Client",
                               "com.deepin.deepinid.Client");

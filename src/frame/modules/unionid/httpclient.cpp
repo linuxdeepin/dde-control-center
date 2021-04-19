@@ -2,8 +2,8 @@
 
 Q_GLOBAL_STATIC(HttpClient, httpClient)
 
-const QString REQUEST_URL = "https://uosvip-pre.uniontech.com";
-//const QString REQUEST_URL = "http://10.4.10.104:9000";
+//const QString REQUEST_URL = "https://uosvip-pre.uniontech.com";
+const QString REQUEST_URL = "http://10.4.10.104:9000";
 
 HttpClient::HttpClient(QObject *parent) : QObject(parent)
 {
@@ -53,7 +53,7 @@ QNetworkReply *HttpClient::reportQrCodeStatus(const QString &codeId, const int &
     QJsonObject jsonRoot;
     jsonRoot.insert("codeId", codeId);
     jsonRoot.insert("scanner", scannerJson);
-
+    qInfo() << QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact);
     QNetworkRequest requset = setNetWorkRequest("/qrcode/event");
     return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }

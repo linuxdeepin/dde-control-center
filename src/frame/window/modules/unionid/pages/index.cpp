@@ -31,6 +31,7 @@
 #include "../define.h"
 #include "modules/unionid/httpclient.h"
 #include "authenticationwindow.h"
+#include "../notificationmanager.h"
 
 #include <DWarningButton>
 #include <DListView>
@@ -52,6 +53,7 @@
 #include <QSplitter>
 #include <QDesktopServices>
 #include <QDBusInterface>
+#include <QNetworkConfigurationManager>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
@@ -83,11 +85,11 @@ IndexPage::IndexPage(QWidget *parent)
     m_uidLabel->setPalette(uidLabelPa);
     m_uidLabel->setContentsMargins(0,0,0,24);
 
-    QPushButton *modifyInfoButton = new QPushButton(tr("Edit Profile"));
+    m_modifyInfoButton = new QPushButton(tr("Edit Profile"));
     newStyle *modifyInfoStyle = new newStyle(newStyle::TextRim);
     modifyInfoStyle->setTextColor(textTitleLightColor);
     modifyInfoStyle->setBorderColor(buttonNormalBorderLightColor,buttonHoverBorderLightColor,buttonPressBorderLightColor);
-    modifyInfoButton->setStyle(modifyInfoStyle);
+    m_modifyInfoButton->setStyle(modifyInfoStyle);
 
     m_wxlabel = new QLabel;
     m_wxlabel->setText(tr("Link to WeChat"));
@@ -181,7 +183,7 @@ IndexPage::IndexPage(QWidget *parent)
     areaLayout->addWidget(m_avatarWidget,0, Qt::AlignHCenter);
     areaLayout->addWidget(m_nameLabel,0, Qt::AlignHCenter);
     areaLayout->addWidget(m_uidLabel,0, Qt::AlignHCenter);
-    areaLayout->addWidget(modifyInfoButton,0, Qt::AlignHCenter);
+    areaLayout->addWidget(m_modifyInfoButton,0, Qt::AlignHCenter);
     areaLayout->addWidget(bondWXWidget, 0, Qt::AlignHCenter);
     areaLayout->addWidget(autoSyncWidget, 0, Qt::AlignHCenter);
     areaLayout->addWidget(m_syncWidget, 0, Qt::AlignHCenter);
@@ -203,7 +205,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     DFontSizeManager::instance()->bind(m_nameLabel, DFontSizeManager::T6,QFont::Medium);
     DFontSizeManager::instance()->bind(m_uidLabel, DFontSizeManager::T7,QFont::Normal);
-    DFontSizeManager::instance()->bind(modifyInfoButton, DFontSizeManager::T7,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_modifyInfoButton, DFontSizeManager::T7,QFont::Normal);
     DFontSizeManager::instance()->bind(m_wxlabel, DFontSizeManager::T6,QFont::Normal);
     DFontSizeManager::instance()->bind(m_wxNameLabel, DFontSizeManager::T6,QFont::Normal);
     DFontSizeManager::instance()->bind(m_modButton, DFontSizeManager::T6,QFont::Normal);
@@ -211,7 +213,7 @@ IndexPage::IndexPage(QWidget *parent)
     DFontSizeManager::instance()->bind(m_quitButton, DFontSizeManager::T7,QFont::Normal);
 
     connect(m_autoSyncSwitch, &DSwitchButton::checkedChanged, this, &IndexPage::onSwitchButtoncheckedChanged);
-    connect(modifyInfoButton, &QPushButton::clicked, this, &IndexPage::onModifyInfo);
+    connect(m_modifyInfoButton, &QPushButton::clicked, this, &IndexPage::onModifyInfo);
 //    connect(quitButton, &QPushButton::clicked, this, &IndexPage::requestLogout);
     connect(m_quitButton, &QPushButton::clicked, this, &IndexPage::onQuitButtonClicked);
 
@@ -310,6 +312,7 @@ void IndexPage::setUserInfo(QString usrInfo)
 
         //AT有效期
         jsonValueResult = jsonObj.value("expires_in");
+        qInfo() << "expires_in" << jsonValueResult.toInt();
         m_refreshTimer->start(jsonValueResult.toInt() * 1000);
 
         jsonValueResult = jsonObj.value("AccessToken");
@@ -409,15 +412,30 @@ void IndexPage::onModifyInfo()
 
 void IndexPage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
 {
-    QColor textTitleColor, textTipColor;
+    QColor textTitleColor, textTipColor, buttonNormalBorderColor, buttonHoverBorderColor;
 
     if (themeType == DGuiApplicationHelper::LightType) {
+        QColor color(0,0,0);
         textTitleColor = textTitleLightColor;
         textTipColor = textTipLightColor;
+        color.setAlphaF(0.15);
+        buttonNormalBorderColor = /*buttonNormalBorderLightColor*/color;
+        color.setAlphaF(0.25);
+        buttonHoverBorderColor = /*buttonHoverBorderLightColor*/color;
     } else if (themeType == DGuiApplicationHelper::DarkType){
         textTitleColor = textTitleDarkColor;
         textTipColor = textTiptDarkColor;
+        QColor color(255,255,255);
+        color.setAlphaF(0.15);
+        buttonNormalBorderColor = /*buttonNormalBorderDarkColor*/color;
+        color.setAlphaF(0.25);
+        buttonHoverBorderColor = /*buttonHoverBorderDarkColor*/color;
     }
+
+    newStyle *modifyInfoStyle = new newStyle(newStyle::TextRim);
+    modifyInfoStyle->setTextColor(textTitleDarkColor);
+    modifyInfoStyle->setBorderColor(buttonNormalBorderColor,buttonHoverBorderColor,buttonNormalBorderColor);
+    m_modifyInfoButton->setStyle(modifyInfoStyle);
 
     newStyle *quitStyle = new newStyle(newStyle::Text);
     quitStyle->setTextColor(textTipColor,textTitleColor,textTipColor);
@@ -451,8 +469,14 @@ void IndexPage::onCheckboxStateChanged(bool state, dcc::cloudsync::SyncType sync
 
 void IndexPage::onModButtonClicked()
 {
-    QNetworkReply *reply =  HttpClient::instance()->getUserInfo(m_accessToken);
-    connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetUserInfoResult);
+    QNetworkConfigurationManager *NetworkConfig = new QNetworkConfigurationManager;
+
+    if (NetworkConfig->isOnline()) {
+        QNetworkReply *reply =  HttpClient::instance()->getUserInfo(m_accessToken);
+        connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetUserInfoResult);
+    } else {
+        Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);
+    }
 }
 
 void IndexPage::onGetUserInfoResult()
@@ -493,7 +517,14 @@ void IndexPage::onGetBindAccountInfo()
             if (jsonValueResult.isObject()) {
                 jsonObj = jsonValueResult.toObject();
                 jsonValueResult = jsonObj.value("wechatNickName");
+                qInfo() << "wechatNickName" << jsonValueResult.toString();
                 m_wxNameLabel->setText(jsonValueResult.toString());
+
+                if (m_wechatunionid.isEmpty()) {
+                    m_modButton->setText(QObject::tr("Link"));
+                } else {
+                    m_modButton->setText(QObject::tr("Change"));
+                }
             }
         }
     }
@@ -537,12 +568,13 @@ void IndexPage::onRefreshAccessToken()
             m_refreshToken = jsonValueResult.toString();
 
             jsonValueResult = jsonObj.value("expires_in");
-            m_refreshTimer->start(jsonValueResult.toInt());
+            qInfo() << "expires_in" << jsonValueResult.toInt();
+            m_refreshTimer->start(jsonValueResult.toInt() * 1000);
 
             jsonValueResult = jsonObj.value("wechatunionid");
-            QString result = jsonValueResult.toString();
+            m_wechatunionid = jsonValueResult.toString();
 
-            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, result);
+            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_wechatunionid);
             connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetBindAccountInfo);
         }
     }
