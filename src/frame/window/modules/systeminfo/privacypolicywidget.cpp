@@ -58,6 +58,7 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
     label->setWordWrap(true);
     label->setTextFormat(Qt::RichText);
     label->setAlignment(Qt::AlignJustify);
+    label->setWordWrap(true);
     connect(label, &QLabel::linkActivated, this, [](const QString &link) {
         QDesktopServices::openUrl(QUrl(link));
     });
