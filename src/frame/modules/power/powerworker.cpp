@@ -199,6 +199,9 @@ void PowerWorker::setScreenBlackDelayOnBattery(const int delay)
 {
     qDebug() << "m_powerInter->setBatteryScreenBlackDelay: " << converToDelayDBus(delay);
     m_powerInter->setBatteryScreenBlackDelay(converToDelayDBus(delay));
+
+    if (DGuiApplicationHelper::isTabletEnvironment()) // 平板环境下只有使用电池二级模块，需要主动设置设置使用电源时息屏时间
+        setScreenBlackDelayOnPower(delay);
 }
 
 void PowerWorker::setSleepDelayToModelOnPower(const int delay)
