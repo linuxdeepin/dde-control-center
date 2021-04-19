@@ -14,66 +14,66 @@
 #include <QScrollArea>
 //#include <QNetworkReply>
 
-const QColor windowColor = QColor::fromRgbF(0, 0, 0, 0.1);
+const QColor windowColor = QColor::fromRgbF(0,0,0,0.1);
 BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     : DAbstractDialog(prarent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     DWindowCloseButton *closeButton = new DWindowCloseButton;
     closeButton->setFixedHeight(48);
-    closeButton->setIconSize(QSize(48, 48));
-    closeButton->setContentsMargins(0, 0, 0, 0);
-    connect(closeButton, &DWindowCloseButton::clicked, this, &BindWeChatWindow::close);
+    closeButton->setIconSize(QSize(48,48));
+    closeButton->setContentsMargins(0,0,0,0);
+    connect(closeButton,&DWindowCloseButton::clicked,this,&BindWeChatWindow::close);
 
     QHBoxLayout *titberLayout = new QHBoxLayout;
     titberLayout->addStretch();
     titberLayout->addWidget(closeButton);
-    titberLayout->setContentsMargins(0, 0, 0, 0);
+    titberLayout->setContentsMargins(0,0,0,0);
 
-    QLabel *titleLabel = new QLabel(QObject::tr("Link to WeChat"));
-    titleLabel->setContentsMargins(0, 0, 0, 72);
+    QLabel *titleLabel= new QLabel(QObject::tr("Link to WeChat"));
+    titleLabel->setContentsMargins(0,0,0,72);
 
     m_qrCode = new UQrFrame;
-    m_qrCode->setMinimumSize(QSize(176, 176));
+    m_qrCode->setMinimumSize(QSize(176,176));
     m_qrCode->showQRcodePicture("");
     m_qrCode->setWidgetType(RefreshScanCode);
-    connect(m_qrCode, &UQrFrame::refreshsignal, this, &BindWeChatWindow::onRefreshQrCode);
+    connect(m_qrCode,&UQrFrame::refreshsignal,this,&BindWeChatWindow::onRefreshQrCode);
 
     m_tipLabel = new QLabel(QObject::tr("Scan and log in by WeChat to get linked"));
-    m_tipLabel->setContentsMargins(0, 16, 0, 0);
+    m_tipLabel->setContentsMargins(0,16,0,0);
     m_tipLabel->setAlignment(Qt::AlignCenter);
 
     QVBoxLayout *qrCodeLayout = new QVBoxLayout;
-    qrCodeLayout->addWidget(m_qrCode, 0, Qt::AlignCenter);
+    qrCodeLayout->addWidget(m_qrCode,0,Qt::AlignCenter);
     qrCodeLayout->addWidget(m_tipLabel);
 
     m_qrCodeWidget = new QWidget;
     m_qrCodeWidget->setLayout(qrCodeLayout);
 
     m_avatar = new AvatarWidget;
-    m_avatar->setFixedSize(QSize(104, 104));
-    m_avatar->setAvatarPath(m_userAvatar, true);
-    m_avatar->setContentsMargins(0, 0, 0, 0);
+    m_avatar->setFixedSize(QSize(104,104));
+    m_avatar->setAvatarPath(m_userAvatar,true);
+    m_avatar->setContentsMargins(0,0,0,0);
 
     m_nameLabel = new QLabel(m_nickName);
     m_nameLabel->setAlignment(Qt::AlignCenter);
-    m_nameLabel->setContentsMargins(0, 8, 0, 0);
+    m_nameLabel->setContentsMargins(0,8,0,0);
 
     m_secTipLabel = new QLabel(QObject::tr("Linking successful"));
     m_secTipLabel->setAlignment(Qt::AlignCenter);
-    m_secTipLabel->setContentsMargins(0, 50, 0, 0);
+    m_secTipLabel->setContentsMargins(0,50,0,0);
     m_secTipLabel->setVisible(false);
 
     m_resultTipLabel = new QLabel(QObject::tr("Confirm your login on WeChat"));
     m_resultTipLabel->setAlignment(Qt::AlignCenter);
-    m_resultTipLabel->setContentsMargins(0, 0, 0, 0);
+    m_resultTipLabel->setContentsMargins(0,0,0,0);
 
     QVBoxLayout *avatarLayout = new QVBoxLayout;
-    avatarLayout->addWidget(m_avatar, 0, Qt::AlignCenter);
-    avatarLayout->addWidget(m_nameLabel, 0, Qt::AlignCenter);
-    avatarLayout->addWidget(m_secTipLabel, 0, Qt::AlignCenter);
-    avatarLayout->addWidget(m_resultTipLabel, 0, Qt::AlignCenter);
-    avatarLayout->setContentsMargins(0, 0, 0, 0);
+    avatarLayout->addWidget(m_avatar,0,Qt::AlignCenter);
+    avatarLayout->addWidget(m_nameLabel,0,Qt::AlignCenter);
+    avatarLayout->addWidget(m_secTipLabel,0,Qt::AlignCenter);
+    avatarLayout->addWidget(m_resultTipLabel,0,Qt::AlignCenter);
+    avatarLayout->setContentsMargins(0,0,0,0);
 
     m_avatarWidget = new QWidget;
     m_avatarWidget->setLayout(avatarLayout);
@@ -86,45 +86,45 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     QWidget *indexWidget = new QWidget;
     indexWidget->setLayout(m_indexLayout);
 
-    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T4, QFont::Bold);
-    DFontSizeManager::instance()->bind(m_tipLabel, DFontSizeManager::T6, QFont::Normal);
+    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T4,QFont::Bold);
+    DFontSizeManager::instance()->bind(m_tipLabel, DFontSizeManager::T6,QFont::Normal);
 
     QVBoxLayout *vlayout = new QVBoxLayout;
     vlayout->addLayout(titberLayout);
-    vlayout->addWidget(titleLabel, 0, Qt::AlignCenter);
-    vlayout->addWidget(indexWidget, 0, Qt::AlignCenter);
+    vlayout->addWidget(titleLabel,0,Qt::AlignCenter);
+    vlayout->addWidget(indexWidget,0,Qt::AlignCenter);
     vlayout->addStretch();
-    vlayout->setContentsMargins(0, 0, 0, 0);
+    vlayout->setContentsMargins(0,0,0,0);
 
     CustomWidget *mainWidget = new CustomWidget;
     mainWidget->setLayout(vlayout);
-    mainWidget->setContentsMargins(0, 0, 0, 0);
+    mainWidget->setContentsMargins(0,0,0,0);
 
     QHBoxLayout *mainLayout = new QHBoxLayout;
     mainLayout->addWidget(mainWidget);
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins(0,0,0,0);
 
     setLayout(mainLayout);
-    setMinimumSize(376, 516);
+    setMinimumSize(376,516);
     setWindowModality(Qt::ApplicationModal);
 
     m_qrCodeStatusTimer = new QTimer;
-    connect(m_qrCodeStatusTimer, &QTimer::timeout, this, &BindWeChatWindow::onQrCodeStatusTimeOut);
-    m_qrCodeStatusTimer->start(1000 * 60 * 2);
+    connect(m_qrCodeStatusTimer,&QTimer::timeout,this,&BindWeChatWindow::onQrCodeStatusTimeOut);
+    m_qrCodeStatusTimer->start(1000*60*2);
 
     m_queryTimer = new QTimer;
-    connect(m_queryTimer, &QTimer::timeout, this, &BindWeChatWindow::onQueryTimeOut);
+    connect(m_queryTimer,&QTimer::timeout,this,&BindWeChatWindow::onQueryTimeOut);
 }
 
-void BindWeChatWindow::setData(QString accessToken, QString hardwareID, QString weChatUnionId,
-                               QString userAvatar, QString nickName)
+void BindWeChatWindow::setData(QString accessToken,QString hardwareID,QString weChatUnionId,
+                               QString userAvatar,QString nickName)
 {
     m_accessToken = accessToken;
     m_hardwareID = hardwareID;
     m_weChatUnionId = weChatUnionId;
     m_userAvatar = userAvatar;
     m_nickName = nickName;
-    m_avatar->setAvatarPath(m_userAvatar, true);
+    m_avatar->setAvatarPath(m_userAvatar,true);
     m_nameLabel->setText(m_nickName);
 }
 
@@ -142,7 +142,8 @@ void BindWeChatWindow::onRequestQrCodeResult()
         QJsonValue jsonValueResult = jsonObj.value("data");
 
         qInfo() << "onRequestQrCodeResult22222" << jsonValueResult.isObject();
-        if (jsonValueResult.isObject()) {
+        if (jsonValueResult.isObject())
+        {
             QJsonObject jsonObj1 = jsonValueResult.toObject();
             jsonValueResult = jsonObj1.value("url");
             qInfo() << "url" << jsonValueResult;
@@ -150,9 +151,9 @@ void BindWeChatWindow::onRequestQrCodeResult()
             jsonValueResult = jsonObj1.value("codeId");
             m_codeId = jsonValueResult.toString();
             qInfo() << "codeId" << jsonValueResult;
-            m_qrCode->showQRcodePicture(nResult + m_codeId, QSize(158, 158), m_qrCode->size());
+            m_qrCode->showQRcodePicture(nResult + m_codeId,QSize(158,158),m_qrCode->size());
             qInfo() << "showQRcodePicture" << nResult + m_codeId;
-            m_qrCodeStatusTimer->start(1000 * 60 * 2);
+            m_qrCodeStatusTimer->start(1000*60*2);
             m_qrCode->setWidgetType(NormalScanCode);
             m_queryTimer->start(1000);
         }
@@ -164,14 +165,14 @@ void BindWeChatWindow::onRequestQrCodeResult()
 void BindWeChatWindow::onQrCodeStatusTimeOut()
 {
     m_qrCodeStatusTimer->stop();
-    m_tipLabel->setText(QObject::tr("Invalid QR code, click to refresh"));
+    m_tipLabel->setText(QObject::tr("Invalid QR code,click to refresh"));
     m_qrCode->setWidgetType(RefreshScanCode);
 }
 
 void BindWeChatWindow::onQueryTimeOut()
 {
     QNetworkReply *reply = HttpClient::instance()->getQrCodeStatus(m_codeId);
-    connect(reply, &QNetworkReply::finished, this, &BindWeChatWindow::onQrCodeStatusResult);
+    connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onQrCodeStatusResult);
 }
 
 void BindWeChatWindow::onScanSuccess()
@@ -181,8 +182,8 @@ void BindWeChatWindow::onScanSuccess()
 
 void BindWeChatWindow::onRefreshQrCode()
 {
-    QNetworkReply *reply1 = HttpClient::instance()->requestQrCode(CLIENT_ID, m_hardwareID, 3, REDIRECT_URI);
-    connect(reply1, &QNetworkReply::finished, this, &BindWeChatWindow::onRequestQrCodeResult);
+    QNetworkReply *reply1 = HttpClient::instance()->requestQrCode(CLIENT_ID,m_hardwareID,3,REDIRECT_URI);
+    connect(reply1,&QNetworkReply::finished,this,&BindWeChatWindow::onRequestQrCodeResult);
 }
 
 void BindWeChatWindow::onQrCodeStatusResult()
@@ -197,11 +198,13 @@ void BindWeChatWindow::onQrCodeStatusResult()
         QJsonObject jsonObj = jsonDoc.object();
         QJsonValue jsonValueResult = jsonObj.value("data");
 
-        if (jsonValueResult.isObject()) {
+        if (jsonValueResult.isObject())
+        {
             jsonObj = jsonValueResult.toObject();
             jsonValueResult = jsonObj.value("scanner");
 
-            if (jsonValueResult.isObject()) {
+            if (jsonValueResult.isObject())
+            {
                 jsonObj = jsonValueResult.toObject();
                 jsonValueResult = jsonObj.value("qrCodeStatus");
                 int nResult = jsonValueResult.toInt();
@@ -210,7 +213,7 @@ void BindWeChatWindow::onQrCodeStatusResult()
                     m_queryTimer->stop();
                     jsonValueResult = jsonObj.value("data");
 
-                    if (jsonValueResult.isObject()) {
+                    if (jsonValueResult.isObject()){
                         jsonObj = jsonValueResult.toObject();
                         jsonValueResult = jsonObj.value("sessionId");
                         m_sessionId = jsonValueResult.toString();
@@ -220,14 +223,14 @@ void BindWeChatWindow::onQrCodeStatusResult()
                         m_nameLabel->setText(m_nickName);
 
                         jsonValueResult = jsonObj.value("avatarUrl");
-                        m_avatar->setAvatarPath(jsonValueResult.toString(), true);
+                        m_avatar->setAvatarPath(jsonValueResult.toString(),true);
 
                         if (!m_weChatUnionId.isEmpty()) {
-                            QNetworkReply *reply = HttpClient::instance()->unbindAccount(0, 1, m_accessToken, 1, 0, m_weChatUnionId);
-                            connect(reply, &QNetworkReply::finished, this, &BindWeChatWindow::onUnbindAccountResult);
+                            QNetworkReply *reply = HttpClient::instance()->unbindAccount(0,1,m_accessToken,1,0,m_weChatUnionId);
+                            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onUnbindAccountResult);
                         } else {
-                            QNetworkReply *reply = HttpClient::instance()->bindAccount(0, 1, m_accessToken, 1, 2, m_sessionId, m_nickName);
-                            connect(reply, &QNetworkReply::finished, this, &BindWeChatWindow::onBindAccountResult);
+                            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId,m_nickName);
+                            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
                         }
                     }
                 } else if (nResult == 15) {
@@ -238,7 +241,7 @@ void BindWeChatWindow::onQrCodeStatusResult()
                     m_secTipLabel->setVisible(true);
                 } else if (nResult == 1) {
                     m_nameLabel->clear();
-                    m_avatar->setAvatarPath(":/themes/light/icons/avatar_24px.png", false);
+                    m_avatar->setAvatarPath(":/themes/light/icons/avatar_24px.png",false);
                     m_qrCodeStatusTimer->stop();
                     m_windowStatus = 1;
                     m_indexLayout->setCurrentWidget(m_avatarWidget);
@@ -292,8 +295,8 @@ void BindWeChatWindow::onBindAccountResult()
         QJsonValue jsonValueResult = jsonObj.value("msg");
 
         if (jsonValueResult == "success") {
-            QNetworkReply *reply = HttpClient::instance()->reportQrCodeStatus(m_codeId, 2, m_sessionId);
-            connect(reply, &QNetworkReply::finished, this, &BindWeChatWindow::onReportStatusResult);
+            QNetworkReply *reply = HttpClient::instance()->reportQrCodeStatus(m_codeId, 2,m_sessionId);
+            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onReportStatusResult);
         }
     }
 }
@@ -312,8 +315,8 @@ void BindWeChatWindow::onUnbindAccountResult()
         QJsonValue jsonValueResult = jsonObj.value("msg");
 
         if (jsonValueResult == "success") {
-            QNetworkReply *reply = HttpClient::instance()->bindAccount(0, 1, m_accessToken, 1, 2, m_sessionId, m_nickName);
-            connect(reply, &QNetworkReply::finished, this, &BindWeChatWindow::onBindAccountResult);
+            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId,m_nickName);
+            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
         }
     }
 }
