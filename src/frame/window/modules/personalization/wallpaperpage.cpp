@@ -108,7 +108,9 @@ WallpaperPage::WallpaperPage(QWidget *parent)
     , m_themes(new PerssonalizationThemeWidget())
     , m_fonts(new PersonalizationFontsWidget)
     , m_bgWidget(new RingColorWidget)
+    #ifndef USE_TABLET
     , m_wallpaper(new Wallpaper(this))
+    #endif
     , m_wallpaperSetting(nullptr)
 {
     // appearance
@@ -119,6 +121,7 @@ WallpaperPage::WallpaperPage(QWidget *parent)
     QVBoxLayout *centralLayout = new QVBoxLayout();
     centralLayout->addWidget(theme);
     // pictures and types
+    m_themes->setFixedHeight(268);
     m_themes->setMainLayout(new QHBoxLayout(), true);
     centralLayout->addWidget(m_themes);
 
@@ -179,11 +182,14 @@ WallpaperPage::WallpaperPage(QWidget *parent)
 
     centralLayout->addWidget(m_bgWidget);
 
+#ifndef USE_TABLET
     QLabel *wallPaperLabel = new TitleLabel(tr("Wallpaper"));
     DFontSizeManager::instance()->bind(wallPaperLabel, DFontSizeManager::T5, QFont::DemiBold);
     wallPaperLabel->setContentsMargins(20, 20, 0, 10);
     centralLayout->addWidget(wallPaperLabel);
     centralLayout->addWidget(m_wallpaper);
+    connect(m_wallpaper, &Wallpaper::requestSetWallpaper, this, &WallpaperPage::showWallpaperWidget);
+#endif
 
     QLabel *font = new TitleLabel(tr("Size"));
     font->setContentsMargins(20, 20, 0, 10);
@@ -214,8 +220,6 @@ WallpaperPage::WallpaperPage(QWidget *parent)
     auto tw = new QWidget();
     tw->setLayout(mainLayout);
     m_scrollArea->setWidget(tw);
-
-    connect(m_wallpaper, &Wallpaper::requestSetWallpaper, this, &WallpaperPage::showWallpaperWidget);
 }
 
 void WallpaperPage::setModel(dcc::personalization::PersonalizationModel *model)
@@ -223,17 +227,21 @@ void WallpaperPage::setModel(dcc::personalization::PersonalizationModel *model)
     m_model = model;
     m_themes->setModel(model->getWindowModel());
     m_fonts->setModel(model);
-    m_wallpaper->setDesktopPaperPath(m_model->desktopPaper());
-    m_wallpaper->setLockPaperPath(m_model->lockPaper());
 
     connect(model, &dcc::personalization::PersonalizationModel::onActiveColorChanged, this,
             &WallpaperPage::onActiveColorChanged);
+
+#ifndef USE_TABLET
     connect(model, &dcc::personalization::PersonalizationModel::lockPaperChanged, [ = ](const QString &wallpaper) {
         m_wallpaper->setLockPaperPath(wallpaper);
     });
     connect(model, &dcc::personalization::PersonalizationModel::desktopPaperChanged, [ = ](const QString &wallpaper) {
         m_wallpaper->setDesktopPaperPath(wallpaper);
     });
+
+    m_wallpaper->setDesktopPaperPath(m_model->desktopPaper());
+    m_wallpaper->setLockPaperPath(m_model->lockPaper());
+#endif
 
     onActiveColorChanged(model->getActiveColor());
 }
