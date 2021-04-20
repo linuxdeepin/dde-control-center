@@ -58,11 +58,10 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     QHBoxLayout *headLayout = new QHBoxLayout();
     TitleLabel *headTitle = new TitleLabel(tr("Language List"));
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
-    m_editSystemLang = new DCommandLinkButton(tr("Edit"));
+
     headLayout->addWidget(headTitle);
     headTitle->setContentsMargins(10, 0, 0, 0);
     headLayout->addStretch();
-    headLayout->addWidget(m_editSystemLang);
 
     m_langListview = new DListView();
     m_langListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -108,7 +107,6 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     if (!DGuiApplicationHelper::isTabletEnvironment()) {
         connect(addSystemLanguage, &DFloatingButton::clicked, this, &SystemLanguageWidget::onSystemLanguageAdded);
     }
-    connect(m_editSystemLang, &QPushButton::clicked, this, &SystemLanguageWidget::onEditClicked);
 
     connect(m_model, &KeyboardModel::curLocalLangChanged, this, [this](const QStringList &curLocalLang) {
         for (int i = 0; i < curLocalLang.size(); i++) {
@@ -128,7 +126,6 @@ void SystemLanguageWidget::onEditClicked()
 {
     m_bEdit = !m_bEdit;
     if (m_bEdit) {
-        m_editSystemLang->setText(tr("Done"));
         int row_count = m_langItemModel->rowCount();
         for (int i = 0; i < row_count; ++i) {
             DStandardItem *item = dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
@@ -143,12 +140,10 @@ void SystemLanguageWidget::onEditClicked()
                     m_langItemModel->removeRow(idx);
                     m_langListview->adjustSize();
                     m_langListview->update();
-                    m_editSystemLang->setVisible(m_sysLanglist.size() > 1);
                 });
             }
         }
     } else {
-        m_editSystemLang->setText(tr("Edit"));
         int row_count = m_langItemModel->rowCount();
         for (int i = 0; i < row_count; ++i) {
             DStandardItem *item = dynamic_cast<DStandardItem *>(m_langItemModel->item(i, 0));
@@ -169,7 +164,6 @@ void SystemLanguageWidget::onAddLanguage(const QString &localeLang)
     m_langListview->adjustSize();
     m_langListview->update();
     m_sysLanglist << localeLang;
-    m_editSystemLang->setVisible(m_sysLanglist.size() > 1);
 }
 
 void SystemLanguageWidget::setCurLangChecked(const QModelIndex &index)
@@ -208,5 +202,4 @@ void SystemLanguageWidget::onSetCurLang(int value)
 {
     qDebug() << "m_langListview & m_editSystemLang" << value;
     m_langListview->setEnabled(!value);
-    m_editSystemLang->setEnabled(!value);
 }

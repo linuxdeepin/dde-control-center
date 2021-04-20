@@ -65,7 +65,6 @@ private:
     QStringList m_sysLanglist;
     QStandardItemModel *m_langItemModel;
     DTK_WIDGET_NAMESPACE::DListView *m_langListview;
-    DCommandLinkButton *m_editSystemLang;
     SystemLanguageSettingWidget *m_settingWidget;
     bool m_bEdit{false};
 };
