@@ -37,6 +37,7 @@
 #include "modules/display/recognizedialog.h"
 
 #include <QApplication>
+#include <DApplicationHelper>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
@@ -491,38 +492,51 @@ void DisplayModule::showTouchRecognize()
 
 void DisplayModule::showRotate(Monitor *mon)
 {
-    RotateDialog *dialog = new RotateDialog(mon);
-    dialog->setModel(m_displayModel);
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        mon = mon ? mon : m_displayModel->primaryMonitor();
+        Q_ASSERT(mon);
 
-    connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
-    connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
+        const auto rotates = mon->rotateList();
+        const auto rotate = mon->rotate();
+        const int s = rotates.size();
+        Q_ASSERT(rotates.contains(rotate));
 
-    QMap<Monitor *, quint16> mMonitorRotate;
-    for (auto m : m_displayModel->monitorList()) {
-        mMonitorRotate.insert(m, m->rotate());
-    }
-
-    qApp->setOverrideCursor(Qt::BlankCursor);
-    if (QDialog::DialogCode::Accepted == dialog->exec()) {
-        // if monitor list size > 1 means the config file will be saved by CustomSettingDialog
-        qDebug() << "monitor size: " << m_displayModel->monitorList().size() <<
-                    ", displayMode is " << m_displayModel->displayMode();
-        if (m_displayModel->monitorList().size() == 1 || m_displayModel->displayMode() != CUSTOM_MODE) {
-            qDebug() << "m_displayWorker->saveChanges()" << "rotate:" << m_displayModel->monitorList()[0]->rotate();
-            m_displayWorker->saveChanges();
-        }
+        const quint16 nextValue = rotates[(rotates.indexOf(rotate) - 1 + s) % s];
+        m_displayWorker->setMonitorRotate(mon, nextValue);
     } else {
-        for (auto m : m_displayModel->monitorList()) {
-            if (mMonitorRotate.end() == mMonitorRotate.find(m))
-                continue;
+        RotateDialog *dialog = new RotateDialog(mon);
+        dialog->setModel(m_displayModel);
 
-            if (m->rotate() != mMonitorRotate[m]) {
-                m_displayWorker->setMonitorRotate(m, mMonitorRotate[m]);
+        connect(dialog, &RotateDialog::requestRotate, m_displayWorker, &DisplayWorker::setMonitorRotate);
+        connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
+
+        QMap<Monitor *, quint16> mMonitorRotate;
+        for (auto m : m_displayModel->monitorList()) {
+            mMonitorRotate.insert(m, m->rotate());
+        }
+
+        qApp->setOverrideCursor(Qt::BlankCursor);
+        if (QDialog::DialogCode::Accepted == dialog->exec()) {
+            // if monitor list size > 1 means the config file will be saved by CustomSettingDialog
+            qDebug() << "monitor size: " << m_displayModel->monitorList().size() <<
+                        ", displayMode is " << m_displayModel->displayMode();
+            if (m_displayModel->monitorList().size() == 1 || m_displayModel->displayMode() != CUSTOM_MODE) {
+                qDebug() << "m_displayWorker->saveChanges()" << "rotate:" << m_displayModel->monitorList()[0]->rotate();
+                m_displayWorker->saveChanges();
+            }
+        } else {
+            for (auto m : m_displayModel->monitorList()) {
+                if (mMonitorRotate.end() == mMonitorRotate.find(m))
+                    continue;
+
+                if (m->rotate() != mMonitorRotate[m]) {
+                    m_displayWorker->setMonitorRotate(m, mMonitorRotate[m]);
+                }
             }
         }
-    }
 
-    qApp->restoreOverrideCursor();
-    QCursor::setPos(m_displayWidget->getRotateBtnPos());
-    dialog->deleteLater();
+        qApp->restoreOverrideCursor();
+        QCursor::setPos(m_displayWidget->getRotateBtnPos());
+        dialog->deleteLater();
+    }
 }

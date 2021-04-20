@@ -125,13 +125,7 @@ void DisplayWidget::onMonitorListChanged()
     if ((m_isMultiScreen && mons.size() <= 1) || !m_isShowMultiscreen) {
         m_isMultiScreen = false;
         m_menuList->setModel(m_singleModel);
-
-        // 平板一期旋转屏幕按钮隐藏
-#ifdef USE_TABLET
-        m_rotate->hide();
-#else
         m_rotate->show();
-#endif
         onMenuClicked(m_menuList->model()->index(0, 0));
     } else if (!m_isMultiScreen && mons.size() > 1) {
         m_isMultiScreen = true;
