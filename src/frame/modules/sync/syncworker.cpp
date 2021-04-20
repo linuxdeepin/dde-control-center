@@ -39,9 +39,12 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &SyncModel::setUserinfo, Qt::QueuedConnection);
 
-    auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
+    auto req = m_deepinId_inter->isValid();
 
-    m_model->setSyncIsValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
+    m_model->setSyncIsValid(req && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
+    connect(m_deepinId_inter, &DeepinId::serviceValidChanged, this, [=](bool valid) {
+        m_model->setSyncIsValid(valid && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
+    });
     licenseStateChangeSlot();
 
     m_model->setUserinfo(m_deepinId_inter->userInfo());
