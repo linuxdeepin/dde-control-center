@@ -39,6 +39,8 @@
 #include <QStandardItemModel>
 #include <QDebug>
 #include <QTimer>
+#include <QAbstractItemView>
+#include <QScrollBar>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
@@ -166,7 +168,10 @@ void PersonalizationFontsWidget::setFontSize(int size)
     m_fontSizeSlider->blockSignals(true);
     m_fontSizeSlider->slider()->setValue(size);
     m_fontSizeSlider->blockSignals(false);
-    QTimer::singleShot(100,this,&PersonalizationFontsWidget::setCommboxItemFontSize);
+    QTimer::singleShot(100, this, [&, size] {
+        QList<int> FontSizeList {11, 12, 13, 14, 15, 16, 18, 20};
+        setCommboxItemFontSize(FontSizeList[size]);
+    });
 }
 
 void PersonalizationFontsWidget::setList(const QList<QJsonObject> &list, dcc::personalization::FontModel *model)
@@ -193,17 +198,22 @@ void PersonalizationFontsWidget::setList(const QList<QJsonObject> &list, dcc::pe
     onDefaultFontChanged(model->getFontName(), model);
 }
 
-void PersonalizationFontsWidget::setCommboxItemFontSize()
+void PersonalizationFontsWidget::setCommboxItemFontSize(int fontSize)
 {
     auto setCommboxSize = [=](QComboBox *cb){
         auto model = qobject_cast<QStandardItemModel *>(cb->model());
+        int maxLen = 0, itemWidth = 0;
         for (auto i = 0; i < model->rowCount(); ++i) {
             auto item = model->item(i);
             auto font = item->font();
-            auto fsize = DFontSizeManager::instance()->t7().pixelSize();
-            font.setPixelSize(fsize);
+            font.setPixelSize(fontSize);
+            QFontMetrics fm(font);
+            itemWidth = fm.width(item->text());
+            maxLen = qMax(maxLen, itemWidth);
             item->setFont(font);
         }
+        maxLen += cb->view()->verticalScrollBar()->depth() + 30;
+        cb->view()->setMinimumWidth(maxLen);
     };
 
     setCommboxSize(m_standardFontsCbBox);
