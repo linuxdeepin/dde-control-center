@@ -156,7 +156,7 @@ IndexPage::IndexPage(QWidget *parent)
     autoSyncWidget->setMinimumSize(QSize(400,56));
     autoSyncWidget->setLayout(autoSyncVlayout);
 
-    m_quitButton = new  QPushButton(tr("Sign Out >"));
+    m_quitButton = new  QPushButton(tr("Sign Out"));
     newStyle *quitStyle = new newStyle(newStyle::Text);
     quitStyle->setTextColor(textTipLightColor,textTitleLightColor,textTipLightColor);
     m_quitButton->setStyle(quitStyle);

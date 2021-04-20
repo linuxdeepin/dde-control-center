@@ -21,13 +21,13 @@ void Notificationmanager::showToast(QWidget *parent, ErrorType type)
     m_message->setIcon(EXCLAMATIONPATH);
 
     if( ErrorType::SystemError == type){
-        m_message->setMessage(QObject::tr("System error"));
+        m_message->setMessage(QObject::tr("system error"));
     }else if( ErrorType::NetworkError == type ){
         m_message->setMessage(QObject::tr("Network error"));
     }else if( ErrorType::ConnectionError == type ){
-        m_message->setMessage(QObject::tr("Connection error"));
+        m_message->setMessage(QObject::tr("connection error"));
     }else if( ErrorType::ConnectionTimeout == type ){
-        m_message->setMessage(QObject::tr("Connection timeout"));
+        m_message->setMessage(QObject::tr("connection timeout"));
     }else {
         m_message->setMessage(QObject::tr("Network error, connection timed out"));
     }

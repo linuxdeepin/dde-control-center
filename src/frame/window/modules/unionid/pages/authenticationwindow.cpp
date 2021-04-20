@@ -40,7 +40,7 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
 
     font.setPixelSize(18);
     font.setWeight(QFont::Normal);
-    QLabel *contentsLabel = new QLabel(QObject::tr("Verification your phone number"));
+    QLabel *contentsLabel = new QLabel(QObject::tr("Verify your phone number"));
     contentsLabel->setAlignment(Qt::AlignCenter);
     contentsLabel->setWordWrap(true);
     contentsLabel->setContentsMargins(0,0,0,0);

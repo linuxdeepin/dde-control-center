@@ -198,7 +198,7 @@ void BindWeChatWindow::onQrCodeStatusTimeOut()
 {
     m_qrCodeStatusTimer->stop();
     m_queryTimer->stop();
-    m_tipLabel->setText(QObject::tr("Invalid QR code,click to refresh"));
+    m_tipLabel->setText(QObject::tr("Invalid QR code, click to refresh"));
     m_qrCode->setWidgetType(RefreshScanCode);
 }
 
