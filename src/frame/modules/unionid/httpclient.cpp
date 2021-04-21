@@ -1,13 +1,21 @@
 #include "httpclient.h"
 
+#include <QFile>
+#include <DApplication>
+#include <DSysInfo>
+
 Q_GLOBAL_STATIC(HttpClient, httpClient)
 
-//const QString REQUEST_URL = "https://uosvip-pre.uniontech.com";
-const QString REQUEST_URL = "http://10.4.10.104:9000";
+DCORE_USE_NAMESPACE
+
+const QByteArray CLIENT_ID = "388340d186f311eb983b0242ac130002";
+const QString REQUEST_URL = "https://uosvip-pre.uniontech.com";
+//const QString REQUEST_URL = "http://10.4.10.104:9000";
 
 HttpClient::HttpClient(QObject *parent) : QObject(parent)
 {
     manager = new QNetworkAccessManager();
+    loadDeepinDev();
 }
 
 HttpClient *HttpClient::instance()
@@ -19,8 +27,16 @@ QNetworkRequest HttpClient::setNetWorkRequest(const QString &requestApi, QNetwor
 {
     QNetworkRequest networkRequest;
     networkRequest.setHeader(headerType, headerValue);
-    networkRequest.setUrl(REQUEST_URL + requestApi);
-    qInfo() << "NetWorkRequest" << requestApi;
+    networkRequest.setHeader(QNetworkRequest::UserAgentHeader, userAgentInfo());
+    networkRequest.setRawHeader("client_id", CLIENT_ID);
+    //    networkRequest.setRawHeader("uos_license", Utils::fileContent("/var/cache/gather/glicense.dat").toUtf8());
+
+    if(m_strDeepinHttpName.isEmpty()){
+        networkRequest.setUrl(REQUEST_URL + requestApi);
+    }else {
+        networkRequest.setUrl(m_strDeepinHttpName + requestApi);
+    }
+
     return networkRequest;
 }
 
@@ -243,4 +259,103 @@ bool HttpClient::checkJson(const QString &strJson, QJsonObject &jsonObj)
     jsonObj = jsonDoc.object();
 
     return true;
+}
+
+/*******************************************************************************
+ 1. @函数:    loadDeepinDev
+ 2. @作者:    ut000610 郁佳玮
+ 3. @日期:    2021-04-21
+ 4. @说明:    获取/etc/environment下的deepindv信息
+*******************************************************************************/
+void HttpClient::loadDeepinDev()
+{
+    QString path = "/etc/environment";
+    QFile file(path);
+
+    if(!file.open(QIODevice::ReadOnly)) {
+        qInfo()<<"Can't open the file!"<<endl;
+        return;
+    }
+
+    QStringList lstDeepinDev;
+    while(!file.atEnd()) {
+        QByteArray line = file.readLine();
+        QString strDeepinDev(line);
+        lstDeepinDev.append(strDeepinDev);
+    }
+
+    if(0 == lstDeepinDev.length())
+    {
+        qInfo()<<"have not DEEPINID_DEV group!"<<endl;
+        return;
+    }
+
+    QStringList lstDeepinDevInfo;
+    QString strFileDevName = "DEEPINID_DEV";
+    for(int i = 0; i < lstDeepinDev.length(); ++i)
+    {
+        if(lstDeepinDev[i].contains(strFileDevName))
+        {
+            lstDeepinDevInfo = lstDeepinDev[i].split("=");
+        }
+    }
+
+    if(2 != lstDeepinDevInfo.length() || lstDeepinDevInfo[1].isEmpty() || "\n" == lstDeepinDevInfo[1])
+    {
+        qInfo()<<"HttpInfo is error!"<<endl;
+        return;
+    }
+
+    m_strDeepinHttpName = lstDeepinDevInfo.at(1);
+}
+
+/*******************************************************************************
+ 1. @函数:    userAgentInfo
+ 2. @作者:    ut000610 戴正文
+ 3. @日期:    2021-04-15
+ 4. @说明:    获取UserAgent信息
+ 1）device_id /etc/machine-id 32位
+ 2）client                    应用名
+ 3) client_version            应用版本
+ 4）os-version                操作系统版本
+ 5）channel                   暂无此参数
+*******************************************************************************/
+QString HttpClient::userAgentInfo()
+{
+    QString deviceId = fileContent("/etc/machine-id");
+    QString client = qAppName();
+    QString clientVersion = "";
+    QString os = DSysInfo::uosEditionName(QLocale(QLocale::English));
+    QString osVersion = DSysInfo::minorVersion();
+
+    QString strUserAgent;
+    strUserAgent = QString("deviceId/%1 ").arg(deviceId)
+                   + QString("client/%1 ").arg(client)
+                   + QString("client_version/%1 ").arg(clientVersion)
+                   + QString("os/%1 ").arg(os)
+                   + QString("os_version/%1 ").arg(osVersion)
+                   + QString("channel/");
+    qDebug() << strUserAgent;
+
+    return strUserAgent;
+}
+
+/*******************************************************************************
+ 1. @函数:    deviceId
+ 2. @作者:    ut000610 戴正文
+ 3. @日期:    2021-04-15
+ 4. @说明:    读取文件获取文件内容
+*******************************************************************************/
+QString HttpClient::fileContent(const QString &fileName)
+{
+    QString fileData;
+    QFile file(fileName);
+    if (file.exists()) {
+        if (file.open(QFile::ReadOnly)) {
+            // 读取文件内容
+            fileData = file.readAll();
+        }
+    }
+    qDebug() << fileName << fileData;
+    return fileData.trimmed();
 }

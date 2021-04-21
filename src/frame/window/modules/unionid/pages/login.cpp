@@ -147,6 +147,12 @@ void LoginPage::login()
     onSignInButtonClicked();
 }
 
+void LoginPage::clearButtonFocus()
+{
+    m_signInButton->clearFocus();
+    m_signUpButton->clearFocus();
+}
+
 QSize LoginPage::sizeHint() const
 {
     m_signInButton->adjustSize();

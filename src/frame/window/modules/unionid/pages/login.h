@@ -47,6 +47,8 @@ public:
 
     void login();
 
+    void clearButtonFocus();
+
 Q_SIGNALS:
     void requestLoginUser() const;
 

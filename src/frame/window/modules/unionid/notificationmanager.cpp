@@ -132,15 +132,3 @@ void Notificationmanager::onRefreshAccessToken()
         m_userInfo = result;
     }
 }
-
-//void Notificationmanager::networkInfoChanged(QDBusMessage message)
-//{
-//    QList<QVariant> arguments = message.arguments();
-//    qInfo() << "networkInfo" << arguments;
-//    QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-//    QString networkInfo;
-//    QDBusArgument arg_networkInfo = changedProps.value("ActiveConnections").value<QDBusArgument>();
-//    arg_networkInfo >> networkInfo;
-//    //qInfo() << "networkInfo" << networkInfo;
-////    m_islogin = networkInfo["Username"].toString().isEmpty();
-//}

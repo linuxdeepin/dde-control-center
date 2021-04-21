@@ -45,8 +45,6 @@ public:
 
     void startRefreshToken(const QString &refreshToken,int expires_in);
 
-//public Q_SLOTS:
-//    void networkInfoChanged(QDBusMessage message);
 private Q_SLOTS:
     void onGetAccessToken();
 

@@ -145,11 +145,18 @@ public:
     bool checkJson(const QString &strJson, QJsonObject &jsonObj);
 
 private:
+    void loadDeepinDev();
+    QString userAgentInfo();
+    QString fileContent(const QString &fileName);
+
+private:
     Q_DISABLE_COPY(HttpClient)
 
     QNetworkRequest setNetWorkRequest(const QString &requestApi, QNetworkRequest::KnownHeaders headerType = QNetworkRequest::ContentTypeHeader, QVariant headerValue = "application/json");
 
     QNetworkAccessManager *manager = nullptr;
+
+    QString m_strDeepinHttpName;
 };
 
 #endif // REQUESTSERVICE_H

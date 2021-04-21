@@ -89,15 +89,8 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 //    m_cnonlyPage->setModel(model);
     m_loginPage->setMainWindow(pMainWindow);
 
-//    connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
-//    QDBusConnection::sessionBus().connect("com.deepin.daemon.Network",
-//                                          "/com/deepin/daemon/Network",
-//                                          "org.freedesktop.DBus.Properties",
-//                                          "PropertiesChanged",
-//                                          "sa{sv}as",
-//                                          Notificationmanager::instance(),
-//                                          SLOT(networkInfoChanged(QDBusMessage))
-//                                         );
+    connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
+
     qInfo() << "switchWidget(model->userinfo());";
     switchWidget(model->userinfo());
 }
@@ -145,7 +138,7 @@ void UnionidWidget::onRequestLogout()
         bool bIsSuccess = msg.arguments().takeFirst().toBool();
 
         if (bIsSuccess) {
-            m_pageLayout->setCurrentWidget(m_loginPage);
+            m_pageLayout->setCurrentWidget(m_loginPage);         
         } else {
             qInfo() << "退出登录失败";
         }
@@ -170,6 +163,7 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
     else {
 //        m_indexPage->requestLogout();
         m_pageLayout->setCurrentWidget(m_loginPage);
+        m_loginPage->clearButtonFocus();
         qInfo() << "未登录";
     }
 }
