@@ -32,7 +32,7 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 
     QFont font("NotoSansCJKsc");
     font.setPixelSize(24);
-    font.setWeight(QFont::Medium);
+    font.setWeight(QFont::DemiBold);
     QLabel *titleLabel= new QLabel(QObject::tr("Link to WeChat"));
     titleLabel->setContentsMargins(0,13,0,41);
     titleLabel->setFont(font);
@@ -68,13 +68,13 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     font.setWeight(QFont::Medium);
     m_nameLabel = new QLabel(m_nickName);
     m_nameLabel->setAlignment(Qt::AlignCenter);
-    m_nameLabel->setContentsMargins(0,8,0,0);
+    m_nameLabel->setContentsMargins(0,2,0,0);
     m_nameLabel->setFont(font);
 
     font.setWeight(QFont::Normal);
     m_secTipLabel = new QLabel(QObject::tr("Linking successful"));
     m_secTipLabel->setAlignment(Qt::AlignCenter);
-    m_secTipLabel->setContentsMargins(0,50,0,0);
+    m_secTipLabel->setContentsMargins(0,44,0,0);
     m_secTipLabel->setVisible(false);
     m_secTipLabel->setFont(font);
 

@@ -70,7 +70,7 @@ LoginPage::LoginPage(QWidget *parent)
 
     m_titleLabel = new QLabel;
     m_titleLabel->setText(tr("Sign in or sign up Union ID"));
-    m_titleLabel->setContentsMargins(24,0,0,8);
+    m_titleLabel->setContentsMargins(0,24,0,8);
     m_titleLabel->setAlignment(Qt::AlignCenter);
 
     m_tipLabel = new QLabel;
@@ -125,7 +125,7 @@ LoginPage::LoginPage(QWidget *parent)
     contentLayout->addStretch();
     contentWidget->setLayout(contentLayout);
 
-    DFontSizeManager::instance()->bind(m_titleLabel, DFontSizeManager::T4,QFont::Bold);
+    DFontSizeManager::instance()->bind(m_titleLabel, DFontSizeManager::T4,QFont::DemiBold);
     DFontSizeManager::instance()->bind(m_tipLabel, DFontSizeManager::T6,QFont::Normal);
     DFontSizeManager::instance()->bind(m_signInButton, DFontSizeManager::T6,QFont::Normal);
     DFontSizeManager::instance()->bind(m_signUpButton, DFontSizeManager::T6,QFont::Normal);

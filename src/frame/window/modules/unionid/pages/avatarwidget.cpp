@@ -21,6 +21,7 @@
 
 #include "avatarwidget.h"
 #include "modules/unionid/httpclient.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include <QVBoxLayout>
 #include <QPainter>
@@ -40,6 +41,7 @@ AvatarWidget::AvatarWidget(QWidget *parent)
 
     setLayout(mainLayout);
     setObjectName("AvatarWidget");
+    connect(this,&AvatarWidget::toTellUserAvatar,Notificationmanager::instance(),&Notificationmanager::onUserAvatar);
 }
 
 AvatarWidget::AvatarWidget(const QString &avatar, QWidget *parent)
@@ -109,6 +111,7 @@ void AvatarWidget::readAvatarFromUrl()
             m_avatar.loadFromData(result);
             m_avatar.scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
             m_avatar.setDevicePixelRatio(ratio);
+            Q_EMIT toTellUserAvatar(m_avatar);
             update();
     }
 

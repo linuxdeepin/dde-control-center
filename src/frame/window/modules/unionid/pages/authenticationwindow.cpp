@@ -33,7 +33,7 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
 
     QFont font("NotoSansCJKsc");
     font.setPixelSize(24);
-    font.setWeight(QFont::Medium);
+    font.setWeight(QFont::DemiBold);
 
     QLabel * titleLabel= new QLabel(QObject::tr("Identity Verification"));
     titleLabel->setContentsMargins(0,13,0,41);

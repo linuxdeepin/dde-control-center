@@ -1,12 +1,17 @@
 #include "notificationmanager.h"
 #include "modules/unionid/httpclient.h"
 #include "define.h"
+#include "window/modules/unionid/pages/avatarwidget.h"
 
 #include <QVariantMap>
 #include <QDBusArgument>
 #include <QNetworkReply>
+#include <QApplication>
 
 Q_GLOBAL_STATIC(Notificationmanager, NotifiManager)
+
+using namespace DCC_NAMESPACE;
+using namespace DCC_NAMESPACE::unionid;
 
 const QString EXCLAMATIONPATH = ":/themes/light/icons/exclamation_24px.svg";
 
@@ -81,6 +86,20 @@ void Notificationmanager::setNotificationStatus()
 void Notificationmanager::setUserInfo(QString usrInfo)
 {
     m_userInfo = usrInfo;
+    QByteArray byteJson = usrInfo.toLocal8Bit();
+    QJsonParseError jsonError;
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+    QJsonObject jsonObj = jsonDoc.object();
+    QJsonValue jsonValueResult = jsonObj.value("data");
+
+    if (jsonValueResult.isObject()) {
+        jsonObj = jsonValueResult.toObject();
+        jsonValueResult = jsonObj.value("avatar");
+        QString avatar = jsonValueResult.toString();
+        AvatarWidget *uavatar = new AvatarWidget;
+        uavatar->setAvatarPath(avatar);
+        uavatar->deleteLater();
+    }
 }
 
 QString Notificationmanager::getUserInfo()
@@ -106,13 +125,23 @@ void Notificationmanager::startRefreshToken(const QString &refreshToken,int expi
     m_refreshTimer->start(expires_in);
 }
 
+QPixmap Notificationmanager::getUserAvatar()
+{
+    return m_avatar;
+}
+
+void Notificationmanager::onUserAvatar(QPixmap avatar)
+{
+    m_avatar = avatar;
+}
+
 void Notificationmanager::onGetAccessToken()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
     QString result = HttpClient::instance()->checkReply(reply);
 
     if (HttpClient::instance()->solveJson(result)) {
-        m_userInfo = result;
+        setUserInfo(result);
     }
 }
 
@@ -129,6 +158,6 @@ void Notificationmanager::onRefreshAccessToken()
     reply->deleteLater();
 
     if (HttpClient::instance()->solveJson(result)) {
-        m_userInfo = result;
+        setUserInfo(result);
     }
 }

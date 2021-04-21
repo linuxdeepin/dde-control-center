@@ -70,6 +70,7 @@ public:
     ~IndexPage();
     void setModel(dcc::unionid::UnionidModel *model);
     void setUserInfo(QString usrInfo);
+    void setUserAvatar(QPixmap avatar);
 
 Q_SIGNALS:
     void requestSetAutoSync(bool enable) const;

@@ -45,6 +45,11 @@ public:
 
     void startRefreshToken(const QString &refreshToken,int expires_in);
 
+    QPixmap getUserAvatar();
+
+public Q_SLOTS:
+    void onUserAvatar(QPixmap avatar);
+
 private Q_SLOTS:
     void onGetAccessToken();
 
@@ -60,6 +65,7 @@ private:
     QTimer *m_refreshTimer;
     QString m_userInfo;
     QString m_refreshToken;
+    QPixmap m_avatar;
 };
 
 #endif // NOTIFICATIONMANAGER_H

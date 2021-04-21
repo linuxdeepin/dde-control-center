@@ -86,6 +86,7 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
     m_model = model;
     m_indexPage->setModel(model);
     m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo());
+    m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
 //    m_cnonlyPage->setModel(model);
     m_loginPage->setMainWindow(pMainWindow);
 
