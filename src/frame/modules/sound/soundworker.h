@@ -33,7 +33,7 @@
 #include <com_deepin_daemon_audio_source.h>
 #include <com_deepin_daemon_audio_meter.h>
 #include <com_deepin_daemon_soundeffect.h>
-#include <com_deepin_daemon_power.h>
+#include <com_deepin_system_systempower.h>
 
 #include "modules/moduleworker.h"
 #include "soundmodel.h"
@@ -47,8 +47,7 @@ using com::deepin::daemon::audio::Sink;
 using com::deepin::daemon::audio::Source;
 using com::deepin::daemon::audio::Meter;
 using com::deepin::daemon::SoundEffect;
-using PowerInter = com::deepin::daemon::Power;
-
+using SystemPowerInter = com::deepin::system::Power;
 class QGSettings;
 
 namespace dcc {
@@ -119,7 +118,7 @@ private:
     QList<Sink*> m_sinks;
     QList<Source*> m_sources;
     QGSettings *m_effectGsettings;
-    PowerInter *m_powerInter;
+    SystemPowerInter *m_powerInter;
 
     QTimer *m_pingTimer;
     QTimer *m_activeTimer;
