@@ -41,15 +41,27 @@ public:
 
     QString getUserInfo();
 
+    void getAccessToken(const QString &code, const QString &state);
+
+    void startRefreshToken(const QString &refreshToken,int expires_in);
+
 //public Q_SLOTS:
 //    void networkInfoChanged(QDBusMessage message);
+private Q_SLOTS:
+    void onGetAccessToken();
+
+    void onTokenTimeout();
+
+    void onRefreshAccessToken();
 
 private:
     Q_DISABLE_COPY(Notificationmanager)
     QPoint windowPosition;
     CustomFloatingMessage *m_message;
-    bool m_bIsNotificationExist;
+    bool m_bIsNotificationExist;   
+    QTimer *m_refreshTimer;
     QString m_userInfo;
+    QString m_refreshToken;
 };
 
 #endif // NOTIFICATIONMANAGER_H

@@ -446,11 +446,18 @@ void MainWindow::updateWinsize()
 
 void MainWindow::getAccessToken(const QString &code, const QString &state)
 {
-    for (auto i : m_modules) {
-        if (i.first->name() == tr(/*"unionid"*/"cloudsync")) {
-            UnionidModule *unionidModule = static_cast<UnionidModule *>(i.first);
-            unionidModule->getAccessToken(code,state);
-            break;
+    int index = m_navView->currentIndex().row();
+
+    if ("cloudsync" == m_modules.value(index).first->name()) {
+        UnionidModule *unionidModule = static_cast<UnionidModule *>(m_modules.value(index).first);
+        unionidModule->getAccessToken(code,state,true);
+    } else {
+        for (auto i : m_modules) {
+            if (i.first->name() == tr(/*"unionid"*/"cloudsync")) {
+                UnionidModule *unionidModule = static_cast<UnionidModule *>(m_modules.value(index).first);
+                unionidModule->getAccessToken(code,state,false);
+                break;
+            }
         }
     }
 }

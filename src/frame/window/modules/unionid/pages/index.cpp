@@ -226,8 +226,8 @@ IndexPage::IndexPage(QWidget *parent)
 
     connect(DGuiApplicationHelper::instance(),&DGuiApplicationHelper::themeTypeChanged,this,&IndexPage::onThemeTypeChanged);
 
-    m_refreshTimer = new QTimer;
-    connect(m_refreshTimer, &QTimer::timeout, this, &IndexPage::onTokenTimeout);
+//    m_refreshTimer = new QTimer;
+//    connect(m_refreshTimer, &QTimer::timeout, this, &IndexPage::onTokenTimeout);
 }
 
 void IndexPage::setModel(UnionidModel *model)
@@ -314,7 +314,8 @@ void IndexPage::setUserInfo(QString usrInfo)
         //AT有效期
         jsonValueResult = jsonObj.value("expires_in");
         qInfo() << "expires_in" << jsonValueResult.toInt();
-        m_refreshTimer->start(jsonValueResult.toInt() * 1000);
+        int expires_in = jsonValueResult.toInt();
+//        m_refreshTimer->start(expires_in * 1000);
 
         jsonValueResult = jsonObj.value("AccessToken");
         QString nResult = jsonValueResult.toString();
@@ -324,6 +325,8 @@ void IndexPage::setUserInfo(QString usrInfo)
         jsonValueResult = jsonObj.value("RefreshToken");
         nResult = jsonValueResult.toString();
         m_refreshToken = nResult;
+
+        Notificationmanager::instance()->startRefreshToken(m_refreshToken,expires_in * 1000);
 
         jsonValueResult = jsonObj.value("userNick");
         qInfo() << "userNick" << jsonValueResult.type();
@@ -569,8 +572,10 @@ void IndexPage::onRefreshAccessToken()
             m_refreshToken = jsonValueResult.toString();
 
             jsonValueResult = jsonObj.value("expires_in");
+            int expires_in = jsonValueResult.toInt();
             qInfo() << "expires_in" << jsonValueResult.toInt();
-            m_refreshTimer->start(jsonValueResult.toInt() * 1000);
+
+            Notificationmanager::instance()->startRefreshToken(m_refreshToken,expires_in * 1000);
 
             jsonValueResult = jsonObj.value("wechatunionid");
             m_wechatunionid = jsonValueResult.toString();

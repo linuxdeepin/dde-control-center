@@ -25,6 +25,7 @@
 #include "../../../modules/unionid/unionidmodel.h"
 #include "window/utils.h"
 #include "window/mainwindow.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
@@ -93,9 +94,13 @@ QStringList UnionidModule::availPage() const
     return sl;
 }
 
-void UnionidModule::getAccessToken(const QString &code, const QString &state)
+void UnionidModule::getAccessToken(const QString &code, const QString &state,const bool &bIsUIDWidget)
 { 
-    m_unionidWidget->getAccessToken(code,state);
+    if (bIsUIDWidget) {
+        m_unionidWidget->getAccessToken(code,state);
+    } else {
+        Notificationmanager::instance()->getAccessToken(code,state);
+    }
 }
 
 void UnionidModule::onShowPopup(QString fileName)

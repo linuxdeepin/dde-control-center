@@ -1,7 +1,10 @@
 #include "notificationmanager.h"
+#include "modules/unionid/httpclient.h"
+#include "define.h"
 
 #include <QVariantMap>
 #include <QDBusArgument>
+#include <QNetworkReply>
 
 Q_GLOBAL_STATIC(Notificationmanager, NotifiManager)
 
@@ -11,6 +14,8 @@ Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
 {
     windowPosition = QPoint();
     m_bIsNotificationExist = false;
+    m_refreshTimer = new QTimer;
+    connect(m_refreshTimer, &QTimer::timeout, this, &Notificationmanager::onTokenTimeout);
 }
 
 Notificationmanager *Notificationmanager::instance()
@@ -81,6 +86,51 @@ void Notificationmanager::setUserInfo(QString usrInfo)
 QString Notificationmanager::getUserInfo()
 {
     return m_userInfo;
+}
+
+void Notificationmanager::getAccessToken(const QString &code, const QString &state)
+{
+    Q_UNUSED(state)
+    QNetworkReply *reply = HttpClient::instance()->getAccessToken(CLIENT_ID,code);
+    connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetAccessToken);
+}
+
+void Notificationmanager::startRefreshToken(const QString &refreshToken,int expires_in)
+{
+    m_refreshToken = refreshToken;
+
+    if (m_refreshTimer->isActive()) {
+        m_refreshTimer->stop();
+    }
+
+    m_refreshTimer->start(expires_in);
+}
+
+void Notificationmanager::onGetAccessToken()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    QString result = HttpClient::instance()->checkReply(reply);
+
+    if (HttpClient::instance()->solveJson(result)) {
+        m_userInfo = result;
+    }
+}
+
+void Notificationmanager::onTokenTimeout()
+{
+    QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
+    connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onRefreshAccessToken);
+}
+
+void Notificationmanager::onRefreshAccessToken()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    QString result = HttpClient::instance()->checkReply(reply);
+    reply->deleteLater();
+
+    if (HttpClient::instance()->solveJson(result)) {
+        m_userInfo = result;
+    }
 }
 
 //void Notificationmanager::networkInfoChanged(QDBusMessage message)

@@ -101,7 +101,7 @@ private:
     DTK_WIDGET_NAMESPACE::DListView *m_listView;
     QStandardItemModel *m_listModel;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
-    QTimer *m_refreshTimer;
+//    QTimer *m_refreshTimer;
     QLabel *m_logout;
     QLabel *m_lab;
     QVBoxLayout *m_syncLayout;
