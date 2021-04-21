@@ -110,9 +110,13 @@ SystemLanguageSettingWidget::~SystemLanguageSettingWidget()
 
 void SystemLanguageSettingWidget::onSearch(const QString &text)
 {
+    m_searchModelIndex = QModelIndex();
     if (text.length() == 0) {
         m_searchStatus = false;
         m_view->setModel(m_model);
+        m_searchModel->clear();
+        delete m_searchModel;
+        m_searchModel = nullptr;
     } else {
         m_searchStatus = true;
         m_searchModel = new QStandardItemModel(this);
