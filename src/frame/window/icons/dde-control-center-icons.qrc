@@ -182,10 +182,10 @@
         <file>icons/dcc_nav_wacom_42px.png</file>
         <file>icons/dcc_nav_wacom_84px.png</file>
         <file>icons/dcc_nav_wacom_512px.png</file>
-        <file>icons/dcc_nav_unionid_42px.png</file>
-        <file>icons/dcc_nav_unionid_84px.png</file>
-        <file>icons/dcc_nav_unionid_512px.png</file>
         <file>icons/dcc_nav_commoninfo_84px.png</file>
+        <file>icons/dcc_nav_cloudsync_42px.png</file>
+        <file>icons/dcc_nav_cloudsync_84px.png</file>
+        <file>icons/dcc_nav_cloudsync_512px.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -3,6 +3,7 @@
 #include "modules/unionid/httpclient.h"
 #include "window/modules/unionid/define.h"
 #include "customwidget.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include <DTitlebar>
 #include <DFontSizeManager>
@@ -142,8 +143,12 @@ void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, Q
 
 void AuthenticationWindow::onGetCodeButtonClicked()
 {
-    QNetworkReply *reply = HttpClient::instance()->sendSmsCode(m_phoneNumber, m_accessToken);
-    connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onSendSmsCodeResult);
+    if (Notificationmanager::instance()->isOnLine()) {
+        QNetworkReply *reply = HttpClient::instance()->sendSmsCode(m_phoneNumber, m_accessToken);
+        connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onSendSmsCodeResult);
+    } else {
+        Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);
+    }
 }
 
 void AuthenticationWindow::onSendSmsCodeResult()
@@ -174,8 +179,12 @@ void AuthenticationWindow::onLineEditTextChanged(QString text)
 
 void AuthenticationWindow::onNextButtonClicked()
 {
-    QNetworkReply *reply = HttpClient::instance()->verifySmsCode(m_phoneNumber,m_lineEdit->text(), m_accessToken);
-    connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onVerifySmsCodeResult);
+    if (Notificationmanager::instance()->isOnLine()) {
+        QNetworkReply *reply = HttpClient::instance()->verifySmsCode(m_phoneNumber,m_lineEdit->text(), m_accessToken);
+        connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onVerifySmsCodeResult);
+    } else {
+        Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);
+    }
 }
 
 void AuthenticationWindow::onVerifySmsCodeResult()

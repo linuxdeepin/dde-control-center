@@ -447,7 +447,7 @@ void MainWindow::updateWinsize()
 void MainWindow::getAccessToken(const QString &code, const QString &state)
 {
     for (auto i : m_modules) {
-        if (i.first->name() == tr("unionid")) {
+        if (i.first->name() == tr(/*"unionid"*/"cloudsync")) {
             UnionidModule *unionidModule = static_cast<UnionidModule *>(i.first);
             unionidModule->getAccessToken(code,state);
             break;

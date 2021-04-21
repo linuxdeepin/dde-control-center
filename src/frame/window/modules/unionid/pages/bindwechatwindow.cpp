@@ -2,6 +2,7 @@
 #include "modules/unionid/httpclient.h"
 #include "window/modules/unionid/define.h"
 #include "customwidget.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include <DTitlebar>
 #include <DSuggestButton>
@@ -204,6 +205,11 @@ void BindWeChatWindow::onQrCodeStatusTimeOut()
 
 void BindWeChatWindow::onQueryTimeOut()
 {
+    if (!Notificationmanager::instance()->isOnLine()) {
+        Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);
+        return;
+    }
+
     QNetworkReply *reply = HttpClient::instance()->getQrCodeStatus(m_codeId);
     connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onQrCodeStatusResult);
 }
@@ -215,8 +221,12 @@ void BindWeChatWindow::onScanSuccess()
 
 void BindWeChatWindow::onRefreshQrCode()
 {
-    QNetworkReply *reply1 = HttpClient::instance()->requestQrCode(CLIENT_ID,m_hardwareID,3,REDIRECT_URI);
-    connect(reply1,&QNetworkReply::finished,this,&BindWeChatWindow::onRequestQrCodeResult);
+    if (Notificationmanager::instance()->isOnLine()) {
+        QNetworkReply *reply1 = HttpClient::instance()->requestQrCode(CLIENT_ID,m_hardwareID,3,REDIRECT_URI);
+        connect(reply1,&QNetworkReply::finished,this,&BindWeChatWindow::onRequestQrCodeResult);
+    } else {
+        Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);
+    }
 }
 
 void BindWeChatWindow::onQrCodeStatusResult()
@@ -243,9 +253,9 @@ void BindWeChatWindow::onQrCodeStatusResult()
                 jsonValueResult = jsonObj.value("qrCodeStatus");
                 int nResult = jsonValueResult.toInt();
 
-                if (nResult == 2) {
-                    m_windowStatus = 0;
+                if (nResult == Bindings) {
                     m_queryTimer->stop();
+                    m_windowStatus = 0;
                     jsonValueResult = jsonObj.value("data");
 
                     if (jsonValueResult.isObject()){
@@ -268,20 +278,17 @@ void BindWeChatWindow::onQrCodeStatusResult()
                             connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
                         }
                     }
-                } else if (nResult == 15) {
+                } else if (nResult == cancelBindings) {
                     m_windowStatus = 0;
                     m_queryTimer->stop();
                     m_indexLayout->setCurrentWidget(m_qrCodeWidget);
                     onRefreshQrCode();
                     m_secTipLabel->setVisible(true);
-                } else if (nResult == 1) {
-//                    jsonValueResult = jsonObj.value("data");
+                } else if (nResult == BeginDeal) {
+                    if (!m_qrCodeStatusTimer->isActive()) {
+                        return;
+                    }
 
-//                    if (jsonValueResult.isObject()){
-//                        jsonObj = jsonValueResult.toObject();
-//                        jsonValueResult = jsonObj.value("sessionId");
-//                        m_sessionId = jsonValueResult.toString();
-//                    }
                     m_nameLabel->clear();
                     m_avatar->setAvatarPath(":/themes/light/icons/avatar_24px.png",false);
                     m_qrCodeStatusTimer->stop();

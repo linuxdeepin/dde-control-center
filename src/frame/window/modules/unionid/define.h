@@ -29,24 +29,6 @@ enum qRStyle {
     QuestionScanCode      //扫码模糊问号
 };
 
-//登陆注册以及扫码登录状态
-enum uIState {
-    ScanLoadWidget,            //扫码登录界面
-    LoadSuccessRegistWidget,   //扫码成功已注册
-    LoadSuccessUnRegistWidget, //扫码成功未注册
-    AccountLoadWidget,         //账号登录
-    LoadingWidget,             //扫码登陆中
-    ScanLoadSuccessWidget,     //扫码登录成功
-    ScanRegisterWidget,        //扫码注册界面
-    PhoneRegistWidget,         //手机号注册界面
-    PhonePasswordWidget,       //手机密码登录界面
-    RegistSuccessWidget,       //注册成功页面
-    ScanSuccessedunVerifiedWidget, //扫码成功未验证
-    SignUpStateWidget,         //扫码成功已验证
-    SignOutWidget,             // 确认退出界面
-    InitUi = 99,                    //没有界面
-};
-
 enum ScanStatus {
     Waitscancode,       //待扫码
     BeginDeal,          //开始处理

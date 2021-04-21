@@ -25,9 +25,12 @@
 #include <QWidget>
 #include <QProcess>
 #include <DGuiApplicationHelper>
+#include <DSuggestButton>
 
 using namespace Dtk;
 using namespace Gui;
+
+DWIDGET_USE_NAMESPACE
 
 class QVBoxLayout;
 class QLabel;
@@ -47,7 +50,8 @@ public:
 Q_SIGNALS:
     void requestLoginUser() const;
 
-    void toTellLoopFinished();
+protected:
+    QSize sizeHint() const override;
 
 private Q_SLOT:
     void licenceDialog();
@@ -64,6 +68,8 @@ private:
     QLabel *m_iconLabel;
     QLabel *m_titleLabel;
     QLabel *m_tipLabel;
+    DSuggestButton *m_signInButton;
+    DSuggestButton *m_signUpButton;
     QProcess *m_licenceProcess;
     bool m_bIsLoginActived;
 };

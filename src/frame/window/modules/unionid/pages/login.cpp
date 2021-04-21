@@ -25,7 +25,6 @@
 #include <DFontSizeManager>
 #include <DTipLabel>
 #include <DSysInfo>
-#include <DSuggestButton>
 #include <DFontSizeManager>
 
 #include <QVBoxLayout>
@@ -101,22 +100,22 @@ LoginPage::LoginPage(QWidget *parent)
         m_tipLabel->setPalette(pa);
     }
 
-    DSuggestButton *signInButton = new DSuggestButton(tr("Sign In"));
-    signInButton->setMinimumSize(QSize(72,28));
-    connect(signInButton,&DSuggestButton::clicked,this,&LoginPage::onSignInButtonClicked);
+    m_signInButton = new DSuggestButton(tr("Sign In"));
+    m_signInButton->setMinimumSize(QSize(72,28));
+    connect(m_signInButton,&DSuggestButton::clicked,this,&LoginPage::onSignInButtonClicked);
 
-    DSuggestButton *signUpButton = new DSuggestButton(tr("Sign Up"));
-    signUpButton->setMinimumSize(QSize(72,28));
-    connect(signUpButton,&DSuggestButton::clicked,this,&LoginPage::onSignUpButtonClicked);
+    m_signUpButton = new DSuggestButton(tr("Sign Up"));
+    m_signUpButton->setMinimumSize(QSize(72,28));
+    connect(m_signUpButton,&DSuggestButton::clicked,this,&LoginPage::onSignUpButtonClicked);
 
     QHBoxLayout *hlayout = new QHBoxLayout;
-    hlayout->addWidget(signInButton);
-    hlayout->addSpacing(16);
-    hlayout->addWidget(signUpButton);
-    hlayout->setContentsMargins(256,0,254,0);
+    hlayout->addWidget(m_signInButton);
+    hlayout->addSpacing(14);
+    hlayout->addWidget(m_signUpButton);
+    hlayout->setContentsMargins(210,0,210,0);
 
     QWidget *contentWidget = new QWidget;
-    contentWidget->setMinimumSize(QSize(670,548));
+    contentWidget->setMinimumSize(QSize(600,548));
 
     QVBoxLayout *contentLayout = new QVBoxLayout;
     contentLayout->addWidget(m_iconLabel,0,Qt::AlignCenter);
@@ -128,8 +127,8 @@ LoginPage::LoginPage(QWidget *parent)
 
     DFontSizeManager::instance()->bind(m_titleLabel, DFontSizeManager::T4,QFont::Bold);
     DFontSizeManager::instance()->bind(m_tipLabel, DFontSizeManager::T6,QFont::Normal);
-    DFontSizeManager::instance()->bind(signInButton, DFontSizeManager::T6,QFont::Normal);
-    DFontSizeManager::instance()->bind(signUpButton, DFontSizeManager::T6,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_signInButton, DFontSizeManager::T6,QFont::Normal);
+    DFontSizeManager::instance()->bind(m_signUpButton, DFontSizeManager::T6,QFont::Normal);
 
     m_mainLayout->addWidget(contentWidget);
     m_mainLayout->setContentsMargins(0,49,0,0);;
@@ -146,6 +145,20 @@ void LoginPage::setMainWindow(MainWindow *pMainWindow)
 void LoginPage::login()
 {
     onSignInButtonClicked();
+}
+
+QSize LoginPage::sizeHint() const
+{
+    m_signInButton->adjustSize();
+    m_signUpButton->adjustSize();
+
+    if (m_signInButton->width() >= m_signUpButton->width()) {
+        m_signUpButton->setMinimumWidth(m_signInButton->width());
+    } else {
+        m_signInButton->setMinimumWidth(m_signUpButton->width());
+    }
+
+    return QWidget::sizeHint();
 }
 
 void LoginPage::licenceDialog()

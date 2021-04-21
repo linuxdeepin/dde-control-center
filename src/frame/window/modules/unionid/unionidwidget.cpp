@@ -26,6 +26,7 @@
 #include "modules/unionid/unionidmodel.h"
 #include "modules/unionid/httpclient.h"
 #include "define.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include <QVBoxLayout>
 #include <QStackedLayout>
@@ -46,6 +47,7 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     , m_indexPage(new IndexPage)
     , m_cnonlyPage(new LogoutPage)
 {
+    qInfo() << "UnionidWidget::UnionidWidget(QWidget *parent)";
     m_pageLayout->setMargin(0);
     m_pageLayout->setSpacing(0);
 
@@ -83,20 +85,40 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 {
     m_model = model;
     m_indexPage->setModel(model);
-    m_cnonlyPage->setModel(model);
+    m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo());
+//    m_cnonlyPage->setModel(model);
     m_loginPage->setMainWindow(pMainWindow);
 
-    connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
-
-    //onUserInfoChanged(model->userinfo());
+//    connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
+//    QDBusConnection::sessionBus().connect("com.deepin.daemon.Network",
+//                                          "/com/deepin/daemon/Network",
+//                                          "org.freedesktop.DBus.Properties",
+//                                          "PropertiesChanged",
+//                                          "sa{sv}as",
+//                                          Notificationmanager::instance(),
+//                                          SLOT(networkInfoChanged(QDBusMessage))
+//                                         );
+    qInfo() << "switchWidget(model->userinfo());";
+    switchWidget(model->userinfo());
 }
 
 void UnionidWidget::getAccessToken(const QString &code, const QString &state)
 {
     Q_UNUSED(state)
-    m_loginPage->toTellLoopFinished();
     QNetworkReply *reply = HttpClient::instance()->getAccessToken(CLIENT_ID,code);
     connect(reply,&QNetworkReply::finished,this,&UnionidWidget::onGetAccessToken);
+}
+
+void UnionidWidget::switchWidget(const QVariantMap &userInfo)
+{
+    const bool isLogind = !userInfo["Username"].toString().isEmpty();
+
+    if (isLogind) {
+        m_pageLayout->setCurrentWidget(m_indexPage);
+    }
+    else {
+        m_pageLayout->setCurrentWidget(m_loginPage);
+    }
 }
 
 void UnionidWidget::onGetAccessToken()
@@ -106,6 +128,7 @@ void UnionidWidget::onGetAccessToken()
 
     if (HttpClient::instance()->solveJson(result)) {
         m_indexPage->setUserInfo(result);
+        Notificationmanager::instance()->setUserInfo(result);
         m_pageLayout->setCurrentWidget(m_indexPage);
     }
 }

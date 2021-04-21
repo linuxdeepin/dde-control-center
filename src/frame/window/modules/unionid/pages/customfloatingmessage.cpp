@@ -1,4 +1,5 @@
 #include "customfloatingmessage.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include <QPainter>
 #include <QHBoxLayout>
@@ -11,9 +12,9 @@ CustomFloatingMessage::CustomFloatingMessage(MessageType type, DWidget *parent)
     m_MessageType = type;
     m_type = DGuiApplicationHelper::instance()->themeType();
 
-    m_icon = new DPushButton;
+    m_icon = new DLabel;
     m_icon->setMinimumSize(24, 24);
-    m_icon->setContentsMargins(0, 0, 4, 0);
+    m_icon->setContentsMargins(0, 0, 0, 0);
 
     m_toast = new DLabel;
     m_toast->setMinimumSize(60, 22);
@@ -35,8 +36,8 @@ CustomFloatingMessage::CustomFloatingMessage(MessageType type, DWidget *parent)
     hlayout->setContentsMargins(0, 0, 0, 0);
 
     QVBoxLayout *vlayout = new QVBoxLayout;
-    vlayout->addLayout(hlayout);
-    vlayout->setContentsMargins(16, 0, 0, 16);
+    vlayout->addLayout(hlayout,Qt::AlignCenter);
+    vlayout->setContentsMargins(0, 16, 0, 16);
 
     setLayout(vlayout);
     setMinimumSize(120, 50);
@@ -88,7 +89,14 @@ void CustomFloatingMessage::paintEvent(QPaintEvent *event)
     rect.setHeight(rect.height() - 1);
     // rect: 绘制区域  15：圆角弧度
     painter.drawRoundedRect(rect, 10, 10);
+    adjustSize();
     return QWidget::paintEvent(event);
+}
+
+void CustomFloatingMessage::closeEvent(QCloseEvent *event)
+{
+    Notificationmanager::instance()->setNotificationStatus();
+    return DWidget::closeEvent(event);
 }
 
 void CustomFloatingMessage::setMessage(const QString &error)
@@ -98,16 +106,15 @@ void CustomFloatingMessage::setMessage(const QString &error)
 
 void CustomFloatingMessage::setIcon(const QString &path)
 {
-    QIcon icon(path);
-    m_icon->setIcon(icon);
     QImage img(path);
+    img.load(path);
     m_icon->setFixedSize(img.size());
+    m_icon->setPixmap(QPixmap::fromImage(img));
 }
 
 CustomFloatingMessage::~CustomFloatingMessage()
 {
-    delete m_show;
-    delete m_toast;
+
 }
 
 void CustomFloatingMessage::CustomFloatingMessage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
@@ -122,4 +129,3 @@ void CustomFloatingMessage::onTimer()
     if(TransientType == m_MessageType)
         this->close();
 }
-

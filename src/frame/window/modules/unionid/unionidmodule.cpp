@@ -43,7 +43,7 @@ void UnionidModule::initialize()
 
 const QString UnionidModule::name() const
 {
-    return QStringLiteral("unionid");
+    return QStringLiteral(/*"unionid"*/"cloudsync");
 }
 
 const QString UnionidModule::displayName() const

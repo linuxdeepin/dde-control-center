@@ -53,7 +53,6 @@
 #include <QSplitter>
 #include <QDesktopServices>
 #include <QDBusInterface>
-#include <QNetworkConfigurationManager>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
@@ -70,6 +69,7 @@ IndexPage::IndexPage(QWidget *parent)
     , m_listView(new DListView)
     , m_listModel(new QStandardItemModel(this))
 {
+    qInfo() << "IndexPage::IndexPage(QWidget *parent)";
     m_avatarWidget = new AvatarWidget;
     m_avatarWidget->setFixedSize(80, 80);
 
@@ -189,7 +189,7 @@ IndexPage::IndexPage(QWidget *parent)
     areaLayout->addWidget(m_syncWidget, 0, Qt::AlignHCenter);
     areaLayout->addWidget(loginOutWidget, 0, Qt::AlignHCenter);
     areaLayout->addStretch();
-    areaLayout->setContentsMargins(135,24,135,42);
+    areaLayout->setContentsMargins(100,24,100,42);
 
     QWidget *areaWidget = new QWidget;
     areaWidget->setLayout(areaLayout);
@@ -199,6 +199,7 @@ IndexPage::IndexPage(QWidget *parent)
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setContentsMargins(0, 0, 0, 0);
 //    scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);//暂时没效果,最好还是加上
     scrollArea->setWidget(areaWidget);
@@ -292,8 +293,8 @@ void IndexPage::setModel(UnionidModel *model)
 //    m_listView->setVisible(model->enableSync());
     onStateChanged(model->syncState());
     LoginedIn::setModel(model);
-    connect(model, &UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
-    connect(model, &UnionidModel::enableSyncChanged, this, &IndexPage::onChecked);
+//    connect(model, &UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
+//    connect(model, &UnionidModel::enableSyncChanged, this, &IndexPage::onChecked);
 //    connect(model, &UnionidModel::enableSyncChanged, m_listView, &QListView::setVisible);
 
     onUserInfoChanged(model->userinfo());
@@ -403,6 +404,7 @@ void IndexPage::onChecked(bool bIschecked)
 void IndexPage::onSwitchButtoncheckedChanged(bool bIschecked)
 {
     m_syncWidget->setVisible(bIschecked);
+    Q_EMIT requestSetAutoSync(bIschecked);
 }
 
 void IndexPage::onModifyInfo()
@@ -469,9 +471,7 @@ void IndexPage::onCheckboxStateChanged(bool state, dcc::cloudsync::SyncType sync
 
 void IndexPage::onModButtonClicked()
 {
-    QNetworkConfigurationManager *NetworkConfig = new QNetworkConfigurationManager;
-
-    if (NetworkConfig->isOnline()) {
+    if (Notificationmanager::instance()->isOnLine()) {
         QNetworkReply *reply =  HttpClient::instance()->getUserInfo(m_accessToken);
         connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetUserInfoResult);
     } else {
@@ -553,6 +553,7 @@ void IndexPage::onRefreshAccessToken()
     reply->deleteLater();
 
     if (HttpClient::instance()->solveJson(result)) {
+        Notificationmanager::instance()->setUserInfo(result);
         QByteArray byteJson = result.toLocal8Bit();
         QJsonParseError jsonError;
         QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
@@ -588,6 +589,7 @@ void IndexPage::onTokenTimeout()
 
 IndexPage::~IndexPage()
 {
+    qInfo() << "IndexPage::~IndexPage()***********";
 }
 
 }

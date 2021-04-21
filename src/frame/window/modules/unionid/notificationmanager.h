@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QPoint>
+#include <QDBusInterface>
 
 #include <window/modules/unionid/pages/customfloatingmessage.h>
 
@@ -32,10 +33,23 @@ public:
 
     QPoint getWindowPosition() const;
 
+    bool isOnLine();
+
+    void setNotificationStatus();
+
+    void setUserInfo(QString usrInfo);
+
+    QString getUserInfo();
+
+//public Q_SLOTS:
+//    void networkInfoChanged(QDBusMessage message);
+
 private:
     Q_DISABLE_COPY(Notificationmanager)
     QPoint windowPosition;
     CustomFloatingMessage *m_message;
+    bool m_bIsNotificationExist;
+    QString m_userInfo;
 };
 
 #endif // NOTIFICATIONMANAGER_H
