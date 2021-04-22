@@ -378,9 +378,6 @@ void MainWindow::initAllModule(const QString &m)
         for (auto i : m_modules) {
             if (versionTypeList.contains((i.first->name()))) {
                 setModuleVisible(i.first, false);
-                if (i.first->name() == "cloudsync") {
-                    Q_EMIT Notificationmanager::instance()->toTellLoginUser();
-                }
             }
         }
     }
@@ -1168,7 +1165,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         m_initList << inter;
     }
     m_moduleName = inter->name();
-
+    Notificationmanager::instance()->setFirstLogin();
     setCurrModule(inter);
     inter->active();
     m_navView->resetStatus(index);

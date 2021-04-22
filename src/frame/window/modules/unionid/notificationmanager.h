@@ -6,7 +6,6 @@
 #include <QDBusInterface>
 
 #include <window/modules/unionid/pages/customfloatingmessage.h>
-#include "modules/unionid/unionidworker.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -23,8 +22,6 @@ public:
         ConnectionTimeout,
         SystemError
     };
-
-    explicit Notificationmanager(QObject *parent = nullptr);
 
     static Notificationmanager *instance();
     // toast提示
@@ -48,6 +45,10 @@ public:
 
     QPixmap getUserAvatar();
 
+    void setFirstLogin();
+
+    bool firstIsLogin();
+
 Q_SIGNALS:
     void toTellLoginUser();
 
@@ -62,9 +63,8 @@ private Q_SLOTS:
     void onRefreshAccessToken();
 
 private:
-    Q_DISABLE_COPY(Notificationmanager)
-    dcc::unionid::UnionidWorker *m_worker;
-    dcc::unionid::UnionidModel  *m_model;
+    explicit Notificationmanager(QObject *parent = nullptr);
+
     QPoint windowPosition;
     CustomFloatingMessage *m_message;
     bool m_bIsNotificationExist;   
@@ -72,6 +72,7 @@ private:
     QString m_userInfo;
     QString m_refreshToken;
     QPixmap m_avatar;
+    bool m_bIsLogin;
 };
 
 #endif // NOTIFICATIONMANAGER_H

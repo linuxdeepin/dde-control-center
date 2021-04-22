@@ -8,26 +8,28 @@
 #include <QNetworkReply>
 #include <QApplication>
 
-Q_GLOBAL_STATIC(Notificationmanager, NotifiManager)
-
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::unionid;
 
 const QString EXCLAMATIONPATH = ":/themes/light/icons/exclamation_24px.svg";
 
+static Notificationmanager *NotifiManager = nullptr;
+
 Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
 {
+    m_bIsLogin = false;
     windowPosition = QPoint();
     m_bIsNotificationExist = false;
     m_refreshTimer = new QTimer;
     connect(m_refreshTimer, &QTimer::timeout, this, &Notificationmanager::onTokenTimeout);  
-    m_model = new dcc::unionid::UnionidModel(nullptr);
-    m_worker = new dcc::unionid::UnionidWorker(m_model);
-    connect(this, &Notificationmanager::toTellLoginUser, m_worker, &dcc::unionid::UnionidWorker::loginUser);
 }
 
 Notificationmanager *Notificationmanager::instance()
 {
+    if (NotifiManager == nullptr) {
+        NotifiManager = new Notificationmanager;
+    }
+
     return NotifiManager;
 }
 
@@ -131,6 +133,21 @@ void Notificationmanager::startRefreshToken(const QString &refreshToken,int expi
 QPixmap Notificationmanager::getUserAvatar()
 {
     return m_avatar;
+}
+
+void Notificationmanager::setFirstLogin()
+{
+    m_bIsLogin = true;
+}
+
+bool Notificationmanager::firstIsLogin()
+{
+    if (m_bIsLogin) {
+        m_bIsLogin = false;
+        return true;
+    } else {
+        return m_bIsLogin;
+    }
 }
 
 void Notificationmanager::onUserAvatar(QPixmap avatar)

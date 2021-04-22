@@ -93,7 +93,12 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
     connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
 
     qInfo() << "switchWidget(model->userinfo());";
-    switchWidget(model->userinfo());
+
+    if (Notificationmanager::instance()->firstIsLogin()) {
+        onUserInfoChanged(model->userinfo());
+    } else {
+        switchWidget(model->userinfo());
+    }
 }
 
 void UnionidWidget::getAccessToken(const QString &code, const QString &state)
