@@ -19,6 +19,10 @@ const QString CLIENT_ID = "388340d186f311eb983b0242ac130002";
 const QString REDIRECT_URI = "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-managment";
 const QString SCOPES = "{base,user.api:contact,user:contact:read}";
 
+
+//默认头像
+const QString AvaterPath = ":/themes/light/icons/avatar_24px.png";
+
 //二维码状态
 enum qRStyle {
     NormalScanCode,       //正常扫码

@@ -20,7 +20,10 @@ Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
     windowPosition = QPoint();
     m_bIsNotificationExist = false;
     m_refreshTimer = new QTimer;
-    connect(m_refreshTimer, &QTimer::timeout, this, &Notificationmanager::onTokenTimeout);
+    connect(m_refreshTimer, &QTimer::timeout, this, &Notificationmanager::onTokenTimeout);  
+    m_model = new dcc::unionid::UnionidModel(nullptr);
+    m_worker = new dcc::unionid::UnionidWorker(m_model);
+    connect(this, &Notificationmanager::toTellLoginUser, m_worker, &dcc::unionid::UnionidWorker::loginUser);
 }
 
 Notificationmanager *Notificationmanager::instance()

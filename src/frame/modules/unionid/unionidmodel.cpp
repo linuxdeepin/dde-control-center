@@ -29,7 +29,6 @@ UnionidModel::UnionidModel(QObject *parent)
     , m_syncIsValid(false)
     , m_enableSync(false)
 {
-
 }
 
 void UnionidModel::setUserinfo(const QVariantMap &userinfo)

@@ -6,6 +6,7 @@
 #include <QDBusInterface>
 
 #include <window/modules/unionid/pages/customfloatingmessage.h>
+#include "modules/unionid/unionidworker.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -47,6 +48,9 @@ public:
 
     QPixmap getUserAvatar();
 
+Q_SIGNALS:
+    void toTellLoginUser();
+
 public Q_SLOTS:
     void onUserAvatar(QPixmap avatar);
 
@@ -59,6 +63,8 @@ private Q_SLOTS:
 
 private:
     Q_DISABLE_COPY(Notificationmanager)
+    dcc::unionid::UnionidWorker *m_worker;
+    dcc::unionid::UnionidModel  *m_model;
     QPoint windowPosition;
     CustomFloatingMessage *m_message;
     bool m_bIsNotificationExist;   

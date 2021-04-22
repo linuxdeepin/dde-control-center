@@ -225,15 +225,6 @@ void LoginPage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
 void LoginPage::onSignInButtonClicked()
 {
     Q_EMIT requestLoginUser();
-    m_licenceProcess = new QProcess(this);
-//    m_licenceProcess->start("dbus-send --system --print-reply=literal --dest=com.deepin.deepinid.Client /com/deepin/deepinid/Client \
-//                            com.deepin.deepinid.Client.DownloadMobileAssistant");
-//    m_licenceProcess->waitForFinished(-1);
-//    m_licenceProcess->deleteLater();
-//    m_licenceProcess = nullptr;
-//    QEventLoop loop;
-//    connect(this,SIGNAL(toTellLoopFinished),&loop,SLOT(quit()));
-//    loop.exec();
 }
 
 void LoginPage::onSignUpButtonClicked()

@@ -71,6 +71,7 @@ IndexPage::IndexPage(QWidget *parent)
 {
     m_avatarWidget = new AvatarWidget;
     m_avatarWidget->setFixedSize(80, 80);
+    m_avatarWidget->setAvatarPath(AvaterPath,false);
 
     m_nameLabel = new QLabel;
     QPalette nameLabelPa = m_nameLabel->palette();

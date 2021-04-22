@@ -83,6 +83,7 @@ void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     Q_UNUSED(pushtype);
     m_model = new dcc::unionid::UnionidModel;
     m_worker = new dcc::unionid::UnionidWorker(m_model);
+
     qInfo() << " IsServerSystem" << IsServerSystem << m_model->syncIsValid();
     m_frameProxy->setModuleVisible(this, /*m_model->syncIsValid() && !IsServerSystem && false*/true);
 }

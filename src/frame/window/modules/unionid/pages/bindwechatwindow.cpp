@@ -15,6 +15,7 @@
 #include <QScrollArea>
 //#include <QNetworkReply>
 const QColor windowColor = QColor::fromRgbF(0,0,0,0.1);
+
 BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     : DAbstractDialog(prarent)
 {
@@ -62,7 +63,7 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 
     m_avatar = new AvatarWidget;
     m_avatar->setFixedSize(QSize(104,104));
-    m_avatar->setAvatarPath(m_userAvatar,true);
+    m_avatar->setAvatarPath(AvaterPath,false);
     m_avatar->setContentsMargins(0,0,0,0);
 
     font.setWeight(QFont::Medium);

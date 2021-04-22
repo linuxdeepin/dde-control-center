@@ -46,6 +46,7 @@
 #include "dtitlebar.h"
 #include "utils.h"
 #include "interface/moduleinterface.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include <DBackgroundGroup>
 #include <DIconButton>
@@ -377,6 +378,9 @@ void MainWindow::initAllModule(const QString &m)
         for (auto i : m_modules) {
             if (versionTypeList.contains((i.first->name()))) {
                 setModuleVisible(i.first, false);
+                if (i.first->name() == "cloudsync") {
+                    Q_EMIT Notificationmanager::instance()->toTellLoginUser();
+                }
             }
         }
     }
@@ -1164,6 +1168,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         m_initList << inter;
     }
     m_moduleName = inter->name();
+
     setCurrModule(inter);
     inter->active();
     m_navView->resetStatus(index);
