@@ -153,20 +153,6 @@ void LoginPage::clearButtonFocus()
     m_signUpButton->clearFocus();
 }
 
-QSize LoginPage::sizeHint() const
-{
-    m_signInButton->adjustSize();
-    m_signUpButton->adjustSize();
-
-    if (m_signInButton->width() >= m_signUpButton->width()) {
-        m_signUpButton->setMinimumWidth(m_signInButton->width());
-    } else {
-        m_signInButton->setMinimumWidth(m_signUpButton->width());
-    }
-
-    return QWidget::sizeHint();
-}
-
 void LoginPage::licenceDialog()
 {
 //    if (m_bIsLoginActived) {

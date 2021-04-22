@@ -52,9 +52,6 @@ public:
 Q_SIGNALS:
     void requestLoginUser() const;
 
-protected:
-    QSize sizeHint() const override;
-
 private Q_SLOT:
     void licenceDialog();
 
