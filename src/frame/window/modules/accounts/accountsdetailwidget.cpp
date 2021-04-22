@@ -111,7 +111,7 @@ void AccountsDetailWidget::mousePressEvent(QMouseEvent *e)
 //删除账户
 void AccountsDetailWidget::deleteUserClicked()
 {
-    RemoveUserDialog d(m_curUser);
+    RemoveUserDialog d(m_curUser, this);
     int ret = d.exec();
 
     if (ret == 1) {
