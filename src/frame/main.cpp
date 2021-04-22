@@ -126,7 +126,6 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    qputenv("D_USE_GL_PAINT", "1");
     DApplication *app = DApplication::globalApplication(argc, argv);
     if (!app->setSingleInstance(QString("dde-control-center_%1").arg(getuid()))) {
         qDebug() << "set single instance failed!";
