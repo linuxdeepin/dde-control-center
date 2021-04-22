@@ -148,4 +148,11 @@ void ContentWidget::scrollTo(int dy)
     m_contentArea->verticalScrollBar()->setValue(m_contentArea->verticalScrollBar()->value() + dy);
 }
 
+void ContentWidget::resizeEvent(QResizeEvent *event)
+{
+    if (m_content)
+        m_content->setFixedWidth(m_contentArea->width());
+    QWidget::resizeEvent(event);
+}
+
 }

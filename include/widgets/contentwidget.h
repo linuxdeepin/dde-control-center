@@ -64,6 +64,9 @@ Q_SIGNALS:
     void wheelValueChanged() const;
 
 protected:
+    void resizeEvent(QResizeEvent *event) override;
+
+protected:
     dcc::widgets::BackButton *m_backBtn;
     QLabel *m_title;
     QVBoxLayout *m_contentTopLayout;
