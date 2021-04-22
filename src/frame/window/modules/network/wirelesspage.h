@@ -185,6 +185,7 @@ private:
     QString m_editingUuid;
     QString m_lastConnectSsid;
     QTimer *m_sortDelayTimer;
+    QTimer *m_requestWirelessScanTimer;
     QMap<QString, APItem *> m_apItems;
 };
 }   // namespace dcc

@@ -257,6 +257,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_clickedItem(nullptr)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
+    , m_requestWirelessScanTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -279,6 +280,9 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_modelAP->setSortRole(APItem::SortRole);
     m_sortDelayTimer->setInterval(100);
     m_sortDelayTimer->setSingleShot(true);
+
+    m_requestWirelessScanTimer->setInterval(60000);
+    m_requestWirelessScanTimer->setSingleShot(false);
 
     APItem *nonbc = new APItem(tr("Connect to hidden network"), style());
     nonbc->setSignalStrength(-1);
@@ -358,6 +362,10 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::activateAccessPointFailed, this, &WirelessPage::onActivateApFailed);
     connect(m_device, &WirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
+    connect(m_requestWirelessScanTimer, &QTimer::timeout, this, [ = ] {
+        Q_EMIT requestDeviceAPList(m_device->path());
+        Q_EMIT requestWirelessScan();
+    });
 
     // init data
     const QJsonArray mApList = m_device->apList();
@@ -366,6 +374,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             onAPAdded(ap.toObject());
         }
     }
+
+    m_requestWirelessScanTimer->start();
 
     QTimer::singleShot(100, this, [ = ] {
         Q_EMIT requestDeviceAPList(m_device->path());
@@ -379,6 +389,7 @@ WirelessPage::~WirelessPage()
     if (scroller) {
         scroller->stop();
     }
+    m_requestWirelessScanTimer->stop();
 }
 
 void WirelessPage::updateLayout(bool enabled)
