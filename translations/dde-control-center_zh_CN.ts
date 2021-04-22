@@ -208,7 +208,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="172"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="299"/>
         <source>Full Name</source>
-        <translation>全名</translation>
+        <translation>设置全名</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="223"/>
@@ -5620,7 +5620,7 @@
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="257"/>
         <source>Update Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="258"/>
@@ -7201,12 +7201,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="240"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation>Copyright © 2011-2021 深度社区 {2011-2020 ?}</translation>
+        <translation>Copyright © 2011-2020 深度社区</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
         <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2021 统信软件技术有限公司 {2019-2020 ?}</translation>
+        <translation>Copyright © 2019-2020 统信软件技术有限公司</translation>
     </message>
 </context>
 <context>
