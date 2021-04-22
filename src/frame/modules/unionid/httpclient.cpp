@@ -350,12 +350,16 @@ QString HttpClient::fileContent(const QString &fileName)
 {
     QString fileData;
     QFile file(fileName);
+
     if (file.exists()) {
         if (file.open(QFile::ReadOnly)) {
             // 读取文件内容
             fileData = file.readAll();
         }
     }
+
+    file.close();
+
     qDebug() << fileName << fileData;
     return fileData.trimmed();
 }

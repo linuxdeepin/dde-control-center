@@ -76,7 +76,7 @@ IndexPage::IndexPage(QWidget *parent)
     QPalette nameLabelPa = m_nameLabel->palette();
     nameLabelPa.setColor(QPalette::Text,textTitleLightColor);
     m_nameLabel->setPalette(nameLabelPa);
-    m_nameLabel->setContentsMargins(8,0,0,4);
+    m_nameLabel->setContentsMargins(0,8,0,4);
 
     m_uidLabel = new QLabel;
     QPalette uidLabelPa = m_uidLabel->palette();

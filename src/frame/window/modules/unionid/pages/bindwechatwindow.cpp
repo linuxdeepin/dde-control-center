@@ -337,16 +337,8 @@ void BindWeChatWindow::onBindAccountResult()
     reply->deleteLater();
 
     if (HttpClient::instance()->solveJson(result)) {
-        QByteArray byteJson = result.toLocal8Bit();
-        QJsonParseError jsonError;
-        QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
-        QJsonObject jsonObj = jsonDoc.object();
-        QJsonValue jsonValueResult = jsonObj.value("msg");
-
-        if (jsonValueResult == "success") {
-            QNetworkReply *reply = HttpClient::instance()->reportQrCodeStatus(m_codeId, 2,m_sessionId);
-            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onReportStatusResult);
-        }
+        QNetworkReply *reply = HttpClient::instance()->reportQrCodeStatus(m_codeId, 2,m_sessionId);
+        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onReportStatusResult);
     }
 }
 
@@ -357,16 +349,8 @@ void BindWeChatWindow::onUnbindAccountResult()
     reply->deleteLater();
 
     if (HttpClient::instance()->solveJson(result)) {
-        QByteArray byteJson = result.toLocal8Bit();
-        QJsonParseError jsonError;
-        QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
-        QJsonObject jsonObj = jsonDoc.object();
-        QJsonValue jsonValueResult = jsonObj.value("msg");
-
-        if (jsonValueResult == "success") {
-            QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId,m_nickName);
-            connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
-        }
+        QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId,m_nickName);
+        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
     }
 }
 
