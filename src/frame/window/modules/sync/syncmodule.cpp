@@ -10,6 +10,7 @@
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
+using namespace dcc::cloudsync;
 
 SyncModule::SyncModule(FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
@@ -68,10 +69,13 @@ void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype
 
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
-    m_model = new dcc::cloudsync::SyncModel;
-    m_worker = new dcc::cloudsync::SyncWorker(m_model);
+    m_model = new SyncModel;
+    m_worker = new SyncWorker(m_model);
 
     m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !IsServerSystem);
+    connect(m_model, &SyncModel::syncIsValidChanged, this, [=](bool valid) {
+        m_frameProxy->setModuleVisible(this, valid && !IsServerSystem);
+    });
 }
 
 QStringList SyncModule::availPage() const
