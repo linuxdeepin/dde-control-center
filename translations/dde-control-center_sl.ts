@@ -67,111 +67,116 @@
         <translation>Pomoč</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Accounts</source>
         <translation>Računi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Display</source>
         <translation>Prikaži</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Default Applications</source>
         <translation>Privzeti programi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Personalization</source>
         <translation>Prilagoditev</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Network</source>
         <translation>Omrežje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Notification</source>
         <translation>Obvestilo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Sound</source>
         <translation>Zvok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="915"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="917"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="922"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Date and Time</source>
         <translation>Datum in čas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Power</source>
         <translation>Napajanje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Battery</source>
-        <translation type="unfinished"/>
+        <translation>Akumulator</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>Mouse</source>
         <translation>Miška</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="927"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="929"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="932"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="934"/>
         <source>Drawing Tablet</source>
         <translation>Risalna tablica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <source>Language</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
         <source>Keyboard and Language</source>
         <translation>Tipkovnica in jezik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="951"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="954"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="959"/>
         <source>Updates</source>
         <translation>Posodobitve</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
         <source>System Info</source>
         <translation>Informacije o sistemu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="360"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="945"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="947"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
         <source>General Settings</source>
         <translation>Splošne nastavitve</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="433"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="434"/>
         <source>Touchpad</source>
         <translation>Sledilna ploščica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="434"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="435"/>
         <source>TrackPoint</source>
         <translation>Krmilna paličica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="941"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="944"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="946"/>
         <source>Cloud Sync</source>
         <translation>Sinhronizacija z oblakom</translation>
     </message>
@@ -253,7 +258,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="438"/>
         <source>Unlock without Password</source>
-        <translation type="unfinished"/>
+        <translation>Odkleni brez gesla</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
@@ -353,114 +358,114 @@
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="59"/>
         <source>Group</source>
         <translation>Skupina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="89"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="385"/>
         <source>Cancel</source>
         <translation>Prekliči</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="91"/>
         <source>Create</source>
         <translation>Ustvari</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <source>New Account</source>
         <translation>Nov račun</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="187"/>
         <source>Account Type</source>
         <translation>Vrsta računa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
         <source>Username</source>
         <translation>Uporabniško ime</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
         <source>Full Name</source>
         <translation>Polno ime</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="204"/>
         <source>Password</source>
         <translation>Geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="210"/>
         <source>Repeat Password</source>
         <translation>Ponovite geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="484"/>
         <source>The full name is too long</source>
         <translation>Ime je predolgo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="287"/>
         <source>Standard User</source>
         <translation>Običajni uporabnik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="288"/>
         <source>Administrator</source>
         <translation>Skrbnik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="291"/>
         <source>Customized</source>
         <translation>Prilagojeno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="273"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="275"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="297"/>
         <source>Required</source>
         <translation>Obvezno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="274"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="295"/>
         <source>optional</source>
         <translation>izbirno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="384"/>
         <source>Go to Settings</source>
         <translation>Pojdite v nastavitve</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="435"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Uporabniško ime mora vsebovati od 3 do 32 znakov</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="442"/>
         <source>The first character must be a letter or number</source>
         <translation>Prvi znak mora biti črka ali številka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="448"/>
         <source>Your username should not only have numbers</source>
         <translation>Uporabniško ime naj ne bo sestavljeno le iz številk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="435"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="473"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="456"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="494"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="504"/>
         <source>The name already exists</source>
         <translation>Ime že obstaja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="505"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="526"/>
         <source>Passwords do not match</source>
         <translation>Gesli se ne ujemata</translation>
     </message>
@@ -502,56 +507,56 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="64"/>
         <source>Change Password</source>
         <translation>Spremeni geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="68"/>
         <source>Current Password</source>
         <translation>Trenutno geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
         <source>New Password</source>
         <translation>Novo geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
         <source>Repeat Password</source>
         <translation>Ponovite geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Cancel</source>
         <translation>Prekliči</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="82"/>
         <source>Save</source>
         <translation>Shrani</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="126"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="135"/>
         <source>Required</source>
         <translation>Obvezno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="184"/>
         <source>Wrong password</source>
         <translation>Napačno geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="218"/>
         <source>Password cannot be empty</source>
         <translation>Geslo ne more biti prazno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
         <source>Passwords do not match</source>
         <translation>Gesli se ne ujemata</translation>
     </message>
@@ -974,20 +979,20 @@
 <context>
     <name>dccV20::datetime::DateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="64"/>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="67"/>
         <source>Year</source>
         <translation>Leto</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="69"/>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="72"/>
         <source>Month</source>
         <translation>Mesec</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="77"/>
         <source>Day</source>
         <translation>Dan</translation>
     </message>
@@ -1319,7 +1324,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="77"/>
         <source>Auto adjust the color temperature according to the ambient light</source>
-        <translation type="unfinished"/>
+        <translation>Samodejno prilgajanje barvne temperature glede na osvetlitev okolice</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/brightnesspage.cpp" line="88"/>
@@ -1417,56 +1422,56 @@
 <context>
     <name>dccV20::display::DisplayWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="186"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="218"/>
         <source>Refresh Rate</source>
         <translation>Hitrost osveževanja</translation>
         <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="151"/>
         <source>Multiple Displays</source>
         <translation>Več zaslonov</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="152"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="158"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="171"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="172"/>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="174"/>
         <source>Brightness</source>
         <translation>Svetlost</translation>
         <extra-contents_path>/display/Brightness</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="156"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="212"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="216"/>
         <source>Resolution</source>
         <translation>Ločljivost</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="181"/>
         <source>Display Scaling</source>
         <translation>Merilo zaslona</translation>
         <extra-contents_path>/display/Display Scaling</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="196"/>
         <source>Touch Screen</source>
         <translation>Zaslon na dotik</translation>
         <extra-contents_path>/display/Touch Screen</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="252"/>
         <source>Rotate Screen</source>
         <translation>Obrni zaslon</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
@@ -1739,17 +1744,17 @@
 <context>
     <name>dccV20::keyboard::KeyboardModule</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="134"/>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Jezik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="134"/>
         <source>Keyboard and Language</source>
         <translation>Tipkovnica in jezik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="262"/>
         <source>Custom Shortcut</source>
         <translation>Bližnjica po meri</translation>
     </message>
@@ -2539,7 +2544,7 @@
         <translation>Osebna dostopna točka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="268"/>
         <source>Network</source>
         <translation>Omrežje</translation>
     </message>
@@ -4245,25 +4250,25 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpaper/paperdetailwidget.cpp" line="51"/>
         <source>Set as Home screen</source>
-        <translation type="unfinished"/>
+        <translation>Določi za  domač zaslon</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpaper/paperdetailwidget.cpp" line="52"/>
         <source>Set as Lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Določi za zaklenjen zaslon</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpaper/paperdetailwidget.cpp" line="53"/>
         <source>Set Both</source>
-        <translation type="unfinished"/>
+        <translation>Določi za oboje</translation>
     </message>
 </context>
 <context>
     <name>dccV20::personalization::PaperSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/wallpaper/papersettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/personalization/wallpaper/papersettingwidget.cpp" line="50"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Ozadje</translation>
     </message>
 </context>
 <context>
@@ -4443,7 +4448,7 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpaper.cpp" line="58"/>
         <source>Select Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Izberite ozadje</translation>
     </message>
 </context>
 <context>
@@ -4451,22 +4456,22 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpaperpage.cpp" line="116"/>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpaperpage.cpp" line="129"/>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Barva poudarkov</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpaperpage.cpp" line="182"/>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Ozadje</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpaperpage.cpp" line="188"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Velikost</translation>
     </message>
 </context>
 <context>
@@ -4474,12 +4479,12 @@
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpapersnippet.cpp" line="112"/>
         <source>Lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Zaklenjen zaslon</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/wallpapersnippet.cpp" line="115"/>
         <source>Home screen</source>
-        <translation type="unfinished"/>
+        <translation>Domači zaslon</translation>
     </message>
 </context>
 <context>
@@ -4573,16 +4578,21 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="81"/>
+        <source>Battery</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="81"/>
         <source>Power</source>
         <translation>Napajanje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="265"/>
         <source>Battery low, please plug in</source>
         <translation>Akumulator je skoraj prazen, priključite ga</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="267"/>
         <source>Battery critically low</source>
         <translation>Akumulator je kritično prazen</translation>
     </message>
@@ -4615,7 +4625,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
         <source>Turn off the display in</source>
-        <translation type="unfinished"/>
+        <translation>Ugasni zaslon čez</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
@@ -4696,7 +4706,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="377"/>
         <source>%1 Seconds</source>
-        <translation type="unfinished"/>
+        <translation>%1 sekund</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="379"/>
@@ -4805,187 +4815,187 @@
 <context>
     <name>dccV20::search::SearchModel</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="113"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="115"/>
         <source>Server</source>
         <translation>Strežnik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="114"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="386"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="788"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="116"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="395"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="797"/>
         <source>Window Effect</source>
         <translation>Učinki oken</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="115"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="117"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="149"/>
         <source>Developer Mode</source>
         <translation>Razvojni način</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="116"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="118"/>
         <source>User Experience Program</source>
         <translation>Program uporabniške izkušnje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="117"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
         <source>Join User Experience Program</source>
         <translation>Pridružite se programu uporabniške izkušnje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="118"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
         <source>Display Scaling</source>
         <translation>Prikaži merilo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
         <source>Night Shift</source>
         <translation>Nočna izmena</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <source>Auto Login</source>
         <translation>Samodejna prijava</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
         <source>Login Without Password</source>
         <translation>Prijavi se brez gesla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
         <source>Auto Brightness</source>
         <translation>Samodejna svetlost</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>General</source>
         <translation>Splošno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
         <source>Password is required to wake up the monitor</source>
         <translation>Za bujenje monitorja je potrebno geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <source>Password is required to wake up the computer</source>
         <translation>Za bujenje računalnika je potrebno geslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
         <source>Power Saving Mode</source>
         <translation>Način varčevanja z energijo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Auto Mode Switch</source>
         <translation>Način samodejne izbire</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>Transparency</source>
         <translation>Prozornost</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Create PPPoE Connection</source>
         <translation>Ustvari povezavo PPPoE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Disable the touchpad while typing</source>
         <translation>Med tipkanjem izklopi sledilno ploščico</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Če je priključena miška, izklopi sledilno ploščico</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Computer will suspend after</source>
         <translation>Računalnik bo ugasnil po</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
         <source>Sign In</source>
         <translation>Prijava</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
         <source>Auto power saving on battery</source>
         <translation>Samodejno varčevanje energije pri akumulatorskem napajanju</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
         <source>Touch Screen</source>
         <translation>Zaslon na dotik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
         <source>Power Plans</source>
         <translation>Načrti za rabo energije</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
         <source>Power Saving Settings</source>
         <translation>Nastavitve varčevanja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
         <source>Wakeup Settings</source>
         <translation>Nastavitve bujenja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
         <source>Battery</source>
         <translation>Akumulator</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="154"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="156"/>
         <source>Touchpad</source>
         <translation>Sledilna ploščica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="155"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="157"/>
         <source>TrackPoint</source>
         <translation>Krmilna paličica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="156"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="158"/>
         <source>Personal Hotspot</source>
         <translation>Osebna dostopna točka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="159"/>
         <source>On Battery</source>
         <translation>Na akumulatorju</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="158"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="160"/>
         <source>Wired Network</source>
         <translation>Žično omrežje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="159"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
         <source>Wireless Network</source>
         <translation>Brezžično omrežje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="160"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
         <source>Multiple Displays</source>
         <translation>Več zaslonov</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="163"/>
         <source>Boot Menu</source>
         <translation>Zagonski meni</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="379"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="780"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="789"/>
         <source>Cloud Account</source>
         <translation>Račun oblaka</translation>
     </message>
@@ -5618,7 +5628,7 @@ Obiščite uporabniško središče in tam uredite svoj račun.</translation>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="427"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Na voljo je %n posodobitev programov</numerusform><numerusform>Na voljo sta %n posodobitvi programov</numerusform><numerusform>Na voljo so %n posodobitve programov</numerusform><numerusform>Na voljo je %n posodobitev programov</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
@@ -5628,7 +5638,7 @@ Obiščite uporabniško središče in tam uredite svoj račun.</translation>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Na voljo je nova izdaja sistema in posodobitve za %n aplikacijo</numerusform><numerusform>Na voljo je nova izdaja sistema in posodobitve za %n aplikaciji</numerusform><numerusform>Na voljo je nova izdaja sistema in posodobitve za %n aplikacije</numerusform><numerusform>Na voljo je nova izdaja sistema in posodobitve za %n aplikacij</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="441"/>
@@ -5962,7 +5972,7 @@ Obiščite uporabniško središče in tam uredite svoj račun.</translation>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="67"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation type="unfinished"/>
+        <translation>Geslo mora vsebovati velike znake, majhne znake, številke in znake (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="68"/>
@@ -5986,12 +5996,12 @@ Obiščite uporabniško središče in tam uredite svoj račun.</translation>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="76"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="77"/>
         <source>Password must have 6 characters</source>
-        <translation type="unfinished"/>
+        <translation>Geslo mora imeti vsaj  6 znakov</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="78"/>
         <source>Password can only contain numbers</source>
-        <translation type="unfinished"/>
+        <translation>Geslo lahko vsebuje le številke</translation>
     </message>
 </context>
 <context>
@@ -6002,53 +6012,53 @@ Obiščite uporabniško središče in tam uredite svoj račun.</translation>
         <translation>Nadzorno središče</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="659"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="668"/>
         <source>On Battery</source>
         <translation>Na akumulatorju</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="660"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="669"/>
         <source>Plugged In</source>
         <translation>Priključeno na el.omrežje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="661"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="670"/>
         <source>General</source>
         <translation>Splošno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="662"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="671"/>
         <source>Mouse</source>
         <translation>Miška</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="663"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="672"/>
         <source>Touchpad</source>
         <translation>Sledilna ploščica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="664"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="673"/>
         <source>TrackPoint</source>
         <translation>Krmilna paličica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="665"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="674"/>
         <source>Application Proxy</source>
         <translation>Programski posrednik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="666"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="669"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="675"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="678"/>
         <source>System Proxy</source>
         <translation>Sistemski posredniški strežnik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="667"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="676"/>
         <source>Time Settings</source>
         <translation>Nastavitve časa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="668"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="677"/>
         <source>Change System Timezone</source>
         <translation>Spremeni časovni pas za sistem</translation>
     </message>
@@ -6084,7 +6094,7 @@ Obiščite uporabniško središče in tam uredite svoj račun.</translation>
 <context>
     <name>SearchInput</name>
     <message>
-        <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
+        <location filename="../src/frame/widgets/searchinput.cpp" line="44"/>
         <source>Search</source>
         <translation>Išči</translation>
     </message>
@@ -6799,85 +6809,88 @@ Obiščite uporabniško središče in tam uredite svoj račun.</translation>
 <context>
     <name>dcc::sound::SoundModel</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="110"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="127"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="128"/>
         <source>Boot up</source>
         <translation>Zagon</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="128"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="129"/>
         <source>Shut down</source>
         <translation>Zaustavitev sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="129"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="130"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="147"/>
         <source>Log out</source>
         <translation>Odjava</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="130"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="141"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="142"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="143"/>
         <source>Wake up</source>
         <translation>Bujenje</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="148"/>
         <source>Volume +/-</source>
         <translation>Glasnost +/-</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
         <source>Notification</source>
         <translation>Obvestilo</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
         <source>Low battery</source>
         <translation>Malo energije v akumulatorju</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="149"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>Pošlji ikono zaganjalnika na namizje</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
         <source>Empty Trash</source>
         <translation>Izprazni smetnjak</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
         <source>Plug in</source>
         <translation>Priklopi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
         <source>Plug out</source>
         <translation>Odklopi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
         <source>Removable device connected</source>
         <translation>Odstranljiv nosilec je priklopljen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
         <source>Removable device removed</source>
         <translation>Odtrsanljiv nosilec je odklopljen</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
         <source>Error</source>
         <translation>Napaka</translation>
     </message>
