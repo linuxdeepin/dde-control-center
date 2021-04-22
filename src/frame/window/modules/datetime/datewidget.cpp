@@ -21,8 +21,6 @@
 #include "datewidget.h"
 #include "widgets/labels/normallabel.h"
 
-#include <DApplicationHelper>
-
 #include <QIntValidator>
 #include <QHBoxLayout>
 #include <QMouseEvent>
@@ -119,23 +117,12 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     connect(m_lineEdit, &TimeSetLineEdit::notifyClicked, [this] {
         m_lineEdit->setFocus();
     });
-
-    connect(m_lineEdit, &QLineEdit::textChanged, [this](const QString &value) {
-        if (DGuiApplicationHelper::isTabletEnvironment()) {
-            m_addBtn->setDisabled(value == QString::number(m_maximum));
-            m_reducedBtn->setDisabled(value == QString::number(m_minimum));
-        }
-    });
 }
 
 void DateWidget::setValue(const int &value)
 {
     m_lineEdit->blockSignals(true);
     m_lineEdit->setText(QString::number(value));
-    if (DGuiApplicationHelper::isTabletEnvironment()) {
-        m_addBtn->setDisabled(value == m_maximum);
-        m_reducedBtn->setDisabled(value == m_minimum);
-    }
     m_lineEdit->blockSignals(false);
 }
 
@@ -205,10 +192,6 @@ const QString DateWidget::getCurrentText() const
 void DateWidget::setCurrentText(QString text)
 {
     m_lineEdit->setText(text);
-    if (DGuiApplicationHelper::isTabletEnvironment()) {
-        m_addBtn->setDisabled(text == QString::number(m_maximum));
-        m_reducedBtn->setDisabled(text == QString::number(m_minimum));
-    }
 }
 
 bool DateWidget::eventFilter(QObject *watched, QEvent *event)
