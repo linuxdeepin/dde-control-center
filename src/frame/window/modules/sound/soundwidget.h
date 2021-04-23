@@ -60,6 +60,7 @@ Q_SIGNALS:
     void requestMicrophonePage();
     void requestAdvancedPage();
     void requsetSoundEffectsPage();
+    void requsetDeviceManagesPage();
     void requestUpdateSecondMenu(bool);
 
 private:

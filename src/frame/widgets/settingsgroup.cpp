@@ -123,6 +123,7 @@ void SettingsGroup::removeItem(SettingsItem *item)
 {
     m_layout->removeWidget(item);
     item->removeEventFilter(this);
+    item->deleteLater();
 }
 
 void SettingsGroup::moveItem(SettingsItem *item, const int index)
