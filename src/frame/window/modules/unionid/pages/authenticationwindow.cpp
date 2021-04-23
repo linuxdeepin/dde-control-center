@@ -144,6 +144,9 @@ void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, Q
 void AuthenticationWindow::onGetCodeButtonClicked()
 {
     if (Notificationmanager::instance()->isOnLine()) {
+        m_getCodeButton->setEnabled(false);
+        m_timer->start(1000);
+
         QNetworkReply *reply = HttpClient::instance()->sendSmsCode(m_phoneNumber, m_accessToken);
         connect(reply,&QNetworkReply::finished,this,&AuthenticationWindow::onSendSmsCodeResult);
     } else {
@@ -158,8 +161,9 @@ void AuthenticationWindow::onSendSmsCodeResult()
 
     if (!result.isEmpty()) {
         if (HttpClient::instance()->solveJson(result)) {
-            m_getCodeButton->setEnabled(false);
-            m_timer->start(1000);
+            qInfo() << "发送短信成功";
+        } else {
+            qInfo() << "发送短信失败";
         }
     }
 }

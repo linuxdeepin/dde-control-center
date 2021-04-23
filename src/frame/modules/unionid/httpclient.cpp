@@ -177,7 +177,7 @@ QNetworkReply *HttpClient::refreshAccessToken(const QString &clientId, const QSt
 QNetworkReply *HttpClient::getUserInfo(const QString &accessToken)
 {
     QNetworkRequest requset;
-    QString qstrUrl = QString("http://api-dev.uniontech.com/v1/user?access_token=%1").arg(accessToken);
+    QString qstrUrl = QString("https://api.uniontech.com/v1/user?access_token=%1").arg(accessToken);
     requset.setUrl(QUrl(qstrUrl));
     requset.setHeader(QNetworkRequest::ContentTypeHeader,"application/json");
     QNetworkAccessManager *netmanager = new QNetworkAccessManager();
