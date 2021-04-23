@@ -168,6 +168,7 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
     }
     else {
 //        m_indexPage->requestLogout();
+        m_indexPage->setUserAvatar(AvaterPath);
         m_pageLayout->setCurrentWidget(m_loginPage);
         m_loginPage->clearButtonFocus();
         qInfo() << "未登录";

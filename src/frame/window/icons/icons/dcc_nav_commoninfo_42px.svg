@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>设置中心/dcc_nav_commoninfo_42px</title>
+    <defs>
+        <filter x="-7.6%" y="-7.6%" width="115.2%" height="115.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#747E99" offset="0%"></stop>
+            <stop stop-color="#505975" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-3" x="0" y="0" width="32.1702128" height="32.1702128" rx="16.0851064"></rect>
+        <filter x="-1.6%" y="-1.6%" width="103.1%" height="103.1%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.166011983   0 0 0 0 0.542308611   0 0 0 0 0.830064856  0 0 0 1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-5">
+            <stop stop-color="#FBFFFF" offset="0%"></stop>
+            <stop stop-color="#C0BFCE" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-6" x="0" y="0" width="20.3744681" height="20.3744681" rx="10.187234"></rect>
+        <filter x="-19.6%" y="-9.8%" width="139.3%" height="139.3%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.281958395   0 0 0 0 0.31225224   0 0 0 0 0.394045622  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-8">
+            <stop stop-color="#C0BFCE" offset="0%"></stop>
+            <stop stop-color="#FBFFFF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-9" x="9.26112186" y="3.70444874" width="1.85222437" height="1.85222437" rx="0.670212766"></rect>
+        <filter x="-27.0%" y="-27.0%" width="154.0%" height="208.0%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="设置中心/dcc_nav_commoninfo_42px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组">
+            <rect id="矩形" x="0" y="0" width="42" height="42"></rect>
+            <g id="编组-11" filter="url(#filter-1)" transform="translate(4.914894, 4.914894)">
+                <g id="矩形备份-45">
+                    <use fill="url(#linearGradient-2)" fill-rule="evenodd" xlink:href="#path-3"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+                    <rect stroke="#818AA1" stroke-width="0.893617021" stroke-linejoin="square" x="0.446808511" y="0.446808511" width="31.2765957" height="31.2765957" rx="15.6382979"></rect>
+                </g>
+                <path d="M16.5319149,28.1489362 L16.5319149,30.3829787 L15.6382979,30.3829787 L15.6382979,28.1489362 L16.5319149,28.1489362 Z M16.5319149,1.78723404 L16.5319149,4.0212766 L15.6382979,4.0212766 L15.6382979,1.78723404 L16.5319149,1.78723404 Z" id="形状结合" fill="#96A3C3"></path>
+                <path d="M16.4787234,28.2021277 L16.4787234,30.4361702 L15.5851064,30.4361702 L15.5851064,28.2021277 L16.4787234,28.2021277 Z M16.4787234,1.84042553 L16.4787234,4.07446809 L15.5851064,4.07446809 L15.5851064,1.84042553 L16.4787234,1.84042553 Z" id="形状结合" fill="#96A3C3" transform="translate(16.085106, 16.138298) rotate(-270.000000) translate(-16.085106, -16.138298) "></path>
+                <path d="M16.5301024,28.1627031 L16.5301024,30.3967457 L15.6364854,30.3967457 L15.6364854,28.1627031 L16.5301024,28.1627031 Z M16.5301024,1.80100101 L16.5301024,4.03504357 L15.6364854,4.03504357 L15.6364854,1.80100101 L16.5301024,1.80100101 Z" id="形状结合" fill="#96A3C3" transform="translate(16.136485, 16.098873) rotate(-345.000000) translate(-16.136485, -16.098873) "></path>
+                <path d="M16.5247886,28.1755319 L16.5247886,30.4095745 L15.6311716,30.4095745 L15.6311716,28.1755319 L16.5247886,28.1755319 Z M16.5247886,1.81382979 L16.5247886,4.04787234 L15.6311716,4.04787234 L15.6311716,1.81382979 L16.5247886,1.81382979 Z" id="形状结合" fill="#96A3C3" transform="translate(16.131172, 16.111702) rotate(-330.000000) translate(-16.131172, -16.111702) "></path>
+                <path d="M16.5163355,28.1865482 L16.5163355,30.4205908 L15.6227184,30.4205908 L15.6227184,28.1865482 L16.5163355,28.1865482 Z M16.5163355,1.82484611 L16.5163355,4.05888866 L15.6227184,4.05888866 L15.6227184,1.82484611 L16.5163355,1.82484611 Z" id="形状结合" fill="#96A3C3" transform="translate(16.122718, 16.122718) rotate(-315.000000) translate(-16.122718, -16.122718) "></path>
+                <path d="M16.5053191,28.1950014 L16.5053191,30.4290439 L15.6117021,30.4290439 L15.6117021,28.1950014 L16.5053191,28.1950014 Z M16.5053191,1.83329922 L16.5053191,4.06734178 L15.6117021,4.06734178 L15.6117021,1.83329922 L16.5053191,1.83329922 Z" id="形状结合" fill="#96A3C3" transform="translate(16.111702, 16.131172) rotate(-300.000000) translate(-16.111702, -16.131172) "></path>
+                <path d="M16.4924904,28.2003152 L16.4924904,30.4343578 L15.5988734,30.4343578 L15.5988734,28.2003152 L16.4924904,28.2003152 Z M16.4924904,1.83861308 L16.4924904,4.07265563 L15.5988734,4.07265563 L15.5988734,1.83861308 L16.4924904,1.83861308 Z" id="形状结合" fill="#96A3C3" transform="translate(16.098873, 16.136485) rotate(-285.000000) translate(-16.098873, -16.136485) "></path>
+                <path d="M16.4649564,28.2003152 L16.4649564,30.4343578 L15.5713394,30.4343578 L15.5713394,28.2003152 L16.4649564,28.2003152 Z M16.4649564,1.83861308 L16.4649564,4.07265563 L15.5713394,4.07265563 L15.5713394,1.83861308 L16.4649564,1.83861308 Z" id="形状结合" fill="#96A3C3" transform="translate(16.071339, 16.136485) rotate(-255.000000) translate(-16.071339, -16.136485) "></path>
+                <path d="M16.4521277,28.1950014 L16.4521277,30.4290439 L15.5585106,30.4290439 L15.5585106,28.1950014 L16.4521277,28.1950014 Z M16.4521277,1.83329922 L16.4521277,4.06734178 L15.5585106,4.06734178 L15.5585106,1.83329922 L16.4521277,1.83329922 Z" id="形状结合" fill="#96A3C3" transform="translate(16.058511, 16.131172) rotate(-240.000000) translate(-16.058511, -16.131172) "></path>
+                <path d="M16.4411113,28.1865482 L16.4411113,30.4205908 L15.5474943,30.4205908 L15.5474943,28.1865482 L16.4411113,28.1865482 Z M16.4411113,1.82484611 L16.4411113,4.05888866 L15.5474943,4.05888866 L15.5474943,1.82484611 L16.4411113,1.82484611 Z" id="形状结合" fill="#96A3C3" transform="translate(16.047494, 16.122718) rotate(-225.000000) translate(-16.047494, -16.122718) "></path>
+                <path d="M16.4326582,28.1755319 L16.4326582,30.4095745 L15.5390412,30.4095745 L15.5390412,28.1755319 L16.4326582,28.1755319 Z M16.4326582,1.81382979 L16.4326582,4.04787234 L15.5390412,4.04787234 L15.5390412,1.81382979 L16.4326582,1.81382979 Z" id="形状结合" fill="#96A3C3" transform="translate(16.039041, 16.111702) rotate(-210.000000) translate(-16.039041, -16.111702) "></path>
+                <path d="M16.4273444,28.1627031 L16.4273444,30.3967457 L15.5337273,30.3967457 L15.5337273,28.1627031 L16.4273444,28.1627031 Z M16.4273444,1.80100101 L16.4273444,4.03504357 L15.5337273,4.03504357 L15.5337273,1.80100101 L16.4273444,1.80100101 Z" id="形状结合" fill="#96A3C3" transform="translate(16.033727, 16.098873) rotate(-195.000000) translate(-16.033727, -16.098873) "></path>
+                <g id="编组-9" transform="translate(5.897872, 5.445106)">
+                    <g id="矩形备份-45">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
+                        <use fill="url(#linearGradient-5)" fill-rule="evenodd" xlink:href="#path-6"></use>
+                    </g>
+                    <rect id="矩形备份-45" fill="url(#linearGradient-8)" x="1.85222437" y="1.85222437" width="16.6700193" height="16.6700193" rx="8.33500967"></rect>
+                    <g id="矩形">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                        <use fill="#6A748F" fill-rule="evenodd" xlink:href="#path-9"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -9,7 +9,7 @@ Q_GLOBAL_STATIC(HttpClient, httpClient)
 DCORE_USE_NAMESPACE
 
 const QByteArray CLIENT_ID = "388340d186f311eb983b0242ac130002";
-const QString REQUEST_URL = "https://uosvip-pre.uniontech.com";
+const QString REQUEST_URL = "https://uosvip.uniontech.com";
 //const QString REQUEST_URL = "http://10.4.10.104:9000";
 
 HttpClient::HttpClient(QObject *parent) : QObject(parent)

@@ -417,7 +417,7 @@ void IndexPage::onSwitchButtoncheckedChanged(bool bIschecked)
 
 void IndexPage::onModifyInfo()
 {
-    QDesktopServices::openUrl(QUrl("http://login-dev.uniontech.com/", QUrl::TolerantMode));
+    QDesktopServices::openUrl(QUrl("http://login.uniontech.com/", QUrl::TolerantMode));
 }
 
 void IndexPage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
