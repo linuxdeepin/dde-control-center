@@ -52,7 +52,9 @@ public:
     void setDisturbMode(const bool disturbMode);
 
     inline bool isShowInDock()const {return m_isShowInDock;}
+#ifdef USE_TABLET
     void setShowInDock(const bool showInDock);
+#endif
 
     inline bool isTimeSlot()const {return  m_isTimeSlot;}
     void setTimeSlot(const bool timeSlot);
