@@ -61,22 +61,15 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
-    connect(m_model, &SoundModel::requestSwitchEnable, this, &SoundWorker::isPortEnabled);
-    //setPortEnabled,设置成功后会收到PortEnabledChanged信号，判断是否设置成功
-    connect(m_model, &SoundModel::requestSwitchSetEnable, this, &SoundWorker::setPortEnabled);
 
     connect(m_audioInter, &Audio::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
     connect(m_audioInter, &Audio::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
-    // 此接口后端已经不再维护，过几个版本直接删除吧
-    //    connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
     connect(m_audioInter, &Audio::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
     connect(m_audioInter, &Audio::IncreaseVolumeChanged, model, &SoundModel::setIncreaseVolume);
     connect(m_audioInter, &Audio::CardsWithoutUnavailableChanged, model, &SoundModel::setAudioCards);
     connect(m_audioInter, &Audio::ReduceNoiseChanged, model, &SoundModel::setReduceNoise);
-    //查询,端口是否可用 改为信号槽方式
-    connect(m_audioInter, &Audio::PortEnabledChanged, [this](uint cardId, QString portName){
-        isPortEnabled(cardId, portName);
-    });
+    connect(m_audioInter, &Audio::BluetoothAudioModeOptsChanged, m_model, &SoundModel::setBluetoothAudioModeOpts);
+    connect(m_audioInter, &Audio::BluetoothAudioModeChanged, m_model, &SoundModel::setCurrentBluetoothAudioMode);
     connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
@@ -90,6 +83,8 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     m_model->setMaxUIVolume(m_audioInter->maxUIVolume());
     m_model->setIncreaseVolume(m_audioInter->increaseVolume());
     m_model->setReduceNoise(m_audioInter->reduceNoise());
+    m_model->setBluetoothAudioModeOpts(m_audioInter->bluetoothAudioModeOpts());
+    m_model->setCurrentBluetoothAudioMode(m_audioInter->bluetoothAudioMode());
 }
 
 void SoundWorker::activate()
@@ -136,14 +131,6 @@ void SoundWorker::switchMicrophone(bool on)
 {
     if (m_defaultSource) {
         m_defaultSource->SetMute(!on);
-    }
-}
-
-void SoundWorker::isPortEnabled(unsigned int cardid, QString portName)
-{
-    if (m_audioInter) {
-        bool isEnable =  m_audioInter->IsPortEnabled(cardid, portName);
-        m_model->setPortEnable(isEnable);
     }
 }
 
@@ -231,6 +218,11 @@ void SoundWorker::enableAllSoundEffect(bool enable)
     m_soundEffectInter->setEnabled(enable);
 }
 
+void SoundWorker::setBluetoothMode(const QString &mode)
+{
+    m_audioInter->SetBluetoothAudioMode(mode).waitForFinished();
+}
+
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 {
     qDebug() << "sink default path:" << path.path();
@@ -315,6 +307,8 @@ void SoundWorker::cardsChanged(const QString &cards)
             if (portAvai == 2.0 || portAvai == 0.0) {  // 0 Unknown 1 Not available 2 Available
                 const QString portId = jPort["Name"].toString();
                 const QString portName = jPort["Description"].toString();
+                const bool isEnabled = jPort["Enabled"].toBool();
+                const bool isBluetooth = jPort["Bluetooth"].toBool();
 
                 Port *port = m_model->findPort(portId, cardId);
                 const bool include = port != nullptr;
@@ -325,6 +319,8 @@ void SoundWorker::cardsChanged(const QString &cards)
                 port->setDirection(Port::Direction(jPort["Direction"].toDouble()));
                 port->setCardId(cardId);
                 port->setCardName(cardName);
+                port->setEnabled(isEnabled);
+                port->setIsBluetoothPort(isBluetooth);
 
                 const bool isActiveOuputPort = (portId == m_activeSinkPort) && (cardId == m_activeOutputCard);
                 const bool isActiveInputPort = (portId == m_activeSourcePort) && (cardId == m_activeInputCard);
@@ -429,7 +425,6 @@ void SoundWorker::updatePortActivity()
     for (Port *port : m_model->ports()) {
         const bool isActiveOuputPort = (port->id() == m_activeSinkPort) && (port->cardId() == m_activeOutputCard);
         const bool isActiveInputPort = (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
-
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
     }
 }

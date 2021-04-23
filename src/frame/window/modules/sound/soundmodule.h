@@ -61,6 +61,7 @@ public Q_SLOTS:
     void showSpeakerPage();
     void showMicrophonePage();
     void showSoundEffectsPage();
+    void showDeviceManagesPage();
 
 private:
     dcc::sound::SoundModel *m_model {nullptr};

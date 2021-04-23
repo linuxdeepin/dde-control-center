@@ -70,28 +70,15 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     labelOutput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     m_outputSoundCbx = new ComboxWidget(tr("Output Device"));
-
     m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);
-    SettingsGroup *outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-    outputSoundsGrp->getLayout()->setContentsMargins(ThirdPageCmbMargins);
-    outputSoundsGrp->appendItem(m_outputSoundCbx);
-    if (outputSoundsGrp->layout())
-        outputSoundsGrp->layout()->setContentsMargins(ThirdPageCmbMargins);
 
-    QHBoxLayout *hlayout = new QHBoxLayout;
-    TitleLabel *lblTitle = new TitleLabel(tr("On"));
-    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
-    m_sw = new SwitchWidget(nullptr, lblTitle);
-    m_sw->addBackground();
-    m_sw->setAccessibleName(tr("Speaker"));
-    hlayout->addWidget(m_sw);
+    m_outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    m_blueSoundCbx = new ComboxWidget(tr("Mode"));
 
     m_layout->addWidget(labelOutput);
-    m_layout->addWidget(outputSoundsGrp);
-
     m_layout->setContentsMargins(ThirdPageContentsMargins);
-    m_layout->addLayout(hlayout);
+
     setLayout(m_layout);
 }
 
@@ -106,20 +93,17 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 {
     m_model = model;
 
-    //当扬声器状态发生变化，将switch设置为对应的状态
+    //当扬声器状态发生变化，更新设备信息显示状态
     connect(m_model, &SoundModel::isPortEnableChanged, this, [ = ](bool visible) {
-        if (visible) {
-            m_sw->setChecked(true);
-            //启用端口后需要再判断是否启用成功后，再设置为默认端口，但因为设置端口后会有端口是否启用的状态判断，
-            //导致进入死循环，所以添加判断值，判断是否是启用或禁用端口类型的操作，若是，则设置默认端口
-            if (m_enablePort) {
-                QModelIndex index = m_outputSoundCbx->comboBox()->view()->currentIndex();
-                if (index.isValid())
-                    Q_EMIT requestSetPort(m_outputModel->data(index, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
+        Q_UNUSED(visible);
+        //启用端口后需要再判断是否启用成功后，再设置为默认端口，但因为设置端口后会有端口是否启用的状态判断，
+        //导致进入死循环，所以添加判断值，判断是否是启用或禁用端口类型的操作，若是，则设置默认端口
+        if (m_enablePort) {
+            QModelIndex index = m_outputSoundCbx->comboBox()->view()->currentIndex();
+            if (index.isValid()) {
+                Q_EMIT requestSetPort(m_outputModel->data(index, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
             }
         }
-        else
-            m_sw->setChecked(false);
         showDevice();
     });
 
@@ -128,7 +112,8 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
         if (!m_currentPort)
             return;
         m_enablePort = false;
-        m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
+
+        setBlueModeVisible(port->isBluetoothPort());
         Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());//设置端口后，发送信号，判断该端口是否需要禁用
     });
 
@@ -137,18 +122,16 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
         addPort(port);
     }
 
-    //连接switch点击信号，发送切换开/关扬声器的请求信号
-    connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ] {
-        if(m_currentPort != nullptr) {
-            m_enablePort = true;
-            Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->id(), m_sw->checked());
+    connect(m_model, &SoundModel::bluetoothModeOptsChanged, this, [ = ](const QStringList bluetoothModeOpts){
+        if (m_bluetoothModeOpts != bluetoothModeOpts) {
+            m_bluetoothModeOpts = bluetoothModeOpts;
+            m_blueSoundCbx->comboBox()->clear(); // 先清除避免重复
+            m_blueSoundCbx->comboBox()->addItems(bluetoothModeOpts);
         }
-        else
-            m_sw->setChecked(false);
     });
-
     connect(m_model, &SoundModel::portAdded, this, &SpeakerPage::addPort);
     connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
+    connect(m_model, &SoundModel::bluetoothModeChanged, m_blueSoundCbx, &ComboxWidget::setCurrentText);
     connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
     connect(m_model, &SoundModel::setBlanceVisible, this, [ = ](bool flag) {
             m_balance = flag;
@@ -160,12 +143,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     });
 
     initSlider();
-
-    if (m_currentPort)
-        m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
-
-    if (m_outputModel->rowCount() < 2)
-        m_sw->setHidden(true);
+    initCombox();
     requestBalanceVisible();
 }
 
@@ -187,9 +165,6 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
     };
 
     rmFunc(m_outputModel);
-    dcc::sound::Port *port = m_model->findPort(portId, cardId);
-    if (port)
-        m_sw->setHidden(!m_model->isShow(m_outputModel, port));
     showDevice();
 }
 
@@ -208,22 +183,36 @@ void SpeakerPage::clickLeftButton()
     Q_EMIT requestMute();
 }
 
+void SpeakerPage::changeBluetoothMode(const int idx)
+{
+    this->requstBluetoothMode(m_blueSoundCbx->comboBox()->itemText(idx));
+}
+
 void SpeakerPage::addPort(const dcc::sound::Port *port)
 {
-    if (port->Out == port->direction()) {
+    // 若端口不可见不填加 port信息
+    if (!port->isEnabled())
+        return;
+
+    if (dcc::sound::Port::Out == port->direction()) {
+        qDebug() << "SpeakerPage::addPort" << port->name();
         DStandardItem *pi = new DStandardItem;
         pi->setText(port->name() + "(" + port->cardName() + ")");
-
         pi->setData(QVariant::fromValue<const dcc::sound::Port *>(port), Qt::WhatsThisPropertyRole);
 
         connect(port, &dcc::sound::Port::nameChanged, this, [ = ](const QString str) {
             pi->setText(str);
+        });
+
+        connect(port, &dcc::sound::Port::currentBluetoothPortChanged, this, [ = ](const bool isBluetooth) {
+            setBlueModeVisible(isBluetooth);
         });
         connect(port, &dcc::sound::Port::isActiveChanged, this, [ = ](bool isActive) {
             pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
             if (isActive) {
                 disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
                 m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
+                setBlueModeVisible(port->isBluetoothPort());
                 connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             }
         });
@@ -234,11 +223,12 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         if (port->isActive()) {
             disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
+            setBlueModeVisible(port->isBluetoothPort());
             connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
-            m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
         }
+
         showDevice();
     }
 }
@@ -341,7 +331,7 @@ void SpeakerPage::initSlider()
         m_outputSlider->setValueLiteral(QString::number((int)(m_model->speakerVolume() * 100 + 0.000001))+ "%");
     });
     connect(m_volumeBtn, &SoundLabel::clicked, this, &SpeakerPage::clickLeftButton);
-    m_layout->insertWidget(3, m_outputSlider);
+    m_layout->insertWidget(2, m_outputSlider);
 
     //音量增强
     auto hlayout = new QVBoxLayout();
@@ -363,8 +353,8 @@ void SpeakerPage::initSlider()
     m_vbWidget = new QWidget(this);
     m_vbWidget->setLayout(hlayout);
     m_vbWidget->setVisible(m_model->isPortEnable());
-    m_layout->insertWidget(4, m_vbWidget);
-    //~ contents_path /sound/Speaker
+    m_layout->insertWidget(3, m_vbWidget);
+    m_layout->addWidget(m_vbWidget);    //~ contents_path /sound/Speaker
     m_balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     m_balanceSlider->addBackground();
 
@@ -395,9 +385,7 @@ void SpeakerPage::initSlider()
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &SpeakerPage::refreshIcon);
     connect(qApp, &DApplication::iconThemeChanged, this, &SpeakerPage::refreshIcon);
 
-    m_layout->insertWidget(5, m_balanceSlider);
-    m_layout->setSpacing(10);
-    m_layout->addStretch(10);
+    m_layout->insertWidget(4, m_balanceSlider);
     refreshIcon();
     showDevice();
 
@@ -406,6 +394,31 @@ void SpeakerPage::initSlider()
     GSettingWatcher::instance()->bind("soundVolumeBoost", volumeBoost);
     GSettingWatcher::instance()->bind("soundVolumeBoost", volumeBoostTip);
     GSettingWatcher::instance()->bind("soundBalanceSlider", m_balanceSlider);
+}
+
+void SpeakerPage::initCombox()
+{
+    m_blueSoundCbx->comboBox()->addItems(m_model->bluetoothAudioModeOpts());
+    m_blueSoundCbx->comboBox()->setCurrentText(m_model->currentBluetoothAudioMode());
+    connect(m_blueSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeBluetoothMode);
+
+    m_outputSoundsGrp->getLayout()->setContentsMargins(ThirdPageCmbMargins);
+    m_outputSoundsGrp->appendItem(m_outputSoundCbx);
+    m_outputSoundsGrp->appendItem(m_blueSoundCbx);
+
+    QModelIndex index = m_outputModel->index(m_outputSoundCbx->comboBox()->currentIndex(), 0);
+    const dcc::sound::Port * cunPort =  m_outputModel->data(index, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
+    if (index.isValid()) {
+        setBlueModeVisible(cunPort->isBluetoothPort());
+        m_blueSoundCbx->comboBox()->setCurrentText(m_model->currentBluetoothAudioMode());
+    }
+
+    if (m_outputSoundsGrp->layout())
+        m_outputSoundsGrp->layout()->setContentsMargins(ThirdPageCmbMargins);
+
+    m_layout->addWidget(m_outputSoundsGrp);
+    m_layout->setSpacing(10);
+    m_layout->addStretch(10);
 }
 
 void SpeakerPage::refreshIcon()
@@ -420,28 +433,24 @@ void SpeakerPage::refreshIcon()
 /**
  * @brief SpeakerPage::showDevice
  * 当无设备时，不显示设备信息
- * 当只有一个设备时，一直显示设备信息
  * 当有多个设备，且未禁用时，显示设备信息
+ * 跟随设备管理
  */
 void SpeakerPage::showDevice()
 {
     if (!m_speakSlider || !m_vbWidget || !m_balanceSlider || !m_outputSlider)
         return;
-    if (1 == m_outputModel->rowCount())
-        setDeviceVisible(true);
-    if (1 > m_outputModel->rowCount())
+
+    if (1 > m_outputModel->rowCount()){
         setDeviceVisible(false);
-    if (1 < m_outputModel->rowCount()) {
-        if (m_sw->checked())
-            setDeviceVisible(true);
-        else
-            setDeviceVisible(false);
-    }
+        setBlueModeVisible(false);
+    } else
+        setDeviceVisible(true);
 }
 
-void SpeakerPage::setDeviceVisible(bool visable)
+void SpeakerPage::setDeviceVisible(bool visible)
 {
-    if (visable) {
+    if (visible) {
         m_speakSlider->show();
         m_vbWidget->show();
         if (GSettingWatcher::instance()->getStatus("soundBalanceSlider") != "Hidden")
@@ -454,4 +463,9 @@ void SpeakerPage::setDeviceVisible(bool visable)
         m_balanceSlider->hide();
         m_outputSlider->hide();
     }
+}
+
+void SpeakerPage::setBlueModeVisible(bool visible)
+{
+    m_blueSoundCbx->setVisible(visible);
 }
