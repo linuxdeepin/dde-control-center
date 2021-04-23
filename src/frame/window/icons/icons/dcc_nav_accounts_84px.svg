@@ -20,9 +20,9 @@
             <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feColorMatrix values="0 0 0 0 0.270509489   0 0 0 0 0.291312076   0 0 0 0 0.38284346  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
         </filter>
-        <radialGradient cx="27.7048929%" cy="10.6803319%" fx="27.7048929%" fy="10.6803319%" r="121.916918%" gradientTransform="translate(0.277049,0.106803),scale(0.631579,1.000000),rotate(37.300036),translate(-0.277049,-0.106803)" id="radialGradient-6">
-            <stop stop-color="#B7BCD4" offset="0%"></stop>
-            <stop stop-color="#797E96" offset="100%"></stop>
+        <radialGradient cx="47.5349926%" cy="10.0748079%" fx="47.5349926%" fy="10.0748079%" r="66.8495464%" gradientTransform="translate(0.475350,0.100748),scale(0.631579,1.000000),rotate(90.000000),translate(-0.475350,-0.100748)" id="radialGradient-6">
+            <stop stop-color="#797E96" offset="0%"></stop>
+            <stop stop-color="#B7BCD4" offset="100%"></stop>
         </radialGradient>
         <path d="M43.4907528,38.9072082 C42.3543339,38.1461425 41.9801037,35.6471133 42.3680621,31.4101205 C42.3680621,26.5551465 39.5645237,24.1276596 33.9574468,24.1276596 C28.3503699,24.1276596 25.5509135,26.5551465 25.5590776,31.4101205 C25.6197643,35.3902722 25.2474765,37.6475587 24.4422141,38.18198 C20.0732244,41.0807648 15.255207,40.1584473 8.52703734,43.1009059 C-0.461482786,47.0322568 0.00410262548,65.6762048 0.00410262454,65.6762048 C0.00410262359,65.6762048 0.497215424,67.0212766 1.68989643,67.0212766 L65.8701054,67.0212766 C67.2803149,67.0212766 67.9148936,65.6762048 67.9148936,65.6762048 C67.9148936,56.7163889 66.120853,49.6026268 62.6215631,46.1763112 C59.1223768,42.7498942 45.1953811,40.0488068 43.4907528,38.9072082 Z" id="path-7"></path>
         <filter x="-3.7%" y="-3.5%" width="107.4%" height="114.0%" filterUnits="objectBoundingBox" id="filter-8">
@@ -49,8 +49,8 @@
             </feMerge>
         </filter>
         <radialGradient cx="27.7048929%" cy="10.6803319%" fx="27.7048929%" fy="10.6803319%" r="110.816715%" gradientTransform="translate(0.277049,0.106803),scale(1.000000,0.800000),rotate(56.445600),translate(-0.277049,-0.106803)" id="radialGradient-10">
-            <stop stop-color="#B7BCD4" offset="0%"></stop>
-            <stop stop-color="#797E96" offset="100%"></stop>
+            <stop stop-color="#C4CAE4" offset="0%"></stop>
+            <stop stop-color="#8F95B0" offset="100%"></stop>
         </radialGradient>
         <path d="M40.0668285,33.7291724 C43.7467245,30.6072724 46.1085381,24.4987834 45.9081697,19.4446026 C48.8872998,12.6817502 46.0133349,10.2166783 46.0133349,10.2166783 C46.0133349,10.2166783 49.3982101,6.99325174 49.3982101,4.16938135 C42.4499539,5.72888984 33.690932,-6.160093 26.4216813,4.45840336 C20.2249093,3.13111865 19.748023,13.0605265 22.1315608,20.0130951 C23.222197,28.3935531 26.6726072,32.1903606 28.40137,34.0248453 C30.1301328,35.85933 36.3869325,36.8510725 40.0668285,33.7291724 Z" id="path-11"></path>
         <filter x="-5.2%" y="-4.2%" width="110.5%" height="108.4%" filterUnits="objectBoundingBox" id="filter-12">
@@ -58,9 +58,9 @@
             <feOffset dx="0.7" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0.443137255   0 0 0 0 0.458823529   0 0 0 0 0.549019608  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
-            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feOffset dx="0" dy="-0.5" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
             <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
-            <feColorMatrix values="0 0 0 0 0.863591192   0 0 0 0 0.878593526   0 0 0 0 0.948604418  0 0 0 1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feColorMatrix values="0 0 0 0 0.837189284   0 0 0 0 0.854194463   0 0 0 0 0.935819322  0 0 0 1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
             <feOffset dx="0.5" dy="0.7" in="SourceAlpha" result="shadowOffsetInner3"></feOffset>
             <feComposite in="shadowOffsetInner3" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner3"></feComposite>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.675356138 0" type="matrix" in="shadowInnerInner3" result="shadowMatrixInner3"></feColorMatrix>
