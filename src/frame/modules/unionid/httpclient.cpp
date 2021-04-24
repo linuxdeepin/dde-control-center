@@ -8,7 +8,7 @@ Q_GLOBAL_STATIC(HttpClient, httpClient)
 
 DCORE_USE_NAMESPACE
 
-const QByteArray CLIENT_ID = "388340d186f311eb983b0242ac130002";
+const QByteArray CLIENT_ID = "fc8b4f1c34644fd184e002ecdcc6a295";
 const QString REQUEST_URL = "https://uosvip.uniontech.com";
 //const QString REQUEST_URL = "http://10.4.10.104:9000";
 
@@ -31,16 +31,16 @@ QNetworkRequest HttpClient::setNetWorkRequest(const QString &requestApi, QNetwor
     networkRequest.setRawHeader("client_id", CLIENT_ID);
     //    networkRequest.setRawHeader("uos_license", Utils::fileContent("/var/cache/gather/glicense.dat").toUtf8());
 
-    if(m_strDeepinHttpName.isEmpty()){
+    if (m_strDeepinHttpName.isEmpty()) {
         networkRequest.setUrl(REQUEST_URL + requestApi);
-    }else {
+    } else {
         networkRequest.setUrl(m_strDeepinHttpName + requestApi);
     }
 
     return networkRequest;
 }
 
-QNetworkReply* HttpClient::requestQrCode(const QString &clientId, const QString &deviceId
+QNetworkReply *HttpClient::requestQrCode(const QString &clientId, const QString &deviceId
                                          , const int &scene, const QString &redirectUrl)
 {
     QJsonObject json1;
@@ -49,14 +49,14 @@ QNetworkReply* HttpClient::requestQrCode(const QString &clientId, const QString 
     json1.insert("scene", scene);
 
     QJsonObject jsonRoot;
-    jsonRoot.insert("codeInfoDTO",json1);
-    jsonRoot.insert("redirectUrl",redirectUrl);
+    jsonRoot.insert("codeInfoDTO", json1);
+    jsonRoot.insert("redirectUrl", redirectUrl);
 
     QNetworkRequest requset = setNetWorkRequest("/qrcode/generating");
     return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
-QNetworkReply *HttpClient::reportQrCodeStatus(const QString &codeId, const int &qrCodeStatus,const QString &sessionId)
+QNetworkReply *HttpClient::reportQrCodeStatus(const QString &codeId, const int &qrCodeStatus, const QString &sessionId)
 {
     QJsonObject dataJson;
     dataJson.insert("sessionId", sessionId);
@@ -115,7 +115,7 @@ QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int 
     json2.insert("accountType", bindAccountType);
     json2.insert("id", bindAccountId);
     json2.insert("idValue", bindAccountIdValue);
-    json2.insert("attribute",attribute);
+    json2.insert("attribute", attribute);
 
     QJsonObject jsonRoot;
     jsonRoot.insert("currentAccount", json1);
@@ -149,9 +149,9 @@ QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const in
 QNetworkReply *HttpClient::getBindAccountInfo(const int &accountType, const int &id, const QString &idValue)
 {
     QString requestApi = QString("/account/bind-accountInfo?accountType=%1&id=%2&idValue=%3")
-            .arg(accountType)
-            .arg(id)
-            .arg(idValue);
+                         .arg(accountType)
+                         .arg(id)
+                         .arg(idValue);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
     return manager->get(requset);
 }
@@ -159,8 +159,8 @@ QNetworkReply *HttpClient::getBindAccountInfo(const int &accountType, const int 
 QNetworkReply *HttpClient::getAccessToken(const QString &clientId, const QString &code)
 {
     QString requestApi = QString("/account/unionid/access-token?clientId=%1&code=%2")
-            .arg(clientId)
-            .arg(code);
+                         .arg(clientId)
+                         .arg(code);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
     return manager->get(requset);
 }
@@ -168,8 +168,8 @@ QNetworkReply *HttpClient::getAccessToken(const QString &clientId, const QString
 QNetworkReply *HttpClient::refreshAccessToken(const QString &clientId, const QString &refreshtoken)
 {
     QString requestApi = QString("/account/unionid/access-token?clientId=%1&refreshToken=%2")
-            .arg(clientId)
-            .arg(refreshtoken);
+                         .arg(clientId)
+                         .arg(refreshtoken);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
     return manager->get(requset);
 }
@@ -179,7 +179,7 @@ QNetworkReply *HttpClient::getUserInfo(const QString &accessToken)
     QNetworkRequest requset;
     QString qstrUrl = QString("https://api.uniontech.com/v1/user?access_token=%1").arg(accessToken);
     requset.setUrl(QUrl(qstrUrl));
-    requset.setHeader(QNetworkRequest::ContentTypeHeader,"application/json");
+    requset.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     QNetworkAccessManager *netmanager = new QNetworkAccessManager();
     return netmanager->get(requset);
 }
@@ -189,7 +189,7 @@ QNetworkReply *HttpClient::getPictureFromUrl(const QString &url)
     QNetworkRequest requset;
     requset.setUrl(QUrl(url));
     requset.setAttribute(QNetworkRequest::FollowRedirectsAttribute, true);
-    requset.setHeader(QNetworkRequest::ContentTypeHeader,"application/json");
+    requset.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     QNetworkAccessManager *netmanager = new QNetworkAccessManager();
     return netmanager->get(requset);
 }
@@ -197,18 +197,16 @@ QNetworkReply *HttpClient::getPictureFromUrl(const QString &url)
 QByteArray HttpClient::checkReply(QNetworkReply *pReply)
 {
     qInfo() << "checkReply";
-    if (pReply->error() != QNetworkReply::NoError)
-    {
+    if (pReply->error() != QNetworkReply::NoError) {
         QString strErr = "Failed to request : " + pReply->url().toString()
-                        + "\n the error code is : " + QString::number(pReply->error())
-                        + "\n the error string is : " + pReply->errorString();
+                         + "\n the error code is : " + QString::number(pReply->error())
+                         + "\n the error string is : " + pReply->errorString();
         qInfo() << "strErr" << strErr;
         return QByteArray();
     }
 
     int statusCode = pReply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-    if (200 != statusCode)
-    {
+    if (200 != statusCode) {
         QString strReason = "The status code is not 200";
         qInfo() << "statusCode" << statusCode;
         return QByteArray();
@@ -272,37 +270,33 @@ void HttpClient::loadDeepinDev()
     QString path = "/etc/environment";
     QFile file(path);
 
-    if(!file.open(QIODevice::ReadOnly)) {
-        qInfo()<<"Can't open the file!"<<endl;
+    if (!file.open(QIODevice::ReadOnly)) {
+        qInfo() << "Can't open the file!" << endl;
         return;
     }
 
     QStringList lstDeepinDev;
-    while(!file.atEnd()) {
+    while (!file.atEnd()) {
         QByteArray line = file.readLine();
         QString strDeepinDev(line);
         lstDeepinDev.append(strDeepinDev);
     }
 
-    if(0 == lstDeepinDev.length())
-    {
-        qInfo()<<"have not DEEPINID_DEV group!"<<endl;
+    if (0 == lstDeepinDev.length()) {
+        qInfo() << "have not DEEPINID_DEV group!" << endl;
         return;
     }
 
     QStringList lstDeepinDevInfo;
     QString strFileDevName = "DEEPINID_DEV";
-    for(int i = 0; i < lstDeepinDev.length(); ++i)
-    {
-        if(lstDeepinDev[i].contains(strFileDevName))
-        {
+    for (int i = 0; i < lstDeepinDev.length(); ++i) {
+        if (lstDeepinDev[i].contains(strFileDevName)) {
             lstDeepinDevInfo = lstDeepinDev[i].split("=");
         }
     }
 
-    if(2 != lstDeepinDevInfo.length() || lstDeepinDevInfo[1].isEmpty() || "\n" == lstDeepinDevInfo[1])
-    {
-        qInfo()<<"HttpInfo is error!"<<endl;
+    if (2 != lstDeepinDevInfo.length() || lstDeepinDevInfo[1].isEmpty() || "\n" == lstDeepinDevInfo[1]) {
+        qInfo() << "HttpInfo is error!" << endl;
         return;
     }
 
