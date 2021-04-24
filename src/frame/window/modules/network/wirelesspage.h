@@ -105,6 +105,7 @@ public:
         PathRole,
         SecureRole
     };
+    QMap<QString, APSortInfo> m_apPathSortInfo;
 private:
     DListView *m_parentView;
     DTK_WIDGET_NAMESPACE::DStyleHelper m_dStyleHelper;
