@@ -214,6 +214,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 
         QString strTemp;
         int idx;
+        int illegalNum = 0;
         for (idx = 0; idx < strText.size(); ++idx) {
             if ((strText[idx] >= '0' && strText[idx] <= '9') ||
                 (strText[idx] >= 'a' && strText[idx] <= 'z') ||
@@ -221,9 +222,11 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
                 (strText[idx] == '-' || strText[idx] == '_')) {
                 strTemp.append(strText[idx]);
             } else {
-                break;
+                illegalNum++;
+                continue;
             }
         }
+        idx = m_nameEdit->lineEdit()->cursorPosition() - illegalNum;
 
         m_nameEdit->lineEdit()->blockSignals(true);
         m_nameEdit->lineEdit()->setText(strTemp);
