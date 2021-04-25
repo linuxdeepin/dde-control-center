@@ -115,7 +115,7 @@ QString Notificationmanager::getUserInfo()
 void Notificationmanager::getAccessToken(const QString &code, const QString &state)
 {
     Q_UNUSED(state)
-    QNetworkReply *reply = HttpClient::instance()->getAccessToken(CLIENT_ID,code);
+    QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),code);
     connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetAccessToken);
 }
 
@@ -167,7 +167,7 @@ void Notificationmanager::onGetAccessToken()
 
 void Notificationmanager::onTokenTimeout()
 {
-    QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
+    QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(HttpClient::instance()->getClientId(),m_refreshToken);
     connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onRefreshAccessToken);
 }
 

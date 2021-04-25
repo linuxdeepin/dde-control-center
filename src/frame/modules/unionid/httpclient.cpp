@@ -8,14 +8,13 @@ Q_GLOBAL_STATIC(HttpClient, httpClient)
 
 DCORE_USE_NAMESPACE
 
-const QByteArray CLIENT_ID = "fc8b4f1c34644fd184e002ecdcc6a295";
-const QString REQUEST_URL = "https://uosvip.uniontech.com";
-//const QString REQUEST_URL = "http://10.4.10.104:9000";
-
 HttpClient::HttpClient(QObject *parent) : QObject(parent)
 {
     manager = new QNetworkAccessManager();
-    loadDeepinDev();
+    m_redirec_url = "https://uosvip.uniontech.com/account/unionid/callback/uid-management";
+    m_request_url = "https://uosvip.uniontech.com";
+    m_clientid = "fc8b4f1c34644fd184e002ecdcc6a295";
+    judgeClienid();
 }
 
 HttpClient *HttpClient::instance()
@@ -28,14 +27,9 @@ QNetworkRequest HttpClient::setNetWorkRequest(const QString &requestApi, QNetwor
     QNetworkRequest networkRequest;
     networkRequest.setHeader(headerType, headerValue);
     networkRequest.setHeader(QNetworkRequest::UserAgentHeader, userAgentInfo());
-    networkRequest.setRawHeader("client_id", CLIENT_ID);
+    networkRequest.setRawHeader("client_id", m_clientid.toUtf8());
     //    networkRequest.setRawHeader("uos_license", Utils::fileContent("/var/cache/gather/glicense.dat").toUtf8());
-
-    if (m_strDeepinHttpName.isEmpty()) {
-        networkRequest.setUrl(REQUEST_URL + requestApi);
-    } else {
-        networkRequest.setUrl(m_strDeepinHttpName + requestApi);
-    }
+    networkRequest.setUrl(m_request_url + requestApi);
 
     return networkRequest;
 }
@@ -259,48 +253,62 @@ bool HttpClient::checkJson(const QString &strJson, QJsonObject &jsonObj)
     return true;
 }
 
+QString HttpClient::getClientId()
+{
+    return m_clientid;
+}
+
+QString HttpClient::getRedirecUrl()
+{
+    return m_redirec_url;
+}
+
+QString HttpClient::getRequestUrl()
+{
+    return m_request_url;
+}
+
 /*******************************************************************************
+<<<<<<< HEAD
+ 1. @函数:    judgeClienid
+=======
  1. @函数:    loadDeepinDev
- 2. @作者:    ut000610 郁佳玮
- 3. @日期:    2021-04-21
- 4. @说明:    获取/etc/environment下的deepindv信息
+>>>>>>> ae2e708e367479c07635a9054dd1df997814ca50
+ 2. @作者:    ut003285 刘冬宇
+ 3. @日期:    2021-04-23
+ 4. @说明:    判断/etc/environment下的DEEPIN_DEV中是否存在-pre字段
 *******************************************************************************/
-void HttpClient::loadDeepinDev()
+void HttpClient::judgeClienid()
 {
     QString path = "/etc/environment";
     QFile file(path);
 
     if (!file.open(QIODevice::ReadOnly)) {
-        qInfo() << "Can't open the file!" << endl;
+        qInfo() << "Can't open /etc/environment file!" << endl;
         return;
     }
 
-    QStringList lstDeepinDev;
     while (!file.atEnd()) {
         QByteArray line = file.readLine();
-        QString strDeepinDev(line);
-        lstDeepinDev.append(strDeepinDev);
-    }
-
-    if (0 == lstDeepinDev.length()) {
-        qInfo() << "have not DEEPINID_DEV group!" << endl;
-        return;
-    }
-
-    QStringList lstDeepinDevInfo;
-    QString strFileDevName = "DEEPINID_DEV";
-    for (int i = 0; i < lstDeepinDev.length(); ++i) {
-        if (lstDeepinDev[i].contains(strFileDevName)) {
-            lstDeepinDevInfo = lstDeepinDev[i].split("=");
+        if (QString(line).contains("DEEPIN_DEV=")) {
+            QStringList temp = QString(line).split("=");
+            if (temp.at(0) == "DEEPIN_DEV" && !temp.at(1).isEmpty()) {
+                if (temp.at(1).contains("-pre")) {
+                    m_redirec_url = "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-management";
+                    m_request_url = "https://uosvip-pre.uniontech.com";
+                    m_clientid = "388340d186f311eb983b0242ac130002";
+                } else {
+                    m_redirec_url = "https://uosvip.uniontech.com/account/unionid/callback/uid-management";
+                    m_request_url = "https://uosvip.uniontech.com";
+                    m_clientid = "fc8b4f1c34644fd184e002ecdcc6a295";
+                }
+                break;
+            }
         }
     }
 
-    if (2 != lstDeepinDevInfo.length() || lstDeepinDevInfo[1].isEmpty() || "\n" == lstDeepinDevInfo[1]) {
-        qInfo() << "HttpInfo is error!" << endl;
-        return;
-    }
+    file.close();
 
-    m_strDeepinHttpName = lstDeepinDevInfo.at(1);
 }
 
 /*******************************************************************************

@@ -20,6 +20,7 @@
  */
 
 #include "login.h"
+#include "modules/unionid/httpclient.h"
 
 #include <DSuggestButton>
 #include <DFontSizeManager>
@@ -234,17 +235,20 @@ void LoginPage::onSignUpButtonClicked()
                               "/com/deepin/deepinid/Client",
                               "com.deepin.deepinid.Client");
 
+    QVariant clientId = HttpClient::instance()->getClientId();
+    QVariant redirecUrl = HttpClient::instance()->getRedirecUrl();
+
     QList<QVariant> argumentList;
-    argumentList << "fc8b4f1c34644fd184e002ecdcc6a295";
+    argumentList << clientId;
     argumentList << "com.deepin.dde.ControlCenter";
     argumentList << "/com/deepin/dde/ControlCenter";
     argumentList << "com.deepin.dde.ControlCenter";
     interface.callWithArgumentList(QDBus::NoBlock, "Register", argumentList);
 
     argumentList = {};
-    argumentList << "fc8b4f1c34644fd184e002ecdcc6a295";
+    argumentList << clientId;
     argumentList << QStringList{"base","user.api:contact","user:contact:read"};
-    argumentList << "https://uosvip.uniontech.com/account/unionid/callback/uid-management";
+    argumentList << redirecUrl;
     argumentList << "state";
     interface.callWithArgumentList(QDBus::NoBlock, "createAccount", argumentList);
 }

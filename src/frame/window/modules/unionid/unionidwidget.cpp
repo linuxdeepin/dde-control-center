@@ -96,6 +96,7 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 
     if (Notificationmanager::instance()->firstIsLogin()) {
         onUserInfoChanged(model->userinfo());
+        Notificationmanager::instance()->setFirstLogin();
     } else {
         switchWidget(model->userinfo());
     }
@@ -104,7 +105,7 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 void UnionidWidget::getAccessToken(const QString &code, const QString &state)
 {
     Q_UNUSED(state)
-    QNetworkReply *reply = HttpClient::instance()->getAccessToken(CLIENT_ID,code);
+    QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),code);
     connect(reply,&QNetworkReply::finished,this,&UnionidWidget::onGetAccessToken);
 }
 
@@ -160,8 +161,11 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
     if (isLogind) {
 //        if (region == "CN") {
         m_pageLayout->setCurrentWidget(m_indexPage);
-        m_loginPage->login();
+
+        if (!Notificationmanager::instance()->firstIsLogin()) {
             qInfo() << "已登录";
+            m_loginPage->login();
+        }
 //        } else {
 //            m_pageLayout->setCurrentWidget(m_cnonlyPage);
 //        }

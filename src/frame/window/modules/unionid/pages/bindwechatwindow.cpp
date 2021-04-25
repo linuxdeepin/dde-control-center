@@ -223,7 +223,8 @@ void BindWeChatWindow::onScanSuccess()
 void BindWeChatWindow::onRefreshQrCode()
 {
     if (Notificationmanager::instance()->isOnLine()) {
-        QNetworkReply *reply1 = HttpClient::instance()->requestQrCode(CLIENT_ID,m_hardwareID,3,REDIRECT_URI);
+        QNetworkReply *reply1 = HttpClient::instance()->requestQrCode(HttpClient::instance()->getClientId(),
+                                                                      m_hardwareID,3,HttpClient::instance()->getRedirecUrl());
         connect(reply1,&QNetworkReply::finished,this,&BindWeChatWindow::onRequestQrCodeResult);
     } else {
         Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);

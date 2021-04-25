@@ -593,7 +593,7 @@ void IndexPage::onRefreshAccessToken()
 
 void IndexPage::onTokenTimeout()
 {
-    QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(CLIENT_ID,m_refreshToken);
+    QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(HttpClient::instance()->getClientId(),m_refreshToken);
     connect(reply,&QNetworkReply::finished,this,&IndexPage::onRefreshAccessToken);
 }
 

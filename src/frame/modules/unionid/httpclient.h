@@ -144,10 +144,15 @@ public:
     bool solveJson(const QString &strJson);
     bool checkJson(const QString &strJson, QJsonObject &jsonObj);
 
+    QString getClientId();
+    QString getRedirecUrl();
+    QString getRequestUrl();
+
 private:
     void loadDeepinDev();
     QString userAgentInfo();
     QString fileContent(const QString &fileName);
+    void judgeClienid();
 
 private:
     Q_DISABLE_COPY(HttpClient)
@@ -155,8 +160,9 @@ private:
     QNetworkRequest setNetWorkRequest(const QString &requestApi, QNetworkRequest::KnownHeaders headerType = QNetworkRequest::ContentTypeHeader, QVariant headerValue = "application/json");
 
     QNetworkAccessManager *manager = nullptr;
-
-    QString m_strDeepinHttpName;
+    QString m_clientid;
+    QString m_redirec_url;
+    QString m_request_url;
 };
 
 #endif // REQUESTSERVICE_H

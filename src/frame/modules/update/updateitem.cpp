@@ -74,7 +74,8 @@ UpdateItem::UpdateItem(QFrame *parent)
     m_appChangelog->setFont(changelogFont);
     m_appChangelog->setWordWrap(true);
     m_appChangelog->setTextFormat(Qt::RichText);
-    m_appChangelog->setTextInteractionFlags(Qt::NoTextInteraction);
+    //支持更新列表中的URL点击跳转
+//    m_appChangelog->setTextInteractionFlags(Qt::NoTextInteraction);
     m_appChangelog->setContextMenuPolicy(Qt::NoContextMenu);
     m_appChangelog->setOpenExternalLinks(true);
     m_appChangelog->setAlignment(Qt::AlignTop | Qt::AlignLeft);

@@ -210,7 +210,8 @@ void AuthenticationWindow::onVerifySmsCodeResult()
             QVariant strReply = interface1.property("HardwareID");
 
             bindWeChatWindow->setData(m_accessToken,strReply.toString(),m_weChatUnionId,m_userAvatar,m_nickName);
-            QNetworkReply *reply = HttpClient::instance()->requestQrCode(CLIENT_ID,strReply.toString(),3,REDIRECT_URI);
+            QNetworkReply *reply = HttpClient::instance()->requestQrCode(HttpClient::instance()->getClientId(),strReply.toString(),
+                                                                         3,HttpClient::instance()->getRedirecUrl());
             connect(reply,&QNetworkReply::finished,bindWeChatWindow,&BindWeChatWindow::onRequestQrCodeResult);
             hide();
             bindWeChatWindow->show();

@@ -15,8 +15,6 @@ const QColor buttonHoverBorderDarkColor = QColor::fromRgbF(255,255,255,0.25);
 const QColor buttonPressBorderDarkColor = QColor::fromRgbF(255,255,255,0.15);
 const QColor lineLightColor = QColor::fromRgbF(0,0,0,0.1);
 
-const QString CLIENT_ID = "fc8b4f1c34644fd184e002ecdcc6a295";
-const QString REDIRECT_URI = "https://uosvip.uniontech.com/account/unionid/callback/uid-management";
 const QString SCOPES = "{base,user.api:contact,user:contact:read}";
 
 

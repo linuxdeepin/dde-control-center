@@ -220,6 +220,7 @@ MainWindow::MainWindow(QWidget *parent)
     });
     updateViewBackground();
     updateWinsize();
+    Notificationmanager::instance()->setFirstLogin();
 }
 
 MainWindow::~MainWindow()
@@ -1165,7 +1166,7 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
         m_initList << inter;
     }
     m_moduleName = inter->name();
-    Notificationmanager::instance()->setFirstLogin();
+
     setCurrModule(inter);
     inter->active();
     m_navView->resetStatus(index);
