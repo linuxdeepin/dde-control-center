@@ -25,9 +25,11 @@
 #include <QStylePainter>
 #include <QStyleOption>
 #include <DApplicationHelper>
+#include <DFontSizeManager>
 
 DTK_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
+DGUI_USE_NAMESPACE
 
 void newStyle::drawControl(QStyle::ControlElement element, const QStyleOption *option, QPainter *painter, const QWidget *widget) const
 {
@@ -87,6 +89,7 @@ void newStyle::drawCustomButton(const QStyleOption *opt, QPainter *p) const
         p->drawRoundRect(roundRect,cx,cy);
         p->restore();
         pen.setColor(m_textNormalColor);
+
     } else if (m_buttonStyle == Text) {
         //悬浮状态
         if(pb->state&QStyle::State_MouseOver) {
@@ -155,6 +158,11 @@ void newStyle::drawCustomButton(const QStyleOption *opt, QPainter *p) const
         p->setPen(pen);
     }
 
+    //设置字体大小12
+    quint16 stata = DFontSizeManager::instance()->fontPixelSize(DFontSizeManager::T8);
+    QFont font;
+    font.setPixelSize(stata);
+    p->setFont(font);
     //绘制按钮显示的文本。
     p->drawText(r,Qt::AlignCenter,pb->text);
 }

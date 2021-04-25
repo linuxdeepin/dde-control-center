@@ -37,6 +37,7 @@
 #include <DListView>
 #include <DTipLabel>
 #include <DCommandLinkButton>
+#include <DFontSizeManager>
 
 #include <QJsonObject>
 #include <QJsonParseError>
@@ -90,6 +91,7 @@ IndexPage::IndexPage(QWidget *parent)
     modifyInfoStyle->setTextColor(textTitleLightColor);
     modifyInfoStyle->setBorderColor(buttonNormalBorderLightColor,buttonHoverBorderLightColor,buttonPressBorderLightColor);
     m_modifyInfoButton->setStyle(modifyInfoStyle);
+    m_modifyInfoButton->setMinimumSize(72,28);
 
     m_wxlabel = new QLabel;
     m_wxlabel->setText(tr("Link to WeChat"));
