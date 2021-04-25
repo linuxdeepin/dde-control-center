@@ -34,6 +34,8 @@
 #include <networkdevice.h>
 #include <wirelessdevice.h>
 
+#include <DApplicationHelper>
+
 #include <QDebug>
 #include <QPointer>
 #include <QVBoxLayout>
@@ -360,7 +362,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
             continue;
 
         qDebug() << "add Wireless item!";
-        if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
+        if (qobject_cast<WirelessDevice *>(dev)->supportHotspot() && !DGuiApplicationHelper::isTabletEnvironment()) {
             have_ap = true;
         }
 
