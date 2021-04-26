@@ -248,7 +248,7 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
         SearchBoxStruct::Ptr data = getModuleBtnString(path);
         if (data->translateContent != "" && data->fullPagePath != "") {
             for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
-                if (m_EnterNewPagelist[i]->translateContent == data->fullPagePath) {//getModuleBtnString解析SearchBoxStruct.fullPagePath，满足此处判断
+                if (m_EnterNewPagelist[i]->translateContent == data->fullPagePath  && m_EnterNewPagelist[i]->actualModuleName == data->translateContent) {//getModuleBtnString解析SearchBoxStruct.fullPagePath，满足此处判断
 #if DEBUG_XML_SWITCH
                     qDebug() << " [SearchWidget] m_EnterNewPagelist[i].translateContent : " << m_EnterNewPagelist[i].translateContent << " , fullPagePath : " << m_EnterNewPagelist[i].fullPagePath << " , actualModuleName: " << m_EnterNewPagelist[i].actualModuleName;
                     qDebug() << " [SearchWidget] data.translateContent : " << data.translateContent << " , data.fullPagePath : " << data.fullPagePath << " , data.actualModuleName: " << data.actualModuleName;
