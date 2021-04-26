@@ -55,9 +55,9 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
 
     DTipLabel *label = new DTipLabel(text);
 
-    label->setWordWrap(true);
     label->setTextFormat(Qt::RichText);
     label->setAlignment(Qt::AlignJustify);
+    label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     label->setWordWrap(true);
     connect(label, &QLabel::linkActivated, this, [](const QString &link) {
         QDesktopServices::openUrl(QUrl(link));
