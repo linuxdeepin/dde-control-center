@@ -28,6 +28,20 @@ QModelIndex MultiSelectListView::moveCursor(CursorAction cursorAction, Qt::Keybo
     return DListView::moveCursor(cursorAction, modifiers);
 }
 
+void MultiSelectListView::mousePressEvent(QMouseEvent *event)
+{
+    DListView::mousePressEvent(event);
+    // 默认只有一列
+    int row = this->currentIndex().row();
+    QModelIndex index = model()->index(row,0);
+    if (m_currentIndex != index.row() && index.isValid() && !isRowHidden(row)) {
+        setCurrentIndex(index);
+        Q_EMIT clicked(index);
+    } else {
+        this->setFocus();
+    }
+}
+
 void MultiSelectListView::keyPressEvent(QKeyEvent *event)
 {
 

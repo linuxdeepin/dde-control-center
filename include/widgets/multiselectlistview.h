@@ -19,6 +19,7 @@ protected:
     void currentChanged(const QModelIndex &current, const QModelIndex &previous) override;
     QModelIndex moveCursor(CursorAction cursorAction, Qt::KeyboardModifiers modifiers) override;
     void keyPressEvent(QKeyEvent *event) override;
+    virtual void mousePressEvent(QMouseEvent *event) override;
 
 private:
     int m_currentIndex;
