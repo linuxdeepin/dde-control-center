@@ -69,6 +69,9 @@ void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_work->active(); //refresh data
 
     m_frameProxy->setRemoveableDeviceStatus(tr("On Battery"), m_model->haveBettary());
+    connect(m_model, &PowerModel::haveBettaryChanged, this, [=](bool state) {
+        m_frameProxy->setRemoveableDeviceStatus(tr("On Battery"), state);
+    });
 }
 
 void PowerModule::initialize()

@@ -127,17 +127,30 @@ void SoundWidget::initConnections()
 
 int SoundWidget::showPath(const QString &path)
 {
-    for (int i = 0; i < m_menuMethod.size(); ++i) {
-        auto menu = m_menuMethod[i];
-        if (tr(path.toStdString().c_str()) == menu.itemText) {
-            menu.itemSignal.invoke(this);
-            m_currentIdx = m_listView->model()->index(i, 0);
-            m_listView->setCurrentIndex(m_currentIdx);
-            return 0;
-        }
-    }
+    auto getIndex = [=](const QString &name) {
+        for (int i = 0; i < m_menuMethod.size(); ++i) {
+            if (name == "Speaker" && m_menuMethod[ i ].itemText == tr("Output")) {
+                return i;
+            }
 
-    return -1;
+            if (name == "Microphone" && m_menuMethod[ i ].itemText == tr("Input")) {
+                return i;
+            }
+
+            if (name == "Sound Effects" && m_menuMethod[ i ].itemText == tr("Sound Effects")) {
+                return i;
+            }
+        }
+
+        return 0;
+    };
+
+    int index = getIndex(path);
+    m_menuMethod[ index ].itemSignal.invoke(this);
+    m_currentIdx = m_listView->model()->index(index, 0);
+    m_listView->setCurrentIndex(m_currentIdx);
+
+    return 0;
 }
 
 void SoundWidget::showDefaultWidget()

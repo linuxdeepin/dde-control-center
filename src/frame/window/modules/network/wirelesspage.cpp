@@ -260,6 +260,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     , m_modelAP(new QStandardItemModel(m_lvAP))
     , m_sortDelayTimer(new QTimer(this))
     , m_autoConnectHideSsid("")
+    , m_wirelessScanTimer(new QTimer(this))
 {
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
@@ -385,6 +386,15 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         }
     }
 
+    QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    connect(gsetting, &QGSettings::changed, [&](const QString &key) {
+        if (key == "wireless-scan-interval") {
+            m_wirelessScanTimer->setInterval(gsetting->get("wireless-scan-interval").toInt());
+        }
+    });
+    connect(m_wirelessScanTimer, &QTimer::timeout, this, &WirelessPage::requestWirelessScan);
+    m_wirelessScanTimer->start(gsetting->get("wireless-scan-interval").toInt() * 1000);
+
     QTimer::singleShot(100, this, [ = ] {
         Q_EMIT requestDeviceAPList(m_device->path());
         Q_EMIT requestWirelessScan();
@@ -397,6 +407,7 @@ WirelessPage::~WirelessPage()
     if (scroller) {
         scroller->stop();
     }
+    m_wirelessScanTimer->stop();
 }
 
 void WirelessPage::updateLayout(bool enabled)

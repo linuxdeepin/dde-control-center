@@ -859,5 +859,9 @@
             <default>'Enabled'</default>
             <description></description>
         </key>
+        <key name="wireless-scan-interval" type="i">
+            <default>5</default>
+            <summary>wireless scan interval</summary>
+        </key>
     </schema>
 </schemalist>

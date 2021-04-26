@@ -228,8 +228,9 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
     };
 
     rmFunc(m_inputModel);
-    if (m_currentPort)
-        m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
+    dcc::sound::Port *port = m_model->findPort(portId, cardId);
+    if (port)
+        m_sw->setHidden(!m_model->isShow(m_inputModel, port));
     showDevice();
 }
 
@@ -272,9 +273,8 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
             connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
-        }
-        if (m_currentPort)
             m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
+        }
         showDevice();
     }
 }

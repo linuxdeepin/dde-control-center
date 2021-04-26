@@ -190,6 +190,19 @@ dde-control-center (2.91.1-1) stable; urgency=low
 
  -- TagBuilder <tabbuilder@linuxdeepin.com>  Fri, 20 Nov 2015 09:52:29 +0000
 
+dde-control-center (2.90.1+r1494~g999cab5) experimental; urgency=low
+
+  ** Build revision: 999cab57c67c88f9a9065963c61c0cd262897918  @  origin/release/2.3 **
+
+  [upstreamer]
+  * Use DPalette to replace DConstants
+  * Hide remoting module for 2015 test
+  * Show error message when failed to connect to remote peer
+  * Fixed: show error page on peerIdFailed
+  * Merge branch 'develop' into release/2.3
+
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Thu, 02 Jul 2015 13:55:11 +0000
+
 dde-control-center (0.0.0) unstable; urgency=medium
 
   * Unstable release.
