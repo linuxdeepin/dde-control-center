@@ -24,6 +24,7 @@
 #include <QPainter>
 #include <QPainterPath>
 #include <QPaintEvent>
+#include <QDebug>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
@@ -53,9 +54,14 @@ const QString AvatarWidget::avatarPath() const
 void AvatarWidget::setAvatarPath(const QString &avatar)
 {
     const auto ratio = devicePixelRatioF();
-
     m_avatarPath = avatar;
-    m_avatar = QPixmap(avatar).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+    if (avatar != "Error") {
+        m_avatar = QPixmap(avatar).scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+
+    } else {
+         //当头像没有获取到的时候，采用默认头像作为显示头像
+        m_avatar = QPixmap(":/cloudsync/UnionIcon.svg").scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+    }
     m_avatar.setDevicePixelRatio(ratio);
 
     setAccessibleName(m_avatarPath);

@@ -6,5 +6,6 @@
         <file>themes/dark/sync_ok.svg</file>
         <file>themes/dark/syncing.svg</file>
         <file>themes/dark/dark.qss</file>
+        <file>UnionIcon.svg</file>
     </qresource>
 </RCC>

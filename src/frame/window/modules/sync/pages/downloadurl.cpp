@@ -109,12 +109,14 @@ void DownloadUrl::onDownloadFileComplete(QNetworkReply *reply)
         m_file = nullptr;
         reply->deleteLater();
         m_isReady = true;
+        Q_EMIT fileDownloaded("Error");
         onDownloadFileError(url, m_retryMap.key(url));
         return;
     }
 
     if (m_file->write(reply->readAll()) <= 0) {
         qDebug() << " write error " << m_file->fileName();
+        Q_EMIT fileDownloaded("Error");
         m_file->remove();
     } else {
         m_file->close();
