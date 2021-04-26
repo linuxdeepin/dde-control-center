@@ -70,6 +70,9 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     m_kbLayoutListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_kbLayoutListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_kbLayoutListView->setSelectionMode(QAbstractItemView::NoSelection);
+    QMargins itemMargins(m_kbLayoutListView->itemMargins());
+    itemMargins.setLeft(10);
+    m_kbLayoutListView->setItemMargins(itemMargins);
     m_kbLayoutListView->setContentsMargins(10, 0, 10, 0);
     mainLayout->addWidget(m_kbLayoutListView);
     mainLayout->setAlignment(Qt::AlignTop);
