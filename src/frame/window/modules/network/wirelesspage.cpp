@@ -524,6 +524,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
 
     APItem *item = m_apItems[ssid];
+    item->m_apPathSortInfo[path] = si;
     if (strength > item->signalStrength()) {
         item->setSortInfo(si);
         item->setSignalStrength(strength);
