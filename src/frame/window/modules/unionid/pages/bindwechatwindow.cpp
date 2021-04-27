@@ -85,7 +85,7 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 
     m_resultTipLabel = new QLabel(QObject::tr("Confirm your login on WeChat"));
     m_resultTipLabel->setAlignment(Qt::AlignCenter);
-    m_resultTipLabel->setContentsMargins(0,0,0,0);
+    m_resultTipLabel->setContentsMargins(0,66,0,0);
     m_resultTipLabel->setFont(font);
 
     QVBoxLayout *avatarLayout = new QVBoxLayout;
