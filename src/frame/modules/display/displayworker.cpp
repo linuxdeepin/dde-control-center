@@ -522,7 +522,7 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
 
 void DisplayWorker::setColorTemperature(int value)
 {
-    m_displayInter.SetColorTemperature(value);
+    m_displayInter.SetColorTemperature(value).waitForFinished();
 }
 
 void DisplayWorker::SetMethodAdjustCCT(int mode)
