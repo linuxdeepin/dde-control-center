@@ -312,7 +312,8 @@ void BindWeChatWindow::onReportStatusResult()
     if (!result.isEmpty()) {
         m_indexLayout->setCurrentWidget(m_avatarWidget);
         m_secTipLabel->setVisible(true);
-        m_resultTipLabel->setText(QObject::tr("Go to \"Accounts\" and switch on \"Login by Union ID\""));
+//        m_resultTipLabel->setText(QObject::tr("Go to \"Accounts\" and switch on \"Login by Union ID\""));
+        m_resultTipLabel->clear();
 
         Q_EMIT toTellrefreshUserInfo();
     }
