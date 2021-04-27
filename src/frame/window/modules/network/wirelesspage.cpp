@@ -518,9 +518,9 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     const QString &ssid = apInfo.value("Ssid").toString();
     if (!m_apItems.contains(ssid)) return;
 
-    const QString &path = apInfo.value("Path").toString();
-    const int strength = apInfo.value("Strength").toInt();
-    const bool isSecure = apInfo.value("Secured").toBool();
+    QString path = apInfo.value("Path").toString();
+    int strength = apInfo.value("Strength").toInt();
+    bool isSecure = apInfo.value("Secured").toBool();
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
 
     APItem *item = m_apItems[ssid];
@@ -532,6 +532,21 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
             item->setPath(path);
         }
         item->setSecure(isSecure);
+    } else if (item->path() == path) {
+        for (auto it = item->m_apPathSortInfo.cbegin(); it != item->m_apPathSortInfo.cend(); ++it) {
+            if (it.value().signalstrength > strength) {
+                strength = it.value().signalstrength;
+                path = it.key();
+                si = it.value();
+            }
+        }
+
+        item->setSortInfo(si);
+        item->setSignalStrength(strength);
+        item->setSecure(isSecure);
+        if (item->path() != path) {
+            item->setPath(path);
+        }
     }
 
     if (item->signalStrength() <= 5 && !item->checkState() && ssid != m_device->activeApSsid()) {
@@ -560,17 +575,22 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
         }
         m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
         m_apItems.erase(m_apItems.find(ssid));
-    } else {
+    } else if (item->path() == path) {
         int strongStrength(0);
+        QString strongPath;
+        APSortInfo strongSi;
         for (auto it = item->m_apPathSortInfo.cbegin(); it != item->m_apPathSortInfo.cend(); ++it) {
             if (it.value().signalstrength > strongStrength) {
                 strongStrength = it.value().signalstrength;
-                item->setSortInfo(it.value());
-                item->setSignalStrength(strongStrength);
-                if (item->path() != it.key()) {
-                    item->setPath(it.key());
-                }
+                strongPath = it.key();
+                strongSi = it.value();
             }
+        }
+
+        item->setSortInfo(strongSi);
+        item->setSignalStrength(strongStrength);
+        if (item->path() != strongPath) {
+            item->setPath(strongPath);
         }
     }
 }
