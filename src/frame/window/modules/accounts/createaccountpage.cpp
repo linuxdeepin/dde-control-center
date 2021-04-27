@@ -435,8 +435,12 @@ int CreateAccountPage::verifyPassword(const QString &password)
         for (auto policy : validate_policy) {
             allPolicyStr.append(policy);
         }
+
+        // 根据最新需求密码规则有效字符不包含空格
+        allPolicyStr = allPolicyStr.replace(" ","");
+
         if (!containsChar(password, allPolicyStr)) {
-            return ENUM_PASSWORD_SEVERAL;
+            return ENUM_PASSWORD_CHARACTER;
         }
 
         // 密码至少同时包括小写字母,大写字母,数字,符号中的m_validate_Required种
@@ -464,7 +468,7 @@ int CreateAccountPage::verifyPassword(const QString &password)
         return ENUM_PASSWORD_SUCCESS;
     } else {
         QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
-                                      QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<> ");
+                                      QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("~!@#$%^&*()[]{}\\|/?,.<>");
         bool ret = containsChar(password, validate_policy);
         if (!ret) {
             return ENUM_PASSWORD_CHARACTER;
