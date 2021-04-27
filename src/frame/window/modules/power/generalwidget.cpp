@@ -47,6 +47,12 @@ static QGSettings *GSettings()
     static QGSettings settings("com.deepin.dde.dock.module.power");
     return &settings;
 }
+
+static QGSettings *PowerSettings()
+{
+    static QGSettings settings("com.deepin.dde.power");
+    return &settings;
+}
 GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
@@ -96,8 +102,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_layEnergySavingMode->addWidget(label);
     m_layEnergySavingMode->addWidget(saveEnergySettingsGrp);
 
-    QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
-    if (!productName.contains("KLVU")) {
+    if (!PowerSettings()->keys().contains("powerSavingModeEnabled") || !PowerSettings()->get("powerSavingModeEnabled").toBool()) {
         label->setVisible(false);
         saveEnergySettingsGrp->setVisible(false);
     }
