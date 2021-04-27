@@ -6295,12 +6295,12 @@
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="215"/>
         <source>Wrong verification code</source>
-        <translation>请输入正确的验证码</translation>
+        <translation>验证码有误</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="225"/>
         <source>Resend (%1s)</source>
-        <translation>%1s重发</translation>
+        <translation>重新获取%1s</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="37"/>
