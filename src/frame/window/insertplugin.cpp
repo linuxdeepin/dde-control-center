@@ -70,7 +70,7 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
         qDebug() << "load plugin Name;" << module->name() << module->displayName();
         module->setFrameProxy(frameProxy);
 
-        if (module->follow() != MAINWINDOW) {
+        if (module->follow() != MAINWINDOW && frameProxy) {
             frameProxy->setSearchPath(module);
         }
 
