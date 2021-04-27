@@ -71,6 +71,7 @@ public:
     void setModel(dcc::unionid::UnionidModel *model);
     void setUserInfo(QString usrInfo);
     void setUserAvatar(QPixmap avatar);
+    void setDefaultInfo();
 
 Q_SIGNALS:
     void requestSetAutoSync(bool enable) const;

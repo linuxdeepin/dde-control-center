@@ -198,9 +198,10 @@ void AuthenticationWindow::onVerifySmsCodeResult()
 
     if (!result.isEmpty()) {
         if (HttpClient::instance()->solveJson(result)) {
-            BindWeChatWindow *bindWeChatWindow = new BindWeChatWindow;
-            connect(bindWeChatWindow,&BindWeChatWindow::toTellrefreshUserInfo,this,&AuthenticationWindow::toTellrefreshUserInfo);
-            connect(bindWeChatWindow,&BindWeChatWindow::close,this,&AuthenticationWindow::close);
+            hide();
+            BindWeChatWindow::instance()->show();
+            connect(BindWeChatWindow::instance(),&BindWeChatWindow::toTellrefreshUserInfo,this,&AuthenticationWindow::toTellrefreshUserInfo);
+            connect(BindWeChatWindow::instance(),&BindWeChatWindow::close,this,&AuthenticationWindow::close);
 
             QDBusInterface interface1("com.deepin.deepinid",
                                      "/com/deepin/deepinid",
@@ -209,12 +210,10 @@ void AuthenticationWindow::onVerifySmsCodeResult()
 
             QVariant strReply = interface1.property("HardwareID");
 
-            bindWeChatWindow->setData(m_accessToken,strReply.toString(),m_weChatUnionId,m_userAvatar,m_nickName);
+            BindWeChatWindow::instance()->setData(m_accessToken,strReply.toString(),m_weChatUnionId,m_userAvatar,m_nickName);
             QNetworkReply *reply = HttpClient::instance()->requestQrCode(HttpClient::instance()->getClientId(),strReply.toString(),
                                                                          3,HttpClient::instance()->getRedirecUrl());
-            connect(reply,&QNetworkReply::finished,bindWeChatWindow,&BindWeChatWindow::onRequestQrCodeResult);
-            hide();
-            bindWeChatWindow->show();
+            connect(reply,&QNetworkReply::finished,BindWeChatWindow::instance(),&BindWeChatWindow::onRequestQrCodeResult);
         } else {
             if (m_warningLabel->text().isEmpty()) {
                 m_warningLabel->setText(QObject::tr("Wrong verification code"));

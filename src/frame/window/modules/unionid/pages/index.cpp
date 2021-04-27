@@ -104,7 +104,7 @@ IndexPage::IndexPage(QWidget *parent)
     pa.setColor(QPalette::Text,textTipLightColor);
     m_wxNameLabel->setPalette(pa);
 
-    m_modButton = new DCommandLinkButton(tr("Change"));
+    m_modButton = new DCommandLinkButton(tr(""));
     connect(m_modButton,&DCommandLinkButton::clicked,this,&IndexPage::onModButtonClicked);
 
     QHBoxLayout *bondWXHlayout = new QHBoxLayout;
@@ -360,7 +360,20 @@ void IndexPage::setUserInfo(QString usrInfo)
 
 void IndexPage::setUserAvatar(QPixmap avatar)
 {
-    m_avatarWidget->setPixmap(avatar);
+    if (avatar.isNull()) {
+        m_avatarWidget->setAvatarPath(AvaterPath,false);
+    } else {
+        m_avatarWidget->setAvater(avatar);
+    }
+}
+
+void IndexPage::setDefaultInfo()
+{
+    m_avatarWidget->setAvatarPath(AvaterPath,false);
+    m_nameLabel->clear();
+    m_uidLabel->clear();
+    m_wxNameLabel->clear();
+    m_modButton->setText("");
 }
 
 void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)
@@ -545,7 +558,6 @@ void IndexPage::onQuitButtonClicked()
     QDBusInterface interface("com.deepin.deepinid.Client",
                               "/com/deepin/deepinid/Client",
                               "com.deepin.deepinid.Client");
-
 
     QList<QVariant> argumentList;
     argumentList << m_userAvatar;

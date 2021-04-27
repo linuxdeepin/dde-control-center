@@ -97,9 +97,11 @@ QStringList UnionidModule::availPage() const
 
 void UnionidModule::getAccessToken(const QString &code, const QString &state,const bool &bIsUIDWidget)
 { 
+    //当前界面是unoinId界面,直接在界面中处理
     if (bIsUIDWidget) {
+        qInfo() << "当前界面是unoinId界面,直接在界面中处理";
         m_unionidWidget->getAccessToken(code,state);
-    } else {
+    } else {//在Notificationmanager类中处理
         Notificationmanager::instance()->getAccessToken(code,state);
     }
 }

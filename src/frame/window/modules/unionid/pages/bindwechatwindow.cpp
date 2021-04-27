@@ -16,6 +16,10 @@
 //#include <QNetworkReply>
 const QColor windowColor = QColor::fromRgbF(0,0,0,0.1);
 
+const int QR_Code_Validity_Period = 2 * 60 * 1000; //ms
+
+static BindWeChatWindow* g_bindWeChatWindow = nullptr;
+
 BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     : DAbstractDialog(prarent)
 {
@@ -110,9 +114,9 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 
     QVBoxLayout *vlayout = new QVBoxLayout;
     vlayout->addLayout(titberLayout, Qt::AlignTop);
-    vlayout->addWidget(titleLabel,0,Qt::AlignCenter);
+    vlayout->addWidget(titleLabel,0, Qt::AlignCenter);
 //    vlayout->addStretch();
-    vlayout->addWidget(indexWidget,0,Qt::AlignCenter);
+    vlayout->addWidget(indexWidget,0, Qt::AlignCenter);
     vlayout->addStretch();
     vlayout->setContentsMargins(0,0,0,0);
 
@@ -131,10 +135,18 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 
     m_qrCodeStatusTimer = new QTimer;
     connect(m_qrCodeStatusTimer,&QTimer::timeout,this,&BindWeChatWindow::onQrCodeStatusTimeOut);
-    m_qrCodeStatusTimer->start(1000*60*2);
 
     m_queryTimer = new QTimer;
     connect(m_queryTimer,&QTimer::timeout,this,&BindWeChatWindow::onQueryTimeOut);
+}
+
+BindWeChatWindow *BindWeChatWindow::instance()
+{
+    if (g_bindWeChatWindow == nullptr) {
+        g_bindWeChatWindow = new BindWeChatWindow;
+    }
+
+    return g_bindWeChatWindow;
 }
 
 void BindWeChatWindow::setData(QString accessToken,QString hardwareID,QString weChatUnionId,
@@ -174,11 +186,16 @@ void BindWeChatWindow::onRequestQrCodeResult()
             qInfo() << "codeId" << jsonValueResult;
             m_qrCode->showQRcodePicture(nResult + m_codeId,QSize(158,158),m_qrCode->size());
             qInfo() << "showQRcodePicture" << nResult + m_codeId;
-            m_qrCodeStatusTimer->start(1000*60*2);
+            m_qrCodeStatusTimer->start(QR_Code_Validity_Period);
             m_qrCode->setWidgetType(NormalScanCode);
             m_queryTimer->start(1000);
+            QPalette pa = m_tipLabel->palette();
+            pa.setBrush(QPalette::WindowText,palette().windowText());
+            m_tipLabel->setPalette(pa);
+            m_tipLabel->setText("Scan and log in by WeChat to get linked");
         }
     } else {
+        onQrCodeStatusTimeOut();
         qInfo() << "failed";
     }
 }
@@ -200,6 +217,16 @@ void BindWeChatWindow::onQrCodeStatusTimeOut()
 {
     m_qrCodeStatusTimer->stop();
     m_queryTimer->stop();
+
+    QPalette pa = m_tipLabel->palette();
+
+    if (DGuiApplicationHelper::LightType == DGuiApplicationHelper::instance()->themeType()) {
+        pa.setColor(QPalette::WindowText,QColor(255,24,0));
+    } else if (DGuiApplicationHelper::DarkType == DGuiApplicationHelper::instance()->themeType()) {
+        pa.setColor(QPalette::WindowText,QColor(249,112,79));
+    }
+
+    m_tipLabel->setPalette(pa);
     m_tipLabel->setText(QObject::tr("Invalid QR code, click to refresh"));
     m_qrCode->setWidgetType(RefreshScanCode);
 }
@@ -292,7 +319,7 @@ void BindWeChatWindow::onQrCodeStatusResult()
                     }
 
                     m_nameLabel->clear();
-                    m_avatar->setAvatarPath(":/themes/light/icons/avatar_24px.png",false);
+                    m_avatar->setAvatarPath(AvaterPath,false);
                     m_qrCodeStatusTimer->stop();
                     m_windowStatus = 1;
                     m_indexLayout->setCurrentWidget(m_avatarWidget);

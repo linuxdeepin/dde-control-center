@@ -150,6 +150,16 @@ bool Notificationmanager::firstIsLogin()
     }
 }
 
+bool Notificationmanager::isLogin()
+{
+    QDBusInterface interface("com.deepin.sync.Daemon","/com/deepin/deepinid","com.deepin.deepinid");
+
+    bool isLogin = interface.property("IsLogin").toBool();
+    qInfo () << "interface.property().toMap()";
+
+    return isLogin;
+}
+
 void Notificationmanager::onUserAvatar(QPixmap avatar)
 {
     m_avatar = avatar;

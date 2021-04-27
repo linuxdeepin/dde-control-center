@@ -49,8 +49,12 @@ public:
 
     bool firstIsLogin();
 
+    bool isLogin();
+
 Q_SIGNALS:
     void toTellLoginUser();
+
+    void toTellSwitchWidget(QVariantMap);
 
 public Q_SLOTS:
     void onUserAvatar(QPixmap avatar);

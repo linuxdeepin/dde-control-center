@@ -65,6 +65,7 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     connect(m_indexPage, &IndexPage::requesUserDialog, this, &UnionidWidget::requesUserDialog);
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
 
+    connect(Notificationmanager::instance(), &Notificationmanager::toTellSwitchWidget, this, &UnionidWidget::switchWidget);
 //    QLabel *label = new QLabel();
     //    label->setText(tr("Learn about %1 and %2").arg(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"servicelabel\"> %1 </a>")
     //                                              .arg(tr("Union ID Service Agreement"))).arg(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"privacyLabel\"> %1 </a>")
@@ -105,6 +106,7 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 void UnionidWidget::getAccessToken(const QString &code, const QString &state)
 {
     Q_UNUSED(state)
+    m_indexPage->setDefaultInfo();
     QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),code);
     connect(reply,&QNetworkReply::finished,this,&UnionidWidget::onGetAccessToken);
 }
@@ -115,9 +117,11 @@ void UnionidWidget::switchWidget(const QVariantMap &userInfo)
 
     if (isLogind) {
         m_pageLayout->setCurrentWidget(m_indexPage);
+        qInfo() << "m_indexPage";
     }
     else {
         m_pageLayout->setCurrentWidget(m_loginPage);
+        qInfo() << "m_loginPage";
     }
 }
 

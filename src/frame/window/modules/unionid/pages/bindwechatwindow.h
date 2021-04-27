@@ -1,6 +1,7 @@
 #ifndef BINDWECHATWINDOW_H
 #define BINDWECHATWINDOW_H
 #include <DAbstractDialog>
+
 #include <QStackedLayout>
 #include "uqrwidget.h"
 #include "avatarwidget.h"
@@ -12,7 +13,7 @@ class BindWeChatWindow : public DAbstractDialog
 {
     Q_OBJECT
 public:
-    BindWeChatWindow(QWidget *prarent = nullptr);
+    static BindWeChatWindow* instance();
 
     void setData(QString accessToken,QString hardwareID,QString weChatUnionId,QString userAvatar,QString nickName);
 
@@ -45,11 +46,13 @@ private Q_SLOTS:
     void onUnbindAccountResult();
 
     void onCloseReportQrCodeStatus();
+private:
+    BindWeChatWindow(QWidget *prarent = nullptr);
 
 private:
     UQrFrame *m_qrCode;
     QWidget *m_qrCodeWidget;
-    AvatarWidget *m_avatar;
+    DCC_NAMESPACE::unionid::AvatarWidget *m_avatar;
     QWidget *m_avatarWidget;
     QStackedLayout *m_indexLayout;
     QTimer *m_queryTimer;

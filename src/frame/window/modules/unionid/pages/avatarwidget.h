@@ -41,6 +41,8 @@ public:
     // 设置头像图片路径
     void setAvatarPath(const QString &avatar, bool isUrl = true);
 
+    void setAvater(QPixmap avatar);
+
 Q_SIGNALS:
     void toTellUserAvatar(QPixmap);
 

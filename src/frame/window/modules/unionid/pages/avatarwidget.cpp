@@ -90,6 +90,18 @@ void AvatarWidget::setAvatarPath(const QString &avatar, bool isUrl)
     }
 }
 
+void AvatarWidget::setAvater(QPixmap avatar)
+{
+    // 适应当前设备分辨率
+    const auto ratio = devicePixelRatioF();
+
+    // 图片地址
+    m_avatar = avatar.scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
+    m_avatar.setDevicePixelRatio(ratio);
+
+    update();
+}
+
 /*******************************************************************************
  1. @函数:    readAvatarFromUrl
  2. @作者:    ut000610 戴正文
@@ -113,6 +125,12 @@ void AvatarWidget::readAvatarFromUrl()
             m_avatar.setDevicePixelRatio(ratio);
             Q_EMIT toTellUserAvatar(m_avatar);
             update();
+
+            if (!Notificationmanager::instance()->isLogin()) {
+                QVariantMap map;
+                map.insert("Username","");
+                Q_EMIT Notificationmanager::instance()->toTellSwitchWidget(map);
+            }
     }
 
     reply->deleteLater();
