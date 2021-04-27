@@ -175,7 +175,7 @@ void DisplayModel::monitorAdded(Monitor *mon)
 void DisplayModel::monitorRemoved(Monitor *mon)
 {
     m_monitors.removeOne(mon);
-
+    mon->disconnect();
     Q_EMIT monitorListChanged();
 }
 

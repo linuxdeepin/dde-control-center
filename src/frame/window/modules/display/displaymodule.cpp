@@ -384,6 +384,10 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
     tfunc(mon, mode);
 
     if (showTimeoutDialog(mon ? mon : m_displayModel->primaryMonitor()) != QDialog::Accepted) {
+        //中途拔掉显示器后就没必要往下走了
+        if (!m_displayModel->monitorList().contains(mon)) {
+            return;
+        }
         if ((mode.rate + 100) < 1e-5) {
             lastres.rate = mode.rate;
         }
@@ -405,7 +409,12 @@ int DisplayModule::showTimeoutDialog(Monitor *mon)
     }, Qt::QueuedConnection);
     connect(timeoutDialog, &TimeoutDialog::closed,
             timeoutDialog, &TimeoutDialog::deleteLater);
-
+    connect(m_displayModel,&DisplayModel::monitorListChanged,timeoutDialog,[=]{
+        //当设置分辨率时突然拔掉副屏，应该退出timeoutDialog的事件循环
+        if (!m_displayModel->monitorList().contains(mon)) {
+            timeoutDialog->close();
+        }
+    });
     //mon坐标数据有延迟，保存设置窗口延迟200ms获取monitor坐标和移动到屏幕中心位置显示
     QTimer::singleShot(200,this,[ = ]{
         QRectF rt(mon->x(), mon->y(), mon->w() / radio, mon->h() / radio);

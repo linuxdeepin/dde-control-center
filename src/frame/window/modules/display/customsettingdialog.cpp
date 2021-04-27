@@ -864,6 +864,11 @@ void CustomSettingDialog::resetDialog()
     //当收到屏幕变化的消息后，屏幕数据还是旧的
     //需要用QTimer把对窗口的改变放在屏幕数据应用后
     QTimer::singleShot(sender() ? 1000 : 0, this, [ = ] {
+        //副屏拔掉会崩
+        if (!m_monitroControlWidget) {
+            this->close();
+            return ;
+        }
         m_monitroControlWidget->adjustSize();
         m_monitroControlWidget->updateGeometry();
         adjustSize();

@@ -554,7 +554,10 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 {
     MonitorInter *inter = m_monitors.value(mon);
-    Q_ASSERT(inter);
+    //如果副屏突然拔掉 会崩溃
+    if (!inter) {
+        return;
+    }
 
     inter->SetMode(static_cast<uint>(mode)).waitForFinished();
     m_displayInter.ApplyChanges().waitForFinished();
