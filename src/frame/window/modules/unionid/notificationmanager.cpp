@@ -22,6 +22,18 @@ Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
     m_bIsNotificationExist = false;
     m_refreshTimer = new QTimer;
     connect(m_refreshTimer, &QTimer::timeout, this, &Notificationmanager::onTokenTimeout);  
+
+    m_timer_isconnect = new QTimer;
+    m_timer_isconnect->setSingleShot(true);
+    connect(m_timer_isconnect, &QTimer::timeout, this, &Notificationmanager::timeout);
+
+    m_myping = new CustomPing;
+    connect(m_myping->getProcess(), &QProcess::readyRead, this, &Notificationmanager::showResult);
+    connect(m_myping->getProcess(), &QProcess::stateChanged, this, &Notificationmanager::showState);
+    connect(m_myping->getProcess(), &QProcess::errorOccurred, this, &Notificationmanager::showError);
+    connect(m_myping->getProcess(), SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(slots_restartProcess(int, QProcess::ExitStatus)));
+    connect(this, &Notificationmanager::ProcessFinished, m_myping, &CustomPing::slot_resetProcess);
+    m_myping->start();
 }
 
 Notificationmanager *Notificationmanager::instance()
@@ -70,18 +82,18 @@ QPoint Notificationmanager::getWindowPosition() const
     return windowPosition;
 }
 
-bool Notificationmanager::isOnLine()
-{
-    QDBusInterface interface("com.deepin.daemon.Network","/com/deepin/daemon/Network","com.deepin.daemon.Network");
+//bool Notificationmanager::isOnLine()
+//{
+//    QDBusInterface interface("com.deepin.daemon.Network","/com/deepin/daemon/Network","com.deepin.daemon.Network");
 
-    QString retVal = interface.property("ActiveConnections").toString();
+//    QString retVal = interface.property("ActiveConnections").toString();
 
-    if (retVal == "{}") {
-        return false;
-    }
+//    if (retVal == "{}") {
+//        return false;
+//    }
 
-    return true;
-}
+//    return true;
+//}
 
 void Notificationmanager::setNotificationStatus()
 {
@@ -158,6 +170,46 @@ bool Notificationmanager::isLogin()
     qInfo () << "interface.property().toMap()";
 
     return isLogin;
+}
+
+void Notificationmanager::showResult()
+{
+    m_isConnect = true;
+    m_timer_isconnect->stop();
+    m_timer_isconnect->start(m_timeouttime);
+}
+
+void Notificationmanager::showState(QProcess::ProcessState state)
+{
+    if (state == QProcess::NotRunning) {
+    } else if (state == QProcess::Starting) {
+    }  else {
+        m_timer_isconnect->start(m_timeouttime);
+    }
+}
+
+void Notificationmanager::showError()
+{
+    m_isConnect = false;
+}
+
+void Notificationmanager::timeout()
+{
+    qInfo() << "ping timer is time out";
+    m_isConnect = false;
+}
+
+void Notificationmanager::slots_restartProcess(int exitCode, QProcess::ExitStatus status)
+{
+    Q_UNUSED(exitCode)
+    Q_UNUSED(status)
+    m_isConnect = false;
+    Q_EMIT ProcessFinished();
+}
+
+bool Notificationmanager::isOnLine()
+{
+    return m_isConnect;
 }
 
 void Notificationmanager::onUserAvatar(QPixmap avatar)

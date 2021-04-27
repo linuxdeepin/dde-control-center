@@ -483,6 +483,7 @@ set(UNIONID_FILES
    window/modules/unionid/unionidmodule.cpp
    window/modules/unionid/unionidwidget.h
    window/modules/unionid/unionidwidget.cpp
+   window/modules/unionid/customping.cpp
    window/modules/unionid/notificationmanager.cpp
    window/modules/unionid/pages/index.h
    window/modules/unionid/pages/index.cpp

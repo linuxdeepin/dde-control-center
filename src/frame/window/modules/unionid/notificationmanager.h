@@ -4,7 +4,9 @@
 #include <QObject>
 #include <QPoint>
 #include <QDBusInterface>
+#include <QNetworkAccessManager>
 
+#include "customping.h"
 #include <window/modules/unionid/pages/customfloatingmessage.h>
 
 DWIDGET_USE_NAMESPACE
@@ -56,7 +58,25 @@ Q_SIGNALS:
 
     void toTellSwitchWidget(QVariantMap);
 
+    //发送信号到线程，重启ping
+    void ProcessFinished();
+
 public Q_SLOTS:
+    //展示ping的结果
+    void showResult();
+
+    //返回ping的状态
+    void showState(QProcess::ProcessState state);
+
+    //展示ping的错误
+    void showError();
+
+    //2s内接收不到ping结果设置isonline
+    void timeout();
+
+    //qprocess结束重新开始
+    void slots_restartProcess(int exitCode, QProcess::ExitStatus status);
+
     void onUserAvatar(QPixmap avatar);
 
 private Q_SLOTS:
@@ -77,6 +97,13 @@ private:
     QString m_refreshToken;
     QPixmap m_avatar;
     bool m_bIsLogin;
+
+    //检测网络链接的定时器
+    CustomPing *m_myping;
+    QTimer *m_timer_isconnect;
+    bool m_isConnect = true;
+    QNetworkAccessManager *m_accessManager;
+    int m_timeouttime = 1500;
 };
 
 #endif // NOTIFICATIONMANAGER_H
