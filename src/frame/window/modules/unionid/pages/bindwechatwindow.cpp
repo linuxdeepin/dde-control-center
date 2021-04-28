@@ -16,6 +16,7 @@
 //#include <QNetworkReply>
 const QColor windowColor = QColor::fromRgbF(0,0,0,0.1);
 
+const int Polling_Interval = 1000;//ms
 const int QR_Code_Validity_Period = 2 * 60 * 1000; //ms
 
 static BindWeChatWindow* g_bindWeChatWindow = nullptr;
@@ -45,7 +46,7 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     m_qrCode = new UQrFrame;
     m_qrCode->setMinimumSize(QSize(176,176));
     m_qrCode->showQRcodePicture("");
-    m_qrCode->setWidgetType(RefreshScanCode);
+    m_qrCode->setWidgetType(BlankScanCode);
     m_qrCode->setContentsMargins(0,0,0,0);
     connect(m_qrCode,&UQrFrame::refreshsignal,this,&BindWeChatWindow::onRefreshQrCode);
 
@@ -138,6 +139,10 @@ BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
 
     m_queryTimer = new QTimer;
     connect(m_queryTimer,&QTimer::timeout,this,&BindWeChatWindow::onQueryTimeOut);
+
+    m_connectStatusTimer = new QTimer;
+    connect(m_connectStatusTimer, &QTimer::timeout, this, &BindWeChatWindow::onConnectStatusTimeOut);
+    m_connectStatusTimer->start(Polling_Interval);
 }
 
 BindWeChatWindow *BindWeChatWindow::instance()
@@ -240,6 +245,14 @@ void BindWeChatWindow::onQueryTimeOut()
 
     QNetworkReply *reply = HttpClient::instance()->getQrCodeStatus(m_codeId);
     connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onQrCodeStatusResult);
+}
+
+void BindWeChatWindow::onConnectStatusTimeOut()
+{
+    if (!Notificationmanager::instance()->isOnLine()) {
+        m_connectStatusTimer->stop();
+        Notificationmanager::instance()->showToast(this, Notificationmanager::NetworkError);
+    }
 }
 
 void BindWeChatWindow::onScanSuccess()

@@ -8,6 +8,8 @@
 #include <QDebug>
 
 const QString REFUSHPATH = ":/themes/light/icons/qrcode_refresh_24px.svg";
+const QString BLANKPATH = ":/themes/light/icons/load_icon.svg";
+
 UQrFrame::UQrFrame(QWidget *parent)
     : QWidget(parent)
     , m_qrLabel(new DLabel(this))
@@ -53,6 +55,9 @@ void UQrFrame::initUIType(qRStyle type)
         break;
     case QuestionScanCode:
         initUIQuestion();
+        break;
+    case BlankScanCode:
+        initUIBlank();
         break;
     }
 }
@@ -100,6 +105,14 @@ void UQrFrame::initUIRefresh()
     opacityEffect->setOpacity(0.06);
     m_qrLabel->setGraphicsEffect(opacityEffect);
     m_refreshbutton->setIcon(QIcon(REFUSHPATH));
+    m_refreshbutton->show();
+}
+
+void UQrFrame::initUIBlank()
+{
+    opacityEffect->setOpacity(0.06);
+    m_qrLabel->setGraphicsEffect(opacityEffect);
+    m_refreshbutton->setIcon(QIcon(BLANKPATH));
     m_refreshbutton->show();
 }
 

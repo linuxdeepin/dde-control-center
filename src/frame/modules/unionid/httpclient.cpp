@@ -294,7 +294,7 @@ void HttpClient::judgeClienid()
             QStringList temp = QString(line).split("=");
             if (temp.at(0) == "DEEPIN_DEV" && !temp.at(1).isEmpty()) {
                 if (temp.at(1).contains("-pre")) {
-                    m_redirec_url = "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-management";
+                    m_redirec_url = "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-managment";
                     m_request_url = "https://uosvip-pre.uniontech.com";
                     m_clientid = "388340d186f311eb983b0242ac130002";
                 } else {

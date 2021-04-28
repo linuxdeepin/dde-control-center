@@ -199,9 +199,10 @@ void AuthenticationWindow::onVerifySmsCodeResult()
     if (!result.isEmpty()) {
         if (HttpClient::instance()->solveJson(result)) {
             hide();
-            BindWeChatWindow::instance()->show();
+
             connect(BindWeChatWindow::instance(),&BindWeChatWindow::toTellrefreshUserInfo,this,&AuthenticationWindow::toTellrefreshUserInfo);
             connect(BindWeChatWindow::instance(),&BindWeChatWindow::close,this,&AuthenticationWindow::close);
+            BindWeChatWindow::instance()->show();
 
             QDBusInterface interface1("com.deepin.deepinid",
                                      "/com/deepin/deepinid",

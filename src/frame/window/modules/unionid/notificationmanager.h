@@ -27,15 +27,13 @@ public:
 
     static Notificationmanager *instance();
     // toast提示
-    void showToast(QWidget *parent, ErrorType type);
+    void showToast(QWidget *parent, ErrorType type, const QString &msg = "");
 
     void setWindowPosition(QPoint pos);
 
     QPoint getWindowPosition() const;
 
     bool isOnLine();
-
-    void setNotificationStatus();
 
     void setUserInfo(QString usrInfo);
 
@@ -62,6 +60,7 @@ Q_SIGNALS:
     void ProcessFinished();
 
 public Q_SLOTS:
+    void onSetNotificationStatus();
     //展示ping的结果
     void showResult();
 

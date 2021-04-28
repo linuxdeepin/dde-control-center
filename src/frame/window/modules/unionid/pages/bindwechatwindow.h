@@ -23,6 +23,8 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onRequestQrCodeResult();
 
+    void onConnectStatusTimeOut();
+
 protected:
     void closeEvent(QCloseEvent *event);
 
@@ -57,6 +59,7 @@ private:
     QStackedLayout *m_indexLayout;
     QTimer *m_queryTimer;
     QTimer *m_qrCodeStatusTimer;
+    QTimer *m_connectStatusTimer;
     QLabel *m_tipLabel;
     QLabel *m_nameLabel;
     QLabel *m_secTipLabel;

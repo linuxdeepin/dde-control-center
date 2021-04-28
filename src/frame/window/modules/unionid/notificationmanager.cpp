@@ -45,31 +45,30 @@ Notificationmanager *Notificationmanager::instance()
     return NotifiManager;
 }
 
-void Notificationmanager::showToast(QWidget *parent, ErrorType type)
+void Notificationmanager::showToast(QWidget *parent, ErrorType type, const QString &msg)
 {
-    if (m_bIsNotificationExist) {
-        return;
-    }
+    if (!m_bIsNotificationExist) {
+        m_message = new CustomFloatingMessage(CustomFloatingMessage::TransientType, parent);
+        m_message->setIcon(EXCLAMATIONPATH);
 
-    m_message = new CustomFloatingMessage(CustomFloatingMessage::TransientType, parent);
-    m_message->setIcon(EXCLAMATIONPATH);
-    m_bIsNotificationExist = true;
+        if (ErrorType::SystemError == type) {
+            m_message->setMessage(tr("system error"));
+        } else if (ErrorType::NetworkError == type) {
+            m_message->setMessage(tr("Network error"));
+        } else if (ErrorType::ConnectionError == type) {
+            m_message->setMessage(tr("connection error"));
+        } else if (ErrorType::ConnectionTimeout == type) {
+            m_message->setMessage(tr("connection timeout"));
+        } else {
+            m_message->setMessage(msg);
+        }
 
-    if( ErrorType::SystemError == type){
-        m_message->setMessage(QObject::tr("system error"));
-    }else if( ErrorType::NetworkError == type ){
-        m_message->setMessage(QObject::tr("Network error"));
-    }else if( ErrorType::ConnectionError == type ){
-        m_message->setMessage(QObject::tr("connection error"));
-    }else if( ErrorType::ConnectionTimeout == type ){
-        m_message->setMessage(QObject::tr("connection timeout"));
-    }else {
-        m_message->setMessage(QObject::tr("Network error, connection timed out"));
+        m_bIsNotificationExist = true;
+        m_message->setDuration(2000);
+        m_message->adjustSize();
+        m_message->move((parent->width() - m_message->width()) / 2, (parent->height() - m_message->height()) / 2);
+        connect(m_message, &CustomFloatingMessage::signal_setFlag, this, &Notificationmanager::onSetNotificationStatus);
     }
-    m_message->setDuration(2000);
-    m_message->adjustSize();
-    m_message->move((parent->width() - m_message->width()) / 2, (parent->height() - m_message->height()) / 2);
-    m_message->show();
 }
 
 void Notificationmanager::setWindowPosition(QPoint pos)
@@ -95,7 +94,7 @@ QPoint Notificationmanager::getWindowPosition() const
 //    return true;
 //}
 
-void Notificationmanager::setNotificationStatus()
+void Notificationmanager::onSetNotificationStatus()
 {
     m_bIsNotificationExist = false;
 }

@@ -34,5 +34,6 @@
         <file>themes/light/icons/qrcode_refresh_24px.svg</file>
         <file>themes/light/icons/avatar_24px.png</file>
         <file>themes/light/icons/exclamation_24px.svg</file>
+        <file>themes/light/icons/load_icon.svg</file>
     </qresource>
 </RCC>

@@ -28,7 +28,8 @@ enum qRStyle {
     AshingScanCode,       //未阅读内容灰化
     RefreshScanCode,      //等待扫码刷新
     SuccessScanCode,      //成功扫码模糊
-    QuestionScanCode      //扫码模糊问号
+    QuestionScanCode,     //扫码模糊问号
+    BlankScanCode         //加载状态
 };
 
 enum ScanStatus {

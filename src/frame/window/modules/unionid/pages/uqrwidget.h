@@ -52,6 +52,8 @@ private:
     void initUIAshing();
     // 等待刷新
     void initUIRefresh();
+    //等待加载
+    void initUIBlank();
     // 扫码成功
     void initUISuccesss();
     // 扫码模糊问号

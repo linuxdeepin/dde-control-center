@@ -10,23 +10,20 @@ CustomFloatingMessage::CustomFloatingMessage(MessageType type, DWidget *parent)
       m_MessageType(type)
 {
     m_MessageType = type;
-    m_type = DGuiApplicationHelper::instance()->themeType();
 
-    m_icon = new DLabel;
+    m_icon = new DLabel(this);
     m_icon->setMinimumSize(24, 24);
     m_icon->setContentsMargins(0, 0, 0, 0);
 
-    m_toast = new DLabel;
+    m_toast = new DLabel(this);
     m_toast->setMinimumSize(60, 22);
+    QPalette pe;
+    QColor color(255, 255, 255);
+    color.setAlphaF(0.65);
+    pe.setColor(QPalette::WindowText, color);
+    m_toast->setPalette(pe);
 
-//    QPalette pe;
-//    QColor color(255, 255, 255);
-//    color.setAlphaF(0.65);
-//    pe.setColor(QPalette::WindowText,color);
-//    m_toast->setPalette(pe);
-
-
-    QHBoxLayout *hlayout = new QHBoxLayout;
+    QHBoxLayout *hlayout = new QHBoxLayout(this);
     hlayout->addSpacing(16);
     hlayout->addStretch();
     hlayout->addWidget(m_icon);
@@ -35,13 +32,14 @@ CustomFloatingMessage::CustomFloatingMessage(MessageType type, DWidget *parent)
     hlayout->addSpacing(16);
     hlayout->setContentsMargins(0, 0, 0, 0);
 
-    QVBoxLayout *vlayout = new QVBoxLayout;
-    vlayout->addLayout(hlayout,Qt::AlignCenter);
-    vlayout->setContentsMargins(0, 16, 0, 16);
+    QVBoxLayout *vlayout = new QVBoxLayout(this);
+    vlayout->addLayout(hlayout);
+    vlayout->setContentsMargins(16, 0, 0, 16);
 
     setLayout(vlayout);
     setMinimumSize(120, 50);
 
+    m_type = DGuiApplicationHelper::instance()->themeType();
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &CustomFloatingMessage::onThemeTypeChanged);
 
     m_show = new QTimer;
@@ -51,36 +49,31 @@ CustomFloatingMessage::CustomFloatingMessage(MessageType type, DWidget *parent)
     this->showNormal();
 }
 
+CustomFloatingMessage::~CustomFloatingMessage()
+{
+    Q_EMIT signal_setFlag();
+}
+
 void CustomFloatingMessage::setDuration(const int m)
 {
     m_show->start(m);
+    show();
 }
 
 void CustomFloatingMessage::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
-
     if (DGuiApplicationHelper::LightType == m_type) {
-        QPalette pe = m_toast->palette();
-        QColor textcolor(255, 255, 255);
-        textcolor.setAlphaF(0.65);
-        pe.setColor(QPalette::Text,textcolor);
-        m_toast->setPalette(pe);
-
         QColor color(0, 0, 0);
         color.setAlphaF(0.65);
-        painter.setPen(color);
+//        painter.fillRect(rect(), color);
+        painter.setPen(QColor(0, 0, 0, 0));
         painter.setBrush(QBrush(color));
     } else if (DGuiApplicationHelper::DarkType == m_type) {
-        QPalette pe;
-        QColor textcolor(255, 255, 255);
-        textcolor.setAlphaF(0.65);
-        pe.setColor(QPalette::Text,textcolor);
-        m_toast->setPalette(pe);
-
         QColor color(31, 31, 31);
         color.setAlphaF(0.85);
-        painter.setPen(color);
+//        painter.fillRect(rect(), color);
+        painter.setPen(QColor(31, 31, 31, 0));
         painter.setBrush(QBrush(color));
     }
     painter.setRenderHint(QPainter::Antialiasing);
@@ -88,15 +81,8 @@ void CustomFloatingMessage::paintEvent(QPaintEvent *event)
     rect.setWidth(rect.width() - 1);
     rect.setHeight(rect.height() - 1);
     // rect: 绘制区域  15：圆角弧度
-    painter.drawRoundedRect(rect, 10, 10);
-    adjustSize();
+    painter.drawRoundedRect(rect, 5, 5);
     return QWidget::paintEvent(event);
-}
-
-void CustomFloatingMessage::closeEvent(QCloseEvent *event)
-{
-    Notificationmanager::instance()->setNotificationStatus();
-    return DWidget::closeEvent(event);
 }
 
 void CustomFloatingMessage::setMessage(const QString &error)
@@ -112,11 +98,6 @@ void CustomFloatingMessage::setIcon(const QString &path)
     m_icon->setPixmap(QPixmap::fromImage(img));
 }
 
-CustomFloatingMessage::~CustomFloatingMessage()
-{
-
-}
-
 void CustomFloatingMessage::CustomFloatingMessage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
 {
     m_type = themeType;
@@ -126,6 +107,8 @@ void CustomFloatingMessage::CustomFloatingMessage::onThemeTypeChanged(DGuiApplic
 void CustomFloatingMessage::onTimer()
 {
     m_show->stop();
-    if(TransientType == m_MessageType)
+    if (TransientType == m_MessageType)
         this->close();
+    Q_EMIT signal_setFlag();
 }
+
