@@ -90,7 +90,10 @@ void VpnSection::saveSettings()
     } else {
         m_secretMap.remove("password");
     }
-    m_dataMap.insert("domain", m_domain->text());
+
+    if (!m_domain->text().isEmpty()) {
+        m_dataMap.insert("domain", m_domain->text());
+    }
 
     m_vpnSetting->setData(m_dataMap);
     m_vpnSetting->setSecrets(m_secretMap);
