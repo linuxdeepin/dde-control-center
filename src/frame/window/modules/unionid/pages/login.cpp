@@ -145,7 +145,7 @@ void LoginPage::setMainWindow(MainWindow *pMainWindow)
 
 void LoginPage::login()
 {
-    onSignInButtonClicked();
+    Q_EMIT requestLoginUser();
 }
 
 void LoginPage::clearButtonFocus()
@@ -225,6 +225,7 @@ void LoginPage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
 
 void LoginPage::onSignInButtonClicked()
 {
+    window()->setDisabled(true);
     Q_EMIT requestLoginUser();
 }
 

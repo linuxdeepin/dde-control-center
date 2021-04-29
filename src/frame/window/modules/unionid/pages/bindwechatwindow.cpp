@@ -24,6 +24,7 @@ static BindWeChatWindow* g_bindWeChatWindow = nullptr;
 BindWeChatWindow::BindWeChatWindow(QWidget *prarent)
     : DAbstractDialog(prarent)
 {
+    m_windowStatus = 0;
     setAttribute(Qt::WA_DeleteOnClose);
     DWindowCloseButton *closeButton = new DWindowCloseButton;
     closeButton->setFixedHeight(48);
@@ -214,7 +215,11 @@ void BindWeChatWindow::closeEvent(QCloseEvent *event)
         event->ignore();
         hide();
     } else if (0 == m_windowStatus) {
-        return DAbstractDialog::closeEvent(event);
+        event->ignore();
+        hide();
+
+        g_bindWeChatWindow->deleteLater();
+        g_bindWeChatWindow = nullptr;
     }
 }
 
