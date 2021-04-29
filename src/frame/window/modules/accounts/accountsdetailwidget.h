@@ -136,6 +136,7 @@ private:
     DWarningButton *m_deleteAccount;
     QPushButton *m_modifyPassword;
     QGSettings *m_gsettings;
+    QScrollArea *m_scrollArea;
 };
 
 }   // namespace accounts
