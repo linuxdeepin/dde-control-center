@@ -123,9 +123,7 @@ void RefreshRateWidget::initRefreshRate()
     }
 
     auto modeList = m_monitor->modeList();
-    Resolution preMode;
     bool first = true;
-    bool hasRecommand = modeList.contains(m_monitor->currentMode());
     for (auto mode : modeList) {
         if (!Monitor::isSameResolution(mode, m_monitor->currentMode()))
             continue;
@@ -147,11 +145,13 @@ void RefreshRateWidget::initRefreshRate()
         auto rate = mode.rate();
         DStandardItem *item = new DStandardItem;
         auto ref = QString::number(rate, 'g', 4) + tr("Hz");
-        if (!hasRecommand && first) {
+        if (m_monitor->currentMode().width() == m_monitor->bestMode().width() && m_monitor->currentMode().height() == m_monitor->bestMode().height()) {
+            if (Monitor::isSameRatefresh(m_monitor->currentMode(), m_monitor->bestMode())) {
+                ref += QString(" (%1)").arg(tr("Recommended"));
+            }
+        } else if (first) {
             ref += QString(" (%1)").arg(tr("Recommended"));
             first = false;
-        } else if (mode == m_monitor->bestMode()){
-            ref += QString(" (%1)").arg(tr("Recommended"));
         }
 
         item->setText(ref);
