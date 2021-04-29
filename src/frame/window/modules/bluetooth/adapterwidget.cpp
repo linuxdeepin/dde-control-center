@@ -178,7 +178,6 @@ void AdapterWidget::initUI()
     layout->setMargin(0);
     layout->setSpacing(10);
 
-    layout->addSpacing(10);
     layout->addWidget(settingsGrp);
     layout->addWidget(m_tip, 0, Qt::AlignTop);
     layout->addSpacing(10);
@@ -191,7 +190,7 @@ void AdapterWidget::initUI()
     layout->addWidget(m_otherDeviceListView);
     layout->addSpacing(interval);
     layout->addStretch();
-    layout->setContentsMargins(ThirdPageContentsMargins);
+    layout->setContentsMargins(QMargins(10,0,10,10));
 
     setLayout(layout);
 }
