@@ -130,6 +130,7 @@ private:
     QHBoxLayout *m_avatarLayout;
     DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;
+    QScrollArea *m_scrollArea;
 };
 
 }   // namespace accounts

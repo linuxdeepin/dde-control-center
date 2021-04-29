@@ -60,6 +60,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_avatarLayout(new QHBoxLayout)
     , m_tipDialog(nullptr)
     , m_deleteAccount(new DWarningButton)
+    , m_scrollArea(new QScrollArea)
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -70,25 +71,30 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     setLayout(mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
-    QScrollArea *scrollArea = new QScrollArea;
-    scrollArea->setWidgetResizable(true);
-    scrollArea->setFrameStyle(QFrame::NoFrame);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    scrollArea->setContentsMargins(0, 0, 0, 0);
-    mainContentLayout->addWidget(scrollArea);
+    m_scrollArea->setWidgetResizable(true);
+    m_scrollArea->setFrameStyle(QFrame::NoFrame);
+    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_scrollArea->setContentsMargins(0, 0, 0, 0);
+
+    QWidget *widget = new QWidget;
+    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    widget->setContentsMargins(0, 0, 0, 0);
+
+    mainContentLayout->addWidget(m_scrollArea);
     auto contentLayout = new QVBoxLayout();
     contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     auto tw = new QWidget();
     tw->setLayout(contentLayout);
     contentLayout->setSpacing(0);
     contentLayout->setContentsMargins(0, 0, 0, 0);
-    scrollArea->setWidget(tw);
+    widget->setLayout(contentLayout);
+    m_scrollArea->setWidget(widget);
 
     /* 设置账户详情列表支持触屏滑动，不使用TouchGesture的原因，TouchGesture qt内部存在bug。1、滚动区滑动过程中，主窗口也跟随move；
      * 2、滑动回弹过程中，点击头像，窗口出现错位*/
-    QScroller::grabGesture(scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(scrollArea->viewport());
+    QScroller::grabGesture(m_scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_scrollArea->viewport());
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
@@ -284,7 +290,9 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         if (avatar->arrowed())
         {
             avatar->setArrowed(!avatar->arrowed());
+            m_scrollArea->setVisible(false);
             m_avatarListWidget->setVisible(avatar->arrowed());
+            m_scrollArea->setVisible(true);
         }
     });
 
