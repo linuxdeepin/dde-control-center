@@ -69,117 +69,117 @@
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="338"/>
         <source>Accounts</source>
         <translation>帐户</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Union ID</source>
         <translation>Union ID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Display</source>
         <translation>显示</translation>
         <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Default Applications</source>
         <translation>默认程序</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Network</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="934"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="936"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="933"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="935"/>
         <source>Bluetooth</source>
         <translation>蓝牙</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Date and Time</source>
         <translation>时间日期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
         <source>Power</source>
         <translation>电源管理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="946"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="948"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="945"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="947"/>
         <source>Drawing Tablet</source>
         <translation>数位板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
         <source>Keyboard and Language</source>
         <translation>键盘和语言</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="971"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="973"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="970"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="972"/>
         <source>Updates</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
         <source>System Info</source>
         <translation>系统信息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="964"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="966"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="965"/>
         <source>General Settings</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="432"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="430"/>
         <source>Touchpad</source>
         <translation>触控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="433"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="431"/>
         <source>TrackPoint</source>
         <translation>指点杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="460"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="459"/>
         <source>cloudsync</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="957"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="959"/>
         <source>Cloud Sync</source>
         <translation>云同步</translation>
     </message>
@@ -5578,72 +5578,67 @@
 <context>
     <name>dccV20::unionid::IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="89"/>
         <source>Edit Profile</source>
         <translation>修改资料</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="97"/>
         <source>Link to WeChat</source>
         <translation>绑定微信</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="105"/>
-        <source>Change</source>
-        <translation>修改</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="141"/>
         <source>Auto Sync</source>
         <translation>自动同步配置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="161"/>
         <source>Sign Out &gt;</source>
         <translation>退出登录&gt;</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="256"/>
         <source>Network Settings</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="257"/>
         <source>Sound Settings</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="258"/>
         <source>Mouse Settings</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="257"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="259"/>
         <source>Update Settings</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="258"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="260"/>
         <source>Dock</source>
         <translation>任务栏</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="261"/>
         <source>Launcher</source>
         <translation>启动器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="262"/>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="263"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="264"/>
         <source>Power Settings</source>
         <translation>电源</translation>
     </message>
@@ -5651,22 +5646,22 @@
 <context>
     <name>dccV20::unionid::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="73"/>
         <source>Sign in or sign up Union ID</source>
         <translation>注册登录Union ID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="78"/>
         <source>To get more personalized services</source>
         <translation>获取更多属于您的个性化服务</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="104"/>
         <source>Sign In</source>
         <translation>登录</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="108"/>
         <source>Sign Up</source>
         <translation>注册</translation>
     </message>
@@ -6147,6 +6142,29 @@
     </message>
 </context>
 <context>
+    <name>Notificationmanager</name>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="55"/>
+        <source>system error</source>
+        <translation>系统错误</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="57"/>
+        <source>Network error</source>
+        <translation>网络异常</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="59"/>
+        <source>connection error</source>
+        <translation>连接错误</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="61"/>
+        <source>connection timeout</source>
+        <translation>连接超时</translation>
+    </message>
+</context>
+<context>
     <name>PrivacyPlugin</name>
     <message>
         <location filename="../src/frame/plugins/privacy/privacyplugin.cpp" line="70"/>
@@ -6236,31 +6254,6 @@
         <translation>修改系统时区</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="45"/>
-        <source>system error</source>
-        <translation>系统错误</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="47"/>
-        <source>Network error</source>
-        <translation>网络异常</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="49"/>
-        <source>connection error</source>
-        <translation>连接错误</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="51"/>
-        <source>connection timeout</source>
-        <translation>连接超时</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/notificationmanager.cpp" line="53"/>
-        <source>Network error, connection timed out</source>
-        <translation>网络异常，连接超时</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="38"/>
         <source>Identity Verification</source>
         <translation>身份验证</translation>
@@ -6283,7 +6276,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="70"/>
-        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="236"/>
         <source>Get code</source>
         <translation>获取验证码</translation>
     </message>
@@ -6293,55 +6286,51 @@
         <translation>下一步</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="215"/>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="220"/>
         <source>Wrong verification code</source>
         <translation>验证码有误</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="230"/>
         <source>Resend (%1s)</source>
         <translation>重新获取%1s</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="37"/>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="43"/>
         <source>Link to WeChat</source>
         <translation>绑定微信</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="201"/>
         <source>Scan and log in by WeChat to get linked</source>
         <translation>请使用微信扫码，确认登录即绑定成功</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="82"/>
         <source>Linking successful</source>
         <translation>微信绑定成功</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="82"/>
-        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="345"/>
         <source>Confirm your login on WeChat</source>
         <translation>扫码成功，请在微信确认登录</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="203"/>
+        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="240"/>
         <source>Invalid QR code, click to refresh</source>
         <translation>二维码已失效，点击刷新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/bindwechatwindow.cpp" line="314"/>
-        <source>Go to &quot;Accounts&quot; and switch on &quot;Login by Union ID&quot;</source>
-        <translation>可到帐户设置中绑定Union ID扫码登录系统</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="349"/>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="532"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="547"/>
         <source>Link</source>
         <translation>绑定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="352"/>
-        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="534"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="354"/>
+        <location filename="../src/frame/window/modules/unionid/pages/index.cpp" line="549"/>
         <source>Change</source>
         <translation>修改</translation>
     </message>
@@ -7271,13 +7260,13 @@
 <context>
     <name>dcc::update::UpdateItem</name>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="86"/>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="122"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="87"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
         <source>Details</source>
         <translation>详情</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updateitem.cpp" line="122"/>
+        <location filename="../src/frame/modules/update/updateitem.cpp" line="123"/>
         <source>Collapse</source>
         <translation>收起</translation>
     </message>

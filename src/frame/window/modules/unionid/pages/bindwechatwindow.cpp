@@ -198,7 +198,7 @@ void BindWeChatWindow::onRequestQrCodeResult()
             QPalette pa = m_tipLabel->palette();
             pa.setBrush(QPalette::WindowText,palette().windowText());
             m_tipLabel->setPalette(pa);
-            m_tipLabel->setText("Scan and log in by WeChat to get linked");
+            m_tipLabel->setText(QObject::tr("Scan and log in by WeChat to get linked"));
         }
     } else {
         onQrCodeStatusTimeOut();

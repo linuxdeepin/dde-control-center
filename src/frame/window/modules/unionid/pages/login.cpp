@@ -225,7 +225,7 @@ void LoginPage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
 
 void LoginPage::onSignInButtonClicked()
 {
-    window()->setDisabled(true);
+//    window()->setDisabled(true);
     Q_EMIT requestLoginUser();
 }
 
