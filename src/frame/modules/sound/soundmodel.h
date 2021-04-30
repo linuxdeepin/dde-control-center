@@ -33,7 +33,7 @@
 #include <QLabel>
 
 #include <DDesktopServices>
-
+#include <DToolButton>
 DWIDGET_USE_NAMESPACE
 
 DWIDGET_BEGIN_NAMESPACE
@@ -107,7 +107,7 @@ public:
 
 private:
     bool m_mute;
-    DIconButton *m_btn;
+    DToolButton *m_btn;
 
 Q_SIGNALS:
     void clicked(bool checked);

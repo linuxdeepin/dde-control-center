@@ -63,14 +63,16 @@ namespace sound {
 SoundLabel::SoundLabel(QWidget *parent)
     : QLabel(parent)
     , m_mute(false)
-    , m_btn(new DIconButton(this))
+    , m_btn(new DToolButton(this))
 {
     QHBoxLayout* layout = new QHBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->addWidget(m_btn);
-    m_btn->setFlat(true);
-    m_btn->setFocusPolicy(Qt::NoFocus);
-    m_btn->setAttribute(Qt::WA_TransparentForMouseEvents);
+
+    connect(m_btn, &DIconButton::clicked, this, [this]() {
+        this->m_mute = !this->m_mute;
+        Q_EMIT clicked(this->m_mute);
+    });
 }
 
 void SoundLabel::mouseReleaseEvent(QMouseEvent *e)

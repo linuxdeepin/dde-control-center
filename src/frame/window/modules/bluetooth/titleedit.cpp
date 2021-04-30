@@ -21,7 +21,7 @@
 
 #include "titleedit.h"
 
-#include <DIconButton>
+#include <DToolButton>
 
 #include <QLabel>
 #include <QLineEdit>
@@ -44,8 +44,7 @@ TitleEdit::TitleEdit(QWidget *parent)
     mainlayout->addWidget(m_name);
     mainlayout->addWidget(m_lineEdit);
     mainlayout->addSpacing(5);
-    DIconButton *editWidget = new DIconButton(this);
-    editWidget->setFlat(true);
+    DToolButton *editWidget = new DToolButton(this);
     editWidget->setIcon(QIcon::fromTheme("dcc_edit"));
     mainlayout->addWidget(editWidget);
     mainlayout->addStretch();
@@ -53,14 +52,20 @@ TitleEdit::TitleEdit(QWidget *parent)
     mainlayout->setSpacing(0);
     setLayout(mainlayout);
 
-    connect(m_lineEdit, &DLineEdit::editingFinished, this, &TitleEdit::setName);
+    connect(m_lineEdit, &DLineEdit::editingFinished, this, [this, editWidget](){
+        this->setName();
+        editWidget->setVisible(true);
+    });
     connect(m_lineEdit, &DLineEdit::textChanged, this, [=](const QString &str) {
         if (str.length() > 32) {
             m_lineEdit->lineEdit()->backspace();
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         }
     });
-    connect(editWidget, &DIconButton::clicked, this, &TitleEdit::setEdit);
+    connect(editWidget, &DToolButton::clicked, this, [this, editWidget](){
+        editWidget->setVisible(false);
+        this->setEdit();
+    });
 }
 
 void TitleEdit::setName()

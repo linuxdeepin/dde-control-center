@@ -37,6 +37,7 @@
 #include <DLineEdit>
 #include <DDialog>
 #include <DWarningButton>
+#include <DToolButton>
 
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
@@ -121,7 +122,7 @@ private:
     dcc::accounts::User *m_curUser;
     dcc::accounts::UserModel *m_userModel;
     DLabel *m_fullName;//账户全名
-    DTK_WIDGET_NAMESPACE::DIconButton *m_fullNameBtn;//账户全名编辑按钮
+    DTK_WIDGET_NAMESPACE::DToolButton *m_fullNameBtn;//账户全名编辑按钮
     DLineEdit *m_inputLineEdit;//账户全名编辑框
     dcc::accounts::FingerModel *m_model;
     FingerWidget *m_fingerWidget;//指纹界面

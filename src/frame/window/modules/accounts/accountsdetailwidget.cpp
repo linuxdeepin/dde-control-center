@@ -197,11 +197,10 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_fullName->setText(fullname.toHtmlEscaped());
     m_fullName->setElideMode(Qt::ElideRight);
 
-    m_fullNameBtn = new DIconButton(this);
+    m_fullNameBtn = new DToolButton(this);
     m_fullNameBtn->setAccessibleName("fullName_btn");
     m_fullNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
     m_fullNameBtn->setIconSize(QSize(12, 12));
-    m_fullNameBtn->setFlat(true);//设置背景透明
 
     m_inputLineEdit = new DLineEdit();
     m_inputLineEdit->setAccessibleName("fullName_edit");
