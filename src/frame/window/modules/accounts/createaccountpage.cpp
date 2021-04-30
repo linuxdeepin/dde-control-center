@@ -323,9 +323,9 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
 //在修改密码页面当前密码处设置焦点
 void CreateAccountPage::showEvent(QShowEvent *event)
 {
-    if (m_nameEdit && !m_nameEdit->hasFocus()) {
-        m_nameEdit->lineEdit()->setFocus();
-    }
+//    if (m_nameEdit && !m_nameEdit->hasFocus()) {
+//        m_nameEdit->lineEdit()->setFocus();
+//    }
     QWidget::showEvent(event);
 }
 
