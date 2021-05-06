@@ -79,7 +79,7 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     m_contentLayout->addWidget(m_mouseSettingsGrp);
     m_contentLayout->setAlignment(Qt::AlignTop);
     m_contentLayout->setSpacing(10);
-    m_contentLayout->setContentsMargins(10, 10, 10, 5);
+    m_contentLayout->setContentsMargins(10, 10, 2, 5);
 
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);

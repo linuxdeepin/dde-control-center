@@ -98,7 +98,7 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_contentLayout->addWidget(m_generalSettingsGrp);
     m_contentLayout->setAlignment(Qt::AlignTop);
     m_contentLayout->setSpacing(10);
-    m_contentLayout->setContentsMargins(10, 10, 10, 5);
+    m_contentLayout->setContentsMargins(10, 10, 2, 5); // 右侧间距为10 补下面的 8
 
     TranslucentFrame *tFrame = new TranslucentFrame;
     tFrame->setLayout(m_contentLayout);
