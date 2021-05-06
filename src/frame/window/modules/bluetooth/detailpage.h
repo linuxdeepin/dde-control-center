@@ -57,6 +57,10 @@ Q_SIGNALS:
     void requestDisconnectDevice(const dcc::bluetooth::Device *device);
     void requestConnectDevice(const dcc::bluetooth::Device *device, const dcc::bluetooth::Adapter *adapter);
     void requestSetDevAlias(const dcc::bluetooth::Device *device, const QString &devAlias);
+    void requestBack();
+
+public Q_SLOTS:
+    void removeDevice(const QString &id);
 
 private Q_SLOTS:
     void onDeviceAliasChanged();

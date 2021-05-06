@@ -126,6 +126,9 @@ void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *dev
     connect(page, &DetailPage::requestIgnoreDevice, this, &BluetoothModule::popPage);
     connect(page, &DetailPage::back, this, &BluetoothModule::popPage);
     connect(page, &DetailPage::requestSetDevAlias, m_bluetoothWorker, &BluetoothWorker::setDeviceAlias);
+    connect(adapter, &Adapter::deviceRemoved, page, &DetailPage::removeDevice);
+    connect(page, &DetailPage::requestBack, this, &BluetoothModule::popPage);
+
 
     m_frameProxy->pushWidget(this, page);
     page->setVisible(true);

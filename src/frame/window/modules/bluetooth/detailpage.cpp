@@ -222,6 +222,12 @@ void DetailPage::onDeviceStatusChanged()
     }
 }
 
+void DetailPage::removeDevice(const QString &id)
+{
+    if(id == m_device->id())
+        Q_EMIT requestBack();
+}
+
 void DetailPage::onDeviceAliasChanged()
 {
     QString devAlias = m_editDevAlias->text();
