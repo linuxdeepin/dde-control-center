@@ -25,6 +25,7 @@
 
 #include "monitor.h"
 #include <QDebug>
+#include <QGSettings>
 
 using namespace dcc::display;
 
@@ -160,12 +161,17 @@ void Monitor::setModeList(const ResolutionList &modeList)
 {
     m_modeList.clear();
 
-    Resolution preResolution;
+    bool bFilter = true;
+    QGSettings solution("com.deepin.dde.control-center");
+    if (solution.keys().contains("filter-resolution")) {
+        bFilter = solution.get("filter-resolution").toBool();
+    }
     // NOTE: ignore resolution less than 1024x768
     for (auto m : modeList) {
-        if (m.width() >= 1024 && m.height() >= 768) {
-            m_modeList.append(m);
+        if (bFilter && (m.width() < 1024 || m.height() < 768)) {
+            continue;
         }
+        m_modeList.append(m);
     }
     qSort(m_modeList.begin(), m_modeList.end(), compareResolution);
 
