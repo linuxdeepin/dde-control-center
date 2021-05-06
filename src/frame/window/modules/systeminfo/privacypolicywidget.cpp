@@ -56,7 +56,7 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
     DTipLabel *label = new DTipLabel(text);
 
     label->setTextFormat(Qt::RichText);
-    label->setAlignment(Qt::AlignJustify);
+    label->setAlignment(Qt::AlignJustify | Qt::AlignLeft);
     label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     label->setWordWrap(true);
     connect(label, &QLabel::linkActivated, this, [](const QString &link) {
