@@ -111,6 +111,8 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     connect(m_model, &KeyboardModel::curLocalLangChanged, this, [this](const QStringList &curLocalLang) {
         for (int i = 0; i < curLocalLang.size(); i++) {
             onAddLanguage(curLocalLang[i]);
+            if (DGuiApplicationHelper::isTabletEnvironment())
+                onDefault(m_model->curLang());
         }
     });
     connect(m_model, &KeyboardModel::curLangChanged, this, &SystemLanguageWidget::onDefault);
