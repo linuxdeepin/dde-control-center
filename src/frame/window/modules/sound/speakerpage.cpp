@@ -279,9 +279,11 @@ void SpeakerPage::initSlider()
     if (val > maxRange) {
         val = maxRange;
     }
-    m_speakSlider->setValue(val);
     m_outputSlider->setValueLiteral(QString::number(int(val)) + "%");
     m_speakSlider->setPageStep(1);
+    m_speakSlider->setValue(val);
+    if (DGuiApplicationHelper::isTabletEnvironment())
+        m_model->setSpeakerOn(val == 0);
 
     //处理滑块位置变化的槽
     auto slotfunc1 = [ = ](int pos) {
@@ -307,7 +309,7 @@ void SpeakerPage::initSlider()
         double vals = pos / 100.0;
         //滑块位置改变时，发送设置音量的信号
         Q_EMIT requestSetSpeakerVolume(vals);
-        Q_EMIT requestMute(false);
+        Q_EMIT requestMute(DGuiApplicationHelper::isTabletEnvironment() && pos == 0);
     };
     //当点击滑槽时不会有，sliderMoved消息，用这个补
     connect(m_speakSlider, &DCCSlider::valueChanged, slotfunc1);
@@ -320,6 +322,8 @@ void SpeakerPage::initSlider()
         m_speakSlider->setValue(v * 100 + 0.000001);
         m_speakSlider->blockSignals(false);
         m_outputSlider->setValueLiteral(QString::number((int)(v * 100 + 0.000001)) + "%");
+        if (DGuiApplicationHelper::isTabletEnvironment())
+            m_model->setSpeakerOn(int(v * 100) == 0);
     });
 
     connect(m_model, &SoundModel::maxUIVolumeChanged, this, [ = ](double maxvalue) {
