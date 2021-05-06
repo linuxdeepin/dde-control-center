@@ -86,8 +86,6 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 {
     m_model = model;
     m_indexPage->setModel(model);
-    m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo());
-    m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
 //    m_cnonlyPage->setModel(model);
     m_loginPage->setMainWindow(pMainWindow);
 
@@ -97,8 +95,10 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 
     if (Notificationmanager::instance()->firstIsLogin()) {
         onUserInfoChanged(model->userinfo());
-        Notificationmanager::instance()->setFirstLogin();
     } else {
+        m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
+        m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),true);
+        m_indexPage->setWeChatName(Notificationmanager::instance()->getWeChatName());
         switchWidget(model->userinfo());
     }
 }
@@ -106,6 +106,7 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 void UnionidWidget::getAccessToken(const QString &code, const QString &state)
 {
     Q_UNUSED(state)
+    //初始化显示信息
     m_indexPage->setDefaultInfo();
     QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),code);
     connect(reply,&QNetworkReply::finished,this,&UnionidWidget::onGetAccessToken);
@@ -131,7 +132,7 @@ void UnionidWidget::onGetAccessToken()
     QString result = HttpClient::instance()->checkReply(reply);
 
     if (HttpClient::instance()->solveJson(result)) {
-        m_indexPage->setUserInfo(result);
+        m_indexPage->setUserInfo(result,false);
         Notificationmanager::instance()->setUserInfo(result);
         m_pageLayout->setCurrentWidget(m_indexPage);
     }

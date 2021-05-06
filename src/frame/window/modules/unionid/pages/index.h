@@ -69,7 +69,8 @@ public:
     IndexPage(QWidget *parent = nullptr);
     ~IndexPage();
     void setModel(dcc::unionid::UnionidModel *model);
-    void setUserInfo(QString usrInfo);
+    void setUserInfo(QString usrInfo, bool bIsLogged);
+    void setWeChatName(QString weChatName);
     void setUserAvatar(QPixmap avatar);
     void setDefaultInfo();
 

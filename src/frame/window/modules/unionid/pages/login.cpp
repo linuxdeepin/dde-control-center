@@ -232,6 +232,7 @@ void LoginPage::onSignInButtonClicked()
 void LoginPage::onSignUpButtonClicked()
 {
     qInfo() << "onSignInButtonClicked";
+//    window()->setDisabled(true);
     QDBusInterface interface("com.deepin.deepinid.Client",
                               "/com/deepin/deepinid/Client",
                               "com.deepin.deepinid.Client");

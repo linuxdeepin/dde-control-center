@@ -123,6 +123,16 @@ QString Notificationmanager::getUserInfo()
     return m_userInfo;
 }
 
+void Notificationmanager::setWeChatName(QString weChatName)
+{
+    m_weChatName = weChatName;
+}
+
+QString Notificationmanager::getWeChatName()
+{
+    return m_weChatName;
+}
+
 void Notificationmanager::getAccessToken(const QString &code, const QString &state)
 {
     Q_UNUSED(state)

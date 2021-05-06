@@ -29,31 +29,50 @@ public:
     // toast提示
     void showToast(QWidget *parent, ErrorType type, const QString &msg = "");
 
+    // 记录窗口位置
     void setWindowPosition(QPoint pos);
 
+    // 得到窗口位置
     QPoint getWindowPosition() const;
 
+    // 获得网络连接状态
     bool isOnLine();
 
+    // 记录已登录用户信息
     void setUserInfo(QString usrInfo);
 
+    // 得到已登录用户信息
     QString getUserInfo();
 
+    // 记录用户微信昵称
+    void setWeChatName(QString weChatName);
+
+    // 得到用户微信昵称
+    QString getWeChatName();
+
+    // 获取AT
     void getAccessToken(const QString &code, const QString &state);
 
+    // 定时刷新token
     void startRefreshToken(const QString &refreshToken,int expires_in);
 
+    // 获得用户头像
     QPixmap getUserAvatar();
 
+    // 设置启动后首次登录标志
     void setFirstLogin();
 
+    // 获得启动后首次登录标志
     bool firstIsLogin();
 
+    // 获得登录状态
     bool isLogin();
 
 Q_SIGNALS:
+    // 通知登录的信号
     void toTellLoginUser();
 
+    // 通知切换界面的信号
     void toTellSwitchWidget(QVariantMap);
 
     //发送信号到线程，重启ping
@@ -76,33 +95,37 @@ public Q_SLOTS:
     //qprocess结束重新开始
     void slots_restartProcess(int exitCode, QProcess::ExitStatus status);
 
+    // 获得用户头像的槽
     void onUserAvatar(QPixmap avatar);
 
 private Q_SLOTS:
+    // 获得AT,RT和用户信息的槽
     void onGetAccessToken();
 
+    // 定时刷新AT,RT和用户信息的槽
     void onTokenTimeout();
 
+    // 刷新获得AT,RT和用户信息的槽
     void onRefreshAccessToken();
 
 private:
     explicit Notificationmanager(QObject *parent = nullptr);
 
-    QPoint windowPosition;
-    CustomFloatingMessage *m_message;
-    bool m_bIsNotificationExist;   
-    QTimer *m_refreshTimer;
-    QString m_userInfo;
-    QString m_refreshToken;
-    QPixmap m_avatar;
-    bool m_bIsLogin;
+    QPoint windowPosition;///< 记录的窗口位置
+    CustomFloatingMessage *m_message;///< toast提示控件
+    bool m_bIsNotificationExist;///< toast提示控件存在状态
+    QTimer *m_refreshTimer;///< 刷新AT,RT和用户信息的定时器
+    QString m_userInfo;///< 记录的用户信息
+    QString m_weChatName;///< 记录的用户微信昵称
+    QString m_refreshToken;///< 记录的RT
+    QPixmap m_avatar;///< 记录的用户头像
+    bool m_bIsLogin;///< 登录状态
 
     //检测网络链接的定时器
-    CustomPing *m_myping;
-    QTimer *m_timer_isconnect;
-    bool m_isConnect = true;
-    QNetworkAccessManager *m_accessManager;
-    int m_timeouttime = 1500;
+    CustomPing *m_myping;///< 检测网络连接状态的线程
+    QTimer *m_timer_isconnect;///< 检测网络连接超时的定时器
+    bool m_isConnect = true;///< 网络连接状态
+    int m_timeouttime = 1500;///< 网络连接超时限制时间
 };
 
 #endif // NOTIFICATIONMANAGER_H

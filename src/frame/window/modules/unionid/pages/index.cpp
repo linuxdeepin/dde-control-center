@@ -302,7 +302,7 @@ void IndexPage::setModel(UnionidModel *model)
     onUserInfoChanged(model->userinfo());
 }
 
-void IndexPage::setUserInfo(QString usrInfo)
+void IndexPage::setUserInfo(QString usrInfo, bool bIsLogged)
 {
     QByteArray byteJson = usrInfo.toLocal8Bit();
     QJsonParseError jsonError;
@@ -347,15 +347,33 @@ void IndexPage::setUserInfo(QString usrInfo)
         m_wechatunionid = jsonValueResult.toString();
         qInfo() << " wechatunionid" << m_wechatunionid;
 
-        if (m_wechatunionid.isEmpty()) {
-            m_modButton->setText(QObject::tr("Link"));
-            m_wxNameLabel->setText("");
+        if (bIsLogged) {
+            QString WeChatName = Notificationmanager::instance()->getWeChatName();
+            m_wxNameLabel->setText(WeChatName);
+
+            if (WeChatName.isEmpty()) {
+                m_modButton->setText(QObject::tr("Link"));
+            } else {
+                m_modButton->setText(QObject::tr("Change"));
+            }
         } else {
-            m_modButton->setText(QObject::tr("Change"));
-            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_wechatunionid);
-            connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetBindAccountInfo);
+            if (m_wechatunionid.isEmpty()) {
+                m_modButton->setText(QObject::tr("Link"));
+                m_wxNameLabel->setText("");
+            } else {
+                m_modButton->setText(QObject::tr("Change"));
+                QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_wechatunionid);
+                connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetBindAccountInfo);
+            }
         }
+
+        Notificationmanager::instance()->setWeChatName(m_wxNameLabel->text());
     }
+}
+
+void IndexPage::setWeChatName(QString weChatName)
+{
+    m_wxNameLabel->setText(weChatName);
 }
 
 void IndexPage::setUserAvatar(QPixmap avatar)
@@ -541,7 +559,9 @@ void IndexPage::onGetBindAccountInfo()
                 jsonObj = jsonValueResult.toObject();
                 jsonValueResult = jsonObj.value("wechatNickName");
                 qInfo() << "wechatNickName" << jsonValueResult.toString();
-                m_wxNameLabel->setText(jsonValueResult.toString());
+                QString wxName = jsonValueResult.toString();
+                m_wxNameLabel->setText(wxName);
+                Notificationmanager::instance()->setWeChatName(m_wxNameLabel->text());
 
                 if (m_wechatunionid.isEmpty()) {
                     m_modButton->setText(QObject::tr("Link"));
