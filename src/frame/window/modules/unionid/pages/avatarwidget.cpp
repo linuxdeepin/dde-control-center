@@ -73,7 +73,6 @@ void AvatarWidget::setAvatarPath(const QString &avatar, bool isUrl)
     setAccessibleName(m_avatarPath);
     if (isUrl) {
         // url
-        qInfo() << "setAvatarPath" << avatar;
         QNetworkReply *reply = HttpClient::instance()->getPictureFromUrl(avatar);
         connect(reply, &QNetworkReply::finished, this, &AvatarWidget::readAvatarFromUrl);
     } else {
@@ -114,10 +113,10 @@ void AvatarWidget::readAvatarFromUrl()
     const auto ratio = devicePixelRatioF();
 
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    qInfo() << "reply :" << reply << endl;
 
     QByteArray result = HttpClient::instance()->checkReply(reply);
     reply->deleteLater();
+
     if (!result.isEmpty()) {
 //            QByteArray data_bytes = reply->readAll();
             m_avatar.loadFromData(result);

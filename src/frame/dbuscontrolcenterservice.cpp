@@ -193,6 +193,7 @@ void DBusControlCenterService::OnAuthorized(const QString &code, const QString &
 {
     qInfo() << "OnAuthorized" << code << state;
     parent()->getAccessToken(code,state);
+
     if (!parent()->isEnabled()) {
         parent()->setDisabled(false);
     }

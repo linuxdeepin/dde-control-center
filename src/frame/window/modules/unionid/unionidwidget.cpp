@@ -47,7 +47,6 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     , m_indexPage(new IndexPage)
     , m_cnonlyPage(new LogoutPage)
 {
-    qInfo() << "UnionidWidget::UnionidWidget(QWidget *parent)";
     m_pageLayout->setMargin(0);
     m_pageLayout->setSpacing(0);
 
@@ -66,6 +65,8 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
 
     connect(Notificationmanager::instance(), &Notificationmanager::toTellSwitchWidget, this, &UnionidWidget::switchWidget);
+    connect(Notificationmanager::instance(), &Notificationmanager::toTellgetATFinished, this, &UnionidWidget::onGetATFinished);
+
 //    QLabel *label = new QLabel();
     //    label->setText(tr("Learn about %1 and %2").arg(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"servicelabel\"> %1 </a>")
     //                                              .arg(tr("Union ID Service Agreement"))).arg(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"privacyLabel\"> %1 </a>")
@@ -79,7 +80,6 @@ UnionidWidget::UnionidWidget(QWidget *parent)
 //    linksandLogoutwidhet->setLayout(hyperlinksLayout);
 //    mainLayout->addWidget(linksandLogoutwidhet);
     setLayout(m_pageLayout);
-    qInfo() << "rect" << rect();
 }
 
 void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMainWindow)
@@ -91,8 +91,6 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 
     connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
 
-    qInfo() << "switchWidget(model->userinfo());";
-
     if (Notificationmanager::instance()->firstIsLogin()) {
         onUserInfoChanged(model->userinfo());
     } else {
@@ -103,13 +101,13 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
     }
 }
 
-void UnionidWidget::getAccessToken(const QString &code, const QString &state)
+void UnionidWidget::onGetATFinished()
 {
-    Q_UNUSED(state)
     //初始化显示信息
     m_indexPage->setDefaultInfo();
-    QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),code);
-    connect(reply,&QNetworkReply::finished,this,&UnionidWidget::onGetAccessToken);
+    Notificationmanager::instance()->getUserInfo();
+    m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),false);
+    m_pageLayout->setCurrentWidget(m_indexPage);
 }
 
 void UnionidWidget::switchWidget(const QVariantMap &userInfo)
@@ -118,23 +116,9 @@ void UnionidWidget::switchWidget(const QVariantMap &userInfo)
 
     if (isLogind) {
         m_pageLayout->setCurrentWidget(m_indexPage);
-        qInfo() << "m_indexPage";
     }
     else {
         m_pageLayout->setCurrentWidget(m_loginPage);
-        qInfo() << "m_loginPage";
-    }
-}
-
-void UnionidWidget::onGetAccessToken()
-{
-    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = HttpClient::instance()->checkReply(reply);
-
-    if (HttpClient::instance()->solveJson(result)) {
-        m_indexPage->setUserInfo(result,false);
-        Notificationmanager::instance()->setUserInfo(result);
-        m_pageLayout->setCurrentWidget(m_indexPage);
     }
 }
 
@@ -159,7 +143,6 @@ void UnionidWidget::onRequestLogout()
 
 void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 {
-    qInfo() << "onUserInfoChanged";
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
     const QString region = userInfo["Region"].toString();
 

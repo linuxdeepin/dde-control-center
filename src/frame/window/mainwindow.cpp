@@ -450,17 +450,11 @@ void MainWindow::getAccessToken(const QString &code, const QString &state)
 {
     int index = m_navView->currentIndex().row();
 
-    //当前界面是unoinId界面,直接在界面中处理
-    if ("cloudsync" == m_modules.value(index).first->name()) {
-        UnionidModule *unionidModule = static_cast<UnionidModule *>(m_modules.value(index).first);
-        unionidModule->getAccessToken(code,state,true);
-    } else {//在Notificationmanager类中处理
-        for (auto i : m_modules) {
-            if (i.first->name() == tr(/*"unionid"*/"cloudsync")) {
-                UnionidModule *unionidModule = static_cast<UnionidModule *>(m_modules.value(index).first);
-                unionidModule->getAccessToken(code,state,false);
-                break;
-            }
+    for (auto i : m_modules) {
+        if (i.first->name() == tr(/*"unionid"*/"cloudsync")) {
+            UnionidModule *unionidModule = static_cast<UnionidModule *>(m_modules.value(index).first);
+            unionidModule->getAccessToken(code,state);
+            break;
         }
     }
 }

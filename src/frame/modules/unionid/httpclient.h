@@ -153,6 +153,7 @@ private:
     QString userAgentInfo();
     QString fileContent(const QString &fileName);
     void judgeClienid();
+    QNetworkReply* httpRequset(const QString &type, const QNetworkRequest &requset, const QByteArray &body);
 
 private:
     Q_DISABLE_COPY(HttpClient)

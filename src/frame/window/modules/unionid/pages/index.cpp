@@ -201,7 +201,8 @@ IndexPage::IndexPage(QWidget *parent)
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
-    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollArea->setContentsMargins(0, 0, 0, 0);
 //    scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);//暂时没效果,最好还是加上
     scrollArea->setWidget(areaWidget);
@@ -294,12 +295,12 @@ void IndexPage::setModel(UnionidModel *model)
     m_syncWidget->setVisible(model->enableSync());
 //    m_listView->setVisible(model->enableSync());
     onStateChanged(model->syncState());
-    LoginedIn::setModel(model);
+//    LoginedIn::setModel(model);
 //    connect(model, &UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
 //    connect(model, &UnionidModel::enableSyncChanged, this, &IndexPage::onChecked);
 //    connect(model, &UnionidModel::enableSyncChanged, m_listView, &QListView::setVisible);
 
-    onUserInfoChanged(model->userinfo());
+//    onUserInfoChanged(model->userinfo());
 }
 
 void IndexPage::setUserInfo(QString usrInfo, bool bIsLogged)
@@ -315,14 +316,12 @@ void IndexPage::setUserInfo(QString usrInfo, bool bIsLogged)
 
         //AT有效期
         jsonValueResult = jsonObj.value("expires_in");
-        qInfo() << "expires_in" << jsonValueResult.toInt();
+
         int expires_in = jsonValueResult.toInt();
-//        m_refreshTimer->start(expires_in * 1000);
 
         jsonValueResult = jsonObj.value("AccessToken");
         QString nResult = jsonValueResult.toString();
         m_accessToken = nResult;
-        qInfo() << "m_accessToken" << m_accessToken;
 
         jsonValueResult = jsonObj.value("RefreshToken");
         nResult = jsonValueResult.toString();
@@ -331,13 +330,12 @@ void IndexPage::setUserInfo(QString usrInfo, bool bIsLogged)
         Notificationmanager::instance()->startRefreshToken(m_refreshToken,expires_in * 1000);
 
         jsonValueResult = jsonObj.value("userNick");
-        qInfo() << "userNick" << jsonValueResult.type();
+
         m_nickName = jsonValueResult.toString();
         m_nameLabel->setText(m_nickName);
 
         jsonValueResult = jsonObj.value("avatar");
         m_userAvatar = jsonValueResult.toString();
-        m_avatarWidget->setAvatarPath(m_userAvatar,true);
 
         jsonValueResult = jsonObj.value("userName");
         nResult = jsonValueResult.toString();
@@ -345,7 +343,6 @@ void IndexPage::setUserInfo(QString usrInfo, bool bIsLogged)
 
         jsonValueResult = jsonObj.value("wechatunionid");
         m_wechatunionid = jsonValueResult.toString();
-        qInfo() << " wechatunionid" << m_wechatunionid;
 
         if (bIsLogged) {
             QString WeChatName = Notificationmanager::instance()->getWeChatName();
@@ -357,6 +354,8 @@ void IndexPage::setUserInfo(QString usrInfo, bool bIsLogged)
                 m_modButton->setText(QObject::tr("Change"));
             }
         } else {
+            m_avatarWidget->setAvatarPath(m_userAvatar,true);
+
             if (m_wechatunionid.isEmpty()) {
                 m_modButton->setText(QObject::tr("Link"));
                 m_wxNameLabel->setText("");
@@ -379,8 +378,10 @@ void IndexPage::setWeChatName(QString weChatName)
 void IndexPage::setUserAvatar(QPixmap avatar)
 {
     if (avatar.isNull()) {
+        qInfo() << "QPixmap Path";
         m_avatarWidget->setAvatarPath(AvaterPath,false);
     } else {
+        qInfo() << "QPixmap";
         m_avatarWidget->setAvater(avatar);
     }
 }
@@ -558,7 +559,7 @@ void IndexPage::onGetBindAccountInfo()
             if (jsonValueResult.isObject()) {
                 jsonObj = jsonValueResult.toObject();
                 jsonValueResult = jsonObj.value("wechatNickName");
-                qInfo() << "wechatNickName" << jsonValueResult.toString();
+
                 QString wxName = jsonValueResult.toString();
                 m_wxNameLabel->setText(wxName);
                 Notificationmanager::instance()->setWeChatName(m_wxNameLabel->text());
@@ -612,7 +613,6 @@ void IndexPage::onRefreshAccessToken()
 
             jsonValueResult = jsonObj.value("expires_in");
             int expires_in = jsonValueResult.toInt();
-            qInfo() << "expires_in" << jsonValueResult.toInt();
 
             Notificationmanager::instance()->startRefreshToken(m_refreshToken,expires_in * 1000);
 
@@ -633,7 +633,6 @@ void IndexPage::onTokenTimeout()
 
 IndexPage::~IndexPage()
 {
-    qInfo() << "IndexPage::~IndexPage()***********";
 }
 
 }

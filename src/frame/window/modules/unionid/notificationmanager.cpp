@@ -112,9 +112,14 @@ void Notificationmanager::setUserInfo(QString usrInfo)
         jsonObj = jsonValueResult.toObject();
         jsonValueResult = jsonObj.value("avatar");
         QString avatar = jsonValueResult.toString();
-        AvatarWidget *uavatar = new AvatarWidget;
-        uavatar->setAvatarPath(avatar);
-        uavatar->deleteLater();
+        QNetworkReply *avatarReply = HttpClient::instance()->getPictureFromUrl(avatar);
+        connect(avatarReply, &QNetworkReply::finished, this, &Notificationmanager::readAvatarFromUrl);
+
+        jsonValueResult = jsonObj.value("wechatunionid");
+        QString weChatUnionId = jsonValueResult.toString();
+
+        QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, weChatUnionId);
+        connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
     }
 }
 
@@ -176,7 +181,6 @@ bool Notificationmanager::isLogin()
     QDBusInterface interface("com.deepin.sync.Daemon","/com/deepin/deepinid","com.deepin.deepinid");
 
     bool isLogin = interface.property("IsLogin").toBool();
-    qInfo () << "interface.property().toMap()";
 
     return isLogin;
 }
@@ -204,7 +208,6 @@ void Notificationmanager::showError()
 
 void Notificationmanager::timeout()
 {
-    qInfo() << "ping timer is time out";
     m_isConnect = false;
 }
 
@@ -250,5 +253,41 @@ void Notificationmanager::onRefreshAccessToken()
 
     if (HttpClient::instance()->solveJson(result)) {
         setUserInfo(result);
+    }
+}
+
+void Notificationmanager::onGetBindAccountInfo()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
+    QString result = HttpClient::instance()->checkReply(reply);
+
+    if (!result.isEmpty()) {
+
+        if (HttpClient::instance()->solveJson(result)) {
+            QByteArray byteJson = result.toLocal8Bit();
+            QJsonParseError jsonError;
+            QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+            QJsonObject jsonObj = jsonDoc.object();
+            QJsonValue jsonValueResult = jsonObj.value("data");
+
+            if (jsonValueResult.isObject()) {
+                jsonObj = jsonValueResult.toObject();
+                jsonValueResult = jsonObj.value("wechatNickName");
+                m_weChatName = jsonValueResult.toString();
+                Q_EMIT toTellgetATFinished();
+            }
+        }
+    }
+}
+
+void Notificationmanager::readAvatarFromUrl()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+
+    QByteArray result = HttpClient::instance()->checkReply(reply);
+    reply->deleteLater();
+
+    if (!result.isEmpty()) {
+        m_avatar.loadFromData(result);
     }
 }

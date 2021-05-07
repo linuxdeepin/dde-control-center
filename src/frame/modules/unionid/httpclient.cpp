@@ -47,7 +47,8 @@ QNetworkReply *HttpClient::requestQrCode(const QString &clientId, const QString 
     jsonRoot.insert("redirectUrl", redirectUrl);
 
     QNetworkRequest requset = setNetWorkRequest("/qrcode/generating");
-    return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+    return httpRequset("post",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+//    return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
 QNetworkReply *HttpClient::reportQrCodeStatus(const QString &codeId, const int &qrCodeStatus, const QString &sessionId)
@@ -63,16 +64,17 @@ QNetworkReply *HttpClient::reportQrCodeStatus(const QString &codeId, const int &
     QJsonObject jsonRoot;
     jsonRoot.insert("codeId", codeId);
     jsonRoot.insert("scanner", scannerJson);
-    qInfo() << QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact);
     QNetworkRequest requset = setNetWorkRequest("/qrcode/event");
-    return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+    return httpRequset("put",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+//    return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
 QNetworkReply *HttpClient::getQrCodeStatus(const QString &codeId)
 {
     QString requestApi = QString("/qrcode/status?codeId=%1&targetRole=%2").arg(codeId).arg(1);
     QNetworkRequest request = setNetWorkRequest(requestApi);
-    return manager->get(request);
+    return httpRequset("get",request,"");
+//    return manager->get(request);
 }
 
 QNetworkReply *HttpClient::sendSmsCode(const QString &phoneNumber, const QString &accessToken)
@@ -82,7 +84,8 @@ QNetworkReply *HttpClient::sendSmsCode(const QString &phoneNumber, const QString
     json.insert("phoneNumber", phoneNumber);
 
     QNetworkRequest requset = setNetWorkRequest("/account/sms-code/sending");
-    return manager->post(requset, QJsonDocument(json).toJson(QJsonDocument::Compact));
+    return httpRequset("post",requset,QJsonDocument(json).toJson(QJsonDocument::Compact));
+//    return manager->post(requset, QJsonDocument(json).toJson(QJsonDocument::Compact));
 }
 
 QNetworkReply *HttpClient::verifySmsCode(const QString &phoneNumber, const QString &smsCode, const QString &accessToken)
@@ -93,6 +96,7 @@ QNetworkReply *HttpClient::verifySmsCode(const QString &phoneNumber, const QStri
     json.insert("smsCode", smsCode);
 
     QNetworkRequest requset = setNetWorkRequest("/account/sms-code/verifying");
+
     return manager->post(requset, QJsonDocument(json).toJson(QJsonDocument::Compact));
 }
 
@@ -116,7 +120,8 @@ QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int 
     jsonRoot.insert("bindAccount", json2);
 
     QNetworkRequest requset = setNetWorkRequest("/account/bindAccount");
-    return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+    return httpRequset("put",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+//    return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
 QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue
@@ -137,7 +142,8 @@ QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const in
     jsonRoot.insert("bindAccount", json2);
 
     QNetworkRequest requset = setNetWorkRequest("/account/unbindAccount");
-    return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+    return httpRequset("post",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+//    return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
 QNetworkReply *HttpClient::getBindAccountInfo(const int &accountType, const int &id, const QString &idValue)
@@ -147,7 +153,8 @@ QNetworkReply *HttpClient::getBindAccountInfo(const int &accountType, const int 
                          .arg(id)
                          .arg(idValue);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
-    return manager->get(requset);
+    return httpRequset("get",requset,"");
+//    return manager->get(requset);
 }
 
 QNetworkReply *HttpClient::getAccessToken(const QString &clientId, const QString &code)
@@ -156,7 +163,8 @@ QNetworkReply *HttpClient::getAccessToken(const QString &clientId, const QString
                          .arg(clientId)
                          .arg(code);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
-    return manager->get(requset);
+    return httpRequset("get",requset,"");
+//    return manager->get(requset);
 }
 
 QNetworkReply *HttpClient::refreshAccessToken(const QString &clientId, const QString &refreshtoken)
@@ -165,7 +173,8 @@ QNetworkReply *HttpClient::refreshAccessToken(const QString &clientId, const QSt
                          .arg(clientId)
                          .arg(refreshtoken);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
-    return manager->get(requset);
+    return httpRequset("get",requset,"");
+//    return manager->get(requset);
 }
 
 QNetworkReply *HttpClient::getUserInfo(const QString &accessToken)
@@ -174,8 +183,9 @@ QNetworkReply *HttpClient::getUserInfo(const QString &accessToken)
     QString qstrUrl = QString("https://api.uniontech.com/v1/user?access_token=%1").arg(accessToken);
     requset.setUrl(QUrl(qstrUrl));
     requset.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QNetworkAccessManager *netmanager = new QNetworkAccessManager();
-    return netmanager->get(requset);
+//    QNetworkAccessManager *netmanager = new QNetworkAccessManager();
+    return httpRequset("get",requset,"");
+//    return netmanager->get(requset);
 }
 
 QNetworkReply *HttpClient::getPictureFromUrl(const QString &url)
@@ -184,13 +194,13 @@ QNetworkReply *HttpClient::getPictureFromUrl(const QString &url)
     requset.setUrl(QUrl(url));
     requset.setAttribute(QNetworkRequest::FollowRedirectsAttribute, true);
     requset.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    QNetworkAccessManager *netmanager = new QNetworkAccessManager();
-    return netmanager->get(requset);
+//    QNetworkAccessManager *netmanager = new QNetworkAccessManager();
+    return httpRequset("get",requset,"");
+    //return netmanager->get(requset);
 }
 
 QByteArray HttpClient::checkReply(QNetworkReply *pReply)
 {
-    qInfo() << "checkReply";
     if (pReply->error() != QNetworkReply::NoError) {
         QString strErr = "Failed to request : " + pReply->url().toString()
                          + "\n the error code is : " + QString::number(pReply->error())
@@ -309,6 +319,20 @@ void HttpClient::judgeClienid()
 
     file.close();
 
+}
+
+QNetworkReply* HttpClient::httpRequset(const QString &type, const QNetworkRequest &requset, const QByteArray &body)
+{
+    qInfo() << type << requset.url() << body;
+    if (type == "get") {
+        return manager->get(requset);
+    } else if (type == "post") {
+        return manager->post(requset,body);
+    } else if (type == "put") {
+        return manager->put(requset,body);
+    } else {
+        return nullptr;
+    }
 }
 
 /*******************************************************************************

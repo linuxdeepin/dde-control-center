@@ -48,7 +48,7 @@ public:
     virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     QStringList availPage() const override;
 public:
-    void getAccessToken(const QString &code, const QString &state,const bool &bIsUIDWidget);
+    void getAccessToken(const QString &code, const QString &state);
 
 public Q_SLOTS:
     void onShowPopup(QString fileName); // for user exprience program

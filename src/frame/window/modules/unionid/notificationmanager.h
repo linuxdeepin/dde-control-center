@@ -78,6 +78,8 @@ Q_SIGNALS:
     //发送信号到线程，重启ping
     void ProcessFinished();
 
+    void toTellgetATFinished();
+
 public Q_SLOTS:
     void onSetNotificationStatus();
     //展示ping的结果
@@ -107,6 +109,10 @@ private Q_SLOTS:
 
     // 刷新获得AT,RT和用户信息的槽
     void onRefreshAccessToken();
+
+    void onGetBindAccountInfo();
+
+    void readAvatarFromUrl();
 
 private:
     explicit Notificationmanager(QObject *parent = nullptr);

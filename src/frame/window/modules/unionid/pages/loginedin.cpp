@@ -78,7 +78,7 @@ void LoginedIn::onUserInfoChanged(const QVariantMap &infos)
 
     connect(m_downloader, &DownloadUrl::fileDownloaded, this, [this](const QString & fileName) {
         qDebug() << "downloaded filename = " << fileName;
-        m_avatar->setAvatarPath(fileName);
+        //m_avatar->setAvatarPath(fileName);
     });
 
     m_downloader->downloadFileFromURL(profile_image, avatarPath);
