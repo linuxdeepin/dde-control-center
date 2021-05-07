@@ -118,6 +118,7 @@ void SystemNotifyWidget::initConnect()
     connect(systemModel, &SysItemModel::disturbModeChanged, this, [this](bool state) {
         m_btnDisturbMode->setChecked(state);
         m_settingsGrp->setVisible(state);
+        m_itemTimeSlot->setState(state);
     });
     m_btnDisturbMode->setChecked(systemModel->isDisturbMode());
     m_settingsGrp->setVisible(systemModel->isDisturbMode());
