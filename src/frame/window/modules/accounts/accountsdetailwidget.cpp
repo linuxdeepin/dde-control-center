@@ -86,6 +86,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     QWidget *widget = new QWidget;
     widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     widget->setContentsMargins(0, 0, 0, 0);
+    widget->setMinimumWidth(330);   //设置滑轮区域最小宽度,避免整体窗口最小的时候,fullnamelable太长导致出现滑轮
 
     mainContentLayout->addWidget(m_scrollArea);
     auto contentLayout = new QVBoxLayout();
