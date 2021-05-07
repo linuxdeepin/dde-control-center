@@ -62,7 +62,7 @@ Q_SIGNALS:
 
     void DevicesStatus(bool status);
 
-public Q_SLOT:
+public Q_SLOTS:
     void dealDevicesStatus(bool status);
 
 
