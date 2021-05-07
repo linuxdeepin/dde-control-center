@@ -176,6 +176,11 @@ void LineEditWidget::setPlaceholderText(const QString &text)
     m_edit->lineEdit()->setPlaceholderText(text);
 }
 
+void LineEditWidget::mouseDoubleClickEvent(QMouseEvent *e)
+{
+    m_edit->clearFocus();
+}
+
 void LineEditWidget::mousePressEvent(QMouseEvent *e)
 {
     SettingsItem::mousePressEvent(e);

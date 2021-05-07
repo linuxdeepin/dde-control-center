@@ -84,6 +84,7 @@ public Q_SLOTS:
 
 protected:
     void mousePressEvent(QMouseEvent *e);
+    void mouseDoubleClickEvent(QMouseEvent *e);
 
 protected:
     QHBoxLayout *m_mainLayout;
