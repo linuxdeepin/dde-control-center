@@ -160,13 +160,11 @@ void ShortcutItem::updateTitleSize()
     show();
 
     int v = width() - m_key->width() - 32;
-
-    if (m_title->fontMetrics().width(m_title->text()) > v) {
+    if (m_title->fontMetrics().width(m_info->name) > v) {
         QFontMetrics fontWidth(m_title->font());
         QString elideNote = fontWidth.elidedText(m_title->text(), Qt::ElideRight, v / 2);
         m_title->setText(elideNote);
     }
-
 }
 
 void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
@@ -191,12 +189,12 @@ void ShortcutItem::resizeEvent(QResizeEvent *event)
     SettingsItem::resizeEvent(event);
 
     int v = width() - m_key->width() - 32;
-
-    if (m_title->fontMetrics().width(m_title->text()) <= v) {
-        QTimer::singleShot(0, this, [=](){
-            m_title->setText(m_info->name);
-        });
+    // 参与计算的是实际文本长度
+    if (m_title->fontMetrics().width(m_info->name) <= v) {
+        m_title->setText(m_info->name);
+        m_title->setToolTip("");
     } else {
+        m_title->setToolTip(m_info->name);
         QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
     }
     
