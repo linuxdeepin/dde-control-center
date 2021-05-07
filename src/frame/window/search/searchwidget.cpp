@@ -343,10 +343,6 @@ void SearchModel::loadxml()
 
         m_EnterNewPagelist.append(searchBoxStrcut);
 
-        if (m_TxtListAll.contains(searchBoxStrcut->translateContent)) {
-            continue;
-        }
-
         m_TxtListAll.append(searchBoxStrcut->translateContent);
 
         // Add search result content
@@ -381,7 +377,11 @@ SearchBoxStruct::Ptr SearchModel::getModuleBtnString(QString value)
     data->fullPagePath = value.section('>', 1, -1).remove('>').trimmed();
 
     if (data->fullPagePath.contains('/', Qt::CaseInsensitive)) {
-        data->fullPagePath = data->fullPagePath.section('/', 0, 0).remove('/').trimmed();
+        QString strTemp = data->fullPagePath.section('/', 0, 0).remove('/').trimmed();
+        //修复最终字段存在'/'无法跳转的问题
+        if (this->m_TxtListAll.contains(strTemp)) {
+            data->fullPagePath = strTemp;
+        }
     }
 
 #if DEBUG_XML_SWITCH
