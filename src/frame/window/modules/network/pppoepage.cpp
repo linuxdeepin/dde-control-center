@@ -69,12 +69,12 @@ PppoePage::PppoePage(QWidget *parent)
     mainLayout->addWidget(m_lvsettings);
     mainLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
     mainLayout->setSpacing(10);
-    mainLayout->setContentsMargins(ThirdPageContentsMargins);   // 设置列表项与背景左右间距分别为10
+    mainLayout->setContentsMargins(QMargins(10, 0, 10, 0));   // 设置列表项与背景左右间距分别为10
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(mainLayout);
 
-    setContentsMargins(0, 0, 8, 8);
+    setContentsMargins(0, 10, 0, 10);   // 设置列表项与背景上下间距分别为10
     setContent(mainWidget);
     setTitle(tr("PPP"));
     //~ contents_path /network/DSL/Create PPPoE Connection

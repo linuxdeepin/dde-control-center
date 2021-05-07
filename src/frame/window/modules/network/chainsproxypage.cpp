@@ -85,7 +85,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
 
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
-    layout->setContentsMargins(ThirdPageContentsMargins);
+    layout->setContentsMargins(QMargins(10, 0, 10, 0));       // 设置列表项与背景左右间距分别为10
     layout->setSpacing(10);
 
     QHBoxLayout *topLayout = new QHBoxLayout;
@@ -96,6 +96,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     DTipLabel *tip = new DTipLabel(tr("Check \"Use a proxy\" in application context menu in Launcher after configured"));
     tip->setWordWrap(true);
     tip->setAlignment(Qt::AlignLeft);
+    tip->setMargin(8);          // 设置tips与列表中文字左对齐
     layout->addWidget(tip);
 
     m_btns = new ButtonTuple(ButtonTuple::Save);
@@ -111,7 +112,7 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent) : ContentWidget(parent)
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(layout);
 
-    setContentsMargins(0, 0, 8, 0);
+    setContentsMargins(QMargins(0, 10, 0, 10));    // 设置圆角上下间距分别为10
     setContent(w);
 
     connect(m_btns->leftButton(), &QPushButton::clicked, this, &ChainsProxyPage::onRestoreValue);

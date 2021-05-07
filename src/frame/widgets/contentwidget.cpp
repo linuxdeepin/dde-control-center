@@ -94,7 +94,6 @@ ContentWidget::ContentWidget(QWidget *parent)
     centralLayout->addLayout(titleLayout);
     centralLayout->addSpacing(15);
 #endif
-    centralLayout->addWidget(new dcc::widgets::HSeparator);
     centralLayout->addLayout(m_contentTopLayout);
     centralLayout->addWidget(m_contentArea);
     centralLayout->setContentsMargins(0, 0, 0, 0);
