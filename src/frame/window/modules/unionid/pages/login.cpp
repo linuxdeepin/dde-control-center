@@ -225,13 +225,12 @@ void LoginPage::onThemeTypeChanged(DGuiApplicationHelper::ColorType themeType)
 
 void LoginPage::onSignInButtonClicked()
 {
-//    window()->setDisabled(true);
+//    widget->setDefault();
     Q_EMIT requestLoginUser();
 }
 
 void LoginPage::onSignUpButtonClicked()
 {
-    qInfo() << "onSignInButtonClicked";
 //    window()->setDisabled(true);
     QDBusInterface interface("com.deepin.deepinid.Client",
                               "/com/deepin/deepinid/Client",

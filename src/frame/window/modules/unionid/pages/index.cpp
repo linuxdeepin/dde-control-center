@@ -388,6 +388,7 @@ void IndexPage::setUserAvatar(QPixmap avatar)
 
 void IndexPage::setDefaultInfo()
 {
+    qInfo()<< "setDefaultInfo";
     m_avatarWidget->setAvatarPath(AvaterPath,false);
     m_nameLabel->clear();
     m_uidLabel->clear();

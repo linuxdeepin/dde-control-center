@@ -65,7 +65,7 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
 
     connect(Notificationmanager::instance(), &Notificationmanager::toTellSwitchWidget, this, &UnionidWidget::switchWidget);
-    connect(Notificationmanager::instance(), &Notificationmanager::toTellgetATFinished, this, &UnionidWidget::onGetATFinished);
+    connect(Notificationmanager::instance(), &Notificationmanager::toTellGetATFinished, this, &UnionidWidget::onGetATFinished);
 
 //    QLabel *label = new QLabel();
     //    label->setText(tr("Learn about %1 and %2").arg(QString("<style> a {text-decoration: none} </style> <a style='color: #0082fa;' href=\"servicelabel\"> %1 </a>")
@@ -91,8 +91,9 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 
     connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
 
-    if (Notificationmanager::instance()->firstIsLogin()) {
+    if (Notificationmanager::instance()->firstIsLogin()/* && Notificationmanager::instance()->isLogin()*/) {
         onUserInfoChanged(model->userinfo());
+//        m_loginPage->login();
     } else {
         m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
         m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),true);
@@ -122,6 +123,12 @@ void UnionidWidget::switchWidget(const QVariantMap &userInfo)
     }
 }
 
+void UnionidWidget::setDefault()
+{
+    qInfo() << " setDefault";
+    m_indexPage->setDefaultInfo();
+}
+
 void UnionidWidget::onRequestLogout()
 {
     QDBusInterface interface("com.deepin.deepinid.Client",
@@ -148,9 +155,10 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 
     if (isLogind) {
 //        if (region == "CN") {
+//        m_indexPage->setDefaultInfo();
         m_pageLayout->setCurrentWidget(m_indexPage);
 
-        if (!Notificationmanager::instance()->firstIsLogin()) {
+        if (Notificationmanager::instance()->bIsExternalLogin()) {
             qInfo() << "已登录";
             m_loginPage->login();
         }
@@ -160,7 +168,8 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
     }
     else {
 //        m_indexPage->requestLogout();
-        m_indexPage->setUserAvatar(AvaterPath);
+        m_indexPage->setDefaultInfo();
+//        m_indexPage->setUserAvatar(AvaterPath);
         m_pageLayout->setCurrentWidget(m_loginPage);
         m_loginPage->clearButtonFocus();
         qInfo() << "未登录";

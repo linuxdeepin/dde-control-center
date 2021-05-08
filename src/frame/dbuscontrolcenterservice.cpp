@@ -37,6 +37,7 @@
 
 #include "dbuscontrolcenterservice.h"
 #include "window/mainwindow.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include "modules/display/displaymodel.h"
 #include "modules/display/displayworker.h"
@@ -192,7 +193,9 @@ bool DBusControlCenterService::isModuleAvailable(const QString &m)
 void DBusControlCenterService::OnAuthorized(const QString &code, const QString &state)
 {
     qInfo() << "OnAuthorized" << code << state;
-    parent()->getAccessToken(code,state);
+    Notificationmanager::instance()->setLoginType(false);
+    Notificationmanager::instance()->getAccessToken(code,state);
+//    parent()->getAccessToken(code,state);
 
     if (!parent()->isEnabled()) {
         parent()->setDisabled(false);

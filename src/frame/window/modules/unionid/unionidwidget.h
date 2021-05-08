@@ -52,6 +52,7 @@ public:
    explicit UnionidWidget(QWidget *parent = nullptr);
     void setModel(dcc::unionid::UnionidModel *model, MainWindow *pMainWindow);
     void switchWidget(const QVariantMap &userInfo);
+    void setDefault();
 
 public Q_SLOTS:
     void onRequestLogout();

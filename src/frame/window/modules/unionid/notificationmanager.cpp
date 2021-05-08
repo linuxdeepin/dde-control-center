@@ -18,6 +18,7 @@ static Notificationmanager *NotifiManager = nullptr;
 Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
 {
     m_bIsLogin = false;
+    m_bIsExternalLogin = true;
     windowPosition = QPoint();
     m_bIsNotificationExist = false;
     m_refreshTimer = new QTimer;
@@ -185,6 +186,16 @@ bool Notificationmanager::isLogin()
     return isLogin;
 }
 
+void Notificationmanager::setLoginType(bool type)
+{
+    m_bIsExternalLogin = type;
+}
+
+bool Notificationmanager::bIsExternalLogin()
+{
+    return m_bIsExternalLogin;
+}
+
 void Notificationmanager::showResult()
 {
     m_isConnect = true;
@@ -274,7 +285,7 @@ void Notificationmanager::onGetBindAccountInfo()
                 jsonObj = jsonValueResult.toObject();
                 jsonValueResult = jsonObj.value("wechatNickName");
                 m_weChatName = jsonValueResult.toString();
-                Q_EMIT toTellgetATFinished();
+                Q_EMIT toTellGetATFinished();
             }
         }
     }

@@ -68,6 +68,12 @@ public:
     // 获得登录状态
     bool isLogin();
 
+    // 记录登录类型（外部应用或自身登录）
+    void setLoginType(bool type);
+
+    // 是否外部登录
+    bool bIsExternalLogin();
+
 Q_SIGNALS:
     // 通知登录的信号
     void toTellLoginUser();
@@ -78,7 +84,8 @@ Q_SIGNALS:
     //发送信号到线程，重启ping
     void ProcessFinished();
 
-    void toTellgetATFinished();
+    //通知获取AT完成的信号
+    void toTellGetATFinished();
 
 public Q_SLOTS:
     void onSetNotificationStatus();
@@ -126,6 +133,7 @@ private:
     QString m_refreshToken;///< 记录的RT
     QPixmap m_avatar;///< 记录的用户头像
     bool m_bIsLogin;///< 登录状态
+    bool m_bIsExternalLogin;///< 是否外部登录
 
     //检测网络链接的定时器
     CustomPing *m_myping;///< 检测网络连接状态的线程
