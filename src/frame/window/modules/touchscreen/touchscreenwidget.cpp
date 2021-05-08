@@ -94,6 +94,9 @@ void TouchscreenWidget::onMonitorChanged()
     for (const auto &item : m_settingsItem) {
         item->deleteLater();
     }
+
+    m_list.clear();
+
     m_settingsItem.clear();
 
     m_buttonTuple->rightButton()->setEnabled(false);
