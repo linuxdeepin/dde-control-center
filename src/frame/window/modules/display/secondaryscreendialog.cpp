@@ -73,7 +73,6 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     GSettingWatcher::instance()->bind("displayRotate", m_rotateWidget);
 
     setLayout(m_contentLayout);
-    show();
 }
 
 SecondaryScreenDialog::~SecondaryScreenDialog()
@@ -252,6 +251,7 @@ void SecondaryScreenDialog::resetDialog()
     rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
 
     setGeometry(rt);
+    show();
 }
 
 void SecondaryScreenDialog::keyPressEvent(QKeyEvent *event)
