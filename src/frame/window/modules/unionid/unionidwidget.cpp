@@ -160,7 +160,7 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 
         if (Notificationmanager::instance()->bIsExternalLogin()) {
             qInfo() << "已登录";
-            m_loginPage->login();
+            m_loginPage->login();            
         }
 //        } else {
 //            m_pageLayout->setCurrentWidget(m_cnonlyPage);
@@ -168,6 +168,7 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
     }
     else {
 //        m_indexPage->requestLogout();
+        Notificationmanager::instance()->setLoginType(true);
         m_indexPage->setDefaultInfo();
 //        m_indexPage->setUserAvatar(AvaterPath);
         m_pageLayout->setCurrentWidget(m_loginPage);

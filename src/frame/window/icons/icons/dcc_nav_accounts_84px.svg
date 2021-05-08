@@ -58,7 +58,7 @@
             <feOffset dx="0.7" dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0.443137255   0 0 0 0 0.458823529   0 0 0 0 0.549019608  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
-            <feOffset dx="0" dy="-0.5" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feOffset dx="0" dy="-0.7" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
             <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
             <feColorMatrix values="0 0 0 0 0.837189284   0 0 0 0 0.854194463   0 0 0 0 0.935819322  0 0 0 1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
             <feOffset dx="0.5" dy="0.7" in="SourceAlpha" result="shadowOffsetInner3"></feOffset>

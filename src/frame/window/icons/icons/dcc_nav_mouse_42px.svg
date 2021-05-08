@@ -28,7 +28,7 @@
         <path d="M14.7446809,0 L16.0851064,0 L16.0851064,8.26595745 C16.0851064,8.63610574 15.7850419,8.93617021 15.4148936,8.93617021 C15.0447453,8.93617021 14.7446809,8.63610574 14.7446809,8.26595745 L14.7446809,0 L14.7446809,0 Z" id="path-6"></path>
         <filter x="-37.3%" y="-5.6%" width="174.6%" height="111.2%" filterUnits="objectBoundingBox" id="filter-7">
             <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="-0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feOffset dx="0" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
             <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
@@ -36,7 +36,7 @@
             <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.96516984 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
             <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner3"></feGaussianBlur>
-            <feOffset dx="-0" dy="0" in="shadowBlurInner3" result="shadowOffsetInner3"></feOffset>
+            <feOffset dx="0" dy="0" in="shadowBlurInner3" result="shadowOffsetInner3"></feOffset>
             <feComposite in="shadowOffsetInner3" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner3"></feComposite>
             <feColorMatrix values="0 0 0 0 0.125716069   0 0 0 0 0.140752166   0 0 0 0 0.215932653  0 0 0 1 0" type="matrix" in="shadowInnerInner3" result="shadowMatrixInner3"></feColorMatrix>
             <feMerge>
@@ -68,7 +68,7 @@
                 <feMergeNode in="shadowMatrixInner2"></feMergeNode>
             </feMerge>
         </filter>
-        <path d="M6.25531915,0 L11.1165957,0 C14.5713131,2.53557134e-16 17.3719149,2.80060178 17.3719149,6.25531915 L17.3719149,10.392766 C17.3719149,13.8474833 14.5713131,16.6480851 11.1165957,16.6480851 L6.25531915,16.6480851 C2.80060178,16.6480851 1.31125928e-15,13.8474833 0,10.392766 L0,6.25531915 C4.65097563e-16,2.80060178 2.80060178,1.52279971e-15 6.25531915,0 Z" id="path-12"></path>
+        <path d="M6.25531915,0 L11.1165957,0 C14.5713131,-6.34621286e-16 17.3719149,2.80060178 17.3719149,6.25531915 L17.3719149,10.392766 C17.3719149,13.8474833 14.5713131,16.6480851 11.1165957,16.6480851 L6.25531915,16.6480851 C2.80060178,16.6480851 4.23080857e-16,13.8474833 0,10.392766 L0,6.25531915 C-4.23080857e-16,2.80060178 2.80060178,6.34621286e-16 6.25531915,0 Z" id="path-12"></path>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-14">
             <stop stop-color="#B2B2B2" offset="0%"></stop>
             <stop stop-color="#6E6E6E" offset="100%"></stop>
@@ -92,7 +92,7 @@
         <rect id="path-20" x="14.2978723" y="4.00340426" width="2.23404255" height="5.7906383" rx="1.11702128"></rect>
         <filter x="-22.4%" y="-8.6%" width="144.8%" height="117.3%" filterUnits="objectBoundingBox" id="filter-21">
             <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
-            <feOffset dx="0" dy="-0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feOffset dx="0" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0.259244615   0 0 0 0 0.259244615   0 0 0 0 0.297206713  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
             <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
@@ -115,7 +115,7 @@
                     <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-3"></use>
                 </g>
                 <g id="矩形">
-                    <use fill="#606376" fill-rule="evenodd" xlink:href="#path-6"></use>
+                    <use fill="#8B8D9A" fill-rule="evenodd" xlink:href="#path-6"></use>
                     <use fill="black" fill-opacity="1" filter="url(#filter-7)" xlink:href="#path-6"></use>
                 </g>
                 <g id="矩形">

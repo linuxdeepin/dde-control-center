@@ -27,7 +27,7 @@
             <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.942265651   0 0 0 0 0.759070122  0 0 0 1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
             <feGaussianBlur stdDeviation="0.5" in="SourceAlpha" result="shadowBlurInner3"></feGaussianBlur>
-            <feOffset dx="-0" dy="-0" in="shadowBlurInner3" result="shadowOffsetInner3"></feOffset>
+            <feOffset dx="0" dy="0" in="shadowBlurInner3" result="shadowOffsetInner3"></feOffset>
             <feComposite in="shadowOffsetInner3" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner3"></feComposite>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.5 0" type="matrix" in="shadowInnerInner3" result="shadowMatrixInner3"></feColorMatrix>
             <feMerge>
@@ -37,9 +37,8 @@
             </feMerge>
         </filter>
         <linearGradient x1="12.46673%" y1="57.6417936%" x2="84.3251038%" y2="57.6417936%" id="linearGradient-5">
-            <stop stop-color="#FFEDB1" offset="0%"></stop>
-            <stop stop-color="#FFDE95" offset="51.6449615%"></stop>
-            <stop stop-color="#FFB001" stop-opacity="0.993271621" offset="100%"></stop>
+            <stop stop-color="#FFE692" offset="0%"></stop>
+            <stop stop-color="#FF9D1E" stop-opacity="0.993271621" offset="100%"></stop>
         </linearGradient>
         <path d="M13.3357997,0 C14.6116537,-2.34370572e-16 15.6599761,0.974178437 15.7775101,2.21927848 C17.3929784,2.65482501 18.8738615,3.51954191 20.0878923,4.75685488 C21.9041078,6.60793793 22.9053157,9.06660437 22.9053157,11.6858239 L22.9053157,16.6503783 L3.69921852,16.6535264 L3.69921852,11.6858239 C3.69921852,9.06660437 4.70042638,6.60793793 6.51664187,4.75685488 C7.74819124,3.50168746 9.25434974,2.62994684 10.8973781,2.19983603 C11.0217086,0.964833854 12.0660797,2.3324379e-16 13.3357997,0 Z" id="path-6"></path>
         <filter x="-10.4%" y="-12.0%" width="120.8%" height="124.0%" filterUnits="objectBoundingBox" id="filter-7">
@@ -55,10 +54,9 @@
                 <feMergeNode in="shadowMatrixInner2"></feMergeNode>
             </feMerge>
         </filter>
-        <linearGradient x1="12.46673%" y1="57.6417936%" x2="80.8030602%" y2="57.6417936%" id="linearGradient-8">
-            <stop stop-color="#FFF5D3" offset="0%"></stop>
-            <stop stop-color="#FFC238" offset="49.9988049%"></stop>
-            <stop stop-color="#FFB001" stop-opacity="0.993271621" offset="100%"></stop>
+        <linearGradient x1="12.46673%" y1="57.6417936%" x2="84.3251038%" y2="57.6417936%" id="linearGradient-8">
+            <stop stop-color="#FFE074" offset="0%"></stop>
+            <stop stop-color="#FFB24E" stop-opacity="0.993271621" offset="100%"></stop>
         </linearGradient>
         <path d="M3.88306067,16.5993173 L0.74534369,23.9301173 C0.551144306,24.3838348 0.761525244,24.9090751 1.21524267,25.1032745 C1.32637027,25.1508392 1.44599273,25.1753635 1.56687176,25.1753635 L25.1887643,25.1753635 C25.6822954,25.1753635 26.0823814,24.7752775 26.0823814,24.2817464 C26.0823814,24.1612009 26.0579922,24.0419015 26.0106816,23.931028 L22.9053157,16.6535264 L22.9053157,16.6535264 L3.88306067,16.5993173 Z" id="path-9"></path>
         <filter x="-5.8%" y="-23.3%" width="111.7%" height="146.6%" filterUnits="objectBoundingBox" id="filter-10">
@@ -66,7 +64,7 @@
             <feOffset dx="-2" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.677782179   0 0 0 0 0  0 0 0 0.459634848 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
-            <feOffset dx="0" dy="-0" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
             <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
             <feColorMatrix values="0 0 0 0 0.984173319   0 0 0 0 0.677779738   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
             <feMerge>

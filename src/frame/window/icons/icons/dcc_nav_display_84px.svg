@@ -25,7 +25,7 @@
         </linearGradient>
         <path d="M7.14893617,1.78723404 L62.5531915,1.78723404 C66.5014399,1.78723404 69.7021277,4.98792179 69.7021277,8.93617021 L69.7021277,50.9361702 C69.7021277,54.8844186 66.5014399,58.0851064 62.5531915,58.0851064 L7.14893617,58.0851064 C3.20068775,58.0851064 3.14805624e-15,54.8844186 0,50.9361702 L0,8.93617021 C4.0465744e-16,4.98792179 3.20068775,1.78723404 7.14893617,1.78723404 Z" id="path-4"></path>
         <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-5">
-            <feOffset dx="0" dy="-0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 1 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
         </filter>
         <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-6">
@@ -36,7 +36,7 @@
         <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-8">
             <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.671939877 0" type="matrix" in="shadowOffsetOuter1" result="shadowMatrixOuter1"></feColorMatrix>
-            <feOffset dx="0" dy="-0" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
             <feColorMatrix values="0 0 0 0 0.639815621   0 0 0 0 0.639815621   0 0 0 0 0.639815621  0 0 0 0.758070299 0" type="matrix" in="shadowOffsetOuter2" result="shadowMatrixOuter2"></feColorMatrix>
             <feMerge>
                 <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
@@ -59,7 +59,7 @@
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.165814166 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
         <filter x="-0.9%" y="-1.3%" width="107.2%" height="110.7%" filterUnits="objectBoundingBox" id="filter-13">
-            <feOffset dx="-0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feOffset dx="0" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0.996923917   0 0 0 0 0.996923917   0 0 0 0 0.996923917  0 0 0 0.222719419 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
             <feOffset dx="1" dy="1" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>

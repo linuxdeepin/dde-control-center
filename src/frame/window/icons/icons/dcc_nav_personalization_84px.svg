@@ -17,7 +17,7 @@
         </linearGradient>
         <rect id="path-3" x="0" y="0" width="58.0851064" height="58.0851064" rx="7.14893617"></rect>
         <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-5">
-            <feOffset dx="0" dy="-0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0.541825889   0 0 0 0 0   0 0 0 0 0.192576671  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
         </filter>
@@ -28,7 +28,7 @@
             <feColorMatrix values="0 0 0 0 0.703389486   0 0 0 0 0   0 0 0 0 0.149512741  0 0 0 0.648915538 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
         </filter>
         <filter x="-6.1%" y="-22.4%" width="112.3%" height="159.7%" filterUnits="objectBoundingBox" id="filter-8">
-            <feOffset dx="0" dy="-0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0.760559082   0 0 0 0 0   0 0 0 0 0.161664732  0 0 0 1 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
             <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetInner2"></feOffset>
@@ -41,9 +41,9 @@
         </filter>
         <radialGradient cx="27.7048929%" cy="10.6803319%" fx="27.7048929%" fy="10.6803319%" r="95.969013%" id="radialGradient-9">
             <stop stop-color="#FFCBE2" offset="0%"></stop>
-            <stop stop-color="#FFFFFF" offset="100%"></stop>
+            <stop stop-color="#FFD8D8" offset="100%"></stop>
         </radialGradient>
-        <path d="M1.78723404,-2.13344236e-13 L16.5658107,-2.13344236e-13 C25.7148553,-2.15024888e-13 33.1316214,7.41676609 33.1316214,16.5658107 C33.1316214,25.7148553 25.7148553,33.1316214 16.5658107,33.1316214 C7.41676609,33.1316214 -3.32423676e-15,25.7148553 -4.44467158e-15,16.5658107 L-4.44467158e-15,1.78723404 C-4.56555183e-15,0.800171936 0.800171936,-2.11830648e-13 1.78723404,-2.13344236e-13 Z" id="path-10"></path>
+        <path d="M1.78723404,-2.13344236e-13 L16.5658107,-2.13344236e-13 C25.7148553,-2.15024888e-13 33.1316214,7.41676609 33.1316214,16.5658107 C33.1316214,25.7148553 25.7148553,33.1316214 16.5658107,33.1316214 C7.41676609,33.1316214 -3.32423676e-15,25.7148553 -4.44467158e-15,16.5658107 L-4.44467158e-15,1.78723404 C-4.34350722e-15,0.800171936 0.800171936,-2.1338496e-13 1.78723404,-2.13344236e-13 Z" id="path-10"></path>
         <filter x="-7.5%" y="-4.5%" width="115.1%" height="118.1%" filterUnits="objectBoundingBox" id="filter-11">
             <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
             <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
