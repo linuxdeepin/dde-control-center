@@ -1071,6 +1071,9 @@ void MainWindow::pushNormalWidget(ModuleInterface *const inter, QWidget *const w
     if (m_contentStack.size() == 2) {
         m_contentStack.at(0).second->setMinimumWidth(second_widget_min_width);
         m_contentStack.at(1).second->setMinimumWidth(third_widget_min_width);
+
+        //解决插件二级菜单右侧两角为圆角的问题[正常情况圆角应该在三级菜单的右侧两角和二级菜单的左侧两角]
+        m_contentStack.at(1).second->show();
     }
 
     resetNavList(m_contentStack.empty());
