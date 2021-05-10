@@ -211,7 +211,7 @@ void DisplayModel::setRedshiftIsValid(bool redshiftIsValid)
 
     m_redshiftIsValid = redshiftIsValid;
 
-    Q_EMIT colorTemperatureChanged(redshiftIsValid);
+    Q_EMIT redshiftVaildChanged(redshiftIsValid);
 }
 
 void DisplayModel::setAllowEnableMultiScaleRatio(bool allowEnableMultiScaleRatio)

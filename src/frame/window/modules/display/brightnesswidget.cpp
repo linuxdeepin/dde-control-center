@@ -322,9 +322,6 @@ void BrightnessWidget::addSlider()
     cctSlider->setPageStep(1);
     cctSlider->setValue(colorTemperatureToValue(m_displayModel->colorTemperature()));
     connect(m_displayModel, &DisplayModel::colorTemperatureChanged, this, [=](int value) {
-        if ("Hidden" != GSettingWatcher::instance()->getStatus("displayColorTemperature")) {
-            m_tempratureColorWidget->setVisible(m_displayModel->redshiftIsValid());
-        }
         cctSlider->blockSignals(true);
         cctSlider->setValue(colorTemperatureToValue(value));
         cctSlider->blockSignals(false);

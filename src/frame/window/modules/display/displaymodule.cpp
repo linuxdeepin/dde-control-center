@@ -173,7 +173,7 @@ void DisplayModule::showSingleScreenWidget()
     contentLayout->addSpacerItem(resolutionSpacerItem);
 
     ResolutionWidget *resolutionWidget = new ResolutionWidget;
-    resolutionWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    resolutionWidget->setModel(m_displayModel, m_displayModel->monitorList().count() ? m_displayModel->monitorList().first() : nullptr);
     GSettingWatcher::instance()->bind("displayResolution", resolutionWidget);  // 使用GSettings来控制显示状态
     contentLayout->addWidget(resolutionWidget);
     connect(resolutionWidget, &ResolutionWidget::requestSetResolution, this, [=](dcc::display::Monitor *monitor, const int mode) {
@@ -182,14 +182,14 @@ void DisplayModule::showSingleScreenWidget()
     }, Qt::QueuedConnection);
 
     RefreshRateWidget *refreshRateWidget = new RefreshRateWidget;
-    refreshRateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    refreshRateWidget->setModel(m_displayModel, m_displayModel->monitorList().count() ? m_displayModel->monitorList().first() : nullptr);
     GSettingWatcher::instance()->bind("displayRefreshRate", refreshRateWidget);  // 使用GSettings来控制显示状态
     contentLayout->addSpacing(20);
     contentLayout->addWidget(refreshRateWidget);
     connect(refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &DisplayModule::onRequestSetResolution, Qt::QueuedConnection);
 
     RotateWidget *rotateWidget = new RotateWidget;
-    rotateWidget->setModel(m_displayModel, m_displayModel->monitorList().first());
+    rotateWidget->setModel(m_displayModel, m_displayModel->monitorList().count() ? m_displayModel->monitorList().first() : nullptr);
     GSettingWatcher::instance()->bind("displayRotate", rotateWidget);  // 使用GSettings来控制显示状态
     contentLayout->addSpacing(20);
     contentLayout->addWidget(rotateWidget);
