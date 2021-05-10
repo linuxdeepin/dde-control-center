@@ -35,9 +35,9 @@ using namespace DCC_NAMESPACE::display;
 
 RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     : SettingsItem(parent)
-    , m_contentLayout(new QHBoxLayout)
-    , m_rotateLabel(new QLabel(tr("Rotation")))
-    , m_rotateCombox(new QComboBox)
+    , m_contentLayout(new QHBoxLayout(this))
+    , m_rotateLabel(new QLabel(tr("Rotation"), this))
+    , m_rotateCombox(new QComboBox(this))
     , m_model(nullptr)
     , m_monitor(nullptr)
 {

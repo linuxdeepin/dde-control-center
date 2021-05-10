@@ -50,17 +50,17 @@ const double DoubleZero = 0.01; //后端传入的doube指为浮点型，有效�
 BrightnessWidget::BrightnessWidget(QWidget *parent)
     : QWidget(parent)
     , m_displayModel(nullptr)
-    , m_centralLayout(new QVBoxLayout)
-    , m_brightnessTitle(new TitleLabel(tr("Brightness")))
+    , m_centralLayout(new QVBoxLayout(this))
+    , m_brightnessTitle(new TitleLabel(tr("Brightness"), this))
     , m_autoLightSpacerItem(new QSpacerItem(0, 10))
-    , m_autoLightMode(new SwitchWidget)
+    , m_autoLightMode(new SwitchWidget(this))
     , m_colorSpacerItem(new QSpacerItem(0, 20))
-    , m_tempratureColorWidget(new QWidget)
-    , m_tempratureColorTitle(new TitleLabel(tr("Color Temperature")))
-    , m_nightShift(new SwitchWidget)
+    , m_tempratureColorWidget(new QWidget(this))
+    , m_tempratureColorTitle(new TitleLabel(tr("Color Temperature"), this))
+    , m_nightShift(new SwitchWidget(this))
     , m_settingsGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
-    , m_nightManual(new SwitchWidget)
-    , m_cctItem(new TitledSliderItem)
+    , m_nightManual(new SwitchWidget(this))
+    , m_cctItem(new TitledSliderItem(QString(), this))
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(0);
@@ -77,7 +77,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
 
     m_centralLayout->addSpacerItem(m_colorSpacerItem);
 
-    QVBoxLayout *colorLayout = new QVBoxLayout;
+    QVBoxLayout *colorLayout = new QVBoxLayout(m_tempratureColorWidget);
     colorLayout->setMargin(0);
     colorLayout->setSpacing(0);
     colorLayout->addWidget(m_tempratureColorTitle);
@@ -88,7 +88,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     colorLayout->addSpacing(10);
     colorLayout->addWidget(m_nightShift);
 
-    m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"));
+    m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"), m_tempratureColorWidget);
     m_nightTips->setForegroundRole(DPalette::TextTips);
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -304,8 +304,8 @@ void BrightnessWidget::addSlider()
                         slider->blockSignals(false);
                     });
         }
-        QWidget *brightnessSlideritem = new QWidget;
-        QVBoxLayout *sliderLayout = new QVBoxLayout;
+        QWidget *brightnessSlideritem = new QWidget(this);
+        QVBoxLayout *sliderLayout = new QVBoxLayout(brightnessSlideritem);
         sliderLayout->setContentsMargins(0, 10, 0, 0);
         GSettingWatcher::instance()->bind("displayLightLighting", slideritem);  // 使用GSettings来控制显示状态
         sliderLayout->addWidget(slideritem);

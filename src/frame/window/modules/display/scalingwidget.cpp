@@ -40,11 +40,11 @@ namespace display {
 
 ScalingWidget::ScalingWidget(QWidget *parent)
     : QWidget(parent)
-    , m_centralLayout(new QVBoxLayout)
-    , m_title(new TitleLabel(tr("Display Scaling")))
-    , m_tipWidget(new QWidget)
-    , m_tipLabel(new DTipLabel(tr("The monitor only supports 100% display scaling")))
-    , m_slider(new TitledSliderItem)
+    , m_centralLayout(new QVBoxLayout(this))
+    , m_title(new TitleLabel(tr("Display Scaling"), this))
+    , m_tipWidget(new QWidget(this))
+    , m_tipLabel(new DTipLabel(tr("The monitor only supports 100% display scaling"), this))
+    , m_slider(new TitledSliderItem(QString(), this))
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(8);
@@ -53,7 +53,7 @@ ScalingWidget::ScalingWidget(QWidget *parent)
 
     m_tipLabel->setForegroundRole(DPalette::TextTips);
     m_tipLabel->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-    QVBoxLayout *tipLayout = new QVBoxLayout;
+    QVBoxLayout *tipLayout = new QVBoxLayout(m_tipWidget);
     tipLayout->setContentsMargins(10, 0, 0, 0);
     GSettingWatcher::instance()->bind("displayScaling", m_tipLabel);  // 使用GSettings来控制显示状态
     tipLayout->addWidget(m_tipLabel);

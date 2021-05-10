@@ -46,22 +46,22 @@ const int ComboxWidth = 300;
 
 MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     : QWidget(parent)
-    , m_contentLayout(new QVBoxLayout)
-    , m_monitorControlWidget(new MonitorControlWidget)
-    , m_fullIndication(new MonitorIndicator)
-    , m_multiSettingLabel(new TitleLabel(tr("Multiple Displays")))
-    , m_modeSettingsItem(new SettingsItem)
-    , m_modeLabel(new QLabel(tr("Mode")))
-    , m_modeCombox(new QComboBox)
-    , m_primarySettingsItem(new SettingsItem)
-    , m_primaryLabel(new QLabel(tr("Main Screen")))
-    , m_primaryCombox(new QComboBox)
+    , m_contentLayout(new QVBoxLayout(this))
+    , m_monitorControlWidget(new MonitorControlWidget(200, this))
+    , m_fullIndication(new MonitorIndicator(this))
+    , m_multiSettingLabel(new TitleLabel(tr("Multiple Displays"), this))
+    , m_modeSettingsItem(new SettingsItem(this))
+    , m_modeLabel(new QLabel(tr("Mode"), this))
+    , m_modeCombox(new QComboBox(this))
+    , m_primarySettingsItem(new SettingsItem(this))
+    , m_primaryLabel(new QLabel(tr("Main Screen"), this))
+    , m_primaryCombox(new QComboBox(this))
     , m_brightnessSpacerItem(new QSpacerItem(0, 20))
-    , m_brightnessWidget(new BrightnessWidget)
-    , m_scalingWidget(new ScalingWidget)
-    , m_resolutionWidget(new ResolutionWidget)
-    , m_refreshRateWidget(new RefreshRateWidget)
-    , m_rotateWidget(new RotateWidget)
+    , m_brightnessWidget(new BrightnessWidget(this))
+    , m_scalingWidget(new ScalingWidget(this))
+    , m_resolutionWidget(new ResolutionWidget(300, this))
+    , m_refreshRateWidget(new RefreshRateWidget(300, this))
+    , m_rotateWidget(new RotateWidget(300, this))
     , m_model(nullptr)
 {
     m_contentLayout->setSpacing(0);
@@ -69,7 +69,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_contentLayout->addWidget(m_monitorControlWidget);
     m_contentLayout->addSpacing(20);
     m_contentLayout->addWidget(m_multiSettingLabel);
-    QHBoxLayout *modeLayout = new QHBoxLayout;
+    QHBoxLayout *modeLayout = new QHBoxLayout(m_modeSettingsItem);
     modeLayout->setContentsMargins(10, 0, 10, 0);
     modeLayout->addWidget(m_modeLabel);
     modeLayout->addWidget(m_modeCombox);
@@ -82,7 +82,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     m_contentLayout->addSpacing(10);
     m_contentLayout->addWidget(m_modeSettingsItem);
 
-    QHBoxLayout *primaryLayout = new QHBoxLayout;
+    QHBoxLayout *primaryLayout = new QHBoxLayout(m_primarySettingsItem);
     primaryLayout->setContentsMargins(10, 0, 10, 0);
     primaryLayout->addWidget(m_primaryLabel);
     primaryLayout->addWidget(m_primaryCombox);

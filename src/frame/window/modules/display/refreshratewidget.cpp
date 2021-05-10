@@ -32,9 +32,9 @@ DWIDGET_USE_NAMESPACE
 
 RefreshRateWidget::RefreshRateWidget(int comboxWidth, QWidget *parent)
     : SettingsItem(parent)
-    , m_contentLayout(new QHBoxLayout)
-    , m_refreshLabel(new QLabel(tr("Refresh Rate")))
-    , m_refreshCombox(new QComboBox)
+    , m_contentLayout(new QHBoxLayout(this))
+    , m_refreshLabel(new QLabel(tr("Refresh Rate"), this))
+    , m_refreshCombox(new QComboBox(this))
     , m_model(nullptr)
     , m_monitor(nullptr)
     , m_refreshItemModel(new QStandardItemModel)
