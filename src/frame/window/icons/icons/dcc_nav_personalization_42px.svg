@@ -2,9 +2,9 @@
 <svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>设置中心/ddcc_nav_personalization_42px</title>
     <defs>
-        <filter x="-7.8%" y="-7.8%" width="115.6%" height="115.6%" filterUnits="objectBoundingBox" id="filter-1">
+        <filter x="-12.1%" y="-12.1%" width="124.2%" height="124.2%" filterUnits="objectBoundingBox" id="filter-1">
             <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
             <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
             <feMerge>
                 <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
@@ -41,22 +41,16 @@
         </filter>
         <radialGradient cx="27.7048929%" cy="10.6803319%" fx="27.7048929%" fy="10.6803319%" r="95.969013%" id="radialGradient-9">
             <stop stop-color="#FFCBE2" offset="0%"></stop>
-            <stop stop-color="#FFD8D8" offset="100%"></stop>
+            <stop stop-color="#FFC1C1" offset="100%"></stop>
         </radialGradient>
         <path d="M0.893617021,-1.06672118e-13 L8.28290536,-1.06672118e-13 C12.8574277,-1.07512444e-13 16.5658107,3.70838304 16.5658107,8.28290536 C16.5658107,12.8574277 12.8574277,16.5658107 8.28290536,16.5658107 C3.70838304,16.5658107 -1.66211838e-15,12.8574277 -2.22233579e-15,8.28290536 L-2.22233579e-15,0.893617021 C-2.39379822e-15,0.400085968 0.400085968,-1.05915324e-13 0.893617021,-1.06672118e-13 Z" id="path-10"></path>
-        <filter x="-12.1%" y="-6.0%" width="124.1%" height="124.1%" filterUnits="objectBoundingBox" id="filter-11">
-            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.107331389 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter>
-        <filter x="-7.5%" y="-1.5%" width="115.1%" height="115.1%" filterUnits="objectBoundingBox" id="filter-12">
+        <filter x="-1.5%" y="-1.5%" width="103.0%" height="103.0%" filterUnits="objectBoundingBox" id="filter-11">
             <feOffset dx="0" dy="0.5" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.675356138 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
         </filter>
-        <circle id="path-13" cx="8.28290536" cy="8.28290536" r="6.50799707"></circle>
-        <filter x="-1.9%" y="-1.9%" width="103.8%" height="103.8%" filterUnits="objectBoundingBox" id="filter-14">
+        <circle id="path-12" cx="8.28290536" cy="8.28290536" r="6.50799707"></circle>
+        <filter x="-1.9%" y="-1.9%" width="103.8%" height="103.8%" filterUnits="objectBoundingBox" id="filter-13">
             <feMorphology radius="0.25" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
             <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
             <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
@@ -66,8 +60,8 @@
     <g id="设置中心/ddcc_nav_personalization_42px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="编组-5">
             <rect id="矩形" x="0" y="0" width="42" height="42"></rect>
-            <g id="编组-4" transform="translate(6.702128, 5.808511)">
-                <g id="编组" filter="url(#filter-1)" transform="translate(0.006163, 0.323551)">
+            <g id="编组-4" filter="url(#filter-1)" transform="translate(6.702128, 5.808511)">
+                <g id="编组" transform="translate(0.006163, 0.323551)">
                     <path d="M16.3131328,14.4858401 L23.7024211,14.4858401 C28.2769434,14.4858401 31.9853265,18.1942231 31.9853265,22.7687454 C31.9853265,27.3432677 28.2769434,31.0516508 23.7024211,31.0516508 C19.1278988,31.0516508 15.4195158,27.3432677 15.4195158,22.7687454 L15.4195158,15.3794571 C15.4195158,14.885926 15.8196017,14.4858401 16.3131328,14.4858401 Z" id="形状结合" fill="#FFFFFF"></path>
                     <mask id="mask-4" fill="white">
                         <use xlink:href="#path-3"></use>
@@ -101,13 +95,12 @@
             </g>
             <g id="编组-3" transform="translate(22.127806, 20.617902)" fill-rule="nonzero">
                 <g id="形状结合">
-                    <use fill="black" fill-opacity="1" filter="url(#filter-11)" xlink:href="#path-10"></use>
                     <use fill="url(#radialGradient-9)" xlink:href="#path-10"></use>
-                    <use fill="black" fill-opacity="1" filter="url(#filter-12)" xlink:href="#path-10"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-11)" xlink:href="#path-10"></use>
                 </g>
                 <g id="椭圆形">
-                    <use fill="black" fill-opacity="1" filter="url(#filter-14)" xlink:href="#path-13"></use>
-                    <use stroke="#851042" stroke-width="0.5" fill="#FF639B" xlink:href="#path-13"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-13)" xlink:href="#path-12"></use>
+                    <use stroke="#851042" stroke-width="0.5" fill="#FF639B" xlink:href="#path-12"></use>
                 </g>
             </g>
         </g>

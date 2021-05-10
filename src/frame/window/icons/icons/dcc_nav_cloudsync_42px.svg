@@ -25,8 +25,8 @@
             <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
             <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.713297811 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
         </filter>
-        <filter x="-9.3%" y="-9.3%" width="112.4%" height="112.4%" filterUnits="objectBoundingBox" id="filter-7">
-            <feOffset dx="-1" dy="-1" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
+        <filter x="-7.8%" y="-7.8%" width="109.3%" height="109.3%" filterUnits="objectBoundingBox" id="filter-7">
+            <feOffset dx="-0.5" dy="-0.5" in="SourceAlpha" result="shadowOffsetInner1"></feOffset>
             <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
             <feColorMatrix values="0 0 0 0 0.305882353   0 0 0 0 0.741176471   0 0 0 0 1  0 0 0 0.34161505 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
         </filter>
