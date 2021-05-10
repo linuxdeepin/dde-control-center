@@ -38,7 +38,7 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
     , m_model(model)
     , m_tFrame(new TranslucentFrame)
 {
-    layout()->setContentsMargins(0, 8, 0, 8);
+    layout()->setContentsMargins(0, 10, 0, 10); //设置列表与背景上下间距为10
     setContent(m_tFrame);
 
     setObjectName("Bluetooth");
