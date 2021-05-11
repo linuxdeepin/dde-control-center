@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 {
     DApplication a(argc, argv);
     a.setQuitOnLastWindowClosed(false);
+    a.setApplicationDisplayName("");
 
     QTranslator translator;
     translator.load("/usr/share/dde-control-center/translations/dialogs_" + QLocale::system().name());
