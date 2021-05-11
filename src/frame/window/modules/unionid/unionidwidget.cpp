@@ -106,7 +106,6 @@ void UnionidWidget::onGetATFinished()
 {
     //初始化显示信息
     m_indexPage->setDefaultInfo();
-    Notificationmanager::instance()->getUserInfo();
     m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),false);
     m_pageLayout->setCurrentWidget(m_indexPage);
 }

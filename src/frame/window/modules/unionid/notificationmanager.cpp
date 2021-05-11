@@ -119,8 +119,13 @@ void Notificationmanager::setUserInfo(QString usrInfo)
         jsonValueResult = jsonObj.value("wechatunionid");
         QString weChatUnionId = jsonValueResult.toString();
 
-        QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, weChatUnionId);
-        connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
+        if (weChatUnionId.isEmpty()) {
+            m_weChatName = "";
+            Q_EMIT toTellGetATFinished();
+        } else {
+            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, weChatUnionId);
+            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
+        }
     }
 }
 
