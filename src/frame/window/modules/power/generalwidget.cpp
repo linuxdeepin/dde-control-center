@@ -131,7 +131,7 @@ void GeneralWidget::initUi()
 
     powerPlansLabel->setContentsMargins(10, 0, 10, 0);  // 性能设置label与外面布局的边距
     QMargins itemMargins(m_powerplanListview->itemMargins()); // 添加性能模式标题间隔
-    itemMargins.setLeft(10);
+    itemMargins.setLeft(2); //dtk控件里面自带文字左间距8,这里设置2就足够10
     m_powerplanListview->setItemMargins(itemMargins);
     powerPlansLayout->addWidget(powerPlansLabel);       // 添加性能设置label
     powerPlansLayout->addWidget(m_powerplanListview);   // 添加性能模式列表

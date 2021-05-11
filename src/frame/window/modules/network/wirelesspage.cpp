@@ -272,7 +272,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_lvAP->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_lvAP->setSelectionMode(QAbstractItemView::NoSelection);
-    m_lvAP->setViewportMargins(0, 0, 7, 0);
 
     QScroller *scroller = QScroller::scroller(m_lvAP->viewport());
     QScrollerProperties sp;
@@ -295,6 +294,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);
     m_switch->setChecked(dev->enabled());
+    //因为swtichbutton内部距离右间距为4,所以这里设置6就可以保证间距为10
+    m_switch->getMainLayout()->setContentsMargins(10, 0, 6, 0);
 
     QGSettings *gsettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     GSettingWatcher::instance()->bind("wireless", m_switch);
@@ -335,12 +336,14 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     updateLayout(!m_lvAP->isHidden());
     m_mainLayout->setSpacing(10);//三级菜单控件间的间隙
     m_mainLayout->setMargin(0);
-    m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
+    m_mainLayout->setContentsMargins(QMargins(10, 0, 10, 0));
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_mainLayout);
 
     setContent(mainWidget);
+
+    setContentsMargins(0, 10, 0, 10);
 
     connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
         if (idx.data(APItem::PathRole).toString().length() == 0) {

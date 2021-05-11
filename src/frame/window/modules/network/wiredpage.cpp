@@ -76,6 +76,9 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);
     m_switch->setChecked(dev->enabled());
+    //因为swtichbutton内部距离右间距为4,所以这里设置6就可以保证间距为10
+    m_switch->getMainLayout()->setContentsMargins(10, 0, 6, 0);
+
     GSettingWatcher::instance()->bind("wiredSwitch", m_switch);
     GSettingWatcher::instance()->bind("wiredSwitch", m_lvProfiles);
     m_tipsGrp->setVisible(dev->enabled());
@@ -96,19 +99,19 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     centralLayout->addWidget(m_switch, 0, Qt::AlignTop);
     centralLayout->addWidget(m_tipsGrp);
     QMargins itemMargins(m_lvProfiles->itemMargins());
-    itemMargins.setLeft(10);
+    itemMargins.setLeft(2);
     m_lvProfiles->setItemMargins(itemMargins);
     centralLayout->addWidget(m_lvProfiles);
     centralLayout->addStretch();
     centralLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
     centralLayout->setSpacing(10);//三级菜单控件间的间隙
     centralLayout->setMargin(0);
-    centralLayout->setContentsMargins(ThirdPageContentsMargins);
+    centralLayout->setContentsMargins(QMargins(10, 0, 10, 0)); // 设置左右间距为10
     //当点击下拉选框，设置半透明状态
     QWidget *centralWidget = new TranslucentFrame;
     centralWidget->setLayout(centralLayout);
 
-    setContentsMargins(0, 0, 8, 0);
+    setContentsMargins(0, 10, 0, 10);  //设置上下间距为10
     setContent(centralWidget);
     setTitle(tr("Select Settings"));
     //点击有线连接按钮
