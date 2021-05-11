@@ -945,13 +945,19 @@ bool ddeCompleter::eventFilter(QObject *o, QEvent *e)
             }
             return true;
         }
-        case Qt::Key_Enter: {
+        case Qt::Key_Return:
+        case Qt::Key_Enter:
             if (popup()->isVisible() && !popup()->currentIndex().isValid()) {
                 keyIndex = popup()->model()->index(0, 0);
                 popup()->setCurrentIndex(keyIndex);
             }
             popup()->hide();
-        }
+            //原因：在QCompleter上执行回车操作会触发它的activated()信号，回车也会触发DLineEdit的returnPressed()信号
+            //导致一个操作触发两次执行，模块load()会被执行两次，导致程序崩溃
+            //方法:在QCompleter的eventFilter()函数中对回车操作做过滤，直接触发DLineEdit的returnPressed()信号，
+            //不继续将事件传给QCompleter，保证回车只触发一次操作
+            Q_EMIT static_cast<SearchWidget *>(this->parent())->returnPressed();
+            return true;
         }
     }
     return QCompleter::eventFilter(o, e);
