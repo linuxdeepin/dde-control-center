@@ -47,8 +47,8 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
     , m_avatarListWidget(nullptr)
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
-    , m_passwdEdit(new DPasswordEdit)
-    , m_repeatpasswdEdit(new DPasswordEdit)
+    , m_passwdEdit(new DPasswordEdit(this))
+    , m_repeatpasswdEdit(new DPasswordEdit(this))
     , m_accountChooser(new DComboBox)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
@@ -317,13 +317,14 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
 void CreateAccountPage::createUser()
 {
     //校验输入的用户名和密码
-    if (!onNameEditFinished(m_nameEdit)) {
+    if (!onNameEditFinished(m_nameEdit) || !onFullNameEidtFinished(m_fullnameEdit)) {
+        QTimer::singleShot(3000, this, [ = ]{
+                   m_nameEdit->hideAlertMessage();
+                   m_fullnameEdit->hideAlertMessage();
+        });
         return;
     }
     if (!onPasswordEditFinished(m_passwdEdit, m_repeatpasswdEdit)) {
-        return;
-    }
-    if (!onFullNameEidtFinished(m_fullnameEdit)) {
         return;
     }
 
@@ -497,15 +498,15 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
         break;
     case CreationResult::UserNameError:
         m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(result->message(), -1);
+        m_nameEdit->showAlertMessage(result->message());
         break;
     case CreationResult::PasswordError:
         m_passwdEdit->setAlert(true);
-        m_passwdEdit->showAlertMessage(result->message(), -1);
+        m_passwdEdit->showAlertMessage(result->message());
         break;
     case CreationResult::PasswordMatchError:
         m_repeatpasswdEdit->setAlert(true);
-        m_repeatpasswdEdit->showAlertMessage(result->message(), -1);
+        m_repeatpasswdEdit->showAlertMessage(result->message());
         break; // reserved for future server edition feature.
     case CreationResult::UnknownError:
         qDebug() << "error encountered creating user: " << result->message();
@@ -531,7 +532,7 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *passwdEdit, DPassw
 
     if (userpassword != repeatpassword) {
         m_repeatpasswdEdit->setAlert(true);
-        m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), -1);
+        m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"));
         return false;
     }
 
@@ -540,28 +541,28 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *passwdEdit, DPassw
     {
     case ENUM_PASSWORD_NOTEMPTY:
         passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("Password cannot be empty"), -1);
+        passwdEdit->showAlertMessage(tr("Password cannot be empty"));
         return false;
     case ENUM_PASSWORD_TOOSHORT:
     case ENUM_PASSWORD_SEVERAL:
         passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_passwordMinLength).arg(m_validate_Required), -1);
+        passwdEdit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_passwordMinLength).arg(m_validate_Required));
         return false;
     case ENUM_PASSWORD_TOOLONG:
         passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("Password must be no more than %1 characters").arg(m_passwordMaxLength), -1);
+        passwdEdit->showAlertMessage(tr("Password must be no more than %1 characters").arg(m_passwordMaxLength));
         return false;
     case ENUM_PASSWORD_TYPE:
         passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_validate_Required), -1);
+        passwdEdit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_validate_Required));
         return false;
     case ENUM_PASSWORD_CHARACTER:
         passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"), -1);
+        passwdEdit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
         return false;
     case ENUM_PASSWORD_REPEATED:
         passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("Password should not be the repeated or reversed username"), -1);
+        passwdEdit->showAlertMessage(tr("Password should not be the repeated or reversed username"));
         return false;
     }
 

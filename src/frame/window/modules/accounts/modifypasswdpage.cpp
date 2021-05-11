@@ -40,9 +40,9 @@ using namespace DCC_NAMESPACE::accounts;
 ModifyPasswdPage::ModifyPasswdPage(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
-    , m_oldPasswordEdit(new DPasswordEdit)
-    , m_newPasswordEdit(new DPasswordEdit)
-    , m_repeatPasswordEdit(new DPasswordEdit)
+    , m_oldPasswordEdit(new DPasswordEdit(this))
+    , m_newPasswordEdit(new DPasswordEdit(this))
+    , m_repeatPasswordEdit(new DPasswordEdit(this))
 {
     initWidget();
 }
@@ -189,11 +189,11 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
         return;
     } if (exitCode == ModifyPasswdPage::InputOldPwdError) {
         m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"), -1);
+        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
         return;
     } else {
         m_newPasswordEdit->setAlert(true);
-        m_newPasswordEdit->showAlertMessage(tr("Failed to change the password"), -1);
+        m_newPasswordEdit->showAlertMessage(tr("Failed to change the password"));
         qDebug() << Q_FUNC_INFO << "exit =" << exitCode;
     }
 }
@@ -252,7 +252,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
     const int maxSize = 512;
     if (password.size() > maxSize) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize), -1);
+        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize));
         return false;
     }
 
@@ -267,7 +267,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
     if (edit == m_repeatPasswordEdit) {
         if (m_newPasswordEdit->lineEdit()->text() != password) {
             edit->setAlert(true);
-            edit->showAlertMessage(tr("Passwords do not match"), -1);
+            edit->showAlertMessage(tr("Passwords do not match"));
             return false;
         }
     }
@@ -276,7 +276,7 @@ bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
 
     if (m_oldPasswordEdit->lineEdit()->text() == password) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("New password should differ from the current one"), -1);
+        edit->showAlertMessage(tr("New password should differ from the current one"));
         return false;
     }
 
