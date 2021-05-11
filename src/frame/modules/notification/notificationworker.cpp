@@ -22,6 +22,8 @@
 #include "model/appitemmodel.h"
 #include "model/sysitemmodel.h"
 
+#include <DApplicationHelper>
+
 #include <QtConcurrent>
 
 const QString Path    = "/com/deepin/dde/Notification";
@@ -68,7 +70,10 @@ void NotificationWorker::initSystemSetting()
 #ifndef USE_TABLET
     item->setShowInDock(m_dbus->GetSystemInfo(SysItemModel::SHOWICON).value().variant().toBool());
 #endif
-    connect(m_dbus, &Notification::SystemInfoChanged, item, &SysItemModel::onSettingChanged);
+    // 平板时dbus服务响应速度太慢，会导致时序异常
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(m_dbus, &Notification::SystemInfoChanged, item, &SysItemModel::onSettingChanged);
+    }
     m_model->setSysSetting(item);
 }
 
