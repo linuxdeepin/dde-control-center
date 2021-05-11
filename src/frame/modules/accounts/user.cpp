@@ -36,6 +36,7 @@ User::User(QObject *parent)
     , m_userType(UserType::StandardUser)
     , m_createdTime(0)
 {
+    m_scanCodeLogin = false;
 }
 
 const QString User::name() const
@@ -211,4 +212,19 @@ int User::charactertypes(QString password)
         s++;
     }
     return Number_flag + Capital_flag + Small_flag + Symbol_flag;
+}
+
+bool User::scanCodeLogin() const
+{
+    return m_scanCodeLogin;
+}
+
+void User::setScanCodeLogin(bool scanCodeLogin)
+{
+    if (m_scanCodeLogin == scanCodeLogin)
+        return;
+
+    m_scanCodeLogin = scanCodeLogin;
+
+    Q_EMIT nopasswdLoginChanged(scanCodeLogin);
 }

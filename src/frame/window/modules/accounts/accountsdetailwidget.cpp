@@ -335,6 +335,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     m_autoLogin = new SwitchWidget;
     m_nopasswdLogin = new SwitchWidget;
+    m_scanCodeLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
     loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
@@ -342,6 +343,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     loginGrp->layout()->setMargin(0);
     loginGrp->appendItem(m_autoLogin);
     loginGrp->appendItem(m_nopasswdLogin);
+//    loginGrp->appendItem(m_scanCodeLogin);
     if (!IsServerSystem) {
         layout->addSpacing(20);
     }
@@ -403,6 +405,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
+    m_scanCodeLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
@@ -414,6 +417,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //~ contents_path /accounts/Accounts Detail
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
+
+    m_scanCodeLogin->setTitle(tr("Login by Union ID"));
+    m_scanCodeLogin->setChecked(m_curUser->scanCodeLogin());
 
     //当前用户禁止使用删除按钮
     m_deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
@@ -434,8 +440,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //自动登录，无密码登录操作
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_curUser, &User::nopasswdLoginChanged,
-            m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_curUser, &User::nopasswdLoginChanged,m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_curUser, &User::scanCodeLoginChanged, m_scanCodeLogin, &SwitchWidget::setChecked);
     connect(m_autoLogin, &SwitchWidget::checkedChanged,
             this, [ = ](const bool autoLogin) {
         if (autoLogin) {
@@ -470,6 +476,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
+    connect(m_scanCodeLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool scanCodeLogin) {
+        Q_EMIT toTellScanCodeLogin(m_curUser, scanCodeLogin);
+    });
 
     //指纹界面操作
     connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &AccountsDetailWidget::requestAddThumbs);
@@ -492,11 +501,12 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
     m_userModel = model;
     m_autoLogin->setVisible(m_userModel->isAutoLoginVisable());
     m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable());
-
+    m_scanCodeLogin->setVisible(m_userModel->isScanCodeLoginVisable());
     // 非服务器系统，关联配置改变信号，控制自动登陆开关/无密码登陆开关显隐
     if (!IsServerSystem) {
         connect(m_userModel, &UserModel::autoLoginVisableChanged, m_autoLogin, &SwitchWidget::setVisible);
         connect(m_userModel, &UserModel::noPassWordLoginVisableChanged, m_nopasswdLogin, &SwitchWidget::setVisible);
+        connect(m_userModel, &UserModel::scanCodeLoginVisableChanged, m_scanCodeLogin, &SwitchWidget::setVisible);
     }
 
     if (!m_groupItemModel)

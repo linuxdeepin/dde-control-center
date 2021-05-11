@@ -107,6 +107,15 @@ void UserModel::setNoPassWordLoginVisable(const bool visable)
     Q_EMIT noPassWordLoginVisableChanged(m_noPassWordLoginVisable);
 }
 
+void UserModel::setScanCodeLoginVisable(const bool visable)
+{
+    if (m_scanCodeLoginVisable == visable)
+        return;
+
+    m_scanCodeLoginVisable = visable;
+    Q_EMIT scanCodeLoginVisableChanged(m_scanCodeLoginVisable);
+}
+
 QStringList UserModel::getAllGroups()
 {
     return m_allGroups;

@@ -101,6 +101,9 @@ public:
 
     int charactertypes(QString password);
 
+    bool scanCodeLogin() const;
+    void setScanCodeLogin(bool scanCodeLogin);
+
 Q_SIGNALS:
     void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;
@@ -117,12 +120,14 @@ Q_SIGNALS:
     void userTypeChanged(const int userType);
     void isPasswordExpiredChanged(const bool isExpired) const;
     void passwordAgeChanged(const int age) const;
+    void scanCodeLoginChanged(const bool nopasswdLogin) const;
 
 private:
     bool m_isCurrentUser;
     bool m_autoLogin;
     bool m_online;
     bool m_nopasswdLogin;
+    bool m_scanCodeLogin;
     int m_userType;
     bool m_isPasswordExpired{false};
     int m_pwAge{-1};

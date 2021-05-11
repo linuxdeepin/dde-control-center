@@ -282,6 +282,26 @@ void AccountsWorker::loadUserList()
     onUserListChanged(m_accountsInter->userList());
 }
 
+void AccountsWorker::setScanCodeLogin(User *user, const bool scanCodeLogin)
+{
+//    AccountsUser *ui = m_userInters[user];
+//    Q_ASSERT(ui);
+
+//    // because this operate need root permission, we must wait for finished and refersh result
+//    Q_EMIT requestFrameAutoHide(false);
+
+//    QDBusPendingCall call = ui->SetScanCodeLogin(scanCodeLogin);
+//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+//    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+//        if (call.isError()) {
+//            Q_EMIT user->scanCodeLoginChanged(user->scanCodeLogin());
+//        }
+
+//        Q_EMIT requestFrameAutoHide(true);
+//        watcher->deleteLater();
+//    });
+}
+
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
     int count = 0;
@@ -382,6 +402,7 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::GroupsChanged, user, &User::setGroups);
     connect(userInter, &AccountsUser::AccountTypeChanged, user, &User::setUserType);
     connect(userInter, &AccountsUser::MaxPasswordAgeChanged, user, &User::setPasswordAge);
+//    connect(userInter, &AccountsUser::ScanCodeLoginChanged, user, &User::setScanCodeLogin);
 
     user->setName(userInter->userName());
     user->setFullname(userInter->fullName());
