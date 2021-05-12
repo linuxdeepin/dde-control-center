@@ -392,7 +392,7 @@ bool PersonalizationWork::allowSwitchWM()
 void PersonalizationWork::refreshOpacity(double opacity)
 {
 #ifdef WINDOW_MODE
-    int slider { static_cast<int>(opacity * 100) };
+    int slider = qRound(opacity * 100);
 #else
     int slider { toSliderValue<int>(OPACITY_SLIDER, static_cast<int>(opacity * 100)) };
 #endif
