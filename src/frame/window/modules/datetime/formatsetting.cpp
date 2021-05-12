@@ -71,12 +71,7 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     m_weekStartDayCbx = new ComboxWidget();
     m_weekStartDayCbx->setTitle(tr("First Day of Week"));  //长时间
 
-    QDBusInterface interLangSelector("com.deepin.daemon.LangSelector",
-                                "/com/deepin/daemon/LangSelector",
-                                "com.deepin.daemon.LangSelector",
-                                QDBusConnection::sessionBus(), this);
-    //如果不是中文就不显示星期的选项
-    m_weekCbx->setVisible(interLangSelector.property("CurrentLocale").toString().startsWith("zh_CN"));
+    m_weekCbx->setVisible(QLocale::system().name().contains("zh"));
 
     timeGrp->appendItem(m_weekCbx);
     timeGrp->appendItem(m_weekStartDayCbx);
