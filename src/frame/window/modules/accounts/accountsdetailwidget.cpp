@@ -343,7 +343,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     loginGrp->layout()->setMargin(0);
     loginGrp->appendItem(m_autoLogin);
     loginGrp->appendItem(m_nopasswdLogin);
-//    loginGrp->appendItem(m_scanCodeLogin);
+    loginGrp->appendItem(m_scanCodeLogin);
     if (!IsServerSystem) {
         layout->addSpacing(20);
     }

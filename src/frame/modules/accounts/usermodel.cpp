@@ -33,6 +33,7 @@ UserModel::UserModel(QObject *parent)
     : QObject(parent)
     , m_autoLoginVisable(true)
     , m_noPassWordLoginVisable(true)
+    , m_scanCodeLoginVisable(false)
     , m_bCreateUserValid(false)
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_isJoinADDomain(false)
