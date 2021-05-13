@@ -36,7 +36,8 @@ namespace bluetooth {
 BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
     QObject(),
     m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)),
-    m_model(model)
+    m_model(model),
+    m_connectingAudioDevice(false)
 {
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
@@ -214,6 +215,9 @@ void BluetoothWorker::ignoreDevice(const Adapter *adapter, const Device *device)
 
 void BluetoothWorker::connectDevice(const Device *device, const Adapter *adapter)
 {
+    if (m_connectingAudioDevice && device->deviceType() == "pheadset") {
+            return;
+    }
     for (const Adapter *a : m_model->adapters()) {
         for (const Device *d : a->devices()) {
             Device *vd = const_cast<Device*>(d);
@@ -300,6 +304,10 @@ void BluetoothWorker::inflateDevice(Device *device, const QJsonObject &deviceObj
     const Device::State state = Device::State(deviceObj["State"].toInt());
     const bool connectState = deviceObj["ConnectState"].toBool();
     const QString icon = deviceObj["Icon"].toString();
+
+    if (icon == "audio-card") {
+        m_connectingAudioDevice = (Device::StateAvailable == state);
+    }
 
     // FIXME: If the name and alias of the Bluetooth device are both empty, it will not be updated by default.
     // To solve the problem of blank device name display.

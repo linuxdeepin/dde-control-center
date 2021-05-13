@@ -94,6 +94,7 @@ private:
     DBusBluetooth *m_bluetoothInter;
     BluetoothModel *m_model;
     QMap<QDBusObjectPath, PinCodeDialog*> m_dialogs;
+    bool m_connectingAudioDevice;
 };
 
 } // namespace bluetooth
