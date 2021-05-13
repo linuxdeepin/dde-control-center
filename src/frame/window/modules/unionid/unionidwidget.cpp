@@ -92,14 +92,24 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
     connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
 
     if (Notificationmanager::instance()->firstIsLogin()/* && Notificationmanager::instance()->isLogin()*/) {
-        onUserInfoChanged(model->userinfo());
-//        m_loginPage->login();
-    } else {
-        m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
-        m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),true);
-        m_indexPage->setWeChatName(Notificationmanager::instance()->getWeChatName());
-        switchWidget(model->userinfo());
+        Notificationmanager::instance()->onUserInfoChanged(model->userinfo());
+    //        m_loginPage->login();
     }
+
+    m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
+    m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),true);
+    m_indexPage->setWeChatName(Notificationmanager::instance()->getWeChatName());
+    switchWidget(model->userinfo());
+
+//    if (Notificationmanager::instance()->firstIsLogin()/* && Notificationmanager::instance()->isLogin()*/) {
+//        onUserInfoChanged(model->userinfo());
+////        m_loginPage->login();
+//    } else {
+//        m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
+//        m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),true);
+//        m_indexPage->setWeChatName(Notificationmanager::instance()->getWeChatName());
+//        switchWidget(model->userinfo());
+//    }
 }
 
 void UnionidWidget::onGetATFinished()
@@ -118,13 +128,14 @@ void UnionidWidget::switchWidget(const QVariantMap &userInfo)
         m_pageLayout->setCurrentWidget(m_indexPage);
     }
     else {
+        m_indexPage->setDefaultInfo();
+        m_loginPage->clearButtonFocus();
         m_pageLayout->setCurrentWidget(m_loginPage);
     }
 }
 
 void UnionidWidget::setDefault()
 {
-    qInfo() << " setDefault";
     m_indexPage->setDefaultInfo();
 }
 
@@ -150,28 +161,28 @@ void UnionidWidget::onRequestLogout()
 void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 {
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
-    const QString region = userInfo["Region"].toString();
+//    const QString region = userInfo["Region"].toString();
 
     if (isLogind) {
-//        if (region == "CN") {
-//        m_indexPage->setDefaultInfo();
-        m_pageLayout->setCurrentWidget(m_indexPage);
+////        if (region == "CN") {
+////        m_indexPage->setDefaultInfo();
+//        m_pageLayout->setCurrentWidget(m_indexPage);
 
-        if (Notificationmanager::instance()->bIsExternalLogin()) {
-            qInfo() << "已登录";
-            m_loginPage->login();            
-        }
-//        } else {
-//            m_pageLayout->setCurrentWidget(m_cnonlyPage);
-//        }
+////        if (Notificationmanager::instance()->bIsExternalLogin()) {
+////            qInfo() << "已登录";
+////            m_loginPage->login();
+////        }
+////        } else {
+////            m_pageLayout->setCurrentWidget(m_cnonlyPage);
+////        }
     }
     else {
-//        m_indexPage->requestLogout();
-        Notificationmanager::instance()->setLoginType(true);
+////        m_indexPage->requestLogout();
+////        Notificationmanager::instance()->setLoginType(true);
         m_indexPage->setDefaultInfo();
 //        m_indexPage->setUserAvatar(AvaterPath);
         m_pageLayout->setCurrentWidget(m_loginPage);
         m_loginPage->clearButtonFocus();
-        qInfo() << "未登录";
+//        qInfo() << "未登录";
     }
 }

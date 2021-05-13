@@ -107,6 +107,8 @@ public Q_SLOTS:
     // 获得用户头像的槽
     void onUserAvatar(QPixmap avatar);
 
+    void onUserInfoChanged(const QVariantMap &userInfo);
+
 private Q_SLOTS:
     // 获得AT,RT和用户信息的槽
     void onGetAccessToken();

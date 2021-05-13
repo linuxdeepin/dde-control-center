@@ -21,6 +21,7 @@ Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
     m_bIsExternalLogin = true;
     windowPosition = QPoint();
     m_bIsNotificationExist = false;
+
     m_refreshTimer = new QTimer;
     connect(m_refreshTimer, &QTimer::timeout, this, &Notificationmanager::onTokenTimeout);  
 
@@ -305,5 +306,21 @@ void Notificationmanager::readAvatarFromUrl()
 
     if (!result.isEmpty()) {
         m_avatar.loadFromData(result);
+    }
+}
+
+void Notificationmanager::onUserInfoChanged(const QVariantMap &userInfo)
+{
+    const bool isLogind = !userInfo["Username"].toString().isEmpty();
+
+    if (isLogind) {
+        if (bIsExternalLogin()) {
+            qInfo() << "静默登录";
+            Q_EMIT toTellLoginUser();
+        }
+    }
+    else {
+        setLoginType(true);
+        qInfo() << "退出登录";
     }
 }

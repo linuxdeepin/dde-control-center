@@ -22,6 +22,7 @@
 #include "unionidworker.h"
 #include "widgets/utils.h"
 #include "httpclient.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include <QDBusConnection>
 #include <QDesktopServices>
@@ -61,6 +62,8 @@ UnionidWorker::UnionidWorker(UnionidModel *model, QObject *parent)
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &UnionidModel::setUserinfo, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::StateChanged, this, &UnionidWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &UnionidWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
+    connect(Notificationmanager::instance(), &Notificationmanager::toTellLoginUser, this, &UnionidWorker::loginUser, Qt::QueuedConnection);
+    connect(m_deepinId_inter, &DeepinId::UserInfoChanged, Notificationmanager::instance(), &Notificationmanager::onUserInfoChanged, Qt::QueuedConnection);
 
     auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
     m_model->setSyncIsValid(req.value() && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));

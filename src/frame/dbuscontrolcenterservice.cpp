@@ -192,7 +192,7 @@ bool DBusControlCenterService::isModuleAvailable(const QString &m)
 
 void DBusControlCenterService::OnAuthorized(const QString &code, const QString &state)
 {
-    qInfo() << "OnAuthorized" << code << state;
+    qInfo() << "OnAuthorized";
     Notificationmanager::instance()->setLoginType(false);
     Notificationmanager::instance()->getAccessToken(code,state);
 //    parent()->getAccessToken(code,state);

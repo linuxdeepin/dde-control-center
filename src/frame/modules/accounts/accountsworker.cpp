@@ -52,6 +52,7 @@ const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 const QString AutoLoginVisable = "auto-login-visable";
 const QString NoPasswordVisable = "nopasswd-login-visable";
+const QString ScanCodeLoginVisable = "scanCode-login-visable";
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
@@ -90,16 +91,21 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 
         m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
         m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
+//        m_userModel->setScanCodeLoginVisable(gsetting->get(ScanCodeLoginVisable).toBool());
+
         connect(gsetting, &QGSettings::changed, m_userModel, [=](const QString &key) {
             if (key == "autoLoginVisable") {
                 m_userModel->setAutoLoginVisable(gsetting->get(AutoLoginVisable).toBool());
             } else if (key == "nopasswdLoginVisable") {
                 m_userModel->setNoPassWordLoginVisable(gsetting->get(NoPasswordVisable).toBool());
+            } else if (key == "scanCodeLoginVisable") {
+//                m_userModel->setScanCodeLoginVisable(gsetting->get(ScanCodeLoginVisable).toBool());
             }
         });
     } else {
         m_userModel->setAutoLoginVisable(true);
         m_userModel->setNoPassWordLoginVisable(false);
+//        m_userModel->setScanCodeLoginVisable(false);
     }
 
     bool bShowCreateUser = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showCreateUser", true);

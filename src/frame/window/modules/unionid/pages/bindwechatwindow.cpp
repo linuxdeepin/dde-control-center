@@ -185,11 +185,11 @@ void BindWeChatWindow::onRequestQrCodeResult()
         {
             QJsonObject jsonObj1 = jsonValueResult.toObject();
             jsonValueResult = jsonObj1.value("url");
-            qInfo() << "url" << jsonValueResult;
+
             QString nResult = jsonValueResult.toString();
             jsonValueResult = jsonObj1.value("codeId");
             m_codeId = jsonValueResult.toString();
-            qInfo() << "codeId" << jsonValueResult;
+
             m_qrCode->showQRcodePicture(nResult + m_codeId,QSize(158,158),m_qrCode->size());
             qInfo() << "showQRcodePicture" << nResult + m_codeId;
             m_qrCodeStatusTimer->start(QR_Code_Validity_Period);
@@ -202,7 +202,7 @@ void BindWeChatWindow::onRequestQrCodeResult()
         }
     } else {
         onQrCodeStatusTimeOut();
-        qInfo() << "failed";
+        qInfo() << "onRequestQrCodeResult:failed";
     }
 }
 

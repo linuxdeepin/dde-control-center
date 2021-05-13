@@ -219,7 +219,7 @@ QByteArray HttpClient::checkReply(QNetworkReply *pReply)
     QByteArray byteJson = pReply->readAll();
     //QString strJson(byteJson);
     if (byteJson.length() < 1000) {
-        qInfo() << "byteJson" << byteJson;
+        //qInfo() << "byteJson" << byteJson;
     }
 
     return byteJson;
@@ -323,7 +323,7 @@ void HttpClient::judgeClienid()
 
 QNetworkReply* HttpClient::httpRequset(const QString &type, const QNetworkRequest &requset, const QByteArray &body)
 {
-    qInfo() << type << requset.url() << body;
+    //qInfo() << type << requset.url() << body;
     if (type == "get") {
         return manager->get(requset);
     } else if (type == "post") {
