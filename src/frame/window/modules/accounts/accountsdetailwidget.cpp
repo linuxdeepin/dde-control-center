@@ -335,6 +335,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     m_autoLogin = new SwitchWidget;
     m_nopasswdLogin = new SwitchWidget;
+    m_faceLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
     loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
@@ -342,6 +343,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     loginGrp->layout()->setMargin(0);
     loginGrp->appendItem(m_autoLogin);
     loginGrp->appendItem(m_nopasswdLogin);
+    loginGrp->appendItem(m_faceLogin);
     if (!IsServerSystem) {
         layout->addSpacing(20);
     }
@@ -415,6 +417,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
+    m_faceLogin->setTitle("人脸登陆");
+    m_faceLogin->setChecked(m_curUser->hasFace());
+
     //当前用户禁止使用删除按钮
     m_deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
     connect(m_curUser, &User::onlineChanged, m_deleteAccount, [ = ](const bool online) {
@@ -434,8 +439,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //自动登录，无密码登录操作
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_curUser, &User::nopasswdLoginChanged,
-            m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_curUser, &User::faceExistChanged, m_faceLogin, &SwitchWidget::setChecked);
+
     connect(m_autoLogin, &SwitchWidget::checkedChanged,
             this, [ = ](const bool autoLogin) {
         if (autoLogin) {
@@ -470,6 +476,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
+    connect(m_faceLogin, &SwitchWidget::checkedChanged, this, [=] (const bool state) {
+        Q_EMIT requestChangeFaceVerify(m_curUser, state);
+    });
 
     //指纹界面操作
     connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &AccountsDetailWidget::requestAddThumbs);
@@ -492,6 +501,7 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
     m_userModel = model;
     m_autoLogin->setVisible(m_userModel->isAutoLoginVisable());
     m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable());
+    m_faceLogin->setVisible(m_userModel->faceVerifyValid());
 
     // 非服务器系统，关联配置改变信号，控制自动登陆开关/无密码登陆开关显隐
     if (!IsServerSystem) {
@@ -588,4 +598,8 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
         item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
+}
+
+void AccountsDetailWidget::setFaceChecked(const bool check) const {
+    m_faceLogin->setChecked(check);
 }

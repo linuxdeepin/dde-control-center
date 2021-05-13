@@ -101,6 +101,9 @@ public:
 
     int charactertypes(QString password);
 
+    bool hasFace() const;
+    void setHasFace(bool hasFace);
+
 Q_SIGNALS:
     void passwordModifyFinished(const int exitCode) const;
     void nameChanged(const QString &name) const;
@@ -117,6 +120,7 @@ Q_SIGNALS:
     void userTypeChanged(const int userType);
     void isPasswordExpiredChanged(const bool isExpired) const;
     void passwordAgeChanged(const int age) const;
+    void faceExistChanged(const bool exist) const;
 
 private:
     bool m_isCurrentUser;
@@ -135,6 +139,7 @@ private:
     QList<QString> m_avatars;
     QStringList m_groups;
     quint64 m_createdTime;
+    bool m_hasFace;
 };
 
 } // namespace accounts

@@ -37,6 +37,7 @@ UserModel::UserModel(QObject *parent)
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_isJoinADDomain(false)
     , m_isADUserLogind(false)
+    , m_faceVerifyValid(false)
 #endif
 {
 
@@ -129,6 +130,20 @@ void UserModel::setAllGroups(const QStringList &groups)
 QStringList UserModel::getPresetGroups()
 {
     return m_presetGroups;
+}
+
+bool UserModel::faceVerifyValid() const
+{
+    return m_faceVerifyValid;
+}
+
+void UserModel::setFaceVerifyValid(bool valid)
+{
+    if (m_faceVerifyValid == valid)
+        return;
+
+    m_faceVerifyValid = valid;
+    Q_EMIT faceValidChanged(valid);
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN

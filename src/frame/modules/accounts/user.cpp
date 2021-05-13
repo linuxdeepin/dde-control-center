@@ -35,6 +35,7 @@ User::User(QObject *parent)
     , m_nopasswdLogin(false)
     , m_userType(UserType::StandardUser)
     , m_createdTime(0)
+    , m_hasFace(false)
 {
 }
 
@@ -211,4 +212,18 @@ int User::charactertypes(QString password)
         s++;
     }
     return Number_flag + Capital_flag + Small_flag + Symbol_flag;
+}
+
+bool User::hasFace() const
+{
+    return m_hasFace;
+}
+
+void User::setHasFace(bool hasFace)
+{
+    if (m_hasFace == hasFace)
+        return;
+
+    m_hasFace = hasFace;
+    Q_EMIT faceExistChanged(hasFace);
 }

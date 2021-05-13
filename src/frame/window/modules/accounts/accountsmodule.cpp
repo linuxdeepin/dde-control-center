@@ -180,6 +180,8 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestRenameFingerItem, m_fingerWorker, &FingerWorker::renameFingerItem);
     connect(w, &AccountsDetailWidget::noticeEnrollCompleted, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
     connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_accountsWorker, &AccountsWorker::setMaxPasswordAge);
+    connect(w, &AccountsDetailWidget::requestChangeFaceVerify, m_accountsWorker, &AccountsWorker::setFaceVerifyState);
+    connect(m_accountsWorker,&AccountsWorker::enrollFaceStatus,w, &AccountsDetailWidget::setFaceChecked);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
 }

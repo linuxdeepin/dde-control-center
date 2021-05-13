@@ -66,6 +66,9 @@ public:
     QStringList getAllGroups();
     void setPresetGroups(const QStringList &presetGroups);
     QStringList getPresetGroups();
+    bool faceVerifyValid() const;
+    void setFaceVerifyValid(bool valid);
+
 Q_SIGNALS:
     void userAdded(User *user);
     void userRemoved(User *user);
@@ -78,6 +81,8 @@ Q_SIGNALS:
     void autoLoginVisableChanged(bool autoLogin);
     void noPassWordLoginVisableChanged(bool noPassword);
     void isCancelChanged();
+    void faceValidChanged(bool isValid);
+
 private:
     bool m_autoLoginVisable;
     bool m_noPassWordLoginVisable;
@@ -88,6 +93,7 @@ private:
 #ifdef DCC_ENABLE_ADDOMAIN
     bool m_isJoinADDomain;
     bool m_isADUserLogind;
+    bool m_faceVerifyValid;
 #endif
 };
 

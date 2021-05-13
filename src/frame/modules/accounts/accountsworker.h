@@ -33,6 +33,7 @@
 #include <org_freedesktop_displaymanager.h>
 #include <org_freedesktop_displaymanager_session.h>
 #include <com_deepin_daemon_authenticate_fingerprint.h>
+#include "com_deepin_daemon_FaceVerify.h"
 
 #ifdef DCC_ENABLE_ADDOMAIN
 #include <org_freedesktop_notifications.h>
@@ -46,6 +47,8 @@ using Accounts = com::deepin::daemon::Accounts;
 using AccountsUser = com::deepin::daemon::accounts::User;
 using CreationResult = dcc::accounts::CreationResult;
 using Fingerprint = com::deepin::daemon::authenticate::Fingerprint;
+using FaceVerify = com::deepin::daemon::FaceVerify;
+
 
 using DisplayManager = org::freedesktop::DisplayManager;
 using Session = org::freedesktop::displaymanager::Session;
@@ -72,6 +75,7 @@ Q_SIGNALS:
     void accountCreationFinished(CreationResult *result) const;
     void accountFullNameChangeFinished() const;
     void requestMainWindowEnabled(const bool isEnabled) const;
+    void enrollFaceStatus(const bool isEnabled) const;
 
 public Q_SLOTS:
     void randomUserIcon(User *user);
@@ -87,6 +91,7 @@ public Q_SLOTS:
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
     void setMaxPasswordAge(User *user, const int maxAge);
     void loadUserList();
+    void setFaceVerifyState(User *user, const bool state);
 
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();
@@ -101,6 +106,7 @@ private Q_SLOTS:
     void getAllGroupsResult(QDBusPendingCallWatcher *watch);
     void getPresetGroups();
     void getPresetGroupsResult(QDBusPendingCallWatcher *watch);
+    void updateFaceVerify(const QString &name,int res,const QString &msg);
 
 #ifdef DCC_ENABLE_ADDOMAIN
     void checkADUser();
@@ -114,6 +120,7 @@ private:
 private:
     Accounts *m_accountsInter;
     Fingerprint *m_fingerPrint;
+    FaceVerify *m_faceVerify;
 #ifdef DCC_ENABLE_ADDOMAIN
     Notifications *m_notifyInter;
 #endif

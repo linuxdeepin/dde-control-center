@@ -48,25 +48,29 @@ using namespace DCC_NAMESPACE;
 const QString AccountsService("com.deepin.daemon.Accounts");
 const QString FingerPrintService("com.deepin.daemon.Authenticate");
 const QString DisplayManagerService("org.freedesktop.DisplayManager");
+const QString FaceVerifyService("com.deepin.daemon.FaceVerify");
 
 const QString AutoLoginVisable = "auto-login-visable";
 const QString NoPasswordVisable = "nopasswd-login-visable";
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
-    : QObject(parent)
-    , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
-    , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
+        : QObject(parent), m_accountsInter(
+        new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this)),
+          m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint",
+                                        QDBusConnection::systemBus(), this)), m_faceVerify(
+                new FaceVerify(FaceVerifyService, "/com/deepin/daemon/FaceVerify", QDBusConnection::systemBus(), this))
 #ifdef DCC_ENABLE_ADDOMAIN
-    , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
+        , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications",
+                                          QDBusConnection::sessionBus(), this))
 #endif
-    , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this))
-    , m_userModel(userList)
-{
+        , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager",
+                                       QDBusConnection::systemBus(), this)), m_userModel(userList) {
     struct passwd *pws;
     pws = getpwuid(getuid());
     m_currentUserName = QString(pws->pw_name);
 
-    connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
+    connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged,
+            Qt::QueuedConnection);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
     connect(m_accountsInter, &Accounts::UserDeleted, this, &AccountsWorker::removeUser, Qt::QueuedConnection);
 
@@ -77,7 +81,8 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 #ifdef DCC_ENABLE_ADDOMAIN
     m_notifyInter->setSync(false);
 #endif
-    QDBusInterface interface(AccountsService, "/com/deepin/daemon/Accounts", AccountsService, QDBusConnection::systemBus());
+    QDBusInterface interface(AccountsService, "/com/deepin/daemon/Accounts", AccountsService,
+                             QDBusConnection::systemBus());
     onUserListChanged(interface.property("UserList").toStringList());
     updateUserOnlineStatus(m_dmInter->sessions());
     getAllGroups();
@@ -101,19 +106,22 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
         m_userModel->setNoPassWordLoginVisable(false);
     }
 
+    m_userModel->setFaceVerifyValid(m_faceVerify->isValid());
+    connect(m_faceVerify, &FaceVerify::serviceValidChanged, m_userModel, &UserModel::setFaceVerifyValid);
+
     bool bShowCreateUser = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showCreateUser", true);
     m_userModel->setCreateUserValid(bShowCreateUser);
+
+    connect(m_faceVerify, &FaceVerify::EnrollStatus, this, &AccountsWorker::updateFaceVerify);
 }
 
-void AccountsWorker::getAllGroups()
-{
+void AccountsWorker::getAllGroups() {
     QDBusPendingReply<QStringList> reply = m_accountsInter->GetGroups();
     QDBusPendingCallWatcher *groupResult = new QDBusPendingCallWatcher(reply, this);
     connect(groupResult, &QDBusPendingCallWatcher::finished, this, &AccountsWorker::getAllGroupsResult);
 }
 
-void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
-{
+void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch) {
     QDBusPendingReply<QStringList> reply = *watch;
     if (!watch->isError()) {
         m_userModel->setAllGroups(reply.value());
@@ -123,16 +131,14 @@ void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
     watch->deleteLater();
 }
 
-void AccountsWorker::getPresetGroups()
-{
+void AccountsWorker::getPresetGroups() {
     int userType = DCC_NAMESPACE::IsServerSystem ? 0 : 1;
     QDBusPendingReply<QStringList> reply = m_accountsInter->GetPresetGroups(userType);
     QDBusPendingCallWatcher *presetGroupsResult = new QDBusPendingCallWatcher(reply, this);
     connect(presetGroupsResult, &QDBusPendingCallWatcher::finished, this, &AccountsWorker::getPresetGroupsResult);
 }
 
-void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
-{
+void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch) {
     QDBusPendingReply<QStringList> reply = *watch;
     if (!watch->isError()) {
         m_userModel->setPresetGroups(reply.value());
@@ -142,16 +148,14 @@ void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
     watch->deleteLater();
 }
 
-void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
-{
+void AccountsWorker::setGroups(User *user, const QStringList &usrGroups) {
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
     userInter->SetGroups(usrGroups);
 }
 
-void AccountsWorker::active()
-{
+void AccountsWorker::active() {
     for (auto it(m_userInters.cbegin()); it != m_userInters.cend(); ++it) {
         it.key()->setName(it.value()->userName());
         it.key()->setAutoLogin(it.value()->automaticLogin());
@@ -162,13 +166,11 @@ void AccountsWorker::active()
     }
 }
 
-QString AccountsWorker::getCurrentUserName()
-{
+QString AccountsWorker::getCurrentUserName() {
     return m_currentUserName;
 }
 
-void AccountsWorker::randomUserIcon(User *user)
-{
+void AccountsWorker::randomUserIcon(User *user) {
     QDBusPendingCall call = m_accountsInter->RandUserIcon();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [=] {
@@ -180,8 +182,7 @@ void AccountsWorker::randomUserIcon(User *user)
     });
 }
 
-void AccountsWorker::createAccount(const User *user)
-{
+void AccountsWorker::createAccount(const User *user) {
     qDebug() << "create account";
     Q_EMIT requestFrameAutoHide(false);
 
@@ -200,8 +201,7 @@ void AccountsWorker::createAccount(const User *user)
     watcher->setFuture(future);
 }
 
-void AccountsWorker::setAvatar(User *user, const QString &iconPath)
-{
+void AccountsWorker::setAvatar(User *user, const QString &iconPath) {
     qDebug() << "set account avatar";
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
@@ -209,8 +209,7 @@ void AccountsWorker::setAvatar(User *user, const QString &iconPath)
     ui->SetIconFile(iconPath);
 }
 
-void AccountsWorker::setFullname(User *user, const QString &fullname)
-{
+void AccountsWorker::setFullname(User *user, const QString &fullname) {
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
 
@@ -228,8 +227,7 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
     });
 }
 
-void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
-{
+void AccountsWorker::deleteAccount(User *user, const bool deleteHome) {
     QDBusPendingReply<> reply = m_accountsInter->DeleteUser(user->name(), deleteHome);
     reply.waitForFinished();
     if (reply.isError()) {
@@ -256,8 +254,7 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
     }
 }
 
-void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
-{
+void AccountsWorker::setAutoLogin(User *user, const bool autoLogin) {
     AccountsUser *ui = m_userInters[user];
     Q_ASSERT(ui);
 
@@ -276,13 +273,38 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
     });
 }
 
-void AccountsWorker::loadUserList()
-{
+void AccountsWorker::loadUserList() {
     onUserListChanged(m_accountsInter->userList());
 }
 
-void AccountsWorker::onUserListChanged(const QStringList &userList)
-{
+void AccountsWorker::setFaceVerifyState(User *user, const bool state) {
+//    Q_EMIT requestMainWindowEnabled(false);
+//    QDBusPendingCall call = state ? m_faceVerify->Enroll(user->name()) : m_faceVerify->DeleteFace(user->name());
+    if(state){
+        m_faceVerify->Enroll(user->name());
+    }else{
+        m_faceVerify->DeleteFace(user->name());
+    }
+
+    Q_EMIT requestMainWindowEnabled(true);
+//    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+//    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+//
+//
+//        if (state) {
+//            if (call.isError()) {
+//                qDebug() << call.error().message();
+//                Q_EMIT user->faceExistChanged(user->hasFace());
+//            } else {
+//                user->setHasFace(m_faceVerify->GetFaceStatus(user->name()));//
+//            }
+//        }
+//
+//        watcher->deleteLater();
+//    });
+}
+
+void AccountsWorker::onUserListChanged(const QStringList &userList) {
     int count = 0;
     static bool first = true;
     for (const QString &path : userList) {
@@ -299,8 +321,7 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
     }
 }
 
-void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd)
-{
+void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd) {
     QProcess process;
     QProcessEnvironment env;
     env.insert("LC_ALL", "C");
@@ -321,13 +342,16 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
         qDebug() << errortxt;
         if (errortxt.contains("Current password: passwd: Authentication token manipulation error")) {
             exitCode = 10;
-        } else if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password") || errortxt.contains("The password is shorter than")) {
+        } else if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password") ||
+                   errortxt.contains("The password is shorter than")) {
             exitCode = 11;
-        } else if (errortxt.contains("is too similar to the old one") || errortxt.contains("new and old password are too similar")) {
+        } else if (errortxt.contains("is too similar to the old one") ||
+                   errortxt.contains("new and old password are too similar")) {
             exitCode = 12;
         } else if (errortxt.contains("Password unchanged")) {
             exitCode = 13;
-        } else if (errortxt.contains("it is too simplistic/systematic") || errortxt.contains("new password is too simple")) {
+        } else if (errortxt.contains("it is too simplistic/systematic") ||
+                   errortxt.contains("new password is too simple")) {
             exitCode = 14;
         } else if (errortxt.contains("Password has been already used. Choose another")) {
             exitCode = 15;
@@ -343,16 +367,14 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     Q_EMIT user->passwordModifyFinished(exitCode);
 }
 
-void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
-{
+void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath) {
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
     userInter->DeleteIconFile(iconPath);
 }
 
-void AccountsWorker::addUser(const QString &userPath)
-{
+void AccountsWorker::addUser(const QString &userPath) {
     if (userPath.contains("User0", Qt::CaseInsensitive))
         return;
     AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
@@ -362,6 +384,7 @@ void AccountsWorker::addUser(const QString &userPath)
 
     connect(userInter, &AccountsUser::UserNameChanged, user, [=](const QString &name) {
         user->setName(name);
+        user->setHasFace(m_faceVerify->GetFaceStatus(name));
         user->setOnline(m_onlineUsers.contains(name));
         user->setIsCurrentUser(name == m_currentUserName);
 #ifdef DCC_ENABLE_ADDOMAIN
@@ -392,13 +415,13 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setUserType(userInter->accountType());
     user->setPasswordAge(userInter->maxPasswordAge());
     user->setIsPasswordExpired(userInter->IsPasswordExpired());
+    user->setHasFace(m_faceVerify->GetFaceStatus(userInter->userName()));
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);
 }
 
-void AccountsWorker::removeUser(const QString &userPath)
-{
+void AccountsWorker::removeUser(const QString &userPath) {
     for (AccountsUser *userInter : m_userInters.values()) {
         if (userInter->path() == userPath) {
             User *user = m_userInters.key(userInter);
@@ -412,8 +435,7 @@ void AccountsWorker::removeUser(const QString &userPath)
     }
 }
 
-void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
-{
+void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin) {
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
@@ -431,8 +453,7 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
     });
 }
 
-void AccountsWorker::setMaxPasswordAge(User *user, const int maxAge)
-{
+void AccountsWorker::setMaxPasswordAge(User *user, const int maxAge) {
     AccountsUser *userInter = m_userInters[user];
     Q_ASSERT(userInter);
 
@@ -447,8 +468,8 @@ void AccountsWorker::setMaxPasswordAge(User *user, const int maxAge)
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN
-void AccountsWorker::refreshADDomain()
-{
+
+void AccountsWorker::refreshADDomain() {
     QProcess *process = new QProcess(this);
     process->start("/opt/pbis/bin/enum-users");
 
@@ -460,11 +481,12 @@ void AccountsWorker::refreshADDomain()
 
     connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), process, &QProcess::deleteLater);
 }
+
 #endif
 
 #ifdef DCC_ENABLE_ADDOMAIN
-void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin, const QString &password)
-{
+
+void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin, const QString &password) {
     const bool isJoin = m_userModel->isJoinADDomain();
     int exitCode = 0;
     if (isJoin) {
@@ -519,13 +541,14 @@ void AccountsWorker::ADDomainHandle(const QString &server, const QString &admin,
                          : tr("Your host failed to join the domain server");
     }
 
-    m_notifyInter->Notify("", QDateTime::currentMSecsSinceEpoch(), exitCode ? "dialog-warning" : "dialog-ok", tr("AD domain settings"), message, QStringList(), QVariantMap(), 0);
+    m_notifyInter->Notify("", QDateTime::currentMSecsSinceEpoch(), exitCode ? "dialog-warning" : "dialog-ok",
+                          tr("AD domain settings"), message, QStringList(), QVariantMap(), 0);
     refreshADDomain();
 }
+
 #endif
 
-void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> &paths)
-{
+void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> &paths) {
     m_onlineUsers.clear();
 
     for (const QDBusObjectPath &path : paths) {
@@ -543,8 +566,8 @@ void AccountsWorker::updateUserOnlineStatus(const QList<QDBusObjectPath> &paths)
 }
 
 #ifdef DCC_ENABLE_ADDOMAIN
-void AccountsWorker::checkADUser()
-{
+
+void AccountsWorker::checkADUser() {
     // AD User is not in native user list, but session list have it.
     bool isADUser = false;
 
@@ -563,10 +586,10 @@ void AccountsWorker::checkADUser()
 
     m_userModel->setADUserLogind(isADUser);
 }
+
 #endif
 
-CreationResult *AccountsWorker::createAccountInternal(const User *user)
-{
+CreationResult *AccountsWorker::createAccountInternal(const User *user) {
     CreationResult *result = new CreationResult;
 
     // validate username
@@ -594,11 +617,13 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
 
     // default FullName is empty string
     QDBusObjectPath path;
-    QDBusPendingReply<QDBusObjectPath> createReply = m_accountsInter->CreateUser(user->name(), user->fullname(), user->userType());
+    QDBusPendingReply<QDBusObjectPath> createReply = m_accountsInter->CreateUser(user->name(), user->fullname(),
+                                                                                 user->userType());
     createReply.waitForFinished();
     if (createReply.isError()) {
         /* 这里由后端保证出错时一定有错误信息返回，如果没有错误信息，就默认用户在认证时点了取消 */
-        result->setType(createReply.error().message().isEmpty() ? CreationResult::Canceled : CreationResult::UnknownError);
+        result->setType(
+                createReply.error().message().isEmpty() ? CreationResult::Canceled : CreationResult::UnknownError);
         result->setMessage(createReply.error().message());
         return result;
     } else {
@@ -606,7 +631,8 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     }
     const QString userPath = path.path();
 
-    AccountsUser *userDBus = new AccountsUser("com.deepin.daemon.Accounts", userPath, QDBusConnection::systemBus(), this);
+    AccountsUser *userDBus = new AccountsUser("com.deepin.daemon.Accounts", userPath, QDBusConnection::systemBus(),
+                                              this);
     if (!userDBus->isValid()) {
         result->setType(CreationResult::UnknownError);
         result->setMessage("user dbus is still not valid.");
@@ -636,8 +662,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     return result;
 }
 
-QString AccountsWorker::cryptUserPassword(const QString &password)
-{
+QString AccountsWorker::cryptUserPassword(const QString &password) {
     /*
         NOTE(kirigaya): Password is a combination of salt and crypt function.
         slat is begin with $6$, 16 byte of random values, at the end of $.
@@ -657,4 +682,22 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
     }
 
     return crypt(password.toUtf8().data(), salt);
+}
+
+void AccountsWorker::updateFaceVerify(const QString &name, int res, const QString &msg) {
+    switch (res) {
+        case -1: {
+            break;
+        }
+        case 0: {
+            m_faceVerify->StopVerify().waitForFinished();
+            Q_EMIT enrollFaceStatus(true);
+            Q_EMIT requestMainWindowEnabled(true);
+            break;
+        }
+        default: {
+            break;
+        }
+
+    }
 }

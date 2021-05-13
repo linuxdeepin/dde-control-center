@@ -96,10 +96,12 @@ Q_SIGNALS:
     void requestDeleteFingerItem(const QString &userName, const QString& finger);
     void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
     void noticeEnrollCompleted(QString username);
+    void requestChangeFaceVerify(dcc::accounts::User *user, bool state);
 
 public Q_SLOTS:
     void setAllGroups();
     void resetDelButtonState();
+    void setFaceChecked(const bool check)const;
 
 protected:
     void initUserInfo(QVBoxLayout *layout);
@@ -127,6 +129,7 @@ private:
     bool m_isServerSystem;
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
+    dcc::widgets::SwitchWidget *m_faceLogin;
     QHBoxLayout *m_avatarLayout;
     DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;
