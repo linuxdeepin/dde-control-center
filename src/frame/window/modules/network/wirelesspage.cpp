@@ -375,7 +375,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
     connect(gsetting, &QGSettings::changed, [&](const QString &key) {
         if (key == "wireless-scan-interval") {
-            m_wirelessScanTimer->setInterval(gsetting->get("wireless-scan-interval").toInt());
+            m_wirelessScanTimer->setInterval(gsetting->get("wireless-scan-interval").toInt() * 1000);
         }
     });
     connect(m_wirelessScanTimer, &QTimer::timeout, this, &WirelessPage::requestWirelessScan);
@@ -474,6 +474,40 @@ void WirelessPage::jumpByUuid(const QString &uuid)
     });
 }
 
+void WirelessPage::doAddAP(const QJsonObject &apInfo, bool bSameSsid)
+{
+    const QString &ssid = apInfo.value("Ssid").toString();
+
+    //相同的ssid需要重新设置下path
+    if (bSameSsid) {
+        APItem *item = m_apItems[ssid];
+        if (!item)
+            return;
+        item->setPath(apInfo.value("Path").toString());
+        item->setSecure(apInfo.value("Secured").toBool());
+        return;
+    }
+
+    APItem *apItem = new APItem(ssid, style(), m_lvAP);
+    m_apItems[ssid] = apItem;
+    m_modelAP->appendRow(apItem);
+    apItem->setSecure(apInfo.value("Secured").toBool());
+    apItem->setPath(apInfo.value("Path").toString());
+    if (ssid == m_autoConnectHideSsid) {
+        if (m_clickedItem) {
+            m_clickedItem->setLoading(false);
+        }
+        m_clickedItem = apItem;
+    }
+    apItem->setConnected(ssid == m_device->activeApSsid());
+    apItem->setSignalStrength(apInfo.value("Strength").toInt());
+    connect(apItem->action(), &QAction::triggered, [this, apItem] {
+        this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(),
+                                      apItem->data(Qt::ItemDataRole::DisplayRole).toString());
+    });
+    m_sortDelayTimer->start();
+}
+
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
     Q_EMIT requestDeviceEnabled(m_device->path(), checked);
@@ -489,25 +523,18 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
 void WirelessPage::onAPAdded(const QJsonObject &apInfo)
 {
     const QString &ssid = apInfo.value("Ssid").toString();
+    const QString &path = apInfo.value("Path").toString();
+
     if (!m_apItems.contains(ssid)) {
-        APItem *apItem = new APItem(ssid, style(), m_lvAP);
-        m_apItems[ssid] = apItem;
-        m_modelAP->appendRow(apItem);
-        apItem->setSecure(apInfo.value("Secured").toBool());
-        apItem->setPath(apInfo.value("Path").toString());
-        if (ssid == m_autoConnectHideSsid) {
-            if (m_clickedItem) {
-                m_clickedItem->setLoading(false);
-            }
-            m_clickedItem = apItem;
+        doAddAP(apInfo);
+        m_apPathList.append(path);
+    } else {
+        if (!m_apPathList.contains(path)) {
+            doAddAP(apInfo, true);
+            m_apPathList.append(path);
+        } else {
+            qDebug() << Q_FUNC_INFO << " do nothing! same ssid amd path : " << ssid << path;
         }
-        apItem->setConnected(ssid == m_device->activeApSsid());
-        apItem->setSignalStrength(apInfo.value("Strength").toInt());
-        connect(apItem->action(), &QAction::triggered, [this, apItem] {
-            this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(),
-                                          apItem->data(Qt::ItemDataRole::DisplayRole).toString());
-        });
-        m_sortDelayTimer->start();
     }
 }
 
@@ -518,6 +545,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
         APItem *apItem = new APItem(ssid, style(), m_lvAP);
         m_apItems[ssid] = apItem;
         m_modelAP->appendRow(apItem);
+        m_apPathList.append(apInfo.value("Path").toString());
         apItem->setSecure(apInfo.value("Secured").toBool());
         apItem->setPath(apInfo.value("Path").toString());
         apItem->setConnected(ssid == m_device->activeApSsid());
@@ -535,8 +563,15 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     const bool isSecure = apInfo.value("Secured").toBool();
 
     APItem *it = m_apItems[ssid];
+    QString activeApSsid = m_device->activeApSsid();
+    if (!it)
+        return;
 
-    if (strength < 5 && !it->checkState() && ssid != m_device->activeApSsid()) {
+    if (m_device && (activeApSsid == ssid)) {
+        it->setConnected(true);
+    }
+
+    if (strength < 5 && !it->checkState() && ssid != activeApSsid) {
         if (nullptr == m_clickedItem || it->uuid() != m_clickedItem->uuid()) {
             m_lvAP->setRowHidden(it->row(), true);
         }
@@ -544,12 +579,12 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
         m_lvAP->setRowHidden(it->row(), false);
     }
 
-    APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
-    m_apItems[ssid]->setSortInfo(si);
+    APSortInfo si{strength, ssid, ssid == activeApSsid};
+    it->setSortInfo(si);
 
-    m_apItems[ssid]->setSignalStrength(strength);
+    it->setSignalStrength(strength);
     if (it->path() != path) {
-        m_apItems[ssid]->setPath(path);
+        it->setPath(path);
     }
     it->setSecure(isSecure);
     m_sortDelayTimer->start();
@@ -565,12 +600,22 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
     if (!m_apItems.contains(ssid)) return;
     const QString &path = apInfo.value("Path").toString();
 
-    if (m_apItems[ssid]->path() == path) {
-        if (m_clickedItem == m_apItems[ssid]) {
+    APItem *it = m_apItems[ssid];
+    if (!it)
+        return;
+
+    //要移除掉的ssid, 如果之前是check, 现在就有设置成false
+    if (ssid == m_device->activeApSsid()) {
+        it->setConnected(false);
+    }
+
+    if (it->path() == path) {
+        if (m_clickedItem == it) {
             m_clickedItem = nullptr;
             qDebug() << "remove clicked item," << QThread::currentThreadId();
         }
-        m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
+        m_modelAP->removeRow(m_modelAP->indexFromItem(it).row());
+        m_apPathList.removeOne(path);
         m_apItems.erase(m_apItems.find(ssid));
     }
 }

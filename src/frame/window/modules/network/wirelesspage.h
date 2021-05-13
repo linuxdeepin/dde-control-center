@@ -131,6 +131,7 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
     void jumpByUuid(const QString &uuid);
+    void doAddAP(const QJsonObject &apInfo, bool bSameSsid = false);
 Q_SIGNALS:
     void requestConnectAp(const QString &devPath, const QString &apPath, const QString &uuid) const;
     void requestDisconnectConnection(const QString &uuid);
@@ -187,6 +188,7 @@ private:
     QMap<QString, APItem *> m_apItems;
     QString m_autoConnectHideSsid;
     QTimer *m_wirelessScanTimer;
+    QList<QString> m_apPathList;
 };
 }   // namespace dcc
 }   // namespace network
