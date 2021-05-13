@@ -45,7 +45,8 @@ SystemTimezone::SystemTimezone(QWidget *parent)
     m_setSystemTimezone->setText(tr("Change System Timezone"));
     m_systemTimezone->addBackground();
 
-    const int titleLeftMargin = 5;
+    //与背景间距20,外框设置了10,这里只需设置10就够了
+    const int titleLeftMargin = 10;
     //~ contents_path /datetime/Timezone List
     TitleLabel *title = new TitleLabel(tr("System Timezone"));
     DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold);

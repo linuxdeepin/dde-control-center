@@ -70,6 +70,7 @@ void AppNotifyWidget::initUI()
     DFontSizeManager::instance()->bind(lblAllowNotify, DFontSizeManager::T5, QFont::DemiBold);
     hLayoutAllowNotify->addWidget(lblAllowNotify, Qt::AlignLeft);
     hLayoutAllowNotify->addWidget(m_btnAllowNotify, Qt::AlignRight);
+    hLayoutAllowNotify->setContentsMargins(10, 0, 0 ,0);
     mainLayout->addLayout(hLayoutAllowNotify);
 
     m_lblTip = new DLabel(tr("Show notifications from %1 on desktop and in the notification center.")

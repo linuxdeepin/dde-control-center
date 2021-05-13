@@ -43,6 +43,8 @@ AbstractSection::AbstractSection(const QString &title, QFrame *parent)
     head->setTitle(title);
     head->setEditEnable(false);
 
+    // 需要与列表中文字对齐，列表文字与边框边距为8
+    head ->setContentsMargins(8, 0, 0, 0);
     m_layout->insertWidget(0, head);
 }
 

@@ -55,6 +55,8 @@ void DNSSection::initUI()
     // 添加头 编辑完成 按钮
     m_headItem->setTitle(tr("DNS"));
     m_headItem->toCancel();
+    // 需要与列表中文字对齐，列表文字与边框边距为8
+    m_headItem ->setContentsMargins(8, 0, 0, 0);
     setSettingsHead(m_headItem);
     connect(m_headItem, &SettingsHead::editChanged, this, &DNSSection::onBtnShow);
     connect(m_headItem, &SettingsHead::editChanged, this, &DNSSection::editClicked);
