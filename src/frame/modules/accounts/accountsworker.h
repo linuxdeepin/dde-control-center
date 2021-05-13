@@ -33,7 +33,7 @@
 #include <org_freedesktop_displaymanager.h>
 #include <org_freedesktop_displaymanager_session.h>
 #include <com_deepin_daemon_authenticate_fingerprint.h>
-#include "com_deepin_daemon_FaceVerify.h"
+#include "com_deepin_daemon_faceverify.h"
 
 #ifdef DCC_ENABLE_ADDOMAIN
 #include <org_freedesktop_notifications.h>

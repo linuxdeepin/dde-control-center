@@ -90,10 +90,11 @@ private:
     QMap<QString, User *> m_userList;
     QStringList m_allGroups;
     QStringList m_presetGroups;
+    bool m_faceVerifyValid;
 #ifdef DCC_ENABLE_ADDOMAIN
     bool m_isJoinADDomain;
     bool m_isADUserLogind;
-    bool m_faceVerifyValid;
+
 #endif
 };
 

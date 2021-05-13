@@ -34,10 +34,10 @@ UserModel::UserModel(QObject *parent)
     , m_autoLoginVisable(true)
     , m_noPassWordLoginVisable(true)
     , m_bCreateUserValid(false)
+    , m_faceVerifyValid(false)
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_isJoinADDomain(false)
     , m_isADUserLogind(false)
-    , m_faceVerifyValid(false)
 #endif
 {
 
