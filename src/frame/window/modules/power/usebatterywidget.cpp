@@ -168,7 +168,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     /*********************/
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
-    m_layout->setContentsMargins(10, 10, 10, 5);
+    m_layout->setContentsMargins(10, 10, 2, 5);
 
     //add scroll
     ContentWidget *contentWgt = new ContentWidget;

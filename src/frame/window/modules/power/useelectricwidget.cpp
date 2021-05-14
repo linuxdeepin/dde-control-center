@@ -98,7 +98,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     GSettingWatcher::instance()->bind("powerMonitorConfigure", m_monitorSleepOnPower);
     GSettingWatcher::instance()->bind("systemSuspend", m_computerSleepOnPower);
 
-    m_layout->setContentsMargins(10, 10, 10, 5);
+    m_layout->setContentsMargins(10, 10, 2, 5);
     m_layout->addWidget(powerSettingsGrp);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);

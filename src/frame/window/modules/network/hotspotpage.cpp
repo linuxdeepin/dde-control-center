@@ -64,6 +64,9 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvprofiles->setSelectionMode(QAbstractItemView::NoSelection);
+    QMargins listItemmargin( m_lvprofiles->itemMargins());
+    listItemmargin.setLeft(2);
+    m_lvprofiles->setItemMargins(listItemmargin);
     //~ contents_path /network/Personal Hotspot
     QLabel *lblTitle = new QLabel(tr("Hotspot"));//个人热点
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
@@ -261,14 +264,13 @@ HotspotPage::HotspotPage(QWidget *parent)
     m_contents = new QWidget(this);
     m_vScrollLayout = new QVBoxLayout;
     m_contents->setLayout(m_vScrollLayout);
-    m_contents->setContentsMargins(0, 0, 0, 0);
+    m_contents->setContentsMargins(2, 0, 2, 0); // 外层间距为8,这里设置2保证间距为10
     ContentWidget *contentWidget = new ContentWidget(this);
     contentWidget->setContent(m_contents);
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(contentWidget);
     m_mainLayout->addWidget(m_newprofile, 0, Qt::AlignHCenter);
 
-    setContentsMargins(0, 0, 8, 8);
     setLayout(m_mainLayout);
 
     //~ contents_path /network/Personal Hotspot

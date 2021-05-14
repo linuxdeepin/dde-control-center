@@ -223,7 +223,7 @@ void GeneralWidget::initUi()
 
     m_layout->setSpacing(30);
     m_layout->setAlignment(Qt::AlignTop);
-    m_layout->setContentsMargins(0, 10, 0, 5); // 总布局上下边距
+    m_layout->setContentsMargins(0, 2, 0, 5); // 总布局上下边距
 
     ContentWidget *contentWgt = new ContentWidget;
     QWidget *mainWgt = new TranslucentFrame; // 添加一层半透明框架
@@ -231,7 +231,7 @@ void GeneralWidget::initUi()
     contentWgt->setContent(mainWgt);
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->addWidget(contentWgt);
-    mainLayout->setContentsMargins(0, 0, 8, 8);
+    mainLayout->setContentsMargins(0, 8, 0, 8); // 圆角
     setLayout(mainLayout);
 }
 
