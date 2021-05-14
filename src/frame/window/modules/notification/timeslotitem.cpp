@@ -49,6 +49,8 @@ TimeSlotItem::TimeSlotItem(QWidget *parent)
 
     m_chkState->setAccessibleName("Time_CheckBox");
 
+    m_chkState->setFixedHeight(38);
+
     QLabel *lblFrom = new QLabel(tr("From"));
     lblFrom->adjustSize();
     QLabel *lblTo = new QLabel(tr("To"));
