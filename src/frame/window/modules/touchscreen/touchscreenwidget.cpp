@@ -104,6 +104,7 @@ void TouchscreenWidget::onMonitorChanged()
     TouchscreenMap touchMap = m_model->touchMap();
     TouchscreenInfoList touchscreenList = m_model->touchscreenList();
     QList<Monitor *> monitorList = m_model->monitorList();
+    int cnt = 0;
     for (const auto &i : touchscreenList) {
         QString touchscreenSerial = i.serialNumber;
 
@@ -118,6 +119,11 @@ void TouchscreenWidget::onMonitorChanged()
         for (Monitor *m : monitorList) {
             listCombo->addItem(m->name());
         }
+
+        // 第一次开机 touchMap 为空, 会设置默认值
+        if (touchMap.isEmpty())
+            listCombo->setCurrentText(monitorList.at(cnt)->name());
+
         if (touchMap.find(touchscreenSerial) != touchMap.end()) {
             listCombo->setCurrentText(touchMap.value(touchscreenSerial));
         }
@@ -141,6 +147,7 @@ void TouchscreenWidget::onMonitorChanged()
         connect(listCombo, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), [this] {
             m_buttonTuple->rightButton()->setEnabled(true);
         });
+        cnt++;
     }
 }
 
