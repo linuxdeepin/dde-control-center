@@ -60,6 +60,8 @@ Suggests: redshift
 Conflicts:
  dde-control-center-plugin-weather,
  dde-control-center-plugin-notify
+Breaks:
+ network-manager-gnome
 Replaces:
  dde-control-center-plugin-weather,
  dde-control-center-plugin-notify
