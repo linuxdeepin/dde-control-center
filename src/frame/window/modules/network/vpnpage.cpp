@@ -393,6 +393,8 @@ void VpnPage::importVPN()
 
 void VpnPage::createVPN()
 {
+    if (m_editPage)  return;
+
     m_editPage = new ConnectionVpnEditPage();
     m_editPage->initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::UNSET);
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);

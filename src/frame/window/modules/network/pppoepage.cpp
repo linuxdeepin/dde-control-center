@@ -99,6 +99,8 @@ void PppoePage::setModel(NetworkModel *model)
 
 void PppoePage::createPPPoEConnection()
 {
+    if (m_editPage)  return;
+
     m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/");
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);

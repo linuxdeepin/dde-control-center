@@ -209,6 +209,8 @@ void WiredPage::editConnection(const QString &connectionPath)
 
 void WiredPage::createNewConnection()
 {
+    if (m_editPage)  return;
+
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);
