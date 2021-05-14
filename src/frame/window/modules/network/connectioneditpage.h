@@ -28,6 +28,7 @@
 #include "widgets/buttontuple.h"
 #include "interface/moduleinterface.h"
 #include "interface/namespace.h"
+#include "networkmodel.h"
 
 #include <QPointer>
 #include <QPushButton>
@@ -65,6 +66,8 @@ public:
 
     static void setFrameProxy(dccV20::FrameProxyInterface *_frame);
     void setButtonTupleEnable(bool enable);
+
+    void setModel(dde::network::NetworkModel *model);
 
 Q_SIGNALS:
     void requestNextPage(ContentWidget *const page);
@@ -126,6 +129,8 @@ private:
     bool m_isNewConnection;
     QString m_connectionUuid;
     bool m_isHotSpot;
+
+    dde::network::NetworkModel *m_model;
 };
 
 } /* network */

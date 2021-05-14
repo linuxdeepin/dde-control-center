@@ -74,7 +74,7 @@ void PPPOESection::saveSettings()
     m_pppoeSetting->setService(m_service->text());
     m_pppoeSetting->setPasswordFlags(NetworkManager::Setting::SecretFlagType::None);
     m_pppoeSetting->setPassword(m_password->text());
-
+    m_pppoeSetting->setParent(m_model->deviceInterface().isEmpty() ? QString() : m_model->deviceInterface().at(0));
     m_pppoeSetting->setInitialized(true);
 }
 
@@ -105,4 +105,9 @@ bool PPPOESection::eventFilter(QObject *watched, QEvent *event)
         }
     }
     return QWidget::eventFilter(watched, event);
+}
+
+void PPPOESection::setModel(dde::network::NetworkModel *model)
+{
+    m_model = model;
 }

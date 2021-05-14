@@ -23,6 +23,7 @@
 #define DSLPPPOESETTINGS_H
 
 #include "abstractsettings.h"
+#include "networkmodel.h"
 
 #include <networkmanagerqt/connectionsettings.h>
 
@@ -34,12 +35,15 @@ class DslPppoeSettings : public AbstractSettings
     Q_OBJECT
 
 public:
-    explicit DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = nullptr);
+    explicit DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, dde::network::NetworkModel *model, QWidget *parent = nullptr);
     virtual ~DslPppoeSettings() override;
 
 protected:
     void initSections() Q_DECL_OVERRIDE;
     bool clearInterfaceName() Q_DECL_OVERRIDE;
+
+private:
+    dde::network::NetworkModel *m_model;
 };
 
 } /* network */
