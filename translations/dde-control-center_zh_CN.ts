@@ -6332,7 +6332,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="212"/>
         <source>Add Timezone</source>
         <translation>添加时区</translation>
-        <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="213"/>
