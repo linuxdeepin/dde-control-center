@@ -53,6 +53,57 @@ const QString DisplayManagerService("org.freedesktop.DisplayManager");
 const QString AutoLoginVisable = "auto-login-visable";
 const QString NoPasswordVisable = "nopasswd-login-visable";
 
+const QString ModifyPassword =
+R"(#!/usr/bin/expect
+
+# oldpassword: the current password
+# userpass: the new password
+# repeatpass: repeat the new password
+set oldpassword [lindex $argv 0]
+set userpass [lindex $argv 1]
+set repeatpass [lindex $argv 2]
+
+# spawn the passwd command process
+spawn passwd
+
+# Verify the 'Current password'
+expect "Current password: "
+send "$oldpassword\r"
+
+# Type the 'New password'
+expect "New password:"
+send "$userpass\r"
+
+# current password verify
+send_user "\rpassword right\r"
+
+# Verify the 'Retype password'
+expect "Retype*"
+send "$repeatpass\r"
+expect eof
+)";
+
+const QString ModifyNoPassword =
+R"(#!/usr/bin/expect
+
+# userpass: the new password
+# repeatpass: repeat the new password
+set userpass [lindex $argv 0]
+set repeatpass [lindex $argv 1]
+
+# spawn the passwd command process
+spawn passwd
+
+# Type the 'New password'
+expect "New password:"
+send "$userpass\r"
+
+# Verify the 'Retype password'
+expect "Retype*"
+send "$repeatpass\r"
+expect eof
+)";
+
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
@@ -306,19 +357,23 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     QProcessEnvironment env;
     env.insert("LC_ALL", "C");
     process.setProcessEnvironment(env);
-    process.start("/bin/bash", QStringList() << "-c" << QString("passwd"));
-    if (user->passwordStatus() == NO_PASSWORD) {
-        process.write(QString("%1\n%2\n").arg(passwd).arg(repeatPasswd).toLatin1());
-    } else {
-        process.write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(repeatPasswd).toLatin1());
-    }
+
+    QString cmd = user->passwordStatus() == NO_PASSWORD ? ModifyNoPassword : ModifyPassword;
+
+    QStringList args = QStringList() << "-f" << "-";
+    if (user->passwordStatus() != NO_PASSWORD) args.append(oldpwd);
+    args.append(passwd);
+    args.append(repeatPasswd);
+
+    process.start("/bin/expect", args);
+    process.write(cmd.toLatin1());
     process.closeWriteChannel();
     process.waitForFinished();
 
     // process.exitCode() = 0 表示密码修改成功
     int exitCode = process.exitCode();
-    QString errorTxt = process.readAllStandardError();
-    Q_EMIT user->passwordModifyFinished(exitCode, errorTxt);
+    QString outputTxt = process.readAllStandardOutput();
+    Q_EMIT user->passwordModifyFinished(exitCode, outputTxt);
 }
 
 void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
