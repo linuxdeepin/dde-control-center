@@ -718,6 +718,7 @@ void SearchModel::setLanguage(const QString &type)
             //先进入StartElement读取出<>中的内容;
             //再进入Characters读取出中间数据部分;
             //最后进入时进入EndElement读取出</>中的内容
+            QString strSource = "";
             while (!xmlRead.atEnd()) {
                 switch (xmlRead.readNext()) {
                     case QXmlStreamReader::StartElement:
@@ -733,6 +734,7 @@ void SearchModel::setLanguage(const QString &type)
 #endif
                             if (xmlExplain == XML_Source) {  // get xml source date
                                 searchBoxStrcut->translateContent = xmlRead.text().toString();
+                                strSource = xmlRead.text().toString();
                             }
                             else if (xmlExplain == XML_Title) {
                                 if (xmlRead.text().toString() != "")  // translation not nullptr can set it
@@ -776,6 +778,18 @@ void SearchModel::setLanguage(const QString &type)
                                     searchBoxStrcut = std::make_shared<SearchBoxStruct>();
                                     continue;
                                 }
+
+                                //判断是否非社区版，如果是非社区版本，屏蔽镜像源列表
+                                if (!IsCommunitySystem) {
+                                    if("Smart Mirror Switch" == strSource
+                                            || "Switch it on to connect to the quickest mirror site automatically" == strSource
+                                            || "System Repository Detection" == strSource
+                                            || "Mirror List" == strSource) {
+                                        searchBoxStrcut = std::make_shared<SearchBoxStruct>();
+                                        continue;
+                                    }
+                                }
+
                                 //qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
                                 if (!m_bIsServerType && !compositingAllowSwitch) {
                                     qDebug() << "search not Window!";
