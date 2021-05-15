@@ -180,9 +180,17 @@ public:
         }
     }
 
+    inline bool deviceAvailabel() const { return m_deviceAvailabel; }
+
+    inline void setDeviceAvailabel(bool deviceAvailabel)
+    {
+        m_deviceAvailabel = deviceAvailabel;
+    }
+
 protected:
     FrameProxyInterface *m_frameProxy{nullptr};
     bool m_available{true};
+    bool m_deviceAvailabel{true};
 };
 
 }

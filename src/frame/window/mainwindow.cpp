@@ -453,7 +453,7 @@ void MainWindow::updateModuleVisible()
     for (auto i : m_modules) {
         if (m_hideModuleNames.contains((i.first->name()))) {
             setModuleVisible(i.first, false);
-        } else {
+        } else if (i.first->deviceAvailabel()) {
             setModuleVisible(i.first, true);
         }
     }
