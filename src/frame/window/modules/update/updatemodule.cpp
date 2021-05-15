@@ -64,7 +64,6 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     if (!DSysInfo::isDeepin()) {
         qInfo() << "module: " << displayName() << " is disable now!";
         m_frameProxy->setModuleVisible(this, false);
-        setDeviceAvailabel(false);
         return;
     }
 
@@ -110,11 +109,9 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     }
     if (versionTypeList.contains("update")) {
         m_frameProxy->setModuleVisible(this, false);
-        setDeviceAvailabel(false);
     } else {
         bool bShowUpdate = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", true);
         m_frameProxy->setModuleVisible(this, bShowUpdate);
-        setDeviceAvailabel(bShowUpdate);
     }
 
 #ifndef DISABLE_ACTIVATOR

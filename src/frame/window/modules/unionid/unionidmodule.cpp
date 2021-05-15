@@ -78,7 +78,6 @@ void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     if (!DSysInfo::isDeepin()) {
         qInfo() << "module: " << displayName() << " is disable now!";
         m_frameProxy->setModuleVisible(this, false);
-        setDeviceAvailabel(false);
         return;
     }
 
@@ -87,9 +86,7 @@ void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     m_model = new dcc::unionid::UnionidModel;
     m_worker = new dcc::unionid::UnionidWorker(m_model);
 
-    bool visible = m_model->syncIsValid() && !IsServerSystem && false;
-    m_frameProxy->setModuleVisible(this, visible);
-    setDeviceAvailabel(visible);
+    m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !IsServerSystem && false);
 }
 
 QStringList UnionidModule::availPage() const

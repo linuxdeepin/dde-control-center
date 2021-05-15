@@ -56,13 +56,9 @@ void TouchscreenModule::preInitialize(bool sync, FrameProxyInterface::PushType p
     m_touchscreenModel->moveToThread(qApp->thread());
     m_touchscreenWorker->moveToThread(qApp->thread());
 
-    bool visible = !m_touchscreenModel->touchscreenList().isEmpty();
-    m_frameProxy->setModuleVisible(this, visible);
-    setDeviceAvailabel(visible);
+    m_frameProxy->setModuleVisible(this, !m_touchscreenModel->touchscreenList().isEmpty());
     connect(m_touchscreenModel, &TouchscreenModel::touchscreenListChanged, this, [=] {
-        bool visible = !m_touchscreenModel->touchscreenList().isEmpty();
-        m_frameProxy->setModuleVisible(this, visible);
-        setDeviceAvailabel(visible);
+        m_frameProxy->setModuleVisible(this, !m_touchscreenModel->touchscreenList().isEmpty());
         showTouchRecognize();
     });
 
