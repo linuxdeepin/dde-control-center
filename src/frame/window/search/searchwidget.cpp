@@ -98,6 +98,7 @@ SearchModel::SearchModel(QObject *parent)
     : QStandardItemModel(parent)
     , m_bIsChinese(false)
     , m_bIstextEdited(false)
+    , m_bIsOnBattery(false)
     , m_deepinwm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
 {
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
@@ -108,6 +109,7 @@ SearchModel::SearchModel(QObject *parent)
         m_searchModuleDevelop = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
         m_bIsContensServerType =  m_searchModuleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
     }
+
     //first存储和服务器/桌面版有关的文言
     //second : true 用于记录"服务器"才有的搜索数据
     //second : false用于记录"桌面版"才有的搜索数据
@@ -330,6 +332,11 @@ void SearchModel::loadxml()
 
         //判断是否为服务器，如果是服务器状态下搜索不到网络账户相关（所有界面）
         if (m_bIsServerType && tr("Cloud Account") == searchBoxStrcut->actualModuleName) {
+            continue;
+        }
+
+        //判断是否使用电池
+        if (!m_bIsOnBattery && tr("Battery") == searchBoxStrcut->translateContent) {
             continue;
         }
 
@@ -769,7 +776,6 @@ void SearchModel::setLanguage(const QString &type)
                                     searchBoxStrcut = std::make_shared<SearchBoxStruct>();
                                     continue;
                                 }
-
                                 //qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
                                 if (!m_bIsServerType && !compositingAllowSwitch) {
                                     qDebug() << "search not Window!";
@@ -863,6 +869,10 @@ void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
     auto res = std::find_if(m_removedefaultWidgetList.begin(), m_removedefaultWidgetList.end(), [=] (const QPair<QString, QString> data)->bool{
         return (data.first == name);
     });
+
+    if (res->second == "On Battery") {
+        m_bIsOnBattery = isExist;
+    }
 
     if (res != m_removedefaultWidgetList.end()) {
         value = (*res);

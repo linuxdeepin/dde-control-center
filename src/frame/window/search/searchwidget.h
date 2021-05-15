@@ -129,6 +129,7 @@ private:
     bool m_bIstextEdited;
     bool m_bIsServerType;
     bool m_bIsContensServerType;
+    bool m_bIsOnBattery;
     QGSettings *m_searchModuleDevelop{nullptr};
     WM *m_deepinwm;
 };
