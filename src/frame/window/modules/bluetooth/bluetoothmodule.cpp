@@ -54,7 +54,9 @@ void BluetoothModule::preInitialize(bool sync , FrameProxyInterface::PushType pu
         qDebug() << QString("adapters size(%1) : %2")
                     .arg(sender() ? "list change" : "first")
                     .arg(m_bluetoothModel->adapters().size());
-        m_frameProxy->setModuleVisible(this, m_bluetoothModel->adapters().size());
+        bool visible = m_bluetoothModel->adapters().size();
+        m_frameProxy->setModuleVisible(this, visible);
+        setDeviceUnavailabel(!visible);
     };
 
     connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this, updateModuleVisible);
@@ -83,6 +85,7 @@ void BluetoothModule::active()
     connect(m_bluetoothWidget, &BluetoothWidget::showDeviceDetail, this, &BluetoothModule::showDeviceDetail);
     connect(m_bluetoothWidget, &BluetoothWidget::requestModuleVisible, [this](const bool visible) {
         m_frameProxy->setModuleVisible(this, visible);
+        setDeviceUnavailabel(!visible);
     });
     m_frameProxy->pushWidget(this, m_bluetoothWidget);
     connect(m_bluetoothWidget, &BluetoothWidget::requestDiscoverable, m_bluetoothWorker, &BluetoothWorker::onRequestSetDiscoverable);

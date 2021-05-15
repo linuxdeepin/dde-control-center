@@ -64,6 +64,7 @@ void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype
     if (!DSysInfo::isDeepin()) {
         qInfo() << "module: " << displayName() << " is disable now!";
         m_frameProxy->setModuleVisible(this, false);
+        setDeviceUnavailabel(true);
         return;
     }
 
@@ -72,9 +73,13 @@ void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype
     m_model = new SyncModel;
     m_worker = new SyncWorker(m_model);
 
-    m_frameProxy->setModuleVisible(this, m_model->syncIsValid() && !IsServerSystem);
+    bool visible = m_model->syncIsValid() && !IsServerSystem;
+    m_frameProxy->setModuleVisible(this, visible);
+    setDeviceUnavailabel(!visible);
     connect(m_model, &SyncModel::syncIsValidChanged, this, [=](bool valid) {
-        m_frameProxy->setModuleVisible(this, valid && !IsServerSystem);
+        bool visible = valid && !IsServerSystem;
+        m_frameProxy->setModuleVisible(this, visible);
+        setDeviceUnavailabel(!visible);
     });
 }
 

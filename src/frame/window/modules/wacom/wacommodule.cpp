@@ -58,9 +58,11 @@ void WacomModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_worker = new WacomWorker(m_model);
 
     m_frameProxy->setModuleVisible(this, m_model->exist());
+    setDeviceUnavailabel(!m_model->exist());
 
     connect(m_model, &WacomModel::existChanged, this, [this](const bool exist) {
         m_frameProxy->setModuleVisible(this, exist);
+        setDeviceUnavailabel(!exist);
     });
 
     setAvailable(m_model->exist());
@@ -80,6 +82,7 @@ void WacomModule::active()
 
     m_wacomWidget->setModel(m_model);
     m_frameProxy->setModuleVisible(this, m_model->exist());
+    setDeviceUnavailabel(!m_model->exist());
     m_frameProxy->pushWidget(this, m_wacomWidget);
     m_wacomWidget->setVisible(true);
 }
