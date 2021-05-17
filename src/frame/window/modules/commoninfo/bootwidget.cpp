@@ -96,7 +96,10 @@ BootWidget::BootWidget(QWidget *parent)
     //~ contents_path /commoninfo/Boot Menu
     m_theme->setTitle(tr("Theme"));
 #endif
-    DTipLabel *backgroundLabel = new DTipLabel(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
+    DTipLabel *backgroundLabel = new DTipLabel(tr("Click the option in boot menu to set it as the first boot"));
+#ifndef DCC_DISABLE_GRUB_THEME
+    backgroundLabel->setText(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
+#endif
     backgroundLabel->setWordWrap(true);
     backgroundLabel->setContentsMargins(5, 0, 10, 0);
     backgroundLabel->setAlignment(Qt::AlignLeft);
