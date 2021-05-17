@@ -209,6 +209,7 @@ void DetailPage::onDeviceStatusChanged()
         m_connectButton->setText(tr("Disconnecting"));
         m_connectButton->setDisabled(true);
         m_disconnectButton->hide();
+        m_transfileButton->hide();
         m_ignoreButton->setEnabled(true);
         break;
     case Device::StateUnavailable:
