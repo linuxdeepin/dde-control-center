@@ -72,6 +72,8 @@ void SearchInput::focusInEvent(QFocusEvent *event)
         QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
         this->hasFocus() ? m_inputmethod->show() : m_inputmethod->hide();
     }
+
+    return QLineEdit::focusInEvent(event);
 }
 
 void SearchInput::focusOutEvent(QFocusEvent *event)
@@ -80,6 +82,8 @@ void SearchInput::focusOutEvent(QFocusEvent *event)
         QInputMethod *m_inputmethod = QGuiApplication::inputMethod();
         this->hasFocus() ? m_inputmethod->show() : m_inputmethod->hide();
     }
+
+    return QLineEdit::focusOutEvent(event);
 }
 
 void SearchInput::paintEvent(QPaintEvent *e)
