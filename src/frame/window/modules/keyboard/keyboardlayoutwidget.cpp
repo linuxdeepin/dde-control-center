@@ -49,9 +49,6 @@ KeyboardLayoutWidget::KeyboardLayoutWidget(QWidget *parent)
     setTitle(tr("Add Keyboard Layout"));
 
     m_mainWidget = new TranslucentFrame();
-    QVBoxLayout *layout = new QVBoxLayout();
-    layout->setMargin(0);
-    layout->setSpacing(0);
 
     QHBoxLayout *hlayout = new QHBoxLayout();
     hlayout->setMargin(0);

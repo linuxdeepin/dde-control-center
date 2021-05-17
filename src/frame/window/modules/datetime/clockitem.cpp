@@ -47,6 +47,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     , m_weekdayFormat("dddd")
     , m_shortDateFormat("yyyy-MM-dd")
     , m_longTimeFormat("HH:mm:ss")
+    , m_timeLayout(new QHBoxLayout)
 {
     m_clock->setMinimumSize(210, 210);
     m_clock->setAutoNightMode(false);
@@ -89,13 +90,11 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         twidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         tlayout->addWidget(twidget, 0, Qt::AlignVCenter);
 
-        QHBoxLayout *timeLayout = new QHBoxLayout;
         m_label = new DTipLabel("");
         m_labelDate = new DTipLabel("");
-        timeLayout = new QHBoxLayout;
-        timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
-        timeLayout->addWidget(m_labelDate, 0, Qt::AlignRight);
-        tlayout->addLayout(timeLayout);
+        m_timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
+        m_timeLayout->addWidget(m_labelDate, 0, Qt::AlignRight);
+        tlayout->addLayout(m_timeLayout);
 
         SettingsItem *item = new SettingsItem;
 
@@ -125,6 +124,12 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     connect(m_timedateInter, &Timedate::WeekdayFormatChanged, this, &ClockItem::setWeekdayFormatType);
     connect(m_timedateInter, &Timedate::ShortDateFormatChanged, this, &ClockItem::setShortDateFormat);
     connect(m_timedateInter, &Timedate::LongTimeFormatChanged, this, &ClockItem::setLongTimeFormat);
+}
+
+ClockItem::~ClockItem()
+{
+    delete  m_timeLayout;
+    m_timeLayout = nullptr;
 }
 
 void ClockItem::setTimeZone(const ZoneInfo &zone)

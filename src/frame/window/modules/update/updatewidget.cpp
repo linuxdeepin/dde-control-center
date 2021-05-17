@@ -111,7 +111,8 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
 UpdateWidget::~UpdateWidget()
 {
-
+    delete  m_centerLayout;
+    m_centerLayout = nullptr;
 }
 
 void UpdateWidget::initialize()

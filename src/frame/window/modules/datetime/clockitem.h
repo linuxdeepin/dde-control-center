@@ -26,6 +26,7 @@
 #include <com_deepin_daemon_timedate.h>
 
 #include <QDateTime>
+#include <QHBoxLayout>
 
 #include <types/zoneinfo.h>
 
@@ -52,6 +53,7 @@ class ClockItem : public QWidget
     Q_OBJECT
 public:
     explicit ClockItem(QWidget *parent = nullptr, bool isDisplay = true);
+    ~ClockItem();
 
     void setTimeZone(const ZoneInfo &zone);
     void setTimeHourType(bool type);
@@ -81,6 +83,7 @@ private:
     QString m_weekdayFormat;
     QString m_shortDateFormat;
     QString m_longTimeFormat;
+    QHBoxLayout *m_timeLayout;
 };
 
 } // namespace datetime

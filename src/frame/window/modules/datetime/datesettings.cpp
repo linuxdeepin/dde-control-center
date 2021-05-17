@@ -232,6 +232,8 @@ DateSettings::~DateSettings()
 {
     GSettingWatcher::instance()->erase("datetimeDatesettingConfirmbtn", m_buttonTuple->rightButton());
     GSettingWatcher::instance()->erase("datetimeDatesettingAutosync", m_autoSyncTimeSwitch);
+    delete   m_syncSettingTimer;
+    m_syncSettingTimer = nullptr;
 }
 
 void DateSettings::setCurrentTimeZone(const ZoneInfo &info)
