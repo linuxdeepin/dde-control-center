@@ -47,6 +47,7 @@ TouchscreenWidget::TouchscreenWidget(QWidget *parent)
     , m_model(nullptr)
     , m_contentLayout(new QVBoxLayout)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
+    , m_timer(new QTimer(this))
     , m_notifyInter(new Notifications("org.freedesktop.Notifications",
                                       "/org/freedesktop/Notifications",
                                       QDBusConnection::sessionBus(),
@@ -74,19 +75,30 @@ TouchscreenWidget::TouchscreenWidget(QWidget *parent)
 
     setLayout(m_contentLayout);
 
+    m_timer->setSingleShot(true);
+    m_timer->setInterval(100);
+
     connect(cancelBtn, &QPushButton::clicked, this, &TouchscreenWidget::onMonitorChanged);
     connect(acceptBtn, &QPushButton::clicked, this, &TouchscreenWidget::save);
+    connect(m_timer, &QTimer::timeout, this, &TouchscreenWidget::onMonitorChanged);
 }
 
 void TouchscreenWidget::setModel(TouchscreenModel *model)
 {
     m_model = model;
 
-    connect(m_model, &TouchscreenModel::monitorListChanged, this, &TouchscreenWidget::onMonitorChanged);
-    connect(m_model, &TouchscreenModel::touchscreenListChanged, this, &TouchscreenWidget::onMonitorChanged);
-    connect(m_model, &TouchscreenModel::touchscreenMapChanged, this, &TouchscreenWidget::onMonitorChanged);
+    connect(m_model, &TouchscreenModel::monitorListChanged, this, &TouchscreenWidget::clearShake);
+    connect(m_model, &TouchscreenModel::touchscreenListChanged, this, &TouchscreenWidget::clearShake);
+    connect(m_model, &TouchscreenModel::touchscreenMapChanged, this, &TouchscreenWidget::clearShake);
 
     onMonitorChanged();
+}
+
+void TouchscreenWidget::clearShake()
+{
+    if (!m_timer->isActive()) {
+        m_timer->start();
+    }
 }
 
 void TouchscreenWidget::onMonitorChanged()

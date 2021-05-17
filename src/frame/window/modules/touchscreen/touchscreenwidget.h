@@ -71,6 +71,7 @@ public:
 private Q_SLOTS:
     void onMonitorChanged();
     void save();
+    void clearShake();
 
 Q_SIGNALS:
     void requestAssociateTouch(const QString &monitor, const QString &touchscreenSerial);
@@ -83,6 +84,7 @@ private:
     QList<dcc::widgets::SettingsItem *> m_settingsItem;
     QList<MCombobox *> m_list;
     dcc::widgets::ButtonTuple *m_buttonTuple;
+    QTimer *m_timer;
 
     Notifications *m_notifyInter;
 };
