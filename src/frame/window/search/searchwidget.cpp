@@ -884,12 +884,11 @@ void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
         return (data.first == name);
     });
 
-    if (res->second == "On Battery") {
-        m_bIsOnBattery = isExist;
-    }
-
     if (res != m_removedefaultWidgetList.end()) {
         value = (*res);
+        if (res->second == "On Battery") {
+            m_bIsOnBattery = isExist;
+        }
     }
 
     if ("" != value.first && "" != value.second) {
