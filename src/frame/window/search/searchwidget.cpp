@@ -697,9 +697,9 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
             }
         }
 
-        QString pinyinTxt = QString("%1 --> %2")
+        QString pinyinTxt = QString("%1%2")
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
+                            .arg((removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent))).replace("/",""));
 
         //添加显示的汉字(用于拼音搜索显示)
         m_model->appendRow(new QStandardItem(icon.value(), hanziTxt));
@@ -730,7 +730,7 @@ void SearchWidget::appendChineseData(SearchWidget::SearchBoxStruct data)
         m_model->setData(m_model->index(m_model->rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
         QString hanziTxt = QString("%1 --> %2 / %3").arg(data.actualModuleName).arg(data.childPageName).arg(data.translateContent);
-        QString pinyinTxt = QString("%1 --> %2 / %3")
+        QString pinyinTxt = QString("%1%2%3")
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.actualModuleName)))
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.childPageName)))
                             .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(data.translateContent)));
