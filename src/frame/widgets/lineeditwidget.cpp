@@ -185,11 +185,12 @@ void LineEditWidget::mousePressEvent(QMouseEvent *e)
 {
     SettingsItem::mousePressEvent(e);
 
-    if (e->button() != Qt::LeftButton) {
+    // 点击鼠标左键并且控件可编辑
+    if (e->button() == Qt::LeftButton && m_edit->lineEdit()->isEnabled()) {
+        m_edit->setFocus();
         return;
     }
-
-    m_edit->setFocus();
+    m_edit->clearFocus();
 }
 
 }
