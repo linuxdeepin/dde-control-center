@@ -150,6 +150,7 @@ void PppoePage::onConnectionListChanged()
 void PppoePage::onConnectionDetailClicked(const QString &connectionUuid)
 {
     m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/", connectionUuid);
+    m_editPage->setModel(m_model);
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
