@@ -80,6 +80,12 @@ UnionidWidget::UnionidWidget(QWidget *parent)
 //    linksandLogoutwidhet->setLayout(hyperlinksLayout);
 //    mainLayout->addWidget(linksandLogoutwidhet);
     setLayout(m_pageLayout);
+    Notificationmanager::instance()->setUidWidgetIsExist(true);
+}
+
+UnionidWidget::~UnionidWidget()
+{
+    Notificationmanager::instance()->setUidWidgetIsExist(false);
 }
 
 void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMainWindow)
@@ -91,11 +97,7 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 
     connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
 
-    if (Notificationmanager::instance()->firstIsLogin()/* && Notificationmanager::instance()->isLogin()*/) {
-        Notificationmanager::instance()->onUserInfoChanged(model->userinfo());
-    //        m_loginPage->login();
-    }
-
+    Notificationmanager::instance()->onUserInfoChanged(model->userinfo());
     m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
     m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),true);
     m_indexPage->setWeChatName(Notificationmanager::instance()->getWeChatName());
@@ -112,12 +114,17 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 //    }
 }
 
-void UnionidWidget::onGetATFinished()
+void UnionidWidget::onGetATFinished(bool bIsFinished)
 {
-    //初始化显示信息
-    m_indexPage->setDefaultInfo();
-    m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),false);
-    m_pageLayout->setCurrentWidget(m_indexPage);
+    if (bIsFinished) {
+        //初始化显示信息
+        m_indexPage->setDefaultInfo();
+        m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),false);
+        m_pageLayout->setCurrentWidget(m_indexPage);
+    } else {
+        m_indexPage->setDefaultInfo();
+        m_pageLayout->setCurrentWidget(m_indexPage);
+    }
 }
 
 void UnionidWidget::switchWidget(const QVariantMap &userInfo)

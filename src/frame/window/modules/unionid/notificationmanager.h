@@ -74,6 +74,10 @@ public:
     // 是否外部登录
     bool bIsExternalLogin();
 
+    void setUidWidgetIsExist(bool bIsExists);
+
+    bool uidWidgetIsExist();
+
 Q_SIGNALS:
     // 通知登录的信号
     void toTellLoginUser();
@@ -85,7 +89,7 @@ Q_SIGNALS:
     void ProcessFinished();
 
     //通知获取AT完成的信号
-    void toTellGetATFinished();
+    void toTellGetATFinished(bool);
 
 public Q_SLOTS:
     void onSetNotificationStatus();
@@ -134,8 +138,13 @@ private:
     QString m_weChatName;///< 记录的用户微信昵称
     QString m_refreshToken;///< 记录的RT
     QPixmap m_avatar;///< 记录的用户头像
-    bool m_bIsLogin;///< 登录状态
+    QString m_requrstAvatar;///< 请求的用户头像
+    bool m_bIsFirstLogin;///< 登录状态
     bool m_bIsExternalLogin;///< 是否外部登录
+    QString m_code;///< 返回的code
+    QString m_weChatUnionId;///< 微信ID
+    int m_requrestCount;///< 请求计数
+    bool m_uidWidgetIsExist;///< uid界面是否存在
 
     //检测网络链接的定时器
     CustomPing *m_myping;///< 检测网络连接状态的线程

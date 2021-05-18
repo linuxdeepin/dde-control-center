@@ -49,14 +49,15 @@ class UnionidWidget : public QWidget
 {
     Q_OBJECT
 public:
-   explicit UnionidWidget(QWidget *parent = nullptr);
+    explicit UnionidWidget(QWidget *parent = nullptr);
+    ~UnionidWidget();
     void setModel(dcc::unionid::UnionidModel *model, MainWindow *pMainWindow);
     void switchWidget(const QVariantMap &userInfo);
     void setDefault();
 
 public Q_SLOTS:
     void onRequestLogout();
-    void onGetATFinished();
+    void onGetATFinished(bool bIsFinished);
 
 Q_SIGNALS:
     void requestSignInUser() const;
