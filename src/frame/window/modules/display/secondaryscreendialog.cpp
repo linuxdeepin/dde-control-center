@@ -46,11 +46,11 @@ const double DoubleZero = 0.01; //后端传入的doube指为浮点型，有效�
 
 SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     : DAbstractDialog(parent)
-    , m_contentLayout(new QVBoxLayout)
-    , m_monitorControlWidget(new MonitorControlWidget(180))
-    , m_resolutionWidget(new ResolutionWidget(ComboxWidth))
-    , m_refreshRateWidget(new RefreshRateWidget(ComboxWidth))
-    , m_rotateWidget(new RotateWidget(ComboxWidth))
+    , m_contentLayout(new QVBoxLayout(this))
+    , m_monitorControlWidget(new MonitorControlWidget(180, this))
+    , m_resolutionWidget(new ResolutionWidget(ComboxWidth, this))
+    , m_refreshRateWidget(new RefreshRateWidget(ComboxWidth, this))
+    , m_rotateWidget(new RotateWidget(ComboxWidth, this))
     , m_model(nullptr)
     , m_monitor(nullptr)
 {
@@ -110,11 +110,11 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
     };
 
     if (m_monitor->canBrightness()) {
-        TitleLabel *headTitle = new TitleLabel(tr("Brightness")); //亮度
+        TitleLabel *headTitle = new TitleLabel(tr("Brightness"), this); //亮度
         DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T7, QFont::Normal);
 
         //单独显示每个亮度调节名
-        TitledSliderItem *slideritem = new TitledSliderItem(m_monitor->name());
+        TitledSliderItem *slideritem = new TitledSliderItem(m_monitor->name(), this);
         slideritem->addBackground();
         DCCSlider *slider = slideritem->slider();
         int maxBacklight = static_cast<int>(m_model->maxBacklightBrightness());
@@ -217,8 +217,8 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
                         slider->blockSignals(false);
                     });
         }
-        QWidget *brightnessWidget = new QWidget;
-        QVBoxLayout *brightnessLayout = new QVBoxLayout;
+        QWidget *brightnessWidget = new QWidget(this);
+        QVBoxLayout *brightnessLayout = new QVBoxLayout(brightnessWidget);
         brightnessLayout->setContentsMargins(0, 10, 0, 0);
         brightnessLayout->addWidget(headTitle);
         brightnessLayout->setSpacing(10);
