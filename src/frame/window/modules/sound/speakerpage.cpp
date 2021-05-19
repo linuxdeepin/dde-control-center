@@ -207,7 +207,10 @@ void SpeakerPage::initSlider()
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoostTip, &DTipLabel::setVisible);
     connect(m_model, &SoundModel::speakerOnChanged, vbWidget, &QWidget::setVisible);
     //~ contents_path /sound/Speaker
+    //~ child_page Speaker
     auto balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
+    //~ child_page Speaker
+
     balanceSlider->addBackground();
     balanceSlider->setVisible(m_model->speakerOn());
 

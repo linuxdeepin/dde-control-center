@@ -315,6 +315,7 @@ void SearchWidget::loadxml()
         {"Time Settings", QObject::tr("Time Settings")},//datetime
         {"Timezone List/Change System Timezone", QObject::tr("Change System Timezone")},
         {"System Proxy", QObject::tr("System Proxy")},//network
+        {"Speaker", QObject::tr("Speaker")}
     };
 #if DEBUG_XML_SWITCH
     qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
