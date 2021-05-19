@@ -80,6 +80,7 @@ void KeyboardWidget::init()
     m_keyboardListView->setViewportMargins(ScrollAreaMargins);
     m_keyboardListView->setIconSize(ListViweIconSize);
     m_lastIndex = m_keyboardListView->currentIndex();
+    m_keyboardListView->resetStatus(m_lastIndex);
     connect(m_keyboardListView, &DListView::clicked, this, &KeyboardWidget::onItemClick);
     connect(m_keyboardListView, &DListView::activated, m_keyboardListView, &QListView::clicked);
 }

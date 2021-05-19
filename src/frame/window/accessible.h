@@ -38,6 +38,7 @@
 #include "./modules/accounts/avatarwidget.h"
 #include "./modules/accounts/createaccountpage.h"
 #include "./modules/accounts/accountsdetailwidget.h"
+#include "./modules/accounts/avatarwidget.h"
 #include "./modules/accounts/accountfingeitem.h"
 
 #include "./modules/bluetooth/bluetoothwidget.h"

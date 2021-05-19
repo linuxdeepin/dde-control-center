@@ -503,7 +503,7 @@ bool IpvxSection::ipv4InputIsValid()
     if (!dnsSec.isEmpty() && !isIpv4Address(dnsSec)) {
         valid = false;
         m_dnsSecond->setIsErr(true);
-        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsSecond, 2000);
+        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), parentWidget(), 2000);
     } else {
         if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
             valid = false;
@@ -566,7 +566,7 @@ bool IpvxSection::ipv6InputIsValid()
     if (!dnsSec.isEmpty() && !isIpv6Address(dnsSec)) {
         valid = false;
         m_dnsSecond->setIsErr(true);
-        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), m_dnsSecond, 2000);
+        m_dnsSecond->dTextEdit()->showAlertMessage(tr("Invalid DNS address"), parentWidget(), 2000);
     } else {
         if (!dnsSec.isEmpty() && dnsPri.isEmpty()) {
             valid = false;

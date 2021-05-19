@@ -62,7 +62,40 @@
         <file>actions/dcc_vpn_32px.svg</file>
         <file>actions/dcc_wifi_32px.svg</file>
         <file>icons/dcc_deepin_logo_164px.svg</file>
+        <file>icons/dcc_nav_accounts_42px.svg</file>
+        <file>icons/dcc_nav_accounts_84px.svg</file>
+        <file>icons/dcc_nav_bluetooth_42px.svg</file>
+        <file>icons/dcc_nav_bluetooth_84px.svg</file>
+        <file>icons/dcc_nav_cloudsync_42px.svg</file>
+        <file>icons/dcc_nav_cloudsync_84px.svg</file>
+        <file>icons/dcc_nav_commoninfo_42px.svg</file>
+        <file>icons/dcc_nav_commoninfo_84px.svg</file>
+        <file>icons/dcc_nav_datetime_42px.svg</file>
+        <file>icons/dcc_nav_datetime_84px.svg</file>
+        <file>icons/dcc_nav_defapp_42px.svg</file>
+        <file>icons/dcc_nav_defapp_84px.svg</file>
+        <file>icons/dcc_nav_display_42px.svg</file>
+        <file>icons/dcc_nav_display_84px.svg</file>
+        <file>icons/dcc_nav_keyboard_42px.svg</file>
+        <file>icons/dcc_nav_keyboard_84px.svg</file>
+        <file>icons/dcc_nav_mouse_42px.svg</file>
+        <file>icons/dcc_nav_mouse_84px.svg</file>
+        <file>icons/dcc_nav_network_42px.svg</file>
+        <file>icons/dcc_nav_network_84px.svg</file>
+        <file>icons/dcc_nav_personalization_42px.svg</file>
+        <file>icons/dcc_nav_personalization_84px.svg</file>
+        <file>icons/dcc_nav_power_42px.svg</file>
+        <file>icons/dcc_nav_power_84px.svg</file>
+        <file>icons/dcc_nav_sound_42px.svg</file>
+        <file>icons/dcc_nav_sound_84px.svg</file>
+        <file>icons/dcc_nav_systeminfo_42px.svg</file>
+        <file>icons/dcc_nav_systeminfo_84px.svg</file>
+        <file>icons/dcc_nav_update_42px.svg</file>
+        <file>icons/dcc_nav_update_84px.svg</file>
         <file>icons/dcc_cloud_128px.svg</file>
+        <file>icons/dcc_unionid_128px.svg</file>
+        <file>icons/dcc_nav_unionid_84px.svg</file>
+        <file>icons/dcc_nav_unionid_42px.svg</file>
         <file>texts/dcc_avatar_12px.svg</file>
         <file>texts/dcc_edit_12px.svg</file>
         <file>texts/dcc_rotate_24px.svg</file>
@@ -82,6 +115,8 @@
         <file>texts/dcc_wireless-2_16px.svg</file>
         <file>texts/dcc_wireless-6_16px.svg</file>
         <file>texts/dcc_reset_16px.svg</file>
+        <file>icons/dcc_nav_wacom_42px.svg</file>
+        <file>icons/dcc_nav_wacom_84px.svg</file>
         <file>actions/dcc_volume3_32px.svg</file>
         <file>actions/dcc_volume2_32px.svg</file>
         <file>actions/dcc_volume1_32px.svg</file>
@@ -95,6 +130,8 @@
         <file>icons/dcc_common_subscript.svg</file>
         <file>texts/dcc_update_topsettings_32px.svg</file>
         <file>texts/dcc_update_topupdate_32px.svg</file>
+        <file>icons/dcc_nav_notification_42px.svg</file>
+        <file>icons/dcc_nav_notification_84px.svg</file>
         <file>dark/buletooth_camera_dark.svg</file>
         <file>dark/buletooth_clang_dark.svg</file>
         <file>dark/buletooth_keyboard_dark.svg</file>
@@ -135,40 +172,8 @@
         <file>actions/dcc_backup_32px.svg</file>
         <file>icons/dcc_deepin_uos_logos.svg</file>
         <file>actions/dcc_time_format_32px.svg</file>
-        <file>icons/dcc_nav_accounts_42px.svg</file>
-        <file>icons/dcc_nav_accounts_84px.svg</file>
-        <file>icons/dcc_nav_bluetooth_42px.svg</file>
-        <file>icons/dcc_nav_bluetooth_84px.svg</file>
-        <file>icons/dcc_nav_cloudsync_42px.svg</file>
-        <file>icons/dcc_nav_cloudsync_84px.svg</file>
-        <file>icons/dcc_nav_commoninfo_42px.svg</file>
-        <file>icons/dcc_nav_commoninfo_84px.svg</file>
-        <file>icons/dcc_nav_datetime_42px.svg</file>
-        <file>icons/dcc_nav_datetime_84px.svg</file>
-        <file>icons/dcc_nav_defapp_42px.svg</file>
-        <file>icons/dcc_nav_defapp_84px.svg</file>
-        <file>icons/dcc_nav_display_42px.svg</file>
-        <file>icons/dcc_nav_display_84px.svg</file>
-        <file>icons/dcc_nav_keyboard_42px.svg</file>
-        <file>icons/dcc_nav_keyboard_84px.svg</file>
-        <file>icons/dcc_nav_mouse_42px.svg</file>
-        <file>icons/dcc_nav_mouse_84px.svg</file>
-        <file>icons/dcc_nav_network_42px.svg</file>
-        <file>icons/dcc_nav_network_84px.svg</file>
-        <file>icons/dcc_nav_notification_42px.svg</file>
-        <file>icons/dcc_nav_notification_84px.svg</file>
-        <file>icons/dcc_nav_personalization_42px.svg</file>
-        <file>icons/dcc_nav_personalization_84px.svg</file>
-        <file>icons/dcc_nav_power_42px.svg</file>
-        <file>icons/dcc_nav_power_84px.svg</file>
-        <file>icons/dcc_nav_sound_42px.svg</file>
-        <file>icons/dcc_nav_sound_84px.svg</file>
-        <file>icons/dcc_nav_systeminfo_42px.svg</file>
-        <file>icons/dcc_nav_systeminfo_84px.svg</file>
-        <file>icons/dcc_nav_update_42px.svg</file>
-        <file>icons/dcc_nav_update_84px.svg</file>
-        <file>icons/dcc_nav_wacom_42px.svg</file>
-        <file>icons/dcc_nav_wacom_84px.svg</file>
+        <file>icons/dcc_nav_deepin_systeminfo_42px.svg</file>
+        <file>icons/dcc_nav_deepin_systeminfo_84px.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

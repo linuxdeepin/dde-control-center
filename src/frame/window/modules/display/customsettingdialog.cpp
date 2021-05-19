@@ -238,7 +238,9 @@ void CustomSettingDialog::initWithModel()
 
 void CustomSettingDialog::initOtherDialog()
 {
-    if (m_otherDialog.size()) {
+    //bug-61032: 自定义-拆分，调用隐藏对话框，导致HDMI设置页面丢失 -> 不设置隐藏
+    //bug-68419: 自定义-合并，未调用隐藏对话框，导致出现两个设置对话框 -> 设置隐藏
+    if (m_otherDialog.size() && m_model->isMerge()) {
         for (auto dlg : m_otherDialog) {
             dlg->setVisible(false);
         }
@@ -358,7 +360,6 @@ void CustomSettingDialog::initResolutionList()
         m_resolutionListModel = new QStandardItemModel(this);
     m_resolutionList->setModel(m_resolutionListModel);
 
-    bool first = true;
     auto modes = m_monitor->modeList();
     const auto curMode = m_monitor->currentMode();
 
@@ -386,21 +387,20 @@ void CustomSettingDialog::initResolutionList()
 
         const QString res = QString::number(m.width()) + "×" + QString::number(m.height());
         auto *item = new DStandardItem();
-
         item->setData(QVariant(m.id()), IdRole);
         item->setData(QVariant(m.rate()), RateRole);
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
-        if (first) {
-            first = false;
+        if (Monitor::isSameResolution(m, m_monitor->bestMode())) {
             item->setText(res + QString(" (%1)").arg(tr("Recommended")));
+            m_resolutionListModel->insertRow(0, item);
         } else {
             item->setText(res);
+            m_resolutionListModel->appendRow(item);
         }
 
         if (Monitor::isSameResolution(curMode, m))
             curIdx = item;
-        m_resolutionListModel->appendRow(item);
     }
 
     m_resolutionList->setModel(m_resolutionListModel);

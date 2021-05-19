@@ -58,7 +58,7 @@ TEST_F(ControlCenterUnitTest, SetPrimary)
         qDebug() << reply.toString();
     }
 
-//    EXPECT_EQ(strPrimary, strDisplay);
+    EXPECT_EQ(strPrimary, strDisplay);
 }
 
 /*!
@@ -229,7 +229,7 @@ TEST_F(ControlCenterUnitTest, testProcessNumber)
     process.start("pidof", QStringList() << "dde-control-center");
     process.waitForFinished(2000);
     const QStringList& pids = QString(process.readAll()).trimmed().split(" ", QString::SkipEmptyParts);
-//    EXPECT_EQ(pids.size(), 1);
+    EXPECT_EQ(pids.size(), 1);
 
     process.start("dbus-send", QStringList() << "--session" << "--type=method_call" << "--print-reply"
                   << "--dest=com.deepin.dde.ControlCenter" << "/com/deepin/dde/ControlCenter"

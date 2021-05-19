@@ -132,9 +132,11 @@ void UnionidWidget::switchWidget(const QVariantMap &userInfo)
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
 
     if (isLogind) {
-        m_pageLayout->setCurrentWidget(m_indexPage);
+        qInfo() << "用户管理界面";
+        m_pageLayout->setCurrentWidget(m_indexPage);       
     }
     else {
+        qInfo() << "登录界面";
         m_indexPage->setDefaultInfo();
         m_loginPage->clearButtonFocus();
         m_pageLayout->setCurrentWidget(m_loginPage);
