@@ -145,8 +145,8 @@ void RefreshRateWidget::initRefreshRate()
         auto rate = mode.rate();
         DStandardItem *item = new DStandardItem;
         auto ref = QString::number(rate, 'g', 4) + tr("Hz");
-        if (m_monitor->currentMode().width() == m_monitor->bestMode().width() && m_monitor->currentMode().height() == m_monitor->bestMode().height()) {
-            if (Monitor::isSameRatefresh(m_monitor->currentMode(), m_monitor->bestMode())) {
+        if (Monitor::isSameResolution(mode, m_monitor->bestMode())) {
+            if (Monitor::isSameRatefresh(mode, m_monitor->bestMode())) {
                 ref += QString(" (%1)").arg(tr("Recommended"));
             }
         } else if (first) {
