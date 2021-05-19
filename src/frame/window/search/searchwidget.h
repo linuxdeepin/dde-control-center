@@ -130,6 +130,7 @@ private:
     bool m_bIsServerType;
     bool m_bIsContensServerType;
     bool m_bIsOnBattery;
+    bool m_bIsUseTouchpad;
     QGSettings *m_searchModuleDevelop{nullptr};
     WM *m_deepinwm;
 };

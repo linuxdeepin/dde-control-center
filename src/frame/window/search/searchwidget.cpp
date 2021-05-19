@@ -99,6 +99,7 @@ SearchModel::SearchModel(QObject *parent)
     , m_bIsChinese(false)
     , m_bIstextEdited(false)
     , m_bIsOnBattery(false)
+    , m_bIsUseTouchpad(false)
     , m_deepinwm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
 {
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
@@ -337,6 +338,12 @@ void SearchModel::loadxml()
 
         //判断是否使用电池
         if (!m_bIsOnBattery && tr("Battery") == searchBoxStrcut->translateContent) {
+            continue;
+        }
+
+        //判断是否使用触控板
+        if (!m_bIsUseTouchpad && (tr("Disable the touchpad when inserting the mouse") == searchBoxStrcut->translateContent
+                                  || tr("Disable the touchpad while typing") == searchBoxStrcut->translateContent)) {
             continue;
         }
 
@@ -888,6 +895,8 @@ void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
         value = (*res);
         if (res->second == "On Battery") {
             m_bIsOnBattery = isExist;
+        } else if (res->second == "Touchpad") {
+            m_bIsUseTouchpad = isExist;
         }
     }
 
