@@ -476,7 +476,10 @@ void MainWindow::modulePreInitialize(const QString &m)
 void MainWindow::popWidget()
 {
     if (m_topWidget) {
-        m_topWidget->deleteLater();
+        //由于多个模块在性能优化或功能实现上使用singleShot，可能导致无效指针问题，在popWidget中延后删除指针
+        QTimer::singleShot(0, this, [=] {
+            m_topWidget->deleteLater();
+        });
         m_topWidget = nullptr;
         return;
     }
@@ -487,7 +490,10 @@ void MainWindow::popWidget()
 
     m_rightContentLayout->removeWidget(w);
     w->setParent(nullptr);
-    w->deleteLater();
+    //由于多个模块在性能优化或功能实现上使用singleShot，可能导致无效指针问题，在popWidget中延后删除指针
+    QTimer::singleShot(0, this, [=] {
+        w->deleteLater();
+    });
 
     //delete replace widget : first delete replace widget(up code) , then pass pushWidget to set last widget
     if (m_lastThirdPage.second) {
