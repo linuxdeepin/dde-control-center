@@ -54,3 +54,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- -DCVERSION=$(DEB_VERSION_UPSTREAM)
 endif
 
+ifeq ($(DEB_BUILD_ARCH), loongarch64)
+override_dh_auto_configure:
+	dh_auto_configure -- -DCVERSION=$(DEB_VERSION_UPSTREAM)
+endif
