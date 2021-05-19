@@ -194,7 +194,7 @@ int main(int argc, char *argv[])
     QString verstr(CVERSION);
     if (verstr.isEmpty())
         verstr="4.1";
-    app->setApplicationVersion(CVERSION);
+    app->setApplicationVersion(verstr);
 #else
     app->setApplicationVersion("4.0");
 #endif
