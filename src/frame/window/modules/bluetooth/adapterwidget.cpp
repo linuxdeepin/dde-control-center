@@ -384,6 +384,21 @@ void AdapterWidget::toggleDiscoverableSwitch(const bool checked)
     Q_EMIT requestDiscoverable(m_adapter, checked);
 }
 
+// 刷新声音list状态
+void AdapterWidget::refreshAudioDeviceStatu(const Device::State &state, bool paired)
+{
+    QList<QPointer<DeviceSettingsItem>> allDevice;
+    allDevice.append(m_myDevices);
+    allDevice.append(m_deviceLists);
+
+    for (auto dev : allDevice) {
+        if (dev->device()->deviceType() == "pheadset") {
+            // 若是连接状态 暂时不可用
+            dev->getStandardItem()->setEnabled((state != Device::StateAvailable));
+        }
+    }
+}
+
 void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool paired)
 {
     if (deviceItem) {
@@ -411,6 +426,10 @@ void AdapterWidget::addDevice(const Device *device)
 {
     if (!device)
         return;
+    // 单独判断蓝牙音频设备
+    if (device->deviceType() == "pheadset")
+        connect(device, &Device::stateChanged, this, &AdapterWidget::refreshAudioDeviceStatu, Qt::UniqueConnection);
+
     QPointer<DeviceSettingsItem> deviceItem = new DeviceSettingsItem(device, style());
     categoryDevice(deviceItem, device->paired());
 

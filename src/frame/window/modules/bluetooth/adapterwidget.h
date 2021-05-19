@@ -88,6 +88,7 @@ private:
 public Q_SLOTS:
     void toggleSwitch(const bool checked);
     void toggleDiscoverableSwitch(const bool checked);
+    void refreshAudioDeviceStatu(const dcc::bluetooth::Device::State &state, bool paired);
 
 Q_SIGNALS:
     void requestSetToggleAdapter(const dcc::bluetooth::Adapter *adapter, const bool &toggled);

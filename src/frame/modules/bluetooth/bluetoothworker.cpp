@@ -33,11 +33,11 @@
 namespace dcc {
 namespace bluetooth {
 
-BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync) :
-    QObject(),
-    m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)),
-    m_model(model),
-    m_connectingAudioDevice(false)
+BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
+    : QObject()
+    , m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this))
+    , m_model(model)
+    , m_connectingAudioDevice(false)
 {
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
