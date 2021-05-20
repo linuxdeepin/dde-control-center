@@ -52,8 +52,12 @@ DatetimeWork::DatetimeWork(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &__Timedate::NTPChanged, m_model, &DatetimeModel::setNTP);
     connect(m_timedateInter, &__Timedate::Use24HourFormatChanged, m_model, &DatetimeModel::set24HourFormat);
 
-    connect(m_timedateInter, &__Timedate::TimezoneChanged, this, [ = ]() {
-        m_model->setCurrentUseTimeZone(GetZoneInfo(QTimeZone::systemTimeZoneId()));
+    connect(m_timedateInter, &__Timedate::TimezoneChanged, this, [ = ](const QString& value) {
+        auto tzinfo = GetZoneInfo(value);
+        if(tzinfo.getZoneName().length() == 0) {
+            tzinfo = GetZoneInfo(QTimeZone::systemTimeZoneId());
+        }
+        m_model->setCurrentUseTimeZone(tzinfo);
     });
 
     connect(m_timedateInter, &__Timedate::NTPServerChanged, m_model, &DatetimeModel::setNtpServerAddress);
