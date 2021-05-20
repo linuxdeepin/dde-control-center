@@ -130,6 +130,9 @@ void DisplayWidget::onMonitorListChanged()
 
 void DisplayWidget::initMenuUI()
 {
+    if (!m_multiModel || !m_singleModel)
+        return;
+
     m_multiModel->clear();
     m_singleModel->clear();
 
