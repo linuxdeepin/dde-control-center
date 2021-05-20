@@ -29,6 +29,7 @@
 #include "avatarlistwidget.h"
 #include "widgets/lineeditwidget.h"
 #include "accountswidget.h"
+#include "modules/accounts/accountsworker.h"
 
 #include <ddialog.h>
 #include <DLineEdit>
@@ -43,6 +44,10 @@
 
 using Defender = com::deepin::defender::hmiscreen;
 using DaemonService = com::deepin::defender::daemonservice;
+
+using namespace dcc::accounts;
+using namespace DCC_NAMESPACE::accounts;
+#define NAME_ALREADY 4
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -66,7 +71,7 @@ public:
     };
 
 public:
-    explicit CreateAccountPage(QWidget *parent = nullptr);
+    explicit CreateAccountPage(dcc::accounts::AccountsWorker *accountsWorker, QWidget *parent = nullptr);
     ~CreateAccountPage();
     void setModel(dcc::accounts::UserModel *userModel, dcc::accounts::User *user);
 
@@ -97,6 +102,7 @@ private Q_SLOTS:
 private:
     dcc::accounts::User *m_newUser;
     dcc::accounts::UserModel *m_userModel;
+    dcc::accounts::AccountsWorker *m_accountWorker;
     AvatarListWidget *m_avatarListWidget;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_nameEdit;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_fullnameEdit;

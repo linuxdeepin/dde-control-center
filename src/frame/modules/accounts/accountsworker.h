@@ -68,6 +68,7 @@ public:
     void active();
     QString getCurrentUserName();
     void updateGroupinfo();
+    QDBusPendingReply<bool, QString, int> isUsernameValid(const QString &name);
 
 Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;

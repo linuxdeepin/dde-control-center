@@ -45,9 +45,10 @@ using namespace dcc::accounts;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::accounts;
 
-CreateAccountPage::CreateAccountPage(QWidget *parent)
+CreateAccountPage::CreateAccountPage(dcc::accounts::AccountsWorker *accountsWorker, QWidget *parent)
     : QWidget(parent)
     , m_newUser{nullptr}
+    , m_accountWorker(accountsWorker)
     , m_avatarListWidget(nullptr)
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
@@ -423,14 +424,13 @@ bool CreateAccountPage::checkName()
         return false;
     }
 
-    QList<QString> groupList = m_userModel->getAllGroups();
-    for (QString &group : groupList) {
-        if (userName == group) {
-            m_nameEdit->setAlert(true);
-            m_nameEdit->showAlertMessage(tr("The name already exists"), m_nameEdit, 2000);
-            return false;
-        }
+    if (!m_accountWorker->isUsernameValid(userName).argumentAt(0).toBool() && NAME_ALREADY == m_accountWorker->isUsernameValid(userName).argumentAt(2).toInt()) {
+        m_nameEdit->setAlert(true);
+        m_nameEdit->showAlertMessage(tr("The name already exists"), m_nameEdit, 2000);
+        return false;
     }
+
+
     /* 暂时先屏蔽用户名与用户全名的重复性检查 */
     // QList<User *> userList = m_userModel->userList();
     // for (User *user : userList) {

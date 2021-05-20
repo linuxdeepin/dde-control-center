@@ -192,7 +192,7 @@ void AccountsModule::onShowCreateAccountPage()
     if (m_isCreatePage) {
         return;
     }
-    CreateAccountPage *w = new CreateAccountPage();
+    CreateAccountPage *w = new CreateAccountPage(m_accountsWorker);
     w->setVisible(false);
     User *newUser = new User(this);
     w->setModel(m_userModel, newUser);

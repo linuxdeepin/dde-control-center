@@ -219,6 +219,13 @@ QString AccountsWorker::getCurrentUserName()
     return m_currentUserName;
 }
 
+QDBusPendingReply<bool, QString, int> AccountsWorker::isUsernameValid(const QString &name)
+{
+    QDBusPendingReply<bool, QString, int> reply = m_accountsInter->IsUsernameValid(name);
+    reply.waitForFinished();
+    return reply;
+}
+
 void AccountsWorker::randomUserIcon(User *user)
 {
     QDBusPendingCall call = m_accountsInter->RandUserIcon();
