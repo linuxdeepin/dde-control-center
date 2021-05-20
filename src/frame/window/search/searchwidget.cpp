@@ -347,6 +347,12 @@ void SearchModel::loadxml()
             continue;
         }
 
+        //判断特殊的三级菜单
+        if (m_specialThreeMenuMap.keys().contains(searchBoxStrcut->source)) {
+            if (!m_specialThreeMenuMap[ searchBoxStrcut->source ])
+                continue;
+        }
+
         //qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
         if (!m_bIsServerType && !m_deepinwm->compositingAllowSwitch()) {
             qDebug() << "search not Window!";
@@ -740,7 +746,7 @@ void SearchModel::setLanguage(const QString &type)
                             qDebug() << " [SearchWidget]  xmlRead.text : " << xmlRead.text().toString();
 #endif
                             if (xmlExplain == XML_Source) {  // get xml source date
-                                searchBoxStrcut->translateContent = xmlRead.text().toString();
+                                searchBoxStrcut->source = xmlRead.text().toString();
                                 strSource = xmlRead.text().toString();
                             }
                             else if (xmlExplain == XML_Title) {
@@ -879,6 +885,12 @@ void SearchModel::removeUnExsitData(const QString &module, const QString &datail
     }
 
     return loadxml();
+}
+
+void SearchModel::addSpecialThreeMenuMap(const QString &name, bool flag)
+{
+    m_specialThreeMenuMap.insert(name, flag);
+    loadxml();
 }
 
 void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
@@ -1029,4 +1041,9 @@ void SearchWidget::removeUnExsitData(const QString &module, const QString &datai
 void SearchWidget::setRemoveableDeviceStatus(const QString &name, bool isExist)
 {
     return m_model->setRemoveableDeviceStatus(name, isExist);
+}
+
+void SearchWidget::addSpecialThreeMenuMap(const QString &name, bool flag)
+{
+    return m_model->addSpecialThreeMenuMap(name, flag);
 }

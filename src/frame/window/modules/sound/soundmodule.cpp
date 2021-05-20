@@ -42,8 +42,9 @@ SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
     GSettingWatcher::instance()->insertState("soundEffects");
 }
 
-void SoundModule::initialize()
+void SoundModule::preInitialize(bool, FrameProxyInterface::PushType pushtype)
 {
+    Q_UNUSED(pushtype);
     if (m_model) {
         delete m_model;
     }
@@ -52,6 +53,12 @@ void SoundModule::initialize()
 
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
+
+    connect(m_model, &SoundModel::balanceVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
+}
+
+void SoundModule::initialize()
+{
 }
 
 const QString SoundModule::name() const

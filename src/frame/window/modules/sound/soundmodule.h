@@ -55,6 +55,7 @@ public:
     void active() override;
     int load(const QString &path) override;
     QStringList availPage() const override;
+    void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
 
 public Q_SLOTS:
     void showSpeakerPage();

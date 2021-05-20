@@ -99,7 +99,7 @@ private Q_SLOTS:
     void onSourceCardChanged(const uint &cardId);
     void getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher);
     void getSoundPathFinished(QDBusPendingCallWatcher *watcher);
-    
+
 private:
     void updatePortActivity();
 

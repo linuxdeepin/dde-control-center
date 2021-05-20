@@ -115,6 +115,10 @@ private Q_SLOTS:
     void findFocusChild(QWidget *w, QWidget *&pre);
     void findFocusChild(QLayout *l, QWidget *&pre);
 
+public Q_SLOTS:
+    //设置特别的三级菜单的可见性
+    void setSpecialThreeMenuVisible(QString name, bool flag);
+
 protected:
     void resizeEvent(QResizeEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;

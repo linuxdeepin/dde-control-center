@@ -216,6 +216,8 @@ Q_SIGNALS:
     void setBlanceVisible(bool flag);
     //噪音抑制是否可见
     void setNoiseReduceVisible(bool flag);
+    //声音平衡模块是否可见
+    void balanceVisibleChanged(QString name, bool flag);
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;

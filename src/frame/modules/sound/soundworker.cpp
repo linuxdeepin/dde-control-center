@@ -440,12 +440,21 @@ void SoundWorker::updatePortActivity()
  */
 void SoundWorker::requestBlanceVisible()
 {
-    if (!m_defaultSink)
+    if (!m_defaultSink) {
         return;
-    if (m_defaultSink->activePort().name.contains("headset_head_unit"))
+    }
+    if (m_defaultSink->activePort().name.isEmpty()) {
         Q_EMIT m_model->setBlanceVisible(false);
-    else
+        Q_EMIT m_model->balanceVisibleChanged("Left/Right Balance", false);
+        return;
+    }
+    if (m_defaultSink->activePort().name.contains("headset_head_unit")) {
+        Q_EMIT m_model->setBlanceVisible(false);
+        Q_EMIT m_model->balanceVisibleChanged("Left/Right Balance", false);
+    } else {
         Q_EMIT m_model->setBlanceVisible(true);
+        Q_EMIT m_model->balanceVisibleChanged("Left/Right Balance", true);
+    }
 }
 
 void SoundWorker::requestNoiseReduceVisible()

@@ -55,6 +55,7 @@ namespace DCC_NAMESPACE {
 namespace search {
 struct SearchBoxStruct {
     typedef std::shared_ptr<SearchBoxStruct> Ptr;
+    QString source;
     QString translateContent;
     QString actualModuleName;
     QString childPageName;
@@ -93,6 +94,7 @@ public:
     void addUnExsitData(const QString &module = "", const QString &datail = "");
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
+    void addSpecialThreeMenuMap(const QString &name, bool flag);
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
@@ -125,6 +127,7 @@ private:
     QList<QPair<QString, QString>> m_removedefaultWidgetList;//用于存储可以出设备名称，和该名称对应的页面
     QList<QPair<QString, QString>> m_removeableActualExistList;//存储实际模块是否存在
     QList<QPair<QString, bool>> m_contensServerTxtList;
+    QMap<QString, bool> m_specialThreeMenuMap; //特别的三菜单显示
     bool m_bIsChinese;
     bool m_bIstextEdited;
     bool m_bIsServerType;
@@ -148,6 +151,7 @@ public:
     void addUnExsitData(const QString &module = "", const QString &datail = "");
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
+    void addSpecialThreeMenuMap(const QString &name, bool flag);
 
 private Q_SLOTS:
     void onCompleterActivated(const QString &value);
