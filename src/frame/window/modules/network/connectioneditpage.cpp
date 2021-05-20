@@ -174,7 +174,7 @@ void ConnectionEditPage::initSettingsWidget()
         break;
     }
     case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
-        m_settingsWidget = new DslPppoeSettings(m_connectionSettings, this);
+        m_settingsWidget = new DslPppoeSettings(m_connectionSettings, DevicePath, this);
         break;
     }
     default:

@@ -37,6 +37,7 @@
 namespace dde {
 namespace network {
 class NetworkModel;
+class NetworkDevice;
 }
 }
 
@@ -48,9 +49,23 @@ class LoadingNextPageWidget;
 }
 }
 
+class DeviceItem;
 namespace DCC_NAMESPACE {
 namespace network {
 class ConnectionEditPage;
+class DeviceItem : public DStandardItem
+{
+public:
+    inline dde::network::NetworkDevice *device() const { return m_device; }
+    inline void setDevice(dde::network::NetworkDevice *device)
+    {
+        m_device = device;
+    }
+
+private:
+    dde::network::NetworkDevice *m_device = nullptr;
+};
+
 class PppoePage : public dcc::ContentWidget
 {
     Q_OBJECT
@@ -69,7 +84,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void createPPPoEConnection();
     void onConnectionListChanged();
-    void onConnectionDetailClicked(const QString &connectionUuid);
+    void onConnectionDetailClicked(const QString &connectionUuid, DeviceItem* item);
     void onPPPoESelected(const QString &connectionUuid);
     void onActiveConnectionChanged(const QList<QJsonObject> &conns);
 

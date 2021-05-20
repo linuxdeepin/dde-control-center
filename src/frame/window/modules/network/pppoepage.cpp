@@ -34,7 +34,7 @@
 #include "window/gsettingwatcher.h"
 
 #include <networkmodel.h>
-#include <wireddevice.h>
+#include <networkdevice.h>
 #include <DFloatingButton>
 
 #include <QPushButton>
@@ -104,7 +104,14 @@ void PppoePage::setModel(NetworkModel *model)
 
 void PppoePage::createPPPoEConnection()
 {
-    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/");
+    NetworkDevice *device;
+    for (auto d : m_model->devices()) {
+        if (d->type() == NetworkDevice::Wired) {
+            device = d;
+            break;
+        }
+    }
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, device->path());
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
@@ -124,18 +131,26 @@ void PppoePage::onConnectionListChanged()
     for (const auto &pppoe : m_model->pppoes()) {
         const auto name = pppoe.value("Id").toString();
         const auto uuid = pppoe.value("Uuid").toString();
+        const auto macAddress = pppoe.value("HwAddress").toString();
 
-        DStandardItem *it = new DStandardItem();
+        DeviceItem *it = new DeviceItem;
         it->setText(name);
         it->setData(uuid, UuidRole);
         it->setCheckable(true);
+
+        for (auto device : m_model->devices()) {
+            if (device->info().value("HwAddress").toString() == macAddress) {
+                it->setDevice(device);
+                break;
+            }
+        }
 
         DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         editaction->setClickAreaMargins(ArrowEnterClickMargin);
-        connect(editaction, &QAction::triggered, [this, uuid] {
-            this->onConnectionDetailClicked(uuid);
+        connect(editaction, &QAction::triggered, [this, uuid, it] {
+            this->onConnectionDetailClicked(uuid, it);
         });
         it->setActionList(Qt::Edge::RightEdge, {editaction});
         m_items[uuid] = it;
@@ -146,9 +161,10 @@ void PppoePage::onConnectionListChanged()
     onActiveConnectionChanged(m_model->activeConns());
 }
 
-void PppoePage::onConnectionDetailClicked(const QString &connectionUuid)
+void PppoePage::onConnectionDetailClicked(const QString &connectionUuid, DeviceItem *item)
 {
-    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/", connectionUuid);
+    NetworkDevice *device = item->device();
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, device ? device->path() : "/", connectionUuid);
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);

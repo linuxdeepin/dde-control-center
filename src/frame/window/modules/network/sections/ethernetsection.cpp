@@ -34,13 +34,14 @@ using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting, QFrame *parent)
+EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting, QString devPath, QFrame *parent)
     : AbstractSection(tr("Ethernet"), parent)
     , m_deviceMacLine(new ComboxWidget(this))
     , m_clonedMac(new LineEditWidget(this))
     , m_customMtuSwitch(new SwitchWidget(this))
     , m_customMtu(new SpinBoxWidget(this))
     , m_wiredSetting(wiredSetting)
+    , m_devicePath(devPath)
 {
     // get the macAddress list from all wired devices
     for (auto device : NetworkManager::networkInterfaces()) {
@@ -114,6 +115,18 @@ void EthernetSection::initUI()
     } else {
         // set macAddress of the current device to be default value
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));
+
+        if (!m_devicePath.isEmpty()) {
+            NetworkManager::WiredDevice::Ptr dev = NetworkManager::findNetworkInterface(m_devicePath).staticCast<NetworkManager::WiredDevice>();
+            if (dev) {
+                QString mac = dev->permanentHardwareAddress();
+                if (mac.isEmpty()) {
+                    qDebug() << dev->interfaceName() << ": empty permanentHardwareAddress";
+                    mac = dev->hardwareAddress();
+                }
+                m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(mac.remove(":")));
+            }
+        }
     }
 
     m_clonedMac->setTitle(tr("Cloned MAC Addr"));

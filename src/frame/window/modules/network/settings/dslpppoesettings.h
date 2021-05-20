@@ -34,12 +34,15 @@ class DslPppoeSettings : public AbstractSettings
     Q_OBJECT
 
 public:
-    explicit DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent = nullptr);
+    explicit DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QString devPath = QString(), QWidget *parent = nullptr);
     virtual ~DslPppoeSettings() override;
 
 protected:
     void initSections() Q_DECL_OVERRIDE;
     bool clearInterfaceName() Q_DECL_OVERRIDE;
+
+private:
+    QString m_devicePath;
 };
 
 } /* network */

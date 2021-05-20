@@ -43,7 +43,7 @@ class EthernetSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting, QFrame *parent = nullptr);
+    explicit EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting, QString devPath = QString(), QFrame *parent = nullptr);
     virtual ~EthernetSection() override;
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -67,6 +67,7 @@ private:
 
     QRegExp m_macAddrRegExp;
     QMap<QString, QString> m_macStrMap;
+    QString m_devicePath;
 };
 
 } /* network */

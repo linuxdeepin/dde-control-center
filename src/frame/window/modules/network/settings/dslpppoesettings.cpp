@@ -30,8 +30,9 @@
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
 
-DslPppoeSettings::DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)
+DslPppoeSettings::DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QString devPath, QWidget *parent)
     : AbstractSettings(connSettings, parent)
+    , m_devicePath(devPath)
 {
     initSections();
 }
@@ -49,7 +50,7 @@ void DslPppoeSettings::initSections()
         m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     DNSSection *dnsSection = new DNSSection(m_connSettings);
     EthernetSection *etherNetSection = new EthernetSection(
-        m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
+        m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>(), m_devicePath);
     PPPSection *pppSection = new PPPSection(
         m_connSettings->setting(Setting::Ppp).staticCast<NetworkManager::PppSetting>());
 
