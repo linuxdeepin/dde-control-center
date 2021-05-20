@@ -62,7 +62,6 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType,
     , m_isNewConnection(false)
     , m_connectionUuid(connUuid)
     , m_isHotSpot(isHotSpot)
-    , m_model(nullptr)
 {
     DevicePath = devPath;
 
@@ -175,7 +174,7 @@ void ConnectionEditPage::initSettingsWidget()
         break;
     }
     case NetworkManager::ConnectionSettings::ConnectionType::Pppoe: {
-        m_settingsWidget = new DslPppoeSettings(m_connectionSettings, m_model, this);
+        m_settingsWidget = new DslPppoeSettings(m_connectionSettings, this);
         break;
     }
     default:
@@ -264,11 +263,6 @@ void ConnectionEditPage::onRequestNextPage(dcc::ContentWidget *const page)
     m_subPage = page;
 
     Q_EMIT requestNextPage(page);
-}
-
-void ConnectionEditPage::setModel(dde::network::NetworkModel *model)
-{
-    m_model = model;
 }
 
 void ConnectionEditPage::initConnectionSecrets()
