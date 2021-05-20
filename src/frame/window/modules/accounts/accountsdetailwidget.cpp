@@ -546,6 +546,7 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         m_groupItemModel->appendRow(it);
     }
 
+    connect(m_userModel, &UserModel::allGroupsChange, this, &AccountsDetailWidget::setGroupInfo);
     changeUserGroup(m_curUser->groups());
     connect(m_curUser, &User::groupsChanged, this, &AccountsDetailWidget::changeUserGroup);
 }
@@ -649,4 +650,14 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
         item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
+}
+
+void AccountsDetailWidget::setGroupInfo(const QStringList &group)
+{
+    for (const QString &item : group) {
+        GroupItem *it = new GroupItem(item);
+        it->setCheckable(false);
+        m_groupItemModel->appendRow(it);
+    }
+    changeUserGroup(m_curUser->groups());
 }
