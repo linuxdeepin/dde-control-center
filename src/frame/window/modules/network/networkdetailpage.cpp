@@ -264,8 +264,12 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
 QString NetworkDetailPage::ipv6Infomation(QJsonObject connectinfo, NetworkDetailPage::InfoType type)
 {
     NetworkManager::Connection::Ptr connection = findConnectionByUuid(connectinfo.value("ConnectionUuid").toString());
+    if (connection.isNull())
+        return "";
     NetworkManager::ConnectionSettings::Ptr connectionSettings = connection->settings();
     NetworkManager::Ipv6Setting::Ptr ipv6Setting = connectionSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>();
+    if (ipv6Setting.isNull())
+        return "";
     QList<NetworkManager::IpAddress> addressInfos = ipv6Setting->addresses();
     if (ipv6Setting->method() == Ipv6Setting::Manual) {
 
