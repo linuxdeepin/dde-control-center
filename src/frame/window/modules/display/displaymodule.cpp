@@ -134,11 +134,15 @@ void DisplayModule::preInitialize(bool sync , FrameProxyInterface::PushType push
 
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [this]() {
         m_frameProxy->setRemoveableDeviceStatus(tr("Multiple Displays"), m_displayModel->monitorList().size() > 1);
+        if (m_frameProxy->currModule() && m_frameProxy->currModule()->name() != name())
+            return;
         if (m_displayWidget) {
             m_displayWidget->initMenuUI();
         }
     });
     connect(m_displayModel, &DisplayModel::touchscreenListChanged, this, [this]() {
+        if (m_frameProxy->currModule() && m_frameProxy->currModule()->name() != name())
+            return;
         if (m_displayWidget) {
             m_displayWidget->initMenuUI();
             m_displayWidget->onMonitorListChanged();
