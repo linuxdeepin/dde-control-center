@@ -114,6 +114,10 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
     m_displayWorker->moveToThread(qApp->thread());
 
     connect(m_displayModel, &DisplayModel::monitorListChanged, this, [=] {
+        //当前从显示模块切到了其他模块, 会导致m_displayWidget不为空,但是也有些数据被delete, 容易访问空指针
+        //加不在当前模块内就不处理显示器插拔的信号
+        if (m_frameProxy->currModule() && m_frameProxy->currModule()->name() != name())
+            return;
         if (m_displayWidget != nullptr) {
             pushScreenWidget();
         }
