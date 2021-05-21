@@ -26,6 +26,7 @@
 #include "../sections/dnssection.h"
 #include "../sections/pppsection.h"
 #include "../sections/ethernetsection.h"
+#include "../connectioneditpage.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -33,6 +34,7 @@ using namespace NetworkManager;
 DslPppoeSettings::DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QString devPath, QWidget *parent)
     : AbstractSettings(connSettings, parent)
     , m_devicePath(devPath)
+    , m_parent(parent)
 {
     initSections();
 }
@@ -49,7 +51,7 @@ void DslPppoeSettings::initSections()
     IpvxSection *ipv4Section = new IpvxSection(
         m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     DNSSection *dnsSection = new DNSSection(m_connSettings);
-    EthernetSection *etherNetSection = new EthernetSection(
+    m_etherNetSection = new EthernetSection(
         m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>(), m_devicePath);
     PPPSection *pppSection = new PPPSection(
         m_connSettings->setting(Setting::Ppp).staticCast<NetworkManager::PppSetting>());
@@ -58,31 +60,33 @@ void DslPppoeSettings::initSections()
     connect(pppoeSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(ipv4Section, &IpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(dnsSection, &DNSSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
-    connect(etherNetSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(m_etherNetSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(pppSection, &IpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(dnsSection, &DNSSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
 
     connect(ipv4Section, &IpvxSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
     connect(dnsSection, &DNSSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
-    connect(etherNetSection, &EthernetSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
+    connect(m_etherNetSection, &EthernetSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(pppoeSection);
     m_sectionsLayout->addWidget(ipv4Section);
     m_sectionsLayout->addWidget(dnsSection);
-    m_sectionsLayout->addWidget(etherNetSection);
+    m_sectionsLayout->addWidget(m_etherNetSection);
     m_sectionsLayout->addWidget(pppSection);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(pppoeSection);
     m_settingSections.append(ipv4Section);
     m_settingSections.append(dnsSection);
-    m_settingSections.append(etherNetSection);
+    m_settingSections.append(m_etherNetSection);
     m_settingSections.append(pppSection);
 }
 
 bool DslPppoeSettings::clearInterfaceName()
 {
+    ConnectionEditPage *page = dynamic_cast<ConnectionEditPage *>(m_parent);
+    if (page) page->setDevicePath(m_etherNetSection->devicePath());
     NetworkManager::WiredSetting::Ptr wiredSetting = m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>();
     return wiredSetting->macAddress().isEmpty();
 }

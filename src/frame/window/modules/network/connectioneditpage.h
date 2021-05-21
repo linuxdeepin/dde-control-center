@@ -59,6 +59,7 @@ public:
     virtual void initSettingsWidget();
 
     static const QString devicePath();
+    void setDevicePath(const QString &path);
     inline const QString connectionUuid() { return m_connectionUuid; }
 
     void onDeviceRemoved();

@@ -28,7 +28,7 @@
 
 namespace DCC_NAMESPACE {
 namespace network {
-
+class EthernetSection;
 class DslPppoeSettings : public AbstractSettings
 {
     Q_OBJECT
@@ -43,6 +43,8 @@ protected:
 
 private:
     QString m_devicePath;
+    QObject *m_parent;
+    EthernetSection *m_etherNetSection;
 };
 
 } /* network */

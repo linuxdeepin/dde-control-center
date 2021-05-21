@@ -49,6 +49,8 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
 
+    QString devicePath() const;
+
 private:
     void initUI();
     void initConnection();

@@ -89,6 +89,24 @@ void EthernetSection::saveSettings()
     if (hwAddr == NotBindValue) {
         hwAddr.clear();
     }
+
+    if (!hwAddr.isEmpty()) {
+        for (auto device : NetworkManager::networkInterfaces()) {
+            if (device->type() != NetworkManager::Device::Ethernet) {
+                continue;
+            }
+            NetworkManager::WiredDevice::Ptr wDevice = device.staticCast<NetworkManager::WiredDevice>();
+            QString mac = wDevice->permanentHardwareAddress();
+            if (mac.isEmpty()) {
+                qDebug() << wDevice->interfaceName() << ": empty permanentHardwareAddress";
+                mac = wDevice->hardwareAddress();
+            }
+            if (hwAddr == mac.remove(":")) {
+                m_devicePath = device->uni();
+            }
+        }
+    }
+
     m_wiredSetting->setMacAddress(QByteArray::fromHex(hwAddr.toUtf8()));
 
     QString clonedAddr = m_clonedMac->text().remove(":");
@@ -116,7 +134,7 @@ void EthernetSection::initUI()
         // set macAddress of the current device to be default value
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));
 
-        if (!m_devicePath.isEmpty()) {
+        if (m_devicePath != "/") {
             NetworkManager::WiredDevice::Ptr dev = NetworkManager::findNetworkInterface(m_devicePath).staticCast<NetworkManager::WiredDevice>();
             if (dev) {
                 QString mac = dev->permanentHardwareAddress();
@@ -189,4 +207,9 @@ bool EthernetSection::eventFilter(QObject *watched, QEvent *event)
         }
     }
     return QWidget::eventFilter(watched, event);
+}
+
+QString EthernetSection::devicePath() const
+{
+    return m_devicePath;
 }

@@ -196,6 +196,11 @@ const QString ConnectionEditPage::devicePath()
     return DevicePath;
 }
 
+void ConnectionEditPage::setDevicePath(const QString &path)
+{
+    DevicePath = path;
+}
+
 void ConnectionEditPage::onDeviceRemoved()
 {
     if (m_subPage) {

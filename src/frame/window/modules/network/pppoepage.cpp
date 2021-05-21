@@ -104,14 +104,14 @@ void PppoePage::setModel(NetworkModel *model)
 
 void PppoePage::createPPPoEConnection()
 {
-    NetworkDevice *device;
+    NetworkDevice *device = nullptr;
     for (auto d : m_model->devices()) {
         if (d->type() == NetworkDevice::Wired) {
             device = d;
             break;
         }
     }
-    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, device->path());
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, device ? device->path() : "/");
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
