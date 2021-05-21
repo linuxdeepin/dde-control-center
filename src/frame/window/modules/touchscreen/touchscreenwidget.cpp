@@ -38,7 +38,7 @@ const int FontSpaceLenght = 10;
 void MCombobox::showPopup()
 {
     QComboBox::showPopup();
-    QWidget *popup = this->findChild<QFrame *>();
+    QWidget *popup = this->findChild<QFrame*>();
     popup->move(this->mapToGlobal(this->pos()).x() - this->x(), popup->y());
 }
 
@@ -138,9 +138,6 @@ void TouchscreenWidget::onMonitorChanged()
 
         if (touchMap.find(touchscreenSerial) != touchMap.end()) {
             listCombo->setCurrentText(touchMap.value(touchscreenSerial));
-        } else {
-            listCombo->addItem(tr("No touch screen found"));
-            listCombo->setCurrentText(tr("No touch screen found"));
         }
 
         m_list.push_back(listCombo);
