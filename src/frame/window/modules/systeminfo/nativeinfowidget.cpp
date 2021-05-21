@@ -98,10 +98,7 @@ void NativeInfoWidget::initWidget()
     //~ contents_path /systeminfo/About This PC
     m_version->setTitle(tr("Edition:"));
     m_version->setValue(m_model->version());
-    m_version->setVisible(!DSysInfo::isCommunityEdition());
-    if (!DSysInfo::isCommunityEdition()) {
-        GSettingWatcher::instance()->bind("edition", m_version);
-    }
+    GSettingWatcher::instance()->bind("edition", m_version);
     m_type = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
