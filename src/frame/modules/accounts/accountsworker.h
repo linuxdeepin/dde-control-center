@@ -67,6 +67,7 @@ public:
 
     void active();
     QString getCurrentUserName();
+    void updateGroupinfo();
 
 Q_SIGNALS:
     void requestFrameAutoHide(const bool autoHide) const;

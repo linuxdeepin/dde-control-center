@@ -108,6 +108,7 @@ void AccountsModule::active()
         m_frameProxy->popWidget(this);
     });
     connect(m_accountsWidget, &AccountsWidget::requestLoadUserList, m_accountsWorker, &AccountsWorker::loadUserList);
+    connect(m_accountsWidget, &AccountsWidget::requestUpdatGroupList, m_accountsWorker, &AccountsWorker::updateGroupinfo);
     m_frameProxy->pushWidget(this, m_accountsWidget);
     m_accountsWidget->setVisible(true);
     m_accountsWidget->showDefaultAccountInfo();

@@ -252,6 +252,11 @@ void AccountsWorker::createAccount(const User *user)
     watcher->setFuture(future);
 }
 
+void AccountsWorker::updateGroupinfo()
+{
+    m_userModel->setAllGroups(m_accountsInter->GetGroups());
+}
+
 void AccountsWorker::setAvatar(User *user, const QString &iconPath)
 {
     qDebug() << "set account avatar";

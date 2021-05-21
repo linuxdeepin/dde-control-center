@@ -262,6 +262,10 @@ void AccountsWidget::removeUser(User *user)
 
 void AccountsWidget::onItemClicked(const QModelIndex &index)
 {
+    if (IsServerSystem) {
+        Q_EMIT requestUpdatGroupList();
+    }
+
     m_saveClickedRow = index.row();
     Q_EMIT requestShowAccountsDetail(m_userList[index.row()]);
     m_userlistView->resetStatus(index);
