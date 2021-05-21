@@ -182,7 +182,7 @@ int DatetimeModule::load(const QString &path)
 QStringList DatetimeModule::availPage() const
 {
     QStringList list;
-    list << "Timezone List" << "Timezone List/Change System Timezone" << "Time Settings" << "Timezone List/Add Timezone";
+    list << "Timezone List" << "Timezone List/Change System Timezone" << "Time Settings" << "Timezone List/Add Timezone" << "Format Settings";
 
     return list;
 }
