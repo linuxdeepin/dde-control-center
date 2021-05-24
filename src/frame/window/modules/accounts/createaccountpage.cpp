@@ -221,7 +221,6 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
                 strTemp.append(strText[idx]);
             } else {
                 DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-                break;
             }
         }
 
