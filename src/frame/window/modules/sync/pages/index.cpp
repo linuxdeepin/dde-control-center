@@ -45,10 +45,11 @@ IndexPage::IndexPage(QWidget *parent)
 {
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
     m_autoSyncSwitch->layout()->setContentsMargins(10, 6, 11, 6);
-
+#ifndef USE_TABLET
     m_lab = new QLabel();
     m_lab->setText(tr("The feature is not available at present, please activate your system first"));
     m_lab->setWordWrap(true);
+#endif
 
     m_stateLbl = new QLabel(tr("Syncing..."));
 
@@ -126,7 +127,9 @@ IndexPage::IndexPage(QWidget *parent)
     backgroundLayout->addSpacing(18);
     backgroundLayout->addWidget(autoSyncGrp, 0, Qt::AlignTop);
     backgroundLayout->addSpacing(10);
+#ifndef USE_TABLET
     backgroundLayout->addWidget(m_lab, 0, Qt::AlignTop);
+#endif
     backgroundLayout->addSpacing(10);
     backgroundLayout->addWidget(m_listView, 1);
     backgroundLayout->addStretch(1);
@@ -154,8 +157,9 @@ IndexPage::IndexPage(QWidget *parent)
 void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
 {
     LoginedIn::setModel(model);
+#ifndef USE_TABLET
     m_lab->setVisible(!model->getActivation());
-
+#endif
     connect(model, &dcc::cloudsync::SyncModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_autoSyncSwitch, &SwitchWidget::setChecked);
     connect(model, &dcc::cloudsync::SyncModel::enableSyncChanged, m_listView, &QListView::setVisible);
@@ -172,7 +176,9 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
             m_autoSyncSwitch->setChecked(false);
             Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
         }
+#ifndef USE_TABLET
         m_lab->setVisible(!value);
+#endif
     });
 
     QMap<SyncType, QPair<QString, QString>> moduleTs{
@@ -212,7 +218,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
         Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
     }
 // 平板一期,不实现同步功能
-#ifndef USE_TABLET
+#ifdef USE_TABLET
     m_autoSyncSwitch->setVisible(false);
 #else
     m_autoSyncSwitch->setEnabled(model->getActivation());
