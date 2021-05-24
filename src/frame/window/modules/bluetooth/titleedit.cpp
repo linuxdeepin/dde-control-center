@@ -75,8 +75,6 @@ void TitleEdit::setName()
     if (m_name->text() != m_lineEdit->text()) {
         if (!m_lineEdit->text().isEmpty()) {
             m_name->setText(m_lineEdit->text());
-        }
-        if (!m_lineEdit->text().isEmpty()) {
             Q_EMIT requestSetBluetoothName(m_lineEdit->text());
         } else {
             m_lineEdit->setText(m_name->text());
