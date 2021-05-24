@@ -60,16 +60,16 @@ static QGSettings *GSettings()
 GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     : QWidget(parent)
     , m_bIsBattery(bIsBattery)
-    , m_layout(new QVBoxLayout)
-    , m_swLowPowerAutoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on low battery")))
-    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery")))
+    , m_layout(new QVBoxLayout(this))
+    , m_swLowPowerAutoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on low battery"), this))
+    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery"), this))
     , m_sldLowerBrightness(new TitledSliderItem(tr("Decrease brightness"), this))
-    , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer")))
-    , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor")))
-    , m_batteryLabel(new TitleLabel(tr("Battery")))
-    , m_powerShowTimeToFull(new SwitchWidget(tr("Display remaining using and charging time")))
+    , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer"), this))
+    , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor"), this))
+    , m_batteryLabel(new TitleLabel(tr("Battery"), this))
+    , m_powerShowTimeToFull(new SwitchWidget(tr("Display remaining using and charging time"), this))
     , m_ShowTimeToFullTips(new PowerDisplayWidget(tr("Maximum capacity"), this))
-    , m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity")))
+    //, m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity"), this))
     , m_batteryCapacity(new TitleValueItem)
 {
     m_powerPlanMap.insert(BALANCE, tr("Balanced"));
@@ -106,11 +106,11 @@ void GeneralWidget::initUi()
 
     /**** 性能设置 ************************************************************************/
     //~ contents_path /power/General
-    TitleLabel *powerPlansLabel = new TitleLabel(tr("Power Plans"));                            // 性能设置label
+    TitleLabel *powerPlansLabel = new TitleLabel(tr("Power Plans"), this);                            // 性能设置label
     DFontSizeManager::instance()->bind(powerPlansLabel, DFontSizeManager::T5, QFont::DemiBold); // 性能设置label字体
     GSettingWatcher::instance()->bind("powerPlansLabel", powerPlansLabel);                      // 使用GSettings来控制显示状态
-    QVBoxLayout *powerPlansLayout = new QVBoxLayout;                                            // 性能模式布局
-    m_powerplanListview = new DListView();                                                      // 电源模式列表
+    QVBoxLayout *powerPlansLayout = new QVBoxLayout(this);                                            // 性能模式布局
+    m_powerplanListview = new DListView(this);                                                      // 电源模式列表
 
     m_powerPlanModel = new QStandardItemModel(m_powerplanListview);
     QMap<QString, QString>::iterator iter;
@@ -142,9 +142,9 @@ void GeneralWidget::initUi()
 
     /**** 节能设置 ************************************************************************/
     //~ contents_path /power/General
-    TitleLabel *energySavingLabel = new TitleLabel(tr("Power Saving Settings"));                  // 节能设置label
+    TitleLabel *energySavingLabel = new TitleLabel(tr("Power Saving Settings"), this);                  // 节能设置label
     DFontSizeManager::instance()->bind(energySavingLabel, DFontSizeManager::T5, QFont::DemiBold); // 节能设置label字体
-    QVBoxLayout *energySavingLayout = new QVBoxLayout;                                            // 节能设置布局
+    QVBoxLayout *energySavingLayout = new QVBoxLayout(this);                                            // 节能设置布局
     GSettingWatcher::instance()->bind("powerLowerBrightness", energySavingLabel);                 // 使用GSettings来控制显示状态
     SettingsGroup *energySavingGrp = new SettingsGroup;
 
@@ -175,9 +175,9 @@ void GeneralWidget::initUi()
 
     /**** 唤醒设置 ************************************************************************/
     //~ contents_path /power/General
-    TitleLabel *wakeupLabel = new TitleLabel(tr("Wakeup Settings"));                        // 唤醒设置label
+    TitleLabel *wakeupLabel = new TitleLabel(tr("Wakeup Settings"), this);                        // 唤醒设置label
     DFontSizeManager::instance()->bind(wakeupLabel, DFontSizeManager::T5, QFont::DemiBold); // 唤醒设置label字体
-    QVBoxLayout *wakeupLayout = new QVBoxLayout;                                            // 唤醒设置布局
+    QVBoxLayout *wakeupLayout = new QVBoxLayout(this);                                          // 唤醒设置布局
     SettingsGroup *wakeupSettingsGrp = new SettingsGroup;
 
     wakeupSettingsGrp->appendItem(m_wakeComputerNeedPassword);
@@ -194,9 +194,9 @@ void GeneralWidget::initUi()
 
     /**** 电池设置 ************************************************************************/
     //~ contents_path /power/General
-    m_batteryLabel = new TitleLabel(tr("Battery"));
+    m_batteryLabel = new TitleLabel(tr("Battery"), this);
     DFontSizeManager::instance()->bind(m_batteryLabel, DFontSizeManager::T5, QFont::DemiBold); // 电池设置label字体
-    QVBoxLayout *batteyLayout = new QVBoxLayout;                                               // 电池设置布局
+    QVBoxLayout *batteyLayout = new QVBoxLayout(this);                                               // 电池设置布局
     SettingsGroup *batterySettingsGrp = new SettingsGroup;
 
     QDBusInterface powerInter("com.deepin.system.Power", "/com/deepin/system/Power", "com.deepin.system.Power", QDBusConnection::systemBus());
@@ -225,11 +225,11 @@ void GeneralWidget::initUi()
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setContentsMargins(0, 2, 0, 5); // 总布局上下边距
 
-    ContentWidget *contentWgt = new ContentWidget;
-    QWidget *mainWgt = new TranslucentFrame; // 添加一层半透明框架
+    ContentWidget *contentWgt = new ContentWidget(this);
+    QWidget *mainWgt = new TranslucentFrame(this); // 添加一层半透明框架
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(contentWgt);
     mainLayout->setContentsMargins(0, 8, 0, 8); // 圆角
     setLayout(mainLayout);

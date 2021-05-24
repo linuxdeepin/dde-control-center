@@ -42,27 +42,28 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     , m_mouseModel(nullptr)
     , m_generalSettingsGrp(nullptr)
 {
-    m_generalSettingsGrp = new SettingsGroup;
+    QFrame *frame = new QFrame(this);
+    m_generalSettingsGrp = new SettingsGroup(frame);
 
     //~ contents_path /mouse/General
-    m_leftHand = new SwitchWidget(tr("Left Hand"));
+    m_leftHand = new SwitchWidget(tr("Left Hand"), this);
     GSettingWatcher::instance()->bind("mouseLeftHand", m_leftHand);  // 使用GSettings来控制显示状态
     m_leftHand->setObjectName("leftHand");
 
     //~ contents_path /mouse/General
-    m_disInTyping = new SwitchWidget(tr("Disable touchpad while typing"));
+    m_disInTyping = new SwitchWidget(tr("Disable touchpad while typing"), this);
     m_disInTyping->setObjectName("disInTyping");
     GSettingWatcher::instance()->bind("mouseTouchpad", m_disInTyping);
 
     //~ contents_path /mouse/General
-    m_scrollSpeedSlider = new TitledSliderItem(tr("Scrolling Speed"));
+    m_scrollSpeedSlider = new TitledSliderItem(tr("Scrolling Speed"), frame);
     m_scrollSpeedSlider->setObjectName("scrollSpeed");
 
     //~ contents_path /mouse/General
-    m_doubleSlider = new TitledSliderItem(tr("Double-click Speed"));
+    m_doubleSlider = new TitledSliderItem(tr("Double-click Speed"), frame);
     m_doubleSlider->setObjectName("doubleClicked");
 
-    m_doubleTest = new DouTestWidget;
+    m_doubleTest = new DouTestWidget(this);
 
     DCCSlider *speedSlider = m_scrollSpeedSlider->slider();
     speedSlider->setType(DCCSlider::Vernier);
@@ -94,13 +95,13 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     m_generalSettingsGrp->appendItem(m_doubleSlider);
     m_generalSettingsGrp->appendItem(m_doubleTest);
 
-    m_contentLayout = new QVBoxLayout();
+    m_contentLayout = new QVBoxLayout(this);
     m_contentLayout->addWidget(m_generalSettingsGrp);
     m_contentLayout->setAlignment(Qt::AlignTop);
     m_contentLayout->setSpacing(10);
     m_contentLayout->setContentsMargins(10, 10, 2, 5); // 右侧间距为10 补下面的 8
 
-    TranslucentFrame *tFrame = new TranslucentFrame;
+    TranslucentFrame *tFrame = new TranslucentFrame(frame);
     tFrame->setLayout(m_contentLayout);
     layout()->setContentsMargins(0, 0, 8, 0);
     setContent(tFrame);

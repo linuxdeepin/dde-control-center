@@ -42,17 +42,18 @@ WiredSettings::~WiredSettings()
 
 void WiredSettings::initSections()
 {
-    GenericSection *genericSection = new GenericSection(m_connSettings);
+    QFrame *frame = new QFrame(this);
+    GenericSection *genericSection = new GenericSection(m_connSettings, frame);
     genericSection->setConnectionType(NetworkManager::ConnectionSettings::Wired);
     Secret8021xSection *secretSection = new SecretWiredSection(
-        m_connSettings->setting(Setting::Security8021x).staticCast<NetworkManager::Security8021xSetting>());
+        m_connSettings->setting(Setting::Security8021x).staticCast<NetworkManager::Security8021xSetting>(), frame);
     IpvxSection *ipv4Section = new IpvxSection(
-        m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
+        m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>(), frame);
     IpvxSection *ipv6Section = new IpvxSection(
-        m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>());
+        m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>(), frame);
     DNSSection *dnsSection = new DNSSection(m_connSettings);
     EthernetSection *etherNetSection = new EthernetSection(
-        m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
+        m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>(), QString(), frame);
 
     // 指针destroyed时自动解绑
     GSettingWatcher::instance()->bind("wiredEditConnectionName", genericSection->connIdItem());
@@ -80,6 +81,7 @@ void WiredSettings::initSections()
     connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
     connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
     connect(etherNetSection, &EthernetSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
+
 
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(secretSection);

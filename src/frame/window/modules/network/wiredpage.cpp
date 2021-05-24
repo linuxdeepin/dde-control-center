@@ -55,7 +55,7 @@ using namespace dde::network;
 WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     : ContentWidget(parent)
     , m_device(dev)
-    , m_lvProfiles(new DListView())
+    , m_lvProfiles(new DListView(this))
 {
     //有线连接
     m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel(this));
@@ -64,7 +64,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_lvProfiles->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvProfiles->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    TipsItem *tips = new TipsItem;
+    TipsItem *tips = new TipsItem(this);
     tips->setFixedHeight(80);
     tips->setText(tr("Plug in the network cable first"));
 
@@ -72,9 +72,9 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_tipsGrp->appendItem(tips);
 
     //~ contents_path /network/Wired Network
-    QLabel *lblTitle = new QLabel(tr("Wired Network Adapter"));//有线网卡
+    QLabel *lblTitle = new QLabel(tr("Wired Network Adapter"),this);//有线网卡
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
-    m_switch = new SwitchWidget(nullptr, lblTitle);
+    m_switch = new SwitchWidget(this, lblTitle);
     m_switch->setChecked(dev->enabled());
     //因为swtichbutton内部距离右间距为4,所以这里设置6就可以保证间距为10
     m_switch->getMainLayout()->setContentsMargins(10, 0, 6, 0);
@@ -89,13 +89,13 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_device, &NetworkDevice::enableChanged, m_switch, &SwitchWidget::setChecked);
 
     //有线网络下的三级菜单的“+”创建按钮大小
-    m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement);
+    m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement,this);
     m_createBtn->setMinimumSize(QSize(47, 47));
     //~ contents_path /network/Wired Network/addWiredConnection
     m_createBtn->setToolTip(tr("Add Network Connection"));
     GSettingWatcher::instance()->bind("addConnection", m_createBtn);
 
-    QVBoxLayout *centralLayout = new QVBoxLayout;
+    QVBoxLayout *centralLayout = new QVBoxLayout(this);
     centralLayout->addWidget(m_switch, 0, Qt::AlignTop);
     centralLayout->addWidget(m_tipsGrp);
     QMargins itemMargins(m_lvProfiles->itemMargins());
@@ -108,7 +108,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     centralLayout->setMargin(0);
     centralLayout->setContentsMargins(QMargins(10, 0, 10, 0)); // 设置左右间距为10
     //当点击下拉选框，设置半透明状态
-    QWidget *centralWidget = new TranslucentFrame;
+    QWidget *centralWidget = new TranslucentFrame(this);
     centralWidget->setLayout(centralLayout);
 
     setContentsMargins(0, 10, 0, 10);  //设置上下间距为10
@@ -210,7 +210,7 @@ void WiredPage::refreshConnectionList()
 void WiredPage::editConnection(const QString &connectionPath)
 {
     m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection,
-                                        m_device->path(), m_model->connectionUuidByPath(connectionPath));
+                                        m_device->path(), m_model->connectionUuidByPath(connectionPath), this);
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestWiredDeviceEnabled, this, &WiredPage::requestDeviceEnabled);
     connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);
@@ -221,7 +221,7 @@ void WiredPage::editConnection(const QString &connectionPath)
 
 void WiredPage::createNewConnection()
 {
-    m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path());
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::WiredConnection, m_device->path(),QString(), this);
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestWiredDeviceEnabled, this, &WiredPage::requestDeviceEnabled);
     connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);

@@ -46,7 +46,7 @@ namespace systeminfo {
 NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(model)
-    , m_mainLayout(new QVBoxLayout)
+    , m_mainLayout(new QVBoxLayout(this))
     , isContensServers(false)
 {
     initWidget();
@@ -63,16 +63,17 @@ NativeInfoWidget::~NativeInfoWidget()
 
 void NativeInfoWidget::initWidget()
 {
-    QWidget *container = new dcc::widgets::TranslucentFrame;
+    QFrame *frame = new QFrame(this);
+    QWidget *container = new dcc::widgets::TranslucentFrame(this);
     container->setLayout(m_mainLayout);
     setContent(container);
 
-    SettingsGroup *infoGroup = new SettingsGroup();
-    SettingsGroup *logoGroup = new SettingsGroup();
+    SettingsGroup *infoGroup = new SettingsGroup(frame);
+    SettingsGroup *logoGroup = new SettingsGroup(frame);
     logoGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     infoGroup->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
-    LogoItem *logo = new LogoItem;
+    LogoItem *logo = new LogoItem(frame);
     logo->setDescription(true); //显示文字描述
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
     logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal));
@@ -84,26 +85,26 @@ void NativeInfoWidget::initWidget()
 
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
-        m_productName= new TitleValueItem();
+        m_productName= new TitleValueItem(frame);
         //~ contents_path /systeminfo/About This PC
         m_productName->setTitle(tr("OS Name:"));
         m_productName->setValue(m_model->productName());
 
-        m_versionNumber = new TitleValueItem();
+        m_versionNumber = new TitleValueItem(frame);
         //~ contents_path /systeminfo/About This PC
         m_versionNumber->setTitle(tr("Version:"));
         m_versionNumber->setValue(m_model->versionNumber());
     }
-    m_version = new TitleValueItem();
+    m_version = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
     m_version->setTitle(tr("Edition:"));
     m_version->setValue(m_model->version());
     GSettingWatcher::instance()->bind("edition", m_version);
-    m_type = new TitleValueItem();
+    m_type = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
     m_type->setTitle(tr("Type:"));
 
-    m_authorized = new TitleAuthorizedItem();
+    m_authorized = new TitleAuthorizedItem(frame);
     m_authorized->setTitle(tr("Authorization") + ':');
     m_authorized->setValue(tr("To be activated"));
     m_authorized->setValueForegroundRole(QColor(255, 0, 0));
@@ -114,17 +115,17 @@ void NativeInfoWidget::initWidget()
         m_authorized->setVisable(true);
     }
 
-    m_kernel = new TitleValueItem();
+    m_kernel = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
     m_kernel->setTitle(tr("Kernel:"));
     m_kernel->setValue(m_model->kernel());
 
-    m_processor = new TitleValueItem();
+    m_processor = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
     m_processor->setTitle(tr("Processor:"));
     m_processor->setValue(m_model->processor());
 
-    m_memory = new TitleValueItem();
+    m_memory = new TitleValueItem(frame);
     //~ contents_path /systeminfo/About This PC
     m_memory->setTitle(tr("Memory:"));
     m_memory->setValue(m_model->memory());
