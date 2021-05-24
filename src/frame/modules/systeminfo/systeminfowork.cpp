@@ -149,7 +149,10 @@ void SystemInfoWork::activate()
         m_model->setVersionNumber(versionNumber);
     }
     QString version;
-    if (DSysInfo::isDeepin()) {
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+        version = QString("%1%2").arg(DSysInfo::minorVersion())
+                                  .arg(DSysInfo::uosEditionName());
+    } else if (DSysInfo::isDeepin()) {
         version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
                                   .arg(DSysInfo::minorVersion());
     } else {
