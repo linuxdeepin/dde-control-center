@@ -226,8 +226,9 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         }
 
         m_nameEdit->lineEdit()->blockSignals(true);
+        int cursorIndex = m_nameEdit->lineEdit()->cursorPosition();
         m_nameEdit->lineEdit()->setText(strTemp);
-        m_nameEdit->lineEdit()->setCursorPosition(idx);
+        m_nameEdit->lineEdit()->setCursorPosition(cursorIndex);
         m_nameEdit->lineEdit()->blockSignals(false);
     });
 
