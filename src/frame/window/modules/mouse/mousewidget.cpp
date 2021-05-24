@@ -76,18 +76,18 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     //~ contents_path /mouse/TrackPoint
     m_menuIconText.push_back({ "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting), nullptr, "mouseTrackpoint"});
 
-    QList<DStandardItem *> mouseItems;
     for (auto it = m_menuIconText.cbegin(); it != m_menuIconText.cend(); ++it) {
-        DStandardItem *mouseItem = new DStandardItem(QIcon::fromTheme(it->itemIcon), it->itemText);
-        mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
-        if (it->itemText == QString(tr("Mouse"))) {
-            mouseItem->setAccessibleText("MOUSE_ITEM");
-        }
         if (!tpadExist && it->itemText == QString(tr("Touchpad"))) {
             continue;
         }
         if (!redPointExist && it->itemText == QString(tr("TrackPoint"))) {
             continue;
+        }
+
+        DStandardItem *mouseItem = new DStandardItem(QIcon::fromTheme(it->itemIcon), it->itemText);
+        mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
+        if (it->itemText == QString(tr("Mouse"))) {
+            mouseItem->setAccessibleText("MOUSE_ITEM");
         }
         m_listviewModel->appendRow(mouseItem);
         m_mouseItems << mouseItem;
