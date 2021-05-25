@@ -24,6 +24,7 @@ cd dde-control-center/
 #./datetime-unittest
 ./defapp-unittest
 ./notification-unittest
+./keyboard-unittest
 
 #dde-control-center
 #bluetooth和datetime未运行单元测试程序，暂时屏蔽
@@ -33,3 +34,4 @@ mv asan_systeminfo.log* asan_systeminfo.log
 mv asan_defapp.log* asan_defapp.log
 #mv asan_datetime.log* .asan_datetime.log
 mv asan_notification.log* asan_notification.log
+mv asan_keyboard.log* asan_keyboard.log

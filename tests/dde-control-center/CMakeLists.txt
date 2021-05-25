@@ -7,6 +7,7 @@ set(DATETIME_NAME datetime-unittest)
 set(NOTIFICATION_NAME notification-unittest)
 set(DEFAPP_NAME defapp-unittest)
 set(SYSTEMINFO_NAME systeminfo-unittest)
+set(KEYBOARD_NAME keyboard-unittest)
 
 # 自动生成moc文件
 set(CMAKE_AUTOMOC ON)
@@ -121,6 +122,34 @@ file(GLOB_RECURSE SYSTEMINFO_Tasks_SRCS
    ../../src/frame/window/protocolfile.cpp
 )
 
+# 键盘测试模块源文件
+file(GLOB_RECURSE KEYBOARD_SRCS "keyboard/*.cpp")
+
+# 头文件路径
+set(KEYBOARD_HEADER 
+    ../../src/frame/window/modules/keyboard
+    ../../src/frame/modules/keyboard
+)
+
+# 键盘测试依赖文件
+file(GLOB_RECURSE KEYBOARD_Tasks_SRCS 
+    ../../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp
+    ../../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp
+    ../../src/frame/window/modules/keyboard/systemlanguagewidget.cpp
+    ../../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp
+    ../../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp
+    ../../src/frame/modules/keyboard/keyboardmodel.cpp
+    ../../src/frame/modules/keyboard/indexmodel.cpp
+    ../../src/frame/modules/keyboard/shortcutmodel.cpp
+    ../../src/frame/modules/keyboard/shortcutitem.cpp
+    ../../src/frame/modules/keyboard/shortcutkey.cpp
+    ../../src/frame/window/gsettingwatcher.cpp
+    ../../src/frame/modules/display/displaymodel.cpp
+    ../../src/frame/modules/display/monitor.cpp
+    ../../src/frame/modules/keyboard/keylabel.cpp
+    ../../src/frame/window/utils.h
+)
+
 # 用于测试覆盖率的编译条件
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -lgcov")
 
@@ -150,6 +179,9 @@ add_executable(${DEFAPP_NAME} ${DEFAPP_SRCS} ${DEFAPP_Tasks_SRCS})
 
 # 添加系统信息模块执行文件信息
 add_executable(${SYSTEMINFO_NAME} ${SYSTEMINFO_SRCS} ${SYSTEMINFO_Tasks_SRCS})
+
+# 添加键盘模块执行文件信息
+add_executable(${KEYBOARD_NAME} ${KEYBOARD_SRCS} ${KEYBOARD_Tasks_SRCS})
 
 # 蓝牙模块链接库
 target_link_libraries(${BLUETOOTH_NAME} PRIVATE
@@ -277,12 +309,36 @@ target_link_libraries(${SYSTEMINFO_NAME} PRIVATE
     -lpthread
 )
 
+# 键盘模块链接库
+target_link_libraries(${KEYBOARD_NAME} PRIVATE
+    dccwidgets
+    ${Qt5Test_LIBRARIES}
+    ${Qt5DBus_LIBRARIES}
+    ${Qt5Widgets_LIBRARIES}
+    ${QGSettings_LIBRARIES}
+    ${Qt5Concurrent_LIBRARIES}
+    ${Qt5Svg_LIBRARIES}
+    ${DFrameworkDBus_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
+    ${GTEST_LIBRARIES}
+    -lpthread
+)
+
 # 系统信息模块引用头文件
 target_include_directories(${SYSTEMINFO_NAME} PUBLIC
     ${DtkWidget_INCLUDE_DIRS}
     ${QGSettings_INCLUDE_DIRS}
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${Qt5Concurrent_INCLUDE_DIRS}
+    ${DFrameworkDBus_INCLUDE_DIRS}
+)
+
+# 键盘模块引用头文件
+target_include_directories(${KEYBOARD_NAME} PUBLIC
+    ${KEYBOARD_HEADER}
+    ${DtkWidget_INCLUDE_DIRS}
+    ${QGSettings_INCLUDE_DIRS}
+    ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
 )
 
@@ -305,6 +361,7 @@ add_custom_command(TARGET check
     COMMAND ./${NOTIFICATION_NAME}
     COMMAND ./${DEFAPP_NAME}
     COMMAND ./${SYSTEMINFO_NAME}
+    COMMAND ./${KEYBOARD_NAME}
 
     #2.收集gcov信息到.info文件中
     COMMAND lcov --directory . --capture --output-file ./coverage.info
@@ -312,7 +369,7 @@ add_custom_command(TARGET check
     #3.过滤一些我们不感兴趣的文件的覆盖率信息
     COMMAND echo " =================== do filter begin ==================== "
     COMMAND lcov --remove ./coverage.info
-    '*/${BLUETOOTH_NAME}_autogen/*' '*/${MOUSE_NAME}_autogen/*' '*/${DATETIME_NAME}_autogen/*' '*/${NOTIFICATION_NAME}_autogen/*' '*/${DEFAPP_NAME}_autogen/*''*/${SYSTEMINFO_NAME}_autogen/*' '*/usr/include/*' '*/tests/*' '*/googletest/*' '*/widgets/*' '*/interface/*'
+    '*/${BLUETOOTH_NAME}_autogen/*' '*/${MOUSE_NAME}_autogen/*' '*/${DATETIME_NAME}_autogen/*' '*/${NOTIFICATION_NAME}_autogen/*' '*/${DEFAPP_NAME}_autogen/*' '*/${SYSTEMINFO_NAME}_autogen/*' '*/${KEYBOARD_NAME}_autogen/*' '*/usr/include/*' '*/tests/*' '*/googletest/*' '*/widgets/*' '*/interface/*'
     -o ./coverage.info
     COMMAND echo " =================== do filter end ==================== "
 
@@ -327,7 +384,7 @@ add_custom_command(TARGET check
 )
 
 #'make check'命令依赖与我们的测试程序
-add_dependencies(check ${BLUETOOTH_NAME} ${MOUSE_NAME} ${DATETIME_NAME} ${NOTIFICATION_NAME} ${DEFAPP_NAME} ${SYSTEMINFO_NAME})
+add_dependencies(check ${BLUETOOTH_NAME} ${MOUSE_NAME} ${DATETIME_NAME} ${NOTIFICATION_NAME} ${DEFAPP_NAME} ${SYSTEMINFO_NAME} ${KEYBOARD_NAME})
 
 include_directories(../../src/frame)
 include_directories(fakedbus)
