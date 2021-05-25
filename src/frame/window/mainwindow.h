@@ -101,6 +101,7 @@ public:
     void initAllModule(const QString &m = "");
     inline QStack<QPair<ModuleInterface *, QWidget *>> getcontentStack() {return m_contentStack;}
     void updateWinsize();
+    inline QSize getLastSize() const { return m_lastSize; }
 
 Q_SIGNALS:
     void moduleVisibleChanged(const QString &module, bool visible);
@@ -168,6 +169,7 @@ private:
     QStringList m_hideModuleNames;
     bool m_updateVisibale = true;
     QWidget *m_lastPushWidget{nullptr};     //用于记录最后push进来的widget控件
+    QSize m_lastSize;
 };
 }
 

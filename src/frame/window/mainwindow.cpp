@@ -709,6 +709,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
+    m_lastSize = event->oldSize();
     DMainWindow::resizeEvent(event);
 
     auto dstWidth = event->size().width();

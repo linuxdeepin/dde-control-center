@@ -231,15 +231,15 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi) {
         bool stateChanged = false;
-        if (m_pMainWindow->windowState() == Qt::WindowState::WindowMaximized) {
-            m_pMainWindow->setWindowState(Qt::WindowState::WindowNoState);
+        if (m_pMainWindow->isMaximized()) {
+            m_pMainWindow->resize(m_pMainWindow->getLastSize());
             stateChanged = true;
         }
 
         double scale = m_displayModel->monitorScale(moi);
         m_pMainWindow->move(int(moi->x() + moi->w() / scale / 2 - m_pMainWindow->width() / 2), int(moi->y() + moi->h() / scale / 2 - m_pMainWindow->height() / 2));
         if (stateChanged) {
-            m_pMainWindow->setWindowState(Qt::WindowState::WindowMaximized);
+            m_pMainWindow->showMaximized();
         }
     });
 
