@@ -20,6 +20,8 @@
  */
 #include "downloadurl.h"
 
+#include <DApplicationHelper>
+
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
@@ -53,6 +55,10 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
 
     QString fileName;
     fileName = fullname ? filePath : filePath + url.right(url.size() - url.lastIndexOf("/"));
+    // 实际上是.svg格式的，从网络下载的确是.png格式
+    if (DGuiApplicationHelper::isTabletEnvironment() && fileName.contains(("default.png"), Qt::CaseInsensitive)) {
+        fileName.replace(fileName.size() - 3, 3, "svg");
+    }
     qDebug() << " download " << url << " to " << fileName << " ready = " << m_isReady;
     if (QFile::exists(fileName)) {
         QPixmap pxmap;
