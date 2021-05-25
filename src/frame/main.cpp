@@ -154,6 +154,7 @@ int main(int argc, char *argv[])
         return -1;
     }
 
+    app->installEventFilter(&mw);
     if (!reqModule.isEmpty()) {
         adaptor.ShowPage(reqModule, reqPage);
     }

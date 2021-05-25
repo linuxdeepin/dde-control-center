@@ -665,20 +665,6 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             popWidget();
         }
         break;
-    case Qt::Key_F1: {
-        QString helpTitle = m_moduleName;
-        if (helpTitle.isEmpty()) {
-            helpTitle = "controlcenter";
-        }
-        const QString dmanInterface = "com.deepin.Manual.Open";
-        QDBusInterface *inter = new QDBusInterface(dmanInterface,
-                                                   "/com/deepin/Manual/Open",
-                                                   dmanInterface,
-                                                   QDBusConnection::sessionBus());
-        inter->call("OpenTitle", "dde", helpTitle);
-        inter->deleteLater();
-        break;
-    }
     default:
         break;
     }
@@ -701,6 +687,24 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
             }
 
             DApplicationHelper::instance()->setPalette(m_navView, pa);
+        }
+    }
+
+    if (event->type() == QEvent::Shortcut) {
+        auto ke = static_cast<QShortcutEvent *>(event);
+        if (ke->key() == Qt::Key_F1) {
+            QString helpTitle = m_moduleName;
+            if (helpTitle.isEmpty()) {
+                helpTitle = "controlcenter";
+            }
+            const QString dmanInterface = "com.deepin.Manual.Open";
+            QDBusInterface *inter = new QDBusInterface(dmanInterface,
+                                                       "/com/deepin/Manual/Open",
+                                                       dmanInterface,
+                                                       QDBusConnection::sessionBus());
+            inter->call("OpenTitle", "dde", helpTitle);
+            inter->deleteLater();
+            return true;
         }
     }
 
