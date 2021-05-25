@@ -149,7 +149,7 @@ void SystemInfoWork::activate()
         m_model->setVersionNumber(versionNumber);
     }
     QString version;
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+    if (DSysInfo::uosType() == DSysInfo::UosServer || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         version = QString("%1%2").arg(DSysInfo::minorVersion())
                                   .arg(DSysInfo::uosEditionName());
     } else if (DSysInfo::isDeepin()) {

@@ -160,7 +160,6 @@ void UpdateModule::active()
     if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
         m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
     }
-
     m_updateWidget->setModel(m_model, m_work.get());
 
     connect(m_updateWidget, &UpdateWidget::pushMirrorsView, this, [=]() {

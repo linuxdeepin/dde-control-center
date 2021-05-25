@@ -35,6 +35,7 @@
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
+using namespace DCC_NAMESPACE;
 
 const QString ChangeLogFile = "/usr/share/deepin/release-note/UpdateInfo.json";
 
@@ -133,7 +134,9 @@ void UpdateWorker::init() {
     m_smartMirrorInter->setSync(false, false);
     m_iconTheme->setSync(false);
 
-    const QString sVersion{ QString("%1 %2 %3").arg(DSysInfo::uosProductTypeName(), DSysInfo::majorVersion(), DSysInfo::uosEditionName()) };
+    QString sVersion = QString("%1 %2").arg(DSysInfo::uosProductTypeName()).arg(DSysInfo::majorVersion());
+    if (!IsServerSystem)
+        sVersion.append(" " + DSysInfo::uosEditionName());
     m_model->setSystemVersionInfo(sVersion);
 
     connect(m_managerInter, &ManagerInter::JobListChanged, this, &UpdateWorker::onJobListChanged);

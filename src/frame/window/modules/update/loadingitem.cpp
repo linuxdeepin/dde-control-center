@@ -92,7 +92,10 @@ void LoadingItem::setVersionVisible(bool state)
 void LoadingItem::setSystemVersion(const QString &version)
 {
     Q_UNUSED(version);
-    m_labelText->setText(DSysInfo::uosProductTypeName() + " " + DSysInfo::majorVersion() + " " + DSysInfo::uosEditionName());
+    QString uVersion = DSysInfo::uosProductTypeName() + " " + DSysInfo::majorVersion();
+    if (DSysInfo::uosType() != DSysInfo::UosServer)
+        uVersion.append(" " + DSysInfo::uosEditionName());
+    m_labelText->setText(uVersion);
 }
 
 void LoadingItem::setImageVisible(bool state)
