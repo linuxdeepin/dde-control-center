@@ -145,7 +145,6 @@ SoundModel::SoundModel(QObject *parent)
 
     auto rmFunc = [ = ](SoundEffectList &map) {
         map.removeOne({ tr("Log out"), DDesktopServices::SSE_Logout });
-        map.removeOne({ tr("Volume +/-"), DDesktopServices::SSE_VolumeChange });
         map.removeOne({ tr("Send icon in Launcher to Desktop"), DDesktopServices::SSE_SendFileComplete });
     };
 
