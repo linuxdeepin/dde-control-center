@@ -53,7 +53,11 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
     setContentsMargins(0, 8, 0, 8);
 
     QFutureWatcher<QString> *w = new QFutureWatcher<QString>(this);
-    w->setFuture(QtConcurrent::run(ProtocolFile::getEnduserAgreement));
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+        w->setFuture(QtConcurrent::run(ProtocolFile::getEulerEnduserAgreement));
+    } else {
+        w->setFuture(QtConcurrent::run(ProtocolFile::getEnduserAgreement));
+    }
 
     connect(w, &QFutureWatcher<QString>::finished, this, [ = ] {
         const QString r = w->result();

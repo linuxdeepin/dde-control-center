@@ -32,4 +32,6 @@ public:
     static QString getUserExpContent();
     // 最终用户许可协议
     static QString getEnduserAgreement();
+    // 欧拉最终用户许可协议
+    static QString getEulerEnduserAgreement();
 };
