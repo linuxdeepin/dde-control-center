@@ -30,9 +30,8 @@
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
 
-DslPppoeSettings::DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, dde::network::NetworkModel *model, QWidget *parent)
+DslPppoeSettings::DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connSettings, QWidget *parent)
     : AbstractSettings(connSettings, parent)
-    , m_model(model)
 {
     initSections();
 }
@@ -53,8 +52,6 @@ void DslPppoeSettings::initSections()
         m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>());
     PPPSection *pppSection = new PPPSection(
         m_connSettings->setting(Setting::Ppp).staticCast<NetworkManager::PppSetting>());
-
-    pppoeSection->setModel(m_model);
 
     connect(genericSection, &GenericSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(pppoeSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);

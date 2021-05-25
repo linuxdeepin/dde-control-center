@@ -25,7 +25,6 @@
 #include "abstractsection.h"
 #include "widgets/contentwidget.h"
 #include "widgets/lineeditwidget.h"
-#include "networkmodel.h"
 
 #include <networkmanagerqt/pppoesetting.h>
 
@@ -43,8 +42,6 @@ public:
     bool allInputValid() Q_DECL_OVERRIDE;
     void saveSettings() Q_DECL_OVERRIDE;
 
-    void setModel(dde::network::NetworkModel *model);
-
 private:
     void initUI();
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
@@ -55,8 +52,6 @@ private:
     dcc::widgets::LineEditWidget *m_userName;
     dcc::widgets::LineEditWidget *m_service;
     dcc::widgets::LineEditWidget *m_password;
-
-    dde::network::NetworkModel *m_model;
 };
 
 } /* network */
