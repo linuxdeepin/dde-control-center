@@ -6,6 +6,10 @@
 
 #include <gtest/gtest.h>
 
+#ifdef QT_DEBUG
+#include <sanitizer/asan_interface.h>
+#endif
+
 int main(int argc, char **argv)
 {
     QProcess process;
@@ -42,6 +46,10 @@ int main(int argc, char **argv)
 
     // 蓝牙用例会造成进程崩溃，暂未定位到原因，暂时屏蔽
 //    int result = RUN_ALL_TESTS();
+
+#ifdef QT_DEBUG
+    __sanitizer_set_report_path("asan_bluetooth.log");
+#endif
 
     process.close();
 

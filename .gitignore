@@ -28,5 +28,8 @@ build*/
 *.vscode
 *.vim
 
+# clion tmp file
+.idea/
+
 .transifexrc
 lupdate.sh

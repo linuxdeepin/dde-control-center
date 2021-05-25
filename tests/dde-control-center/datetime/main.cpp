@@ -6,6 +6,10 @@
 
 #include <gtest/gtest.h>
 
+#ifdef QT_DEBUG
+#include <sanitizer/asan_interface.h>
+#endif
+
 // To Finished
 int main(int argc, char **argv)
 {
@@ -46,5 +50,10 @@ int main(int argc, char **argv)
 //    process.close();
 
 //    return result;
+
+#ifdef QT_DEBUG
+    __sanitizer_set_report_path("asan_datetime.log");
+#endif
+
     return 0;
 }
