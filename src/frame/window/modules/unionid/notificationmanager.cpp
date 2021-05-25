@@ -358,6 +358,7 @@ void Notificationmanager::readAvatarFromUrl()
 void Notificationmanager::onUserInfoChanged(const QVariantMap &userInfo)
 {
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
+    qInfo() << "onUserInfoChanged";
 
     if (isLogind) {
         if (m_bIsExternalLogin && !firstIsLogin()) {

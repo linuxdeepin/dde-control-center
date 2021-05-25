@@ -132,6 +132,7 @@ SearchModel::SearchModel(QObject *parent)
         {tr("Disable the touchpad when inserting the mouse"), false},
         {tr("Computer will suspend after"), false},
         {tr("Sign In"), false},
+        {tr("Sign Up"), false},
         {tr("Auto power saving on battery"), false},
         {tr("Touch Screen"), false},
         {tr("Power Plans"), false},
@@ -625,7 +626,7 @@ void SearchModel::setLanguage(const QString &type)
 #endif
         for (const QString &i : m_xmlFilePath) {
             QString xmlPath = i.arg(m_lang);
-            QFile   file(xmlPath);
+            QFile file(xmlPath);
 
             if (!file.exists()) {
                 qDebug() << " [SearchWidget] File not exist";

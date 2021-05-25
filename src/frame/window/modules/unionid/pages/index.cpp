@@ -238,7 +238,7 @@ void IndexPage::setModel(UnionidModel *model)
     LoginedIn::setModel(model);
 //    m_lab->setVisible(!model->getActivation());
 
-    connect(model, &UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
+    //connect(model, &UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
     connect(model, &UnionidModel::enableSyncChanged, this, &IndexPage::onChecked);
 //    connect(model, &UnionidModel::enableSyncChanged, m_listView, &QListView::setVisible);
 //    connect(model, &UnionidModel::enableSyncChanged, m_networkTip, &QLabel::setVisible);

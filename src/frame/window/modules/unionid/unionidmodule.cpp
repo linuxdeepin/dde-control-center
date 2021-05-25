@@ -90,7 +90,7 @@ void UnionidModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
 QStringList UnionidModule::availPage() const
 {
     QStringList sl;
-    sl << "unionid " << "Unionid Sign In";
+    sl << "unionid" << "Unionid Sign In";
     return sl;
 }
 
