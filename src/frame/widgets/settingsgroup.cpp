@@ -29,6 +29,7 @@
 #include "window/utils.h"
 
 #include <DBackgroundGroup>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QEvent>
@@ -157,7 +158,11 @@ void SettingsGroup::clear()
         QLayoutItem *item = m_layout->takeAt(index);
         QWidget *w = item->widget();
         w->removeEventFilter(this);
-        w->setParent(nullptr);
+
+        if (!DGuiApplicationHelper::isTabletEnvironment()) {
+            w->setParent(nullptr);
+        }
+
         delete item;
         w->deleteLater();
     }
