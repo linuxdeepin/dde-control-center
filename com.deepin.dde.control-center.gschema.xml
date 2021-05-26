@@ -680,7 +680,7 @@
             <summary></summary>
             <description>default is true</description>
         </key>
-        <key name="device-manage" type="b">
+        <key name="devices" type="b">
             <default>true</default>
             <summary></summary>
             <description>default is true</description>

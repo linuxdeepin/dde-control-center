@@ -41,7 +41,7 @@ SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
     GSettingWatcher::instance()->insertState("soundInput");
     GSettingWatcher::instance()->insertState("soundOutput");
     GSettingWatcher::instance()->insertState("soundEffects");
-    GSettingWatcher::instance()->insertState("deviceManage");
+    GSettingWatcher::instance()->insertState("devices");
 }
 
 void SoundModule::preInitialize(bool, FrameProxyInterface::PushType pushtype)
