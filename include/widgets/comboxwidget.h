@@ -44,6 +44,7 @@ public:
 
     void setComboxOption(const QStringList &options);
     void setCurrentText(const QString &curText);
+    void setCurrentIndex(const int index);
     void setTitle(const QString &title);
 
     QComboBox *comboBox();

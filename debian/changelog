@@ -201,7 +201,7 @@ dde-control-center (2.90.1+r1494~g999cab5) experimental; urgency=low
   * Fixed: show error page on peerIdFailed
   * Merge branch 'develop' into release/2.3
 
- -- None <None>  Thu, 02 Jul 2015 13:55:11 +0000
+ -- TagBuilder <tabbuilder@linuxdeepin.com>  Thu, 02 Jul 2015 13:55:11 +0000
 
 dde-control-center (0.0.0) unstable; urgency=medium
 

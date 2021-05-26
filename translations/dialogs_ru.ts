@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="35"/>
         <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Перезагрузитесь, чтобы правильно использовать систему и приложения после обновления.</translation>
+        <translation>Перезагрузите компьютер, чтобы правильно использовать систему и приложения</translation>
     </message>
     <message>
         <location filename="../src/dialogs/reminderdialog.cpp" line="36"/>

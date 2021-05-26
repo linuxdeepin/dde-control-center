@@ -260,12 +260,14 @@ int main(int argc, char *argv[])
     //debug时会直接show
     //发布版本，不会直接显示，为了满足在被dbus调用时，
     //如果dbus参数错误，不会有任何UI上的变化
-    DDBusSender()
-    .service("com.deepin.dde.ControlCenter")
-    .interface("com.deepin.dde.ControlCenter")
-    .path("/com/deepin/dde/ControlCenter")
-    .method("Show")
-    .call();
+    if (1 == argc) {
+        DDBusSender()
+            .service("com.deepin.dde.ControlCenter")
+            .interface("com.deepin.dde.ControlCenter")
+            .path("/com/deepin/dde/ControlCenter")
+            .method("Show")
+            .call();
+    }
 #endif
 
     return app->exec();

@@ -43,6 +43,7 @@ using namespace DCC_NAMESPACE::accounts;
 AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     : QObject(parent)
     , ModuleInterface(frame)
+    , m_isCreatePage(false)
 {
     m_frameProxy =  frame;
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
@@ -182,11 +183,15 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_accountsWorker, &AccountsWorker::setMaxPasswordAge);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
+    m_isCreatePage = false;
 }
 
 //创建账户界面
 void AccountsModule::onShowCreateAccountPage()
 {
+    if (m_isCreatePage) {
+        return;
+    }
     CreateAccountPage *w = new CreateAccountPage();
     w->setVisible(false);
     User *newUser = new User(this);
@@ -196,6 +201,7 @@ void AccountsModule::onShowCreateAccountPage()
     connect(w, &CreateAccountPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
+    m_isCreatePage = true;
 }
 
 AccountsModule::~AccountsModule()

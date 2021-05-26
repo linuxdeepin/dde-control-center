@@ -207,6 +207,7 @@ void MonitorsGround::adjustAll()
         const double y = scale * primarywdt->y();
 
         primarywdt->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
+        primarywdt->raise();
     }
 }
 

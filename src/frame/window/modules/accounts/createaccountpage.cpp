@@ -88,6 +88,8 @@ CreateAccountPage::CreateAccountPage(QWidget *parent)
 
     QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
     DSuggestButton *addBtn = new DSuggestButton(tr("Create"));
+    cancleBtn->setDefault(true);
+    addBtn->setDefault(true);
     btnLayout->addWidget(cancleBtn);
     btnLayout->addWidget(addBtn);
     mainContentLayout->addSpacing(0);
@@ -316,6 +318,15 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
         item->setCheckState(item && presetGroup.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
+}
+
+//在修改密码页面当前密码处设置焦点
+void CreateAccountPage::showEvent(QShowEvent *event)
+{
+    if (m_nameEdit && !m_nameEdit->hasFocus()) {
+        m_nameEdit->lineEdit()->setFocus();
+    }
+    QWidget::showEvent(event);
 }
 
 void CreateAccountPage::createUser()

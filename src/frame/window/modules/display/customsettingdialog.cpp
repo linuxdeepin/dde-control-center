@@ -238,7 +238,9 @@ void CustomSettingDialog::initWithModel()
 
 void CustomSettingDialog::initOtherDialog()
 {
-    if (m_otherDialog.size()) {
+    //bug-61032: 自定义-拆分，调用隐藏对话框，导致HDMI设置页面丢失 -> 不设置隐藏
+    //bug-68419: 自定义-合并，未调用隐藏对话框，导致出现两个设置对话框 -> 设置隐藏
+    if (m_otherDialog.size() && m_model->isMerge()) {
         for (auto dlg : m_otherDialog) {
             dlg->setVisible(false);
         }

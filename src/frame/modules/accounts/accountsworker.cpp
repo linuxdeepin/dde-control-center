@@ -24,7 +24,6 @@
  */
 
 #include "accountsworker.h"
-#include "user.h"
 #include "window/utils.h"
 #include "widgets/utils.h"
 
@@ -41,7 +40,9 @@
 #include <libintl.h>
 #include <random>
 #include <crypt.h>
+#include <polkit-qt5-1/PolkitQt1/Authority>
 
+using namespace PolkitQt1;
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE;
 
@@ -236,9 +237,9 @@ void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
         qDebug() << Q_FUNC_INFO << reply.error().message();
         Q_EMIT m_userModel->isCancelChanged();
     } else {
-        getAllGroups();
         Q_EMIT m_userModel->deleteUserSuccess();
         removeUser(m_userInters.value(user)->path());
+        getAllGroups();
 
         QDBusPendingReply<> listFingersReply = m_fingerPrint->ListFingers(user->name());
         listFingersReply.waitForFinished();
@@ -319,7 +320,9 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     if (exitCode != 0) {
         QString errortxt = process.readAllStandardError();
         qDebug() << errortxt;
-        if (errortxt.contains("Current password: passwd: Authentication token manipulation error")) {
+        if (errortxt.contains("Permission denied")) {
+            exitCode = 1;
+        } else if (errortxt.contains("Current password: passwd: Authentication token manipulation error")) {
             exitCode = 10;
         } else if (errortxt.contains("it is WAY too short") || errortxt.contains("You must choose a longer password") || errortxt.contains("The password is shorter than")) {
             exitCode = 11;
@@ -592,6 +595,15 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
         return result;
     }
 
+    Authority::Result authenticationResult;
+    authenticationResult = Authority::instance()->checkAuthorizationSync("com.deepin.daemon.accounts.user-administration", UnixProcessSubject(getpid()),
+                                                           Authority::AllowUserInteraction);
+
+    if (Authority::Result::Yes != authenticationResult) {
+        result->setType(CreationResult::Canceled);
+        return result;
+    }
+
     // default FullName is empty string
     QDBusObjectPath path;
     QDBusPendingReply<QDBusObjectPath> createReply = m_accountsInter->CreateUser(user->name(), user->fullname(), user->userType());
@@ -618,7 +630,7 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     bool sifResult = !userDBus->SetIconFile(user->currentAvatar()).isError();
     bool spResult = !userDBus->SetPassword(cryptUserPassword(user->password())).isError();
     bool groupResult = true;
-    if (IsServerSystem) {
+    if (IsServerSystem && !user->groups().isEmpty()) {
         groupResult = !userDBus->SetGroups(user->groups()).isError();
     }
 

@@ -61,15 +61,20 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
         //~ contents_path /mouse/TrackPoint
         { "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting)}
     };
-    QList<DStandardItem *> mouseItems;
     for (auto it = m_menuIconText.cbegin(); it != m_menuIconText.cend(); ++it) {
         DStandardItem *mouseItem = new DStandardItem(QIcon::fromTheme(it->itemIcon), it->itemText);
         mouseItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         if (it->itemText == QString(tr("Mouse"))) {
             mouseItem->setAccessibleText("MOUSE_ITEM");
         }
+        if (!tpadExist && it->itemText == QString(tr("Touchpad"))) {
+            continue;
+        }
+        if (!redPointExist && it->itemText == QString(tr("TrackPoint"))) {
+            continue;
+        }
         m_listviewModel->appendRow(mouseItem);
-        mouseItems << mouseItem;
+        m_mouseItems << mouseItem;
     }
 
     if (InsertPlugin::instance()->needPushPlugin("mouse")) {
@@ -82,20 +87,53 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
     m_mouseListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_mouseListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_lastIndex = m_listviewModel->index(0, 0);
-    m_mouseListView->setCurrentIndex(m_lastIndex);
-    m_mouseListView->setRowHidden(m_listviewModel->indexFromItem(mouseItems[2]).row(), !tpadExist);
-    m_mouseListView->setRowHidden(m_listviewModel->indexFromItem(mouseItems[3]).row(), !redPointExist);
+    m_mouseListView->resetStatus(m_lastIndex);
     m_mouseListView->setViewportMargins(ScrollAreaMargins);
     m_mouseListView->setIconSize(ListViweIconSize);
     connect(m_mouseListView, &DListView::clicked, this, &MouseWidget::onItemClicked);
     connect(m_mouseListView, &DListView::activated, m_mouseListView, &QListView::clicked);
-    connect(this, &MouseWidget::tpadExistChanged, this, [this, mouseItems](bool bExist) {
-        m_mouseListView->setRowHidden(m_listviewModel->indexFromItem(mouseItems[2]).row(), !bExist);
-        qDebug() << "tpadExistChanged: " << bExist;
+    connect(this, &MouseWidget::tpadExistChanged, this, [ = ](bool bExist) {
+        if (bExist) {
+                DStandardItem *mouseTouchpadItem = new DStandardItem(QIcon::fromTheme(m_menuIconText[2].itemIcon), m_menuIconText[2].itemText);
+                mouseTouchpadItem->setData(VListViewItemMargin, Dtk::MarginsRole);
+
+                m_listviewModel->insertRow(2, mouseTouchpadItem);
+                m_mouseItems << mouseTouchpadItem;
+        } else {
+            DStandardItem *touchItem = nullptr;
+            for (auto item : m_mouseItems) {
+                if (item->text() == QString(tr("Touchpad"))) {
+                    touchItem = item;
+                    break;
+                }
+            }
+            if (touchItem) {
+                if (m_mouseListView->count() < 4) {
+                    m_mouseListView->resetStatus(m_listviewModel->index(0, 0));
+                }
+                m_mouseListView->removeItem(m_listviewModel->indexFromItem(touchItem).row());
+            }
+
+        }
     });
-    connect(this, &MouseWidget::redPointExistChanged, this, [this, mouseItems](bool bExist) {
-        m_mouseListView->setRowHidden(m_listviewModel->indexFromItem(mouseItems[3]).row(), !bExist);
-        qDebug() << "redPointExistChanged: " << bExist;
+    connect(this, &MouseWidget::redPointExistChanged, this, [ = ](bool bExist) {
+        if (bExist) {
+            DStandardItem *mouseTrackPointItem = new DStandardItem(QIcon::fromTheme(m_menuIconText[3].itemIcon), m_menuIconText[3].itemText);
+            mouseTrackPointItem->setData(VListViewItemMargin, Dtk::MarginsRole);
+
+            m_listviewModel->insertRow(3, mouseTrackPointItem);
+            m_mouseItems << mouseTrackPointItem;
+        } else {
+            DStandardItem *trackPointItem = nullptr;
+            for (auto item : m_mouseItems) {
+                if (item->text() == QString(tr("TrackPoint"))) {
+                    trackPointItem = item;
+                    break;
+                }
+            }
+            if (trackPointItem)
+                m_mouseListView->removeItem(m_listviewModel->indexFromItem(trackPointItem).row());
+        }
     });
 }
 

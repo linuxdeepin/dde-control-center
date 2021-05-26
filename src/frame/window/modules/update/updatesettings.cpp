@@ -112,7 +112,7 @@ void UpdateSettings::initUi()
     m_freeTimeDownloadLbl->setContentsMargins(10, 0, 10, 0);
     m_setFreeTimeLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg("更改"));
 
-    auto setDownloadTimeCtrlLayout = [ & ](SwitchWidget * setSwitch, DTipLabel * timeInfoLbl, QLabel * changeLbl) {
+    auto setDownloadTimeCtrlLayout = [ & ](SwitchWidget *setSwitch, DTipLabel *timeInfoLbl, QLabel *changeLbl) {
         setSwitch->addBackground();
         contentLayout->addWidget(setSwitch);
         QHBoxLayout *downloadLblLayout = new QHBoxLayout;

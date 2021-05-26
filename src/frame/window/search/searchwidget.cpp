@@ -36,6 +36,7 @@
 #include <QKeyEvent>
 #include <QtConcurrent>
 #include <QFutureWatcher>
+#include <QAbstractItemView>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -169,8 +170,6 @@ SearchModel::SearchModel(QObject *parent)
 
 SearchWidget::SearchWidget(QWidget *parent)
     : DTK_WIDGET_NAMESPACE::DSearchEdit(parent)
-    , m_searchValue("")
-    , m_speechState(false)
 {
     m_model = new SearchModel(this);
     m_completer = new ddeCompleter(m_model, this);
@@ -180,9 +179,9 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
     m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
     m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
-    lineEdit()->setCompleter(m_completer);
     m_completer->setWrapAround(false);
     m_completer->installEventFilter(this);
+    m_completer->setWidget(lineEdit());  //设置自动补全时弹出时相应位置的widget
 
     connect(m_model, &SearchModel::notifyModuleSearch, this, &SearchWidget::notifyModuleSearch);
 
@@ -196,83 +195,36 @@ SearchWidget::SearchWidget(QWidget *parent)
         }
     });
 
-    //直接调用setText不会发送该信号，故用该信号区分①输入框输入②外部使用setText输入
-    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::voiceChanged, this, [ = ] {
-        m_speechState = isVoiceInput();
-
-        const QString& txt = text();
-        if (!m_speechState && !txt.isEmpty()) {
-            // 语音输入结束时，取语音文本发送到lineEdit触发QCompleter匹配弹窗
-            QTimer::singleShot(100, this, [=] {
-                QApplication::postEvent(this->lineEdit(), new QKeyEvent(QEvent::KeyPress, 0, Qt::NoModifier, txt));
-                this->clear();
-            });
-        }
-    });
-
-    // 5.1.0.4控制中心版本验证语音输入信号始终不会触发（dtk就近取的最新版本）
-    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::voiceInputFinished, this, [ = ] {
-        QString retValue = text();
-
-        if (m_speechState) {
-            //避免输入单个字符，直接匹配到第一个完整字符(导致不能匹配正确的字符)
-            if ("" == retValue || m_searchValue.contains(retValue, Qt::CaseInsensitive)) {
-                m_searchValue = retValue;
-                return ;
-            }
-
-            retValue = m_model->transPinyinToChinese(text());
-
-            m_searchValue = retValue;
-            //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
-            Q_EMIT focusChanged(true);
-            this->setText(retValue);
-        }
-  });
-
-    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, [ = ] {
-        QString retValue = text();
-        if (false == m_speechState) {
-            //用户输入的时候，还是按直接设置setText流程运行(旧的流程)
-            //外部调用setText的时候，需要先对setText的内容进行解析，解析获取对应的存在数据
-            if (m_model->m_bIstextEdited) {
-                m_model->m_bIstextEdited = false;
-                //解决无法在已经输入数据前面输入数据,但是目前不清楚外部调用会出现什么问题,暂时注释代码
-    //            this->setText(transPinyinToChinese(retValue));
-                return ;
-            }
-
-            //避免输入单个字符，直接匹配到第一个完整字符(导致不能匹配正确的字符)
-            if ("" == retValue || m_searchValue.contains(retValue, Qt::CaseInsensitive)) {
-                m_searchValue = retValue;
-                return ;
-            }
-
-            retValue = m_model->transPinyinToChinese(text());
-
-            m_searchValue = retValue;
-
-            //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
-            Q_EMIT focusChanged(true);
-            this->setText(retValue);
-        }
-    });
-
-
+    //语音输入不会触发DSearchEdit的textEdited信号，从而不会触发自动补全功能，需要根据textChanged信号手动触发下自动补全
+    connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textChanged, this, &SearchWidget::onSearchTextChange);
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::returnPressed, this, [ = ] {
-
         if (!text().isEmpty()) {
             //enter defalt set first
             if (!jumpContentPathWidget(text())) {
-                const QString &currentCompletion = lineEdit()->completer()->currentCompletion();
+                //m_completer未关联部件时，currentCompletion只会获取到第一个选项并且不会在Edit中补全内容，需要通过popup()获取当前选择项并手动补全edit内容
+                QString currentCompletion = m_completer->popup()->currentIndex().data().toString();
+                //如果通过popup()未获取当前选择项,再通过currentCompletion获取第一个选项
+                if (m_completer->completionCount() > 0 && currentCompletion.isEmpty()) {
+                    currentCompletion = m_completer->currentCompletion();
+                }
                 qDebug() << Q_FUNC_INFO << " [SearchWidget] currentCompletion : " << currentCompletion;
+
+                //若未获取到任何补全项直接退出,以免将已输入内容清空
+                if (currentCompletion.isEmpty()) {
+                    return ;
+                }
 
                 //中文遍历一遍,若没有匹配再遍历将拼音转化为中文再遍历
                 //解决输入拼音时,有配置数据后,直接回车无法进入第一个匹配数据页面的问题
                 if (!jumpContentPathWidget(currentCompletion)) {
                     jumpContentPathWidget(m_model->transPinyinToChinese(currentCompletion));
                 }
+
+                //根据匹配的信息补全DSearchEdit的内容，block信号避免重新触发自动补全
+                this->blockSignals(true);
+                this->setText(currentCompletion);
+                this->blockSignals(false);
             }
         }
     });
@@ -483,7 +435,7 @@ QString SearchModel::transPinyinToChinese(const QString &pinyin)
 {
     QString value = pinyin;
 
-//    //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
+    //遍历"汉字-拼音"列表,将存在的"拼音"转换为"汉字"
     auto res = std::find_if(m_inputList.begin(), m_inputList.end(), [=] (const SearchDataStruct data)->bool{
             return value == data.pinyin;
         });
@@ -900,6 +852,26 @@ void SearchWidget::onCompleterActivated(const QString &value)
 {
     qDebug() << Q_FUNC_INFO << value;
     Q_EMIT returnPressed();
+}
+
+void SearchWidget::onAutoComplete(const QString &text)
+{
+    //因为QLineEdit只有在触发textEdited信号时才会触发自动补全，而语音识别输入没有触发textEdited,所以需要在触发textChanged后手动触发下自动补全
+    auto *widget = m_completer->popup();
+    if (widget && text.isEmpty()) {
+        widget->hide();
+    } else {
+        m_completer->setCompletionPrefix(text);
+        m_completer->complete();
+    }
+}
+
+void SearchWidget::onSearchTextChange(const QString &text)
+{
+    //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
+    Q_EMIT focusChanged(true);
+    //实现自动补全
+    onAutoComplete(text);
 }
 
 bool ddeCompleter::eventFilter(QObject *o, QEvent *e)

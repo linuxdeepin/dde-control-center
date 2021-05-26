@@ -34,6 +34,12 @@ class QVBoxLayout;
 class QStandardItemModel;
 QT_END_NAMESPACE
 
+DWIDGET_BEGIN_NAMESPACE
+class DStandardItem;
+DWIDGET_END_NAMESPACE
+
+DWIDGET_USE_NAMESPACE
+
 namespace dcc {
 namespace mouse {
 class MouseModel;
@@ -76,6 +82,7 @@ private:
     QStandardItemModel *m_listviewModel;
     QModelIndex m_lastIndex;
     QList<ListSubItem> m_menuIconText;
+    QList<DStandardItem *> m_mouseItems;
 };
 }
 }
