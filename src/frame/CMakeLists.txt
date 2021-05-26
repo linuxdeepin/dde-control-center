@@ -123,7 +123,6 @@ set(WINDOW_FILES
     window/modules/sound/speakerpage.cpp
     window/modules/sound/microphonepage.cpp
     window/modules/sound/soundeffectspage.cpp
-    window/modules/sound/devicemanagespage.cpp
     window/modules/update/updatemodule.cpp
     window/modules/update/updatewidget.cpp
     window/modules/update/updatectrlwidget.cpp

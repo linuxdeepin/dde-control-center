@@ -23,7 +23,6 @@
 #include "microphonepage.h"
 #include "modules/sound/soundmodel.h"
 #include "modules/sound/soundworker.h"
-#include "devicemanagespage.h"
 #include "soundeffectspage.h"
 #include "soundwidget.h"
 #include "speakerpage.h"
@@ -41,7 +40,6 @@ SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
     GSettingWatcher::instance()->insertState("soundInput");
     GSettingWatcher::instance()->insertState("soundOutput");
     GSettingWatcher::instance()->insertState("soundEffects");
-    GSettingWatcher::instance()->insertState("deviceManage");
 }
 
 void SoundModule::preInitialize(bool, FrameProxyInterface::PushType pushtype)
@@ -81,7 +79,6 @@ void SoundModule::active()
     connect(m_soundWidget, &SoundWidget::requsetSpeakerPage, this, &SoundModule::showSpeakerPage);
     connect(m_soundWidget, &SoundWidget::requestMicrophonePage, this, &SoundModule::showMicrophonePage);
     connect(m_soundWidget, &SoundWidget::requsetSoundEffectsPage, this, &SoundModule::showSoundEffectsPage);
-    connect(m_soundWidget, &SoundWidget::requsetDeviceManagesPage, this, &SoundModule::showDeviceManagesPage);
     connect(m_soundWidget, &SoundWidget::requestUpdateSecondMenu, this, [=](bool needPop) {
         if (m_pMainWindow->getcontentStack().size() >= 2 && needPop) {
             m_frameProxy->popWidget(this);
@@ -122,7 +119,6 @@ void SoundModule::showSpeakerPage()
     connect(w, &SpeakerPage::requestSetPort, m_worker, &SoundWorker::setPort);
     connect(w, &SpeakerPage::requestBalanceVisible, m_worker, &SoundWorker::requestBlanceVisible);
     connect(w, &SpeakerPage::requestMute, m_worker, &SoundWorker::setSinkMute);
-    connect(w, &SpeakerPage::requstBluetoothMode, m_worker, &SoundWorker::setBluetoothMode);
     w->setModel(m_model);
     m_model->initSpeaker();
     m_frameProxy->pushWidget(this, w);
@@ -154,16 +150,6 @@ void SoundModule::showSoundEffectsPage()
     connect(w, &SoundEffectsPage::requestRefreshList, m_worker, &SoundWorker::refreshSoundEffect);
     connect(w, &SoundEffectsPage::requestSwitchSoundEffects, m_worker, &SoundWorker::enableAllSoundEffect);
     connect(w, &SoundEffectsPage::requestSetEffectAble, m_worker, &SoundWorker::setEffectEnable);
-    w->setModel(m_model);
-    m_frameProxy->pushWidget(this, w);
-    w->setVisible(true);
-}
-
-void SoundModule::showDeviceManagesPage()
-{
-    DevicemanagesPage *w = new DevicemanagesPage;
-    w->setVisible(false);
-    connect(w, &DevicemanagesPage::requestSwitchSetEnable, m_worker, &SoundWorker::setPortEnabled);
     w->setModel(m_model);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);

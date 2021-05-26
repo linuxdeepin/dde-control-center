@@ -61,6 +61,7 @@ Q_DECLARE_METATYPE(const dcc::sound::Port *)
 MicrophonePage::MicrophonePage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout)
+    , m_sw(new SwitchWidget)
     , m_volumeBtn(nullptr)
     , m_mute(false)
     , m_noiseReduce(true)
@@ -74,17 +75,32 @@ MicrophonePage::MicrophonePage(QWidget *parent)
 
     m_inputSoundCbx = new ComboxWidget(tr("Input Device"));
 
+    QHBoxLayout *hlayout = new QHBoxLayout;
+    TitleLabel *lblTitle = new TitleLabel(tr("On"));
+    DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
+    m_sw = new SwitchWidget(nullptr, lblTitle);
+    m_sw->addBackground();
+
     TitleLabel *ndTitle = new TitleLabel(tr("Automatic Noise Suppression"));
     DFontSizeManager::instance()->bind(ndTitle, DFontSizeManager::T6);
     m_noiseReductionsw = new SwitchWidget(nullptr, ndTitle);
     m_noiseReductionsw->addBackground();
+    hlayout->addWidget(m_sw);
 
     m_inputModel  = new QStandardItemModel(m_inputSoundCbx->comboBox());
     m_inputSoundCbx->comboBox()->setModel(m_inputModel);
+    SettingsGroup *inputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    inputSoundsGrp->getLayout()->setContentsMargins(ThirdPageCmbMargins);
+    inputSoundsGrp->appendItem(m_inputSoundCbx);
+    if (inputSoundsGrp->layout()) {
+        inputSoundsGrp->layout()->setContentsMargins(ThirdPageCmbMargins);
+    }
 
-    m_layout->addWidget(labelInput);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
-
+    m_layout->addWidget(labelInput);
+    m_layout->addWidget(inputSoundsGrp);
+    m_layout->addLayout(hlayout);
+    m_layout->addWidget(m_noiseReductionsw);
     setLayout(m_layout);
 }
 
@@ -131,7 +147,7 @@ void MicrophonePage::setModel(SoundModel *model)
 
     //监听消息设置是否可用
     connect(m_model, &SoundModel::isPortEnableChanged, this, [ = ](bool enable) {
-        m_enable = enable;
+        m_sw->setChecked(enable);
         //启用端口后需要再判断是否启用成功后，再设置为默认端口，但因为设置端口后会有端口是否启用的状态判断，
         //导致进入死循环，所以添加判断值，判断是否是启用或禁用端口类型的操作，若是，则设置默认端口
         if (enable && m_enablePort) {
@@ -144,9 +160,9 @@ void MicrophonePage::setModel(SoundModel *model)
     //发送查询请求消息看是否可用
     connect(m_model, &SoundModel::setPortChanged, this, [ = ](const dcc::sound::Port  * port) {
         m_currentPort = port;
-        if (!m_currentPort)
-            return;
+        if (!m_currentPort) return;
         m_enablePort = false;
+        m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
         Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
     });
 
@@ -160,7 +176,18 @@ void MicrophonePage::setModel(SoundModel *model)
     else
         m_noiseReductionsw->setChecked(false);
 
+    //连接switch点击信号，发送切换开/关扬声器的请求信号
+    connect(m_sw, &SwitchWidget::checkedChanged, this, [ = ] {
+        if (m_currentPort != nullptr) {
+            m_enablePort = true;
+            Q_EMIT m_model->requestSwitchSetEnable(m_currentPort->cardId(), m_currentPort->id(), m_sw->checked());
+        }
+        else
+            m_sw->setChecked(false);
+    });
+
     connect(m_model, &SoundModel::portAdded, this, &MicrophonePage::addPort);
+
     connect(m_model, &SoundModel::portRemoved, this, &MicrophonePage::removePort);
 
     connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),this, &MicrophonePage::changeComboxIndex);
@@ -168,16 +195,19 @@ void MicrophonePage::setModel(SoundModel *model)
     connect(m_noiseReductionsw, &SwitchWidget::checkedChanged, this, &MicrophonePage::requestReduceNoise);
     connect(m_model, &SoundModel::reduceNoiseChanged, m_noiseReductionsw, &SwitchWidget::setChecked);
     connect(m_model, &SoundModel::microphoneOnChanged, this, [ = ](bool flag) {
-        m_mute = flag;
-        refreshIcon();
+        m_mute = flag; refreshIcon();
     });
     connect(m_model, &SoundModel::setNoiseReduceVisible, this, [ = ](bool flag) {
-        m_noiseReduce = flag;
-        showDevice();
+            m_noiseReduce = flag;
+            showDevice();
     });
 
     initSlider();
-    initCombox();
+
+    if (m_currentPort) m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
+
+    if (m_inputModel->rowCount() < 2) m_sw->setHidden(true);
+
 }
 
 void MicrophonePage::removePort(const QString &portId, const uint &cardId)
@@ -199,7 +229,8 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
 
     rmFunc(m_inputModel);
     dcc::sound::Port *port = m_model->findPort(portId, cardId);
-
+    if (port)
+        m_sw->setHidden(!m_model->isShow(m_inputModel, port));
     showDevice();
 }
 
@@ -215,11 +246,7 @@ void MicrophonePage::changeComboxIndex(const int idx)
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
 {
-    if (!port->isEnabled())
-        return;
-
     if (port->In == port->direction()) {
-        m_enable = port->isEnabled();
         DStandardItem *pi = new DStandardItem;
         pi->setText(port->name() + "(" + port->cardName() + ")");
 
@@ -246,6 +273,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
             connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
+            m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
         }
         showDevice();
     }
@@ -260,7 +288,7 @@ void MicrophonePage::initSlider()
 {
     m_inputSlider = new TitledSliderItem(tr("Input Volume"));
     m_inputSlider->addBackground();
-    m_layout->insertWidget(2, m_inputSlider);
+    m_layout->insertWidget(3, m_inputSlider);
 
     m_volumeBtn = new SoundLabel(this);
     QGridLayout *gridLayout = dynamic_cast<QGridLayout *>(m_inputSlider->slider()->layout());
@@ -322,7 +350,11 @@ void MicrophonePage::initSlider()
     });
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &MicrophonePage::refreshIcon);
     connect(qApp, &DApplication::iconThemeChanged, this, &MicrophonePage::refreshIcon);
-    m_layout->insertWidget(3, m_feedbackSlider);
+    m_layout->setSpacing(10);
+    m_layout->insertWidget(4, m_feedbackSlider);
+#endif
+    //放到宏外面修复sw架构下音频布局异常的问题
+    m_layout->addStretch(10);
 
     refreshIcon();
     showDevice();
@@ -331,22 +363,6 @@ void MicrophonePage::initSlider()
     GSettingWatcher::instance()->bind("soundInputSlider", m_inputSlider);
     GSettingWatcher::instance()->bind("soundFeedbackSlider", m_feedbackSlider);
     GSettingWatcher::instance()->bind("soundNoiseReduce", m_noiseReductionsw);
-}
-
-void MicrophonePage::initCombox()
-{
-    SettingsGroup *inputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
-
-    inputSoundsGrp->getLayout()->setContentsMargins(ThirdPageCmbMargins);
-    inputSoundsGrp->appendItem(m_inputSoundCbx);
-
-    m_layout->addWidget(m_noiseReductionsw);
-    m_layout->addWidget(inputSoundsGrp);
-    m_layout->setSpacing(10);
-    m_layout->addStretch(10);
-#endif
-    //放到宏外面修复sw架构下音频布局异常的问题
-    m_layout->addStretch(10);
 }
 
 void MicrophonePage::refreshIcon()
@@ -362,18 +378,26 @@ void MicrophonePage::refreshIcon()
  * @brief MicrophonePage::showDevice
  * 当默认设备为空时隐藏设备信息
  * 当无设备时，不显示设备信息
+ * 当只有一个设备时，一直显示设备信息
  * 当有多个设备，且未禁用时，显示设备信息
- * 跟随设备管理
  */
 void MicrophonePage::showDevice()
 {
     if (!m_feedbackSlider || !m_inputSlider || !m_noiseReductionsw)
         return;
-
+    if (-1 == m_inputSoundCbx->comboBox()->currentIndex()) {
+        setDeviceVisible(false);
+        return;
+    }
+    if (1 == m_inputModel->rowCount())
+        setDeviceVisible(true);
     if (1 > m_inputModel->rowCount())
         setDeviceVisible(false);
-    else {
-        setDeviceVisible(m_enable);
+    if (1 < m_inputModel->rowCount()) {
+        if (m_sw->checked())
+            setDeviceVisible(true);
+        else
+            setDeviceVisible(false);
     }
 }
 

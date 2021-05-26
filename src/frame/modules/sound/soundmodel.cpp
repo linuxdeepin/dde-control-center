@@ -243,8 +243,8 @@ bool SoundModel::containsPort(const Port *port)
 
 Port *SoundModel::findPort(const QString &portId, const uint &cardId) const
 {
-    auto res = std::find_if(m_ports.cbegin(), m_ports.end(), [=] (const Port *data)->bool {
-        return ((data->id() == portId) && (data->cardId() == cardId));
+    auto res = std::find_if(m_ports.cbegin(), m_ports.end(), [=] (const Port *data)->bool{
+        return (data->id() == portId && data->cardId() == cardId);
     });
 
     if (res != m_ports.cend()) {
@@ -389,26 +389,51 @@ bool SoundModel::isIncreaseVolume() const
 
 void SoundModel::setIncreaseVolume(bool value)
 {
-    if(m_increaseVolume != value) {
+    if(m_increaseVolume != value){
         m_increaseVolume = value;
         Q_EMIT increaseVolumeChanged(value);
     }
 }
 
-void SoundModel::setBluetoothAudioModeOpts(const QStringList &modes)
+bool SoundModel::isShow(QStandardItemModel *model, const Port *port)
 {
-    if (modes != m_bluetoothModeOpts) {
-        m_bluetoothModeOpts = modes;
-        Q_EMIT bluetoothModeOptsChanged(modes);
-    }
-}
+    if (!model)
+        return false;
 
-void SoundModel::setCurrentBluetoothAudioMode(const QString &mode)
-{
-    if (mode != m_currentBluetoothMode) {
-        m_currentBluetoothMode = mode;
-        Q_EMIT bluetoothModeChanged(mode);
+    //输入和输出设备数小于2,直接返回
+    if (this->ports().size() < 2)  return false;
+
+    //输入或输出设备数小于2,直接返回
+    if (model->rowCount() < 2) return false;
+
+
+    bool isShow = false;
+    int enablecount = 0;
+    QDBusReply<bool> reply;
+    QDBusInterface inter("com.deepin.daemon.Audio", "/com/deepin/daemon/Audio", "com.deepin.daemon.Audio", QDBusConnection::sessionBus(), this);
+
+    for (int i = 0; i < model->rowCount(); i++) {
+        auto temp = model->index(i, 0);
+        const auto * it = model->data(temp, Qt::WhatsThisPropertyRole).value<const Port *>();
+        if (!it)
+            continue;
+        reply = inter.call("IsPortEnabled", it->cardId(), it->id());
+
+        if (reply.value()) {
+            enablecount++;
+        }
+
+        //排除当前端口以后还有端口为开启状态需要显示
+        if ((it->cardId() != port->cardId() || it->name() != port->name()) && reply.value()) {
+            isShow = true;
+        }
     }
+
+    //当开启的端口为0个时需要显示
+    if (enablecount == 0)
+        isShow =  true;
+
+    return isShow;
 }
 
 void Port::setId(const QString &id)
@@ -456,22 +481,6 @@ void Port::setCardId(const uint &cardId)
     if (cardId != m_cardId) {
         m_cardId = cardId;
         Q_EMIT cardIdChanged(cardId);
-    }
-}
-
-void Port::setEnabled(const bool enabled)
-{
-    if (enabled != m_enabled) {
-        m_enabled = enabled;
-        Q_EMIT currentPortEnabled(enabled);
-    }
-}
-
-void Port::setIsBluetoothPort(const bool isBlue)
-{
-    if (m_isBluetoothPort != isBlue) {
-        m_isBluetoothPort = isBlue;
-        Q_EMIT currentBluetoothPortChanged(isBlue);
     }
 }
 

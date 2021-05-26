@@ -82,12 +82,12 @@ private Q_SLOTS:
 
 private:
     void initSlider();
-    void initCombox();
     void refreshIcon();
 
 private:
     dcc::sound::SoundModel *m_model{nullptr};
     QVBoxLayout *m_layout{nullptr};
+    dcc::widgets::SwitchWidget *m_sw{nullptr};
     dcc::widgets::TitledSliderItem *m_inputSlider{nullptr};
     dcc::widgets::TitledSliderItem *m_feedbackSlider{nullptr};
     QMetaObject::Connection m_conn;
@@ -104,7 +104,6 @@ private:
     bool m_noiseReduce;
     //启用端口但未设置为默认端口判断
     bool m_enablePort;
-    bool m_enable;
 };
 
 }

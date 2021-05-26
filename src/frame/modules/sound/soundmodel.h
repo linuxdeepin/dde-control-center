@@ -57,7 +57,7 @@ public:
         In = 2
     };
 
-    explicit Port(QObject * parent) : QObject(parent), m_cardId(0), m_isActive(false), m_direction(Out), m_enabled(false), m_isBluetoothPort(false){}
+    explicit Port(QObject * parent) : QObject(parent), m_cardId(0), m_isActive(false), m_direction(Out) {}
     virtual ~Port() {}
 
     inline QString id() const { return m_id; }
@@ -78,13 +78,6 @@ public:
     inline uint cardId() const { return m_cardId; }
     void setCardId(const uint &cardId);
 
-    inline bool isEnabled() const { return m_enabled; }
-    void setEnabled(const bool enabled);
-
-    inline bool isBluetoothPort() const  { return m_isBluetoothPort; }
-    void setIsBluetoothPort(const bool isBlue);
-
-
 Q_SIGNALS:
     void idChanged(QString id) const;
     void nameChanged(QString name) const;
@@ -92,8 +85,6 @@ Q_SIGNALS:
     void isActiveChanged(bool ative) const;
     void directionChanged(Direction direction) const;
     void cardIdChanged(uint cardId) const;
-    void currentPortEnabled(bool enable) const;
-    void currentBluetoothPortChanged(bool isBlue) const;
 
 private:
     QString m_id;
@@ -102,8 +93,6 @@ private:
     QString m_cardName;
     bool m_isActive;
     Direction m_direction;
-    bool m_enabled;
-    bool m_isBluetoothPort;
 };
 
 class SoundLabel : public QLabel
@@ -200,13 +189,7 @@ public:
     void setIncreaseVolume(bool value);
     void initMicroPhone() { Q_EMIT microphoneOnChanged(m_microphoneOn); }
     void initSpeaker() { Q_EMIT speakerOnChanged(m_speakerOn); }
-
-    inline QStringList bluetoothAudioModeOpts() { return m_bluetoothModeOpts; }
-    void setBluetoothAudioModeOpts(const QStringList &modes);
-
-    // 设置当前蓝牙耳机模式
-    inline QString currentBluetoothAudioMode() { return m_currentBluetoothMode; }
-    void setCurrentBluetoothAudioMode(const QString &mode);
+    bool isShow(QStandardItemModel *model, const Port *port);
 
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
@@ -222,10 +205,10 @@ Q_SIGNALS:
     void increaseVolumeChanged(bool value) const;
     void reduceNoiseChanged(bool reduceNoise) const;
     void isPortEnableChanged(bool enable) const;
-    void bluetoothModeOptsChanged(const QStringList &modeOpts) const;
-    void bluetoothModeChanged(const QString &mode);
 
     void setPortChanged(const Port* port) const;
+    //发出请求切换扬声器打开/关闭的请求
+    void requestSwitchSetEnable(unsigned int cardId,QString cardName, bool enable);
     //查询是否可用
     void requestSwitchEnable(unsigned int cardId,QString cardName);
 
@@ -267,8 +250,6 @@ private:
     QDBusObjectPath m_defaultSource;
     QDBusObjectPath m_defaultSink;
     QString m_audioCards;
-    QStringList m_bluetoothModeOpts;
-    QString m_currentBluetoothMode;
 
     SoundEffectList m_soundEffectMapPower;
     SoundEffectList m_soundEffectMapBattery;
