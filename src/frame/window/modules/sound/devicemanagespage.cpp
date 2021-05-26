@@ -129,7 +129,7 @@ void DevicemanagesPage::removePort(const QString &portId, const uint &cardId)
 void DevicemanagesPage::initUI()
 {
     // TODO: 输出设备
-    TitleLabel *outputDevice = new TitleLabel(tr("Output Devices"));
+    TitleLabel *outputDevice = new TitleLabel(tr("Output Device"));
     DFontSizeManager::instance()->bind(outputDevice, DFontSizeManager::T5, QFont::DemiBold);
     outputDevice->setContentsMargins(10, 10, 0, 0);
     outputDevice->setAlignment(Qt::AlignLeft | Qt::AlignTop);
@@ -152,7 +152,7 @@ void DevicemanagesPage::initUI()
     m_layout->addSpacing(10);
 
     // 输入设备
-    TitleLabel *inputDevice = new TitleLabel(tr("Input Devices"));
+    TitleLabel *inputDevice = new TitleLabel(tr("Input Device"));
     DFontSizeManager::instance()->bind(inputDevice, DFontSizeManager::T5, QFont::DemiBold);
     inputDevice->setContentsMargins(10, 0, 0, 0);
     inputDevice->setAlignment(Qt::AlignLeft | Qt::AlignTop);

@@ -79,7 +79,7 @@ void SoundWidget::initMembers()
     //~ contents_path /sound/Sound Effects
     m_menuMethod.append({"dcc_sound_effect", tr("Sound Effects"), QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage), nullptr, "soundEffects"});
     //TODO-:  ~ contents_path /sound/Device Manage
-    m_menuMethod.append({"dcc_device_mange", tr("Devices"), QMetaMethod::fromSignal(&SoundWidget::requsetDeviceManagesPage), nullptr, "devices"});
+    m_menuMethod.append({"dcc_device_mange", tr("Device Manage"), QMetaMethod::fromSignal(&SoundWidget::requsetDeviceManagesPage), nullptr, "deviceManage"});
 
     for (auto mm : m_menuMethod) {
         DStandardItem *item = new DStandardItem(mm.itemText);
