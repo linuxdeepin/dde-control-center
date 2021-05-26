@@ -293,31 +293,36 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
 }
 
 void AccountsWorker::deleteAccount(User *user, const bool deleteHome)
-{
-    QDBusPendingReply<> reply = m_accountsInter->DeleteUser(user->name(), deleteHome);
-    reply.waitForFinished();
-    if (reply.isError()) {
-        qDebug() << Q_FUNC_INFO << reply.error().message();
-        Q_EMIT m_userModel->isCancelChanged();
-    } else {
-        Q_EMIT m_userModel->deleteUserSuccess();
-        removeUser(m_userInters.value(user)->path());
-        getAllGroups();
-
-        QDBusPendingReply<> listFingersReply = m_fingerPrint->ListFingers(user->name());
-        listFingersReply.waitForFinished();
-        if (listFingersReply.isError()) {
-            qDebug() << Q_FUNC_INFO << listFingersReply.error().message();
+{  
+    QDBusPendingCall call = m_accountsInter->DeleteUser(user->name(), deleteHome);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [=] {
+        Q_EMIT requestMainWindowEnabled(true);
+        if (call.isError()) {
+            qDebug() << Q_FUNC_INFO << call.error().message();
+            Q_EMIT m_userModel->isCancelChanged();
         } else {
-            if (m_fingerPrint->ListFingers(user->name()).value().count()) {
-                QDBusPendingReply<> delAllFingereply = m_fingerPrint->DeleteAllFingers(user->name());
-                delAllFingereply.waitForFinished();
-                if (delAllFingereply.isError()) {
-                    qDebug() << Q_FUNC_INFO << delAllFingereply.error().message();
+            Q_EMIT m_userModel->deleteUserSuccess();
+            removeUser(m_userInters.value(user)->path());
+            getAllGroups();
+
+            QDBusPendingReply<> listFingersReply = m_fingerPrint->ListFingers(user->name());
+            listFingersReply.waitForFinished();
+            if (listFingersReply.isError()) {
+                qDebug() << Q_FUNC_INFO << listFingersReply.error().message();
+            } else {
+                if (m_fingerPrint->ListFingers(user->name()).value().count()) {
+                    QDBusPendingReply<> delAllFingereply = m_fingerPrint->DeleteAllFingers(user->name());
+                    delAllFingereply.waitForFinished();
+                    if (delAllFingereply.isError()) {
+                        qDebug() << Q_FUNC_INFO << delAllFingereply.error().message();
+                    }
                 }
             }
         }
-    }
+        watcher->deleteLater();
+    });
+    Q_EMIT requestMainWindowEnabled(false);
 }
 
 void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
