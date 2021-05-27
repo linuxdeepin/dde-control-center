@@ -10,6 +10,10 @@
         <value value="2" nick="Hidden" />
     </enum>
     <schema path="/com/deepin/dde/control-center/" id="com.deepin.dde.control-center">
+        <key name="crash-signal-enable" type="b">
+            <default>true</default>
+            <summary>crash signal enable control</summary>
+        </key>
         <key name="show-search-edit" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary>Set search edit state</summary>
