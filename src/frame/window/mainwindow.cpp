@@ -46,6 +46,7 @@
 #include "dtitlebar.h"
 #include "utils.h"
 #include "interface/moduleinterface.h"
+#include "window/gsettingwatcher.h"
 
 #include <DBackgroundGroup>
 #include <DIconButton>
@@ -156,6 +157,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_searchWidget->setMinimumSize(350, 36);
     m_searchWidget->setAccessibleName("SearchModule");
     m_searchWidget->lineEdit()->setAccessibleName("SearchModuleLineEdit");
+    GSettingWatcher::instance()->bind("showSearchEdit", m_searchWidget);
 
     DTitlebar *titlebar = this->titlebar();
     auto widhetlist = titlebar->children();
