@@ -674,6 +674,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 {
     if (watched == this && m_navView && m_navView->viewMode() == QListView::ListMode) {
+#ifndef USE_TABLET
         if (QEvent::WindowDeactivate == event->type() || QEvent::WindowActivate == event->type()) {
             DPalette pa = DApplicationHelper::instance()->palette(m_navView);
             QColor base_color = palette().base().color();
@@ -687,6 +688,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 
             DApplicationHelper::instance()->setPalette(m_navView, pa);
         }
+#endif
         // 点击空白区域收起键盘
         if (QEvent::MouseButtonPress == event->type() || QEvent::MouseButtonRelease == event->type()) {
             this->setFocus();
@@ -1119,6 +1121,13 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
 
 void MainWindow::updateViewBackground()
 {
+#ifdef USE_TABLET
+    if (m_navView->viewMode() == QListView::IconMode) {
+        m_navView->setBackgroundType(DStyledItemDelegate::RoundedBackground);
+    } else {
+        m_navView->setBackgroundType(DStyledItemDelegate::NoBackground);
+    }
+#else
     DPalette pa = DApplicationHelper::instance()->palette(m_navView);
     QColor base_color = palette().base().color();
 
@@ -1137,6 +1146,7 @@ void MainWindow::updateViewBackground()
     }
 
     DApplicationHelper::instance()->setPalette(m_navView, pa);
+#endif
 }
 
 void MainWindow::onFirstItemClick(const QModelIndex &index)
