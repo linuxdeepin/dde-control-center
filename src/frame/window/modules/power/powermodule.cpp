@@ -24,10 +24,12 @@
 #include "modules/power/powerworker.h"
 #include "powerwidget.h"
 #include "window/utils.h"
+#include "window/mainwindow.h"
 
 #include "generalwidget.h"
 #include "useelectricwidget.h"
 #include "usebatterywidget.h"
+#include "window/gsettingwatcher.h"
 
 #include <DNotifySender>
 
@@ -46,7 +48,10 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_timer(new QTimer(this))
     , m_widget(nullptr)
 {
-
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("general");
+    GSettingWatcher::instance()->insertState("pluggedIn");
+    GSettingWatcher::instance()->insertState("onBattery");
 }
 
 void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
@@ -104,10 +109,16 @@ void PowerModule::active()
     connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
     connect(m_widget, &PowerWidget::requestShowUseBattery, this, &PowerModule::showUseBattery);
     connect(m_widget, &PowerWidget::requestShowUseElectric, this, &PowerModule::showUseElectric);
+    connect(m_widget, &PowerWidget::requestUpdateSecondMenu, this, [=](bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop) {
+            m_frameProxy->popWidget(this);
+        }
+        m_widget->showDefaultWidget();
+    });
 
     m_frameProxy->pushWidget(this, m_widget);
     m_widget->setVisible(true);
-    m_widget->setDefaultWidget();
+    m_widget->showDefaultWidget();
 }
 
 int PowerModule::load(const QString &path)

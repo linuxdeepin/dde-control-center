@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <enum id="com.deepin.dde.control-center.PasswordType">
+        <value value="0" nick="NormalPassWord" />
+        <value value="1" nick="IncludeBlankSymbol" />
+    </enum>
+	<schema path="/com/deepin/dde/control-center/" id="com.deepin.dde.control-center">
+		<key name="brightness-minimum" type="d">
+			<default>0.1</default>
+			<range min="0.0" max="1.0"></range>
+			<summary>The minimum brightness rate</summary>
+		</key>
+        <key name="show-search-edit" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>Set search edit state</summary>
+        </key>
+		<key name="auto-exit" type="b">
+			<default>false</default>
+			<summary>auto-exit</summary>
+		</key>
+		<key name="window-width" type="i">
+			<default>820</default>
+			<range min="820" max="9999"></range>
+			<summary>The window width last time</summary>
+		</key>
+		<key name="window-height" type="i">
+			<default>634</default>
+			<range min="634" max="9999"></range>
+			<summary>The window height last time</summary>
+		</key>
+		<key name="hide-module" type="as">
+			<default>[]</default>
+			<summary>The module to display</summary>
+		</key>
+        	<key name="show-createuser" type="b">
+			<default>true</default>
+			<summary>The create user module show or not</summary>
+		</key>
+        	<key name="show-multiscreen" type="b">
+			<default>true</default>
+			<summary>The multiscreen setting show or not</summary>
+		</key>
+        	<key name="show-suspend" type="b">
+			<default>true</default>
+			<summary>The suspend options show or not</summary>
+		</key>
+		<key name="effect-load" type="b">
+			<default>false</default>
+			<summary>Magiclamp is loaded or not</summary>
+		</key>
+		<key name="auto-login-visable" type="b">
+			<default>true</default>
+			<summary>Account module automatic login visable control</summary>
+		</key>
+		<key name="nopasswd-login-visable" type="b">
+			<default>true</default>
+			<summary>Account module no password login visable control</summary>
+		</key>
+        	<key name="account-password-type" enum="com.deepin.dde.control-center.PasswordType">
+		    <default>'NormalPassWord'</default>
+		    <summary></summary>
+		    <summary>Account password verification control</summary>
+		    <description>NormalPassWord is default IncludeBlankSymbol mean special characters add blank symbol</description>
+		</key>
+		<key name="crash-signal-enable" type="b">
+		    <default>true</default>
+		    <summary>crash signal enable control</summary>
+		</key>
+		<key name="brightness-enable" type="b">
+			<default>true</default>
+			<summary>Display module show brightness settings or not</summary>
+		</key>
+        	<key name="plugin-setting" type="s">
+			<default>'{\"mainwindow\":{\"voice\":{\"enable\":true,\"index\":\"keyboard\",\"maxmenu\":3}}}'</default>
+			<summary>plugin settings about position</summary>
+		</key>
+		<key name="show-hibernate" type="b">
+			<default>true</default>
+			<summary>The hibernate options show or not</summary>
+		</key>
+		<key name="wireless-scan-interval" type="i">
+			<default>5</default>
+			<summary>wireless scan interval</summary>
+		</key>
+        <key name="show-shutdown" type="b">
+            <default>true</default>
+            <summary>The shutdown options show or not</summary>
+        </key>
+        <key name="custom-ntpserver" type="s">
+            <default>''</default>
+            <summary>Used to record custom ntp server</summary>
+        </key>
+        <key name="display-multiple-displays" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display multiple displays status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-light-lighting" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display lighting button status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-color-temperature" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display color Temperature status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-scaling" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display scaling status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-resolution" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display resolution status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-refresh-rate" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display refresh rate status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="display-rotate" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change display rotate status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-output-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound output slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-volume-boost" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound volume boost status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-balance-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound balance slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-input-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound input slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-feedback-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound feedback slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-noise-reduce" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound noise reduce status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="sound-effect-page" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change sound effects status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="bluetooth-transfile" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change bluetooth transfile status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-plans-label" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power plans label status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-autointo-saveenergy" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power autointo saveenergy status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-autointo-saveenergy-battery" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power autointo saveenergy battery status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-lower-brightness" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power lower brightness status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-showtime-tofull" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power showtimetofull status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-showtime-tofulltips" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power showtimetofulltips status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-lid-present" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power lid present status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-press-powerbtn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power press powerbtn status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-monitor-configure" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power monitor configure status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="power-auto-lockscreen" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change power auto lockscreen status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="keyboard-shortcut" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change keyboard shortcut status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="keyboard-general" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>keyboard general menu is visible</description>
+        </key>
+        <key name="keyboard-layout" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>keyboard lauout menu is visible</description>
+        </key>
+        <key name="keyboard-language" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>keyboard system language menu is visible</description>
+        </key>
+        <key name="keyboard-shortcuts" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>keyboard shortcut menu is visible</description>
+        </key>
+        <key name="mouse-left-hand" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change mouse left hand status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="mouse-touchpad" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change mouse touchpad status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="mouse-speed-slider" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change mouse speed slider status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="mouse-general" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>general menu is visible</description>
+        </key>
+        <key name="mouse-mouse" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>mouse menu is visible</description>
+        </key>
+        <key name="mouse-touch" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>touchpad menu is visible</description>
+        </key>
+        <key name="mouse-trackpoint" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>trackpoint menu is visible</description>
+        </key>
+        <key name="system-suspend" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change system suspend status</summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-general-effects" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-general-themes" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-font-size" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-font-standard" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="perssonal-font-mono" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="account-user-fullnamebtn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="account-user-modifypasswd" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="account-user-deleteaccount" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="account-fullname-enable" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="defapp-applist-addbtn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="defapp-applist-defapp" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="defapp-webpage" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>browser is visible</description>
+        </key>
+        <key name="defapp-mail" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>mail is visible</description>
+        </key>
+        <key name="defapp-text" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>text is visible</description>
+        </key>
+        <key name="defapp-music" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>music is visible</description>
+        </key>
+        <key name="defapp-video" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>video is visible</description>
+        </key>
+        <key name="defapp-picture" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>picture is visible</description>
+        </key>
+        <key name="defapp-terminal" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>terminal is visible</description>
+        </key>
+        <key name="personalization-general" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>general is visible</description>
+        </key>
+        <key name="personalization-icon-theme" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>IconTheme is visible</description>
+        </key>
+        <key name="personalization-font" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>font is visible</description>
+        </key>
+        <key name="personalization-cursor-theme" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>CursorTheme is visible</description>
+        </key>
+        <key name="datetime-datesetting-autosync" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="datetime-zonelist-addtimezone" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="datetime-datesetting-confirmbtn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="datetime-fromatsetting" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="systeminfo-nativeinfo-authorized" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="systeminfo-nativeinfo-kernel" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="systeminfo-nativeinfo-processor" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="systeminfo-nativeinfo-memory" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="commoninfo-boot-bootlist" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="commoninfo-boot-bootdelay" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="commoninfo-boot-theme" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-auto-check" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-auto-downlaod" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-update-notify" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-clean-cache" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-doc-store" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-system-update" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-app-update" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="update-secure-update" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wired-switch" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="add-connection" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="remove-connection" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wired-edit-connection-name" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wired-auto-connect" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wired-security" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wired-ipv4" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wired-ipv6" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wired-ether-net" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wireless" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wireless-auto-connect" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wireless-security" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wireless-ipv4" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wireless-ipv6" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="wireless-wlan" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="create-pppoe" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="create-vpn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="import-vpn" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="create-hotspot" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="edition" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
+        </key>
+        <key name="boot-menu" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="developer-mode" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="user-experience-program" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="timezone-list" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="time-settings" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="time-format" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-dsl" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-vpn" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="system-proxy" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="application-proxy" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-details" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="personal-hotspot" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-wired" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="network-wireless" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <!-- Power module configuration -->
+        <key name="general" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="plugged-in" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="on-battery" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <!-- Sound module configuration -->
+        <key name="sound-output" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="sound-input" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="sound-effects" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="about-this-pc" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="edition-license" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="end-user-license-agreement" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="privacy-policy" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="system-notification" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="app-notifications" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="resolution-config" type="s">
+            <default>'1024*768'</default>
+            <summary></summary>
+            <description>resolution config</description>
+        </key>
+        <key name="terminal-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="terminal-quake-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-delayed-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-fullscreen-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-window-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="deepin-screen-recorder-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-group-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-group-backward-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="preview-workspace-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="expose-windows-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="expose-all-windows-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="launcher-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-applications-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-applications-backward-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="show-desktop-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="file-manager-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="lock-screen-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="logout-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="wm-switcher-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="system-monitor-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="clipboard-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="maximize-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="unmaximize-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="minimize-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="begin-move-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="begin-resize-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="close-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-to-workspace-left-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="switch-to-workspace-right-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="move-to-workspace-left-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="move-to-workspace-right-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="ai-assistant-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="text-to-speech-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="speech-to-text-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="translation-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+	</schema>
+</schemalist>

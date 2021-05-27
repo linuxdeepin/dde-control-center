@@ -36,6 +36,7 @@ class QListView;
 class QVBoxLayout;
 class QStandardItemModel;
 class QProcess;
+class QGSettings;
 QT_END_NAMESPACE
 
 namespace dde {
@@ -77,6 +78,7 @@ public:
     ~NetworkModuleWidget();
     void setModel(dde::network::NetworkModel *model);
     void initSetting(const int settingIndex, const QString &searchPath);
+    void showDefaultWidget();
     //设置当前索引
     void setCurrentIndex(const int settingIndex);
     int gotoSetting(const QString &path);
@@ -92,6 +94,7 @@ Q_SIGNALS:
     void requestHotspotPage() const;
     void requestShowDeviceDetail(dde::network::NetworkDevice *device, const QString &path = "") const;
     void requestDeviceEnable(const QString &devPath, const bool enable) const;
+    void requestUpdateSecondMenu(bool);
 
 private Q_SLOTS:
     void onDeviceListChanged(const QList<dde::network::NetworkDevice *> &devices);
@@ -101,6 +104,7 @@ private Q_SLOTS:
 private:
     QStandardItem *createDeviceGroup(dde::network::NetworkDevice *dev, const int number, const bool multiple);
     bool handleNMEditor();
+    void updateSecondMenu(int row);
 
 private:
     QVBoxLayout *m_centralLayout;
@@ -117,6 +121,7 @@ private:
     int m_devCount = -1;
     int m_totalDevs = -1;
     QString m_clickPageName = "";
+    QGSettings *m_settings;
 };
 }   // namespace network
 }   // namespace dcc

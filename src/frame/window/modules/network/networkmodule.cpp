@@ -39,6 +39,8 @@
 #include "connectioneditpage.h"
 #include "widgets/contentwidget.h"
 #include "modules/modulewidget.h"
+#include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
 
 #include <networkworker.h>
 #include <networkmodel.h>
@@ -64,9 +66,20 @@ NetworkModule::NetworkModule(DCC_NAMESPACE::FrameProxyInterface *frame, QObject 
     , m_initSettingTimer(new QTimer(this))
 {
     ConnectionEditPage::setFrameProxy(frame);
+
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     m_hasAp = false;
     m_hasWired = false;
     m_hasWireless = false;
+
+    GSettingWatcher::instance()->insertState("networkWireless");
+    GSettingWatcher::instance()->insertState("networkWired");
+    GSettingWatcher::instance()->insertState("networkDsl");
+    GSettingWatcher::instance()->insertState("networkVpn");
+    GSettingWatcher::instance()->insertState("systemProxy");
+    GSettingWatcher::instance()->insertState("applicationProxy");
+    GSettingWatcher::instance()->insertState("networkDetails");
+    GSettingWatcher::instance()->insertState("personalHotspot");
 }
 
 NetworkModule::~NetworkModule()
@@ -191,9 +204,19 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestHotspotPage, this, &NetworkModule::showHotspotPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestShowInfomation, this, &NetworkModule::showDetailPage);
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
+    connect(m_networkWidget, &NetworkModuleWidget::requestUpdateSecondMenu, this, [=] (bool needPop) {
+        int size = m_pMainWindow->getcontentStack().size();
+        if (size >= 2 && needPop) {
+            m_frameProxy->popWidget(this);
+            if (size >= 3) m_frameProxy->popWidget(this);
+
+        }
+        m_networkWidget->showDefaultWidget();
+    });
+
     m_frameProxy->pushWidget(this, m_networkWidget);
     m_networkWidget->setVisible(true);
-    m_networkWidget->initSetting(0, "");
+    m_networkWidget->showDefaultWidget();
 }
 
 int NetworkModule::load(const QString &path)
