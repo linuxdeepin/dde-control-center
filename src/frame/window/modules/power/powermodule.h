@@ -34,6 +34,7 @@ class PowerModel;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace power {
 
 class PowerWidget;
@@ -86,6 +87,7 @@ private:
     double m_nBatteryPercentage;
     QGSettings *m_powerSetting;
     bool m_isSuspend;
+    MainWindow *m_pMainWindow;
 };
 
 
