@@ -111,6 +111,7 @@ private:
 private:
     QList<SearchBoxStruct::Ptr> m_originList;
     QList<SearchBoxStruct::Ptr> m_EnterNewPagelist;
+    QList<SearchBoxStruct::Ptr> m_hideList;
     QSet<QString> m_xmlFilePath;
     QString m_lang;
     QMap<QString, QIcon> m_iconMap;
