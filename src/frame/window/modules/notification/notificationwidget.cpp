@@ -62,6 +62,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_systemListView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_systemListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_systemListView->setViewportMargins(QMargins(0, 0, 8, 0));
+    m_systemListView->setIconSize(ListViweIconSize);
 
     //~ contents_path /notification/System Notifications
     DStandardItem *systemitem = new DStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("System Notifications"));
@@ -88,6 +89,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_softwareListView->setViewportMargins(QMargins(0, 0, 9, 0));
     m_softwareListView->setSpacing(0);
     m_softwareListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_softwareListView->setIconSize(ListViweIconSize);
 
     QScroller *scroller = QScroller::scroller(m_softwareListView->viewport());
     QScrollerProperties sp;
