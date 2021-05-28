@@ -276,9 +276,7 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
         } else {
             m_displayWorker->setMonitorResolution(tmon, tmode.id());
         }
-        // 多屏下 计算MonitorPosition 时会再次调用, 避免重复调用
-        if (m_displayModel->monitorList().size() == 1)
-            m_displayWorker->applyChanges();
+        m_displayWorker->applyChanges();
     };
 
     tfunc(monitor, firstRes);
