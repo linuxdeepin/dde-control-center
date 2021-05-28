@@ -36,6 +36,8 @@ VpnPPPSection::VpnPPPSection(NetworkManager::VpnSetting::Ptr vpnSetting, QFrame 
 {
     initStrMaps();
 
+    //初始化数据
+    m_dataMap = m_vpnSetting->data();
     m_currentMppeMethod = "require-mppe";
     bool mppeEnable = true;
     // means this is a exist connection
