@@ -726,49 +726,21 @@ void WirelessPage::showConnectHidePage()
 
 void WirelessPage::updateActiveAp()
 {
-    qDebug() << "updateActiveAp:" << QThread::currentThreadId();
-    auto status = m_device->status();
     auto activedSsid = m_device->activeApSsid();
-    bool isWifiConnected = status == NetworkDevice::Activated;
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
         bool isConnected = it.key() == activedSsid;
         it.value()->setConnected(isConnected);
         APSortInfo info = it.value()->sortInfo();
         info.connected = isConnected;
         it.value()->setSortInfo(info);
-
-        if (m_clickedItem == it.value()) {
-            qDebug() << "click item: " << isConnected;
-            bool loading = true;
-            if (status == NetworkDevice::Activated || status == NetworkDevice::Disconnected) {
-                loading = false;
-            }
-            bool isReconnect = it.value()->setLoading(loading);
-            if (isReconnect) {
-                connect(it.value()->action(), &QAction::triggered, this, [this, it] {
-                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
-                                                  it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                });
-            }
-        } else {
-//            bool isReconnect = it.value()->setLoading(false);
-            //if (isReconnect) {
+        if (it.value()->setLoading(false)) {
             connect(it.value()->action(), &QAction::triggered, this, [this, it] {
                 this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
                                               it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
             });
-            //}
         }
     }
-    if (isWifiConnected && m_clickedItem) {
-        bool isReconnect = m_clickedItem->setLoading(false);
-        if (isReconnect) {
-            connect(m_clickedItem->action(), &QAction::triggered, this, [this] {
-                this->onApWidgetEditRequested(m_clickedItem->data(APItem::PathRole).toString(),
-                                              m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
-            });
-        }
-    }
+
     m_sortDelayTimer->start();
 }
 
