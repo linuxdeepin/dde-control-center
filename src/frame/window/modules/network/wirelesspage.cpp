@@ -189,6 +189,7 @@ bool APItem::operator<(const QStandardItem &other) const
 
 bool APItem::setLoading(bool isLoading)
 {
+    qDebug() << "ap item set loading, isLoading: " << isLoading << "ssid: " << text();
     bool isReconnect = false;
     if (m_loadingIndicator.isNull()) {
         return isReconnect;
@@ -298,6 +299,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setVisible(dev->enabled());
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, &NetworkDevice::enableChanged, this, [this](const bool enabled) {
+        qDebug() << "net work device enable changed, enabled: " << enabled;
         m_switch->setChecked(enabled);
         if (m_lvAP) {
             m_lvAP->setVisible(enabled);
@@ -394,11 +396,13 @@ WirelessPage::~WirelessPage()
 void WirelessPage::updateLayout(bool enabled)
 {
     int layCount = m_mainLayout->layout()->count();
+    qDebug() << "updateLayout: " << enabled << ", laycount: " << layCount << ", m_layoutCount: " << m_layoutCount;
     if (enabled) {
         if (layCount > m_layoutCount) {
             QLayoutItem *layItem = m_mainLayout->takeAt(m_layoutCount);
             if (layItem) {
                 delete layItem;
+                layItem = nullptr;
             }
         }
     } else {
@@ -407,10 +411,18 @@ void WirelessPage::updateLayout(bool enabled)
         }
     }
     m_mainLayout->invalidate();
+    qDebug() << "updateLayout end";
 }
 
 void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::DeviceStatus stat)
 {
+    qDebug() << "wireless device status: " << stat;
+    for (const auto &conn : m_device->activeConnections()) {
+        if (!conn.isEmpty() && conn.contains("Id")) {
+            qDebug() << "wireless active connection id: " << conn.value("Id").toString();
+        }
+    }
+
     const bool unavailable = stat <= NetworkDevice::Unavailable;
     if (m_preWifiStatus == Wifi_Unknown) {
         m_preWifiStatus = unavailable ? Wifi_Unavailable : Wifi_Available;
@@ -469,6 +481,7 @@ void WirelessPage::jumpByUuid(const QString &uuid)
 
 void WirelessPage::onNetworkAdapterChanged(bool checked)
 {
+    qDebug() << "onNetworkAdapterChanged: " << checked;
     Q_EMIT requestDeviceEnabled(m_device->path(), checked);
     m_clickedItem = nullptr;
     m_lvAP->setVisible(checked);
@@ -482,6 +495,7 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
     const int strength = apInfo.value("Strength").toInt();
     const bool isSecure = apInfo.value("Secured").toBool();
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
+    qDebug() << "on ap added, " << "ssid: " << ssid;
 
     if (!m_apItems.contains(ssid)) {
         APItem *apItem = new APItem(ssid, style(), m_lvAP);
@@ -551,6 +565,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     if (item->signalStrength() <= 5 && !item->checkState() && ssid != m_device->activeApSsid()) {
         if (nullptr == m_clickedItem || item->uuid() != m_clickedItem->uuid()) {
+            qDebug() << "singleStrength less than or equal to 5, set row hidden, uuid: " << connectionSsid(item->uuid());
             m_lvAP->setRowHidden(item->row(), true);
         }
     } else {
@@ -562,6 +577,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
 {
     const QString &ssid = apInfo.value("Ssid").toString();
+    qDebug() << "on ap removed: " << ssid;
     if (!m_apItems.contains(ssid)) return;
 
     const QString &path = apInfo.value("Path").toString();
@@ -624,6 +640,7 @@ void WirelessPage::onDeviceRemoved()
 void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid)
 {
     Q_UNUSED(uuid);
+    qDebug() << "onActivateApFailed, apPath: " << apPath << ", uuid: " << connectionSsid(uuid);
     onApWidgetEditRequested(apPath, connectionSsid(uuid));
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
         if ((it.value()->path() == apPath) && (it.value()->uuid() == uuid)) {
@@ -646,6 +663,7 @@ void WirelessPage::sortAPList()
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
 {
+    qDebug() << "apPath: " << apPath << ", ssid: " << ssid;
     if (ssid.isEmpty()) {
         qDebug() << "ssid is empty return";
         return;
@@ -654,6 +672,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
     qDebug() << "onApWidgetEditRequested: " << ssid << "," << uuid << "," << m_device->path();
 
     if (!m_apEditPage.isNull()) {
+        qDebug() << "m_apEditPage is not null";
         return;
     }
 
@@ -727,6 +746,7 @@ void WirelessPage::showConnectHidePage()
 void WirelessPage::updateActiveAp()
 {
     auto activedSsid = m_device->activeApSsid();
+    qDebug() << "updateActiveAp, active ssid: " << activedSsid;
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
         bool isConnected = it.key() == activedSsid;
         it.value()->setConnected(isConnected);

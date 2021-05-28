@@ -130,11 +130,11 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
         const bool isHotspot = type == "wireless-hotspot";
         const bool isWireless = type == "wireless";
         const QJsonObject &hotspotInfo = info.value("Hotspot").toObject();
-
+        
         // 设置活跃网络标题
         SettingsHead *head = new SettingsHead;
         head->setEditEnable(false);
-        head->setContentsMargins(20,0,0,0);
+        head->setContentsMargins(20, 0, 0, 0);
 
         if (isHotspot) {
             head->setTitle(tr("Hotspot"));

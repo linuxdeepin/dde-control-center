@@ -1,1 +1,7 @@
-deb [trusted=yes] http://shuttle.corp.deepin.com/cache/repos/eagle-sp2/release-candidate/W0RERV1TUDJVUERBVEUxXzIwMjAwNzIzMTE0OQ unstable main
+deb [trusted=yes] http://pools.corp.deepin.com/desktop-professional eagle/sp2 main contrib
+deb [trusted=yes] http://wx-internal.deepin.com/repo/uos-sw64-base eagle  main contrib non-free
+deb [trusted=yes] http://10.0.32.52:5002/sw-repos/dde-v20/release-candidate/0313 unstable main
+deb [trusted=yes] http://10.0.32.52:5002/sw-repos/dde-v20/release-candidate/0328 unstable main
+deb [trusted=yes] http://pools.corp.deepin.com/ppa/dde-eagle eagle/sp2 main contrib
+deb [trusted=yes] http://wx-internal.deepin.com/repo/v20/desktop-professional/102x/ eagle/sp2 main contrib non-free
+deb [trusted=yes] http://aptly.uniontech.com/pkg/eagle-sp2/release-candidate/5rWL6K-VMjAyMC0xMS0yMw unstable main

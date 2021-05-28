@@ -1127,6 +1127,7 @@ void MainWindow::judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *cons
         return;
     }
 
+    qDebug() << "judgeTopWidgetPlace, m_bIsFinalWidget: " << m_bIsFinalWidget;
     if (m_bIsFinalWidget) {
         pushFinalWidget(inter, w);
     } else {
