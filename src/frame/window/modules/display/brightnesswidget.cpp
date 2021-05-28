@@ -77,16 +77,13 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
 
     m_centralLayout->addSpacerItem(m_colorSpacerItem);
 
-    QVBoxLayout *colorLayout = new QVBoxLayout(m_tempratureColorWidget);
-    colorLayout->setMargin(0);
-    colorLayout->setSpacing(0);
-    colorLayout->addWidget(m_tempratureColorTitle);
+    m_centralLayout->addWidget(m_tempratureColorTitle);
 
     //~ contents_path /display/Brightness
     m_nightShift->setTitle(tr("Night Shift"));
     m_nightShift->addBackground();
-    colorLayout->addSpacing(10);
-    colorLayout->addWidget(m_nightShift);
+    m_centralLayout->addSpacing(10);
+    m_centralLayout->addWidget(m_nightShift);
 
     m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"), m_tempratureColorWidget);
     m_nightTips->setForegroundRole(DPalette::TextTips);
@@ -95,18 +92,18 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_nightTips->adjustSize();
     m_nightTips->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
     m_nightTips->setContentsMargins(10, 0, 0, 0);
-    colorLayout->addSpacing(6);
-    colorLayout->addWidget(m_nightTips);
+    m_centralLayout->addSpacing(6);
+    m_centralLayout->addWidget(m_nightTips);
 
     //~ contents_path /display/Brightness
     m_nightManual->setTitle(tr("Change Color Temperature"));
     m_cctItem->setAnnotations({tr("Cool"), "", tr("Warm")});
     m_settingsGroup->appendItem(m_nightManual);
     m_settingsGroup->appendItem(m_cctItem);
-    colorLayout->addSpacing(20);
-    colorLayout->addWidget(m_settingsGroup);
+    m_centralLayout->addSpacing(20);
+    m_centralLayout->addWidget(m_settingsGroup);
 
-    m_tempratureColorWidget->setLayout(colorLayout);
+    m_tempratureColorWidget->setLayout(m_centralLayout);
     GSettingWatcher::instance()->bind("displayColorTemperature", m_tempratureColorWidget);  // 使用GSettings来控制显示状态
     m_centralLayout->addWidget(m_tempratureColorWidget);
     setLayout(m_centralLayout);
@@ -166,7 +163,10 @@ void BrightnessWidget::setAdjustCCTmode(int mode)
     m_nightShift->switchButton()->setChecked(mode == 1);
     m_nightManual->switchButton()->setChecked(mode == 2);
     m_cctItem->blockSignals(true);
+    //当布局器A中嵌套布局器B时，B中的控件隐藏时，需要先隐藏B再隐藏控件，消除控件闪动问题
+    m_settingsGroup->hide();
     m_cctItem->setVisible(m_displayModel->adjustCCTMode() == 2);
+    m_settingsGroup->show();
     m_cctItem->blockSignals(false);
     m_nightShift->blockSignals(false);
     m_nightManual->blockSignals(false);
