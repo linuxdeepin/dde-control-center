@@ -48,6 +48,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_powerInter(new SystemPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
     , m_pingTimer(new QTimer(this))
     , m_activeTimer(new QTimer(this))
+    , m_inter(QDBusConnection::sessionBus().interface())
 {
     m_audioInter->setSync(false);
     m_powerInter->setSync(false);
@@ -58,6 +59,22 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     m_activeTimer->setInterval(100);
     m_activeTimer->setSingleShot(true);
 
+    if (m_inter->isServiceRegistered(m_audioInter->service()).value()) {
+        initConnect();
+    } else {
+        connect(m_inter, &QDBusConnectionInterface::serviceOwnerChanged, this, [=] (const QString &name, const QString &oldOwner, const QString &newOwner) {
+            Q_UNUSED(oldOwner)
+            if (name == m_audioInter->service() && !newOwner.isEmpty()) {
+                qDebug() << objectName() << m_audioInter->service() << "daemon started, init connection and disconnect";
+                initConnect();
+                disconnect(m_inter);
+            }
+        });
+    }
+}
+
+void SoundWorker::initConnect()
+{
     connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
@@ -70,11 +87,11 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     // 此接口后端已经不再维护，过几个版本直接删除吧
     //    connect(m_audioInter, &Audio::CardsChanged, m_model, &SoundModel::setAudioCards);
     connect(m_audioInter, &Audio::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
-    connect(m_audioInter, &Audio::IncreaseVolumeChanged, model, &SoundModel::setIncreaseVolume);
-    connect(m_audioInter, &Audio::CardsWithoutUnavailableChanged, model, &SoundModel::setAudioCards);
-    connect(m_audioInter, &Audio::ReduceNoiseChanged, model, &SoundModel::setReduceNoise);
+    connect(m_audioInter, &Audio::IncreaseVolumeChanged, m_model, &SoundModel::setIncreaseVolume);
+    connect(m_audioInter, &Audio::CardsWithoutUnavailableChanged, m_model, &SoundModel::setAudioCards);
+    connect(m_audioInter, &Audio::ReduceNoiseChanged, m_model, &SoundModel::setReduceNoise);
     //查询,端口是否可用 改为信号槽方式
-    connect(m_audioInter, &Audio::PortEnabledChanged, [this](uint cardId, QString portName){
+    connect(m_audioInter, &Audio::PortEnabledChanged, [this](uint cardId, QString portName) {
         isPortEnabled(cardId, portName);
     });
     connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);

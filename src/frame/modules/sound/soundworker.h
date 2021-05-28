@@ -101,6 +101,7 @@ private Q_SLOTS:
     void getSoundPathFinished(QDBusPendingCallWatcher *watcher);
 
 private:
+    void initConnect();
     void updatePortActivity();
 
 private:
@@ -122,6 +123,7 @@ private:
 
     QTimer *m_pingTimer;
     QTimer *m_activeTimer;
+    QDBusConnectionInterface *m_inter;
 };
 
 }
