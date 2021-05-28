@@ -121,7 +121,8 @@ void ScalingWidget::onResolutionChanged()
 
     //如果仅一个缩放值可用
     if (fscaleList.size() <= 1) {
-        fscaleList.append("1.0");
+        fscaleList.clear();
+        fscaleList.append(QStringList() << "1.0" << "1.0");
         m_tipWidget->setVisible(true);
     } else {
         m_tipWidget->setVisible(false);
