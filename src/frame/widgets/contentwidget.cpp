@@ -25,6 +25,8 @@
 
 #include "widgets/contentwidget.h"
 
+#include <DGuiApplicationHelper>
+
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QResizeEvent>
@@ -41,6 +43,7 @@
 
 #include "widgets/separator.h"
 #include "widgets/backbutton.h"
+#include "widgets/scrollbar.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -75,6 +78,9 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_contentArea->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
     m_contentArea->setContentsMargins(0, 0, 0, 0);
+
+    if (DGuiApplicationHelper::isTabletEnvironment())
+        m_contentArea->setVerticalScrollBar(new ScrollBar(this));
 
     QScroller::grabGesture(m_contentArea->viewport(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(m_contentArea->viewport());

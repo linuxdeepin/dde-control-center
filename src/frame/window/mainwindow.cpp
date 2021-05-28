@@ -46,11 +46,13 @@
 #include "dtitlebar.h"
 #include "utils.h"
 #include "interface/moduleinterface.h"
+#include "widgets/scrollbar.h"
 
 #include <DBackgroundGroup>
 #include <DIconButton>
 #include <DApplicationHelper>
 #include <DSlider>
+#include <DApplication>
 
 #include <QScrollArea>
 #include <QHBoxLayout>
@@ -65,6 +67,7 @@
 #include <QScreen>
 #include <QMouseEvent>
 #include <QResizeEvent>
+#include <QInputMethod>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
@@ -108,7 +111,14 @@ MainWindow::MainWindow(QWidget *parent)
     , m_firstCount(-1)
     , m_widgetName("")
     , m_backwardBtn(nullptr)
+    #ifdef USE_TABLET
+    , m_scrollWidget(nullptr)
+    , m_stretch(0)
+    #endif
 {
+    if (DGuiApplicationHelper::IsTableEnvironment)
+        qApp->ignoreVirtualKeyboard(this);
+
     //Initialize view and layout structure
     DMainWindow::installEventFilter(this);
 
@@ -219,6 +229,19 @@ MainWindow::MainWindow(QWidget *parent)
     });
     updateViewBackground();
     updateWinsize();
+
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        return;
+
+    connect(qApp->inputMethod(), &QInputMethod::visibleChanged, [ = ]{
+        if (qApp->inputMethod()->isVisible()) {
+            updateInputFiledPosition();
+        } else if (m_scrollWidget){
+            // 虚拟键盘隐藏时恢复原本边距
+            m_scrollWidget->setContentsMargins(m_scrollMargain);
+            m_scrollWidget = nullptr;
+        }
+    });
 }
 
 MainWindow::~MainWindow()
@@ -238,6 +261,75 @@ MainWindow::~MainWindow()
     if (scroller) {
         scroller->stop();
     }
+}
+
+void MainWindow::updateInputFiledPosition()
+{
+    QWidget *scrollWidget = QApplication::focusWidget();
+    while (scrollWidget && !qobject_cast<QAbstractScrollArea*>(scrollWidget)) {
+        scrollWidget = scrollWidget->parentWidget();
+    }
+
+    QAbstractScrollArea *scrollArea = qobject_cast<QAbstractScrollArea*>(scrollWidget);
+    if (!scrollArea)
+        return;
+
+    int resizeableHeight = scrollArea->maximumViewportSize().height();
+    QWidget *widget = QApplication::focusWidget();
+    QRectF iRect(widget->mapToGlobal(QPoint(0, 0)), widget->size());                  // 输入框全局坐标
+    qDebug() << "input filed y:" << iRect << iRect.bottomRight().y();
+    QRectF kRect = qApp->inputMethod()->keyboardRectangle();                          // 虚拟键盘全局坐标
+    qDebug() << "virtual keyboard y:" << kRect << kRect.topRight().y();
+    if (iRect.bottomRight().y() - kRect.topRight().y() <= 0)
+        return;
+
+    QScrollArea *scroll = qobject_cast<QScrollArea*>(scrollArea);
+    if (!scroll || !scroll->widget() || !scroll->widget()->layout())
+        return;
+
+    if (!m_scrollWidget)
+        m_scrollMargain =  scroll->widget()->contentsMargins();
+
+    if (scroll->widget() != m_scrollWidget)
+        m_stretch = 0;
+
+    m_scrollWidget = scroll->widget();
+
+    int distance = qMin(int(iRect.bottomRight().y() - kRect.topRight().y()), resizeableHeight);
+    // 滚动区域最下的一个控件离底部距离
+    int stretch = m_scrollWidget->layout()->itemAt(m_scrollWidget->layout()->count() - 1)->geometry().height();
+
+    // 平板时，避免获得的离底部距离为0, 但实际不为0的情况
+    if (stretch > 0) {
+        m_stretch = stretch;
+    } else{
+        stretch = m_stretch;
+    }
+
+    int bottomMargain = m_scrollWidget->layout()->contentsMargins().bottom();
+    qInfo() << "stretch: " << stretch << "bottom Margain:" << bottomMargain
+            << "input filed and virtual keyboard distance:" << distance;
+    QMargins margain(0, 0, 0, distance + stretch + bottomMargain);
+
+    if (scroll->verticalScrollBar()->isVisible()) {
+        scroll->verticalScrollBar()->setVisible(false);
+    }
+
+    m_scrollWidget->setContentsMargins(margain);
+    qInfo() << "set margain:" << margain;
+
+    ScrollBar *bar = qobject_cast<ScrollBar *>(scroll->verticalScrollBar());
+    if (bar) {
+        connect(bar, &ScrollBar::scrollBarShow, [ = ]{
+            qInfo() << "move input filed, max scroll value:" << scroll->verticalScrollBar()->maximum()
+                    << "current scroll value" << scroll->verticalScrollBar()->value();
+            scroll->verticalScrollBar()->setValue(scroll->verticalScrollBar()->value() + margain.bottom());
+
+            disconnect(bar, &ScrollBar::scrollBarShow, nullptr, nullptr);
+        });
+    }
+
+    scroll->verticalScrollBar()->setVisible(true);
 }
 
 void MainWindow::onBack()

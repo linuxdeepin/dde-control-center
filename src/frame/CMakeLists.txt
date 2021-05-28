@@ -241,6 +241,7 @@ set(WIDGETS_FILES
                 ../../include/widgets/multiselectlistview.h
                 widgets/powerdisplaywidget.cpp
                 ../../include/widgets/powerdisplaywidget.h
+                ../../include/widgets/scrollbar.h
                 widgets/widgets.qrc
 )
 

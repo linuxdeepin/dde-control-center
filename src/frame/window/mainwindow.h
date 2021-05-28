@@ -131,6 +131,7 @@ private:
     void judgeTopWidgetPlace(ModuleInterface *const inter, QWidget *const w);
     void updateViewBackground();
     void updateModuleVisible();
+    void updateInputFiledPosition();
 
 private:
     bool m_bInit{false};
@@ -162,6 +163,9 @@ private:
     QGSettings *m_versionType{nullptr};
     QStringList m_hideModuleNames;
     bool m_updateVisibale = true;
+    QMargins m_scrollMargain;           // 窗口原边距
+    QWidget *m_scrollWidget = nullptr;
+    int m_stretch;                      // 滚动区域最下的一个控件离底部距离
 };
 }
 
