@@ -33,25 +33,33 @@
 #include <QVBoxLayout>
 
 namespace dcc {
-namespace keyboard{
+namespace keyboard {
 ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(model)
     , m_conflict(nullptr)
     , m_shortcutItem(new ShortcutItem)
-    , m_buttonTuple(new ButtonTuple)
+    , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
-    TranslucentFrame* widget = new TranslucentFrame();
-    QVBoxLayout* layout = new QVBoxLayout();
+    TranslucentFrame *widget = new TranslucentFrame();
+    setContentsMargins(10, 10, 10, 10);
+    QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
-    layout->addSpacing(10);
 
     m_shortcutItem->setShortcut(tr("Please Reset Shortcut"));
     m_shortcutItem->addBackground();
     layout->addWidget(m_shortcutItem, 0, Qt::AlignTop);
 
+    layout->addSpacing(10);
     QPushButton *cancel = m_buttonTuple->leftButton();
     QPushButton *ok = m_buttonTuple->rightButton();
+    if (m_buttonTuple->layout()) {
+        //第二个控件为space
+        if (m_buttonTuple->layout()->itemAt(1) != nullptr && m_buttonTuple->layout()->itemAt(1)->spacerItem() != nullptr) {
+            int height = m_buttonTuple->layout()->itemAt(1)->spacerItem()->sizeHint().height();
+            m_buttonTuple->layout()->itemAt(1)->spacerItem()->changeSize(20, height);
+        }
+    }
 
     cancel->setText(tr("Cancel"));
     ok->setText(tr("Replace"));
@@ -80,22 +88,19 @@ void ShortcutContent::setBottomTip(ShortcutInfo *conflict)
 
     m_info->replace = conflict;
 
-    if(conflict)
-    {
+    if (conflict) {
         QString accels = conflict->accels;
         accels = accels.replace("<", "");
         accels = accels.replace(">", "+");
-        accels = accels.replace("_L","");
+        accels = accels.replace("_L", "");
         accels = accels.replace("_R", "");
         accels = accels.replace("Control", "Ctrl");
 
         QString str = tr("This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately")
-                .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>").arg(conflict->name).arg(QString("[%1]").arg(accels)));
+                      .arg(QString("<span style=\"color: rgba(255, 90, 90, 1);\">%1 %2</span>").arg(conflict->name).arg(QString("[%1]").arg(accels)));
         m_bottomTip->setText(str);
         m_bottomTip->show();
-    }
-    else
-    {
+    } else {
         m_bottomTip->clear();
         m_bottomTip->hide();
     }
@@ -122,7 +127,7 @@ void ShortcutContent::keyEvent(bool press, const QString &shortcut)
             return;
         }
 
-        if(shortcut == "BackSpace" || shortcut == "Delete") {
+        if (shortcut == "BackSpace" || shortcut == "Delete") {
             m_shortcut.clear();
             setBottomTip(nullptr);
             return;
