@@ -65,7 +65,9 @@ TimeZoneChooser::TimeZoneChooser()
                                           QDBusConnection::sessionBus(), this))
 {
     setWindowFlags(Qt::Dialog);
-    setAttribute(Qt::WA_TranslucentBackground);
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        setAttribute(Qt::WA_TranslucentBackground);
+    }
     setupSize();
 
     //删除部分重复设置的代码，并移动部分代码到合适位置，尽量将相同功能的代码放在一起
