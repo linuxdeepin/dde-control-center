@@ -172,12 +172,8 @@ void SystemLanguageSettingWidget::setModelData(const QList<MetaData> &datas)
 {
     m_datas = datas;
     QStringList removeLangList = m_keyboardModel->localLang();
-    for (QList<MetaData>::iterator iter = m_datas.begin(); iter != m_datas.end();) {
-        if (removeLangList.contains(iter->text())) {
-            m_datas.erase(iter);
-        }
-        ++iter;
-    }
+    auto remove_fun = [ = ] (MetaData &data) { return removeLangList.contains(data.text());};
+    m_datas.erase(std::remove_if(m_datas.begin(), m_datas.end() ,remove_fun) ,m_datas.end());
 
     for (auto md : m_datas) {
         auto item = new DStandardItem();
