@@ -48,7 +48,7 @@
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
-#define GSETTINGS_SHOW_CREATEUSER "show-createuser"
+#define GSETTINGS_SHOW_CREATEUSER "showCreateuser"
 
 AccountsWidget::AccountsWidget(QWidget *parent)
     : QWidget(parent)
@@ -101,7 +101,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     });
     connect(m_createBtn, &QPushButton::clicked, this, &AccountsWidget::requestCreateAccount);
     connect(m_accountSetting, &QGSettings::changed, m_createBtn, [this](const QString &key) {
-        if (GSETTINGS_SHOW_CREATEUSER != key) {
+        if (GSETTINGS_SHOW_CREATEUSER == key) {
             m_createBtn->setVisible(m_accountSetting->get(GSETTINGS_SHOW_CREATEUSER).toBool());
         }
     });
