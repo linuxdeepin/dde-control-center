@@ -259,7 +259,6 @@ void UpdateSettings::setModel(UpdateModel *model)
     setCheckStatus(m_autoDownloadUpdate, model->updateNotify(), "updateAutoDownlaod");
     m_autoDownloadUpdateTips->setVisible(model->updateNotify());
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
-    m_smartMirrorBtn->setChecked(m_model->smartMirrorSwitch());
 
     GSettingWatcher::instance()->bind("updateAutoCheck", m_autoCheckUpdate);
     GSettingWatcher::instance()->bind("updateUpdateNotify", m_updateNotify);
