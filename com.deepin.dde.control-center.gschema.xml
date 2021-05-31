@@ -10,6 +10,10 @@
         <value value="2" nick="Hidden" />
     </enum>
     <schema path="/com/deepin/dde/control-center/" id="com.deepin.dde.control-center">
+        <key name="mainwindow-search-edit" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>Set search edit state</summary>
+        </key>
         <key name="brightness-minimum" type="d">
             <default>0.1</default>
             <range min="0.0" max="1.0"></range>
