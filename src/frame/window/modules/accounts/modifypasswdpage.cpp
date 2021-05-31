@@ -225,5 +225,11 @@ bool ModifyPasswdPage::preCheckPassword()
         return false;
     }
 
+    if (m_oldPasswordEdit->lineEdit()->text() == m_newPasswordEdit->lineEdit()->text() && m_oldPasswordEdit->lineEdit()->text() == m_repeatPasswordEdit->lineEdit()->text()) {
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(tr("New password should differ from the current one"), m_newPasswordEdit, 2000);
+        return false;
+    }
+
     return true;
 }

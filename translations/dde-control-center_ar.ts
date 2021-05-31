@@ -62,121 +62,121 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="181"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="191"/>
         <source>Help</source>
         <translation>مساعدة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="428"/>
         <source>Accounts</source>
         <translation>الحسابات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="433"/>
         <source>Display</source>
         <translation>عرض</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="434"/>
         <source>Default Applications</source>
         <translation>التطبيقات الافتراضية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="435"/>
         <source>Personalization</source>
         <translation>التخصيص</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="436"/>
         <source>Network</source>
         <translation>الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="437"/>
         <source>Notification</source>
         <translation>اشعارات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="438"/>
         <source>Sound</source>
         <translation>الصوت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="922"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="439"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1014"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1016"/>
         <source>Bluetooth</source>
         <translation>البلوتوث</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="440"/>
         <source>Date and Time</source>
         <translation>التاريخ والوقت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="441"/>
         <source>Power</source>
         <translation>الطاقة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="441"/>
         <source>Battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="444"/>
         <source>Mouse</source>
         <translation>الفأرة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="932"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="934"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="445"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1026"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1028"/>
         <source>Drawing Tablet</source>
         <translation>لوح الرسم</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
         <source>Language</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="447"/>
         <source>Keyboard and Language</source>
         <translation>اللغة ولوحة المفاتيح</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="959"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="448"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1050"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1053"/>
         <source>Updates</source>
         <translation>التحديثات</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="449"/>
         <source>System Info</source>
         <translation>معلومات النظام</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="361"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="453"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1044"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1046"/>
         <source>General Settings</source>
         <translation>الإعدادات العامة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="434"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="526"/>
         <source>Touchpad</source>
         <translation>لوحة اللمس</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="435"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="527"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="944"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="946"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1038"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="1040"/>
         <source>Cloud Sync</source>
         <translation>مزامنة مع السحابة</translation>
     </message>
@@ -559,6 +559,11 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
         <source>Passwords do not match</source>
         <translation>كلمتا المرور غير متطابقتان</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="230"/>
+        <source>New password should differ from the current one</source>
+        <translation>كلمة المرور الجديدة يجب أن تختلف عن الحالية</translation>
     </message>
 </context>
 <context>
@@ -979,20 +984,20 @@
 <context>
     <name>dccV20::datetime::DateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="64"/>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="68"/>
         <source>Year</source>
         <translation>سنة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="69"/>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="73"/>
         <source>Month</source>
         <translation>شهر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="74"/>
-        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="78"/>
         <source>Day</source>
         <translation>يوم</translation>
     </message>
@@ -5127,72 +5132,72 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="54"/>
         <source>Syncing...</source>
         <translation>جاري المزامنة...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="109"/>
         <source>Sign Out</source>
         <translation>تسجيل الخروج</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="139"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>ستتم مزامنة كلمة مرور شبكة WLAN الخاصة بك في حالة تشغيل إعدادات الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="185"/>
         <source>Network Settings</source>
         <translation>إعدادات الشبكة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="186"/>
         <source>Sound Settings</source>
         <translation>إعدادات الصوت</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="187"/>
         <source>Mouse Settings</source>
         <translation>إعدادات الفأرة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="188"/>
         <source>Update Settings</source>
         <translation>إعدادات التحديث</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="189"/>
         <source>Dock</source>
         <translation>الرف</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="190"/>
         <source>Launcher</source>
         <translation>المُطلق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="191"/>
         <source>Wallpaper</source>
         <translation>خلفية</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="192"/>
         <source>Theme</source>
         <translation>السمة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="193"/>
         <source>Power Settings</source>
         <translation>إعدادت الطاقة</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="334"/>
         <source>Last Sync: %1</source>
         <translation>آخر مزامنة: 1%</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="336"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -6826,7 +6831,6 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="148"/>
         <source>Volume +/-</source>
         <translation>مستوى الصوت +/-</translation>
     </message>
@@ -6844,7 +6848,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="149"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="148"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>أرسل الأيقونة من التطبيقات إلى سطح المكتب</translation>
     </message>
