@@ -21,9 +21,12 @@
 #include "datewidget.h"
 #include "widgets/labels/normallabel.h"
 
+#include <DApplicationHelper>
+
 #include <QIntValidator>
 #include <QHBoxLayout>
 #include <QMouseEvent>
+#include <QInputMethod>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE;
@@ -199,6 +202,15 @@ bool DateWidget::eventFilter(QObject *watched, QEvent *event)
     if (watched == m_lineEdit && event->type() == QEvent::FocusOut) {
         fixup();
         Q_EMIT editingFinished();
+    }
+
+    if (DGuiApplicationHelper::isTabletEnvironment() && (watched == m_lineEdit || watched == m_label)) {
+        QInputMethod *inputmethod = QGuiApplication::inputMethod();
+        if (event->type() == QEvent::FocusIn) {
+            inputmethod->show();
+        } else if (event->type() == QEvent::FocusOut){
+            inputmethod->hide();
+        }
     }
 
     return false;
