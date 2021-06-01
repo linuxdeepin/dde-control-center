@@ -331,14 +331,26 @@ void ConnectionEditPage::prepareConnection()
 {
     if (!m_connection) {
         qDebug() << "preparing connection...";
-        QDBusPendingReply<QDBusObjectPath> reply = addConnection(m_connectionSettings->toMap());
-        reply.waitForFinished();
-        const QString &connPath = reply.value().path();
-        m_connection = findConnection(connPath);
+        NetworkManager::Connection::List connList = listConnections();
+        for (auto conn : connList) {
+            if (conn->name() == m_connectionSettings->id()
+            && m_connectionSettings->connectionType() == conn->settings()->connectionType()) {
+                m_connection = conn;
+                m_connectionSettings->setUuid(m_connection->uuid());
+                break;
+            }
+        }
+
         if (!m_connection) {
-            qDebug() << "create connection failed..." << reply.error();
-            Q_EMIT back();
-            return;
+            QDBusPendingReply<QDBusObjectPath> reply = addConnection(m_connectionSettings->toMap());
+            reply.waitForFinished();
+            const QString &connPath = reply.value().path();
+            m_connection = findConnection(connPath);
+            if (!m_connection) {
+                qDebug() << "create connection failed..." << reply.error();
+                Q_EMIT back();
+                return;
+            }
         }
     }
 
