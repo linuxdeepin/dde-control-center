@@ -375,15 +375,25 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     env.insert("LC_ALL", "C");
     process.setProcessEnvironment(env);
 
-    QString cmd = user->passwordStatus() == NO_PASSWORD ? ModifyNoPassword : ModifyPassword;
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+        process.start("/bin/bash", QStringList() << "-c" << QString("passwd"));
+        if (user->passwordStatus() == NO_PASSWORD) {
+            process.write(QString("%1\n%2\n").arg(passwd).arg(repeatPasswd).toLatin1());
+        } else {
+            process.write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(repeatPasswd).toLatin1());
+        }
+    } else {
+        QString cmd = user->passwordStatus() == NO_PASSWORD ? ModifyNoPassword : ModifyPassword;
 
-    QStringList args = QStringList() << "-f" << "-";
-    if (user->passwordStatus() != NO_PASSWORD) args.append(oldpwd);
-    args.append(passwd);
-    args.append(repeatPasswd);
+        QStringList args = QStringList() << "-f" << "-";
+        if (user->passwordStatus() != NO_PASSWORD) args.append(oldpwd);
+        args.append(passwd);
+        args.append(repeatPasswd);
 
-    process.start("/bin/expect", args);
-    process.write(cmd.toLatin1());
+        process.start("/bin/expect", args);
+        process.write(cmd.toLatin1());
+    }
+
     process.closeWriteChannel();
     process.waitForFinished();
 
