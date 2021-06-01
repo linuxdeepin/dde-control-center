@@ -501,6 +501,7 @@ set(UNIONID_FILES
    window/modules/unionid/pages/uqrwidget.cpp
    window/modules/unionid/pages/authenticationwindow.cpp
    window/modules/unionid/pages/customfloatingmessage.cpp
+   window/modules/unionid/threadobj.cpp
    window/modules/unionid/define.h
 )
 # load systeminfo

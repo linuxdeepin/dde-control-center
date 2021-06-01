@@ -69,7 +69,7 @@ Q_SIGNALS:
     void requestSetModuleState(std::pair<SyncType, bool> state) const;
 
 private:
-    void onUserInfoChanged(const QVariantMap &userInfo);
+//    void onUserInfoChanged(const QVariantMap &userInfo);
 
 private:
     QStackedLayout *m_pageLayout;

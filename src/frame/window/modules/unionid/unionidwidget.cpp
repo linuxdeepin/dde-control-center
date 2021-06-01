@@ -95,7 +95,7 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 //    m_cnonlyPage->setModel(model);
     m_loginPage->setMainWindow(pMainWindow);
 
-    connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
+   // connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
 
     Notificationmanager::instance()->onUserInfoChanged(model->userinfo());
     m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
@@ -167,12 +167,12 @@ void UnionidWidget::onRequestLogout()
     }
 }
 
-void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
-{
-    const bool isLogind = !userInfo["Username"].toString().isEmpty();
+//void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
+//{
+//    const bool isLogind = !userInfo["Username"].toString().isEmpty();
 //    const QString region = userInfo["Region"].toString();
 
-    if (isLogind) {
+//    if (isLogind) {
 ////        if (region == "CN") {
 ////        m_indexPage->setDefaultInfo();
 //        m_pageLayout->setCurrentWidget(m_indexPage);
@@ -184,14 +184,14 @@ void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
 ////        } else {
 ////            m_pageLayout->setCurrentWidget(m_cnonlyPage);
 ////        }
-    }
-    else {
+//    }
+//    else {
 ////        m_indexPage->requestLogout();
 ////        Notificationmanager::instance()->setLoginType(true);
-        m_indexPage->setDefaultInfo();
+//        m_indexPage->setDefaultInfo();
 //        m_indexPage->setUserAvatar(AvaterPath);
-        m_pageLayout->setCurrentWidget(m_loginPage);
-        m_loginPage->clearButtonFocus();
+//        m_pageLayout->setCurrentWidget(m_loginPage);
+//        m_loginPage->clearButtonFocus();
 //        qInfo() << "未登录";
-    }
-}
+//    }
+//}

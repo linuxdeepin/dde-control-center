@@ -228,8 +228,8 @@ IndexPage::IndexPage(QWidget *parent)
     onThemeTypeChanged(DGuiApplicationHelper::instance()->themeType());
 
     connect(DGuiApplicationHelper::instance(),&DGuiApplicationHelper::themeTypeChanged,this,&IndexPage::onThemeTypeChanged);
-
-//    m_refreshTimer = new QTimer;
+    connect(this, &IndexPage::toTellLogoutUser, Notificationmanager::instance(), &Notificationmanager::toTellLogoutUser);
+//    m_refreshTimer = new QTimer;s
 //    connect(m_refreshTimer, &QTimer::timeout, this, &IndexPage::onTokenTimeout);
 }
 
@@ -577,17 +577,8 @@ void IndexPage::onGetBindAccountInfo()
 
 void IndexPage::onQuitButtonClicked()
 {
-    QDBusInterface interface("com.deepin.deepinid.Client",
-                              "/com/deepin/deepinid/Client",
-                              "com.deepin.deepinid.Client");
-
-    QList<QVariant> argumentList;
-    argumentList << m_userAvatar;
-    argumentList << m_nickName;
-
-    interface.callWithArgumentList(QDBus::NoBlock, "ConfirmLogout", argumentList);
-
-    Q_EMIT requestLogout();
+    Q_EMIT toTellLogoutUser(m_userAvatar,m_nickName);
+//    Q_EMIT requestLogout();
 }
 
 void IndexPage::onRefreshAccessToken()

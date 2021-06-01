@@ -91,6 +91,10 @@ Q_SIGNALS:
     //通知获取AT完成的信号
     void toTellGetATFinished(bool);
 
+    void toTellLoginUserFinished();
+
+    void toTellLogoutUser(QString,QString);
+
 public Q_SLOTS:
     void onSetNotificationStatus();
     //展示ping的结果

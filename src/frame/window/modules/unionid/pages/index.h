@@ -79,6 +79,7 @@ Q_SIGNALS:
     void requestLogout() const;
     void requesUserDialog(QString) const;
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
+    void toTellLogoutUser(QString,QString);
 
 private Q_SLOTS:
     void onStateChanged(const std::pair<qint32, QString> &state);

@@ -96,7 +96,7 @@ Q_SIGNALS:
     void requestDeleteFingerItem(const QString &userName, const QString& finger);
     void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
     void noticeEnrollCompleted(QString username);
-    void toTellScanCodeLogin(dcc::accounts::User *user, const bool scanCodeLogin);
+//    void toTellScanCodeLogin(dcc::accounts::User *user, const bool scanCodeLogin);
 
 public Q_SLOTS:
     void setAllGroups();
@@ -128,7 +128,7 @@ private:
     bool m_isServerSystem;
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
-    dcc::widgets::SwitchWidget *m_scanCodeLogin;
+//    dcc::widgets::SwitchWidget *m_scanCodeLogin;
     QHBoxLayout *m_avatarLayout;
     DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;

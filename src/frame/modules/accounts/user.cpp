@@ -33,10 +33,10 @@ User::User(QObject *parent)
     , m_autoLogin(false)
     , m_online(false)
     , m_nopasswdLogin(false)
+    , m_scanCodeLogin(false)
     , m_userType(UserType::StandardUser)
     , m_createdTime(0)
 {
-    m_scanCodeLogin = false;
 }
 
 const QString User::name() const

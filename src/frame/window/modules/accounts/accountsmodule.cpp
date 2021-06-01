@@ -169,7 +169,7 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestShowPwdSettings, this, &AccountsModule::onShowPasswordPage);
     connect(w, &AccountsDetailWidget::requestSetAutoLogin, m_accountsWorker, &AccountsWorker::setAutoLogin);
     connect(w, &AccountsDetailWidget::requestNopasswdLogin, m_accountsWorker, &AccountsWorker::setNopasswdLogin);
-    connect(w, &AccountsDetailWidget::toTellScanCodeLogin, m_accountsWorker, &AccountsWorker::setScanCodeLogin);
+//    connect(w, &AccountsDetailWidget::toTellScanCodeLogin, m_accountsWorker, &AccountsWorker::setScanCodeLogin);
     connect(w, &AccountsDetailWidget::requestDeleteAccount, m_accountsWorker, &AccountsWorker::deleteAccount);
     connect(w, &AccountsDetailWidget::requestSetGroups, m_accountsWorker, &AccountsWorker::setGroups);
     connect(w, &AccountsDetailWidget::requestBack, this, [&]() {

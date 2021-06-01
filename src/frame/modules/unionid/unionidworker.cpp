@@ -62,7 +62,7 @@ UnionidWorker::UnionidWorker(UnionidModel *model, QObject *parent)
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &UnionidModel::setUserinfo, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::StateChanged, this, &UnionidWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &UnionidWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
-    connect(Notificationmanager::instance(), &Notificationmanager::toTellLoginUser, this, &UnionidWorker::loginUser, Qt::QueuedConnection);
+    connect(Notificationmanager::instance(), &Notificationmanager::toTellLoginUserFinished, this, &UnionidWorker::loginUser, Qt::QueuedConnection);
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, Notificationmanager::instance(), &Notificationmanager::onUserInfoChanged, Qt::QueuedConnection);
 
     auto req = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.deepinid");
@@ -128,29 +128,9 @@ void UnionidWorker::signInUser()
 
 void UnionidWorker::loginUser()
 {
-    qInfo() << "loginUser";
-
-    QDBusInterface interface("com.deepin.deepinid.Client",
-                              "/com/deepin/deepinid/Client",
-                              "com.deepin.deepinid.Client");
-
-    QVariant clientId = HttpClient::instance()->getClientId();
-    QVariant redirecUrl = HttpClient::instance()->getRedirecUrl();
-
-    QList<QVariant> argumentList;
-    argumentList << clientId;
-    argumentList << "com.deepin.dde.ControlCenter";
-    argumentList << "/com/deepin/dde/ControlCenter";
-    argumentList << "com.deepin.dde.ControlCenter";
-    interface.callWithArgumentList(QDBus::NoBlock, "Register", argumentList);
-
-    argumentList = {};
-    argumentList << clientId;
-    argumentList << QStringList{"base","user.api:contact","user:contact:read"};
-    argumentList << redirecUrl;
-    argumentList << "state";
-    interface.callWithArgumentList(QDBus::NoBlock, "Authorize", argumentList);
+    qInfo() << "loginUser  sync";
     m_deepinId_inter->Login();
+    qInfo() << "loginUser  sync finished";
 }
 
 void UnionidWorker::logoutUser()

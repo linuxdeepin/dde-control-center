@@ -88,7 +88,7 @@ public Q_SLOTS:
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
     void setMaxPasswordAge(User *user, const int maxAge);
     void loadUserList();
-    void setScanCodeLogin(User *user, const bool scanCodeLogin);
+//    void setScanCodeLogin(User *user, const bool scanCodeLogin);
 
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();

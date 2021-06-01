@@ -2,6 +2,7 @@
 #include "modules/unionid/httpclient.h"
 #include "define.h"
 #include "window/modules/unionid/pages/avatarwidget.h"
+#include "threadobj.h"
 
 #include <QVariantMap>
 #include <QDBusArgument>
@@ -38,6 +39,15 @@ Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
     connect(m_myping->getProcess(), SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(slots_restartProcess(int, QProcess::ExitStatus)));
     connect(this, &Notificationmanager::ProcessFinished, m_myping, &CustomPing::slot_resetProcess);
     m_myping->start();
+
+    ThreadObj *threadobj = new ThreadObj;
+    QThread *thread = new QThread;
+    connect(this, &Notificationmanager::toTellLoginUser, threadobj, &ThreadObj::onLoginUser);
+    connect(this, &Notificationmanager::toTellLogoutUser, threadobj, &ThreadObj::onLogoutUser);
+    connect(threadobj, &ThreadObj::toTellLoginUserFinished, this, &Notificationmanager::toTellLoginUserFinished);
+    connect(thread, &QThread::finished, threadobj, &QObject::deleteLater);
+    threadobj->moveToThread(thread);
+    thread->start();
 }
 
 Notificationmanager *Notificationmanager::instance()

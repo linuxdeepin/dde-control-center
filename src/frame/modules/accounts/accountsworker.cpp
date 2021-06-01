@@ -52,7 +52,7 @@ const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 const QString AutoLoginVisable = "auto-login-visable";
 const QString NoPasswordVisable = "nopasswd-login-visable";
-const QString ScanCodeLoginVisable = "scanCode-login-visable";
+//const QString ScanCodeLoginVisable = "scan-code-login-visable";
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
@@ -288,25 +288,30 @@ void AccountsWorker::loadUserList()
     onUserListChanged(m_accountsInter->userList());
 }
 
-void AccountsWorker::setScanCodeLogin(User *user, const bool scanCodeLogin)
-{
-//    AccountsUser *ui = m_userInters[user];
-//    Q_ASSERT(ui);
+//void AccountsWorker::setScanCodeLogin(User *user, const bool scanCodeLogin)
+//{
+//    AccountsUser *userInter = m_userInters[user];
+//    Q_ASSERT(userInter);
 
-//    // because this operate need root permission, we must wait for finished and refersh result
 //    Q_EMIT requestFrameAutoHide(false);
 
-//    QDBusPendingCall call = ui->SetScanCodeLogin(scanCodeLogin);
+//    QDBusPendingCall call = userInter->EnableScanCodeLogin(scanCodeLogin);
 //    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 //    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
 //        if (call.isError()) {
 //            Q_EMIT user->scanCodeLoginChanged(user->scanCodeLogin());
+//        } else {
+//            if (scanCodeLogin) {
+//                //绑定
+//            } else {
+//                //解绑
+//            }
 //        }
 
 //        Q_EMIT requestFrameAutoHide(true);
 //        watcher->deleteLater();
 //    });
-}
+//}
 
 void AccountsWorker::onUserListChanged(const QStringList &userList)
 {
@@ -417,6 +422,7 @@ void AccountsWorker::addUser(const QString &userPath)
     user->setGroups(userInter->groups());
     user->setCurrentAvatar(userInter->iconFile());
     user->setNopasswdLogin(userInter->noPasswdLogin());
+//    user->setScanCodeLogin(userInter->scanCodeLogin());
     user->setPasswordStatus(userInter->passwordStatus());
     user->setCreatedTime(userInter->createdTime());
     user->setUserType(userInter->accountType());
