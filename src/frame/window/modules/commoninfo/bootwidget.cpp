@@ -34,7 +34,6 @@
 #include <QVBoxLayout>
 #include <QScrollBar>
 #include <QListView>
-#include <QDebug>
 
 using namespace dcc;
 using namespace widgets;
@@ -129,20 +128,27 @@ BootWidget::BootWidget(QWidget *parent)
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
 #endif
     connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
-    connect(m_bootList, &DListView::clicked, this ,&BootWidget::onCurrentItem);
+    connect(m_bootList, &DListView::clicked, this, &BootWidget::onCurrentItem);
     connect(m_background, &CommonBackgroundItem::requestEnableTheme, this, &BootWidget::enableTheme);
     connect(m_background, &CommonBackgroundItem::requestSetBackground, this, &BootWidget::requestSetBackground);
 }
 
 void BootWidget::setDefaultEntry(const QString &value)
 {
-    m_defaultEntry = value;
+    if (value.contains('(')) {
+        int left = value.indexOf('(');
+        int right = value.indexOf(')');
+        m_defaultEntry = "回退到UnionTech OS Desktop Security 20" + value.mid(left, right - left + 1);
+    } else {
+        m_defaultEntry = "UnionTech OS Desktop Security 20 GNU/Linux";
+    }
 
     blockSignals(true);
     int row_count = m_bootItemModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
         QStandardItem *item = m_bootItemModel->item(i, 0);
-        if (item->text() == value) {
+
+        if (item->text() == m_defaultEntry) {
             m_curSelectedIndex = item->index();
             item->setCheckState(Qt::CheckState::Checked);
         } else {
@@ -192,15 +198,27 @@ void BootWidget::setEntryList(const QStringList &list)
 
     for (int i = 0; i < list.count(); i++) {
         const QString entry = list.at(i);
+        QString value;
+        if (entry.contains("（")) {
+            int left = entry.indexOf("（");
+            int right = entry.indexOf("）");
+            value = "回退到UnionTech OS Desktop Security 20" + entry.mid(left, right - left + 1);
+        } else {
+            if (i == 0) {
+                value = "UnionTech OS Desktop Security 20 GNU/Linux";
+            } else {
+                value = entry;
+            }
+        }
 
         DStandardItem *item = new DStandardItem();
-        item->setText(entry);
+        item->setText(value);
         item->setCheckable(false); // for Bug 2449
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
 
         m_bootItemModel->appendRow(item);
 
-        if (m_defaultEntry == entry) {
+        if (m_defaultEntry == value) {
             m_curSelectedIndex = item->index();
             item->setCheckState(Qt::CheckState::Checked);
         } else {

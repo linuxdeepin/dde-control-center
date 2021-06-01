@@ -77,7 +77,8 @@ void NativeInfoWidget::initWidget()
         m_productName= new TitleValueItem();
         //~ contents_path /systeminfo/About This PC
         m_productName->setTitle(tr("OS Name:"));
-        m_productName->setValue(m_model->productName());
+        // 完成task77864需求这里需要写死
+        m_productName->setValue("统信桌面安全操作系统");
 
         m_versionNumber = new TitleValueItem();
         //~ contents_path /systeminfo/About This PC
