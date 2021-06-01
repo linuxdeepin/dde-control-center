@@ -68,10 +68,20 @@ const bool IsServerSystem = (DSysInfo::UosServer == UosType);
 const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);
 const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);
 struct ListSubItem {
+    ListSubItem();
+    ListSubItem(QString icon, QString text, QMetaMethod signal, QObject *plugin = nullptr, QString gsettingsName = QString())
+    {
+        this->itemIcon = icon;
+        this->itemText = text;
+        this->itemSignal = signal;
+        this->pulgin = plugin;
+        this->gsettingsName = gsettingsName;
+    }
     QString itemIcon;
     QString itemText;
     QMetaMethod itemSignal;
-    QObject* pulgin = nullptr;
+    QObject *pulgin = nullptr;
+    QString gsettingsName;
 };
 }
 

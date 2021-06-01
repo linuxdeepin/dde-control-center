@@ -29,6 +29,7 @@
 #include "widgets/titlelabel.h"
 #include "widgets/titlevalueitem.h"
 #include "widgets/contentwidget.h"
+#include "window/gsettingwatcher.h"
 
 #include <DFontSizeManager>
 
@@ -39,6 +40,10 @@
 #include <QScrollArea>
 #include <QGSettings>
 #include <QDBusInterface>
+
+#define BALANCE "balance"         // 平衡模式
+#define PERFORMANCE "performance" // 高性能模式
+#define POWERSAVE "powersave"     // 节能模式
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -55,7 +60,7 @@ static QGSettings *GSettings()
 GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     : QWidget(parent)
     , m_bIsBattery(bIsBattery)
-    , m_layout(new QVBoxLayout)
+    , m_layout(new QVBoxLayout(this))
     , m_swLowPowerAutoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on low battery")))
     , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery")))
     , m_sldLowerBrightness (new TitledSliderItem(tr("Decrease brightness"), this))
@@ -66,6 +71,10 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     , m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity")))
     , m_batteryCapacity(new TitleValueItem)
 {
+    m_powerPlanMap.insert(BALANCE, tr("Balanced"));
+    m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
+    m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));
+
     initUi();
 
     connect(m_powerplanListview, &DListView::clicked, this, &GeneralWidget::onPowerPlanChanged);
@@ -80,6 +89,13 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
 
 GeneralWidget::~GeneralWidget()
 {
+    GSettingWatcher::instance()->erase("powerPlansLabel");
+    GSettingWatcher::instance()->erase("powerLowerBrightness");
+    GSettingWatcher::instance()->erase("powerAutointoSaveenergyBattery");
+    GSettingWatcher::instance()->erase("powerAutointoSaveenergy");
+    GSettingWatcher::instance()->erase("powerShowtimeTofull");
+    GSettingWatcher::instance()->erase("powerShowtimeTofulltips");
+    GSettingWatcher::instance()->erase("systemSuspend", m_wakeComputerNeedPassword);
 }
 
 void GeneralWidget::initUi()
@@ -88,23 +104,21 @@ void GeneralWidget::initUi()
 
     /**** 性能设置 ************************************************************************/
     //~ contents_path /power/General
-    TitleLabel *powerPlansLabel = new TitleLabel(tr("Power Plans"));                            // 性能设置label
-    DFontSizeManager::instance()->bind(powerPlansLabel, DFontSizeManager::T5, QFont::DemiBold); // 性能设置label字体
-    QVBoxLayout *powerPlansLayout = new QVBoxLayout;                                            // 性能模式布局
-    m_powerplanListview = new DListView();                                                      // 电源模式列表
-
-    QMap<QString, QString> powerPlanMap;
-    powerPlanMap.insert("balance", tr("Balanced"));
-    powerPlanMap.insert("performance", tr("High Performance"));
-    powerPlanMap.insert("powersave", tr("Power Saver"));
+    m_powerPlansLabel = new TitleLabel(tr("Power Plans"), this);                            // 性能设置label
+    DFontSizeManager::instance()->bind(m_powerPlansLabel, DFontSizeManager::T5, QFont::DemiBold); // 性能设置label字体
+    GSettingWatcher::instance()->bind("powerPlansLabel", m_powerPlansLabel); // 使用GSettings来控制显示状态
+    QVBoxLayout *powerPlansLayout = new QVBoxLayout(this);                                            // 性能模式布局
+    m_powerplanListview = new DListView(this);                                                      // 电源模式列表
 
     m_powerPlanModel = new QStandardItemModel(m_powerplanListview);
     QMap<QString, QString>::iterator iter;
-    for (iter = powerPlanMap.begin(); iter != powerPlanMap.end(); ++iter) {
+    for (iter = m_powerPlanMap.begin(); iter != m_powerPlanMap.end(); ++iter) {
         DStandardItem *powerPlanItem = new DStandardItem(iter.value());
         powerPlanItem->setData(iter.key(), PowerPlanRole);
         m_powerPlanModel->appendRow(powerPlanItem);
     }
+
+    GSettingWatcher::instance()->bind("powerPlansLabel", m_powerplanListview); // 使用GSettings来控制显示状态
     m_powerplanListview->setModel(m_powerPlanModel);
     m_powerplanListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_powerplanListview->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -114,8 +128,8 @@ void GeneralWidget::initUi()
     m_powerplanListview->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_powerplanListview->setSelectionMode(QAbstractItemView::NoSelection);
 
-    powerPlansLabel->setContentsMargins(10, 0, 10, 0);  // 性能设置label与外面布局的边距
-    powerPlansLayout->addWidget(powerPlansLabel);       // 添加性能设置label
+    m_powerPlansLabel->setContentsMargins(10, 0, 10, 0);  // 性能设置label与外面布局的边距
+    powerPlansLayout->addWidget(m_powerPlansLabel);       // 添加性能设置label
     powerPlansLayout->addWidget(m_powerplanListview);   // 添加性能模式列表
     powerPlansLayout->setSpacing(10);                   // 布局中组件间距
     powerPlansLayout->setContentsMargins(10, 0, 10, 0); // 性能设置布局与外面总布局的边距
@@ -124,9 +138,10 @@ void GeneralWidget::initUi()
 
     /**** 节能设置 ************************************************************************/
     //~ contents_path /power/General
-    TitleLabel *energySavingLabel = new TitleLabel(tr("Power Saving Settings"));                  // 节能设置label
+    TitleLabel *energySavingLabel = new TitleLabel(tr("Power Saving Settings"), this);                  // 节能设置label
     DFontSizeManager::instance()->bind(energySavingLabel, DFontSizeManager::T5, QFont::DemiBold); // 节能设置label字体
-    QVBoxLayout *energySavingLayout = new QVBoxLayout;                                            // 节能设置布局
+    GSettingWatcher::instance()->bind("powerLowerBrightness", energySavingLabel);                 // 使用GSettings来控制显示状态
+    QVBoxLayout *energySavingLayout = new QVBoxLayout(this);                                            // 节能设置布局
     SettingsGroup *energySavingGrp = new SettingsGroup;
 
     QStringList annotions;
@@ -142,6 +157,11 @@ void GeneralWidget::initUi()
     energySavingGrp->appendItem(m_autoIntoSaveEnergyMode);
     energySavingGrp->appendItem(m_sldLowerBrightness);
 
+    // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("powerAutointoSaveenergyBattery", m_autoIntoSaveEnergyMode);
+    GSettingWatcher::instance()->bind("powerAutointoSaveenergy", m_swLowPowerAutoIntoSaveEnergyMode);
+    GSettingWatcher::instance()->bind("powerLowerBrightness", m_sldLowerBrightness);
+
     energySavingLabel->setContentsMargins(10, 0, 10, 0);  // 节能设置label与外面布局的边距
     energySavingLayout->addWidget(energySavingLabel);     // 添加节能设置label
     energySavingLayout->addWidget(energySavingGrp);       // 添加节能设置
@@ -152,13 +172,14 @@ void GeneralWidget::initUi()
 
     /**** 唤醒设置 ************************************************************************/
     //~ contents_path /power/General
-    TitleLabel *wakeupLabel = new TitleLabel(tr("Wakeup Settings"));                        // 唤醒设置label
+    TitleLabel *wakeupLabel = new TitleLabel(tr("Wakeup Settings"), this);                        // 唤醒设置label
     DFontSizeManager::instance()->bind(wakeupLabel, DFontSizeManager::T5, QFont::DemiBold); // 唤醒设置label字体
-    QVBoxLayout *wakeupLayout = new QVBoxLayout;                                            // 唤醒设置布局
+    QVBoxLayout *wakeupLayout = new QVBoxLayout(this);                                            // 唤醒设置布局
     SettingsGroup *wakeupSettingsGrp = new SettingsGroup;
 
     wakeupSettingsGrp->appendItem(m_wakeComputerNeedPassword);
     wakeupSettingsGrp->appendItem(m_wakeDisplayNeedPassword);
+    GSettingWatcher::instance()->bind("systemSuspend", m_wakeComputerNeedPassword);  // 使用GSettings来控制显示状态
 
     wakeupLabel->setContentsMargins(10, 0, 10, 0);
     wakeupLayout->addWidget(wakeupLabel);           // 添加唤醒设置label
@@ -170,9 +191,9 @@ void GeneralWidget::initUi()
 
     /**** 电池设置 ************************************************************************/
     //~ contents_path /power/General
-    TitleLabel *batteryLabel = new TitleLabel(tr("Battery"));                                // 电池设置label
-    DFontSizeManager::instance()->bind(batteryLabel, DFontSizeManager::T5, QFont::DemiBold); // 电池设置label字体
-    QVBoxLayout *batteyLayout = new QVBoxLayout;                                             // 电池设置布局
+    m_batteryLabel = new TitleLabel(tr("Battery"), this);                                // 电池设置label
+    DFontSizeManager::instance()->bind(m_batteryLabel, DFontSizeManager::T5, QFont::DemiBold); // 电池设置label字体
+    QVBoxLayout *batteyLayout = new QVBoxLayout(this);                                             // 电池设置布局
     SettingsGroup *batterySettingsGrp = new SettingsGroup;
 
     QDBusInterface powerInter("com.deepin.system.Power", "/com/deepin/system/Power", "com.deepin.system.Power", QDBusConnection::systemBus());
@@ -182,12 +203,15 @@ void GeneralWidget::initUi()
     batterySettingsGrp->appendItem(m_powerShowTimeToFull);
     batterySettingsGrp->appendItem(m_ShowTimeToFullTips);
 
-    batteryLabel->setVisible(m_bIsBattery);
-    m_powerShowTimeToFull->setVisible(m_bIsBattery);
-    m_ShowTimeToFullTips->setVisible(m_bIsBattery);
+    // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("powerShowtimeTofull", m_powerShowTimeToFull);
+    GSettingWatcher::instance()->bind("powerShowtimeTofulltips", m_ShowTimeToFullTips);
+    m_batteryLabel->setVisible(m_bIsBattery);
+    m_powerShowTimeToFull->setVisible(m_bIsBattery && (GSettingWatcher::instance()->getStatus("powerShowtimeTofull") != "Hidden"));
+    m_ShowTimeToFullTips->setVisible(m_bIsBattery && (GSettingWatcher::instance()->getStatus("powerShowtimeTofulltips") != "Hidden"));
 
-    batteryLabel->setContentsMargins(10, 0, 10, 0); // 电池设置label与外面布局的边距
-    batteyLayout->addWidget(batteryLabel);          // 添加电池设置label
+    m_batteryLabel->setContentsMargins(10, 0, 10, 0); // 电池设置label与外面布局的边距
+    batteyLayout->addWidget(m_batteryLabel);          // 添加电池设置label
     batteyLayout->addWidget(batterySettingsGrp);    // 添加电池设置
     batteyLayout->setSpacing(10);                   // 布局中组件间距
     batteyLayout->setContentsMargins(10, 0, 10, 0); // 电池设置与外面总布局的边距
@@ -198,12 +222,12 @@ void GeneralWidget::initUi()
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setContentsMargins(0, 10, 0, 5); // 总布局上下边距
 
-    ContentWidget *contentWgt = new ContentWidget;
-    QWidget *mainWgt = new TranslucentFrame; // 添加一层半透明框架
+    ContentWidget *contentWgt = new ContentWidget(this);
+    QWidget *mainWgt = new TranslucentFrame(this); // 添加一层半透明框架
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
-    QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    mainLayout->setContentsMargins(0, 8, 0, 8);
     mainLayout->addWidget(contentWgt);
     setLayout(mainLayout);
 }
@@ -234,7 +258,8 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_autoIntoSaveEnergyMode->setChecked(model->autoPowerSaveMode());
 #endif
 
-    m_wakeComputerNeedPassword->setVisible(model->canSleep() && model->getSuspend());
+    m_wakeComputerNeedPassword->setVisible(model->canSleep() && model->getSuspend()
+                                           && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
 
     //-------------sp2 add-------------------------
     m_swLowPowerAutoIntoSaveEnergyMode->setChecked(model->powerSavingModeAutoWhenQuantifyLow());
@@ -253,8 +278,10 @@ void GeneralWidget::setModel(const PowerModel *model)
 
     bool bStatus = model->haveBettary();
 
-    m_swLowPowerAutoIntoSaveEnergyMode->setVisible(bStatus);
-    m_autoIntoSaveEnergyMode->setVisible(bStatus);
+    if (GSettingWatcher::instance()->getStatus("powerAutointoSaveenergyBattery") != "Hidden")
+        m_swLowPowerAutoIntoSaveEnergyMode->setVisible(bStatus);
+    if (GSettingWatcher::instance()->getStatus("powerAutointoSaveenergy") != "Hidden")
+        m_autoIntoSaveEnergyMode->setVisible(bStatus);
 
     connect(model, &PowerModel::haveBettaryChanged, this, &GeneralWidget::onBatteryChanged);
 
@@ -291,6 +318,9 @@ void GeneralWidget::onBatteryChanged(const bool &state)
 {
     m_swLowPowerAutoIntoSaveEnergyMode->setVisible(state);
     m_autoIntoSaveEnergyMode->setVisible(state);
+    m_batteryLabel->setVisible(state);
+    m_powerShowTimeToFull->setVisible(state);
+    m_ShowTimeToFullTips->setVisible(state);
 }
 
 void GeneralWidget::onPowerPlanChanged(const QModelIndex &index)
@@ -315,12 +345,11 @@ void GeneralWidget::onCurPowerPlanChanged(const QString &curPowerPlan)
 
 void GeneralWidget::onHighPerformanceSupportChanged(const bool isSupport)
 {
-    const QString highPerform = "performance";
     int row_count = m_powerPlanModel->rowCount();
     if (!isSupport) {
         for (int i = 0; i < row_count; ++i) {
             QStandardItem *items = m_powerPlanModel->item(i, 0);
-            if (items->data(PowerPlanRole).toString() == highPerform) {
+            if (items->data(PowerPlanRole).toString() == PERFORMANCE) {
                 m_powerPlanModel->removeRow(i);
                 break;
             }
@@ -329,14 +358,14 @@ void GeneralWidget::onHighPerformanceSupportChanged(const bool isSupport)
         bool findHighPerform = false;
         for (int i = 0; i < row_count; ++i) {
             QStandardItem *items = m_powerPlanModel->item(i, 0);
-            if (items->data(PowerPlanRole).toString() == highPerform) {
+            if (items->data(PowerPlanRole).toString() == PERFORMANCE) {
                 findHighPerform = true;
                 break;
             }
         }
         if (!findHighPerform) {
-            DStandardItem *powerPlanItem = new DStandardItem(highPerform);
-            powerPlanItem->setData(highPerform, PowerPlanRole);
+            DStandardItem *powerPlanItem = new DStandardItem(m_powerPlanMap.value(PERFORMANCE));
+            powerPlanItem->setData(PERFORMANCE, PowerPlanRole);
             m_powerPlanModel->appendRow(powerPlanItem);
             m_powerPlanModel->insertRow(1, powerPlanItem);
         }

@@ -30,6 +30,7 @@
 #include "window/utils.h"
 #include "widgets/comboxwidget.h"
 #include "widgets/contentwidget.h"
+#include "window/gsettingwatcher.h"
 
 #include <QPushButton>
 #include <QComboBox>
@@ -125,6 +126,13 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     m_layout->addWidget(m_cmbCloseLid);
     m_layout->addWidget(m_cmbPowerBtn);
 
+    // 使用GSettings来控制显示状态
+    GSettingWatcher::instance()->bind("powerLidPresent", m_cmbCloseLid);
+    GSettingWatcher::instance()->bind("powerPressPowerbtn", m_cmbPowerBtn);
+    GSettingWatcher::instance()->bind("powerAutoLockscreen", m_autoLockScreen);
+    GSettingWatcher::instance()->bind("powerMonitorConfigure", m_monitorSleepOnBattery);
+    GSettingWatcher::instance()->bind("systemSuspend", m_computerSleepOnBattery);
+
     /*** 低电量设置 ***/
     SettingsGroup *lowBatteryGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     lowBatteryGrp->layout()->setContentsMargins(0, 0, 0, 0);
@@ -154,6 +162,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     m_sldAutoSuspend->slider()->setTickPosition(QSlider::NoTicks);
     m_sldAutoSuspend->addBackground();
     m_layout->addWidget(m_sldAutoSuspend);
+    GSettingWatcher::instance()->bind("systemSuspend", m_sldAutoSuspend);
 
     /*********************/
     m_layout->setAlignment(Qt::AlignTop);
@@ -212,7 +221,12 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
 
 UseBatteryWidget::~UseBatteryWidget()
 {
-
+    GSettingWatcher::instance()->erase("powerLidPresent", m_cmbCloseLid);
+    GSettingWatcher::instance()->erase("powerPressPowerbtn", m_cmbPowerBtn);
+    GSettingWatcher::instance()->erase("powerAutoLockscreen", m_autoLockScreen);
+    GSettingWatcher::instance()->erase("powerMonitorConfigure", m_monitorSleepOnBattery);
+    GSettingWatcher::instance()->erase("systemSuspend", m_computerSleepOnBattery);
+    GSettingWatcher::instance()->erase("systemSuspend", m_sldAutoSuspend);
 }
 
 void UseBatteryWidget::setModel(const PowerModel *model)
@@ -235,12 +249,13 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 //    m_suspendOnLidClose->setChecked(model->sleepOnLidOnBatteryClose());
     setAutoLockScreenOnBattery(model->getBatteryLockScreenDelay());
 
-    m_computerSleepOnBattery->setVisible(model->canSleep() && model->getSuspend());
-    m_sldAutoSuspend->setVisible(model->getSuspend());
+    m_computerSleepOnBattery->setVisible(model->canSleep() && model->getSuspend()
+                                         && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
+    m_sldAutoSuspend->setVisible(model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
 //    m_suspendOnLidClose->setVisible(model->canSleep());
 
     //--------------sp2 add-----------------
-    m_cmbCloseLid->setVisible(model->lidPresent());
+    m_cmbCloseLid->setVisible(model->lidPresent() && GSettingWatcher::instance()->getStatus("powerLidPresent") != "Hidden");
 
     connect(model, &PowerModel::batteryLidClosedActionChanged, this, [ = ](const int reply) {
         if (reply - 1 < m_cmbCloseLid->comboBox()->count() && reply >= 1) {

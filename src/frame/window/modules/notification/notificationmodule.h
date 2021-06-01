@@ -32,6 +32,7 @@ class NotificationModel;
 }
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace notification {
 
 class NotificationWidget;
@@ -58,6 +59,7 @@ private:
     dcc::notification::NotificationModel *m_model;
     dcc::notification::NotificationWorker *m_worker;
     QPointer<NotificationWidget> m_widget;
+    MainWindow * m_pMainWindow;
 };
 
 }// namespace msgnotify

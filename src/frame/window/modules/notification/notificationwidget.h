@@ -35,6 +35,8 @@ DWIDGET_END_NAMESPACE
 QT_BEGIN_NAMESPACE
 class QStandardItemModel;
 class QVBoxLayout;
+class QGSettings;
+class QLabel;
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -51,12 +53,15 @@ public:
 Q_SIGNALS:
     void requestShowSystem();
     void requestShowApp(int);
+    void popWidget();
 
 public Q_SLOTS:
     void onAppClicked(const QModelIndex &index);
     void setAppCurrentIndex(int row);
     void onSystemClicked(const QModelIndex &index);
     void refreshList();
+    void showDefaultWidget();
+    void onSettingChanged(const QString &key);
 private:
     const QPixmap loadSvg(const QString &fileName, const QSize &size);
 private:
@@ -68,6 +73,8 @@ private:
     dcc::notification::NotificationModel  *m_model;
     QString m_theme;
     QModelIndex m_lastIndex;
+    QGSettings *m_setting;
+    QLabel *m_appTitleLable;
 };
 
 }

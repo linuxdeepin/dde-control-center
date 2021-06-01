@@ -86,6 +86,8 @@ set(WINDOW_FILES
     window/protocolfile.cpp
     window/insertplugin.cpp
     window/insertplugin.h
+    window/gsettingwatcher.cpp
+    window/gsettingwatcher.h
     window/modules/display/displaywidget.cpp
     window/modules/datetime/datetimemodule.cpp
     window/modules/datetime/datetimewidget.cpp

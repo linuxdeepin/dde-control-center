@@ -30,6 +30,7 @@ QT_BEGIN_NAMESPACE
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
+class MainWindow;
 namespace commoninfo {
 class CommonInfoModel;
 class CommonInfoWork;
@@ -72,6 +73,7 @@ private:
     CommonInfoWidget *m_commonWidget{nullptr}; // main widget
     BootWidget *m_bootWidget{nullptr}; // for bootmenu
     UserExperienceProgramWidget *m_ueProgramWidget{nullptr}; // for user experience program
+    MainWindow *m_pMainWindow;
     // 以下内容为平板模式做预留
     //TabletModeWidget* mTabletModeWidget;
 };

@@ -25,6 +25,8 @@
 #include "modules/notification/model/appitemmodel.h"
 #include "systemnotifywidget.h"
 #include "appnotifywidget.h"
+#include "window/mainwindow.h"
+#include "window/gsettingwatcher.h"
 
 using namespace dcc;
 using namespace dcc::notification;
@@ -37,7 +39,9 @@ NotificationModule::NotificationModule(dccV20::FrameProxyInterface *frameProxy, 
     , m_worker(nullptr)
     , m_widget(nullptr)
 {
-
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("systemNotification");
+    GSettingWatcher::instance()->insertState("appNotifications");
 }
 
 NotificationModule::~NotificationModule()
@@ -85,9 +89,13 @@ void NotificationModule::active()
     m_widget->setVisible(false);
     connect(m_widget, &NotificationWidget::requestShowSystem, this, &NotificationModule::showSystemNotify);
     connect(m_widget, &NotificationWidget::requestShowApp, this, &NotificationModule::showAppNotify);
+    connect(m_widget, &NotificationWidget::popWidget, this, [ = ] {
+        if (m_pMainWindow->getcontentStack().size() >= 2)
+            m_frameProxy->popWidget(this);
+    });
     m_frameProxy->pushWidget(this, m_widget);
     m_widget->setVisible(true);
-    showSystemNotify();
+    m_widget->showDefaultWidget();
 }
 
 int NotificationModule::load(const QString &path)
