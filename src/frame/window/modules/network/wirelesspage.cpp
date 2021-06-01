@@ -424,7 +424,12 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
     if (stat == WirelessDevice::Failed) {
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
             if (m_clickedItem == it.value()) {
-                it.value()->setLoading(false);
+                if (it.value()->setLoading(false)) {
+                    connect(it.value()->action(), &QAction::triggered, this, [this, it] {
+                        onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
+                                                it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
+                    });
+                }
                 m_clickedItem = nullptr;
             }
         }
