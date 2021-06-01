@@ -99,6 +99,7 @@ private:
     QMap<Monitor *, MonitorInter *> m_monitors;
     double m_currentScale;
     bool m_updateScale;
+    QTimer *m_timer;
 
     PowerInter *m_powerInter;
 };

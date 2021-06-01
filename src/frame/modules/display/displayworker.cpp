@@ -51,10 +51,13 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
                                             "/com/deepin/daemon/Appearance",
                                             QDBusConnection::sessionBus(), this))
     , m_updateScale(false)
+    , m_timer(new QTimer(this))
     , m_powerInter(new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this))
 {
     m_displayInter.setSync(isSync);
     m_appearanceInter->setSync(isSync);
+    m_timer->setSingleShot(true);
+    m_timer->setInterval(200);
 
     m_displayDBusInter = new QDBusInterface("com.deepin.daemon.Display",
                                             "/com/deepin/daemon/Display",
@@ -77,6 +80,10 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     //display redSfit/autoLight
     connect(m_powerInter, &PowerInter::HasAmbientLightSensorChanged, m_model, &DisplayModel::autoLightAdjustVaildChanged);
     connect(m_dccSettings, &QGSettings::changed, this, &DisplayWorker::onGSettingsChanged);
+    connect(m_timer, &QTimer::timeout, this, [=] {
+        m_displayInter.ApplyChanges().waitForFinished();
+        m_displayInter.Save().waitForFinished();
+    });
 }
 
 DisplayWorker::~DisplayWorker()
@@ -216,13 +223,14 @@ void DisplayWorker::setMonitorEnable(Monitor *monitor, const bool enable)
 {
     MonitorInter *inter = m_monitors.value(monitor);
     inter->Enable(enable).waitForFinished();
-    m_displayInter.ApplyChanges().waitForFinished();
-    m_displayInter.Save().waitForFinished();
+    applyChanges();
 }
 
 void DisplayWorker::applyChanges()
 {
-    m_displayInter.ApplyChanges().waitForFinished();
+    if (!m_timer->isActive()) {
+        m_timer->start();
+    }
 }
 
 void DisplayWorker::setColorTemperature(int value)
@@ -255,9 +263,7 @@ void DisplayWorker::setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitor
         Q_ASSERT(inter);
         inter->SetPosition(static_cast<short>(it.value().first), static_cast<short>(it.value().second)).waitForFinished();
     }
-
-    m_displayInter.ApplyChanges().waitForFinished();
-    m_displayInter.Save().waitForFinished();
+    applyChanges();
 }
 
 void DisplayWorker::setUiScale(const double value)
