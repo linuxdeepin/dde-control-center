@@ -127,10 +127,6 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     DApplication *app = DApplication::globalApplication(argc, argv);
-    if (!app->setSingleInstance(QString("dde-control-center_%1").arg(getuid()))) {
-        qDebug() << "set single instance failed!";
-        return -1;
-    }
     app->setOrganizationName("deepin");
     app->setApplicationName("dde-control-center");
 
@@ -155,7 +151,7 @@ int main(int argc, char *argv[])
     const QString &reqModule = parser.value(moduleOption);
     const QString &reqPage = parser.value(pageOption);
 
-    if (!app->setSingleInstance(app->applicationName(), DApplication::SingleScope::UserScope)) {
+    if (!app->setSingleInstance(app->applicationName())) {
         if (parser.isSet(toggleOption)) {
             DDBusSender()
             .service("com.deepin.dde.ControlCenter")
