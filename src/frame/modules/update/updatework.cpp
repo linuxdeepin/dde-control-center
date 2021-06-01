@@ -244,6 +244,7 @@ void UpdateWorker::activate()
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
     m_model->setUpdateMode(m_managerInter->updateMode());
     m_model->setUpdateNotify(m_updateInter->updateNotify());
+    m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 #endif
