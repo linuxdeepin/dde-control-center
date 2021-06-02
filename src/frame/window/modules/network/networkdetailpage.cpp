@@ -217,12 +217,12 @@ void NetworkDetailPage::onActiveInfoChanged(const QList<QJsonObject> &infos)
             if (!ipv4.isEmpty()) {
                 // ipv4 address
                 const auto ip4Addr = ipv4.value("Address").toString();
-                if (!ip4Addr.isEmpty())
-                    appendInfo(grp, tr("IPv4"), ip4Addr);
+                appendInfo(grp, tr("IPv4"), ip4Addr.isEmpty() ? "N/A" : ip4Addr);
+
                 // ipv4 gateway
                 const auto gateway = ipv4.value("Gateways").toArray();
-                if (!gateway.isEmpty())
-                    appendInfo(grp, tr("Gateway"), gateway.first().toString());
+                appendInfo(grp, tr("Gateway"), gateway.isEmpty() ? "N/A" : gateway.first().toString());
+
                 // ipv4 primary dns
                 const auto ip4PrimaryDns = ipv4.value("Dnses").toArray();
                 if (!ip4PrimaryDns.isEmpty())
@@ -290,9 +290,9 @@ QString NetworkDetailPage::ipv6Infomation(QJsonObject connectinfo, NetworkDetail
         const auto ipv6 = connectinfo.value("Ip6").toObject();
         switch (type) {
         case Ip:
-            return ipv6.value("Address").toString();
+            return ipv6.value("Address").toString().isEmpty() ? "N/A" : ipv6.value("Address").toString();
         case Gateway:
-            return ipv6.value("Address").toString();
+            return ipv6.value("Gateway").toString().isEmpty() ? "N/A" : ipv6.value("Gateway").toString();
         }
     }
     return "";
