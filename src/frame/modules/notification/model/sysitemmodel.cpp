@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "sysitemmodel.h"
+#include <DApplicationHelper>
 
 using namespace dcc;
 using namespace dcc::notification;
@@ -86,25 +87,27 @@ void SysItemModel::setTimeEnd(const QString &timeEnd)
 
 void SysItemModel::onSettingChanged(uint item, const QDBusVariant &var)
 {
-    switch (item) {
-    case DNDMODE:
+    // 平板模式只处理下拉面板修改勿扰模式使能引起的配置变更信号
+    if (item == DNDMODE) {
         setDisturbMode(var.variant().toBool());
-        break;
-    case LOCKSCREENOPENDNDMODE:
-        setLockScreen(var.variant().toBool());
-        break;
-    case OPENBYTIMEINTERVAL:
-        setTimeSlot(var.variant().toBool());
-        break;
-    case STARTTIME:
-        setTimeStart(var.variant().toString());
-        break;
-    case ENDTIME:
-        setTimeEnd(var.variant().toString());
-        break;
-    case SHOWICON:
-        setShowInDock(var.variant().toBool());
-        break;
+    } else if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        switch (item) {
+        case LOCKSCREENOPENDNDMODE:
+            setLockScreen(var.variant().toBool());
+            break;
+        case OPENBYTIMEINTERVAL:
+            setTimeSlot(var.variant().toBool());
+            break;
+        case STARTTIME:
+            setTimeStart(var.variant().toString());
+            break;
+        case ENDTIME:
+            setTimeEnd(var.variant().toString());
+            break;
+        case SHOWICON:
+            setShowInDock(var.variant().toBool());
+            break;
+        }
     }
 }
 
