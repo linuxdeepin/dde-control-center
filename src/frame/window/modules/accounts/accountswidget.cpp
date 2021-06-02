@@ -83,7 +83,8 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     m_userlistView->setLayoutDirection(Qt::LeftToRight);
     m_userlistView->setModel(m_userItemModel);
 
-    QScroller *scroller = QScroller::scroller(m_userlistView->viewport());
+    QScroller::grabGesture(m_userlistView->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_userlistView);
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);

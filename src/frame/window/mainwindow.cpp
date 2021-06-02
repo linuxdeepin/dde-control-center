@@ -135,7 +135,8 @@ MainWindow::MainWindow(QWidget *parent)
     m_navView->setResizeMode(QListView::Adjust);
     m_navView->setAutoScroll(true);
 
-    QScroller *scroller = QScroller::scroller(m_navView->viewport());
+    QScroller::grabGesture(m_navView->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_navView);
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);

@@ -91,7 +91,8 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_softwareListView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_softwareListView->setIconSize(ListViweIconSize);
 
-    QScroller *scroller = QScroller::scroller(m_softwareListView->viewport());
+    QScroller::grabGesture(m_softwareListView->viewport(), QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(m_softwareListView);
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
