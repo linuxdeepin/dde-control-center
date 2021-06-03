@@ -351,6 +351,7 @@ void ConnectionEditPage::prepareConnection()
 {
     if (!m_connection) {
         qDebug() << "preparing connection...";
+        qDBusRegisterMetaType<QByteArrayList>();
         QDBusPendingReply<QDBusObjectPath> reply = addConnection(m_connectionSettings->toMap());
         reply.waitForFinished();
         const QString &connPath = reply.value().path();
