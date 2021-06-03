@@ -48,8 +48,8 @@ public:
     void setSelected(bool selected);
     void setPic(const QString &picPath);
     void setId(const QVariant &id);
+    const QSize themeSize() const;
     inline const QVariant id() const { return m_id; }
-
 Q_SIGNALS:
     void selectedChanged(const bool selected) const;
 

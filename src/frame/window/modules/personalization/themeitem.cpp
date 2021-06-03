@@ -112,3 +112,8 @@ void ThemeItem::setId(const QVariant &id)
 {
     m_id = id;
 }
+
+const QSize ThemeItem::themeSize() const
+{
+   return  m_itemPic->size();
+}

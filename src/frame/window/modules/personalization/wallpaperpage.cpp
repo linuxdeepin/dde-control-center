@@ -144,7 +144,7 @@ WallpaperPage::WallpaperPage(QWidget *parent)
     else {
         m_bgWidget->setFixedHeight(40);
     }
-    colorLayout->setContentsMargins(80, 10, 16, 20);
+    colorLayout->setContentsMargins(20, 10, 16, 20);
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, this);
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, this);
     int totalSpace = borderWidth + borderSpacing + RoundColorWidget::EXTRA; //2px extra space to avoid line cutted off
@@ -288,6 +288,12 @@ void WallpaperPage::paintEvent(QPaintEvent *event)
     path.addRoundedRect(r, frame_radius, frame_radius);
     const DPalette &pal = DApplicationHelper::instance()->palette(this);
     painter.fillPath(path, pal.brush(DPalette::ItemBackground));
+}
+
+void WallpaperPage::showEvent(QShowEvent *event)
+{
+   m_themes->updatePersonalWidgetWidth(width() - m_scrollArea->widget()->layout()->contentsMargins().left());
+   return QWidget::showEvent(event);
 }
 
 void WallpaperPage::updateActiveColors(RoundColorWidget *selectedWidget)

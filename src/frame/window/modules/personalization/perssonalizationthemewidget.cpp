@@ -33,11 +33,15 @@
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 
+const int minMargain = 20;
+const int maxSpacing = 40;
+
 PerssonalizationThemeWidget::PerssonalizationThemeWidget(SettingsItem *parent)
     : SettingsItem(parent)
     , m_centerLayout(nullptr)
     , m_model(nullptr)
     , m_titleBelowPic(true)
+    , m_personalWidth(0)
 {
     if (DGuiApplicationHelper::isTabletEnvironment()) {
         addBackground();
@@ -131,6 +135,9 @@ void PerssonalizationThemeWidget::onSetPic(const QString &id, const QString &pic
     while (it != m_valueMap.constEnd()) {
         if (it.key()->id() == id) {
             it.key()->setPic(picPath);
+            if (DGuiApplicationHelper::isTabletEnvironment()) {
+              updateMargains(it.key());
+            }
             return;
         }
         ++it;
@@ -169,4 +176,19 @@ void PerssonalizationThemeWidget::setMainLayout(QBoxLayout *layout, bool titleBe
     m_centerLayout->setAlignment(Qt::AlignLeft);
     setLayout(m_centerLayout);
     m_titleBelowPic = titleBelowPic;
+}
+
+void PerssonalizationThemeWidget::updateMargains(ThemeItem *item)
+{
+    // 左右边距 = 二级界面宽度　- 预留边距 - 总的主题图片宽度 - 总的空格
+    int totalPicSize = item->themeSize().width() * m_valueMap.size();
+    int totalSpacing = maxSpacing * (m_valueMap.size() - 1);
+    int margain = (m_personalWidth - minMargain - totalPicSize - totalSpacing) / 2;
+    if (margain < minMargain) {
+        int space = maxSpacing - (minMargain - margain);
+        m_centerLayout->setContentsMargins(minMargain, 42, minMargain, 13);
+        m_centerLayout->setSpacing(space);
+    } else {
+        m_centerLayout->setContentsMargins(margain, 42, margain, 13);
+    }
 }

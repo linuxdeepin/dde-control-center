@@ -45,6 +45,8 @@ public:
     explicit PerssonalizationThemeWidget(SettingsItem *parent = nullptr);
     void setModel(dcc::personalization::ThemeModel *const model);
     void setMainLayout(QBoxLayout *layout, bool titleBelowPic);
+    void updateMargains(ThemeItem *item);
+    void updatePersonalWidgetWidth(int width) { m_personalWidth = width; }
 
 Q_SIGNALS:
     void requestSetDefault(const QJsonObject &value);
@@ -55,12 +57,16 @@ public Q_SLOTS:
     void onSetPic(const QString &id, const QString &picPath);
     void onAddItem(const QJsonObject &json);
     void onRemoveItem(const QString &id);
+
 protected:
     void mouseMoveEvent(QMouseEvent* event)override;
     QBoxLayout *m_centerLayout;
     QMap<ThemeItem *, QJsonObject> m_valueMap;
     dcc::personalization::ThemeModel *m_model;
     bool m_titleBelowPic;
+
+private:
+    int m_personalWidth;
 };
 }
 }
