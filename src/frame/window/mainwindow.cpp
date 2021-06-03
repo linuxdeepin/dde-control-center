@@ -483,7 +483,6 @@ void MainWindow::modulePreInitialize(const QString &m)
 
 void MainWindow::popWidget()
 {
-    m_lastPushWidget = m_contentStack.last().second;
     if (m_topWidget) {
         m_topWidget->deleteLater();
         m_topWidget = nullptr;
