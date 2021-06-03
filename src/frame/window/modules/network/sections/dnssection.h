@@ -44,7 +44,7 @@ class DNSSection : public AbstractSection
     Q_OBJECT
 
 public:
-    explicit DNSSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent = nullptr);
+    explicit DNSSection(NetworkManager::ConnectionSettings::Ptr connSettings, bool isSupportIPV6 = true, QFrame *parent = nullptr);
     virtual ~DNSSection();
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -77,6 +77,7 @@ private:
     NetworkManager::Setting::Ptr m_ipv6Setting;
     QList<QHostAddress> m_ipv4Dns;
     QList<QHostAddress> m_ipv6Dns;
+    bool m_supportIPV6;
 };
 }/*network*/
 }/*dcc*/
