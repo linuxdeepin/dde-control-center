@@ -64,12 +64,18 @@ public Q_SLOTS:
     void removeBattery(bool state);
 
 private:
+    void initUi();
+    void initMembers();
+    void initConnections();
+
+private:
     dcc::widgets::MultiSelectListView *m_listView;
     QStandardItemModel *m_itemModel;
     const dcc::power::PowerModel *m_model;
     bool m_bhasBattery;
     QList<ListSubItem> m_menuIconText;
     QModelIndex m_lastIndex;
+    int m_batteryIndex;
 };
 
 }// namespace datetime

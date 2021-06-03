@@ -117,12 +117,6 @@ void CommonInfoModule::active()
 
     m_frameProxy->pushWidget(this, m_commonWidget);
     m_commonWidget->setVisible(true);
-
-    #ifndef DCC_DISABLE_GRUB
-        onShowBootWidget();
-    #else
-        onShowDeveloperWidget();
-    #endif
     m_commonWidget->showDefaultWidget();
 }
 

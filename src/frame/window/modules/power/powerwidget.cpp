@@ -42,8 +42,11 @@ PowerWidget::PowerWidget(QWidget *parent)
     , m_itemModel(new QStandardItemModel(this))
     , m_model(nullptr)
     , m_bhasBattery(false)
+    , m_batteryIndex(0)
 {
-
+    initUi();
+    initMembers();
+    initConnections();
 }
 
 PowerWidget::~PowerWidget()
@@ -54,67 +57,8 @@ PowerWidget::~PowerWidget()
 void PowerWidget::initialize(bool hasBattery)
 {
     m_bhasBattery = hasBattery;
-
-    if (!IsServerSystem) {
-        //~ contents_path /power/General
-        m_menuIconText.append({"dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&PowerWidget::requestShowGeneral), nullptr, "general"});
-    }
-    //~ contents_path /power/Plugged In
-    m_menuIconText.append({"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric), nullptr, "pluggedIn"});
-    //~ contents_path /power/On Battery
-    m_menuIconText.append({"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery), nullptr, "onBattery"});
-
-    auto model = new QStandardItemModel(this);
-    DStandardItem *item = nullptr;
-    for (auto menu : m_menuIconText) {
-        item = new DStandardItem(QIcon::fromTheme(menu.itemIcon),menu.itemText);
-        item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        m_itemModel->appendRow(item);
-        GSettingWatcher::instance()->bind(menu.gsettingsName, m_listView, item);
-    }
-
-    if(InsertPlugin::instance()->needPushPlugin("Power"))
-        InsertPlugin::instance()->pushPlugin(m_itemModel,m_menuIconText);
-
-    m_listView->setFrameShape(QFrame::NoFrame);
-    m_listView->setModel(m_itemModel);
-    m_listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_listView->setViewportMargins(ScrollAreaMargins);
-    m_listView->setIconSize(ListViweIconSize);
-    if (!IsServerSystem)
-        m_listView->setRowHidden(2, !hasBattery);
-    else {
-        m_listView->setRowHidden(1, !hasBattery);
-    }
-
-    connect(m_listView, &DListView::clicked, this, &PowerWidget::onItemClicked);
-    connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](int row) {
-        bool isAllHidden = true;
-        for (int i = 0; i < m_itemModel->rowCount(); i++) {
-            if (!m_listView->isRowHidden(i))
-                isAllHidden = false;
-        }
-
-        if (m_listView->selectionModel()->selectedRows().size() > 0) {
-            int index = m_listView->selectionModel()->selectedRows()[ 0 ].row();
-            Q_EMIT requestUpdateSecondMenu(index == row);
-        } else {
-            Q_EMIT requestUpdateSecondMenu(false);
-        }
-
-        if (isAllHidden) {
-            m_lastIndex = QModelIndex();
-            m_listView->clearSelection();
-        }
-    });
-
-
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setMargin(0);
-    layout->addWidget(m_listView);
-    setLayout(layout);
+    m_batteryIndex = IsServerSystem ? 1 : 2;
+    m_listView->setRowHidden(m_batteryIndex, !hasBattery);
 }
 
 void PowerWidget::setModel(const PowerModel *model)
@@ -157,4 +101,66 @@ void PowerWidget::removeBattery(bool state)
     m_listView->setRowHidden(2, !state);
     m_bhasBattery = state;
     Q_EMIT requestShowUseElectric();
+}
+
+void PowerWidget::initUi()
+{
+    QVBoxLayout *powerLayout = new QVBoxLayout(this);
+    powerLayout->setContentsMargins(0, 0, 0, 0);
+
+    m_listView->setFrameShape(QFrame::NoFrame);
+    m_listView->setModel(m_itemModel);
+    m_listView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_listView->setViewportMargins(ScrollAreaMargins);
+    m_listView->setIconSize(ListViweIconSize);
+    powerLayout->addWidget(m_listView);
+}
+
+void PowerWidget::initMembers()
+{
+    if (!IsServerSystem) {
+        //~ contents_path /power/General
+        m_menuIconText.append({"dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&PowerWidget::requestShowGeneral), nullptr, "general"});
+    }
+    //~ contents_path /power/Plugged In
+    m_menuIconText.append({"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric), nullptr, "pluggedIn"});
+    //~ contents_path /power/On Battery
+    m_menuIconText.append({"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery), nullptr, "onBattery"});
+
+    DStandardItem *item = nullptr;
+    for (auto menu : m_menuIconText) {
+        item = new DStandardItem(QIcon::fromTheme(menu.itemIcon), menu.itemText);
+        item->setData(VListViewItemMargin, Dtk::MarginsRole);
+        m_itemModel->appendRow(item);
+        GSettingWatcher::instance()->bind(menu.gsettingsName, m_listView, item);
+    }
+
+    if (InsertPlugin::instance()->needPushPlugin("power"))
+        InsertPlugin::instance()->pushPlugin(m_itemModel, m_menuIconText);
+}
+
+void PowerWidget::initConnections()
+{
+    connect(m_listView, &DListView::clicked, this, &PowerWidget::onItemClicked);
+    connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](int row) {
+        bool isAllHidden = true;
+        for (int i = 0; i < m_itemModel->rowCount(); i++) {
+            if (!m_listView->isRowHidden(i))
+                isAllHidden = false;
+        }
+
+        if (m_listView->selectionModel()->selectedRows().size() > 0) {
+            int index = m_listView->selectionModel()->selectedRows()[ 0 ].row();
+            Q_EMIT requestUpdateSecondMenu(index == row);
+        } else {
+            Q_EMIT requestUpdateSecondMenu(false);
+        }
+
+        if (isAllHidden) {
+            m_lastIndex = QModelIndex();
+            m_listView->clearSelection();
+        }
+    });
 }

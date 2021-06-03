@@ -68,7 +68,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     systemitem->setData(VListViewItemMargin, Dtk::MarginsRole);
     m_sysmodel->appendRow(systemitem);
     m_systemListView->setModel(m_sysmodel);
-    m_centralLayout->addWidget(m_systemListView);
+    m_centralLayout->addWidget(m_systemListView, 0, Qt::AlignTop);
     m_centralLayout->setContentsMargins(10,10,0,0);
 
     connect(m_systemListView, &DListView::clicked, this, &NotificationWidget::onSystemClicked);
