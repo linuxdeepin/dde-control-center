@@ -57,7 +57,7 @@ void VpnVPNCSettings::initSections()
             m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
     ipv4Section->setIpv4ConfigMethodEnable(NetworkManager::Ipv4Setting::ConfigMethod::Manual, false);
     ipv4Section->setNeverDefaultEnable(true);
-    DNSSection *dnsSection = new DNSSection(m_connSettings);
+    DNSSection *dnsSection = new DNSSection(m_connSettings, false);
 
     connect(genericSection, &GenericSection::editClicked, this, &VpnVPNCSettings::anyEditClicked);
     connect(vpnVPNCSection, &VpnVPNCSection::editClicked, this, &VpnVPNCSettings::anyEditClicked);

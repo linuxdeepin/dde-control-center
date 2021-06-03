@@ -35,12 +35,13 @@ using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-DNSSection::DNSSection(NetworkManager::ConnectionSettings::Ptr connSettings, QFrame *parent)
+DNSSection::DNSSection(NetworkManager::ConnectionSettings::Ptr connSettings, bool isSupportIPV6, QFrame *parent)
     : AbstractSection (parent)
     , m_headItem(new SettingsHead)
     , m_connSettings(connSettings)
     , m_ipv4Setting(m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>())
     , m_ipv6Setting(m_connSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>())
+    , m_supportIPV6(isSupportIPV6)
 {
     initUI();
 }
@@ -265,7 +266,7 @@ bool DNSSection::isIpv6Address(const QString &ip)
     if (ipAddr == QHostAddress(QHostAddress::LocalHostIPv6)) {
         return false;
     }
-    return true;
+    return true && m_supportIPV6;
 }
 
 bool DNSSection::eventFilter(QObject *watched, QEvent *event)

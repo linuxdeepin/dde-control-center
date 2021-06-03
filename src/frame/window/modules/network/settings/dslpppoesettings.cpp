@@ -50,7 +50,7 @@ void DslPppoeSettings::initSections()
         m_connSettings->setting(Setting::Pppoe).staticCast<NetworkManager::PppoeSetting>());
     IpvxSection *ipv4Section = new IpvxSection(
         m_connSettings->setting(Setting::Ipv4).staticCast<NetworkManager::Ipv4Setting>());
-    DNSSection *dnsSection = new DNSSection(m_connSettings);
+    DNSSection *dnsSection = new DNSSection(m_connSettings, false);
     m_etherNetSection = new EthernetSection(
         m_connSettings->setting(Setting::Wired).staticCast<NetworkManager::WiredSetting>(), m_devicePath);
     PPPSection *pppSection = new PPPSection(
