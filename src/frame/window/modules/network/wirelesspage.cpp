@@ -707,7 +707,6 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
     const QString uuid = connectionUuid(ssid);
     // uuid could be empty
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-        it.value()->setConnected(false);
         if (m_clickedItem == it.value()) {
             m_clickedItem->setUuid(uuid);
         }
