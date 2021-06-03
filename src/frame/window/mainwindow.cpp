@@ -537,8 +537,9 @@ void MainWindow::showModulePage(const QString &module, const QString &page, bool
     Q_UNUSED(animation)
     // FIXME: 通过dbus触发切换page菜单界面时，应先检测当前page界面是否存在模态对话框在上层显示，
     // 若存在则先将其所有对话框强制关闭，再执行切换page界面显示
-    if (m_lastPushWidget && m_lastPushWidget->isVisible()) {
-        QList<QDialog *> dialogList = m_lastPushWidget->findChildren<QDialog *>();
+    QWidget *lastPushWidget = qobject_cast<QWidget*>(m_lastPushWidget);//判断指针是否失效
+    if (lastPushWidget && lastPushWidget->isVisible()) {
+        QList<QDialog *> dialogList = lastPushWidget->findChildren<QDialog *>();
         for (QDialog *dlg : dialogList) {
             if (dlg && dlg->isVisible()) {
                 dlg->done(QDialog::Rejected);
