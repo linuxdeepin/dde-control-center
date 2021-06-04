@@ -20,7 +20,7 @@
  */
 
 #include "avatarwidget.h"
-#include "modules/unionid/httpclient.h"
+#include "httpclient.h"
 #include "window/modules/unionid/notificationmanager.h"
 
 #include <QVBoxLayout>

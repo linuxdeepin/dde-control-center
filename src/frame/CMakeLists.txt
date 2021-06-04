@@ -77,6 +77,7 @@ endforeach()
 set(FRAME_FILES
                 main.cpp
                 dbuscontrolcenterservice.cpp
+                httpclient.cpp
 )
 
 set(WINDOW_FILES
@@ -477,7 +478,7 @@ set(SYNC_FILES
 set(UNIONID_FILES
    modules/unionid/unionidmodel.cpp
    modules/unionid/unionidworker.cpp
-   modules/unionid/httpclient.cpp
+#   modules/unionid/httpclient.cpp
 
    window/modules/unionid/unionidmodule.h
    window/modules/unionid/unionidmodule.cpp

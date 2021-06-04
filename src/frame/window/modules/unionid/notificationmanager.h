@@ -7,6 +7,7 @@
 #include <QNetworkAccessManager>
 
 #include "customping.h"
+#include "threadobj.h"
 #include <window/modules/unionid/pages/customfloatingmessage.h>
 
 DWIDGET_USE_NAMESPACE
@@ -24,6 +25,8 @@ public:
         ConnectionTimeout,
         SystemError
     };
+
+    ~Notificationmanager() override;
 
     static Notificationmanager *instance();
     // toast提示
@@ -95,6 +98,14 @@ Q_SIGNALS:
 
     void toTellLogoutUser(QString,QString);
 
+    void toTellGetAccessToken(const QString&);
+
+    void toTellGetPictureFromUrl(const QString&);
+
+    void toTellBindAccountInfo(const int&, const int&, const QString&);
+
+    void toTellRefreshAccessToken(const QString&, const QString&);
+
 public Q_SLOTS:
     void onSetNotificationStatus();
     //展示ping的结果
@@ -117,19 +128,19 @@ public Q_SLOTS:
 
     void onUserInfoChanged(const QVariantMap &userInfo);
 
-private Q_SLOTS:
     // 获得AT,RT和用户信息的槽
-    void onGetAccessToken();
-
-    // 定时刷新AT,RT和用户信息的槽
-    void onTokenTimeout();
+    void onGetAccessToken(QString result);
 
     // 刷新获得AT,RT和用户信息的槽
-    void onRefreshAccessToken();
+    void onRefreshAccessToken(QString result);
 
-    void onGetBindAccountInfo();
+    void onGetBindAccountInfo(QString result);
 
-    void readAvatarFromUrl();
+    void readAvatarFromUrl(QByteArray result);
+
+private Q_SLOTS:
+    // 定时刷新AT,RT和用户信息的槽
+    void onTokenTimeout();
 
 private:
     explicit Notificationmanager(QObject *parent = nullptr);
@@ -139,6 +150,7 @@ private:
     bool m_bIsNotificationExist;///< toast提示控件存在状态
     QTimer *m_refreshTimer;///< 刷新AT,RT和用户信息的定时器
     QString m_userInfo;///< 记录的用户信息
+    QString m_nickName;///< 记录的用户昵称
     QString m_weChatName;///< 记录的用户微信昵称
     QString m_refreshToken;///< 记录的RT
     QPixmap m_avatar;///< 记录的用户头像
@@ -155,6 +167,9 @@ private:
     QTimer *m_timer_isconnect;///< 检测网络连接超时的定时器
     bool m_isConnect = true;///< 网络连接状态
     int m_timeouttime = 1500;///< 网络连接超时限制时间
+
+    ThreadObj *m_threadobj;
+    QThread *m_thread;
 };
 
 #endif // NOTIFICATIONMANAGER_H

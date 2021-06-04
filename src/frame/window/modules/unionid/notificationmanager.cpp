@@ -1,8 +1,7 @@
 #include "notificationmanager.h"
-#include "modules/unionid/httpclient.h"
+#include "httpclient.h"
 #include "define.h"
 #include "window/modules/unionid/pages/avatarwidget.h"
-#include "threadobj.h"
 
 #include <QVariantMap>
 #include <QDBusArgument>
@@ -40,14 +39,27 @@ Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
     connect(this, &Notificationmanager::ProcessFinished, m_myping, &CustomPing::slot_resetProcess);
     m_myping->start();
 
-    ThreadObj *threadobj = new ThreadObj;
-    QThread *thread = new QThread;
-    connect(this, &Notificationmanager::toTellLoginUser, threadobj, &ThreadObj::onLoginUser);
-    connect(this, &Notificationmanager::toTellLogoutUser, threadobj, &ThreadObj::onLogoutUser);
-    connect(threadobj, &ThreadObj::toTellLoginUserFinished, this, &Notificationmanager::toTellLoginUserFinished);
-    connect(thread, &QThread::finished, threadobj, &QObject::deleteLater);
-    threadobj->moveToThread(thread);
-    thread->start();
+    m_threadobj = new ThreadObj;
+    m_thread = new QThread;
+    connect(this, &Notificationmanager::toTellLoginUser, m_threadobj, &ThreadObj::onLoginUser);
+    connect(this, &Notificationmanager::toTellLogoutUser, m_threadobj, &ThreadObj::onLogoutUser);
+    connect(m_threadobj, &ThreadObj::toTellLoginUserFinished, this, &Notificationmanager::toTellLoginUserFinished);
+    m_threadobj->moveToThread(m_thread);
+    m_thread->start();
+
+    connect(this, &Notificationmanager::toTellGetAccessToken, HttpClient::instance(), &HttpClient::onGetAccessToken);
+    connect(this, &Notificationmanager::toTellGetPictureFromUrl, HttpClient::instance(), &HttpClient::onGetPictureFromUrl);
+    connect(this, &Notificationmanager::toTellBindAccountInfo, HttpClient::instance(), &HttpClient::onBindAccountInfo);
+    connect(this, &Notificationmanager::toTellRefreshAccessToken, HttpClient::instance(), &HttpClient::onRefreshAccessToken);
+    connect(HttpClient::instance(), &HttpClient::toTellGetAccessTokenFinished, this, &Notificationmanager::onGetAccessToken);
+    connect(HttpClient::instance(), &HttpClient::toTellGetPictureFromUrlFinished, this, &Notificationmanager::readAvatarFromUrl);
+    connect(HttpClient::instance(), &HttpClient::toTellBindAccountInfoFinished, this, &Notificationmanager::onGetBindAccountInfo);
+    connect(HttpClient::instance(), &HttpClient::toTellRefreshAccessTokenFinished, this, &Notificationmanager::onRefreshAccessToken);
+}
+
+Notificationmanager::~Notificationmanager()
+{
+    m_threadobj->deleteLater();
 }
 
 Notificationmanager *Notificationmanager::instance()
@@ -126,17 +138,23 @@ void Notificationmanager::setUserInfo(QString usrInfo)
         jsonObj = jsonValueResult.toObject();
         jsonValueResult = jsonObj.value("avatar");
         m_requrstAvatar = jsonValueResult.toString();
-        QNetworkReply *avatarReply = HttpClient::instance()->getPictureFromUrl(m_requrstAvatar);
-        connect(avatarReply, &QNetworkReply::finished, this, &Notificationmanager::readAvatarFromUrl);
+
+//        QNetworkReply *avatarReply = HttpClient::instance()->getPictureFromUrl(m_requrstAvatar);
+//        connect(avatarReply, &QNetworkReply::finished, this, &Notificationmanager::readAvatarFromUrl);
+        Q_EMIT toTellGetPictureFromUrl(m_requrstAvatar);
 
         jsonValueResult = jsonObj.value("wechatunionid");
         m_weChatUnionId = jsonValueResult.toString();
 
+        jsonValueResult = jsonObj.value("userNick");
+        m_nickName = jsonValueResult.toString();
+
         if (m_weChatUnionId.isEmpty()) {
             m_weChatName = "";
         } else {
-            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
-            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
+            Q_EMIT toTellBindAccountInfo(1, 0, m_weChatUnionId);
+//            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
+//            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
         }
     }
 }
@@ -160,9 +178,10 @@ void Notificationmanager::getAccessToken(const QString &code, const QString &sta
 {
     Q_UNUSED(state)
     m_code = code;
-    QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),code);
-    connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetAccessToken);
-    Q_EMIT toTellGetATFinished(false);
+    Q_EMIT toTellGetAccessToken(code);
+//    QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),code);
+//    connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetAccessToken);
+//    Q_EMIT toTellGetATFinished(false);
 }
 
 void Notificationmanager::startRefreshToken(const QString &refreshToken,int expires_in)
@@ -269,20 +288,22 @@ void Notificationmanager::onUserAvatar(QPixmap avatar)
     m_avatar = avatar;
 }
 
-void Notificationmanager::onGetAccessToken()
+void Notificationmanager::onGetAccessToken(QString result)
 {
     m_requrestCount++;
-    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = HttpClient::instance()->checkReply(reply);
+//    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+//    QString result = HttpClient::instance()->checkReply(reply);
 
     if (HttpClient::instance()->solveJson(result)) {
         setUserInfo(result);
         Q_EMIT toTellGetATFinished(true);
         m_requrestCount = 0;
     } else {
+        qInfo() << "获取数据失败";
         if (m_requrestCount < 5) {
-            QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),m_code);
-            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetAccessToken);
+            Q_EMIT toTellGetAccessToken(m_code);
+//            QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),m_code);
+//            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetAccessToken);
         } else {
             qInfo() << "获取数据失败1";
         }
@@ -291,26 +312,27 @@ void Notificationmanager::onGetAccessToken()
 
 void Notificationmanager::onTokenTimeout()
 {
-    QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(HttpClient::instance()->getClientId(),m_refreshToken);
-    connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onRefreshAccessToken);
+    Q_EMIT toTellRefreshAccessToken(HttpClient::instance()->getClientId(),m_refreshToken);
+//    QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(HttpClient::instance()->getClientId(),m_refreshToken);
+//    connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onRefreshAccessToken);
 }
 
-void Notificationmanager::onRefreshAccessToken()
+void Notificationmanager::onRefreshAccessToken(QString result)
 {
-    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QString result = HttpClient::instance()->checkReply(reply);
-    reply->deleteLater();
+//    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+//    QString result = HttpClient::instance()->checkReply(reply);
+//    reply->deleteLater();
 
     if (HttpClient::instance()->solveJson(result)) {
         setUserInfo(result);
     }
 }
 
-void Notificationmanager::onGetBindAccountInfo()
+void Notificationmanager::onGetBindAccountInfo(QString result)
 {
     m_requrestCount++;
-    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
-    QString result = HttpClient::instance()->checkReply(reply);
+//    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
+//    QString result = HttpClient::instance()->checkReply(reply);
 
     if (!result.isEmpty()) {
 
@@ -329,36 +351,39 @@ void Notificationmanager::onGetBindAccountInfo()
             }
         } else {
             if (m_requrestCount < 5) {
-                QNetworkReply *reply = HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
-                connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
+                Q_EMIT toTellBindAccountInfo(1, 0, m_weChatUnionId);
+//                QNetworkReply *reply = HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
+//                connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
             } else {
                 qInfo() << "获取数据失败3";
             }
         }
     } else {
         if (m_requrestCount < 5) {
-            QNetworkReply *reply = HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
-            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
+            Q_EMIT toTellBindAccountInfo(1, 0, m_weChatUnionId);
+//            QNetworkReply *reply = HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
+//            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
         } else {
             qInfo() << "获取数据失败3";
         }
     }
 }
 
-void Notificationmanager::readAvatarFromUrl()
+void Notificationmanager::readAvatarFromUrl(QByteArray result)
 {
     m_requrestCount++;
-    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    QByteArray result = HttpClient::instance()->checkReply(reply);
-    reply->deleteLater();
+//    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+//    QByteArray result = HttpClient::instance()->checkReply(reply);
+//    reply->deleteLater();
 
     if (!result.isEmpty()) {
         m_avatar.loadFromData(result);
         m_requrestCount = 0;
     } else {
         if (m_requrestCount < 5) {
-            QNetworkReply *avatarReply = HttpClient::instance()->getPictureFromUrl(m_requrstAvatar);
-            connect(avatarReply, &QNetworkReply::finished, this, &Notificationmanager::readAvatarFromUrl);
+            Q_EMIT toTellGetPictureFromUrl(m_requrstAvatar);
+//            QNetworkReply *avatarReply = HttpClient::instance()->getPictureFromUrl(m_requrstAvatar);
+//            connect(avatarReply, &QNetworkReply::finished, this, &Notificationmanager::readAvatarFromUrl);
         } else {
             qInfo() << "获取数据失败2";
         }
@@ -367,6 +392,7 @@ void Notificationmanager::readAvatarFromUrl()
 
 void Notificationmanager::onUserInfoChanged(const QVariantMap &userInfo)
 {
+    Q_EMIT toTellSwitchWidget(userInfo);
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
     qInfo() << "onUserInfoChanged";
 
@@ -377,7 +403,7 @@ void Notificationmanager::onUserInfoChanged(const QVariantMap &userInfo)
         }
     }
     else {
-        setLoginType(true);
-        qInfo() << "退出登录";
+        setLoginType(true);     
+        Q_EMIT toTellLogoutUser(m_requrstAvatar,m_nickName);
     }
 }

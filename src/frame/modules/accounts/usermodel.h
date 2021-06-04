@@ -56,8 +56,8 @@ public:
     inline bool isNoPassWordLoginVisable() const { return m_noPassWordLoginVisable; }
     void setNoPassWordLoginVisable(const bool visable);
 
-//    inline bool isScanCodeLoginVisable() const { return m_scanCodeLoginVisable; }
-//    void setScanCodeLoginVisable(const bool visable);
+    inline bool isScanCodeLoginVisable() const { return m_scanCodeLoginVisable; }
+    void setScanCodeLoginVisable(const bool visable);
 
 #ifdef DCC_ENABLE_ADDOMAIN
     bool isJoinADDomain() const { return m_isJoinADDomain; }

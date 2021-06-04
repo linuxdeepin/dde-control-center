@@ -148,6 +148,24 @@ public:
     QString getRedirecUrl();
     QString getRequestUrl();
 
+Q_SIGNALS:
+    void toTellGetAccessTokenFinished(QByteArray);
+    void toTellGetPictureFromUrlFinished(QByteArray);
+    void toTellBindAccountInfoFinished(QByteArray);
+    void toTellRefreshAccessTokenFinished(QByteArray);
+
+public Q_SLOTS:
+    void onGetAccessToken(const QString &code);
+    void onGetPictureFromUrl(const QString &avatarUrl);
+    void onBindAccountInfo(const int &accountType, const int &id, const QString &idValue);
+    void onRefreshAccessToken(const QString &clientId, const QString &refreshtoken);
+
+private Q_SLOTS:
+    void onGetAccessTokenFinished();
+    void onGetPictureFromUrlFinished();
+    void onBindAccountInfoFinished();
+    void onRefreshAccessTokenFinished();
+
 private:
     void loadDeepinDev();
     QString userAgentInfo();

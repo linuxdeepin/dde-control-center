@@ -1,5 +1,5 @@
 #include "bindwechatwindow.h"
-#include "modules/unionid/httpclient.h"
+#include "httpclient.h"
 #include "window/modules/unionid/define.h"
 #include "customwidget.h"
 #include "window/modules/unionid/notificationmanager.h"

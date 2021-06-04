@@ -226,5 +226,5 @@ void User::setScanCodeLogin(bool scanCodeLogin)
 
     m_scanCodeLogin = scanCodeLogin;
 
-    Q_EMIT scanCodeLoginChanged(scanCodeLogin);
+//    Q_EMIT scanCodeLoginChanged(scanCodeLogin);
 }

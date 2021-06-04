@@ -20,7 +20,7 @@
  */
 
 #include "login.h"
-#include "modules/unionid/httpclient.h"
+#include "httpclient.h"
 
 #include <DSuggestButton>
 #include <DFontSizeManager>

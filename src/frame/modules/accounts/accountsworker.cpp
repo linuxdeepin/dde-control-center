@@ -52,7 +52,7 @@ const QString DisplayManagerService("org.freedesktop.DisplayManager");
 
 const QString AutoLoginVisable = "auto-login-visable";
 const QString NoPasswordVisable = "nopasswd-login-visable";
-//const QString ScanCodeLoginVisable = "scan-code-login-visable";
+const QString ScanCodeLoginVisable = "scan-code-login-visable";
 
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
@@ -302,9 +302,14 @@ void AccountsWorker::loadUserList()
 //            Q_EMIT user->scanCodeLoginChanged(user->scanCodeLogin());
 //        } else {
 //            if (scanCodeLogin) {
-//                //绑定
+//                //系统帐号绑定统信帐号
+
+//                  //查询统信帐号是否绑定微信
+
+//                  //if(绑定微信) {结束} else {验证手机，绑定微信}
+
 //            } else {
-//                //解绑
+//                //系统帐号解绑统信帐号 {解绑}
 //            }
 //        }
 

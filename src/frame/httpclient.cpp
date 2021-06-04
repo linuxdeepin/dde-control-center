@@ -163,6 +163,7 @@ QNetworkReply *HttpClient::getAccessToken(const QString &clientId, const QString
                          .arg(clientId)
                          .arg(code);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
+
     return httpRequset("get",requset,"");
 //    return manager->get(requset);
 }
@@ -173,6 +174,7 @@ QNetworkReply *HttpClient::refreshAccessToken(const QString &clientId, const QSt
                          .arg(clientId)
                          .arg(refreshtoken);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
+
     return httpRequset("get",requset,"");
 //    return manager->get(requset);
 }
@@ -201,22 +203,24 @@ QNetworkReply *HttpClient::getPictureFromUrl(const QString &url)
 
 QByteArray HttpClient::checkReply(QNetworkReply *pReply)
 {
+    QByteArray byteJson = "";
+
     if (pReply->error() != QNetworkReply::NoError) {
         QString strErr = "Failed to request : " + pReply->url().toString()
                          + "\n the error code is : " + QString::number(pReply->error())
                          + "\n the error string is : " + pReply->errorString();
         qInfo() << "strErr" << strErr;
-        return QByteArray();
+        //return QByteArray();
     }
 
     int statusCode = pReply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     if (200 != statusCode) {
         QString strReason = "The status code is not 200";
         qInfo() << "statusCode" << statusCode;
-        return QByteArray();
+        //return QByteArray();
     }
 
-    QByteArray byteJson = pReply->readAll();
+    byteJson = pReply->readAll();
     //QString strJson(byteJson);
     if (byteJson.length() < 1000) {
         //qInfo() << "byteJson" << byteJson;
@@ -276,6 +280,58 @@ QString HttpClient::getRedirecUrl()
 QString HttpClient::getRequestUrl()
 {
     return m_request_url;
+}
+
+void HttpClient::onGetAccessToken(const QString &code)
+{
+    QNetworkReply *reply = getAccessToken(m_clientid,code);
+    connect(reply,&QNetworkReply::finished, this, &HttpClient::onGetAccessTokenFinished);
+}
+
+void HttpClient::onGetPictureFromUrl(const QString& avatarUrl)
+{
+    QNetworkReply *reply = getPictureFromUrl(avatarUrl);
+    connect(reply,&QNetworkReply::finished, this, &HttpClient::onGetPictureFromUrlFinished);
+}
+
+void HttpClient::onBindAccountInfo(const int &accountType, const int& id, const QString& idValue)
+{
+    QNetworkReply *reply = getBindAccountInfo(accountType,id,idValue);
+    connect(reply,&QNetworkReply::finished, this, &HttpClient::onBindAccountInfoFinished);
+}
+
+void HttpClient::onRefreshAccessToken(const QString &clientId, const QString &refreshtoken)
+{
+    QNetworkReply *reply = refreshAccessToken(clientId,refreshtoken);
+    connect(reply,&QNetworkReply::finished, this, &HttpClient::onRefreshAccessTokenFinished);
+}
+
+void HttpClient::onGetAccessTokenFinished()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    Q_EMIT toTellGetAccessTokenFinished(checkReply(reply));;
+    reply->deleteLater();
+}
+
+void HttpClient::onGetPictureFromUrlFinished()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    Q_EMIT toTellGetPictureFromUrlFinished(checkReply(reply));;
+    reply->deleteLater();
+}
+
+void HttpClient::onBindAccountInfoFinished()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    Q_EMIT toTellBindAccountInfoFinished(checkReply(reply));;
+    reply->deleteLater();
+}
+
+void HttpClient::onRefreshAccessTokenFinished()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    Q_EMIT toTellRefreshAccessTokenFinished(checkReply(reply));;
+    reply->deleteLater();
 }
 
 /*******************************************************************************

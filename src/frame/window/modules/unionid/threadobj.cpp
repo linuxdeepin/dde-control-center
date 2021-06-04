@@ -2,7 +2,7 @@
 #include <QDBusInterface>
 #include <QDebug>
 
-#include "modules/unionid/httpclient.h"
+#include "httpclient.h"
 
 ThreadObj::ThreadObj(QObject *parent) : QObject(parent)
 {
@@ -11,7 +11,7 @@ ThreadObj::ThreadObj(QObject *parent) : QObject(parent)
 
 void ThreadObj::onLoginUser()
 {
-    qInfo() << "loginUser";
+    qInfo() << "loginUser begin";
 
     QDBusInterface interface("com.deepin.deepinid.Client",
                               "/com/deepin/deepinid/Client",
@@ -35,12 +35,12 @@ void ThreadObj::onLoginUser()
     interface.callWithArgumentList(QDBus::NoBlock, "Authorize", argumentList);
 
     Q_EMIT toTellLoginUserFinished();
-    qInfo() << "loginUser  Authorize";
+    qInfo() << "loginUser end";
 }
 
 void ThreadObj::onLogoutUser(QString qstrAvatar, QString qstrNickName)
 {
-    qInfo() << "logoutUser ConfirmLogout";
+    qInfo() << "logoutUser begin";
     QDBusInterface interface("com.deepin.deepinid.Client",
                               "/com/deepin/deepinid/Client",
                               "com.deepin.deepinid.Client");
@@ -49,6 +49,16 @@ void ThreadObj::onLogoutUser(QString qstrAvatar, QString qstrNickName)
     argumentList << qstrAvatar;
     argumentList << qstrNickName;
 
-    interface.callWithArgumentList(QDBus::NoBlock, "ConfirmLogout", argumentList);
-    qInfo() << "logoutUser ConfirmLogout finished";
+    QDBusMessage msg = interface.callWithArgumentList(QDBus::NoBlock, "ConfirmLogout", argumentList);
+
+    if (msg.type() == QDBusMessage::ReplyMessage) {
+        bool bIsSuccess = msg.arguments().takeFirst().toBool();
+
+        if (bIsSuccess) {
+            qInfo() << "退出登录成功";
+        } else {
+            qInfo() << "退出登录失败";
+        }
+    }
+    qInfo() << "logoutUser end";
 }

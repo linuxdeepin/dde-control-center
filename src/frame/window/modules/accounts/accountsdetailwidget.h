@@ -128,7 +128,7 @@ private:
     bool m_isServerSystem;
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
-//    dcc::widgets::SwitchWidget *m_scanCodeLogin;
+    dcc::widgets::SwitchWidget *m_scanCodeLogin;
     QHBoxLayout *m_avatarLayout;
     DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;

@@ -120,7 +120,7 @@ Q_SIGNALS:
     void userTypeChanged(const int userType);
     void isPasswordExpiredChanged(const bool isExpired) const;
     void passwordAgeChanged(const int age) const;
-    void scanCodeLoginChanged(const bool nopasswdLogin) const;
+//    void scanCodeLoginChanged(const bool nopasswdLogin) const;
 
 private:
     bool m_isCurrentUser;

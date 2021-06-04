@@ -128,14 +128,14 @@ void UnionidWorker::signInUser()
 
 void UnionidWorker::loginUser()
 {
-    qInfo() << "loginUser  sync";
+    qInfo() << "loginUser sync begin";
     m_deepinId_inter->Login();
-    qInfo() << "loginUser  sync finished";
+    qInfo() << "loginUser  sync end";
 }
 
 void UnionidWorker::logoutUser()
 {
-    qInfo() << "logoutUser";
+//    qInfo() << "logoutUser";
     //m_deepinId_inter->Logout();
 }
 

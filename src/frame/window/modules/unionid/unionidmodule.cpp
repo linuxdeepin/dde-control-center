@@ -64,7 +64,7 @@ void UnionidModule::active()
     connect(m_unionidWidget, &UnionidWidget::requestSignInUser, m_worker, &dcc::unionid::UnionidWorker::signInUser, Qt::UniqueConnection);
     connect(m_unionidWidget, &UnionidWidget::requestLoginUser, m_worker, &dcc::unionid::UnionidWorker::loginUser, Qt::UniqueConnection);
     connect(m_unionidWidget, &UnionidWidget::requestSetAutoSync, m_worker, &dcc::unionid::UnionidWorker::setAutoSync, Qt::UniqueConnection);
-    connect(m_unionidWidget, &UnionidWidget::requestLogoutUser, m_worker, &dcc::unionid::UnionidWorker::logoutUser, Qt::QueuedConnection);
+//    connect(m_unionidWidget, &UnionidWidget::requestLogoutUser, m_worker, &dcc::unionid::UnionidWorker::logoutUser, Qt::QueuedConnection);
     connect(m_unionidWidget, &UnionidWidget::requesUserDialog, m_worker, &dcc::unionid::UnionidWorker::requestModifyDialog, Qt::UniqueConnection);
     connect(m_unionidWidget, &UnionidWidget::requestSetModuleState, m_worker, &dcc::unionid::UnionidWorker::setSync, Qt::UniqueConnection);
 //    connect(widget, &UnionidWidget::requestPopupDialog, this, &UnionidModule::onShowPopup, Qt::UniqueConnection);

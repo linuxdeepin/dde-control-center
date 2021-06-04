@@ -56,7 +56,6 @@ public:
     void setDefault();
 
 public Q_SLOTS:
-    void onRequestLogout();
     void onGetATFinished(bool bIsFinished);
 
 Q_SIGNALS:
@@ -67,9 +66,6 @@ Q_SIGNALS:
     void requestPopupDialog(QString) const;
     void requesUserDialog(QString) const;
     void requestSetModuleState(std::pair<SyncType, bool> state) const;
-
-private:
-//    void onUserInfoChanged(const QVariantMap &userInfo);
 
 private:
     QStackedLayout *m_pageLayout;

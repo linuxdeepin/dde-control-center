@@ -24,7 +24,7 @@
 #include "pages/index.h"
 #include "pages/logout.h"
 #include "modules/unionid/unionidmodel.h"
-#include "modules/unionid/httpclient.h"
+#include "httpclient.h"
 #include "define.h"
 #include "window/modules/unionid/notificationmanager.h"
 
@@ -59,7 +59,7 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     connect(m_loginPage, &LoginPage::requestLoginUser, this, &UnionidWidget::requestLoginUser);
     connect(m_indexPage, &IndexPage::requestSetAutoSync, this, &UnionidWidget::requestSetAutoSync);
 //    connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
-    connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
+//    connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
     connect(m_indexPage, &IndexPage::requestSetModuleState, this, &UnionidWidget::requestSetModuleState);
     connect(m_indexPage, &IndexPage::requesUserDialog, this, &UnionidWidget::requesUserDialog);
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
@@ -95,35 +95,23 @@ void UnionidWidget::setModel(dcc::unionid::UnionidModel *model, MainWindow *pMai
 //    m_cnonlyPage->setModel(model);
     m_loginPage->setMainWindow(pMainWindow);
 
-   // connect(model, &dcc::unionid::UnionidModel::userInfoChanged, this, &UnionidWidget::onUserInfoChanged);
-
     Notificationmanager::instance()->onUserInfoChanged(model->userinfo());
     m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
     m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),true);
     m_indexPage->setWeChatName(Notificationmanager::instance()->getWeChatName());
     switchWidget(model->userinfo());
-
-//    if (Notificationmanager::instance()->firstIsLogin()/* && Notificationmanager::instance()->isLogin()*/) {
-//        onUserInfoChanged(model->userinfo());
-////        m_loginPage->login();
-//    } else {
-//        m_indexPage->setUserAvatar(Notificationmanager::instance()->getUserAvatar());
-//        m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),true);
-//        m_indexPage->setWeChatName(Notificationmanager::instance()->getWeChatName());
-//        switchWidget(model->userinfo());
-//    }
 }
 
 void UnionidWidget::onGetATFinished(bool bIsFinished)
 {
     if (bIsFinished) {
         //初始化显示信息
-        m_indexPage->setDefaultInfo();
+//        m_indexPage->setDefaultInfo();
         m_indexPage->setUserInfo(Notificationmanager::instance()->getUserInfo(),false);
-        m_pageLayout->setCurrentWidget(m_indexPage);
+//        m_pageLayout->setCurrentWidget(m_indexPage);
     } else {
-        m_indexPage->setDefaultInfo();
-        m_pageLayout->setCurrentWidget(m_indexPage);
+//        m_indexPage->setDefaultInfo();
+//        m_pageLayout->setCurrentWidget(m_indexPage);
     }
 }
 
@@ -147,51 +135,3 @@ void UnionidWidget::setDefault()
 {
     m_indexPage->setDefaultInfo();
 }
-
-void UnionidWidget::onRequestLogout()
-{
-    QDBusInterface interface("com.deepin.deepinid.Client",
-                              "/com/deepin/deepinid/Client",
-                              "com.deepin.deepinid.Client");
-
-    QDBusMessage msg = interface.call(QDBus::NoBlock, "ConfirmLogout");
-
-    if (msg.type() == QDBusMessage::ReplyMessage) {
-        bool bIsSuccess = msg.arguments().takeFirst().toBool();
-
-        if (bIsSuccess) {
-            m_pageLayout->setCurrentWidget(m_loginPage);         
-        } else {
-            qInfo() << "退出登录失败";
-        }
-    }
-}
-
-//void UnionidWidget::onUserInfoChanged(const QVariantMap &userInfo)
-//{
-//    const bool isLogind = !userInfo["Username"].toString().isEmpty();
-//    const QString region = userInfo["Region"].toString();
-
-//    if (isLogind) {
-////        if (region == "CN") {
-////        m_indexPage->setDefaultInfo();
-//        m_pageLayout->setCurrentWidget(m_indexPage);
-
-////        if (Notificationmanager::instance()->bIsExternalLogin()) {
-////            qInfo() << "已登录";
-////            m_loginPage->login();
-////        }
-////        } else {
-////            m_pageLayout->setCurrentWidget(m_cnonlyPage);
-////        }
-//    }
-//    else {
-////        m_indexPage->requestLogout();
-////        Notificationmanager::instance()->setLoginType(true);
-//        m_indexPage->setDefaultInfo();
-//        m_indexPage->setUserAvatar(AvaterPath);
-//        m_pageLayout->setCurrentWidget(m_loginPage);
-//        m_loginPage->clearButtonFocus();
-//        qInfo() << "未登录";
-//    }
-//}

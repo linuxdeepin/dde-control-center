@@ -29,7 +29,7 @@
 #include "newstyle.h"
 #include "syncitemwidget.h"
 #include "../define.h"
-#include "modules/unionid/httpclient.h"
+#include "httpclient.h"
 #include "authenticationwindow.h"
 #include "../notificationmanager.h"
 
