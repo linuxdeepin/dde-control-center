@@ -341,17 +341,17 @@ void MainWindow::initAllModule(const QString &m)
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},
         { new NetworkModule(this), tr("Network")},
-        { new NotificationModule(this), tr("Notification")},
+//        { new NotificationModule(this), tr("Notification")},
         { new SoundModule(this), tr("Sound")},
         { new BluetoothModule(this), tr("Bluetooth")},
         { new DatetimeModule(this), tr("Date and Time")},
-        { new PowerModule(this), tr("Power")},
+//        { new PowerModule(this), tr("Power")},
         { new MouseModule(this), tr("Mouse")},
         { new WacomModule(this), tr("Drawing Tablet")},
         { new KeyboardModule(this), tr("Keyboard and Language")},
         { new UpdateModule(this), tr("Updates")},
         { new SystemInfoModule(this), tr("System Info")},
-        { new CommonInfoModule(this), tr("General Settings")},
+//        { new CommonInfoModule(this), tr("General Settings")},
     };
 
     //读取加载一级菜单的插件
