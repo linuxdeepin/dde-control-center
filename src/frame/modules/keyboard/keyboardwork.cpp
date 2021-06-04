@@ -271,7 +271,7 @@ void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
     const QString &result = m_keybindInter->LookupConflictingShortcut(info->accels);
 
     if (!result.isEmpty()) {
-        const QJsonObject obj = QJsonDocument::fromJson(result.toLatin1()).object();
+        const QJsonObject obj = QJsonDocument::fromJson(result.toUtf8()).object();
         QDBusPendingCall call = m_keybindInter->ClearShortcutKeystrokes(obj["Id"].toString(), obj["Type"].toInt());
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
