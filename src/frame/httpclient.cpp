@@ -223,7 +223,7 @@ QByteArray HttpClient::checkReply(QNetworkReply *pReply)
     byteJson = pReply->readAll();
     //QString strJson(byteJson);
     if (byteJson.length() < 1000) {
-        //qInfo() << "byteJson" << byteJson;
+//        qInfo() << "byteJson" << byteJson;
     }
 
     return byteJson;

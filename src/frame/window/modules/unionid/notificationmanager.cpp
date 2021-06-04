@@ -60,6 +60,8 @@ Notificationmanager::Notificationmanager(QObject *parent) : QObject(parent)
 Notificationmanager::~Notificationmanager()
 {
     m_threadobj->deleteLater();
+    m_thread->deleteLater();
+    m_refreshTimer->deleteLater();
 }
 
 Notificationmanager *Notificationmanager::instance()
@@ -244,6 +246,19 @@ bool Notificationmanager::uidWidgetIsExist()
     return m_uidWidgetIsExist;
 }
 
+void Notificationmanager::clearRecords()
+{
+    m_refreshTimer->stop();
+    m_userInfo.clear();
+    m_nickName.clear();
+    m_weChatName.clear();
+    m_refreshToken.clear();
+    m_avatar = QPixmap(AvaterPath);
+    m_requrstAvatar.clear();
+    m_code.clear();
+    m_weChatUnionId.clear();
+}
+
 void Notificationmanager::showResult()
 {
     m_isConnect = true;
@@ -299,7 +314,6 @@ void Notificationmanager::onGetAccessToken(QString result)
         Q_EMIT toTellGetATFinished(true);
         m_requrestCount = 0;
     } else {
-        qInfo() << "获取数据失败";
         if (m_requrestCount < 5) {
             Q_EMIT toTellGetAccessToken(m_code);
 //            QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),m_code);
@@ -394,12 +408,13 @@ void Notificationmanager::onUserInfoChanged(const QVariantMap &userInfo)
 {
     Q_EMIT toTellSwitchWidget(userInfo);
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
-    qInfo() << "onUserInfoChanged";
+    qInfo() << "onUserInfoChanged" << m_bIsExternalLogin;
 
     if (isLogind) {
         if (m_bIsExternalLogin && !firstIsLogin()) {
             qInfo() << "静默登录";
             Q_EMIT toTellLoginUser();
+            m_bIsExternalLogin = false;
         }
     }
     else {

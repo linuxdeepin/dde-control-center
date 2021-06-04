@@ -56,7 +56,7 @@ UnionidWidget::UnionidWidget(QWidget *parent)
     m_pageLayout->addWidget(m_cnonlyPage);
 
 //    connect(m_loginPage, &LoginPage::requestSignInUser, this, &UnionidWidget::requestSignInUser);
-    connect(m_loginPage, &LoginPage::requestLoginUser, this, &UnionidWidget::requestLoginUser);
+//    connect(m_loginPage, &LoginPage::requestLoginUser, this, &UnionidWidget::requestLoginUser);
     connect(m_indexPage, &IndexPage::requestSetAutoSync, this, &UnionidWidget::requestSetAutoSync);
 //    connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
 //    connect(m_indexPage, &IndexPage::requestLogout, this, &UnionidWidget::requestLogoutUser);
@@ -124,10 +124,11 @@ void UnionidWidget::switchWidget(const QVariantMap &userInfo)
         m_pageLayout->setCurrentWidget(m_indexPage);       
     }
     else {
-        qInfo() << "登录界面";
+        qInfo() << "登录界面";        
+        Notificationmanager::instance()->clearRecords();
         m_indexPage->setDefaultInfo();
-        m_loginPage->clearButtonFocus();
         m_pageLayout->setCurrentWidget(m_loginPage);
+        m_loginPage->clearButtonFocus();
     }
 }
 

@@ -81,6 +81,8 @@ public:
 
     bool uidWidgetIsExist();
 
+    void clearRecords();
+
 Q_SIGNALS:
     // 通知登录的信号
     void toTellLoginUser();

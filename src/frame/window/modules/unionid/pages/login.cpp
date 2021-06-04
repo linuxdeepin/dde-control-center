@@ -21,6 +21,7 @@
 
 #include "login.h"
 #include "httpclient.h"
+#include "window/modules/unionid/notificationmanager.h"
 
 #include <DSuggestButton>
 #include <DFontSizeManager>
@@ -136,6 +137,7 @@ LoginPage::LoginPage(QWidget *parent)
     setLayout(m_mainLayout);
 
     connect(DGuiApplicationHelper::instance(),&DGuiApplicationHelper::themeTypeChanged,this,&LoginPage::onThemeTypeChanged);
+    connect(this,&LoginPage::requestLoginUser,Notificationmanager::instance(),&Notificationmanager::toTellLoginUser);
 }
 
 void LoginPage::setMainWindow(MainWindow *pMainWindow)
@@ -145,7 +147,7 @@ void LoginPage::setMainWindow(MainWindow *pMainWindow)
 
 void LoginPage::login()
 {
-    Q_EMIT requestLoginUser();
+//    Q_EMIT requestLoginUser();
 }
 
 void LoginPage::clearButtonFocus()
