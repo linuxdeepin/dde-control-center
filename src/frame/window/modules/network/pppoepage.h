@@ -85,7 +85,7 @@ private Q_SLOTS:
     void createPPPoEConnection();
     void onConnectionListChanged();
     void onConnectionDetailClicked(const QString &connectionUuid, DeviceItem* item);
-    void onPPPoESelected(const QString &connectionUuid);
+    void onPPPoESelected(const QString devicePath, const QString &connectionUuid);
     void onActiveConnectionChanged(const QList<QJsonObject> &conns);
 
 private:
@@ -99,6 +99,7 @@ private:
     QMap<QString, DStandardItem *> m_items;
 
     static const int UuidRole = Dtk::UserRole + 1;
+    static const int PathRole = Dtk::UserRole + 2;
 };
 }
 }

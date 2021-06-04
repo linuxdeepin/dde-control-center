@@ -81,7 +81,7 @@ PppoePage::PppoePage(QWidget *parent)
     tr("Create PPPoE Connection");
     connect(m_createBtn, &QPushButton::clicked, this, &PppoePage::createPPPoEConnection);
     connect(m_lvsettings, &QListView::clicked, this, [this](const QModelIndex &idx) {
-        this->onPPPoESelected(idx.data(UuidRole).toString());
+        this->onPPPoESelected(idx.data(PathRole).toString(), idx.data(UuidRole).toString());
     });
 }
 
@@ -145,6 +145,8 @@ void PppoePage::onConnectionListChanged()
             }
         }
 
+        it->setData(it->device() ? it->device()->path() : "/", PathRole);
+
         DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
         QStyleOption opt;
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
@@ -172,9 +174,9 @@ void PppoePage::onConnectionDetailClicked(const QString &connectionUuid, DeviceI
     Q_EMIT requestNextPage(m_editPage);
 }
 
-void PppoePage::onPPPoESelected(const QString &connectionUuid)
+void PppoePage::onPPPoESelected(const QString devicePath, const QString &connectionUuid)
 {
-    Q_EMIT requestActivateConnection("/", connectionUuid);
+    Q_EMIT requestActivateConnection(devicePath, connectionUuid);
 }
 
 void PppoePage::onActiveConnectionChanged(const QList<QJsonObject> &conns)
