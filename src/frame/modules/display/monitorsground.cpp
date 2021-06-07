@@ -58,7 +58,7 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
     m_viewPortWidth = model->screenWidth();
     m_viewPortHeight = model->screenHeight();
 
-    auto initMW = [this](Monitor *mon) {
+    auto initMW = [this](Monitor * mon) {
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
         pw->setVisible(true);
         m_monitors[pw] = mon;
@@ -339,21 +339,67 @@ const QPoint MonitorsGround::bestMoveOffset(MonitorProxyWidget *pw0, MonitorProx
     // TODO: check screen rect contains another screen and size not equal
     QPoint bestOffset;
     int min = INT_MAX;
-    for (auto p1 : selfPoints) {
-        for (auto p2 : otherPoints) {
-            const int m = (p2 - p1).manhattanLength();
-            if (m >= min)
-                continue;
 
-            const QPoint offset = p1 - p2;
+    //两个屏幕的顶部或底部重合,只用左右平移
+    if (selfTopLeft.y() == otherTopLeft.y() || selfTopLeft.y() + pw0->h() == otherTopLeft.y() + pw1->h()) {
+        QList<int> minlist;
 
-            // test intersect
-            const QRect r0(pw0->x() - offset.x(), pw0->y() - offset.y(), pw0->w(), pw0->h());
-            if (r0.intersects(r1))
-                continue;
+        minlist.append(selfPoints.at(0).x() - otherPoints.at(0).x());
+        minlist.append(selfPoints.at(0).x() - otherPoints.at(1).x());
+        minlist.append(selfPoints.at(1).x() - otherPoints.at(0).x());
+        minlist.append(selfPoints.at(1).x() - otherPoints.at(1).x());
 
-            min = m;
-            bestOffset = offset;
+        for (int index = 0; index < minlist.count(); index++) {
+            if (abs(minlist.at(index)) < min) {
+                const QPoint offset(minlist.at(index), 0);
+                // test intersect
+                const QRect r0(pw0->x() - offset.x(), pw0->y() - offset.y(), pw0->w(), pw0->h());
+                if (r0.intersects(r1))
+                    continue;
+                min = abs(minlist.at(index));
+                bestOffset.setX(minlist.at(index));
+            }
+        }
+        bestOffset.setY(0);
+    } else if (selfTopLeft.x() == otherTopLeft.x() || selfTopLeft.x() + pw0->w() == otherTopLeft.x() + pw1->w()) { //两个屏幕的左边或右边有重合,只有上下平移
+        QList<int> minlist;
+
+        minlist.append(selfPoints.at(0).y() - otherPoints.at(0).y());
+        minlist.append(selfPoints.at(0).y() - otherPoints.at(2).y());
+        minlist.append(selfPoints.at(2).y() - otherPoints.at(0).y());
+        minlist.append(selfPoints.at(2).y() - otherPoints.at(2).y());
+
+        for (int index = 0; index < minlist.count(); index++) {
+            if (abs(minlist.at(index)) < min) {
+                const QPoint offset(0, minlist.at(index));
+
+                // test intersect
+                const QRect r0(pw0->x() - offset.x(), pw0->y() - offset.y(), pw0->w(), pw0->h());
+                if (r0.intersects(r1))
+                    continue;
+
+                min = abs(minlist.at(index));
+                bestOffset.setY(minlist.at(index));
+            }
+        }
+        bestOffset.setX(0);
+    } else {
+        for (auto p1 : selfPoints) {
+            for (auto p2 : otherPoints) {
+                const int m = (p2 - p1).manhattanLength();
+                if (m >= min)
+                    continue;
+
+                const QPoint offset = p1 - p2;
+
+                // test intersect
+                const QRect r0(pw0->x() - offset.x(), pw0->y() - offset.y(), pw0->w(), pw0->h());
+                if (r0.intersects(r1))
+                    continue;
+
+                min = m;
+                bestOffset = offset;
+            }
         }
     }
 
