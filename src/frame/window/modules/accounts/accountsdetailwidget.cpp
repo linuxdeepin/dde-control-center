@@ -44,6 +44,8 @@
 #include <QCommandLinkButton>
 #include <QScrollArea>
 
+#define DOMAIN_USER_TYPE 2
+
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace dcc::widgets;
@@ -86,6 +88,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     if (m_isServerSystem) {
         initGroups(contentLayout);
     }
+
 }
 
 void AccountsDetailWidget::setFingerModel(FingerModel *model)
@@ -111,6 +114,11 @@ void AccountsDetailWidget::mousePressEvent(QMouseEvent *e)
 {
     Q_UNUSED(e);
     updateLineEditDisplayStyle(false);
+}
+
+bool AccountsDetailWidget::isDoMainType(User *user)
+{
+    return user->userType() == DOMAIN_USER_TYPE;
 }
 
 //删除账户
@@ -158,7 +166,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         fullname = tr("Full Name");
         m_fullName->setEnabled(false);
     } else if (fullname.toLocal8Bit().size() > 32) {
-        for(auto i = 1; i <= fullname.size(); ++i) {
+        for (auto i = 1; i <= fullname.size(); ++i) {
             if (fullname.left(i).toLocal8Bit().size() > 29) {
                 fullname = fullname.left(i - 1) + QString("...");
                 break;
@@ -202,14 +210,14 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
 
     connect(m_curUser, &User::currentAvatarChanged, m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
     connect(m_inputLineEdit, &DLineEdit::textEdited, this, [ = ] {
-        if (m_inputLineEdit->isAlert()){
+        if (m_inputLineEdit->isAlert()) {
             m_inputLineEdit->hideAlertMessage();
             m_inputLineEdit->setAlert(false);
         }
     });
 
     //点击用户图像
-    connect(avatar, &AvatarWidget::clicked, this, [ = ](const QString &iconPath) {
+    connect(avatar, &AvatarWidget::clicked, this, [ = ](const QString & iconPath) {
         Q_UNUSED(iconPath)
         avatar->setArrowed(!avatar->arrowed());
         m_avatarListWidget->setVisible(avatar->arrowed());
@@ -225,14 +233,14 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     connect(m_curUser, &User::currentAvatarChanged, avatar, &AvatarWidget::setAvatarPath);
     //用户名发生变化
     connect(m_curUser, &User::nameChanged, shortName, &QLabel::setText);
-    connect(m_curUser, &User::fullnameChanged, this, [ = ](const QString &fullname) {
+    connect(m_curUser, &User::fullnameChanged, this, [ = ](const QString & fullname) {
         auto tstr = fullname;
         m_fullName->setEnabled(true);
         if (fullname.isEmpty()) {
             tstr = tr("Full Name");
             m_fullName->setEnabled(false);
         } else if (fullname.toLocal8Bit().size() > 32) {
-            for(auto i = 1; i <= fullname.size(); ++i) {
+            for (auto i = 1; i <= fullname.size(); ++i) {
                 if (fullname.left(i).toLocal8Bit().size() > 29) {
                     tstr = fullname.left(i - 1) + QString("...");
                     break;
@@ -242,11 +250,6 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         m_fullName->setText(tstr.toHtmlEscaped());
     });
 
-    //点击用户全名编辑按钮
-    connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
-        updateLineEditDisplayStyle(true);
-        m_inputLineEdit->lineEdit()->setFocus();
-    });
     connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
         m_inputLineEdit->setAlert(false);
         m_inputLineEdit->hideAlertMessage();
@@ -254,7 +257,6 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     connect(m_inputLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ]() {
         //判断账户全名是否被其他用户所用
         auto userList = m_userModel->userList();
-
         if(m_inputLineEdit->text() != m_curUser->fullname()) {
             for(auto u : userList){
                 if(u->fullname() == m_inputLineEdit->text() && u->fullname() != nullptr) {
@@ -290,6 +292,11 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifydelLayout->addWidget(deleteAccount);
     modifydelLayout->setStretchFactor(modifyPassword,1);
     modifydelLayout->setStretchFactor(deleteAccount,1);
+    // 如果是域账号, 修改密码和删除按钮button需要根据布局调整大小策略,防止UI显示与本地账号显示不一致
+    if (isDoMainType(m_curUser)) {
+        modifyPassword->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        deleteAccount->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    }
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
@@ -309,10 +316,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         ageEdit->setClearButtonEnabled(false);
         pwHLayout->addWidget(ageEdit, 0, Qt::AlignRight);
 
-        connect(ageEdit, &DLineEdit::textChanged, this, [ageEdit](){
+        connect(ageEdit, &DLineEdit::textChanged, this, [ageEdit]() {
             ageEdit->setAlert(false);
         });
-        connect(ageEdit, &DLineEdit::textEdited, this, [ageEdit](){
+        connect(ageEdit, &DLineEdit::textEdited, this, [ageEdit]() {
             if (ageEdit->text().isEmpty())
                 return;
 
@@ -342,7 +349,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
                 ageEdit->lineEdit()->blockSignals(false);
             }
         });
-        connect(ageEdit, &DLineEdit::editingFinished, this, [this, pwWidget, ageEdit](){
+        connect(ageEdit, &DLineEdit::editingFinished, this, [this, pwWidget, ageEdit]() {
             if (ageEdit->text().isEmpty()) {
                 ageEdit->lineEdit()->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
                 return;
@@ -359,7 +366,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             if (age == m_curUser->passwordAge())
                 return;
 
-            if(age <= 0) {
+            if (age <= 0) {
                 ageEdit->setAlert(true);
                 ageEdit->setAlertMessageAlignment(Qt::AlignRight);
                 ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), pwWidget, 2000);
@@ -375,6 +382,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     m_autoLogin = new SwitchWidget;
     m_nopasswdLogin = new SwitchWidget;
+
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
     loginGrp->setContentsMargins(0, 0, 0, 0);
@@ -384,6 +392,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //if (!IsServerSystem) {
     //    layout->addSpacing(20);
     //}
+    if (!isDoMainType(m_curUser)) {
+        loginGrp->appendItem(m_autoLogin);
+        loginGrp->appendItem(m_nopasswdLogin);
+    }
+    if (!IsServerSystem) {
+        layout->addSpacing(20);
+    }
     layout->addWidget(loginGrp);
     //服务器版本不显示自动登录，无密码登录
     //loginGrp->setVisible(!IsServerSystem);
@@ -400,8 +415,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
-    m_fingerWidgetVisible = !IsServerSystem && isCurUser;
-    m_fingerWidget->setVisible(m_fingerWidgetVisible);
+
+    // 如果是域账号, 不支持修改密码
+    if (isDoMainType(m_curUser)) {
+        modifyPassword->setEnabled(false);
+    }
+    m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
 
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
@@ -461,7 +480,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &AccountsDetailWidget::noticeEnrollCompleted);
     //图像列表操作
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
-    this, [ = ](const QString &avatarPath) {
+    this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
     });
 }
@@ -472,14 +491,12 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
-
-    m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
-    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginValid() && !IsServerSystem);
+    updateUiByDoMainUser();
 
     if (!m_groupItemModel)
         return;
     m_groupItemModel->clear();
-    for(QString item : m_userModel->getAllGroups()) {
+    for (QString item : m_userModel->getAllGroups()) {
         GroupItem *it = new GroupItem(item);
         it->setCheckable(false);
         m_groupItemModel->appendRow(it);
@@ -508,6 +525,27 @@ void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
     layout->addWidget(m_groupListView);
 }
 
+void AccountsDetailWidget::updateUiByDoMainUser()
+{
+    qInfo()<<"test by coderleex";
+    // 如果是AD域帐户,不支持设置全名,不显示设置全名按钮
+    if (isDoMainType(m_curUser)) {
+        m_fullName->setVisible(false);
+        m_fullNameBtn->setVisible(false);
+        m_autoLogin->setVisible(false);
+        m_nopasswdLogin->setVisible(false);
+    } else {
+            connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
+            updateLineEditDisplayStyle(true);
+            m_inputLineEdit->lineEdit()->setFocus();
+            m_inputLineEdit->lineEdit()->setText(m_fullName->text());
+        });
+        m_autoLogin->setVisible(m_userModel->isAutoLoginValid() && !IsServerSystem);
+        m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginValid() && !IsServerSystem);
+
+    }
+}
+
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
 {
     QStringList curUserGroup;
@@ -519,7 +557,7 @@ void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
         }
     }
 
-    QStandardItem *item = m_groupItemModel->item(index.row() ,index.column());
+    QStandardItem *item = m_groupItemModel->item(index.row(), index.column());
     Qt::CheckState state = item->checkState();
     if (state == Qt::Checked) {
         curUserGroup.removeOne(item->text());
@@ -560,8 +598,10 @@ void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
         m_inputLineEdit->setAlert(!edit);
         m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
     } else {
-        m_fullName->setVisible(!edit);
-        m_fullNameBtn->setVisible(!edit);
-        m_inputLineEdit->setVisible(edit);
+        if (!isDoMainType(m_curUser)) {
+            m_fullName->setVisible(!edit);
+            m_fullNameBtn->setVisible(!edit);
+            m_inputLineEdit->setVisible(edit);
+        }
     }
 }

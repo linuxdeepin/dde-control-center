@@ -138,7 +138,7 @@ void AccountsWidget::addUser(User *user, bool t1)
         auto *subTitleAction = new DViewItemAction;
         if (1 == user->userType()) {
             subTitleAction->setText(tr("Administrator"));
-        }else {
+        } else {
             subTitleAction->setText(tr("Standard User"));
         }
         subTitleAction->setFontSize(DFontSizeManager::T8);
@@ -171,10 +171,6 @@ void AccountsWidget::addUser(User *user, bool t1)
         }
     });
 
-    if (t1) {
-        handleRequestBack(CreateUserSuccess);
-        return;
-    }
 
     auto path = user->currentAvatar();
     path = path.startsWith("file://") ? QUrl(path).toLocalFile() : path;
@@ -207,6 +203,11 @@ void AccountsWidget::addUser(User *user, bool t1)
                 break;
             }
         }
+    }
+
+    if (t1) {
+        handleRequestBack(CreateUserSuccess);
+        return;
     }
 }
 
@@ -295,22 +296,22 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex0);
         onItemClicked(qindex0);
-        }
-        break;
+    }
+    break;
     case AccountsWidget::CreateUserSuccess: { //创建账户成功
         QModelIndex qindex1 = m_userItemModel->index(m_userItemModel->rowCount() - 1, 0);
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex1);
         onItemClicked(qindex1);
-        }
-        break;
+    }
+    break;
     case AccountsWidget::ModifyPwdSuccess: { //修改密码成功
         QModelIndex qindex2 = m_userItemModel->index(0, 0);
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex2);
         onItemClicked(qindex2);
-        }
-        break;
+    }
+    break;
     }
 }
 

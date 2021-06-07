@@ -77,7 +77,7 @@ public:
     void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
     void mousePressEvent(QMouseEvent *e);
-
+    static bool isDoMainType(dcc::accounts::User *user);
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
     void requestSetAutoLogin(dcc::accounts::User *user, const bool autoLogin);
@@ -99,7 +99,7 @@ protected:
     void initUserInfo(QVBoxLayout *layout);
     void initSetting(QVBoxLayout *layout);
     void initGroups(QVBoxLayout *layout);
-
+    void updateUiByDoMainUser();
 private Q_SLOTS:
     void deleteUserClicked();
     void changeUserGroup(const QStringList &groups);
