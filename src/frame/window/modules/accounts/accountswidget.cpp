@@ -213,8 +213,6 @@ void AccountsWidget::addUser(User *user, bool t1)
         }
     });
 
-    if (t1)
-        return;
 
     auto path = user->currentAvatar();
     path = path.startsWith("file://") ? QUrl(path).toLocalFile() : path;
@@ -234,6 +232,11 @@ void AccountsWidget::addUser(User *user, bool t1)
         m_currentUserAdded = true;
 
         QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
+    }
+
+    if (t1) {
+        handleRequestBack(CreateUserSuccess);
+        return;
     }
 }
 
@@ -323,21 +326,21 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex0);
         onItemClicked(qindex0);
-        }
-        break;
+    }
+    break;
     case AccountsWidget::CreateUserSuccess: { //创建账户成功
         QModelIndex qindex1 = m_userItemModel->index(m_userItemModel->rowCount() - 1, 0);
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex1);
         onItemClicked(qindex1);
-        }
-        break;
+    }
+    break;
     case AccountsWidget::ModifyPwdSuccess: { //修改密码成功
         QModelIndex qindex2 = m_userItemModel->index(0, 0);
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex2);
         onItemClicked(qindex2);
-        }
-        break;
+    }
+    break;
     }
 }

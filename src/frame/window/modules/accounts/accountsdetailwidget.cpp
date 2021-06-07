@@ -47,6 +47,8 @@
 #include <QScroller>
 #include <QValidator>
 
+#define DOMAIN_USER_TYPE 2
+
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace dcc::widgets;
@@ -182,6 +184,11 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     m_fullName->setText(fullname.toHtmlEscaped());
 
     m_fullNameBtn = new DIconButton(this);
+    // 如果是AD域帐户,不支持设置全名,不显示设置全名按钮
+    if (DOMAIN_USER_TYPE == m_curUser->userType()) {
+        m_fullName->setVisible(false);
+        m_fullNameBtn->setVisible(false);
+    }
     m_fullNameBtn->setAccessibleName("fullName_btn");
     m_fullNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
     m_fullNameBtn->setIconSize(QSize(12, 12));
@@ -310,10 +317,14 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
     });
 
     //点击用户全名编辑按钮
-    connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
-        m_fullName->setVisible(false);
-        m_fullNameBtn->setVisible(false);
-        m_inputLineEdit->setVisible(true);
+    if (DOMAIN_USER_TYPE != m_curUser->userType()) {
+        connect(m_fullNameBtn, &DIconButton::clicked, this, [ = ]() {
+            updateLineEditDisplayStyle(true);
+            m_inputLineEdit->lineEdit()->setFocus();
+        });
+    }
+
+    connect(m_inputLineEdit->lineEdit(), &QLineEdit::textChanged, this, [ = ]() {
         m_inputLineEdit->setAlert(false);
         m_inputLineEdit->setText(m_curUser->fullname());
         m_inputLineEdit->hideAlertMessage();
@@ -330,6 +341,13 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifydelLayout->addWidget(modifyPassword);
     modifydelLayout->addSpacing(10);
     modifydelLayout->addWidget(m_deleteAccount);
+
+    // 如果是域账号, 修改密码和删除按钮button需要根据布局调整大小策略,防止UI显示与本地账号显示不一致
+    if ((DOMAIN_USER_TYPE == m_curUser->userType())) {
+        modifyPassword->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        m_deleteAccount->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    }
+
     layout->addSpacing(40);
     layout->addLayout(modifydelLayout);
 
@@ -390,6 +408,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         });
     }
 
+    // 如果是AD域帐户,不显示自动登录和无密码登录控件
+    if (DOMAIN_USER_TYPE == m_curUser->userType()) {
+        m_autoLogin->setVisible(false);
+        m_nopasswdLogin->setVisible(false);
+    }
+    
     layout->addWidget(loginGrp);
 
     m_fingerWidget = new FingerWidget(m_curUser, this);
@@ -403,6 +427,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
+    // 如果是域账号, 不支持修改密码
+    if ((DOMAIN_USER_TYPE == m_curUser->userType())) {
+        modifyPassword->setEnabled(false);
+    }
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
     //~ contents_path /accounts/Accounts Detail
     modifyPassword->setText(tr("Change Password"));
@@ -490,13 +518,11 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         return;
     }
     m_userModel = model;
-    m_autoLogin->setVisible(m_userModel->isAutoLoginVisable());
-    m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable());
 
-    // 非服务器系统，关联配置改变信号，控制自动登陆开关/无密码登陆开关显隐
-    if (!IsServerSystem) {
-        connect(m_userModel, &UserModel::autoLoginVisableChanged, m_autoLogin, &SwitchWidget::setVisible);
-        connect(m_userModel, &UserModel::noPassWordLoginVisableChanged, m_nopasswdLogin, &SwitchWidget::setVisible);
+    // 如果是AD域帐户,不显示自动登录和无密码登录控件
+    if (DOMAIN_USER_TYPE != m_curUser->userType()) {
+        m_autoLogin->setVisible(m_userModel->isAutoLoginVisable() && !IsServerSystem);
+        m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable() && !IsServerSystem);
     }
 
     if (!m_groupItemModel)
@@ -588,4 +614,21 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
         item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
     }
     m_groupItemModel->sort(0);
+}
+
+void AccountsDetailWidget::updateLineEditDisplayStyle(bool edit)
+{
+    auto inputFullName = m_inputLineEdit->lineEdit()->text();
+    m_inputLineEdit->lineEdit()->selectAll();
+    if (inputFullName.size() > 100) {
+        m_inputLineEdit->setVisible(!edit);
+        m_inputLineEdit->setAlert(!edit);
+        m_inputLineEdit->showAlertMessage(tr("The full name is too long"), -1);
+    } else {
+        if (DOMAIN_USER_TYPE != m_curUser->userType()) {
+            m_fullName->setVisible(!edit);
+            m_fullNameBtn->setVisible(!edit);
+            m_inputLineEdit->setVisible(edit);
+        }
+    }
 }

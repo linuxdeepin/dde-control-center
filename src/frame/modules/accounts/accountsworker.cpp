@@ -172,7 +172,7 @@ void AccountsWorker::randomUserIcon(User *user)
 {
     QDBusPendingCall call = m_accountsInter->RandUserIcon();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, [ = ] {
         if (!call.isError()) {
             QDBusReply<QString> reply = call.reply();
             user->setCurrentAvatar(reply.value());
@@ -219,7 +219,7 @@ void AccountsWorker::setFullname(User *user, const QString &fullname)
 
     QDBusPendingCall call = ui->SetFullName(fullname);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         if (!call.isError()) {
             Q_EMIT accountFullNameChangeFinished();
         }
@@ -267,7 +267,7 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
 
     QDBusPendingCall call = ui->SetAutomaticLogin(autoLogin);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         if (call.isError()) {
             Q_EMIT user->autoLoginChanged(user->autoLogin());
         }
@@ -363,7 +363,12 @@ void AccountsWorker::addUser(const QString &userPath)
 
     User *user = new User(this);
 
-    connect(userInter, &AccountsUser::UserNameChanged, user, [=](const QString &name) {
+    // 直接通过属性获取添加用户的用户名, 如果和AccountsUser获取的用户名一样,设置为当前用户
+    // 防止首次打开控制中心, 域账户UI显示为默认的帐户信息, 导致UI显示异常
+    const QString &currentUserName = userInter->property("UserName").toString();
+    user->setIsCurrentUser(userInter->userName() == currentUserName);
+
+    connect(userInter, &AccountsUser::UserNameChanged, user, [ = ](const QString & name) {
         user->setName(name);
         user->setOnline(m_onlineUsers.contains(name));
         user->setIsCurrentUser(name == m_currentUserName);
@@ -424,7 +429,7 @@ void AccountsWorker::setNopasswdLogin(User *user, const bool nopasswdLogin)
 
     QDBusPendingCall call = userInter->EnableNoPasswdLogin(nopasswdLogin);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         if (call.isError()) {
             Q_EMIT user->nopasswdLoginChanged(user->nopasswdLogin());
         }
@@ -441,7 +446,7 @@ void AccountsWorker::setMaxPasswordAge(User *user, const int maxAge)
 
     QDBusPendingCall call = userInter->SetMaxPasswordAge(maxAge);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ] {
         if (call.isError()) {
             Q_EMIT user->passwordAgeChanged(user->passwordAge());
         }
@@ -455,7 +460,7 @@ void AccountsWorker::refreshADDomain()
     QProcess *process = new QProcess(this);
     process->start("/opt/pbis/bin/enum-users");
 
-    connect(process, &QProcess::readyReadStandardOutput, this, [=] {
+    connect(process, &QProcess::readyReadStandardOutput, this, [ = ] {
         QRegularExpression re("Name:\\s+(\\w+)");
         QRegularExpressionMatch match = re.match(process->readAll());
         m_userModel->setIsJoinADDomain(match.hasMatch());

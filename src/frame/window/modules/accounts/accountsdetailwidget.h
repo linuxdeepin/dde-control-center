@@ -75,6 +75,7 @@ public:
     explicit AccountsDetailWidget(dcc::accounts::User *user, QWidget *parent = nullptr);
     void initHeadPart(QVBoxLayout *headLayout);
     void initBodyPart(QVBoxLayout *bodyLayout);
+    void updateLineEditDisplayStyle(bool edit = false);    
     void setAccountModel(dcc::accounts::UserModel *model);
     void setFingerModel(dcc::accounts::FingerModel *model);
     //获取其它用户是否开启自动登录开关
