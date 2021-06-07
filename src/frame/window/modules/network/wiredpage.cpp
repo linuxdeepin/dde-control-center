@@ -102,7 +102,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     itemMargins.setLeft(2);
     m_lvProfiles->setItemMargins(itemMargins);
     centralLayout->addWidget(m_lvProfiles);
-    centralLayout->addStretch();
     centralLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
     centralLayout->setSpacing(10);//三级菜单控件间的间隙
     centralLayout->setMargin(0);
