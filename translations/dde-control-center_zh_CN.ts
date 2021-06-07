@@ -6297,7 +6297,7 @@
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="63"/>
         <source>Verification code</source>
-        <translation>请输入验证码</translation>
+        <translation>请输入手机验证码</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/unionid/pages/authenticationwindow.cpp" line="70"/>

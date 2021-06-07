@@ -94,9 +94,14 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
     m_warningLabel->setFont(font);
 
     QPalette pe = m_warningLabel->palette();
-    pe.setColor(QPalette::WindowText,QColor(249,112,79));
-    m_warningLabel->setPalette(pe);
 
+    if (DGuiApplicationHelper::LightType == DGuiApplicationHelper::instance()->themeType()) {
+        pe.setColor(QPalette::WindowText,QColor(255,42,0));
+    } else if (DGuiApplicationHelper::DarkType == DGuiApplicationHelper::instance()->themeType()) {
+        pe.setColor(QPalette::WindowText,QColor(249,112,79));
+    }
+
+    m_warningLabel->setPalette(pe);
 //    DFontSizeManager::instance()->bind(titleLabel, DFontSizeManager::T4,QFont::Bold);
 //    DFontSizeManager::instance()->bind(m_tipLabel, DFontSizeManager::T6,QFont::Normal);
 //    DFontSizeManager::instance()->bind(m_warningLabel, DFontSizeManager::T7,QFont::Normal);
@@ -128,6 +133,8 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
 
     m_timer = new QTimer;
     connect(m_timer,&QTimer::timeout,this,&AuthenticationWindow::onTimeOut);
+
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &AuthenticationWindow::onThemeTypeChanged);
 }
 
 void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, QString accessToken,
@@ -235,5 +242,19 @@ void AuthenticationWindow::onTimeOut()
         m_getCodeButton->setEnabled(true);
         m_getCodeButton->setText(QObject::tr("Get code"));
     }
+}
+
+void AuthenticationWindow::onThemeTypeChanged()
+{
+    QPalette pe = m_warningLabel->palette();
+
+    if (DGuiApplicationHelper::LightType == DGuiApplicationHelper::instance()->themeType()) {
+        pe.setColor(QPalette::WindowText,QColor(255,42,0));
+    } else if (DGuiApplicationHelper::DarkType == DGuiApplicationHelper::instance()->themeType()) {
+        pe.setColor(QPalette::WindowText,QColor(249,112,79));
+    }
+
+    m_warningLabel->setPalette(pe);
+    update();
 }
 

@@ -32,6 +32,8 @@ private Q_SLOTS:
 
     void onTimeOut();
 
+    void onThemeTypeChanged();
+
 private:
     QLabel *m_tipLabel;
     QLabel *m_warningLabel;
