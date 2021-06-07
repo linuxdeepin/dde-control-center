@@ -115,6 +115,7 @@ private Q_SLOTS:
     void resetTabOrder();
     void findFocusChild(QWidget *w, QWidget *&pre);
     void findFocusChild(QLayout *l, QWidget *&pre);
+    void openManual();
 
 public Q_SLOTS:
     //设置特别的三级菜单的可见性
