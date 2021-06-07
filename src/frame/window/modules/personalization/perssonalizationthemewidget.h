@@ -46,7 +46,6 @@ public:
     void setModel(dcc::personalization::ThemeModel *const model);
     void setMainLayout(QBoxLayout *layout, bool titleBelowPic);
     void updateMargains(ThemeItem *item);
-    void updatePersonalWidgetWidth(int width) { m_personalWidth = width; }
 
 Q_SIGNALS:
     void requestSetDefault(const QJsonObject &value);
@@ -64,9 +63,6 @@ protected:
     QMap<ThemeItem *, QJsonObject> m_valueMap;
     dcc::personalization::ThemeModel *m_model;
     bool m_titleBelowPic;
-
-private:
-    int m_personalWidth;
 };
 }
 }

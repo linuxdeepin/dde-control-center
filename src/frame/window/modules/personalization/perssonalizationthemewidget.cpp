@@ -34,6 +34,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::personalization;
 
 const int minMargain = 20;
+const int maxMargain = 40;
 const int maxSpacing = 40;
 
 PerssonalizationThemeWidget::PerssonalizationThemeWidget(SettingsItem *parent)
@@ -41,7 +42,6 @@ PerssonalizationThemeWidget::PerssonalizationThemeWidget(SettingsItem *parent)
     , m_centerLayout(nullptr)
     , m_model(nullptr)
     , m_titleBelowPic(true)
-    , m_personalWidth(0)
 {
     if (DGuiApplicationHelper::isTabletEnvironment()) {
         addBackground();
@@ -135,9 +135,6 @@ void PerssonalizationThemeWidget::onSetPic(const QString &id, const QString &pic
     while (it != m_valueMap.constEnd()) {
         if (it.key()->id() == id) {
             it.key()->setPic(picPath);
-            if (DGuiApplicationHelper::isTabletEnvironment()) {
-              updateMargains(it.key());
-            }
             return;
         }
         ++it;
@@ -167,8 +164,9 @@ void PerssonalizationThemeWidget::setMainLayout(QBoxLayout *layout, bool titleBe
 {
     m_centerLayout = layout;
     if (DGuiApplicationHelper::isTabletEnvironment()) {
-        m_centerLayout->setSpacing(40);
-        m_centerLayout->setContentsMargins(80, 42, 80, 13);
+        ThemeItem item(m_titleBelowPic, this);
+        item.setPic(":/personalization/light.svg");
+        updateMargains(&item);
     } else {
         m_centerLayout->setMargin(0);
     }
@@ -183,12 +181,16 @@ void PerssonalizationThemeWidget::updateMargains(ThemeItem *item)
     // 左右边距 = 二级界面宽度　- 预留边距 - 总的主题图片宽度 - 总的空格
     int totalPicSize = item->themeSize().width() * m_valueMap.size();
     int totalSpacing = maxSpacing * (m_valueMap.size() - 1);
-    int margain = (m_personalWidth - minMargain - totalPicSize - totalSpacing) / 2;
+    int margain = (width() - minMargain - totalPicSize - totalSpacing) / 2;
     if (margain < minMargain) {
         int space = maxSpacing - (minMargain - margain);
         m_centerLayout->setContentsMargins(minMargain, 42, minMargain, 13);
         m_centerLayout->setSpacing(space);
+        return;
+    } else if (margain >= maxMargain) {
+        m_centerLayout->setContentsMargins(maxMargain, 42, maxMargain, 13);
     } else {
         m_centerLayout->setContentsMargins(margain, 42, margain, 13);
     }
+    m_centerLayout->setSpacing(maxSpacing);
 }

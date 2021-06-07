@@ -290,12 +290,6 @@ void WallpaperPage::paintEvent(QPaintEvent *event)
     painter.fillPath(path, pal.brush(DPalette::ItemBackground));
 }
 
-void WallpaperPage::showEvent(QShowEvent *event)
-{
-   m_themes->updatePersonalWidgetWidth(width() - m_scrollArea->widget()->layout()->contentsMargins().left());
-   return QWidget::showEvent(event);
-}
-
 void WallpaperPage::updateActiveColors(RoundColorWidget *selectedWidget)
 {
     for (RoundColorWidget *item : m_activeColorsList) {

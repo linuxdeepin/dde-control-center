@@ -75,7 +75,6 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event);
-    void showEvent(QShowEvent *event);
 
 private:
     void updateActiveColors(RoundColorWidget *selectedWidget);
