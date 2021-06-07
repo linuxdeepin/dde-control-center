@@ -183,17 +183,7 @@ MainWindow::MainWindow(QWidget *parent)
     auto action = new QAction(tr("Help"));
     menu->addAction(action);
     connect(action, &QAction::triggered, this, [ = ] {
-        QString helpTitle = m_moduleName;
-        if (helpTitle.isEmpty()) {
-            helpTitle = "controlcenter";
-        }
-        const QString dmanInterface = "com.deepin.Manual.Open";
-        QDBusInterface *inter = new QDBusInterface(dmanInterface,
-                                                   "/com/deepin/Manual/Open",
-                                                   dmanInterface,
-                                                   QDBusConnection::sessionBus());
-        inter->call("OpenTitle", "dde", helpTitle);
-        inter->deleteLater();
+        openManual();
     });
 
     m_backwardBtn = new DIconButton(this);
@@ -657,6 +647,24 @@ void MainWindow::toggle()
     activateWindow();
 }
 
+void MainWindow::openManual()
+{
+    QString helpTitle = m_moduleName;
+    if (helpTitle.isEmpty()) {
+        helpTitle = "controlcenter";
+    }
+    const QString dmanInterface = "com.deepin.Manual.Open";
+    QDBusInterface interface(dmanInterface,
+                             "/com/deepin/Manual/Open",
+                             dmanInterface,
+                             QDBusConnection::sessionBus());
+
+    QDBusMessage reply = interface.call("OpenTitle", "dde", helpTitle);
+    if (reply.type() == QDBusMessage::ErrorMessage) {
+        qDebug() << "reply.type() = " << reply.type();
+    }
+}
+
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
@@ -665,6 +673,10 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             popWidget();
         }
         break;
+    case Qt::Key_F1: {
+        openManual();
+        break;
+    }
     default:
         break;
     }
@@ -693,17 +705,7 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
     if (event->type() == QEvent::Shortcut) {
         auto ke = static_cast<QShortcutEvent *>(event);
         if (ke->key() == Qt::Key_F1) {
-            QString helpTitle = m_moduleName;
-            if (helpTitle.isEmpty()) {
-                helpTitle = "controlcenter";
-            }
-            const QString dmanInterface = "com.deepin.Manual.Open";
-            QDBusInterface *inter = new QDBusInterface(dmanInterface,
-                                                       "/com/deepin/Manual/Open",
-                                                       dmanInterface,
-                                                       QDBusConnection::sessionBus());
-            inter->call("OpenTitle", "dde", helpTitle);
-            inter->deleteLater();
+            openManual();
             return true;
         }
     }
