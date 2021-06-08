@@ -421,7 +421,7 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
         onNetworkAdapterChanged(!unavailable);
         m_preWifiStatus = curWifiStatus;
     }
-    if (stat == WirelessDevice::Failed) {
+    if (stat == WirelessDevice::Failed || stat == WirelessDevice::Activated) {
         for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
             if (m_clickedItem == it.value()) {
                 if (it.value()->setLoading(false)) {
@@ -429,6 +429,9 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
                         onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(),
                                                 it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
                     });
+                }
+                if (stat == WirelessDevice::Activated) {
+                    it.value()->setConnected(true);
                 }
                 m_clickedItem = nullptr;
             }
@@ -487,6 +490,7 @@ void WirelessPage::onAPAdded(const QJsonObject &apInfo)
     const int strength = apInfo.value("Strength").toInt();
     const bool isSecure = apInfo.value("Secured").toBool();
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
+    qDebug() << "onAPAdded: " << ssid;
 
     if (!m_apItems.contains(ssid)) {
         APItem *apItem = new APItem(ssid, style(), m_lvAP);
@@ -527,6 +531,7 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
     int strength = apInfo.value("Strength").toInt();
     bool isSecure = apInfo.value("Secured").toBool();
     APSortInfo si{strength, ssid, ssid == m_device->activeApSsid()};
+    qDebug() << "onAPChanged: " << ssid;
 
     APItem *item = m_apItems[ssid];
     item->m_apPathSortInfo[path] = si;
@@ -576,7 +581,7 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
     if (item->m_apPathSortInfo.size() < 1) {
         if (m_clickedItem == m_apItems[ssid]) {
             m_clickedItem = nullptr;
-            qDebug() << "remove clicked item," << QThread::currentThreadId();
+            qDebug() << "onAPRemoved: " << ssid;
         }
         m_modelAP->removeRow(m_modelAP->indexFromItem(m_apItems[ssid]).row());
         m_apItems.erase(m_apItems.find(ssid));
@@ -731,6 +736,7 @@ void WirelessPage::showConnectHidePage()
 void WirelessPage::updateActiveAp()
 {
     auto activedSsid = m_device->activeApSsid();
+    qDebug() << "updateActiveAp: " << activedSsid;
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
         bool isConnected = it.key() == activedSsid;
         it.value()->setConnected(isConnected);
