@@ -640,7 +640,6 @@ void WirelessPage::onActivateApFailed(const QString &apPath, const QString &uuid
                 });
             }
         }
-        it.value()->setConnected(false);
     }
 }
 
@@ -651,10 +650,6 @@ void WirelessPage::sortAPList()
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
 {
-    if (ssid.isEmpty()) {
-        qDebug() << "ssid is empty return";
-        return;
-    }
     const QString uuid = connectionUuid(ssid);
     qDebug() << "onApWidgetEditRequested: " << ssid << "," << uuid << "," << m_device->path();
 
@@ -673,7 +668,12 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
 
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
     connect(m_apEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
-
+    //当禁用网络时关闭四级页面
+    connect(m_switch, &SwitchWidget::checkedChanged, m_apEditPage, [ = ] (bool checked) {
+        if (!checked) {
+            m_apEditPage->back();
+        }
+    });
     Q_EMIT requestNextPage(m_apEditPage);
 }
 
@@ -688,7 +688,6 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
     const QString uuid = connectionUuid(ssid);
     // uuid could be empty
     for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-        it.value()->setConnected(false);
         if (m_clickedItem == it.value()) {
             m_clickedItem->setUuid(uuid);
         }
