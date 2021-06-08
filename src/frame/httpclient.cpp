@@ -409,6 +409,8 @@ QString HttpClient::userAgentInfo()
     QString clientVersion = "";
     QString os = DSysInfo::uosEditionName(QLocale(QLocale::English));
     QString osVersion = DSysInfo::minorVersion();
+    QString channel = fileContent("/var/cache/gather/key.txt");
+
 
     QString strUserAgent;
     strUserAgent = QString("deviceId/%1 ").arg(deviceId)
@@ -416,7 +418,7 @@ QString HttpClient::userAgentInfo()
                    + QString("client_version/%1 ").arg(clientVersion)
                    + QString("os/%1 ").arg(os)
                    + QString("os_version/%1 ").arg(osVersion)
-                   + QString("channel/");
+                   + QString("channel/%1").arg(channel);
     qDebug() << strUserAgent;
 
     return strUserAgent;
