@@ -45,6 +45,7 @@ ShortcutContent::ShortcutContent(ShortcutModel *model, QWidget *parent)
     setContentsMargins(10, 10, 10, 10);
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
+    layout->setSpacing(0);
 
     m_shortcutItem->setShortcut(tr("Please Reset Shortcut"));
     m_shortcutItem->addBackground();
