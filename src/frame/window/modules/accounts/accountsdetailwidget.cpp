@@ -436,6 +436,18 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     
     layout->addWidget(loginGrp);
 
+    //账户设置
+    SettingsGroup *accountSettingsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
+    m_accountSettingsTitle = new TitleLabel(tr("Account Settings"));
+    m_asAdministrator = new SwitchWidget;
+    accountSettingsGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
+    accountSettingsGrp->setContentsMargins(10, 10, 10, 10);
+    accountSettingsGrp->layout()->setMargin(0);
+    accountSettingsGrp->appendItem(m_asAdministrator);
+    layout->addSpacing(20);
+    layout->addWidget(m_accountSettingsTitle);
+    layout->addWidget(accountSettingsGrp);
+
     m_fingerWidget = new FingerWidget(m_curUser, this);
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);
     m_fingerWidget->layout()->setMargin(0);
@@ -457,7 +469,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //~ contents_path /accounts/Accounts Detail
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
-
+    //~ contents_path /accounts/Accounts Detail
+    m_asAdministrator->setTitle(tr("Administrator"));
+    m_asAdministrator->setChecked(m_curUser->userType() == User::UserType::Administrator);
     //修改密码状态判断
     connect(m_gsettings, &QGSettings::changed, this, &AccountsDetailWidget::setModifyPwdBtnStatus);
     setModifyPwdBtnStatus("accountUserModifypasswd");
@@ -523,6 +537,15 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
         Q_EMIT requestSetAvatar(m_curUser, avatarPath);
     });
+
+    //切换账户类型
+    connect(m_curUser, &User::userTypeChanged, this, [ = ](const int userType) {
+        m_asAdministrator->setChecked(userType == User::UserType::Administrator);
+    });
+    connect(m_asAdministrator, &SwitchWidget::checkedChanged, this, [ = ](const bool asAdministrator) {
+        Q_EMIT requestSetAdministrator(m_curUser, asAdministrator);
+    });
+
 }
 
 void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
@@ -546,10 +569,21 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
                 && m_userModel->getAdminCnt() == 1;             // 管理员只有一个
     };
 
+    auto isOnlyAdmin = [=]() {                                  // 是最后一个管理员
+        return m_curUser->userType() == User::Administrator     // 是管理员
+               && m_userModel->getAdminCnt() == 1;              // 管理员只有一个
+    };
+
     auto deleteUserBtnEnable = [=]() {      // 可以删除用户
         return !m_curUser->isCurrentUser()  // 不是当前用户
                 && !m_curUser->online()     // 未登录
                 && !isOnlyAdminOnDesktop(); // 不是桌面版的最后一个管理员
+    };
+
+    auto asAdministratorEnable = [=]() {    // 可以切换账户类型
+        return !m_curUser->isCurrentUser()  // 不是当前用户
+               && !m_curUser->online()      // 未登录
+               && !isOnlyAdmin();           // 不是最后一个管理员
     };
 
     setDeleteBtnStatus("accountUserDeleteaccount", deleteUserBtnEnable());
@@ -562,6 +596,12 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
     connect(m_gsettings, &QGSettings::changed, m_deleteAccount, [=](const QString &key) {
         setDeleteBtnStatus(key, deleteUserBtnEnable());
     });
+
+    m_asAdministrator->setEnabled(asAdministratorEnable());
+    connect(m_curUser, &User::onlineChanged, m_asAdministrator,
+            [=]() { m_asAdministrator->setEnabled(asAdministratorEnable()); });
+    connect(m_userModel, &UserModel::adminCntChange, m_asAdministrator,
+            [=]() { m_asAdministrator->setEnabled(asAdministratorEnable()); });
 
     if (!m_groupItemModel)
         return;

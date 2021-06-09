@@ -104,6 +104,7 @@ public:
 Q_SIGNALS:
     void requestShowPwdSettings(dcc::accounts::User *user);
     void requestSetAutoLogin(dcc::accounts::User *user, const bool autoLogin);
+    void requestSetAdministrator(dcc::accounts::User *user, const bool asAdministrator);
     void requestNopasswdLogin(dcc::accounts::User *user, const bool nopasswdLogin);
     void requestDeleteAccount(dcc::accounts::User *user, const bool deleteHome);
     void requestBack();
@@ -149,6 +150,8 @@ private:
     bool m_isServerSystem;
     dcc::widgets::SwitchWidget *m_autoLogin;
     dcc::widgets::SwitchWidget *m_nopasswdLogin;
+    dcc::widgets::SwitchWidget *m_asAdministrator;//作为管理员
+    TitleLabel *m_accountSettingsTitle;//账户设置
     QHBoxLayout *m_avatarLayout;
     DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;

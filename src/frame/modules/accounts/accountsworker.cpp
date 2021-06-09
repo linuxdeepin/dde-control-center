@@ -216,6 +216,7 @@ void AccountsWorker::active()
     for (auto it(m_userInters.cbegin()); it != m_userInters.cend(); ++it) {
         it.key()->setName(it.value()->userName());
         it.key()->setAutoLogin(it.value()->automaticLogin());
+        it.key()->setUserType(it.value()->accountType());
         it.key()->setAvatars(it.value()->iconList());
         it.key()->setGroups(it.value()->groups());
         it.key()->setCurrentAvatar(it.value()->iconFile());
@@ -351,6 +352,32 @@ void AccountsWorker::setAutoLogin(User *user, const bool autoLogin)
         }
 
         Q_EMIT requestFrameAutoHide(true);
+        watcher->deleteLater();
+    });
+}
+
+//切换账户权限
+void AccountsWorker::setAdministrator(User *user, const bool asAdministrator)
+{
+    AccountsUser *ui = m_userInters[user];
+    Q_ASSERT(ui);
+
+    // because this operate need root permission, we must wait for finished and refersh result
+    Q_EMIT requestMainWindowEnabled(false);
+
+    QStringList lstGroups = ui->groups();
+    if(!asAdministrator)
+        lstGroups.removeOne("sudo");
+    else
+        lstGroups.append("sudo");
+
+    QDBusPendingCall call = ui->SetGroups(lstGroups);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] {
+        if (call.isError()) {
+            Q_EMIT user->userTypeChanged(user->userType());
+        }
+        Q_EMIT requestMainWindowEnabled(true);
         watcher->deleteLater();
     });
 }

@@ -84,6 +84,7 @@ public Q_SLOTS:
     void setFullname(User *user, const QString &fullname);
     void deleteAccount(User *user, const bool deleteHome);
     void setAutoLogin(User *user, const bool autoLogin);
+    void setAdministrator(User *user, const bool asAdministrator);
     void onUserListChanged(const QStringList &userList);
     void setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd, const bool needResult);
     void deleteUserIcon(User *user, const QString &iconPath);
