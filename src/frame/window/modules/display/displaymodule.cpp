@@ -281,11 +281,14 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
 
     tfunc(monitor, firstRes);
 
-    if (showTimeoutDialog(monitor) == QDialog::Accepted) {
-        m_displayWorker->saveChanges();
-    } else {
-        tfunc(monitor, lastRes);
-    }
+    //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
+    QTimer::singleShot(300, monitor, [this, tfunc, monitor, lastRes]{
+        if (showTimeoutDialog(monitor) == QDialog::Accepted) {
+            m_displayWorker->saveChanges();
+        } else {
+            tfunc(monitor, lastRes);
+        }
+    });
 }
 
 void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)
