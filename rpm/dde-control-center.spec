@@ -62,6 +62,14 @@ sed -i -E '/add_compile_definitions/d' CMakeLists.txt
          -DDISABLE_SYS_UPDATE=YES
 %make_build
 
+%post
+create-cracklib-dict /usr/share/dict/MainEnglishDictionary_ProbWL.txt
+
+%postun
+if [ "$1" = "0" ] ; then
+	create-cracklib-dict /usr/share/dict/MainEnglishDictionary_ProbWL.txt
+fi
+
 %install
 %make_install INSTALL_ROOT=%{buildroot}
 # place holder plugins dir
