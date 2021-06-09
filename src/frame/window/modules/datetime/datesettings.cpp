@@ -57,7 +57,7 @@ DateSettings::DateSettings(QWidget *parent)
     : ContentWidget(parent)
     , m_datetimeGroup(new SettingsGroup)
     , m_autoSyncTimeSwitch(new SwitchWidget)
-    , m_yearWidget(new DateWidget(DateWidget::Year, 1990, 2050))
+    , m_yearWidget(new DateWidget(DateWidget::Year, 1991, 2051))    // 特殊情况不能准确获取时间
     , m_monthWidget(new DateWidget(DateWidget::Month, 1, 12))
     , m_dayWidget(new DateWidget(DateWidget::Day, 1, 31))
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save, this))
