@@ -29,7 +29,6 @@ public Q_SLOTS:
     void loginUser();
     void logoutUser();
     void setAutoSync(bool autoSync);
-    void userInfoChanged(QDBusMessage msg);
     void licenseStateChangeSlot();
 
 private:

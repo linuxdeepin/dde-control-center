@@ -23,13 +23,6 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     m_syncInter->setSync(false, false);
     m_deepinId_inter->setSync(false, false);
 
-    QDBusConnection::sessionBus().connect("com.deepin.sync.Daemon",
-                                          "/com/deepin/sync/Daemon",
-                                          "org.freedesktop.DBus.Properties",
-                                          "PropertiesChanged",
-                                          "sa{sv}as",
-                                          this, SLOT(userInfoChanged(QDBusMessage)));
-
     QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
                                          "com.deepin.license.Info", "LicenseStateChange",
                                          this, SLOT(licenseStateChangeSlot()));
@@ -37,17 +30,17 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
-    connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &SyncModel::setUserinfo, Qt::QueuedConnection);
+    connect(m_syncInter, &SyncInter::UserInfoChanged, m_model, &SyncModel::setUserinfo, Qt::QueuedConnection);
 
-    auto req = m_deepinId_inter->isValid();
+    auto req = m_syncInter->isValid();
 
     m_model->setSyncIsValid(req && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
-    connect(m_deepinId_inter, &DeepinId::serviceValidChanged, this, [=](bool valid) {
+    connect(m_syncInter, &DeepinId::serviceValidChanged, this, [=](bool valid) {
         m_model->setSyncIsValid(valid && valueByQSettings<bool>(DCC_CONFIG_FILES, "CloudSync", "AllowCloudSync", false));
     });
     licenseStateChangeSlot();
 
-    m_model->setUserinfo(m_deepinId_inter->userInfo());
+    m_model->setUserinfo(m_syncInter->userInfo());
 }
 
 void SyncWorker::activate()
@@ -111,22 +104,6 @@ void SyncWorker::setSync(std::pair<SyncType, bool> state)
             }
         }
     }
-}
-
-void SyncWorker::userInfoChanged(QDBusMessage msg)
-{
-    QList<QVariant> arguments = msg.arguments();
-
-    QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
-    if (changedProps.empty() || changedProps.keys().first().compare("UserInfo")) {
-        qDebug() << "userInfoChanged changedProps=" << changedProps;
-        return;
-    }
-    QVariantMap userInfo;
-    QDBusArgument arg = changedProps.value("UserInfo").value<QDBusArgument>();
-    arg >> userInfo;
-    qDebug() << userInfo;
-    m_model->setUserinfo(userInfo);
 }
 
 void SyncWorker::loginUser()
