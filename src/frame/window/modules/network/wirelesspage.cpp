@@ -286,7 +286,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     //禁止疯狂切换wifi的定时器
     m_clickedTimer->setInterval(1000);
     m_clickedTimer->setSingleShot(true);
-
     initConnect();
 }
 
@@ -397,11 +396,13 @@ void WirelessPage::addHideWifiButton()
 
 WirelessPage::~WirelessPage()
 {
+    //告知后端控制中心离开wifi页，需要采用不同的刷新策略
+    Q_EMIT m_model->requestWifiScanning(false);
+
     QScroller *scroller = QScroller::scroller(m_lvAP->viewport());
     if (scroller) {
         scroller->stop();
     }
-    qDebug() << Q_FUNC_INFO;
 }
 
 void WirelessPage::onSwitchEnable()
@@ -470,7 +471,8 @@ void WirelessPage::setModel(NetworkModel *model)
 {
     m_model = model;
     m_lvAP->setVisible(m_switch->checked());
-
+    //告知后端目前停留在控制中心的wifi页，可以采用不同的刷新策略
+    Q_EMIT m_model->requestWifiScanning(true);
     //更新一下wifi数据
     m_device->initWirelessData();
     //开启之后刷新wifi数据，防止数据太旧了
