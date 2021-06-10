@@ -42,6 +42,7 @@ Requires:       startdde
 Requires:       dde-server-industry-config
 Requires:       deepin-pw-check
 Requires:       NetworkManager-l2tp
+Requires:       cracklib
 
 %description
 New control center for Linux Deepin.
