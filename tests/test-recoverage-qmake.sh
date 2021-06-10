@@ -5,18 +5,30 @@ cd ../
 rm -rf $BUILD_DIR
 mkdir $BUILD_DIR
 cd $BUILD_DIR
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Debug ..
 make -j16
 make check
 
 cd tests/
 
+cd dccwidgets/
+./dccwidgets-unittest
 # dccwidgets
-mv ./dccwidgets/asan.log* ./dccwidgets/asan_dccwidgets.log
+mv asan.log* asan_dccwidgets.log
+
+cd ..
+cd dde-control-center/
+./mouse-unittest
+./systeminfo-unittest
+./bluetooth-unittest
+./datetime-unittest
+./defapp-unittest
+./notification-unittest
 
 #dde-control-center
-mv ./dde-control-center/asan_bluetooth.log* ./dde-control-center/asan_bluetooth.log
-mv ./dde-control-center/asan_datetime.log* ./dde-control-center/asan_datetime.log
-mv ./dde-control-center/asan_defapp.log* ./dde-control-center/asan_defapp.log
-mv ./dde-control-center/asan_mouse.log* ./dde-control-center/asan_mouse.log
-mv ./dde-control-center/asan_notification.log* ./dde-control-center/asan_notification.log
+mv asan_bluetooth.log* asan_bluetooth.log
+mv asan_mouse.log* asan_mouse.log
+mv asan_systeminfo.log* asan_systeminfo.log
+mv asan_defapp.log* asan_defapp.log
+mv asan_datetime.log* .asan_datetime.log
+mv asan_notification.log* asan_notification.log

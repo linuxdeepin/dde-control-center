@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 
     int ret =  RUN_ALL_TESTS();
 #ifdef QT_DEBUG
-    __sanitizer_set_report_path("asan_mouse.log");
+    __sanitizer_set_report_path("asan_systeminfo.log");
 #endif
 
     return ret;
