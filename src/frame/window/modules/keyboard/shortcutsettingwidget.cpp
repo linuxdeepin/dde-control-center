@@ -166,7 +166,6 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     connect(m_searchDelayTimer, &QTimer::timeout, this, &ShortCutSettingWidget::prepareSearchKeys);
     setWindowTitle(tr("Shortcut"));
 
-    connect(m_model, &ShortcutModel::addCustomInfo, this, &ShortCutSettingWidget::onCustomAdded);
     //每次页面点击时会通过m_work->refreshShortcut()时,model会发出listChanged信号，对界面进行初始化
     connect(m_model, &ShortcutModel::listChanged, this, &ShortCutSettingWidget::addShortcut);
     connect(m_model, &ShortcutModel::shortcutChanged, this, &ShortCutSettingWidget::onShortcutChanged);
@@ -358,29 +357,6 @@ void ShortCutSettingWidget::onSearchTextChanged(const QString &text)
     qDebug() << "search text is " << m_searchText;
     if (text.length() > 0) {
         m_searchDelayTimer->start();
-    }
-}
-
-void ShortCutSettingWidget::onCustomAdded(ShortcutInfo *info)
-{
-    if (info) {
-        ShortcutItem *item = new ShortcutItem();
-        connect(item, &ShortcutItem::requestUpdateKey, this, &ShortCutSettingWidget::requestUpdateKey);
-        item->setShortcutInfo(info);
-        item->setTitle(info->name);
-        info->item = item;
-
-        m_searchInfos[info->toString()] = info;
-
-        m_allList << item;
-
-        m_head->setVisible(true);
-        connect(m_head, &SettingsHead::editChanged, item, &ShortcutItem::onEditMode);
-        m_customGroup->appendItem(item);
-        m_customList.append(item);
-
-        connect(item, &ShortcutItem::requestRemove, this, &ShortCutSettingWidget::onDestroyItem);
-        connect(item, &ShortcutItem::shortcutEditChanged, this, &ShortCutSettingWidget::shortcutEditChanged);
     }
 }
 

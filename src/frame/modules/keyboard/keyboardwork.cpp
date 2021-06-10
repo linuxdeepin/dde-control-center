@@ -256,7 +256,7 @@ void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info) {
 
 void KeyboardWorker::addCustomShortcut(const QString &name, const QString &command, const QString &accels)
 {
-    m_keybindInter->AddCustomShortcut(name, command, accels);
+    m_keybindInter->AddCustomShortcut(name, command, accels).waitForFinished();
 }
 
 void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)

@@ -264,7 +264,6 @@ void ShortcutModel::onCustomInfo(const QString &json)
     info->command = obj["Exec"].toString();
     m_infos.append(info);
     m_customInfos.append(info);
-    Q_EMIT addCustomInfo(info);
 }
 
 void ShortcutModel::onKeyBindingChanged(const QString &value)

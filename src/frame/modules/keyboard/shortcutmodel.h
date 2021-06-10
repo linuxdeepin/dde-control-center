@@ -101,7 +101,6 @@ public:
     bool getWindowSwitch();
 Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
-    void addCustomInfo(ShortcutInfo *info);
     void shortcutChanged(ShortcutInfo *info);
     void keyEvent(bool press, const QString &shortcut);
     void searchFinished(const QList<ShortcutInfo *> searchResult);

@@ -77,7 +77,6 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onSearchTextChanged(const QString &text);
-    void onCustomAdded(dcc::keyboard::ShortcutInfo *info);
     void onDestroyItem(dcc::keyboard::ShortcutInfo *info);
     void onSearchInfo(dcc::keyboard::ShortcutInfo *info, const QString &key);
     void onSearchStringFinish(const QList<dcc::keyboard::ShortcutInfo *> searchList);
