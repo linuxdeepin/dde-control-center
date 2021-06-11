@@ -99,9 +99,10 @@ void SecretHotspotSection::saveSettings()
         m_wsSetting->setPsk("");
     } else if (m_currentKeyMgmt == NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         m_wsSetting->setPsk(m_passwdEdit->text());
-        m_wsSetting->setAuthAlg(NetworkManager::WirelessSecuritySetting::AuthAlg::None);
-        m_wsSetting->setWepKeyType(NetworkManager::WirelessSecuritySetting::WepKeyType::NotSpecified);
-        m_wsSetting->setWepKey0("");
+        m_wsSetting->setPskFlags(NetworkManager::Setting::AgentOwned);
+        m_wsSetting->setProto(QList<NetworkManager::WirelessSecuritySetting::WpaProtocolVersion>{NetworkManager::WirelessSecuritySetting::Wpa,NetworkManager::WirelessSecuritySetting::Rsn});
+        m_wsSetting->setGroup(QList<NetworkManager::WirelessSecuritySetting::WpaEncryptionCapabilities>{NetworkManager::WirelessSecuritySetting::Ccmp});
+        m_wsSetting->setPairwise(QList<NetworkManager::WirelessSecuritySetting::WpaEncryptionCapabilities>{NetworkManager::WirelessSecuritySetting::Ccmp});
     }
 
     m_wsSetting->setInitialized(true);
