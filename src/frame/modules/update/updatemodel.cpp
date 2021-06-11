@@ -251,24 +251,17 @@ void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
     if (autoCheckUpdates == m_autoCheckUpdates) return;
 
     m_autoCheckUpdates = autoCheckUpdates;
-
-    if (!autoCheckUpdates) {
-        setUpdateMode(0);
-    }
-
     Q_EMIT autoCheckUpdatesChanged(autoCheckUpdates);
 }
 
 void UpdateModel::setUpdateMode(quint64 updateMode)
 {
     qDebug() << Q_FUNC_INFO << "get UpdateMode from dbus:" << updateMode;
-
-    if (m_updateMode == updateMode) {
+    if (m_updateMode == updateMode && updateMode == 0) {
         return;
     }
 
     m_updateMode = updateMode;
-
     setAutoCheckSystemUpdates(m_updateMode & 0b0001);
     setAutoCheckAppUpdates((m_updateMode & 0b0010) >> 1);
     setAutoCheckSecureUpdates((m_updateMode & 0b0100) >> 2);
