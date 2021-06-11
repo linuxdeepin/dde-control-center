@@ -1193,10 +1193,6 @@ void UpdateWorker::refreshLastTimeAndCheckCircle()
 void UpdateWorker::setUpdateNotify(const bool notify)
 {
     m_updateInter->SetUpdateNotify(notify);
-
-    if (!notify) {
-        setAutoDownloadUpdates(false);
-    }
 }
 
 }
