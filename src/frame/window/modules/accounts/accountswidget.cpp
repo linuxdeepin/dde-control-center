@@ -356,7 +356,7 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
         QModelIndex qindex0 = m_userItemModel->index(m_saveClickedRow, 0);
         m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex0);
-        onItemClicked(qindex0);
+        m_userItemModel->rowCount() ? onItemClicked(qindex0) : requestPop();
         }
         break;
     case AccountsWidget::CreateUserSuccess: { //创建账户成功
