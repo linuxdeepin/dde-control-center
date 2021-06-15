@@ -535,10 +535,9 @@ void IndexPage::onGetUserInfoResult()
         QJsonValue jsonValueResult = jsonObj.value("phone_number");
         m_phoneNumber = jsonValueResult.toString();
 
-        AuthenticationWindow *authWindow = new AuthenticationWindow;
-        connect(authWindow,&AuthenticationWindow::toTellrefreshUserInfo,this,&IndexPage::onTokenTimeout);
-        authWindow->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_userAvatar,m_nameLabel->text());
-        authWindow->show();
+        connect(AuthenticationWindow::instance(),&AuthenticationWindow::toTellrefreshUserInfo,this,&IndexPage::onTokenTimeout);
+        AuthenticationWindow::instance()->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_userAvatar,m_nameLabel->text());
+        AuthenticationWindow::instance()->show();
         m_wechatunionid = "";
     }
 }

@@ -11,7 +11,7 @@ class AuthenticationWindow : public DAbstractDialog
 {
     Q_OBJECT
 public:
-    AuthenticationWindow(QWidget *parent = nullptr);
+    static AuthenticationWindow* instance();
 
     void setData(QString phoneNumber, QString weChatUnionId, QString accessToken,
                  QString userAvatar, QString nickName);
@@ -34,7 +34,11 @@ private Q_SLOTS:
 
     void onThemeTypeChanged();
 
+    void onClose();
+
 private:
+    AuthenticationWindow(QWidget *parent = nullptr);
+
     QLabel *m_tipLabel;
     QLabel *m_warningLabel;
     QString m_phoneNumber;

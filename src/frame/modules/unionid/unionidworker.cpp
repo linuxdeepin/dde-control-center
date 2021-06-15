@@ -58,7 +58,7 @@ UnionidWorker::UnionidWorker(UnionidModel *model, QObject *parent)
                                       "com.deepin.license.Info",
                                       QDBusConnection::systemBus(),this);
 
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    connect(m_activeInfo, SIGNAL(LicenseStateChange()), this, SLOT(licenseStateChangeSlot()));
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &UnionidModel::setUserinfo, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::StateChanged, this, &UnionidWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &UnionidWorker::onSyncModuleStateChanged, Qt::QueuedConnection);

@@ -15,6 +15,8 @@
 #include <QTimer>
 #include <QDBusInterface>
 
+static AuthenticationWindow* g_authenticationWindow = nullptr;
+
 AuthenticationWindow::AuthenticationWindow(QWidget *parent)
     : DAbstractDialog(parent)
 {
@@ -137,6 +139,15 @@ AuthenticationWindow::AuthenticationWindow(QWidget *parent)
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &AuthenticationWindow::onThemeTypeChanged);
 }
 
+AuthenticationWindow *AuthenticationWindow::instance()
+{
+    if (g_authenticationWindow == nullptr) {
+        g_authenticationWindow = new AuthenticationWindow;
+    }
+
+    return g_authenticationWindow;
+}
+
 void AuthenticationWindow::setData(QString phoneNumber, QString weChatUnionId, QString accessToken,
                                    QString userAvatar, QString nickName)
 {
@@ -208,7 +219,7 @@ void AuthenticationWindow::onVerifySmsCodeResult()
             hide();
 
             connect(BindWeChatWindow::instance(),&BindWeChatWindow::toTellrefreshUserInfo,this,&AuthenticationWindow::toTellrefreshUserInfo);
-            connect(BindWeChatWindow::instance(),&BindWeChatWindow::close,this,&AuthenticationWindow::close);
+            connect(BindWeChatWindow::instance(),&BindWeChatWindow::toTellClose,this,&AuthenticationWindow::onClose);
             BindWeChatWindow::instance()->show();
 
             QDBusInterface interface1("com.deepin.deepinid",
@@ -256,5 +267,11 @@ void AuthenticationWindow::onThemeTypeChanged()
 
     m_warningLabel->setPalette(pe);
     update();
+}
+
+void AuthenticationWindow::onClose()
+{
+    g_authenticationWindow->deleteLater();
+    g_authenticationWindow = nullptr;
 }
 

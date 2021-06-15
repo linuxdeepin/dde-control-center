@@ -14,6 +14,7 @@ HttpClient::HttpClient(QObject *parent) : QObject(parent)
     m_redirec_url = "https://uosvip.uniontech.com/account/unionid/callback/uid-management";
     m_request_url = "https://uosvip.uniontech.com";
     m_clientid = "fc8b4f1c34644fd184e002ecdcc6a295";
+    m_user_url = "https://api.uniontech.com";
     judgeClienid();
 }
 
@@ -102,7 +103,7 @@ QNetworkReply *HttpClient::verifySmsCode(const QString &phoneNumber, const QStri
 
 QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue,
                                        const int &bindAccountType, const int &bindAccountId, const QString &bindAccountIdValue,
-                                       const QString &attribute)
+                                       const QString &attribute, const QString &avatar)
 {
     QJsonObject json1;
     json1.insert("accountType", currentAccountType);
@@ -114,6 +115,7 @@ QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int 
     json2.insert("id", bindAccountId);
     json2.insert("idValue", bindAccountIdValue);
     json2.insert("attribute", attribute);
+    json2.insert("avatar", avatar);
 
     QJsonObject jsonRoot;
     jsonRoot.insert("currentAccount", json1);
@@ -124,8 +126,9 @@ QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int 
 //    return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
-QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue
-                                         , const int &bindAccountType, const int &bindAccountId, const QString &bindAccountIdValue)
+QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const int &currentAccountId,
+                                         const QString &currentAccountIdValue, const int &bindAccountType,
+                                         const int &bindAccountId, const QString &bindAccountIdValue)
 {
     QJsonObject json1;
     json1.insert("accountType", currentAccountType);
@@ -182,7 +185,7 @@ QNetworkReply *HttpClient::refreshAccessToken(const QString &clientId, const QSt
 QNetworkReply *HttpClient::getUserInfo(const QString &accessToken)
 {
     QNetworkRequest requset;
-    QString qstrUrl = QString("https://api.uniontech.com/v1/user?access_token=%1").arg(accessToken);
+    QString qstrUrl = m_user_url + QString("/v1/user?access_token=%1").arg(accessToken);
     requset.setUrl(QUrl(qstrUrl));
     requset.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 //    QNetworkAccessManager *netmanager = new QNetworkAccessManager();
@@ -362,12 +365,15 @@ void HttpClient::judgeClienid()
                 if (temp.at(1).contains("-pre")) {
                     m_redirec_url = "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-managment";
                     m_request_url = "https://uosvip-pre.uniontech.com";
+                    m_user_url = "http://api-dev.uniontech.com";
                     m_clientid = "388340d186f311eb983b0242ac130002";
                 } else {
                     m_redirec_url = "https://uosvip.uniontech.com/account/unionid/callback/uid-management";
                     m_request_url = "https://uosvip.uniontech.com";
+                    m_user_url = "https://api.uniontech.com";
                     m_clientid = "fc8b4f1c34644fd184e002ecdcc6a295";
                 }
+
                 break;
             }
         }

@@ -99,7 +99,7 @@ public:
      */
     QNetworkReply* bindAccount(const int &currentAccountType, const int &currentAccountId, const QString &currentAccountIdValue,
                                const int &bindAccountType, const int &bindAccountId, const QString &bindAccountIdValue,
-                               const QString &attribute);
+                               const QString &attribute,const QString &avatar);
     /**
      * @brief unbindAccount           解绑微信
      * @param platformType            平台类型
@@ -182,6 +182,7 @@ private:
     QString m_clientid;
     QString m_redirec_url;
     QString m_request_url;
+    QString m_user_url;
 };
 
 #endif // REQUESTSERVICE_H

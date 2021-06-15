@@ -20,6 +20,8 @@ public:
 Q_SIGNALS:
     void toTellrefreshUserInfo();
 
+    void toTellClose();
+
 public Q_SLOTS:
     void onRequestQrCodeResult();
 
