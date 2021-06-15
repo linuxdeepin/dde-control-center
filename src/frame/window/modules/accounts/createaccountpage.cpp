@@ -494,14 +494,6 @@ bool CreateAccountPage::checkFullname()
 
 bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
 {
-    if (edit == m_repeatpasswdEdit) {
-        if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
-            m_repeatpasswdEdit->setAlert(true);
-            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
-            return false;
-        }
-    }
-
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
                                                                                       edit->lineEdit()->text());
 
@@ -546,6 +538,14 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
     } else {
         edit->setAlert(false);
         edit->hideAlertMessage();
+    }
+
+    if (edit == m_repeatpasswdEdit) {
+        if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
+            m_repeatpasswdEdit->setAlert(true);
+            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
+            return false;
+        }
     }
 
     return true;
