@@ -91,6 +91,10 @@ void ModifyPasswdPage::initWidget()
     cancleBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     saveBtn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
+    setPasswordEditAttribute(m_oldPasswordEdit);
+    setPasswordEditAttribute(m_newPasswordEdit);
+    setPasswordEditAttribute(m_repeatPasswordEdit);
+
     connect(cancleBtn, &QPushButton::clicked, this, [&] {
         Q_EMIT requestBack();
     });
@@ -221,6 +225,12 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
     } else {
         Q_EMIT requestBack();
     }
+}
+
+void ModifyPasswdPage::setPasswordEditAttribute(DLineEdit *edit)
+{
+    edit->setAttribute(Qt::WA_InputMethodEnabled, false);
+    edit->lineEdit()->setValidator(new QRegExpValidator(QRegExp("[^\\x4e00-\\x9fa5]+")));
 }
 
 //在修改密码页面当前密码处设置焦点
