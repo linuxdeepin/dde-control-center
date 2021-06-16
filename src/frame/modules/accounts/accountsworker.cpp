@@ -398,8 +398,13 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     process.waitForFinished();
 
     // process.exitCode() = 0 表示密码修改成功
+    QString outputTxt;
     int exitCode = process.exitCode();
-    QString outputTxt = process.readAllStandardOutput();
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+        outputTxt = process.readAllStandardError();
+    } else {
+        outputTxt = process.readAllStandardOutput();
+    }
     Q_EMIT user->passwordModifyFinished(exitCode, outputTxt);
 }
 
