@@ -59,6 +59,7 @@ public:
     bool judgeTextEmpty(DPasswordEdit *edit);
     void clickSaveBtn();
     void onPasswordChangeFinished(const int exitCode, const QString &errorTxt);
+    void setPasswordEditAttribute(DLineEdit *);
 
 protected:
     void showEvent(QShowEvent *event) override;
