@@ -20,15 +20,16 @@ cd ..
 cd dde-control-center/
 ./mouse-unittest
 ./systeminfo-unittest
-./bluetooth-unittest
-./datetime-unittest
+#./bluetooth-unittest
+#./datetime-unittest
 ./defapp-unittest
 ./notification-unittest
 
 #dde-control-center
-mv asan_bluetooth.log* asan_bluetooth.log
+#bluetooth和datetime未运行单元测试程序，暂时屏蔽
+#mv asan_bluetooth.log* asan_bluetooth.log
 mv asan_mouse.log* asan_mouse.log
 mv asan_systeminfo.log* asan_systeminfo.log
 mv asan_defapp.log* asan_defapp.log
-mv asan_datetime.log* .asan_datetime.log
+#mv asan_datetime.log* .asan_datetime.log
 mv asan_notification.log* asan_notification.log
