@@ -60,6 +60,7 @@ using namespace DCC_NAMESPACE::accounts;
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
+    , m_ageEdit(nullptr)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_avatarLayout(new QHBoxLayout)
@@ -579,10 +580,12 @@ bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
         m_inputLineEdit->lineEdit()->setFocus();
     }
 
-    if (obj == m_ageEdit->lineEdit() && event->type() == QEvent::FocusIn) {
-        m_ageEdit->lineEdit()->clear();
-    } else if (obj == m_ageEdit->lineEdit() && event->type() == QEvent::FocusOut) {
-        Q_EMIT m_ageEdit->lineEdit()->editingFinished();
+    if (m_isServerSystem) {
+        if (m_ageEdit && obj == m_ageEdit->lineEdit() && event->type() == QEvent::FocusIn) {
+            m_ageEdit->lineEdit()->clear();
+        } else if (m_ageEdit && obj == m_ageEdit->lineEdit() && event->type() == QEvent::FocusOut) {
+            Q_EMIT m_ageEdit->lineEdit()->editingFinished();
+        }
     }
     return false;
 }
