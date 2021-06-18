@@ -232,7 +232,15 @@ void DisplayModule::showMultiScreenWidget()
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi) {
         bool stateChanged = false;
         if (m_pMainWindow->isMaximized()) {
-            m_pMainWindow->resize(m_pMainWindow->getLastSize());
+            m_pMainWindow->setNeedRememberLastSize(false);
+            m_pMainWindow->showNormal();
+
+            QSize lastsize = m_pMainWindow->getLastSize();
+            if (!lastsize.isValid() || lastsize == m_pMainWindow->maximumSize()) {
+                lastsize.setWidth(m_pMainWindow->minimumWidth());
+                lastsize.setHeight(m_pMainWindow->minimumHeight());
+            }
+            m_pMainWindow->resize(lastsize);
             stateChanged = true;
         }
 

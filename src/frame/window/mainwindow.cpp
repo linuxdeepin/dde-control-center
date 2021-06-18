@@ -111,6 +111,7 @@ MainWindow::MainWindow(QWidget *parent)
     , m_firstCount(-1)
     , m_widgetName("")
     , m_backwardBtn(nullptr)
+    , m_lastSize(WidgetMinimumWidth, WidgetMinimumHeight)
 {
     //Initialize view and layout structure
     DMainWindow::installEventFilter(this);
@@ -727,7 +728,9 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
 
 void MainWindow::resizeEvent(QResizeEvent *event)
 {
-    m_lastSize = event->oldSize();
+    if (m_needRememberLastSize && event->oldSize() != event->size()) {
+        m_lastSize = event->oldSize();
+    }
     DMainWindow::resizeEvent(event);
 
     auto dstWidth = event->size().width();
@@ -764,6 +767,9 @@ void MainWindow::resizeEvent(QResizeEvent *event)
         m_topWidget->setFixedSize(event->size());
         m_topWidget->curWidget()->setMinimumWidth(dstWidth / 2 - 40);
         m_topWidget->setFixedHeight(height() - this->titlebar()->height());
+    }
+    if (this->isMaximized()) {
+        m_needRememberLastSize = true;
     }
 }
 
@@ -1281,7 +1287,7 @@ bool MainWindow::getRemoveableDeviceStatus(QString type) const
     return m_removeableDeviceList.contains(type);
 }
 
-void MainWindow::setSearchPath(ModuleInterface * const inter) const
+void MainWindow::setSearchPath(ModuleInterface *const inter) const
 {
     m_searchWidget->addModulesName(inter->name(), inter->displayName(), inter->icon(), inter->translationPath());
 }
