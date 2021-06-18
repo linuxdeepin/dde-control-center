@@ -284,7 +284,7 @@ void AccountsWorker::addUser(const QString &userPath)
     // 直接通过属性获取添加用户的用户名, 如果和AccountsUser获取的用户名一样,设置为当前用户
     // 防止首次打开控制中心, 域账户UI显示为默认的帐户信息, 导致UI显示异常
     const QString &currentUserName = userInter->property("UserName").toString();
-    user->setIsCurrentUser(userInter->userName() == currentUserName);
+    user->setIsCurrentUser(m_currentUserName == currentUserName);
 
     connect(userInter, &AccountsUser::UserNameChanged, user, [ = ](const QString & name) {
         user->setName(name);
