@@ -368,7 +368,7 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
     }
 }
 
-void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd)
+void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd, const bool needResult)
 {
     QProcess process;
     QProcessEnvironment env;
@@ -387,10 +387,12 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     process.closeWriteChannel();
     process.waitForFinished();
 
-    // process.exitCode() = 0 表示密码修改成功
-    int exitCode = process.exitCode();
-    QString outputTxt = process.readAllStandardOutput();
-    Q_EMIT user->passwordModifyFinished(exitCode, outputTxt);
+    if (needResult) {
+        // process.exitCode() = 0 表示密码修改成功
+        int exitCode = process.exitCode();
+        QString outputTxt = process.readAllStandardOutput();
+        Q_EMIT user->passwordModifyFinished(exitCode, outputTxt);
+    }
 }
 
 void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)

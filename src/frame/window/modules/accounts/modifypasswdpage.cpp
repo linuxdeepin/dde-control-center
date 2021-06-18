@@ -214,6 +214,10 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
             });
             dlg.exec();
         }
+    } else if (error != PW_NO_ERR) {
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+        Q_EMIT requestChangePassword(m_curUser, m_newPasswordEdit->lineEdit()->text(), m_oldPasswordEdit->lineEdit()->text(), m_oldPasswordEdit->lineEdit()->text(), false);
     } else {
         Q_EMIT requestBack();
     }
