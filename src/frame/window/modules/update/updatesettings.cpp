@@ -147,7 +147,7 @@ void UpdateSettings::initUi()
     contentLayout->addWidget(m_autoCleanCache);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
-    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
+    if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsEducationSystem && !IsDeepinDesktop) {
         //~ contents_path /update/Update Settings
         m_sourceCheck = new SwitchWidget(tr("System Repository Detection"), this);
         m_sourceCheck->addBackground();
