@@ -68,7 +68,9 @@ const bool IsServerSystem = (DSysInfo::UosServer == UosType);//是否是服务�
 const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否是社区版
 const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
+const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
+
 struct ListSubItem {
     ListSubItem();
     ListSubItem(QString icon, QString text, QMetaMethod signal, QObject *plugin = nullptr, QString gsettingsName = QString())
