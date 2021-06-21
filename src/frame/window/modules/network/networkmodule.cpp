@@ -287,6 +287,8 @@ void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &sear
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
         });
         connect(m_wirelessPage, &WirelessPage::requestFrameKeepAutoHide, this, &NetworkModule::onSetFrameAutoHide);
+        connect(m_wirelessPage, &WirelessPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
+        connect(m_wirelessPage, &WirelessPage::requestHotspotEnable, m_networkWorker, &NetworkWorker::setHotsPotEnable);
 
         m_wirelessPage->setModel(m_networkModel);
         m_wirelessPage->jumpByUuid(searchPath);
@@ -390,7 +392,7 @@ void NetworkModule::showHotspotPage()
     connect(p, &HotspotPage::requestActivateConnection, m_networkWorker, &NetworkWorker::activateConnection);
     //这个地方可以改成其他的断开连接信号 PS:1
     connect(p, &HotspotPage::requestDisconnectConnection, m_networkWorker, &NetworkWorker::deactiveConnection);
-    connect(p, &HotspotPage::requestDeviceRemanage, m_networkWorker, &NetworkWorker::remanageDevice, Qt::QueuedConnection);
+    connect(p, &HotspotPage::requestHotspotEnable, m_networkWorker, &NetworkWorker::setHotsPotEnable);
     connect(p, &HotspotPage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
