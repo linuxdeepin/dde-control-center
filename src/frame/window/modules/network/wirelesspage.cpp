@@ -321,6 +321,7 @@ void WirelessPage::initUI()
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
 
     TipsItem *tips = new TipsItem;
+    tips->setFixedHeight(80);
     tips->setText(tr("Disable hotspot first if you want to connect to a wireless network"));
 
     m_tipsGroup = new SettingsGroup;
@@ -328,8 +329,8 @@ void WirelessPage::initUI()
 
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(m_switch, 0, Qt::AlignTop);
+    m_mainLayout->addWidget(m_tipsGroup);
     m_mainLayout->addWidget(m_lvAP);
-    //m_mainLayout->addWidget(m_tipsGroup);
     m_mainLayout->addWidget(m_closeHotspotBtn);
     m_layoutCount = m_mainLayout->layout()->count();
     m_mainLayout->setSpacing(10);//三级菜单控件间的间隙
@@ -372,7 +373,6 @@ void WirelessPage::initConnect()
     //点击wifi进行连接
     connect(m_lvAP, &QListView::clicked, this, &WirelessPage::onClickApItem);
 
-    //热点功能相关的信号槽，目前还没做
     connect(m_device, &WirelessDevice::hotspotEnabledChanged, this, &WirelessPage::onHotspotEnableChanged);
     connect(m_closeHotspotBtn, &QPushButton::clicked, this, &WirelessPage::onCloseHotspotClicked);
 
@@ -590,6 +590,7 @@ void WirelessPage::onAPRemoved(const QJsonObject &apInfo)
 
 void WirelessPage::onHotspotEnableChanged(const bool enabled)
 {
+    qDebug() << "set Hotspot Enable:" << enabled;
     m_closeHotspotBtn->setVisible(enabled);
     m_tipsGroup->setVisible(enabled);
     m_lvAP->setVisible(!enabled && m_device->enabled());
@@ -599,7 +600,7 @@ void WirelessPage::onHotspotEnableChanged(const bool enabled)
 void WirelessPage::onCloseHotspotClicked()
 {
     Q_EMIT requestDisconnectConnection(m_device->activeHotspotUuid());
-    Q_EMIT requestDeviceRemanage(m_device->path());
+    Q_EMIT requestHotspotEnable(m_device->path(), false);
 }
 
 void WirelessPage::onDeviceRemoved()

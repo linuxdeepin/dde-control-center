@@ -298,7 +298,8 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
             ++wiredDevice;
             break;
         case NetworkDevice::Wireless:
-            ++wirelessDevice;
+            if (!qobject_cast<WirelessDevice *>(dev)->supportHotspot())
+                ++wirelessDevice;
             break;
         default:
             break;
@@ -325,9 +326,9 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         qDebug() << "add Wireless item!";
         if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
             have_ap = true;
+        } else {
+            devits.push_back(createDeviceGroup(dev, ++count, wirelessDevice > 1));
         }
-
-        devits.push_back(createDeviceGroup(dev, ++count, wirelessDevice > 1));
     }
     for (auto it = devits.rbegin(); it != devits.rend(); ++it) {
         m_modelpages->insertRow(0, *it);

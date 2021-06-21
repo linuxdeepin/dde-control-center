@@ -170,7 +170,7 @@ public:
     void jumpByUuid(const QString &uuid);
 Q_SIGNALS:
     void requestNextPage(ContentWidget *const w) const;
-    void requestDeviceRemanage(const QString &devPath) const;
+    void requestHotspotEnable(const QString &devPath, const bool enable) const;
     void requestDeviceAPList(const QString &devPath) const;
     void requestWirelessScan();
     void requestFrameKeepAutoHide(const bool autoHide) const;

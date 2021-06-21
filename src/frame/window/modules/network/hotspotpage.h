@@ -46,6 +46,7 @@ namespace dcc {
 namespace widgets {
 class NextPageWidget;
 class SwitchWidget;
+class SettingsGroup;
 }
 }
 
@@ -69,7 +70,7 @@ private:
     void openEditPage(const QString &uuid = QString());
 
 Q_SIGNALS:
-    void requestDeviceRemanage(const QString &devPath) const;
+    void requestHotspotEnable(const QString &devPath, const bool enable) const;
     void requestDisconnectConnection(const QString &uuid) const;
 
 private Q_SLOTS:
@@ -85,6 +86,8 @@ private:
     dde::network::WirelessDevice * const m_wdev;
     dde::network::NetworkModel *m_model;
     dcc::widgets::SwitchWidget *m_hotspotSwitch;
+    dcc::widgets::SettingsGroup *m_tipsGrp;
+    QPushButton *m_onWrieless;
     DListView *m_lvprofiles;
     QStandardItemModel *m_modelprofiles;
 
@@ -110,7 +113,7 @@ public:
 Q_SIGNALS:
     void back();
     void requestNextPage(dcc::ContentWidget * const w) const;
-    void requestDeviceRemanage(const QString &devPath) const;
+    void requestHotspotEnable(const QString &devPath, const bool enable) const;
     void requestDisconnectConnection(const QString &uuid) const;
     void requestActivateConnection(const QString &devPath, const QString &uuid) const;
 

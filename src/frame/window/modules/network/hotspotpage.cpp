@@ -27,7 +27,9 @@
 #include "connectionhotspoteditpage.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/switchwidget.h"
+#include "widgets/tipsitem.h"
 #include "widgets/titlelabel.h"
+#include "widgets/settingsgroup.h"
 #include "window/utils.h"
 
 #include <DFloatingButton>
@@ -62,20 +64,36 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     m_lvprofiles->setModel(m_modelprofiles);
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvprofiles->setSelectionMode(QAbstractItemView::NoSelection);
+
     //~ contents_path /network/Personal Hotspot
     TitleLabel *lblTitle = new TitleLabel(tr("Hotspot"));//个人热点
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_hotspotSwitch = new SwitchWidget(nullptr, lblTitle);
+    m_hotspotSwitch->addBackground();
+
     m_createBtn->setText(tr("Add Settings"));
     m_createBtn->setVisible(showcreatebtn);
+
+    TipsItem *tips = new TipsItem;
+    tips->setFixedHeight(80);
+    tips->setText(tr("To enable hotspot sharing, please turn on the wireless network adapter"));
+    m_tipsGrp = new SettingsGroup;
+    m_tipsGrp->appendItem(tips);
+    m_tipsGrp->setVisible(!m_wdev->enabled());
+    m_onWrieless= new QPushButton;
+    m_onWrieless->setFixedHeight(40);
+    m_onWrieless->setText(tr("Turn On Now"));
+    m_onWrieless->setVisible(!m_wdev->enabled());
 
     m_refreshActiveTimer->setInterval(300);
     m_refreshActiveTimer->setSingleShot(true);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
-    centralLayout->setContentsMargins(0, 10, 0, 0);
+    centralLayout->setContentsMargins(0, 0, 0, 0);
 
     centralLayout->addWidget(m_hotspotSwitch);
+    centralLayout->addWidget(m_tipsGrp);
+    centralLayout->addWidget(m_onWrieless);
     centralLayout->addWidget(m_lvprofiles);
     centralLayout->addWidget(m_createBtn);
     centralLayout->addStretch();
@@ -92,7 +110,11 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     connect(m_wdev, &WirelessDevice::removed, this, &HotspotDeviceWidget::onDeviceRemoved);
     connect(m_wdev, &WirelessDevice::hotspotEnabledChanged, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
     connect(m_wdev, &WirelessDevice::hostspotConnectionsChanged, this, &HotspotDeviceWidget::refreshHotspotConnectionList);
-
+    //开启wlan开关
+    connect(m_onWrieless, &QPushButton::clicked, this, [ = ] {
+        m_model->onDeviceEnable(m_wdev->path(), true);
+    });
+      
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotDeviceWidget::onSwitchToggled);
 }
 
@@ -120,7 +142,7 @@ void HotspotDeviceWidget::closeHotspot()
     Q_ASSERT(!uuid.isEmpty());
 
     Q_EMIT requestDisconnectConnection(uuid);
-    Q_EMIT requestDeviceRemanage(m_wdev->path());
+    Q_EMIT requestHotspotEnable(m_wdev->path(), false);
 }
 
 void HotspotDeviceWidget::openHotspot()
@@ -189,6 +211,8 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
 void HotspotDeviceWidget::onHotsportEnabledChanged()
 {
     m_hotspotSwitch->setChecked(m_wdev->hotspotEnabled());
+    m_tipsGrp->setVisible(!m_wdev->enabled());
+    m_onWrieless->setVisible(!m_wdev->enabled());
     m_hotspotSwitch->setEnabled(true);
     m_refreshActiveTimer->start();
 }
@@ -253,6 +277,9 @@ HotspotPage::HotspotPage(QWidget *parent)
     m_mainLayout = new QVBoxLayout;
     m_mainLayout->addWidget(contentWidget);
     m_mainLayout->addWidget(m_newprofile, 0, Qt::AlignHCenter);
+
+    m_vScrollLayout->setContentsMargins(0, 0, 0, 0);
+    m_mainLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(m_mainLayout);
 
     //~ contents_path /network/Personal Hotspot
@@ -294,7 +321,7 @@ void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> &
         if (d->type() != NetworkDevice::DeviceType::Wireless) {
             continue;
         }
-        if (static_cast<WirelessDevice *>(d)->supportHotspot() && d->enabled()) {
+        if (static_cast<WirelessDevice *>(d)->supportHotspot()) {
             ++ap_devices;
         }
     }
@@ -308,13 +335,13 @@ void HotspotPage::deviceListChanged(const QList<dde::network::NetworkDevice *> &
         if (d->type() != NetworkDevice::DeviceType::Wireless) {
             continue;
         }
-        if (wd->supportHotspot() && wd->enabled()) {
+        if (wd->supportHotspot()) {
             if (hotspotDev > 0) {
                 m_vScrollLayout->addSpacing(50);
             }
             HotspotDeviceWidget *w = new HotspotDeviceWidget(wd, ap_devices > 1, this);
             connect(w, &HotspotDeviceWidget::requestDisconnectConnection, this, &HotspotPage::requestDisconnectConnection);
-            connect(w, &HotspotDeviceWidget::requestDeviceRemanage, this, &HotspotPage::requestDeviceRemanage);
+            connect(w, &HotspotDeviceWidget::requestHotspotEnable, this, &HotspotPage::requestHotspotEnable);
             w->setPage(this);
             w->setModel(m_model);
             m_vScrollLayout->addWidget(w);
