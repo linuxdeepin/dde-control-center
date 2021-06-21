@@ -377,14 +377,14 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         m_ageEdit->lineEdit()->setPlaceholderText(tr("Always"));
         m_ageEdit->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
         m_ageEdit->setClearButtonEnabled(false);
-        m_ageEdit->lineEdit()->setValidator(new QIntValidator(1, 99999));
+        m_ageEdit->lineEdit()->setValidator(new QIntValidator(0, 99999));
         m_ageEdit->lineEdit()->installEventFilter(this);
         pwHLayout->addWidget(m_ageEdit, 0, Qt::AlignRight);
 
         connect(m_ageEdit, &DLineEdit::textChanged, this, [=]() {
             m_ageEdit->setAlert(false);
         });
-        connect(m_ageEdit, &DLineEdit::editingFinished, this, [this, pwWidget]() {
+        connect(m_ageEdit, &DLineEdit::editingFinished, this, [=]() {
             if (m_ageEdit->text().isEmpty()) {
                 m_ageEdit->lineEdit()->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
                 return;
@@ -398,7 +398,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
             if (age <= 0) {
                 m_ageEdit->setAlert(true);
                 m_ageEdit->setAlertMessageAlignment(Qt::AlignRight);
-                m_ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), pwWidget, 2000);
+                m_ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), this, 2000);
                 return;
             }
 
