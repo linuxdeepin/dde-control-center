@@ -86,6 +86,9 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_sw->addBackground();
     m_sw->setAccessibleName(tr("Speaker"));
     hlayout->addWidget(m_sw);
+    // 平板环境下禁用“启用/禁用”开关
+    if (DGuiApplicationHelper::isTabletEnvironment())
+        m_sw->setHidden(true);
 
     m_layout->addWidget(labelOutput);
     m_layout->addWidget(outputSoundsGrp);
@@ -125,7 +128,8 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
         if (!m_currentPort)
             return;
         m_enablePort = false;
-        m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
+        if (!DGuiApplicationHelper::isTabletEnvironment())
+            m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
         Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());//设置端口后，发送信号，判断该端口是否需要禁用
     });
 
@@ -158,7 +162,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
     initSlider();
 
-    if (m_currentPort)
+    if (m_currentPort && !DGuiApplicationHelper::isTabletEnvironment())
         m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
 
     if (m_outputModel->rowCount() < 2)
@@ -184,7 +188,7 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
     };
 
     rmFunc(m_outputModel);
-    if (m_currentPort)
+    if (m_currentPort && !DGuiApplicationHelper::isTabletEnvironment())
         m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
     showDevice();
 }
@@ -234,7 +238,7 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
-        if (m_currentPort)
+        if (m_currentPort && !DGuiApplicationHelper::isTabletEnvironment())
             m_sw->setHidden(!m_model->isShow(m_outputModel, m_currentPort));
         showDevice();
     }

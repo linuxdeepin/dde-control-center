@@ -80,6 +80,9 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);
     m_sw = new SwitchWidget(nullptr, lblTitle);
     m_sw->addBackground();
+    // 平板环境下禁用“启用/禁用”开关
+    if (DGuiApplicationHelper::isTabletEnvironment())
+        m_sw->setHidden(true);
 
     TitleLabel *ndTitle = new TitleLabel(tr("Automatic Noise Suppression"));
     DFontSizeManager::instance()->bind(ndTitle, DFontSizeManager::T6);
@@ -158,7 +161,8 @@ void MicrophonePage::setModel(SoundModel *model)
         m_currentPort = port;
         if (!m_currentPort) return;
         m_enablePort = false;
-        m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
+        if (!DGuiApplicationHelper::isTabletEnvironment())
+            m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
         Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
     });
 
@@ -200,10 +204,11 @@ void MicrophonePage::setModel(SoundModel *model)
 
     initSlider();
 
-    if (m_currentPort) m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
+    if (m_currentPort && !DGuiApplicationHelper::isTabletEnvironment())
+        m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
 
-    if (m_inputModel->rowCount() < 2) m_sw->setHidden(true);
-
+    if (m_inputModel->rowCount() < 2)
+        m_sw->setHidden(true);
 }
 
 void MicrophonePage::removePort(const QString &portId, const uint &cardId)
@@ -224,7 +229,7 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
     };
 
     rmFunc(m_inputModel);
-    if (m_currentPort)
+    if (m_currentPort && !DGuiApplicationHelper::isTabletEnvironment())
         m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
     showDevice();
 }
@@ -269,7 +274,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
-        if (m_currentPort)
+        if (m_currentPort && !DGuiApplicationHelper::isTabletEnvironment())
             m_sw->setHidden(!m_model->isShow(m_inputModel, m_currentPort));
         showDevice();
     }
