@@ -37,6 +37,7 @@
 #include <DTipLabel>
 #include <DDesktopServices>
 #include <DLabel>
+#include <DSpinBox>
 
 #include <QStackedWidget>
 #include <QVBoxLayout>
@@ -56,6 +57,16 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::accounts;
+
+AccountSpinBox::AccountSpinBox(QWidget *parent)
+    :DSpinBox(parent)
+{
+}
+
+QString AccountSpinBox::textFromValue(int val) const
+{
+    return val >= 99999? tr("Always"): QString::number(val);
+}
 
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
@@ -373,41 +384,37 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         pwWidget->setLayout(pwHLayout);
 
         pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
-        m_ageEdit = new DLineEdit();
-        m_ageEdit->lineEdit()->setPlaceholderText(tr("Always"));
-        m_ageEdit->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
-        m_ageEdit->setClearButtonEnabled(false);
-        m_ageEdit->lineEdit()->setValidator(new QIntValidator(0, 99999));
-        m_ageEdit->lineEdit()->installEventFilter(this);
-        pwHLayout->addWidget(m_ageEdit, 0, Qt::AlignRight);
+        auto validityDaysBox = new AccountSpinBox();
+        validityDaysBox->setFixedWidth(180);
+        validityDaysBox->lineEdit()->setFixedWidth(80);
+        validityDaysBox->lineEdit()->setPlaceholderText("99999");
+        validityDaysBox->setRange(1,99999);
+        pwHLayout->addWidget(validityDaysBox,0, Qt::AlignRight);
 
-        connect(m_ageEdit, &DLineEdit::textChanged, this, [=]() {
-            m_ageEdit->setAlert(false);
+        connect(validityDaysBox, qOverload<int>(&DSpinBox::valueChanged), this, [=](const int value) {
+            validityDaysBox->setValue(value);
+            validityDaysBox->setAlert(false);
         });
-        connect(m_ageEdit, &DLineEdit::editingFinished, this, [=]() {
-            if (m_ageEdit->text().isEmpty()) {
-                m_ageEdit->lineEdit()->setText(m_curUser->passwordAge() >= 99999 ? tr("Always") : QString::number(m_curUser->passwordAge()));
+        connect(validityDaysBox, &QSpinBox::editingFinished, this, [this, validityDaysBox]() {
+            if (validityDaysBox->lineEdit()->text().isEmpty()) {
+                validityDaysBox->setValue(m_curUser->passwordAge());
                 return;
             }
-
-            int age = m_ageEdit->text().toInt();
-
+            int age = validityDaysBox->value();
             if (age == m_curUser->passwordAge())
                 return;
 
             if (age <= 0) {
-                m_ageEdit->setAlert(true);
-                m_ageEdit->setAlertMessageAlignment(Qt::AlignRight);
-                m_ageEdit->showAlertMessage(tr("Please input a number between 1-99999"), this, 2000);
+                validityDaysBox->setAlert(true);
                 return;
             }
 
-            setFocus();
-            Q_EMIT requsetSetPassWordAge(m_curUser, m_ageEdit->text().toInt());
+            Q_EMIT requsetSetPassWordAge(m_curUser, validityDaysBox->value());
         });
-        connect(m_curUser, &User::passwordAgeChanged, this, [=](const int age) {
-            m_ageEdit->setText(age >= 99999 ? tr("Always") : QString::number(age));
-        });
+        connect(m_curUser, &User::passwordAgeChanged, validityDaysBox, &AccountSpinBox::setValue);
+
+        validityDaysBox->setValue(m_curUser->passwordAge());
+        validityDaysBox->valueChanged(m_curUser->passwordAge());
     }
 
     layout->addWidget(loginGrp);
