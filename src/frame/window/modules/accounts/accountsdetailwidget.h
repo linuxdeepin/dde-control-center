@@ -38,6 +38,7 @@
 #include <DDialog>
 #include <DWarningButton>
 #include <DToolButton>
+#include <DSpinBox>
 
 DWIDGET_BEGIN_NAMESPACE
 class DIconButton;
@@ -45,6 +46,7 @@ class DWarningButton;
 class DCommandLinkButton;
 class DLineEdit;
 class DLabel;
+class DSpinBox;
 DWIDGET_END_NAMESPACE
 
 QT_BEGIN_NAMESPACE
@@ -70,6 +72,17 @@ using com::deepin::daemon::fprintd::Device;
 
 namespace DCC_NAMESPACE {
 namespace accounts {
+class AccountSpinBox : public DSpinBox
+{
+    Q_OBJECT
+
+public:
+    explicit AccountSpinBox(QWidget *parent = nullptr);
+protected:
+    virtual QString textFromValue(int val) const;
+};
+
+
 class AccountsDetailWidget : public QWidget
 {
     Q_OBJECT
