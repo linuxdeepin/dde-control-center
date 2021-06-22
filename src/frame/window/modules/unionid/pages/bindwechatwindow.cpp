@@ -354,13 +354,25 @@ void BindWeChatWindow::onReportStatusResult()
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
     QString result = HttpClient::instance()->checkReply(reply);
 
-    if (!result.isEmpty()) {
+    if (HttpClient::instance()->solveJson(result)) {
         m_indexLayout->setCurrentWidget(m_avatarWidget);
         m_secTipLabel->setVisible(true);
 //        m_resultTipLabel->setText(QObject::tr("Go to \"Accounts\" and switch on \"Login by Union ID\""));
         m_resultTipLabel->clear();
 
         Q_EMIT toTellrefreshUserInfo();
+    }
+}
+
+void BindWeChatWindow::onReportFailedStatusResult()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
+    QString result = HttpClient::instance()->checkReply(reply);
+
+    if (HttpClient::instance()->solveJson(result)) {
+        qInfo() << "上报绑定失败状态成功";
+    } else {
+        qInfo() << "上报绑定失败状态失败";
     }
 }
 
@@ -387,6 +399,13 @@ void BindWeChatWindow::onBindAccountResult()
     if (HttpClient::instance()->solveJson(result)) {
         QNetworkReply *reply = HttpClient::instance()->reportQrCodeStatus(m_codeId, 2,m_sessionId);
         connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onReportStatusResult);
+    } else {
+        if (!m_weChatUnionId.isEmpty()) {
+            Q_EMIT toTellrefreshUserInfo();
+        }
+
+        QNetworkReply *reply = HttpClient::instance()->reportQrCodeStatus(m_codeId, 21,m_sessionId);
+        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onReportFailedStatusResult);
     }
 }
 
@@ -399,6 +418,9 @@ void BindWeChatWindow::onUnbindAccountResult()
     if (HttpClient::instance()->solveJson(result)) {
         QNetworkReply *reply = HttpClient::instance()->bindAccount(0,1,m_accessToken,1,2,m_sessionId,m_nickName,m_userAvatar);
         connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onBindAccountResult);
+    } else {
+        QNetworkReply *reply = HttpClient::instance()->reportQrCodeStatus(m_codeId, 21,m_sessionId);
+        connect(reply,&QNetworkReply::finished,this,&BindWeChatWindow::onReportFailedStatusResult);
     }
 }
 
@@ -407,8 +429,10 @@ void BindWeChatWindow::onCloseReportQrCodeStatus()
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
     QString result = HttpClient::instance()->checkReply(reply);
 
-    if (!result.isEmpty()) {
+    if (HttpClient::instance()->solveJson(result)) {
         m_windowStatus = 0;
         close();
+    } else {
+        qInfo() << "上报绑定取消状态失败";
     }
 }

@@ -213,14 +213,14 @@ QByteArray HttpClient::checkReply(QNetworkReply *pReply)
                          + "\n the error code is : " + QString::number(pReply->error())
                          + "\n the error string is : " + pReply->errorString();
         qInfo() << "strErr" << strErr;
-        //return QByteArray();
+        return QByteArray();
     }
 
     int statusCode = pReply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     if (200 != statusCode) {
         QString strReason = "The status code is not 200";
         qInfo() << "statusCode" << statusCode;
-        //return QByteArray();
+        return QByteArray();
     }
 
     byteJson = pReply->readAll();

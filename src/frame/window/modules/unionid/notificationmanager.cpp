@@ -408,7 +408,6 @@ void Notificationmanager::onUserInfoChanged(const QVariantMap &userInfo)
 {
     Q_EMIT toTellSwitchWidget(userInfo);
     const bool isLogind = !userInfo["Username"].toString().isEmpty();
-    qInfo() << "onUserInfoChanged" << m_bIsExternalLogin;
 
     if (isLogind) {
         if (m_bIsExternalLogin && !firstIsLogin()) {

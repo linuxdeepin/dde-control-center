@@ -229,7 +229,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     connect(DGuiApplicationHelper::instance(),&DGuiApplicationHelper::themeTypeChanged,this,&IndexPage::onThemeTypeChanged);
     connect(this, &IndexPage::toTellLogoutUser, Notificationmanager::instance(), &Notificationmanager::toTellLogoutUser);
-//    m_refreshTimer = new QTimer;s
+//    m_refreshTimer = new QTimer;
 //    connect(m_refreshTimer, &QTimer::timeout, this, &IndexPage::onTokenTimeout);
 }
 
@@ -515,7 +515,7 @@ void IndexPage::onCheckboxStateChanged(bool state, dcc::cloudsync::SyncType sync
 void IndexPage::onModButtonClicked()
 {
     if (Notificationmanager::instance()->isOnLine()) {
-        QNetworkReply *reply =  HttpClient::instance()->getUserInfo(m_accessToken);
+        QNetworkReply *reply = HttpClient::instance()->getUserInfo(m_accessToken);
         connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetUserInfoResult);
     } else {
         Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);
@@ -539,6 +539,9 @@ void IndexPage::onGetUserInfoResult()
         AuthenticationWindow::instance()->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_userAvatar,m_nameLabel->text());
         AuthenticationWindow::instance()->show();
         m_wechatunionid = "";
+    } else {
+        Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);
+        qInfo() << "获取手机号失败";
     }
 }
 
@@ -610,8 +613,14 @@ void IndexPage::onRefreshAccessToken()
             jsonValueResult = jsonObj.value("wechatunionid");
             m_wechatunionid = jsonValueResult.toString();
 
-            QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_wechatunionid);
-            connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetBindAccountInfo);
+            if (m_wechatunionid.isEmpty()) {
+                m_modButton->setText(QObject::tr("Link"));
+                m_wxNameLabel->clear();
+            } else {
+                m_modButton->setText(QObject::tr("Change"));
+                QNetworkReply *reply =  HttpClient::instance()->getBindAccountInfo(1, 0, m_wechatunionid);
+                connect(reply,&QNetworkReply::finished,this,&IndexPage::onGetBindAccountInfo);
+            }
         }
     }
 }

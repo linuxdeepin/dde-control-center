@@ -43,6 +43,8 @@ private Q_SLOTS:
 
     void onReportStatusResult();
 
+    void onReportFailedStatusResult();
+
     void onGetUserInfoResult();
 
     void onBindAccountResult();
