@@ -167,6 +167,7 @@ private:
 
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);
+    void updateActiveApItem(APItem *item);
 
 private:
     dde::network::WirelessDevice *m_device;

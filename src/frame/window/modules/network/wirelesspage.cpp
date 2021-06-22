@@ -432,6 +432,7 @@ void WirelessPage::onDeviceStatusChanged(const dde::network::WirelessDevice::Dev
                 }
                 if (stat == WirelessDevice::Activated) {
                     it.value()->setConnected(true);
+                    updateActiveApItem(it.value());
                 }
                 m_clickedItem = nullptr;
             }
@@ -535,6 +536,15 @@ void WirelessPage::onAPChanged(const QJsonObject &apInfo)
 
     APItem *item = m_apItems[ssid];
     item->m_apPathSortInfo[path] = si;
+
+    //如果是已连接的AP，不做信号强度比较，保证显示的AP信号强度和已连接AP信号强度一致
+    if (ssid == m_device->activeApSsid()){
+        if (path == m_device->activeApPath())
+            item->setSignalStrength(strength);
+
+        return;
+    }
+
     if (strength > item->signalStrength()) {
         item->setSortInfo(si);
         item->setSignalStrength(strength);
@@ -749,9 +759,25 @@ void WirelessPage::updateActiveAp()
                                               it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
             });
         }
+        updateActiveApItem(it.value());
     }
 
     m_sortDelayTimer->start();
+}
+
+void WirelessPage::updateActiveApItem(APItem *item){
+    if (nullptr == item || nullptr == m_device || item->text() != m_device->activeApSsid())
+        return;
+
+    item->setConnected(true);
+    item->setPath(m_device->activeApPath());
+    item->setSignalStrength(m_device->activeApStrength());
+    item->setSecure(m_device->activeApInfo().value("Secured").toBool());
+
+    auto sortInfo = item->sortInfo();
+    sortInfo.connected = true;
+    sortInfo.signalstrength = m_device->activeApStrength();
+    item->setSortInfo(sortInfo);
 }
 
 QString WirelessPage::connectionUuid(const QString &ssid)
