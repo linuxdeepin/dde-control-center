@@ -198,7 +198,8 @@ void DisplayModule::showSingleScreenWidget()
     rotateWidget->setModel(m_displayModel, m_displayModel->monitorList().count() ? m_displayModel->monitorList().first() : nullptr);
     GSettingWatcher::instance()->bind("displayRotate", rotateWidget);  // 使用GSettings来控制显示状态
     contentLayout->addSpacing(20);
-    contentLayout->addWidget(rotateWidget); connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
+    contentLayout->addWidget(rotateWidget);
+    connect(rotateWidget, &RotateWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
 
     contentLayout->addStretch();
 
@@ -305,12 +306,15 @@ void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)
     m_displayWorker->setMonitorRotate(monitor, rotate);
     m_displayWorker->applyChanges();
 
-    if (showTimeoutDialog(monitor) == QDialog::Accepted) {
-        m_displayWorker->saveChanges();
-    } else {
-        m_displayWorker->setMonitorRotate(monitor, lastRotate);
-        m_displayWorker->applyChanges();
-    }
+    //此处处理调用applyChanges的200ms延时, TimeoutDialog提前弹出的问题
+    QTimer::singleShot(300, monitor, [this, monitor, lastRotate]{
+        if (showTimeoutDialog(monitor) == QDialog::Accepted) {
+            m_displayWorker->saveChanges();
+        } else {
+            m_displayWorker->setMonitorRotate(monitor, lastRotate);
+            m_displayWorker->applyChanges();
+        }
+    });
 }
 
 void DisplayModule::pushScreenWidget()
