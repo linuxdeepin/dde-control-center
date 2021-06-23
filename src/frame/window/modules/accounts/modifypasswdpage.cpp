@@ -24,9 +24,11 @@
 #include "pwqualitymanager.h"
 #include "../../utils.h"
 #include "createaccountpage.h"
+#include "widgets/passwordedit.h"
 
 #include "deepin_pw_check.h"
 
+#include <DDialog>
 #include <DFontSizeManager>
 #include <DDBusSender>
 
@@ -45,9 +47,9 @@ using namespace DCC_NAMESPACE::accounts;
 ModifyPasswdPage::ModifyPasswdPage(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
-    , m_oldPasswordEdit(new DPasswordEdit)
-    , m_newPasswordEdit(new DPasswordEdit)
-    , m_repeatPasswordEdit(new DPasswordEdit)
+    , m_oldPasswordEdit(new PasswordEdit)
+    , m_newPasswordEdit(new PasswordEdit)
+    , m_repeatPasswordEdit(new PasswordEdit)
 {
     initWidget();
 }
@@ -136,7 +138,7 @@ void ModifyPasswdPage::initWidget()
     setFocusPolicy(Qt::StrongFocus);
 }
 
-bool ModifyPasswdPage::judgeTextEmpty(DPasswordEdit *edit)
+bool ModifyPasswdPage::judgeTextEmpty(PasswordEdit *edit)
 {
     if (edit->text().isEmpty()) {
         edit->setAlert(true);
@@ -217,6 +219,12 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
     } else {
         Q_EMIT requestBack();
     }
+}
+
+void ModifyPasswdPage::setPasswordEditAttribute(PasswordEdit *edit)
+{
+    edit->setAttribute(Qt::WA_InputMethodEnabled, false);
+    edit->lineEdit()->setValidator(new QRegExpValidator(QRegExp("[^\\x4e00-\\x9fa5]+")));
 }
 
 //在修改密码页面当前密码处设置焦点

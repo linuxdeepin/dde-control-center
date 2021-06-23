@@ -24,10 +24,12 @@
 #include "window/utils.h"
 #include "groupitem.h"
 #include "pwqualitymanager.h"
+#include "widgets/passwordedit.h"
 
 #include <DFontSizeManager>
 #include <DDesktopServices>
 #include <DDBusSender>
+#include <DDialog>
 
 #include <QtGlobal>
 #include <QVBoxLayout>
@@ -52,8 +54,8 @@ CreateAccountPage::CreateAccountPage(dcc::accounts::AccountsWorker *accountsWork
     , m_avatarListWidget(nullptr)
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
-    , m_passwdEdit(new DPasswordEdit)
-    , m_repeatpasswdEdit(new DPasswordEdit)
+    , m_passwdEdit(new PasswordEdit)
+    , m_repeatpasswdEdit(new PasswordEdit)
     , m_accountChooser(new DComboBox)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
@@ -492,7 +494,7 @@ bool CreateAccountPage::checkFullname()
     return true;
 }
 
-bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
+bool CreateAccountPage::checkPassword(PasswordEdit *edit)
 {
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
                                                                                       edit->lineEdit()->text());
