@@ -266,6 +266,12 @@
         <translation>管理员</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="162"/>
+        <source>Network</source>
+        <translation>网络</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="146"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="156"/>
         <source>Standard User</source>
