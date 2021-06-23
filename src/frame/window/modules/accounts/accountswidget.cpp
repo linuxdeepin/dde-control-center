@@ -25,6 +25,7 @@
 #include "modules/accounts/user.h"
 #include "accountsdetailwidget.h"
 #include "window/utils.h"
+#include "onlineicon.h"
 
 #include <DStyleOption>
 #include <DStandardItem>
@@ -138,6 +139,33 @@ void AccountsWidget::addUser(User *user, bool t1)
     m_userList << user;
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
+
+    // 平安定制需求， 需要支持显示用户类型区分网络账户和本地账户
+    if (IsProfessionalSystem) {
+        auto *subTitleAction = new DViewItemAction;
+        if (1 == user->userType()) {
+            subTitleAction->setText(tr("Administrator"));
+        } else if(2 == user->userType()){
+            subTitleAction->setText(tr("Network"));
+        } else {
+            subTitleAction->setText(tr("Standard User"));
+        }
+
+        subTitleAction->setFontSize(DFontSizeManager::T8);
+        subTitleAction->setTextColorRole(DPalette::TextTips);
+        item->setTextActionList({subTitleAction});
+
+        connect(user, &User::userTypeChanged, this, [ = ](int userType) {
+            if (1 == userType) {
+                subTitleAction->setText(tr("Administrator"));
+            } else if (2 == userType){
+                subTitleAction->setText(tr("Network"));
+            } else {
+                subTitleAction->setText(tr("Standard User"));
+            }
+        });
+    }
+
     if (IsServerSystem) {
         auto *subTitleAction = new DViewItemAction;
         if (1 == user->userType()) {
@@ -157,6 +185,23 @@ void AccountsWidget::addUser(User *user, bool t1)
             }
         });
     }
+
+    // 平安定制需求， 对于在线用户， 显示在线标识
+    DViewItemAction *onlineFlag = new DViewItemAction(Qt::AlignCenter | Qt::AlignRight, QSize(), QSize(), true);
+        OnlineIcon *onlineIcon = new OnlineIcon(m_userlistView->viewport());
+        onlineIcon->setFixedSize(12, 12);
+        onlineFlag->setWidget(onlineIcon);
+        item->setActionList(Qt::Edge::RightEdge, {onlineFlag});
+        onlineFlag->setVisible(user->online());
+        if (onlineFlag->widget()) {
+            onlineFlag->widget()->setVisible(onlineFlag->isVisible());
+        }
+        connect(user, &User::onlineChanged, this, [ = ](const bool & online) {
+            onlineFlag->setVisible(online);
+            if (onlineFlag->widget()) {
+                onlineFlag->widget()->setVisible(onlineFlag->isVisible());
+            }
+        });
 
     m_userItemModel->appendRow(item);
     connectUserWithItem(user);

@@ -263,6 +263,8 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/accountfingeitem.cpp
                 window/modules/accounts/addfingedialog.cpp
                 window/modules/accounts/fingerwidget.cpp
+                window/modules/accounts/onlineicon.h
+                window/modules/accounts/onlineicon.cpp
 )
 
 # load bluetooth
