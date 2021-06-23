@@ -161,17 +161,31 @@ void Monitor::setModeList(const ResolutionList &modeList)
 {
     m_modeList.clear();
 
-    bool bFilter = true;
-    QGSettings solution("com.deepin.dde.control-center");
-    if (solution.keys().contains("filter-resolution")) {
-        bFilter = solution.get("filter-resolution").toBool();
-    }
-    // NOTE: ignore resolution less than 1024x768
-    for (auto m : modeList) {
-        if (bFilter && (m.width() < 1024 || m.height() < 768)) {
-            continue;
+    // NOTE: limit resolution by gsettings config
+    QGSettings settings("com.deepin.dde.control-center");
+
+    QStringList value;
+    if (settings.keys().contains("resolutionConfig"))
+        value = settings.get("resolutionConfig").toString().split("*");
+
+    QList<int> miniMode;
+    for (auto str : value) {
+        bool ok;
+        int res = str.toInt(&ok);
+        if (ok) {
+            miniMode << res;
         }
-        m_modeList.append(m);
+    }
+
+    if (miniMode.size() != 2) {
+        miniMode.clear();
+        miniMode << 1024 << 768;
+    }
+
+    for (auto m : modeList) {
+        if (m.width() >= miniMode.at(0) && m.height() >= miniMode.at(1)) {
+            m_modeList.append(m);
+        }
     }
     qSort(m_modeList.begin(), m_modeList.end(), compareResolution);
 
