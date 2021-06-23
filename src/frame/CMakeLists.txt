@@ -242,6 +242,8 @@ set(WIDGETS_FILES
                 ../../include/widgets/multiselectlistview.h
                 widgets/powerdisplaywidget.cpp
                 ../../include/widgets/powerdisplaywidget.h
+                widgets/passwordedit.cpp
+                ../../include/widgets/passwordedit.h
                 widgets/widgets.qrc
 )
 

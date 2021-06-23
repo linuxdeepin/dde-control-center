@@ -31,9 +31,7 @@
 #include "accountswidget.h"
 #include "modules/accounts/accountsworker.h"
 
-#include <ddialog.h>
 #include <DLineEdit>
-#include <dpasswordedit.h>
 #include <DSuggestButton>
 
 #include <QWidget>
@@ -55,6 +53,12 @@ class QHBoxLayout;
 class QPushButton;
 class QLabel;
 QT_END_NAMESPACE
+
+namespace dcc {
+namespace widgets {
+class PasswordEdit;
+}
+}
 
 namespace DCC_NAMESPACE {
 namespace accounts {
@@ -97,7 +101,7 @@ protected:
 private Q_SLOTS:
     bool checkName();
     bool checkFullname();
-    bool checkPassword(DPasswordEdit *edit);
+    bool checkPassword(dcc::widgets::PasswordEdit *edit);
 
 private:
     dcc::accounts::User *m_newUser;
@@ -106,8 +110,8 @@ private:
     AvatarListWidget *m_avatarListWidget;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_nameEdit;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_fullnameEdit;
-    DTK_WIDGET_NAMESPACE::DPasswordEdit *m_passwdEdit;
-    DTK_WIDGET_NAMESPACE::DPasswordEdit *m_repeatpasswdEdit;
+    dcc::widgets::PasswordEdit *m_passwdEdit;
+    dcc::widgets::PasswordEdit *m_repeatpasswdEdit;
     DTK_WIDGET_NAMESPACE::DComboBox *m_accountChooser;
 
     DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
