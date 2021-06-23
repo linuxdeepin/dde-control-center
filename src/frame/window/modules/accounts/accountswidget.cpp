@@ -159,6 +159,32 @@ void AccountsWidget::addUser(User *user, bool t1)
     DStandardItem *item = new DStandardItem;
     item->setData(0, AccountsWidget::ItemDataRole);
 
+    // 平安定制需求， 需要支持显示用户类型区分网络账户和本地账户
+    if (IsProfessionalSystem) {
+        auto *subTitleAction = new DViewItemAction;
+        if (1 == user->userType()) {
+            subTitleAction->setText(tr("Administrator"));
+        } else if(2 == user->userType()){
+            subTitleAction->setText(tr("Network"));
+        } else {
+            subTitleAction->setText(tr("Standard User"));
+        }
+
+        subTitleAction->setFontSize(DFontSizeManager::T8);
+        subTitleAction->setTextColorRole(DPalette::TextTips);
+        item->setTextActionList({subTitleAction});
+
+        connect(user, &User::userTypeChanged, this, [ = ](int userType) {
+            if (1 == userType) {
+                subTitleAction->setText(tr("Administrator"));
+            } else if (2 == userType){
+                subTitleAction->setText(tr("Network"));
+            } else {
+                subTitleAction->setText(tr("Standard User"));
+            }
+        });
+    }
+
     if (IsServerSystem) {
         /* 用户列表显示用户类型 */
         auto *subTitleAction = new DViewItemAction;
