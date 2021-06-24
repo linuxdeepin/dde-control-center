@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="28" height="28" viewBox="0 0 28 28">
+  <defs>
+    <path id="notification-b" d="M11,20 L17,20 C17,21.6568542 15.6568542,23 14,23 C12.4023191,23 11.0963391,21.75108 11.0050927,20.1762728 L11,20 L17,20 Z M14.3773685,5 C16.8942381,5 19.0585627,7.06738216 19.2115228,9.6176273 L19.2344541,9.999952 C19.4012564,12.7809831 20.3249519,15.5195476 21.9830894,17.9755256 L22,18 L6,18 L6.01691063,17.9755256 C7.6750481,15.5195476 8.59874356,12.7809831 8.76554589,9.999952 L8.78847718,9.6176273 C8.94143729,7.06738216 11.1057619,5 13.6226315,5 L14.3773685,5 Z"/>
+    <filter id="notification-a" width="200.1%" height="177.8%" x="-50.1%" y="-38.9%" filterUnits="objectBoundingBox">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter1"/>
+      <feOffset in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <use fill="#000" filter="url(#notification-a)" xlink:href="#notification-b"/>
+    <path fill="#FFF" stroke="#000" stroke-opacity=".05" d="M10.4853459,19.5 L17.5,19.5 L17.5,20 C17.5,21.9329966 15.9329966,23.5 14,23.5 C12.1435066,23.5 10.6128537,22.0505761 10.5053012,20.1907123 L10.4853459,19.5 Z M14.3773685,4.5 C17.1603114,4.5 19.5419207,6.77493437 19.7106259,9.5876918 L19.7335572,9.9700165 C19.8965517,12.6875618 20.8043199,15.3360036 22.3944466,17.6912981 L22.9532196,18.5 L5.0467804,18.5 L5.58864281,17.7157725 L5.60251387,17.6957483 C7.19568006,15.3360036 8.10344829,12.6875618 8.26644283,9.9700165 L8.28937412,9.5876918 C8.45807935,6.77493437 10.8396886,4.5 13.6226315,4.5 L14.3773685,4.5 Z"/>
+  </g>
+</svg>

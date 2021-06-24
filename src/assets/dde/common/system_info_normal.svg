@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 42 42">
+  <defs>
+    <linearGradient id="dcc_nav_systeminfo_42px-c" x1="50%" x2="50%" y1="-6.477%" y2="98.38%">
+      <stop offset="0%" stop-color="#4F4F4F"/>
+      <stop offset="100%" stop-color="#393939"/>
+    </linearGradient>
+    <path id="dcc_nav_systeminfo_42px-b" d="M23.875,0 C26.1531746,-4.18493883e-16 28,1.84682541 28,4.125 L28,11.35 L27.8651793,11.3565475 C26.9658167,11.4295539 26.2587065,12.1825729 26.2587065,13.1007463 C26.2587065,14.0645411 27.0378311,14.8463616 28.0006003,14.8507279 L28,22.875 C28,25.1531746 26.1531746,27 23.875,27 L4.125,27 C1.84682541,27 2.78995922e-16,25.1531746 0,22.875 L0.000543245912,14.8507276 C0.00326285881,14.8507401 0.0059839372,14.8507463 0.00870646766,14.8507463 C0.97520478,14.8507463 1.75870647,14.0672446 1.75870647,13.1007463 C1.75870647,12.134248 0.97520478,11.3507463 0.00870646766,11.3507463 L0,11.35 L0,4.125 C-2.78995922e-16,1.84682541 1.84682541,4.18493883e-16 4.125,0 L23.875,0 Z M2.5,24 C2.22385763,24 2,24.2238576 2,24.5 C2,24.7761424 2.22385763,25 2.5,25 C2.77614237,25 3,24.7761424 3,24.5 C3,24.2238576 2.77614237,24 2.5,24 Z M25.5,24 C25.2238576,24 25,24.2238576 25,24.5 C25,24.7761424 25.2238576,25 25.5,25 C25.7761424,25 26,24.7761424 26,24.5 C26,24.2238576 25.7761424,24 25.5,24 Z M2.5,2 C2.22385763,2 2,2.22385763 2,2.5 C2,2.77614237 2.22385763,3 2.5,3 C2.77614237,3 3,2.77614237 3,2.5 C3,2.22385763 2.77614237,2 2.5,2 Z M25.5,2 C25.2238576,2 25,2.22385763 25,2.5 C25,2.77614237 25.2238576,3 25.5,3 C25.7761424,3 26,2.77614237 26,2.5 C26,2.22385763 25.7761424,2 25.5,2 Z"/>
+    <filter id="dcc_nav_systeminfo_42px-a" width="150%" height="151.9%" x="-25%" y="-18.5%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.418378497 0"/>
+    </filter>
+    <linearGradient id="dcc_nav_systeminfo_42px-f" x1="25.196%" x2="90.265%" y1="-1.108%" y2="103.451%">
+      <stop offset="0%" stop-color="#A8E8FF"/>
+      <stop offset="100%" stop-color="#CDBEFF"/>
+    </linearGradient>
+    <path id="dcc_nav_systeminfo_42px-e" d="M6,3 L22,3 C23.6568542,3 25,4.34314575 25,6 L25,21 C25,22.6568542 23.6568542,24 22,24 L6,24 C4.34314575,24 3,22.6568542 3,21 L3,6 C3,4.34314575 4.34314575,3 6,3 Z"/>
+    <filter id="dcc_nav_systeminfo_42px-d" width="118.2%" height="119%" x="-9.1%" y="-4.8%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0"/>
+    </filter>
+    <filter id="dcc_nav_systeminfo_42px-g" width="113.6%" height="114.3%" x="-6.8%" y="-2.4%" filterUnits="objectBoundingBox">
+      <feOffset dy="-1" in="SourceAlpha" result="shadowOffsetInner1"/>
+      <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+      <feColorMatrix in="shadowInnerInner1" result="shadowMatrixInner1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0"/>
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetInner2"/>
+      <feComposite in="shadowOffsetInner2" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner2"/>
+      <feColorMatrix in="shadowInnerInner2" result="shadowMatrixInner2" values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.25 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixInner1"/>
+        <feMergeNode in="shadowMatrixInner2"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="dcc_nav_systeminfo_42px-h" x1="42.882%" x2="54.302%" y1="38.661%" y2="62.109%">
+      <stop offset="0%" stop-opacity=".25"/>
+      <stop offset="100%" stop-opacity=".2"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(7 8)">
+    <use fill="#000" filter="url(#dcc_nav_systeminfo_42px-a)" xlink:href="#dcc_nav_systeminfo_42px-b"/>
+    <use fill="url(#dcc_nav_systeminfo_42px-c)" xlink:href="#dcc_nav_systeminfo_42px-b"/>
+    <use fill="#000" filter="url(#dcc_nav_systeminfo_42px-d)" xlink:href="#dcc_nav_systeminfo_42px-e"/>
+    <use fill="url(#dcc_nav_systeminfo_42px-f)" xlink:href="#dcc_nav_systeminfo_42px-e"/>
+    <use fill="#000" filter="url(#dcc_nav_systeminfo_42px-g)" xlink:href="#dcc_nav_systeminfo_42px-e"/>
+    <path fill="#000" fill-opacity=".4" d="M3.5,0.5 C3.77614237,0.5 4,0.723857625 4,1 L4,1 L4,4 C4,4.82842712 3.32842712,5.5 2.5,5.5 L2.5,5.5 L1.5,5.5 C0.671572875,5.5 0,4.82842712 0,4 L0,4 L0,1 C0,0.723857625 0.223857625,0.5 0.5,0.5 C0.776142375,0.5 1,0.723857625 1,1 L1,1 L1,4 C1,4.27614237 1.22385763,4.5 1.5,4.5 L1.5,4.5 L2.5,4.5 C2.77614237,4.5 3,4.27614237 3,4 L3,4 L3,1 C3,0.723857625 3.22385763,0.5 3.5,0.5 Z M7.5,0.5 C8.32842712,0.5 9,1.17157288 9,2 L9,4 C9,4.82842712 8.32842712,5.5 7.5,5.5 L6.5,5.5 C5.67157288,5.5 5,4.82842712 5,4 L5,2 C5,1.17157288 5.67157288,0.5 6.5,0.5 L7.5,0.5 Z M13.2894737,0.5 C13.5656161,0.5 13.7894737,0.723857625 13.7894737,1 C13.7894737,1.27614237 13.5656161,1.5 13.2894737,1.5 L13.2894737,1.5 L11.5,1.5 C11.2238576,1.5 11,1.72385763 11,2 C11,2.27614237 11.2238576,2.5 11.5,2.5 L11.5,2.5 L12.5,2.5 C13.3284271,2.5 14,3.17157288 14,4 C14,4.82842712 13.3284271,5.5 12.5,5.5 L12.5,5.5 L10.7105263,5.5 C10.4343839,5.5 10.2105263,5.27614237 10.2105263,5 C10.2105263,4.72385763 10.4343839,4.5 10.7105263,4.5 L10.7105263,4.5 L12.5,4.5 C12.7761424,4.5 13,4.27614237 13,4 C13,3.72385763 12.7761424,3.5 12.5,3.5 L12.5,3.5 L11.5,3.5 C10.6715729,3.5 10,2.82842712 10,2 C10,1.17157288 10.6715729,0.5 11.5,0.5 L11.5,0.5 Z M7.5,1.5 L6.5,1.5 C6.22385763,1.5 6,1.72385763 6,2 L6,4 C6,4.27614237 6.22385763,4.5 6.5,4.5 L7.5,4.5 C7.77614237,4.5 8,4.27614237 8,4 L8,2 C8,1.72385763 7.77614237,1.5 7.5,1.5 Z" transform="translate(7 5.5)"/>
+    <path fill="url(#dcc_nav_systeminfo_42px-h)" d="M20,19 L20,20 L6,20 L6,19 L20,19 Z M22.5,17 L22.5,18 L6,18 L6,17 L22.5,17 Z M14.5,15 L14.5,16 L6,16 L6,15 L14.5,15 Z M9,13 L9,14 L6,14 L6,13 L9,13 Z"/>
+  </g>
+</svg>
