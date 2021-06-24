@@ -27,6 +27,8 @@
 #include <QVBoxLayout>
 #include <QResizeEvent>
 
+#include <QGSettings>
+
 DWIDGET_BEGIN_NAMESPACE
 class DTipLabel;
 DWIDGET_END_NAMESPACE
@@ -72,6 +74,7 @@ private:
 #ifndef DCC_DISABLE_GRUB_THEME
     dcc::widgets::SwitchWidget *m_theme;           // 主题功能
     DTK_WIDGET_NAMESPACE::DTipLabel *m_themeLbl;    // 主题提示
+    QGSettings *m_commoninfoBootWallpaperConfigSetting{nullptr};
 #endif
     DTK_WIDGET_NAMESPACE::DListView *m_bootList; // 启动项目列表
     dcc::widgets::TipsLabel *m_updatingLabel;    // Updating标签
@@ -80,6 +83,7 @@ private:
     QModelIndex m_curSelectedIndex;
     QStandardItemModel *m_bootItemModel;
     CommonInfoModel *m_commonInfoModel;
+    bool m_isCommoninfoBootWallpaperConfigValid;
 };
 
 } // namespace commoninfo
