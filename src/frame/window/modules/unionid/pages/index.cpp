@@ -229,6 +229,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     connect(DGuiApplicationHelper::instance(),&DGuiApplicationHelper::themeTypeChanged,this,&IndexPage::onThemeTypeChanged);
     connect(this, &IndexPage::toTellLogoutUser, Notificationmanager::instance(), &Notificationmanager::toTellLogoutUser);
+    connect(Notificationmanager::instance(), &Notificationmanager::toTellRefreshAccessTokenFinished, this, &IndexPage::refreshData);
 //    m_refreshTimer = new QTimer;
 //    connect(m_refreshTimer, &QTimer::timeout, this, &IndexPage::onTokenTimeout);
 }
@@ -344,6 +345,7 @@ void IndexPage::setUserInfo(QString usrInfo, bool bIsLogged)
         jsonValueResult = jsonObj.value("wechatunionid");
         m_wechatunionid = jsonValueResult.toString();
 
+        //已记录用户信息
         if (bIsLogged) {
             QString WeChatName = Notificationmanager::instance()->getWeChatName();
             m_wxNameLabel->setText(WeChatName);
@@ -394,6 +396,12 @@ void IndexPage::setDefaultInfo()
     m_uidLabel->clear();
     m_wxNameLabel->clear();
     m_modButton->setText("");
+}
+
+void IndexPage::refreshData(const QString& data)
+{
+    qInfo() << "refreshData";
+    setUserInfo(data,true);
 }
 
 void IndexPage::onStateChanged(const std::pair<qint32, QString> &state)

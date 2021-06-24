@@ -339,6 +339,7 @@ void Notificationmanager::onRefreshAccessToken(QString result)
 
     if (HttpClient::instance()->solveJson(result)) {
         setUserInfo(result);
+        Q_EMIT toTellRefreshAccessTokenFinished(result);
     }
 }
 

@@ -108,6 +108,8 @@ Q_SIGNALS:
 
     void toTellRefreshAccessToken(const QString&, const QString&);
 
+    void toTellRefreshAccessTokenFinished(const QString&);
+
 public Q_SLOTS:
     void onSetNotificationStatus();
     //展示ping的结果

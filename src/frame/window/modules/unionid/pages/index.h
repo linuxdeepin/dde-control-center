@@ -73,6 +73,7 @@ public:
     void setWeChatName(QString weChatName);
     void setUserAvatar(QPixmap avatar);
     void setDefaultInfo();
+    void refreshData(const QString& data);
 
 Q_SIGNALS:
     void requestSetAutoSync(bool enable) const;
