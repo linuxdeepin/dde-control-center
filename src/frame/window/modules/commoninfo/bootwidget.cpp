@@ -44,9 +44,10 @@ using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 DWIDGET_USE_NAMESPACE
 DTK_USE_NAMESPACE
-
+#define GSETTINGS_COMMONINFO_BOOT_WALLPAPER_CONFIG "commoninfo-boot-wallpaper-config" //启动菜单壁纸配置项
 BootWidget::BootWidget(QWidget *parent)
     : QWidget(parent)
+    , m_isCommoninfoBootWallpaperConfigValid(false)
 {
     QVBoxLayout *layout = new QVBoxLayout;
     SettingsGroup *groupOther = new SettingsGroup;
@@ -96,9 +97,12 @@ BootWidget::BootWidget(QWidget *parent)
     //~ contents_path /commoninfo/Boot Menu
     m_theme->setTitle(tr("Theme"));
 #endif
-    DTipLabel *backgroundLabel = new DTipLabel(tr("Click the option in boot menu to set it as the first boot"));
+    QMap<bool, QString> mapBackgroundMessage;
+    mapBackgroundMessage[true] = tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background");
+    mapBackgroundMessage[false] = tr("Click the option in boot menu to set it as the first boot");
+    DTipLabel *backgroundLabel = new DTipLabel(mapBackgroundMessage[false]);
 #ifndef DCC_DISABLE_GRUB_THEME
-    backgroundLabel->setText(tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background"));
+    backgroundLabel->setText(mapBackgroundMessage[true]);
 #endif
     backgroundLabel->setWordWrap(true);
     backgroundLabel->setContentsMargins(5, 0, 10, 0);
@@ -130,7 +134,17 @@ BootWidget::BootWidget(QWidget *parent)
     setWindowTitle(tr("Boot Menu"));
 
 #ifndef DCC_DISABLE_GRUB_THEME
+    m_commoninfoBootWallpaperConfigSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_isCommoninfoBootWallpaperConfigValid = m_commoninfoBootWallpaperConfigSetting->get(GSETTINGS_COMMONINFO_BOOT_WALLPAPER_CONFIG).toBool();
     connect(m_theme, &SwitchWidget::checkedChanged, this, &BootWidget::enableTheme);
+    connect(m_commoninfoBootWallpaperConfigSetting, &QGSettings::changed, this, [=](const QString &key) {
+        if (key == "commoninfoBootWallpaperConfig") {
+            m_isCommoninfoBootWallpaperConfigValid = m_commoninfoBootWallpaperConfigSetting->get(GSETTINGS_COMMONINFO_BOOT_WALLPAPER_CONFIG).toBool();
+            m_background->setThemeEnable(m_isCommoninfoBootWallpaperConfigValid);
+            backgroundLabel->setText(mapBackgroundMessage[m_isCommoninfoBootWallpaperConfigValid]);
+            m_background->blockSignals(!m_isCommoninfoBootWallpaperConfigValid);
+        }
+    });
 #endif
     connect(m_bootDelay, &SwitchWidget::checkedChanged, this, &BootWidget::bootdelay);
     connect(m_bootList, &DListView::clicked, this ,&BootWidget::onCurrentItem);
@@ -142,6 +156,10 @@ BootWidget::BootWidget(QWidget *parent)
 #ifndef DCC_DISABLE_GRUB_THEME
     GSettingWatcher::instance()->bind("commoninfoBootTheme", m_theme);
     GSettingWatcher::instance()->bind("commoninfoBootTheme", m_themeLbl);
+
+    m_background->setThemeEnable(m_isCommoninfoBootWallpaperConfigValid);
+    backgroundLabel->setText(mapBackgroundMessage[m_isCommoninfoBootWallpaperConfigValid]);
+    m_background->blockSignals(!m_isCommoninfoBootWallpaperConfigValid);
 #endif
 }
 
@@ -187,8 +205,10 @@ void BootWidget::setModel(CommonInfoModel *model)
     connect(model, &CommonInfoModel::updatingChanged, m_updatingLabel, &SmallLabel::setVisible);
     connect(model, &CommonInfoModel::entryListsChanged, this, &BootWidget::setEntryList);
     connect(model, &CommonInfoModel::themeEnabledChanged, this, [&](const bool _t1) {
-        m_background->setThemeEnable(_t1);
-        m_background->updateBackground(m_commonInfoModel->background());
+        if (m_isCommoninfoBootWallpaperConfigValid) {
+            m_background->setThemeEnable(_t1);
+            m_background->updateBackground(m_commonInfoModel->background());
+        }
     });
     connect(model, &CommonInfoModel::backgroundChanged, m_background, &CommonBackgroundItem::updateBackground);
 
@@ -198,12 +218,13 @@ void BootWidget::setModel(CommonInfoModel *model)
     m_theme->setChecked(model->themeEnabled());
 #endif
     m_updatingLabel->setVisible(model->updating());
-    m_background->setThemeEnable(model->themeEnabled());
+    m_background->setThemeEnable(model->themeEnabled() && m_isCommoninfoBootWallpaperConfigValid);
 
     setEntryList(model->entryLists());
     setDefaultEntry(model->defaultEntry());
 
-    m_background->updateBackground(model->background());
+    if(m_isCommoninfoBootWallpaperConfigValid)
+        m_background->updateBackground(model->background());
 }
 
 void BootWidget::setEntryList(const QStringList &list)

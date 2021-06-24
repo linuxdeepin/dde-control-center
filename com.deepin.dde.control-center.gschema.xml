@@ -587,6 +587,11 @@
             <summary></summary>
             <description>default is true</description>
         </key>
+        <key name="commoninfo-boot-wallpaper-config" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
         <key name="developer-mode" type="b">
             <default>true</default>
             <summary></summary>
