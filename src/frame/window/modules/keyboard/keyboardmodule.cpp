@@ -73,9 +73,6 @@ void KeyboardModule::reset()
 void KeyboardModule::active()
 {
     m_work->active();
-    // 平板环境只要三级菜单
-    if (DGuiApplicationHelper::isTabletEnvironment())
-           return showSystemLanguageSetting();
 
     m_keyboardWidget = new KeyboardWidget;
     m_keyboardWidget->setVisible(false);
@@ -84,7 +81,10 @@ void KeyboardModule::active()
     connect(m_keyboardWidget, &KeyboardWidget::showSystemLanguageSetting, this, &KeyboardModule::showSystemLanguageSetting);
     connect(m_keyboardWidget, &KeyboardWidget::showShortCutSetting, this, &KeyboardModule::showShortCutSetting);
     m_frameProxy->pushWidget(this, m_keyboardWidget);
-    m_keyboardWidget->setVisible(true);
+
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        m_keyboardWidget->setVisible(true);
+
     m_keyboardWidget->setDefaultWidget();
 }
 

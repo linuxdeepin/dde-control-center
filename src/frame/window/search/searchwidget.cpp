@@ -167,6 +167,22 @@ SearchModel::SearchModel(QObject *parent)
     for (auto data : m_removedefaultWidgetList) {
         m_defaultRemoveableList << data.second;
     }
+
+    //平板需要移除的具体页面列表
+    m_uosPadRemoveableList = {
+        "Delete Account",
+        "Auto Login",
+        "Create Account",
+        "New Account",
+        "Monitor will suspend after",
+        "Computer will suspend after",
+        "Lock screen after",
+        "Shut down",
+        "Power Plans",
+        "Power Saving Settings",
+        "Wakeup Settings",
+        "Plugged In"
+    };
 }
 
 SearchWidget::SearchWidget(QWidget *parent)
@@ -368,6 +384,10 @@ void SearchModel::loadxml()
             if (result == m_removeableActualExistList.end()) {
                 continue;
             }
+        }
+
+        if (m_uosPadRemoveableList.contains(searchBoxStrcut->source)) {
+            continue;
         }
 
         if ("" == searchBoxStrcut->actualModuleName || "" == searchBoxStrcut->translateContent) {
@@ -746,7 +766,7 @@ void SearchModel::setLanguage(const QString &type)
                             qDebug() << " [SearchWidget]  xmlRead.text : " << xmlRead.text().toString();
 #endif
                             if (xmlExplain == XML_Source) {  // get xml source date
-                                searchBoxStrcut->translateContent = xmlRead.text().toString();
+                                searchBoxStrcut->source = xmlRead.text().toString();
                             }
                             else if (xmlExplain == XML_Title) {
                                 if (xmlRead.text().toString() != "")  // translation not nullptr can set it
@@ -977,7 +997,7 @@ void SearchWidget::setLanguage(const QString &type)
 void SearchWidget::addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation)
 {
 #ifdef USE_TABLET
-    if (moduleName == "power" || moduleName == "personalization")
+    if (moduleName == "personalization")
         return;
 #endif
 

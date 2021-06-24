@@ -55,6 +55,7 @@ namespace DCC_NAMESPACE {
 namespace search {
 struct SearchBoxStruct {
     typedef std::shared_ptr<SearchBoxStruct> Ptr;
+    QString source;
     QString translateContent;
     QString actualModuleName;
     QString childPageName;
@@ -121,6 +122,7 @@ private:
     QList<QString> m_TxtList;
     QList<QString> m_TxtListAll;
     QStringList m_defaultRemoveableList;//存储已知全部模块是否存在
+    QList<QString> m_uosPadRemoveableList; //存储平板模式需要移除的模块
     QList<QPair<QString, QString>> m_removedefaultWidgetList;//用于存储可以出设备名称，和该名称对应的页面
     QList<QPair<QString, QString>> m_removeableActualExistList;//存储实际模块是否存在
     QList<QPair<QString, bool>> m_contensServerTxtList;
