@@ -50,14 +50,7 @@ FingerWorker::FingerWorker(FingerModel *model, QObject *parent)
     connect(m_fingerPrintInter, &Fingerprint::Touch, m_model, &FingerModel::onTouch);
     connect(m_SMInter, &SessionManagerInter::LockedChanged, m_model, &FingerModel::lockedChanged);
 
-//    connect(m_fingerPrintInter, &Fingerprint::DeviceStatus, m_model, &FingerModel::dealDevicesStatus);
-    //由于klu上使用上述信号连接会报错 找不到信号（klu与pgv包对应的版本不同），所以修改如下做规避
-    qDebug() << "suo-->connect " << QDBusConnection::systemBus().connect("com.deepin.daemon.Authenticate",
-                                         "/com/deepin/daemon/Authenticate/Fingerprint",
-                                         "com.deepin.daemon.Authenticate.Fingerprint",
-                                         "DevicesStatus",
-                                         m_model,
-                                         SLOT(dealDevicesStatus(bool)));
+    connect(m_fingerPrintInter, &Fingerprint::DeviceStatus, m_model, &FingerModel::dealDevicesStatus);
 
     auto defualtDevice = m_fingerPrintInter->defaultDevice();
     m_model->setIsVaild(!defualtDevice.isEmpty());
