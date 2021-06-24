@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <filter id="deepin-browser24-a" width="122.7%" height="122.7%" x="-11.4%" y="-11.4%" filterUnits="objectBoundingBox">
+      <feOffset in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="deepin-browser24-c" x1="50%" x2="50%" y1="0%" y2="98.139%">
+      <stop offset="0%" stop-color="#FFF"/>
+      <stop offset="100%" stop-color="#EDEDED"/>
+    </linearGradient>
+    <rect id="deepin-browser24-b" width="21.876" height="21.876" x="0" y="0" rx="10.938"/>
+    <filter id="deepin-browser24-d" width="128.2%" height="130.7%" x="-13.5%" y="-14.9%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0.016769553   0 0 0 0 0.440387228  0 0 0 0.29 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="deepin-browser24-g" x1="36.116%" x2="81.488%" y1="9.879%" y2="45.888%">
+      <stop offset="0%" stop-color="#A05FF8"/>
+      <stop offset="100%" stop-color="#0BDCFF"/>
+    </linearGradient>
+    <path id="deepin-browser24-f" d="M15.7617633,0.125807333 C23.5517656,1.03042586 29.6220295,9.16808461 29.6220295,13.2776821 C29.6220295,17.3872795 26.6495801,27.7728589 17.9898482,26.4164007 C9.33011642,25.0599424 -5.74544662,21.4994231 2.33749975,19.951555 C3.65402406,19.6994433 4.81113526,19.4091812 5.8245357,19.0843943 C6.14537228,19.136862 6.4743895,19.1637638 6.80968999,19.1637638 C10.1975494,19.1637638 12.9439521,16.4173611 12.9439521,13.0295017 C12.9439521,9.64164232 10.1975494,6.89523965 6.80968999,6.89523965 C5.11932111,6.89523965 3.58864291,7.57895674 2.47911782,8.6849285 L2.4736086,8.71872069 C3.137541,4.90779333 7.97176087,-0.778811195 15.7617633,0.125807333 Z"/>
+    <linearGradient id="deepin-browser24-h" x1="50%" x2="81.713%" y1="0%" y2="50%">
+      <stop offset="0%" stop-color="#336EFF"/>
+      <stop offset="100%" stop-color="#954FFF"/>
+    </linearGradient>
+    <linearGradient id="deepin-browser24-j" x1="50%" x2="54.602%" y1="0%" y2="82.155%">
+      <stop offset="0%" stop-color="#523DFF"/>
+      <stop offset="100%" stop-color="#A717FF"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd" filter="url(#deepin-browser24-a)" transform="translate(1 1)">
+    <mask id="deepin-browser24-e" fill="#fff">
+      <use xlink:href="#deepin-browser24-b"/>
+    </mask>
+    <use fill="url(#deepin-browser24-c)" xlink:href="#deepin-browser24-b"/>
+    <g filter="url(#deepin-browser24-d)" mask="url(#deepin-browser24-e)">
+      <g transform="rotate(24 2.947 13.863)">
+        <mask id="deepin-browser24-i" fill="#fff">
+          <use xlink:href="#deepin-browser24-f"/>
+        </mask>
+        <use fill="url(#deepin-browser24-g)" xlink:href="#deepin-browser24-f"/>
+        <path fill="url(#deepin-browser24-h)" d="M2.4135129,8.79739348 C3.19822348,6.95353698 5.77732446,4.53408257 9.79586208,3.92736733 C13.8143997,3.32065209 16.8360567,4.92535842 18.7620115,7.00493632 C20.4514641,8.82914765 23.374112,13.4897516 21.1458426,18.45468 C20.4067606,20.1014688 18.4709351,22.6531643 15.3383662,26.1097663 L0.555763548,20.8297727 L10.90169,13.5736643 C6.15759428,10.3894837 3.32820192,8.79739348 2.4135129,8.79739348 Z" mask="url(#deepin-browser24-i)"/>
+        <path fill="url(#deepin-browser24-j)" d="M1.71490943,9.86854495 C2.49877919,8.02563117 4.87327992,5.6812588 8.72513612,5.93359774 C12.5769923,6.18593669 15.1526934,8.31814855 16.2171518,11.1448944 C17.103652,13.4990595 17.116338,17.1397935 14.8896433,20.7692879 C14.0232646,22.1814782 12.1959881,24.1115356 9.4078137,26.5594599 L-0.322464249,22.0388271 L10.0123766,14.7864286 C5.39444074,11.5078395 2.62861836,9.86854495 1.71490943,9.86854495 Z" mask="url(#deepin-browser24-i)"/>
+      </g>
+    </g>
+  </g>
+</svg>

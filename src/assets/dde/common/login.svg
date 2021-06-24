@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="65" height="65" viewBox="0 0 65 65">
+  <defs>
+    <rect id="button_login-b" width="53" height="53" x="0" y="0" rx="26.5"/>
+    <filter id="button_login-a" width="141.5%" height="141.5%" x="-20.8%" y="-13.2%" filterUnits="objectBoundingBox">
+      <feOffset dy="4" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="3"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0.164207909   0 0 0 0 0.686537591  0 0 0 0.4 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" transform="translate(6 2)">
+    <use fill="#000" filter="url(#button_login-a)" xlink:href="#button_login-b"/>
+    <use fill="#0059D2" xlink:href="#button_login-b"/>
+    <g stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(17 20)">
+      <polyline points="11 0 18 7 11 14"/>
+      <line x1="18" y1="7" y2="7"/>
+    </g>
+  </g>
+</svg>

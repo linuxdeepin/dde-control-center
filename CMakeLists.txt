@@ -64,6 +64,9 @@ install(FILES dde-control-center-wapper DESTINATION bin PERMISSIONS OWNER_READ O
 install(FILES com.deepin.dde.control-center.gschema.xml DESTINATION share/glib-2.0/schemas)
 install(CODE "execute_process(COMMAND glib-compile-schemas ${CMAKE_INSTALL_PREFIX}/share/glib-2.0/schemas)")
 
+#manual
+install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/assets/dde DESTINATION /usr/share/deepin-manual/manual-assets/system/)
+
 #service
 install(FILES com.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)
 

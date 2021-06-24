@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="42" height="42" viewBox="0 0 42 42">
+  <defs>
+    <filter id="dcc_nav_sound_42px-a" width="183.9%" height="196%" x="-41.9%" y="-48%" filterUnits="objectBoundingBox">
+      <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="2"/>
+      <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+      <feMerge>
+        <feMergeNode in="shadowMatrixOuter1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="dcc_nav_sound_42px-b" x1="0%" x2="100%" y1="64.026%" y2="64.026%">
+      <stop offset="0%" stop-color="#D0D4DD"/>
+      <stop offset="13.714%" stop-color="#E8EAF6"/>
+      <stop offset="63.023%" stop-color="#A6A7AE"/>
+      <stop offset="100%" stop-color="#AEB0B9"/>
+    </linearGradient>
+    <linearGradient id="dcc_nav_sound_42px-c" x1="5.238%" x2="78.748%" y1="64.935%" y2="77.664%">
+      <stop offset="0%" stop-color="#DBDBDB"/>
+      <stop offset="100%" stop-color="#90969D"/>
+    </linearGradient>
+    <linearGradient id="dcc_nav_sound_42px-d" x1="4.043%" x2="96.756%" y1="53.429%" y2="57.017%">
+      <stop offset="0%" stop-color="#383838"/>
+      <stop offset="26.111%" stop-color="#5A5A5A"/>
+      <stop offset="100%" stop-color="#1A1A1A"/>
+    </linearGradient>
+    <linearGradient id="dcc_nav_sound_42px-e" x1="50%" x2="50%" y1="9.952%" y2="32.976%">
+      <stop offset="0%" stop-color="#E4E4E4"/>
+      <stop offset="100%" stop-color="#B1B1B4"/>
+    </linearGradient>
+    <linearGradient id="dcc_nav_sound_42px-f" x1="69.722%" x2="38.881%" y1="37.979%" y2="40.589%">
+      <stop offset="0%" stop-color="#E4E4E4" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#9898A0" stop-opacity=".62"/>
+    </linearGradient>
+    <ellipse id="dcc_nav_sound_42px-h" cx="15.5" cy="7.5" rx="15.5" ry="7.5"/>
+    <filter id="dcc_nav_sound_42px-g" width="112.9%" height="126.7%" x="-6.5%" y="-6.7%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation=".5"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0"/>
+    </filter>
+    <radialGradient id="dcc_nav_sound_42px-i" cx="67.476%" cy="67.477%" r="150.607%" fx="67.476%" fy="67.477%" gradientTransform="matrix(-.44254 -.13177 .05883 -.99128 .934 1.433)">
+      <stop offset="0%" stop-color="#505255"/>
+      <stop offset="100%" stop-color="#1E1F21"/>
+    </radialGradient>
+    <linearGradient id="dcc_nav_sound_42px-j" x1="86.462%" x2="2.828%" y1="53.003%" y2="50%">
+      <stop offset="0%" stop-color="#343434"/>
+      <stop offset="100%" stop-color="#151515"/>
+    </linearGradient>
+    <radialGradient id="dcc_nav_sound_42px-m" cx="35.742%" cy="61.175%" r="88.183%" fx="35.742%" fy="61.175%" gradientTransform="matrix(-.49597 -.12672 .04062 -.63594 .51 1.046)">
+      <stop offset="0%" stop-color="#ABABAB"/>
+      <stop offset="100%" stop-color="#5E6168"/>
+    </radialGradient>
+    <path id="dcc_nav_sound_42px-l" d="M15.5,7.5 C18.8137085,7.5 21.5,8.95507456 21.5,10.75 C21.5,11.7651669 20.6407189,12.6716236 19.2946369,13.26761 C18.0881384,13.4190315 16.8152498,13.5 15.5,13.5 C14.1847502,13.5 12.9118616,13.4190315 11.7049801,13.2676507 C10.3592811,12.6716236 9.5,11.7651669 9.5,10.75 C9.5,8.95507456 12.1862915,7.5 15.5,7.5 Z"/>
+    <filter id="dcc_nav_sound_42px-k" width="158.3%" height="216.7%" x="-29.2%" y="-75%" filterUnits="objectBoundingBox">
+      <feOffset dy="-1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd" filter="url(#dcc_nav_sound_42px-a)" transform="rotate(60 10.706 22.196)">
+    <path fill="url(#dcc_nav_sound_42px-b)" stroke="url(#dcc_nav_sound_42px-c)" stroke-width=".5" d="M14,12.75 C11.1005051,12.75 8.75,15.1005051 8.75,18 L8.75,18.5 C8.75,21.6756373 11.3243627,24.25 14.5,24.25 L16.5,24.25 C19.6756373,24.25 22.25,21.6756373 22.25,18.5 L22.25,18 C22.25,15.1005051 19.8994949,12.75 17,12.75 L14,12.75 Z"/>
+    <ellipse cx="15.5" cy="17.5" fill="url(#dcc_nav_sound_42px-d)" rx="7" ry="4"/>
+    <path fill="url(#dcc_nav_sound_42px-e)" d="M21.2938857,5.58523702 C29.0672109,11.110994 31.9178905,14.9931965 29.8459243,17.2318446 C26.459311,20.8908982 4.54068901,20.8908982 1.15407567,17.2318446 C-0.917890292,14.9931967 1.93278856,11.1109947 9.70611223,5.5852385 L9.70611129,5.58523719 C13.1751156,3.11925569 17.8248813,3.11925563 21.2938857,5.58523702 Z" transform="matrix(1 0 0 -1 0 23.476)"/>
+    <path fill="url(#dcc_nav_sound_42px-f)" d="M21.2938857,5.58523702 C29.0672109,11.110994 31.9178905,14.9931965 29.8459243,17.2318446 C26.459311,20.8908982 4.54068901,20.8908982 1.15407567,17.2318446 C-0.917890292,14.9931967 1.93278856,11.1109947 9.70611223,5.5852385 L9.70611129,5.58523719 C13.1751156,3.11925569 17.8248813,3.11925563 21.2938857,5.58523702 Z" transform="matrix(1 0 0 -1 0 23.476)"/>
+    <use fill="#000" filter="url(#dcc_nav_sound_42px-g)" xlink:href="#dcc_nav_sound_42px-h"/>
+    <use fill="#FAFAFA" xlink:href="#dcc_nav_sound_42px-h"/>
+    <path fill="#A1A1A1" d="M30.9915473,7.24994293 C30.9971678,7.33296106 31,7.41632049 31,7.5 C31,11.6421356 24.0604136,15 15.5,15 C6.93958638,15 0,11.6421356 0,7.5 C0,7.41632049 0.00283219524,7.33296106 0.00845273317,7.24994293 C0.281048823,11.2764365 7.11252403,14.5 15.5,14.5 C23.8010071,14.5 30.5779306,11.3425591 30.9810307,7.37432564 Z"/>
+    <ellipse cx="15.5" cy="7.25" fill="url(#dcc_nav_sound_42px-i)" stroke="url(#dcc_nav_sound_42px-j)" stroke-width=".5" rx="13.75" ry="6"/>
+    <use fill="#000" filter="url(#dcc_nav_sound_42px-k)" xlink:href="#dcc_nav_sound_42px-l"/>
+    <use fill="url(#dcc_nav_sound_42px-m)" xlink:href="#dcc_nav_sound_42px-l"/>
+  </g>
+</svg>

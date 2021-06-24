@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>F7</title>
+    <desc>Created with Sketch.</desc>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M15.7,19.5 L4.3,19.5 C2.21,19.5 0.5,17.79 0.5,15.7 L0.5,4.3 C0.5,2.21 2.21,0.5 4.3,0.5 L15.7,0.5 C17.79,0.5 19.5,2.21 19.5,4.3 L19.5,15.7 C19.5,17.79 17.79,19.5 15.7,19.5 Z" id="路径" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <path d="M15.5,19.5 L4.5,19.5 C2.291,19.5 0.5,17.709 0.5,15.5 L0.5,4.5 C0.5,2.291 2.291,0.5 4.5,0.5 L15.5,0.5 C17.709,0.5 19.5,2.291 19.5,4.5 L19.5,15.5 C19.5,17.709 17.709,19.5 15.5,19.5 Z" id="路径" stroke="#CBCBCB"></path>
+        <g id="F1" fill="#000000" fill-rule="nonzero">
+            <g id="g8" transform="translate(5.169492, 4.932203)">
+                <polygon id="path6" points="5 1 1 1 1 4 4 4 4 5 1 5 1 9 0 9 0 0 5 0"></polygon>
+            </g>
+            <polygon id="path10" points="16.1694916 13.9322033 11.1694916 13.9322033 11.1694916 12.9322033 13.1694916 12.9322033 13.1694916 6.26520333 11.1694916 6.84820333 11.1694916 5.82920333 14.1694916 4.92420333 14.1694916 12.9322033 16.1694916 12.9322033"></polygon>
+        </g>
+    </g>
+</svg>
