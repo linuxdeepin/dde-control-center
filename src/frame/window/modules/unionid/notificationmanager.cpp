@@ -419,6 +419,6 @@ void Notificationmanager::onUserInfoChanged(const QVariantMap &userInfo)
     }
     else {
         setLoginType(true);     
-        Q_EMIT toTellLogoutUser(m_requrstAvatar,m_nickName);
+        //Q_EMIT toTellLogoutUser(m_requrstAvatar,m_nickName);
     }
 }
