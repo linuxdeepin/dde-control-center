@@ -22,12 +22,14 @@
 #include "titleedit.h"
 
 #include <DIconButton>
+#include <DLineEdit>
+#include <DDesktopServices>
+#include <DApplicationHelper>
 
 #include <QLabel>
 #include <QLineEdit>
 #include <QHBoxLayout>
-#include <DLineEdit>
-#include <DDesktopServices>
+#include <QInputMethod>
 
 DWIDGET_USE_NAMESPACE
 
@@ -61,6 +63,14 @@ TitleEdit::TitleEdit(QWidget *parent)
         }
     });
     connect(editWidget, &DIconButton::clicked, this, &TitleEdit::setEdit);
+
+    // 虚拟键盘
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(m_lineEdit, &DLineEdit::focusChanged, this, [ = ] {
+            QInputMethod *inputmethod = QGuiApplication::inputMethod();
+            m_lineEdit->hasFocus() ? inputmethod->show() : inputmethod->hide();
+        });
+    }
 }
 
 void TitleEdit::setName()
