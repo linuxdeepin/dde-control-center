@@ -402,6 +402,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
                 return;
             }
 
+            setFocus();
             Q_EMIT requsetSetPassWordAge(m_curUser, m_ageEdit->text().toInt());
         });
         connect(m_curUser, &User::passwordAgeChanged, this, [=](const int age) {
