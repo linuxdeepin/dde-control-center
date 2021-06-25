@@ -86,7 +86,8 @@ public Q_SLOTS:
     void setAutoLogin(User *user, const bool autoLogin);
     void setAdministrator(User *user, const bool asAdministrator);
     void onUserListChanged(const QStringList &userList);
-    void setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd, const bool needResult);
+    void setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd,  const bool needResule = true);
+    void resetPassword(User *user, const QString &password);
     void deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
     void setMaxPasswordAge(User *user, const int maxAge);
@@ -99,6 +100,8 @@ public Q_SLOTS:
     void addUser(const QString &userPath);
     void removeUser(const QString &userPath);
     void setGroups(User *user, const QStringList &usrGroups);
+    void setPasswordHint(User *user, const QString &passwordHint);
+
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);
     void getAllGroups();
@@ -121,7 +124,6 @@ private:
 #ifdef DCC_ENABLE_ADDOMAIN
     Notifications *m_notifyInter;
 #endif
-    QSet<QString> m_userSet;
     QMap<User *, AccountsUser *> m_userInters;
     QString m_currentUserName;
     DisplayManager *m_dmInter;

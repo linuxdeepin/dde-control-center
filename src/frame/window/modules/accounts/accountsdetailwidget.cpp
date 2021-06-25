@@ -91,9 +91,10 @@ void AccountSpinBox::focusOutEvent(QFocusEvent *event)
     return DSpinBox::focusOutEvent(event);
 }
 
-AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
+AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
+    , m_userModel(model)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_avatarLayout(new QHBoxLayout)
@@ -102,6 +103,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_modifyPassword(new QPushButton)
     , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
     , m_scrollArea(new QScrollArea)
+    , m_curLoginUser(nullptr)
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -146,6 +148,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     if (m_isServerSystem) {
         initGroups(contentLayout);
     }
+
+    setAccountModel(model);
 }
 
 AccountsDetailWidget::~AccountsDetailWidget()
@@ -375,6 +379,12 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
         m_inputLineEdit->hideAlertMessage();
         m_inputLineEdit->lineEdit()->setFocus();
     });
+
+    for(auto user : m_userModel->userList()) {
+        if (user->name() == m_userModel->getCurrentUserName()) {
+            m_curLoginUser = user;
+        }
+    }
 }
 
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
@@ -460,7 +470,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
     //~ contents_path /accounts/Accounts Detail
-    m_modifyPassword->setText(tr("Change Password"));
+    m_modifyPassword->setText(m_curUser->isCurrentUser() ? tr("Change Password") : tr("Reset Password"));
     //~ contents_path /accounts/Accounts Detail
     m_deleteAccount->setText(tr("Delete Account"));
     //~ contents_path /accounts/Accounts Detail
@@ -474,6 +484,9 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_asAdministrator->setChecked(m_curUser->userType() == User::UserType::Administrator);
     //修改密码状态判断
     connect(m_gsettings, &QGSettings::changed, this, &AccountsDetailWidget::setModifyPwdBtnStatus);
+    connect(m_curUser, &User::onlineChanged, this, [=] {
+        setModifyPwdBtnStatus("accountUserModifypasswd");
+    });
     setModifyPwdBtnStatus("accountUserModifypasswd");
 
     //修改密码
@@ -489,8 +502,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //自动登录，无密码登录操作
     connect(m_curUser, &User::autoLoginChanged, m_autoLogin, &SwitchWidget::setChecked);
-    connect(m_curUser, &User::nopasswdLoginChanged,
-            m_nopasswdLogin, &SwitchWidget::setChecked);
+    connect(m_curUser, &User::nopasswdLoginChanged, m_nopasswdLogin, &SwitchWidget::setChecked);
     connect(m_autoLogin, &SwitchWidget::checkedChanged,
             this, [ = ](const bool autoLogin) {
         if (autoLogin) {
@@ -553,7 +565,7 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
     if (!model) {
         return;
     }
-    m_userModel = model;
+
     m_autoLogin->setVisible(m_userModel->isAutoLoginVisable());
     m_nopasswdLogin->setVisible(m_userModel->isNoPassWordLoginVisable());
 
@@ -617,6 +629,9 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
     onGidChanged(m_curUser->gid());
     connect(m_curUser, &User::groupsChanged, this, &AccountsDetailWidget::changeUserGroup);
     connect(m_curUser, &User::gidChanged, this, &AccountsDetailWidget::onGidChanged);
+    connect(m_curLoginUser, &User::userTypeChanged, this, [=] {
+        setModifyPwdBtnStatus("accountUserModifypasswd");
+    });
 }
 
 void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
@@ -687,7 +702,7 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
 
     const QString btnStatus = m_gsettings->get(key).toString();
 
-    m_modifyPassword->setEnabled("Enabled" == btnStatus && m_curUser->isCurrentUser());
+    m_modifyPassword->setEnabled("Enabled" == btnStatus && (!m_curUser->online() || m_curUser->isCurrentUser()) && m_curLoginUser->userType() == 1);
 
     m_modifyPassword->setVisible("Hidden" != btnStatus);
 }

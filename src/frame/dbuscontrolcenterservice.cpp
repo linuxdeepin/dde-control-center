@@ -188,4 +188,3 @@ bool DBusControlCenterService::isModuleAvailable(const QString &m)
 {
     return parent()->isModuleAvailable(m);
 }
-

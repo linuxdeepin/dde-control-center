@@ -154,9 +154,8 @@ QStringList AccountsModule::availPage() const
 //显示账户信息
 void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
-    AccountsDetailWidget *w = new AccountsDetailWidget(account);
+    AccountsDetailWidget *w = new AccountsDetailWidget(account, m_userModel);
     w->setVisible(false);
-    w->setAccountModel(m_userModel);
     m_fingerWorker->refreshUserEnrollList(account->name());
     w->setFingerModel(m_fingerModel);
 
@@ -198,6 +197,7 @@ void AccountsModule::onShowCreateAccountPage()
     connect(w, &CreateAccountPage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
     connect(w, &CreateAccountPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
+    connect(w, &CreateAccountPage::requestSetPasswordHint, m_accountsWorker, &AccountsWorker::setPasswordHint);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
     m_isCreatePage = true;
@@ -218,10 +218,12 @@ AccountsModule::~AccountsModule()
 //修改密码界面
 void AccountsModule::onShowPasswordPage(User *account)
 {
-    ModifyPasswdPage *w = new ModifyPasswdPage(account);
+    ModifyPasswdPage *w = new ModifyPasswdPage(account, account->isCurrentUser());
     w->setVisible(false);
     connect(w, &ModifyPasswdPage::requestChangePassword, m_accountsWorker, &AccountsWorker::setPassword);
+    connect(w, &ModifyPasswdPage::requestResetPassword, m_accountsWorker, &AccountsWorker::resetPassword);
     connect(w, &ModifyPasswdPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
+    connect(w, &ModifyPasswdPage::requestSetPasswordHint, m_accountsWorker, &AccountsWorker::setPasswordHint);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
 }

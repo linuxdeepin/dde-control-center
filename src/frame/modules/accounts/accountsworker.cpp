@@ -126,6 +126,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     struct passwd *pws;
     pws = getpwuid(getuid());
     m_currentUserName = QString(pws->pw_name);
+    m_userModel->setCurrentUserName(m_currentUserName);
 
     connect(m_accountsInter, &Accounts::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &Accounts::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
@@ -203,6 +204,22 @@ void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
     watch->deleteLater();
 }
 
+void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)
+{
+    AccountsUser *userInter = m_userInters.value(user);
+
+    if (!userInter) {
+        for (auto key : m_userInters.keys()) {
+            if (key->name() == user->name()) {
+                userInter = m_userInters.value(key);
+                break;
+            }
+        }
+    }
+
+    userInter->SetPasswordHint(passwordHint).waitForFinished();
+}
+
 void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
 {
     AccountsUser *userInter = m_userInters[user];
@@ -214,7 +231,7 @@ void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
 void AccountsWorker::active()
 {
     for (auto it(m_userInters.cbegin()); it != m_userInters.cend(); ++it) {
-        it.key()->setName(it.value()->userName());
+        it.key()->setName(it.value()->property("UserName").toString());
         it.key()->setAutoLogin(it.value()->automaticLogin());
         it.key()->setUserType(it.value()->accountType());
         it.key()->setAvatars(it.value()->iconList());
@@ -430,6 +447,14 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
         QString outputTxt = process.readAllStandardOutput();
         Q_EMIT user->passwordModifyFinished(exitCode, outputTxt);
     }
+}
+
+void AccountsWorker::resetPassword(User *user, const QString &password)
+{
+    auto reply = m_userInters.value(user)->SetPassword(cryptUserPassword(password));
+    reply.waitForFinished();
+
+    Q_EMIT user->passwordResetFinished(reply.error().message());
 }
 
 void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)

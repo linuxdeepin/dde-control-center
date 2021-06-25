@@ -121,6 +121,7 @@ Q_SIGNALS:
     void isPasswordExpiredChanged(const bool isExpired) const;
     void passwordAgeChanged(const int age) const;
     void gidChanged(const QString &gid);
+    void passwordResetFinished(const QString &errorText) const;
 
 private:
     bool m_isCurrentUser;

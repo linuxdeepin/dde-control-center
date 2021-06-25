@@ -56,6 +56,7 @@ CreateAccountPage::CreateAccountPage(dcc::accounts::AccountsWorker *accountsWork
     , m_fullnameEdit(new DLineEdit)
     , m_passwdEdit(new PasswordEdit)
     , m_repeatpasswdEdit(new PasswordEdit)
+    , m_passwdTipsEdit(new DLineEdit)
     , m_accountChooser(new DComboBox)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
@@ -195,6 +196,12 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     layout->addWidget(m_repeatpasswdEdit);
     layout->addSpacing(7);
 
+    QLabel *passwdTipsLabel = new QLabel(tr("Password Hint") + ':');
+    m_repeatpasswdEdit->setAccessibleName("password_hint");
+    layout->addWidget(passwdTipsLabel);
+    layout->addWidget(m_passwdTipsEdit);
+    layout->addSpacing(7);
+
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
             m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
     connect(m_avatarListWidget, &AvatarListWidget::requestAddNewAvatar,
@@ -261,6 +268,15 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
         if (m_repeatpasswdEdit->isAlert()) {
             m_repeatpasswdEdit->hideAlertMessage();
             m_repeatpasswdEdit->setAlert(false);
+        }
+    });
+
+    connect(m_passwdTipsEdit, &DLineEdit::textEdited, this, [=](const QString &passwdTips) {
+        if (passwdTips.size() > 14) {
+            m_passwdTipsEdit->lineEdit()->backspace();
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        } else if (m_passwdTipsEdit->isAlert()) {
+            m_passwdTipsEdit->setAlert(false);
         }
     });
 
@@ -334,6 +350,14 @@ void CreateAccountPage::createUser()
         return;
     }
 
+    for (auto c : m_passwdEdit->text()) {
+        if (m_passwdTipsEdit->text().contains(c)) {
+            m_passwdTipsEdit->setAlert(true);
+            m_passwdTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), m_passwdTipsEdit, 2000);
+            return;
+        }
+    }
+
     //如果用户没有选图像
     auto avatarPaht = m_avatarListWidget->getAvatarPath();
     m_newUser->setCurrentAvatar(avatarPaht);
@@ -366,6 +390,8 @@ void CreateAccountPage::setCreationResult(CreationResult *result)
 {
     switch (result->type()) {
     case CreationResult::NoError:
+        if (!m_passwdTipsEdit->text().simplified().isEmpty())
+            Q_EMIT requestSetPasswordHint(m_newUser, m_passwdTipsEdit->text());
         Q_EMIT requestBack(AccountsWidget::CreateUserSuccess);
         break;
     case CreationResult::UserNameError:
