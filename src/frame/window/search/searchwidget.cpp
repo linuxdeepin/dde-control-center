@@ -996,11 +996,6 @@ void SearchWidget::setLanguage(const QString &type)
 
 void SearchWidget::addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation)
 {
-#ifdef USE_TABLET
-    if (moduleName == "personalization")
-        return;
-#endif
-
     return m_model->addModulesName(moduleName, searchName, icon, translation);
 }
 

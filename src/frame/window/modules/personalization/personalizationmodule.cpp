@@ -74,23 +74,10 @@ const QString PersonalizationModule::displayName() const
 void PersonalizationModule::active()
 {
     if (DGuiApplicationHelper::isTabletEnvironment()) {
-        m_work->refreshTheme();
-        m_work->refreshFont();
-
-        WallpaperPage *widget = new WallpaperPage();
-        widget->setAccessibleName("personanization");
-        connect(widget->getThemeWidget(), &PerssonalizationThemeWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
-        connect(widget, &WallpaperPage::requestSetActiveColor, m_work, &dcc::personalization::PersonalizationWork::setActiveColor);
-        connect(widget->getFontWidget(), &PersonalizationFontsWidget::requestSetFontSize, m_work, &dcc::personalization::PersonalizationWork::setFontSize);
-        connect(widget->getFontWidget(), &PersonalizationFontsWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
-
-        widget->setVisible(false);
-        widget->setModel(m_model);
-        widget->setWorker(m_work);
-        m_work->active();
-
-        m_frameProxy->pushWidget(this, widget);
-        widget->setVisible(true);
+        QWidget *w = new QWidget(); // 需要匹配控制中心三级显示
+        w->setVisible(false);
+        m_frameProxy->pushWidget(this, w);
+        showWallpaperPage();
     } else {
         PersonalizationList *firstWidget = new PersonalizationList();
         firstWidget->setVisible(false);
@@ -116,18 +103,23 @@ int PersonalizationModule::load(const QString &path)
 {
     QString loadPath = path.split("/").at(0);
     int row = -1;
-    if (loadPath == QStringLiteral("General")) {
-        showGenaralWidget();
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        showWallpaperPage();
         row = 0;
-    } else if (loadPath == QStringLiteral("Icon Theme")) {
-        showIconThemeWidget();
-        row = 1;
-    } else if (loadPath == QStringLiteral("Cursor Theme")) {
-        showCursorThemeWidget();
-        row = 2;
-    } else if (loadPath == QStringLiteral("Font")) {
-        showFontThemeWidget();
-        row = 3;
+    } else {
+        if (loadPath == QStringLiteral("General")) {
+            showGenaralWidget();
+            row = 0;
+        } else if (loadPath == QStringLiteral("Icon Theme")) {
+            showIconThemeWidget();
+            row = 1;
+        } else if (loadPath == QStringLiteral("Cursor Theme")) {
+            showCursorThemeWidget();
+            row = 2;
+        } else if (loadPath == QStringLiteral("Font")) {
+            showFontThemeWidget();
+            row = 3;
+        }
     }
 
     Q_EMIT requestSetCurrentIndex(row);
@@ -201,6 +193,27 @@ void PersonalizationModule::showFontThemeWidget()
 
     connect(widget, &PersonalizationFontsWidget::requestSetFontSize, m_work, &dcc::personalization::PersonalizationWork::setFontSize);
     connect(widget, &PersonalizationFontsWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    m_work->active();
+
+    m_frameProxy->pushWidget(this, widget);
+    widget->setVisible(true);
+}
+
+void PersonalizationModule::showWallpaperPage()
+{
+    m_work->refreshTheme();
+    m_work->refreshFont();
+
+    WallpaperPage *widget = new WallpaperPage();
+    widget->setAccessibleName("personanization");
+    connect(widget->getThemeWidget(), &PerssonalizationThemeWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+    connect(widget, &WallpaperPage::requestSetActiveColor, m_work, &dcc::personalization::PersonalizationWork::setActiveColor);
+    connect(widget->getFontWidget(), &PersonalizationFontsWidget::requestSetFontSize, m_work, &dcc::personalization::PersonalizationWork::setFontSize);
+    connect(widget->getFontWidget(), &PersonalizationFontsWidget::requestSetDefault, m_work, &dcc::personalization::PersonalizationWork::setDefault);
+
+    widget->setVisible(false);
+    widget->setModel(m_model);
+    widget->setWorker(m_work);
     m_work->active();
 
     m_frameProxy->pushWidget(this, widget);
