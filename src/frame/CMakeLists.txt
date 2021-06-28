@@ -620,6 +620,9 @@ pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(DDE-Network-Utils REQUIRED dde-network-utils)
 pkg_check_modules(Gio-2.0 REQUIRED gio-2.0)
 pkg_check_modules(LibNM REQUIRED libnm)
+pkg_check_modules(libsecret REQUIRED IMPORTED_TARGET libsecret-unstable)
+pkg_check_modules(glib REQUIRED IMPORTED_TARGET glib-2.0)
+
 
 if (NOT DEFINED DISABLE_RECOVERY)
     pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
@@ -789,7 +792,10 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${DEEPIN_PW_CHECK}
     crypt
     ${LIBS}
+    PkgConfig::libsecret
+    PkgConfig::glib
 )
+
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION bin)
 install(TARGETS dccwidgets LIBRARY DESTINATION lib)

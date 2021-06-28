@@ -93,6 +93,8 @@ public Q_SLOTS:
     void addUser(const QString &userPath);
     void removeUser(const QString &userPath);
     void setGroups(User *user, const QStringList &usrGroups);
+    void changeKeyringPasswd(QString passwd, QString newPasswd);
+
 private Q_SLOTS:
     void updateUserOnlineStatus(const QList<QDBusObjectPath> &paths);
     void getAllGroups();
