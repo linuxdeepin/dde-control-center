@@ -184,13 +184,13 @@ void PerssonalizationThemeWidget::updateMargains(ThemeItem *item)
     int margain = (width() - minMargain - totalPicSize - totalSpacing) / 2;
     if (margain < minMargain) {
         int space = maxSpacing - (minMargain - margain);
-        m_centerLayout->setContentsMargins(minMargain, 42, minMargain, 13);
+        m_centerLayout->setContentsMargins(minMargain, 30, minMargain, 13);
         m_centerLayout->setSpacing(space);
         return;
     } else if (margain >= maxMargain) {
-        m_centerLayout->setContentsMargins(maxMargain, 42, maxMargain, 13);
+        m_centerLayout->setContentsMargins(maxMargain, 30, maxMargain, 13);
     } else {
-        m_centerLayout->setContentsMargins(margain, 42, margain, 13);
+        m_centerLayout->setContentsMargins(margain, 30, margain, 13);
     }
     m_centerLayout->setSpacing(maxSpacing);
 }
