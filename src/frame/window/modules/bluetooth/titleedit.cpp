@@ -49,6 +49,7 @@ TitleEdit::TitleEdit(QWidget *parent)
     DIconButton *editWidget = new DIconButton(this);
     editWidget->setFlat(true);
     editWidget->setIcon(QIcon::fromTheme("dcc_edit"));
+    editWidget->setFixedSize(20, 30);
     mainlayout->addWidget(editWidget);
     mainlayout->addStretch();
     mainlayout->setMargin(0);
