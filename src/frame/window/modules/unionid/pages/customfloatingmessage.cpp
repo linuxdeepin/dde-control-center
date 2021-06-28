@@ -17,11 +17,11 @@ CustomFloatingMessage::CustomFloatingMessage(MessageType type, DWidget *parent)
 
     m_toast = new DLabel(this);
     m_toast->setMinimumSize(60, 22);
-    QPalette pe;
-    QColor color(255, 255, 255);
-    color.setAlphaF(0.65);
-    pe.setColor(QPalette::WindowText, color);
-    m_toast->setPalette(pe);
+//    QPalette pe;
+//    QColor color(255, 255, 255);
+//    color.setAlphaF(0.65);
+//    pe.setColor(QPalette::Text, color);
+//    m_toast->setPalette(pe);
 
     QHBoxLayout *hlayout = new QHBoxLayout(this);
     hlayout->addSpacing(16);
@@ -63,25 +63,40 @@ void CustomFloatingMessage::setDuration(const int m)
 void CustomFloatingMessage::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+
     if (DGuiApplicationHelper::LightType == m_type) {
-        QColor color(0, 0, 0);
-        color.setAlphaF(0.65);
-//        painter.fillRect(rect(), color);
-        painter.setPen(QColor(0, 0, 0, 0));
-        painter.setBrush(QBrush(color));
+        QColor color(225, 225, 225);
+//        color.setAlphaF(0.65);
+
+        QColor textColor(0, 0, 0);
+        textColor.setAlphaF(0.65);
+
+        QPalette pe = m_toast->palette();
+        pe.setColor(QPalette::Text, textColor);
+        m_toast->setPalette(pe);
+
+        painter.setPen(color);
+        painter.setBrush(color);
     } else if (DGuiApplicationHelper::DarkType == m_type) {
         QColor color(31, 31, 31);
-        color.setAlphaF(0.85);
-//        painter.fillRect(rect(), color);
-        painter.setPen(QColor(31, 31, 31, 0));
+//        color.setAlphaF(0.85);
+
+        QColor textColor(255, 255, 255);
+        textColor.setAlphaF(0.65);
+
+        QPalette pe = m_toast->palette();
+        pe.setColor(QPalette::Text, textColor);
+        m_toast->setPalette(pe);
+
+        painter.setPen(color);
         painter.setBrush(QBrush(color));
     }
-    painter.setRenderHint(QPainter::Antialiasing);
+
     QRect rect = this->rect();
-    rect.setWidth(rect.width() - 1);
-    rect.setHeight(rect.height() - 1);
-    // rect: 绘制区域  15：圆角弧度
-    painter.drawRoundedRect(rect, 5, 5);
+    QRect roundRect = rect.adjusted(+1,+1,-1,-1);
+    painter.drawRoundedRect(roundRect, 5, 5);
+
     return QWidget::paintEvent(event);
 }
 
