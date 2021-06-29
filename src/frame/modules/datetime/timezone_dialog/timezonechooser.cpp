@@ -52,8 +52,8 @@ DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
 using namespace dcc::datetime;
 
-TimeZoneChooser::TimeZoneChooser()
-    : QFrame()
+TimeZoneChooser::TimeZoneChooser(QWidget* parent)
+    : QFrame(parent)
     , m_blurEffect(new DBlurEffectWidget(this))
     , m_map(new installer::TimezoneMap(this))
     , m_searchInput(new SearchInput)

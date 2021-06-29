@@ -213,7 +213,7 @@ void DatetimeModule::ensureZoneChooserDialog()
     if (m_dialog)
         return;
 
-    m_dialog = new TimeZoneChooser();
+    m_dialog = new TimeZoneChooser(m_pMainWindow);
     m_dialog->setAttribute(Qt::WA_DeleteOnClose);
 
     connect(m_dialog, &TimeZoneChooser::confirmed, this, [this](const QString & timezone) {

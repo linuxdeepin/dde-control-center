@@ -60,7 +60,7 @@ class TimeZoneChooser : public QFrame
 {
     Q_OBJECT
 public:
-    explicit TimeZoneChooser();
+    explicit TimeZoneChooser(QWidget* parent = nullptr);
     void setIsAddZone(const bool isAdd);
     inline bool isAddZone() { return m_isAddZone; }
     void setCurrentTimeZoneText(const QString &zone);
