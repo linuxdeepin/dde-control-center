@@ -114,6 +114,9 @@ private:
     };
     QModelIndex m_lastIndex;
     QProcess *m_nmConnectionEditorProcess;
+    int m_devCount = -1;
+    int m_totalDevs = -1;
+    QString m_clickPageName = "";
 };
 }   // namespace network
 }   // namespace dcc

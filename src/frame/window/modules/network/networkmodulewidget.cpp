@@ -112,6 +112,19 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
     connect(m_lvnmpages, &DListView::clicked, m_lvnmpages, &DListView::activated);
+    connect(m_lvnmpages, &DListView::activated, this, [this](const QModelIndex &idx) {
+        static int devCount = 0;
+        //1.若之前选择的index消失了(网络下电)，也不去更新m_clickPageName，以便网络恢复时能再次进入之前的page(如果不这么处理，就会导致网络恢复进入DSL页面)
+        //2.但是这样会引入一个问题，如果在index消失后(网络下电)，再点击选择其他的page，网络恢复了还是会进入之前的page   (以上1,2目前只能满足一个)
+        if (devCount != m_modelpages->rowCount()) {
+            devCount = m_modelpages->rowCount();
+            return;
+        }
+        qDebug() << Q_FUNC_INFO << "activated index : " << idx.data();
+        if (m_clickPageName != idx.data().toString()) {
+            m_clickPageName = idx.data().toString();
+        }
+    });
 }
 
 NetworkModuleWidget::~NetworkModuleWidget()
@@ -126,9 +139,11 @@ NetworkModuleWidget::~NetworkModuleWidget()
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
 {
     PageType type = idx.data(SectionRole).value<PageType>();
-    if (m_lastIndex == idx) return;
+    int total = m_lvnmpages ? m_lvnmpages->model()->rowCount() : 0;
+    if (m_lastIndex == idx && total == m_totalDevs) return;
 
     m_lastIndex = idx;
+    m_totalDevs = total;
     m_lvnmpages->setCurrentIndex(idx);
     switch (type) {
     case DSLPage:
@@ -372,6 +387,23 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     if (bRemoveCurrentDevice) {
         setCurrentIndex(0);
     }
+
+    int devCount = devices.count();
+    //断开后恢复网络
+    if (m_devCount == 0 && devCount > 0) {
+        //需要等待m_modelpages将之前删除的有线/无线等先加载完
+        QTimer::singleShot(300, this, [this]() {
+            int rowCount = m_modelpages ? m_modelpages->rowCount() : 0;
+            for (int i = 0; i < rowCount; i++) {
+                if (m_modelpages->index(i, 0).data().toString() == m_clickPageName) {
+                    qDebug() << Q_FUNC_INFO << " m_clickPageName : " << i << m_clickPageName;
+                    onClickCurrentListIndex(m_modelpages->index(i, 0));
+                    break;
+                }
+            }
+        });
+    }
+    m_devCount = devCount;
 }
 
 QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const int number, const bool multiple)
