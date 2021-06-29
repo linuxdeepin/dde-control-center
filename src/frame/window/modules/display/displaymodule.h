@@ -88,6 +88,7 @@ private:
     //由于切换合并和拆分模式会比较耗费资源，所以这边做延迟操作，防止一直进行切换的操作
     QTimer *m_joinTimer;
     QTimer *m_splitTimer;
+    int m_timeOut;
 };
 
 } // namespace display

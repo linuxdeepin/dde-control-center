@@ -51,12 +51,17 @@ DisplayModule::DisplayModule(FrameProxyInterface *frame, QObject *parent)
     , m_displayWorker(nullptr)
     , m_joinTimer(new QTimer(this))
     , m_splitTimer(new QTimer(this))
+    , m_timeOut(15)
 {
     m_joinTimer->setSingleShot(true);
     m_splitTimer->setSingleShot(true);
     m_joinTimer->setInterval(300);
     m_splitTimer->setInterval(300);
     m_pMainWindow = static_cast<MainWindow *>(frame);
+    QGSettings setting("com.deepin.dde.control-center");   
+    if (setting.keys().contains("resolutionSaveTimeOut")) {
+        m_timeOut = setting.get("resolution-save-time-out").toInt();
+    }
 }
 
 DisplayModule::~DisplayModule()
@@ -397,7 +402,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 
 int DisplayModule::showTimeoutDialog(Monitor *mon)
 {
-    TimeoutDialog *timeoutDialog = new TimeoutDialog(15,"");
+    TimeoutDialog *timeoutDialog = new TimeoutDialog(m_timeOut,"");
     qDebug() << "new TimeoutDialog";
     qreal radio = qApp->devicePixelRatio();
     connect(mon, &Monitor::geometryChanged, timeoutDialog, [ = ] {
