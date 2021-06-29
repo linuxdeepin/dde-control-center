@@ -341,6 +341,11 @@ void MicrophonePage::initCombox()
     m_layout->addWidget(inputSoundsGrp);
     m_layout->setSpacing(10);
     m_layout->addStretch(10);
+#else
+}
+
+void MicrophonePage::initCombox()
+{
 #endif
     //放到宏外面修复sw架构下音频布局异常的问题
     m_layout->addStretch(10);
