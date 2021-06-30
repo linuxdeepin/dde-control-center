@@ -32,7 +32,9 @@ Build-Depends:
  libudisks2-qt5-dev,
  qtmultimedia5-dev,
  libgtest-dev,
- libdeepin-pw-check-dev
+ libdeepin-pw-check-dev,
+ libglib2.0-dev,
+ libsecret-1-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
