@@ -22,6 +22,7 @@
 
 #include <DStyle>
 #include <DSvgRenderer>
+#include <DApplicationHelper>
 
 #include <QMouseEvent>
 #include <QBitmap>
@@ -35,6 +36,8 @@ using namespace DCC_NAMESPACE::personalization;
 DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 using DTK_GUI_NAMESPACE::DSvgRenderer;
+
+const int ThemeItemPicRadius = 12;
 
 ThemeItemPic::ThemeItemPic(QWidget *parent)
     : QWidget(parent)
@@ -62,7 +65,7 @@ void ThemeItemPic::setPath(const QString &picPath)
     int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
-    int totalSpace = borderWidth + borderSpacing + margins;
+    int totalSpace = DGuiApplicationHelper::isTabletEnvironment() ?  borderWidth : borderWidth + borderSpacing + margins;
     setFixedSize(defaultSize.width() + 2 * totalSpace, defaultSize.height() + 2 * totalSpace);
     update();
 }
@@ -87,7 +90,8 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     int margins = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FrameMargins));
     int borderWidth = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderWidth), nullptr, nullptr);
     int borderSpacing = style()->pixelMetric(static_cast<QStyle::PixelMetric>(DStyle::PM_FocusBorderSpacing), nullptr, nullptr);
-    int totalSpace = borderWidth + borderSpacing + margins;
+
+    int totalSpace = DGuiApplicationHelper::isTabletEnvironment() ?  borderWidth : borderWidth + borderSpacing + margins;
 
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
@@ -99,25 +103,45 @@ void ThemeItemPic::paintEvent(QPaintEvent *event)
     QRect picRect = rect().adjusted(totalSpace, totalSpace, -totalSpace, -totalSpace);
     painter.drawImage(picRect, img, img.rect());
 
-    //second draw picture rounded rect bound
-    QPen pen;
-    pen.setColor(palette().base().color());
-    painter.setPen(pen);
-    painter.drawRoundedRect(picRect, radius, radius);
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        //second draw picture rounded rect bound
+        QPen pen;
+        pen.setColor(palette().base().color());
+        painter.setPen(pen);
+        painter.drawRoundedRect(picRect, radius, radius);
 
-    //third fill space with base brush
-    QPainterPath picPath;
-    picPath.addRect(picRect);
-    QPainterPath roundPath;
-    roundPath.addRoundedRect(picRect, radius, radius);
-    QPainterPath anglePath = picPath - roundPath;
-    painter.fillPath(anglePath, palette().base().color());
-    painter.strokePath(picPath, palette().base().color());
+        //third fill space with base brush
+        QPainterPath picPath;
+        picPath.addRect(picRect);
+        QPainterPath roundPath;
+        roundPath.addRoundedRect(picRect, radius, radius);
+        QPainterPath anglePath = picPath - roundPath;
+        painter.fillPath(anglePath, palette().base().color());
+        painter.strokePath(picPath, palette().base().color());
+    }
 
     //last draw focus rectangle
     if (m_isSelected) {
-        QStyleOption option;
-        option.initFrom(this);
-        style()->drawPrimitive(DStyle::PE_FrameFocusRect, &option, &painter, this);
+        if (DGuiApplicationHelper::isTabletEnvironment()) {
+            QRect border = rect().adjusted(margins, margins, -margins, -margins);
+            int offset = 1;
+            QRect rect = border.adjusted(offset, offset, -offset, -offset);
+
+            QPen pen;
+            pen.setWidth(2);
+            // 先画内框
+            pen.setColor(palette().base().color());
+            painter.setPen(pen);
+            painter.drawRoundedRect(rect, ThemeItemPicRadius, ThemeItemPicRadius);
+
+            // 再画外框（活动色即焦点）
+            pen.setColor(palette().highlight().color());
+            painter.setPen(pen);
+            painter.drawRoundedRect(border, ThemeItemPicRadius + margins, ThemeItemPicRadius + margins);
+        } else {
+            QStyleOption option;
+            option.initFrom(this);
+            style()->drawPrimitive(DStyle::PE_FrameFocusRect, &option, &painter, this);
+        }
     }
 }
