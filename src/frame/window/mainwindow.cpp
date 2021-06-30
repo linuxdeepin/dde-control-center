@@ -365,7 +365,7 @@ void MainWindow::initAllModule(const QString &m)
     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
         m_versionType  = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
         auto versionTypeList =  m_versionType->get(GSETTINGS_HIDE_VERSIONTYPR).toStringList();
-        for (auto i : m_modules) {
+        for (const auto &i : m_modules) {
             if (versionTypeList.contains((i.first->name()))) {
                 setModuleVisible(i.first, false);
             }
@@ -374,19 +374,19 @@ void MainWindow::initAllModule(const QString &m)
 
     bool isIcon = m_contentStack.empty();
 
-    for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
+    for (const auto &module : m_modules) {
         DStandardItem *item = new DStandardItem;
-        item->setIcon(it->first->icon());
-        item->setText(it->second);
-        if (it->first->name() == "commoninfo") {
+        item->setIcon(module.first->icon());
+        item->setText(module.second);
+        if (module.first->name() == "commoninfo") {
             item->setAccessibleText("SECOND_MENU_COMMON");
         } else {
-            item->setAccessibleText(it->second);
+            item->setAccessibleText(module.second);
         }
 
         //目前只有"update"模块需要使用右上角的角标，其他模块还是使用旧的位置数据设置
         //若其他地方需要使用右上角的角标，可在下面if处使用“||”添加对应模块的name()值
-        if (it->first->name() == "update") {
+        if (module.first->name() == "update") {
             auto action1 = new DViewItemAction(Qt::AlignTop | Qt::AlignRight, QSize(ActionIconSize, ActionIconSize), QSize(ActionIconSize, ActionIconSize), false);
             action1->setIcon(QIcon(":/icons/deepin/builtin/icons/dcc_common_subscript.svg"));
             action1->setVisible(false);
@@ -395,7 +395,7 @@ void MainWindow::initAllModule(const QString &m)
             action2->setVisible(false);
             item->setActionList(Qt::Edge::RightEdge, {action1, action2});
             CornerItemGroup group;
-            group.m_name = it->first->name();
+            group.m_name = module.first->name();
             group.m_action.first = action1;
             group.m_action.second = action2;
             group.m_index=m_navModel->rowCount();
@@ -407,7 +407,7 @@ void MainWindow::initAllModule(const QString &m)
         }
 
         m_navModel->appendRow(item);
-        m_searchWidget->addModulesName(it->first->name(), it->second, it->first->icon(), it->first->translationPath());
+        m_searchWidget->addModulesName(module.first->name(), module.second, module.first->icon(), module.first->translationPath());
     }
 
     resetNavList(isIcon);
@@ -443,7 +443,7 @@ void MainWindow::loadModules()
     }
 
     auto moduleList = moduleDir.entryInfoList();
-    for (auto i : moduleList) {
+    for (const auto &i : moduleList) {
         QString path = i.absoluteFilePath();
 
         if (!QLibrary::isLibrary(path)) continue;
@@ -465,11 +465,11 @@ void MainWindow::loadModules()
         if (tr("Assistive Tools") == module->displayName() && !DCC_NAMESPACE::IsCommunitySystem) {
             auto res = std::find_if(m_modules.begin(), m_modules.end(), [=] (const QPair<ModuleInterface *, QString> &data)->bool{
                     return data.second == tr("Keyboard and Language");
-                });
+            });
 
-                if (res != m_modules.end()) {
-                    m_modules.insert(m_modules.indexOf(*res) + 1, {module, module->displayName()});
-                }
+            if (res != m_modules.end()) {
+                m_modules.insert(m_modules.indexOf(*res) + 1, {module, module->displayName()});
+            }
         }
     }
 }
@@ -477,26 +477,26 @@ void MainWindow::loadModules()
 void MainWindow::updateModuleVisible()
 {
     m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
-    for (auto i : m_modules) {
+    for (const auto &i : m_modules) {
         if (m_hideModuleNames.contains((i.first->name()))) {
             setModuleVisible(i.first, false);
         } else {
-            setModuleVisible(i.first, true);
+            setModuleVisible(i.first, i.first->isAvailable());
         }
     }
 }
 
 void MainWindow::modulePreInitialize(const QString &m)
 {
-    for (auto it = m_modules.cbegin(); it != m_modules.cend(); ++it) {
+    for (const auto &m_module : m_modules) {
         QElapsedTimer et;
         et.start();
-        it->first->preInitialize(m == it->first->name());
+        m_module.first->preInitialize(m == m_module.first->name());
         qDebug() << QString("initalize %1 module using time: %2ms")
-                 .arg(it->first->name())
+                 .arg(m_module.first->name())
                  .arg(et.elapsed());
 
-        setModuleVisible(it->first, it->first->isAvailable());
+        setModuleVisible(m_module.first, m_module.first->isAvailable());
     }
 }
 
