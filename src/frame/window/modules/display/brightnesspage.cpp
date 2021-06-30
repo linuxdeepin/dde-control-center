@@ -138,6 +138,7 @@ void BrightnessPage::addSlider()
         slider->setTickInterval(int((BrightnessMaxScale - miniScale) / 5.0));
         slider->setValue(int(brightness * BrightnessMaxScale));
         slider->setPageStep(1);
+        slider->qtSlider()->setFocusPolicy(Qt::StrongFocus);
 
 
         auto onValueChanged = [ = ](int pos) {
