@@ -598,19 +598,24 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="60"/>
+        <source>Allow other Bluetooth devices to find this device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="64"/>
         <source>My Devices</source>
         <translation>내 장치</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Other Devices</source>
         <translation>기타 장치</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="112"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>블루투스를 활성화하여 근처 장치 찾기 (스피커, 키보드, 마우스)</translation>
     </message>
@@ -618,7 +623,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="116"/>
         <source>Bluetooth</source>
         <translation>블루투스</translation>
     </message>
@@ -626,28 +631,33 @@
 <context>
     <name>dccV20::bluetooth::DetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="51"/>
         <source>Ignore this device</source>
         <translation>이 장치 무시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="52"/>
         <source>Disconnect</source>
         <translation>연결 해제</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="48"/>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="156"/>
         <source>Connect</source>
         <translation>연결</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="54"/>
+        <source>Send Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="144"/>
         <source>Connecting</source>
         <translation>연결 중</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="150"/>
         <source>Disconnecting</source>
         <translation>연결 끊기</translation>
     </message>
@@ -3898,7 +3908,7 @@
         <translation>핫스팟 닫기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="324"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>무선 네트워크에 연결하려면 먼저 핫스팟을 비활성화하십시오</translation>
     </message>

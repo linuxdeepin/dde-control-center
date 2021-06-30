@@ -598,19 +598,24 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="60"/>
+        <source>Allow other Bluetooth devices to find this device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="64"/>
         <source>My Devices</source>
         <translation>Thiết bị của tôi</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Other Devices</source>
         <translation>Thiết bị khác</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="112"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Mở bluetooth để tìm những thiết bị kế cận (loa, bàn phím, chuột)</translation>
     </message>
@@ -618,7 +623,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="116"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -626,28 +631,33 @@
 <context>
     <name>dccV20::bluetooth::DetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="51"/>
         <source>Ignore this device</source>
         <translation>Thiết bị đầu vào</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="52"/>
         <source>Disconnect</source>
         <translation>Ngắt kết nối</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="48"/>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="156"/>
         <source>Connect</source>
         <translation>Kết nối</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="54"/>
+        <source>Send Files</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="144"/>
         <source>Connecting</source>
         <translation>Đang kết nối</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="150"/>
         <source>Disconnecting</source>
         <translation>Đang ngắt kết nối</translation>
     </message>
@@ -3898,7 +3908,7 @@
         <translation>Đóng điểm truy cập</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="324"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Trước tiên hãy tắt điểm phát sóng nếu bạn muốn kết nối với mạng không dây</translation>
     </message>

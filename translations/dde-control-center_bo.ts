@@ -598,19 +598,24 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="60"/>
+        <source>Allow other Bluetooth devices to find this device</source>
+        <translation>སོ་སྔོན་སྒྲིག་ཆས་གཞན་གྱིས་འདི་ཉིད་རྙེད་ཐུབ་པ།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="64"/>
         <source>My Devices</source>
         <translation>ངའི་སྒྲིག་ཆས།</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="69"/>
         <source>Other Devices</source>
         <translation>སྒྲིག་ཆས་གཞན།</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="112"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>སོ་སྔོན་སྤྱད་དེ་ཉེ་འགྲམ་གྱི་སྒྲིག་ཆས་འཚོལ་བ། (སྒྲ་སྐྱེད་ཆས། མཐེབ་གཞོང་། ཙི་གུ། )</translation>
     </message>
@@ -618,7 +623,7 @@
 <context>
     <name>dccV20::bluetooth::BluetoothModule</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/bluetooth/bluetoothmodule.cpp" line="116"/>
         <source>Bluetooth</source>
         <translation>སོ་སྔོན།</translation>
     </message>
@@ -626,28 +631,33 @@
 <context>
     <name>dccV20::bluetooth::DetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="51"/>
         <source>Ignore this device</source>
         <translation>སྒྲིག་ཆས་འདི་སྣང་མེད་གཏོང་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="52"/>
         <source>Disconnect</source>
         <translation>སྦྲེལ་མཐུད་ཕྲལ་གཅོད། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="48"/>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="156"/>
         <source>Connect</source>
         <translation>འབྲེལ་མཐུད། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="54"/>
+        <source>Send Files</source>
+        <translation>ཡིག་ཆ་སྐྱེལ་གཏོང་། </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="144"/>
         <source>Connecting</source>
         <translation>སྦྲེལ་བཞིན་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="150"/>
         <source>Disconnecting</source>
         <translation>གཅོད་བཞིན་པ། </translation>
     </message>
@@ -3898,7 +3908,7 @@
         <translation>ཚ་གནས་ཁ་རྒྱོབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="324"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>སྐུད་མེད་དྲ་རྒྱའི་རྩོལ་ནུས་དང་མཐུད་ནས་བེད་སྤྱོད་གཏོང་དགོས་ཚེ། སྔོན་ལ་ཚ་གནས་མཉམ་སྤྱོད་ཁ་རྒྱོབ།</translation>
     </message>
