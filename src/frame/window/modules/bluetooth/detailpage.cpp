@@ -57,7 +57,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     dcc::widgets::TranslucentFrame *frame = new dcc::widgets::TranslucentFrame;
     QVBoxLayout *layout = new QVBoxLayout(frame);
     layout->setSpacing(0);
-    layout->setMargin(0);
+    layout->setContentsMargins(10, 0, 10, 0);
     DIconButton *backWidgetBtn = new DIconButton(this);
     backWidgetBtn->setAccessibleName("back_btn");
     backWidgetBtn->setFlat(true);
