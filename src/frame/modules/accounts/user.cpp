@@ -212,3 +212,12 @@ int User::charactertypes(QString password)
     }
     return Number_flag + Capital_flag + Small_flag + Symbol_flag;
 }
+
+void User::setGid(const QString &gid)
+{
+    if (m_gid == gid)
+        return;
+
+    m_gid = gid;
+    Q_EMIT gidChanged(gid);
+}

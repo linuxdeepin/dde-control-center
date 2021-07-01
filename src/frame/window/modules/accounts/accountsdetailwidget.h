@@ -118,6 +118,7 @@ private Q_SLOTS:
     void changeUserGroup(const QStringList &groups);
     void userGroupClicked(const QModelIndex &index);
     void setGroupInfo(const QStringList &group);
+    void onGidChanged(const QString &gid);
 
 private:
     dcc::accounts::User *m_curUser;
@@ -139,6 +140,7 @@ private:
     QPushButton *m_modifyPassword;
     QGSettings *m_gsettings;
     QScrollArea *m_scrollArea;
+    QString m_groupName;
 };
 
 }   // namespace accounts

@@ -211,6 +211,7 @@ void AccountsWorker::active()
         it.key()->setGroups(it.value()->groups());
         it.key()->setCurrentAvatar(it.value()->iconFile());
         it.key()->setCreatedTime(it.value()->createdTime());
+        it.key()->setGid(it.value()->gid());
     }
 }
 
@@ -431,6 +432,7 @@ void AccountsWorker::addUser(const QString &userPath)
     connect(userInter, &AccountsUser::GroupsChanged, user, &User::setGroups);
     connect(userInter, &AccountsUser::AccountTypeChanged, user, &User::setUserType);
     connect(userInter, &AccountsUser::MaxPasswordAgeChanged, user, &User::setPasswordAge);
+    connect(userInter, &AccountsUser::GidChanged, user, &User::setGid);
 
     // 这里直接赋值的话, 由于请求是异步的, 所以一开始会被初始化成乱码,
     // 然后数据正常了以后会额外产生一次变化信号
@@ -447,6 +449,7 @@ void AccountsWorker::addUser(const QString &userPath)
     userInter->accountType();
     userInter->maxPasswordAge();
     userInter->IsPasswordExpired();
+    userInter->gid();
 
     m_userInters[user] = userInter;
     m_userModel->addUser(userPath, user);
