@@ -449,6 +449,11 @@
         <translation>密碼不符</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="548"/>
+        <source>Password cannot be empty</source>
+        <translation>密碼不能空白</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="528"/>
         <source>Go to Settings</source>
         <translation>前往設定</translation>
