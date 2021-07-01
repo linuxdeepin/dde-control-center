@@ -177,6 +177,14 @@
     </message>
 </context>
 <context>
+    <name>dccV20::accounts::AccountSpinBox</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="68"/>
+        <source>Always</source>
+        <translation>長期有效</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="188"/>
