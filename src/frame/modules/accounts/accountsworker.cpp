@@ -80,6 +80,15 @@ send_user "\rpassword right\r"
 # Verify the 'Retype password'
 expect "Retype*"
 send "$repeatpass\r"
+
+# Type the 'New password'
+expect "New password:"
+send "$userpass\r"
+
+# Verify the 'Retype password'
+expect "Retype*"
+send "$repeatpass\r"
+
 expect eof
 )";
 
