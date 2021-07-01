@@ -73,8 +73,8 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
             layout->setContentsMargins(8, 0, 8, 8);
         }
 
-        m_fontSizeSlider->setLeftIcon(QIcon(":/personalization/fount_small.svg"));
-        m_fontSizeSlider->setRightIcon(QIcon(":/personalization/fount_big.svg"));
+        m_fontSizeSlider->setLeftIcon(QIcon::fromTheme("dcc_font_decrease"));
+        m_fontSizeSlider->setRightIcon(QIcon::fromTheme("dcc_font_increase"));
         m_fontSizeSlider->setIconSize(QSize(24, 24));
 
         m_centralLayout->setContentsMargins(0, 0, 0, 0);
