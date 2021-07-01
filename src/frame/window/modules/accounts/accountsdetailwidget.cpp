@@ -53,6 +53,8 @@
 #include <QByteArray>
 #include <QPointer>
 
+#include <grp.h>
+
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
 using namespace dcc::widgets;
@@ -565,7 +567,9 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
 
     connect(m_userModel, &UserModel::allGroupsChange, this, &AccountsDetailWidget::setGroupInfo);
     changeUserGroup(m_curUser->groups());
+    onGidChanged(m_curUser->gid());
     connect(m_curUser, &User::groupsChanged, this, &AccountsDetailWidget::changeUserGroup);
+    connect(m_curUser, &User::gidChanged, this, &AccountsDetailWidget::onGidChanged);
 }
 
 void AccountsDetailWidget::initGroups(QVBoxLayout *layout)
@@ -643,6 +647,11 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
 {
+    QStandardItem *item = m_groupItemModel->item(index.row(), index.column());
+    //不可移除主组
+    if(nullptr == item || item->text() == m_groupName)
+        return;
+
     QStringList curUserGroup;
     int row_count = m_groupItemModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
@@ -652,7 +661,6 @@ void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
         }
     }
 
-    QStandardItem *item = m_groupItemModel->item(index.row(), index.column());
     Qt::CheckState state = item->checkState();
     state == Qt::Checked ? (void)curUserGroup.removeOne(item->text()) : curUserGroup.append(item->text());
 
@@ -665,6 +673,7 @@ void AccountsDetailWidget::changeUserGroup(const QStringList &groups)
     for (int i = 0; i < row_count; ++i) {
         QStandardItem *item = m_groupItemModel->item(i, 0);
         item->setCheckState(item && groups.contains(item->text()) ? Qt::Checked : Qt::Unchecked);
+        item->setEnabled(item->text() != m_groupName);
     }
     m_groupItemModel->sort(0);
 }
@@ -677,4 +686,24 @@ void AccountsDetailWidget::setGroupInfo(const QStringList &group)
         m_groupItemModel->appendRow(it);
     }
     changeUserGroup(m_curUser->groups());
+}
+
+void AccountsDetailWidget::onGidChanged(const QString &gid)
+{
+    bool ok;
+    int iGid = gid.toInt(&ok, 10);
+    if (!ok)
+        return;
+
+    const group *group = getgrgid(static_cast<__gid_t>(iGid));
+    if (nullptr == group || nullptr == group->gr_name)
+        return;
+
+    m_groupName = QString(group->gr_name);
+    for (int i = 0; i < m_groupItemModel->rowCount(); ++i) {
+        QStandardItem *item = m_groupItemModel->item(i, 0);
+        if (nullptr == item)
+            continue;
+        item->setEnabled(item->text() != m_groupName);
+    }
 }
