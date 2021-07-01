@@ -543,6 +543,12 @@ bool CreateAccountPage::checkPassword(PasswordEdit *edit)
     }
 
     if (edit == m_repeatpasswdEdit) {
+        if (m_repeatpasswdEdit->text().isEmpty()) {
+            m_repeatpasswdEdit->setAlert(true);
+            m_repeatpasswdEdit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
+            return false;
+        }
+
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
             m_repeatpasswdEdit->setAlert(true);
             m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
