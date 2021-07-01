@@ -259,7 +259,7 @@ void UpdateItem::updateChangelogDisplay()
     m_details->setVisible(needElide);
 
     if (m_isLogExpand) {
-        m_appChangelog->setText(getExtendLog());
+        m_appChangelog->setText(m_info.m_changelog);
     } else {
         m_appChangelog->setText(elidedText);
     }
