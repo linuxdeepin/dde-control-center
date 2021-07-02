@@ -117,6 +117,7 @@
         <file>texts/dcc_reset_16px.svg</file>
         <file>texts/dcc_font_decrease_24px.svg</file>
         <file>texts/dcc_font_increase_24px.svg</file>
+        <file>texts/dcc_expand_enter_12px.svg</file>
         <file>icons/dcc_nav_wacom_42px.svg</file>
         <file>icons/dcc_nav_wacom_84px.svg</file>
         <file>actions/dcc_volume3_32px.svg</file>

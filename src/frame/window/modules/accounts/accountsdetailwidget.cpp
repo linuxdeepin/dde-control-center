@@ -335,7 +335,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     DWarningButton *deleteAccount = new DWarningButton;
 
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
-    modifydelLayout->setContentsMargins(10, 0, 10, 0);
+    modifydelLayout->setContentsMargins(46, 0, 46, 0);
     if (!DGuiApplicationHelper::isTabletEnvironment()) {
         modifydelLayout->addWidget(modifyPassword);
         modifydelLayout->addSpacing(10);
@@ -344,7 +344,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     } else {
         modifyPasswordDue->setDueModel(true);
         modifyPasswordDue->setBackOpacity(110);
-        modifyPasswordDue->setIcon(":/frame/themes/dark/icons/expand_normal.svg");
+        modifyPasswordDue->setIcon(QIcon::fromTheme("dcc_expand_enter"));
         modifydelLayout->addWidget(modifyPasswordDue);
     }
     layout->addSpacing(40);
@@ -352,8 +352,12 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
 
+    QPalette palette = modifyPasswordDue->palette();
+    palette.setColor(QPalette::WindowText, palette.color(QPalette::Highlight));
+    modifyPasswordDue->setPalette(palette);
+
     loginGrp->getLayout()->setContentsMargins(0, 0, 0, 0);
-    loginGrp->setContentsMargins(10, 10, 10, 10);
+    loginGrp->setContentsMargins(46, 0, 46, 10);
     loginGrp->layout()->setMargin(0);
     if (!DGuiApplicationHelper::isTabletEnvironment())
         loginGrp->appendItem(m_autoLogin);

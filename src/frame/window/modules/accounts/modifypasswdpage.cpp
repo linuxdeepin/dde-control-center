@@ -85,6 +85,7 @@ void ModifyPasswdPage::initWidget()
     cansaveLayout->addWidget(cancleBtn);
     cansaveLayout->addWidget(saveBtn);
     mainContentLayout->addLayout(cansaveLayout);
+    mainContentLayout->setContentsMargins(46, 10, 46, 5);
     setLayout(mainContentLayout);
     cancleBtn->setDefault(true);
     saveBtn->setDefault(true);

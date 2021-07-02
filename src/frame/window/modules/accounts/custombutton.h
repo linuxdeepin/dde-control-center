@@ -26,6 +26,8 @@
 
 #include <DWidget>
 
+#include <QIcon>
+
 DWIDGET_USE_NAMESPACE
 
 namespace DCC_NAMESPACE {
@@ -50,7 +52,7 @@ public:
      * \~chinese \brief 设置按钮上显示的图片
      * \~chinese \param text 按钮上需要显示的图片
      */
-    void setIcon(const QString &icon);
+    void setIcon(const QIcon &icon);
     /*!
      * \~chinese \name setDueModel
      * \~chinese \brief 设置是否为平板模式
@@ -75,7 +77,7 @@ Q_SIGNALS:
 
 private:
     QString m_text;
-    QString m_icon;
+    QIcon m_icon;
     bool m_dueModel;
     bool m_hover;
     int m_opacity;

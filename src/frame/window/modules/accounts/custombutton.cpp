@@ -22,10 +22,11 @@
 #include "custombutton.h"
 
 #include <QPainter>
-#include <QIcon>
 #include <QStyle>
 #include <QDebug>
 #include <QMouseEvent>
+
+const int ICON_SIZE = 12;
 
 using namespace DCC_NAMESPACE::accounts;
 
@@ -49,7 +50,7 @@ void CustomButton::setText(const QString &text)
     update();
 }
 
-void CustomButton::setIcon(const QString &icon)
+void CustomButton::setIcon(const QIcon &icon)
 {
     m_icon = icon;
     update();
@@ -68,21 +69,23 @@ void CustomButton::paintEvent(QPaintEvent *event)
         color = palette().color(QPalette::Button);
         color.setAlpha(m_hover ? 255 : 200);
     }
-    painter.setPen(Qt::NoPen);
-    painter.setBrush(color);
-    painter.drawRoundedRect(rect(), m_radius, m_radius);
+    painter.save();
     QTextOption option;
     option.setAlignment(m_dueModel ? (Qt::AlignLeft | Qt::AlignVCenter) : Qt::AlignCenter);
     painter.setPen(palette().color(QPalette::WindowText));
     QRect textRect = rect();
     textRect.setX(10);
     painter.drawText(m_dueModel ? textRect : rect(), m_text, option);
-    if (!m_icon.isEmpty()) {
-        QPixmap pix = QPixmap(m_icon);
-        int pixX = width() - pix.width() * 2;
-        int pixY = (height() - pix.height()) / 2;
-        painter.drawPixmap(pixX, pixY, pix);
+    painter.setPen(Qt::NoPen);
+    painter.setBrush(color);
+    painter.drawRoundedRect(rect(), m_radius, m_radius);
+    painter.restore();
+    if (!m_icon.isNull()) {
+        int x = width() - ICON_SIZE * 2;
+        int y = (height() - ICON_SIZE) / 2;
+        m_icon.paint(&painter, x, y, ICON_SIZE, ICON_SIZE);
     }
+
 }
 
 void CustomButton::setDueModel(bool dueModel)
