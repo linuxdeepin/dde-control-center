@@ -452,9 +452,8 @@ void MainWindow::initAllModule(const QString &m)
         { new SystemInfoModule(this), tr("System Info")}
     };
 
-    if (!DGuiApplicationHelper::isTabletEnvironment()) {
-        m_modules += { new CommonInfoModule(this), tr("General Settings")};
-    }
+    // 平板模式暂时打开通用模块
+    m_modules += { new CommonInfoModule(this), tr("General Settings")};
 
     //读取加载一级菜单的插件
     if (InsertPlugin::instance(this, this)->needPushPlugin("mainwindow"))
