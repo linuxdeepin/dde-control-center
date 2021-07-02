@@ -176,7 +176,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         systemShortKeys = systemFilter;
     }
 #ifdef DISABLE_SCREEN_RECORDING
-    QStringList systemFilterServer = systemFilter;
+    QStringList systemFilterServer = systemShortKeys;
     systemFilterServer.removeOne("deepin-screen-recorder");
     systemShortKeys = systemFilterServer;
 #endif
