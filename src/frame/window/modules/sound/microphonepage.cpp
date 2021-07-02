@@ -63,8 +63,8 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_volumeBtn(nullptr)
     , m_mute(false)
-    , m_noiseReduce(true)
     , m_enablePort(false)
+    , m_enable(true)
 {
     const int titleLeftMargin = 8;
     TitleLabel *labelInput = new TitleLabel(tr("Input"));
@@ -191,8 +191,6 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
     };
 
     rmFunc(m_inputModel);
-    dcc::sound::Port *port = m_model->findPort(portId, cardId);
-
     showDevice();
 }
 
@@ -203,7 +201,6 @@ void MicrophonePage::changeComboxIndex(const int idx)
     auto temp = m_inputModel->index(idx, 0);
     const dcc::sound::Port *port = m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
     this->requestSetPort(port);
-    m_noiseReduce = !port->isBluetoothPort();
     showDevice();
     qDebug() << "default source index change, currentTerxt:" << m_inputSoundCbx->comboBox()->itemText(idx);
 }
@@ -215,7 +212,6 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
 
     if (port->In == port->direction()) {
         m_enable = port->isEnabled();
-        m_noiseReduce = !port->isBluetoothPort();
 
         DStandardItem *pi = new DStandardItem;
         pi->setText(port->name() + "(" + port->cardName() + ")");
@@ -231,6 +227,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
                 disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
                 m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
                 connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
+                showDevice();
             }
         });
         disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
@@ -387,7 +384,7 @@ void MicrophonePage::setDeviceVisible(bool visable)
         if (GSettingWatcher::instance()->getStatus("soundInputSlider") != "Hidden")
             m_inputSlider->show();
         if (GSettingWatcher::instance()->getStatus("soundNoiseReduce") != "Hidden")
-            m_noiseReductionsw->setVisible(m_noiseReduce);
+            m_noiseReductionsw->setVisible(!m_currentPort->isBluetoothPort());
     } else {
         m_feedbackSlider->hide();
         m_inputSlider->hide();
