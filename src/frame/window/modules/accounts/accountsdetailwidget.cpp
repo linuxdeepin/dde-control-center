@@ -371,50 +371,45 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     loginGrp->layout()->setMargin(0);
     loginGrp->appendItem(m_autoLogin);
     loginGrp->appendItem(m_nopasswdLogin);
-    if (!IsServerSystem) {
-        layout->addSpacing(20);
-    }
 
-    if (m_isServerSystem) {
-        auto pwHLayout = new QHBoxLayout;
-        auto pwWidget = new SettingsItem;
-        layout->addSpacing(15);
-        loginGrp->appendItem(pwWidget);
-        pwWidget->setLayout(pwHLayout);
+    auto pwHLayout = new QHBoxLayout;
+    auto pwWidget = new SettingsItem;
+    layout->addSpacing(15);
+    loginGrp->appendItem(pwWidget);
+    pwWidget->setLayout(pwHLayout);
 
-        pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
-        auto validityDaysBox = new AccountSpinBox();
-        validityDaysBox->setFixedWidth(180);
-        validityDaysBox->lineEdit()->setFixedWidth(80);
-        validityDaysBox->lineEdit()->setPlaceholderText("99999");
-        validityDaysBox->setRange(1,99999);
-        pwHLayout->addWidget(validityDaysBox,0, Qt::AlignRight);
+    pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
+    auto validityDaysBox = new AccountSpinBox();
+    validityDaysBox->setFixedWidth(180);
+    validityDaysBox->lineEdit()->setFixedWidth(80);
+    validityDaysBox->lineEdit()->setPlaceholderText("99999");
+    validityDaysBox->setRange(1,99999);
+    pwHLayout->addWidget(validityDaysBox,0, Qt::AlignRight);
 
-        connect(validityDaysBox, qOverload<int>(&DSpinBox::valueChanged), this, [=](const int value) {
-            validityDaysBox->setValue(value);
-            validityDaysBox->setAlert(false);
-        });
-        connect(validityDaysBox, &QSpinBox::editingFinished, this, [this, validityDaysBox]() {
-            if (validityDaysBox->lineEdit()->text().isEmpty()) {
-                validityDaysBox->setValue(m_curUser->passwordAge());
-                return;
-            }
-            int age = validityDaysBox->value();
-            if (age == m_curUser->passwordAge())
-                return;
+    connect(validityDaysBox, qOverload<int>(&DSpinBox::valueChanged), this, [=](const int value) {
+        validityDaysBox->setValue(value);
+        validityDaysBox->setAlert(false);
+    });
+    connect(validityDaysBox, &QSpinBox::editingFinished, this, [this, validityDaysBox]() {
+        if (validityDaysBox->lineEdit()->text().isEmpty()) {
+            validityDaysBox->setValue(m_curUser->passwordAge());
+            return;
+        }
+        int age = validityDaysBox->value();
+        if (age == m_curUser->passwordAge())
+            return;
 
-            if (age <= 0) {
-                validityDaysBox->setAlert(true);
-                return;
-            }
+        if (age <= 0) {
+            validityDaysBox->setAlert(true);
+            return;
+        }
 
-            Q_EMIT requsetSetPassWordAge(m_curUser, validityDaysBox->value());
-        });
-        connect(m_curUser, &User::passwordAgeChanged, validityDaysBox, &AccountSpinBox::setValue);
+        Q_EMIT requsetSetPassWordAge(m_curUser, validityDaysBox->value());
+    });
+    connect(m_curUser, &User::passwordAgeChanged, validityDaysBox, &AccountSpinBox::setValue);
 
-        validityDaysBox->setValue(m_curUser->passwordAge());
-        validityDaysBox->valueChanged(m_curUser->passwordAge());
-    }
+    validityDaysBox->setValue(m_curUser->passwordAge());
+    validityDaysBox->valueChanged(m_curUser->passwordAge());
 
     layout->addWidget(loginGrp);
 
