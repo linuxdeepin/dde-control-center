@@ -1,0 +1,112 @@
+/*
+ * Copyright (C) 2011 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     donghualin <donghualin@uniontech.com>
+ *
+ * Maintainer: donghualin <donghualin@uniontech.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef HOTSPOTCONTROLLER_H
+#define HOTSPOTCONTROLLER_H
+
+#include "networkconst.h"
+
+#include <QObject>
+
+namespace dde {
+
+namespace network {
+
+struct Connection;
+class HotspotItem;
+class WirelessDevice;
+class NetworkDeviceBase;
+
+class HotspotController : public QObject
+{
+    Q_OBJECT
+
+    friend class NetworkController;
+
+public:
+    void setEnabled(WirelessDevice *device, const bool enable);              // 开启还是关闭个人热点
+    bool enabled(WirelessDevice *device);                                    // 设备的热点是否可用
+    bool supportHotspot();                                                   // 是否支持个人热点
+    void connectItem(HotspotItem *item);                                     // 连接到个人热点
+    void connectItem(const QString &uuid);                                   // 连接到个人热点
+    void disconnectItem();                                                   // 断开连接
+    QList<HotspotItem *> items(WirelessDevice *device);                      // 返回列表
+    QList<WirelessDevice *> devices();                                       // 获取支持热点的设备列表
+
+Q_SIGNALS:
+    void enabledChanged(const bool &);                                       // 热点是否可用发生了变化
+    void itemAdded(const QMap<WirelessDevice *, QList<HotspotItem *>> &);    // 新增连接的信号
+    void itemRemoved(const QMap<WirelessDevice *, QList<HotspotItem *>> &);  // 删除连接的信号
+    void activeConnectionChanged(const QList<WirelessDevice *> &);           // 活动连接发生变化
+    void deviceAdded(const QList<WirelessDevice *> &);                       // 新增热点设备
+    void deviceRemove(const QList<WirelessDevice *> &);                      // 删除热点设备
+
+protected:
+    explicit HotspotController(NetworkInter *networkInter, QObject *parent = Q_NULLPTR);
+    ~HotspotController();
+
+    void updateConnections(const QJsonArray &jsons, const QList<NetworkDeviceBase *> &devices);
+    HotspotItem *findItem(WirelessDevice *device, const QJsonObject &json);
+
+    void updateActiveConnection(const QJsonObject &activeConnections);
+    void updateActiveConnectionInfo(const QList<QJsonObject> &conns);
+    void updateActiveConnectionInfo();
+
+    WirelessDevice *findDevice(const QString &path);
+
+private:
+    QList<WirelessDevice *> m_devices;
+    QList<HotspotItem *> m_hotspotItems;
+    NetworkInter *m_networkInter;
+    QList<QJsonObject> m_activeconnection;
+    QMap<QString, bool> m_deviceEnableStatus;
+    QString m_activePath;
+    bool m_activeConnectionChanged;
+    QList<WirelessDevice *> m_activeDevices;
+};
+
+class HotspotItem : public ControllItems
+{
+    friend class HotspotController;
+
+public:
+    QString name() const;                                                    // 个人热点名称
+    WirelessDevice *device() const;                                          // 当前热点对应的无线设备
+    ConnectionStatus connectionStatus() const;                               // 当前连接的连接状态
+
+protected:
+    HotspotItem(WirelessDevice *device);
+    ~HotspotItem();
+
+    QString devicePath() const;                                              // 返回设备的路径
+    void setConnectionStatus(const ConnectionStatus &status);
+
+private:
+    WirelessDevice *m_device;
+    QString m_devicePath;
+    ConnectionStatus m_connectionStatus;
+};
+
+}
+
+}
+
+#endif // UHOTSPOTCONTROLLER_H

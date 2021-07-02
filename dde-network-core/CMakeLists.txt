@@ -1,0 +1,50 @@
+cmake_minimum_required(VERSION 3.7)
+
+project(dde-network-core)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+
+set(CMAKE_PREFIX_PATH $ENV{Qt5_DIR})
+
+aux_source_directory(. SOURCEFILES)
+list(REMOVE_ITEM SOURCEFILES "debian")
+add_library(${PROJECT_NAME} SHARED ${SOURCEFILES} ${TS_FILES})
+
+find_package(Qt5 COMPONENTS Core DBus Network REQUIRED)
+find_package(PkgConfig REQUIRED)
+find_package(KF5NetworkManagerQt REQUIRED)
+#find_package(Qt5DBus REQUIRED)
+
+pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
+pkg_check_modules(QGSettings REQUIRED gsettings-qt)
+
+get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
+
+set(TRY_KF5_LIBRARIES
+IMPORTED_LOCATION_DEBIAN
+IMPORTED_LOCATION_NOCONFIG
+)
+
+if (NOT KF5_QT_LIBRARIES)
+    find_library(KF5_QT_LIBRARIES libKF5NetworkManagerQt.so)
+endif()
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+    ${Qt5DBus_INCLUDE_DIRS}
+    ${DFrameworkDBus_INCLUDE_DIRS}
+    ${QGSettings_INCLUDE_DIRS}
+    ${LibNM_INCLUDE_DIRS}
+    ${Qt5Network_INCLUDE_DIRS}
+    ${KF5_QT_INCLUDE_DIRS})
+
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    ${Qt5Core_LIBRARIES}
+    ${LibNM_LIBRARIES}
+    ${DFrameworkDBus_LIBRARIES}
+    ${Qt5DBus_LIBRARIES}
+    ${Qt5Network_LIBRARIES}
+    ${QGSettings_LIBRARIES}
+    ${KF5_QT_LIBRARIES})

@@ -1,0 +1,34 @@
+Source: dde-network-core
+Section: lib
+Version:1.0.0.1
+Priority: optional
+Maintainer: donghualin <donghualin@uniontech.com>
+Build-Depends: debhelper-compat (= 12),
+               cmake,
+	           libdframeworkdbus-dev (>= 1.0.2),
+	           libgsettings-qt-dev,
+	           pkg-config,
+	           qtbase5-dev,
+	           qttools5-dev-tools,
+	           libgtest-dev,
+	           libkf5networkmanagerqt-dev
+Rules-Requires-Root: no
+Standards-Version: 4.5.0
+Homepage: https://gerrit.uniontech.com/admin/repos/dde-network-core
+Vcs-Browser: https://gerrit.uniontech.com/admin/repos/dde-network-core
+
+Package: dde-network-core
+Architecture: any
+Version:1.0.0.1
+package-relations:1.0.0.1
+Depends: ${misc:Depends},${shlibs:Depends},
+Description: networkcore for dde network
+ dde-network-core module
+
+Package: dde-network-core-dev
+Architecture: any
+Version:1.0.0.1
+package-relations:1.0.0.1
+Depends: curl,wget,${misc:Depends},${shlibs:Depends},
+Description: the interface of networkcode,used for developers
+ dde-network-core-dev module

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/qm">
+        <file alias="network_cn_qm">../translations/network_cn.qm</file>
+        <file alias="network_en_qm">../translations/network_en.qm</file>
+        <file alias="network_qm">../translations/network.qm</file>
+    </qresource>
+</RCC>
