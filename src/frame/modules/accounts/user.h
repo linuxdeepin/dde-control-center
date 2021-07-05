@@ -102,7 +102,7 @@ public:
     int charactertypes(QString password);
 
 Q_SIGNALS:
-    void passwordModifyFinished(const int exitCode) const;
+    void passwordModifyFinished(const int exitCode, const QString &errorTxt) const;
     void nameChanged(const QString &name) const;
     void fullnameChanged(const QString &name) const;
     void currentAvatarChanged(const QString &avatar) const;

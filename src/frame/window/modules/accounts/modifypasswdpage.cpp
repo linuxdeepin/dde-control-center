@@ -29,6 +29,7 @@
 
 #include <DFontSizeManager>
 #include <DApplicationHelper>
+#include <DDBusSender>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -162,27 +163,86 @@ void ModifyPasswdPage::imKeyBoardControl()
     }
 }
 
-void ModifyPasswdPage::clickSaveBtn()
+bool ModifyPasswdPage::judgeTextEmpty(DPasswordEdit *edit)
 {
-    if (!preCheckPassword())
-        return;
-
-    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
-                                                                                      m_newPasswordEdit->lineEdit()->text());
-    if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
-        m_newPasswordEdit->setAlert(true);
-        m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
-        return;
+    if (edit->text().isEmpty()) {
+        edit->setAlert(true);
+        edit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
     }
 
-    Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text());
+    return edit->text().isEmpty();
 }
 
-void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode)
+void ModifyPasswdPage::clickSaveBtn()
 {
-    if (exitCode != 0) {
-        m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
+    if (judgeTextEmpty(m_oldPasswordEdit) || judgeTextEmpty(m_newPasswordEdit) || judgeTextEmpty(m_repeatPasswordEdit)) return;
+
+    Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text(), m_repeatPasswordEdit->lineEdit()->text());
+}
+
+void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QString &errorTxt)
+{
+    Q_UNUSED(exitCode)
+    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
+                                                                                      m_newPasswordEdit->lineEdit()->text());
+    if (errorTxt.contains("password unchanged")) {
+        if (!errorTxt.contains("password right", Qt::CaseInsensitive)) {
+            m_oldPasswordEdit->setAlert(true);
+            m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
+            return;
+        }
+
+        if (m_newPasswordEdit->lineEdit()->text() == m_oldPasswordEdit->lineEdit()->text() ) {
+            m_newPasswordEdit->setAlert(true);
+            m_newPasswordEdit->showAlertMessage(tr("New password should differ from the current one"), m_oldPasswordEdit, 2000);
+            return;
+        }
+
+        if (error == PW_NO_ERR) {
+            if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
+                m_repeatPasswordEdit->setAlert(true);
+                m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
+                return;
+            }
+        }
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+        // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
+        if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
+            return;
+
+        // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
+        QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
+                                 QStringLiteral("/com/deepin/defender/daemonservice"),
+                                 QStringLiteral("com.deepin.defender.daemonservice"));
+        QDBusReply<int> level = interface.call("GetPwdLimitLevel");
+        if (!interface.isValid()) {
+            return;
+        }
+        if (level != 1) {
+            QDBusReply<QString> errorTips = interface.call("GetPwdError");
+            DDialog dlg("", errorTips, this);
+            dlg.setIcon(QIcon::fromTheme("preferences-system"));
+            dlg.addButton(tr("Go to Settings"));
+            dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
+            connect(&dlg, &DDialog::buttonClicked, this, [=](int idx) {
+                if (idx == 0) {
+                    DDBusSender()
+                        .service("com.deepin.defender.hmiscreen")
+                        .interface("com.deepin.defender.hmiscreen")
+                        .path("/com/deepin/defender/hmiscreen")
+                        .method(QString("ShowPage"))
+                        .arg(QString("securitytools"))
+                        .arg(QString("login-safety"))
+                        .call();
+                }
+            });
+            dlg.exec();
+        }
+    } else if (error != PW_NO_ERR) {
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+        Q_EMIT requestChangePassword(m_curUser, m_newPasswordEdit->lineEdit()->text(), m_oldPasswordEdit->lineEdit()->text(), m_oldPasswordEdit->lineEdit()->text(), false);
     } else {
         Q_EMIT requestBack();
     }
@@ -195,42 +255,4 @@ void ModifyPasswdPage::showEvent(QShowEvent *event)
     if (m_oldPasswordEdit && !m_oldPasswordEdit->hasFocus()) {
         m_oldPasswordEdit->lineEdit()->setFocus();
     }
-}
-
-bool ModifyPasswdPage::preCheckPassword()
-{
-    // 验证当前密码输入框非空
-    if (m_oldPasswordEdit->lineEdit()->text().isEmpty()) {
-        m_oldPasswordEdit->setAlert(true);
-        m_oldPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_oldPasswordEdit, 2000);
-        return false;
-    }
-
-    // 验证新密码输入框非空
-    if (m_newPasswordEdit->lineEdit()->text().isEmpty()) {
-        m_newPasswordEdit->setAlert(true);
-        m_newPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_newPasswordEdit, 2000);
-        return false;
-    }
-
-    // 验证重复密码输入框非空
-    if (m_repeatPasswordEdit->lineEdit()->text().isEmpty()) {
-        m_repeatPasswordEdit->setAlert(true);
-        m_repeatPasswordEdit->showAlertMessage(tr("Password cannot be empty"), m_repeatPasswordEdit, 2000);
-        return false;
-    }
-
-    if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
-        m_repeatPasswordEdit->setAlert(true);
-        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
-        return false;
-    }
-
-    if (m_oldPasswordEdit->lineEdit()->text() == m_newPasswordEdit->lineEdit()->text() && m_oldPasswordEdit->lineEdit()->text() == m_repeatPasswordEdit->lineEdit()->text()) {
-        m_newPasswordEdit->setAlert(true);
-        m_newPasswordEdit->showAlertMessage(tr("New password should differ from the current one"), m_newPasswordEdit, 2000);
-        return false;
-    }
-
-    return true;
 }

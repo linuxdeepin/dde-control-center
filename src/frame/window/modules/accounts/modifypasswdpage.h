@@ -56,19 +56,16 @@ public:
     explicit ModifyPasswdPage(dcc::accounts::User *user, QWidget *parent = nullptr);
     ~ModifyPasswdPage();
     void initWidget();
+    bool judgeTextEmpty(DTK_WIDGET_NAMESPACE::DPasswordEdit *edit);
     void clickSaveBtn();
-    void onPasswordChangeFinished(const int exitCode);
+    void onPasswordChangeFinished(const int exitCode, const QString &errorTxt);
     void imKeyBoardControl();
 
 protected:
     void showEvent(QShowEvent *event) override;
 
-private:
-    bool onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit);
-    bool preCheckPassword();
-
 Q_SIGNALS:
-    void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password);
+    void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password, const QString &repeatPassword, const bool needResule = true);
     void requestBack(DCC_NAMESPACE::accounts::AccountsWidget::ActionOption option = DCC_NAMESPACE::accounts::AccountsWidget::ClickCancel);
 
 private:
