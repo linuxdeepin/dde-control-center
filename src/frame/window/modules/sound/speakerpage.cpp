@@ -406,7 +406,7 @@ void SpeakerPage::initCombox()
 {
     m_blueSoundCbx->comboBox()->addItems(m_model->bluetoothAudioModeOpts());
     m_blueSoundCbx->comboBox()->setCurrentText(m_model->currentBluetoothAudioMode());
-    connect(m_blueSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeBluetoothMode);
+    connect(m_blueSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &SpeakerPage::changeBluetoothMode);
 
     m_outputSoundsGrp->getLayout()->setContentsMargins(ThirdPageCmbMargins);
     m_outputSoundsGrp->appendItem(m_outputSoundCbx);
