@@ -32,6 +32,12 @@ class QVBoxLayout;
 class QListView;
 QT_END_NAMESPACE
 
+DWIDGET_BEGIN_NAMESPACE
+class DTipLabel;
+DWIDGET_END_NAMESPACE
+
+class TitleLabel;
+
 namespace dcc {
 
 namespace sound {
@@ -67,19 +73,21 @@ private Q_SLOTS:
 
 protected:
     void initUI();
+    void refreshTitleStatus(dcc::sound::Port::Direction direction);
 
 private:
-    dcc::sound::SoundModel *m_model{nullptr};
-    QVBoxLayout *m_layout{nullptr};
+    dcc::sound::SoundModel *m_model{ nullptr };
+    QVBoxLayout *m_layout{ nullptr };
+    TitleLabel *m_outputDeviceTitle{ nullptr };
+    DTipLabel *m_outputlblTip{ nullptr };
+    TitleLabel *m_inputDeviceTitle{ nullptr };
+    DTipLabel *m_inputlblTip{ nullptr };
 
-    dcc::widgets::SwitchWidget *m_inputDevice;
-    dcc::widgets::SwitchWidget *m_outputDevice;
+    dcc::widgets::SettingsGroup *m_outputGroup{ nullptr };
+    dcc::widgets::SettingsGroup *m_inputGroup{ nullptr };
 
-    dcc::widgets::SettingsGroup *m_outputGroup;
-    dcc::widgets::SettingsGroup *m_inputGroup;
-
-    QList<const dcc::sound::Port *> m_inputPort;
-    QList<const dcc::sound::Port *> m_outputPort;
+    QList<const dcc::sound::Port *> m_outputPort{ nullptr };
+    QList<const dcc::sound::Port *> m_inputPort{ nullptr };
 };
 
 }

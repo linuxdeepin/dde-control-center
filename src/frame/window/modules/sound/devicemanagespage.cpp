@@ -45,6 +45,8 @@ DWIDGET_USE_NAMESPACE
 DevicemanagesPage::DevicemanagesPage(QWidget *parent)
     : QWidget(parent)
     , m_layout(new QVBoxLayout(this))
+    , m_outputGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
+    , m_inputGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
 {
 
 }
@@ -87,9 +89,11 @@ void DevicemanagesPage::addPort(const Port *port)
     if (Port::Out == port->direction()) {
         m_outputPort.append(port);
         m_outputGroup->appendItem(switchDevs);
+        refreshTitleStatus(port->direction());
     } else {
         m_inputPort.append(port);
         m_inputGroup->appendItem(switchDevs);
+        refreshTitleStatus(port->direction());
     }
 
     // 切換狀態
@@ -113,6 +117,7 @@ void DevicemanagesPage::removePort(const QString &portId, const uint &cardId)
         if (m_inputPort.at(i)->id() == portId && m_inputPort.at(i)->cardId() == cardId){
             m_inputGroup->removeItem(m_inputGroup->getItem(i));
             m_inputPort.removeAt(i);
+            refreshTitleStatus(Port::In);
             return;
         }
     }
@@ -121,6 +126,7 @@ void DevicemanagesPage::removePort(const QString &portId, const uint &cardId)
         if (m_outputPort.at(i)->id() == portId && m_outputPort.at(i)->cardId() == cardId) {
             m_outputGroup->removeItem(m_outputGroup->getItem(i));
             m_outputPort.removeAt(i);
+            refreshTitleStatus(Port::Out);
             return;
         }
     }
@@ -129,50 +135,71 @@ void DevicemanagesPage::removePort(const QString &portId, const uint &cardId)
 void DevicemanagesPage::initUI()
 {
     // TODO: 输出设备
-    TitleLabel *outputDevice = new TitleLabel(tr("Output Devices"));
-    DFontSizeManager::instance()->bind(outputDevice, DFontSizeManager::T5, QFont::DemiBold);
-    outputDevice->setContentsMargins(10, 10, 0, 0);
-    outputDevice->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    m_outputDeviceTitle = new TitleLabel(tr("Output Devices"));
+    DFontSizeManager::instance()->bind(m_outputDeviceTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_outputDeviceTitle->setContentsMargins(10, 10, 0, 0);
+    m_outputDeviceTitle->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    DTipLabel *outputlblTip = new  DTipLabel(tr("Enable or disable a device as you want"));
-    DFontSizeManager::instance()->bind(outputlblTip, DFontSizeManager::T8);
-    outputlblTip->adjustSize();
-    outputlblTip->setWordWrap(true);
-    outputlblTip->setContentsMargins(10, 0, 0, 0);
-    outputlblTip->setAlignment(Qt::AlignLeft);
+    m_outputlblTip = new  DTipLabel(tr("Enable or disable a device as you want"));
+    DFontSizeManager::instance()->bind(m_outputlblTip, DFontSizeManager::T8);
+    m_outputlblTip->adjustSize();
+    m_outputlblTip->setWordWrap(true);
+    m_outputlblTip->setContentsMargins(10, 0, 0, 0);
+    m_outputlblTip->setAlignment(Qt::AlignLeft);
 
-
-    m_outputGroup = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_outputGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
     m_outputGroup->setContentsMargins(10, 10, 10, 10);
 
-    m_layout->addWidget(outputDevice);
-    m_layout->addWidget(outputlblTip);
+    m_layout->addWidget(m_outputDeviceTitle);
+    m_layout->addWidget(m_outputlblTip);
     m_layout->addWidget(m_outputGroup);
     m_layout->addSpacing(10);
 
     // 输入设备
-    TitleLabel *inputDevice = new TitleLabel(tr("Input Devices"));
-    DFontSizeManager::instance()->bind(inputDevice, DFontSizeManager::T5, QFont::DemiBold);
-    inputDevice->setContentsMargins(10, 0, 0, 0);
-    inputDevice->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    m_inputDeviceTitle = new TitleLabel(tr("Input Devices"));
+    DFontSizeManager::instance()->bind(m_inputDeviceTitle, DFontSizeManager::T5, QFont::DemiBold);
+    m_inputDeviceTitle->setContentsMargins(10, 0, 0, 0);
+    m_inputDeviceTitle->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    DTipLabel *inputlblTip = new  DTipLabel(tr("Enable or disable a device as you want"));
-    DFontSizeManager::instance()->bind(inputlblTip, DFontSizeManager::T8);
-    inputlblTip->adjustSize();
-    inputlblTip->setWordWrap(true);
-    inputlblTip->setContentsMargins(10, 0, 0, 0);
-    inputlblTip->setAlignment(Qt::AlignLeft);
+    m_inputlblTip = new  DTipLabel(tr("Enable or disable a device as you want"));
+    DFontSizeManager::instance()->bind(m_inputlblTip, DFontSizeManager::T8);
+    m_inputlblTip->adjustSize();
+    m_inputlblTip->setWordWrap(true);
+    m_inputlblTip->setContentsMargins(10, 0, 0, 0);
+    m_inputlblTip->setAlignment(Qt::AlignLeft);
 
-    m_inputGroup = new  SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_inputGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
     m_inputGroup->setContentsMargins(10, 10, 10, 10);
 
-    m_layout->addWidget(inputDevice);
-    m_layout->addWidget(inputlblTip);
+    m_layout->addWidget(m_inputDeviceTitle);
+    m_layout->addWidget(m_inputlblTip);
     m_layout->addWidget(m_inputGroup);
     m_layout->addStretch();
 
     m_layout->setContentsMargins(0, 0, 0, 0);
     setLayout(m_layout);
 }
+
+void DevicemanagesPage::refreshTitleStatus(Port::Direction direction)
+{
+    if (direction == Port::Out) {
+        if (m_outputGroup->itemCount()) {
+            m_outputDeviceTitle->show();
+            m_outputlblTip->show();
+        } else {
+            m_outputDeviceTitle->hide();
+            m_outputlblTip->hide();
+        }
+    }
+
+    if (direction == Port::In) {
+        if (m_inputGroup->itemCount()) {
+            m_inputDeviceTitle->show();
+            m_inputlblTip->show();
+        }else {
+            m_inputDeviceTitle->hide();
+            m_inputlblTip->hide();
+        }
+    }
+}
+
