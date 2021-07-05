@@ -29,6 +29,7 @@
 #include "interface/moduleinterface.h"
 #include "interface/namespace.h"
 
+#include <QDBusMetaType>
 #include <QPointer>
 #include <QPushButton>
 #include <QVBoxLayout>
