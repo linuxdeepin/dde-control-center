@@ -167,6 +167,11 @@
             <summary>change bluetooth transfile status</summary>
             <description>default is Enabled</description>
         </key>
+        <key name="bluetooth-switch" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <summary>change bluetooth powerswitch status</summary>
+            <description>default is Enabled</description>
+        </key>
         <key name="power-plans-label" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <summary>change power plans label status</summary>
@@ -646,6 +651,11 @@
             <default>true</default>
             <summary></summary>
             <description>default is true</description>
+        </key>
+        <key name="hotspot-switch" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Hidden'</default>
+            <summary></summary>
+            <description>default is Enabled</description>
         </key>
         <key name="personal-hotspot" type="b">
             <default>true</default>
