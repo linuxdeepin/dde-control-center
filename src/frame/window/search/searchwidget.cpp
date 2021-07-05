@@ -194,6 +194,7 @@ SearchModel::SearchModel(QObject *parent)
         "General",
         "Icon Theme",
         "Cursor Theme",
+        "Font",
         "Hotspot",
         "Create Hotspot",
         "DSL",
@@ -210,7 +211,8 @@ SearchModel::SearchModel(QObject *parent)
         "Recommended",
         "Touch Screen",
         "Rotate Screen",
-        "Wired Network Adapter"
+        "Wired Network Adapter",
+        "Add System Language"
     };
 }
 

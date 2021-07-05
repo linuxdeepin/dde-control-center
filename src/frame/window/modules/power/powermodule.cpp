@@ -73,7 +73,7 @@ void PowerModule::initialize()
 
 const QString PowerModule::name() const
 {
-    return QStringLiteral("power");
+  return DGuiApplicationHelper::isTabletEnvironment() ? QStringLiteral("battery") : QStringLiteral("power");
 }
 
 const QString PowerModule::displayName() const

@@ -62,7 +62,6 @@ void PowerWidget::initialize(bool hasBattery)
             //~ contents_path /power/Plugged In
             {"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
     #endif
-            //~ contents_path /power/On Battery
             {"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
         };
     } else {
@@ -71,7 +70,6 @@ void PowerWidget::initialize(bool hasBattery)
             //~ contents_path /power/Plugged In
             {"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric)},
     #endif
-            //~ contents_path /power/On Battery
             {"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery)},
         };
     }

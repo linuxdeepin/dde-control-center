@@ -56,6 +56,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     layout->setSpacing(List_Interval);
 
     QHBoxLayout *headLayout = new QHBoxLayout();
+    //~ contents_path /language/Language List
     TitleLabel *headTitle = new TitleLabel(tr("Language List"));
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
 

@@ -71,11 +71,17 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     for (auto it : model->num2Time()) {
         annos << it.first;
     }
-
-    /*** 超时关闭显示器 ***/
-    //~ contents_path /power/On Battery
-    //~ child_page On Battery
-    m_monitorSleepOnBattery->setAccessibleName(tr("Monitor will suspend after"));
+    //~ contents_path /battery/On Battery
+    m_swBatteryHint->setAccessibleName(tr("Low Battery Notification"));
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        //~ contents_path /battery/On Battery
+        m_monitorSleepOnBattery->setAccessibleName(tr("Turn off the display in"));
+    } else {
+        /*** 超时关闭显示器 ***/
+        //~ contents_path /power/On Battery
+        //~ child_page On Battery
+        m_monitorSleepOnBattery->setAccessibleName(tr("Monitor will suspend after"));
+    }
     m_monitorSleepOnBattery->slider()->setType(DCCSlider::Vernier);
     m_monitorSleepOnBattery->slider()->setRange(1, model->num2Time().size());
     m_monitorSleepOnBattery->slider()->setTickPosition(QSlider::TicksBelow);

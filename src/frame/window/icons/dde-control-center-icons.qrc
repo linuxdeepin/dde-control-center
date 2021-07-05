@@ -181,6 +181,10 @@
         <file>actions/arrows_right.svg</file>
         <file>actions/icon_no.svg</file>
         <file>actions/icon_yes.svg</file>
+        <file>icons/dcc_nav_battery_42px.svg</file>
+        <file>icons/dcc_nav_battery_84px.svg</file>
+        <file>icons/dcc_nav_language_42px.svg</file>
+        <file>icons/dcc_nav_language_84px.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

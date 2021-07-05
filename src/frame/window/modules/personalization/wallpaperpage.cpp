@@ -190,7 +190,7 @@ WallpaperPage::WallpaperPage(QWidget *parent)
     centralLayout->addWidget(m_wallpaper);
     connect(m_wallpaper, &Wallpaper::requestSetWallpaper, this, &WallpaperPage::showWallpaperWidget);
 #endif
-
+    //~ contents_path /personalization/General
     QLabel *font = new TitleLabel(tr("Size"));
     font->setContentsMargins(20, 20, 0, 10);
     DFontSizeManager::instance()->bind(font, DFontSizeManager::T5, QFont::DemiBold);

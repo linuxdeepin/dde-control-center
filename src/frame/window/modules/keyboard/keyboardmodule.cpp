@@ -126,6 +126,7 @@ QStringList KeyboardModule::availPage() const
 
 const QString KeyboardModule::name() const
 {
+    return DGuiApplicationHelper::isTabletEnvironment() ? QStringLiteral("language") : QStringLiteral("keyboard");
     return QStringLiteral("keyboard");
 }
 
