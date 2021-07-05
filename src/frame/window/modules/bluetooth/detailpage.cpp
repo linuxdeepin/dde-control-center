@@ -36,6 +36,7 @@
 #include <QApplication>
 
 #include <DDesktopServices>
+#include <DApplicationHelper>
 
 using namespace dcc;
 using namespace dcc::bluetooth;
@@ -140,6 +141,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     connect(m_editDevAlias, &QLineEdit::editingFinished, this, &DetailPage::onDeviceAliasChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
     connect(backWidgetBtn, &DIconButton::clicked, this, &DetailPage::back);
+    m_transfileButton->setVisible(!DApplicationHelper::isTabletEnvironment() ? true : false);
 }
 
 void DetailPage::onDeviceStatusChanged()
