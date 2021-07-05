@@ -102,6 +102,7 @@ SoundModel::SoundModel(QObject *parent)
     , m_speakerBalance(0)
     , m_microphoneVolume(75)
     , m_maxUIVolume(0.0)
+    , m_waitSoundReceiptTime(0)
 #ifndef DCC_DISABLE_FEEDBACK
     , m_microphoneFeedback(50)
 #endif
@@ -411,6 +412,15 @@ void SoundModel::setCurrentBluetoothAudioMode(const QString &mode)
     }
 }
 
+void SoundModel::setWaitSoundReceiptTime(const int receiptTime)
+{
+    // 配置端⼝切换延时时间
+    if (m_waitSoundReceiptTime != receiptTime) {
+        qDebug() << "Sound Receopt Time is: " << receiptTime;
+        m_waitSoundReceiptTime = receiptTime;
+    }
+}
+
 void Port::setId(const QString &id)
 {
     if (id != m_id) {
@@ -474,6 +484,5 @@ void Port::setIsBluetoothPort(const bool isBlue)
         Q_EMIT currentBluetoothPortChanged(isBlue);
     }
 }
-
 } // namespace sound
 } // namespace dcc

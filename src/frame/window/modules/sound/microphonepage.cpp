@@ -198,11 +198,17 @@ void MicrophonePage::changeComboxIndex(const int idx)
 {
     if (idx < 0)
         return;
-    auto temp = m_inputModel->index(idx, 0);
-    const dcc::sound::Port *port = m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
-    this->requestSetPort(port);
-    showDevice();
-    qDebug() << "default source index change, currentTerxt:" << m_inputSoundCbx->comboBox()->itemText(idx);
+    int waitSoundPortTime = m_model->currentWaitSoundReceiptTime();
+    showWaitSoundPortStatus(false);
+    QTimer::singleShot(waitSoundPortTime, [=](){
+        // 统一延时处理, 避免多次触发setPort
+        showWaitSoundPortStatus(true);
+        auto temp = m_inputModel->index(idx, 0);
+        const dcc::sound::Port *port = m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
+        this->requestSetPort(port);
+        qDebug() << "default source index change, currentTerxt:" << m_inputSoundCbx->comboBox()->itemText(idx);
+        showDevice();
+    });
 }
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
@@ -355,6 +361,12 @@ void MicrophonePage::refreshIcon()
     } else {
         m_volumeBtn->setIcon(qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement));
     }
+}
+
+void MicrophonePage::showWaitSoundPortStatus(bool showStatus)
+{
+    m_inputSoundCbx->setEnabled(showStatus);
+    m_noiseReductionsw->setEnabled(showStatus);
 }
 
 /**

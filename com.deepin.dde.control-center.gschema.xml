@@ -33,6 +33,11 @@
             <range min="634" max="9999"></range>
             <summary>The window height last time</summary>
         </key>
+        <key name="wait-sound-receipt" type="i">
+            <default>1000</default>
+            <range min="1" max="9999"></range>
+            <summary>Waiting for sound receipt Wait 1 second by default</summary>
+        </key>
         <key name="hide-module" type="as">
             <default>[]</default>
             <summary>The module to display</summary>
