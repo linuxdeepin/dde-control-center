@@ -12,19 +12,19 @@ make check
 cd tests/
 
 cd dccwidgets/
-./dccwidgets-unittest
+./dccwidgets-unittest --gtest_output=xml:dde_test_report_dccwidgets.xml
 # dccwidgets
 mv asan.log* asan_dccwidgets.log
 
 cd ..
 cd dde-control-center/
-./mouse-unittest
-./systeminfo-unittest
-#./bluetooth-unittest
-#./datetime-unittest
-./defapp-unittest
-./notification-unittest
-./keyboard-unittest
+./mouse-unittest --gtest_output=xml:dde_test_report_mouse.xml
+./systeminfo-unittest --gtest_output=xml:dde_test_report_systeminfo.xml
+#./bluetooth-unittest --gtest_output=xml:dde_test.xml
+#./datetime-unittest --gtest_output=xml:dde_test.xml
+./defapp-unittest --gtest_output=xml:dde_test_report_defapp.xml
+./notification-unittest --gtest_output=xml:dde_test_report_notification.xml
+./keyboard-unittest --gtest_output=xml:dde_test_report_keyboard.xml
 
 #dde-control-center
 #bluetooth和datetime未运行单元测试程序，暂时屏蔽
