@@ -405,7 +405,7 @@ void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
 
 void AccountsWorker::addUser(const QString &userPath)
 {
-    if (userPath.contains("User0", Qt::CaseInsensitive))
+    if (userPath.contains("User0", Qt::CaseInsensitive) || m_userModel->contains(userPath))
         return;
     AccountsUser *userInter = new AccountsUser(AccountsService, userPath, QDBusConnection::systemBus(), this);
     userInter->setSync(false);
