@@ -251,7 +251,9 @@ void GeneralWidget::setModel(const PowerModel *model)
     m_sldLowerBrightness->setVisible(maxBacklight >= 100 || maxBacklight == 0);
     m_sldLowerBrightness->slider()->setValue(model->powerSavingModeLowerBrightnessThreshold() / 10);
     connect(model, &PowerModel::powerSavingModeLowerBrightnessThresholdChanged, this,  [ = ](const uint dLevel) {
+        m_sldLowerBrightness->slider()->blockSignals(true);
         m_sldLowerBrightness->slider()->setValue(dLevel / 10);
+        m_sldLowerBrightness->slider()->blockSignals(false);
     });
 
     bool bStatus = model->haveBettary();
