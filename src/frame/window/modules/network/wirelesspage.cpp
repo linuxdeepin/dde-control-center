@@ -665,14 +665,21 @@ void WirelessPage::sortAPList()
 
 void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString &ssid)
 {
-    const QString uuid = connectionUuid(ssid);
-    qDebug() << "onApWidgetEditRequested: " << ssid << "," << uuid << "," << m_device->path();
+    qDebug() << "onApWidgetEditRequested，apPath" << apPath << ", assid:" << ssid << ", devicePath" << m_device->path();
+    if (apPath.isEmpty() && ssid.isEmpty())
+        return;
 
+    QString aSsid = ssid;
+    if (aSsid.isEmpty())
+        aSsid = getSsidByPath(apPath);
+
+    const QString uuid = connectionUuid(aSsid);
+    qDebug() << "uuid: " << uuid << ", assid: " << aSsid << ", m_apEditPage is null" << m_apEditPage.isNull();
     if (!m_apEditPage.isNull()) {
         return;
     }
 
-    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid);
+    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid, isConnectionHidden(aSsid));
 
     if (!uuid.isEmpty()) {
         m_editingUuid = uuid;
@@ -808,4 +815,35 @@ QString WirelessPage::connectionSsid(const QString &uuid)
     }
 
     return ssid;
+}
+
+bool WirelessPage::isConnectionHidden(const QString &ssid){
+    bool isHidden = false;
+
+    const auto &apList = m_device->apList();
+    for (const auto &ap : apList) {
+        QJsonObject item = ap.toObject();
+        if (!item.isEmpty() && item.value("Ssid").toString() == ssid ){
+            if (item.contains("Hidden"))
+                isHidden = item.value("Hidden").toBool();
+
+            break;
+        }
+    }
+
+    return isHidden;
+}
+
+QString WirelessPage::getSsidByPath(const QString &path){
+    if (path.isEmpty())
+        return QString();
+
+    const auto &apList = m_device->apList();
+    for (const auto &ap : apList) {
+        QJsonObject item = ap.toObject();
+        if (!item.isEmpty() && item.value("Path").toString() == path ){
+            return item.value("Ssid").toString();
+        }
+    }
+    return QString();
 }

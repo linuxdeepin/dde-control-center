@@ -168,6 +168,8 @@ private:
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);
     void updateActiveApItem(APItem *item);
+    bool isConnectionHidden(const QString &ssid);
+    QString getSsidByPath(const QString &path);
 
 private:
     dde::network::WirelessDevice *m_device;
