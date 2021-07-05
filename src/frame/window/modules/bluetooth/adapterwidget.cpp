@@ -30,6 +30,7 @@
 #include "widgets/settingsgroup.h"
 #include "widgets/titlelabel.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 
 #include <DListView>
 
@@ -262,6 +263,8 @@ void AdapterWidget::initConnect()
         m_powerSwitch->switchButton()->setEnabled(false);
         Q_EMIT requestSetToggleAdapter(m_adapter, check);
     });
+
+    GSettingWatcher::instance()->bind("bluetoothSwitch", m_powerSwitch->switchButton());
 
     connect(m_discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleDiscoverableSwitch);
 
