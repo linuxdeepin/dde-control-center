@@ -99,6 +99,7 @@ private:
     void initSlider();
     void initCombox();
     void refreshIcon();
+    void showWaitSoundPortStatus(bool showStatus);
 
 private:
     //model类， 为后端数据来源及数据变化信号来源

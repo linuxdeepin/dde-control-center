@@ -34,6 +34,8 @@
 namespace dcc {
 namespace sound {
 
+#define GSETTINGS_WAIT_SOUND_RECEIPT "wait-sound-receipt"
+
 SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
@@ -46,6 +48,7 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_sourceMeter(nullptr)
     , m_effectGsettings(new QGSettings("com.deepin.dde.sound-effect", "", this))
     , m_powerInter(new SystemPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
+    , m_dccSettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
     , m_pingTimer(new QTimer(this))
     , m_activeTimer(new QTimer(this))
     , m_inter(QDBusConnection::sessionBus().interface())
@@ -56,7 +59,8 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
 
-    m_activeTimer->setInterval(100);
+    m_waitSoundPortReceipt = m_dccSettings->get(GSETTINGS_WAIT_SOUND_RECEIPT).toInt();
+    m_activeTimer->setInterval(m_waitSoundPortReceipt);
     m_activeTimer->setSingleShot(true);
 
     if (m_inter->isServiceRegistered(m_audioInter->service()).value()) {
@@ -92,6 +96,7 @@ void SoundWorker::initConnect()
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
     connect(m_activeTimer, &QTimer::timeout, this, &SoundWorker::updatePortActivity);
     connect(m_powerInter, &SystemPowerInter::HasBatteryChanged, m_model, &SoundModel::setIsLaptop);
+    connect(m_dccSettings, &QGSettings::changed, this, &SoundWorker::onGsettingsChanged);
 
     m_model->setDefaultSink(m_audioInter->defaultSink());
     m_model->setDefaultSource(m_audioInter->defaultSource());
@@ -102,6 +107,7 @@ void SoundWorker::initConnect()
     m_model->setReduceNoise(m_audioInter->reduceNoise());
     m_model->setBluetoothAudioModeOpts(m_audioInter->bluetoothAudioModeOpts());
     m_model->setCurrentBluetoothAudioMode(m_audioInter->bluetoothAudioMode());
+    m_model->setWaitSoundReceiptTime(m_waitSoundPortReceipt);
 }
 
 void SoundWorker::activate()
@@ -217,8 +223,12 @@ void SoundWorker::setReduceNoise(bool value)
 
 void SoundWorker::setPort(const Port *port)
 {
+    if (m_lastPort == port) {
+        return;
+    }
+    m_lastPort = port;
     auto rep = m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
-    qDebug() << "cardID:" << port->cardId()  << "portName:" << "  " << port->id() << "  " << port->direction();
+    qDebug() << "cardID:" << port->cardId()  << "portName:" << port->name() << "  " << port->id() << "  " << port->direction();
     qDebug() << rep.error() << "isError:" << rep.isError();
     m_model->setPort(port);
 }
@@ -243,9 +253,11 @@ void SoundWorker::setBluetoothMode(const QString &mode)
 void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 {
     qDebug() << "sink default path:" << path.path();
-    if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
+    if (path.path().isEmpty() || path.path() == "/" )
+        return; //路径为空
 
-    if (m_defaultSink) m_defaultSink->deleteLater();
+    if (m_defaultSink)
+        m_defaultSink->deleteLater();
     m_defaultSink = new Sink("com.deepin.daemon.Audio", path.path(), QDBusConnection::sessionBus(), this);
     requestBlanceVisible();
 
@@ -397,6 +409,15 @@ void SoundWorker::onSourceCardChanged(const uint &cardId)
     m_activeInputCard = cardId;
 
     m_activeTimer->start();
+}
+
+void SoundWorker::onGsettingsChanged(const QString &key)
+{
+    const QVariant &value = m_dccSettings->get(key);
+
+    if (key == GSETTINGS_WAIT_SOUND_RECEIPT) {
+        m_model->setWaitSoundReceiptTime(value.toInt());
+    }
 }
 
 void SoundWorker::getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher)

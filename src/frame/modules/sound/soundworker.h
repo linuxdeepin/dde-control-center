@@ -94,6 +94,7 @@ private Q_SLOTS:
 
     void onSinkCardChanged(const uint &cardId);
     void onSourceCardChanged(const uint &cardId);
+    void onGsettingsChanged(const QString &key);
     void getSoundEnabledMapFinished(QDBusPendingCallWatcher *watcher);
     void getSoundPathFinished(QDBusPendingCallWatcher *watcher);
 
@@ -117,10 +118,13 @@ private:
     QList<Source*> m_sources;
     QGSettings *m_effectGsettings;
     SystemPowerInter *m_powerInter;
+    QGSettings *m_dccSettings;
 
     QTimer *m_pingTimer;
     QTimer *m_activeTimer;
     QDBusConnectionInterface *m_inter;
+    int m_waitSoundPortReceipt;
+    const Port *m_lastPort;
 };
 
 }

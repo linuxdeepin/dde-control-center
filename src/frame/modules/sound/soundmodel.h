@@ -84,7 +84,6 @@ public:
     inline bool isBluetoothPort() const  { return m_isBluetoothPort; }
     void setIsBluetoothPort(const bool isBlue);
 
-
 Q_SIGNALS:
     void idChanged(QString id) const;
     void nameChanged(QString name) const;
@@ -208,6 +207,10 @@ public:
     inline QString currentBluetoothAudioMode() { return m_currentBluetoothMode; }
     void setCurrentBluetoothAudioMode(const QString &mode);
 
+    // 配置等待
+    inline int currentWaitSoundReceiptTime() { return m_waitSoundReceiptTime; }
+    void setWaitSoundReceiptTime(const int receiptTime);
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -256,6 +259,7 @@ private:
     double m_speakerBalance;
     double m_microphoneVolume;
     double m_maxUIVolume;
+    int m_waitSoundReceiptTime;
 
 #ifndef DCC_DISABLE_FEEDBACK
     double m_microphoneFeedback;

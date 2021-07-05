@@ -170,12 +170,18 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
 
 void SpeakerPage::changeComboxIndex(const int idx)
 {
-    showDevice();
     if (idx < 0)
         return;
-    auto temp = m_outputModel->index(idx, 0);
-    this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
-    qDebug() << "default sink index change, currentTerxt:" << m_outputSoundCbx->comboBox()->itemText(idx);
+    int waitSoundPortTime = m_model->currentWaitSoundReceiptTime();
+    showWaitSoundPortStatus(false);
+    QTimer::singleShot(waitSoundPortTime, [=](){
+        // 统一延时处理, 避免多次触发setPort
+        showWaitSoundPortStatus(true);
+        auto temp = m_outputModel->index(idx, 0);
+        this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
+        qDebug() << "default sink index change, currentTerxt:" << m_outputSoundCbx->comboBox()->itemText(idx);
+    });
+    showDevice();
 }
 
 void SpeakerPage::clickLeftButton()
@@ -428,6 +434,12 @@ void SpeakerPage::refreshIcon()
     } else {
         m_volumeBtn->setIcon(qobject_cast<DStyle *>(style())->standardIcon(DStyle::SP_MediaVolumeLowElement));
     }
+}
+
+void SpeakerPage::showWaitSoundPortStatus(bool showStatus)
+{
+    m_outputSoundCbx->setEnabled(showStatus);
+    m_blueSoundCbx->setEnabled(showStatus);
 }
 
 /**

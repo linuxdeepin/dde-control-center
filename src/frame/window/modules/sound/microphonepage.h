@@ -84,6 +84,7 @@ private:
     void initSlider();
     void initCombox();
     void refreshIcon();
+    void showWaitSoundPortStatus(bool showStatus);
 
 private:
     dcc::sound::SoundModel *m_model{nullptr};
