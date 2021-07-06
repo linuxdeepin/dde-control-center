@@ -58,6 +58,8 @@ using namespace dcc::accounts;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::accounts;
 
+#define MAXVALUE 99999
+
 AccountSpinBox::AccountSpinBox(QWidget *parent)
     :DSpinBox(parent)
 {
@@ -65,8 +67,19 @@ AccountSpinBox::AccountSpinBox(QWidget *parent)
 
 QString AccountSpinBox::textFromValue(int val) const
 {
-    return val >= 99999? tr("Always"): QString::number(val);
+    if (val >= MAXVALUE && !lineEdit()->hasFocus()) {
+        return tr("Always");
+    }
+    return QString::number(val);
 }
+
+void AccountSpinBox::focusInEvent(QFocusEvent *event)
+{
+    if (lineEdit()->text() == tr("Always")) {
+        lineEdit()->setText(QString::number(MAXVALUE));
+    }
+    return DSpinBox::focusInEvent(event);
+};
 
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
@@ -380,6 +393,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
     auto validityDaysBox = new AccountSpinBox();
+    validityDaysBox->lineEdit()->setValidator(new QRegularExpressionValidator(QRegularExpression("0|[1-9]\\d{0,4}"), validityDaysBox->lineEdit()));
     validityDaysBox->setFixedWidth(180);
     validityDaysBox->lineEdit()->setFixedWidth(80);
     validityDaysBox->lineEdit()->setPlaceholderText("99999");

@@ -80,6 +80,7 @@ public:
     explicit AccountSpinBox(QWidget *parent = nullptr);
 protected:
     virtual QString textFromValue(int val) const;
+    void focusInEvent(QFocusEvent *event) override;
 };
 
 
