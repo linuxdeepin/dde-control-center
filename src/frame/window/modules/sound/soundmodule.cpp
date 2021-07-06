@@ -120,7 +120,6 @@ void SoundModule::showSpeakerPage()
     connect(w, &SpeakerPage::requestSetSpeakerVolume, m_worker, &SoundWorker::setSinkVolume);
     connect(w, &SpeakerPage::requestIncreaseVolume, m_worker, &SoundWorker::setIncreaseVolume);
     connect(w, &SpeakerPage::requestSetPort, m_worker, &SoundWorker::setPort);
-    connect(w, &SpeakerPage::requestBalanceVisible, m_worker, &SoundWorker::requestBlanceVisible);
     connect(w, &SpeakerPage::requestMute, m_worker, &SoundWorker::setSinkMute);
     connect(w, &SpeakerPage::requstBluetoothMode, m_worker, &SoundWorker::setBluetoothMode);
     w->setModel(m_model);

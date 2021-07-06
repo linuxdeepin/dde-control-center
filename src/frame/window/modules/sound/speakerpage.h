@@ -81,8 +81,6 @@ Q_SIGNALS:
     //请求改变音量增强
     void requestIncreaseVolume(bool value);
     void requestSetPort(const dcc::sound::Port *);
-    //请求是否隐藏声音平衡
-    void requestBalanceVisible();
     //请求静音切换,flag为false时请求直接取消静音
     void requestMute(bool flag = true);
     //请求切换蓝牙耳机模式
