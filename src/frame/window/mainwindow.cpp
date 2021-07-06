@@ -854,34 +854,6 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
     QString widgetFirst = widgetPages[0];
     qDebug() << Q_FUNC_INFO << " moduleName : " << moduleName << " , widget :" << widgetFirst;
 
-    if (!m_contentStack.isEmpty()
-            && (m_contentStack.top().first->name() == moduleName)
-            && (m_widgetName == widgetFirst)) {
-        qDebug() << Q_FUNC_INFO << " Search widget is current display widget.";
-        // load wireless detail pages.
-        if ((moduleName == "network") && (widgetPages.size() > 1)) {
-            auto res = std::find_if(m_modules.begin(), m_modules.end(), [ = ](const QPair<ModuleInterface *, QString> &data)->bool{
-                return data.first->name() == moduleName;
-            });
-
-            if (res != m_modules.end()) {
-                (*res).first->load(widget);
-                return;
-            }
-        }
-        if ((moduleName == "keyboard") && (widgetPages.size() >= 1)) {
-            auto res = std::find_if(m_modules.begin(), m_modules.end(), [ = ](const QPair<ModuleInterface *, QString> &data)->bool{
-                return data.first->name() == moduleName;
-            });
-
-            if (res != m_modules.end()) {
-                (*res).first->load(widget);
-                return;
-            }
-        }
-        return;
-    }
-
     for (int firstCount = 0; firstCount < m_modules.count(); firstCount++) {
         //Compare moduleName and m_modules.second(module name)
         if (moduleName == m_modules[firstCount].first->name()) {
