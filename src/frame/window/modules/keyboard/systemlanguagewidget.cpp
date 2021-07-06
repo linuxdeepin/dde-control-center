@@ -91,6 +91,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     vLayout->setAlignment(Qt::AlignTop);
 
     DFloatingButton *addSystemLanguage = new DFloatingButton(DStyle::SP_IncreaseElement, this);
+    addSystemLanguage->setObjectName("AddSystemLanguage");
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setMargin(0);
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);

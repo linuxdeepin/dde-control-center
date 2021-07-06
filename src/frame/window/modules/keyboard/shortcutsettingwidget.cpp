@@ -144,7 +144,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchInput->hide();
 
     m_addCustomShortcut = new DFloatingButton(DStyle::SP_IncreaseElement, this);
-
+    m_addCustomShortcut->setObjectName("AddCustomShortCut");
     QHBoxLayout *btnLayout = new QHBoxLayout;
     btnLayout->setMargin(0);
     btnLayout->setAlignment(Qt::AlignBottom | Qt::AlignHCenter);
