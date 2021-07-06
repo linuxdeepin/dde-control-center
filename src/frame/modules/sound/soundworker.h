@@ -63,8 +63,6 @@ public:
     void deactivate() Q_DECL_OVERRIDE;
 
     void refreshSoundEffect();
-    //声音平衡是否可见
-    void requestBlanceVisible();
 
 public Q_SLOTS:
     void switchSpeaker(bool on);

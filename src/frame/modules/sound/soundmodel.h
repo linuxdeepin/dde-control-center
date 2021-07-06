@@ -232,9 +232,6 @@ Q_SIGNALS:
     //查询是否可用
     void requestSwitchEnable(unsigned int cardId,QString cardName);
 
-    //声音平衡选项是否可见
-    void setBlanceVisible(bool flag);
-
     //声音平衡模块是否可见
     void balanceVisibleChanged(QString name, bool flag);
 

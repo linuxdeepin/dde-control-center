@@ -131,20 +131,19 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     });
     connect(m_model, &SoundModel::portAdded, this, &SpeakerPage::addPort);
     connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
-    connect(m_model, &SoundModel::bluetoothModeChanged, m_blueSoundCbx, &ComboxWidget::setCurrentText);
     connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
-    connect(m_model, &SoundModel::setBlanceVisible, this, [ = ](bool flag) {
-            m_balance = flag;
-            showDevice();
+    connect(m_model, &SoundModel::bluetoothModeChanged, this, [ = ](const QString &mode) {
+        m_blueSoundCbx->setCurrentText(mode);
+        m_balance = !mode.contains("headset");
+        showDevice();
     });
     connect(m_model, &SoundModel::speakerOnChanged, this, [ = ](bool flag) {
-            m_mute = flag;
-            refreshIcon();
+        m_mute = flag;
+        refreshIcon();
     });
 
     initSlider();
     initCombox();
-    requestBalanceVisible();
 }
 
 void SpeakerPage::removePort(const QString &portId, const uint &cardId)
@@ -376,6 +375,7 @@ void SpeakerPage::initSlider()
     slider2->setSliderPosition(static_cast<int>(m_model->speakerBalance() * 100 + 0.000001));
     slider2->setPageStep(1);
     m_balanceSlider->setAnnotations(balanceList);
+    m_balance = !(m_model->currentBluetoothAudioMode().contains("headset"));
 
     auto slotfunc2 = [ = ](int pos) {
         double value = pos / 100.0;
@@ -392,14 +392,15 @@ void SpeakerPage::initSlider()
     connect(qApp, &DApplication::iconThemeChanged, this, &SpeakerPage::refreshIcon);
 
     m_layout->insertWidget(4, m_balanceSlider);
-    refreshIcon();
-    showDevice();
 
     // 使用GSettings来控制显示状态
     GSettingWatcher::instance()->bind("soundOutputSlider", m_outputSlider);
     GSettingWatcher::instance()->bind("soundVolumeBoost", volumeBoost);
     GSettingWatcher::instance()->bind("soundVolumeBoost", volumeBoostTip);
     GSettingWatcher::instance()->bind("soundBalanceSlider", m_balanceSlider);
+
+    refreshIcon();
+    showDevice();
 }
 
 void SpeakerPage::initCombox()
