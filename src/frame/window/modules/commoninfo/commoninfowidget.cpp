@@ -41,13 +41,17 @@ using namespace commoninfo;
 
 CommonInfoWidget::CommonInfoWidget(QWidget *parent)
     : QWidget(parent)
+    #ifndef USE_TABLET
     , m_vBoxLayout(new QVBoxLayout(this))
     , m_listView(new dcc::widgets::MultiSelectListView(this))
     , m_itemModel(new QStandardItemModel(this))
     , isContensServer(false)
+    #endif
 {
+#ifndef USE_TABLET
     initWidget();
     initData();
+#endif
 }
 
 dcc::widgets::MultiSelectListView *CommonInfoWidget::getCommonListView()

@@ -212,7 +212,13 @@ SearchModel::SearchModel(QObject *parent)
         "Touch Screen",
         "Rotate Screen",
         "Wired Network Adapter",
-        "Add System Language"
+        "Add System Language",
+        "Boot Menu",
+        "User Experience Program",
+        "User Experience Program",
+        "Join User Experience Program",
+        "Startup Delay",
+        "Theme"
     };
 }
 

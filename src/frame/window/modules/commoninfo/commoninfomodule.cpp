@@ -101,13 +101,19 @@ void CommonInfoModule::active()
 {
     m_commonWidget = new CommonInfoWidget();
     m_commonWidget->setVisible(false);
+#ifdef USE_TABLET
     connect(m_commonWidget, &CommonInfoWidget::requestShowBootWidget, this, &CommonInfoModule::onShowBootWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowDeveloperModeWidget, this, &CommonInfoModule::onShowDeveloperWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowUEPlanWidget, this, &CommonInfoModule::onShowUEPlanWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowTabletModeWidget, this, &CommonInfoModule::onShowTabletModeWidget);
+#endif
     m_frameProxy->pushWidget(this, m_commonWidget);
+#ifndef USE_TABLET
     m_commonWidget->setVisible(true);
     m_commonWidget->getCommonListView()->activated(m_commonWidget->getCommonListView()->model()->index(0, 0));
+#else
+    onShowDeveloperWidget();
+#endif
 }
 
 void CommonInfoModule::deactive()
@@ -121,6 +127,10 @@ int CommonInfoModule::load(const QString &path)
         active();
     }
 
+#ifdef USE_TABLET
+    onShowDeveloperWidget();
+    return 0;
+#endif
     QListView *list = m_commonWidget->getCommonListView();
     if (!list) {
         return 0;
