@@ -80,6 +80,7 @@ public:
     explicit AccountSpinBox(QWidget *parent = nullptr);
 protected:
     virtual QString textFromValue(int val) const;
+    void focusInEvent(QFocusEvent *event) override;
 };
 
 
@@ -138,7 +139,6 @@ private:
     DLabel *m_fullName;//账户全名
     DTK_WIDGET_NAMESPACE::DToolButton *m_fullNameBtn;//账户全名编辑按钮
     DLineEdit *m_inputLineEdit;//账户全名编辑框
-    DLineEdit *m_ageEdit;
     dcc::accounts::FingerModel *m_model;
     FingerWidget *m_fingerWidget;//指纹界面
     AvatarListWidget *m_avatarListWidget;//图像列表

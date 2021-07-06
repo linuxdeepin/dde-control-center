@@ -58,6 +58,8 @@ using namespace dcc::accounts;
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::accounts;
 
+#define MAXVALUE 99999
+
 AccountSpinBox::AccountSpinBox(QWidget *parent)
     :DSpinBox(parent)
 {
@@ -65,13 +67,23 @@ AccountSpinBox::AccountSpinBox(QWidget *parent)
 
 QString AccountSpinBox::textFromValue(int val) const
 {
-    return val >= 99999? tr("Always"): QString::number(val);
+    if (val >= MAXVALUE && !lineEdit()->hasFocus()) {
+        return tr("Always");
+    }
+    return QString::number(val);
 }
+
+void AccountSpinBox::focusInEvent(QFocusEvent *event)
+{
+    if (lineEdit()->text() == tr("Always")) {
+        lineEdit()->setText(QString::number(MAXVALUE));
+    }
+    return DSpinBox::focusInEvent(event);
+};
 
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
-    , m_ageEdit(nullptr)
     , m_groupListView(nullptr)
     , m_groupItemModel(nullptr)
     , m_avatarLayout(new QHBoxLayout)
@@ -588,13 +600,6 @@ bool AccountsDetailWidget::eventFilter(QObject *obj, QEvent *event)
         m_inputLineEdit->lineEdit()->setFocus();
     }
 
-    if (m_isServerSystem) {
-        if (m_ageEdit && obj == m_ageEdit->lineEdit() && event->type() == QEvent::FocusIn) {
-            m_ageEdit->lineEdit()->clear();
-        } else if (m_ageEdit && obj == m_ageEdit->lineEdit() && event->type() == QEvent::FocusOut) {
-            Q_EMIT m_ageEdit->lineEdit()->editingFinished();
-        }
-    }
     return false;
 }
 
