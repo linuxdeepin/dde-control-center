@@ -1,7 +1,7 @@
 ## DDE Control Center
 
 DDE Control Center is the control panel of Deepin Desktop Environment.
-## test 0625 0630
+## test 0625 0630 0707
 ## Dependencies
 
 ### Build dependencies
