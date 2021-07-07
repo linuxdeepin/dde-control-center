@@ -38,6 +38,33 @@ using namespace DCC_NAMESPACE;
 namespace dcc {
 namespace widgets {
 
+SwitchLabel::SwitchLabel(QWidget *parent, Qt::WindowFlags f)
+    : QLabel (parent,f)
+{
+}
+
+void SwitchLabel::resizeEvent(QResizeEvent *event)
+{
+    if(m_sourceText.isEmpty())
+        m_sourceText = this->text();
+
+    m_actualSize = event->size();
+    QFontMetrics fontMetrics(this->font());
+
+    QString str = m_sourceText;
+    int len = fontMetrics.horizontalAdvance(m_sourceText);
+    if(len > m_actualSize.width()) {
+        str = fontMetrics.elidedText(str, Qt::ElideRight, m_actualSize.width());
+        this->setText(str);
+    }
+    else {
+        this->setText(m_sourceText);
+    }
+
+    QLabel::resizeEvent(event);
+}
+
+
 SwitchWidget::SwitchWidget(const QString &title, QWidget *parent)
     : SwitchWidget(parent, new NormalLabel(title))
 {
@@ -50,7 +77,7 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
     , m_switchBtn(new DSwitchButton)
 {
     if (!m_leftWidget)
-        m_leftWidget = new QLabel();
+        m_leftWidget = new SwitchLabel();
 
     setFixedHeight(SwitchWidgetHeight);
     QHBoxLayout *lableLayout = new QHBoxLayout;
@@ -88,13 +115,12 @@ QString SwitchWidget::title() const
 
 void SwitchWidget::setTitle(const QString &title)
 {
-    QLabel *label = qobject_cast<QLabel *>(m_leftWidget);
+    SwitchLabel *label = qobject_cast<SwitchLabel *>(m_leftWidget);
     if (label) {
         label->setWordWrap(true);
         label->setText(title);
         label->setWordWrap(true);
     }
-
     setAccessibleName(title);
     m_switchBtn->setAccessibleName(title);
 }

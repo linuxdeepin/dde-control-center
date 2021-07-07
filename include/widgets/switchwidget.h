@@ -29,7 +29,7 @@
 #include "widgets/settingsitem.h"
 
 #include <QHBoxLayout>
-
+#include <QLabel>
 #include <dswitchbutton.h>
 
 QT_BEGIN_NAMESPACE
@@ -38,6 +38,22 @@ QT_END_NAMESPACE
 
 namespace dcc {
 namespace widgets {
+
+class SwitchLabel : public QLabel
+{
+    Q_OBJECT
+
+public:
+    explicit SwitchLabel(QWidget *parent = nullptr, Qt::WindowFlags f = Qt::WindowFlags());
+    inline QSize actualSize() { return m_actualSize; }
+
+protected:
+    void resizeEvent(QResizeEvent *event) Q_DECL_OVERRIDE;
+
+private:
+    QSize m_actualSize;
+    QString m_sourceText;
+};
 
 class SwitchWidget : public SettingsItem
 {
