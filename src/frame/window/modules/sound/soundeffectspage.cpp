@@ -168,6 +168,7 @@ void SoundEffectsPage::initList()
                            DStyle::SP_IndicatorChecked : DStyle::SP_IndicatorUnchecked ;
         auto icon = qobject_cast<DStyle *>(style())->standardIcon(checkstatus);
         action->setIcon(icon);
+        action->setClickAreaMargins(ArrowEnterClickMargin);
         auto aniAction = new DViewItemAction(Qt::AlignVCenter, size, size);
         aniAction->setVisible(false);
         item->setActionList(Qt::Edge::RightEdge, {aniAction, action});
