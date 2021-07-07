@@ -26,6 +26,11 @@
 #include "window/utils.h"
 #include "window/gsettingwatcher.h"
 
+#include <DIconButton>
+#include <DLineEdit>
+#include <DLabel>
+#include <DDesktopServices>
+
 #include <QVBoxLayout>
 #include <QApplication>
 #include <QSettings>
@@ -34,6 +39,7 @@
 #include <QScroller>
 #include <QDebug>
 #include <DSysInfo>
+#include <QKeyEvent>
 
 using namespace dcc::widgets;
 using namespace dcc::systeminfo;
@@ -43,10 +49,32 @@ DCORE_USE_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace systeminfo {
 
+HostNameEdit::HostNameEdit(QWidget *parent)
+        : DLineEdit(parent)
+{
+    lineEdit()->setAcceptDrops(false);
+    lineEdit()->setContextMenuPolicy(Qt::NoContextMenu);
+    lineEdit()->installEventFilter(this);
+}
+
+bool HostNameEdit::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == lineEdit() && event->type() == QEvent::KeyPress) {
+        QKeyEvent *e = dynamic_cast<QKeyEvent *>(event);
+        if (e && (e->matches(QKeySequence::Copy) || e->matches(QKeySequence::Cut) || e->matches(QKeySequence::Paste))) {
+            return true;
+        }
+    }
+
+    return DLineEdit::eventFilter(obj, event);
+}
+
 NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(model)
     , m_mainLayout(new QVBoxLayout(this))
+    , m_hostNameLayout(new QHBoxLayout(this))
+    , m_hostNameSettingItem(new SettingsItem(this))
     , isContensServers(false)
 {
     initWidget();
@@ -80,7 +108,135 @@ void NativeInfoWidget::initWidget()
 
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
-        m_productName= new TitleValueItem(frame);
+        m_productName = new TitleValueItem(frame);
+
+        m_hostNameTitleLabel = new DLabel(tr("Computer Name:"));//文案需要确认
+        m_hostNameTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        m_hostNameLayout->addWidget(m_hostNameTitleLabel);
+
+        m_hostNameLayout->addStretch(1);
+
+        m_hostNameLabel = new DLabel();
+        m_hostNameLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+        m_hostNameLayout->addWidget(m_hostNameLabel);
+
+        m_hostNameLineEdit = new HostNameEdit();
+        QRegExp regx("^[A-Za-z0-9-]+$");
+        QValidator *validator = new QRegExpValidator(regx, m_hostNameLineEdit);
+        m_hostNameLineEdit->lineEdit()->setValidator(validator);
+        m_hostNameLineEdit->setAlertMessageAlignment(Qt::AlignRight);
+        //m_hostNameLineEdit->lineEdit()->setStyleSheet("QLineEdit{border-width:0;border-style:outset}");
+        m_hostNameLineEdit->lineEdit()->setFixedHeight(m_hostNameLineEdit->lineEdit()->height() - 4);
+        m_hostNameLineEdit->lineEdit()->setTextMargins(0,0,0,0);
+        m_hostNameLayout->addWidget(m_hostNameLineEdit);
+        m_hostNameLineEdit->hide();
+        m_hostNameBtn = new DIconButton(this);
+        m_hostNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+        m_hostNameBtn->setIconSize(QSize(12, 12));
+        m_hostNameBtn->setFlat(true);//设置背景透明
+        m_hostNameLayout->setContentsMargins(10, 10, 10, 10);
+        m_hostNameLayout->addWidget(m_hostNameBtn);
+        m_hostNameSettingItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        m_hostNameSettingItem->setLayout(m_hostNameLayout);
+        m_hostNameSettingItem->addBackground();
+
+        m_hostNameLabel->setToolTip(m_model->hostName());
+        m_hostNameLabel->setText(m_model->hostName());
+        m_hostNameLabel->setMinimumHeight(m_hostNameLineEdit->lineEdit()->height());
+        //点击编辑按钮
+        connect(m_hostNameBtn, &DIconButton::clicked, this, [ = ]() {
+            m_hostNameBtn->setVisible(false);
+            m_hostNameLabel->setVisible(false);
+            m_hostNameLineEdit->setVisible(true);
+            m_hostNameLineEdit->setAlert(false);
+            m_hostNameLineEdit->setText(m_model->hostName());
+            m_hostNameLineEdit->hideAlertMessage();
+            m_hostNameLineEdit->lineEdit()->setFocus();
+        });
+
+        connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, [ = ](const bool onFocus){
+            QString hostName = m_hostNameLineEdit->lineEdit()->text();
+            if(!onFocus && hostName.isEmpty()) {
+                m_hostNameLineEdit->setVisible(false);
+                m_hostNameLabel->setVisible(true);
+                m_hostNameBtn->setVisible(true);
+            }
+            else if(!onFocus && !hostName.isEmpty()) {
+                if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
+                    m_hostNameLineEdit->setAlert(true);
+                    m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
+                    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+                }else if (hostName.size() > 63) {
+                    m_hostNameLineEdit->setAlert(true);
+                    m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
+                    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+                }
+            }
+        });
+        connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, [ = ](const QString &hostName) {
+            if (!hostName.isEmpty()) {
+               if (hostName.size() > 63) {
+                    m_hostNameLineEdit->lineEdit()->backspace();
+                    m_hostNameLineEdit->setAlert(true);
+                    m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
+                    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+                } else if (m_hostNameLineEdit->isAlert()) {
+                    m_hostNameLineEdit->setAlert(false);
+                    m_hostNameLineEdit->hideAlertMessage();
+                }
+            }
+            else if (m_hostNameLineEdit->isAlert()) {
+                m_hostNameLineEdit->setAlert(false);
+                m_hostNameLineEdit->hideAlertMessage();
+            }
+        });
+
+        connect(m_hostNameLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ] {
+            QString hostName = m_hostNameLineEdit->lineEdit()->text();
+            if (hostName == m_model->hostName() || hostName.simplified().isEmpty()) {
+                m_hostNameLineEdit->lineEdit()->clearFocus();
+                m_hostNameLineEdit->setVisible(false);
+                m_hostNameLabel->setVisible(true);
+                m_hostNameBtn->setVisible(true);
+                if (m_hostNameLineEdit->isAlert()) {
+                    m_hostNameLineEdit->setAlert(false);
+                    m_hostNameLineEdit->hideAlertMessage();
+                }
+                return;
+            }
+
+            if(!hostName.isEmpty()) {
+                if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
+                    m_hostNameLineEdit->setAlert(true);
+                    m_hostNameLineEdit->showAlertMessage(tr("It cannot start with numbers or underscores"), this);
+                    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+                }
+
+                if(!m_hostNameLineEdit->isAlert()) {
+                    m_hostNameLineEdit->lineEdit()->clearFocus();
+                    m_hostNameLineEdit->setVisible(false);
+                    m_hostNameLabel->setVisible(true);
+                    m_hostNameBtn->setVisible(true);
+                    Q_EMIT m_model->setHostNameChanged(hostName);
+                }
+            }
+        });
+
+        connect(m_model, &SystemInfoModel::hostNameChanged, m_hostNameLabel, [ = ](const QString &hostName) {
+            m_hostNameLabel->setText(hostName);
+            m_hostNameLabel->setToolTip(hostName);
+        });
+        connect(m_model, &SystemInfoModel::setHostNameError, this, [ = ](QString error){
+            m_hostNameLineEdit->setVisible(true);
+            m_hostNameLineEdit->lineEdit()->setFocus();
+            m_hostNameLabel->setVisible(false);
+            m_hostNameBtn->setVisible(false);
+            m_hostNameLineEdit->setAlert(true);
+            m_hostNameLineEdit->showAlertMessage(error, this);
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        });
+
+
         //~ contents_path /systeminfo/About This PC
         m_productName->setTitle(tr("OS Name:"));
         m_productName->setValue(m_model->productName());
@@ -151,6 +307,7 @@ void NativeInfoWidget::initWidget()
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(10);
     m_mainLayout->addWidget(logoGroup);
+    m_mainLayout->addWidget(m_hostNameSettingItem);
     m_mainLayout->addWidget(infoGroup);
     m_mainLayout->addStretch(10);
     m_mainLayout->setContentsMargins(QMargins(10, 0, 10, 0));

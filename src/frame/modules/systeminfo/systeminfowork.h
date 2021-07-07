@@ -30,10 +30,12 @@
 #include <com_deepin_daemon_systeminfo.h>
 #include <com_deepin_daemon_grub2.h>
 #include <com_deepin_daemon_grub2_theme.h>
+#include <org_freedesktop_hostname1.h>
 
 using SystemInfoInter=com::deepin::daemon::SystemInfo;
 using GrubDbus=com::deepin::daemon::Grub2;
 using GrubThemeDbus = com::deepin::daemon::grub2::Theme;
+using HostNameDbus = org::freedesktop::hostname1;
 
 namespace dcc{
 namespace systeminfo{
@@ -76,6 +78,7 @@ private:
     SystemInfoInter* m_systemInfoInter;
     GrubDbus* m_dbusGrub;
     GrubThemeDbus *m_dbusGrubTheme;
+    HostNameDbus *m_dbusHostName;
     QDBusInterface *m_systemInfo;
 };
 
