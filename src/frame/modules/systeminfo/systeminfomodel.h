@@ -63,6 +63,7 @@ public:
     QString memory() const { return m_memory;}
     QString disk() const { return m_disk;}
     QString kernel() const { return m_kernel;}
+    QString hostName() const { return  m_hostName;}
 
     inline ActiveState licenseState() const { return m_licenseState; }
 
@@ -90,6 +91,9 @@ Q_SIGNALS:
     void diskChanged(const QString& disk);
     void kernelChanged(const QString& kernel);
     void licenseStateChanged(ActiveState state);
+    void hostNameChanged(const QString& hostName);
+    void setHostNameChanged(const QString& hostName);
+    void setHostNameError(const QString& error);
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -107,6 +111,7 @@ public Q_SLOTS:
     void setDisk(qulonglong disk);
     void setKernel(const QString &kernel);
     void setLicenseState(ActiveState state);
+    void setHostName(const QString& hostName);
 
 private:
     bool m_bootDelay;
@@ -126,6 +131,7 @@ private:
     QString m_memory;
     QString m_disk;
     QString m_kernel;
+    QString m_hostName;
     ActiveState m_licenseState;
 };
 

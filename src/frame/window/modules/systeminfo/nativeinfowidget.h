@@ -24,21 +24,42 @@
 #include "interface/namespace.h"
 #include "widgets/titlevalueitem.h"
 #include "widgets/contentwidget.h"
+#include "widgets/settingsgroup.h"
+#include "widgets/settingsitem.h"
 #include "modules/systeminfo/systeminfomodel.h"
+
+#include <DLineEdit>
 
 #include <QWidget>
 #include <QGSettings>
 
 using namespace dcc;
 
+DWIDGET_BEGIN_NAMESPACE
+class DIconButton;
+class DLineEdit;
+class DLabel;
+DWIDGET_END_NAMESPACE
+
 QT_BEGIN_NAMESPACE
 
 class QVBoxLayout;
+class QHBoxLayout;
 
 QT_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 namespace systeminfo {
+
+class HostNameEdit : public DTK_WIDGET_NAMESPACE::DLineEdit
+{
+Q_OBJECT
+public:
+    explicit HostNameEdit(QWidget *parent = 0);
+
+protected:
+    bool eventFilter(QObject *, QEvent *) override;
+};
 class NativeInfoWidget : public ContentWidget
 {
     Q_OBJECT
@@ -66,6 +87,12 @@ Q_SIGNALS:
 private:
     dcc::systeminfo::SystemInfoModel *m_model;
     QVBoxLayout *m_mainLayout;
+    QHBoxLayout *m_hostNameLayout;
+    dcc::widgets::SettingsItem *m_hostNameSettingItem;
+    DLabel *m_hostNameTitleLabel;//计算机名标题
+    DLabel *m_hostNameLabel;//计算机名显示
+    DTK_WIDGET_NAMESPACE::DIconButton *m_hostNameBtn;//计算机名编辑按钮
+    HostNameEdit *m_hostNameLineEdit;//计算机名编辑框
     dcc::widgets::TitleValueItem *m_productName;
     dcc::widgets::TitleValueItem *m_versionNumber;
     dcc::widgets::TitleValueItem *m_version;
