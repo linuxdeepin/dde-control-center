@@ -151,7 +151,7 @@ bool ModifyPasswdPage::judgeTextEmpty(PasswordEdit *edit)
 void ModifyPasswdPage::clickSaveBtn()
 {
     //校验输入密码
-    if (judgeTextEmpty(m_oldPasswordEdit) || judgeTextEmpty(m_newPasswordEdit)) return;
+    if (judgeTextEmpty(m_oldPasswordEdit)) return;
 
     Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text(), m_repeatPasswordEdit->lineEdit()->text());
 }
@@ -167,6 +167,8 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
             m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
             return;
         }
+
+        if (judgeTextEmpty(m_newPasswordEdit)) return;
 
         if (m_newPasswordEdit->lineEdit()->text() == m_oldPasswordEdit->lineEdit()->text() ) {
             m_newPasswordEdit->setAlert(true);
