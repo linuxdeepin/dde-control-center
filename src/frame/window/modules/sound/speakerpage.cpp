@@ -62,6 +62,8 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_volumeBtn(nullptr)
     , m_mute(false)
     , m_enablePort(false)
+    , m_FristChangePort(true)
+    , m_waitChangeTimer(new QTimer (this))
 {
     const int titleLeftMargin = 8;
     TitleLabel *labelOutput = new TitleLabel(tr("Output"));
@@ -78,12 +80,13 @@ SpeakerPage::SpeakerPage(QWidget *parent)
 
     m_layout->addWidget(labelOutput);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
-
+    m_waitChangeTimer->setSingleShot(true);
     setLayout(m_layout);
 }
 
 SpeakerPage::~SpeakerPage()
 {
+    m_waitChangeTimer->stop();
     GSettingWatcher::instance()->erase("soundOutputSlider");
     GSettingWatcher::instance()->erase("soundVolumeBoost");
     GSettingWatcher::instance()->erase("soundBalanceSlider");
@@ -172,14 +175,28 @@ void SpeakerPage::changeComboxIndex(const int idx)
     if (idx < 0)
         return;
     int waitSoundPortTime = m_model->currentWaitSoundReceiptTime();
-    showWaitSoundPortStatus(false);
-    QTimer::singleShot(waitSoundPortTime, [=](){
-        // 统一延时处理, 避免多次触发setPort
-        showWaitSoundPortStatus(true);
-        auto temp = m_outputModel->index(idx, 0);
+
+    auto tFunc = [this](const int tmpIdx){
+        auto temp = m_outputModel->index(tmpIdx, 0);
         this->requestSetPort(m_outputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>());
-        qDebug() << "default sink index change, currentTerxt:" << m_outputSoundCbx->comboBox()->itemText(idx);
-    });
+        qDebug() << "default sink index change, currentTerxt:" << m_outputSoundCbx->comboBox()->itemText(tmpIdx);
+    };
+
+    showWaitSoundPortStatus(false);
+    if (m_FristChangePort) {
+        tFunc(idx);
+        connect(m_waitChangeTimer, &QTimer::timeout, this, [=](){
+            showWaitSoundPortStatus(true);
+        }, Qt::UniqueConnection);
+        m_FristChangePort = false;
+    } else {
+        connect(m_waitChangeTimer, &QTimer::timeout, this, [=](){
+            // 统一延时处理, 避免多次触发setPort
+            tFunc(idx);
+            showWaitSoundPortStatus(true);
+        }, Qt::UniqueConnection);
+    }
+    m_waitChangeTimer->start(waitSoundPortTime);
     showDevice();
 }
 
