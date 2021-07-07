@@ -30,6 +30,7 @@
 
 #include <QWidget>
 #include <QStandardItemModel>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -126,6 +127,9 @@ private:
     bool m_enablePort;
     // 蓝牙模式信息
     QStringList m_bluetoothModeOpts;
+    // 确保第一次点击没有延时
+    bool m_FristChangePort;
+    QTimer *m_waitChangeTimer;
 };
 
 }
