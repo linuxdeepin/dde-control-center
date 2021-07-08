@@ -65,6 +65,9 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_mute(false)
     , m_enablePort(false)
     , m_enable(true)
+    , m_fristChangePort(true)
+    , m_currentBluetoothPortStatus(true)
+    , m_waitChangeTimer(new QTimer (this))
 {
     const int titleLeftMargin = 8;
     TitleLabel *labelInput = new TitleLabel(tr("Input"));
@@ -85,12 +88,14 @@ MicrophonePage::MicrophonePage(QWidget *parent)
 
     m_layout->addWidget(labelInput);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
-
+    m_waitChangeTimer->setSingleShot(true);
     setLayout(m_layout);
 }
 
 MicrophonePage::~MicrophonePage()
 {
+    m_waitChangeTimer->stop();
+
 #ifndef DCC_DISABLE_FEEDBACK
     if (m_feedbackSlider)
         m_feedbackSlider->disconnect(m_conn);
@@ -143,8 +148,13 @@ void MicrophonePage::setModel(SoundModel *model)
         m_currentPort = port;
         if (!m_currentPort)
             return;
+
+        if (m_currentPort->isActive())
+            m_currentBluetoothPortStatus = m_currentPort->isBluetoothPort();
+
         m_enablePort = false;
         Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
+        showDevice();
     });
 
     auto ports = m_model->ports();
@@ -199,16 +209,30 @@ void MicrophonePage::changeComboxIndex(const int idx)
     if (idx < 0)
         return;
     int waitSoundPortTime = m_model->currentWaitSoundReceiptTime();
-    showWaitSoundPortStatus(false);
-    QTimer::singleShot(waitSoundPortTime, [=](){
-        // 统一延时处理, 避免多次触发setPort
-        showWaitSoundPortStatus(true);
-        auto temp = m_inputModel->index(idx, 0);
+
+    auto tFunc = [this](const int tmpIdx) {
+        auto temp = m_inputModel->index(tmpIdx, 0);
         const dcc::sound::Port *port = m_inputModel->data(temp, Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
         this->requestSetPort(port);
-        qDebug() << "default source index change, currentTerxt:" << m_inputSoundCbx->comboBox()->itemText(idx);
-        showDevice();
-    });
+        qDebug() << "default source index change, currentTerxt:" << m_inputSoundCbx->comboBox()->itemText(tmpIdx);
+    };
+
+    showWaitSoundPortStatus(false);
+    if (m_fristChangePort) {
+        tFunc(idx);
+        connect(m_waitChangeTimer, &QTimer::timeout, this, [=](){
+            showWaitSoundPortStatus(true);
+        }, Qt::UniqueConnection);
+        m_fristChangePort = false;
+    } else {
+        connect(m_waitChangeTimer, &QTimer::timeout, this, [=](){
+            // 统一延时处理, 避免多次触发setPort
+            tFunc(idx);
+            showWaitSoundPortStatus(true);
+        }, Qt::UniqueConnection);
+    }
+    m_waitChangeTimer->start(waitSoundPortTime);
+    showDevice();
 }
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
@@ -233,6 +257,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
                 disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
                 m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
                 connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
+                m_currentBluetoothPortStatus = port->isBluetoothPort();
                 showDevice();
             }
         });
@@ -247,6 +272,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
+        m_currentBluetoothPortStatus = port->isBluetoothPort();
         showDevice();
     }
 }
@@ -324,13 +350,13 @@ void MicrophonePage::initSlider()
     connect(qApp, &DApplication::iconThemeChanged, this, &MicrophonePage::refreshIcon);
     m_layout->insertWidget(3, m_feedbackSlider);
 
-    refreshIcon();
-    showDevice();
-
     // 使用GSettings来控制显示状态
     GSettingWatcher::instance()->bind("soundInputSlider", m_inputSlider);
     GSettingWatcher::instance()->bind("soundFeedbackSlider", m_feedbackSlider);
     GSettingWatcher::instance()->bind("soundNoiseReduce", m_noiseReductionsw);
+
+    refreshIcon();
+    showDevice();
 }
 
 void MicrophonePage::initCombox()
@@ -396,7 +422,7 @@ void MicrophonePage::setDeviceVisible(bool visable)
         if (GSettingWatcher::instance()->getStatus("soundInputSlider") != "Hidden")
             m_inputSlider->show();
         if (GSettingWatcher::instance()->getStatus("soundNoiseReduce") != "Hidden")
-            m_noiseReductionsw->setVisible(!m_currentPort->isBluetoothPort());
+            m_noiseReductionsw->setVisible(!m_currentBluetoothPortStatus);
     } else {
         m_feedbackSlider->hide();
         m_inputSlider->hide();

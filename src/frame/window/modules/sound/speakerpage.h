@@ -128,7 +128,7 @@ private:
     // 蓝牙模式信息
     QStringList m_bluetoothModeOpts;
     // 确保第一次点击没有延时
-    bool m_FristChangePort;
+    bool m_fristChangePort;
     QTimer *m_waitChangeTimer;
 };
 
