@@ -297,7 +297,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
             for (User *user : userList) {
                 if (userFullName == user->fullname()) {
                     m_inputLineEdit->setAlert(true);
-                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
+                    m_inputLineEdit->showAlertMessage(tr("The username already exists"), m_inputLineEdit, 2000);
                     m_inputLineEdit->lineEdit()->selectAll();
                     return;
                 }
