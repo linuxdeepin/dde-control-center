@@ -206,6 +206,11 @@
         <translation>该名称已存在</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="300"/>
+        <source>The username already exists</source>
+        <translation>此用户名已存在</translation>
+    </message>
+    <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="374"/>
         <source>Validity Days</source>
         <translation>密码有效天数</translation>
@@ -444,6 +449,12 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="478"/>
         <source>The name already exists</source>
         <translation>该名称已存在</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="480"/>
+        <source>The username already exists</source>
+        <translation>此用户名已存在</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="500"/>
