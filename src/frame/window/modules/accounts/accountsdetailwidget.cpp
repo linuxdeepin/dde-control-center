@@ -65,7 +65,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     //整体布局
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    mainContentLayout->setMargin(0);
+    mainContentLayout->setContentsMargins(TopAndBottomMargins);
 
     setLayout(mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
@@ -347,7 +347,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         modifyPasswordDue->setIcon(QIcon::fromTheme("dcc_expand_enter"));
         modifydelLayout->addWidget(modifyPasswordDue);
     }
-    layout->addSpacing(40);
+    layout->addSpacing(30);
     layout->addLayout(modifydelLayout);
     m_nopasswdLogin = new SwitchWidget;
     SettingsGroup *loginGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);

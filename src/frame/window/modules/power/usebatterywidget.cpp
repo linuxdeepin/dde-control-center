@@ -177,7 +177,6 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     /*********************/
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(10);
-    m_layout->setContentsMargins(10, 10, 10, 5);
 
     //add scroll
     ContentWidget *contentWgt = new ContentWidget;
@@ -185,7 +184,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
     QVBoxLayout *mainLayout = new QVBoxLayout;
-    mainLayout->setContentsMargins(0, 0, 0, 0);
+    mainLayout->setContentsMargins(10, 10, 10, 5);
     mainLayout->addWidget(contentWgt);
     setLayout(mainLayout);
 

@@ -207,11 +207,11 @@ WallpaperPage::WallpaperPage(QWidget *parent)
 
     m_contentLayout = new QVBoxLayout;
     m_contentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
-    m_contentLayout->setMargin(0);
+    m_contentLayout->setContentsMargins(LeftAndRightMargins);
     setLayout(m_contentLayout);
     m_contentLayout->addWidget(m_scrollArea);
 
-    QHBoxLayout* mainLayout =  new QHBoxLayout;
+    QHBoxLayout *mainLayout =  new QHBoxLayout;
     mainLayout->setContentsMargins(20, 20, 20, 20);
     mainLayout->addStretch();
     mainLayout->addLayout(centralLayout);
