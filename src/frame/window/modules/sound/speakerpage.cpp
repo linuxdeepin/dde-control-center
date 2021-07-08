@@ -62,7 +62,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_volumeBtn(nullptr)
     , m_mute(false)
     , m_enablePort(false)
-    , m_FristChangePort(true)
+    , m_fristChangePort(true)
     , m_waitChangeTimer(new QTimer (this))
 {
     const int titleLeftMargin = 8;
@@ -183,12 +183,12 @@ void SpeakerPage::changeComboxIndex(const int idx)
     };
 
     showWaitSoundPortStatus(false);
-    if (m_FristChangePort) {
+    if (m_fristChangePort) {
         tFunc(idx);
         connect(m_waitChangeTimer, &QTimer::timeout, this, [=](){
             showWaitSoundPortStatus(true);
         }, Qt::UniqueConnection);
-        m_FristChangePort = false;
+        m_fristChangePort = false;
     } else {
         connect(m_waitChangeTimer, &QTimer::timeout, this, [=](){
             // 统一延时处理, 避免多次触发setPort

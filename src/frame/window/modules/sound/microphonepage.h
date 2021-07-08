@@ -105,6 +105,10 @@ private:
     //启用端口但未设置为默认端口判断
     bool m_enablePort;
     bool m_enable;
+    // 确保第一次点击没有延时
+    bool m_fristChangePort;
+    bool m_currentBluetoothPortStatus;
+    QTimer *m_waitChangeTimer;
 };
 
 }
