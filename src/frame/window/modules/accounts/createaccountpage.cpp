@@ -428,7 +428,7 @@ bool CreateAccountPage::checkName()
 
     if (!m_accountWorker->isUsernameValid(userName).argumentAt(0).toBool() && NAME_ALREADY == m_accountWorker->isUsernameValid(userName).argumentAt(2).toInt()) {
         m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(tr("The name already exists"), m_nameEdit, 2000);
+        m_nameEdit->showAlertMessage(tr("The username already exists"), m_nameEdit, 2000);
         return false;
     }
 
@@ -477,7 +477,7 @@ bool CreateAccountPage::checkFullname()
         for (User *user : userList) {
             if (userFullName == user->fullname()) {
                 m_fullnameEdit->setAlert(true);
-                m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
+                m_fullnameEdit->showAlertMessage(tr("The username already exists"), m_fullnameEdit, 2000);
                 m_fullnameEdit->lineEdit()->selectAll();
                 return false;
             }
