@@ -97,7 +97,6 @@ VpnPage::VpnPage(QWidget *parent)
     scrollLayout->addWidget(m_vpnSwitch);
     scrollLayout->addWidget(m_lvprofiles);
     scrollLayout->setSpacing(10);
-    scrollLayout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *widget = new QWidget(this);
     widget->setLayout(scrollLayout);
@@ -132,6 +131,7 @@ VpnPage::VpnPage(QWidget *parent)
     buttonsLayout->addStretch();
     mainLayout->addLayout(buttonsLayout);
 
+    setContentsMargins(ThirdPageContentsMargins);
     setLayout(mainLayout);
 
     connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, &VpnPage::requestVpnEnabled);

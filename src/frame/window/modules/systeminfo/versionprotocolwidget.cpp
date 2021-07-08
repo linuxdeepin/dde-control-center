@@ -51,7 +51,7 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
 
     TranslucentFrame *widget = new TranslucentFrame;
 
-    m_mainLayout->setContentsMargins(10,10,11,10);
+    m_mainLayout->setContentsMargins(10, 0, 11, 0);
     m_mainLayout->addSpacing(15);
     m_mainLayout->addWidget(m_title, 0, Qt::AlignCenter);
     m_mainLayout->addSpacing(20);
@@ -60,6 +60,7 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
 
     widget->setLayout(m_mainLayout);
     setContent(widget);
+    setContentsMargins(TopAndBottomMargins);
 
     QFutureWatcher<QPair<QString, QString>> *w = new QFutureWatcher<QPair<QString, QString>>(this);
     w->setFuture(QtConcurrent::run(loadLicenses));

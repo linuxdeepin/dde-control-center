@@ -24,6 +24,7 @@
 #include "settings/wiredsettings.h"
 #include "settings/wirelesssettings.h"
 #include "settings/dslpppoesettings.h"
+#include "window/utils.h"
 
 #include <networkmanagerqt/settings.h>
 #include <networkmanagerqt/security8021xsetting.h>
@@ -110,7 +111,7 @@ void ConnectionEditPage::initUI()
     m_buttonTuple->leftButton()->setEnabled(false);
     m_buttonTuple->rightButton()->setEnabled(false);
 
-    m_mainLayout->setContentsMargins(10, 10, 10, 10);
+    m_mainLayout->setContentsMargins(LeftAndRightMargins);
     m_mainLayout->addSpacing(10);
     m_mainLayout->addWidget(m_buttonTuple_conn);
     m_mainLayout->addLayout(m_settingsLayout);

@@ -1135,7 +1135,7 @@ void MainWindow::pushTopWidget(ModuleInterface *const inter, QWidget *const w)
 void MainWindow::pushFinalWidget(ModuleInterface *const inter, QWidget *const w)
 {
     w->layout()->setMargin(0);
-    w->setContentsMargins(0, 0, 0, 0);
+    w->setContentsMargins(TopAndBottomMargins);
     w->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_contentStack.push({inter, w});
     m_rightContentLayout->addWidget(w, 7);

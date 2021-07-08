@@ -24,6 +24,7 @@
 #include "widgets/settingsgroup.h"
 #include "modules/bluetooth/bluetoothmodel.h"
 #include "modules/bluetooth/bluetoothworker.h"
+#include "window/utils.h"
 
 #include <QVBoxLayout>
 
@@ -38,7 +39,7 @@ BluetoothWidget::BluetoothWidget(BluetoothModel *model)
     , m_model(model)
     , m_tFrame(new TranslucentFrame)
 {
-    layout()->setMargin(0);
+    setContentsMargins(TopAndBottomMargins);
     setContent(m_tFrame);
 
     setObjectName("Bluetooth");

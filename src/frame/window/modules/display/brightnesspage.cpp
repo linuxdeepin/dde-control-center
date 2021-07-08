@@ -55,7 +55,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
 {
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
-    m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
+    m_centralLayout->setContentsMargins(LeftAndRightMargins);
 
     QVBoxLayout *titleLayout = new QVBoxLayout;
     m_tempratureColorTitle = new TitleLabel(tr("Color Temperature"));     //色温
@@ -105,6 +105,7 @@ BrightnessPage::BrightnessPage(QWidget *parent)
     mainContentLayout->setMargin(0);
     setLayout(mainContentLayout);
     mainContentLayout->addWidget(scrollArea);
+    setContentsMargins(TopAndBottomMargins);
 
     auto tw = new QWidget();
     tw->setLayout(m_centralLayout);

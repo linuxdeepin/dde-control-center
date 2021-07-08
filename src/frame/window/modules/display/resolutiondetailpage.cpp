@@ -50,7 +50,7 @@ ResolutionDetailPage::ResolutionDetailPage(QWidget *parent)
     QWidget *centralWidget = new TranslucentFrame(this);
     centralWidget->setLayout(m_mainLayout);
 
-    layout()->setMargin(0);
+    layout()->setContentsMargins(TopAndBottomMargins);
     setContent(centralWidget);
 }
 
@@ -105,7 +105,7 @@ void ResolutionDetailPage::initResoList()
     rlist->setEditTriggers(DListView::NoEditTriggers);
     rlist->setSelectionMode(DListView::NoSelection);
     rlist->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-    rlist->setViewportMargins(ScrollAreaMargins);
+    rlist->setViewportMargins(LeftAndRightMargins);
 
     auto itemModel = new QStandardItemModel(this);
     rlist->setModel(itemModel);

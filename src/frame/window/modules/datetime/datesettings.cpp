@@ -169,7 +169,6 @@ DateSettings::DateSettings(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setSpacing(0);
     layout->setMargin(0);
-    layout->setContentsMargins(ThirdPageContentsMargins);
     layout->addWidget(m_autoSyncTimeSwitch, 0, Qt::AlignTop);
     layout->addWidget(m_datetimeGroup);
 
@@ -183,6 +182,7 @@ DateSettings::DateSettings(QWidget *parent)
 
     layout->addStretch();
     layout->addWidget(m_buttonTuple, 0, Qt::AlignBottom);
+    setContentsMargins(ThirdPageContentsMargins);
     setLayout(layout);
 
     connect(m_autoSyncTimeSwitch, &SwitchWidget::checkedChanged, this, &DateSettings::requestSetAutoSyncdate);

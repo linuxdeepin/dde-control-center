@@ -144,8 +144,9 @@ void NativeInfoWidget::initWidget()
     m_mainLayout->addWidget(logoGroup);
     m_mainLayout->addWidget(infoGroup);
     m_mainLayout->addStretch(10);
-    m_mainLayout->setContentsMargins(ThirdPageContentsMargins);
+    m_mainLayout->setContentsMargins(LeftAndRightMargins);
     setLayout(m_mainLayout);
+    setContentsMargins(TopAndBottomMargins);
 
     QScroller::grabGesture(this->window(), QScroller::LeftMouseButtonGesture);
     QScroller *scroller = QScroller::scroller(this->window());

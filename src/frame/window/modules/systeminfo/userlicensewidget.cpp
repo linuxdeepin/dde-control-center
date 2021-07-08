@@ -44,12 +44,13 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
     m_body = new TipsLabel;
     m_body->setWordWrap(true);
 
-    layout->setContentsMargins(10,10,11,10);
+    layout->setContentsMargins(10, 0, 11, 0);
     layout->addWidget(m_body);
     layout->addStretch();
 
     widget->setLayout(layout);
     setContent(widget);
+    setContentsMargins(TopAndBottomMargins);
 
     QFutureWatcher<QString> *w = new QFutureWatcher<QString>(this);
     w->setFuture(QtConcurrent::run(ProtocolFile::getEnduserAgreement));
