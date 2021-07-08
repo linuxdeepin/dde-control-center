@@ -65,6 +65,8 @@ void DevicemanagesPage::setModel(SoundModel *model)
 
     initUI();
     refreshPort();
+    refreshTitleStatus(Port::Out);
+    refreshTitleStatus(Port::In);
 }
 
 void DevicemanagesPage::refreshPort()
