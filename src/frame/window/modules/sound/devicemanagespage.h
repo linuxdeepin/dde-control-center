@@ -86,8 +86,8 @@ private:
     dcc::widgets::SettingsGroup *m_outputGroup{ nullptr };
     dcc::widgets::SettingsGroup *m_inputGroup{ nullptr };
 
-    QList<const dcc::sound::Port *> m_outputPort{ nullptr };
-    QList<const dcc::sound::Port *> m_inputPort{ nullptr };
+    QList<const dcc::sound::Port *> m_outputPort;
+    QList<const dcc::sound::Port *> m_inputPort;
 };
 
 }
