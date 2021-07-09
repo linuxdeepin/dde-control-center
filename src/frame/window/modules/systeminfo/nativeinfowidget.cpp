@@ -64,6 +64,17 @@ bool HostNameEdit::eventFilter(QObject *obj, QEvent *event)
         if (e && (e->matches(QKeySequence::Copy) || e->matches(QKeySequence::Cut) || e->matches(QKeySequence::Paste))) {
             return true;
         }
+
+        if(e->text().isEmpty())
+            return true;
+
+        QRegExp regx("^[A-Za-z0-9-]+$");
+        QRegExpValidator v(regx);
+        QString text = e->text();
+        int pos = 0;
+        if(QValidator::Acceptable != v.validate(text, pos)) {
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        }
     }
 
     return DLineEdit::eventFilter(obj, event);
@@ -130,7 +141,6 @@ void NativeInfoWidget::initWidget()
         QValidator *validator = new QRegExpValidator(regx, m_hostNameLineEdit);
         m_hostNameLineEdit->lineEdit()->setValidator(validator);
         m_hostNameLineEdit->setAlertMessageAlignment(Qt::AlignRight);
-        //m_hostNameLineEdit->lineEdit()->setStyleSheet("QLineEdit{border-width:0;border-style:outset}");
         m_hostNameLineEdit->lineEdit()->setFixedHeight(m_hostNameLineEdit->lineEdit()->height() - 4);
         m_hostNameLineEdit->lineEdit()->setTextMargins(0,0,0,0);
         m_hostNameLayout->addWidget(m_hostNameLineEdit);
@@ -157,6 +167,7 @@ void NativeInfoWidget::initWidget()
             m_hostNameLineEdit->setText(m_model->hostName());
             m_hostNameLineEdit->hideAlertMessage();
             m_hostNameLineEdit->lineEdit()->setFocus();
+            m_hostNameLineEdit->lineEdit()->selectAll();
         });
 
         connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, [ = ](const bool onFocus){
