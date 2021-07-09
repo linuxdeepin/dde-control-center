@@ -23,6 +23,7 @@
 #include "widgets/titlelabel.h"
 
 #include <DFontSizeManager>
+#include <DApplicationHelper>
 
 #include <QHBoxLayout>
 #include <QVBoxLayout>
@@ -56,7 +57,9 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
     fingetitleLabel->setFont(font);
 
     m_listGrp->setSpacing(1);
-    m_listGrp->setContentsMargins(10, 0, 10, 0);
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        m_listGrp->setContentsMargins(10, 0, 10, 0);
+    }
     m_listGrp->layout()->setMargin(0);
     m_listGrp->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
@@ -199,6 +202,11 @@ void FingerWidget::addFingerButton(const QString &newFingerName)
     QHBoxLayout *fingerLayout = new QHBoxLayout(this);
     fingerLayout->addWidget(addBtn, 0, Qt::AlignLeft);
     addfingerItem->setLayout(fingerLayout);
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        QMargins margins(fingerLayout->contentsMargins());
+        margins.setLeft(0);
+        fingerLayout->setContentsMargins(margins);
+    }
     m_listGrp->insertItem(m_listGrp->itemCount(), addfingerItem);
     addfingerItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 

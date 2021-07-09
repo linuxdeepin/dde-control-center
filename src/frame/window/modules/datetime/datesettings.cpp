@@ -167,7 +167,7 @@ DateSettings::DateSettings(QWidget *parent)
     m_datetimeGroup->appendItem(m_dayWidget);
 
     QVBoxLayout *layout = new QVBoxLayout;
-    layout->setSpacing(0);
+    layout->setSpacing(10);
     layout->setMargin(0);
     layout->addWidget(m_autoSyncTimeSwitch, 0, Qt::AlignTop);
     layout->addWidget(m_datetimeGroup);

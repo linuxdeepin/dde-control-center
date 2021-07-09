@@ -413,7 +413,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     layout->addWidget(loginGrp);
 
     m_fingerWidget = new FingerWidget(m_curUser, this);
-    m_fingerWidget->setContentsMargins(0, 0, 0, 0);
+    m_fingerWidget->setContentsMargins(46, 0, 46, 0);
     m_fingerWidget->layout()->setMargin(0);
     layout->addSpacing(30);
     layout->addWidget(m_fingerWidget);
