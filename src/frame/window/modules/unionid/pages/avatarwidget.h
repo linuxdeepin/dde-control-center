@@ -39,7 +39,7 @@ public:
     // 头像路径
     const QString avatarPath() const;
     // 设置头像图片路径
-    void setAvatarPath(const QString &avatar, bool isUrl = true);
+    void setAvatarPath(const QString &avatar, bool isUrl = true , bool isSave = true);
 
     void setAvater(QPixmap avatar);
 
@@ -56,6 +56,7 @@ protected:
 private:
     QPixmap m_avatar;
     QString m_avatarPath;
+    bool m_bIsSave;
 };
 }
 }

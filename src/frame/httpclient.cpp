@@ -121,6 +121,7 @@ QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int 
     jsonRoot.insert("currentAccount", json1);
     jsonRoot.insert("bindAccount", json2);
 
+//    qInfo() << "绑定微信接口：" << QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact);
     QNetworkRequest requset = setNetWorkRequest("/account/bindAccount");
     return httpRequset("put",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 //    return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
@@ -144,6 +145,7 @@ QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const in
     jsonRoot.insert("currentAccount", json1);
     jsonRoot.insert("bindAccount", json2);
 
+//    qInfo() << "解绑微信接口：" << QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact);
     QNetworkRequest requset = setNetWorkRequest("/account/unbindAccount");
     return httpRequset("post",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 //    return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
@@ -360,22 +362,22 @@ void HttpClient::judgeClienid()
     while (!file.atEnd()) {
         QByteArray line = file.readLine();
         if (QString(line).contains("DEEPIN_DEV=")) {
-            QStringList temp = QString(line).split("=");
-            if (temp.at(0) == "DEEPIN_DEV" && !temp.at(1).isEmpty()) {
-                if (temp.at(1).contains("-pre")) {
-                    m_redirec_url = "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-managment";
-                    m_request_url = "https://uosvip-pre.uniontech.com";
-                    m_user_url = "http://api-dev.uniontech.com";
-                    m_clientid = "388340d186f311eb983b0242ac130002";
-                } else {
-                    m_redirec_url = "https://uosvip.uniontech.com/account/unionid/callback/uid-management";
-                    m_request_url = "https://uosvip.uniontech.com";
-                    m_user_url = "https://api.uniontech.com";
-                    m_clientid = "fc8b4f1c34644fd184e002ecdcc6a295";
-                }
-
-                break;
-            }
+            m_redirec_url = "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-managment";
+            m_request_url = "https://uosvip-pre.uniontech.com";
+            m_user_url = "http://api-dev.uniontech.com";
+            m_clientid = "388340d186f311eb983b0242ac130002";
+            break;
+        } else if (QString(line).contains("DEEPIN_PRE=")) {
+            m_redirec_url = "https://uosvip-pre.uniontech.com/account/unionid/callback/uid-managment";
+            m_request_url = "https://uosvip-pre.uniontech.com";
+            m_user_url = "http://api-pre.uniontech.com";
+            m_clientid = "15f2a3c3863811eb90330242ac120002";
+            break;
+        } else {
+            m_redirec_url = "https://uosvip.uniontech.com/account/unionid/callback/uid-management";
+            m_request_url = "https://uosvip.uniontech.com";
+            m_user_url = "https://api.uniontech.com";
+            m_clientid = "fc8b4f1c34644fd184e002ecdcc6a295";
         }
     }
 

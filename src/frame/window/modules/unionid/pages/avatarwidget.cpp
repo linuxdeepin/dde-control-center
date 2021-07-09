@@ -35,6 +35,8 @@ using namespace DCC_NAMESPACE::unionid;
 AvatarWidget::AvatarWidget(QWidget *parent)
     : QLabel(parent)
 {
+    m_bIsSave = true;
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
@@ -67,8 +69,9 @@ const QString AvatarWidget::avatarPath() const
  3. @日期:    2021-03-05
  4. @说明:    根据当前设备分辨率设置图像
 *******************************************************************************/
-void AvatarWidget::setAvatarPath(const QString &avatar, bool isUrl)
+void AvatarWidget::setAvatarPath(const QString &avatar, bool isUrl, bool isSave)
 {
+    m_bIsSave = isSave;
     m_avatarPath = avatar;
     setAccessibleName(m_avatarPath);
     if (isUrl) {
@@ -122,7 +125,12 @@ void AvatarWidget::readAvatarFromUrl()
             m_avatar.loadFromData(result);
             m_avatar.scaled(size() * ratio, Qt::KeepAspectRatio, Qt::FastTransformation);
             m_avatar.setDevicePixelRatio(ratio);
-            Q_EMIT toTellUserAvatar(m_avatar);
+
+            //只记录UnionId头像
+            if (m_bIsSave) {
+                Q_EMIT toTellUserAvatar(m_avatar);
+            }
+
             update();
 
             if (!Notificationmanager::instance()->isLogin()) {

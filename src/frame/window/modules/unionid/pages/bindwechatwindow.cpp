@@ -315,7 +315,7 @@ void BindWeChatWindow::onQrCodeStatusResult()
 
                         jsonValueResult = jsonObj.value("avatarUrl");
                         m_userAvatar = jsonValueResult.toString();
-                        m_avatar->setAvatarPath(m_userAvatar,true);
+                        m_avatar->setAvatarPath(m_userAvatar,true,false);
 
                         if (!m_weChatUnionId.isEmpty()) {
                             QNetworkReply *reply = HttpClient::instance()->unbindAccount(0,1,m_accessToken,1,0,m_weChatUnionId);
