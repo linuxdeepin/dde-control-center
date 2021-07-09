@@ -102,7 +102,7 @@ void RotateDialog::setModel(dcc::display::DisplayModel *model)
     connect(mon, &Monitor::xChanged, this, &RotateDialog::resetGeometry);
     connect(mon, &Monitor::yChanged, this, &RotateDialog::resetGeometry);
 
-    resetGeometry();
+    calcWindowSize();
 }
 
 void RotateDialog::keyPressEvent(QKeyEvent *event)
@@ -240,16 +240,19 @@ void RotateDialog::rotate()
 
 void RotateDialog::resetGeometry()
 {
-    QTimer::singleShot(100, this, [this]{
-        const qreal ratio = devicePixelRatioF();
-        Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
-        if (m_wmHelper->hasComposite()) {
-            setFixedSize(int(mon->w() / ratio), int(mon->h() / ratio));
-            move(mon->x(), mon->y());
-        } else {
-            setFixedSize(700, 600);
-            move(static_cast<int>(((mon->w() - width() * ratio) / 2 + mon->x()) / ratio),
-                 static_cast<int>(((mon->h() - height() * ratio) / 2 + mon->y()) / ratio));
-        }
-    });
+    QTimer::singleShot(100, this, &RotateDialog::calcWindowSize);
+}
+
+void RotateDialog::calcWindowSize()
+{
+    const qreal ratio = devicePixelRatioF();
+    Monitor *mon = m_mon ? m_mon : m_model->primaryMonitor();
+    if (m_wmHelper->hasComposite()) {
+        setFixedSize(int(mon->w() / ratio), int(mon->h() / ratio));
+        move(mon->x(), mon->y());
+    } else {
+        setFixedSize(700, 600);
+        move(static_cast<int>(((mon->w() - width() * ratio) / 2 + mon->x()) / ratio),
+             static_cast<int>(((mon->h() - height() * ratio) / 2 + mon->y()) / ratio));
+    }
 }

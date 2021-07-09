@@ -70,6 +70,7 @@ protected:
 private:
     void rotate();
     void resetGeometry();
+    void calcWindowSize();
 
 private:
     bool m_changed{false};
