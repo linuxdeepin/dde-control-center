@@ -208,7 +208,7 @@ void NativeInfoWidget::initWidget()
             if(!hostName.isEmpty()) {
                 if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
                     m_hostNameLineEdit->setAlert(true);
-                    m_hostNameLineEdit->showAlertMessage(tr("It cannot start with numbers or underscores"), this);
+                    m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
                     DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 }
 
