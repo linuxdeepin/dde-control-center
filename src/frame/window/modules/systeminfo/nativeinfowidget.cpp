@@ -227,6 +227,10 @@ void NativeInfoWidget::initWidget()
                     m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
                     DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 }
+                else {
+                    m_hostNameLineEdit->setAlert(false);
+                    m_hostNameLineEdit->hideAlertMessage();
+                }
 
                 if(!m_hostNameLineEdit->isAlert()) {
                     m_hostNameLineEdit->lineEdit()->clearFocus();
