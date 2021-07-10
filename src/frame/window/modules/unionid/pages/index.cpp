@@ -237,7 +237,7 @@ IndexPage::IndexPage(QWidget *parent)
 void IndexPage::setModel(UnionidModel *model)
 {
     LoginedIn::setModel(model);
-//    m_lab->setVisible(!model->getActivation());
+    //m_lab->setVisible(!model->getActivation());
 
     //connect(model, &UnionidModel::userInfoChanged, this, &IndexPage::onUserInfoChanged);
     connect(model, &UnionidModel::enableSyncChanged, this, &IndexPage::onChecked);
@@ -251,7 +251,7 @@ void IndexPage::setModel(UnionidModel *model)
             m_autoSyncSwitch->setChecked(false);
             Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->isChecked());
         }
-        m_lab->setVisible(!value);
+        //m_lab->setVisible(!value);
     });
 
     QMap<SyncType, QPair<QString, QString>> moduleTs{
