@@ -283,9 +283,9 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         if (port->isActive()) {
             m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
             m_currentPort = port;
+            m_currentBluetoothPortStatus = port->isBluetoothPort();
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
-        m_currentBluetoothPortStatus = port->isBluetoothPort();
         showDevice();
     }
 }
