@@ -99,6 +99,7 @@ private Q_SLOTS:
 private:
     void initConnect();
     void updatePortActivity();
+    void saveStatus();
 
 private:
     SoundModel *m_model;
