@@ -120,8 +120,8 @@ void NativeInfoWidget::initWidget()
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
         m_productName = new TitleValueItem(frame);
-
-        m_hostNameTitleLabel = new DLabel(tr("Computer Name:"));//文案需要确认
+        //~ contents_path /systeminfo/About This PC
+        m_hostNameTitleLabel = new DLabel(tr("Computer Name:"));
         m_hostNameTitleLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         m_hostNameLayout->addWidget(m_hostNameTitleLabel);
 
