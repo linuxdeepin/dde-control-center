@@ -102,7 +102,7 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     connect(m_wdev, &WirelessDevice::hostspotConnectionsChanged, this, &HotspotDeviceWidget::refreshHotspotConnectionList);
 
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotDeviceWidget::onSwitchToggled);
-    GSettingWatcher::instance()->bind("hotspotSwitch ", m_hotspotSwitch->switchButton());
+    GSettingWatcher::instance()->bind("hotspotSwitch", m_hotspotSwitch->switchButton());
 }
 
 HotspotDeviceWidget::~HotspotDeviceWidget()
