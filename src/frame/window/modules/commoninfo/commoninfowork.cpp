@@ -28,6 +28,8 @@
 #include "widgets/basiclistdelegate.h"
 #include "widgets/utils.h"
 
+#include <DApplicationHelper>
+
 #include <signal.h>
 #include <QStandardPaths>
 #include <QFutureWatcher>
@@ -126,7 +128,9 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+
+    if (!DGuiApplicationHelper::isTabletEnvironment())
+        connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
 }
 
 CommonInfoWork::~CommonInfoWork()
@@ -415,6 +419,11 @@ void CommonInfoWork::licenseStateChangeSlot()
 
 void CommonInfoWork::getLicenseState()
 {
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        m_commomModel->setActivation(true);
+        return;
+    }
+
     QDBusInterface licenseInfo("com.deepin.license",
                                "/com/deepin/license/Info",
                                "com.deepin.license.Info",

@@ -30,6 +30,7 @@
 #include <DTipLabel>
 #include <DDialog>
 #include <DDBusSender>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QTimer>
@@ -142,8 +143,13 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
     onLoginChanged();
     if (!model->developerModeState()) {
         m_devBtn->setEnabled(model->isActivate());
-        m_lab->setVisible(!model->isActivate());
-        m_dtip->setVisible(model->isActivate());
+        if (!DGuiApplicationHelper::isTabletEnvironment()) {
+            m_lab->setVisible(!model->isActivate());
+            m_dtip->setVisible(model->isActivate());
+        } else {
+            m_lab->setVisible(model->isActivate());
+            m_dtip->setVisible(!model->isActivate());
+        }
     }
     updateDeveloperModeState(model->developerModeState());
     connect(model, &CommonInfoModel::developerModeStateChanged, this, [this](const bool state){
@@ -202,5 +208,10 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
         m_devBtn->setEnabled(m_model->isActivate());
         m_devBtn->setText(tr("Request Root Access"));
         m_devBtn->setChecked(false);
+    }
+
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        m_lab->setVisible(!reply.value());
+        m_dtip->setVisible(reply.value());
     }
 }
