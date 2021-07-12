@@ -749,6 +749,7 @@ void SearchModel::setLanguage(const QString &type)
                             qDebug() << " [SearchWidget]  xmlRead.text : " << xmlRead.text().toString();
 #endif
                             if (xmlExplain == XML_Source) {  // get xml source date
+                                searchBoxStrcut->translateContent = xmlRead.text().toString();
                                 searchBoxStrcut->source = xmlRead.text().toString();
                                 strSource = xmlRead.text().toString();
                             }
