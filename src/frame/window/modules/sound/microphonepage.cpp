@@ -270,7 +270,7 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         connect(port, &dcc::sound::Port::nameChanged, this, [ = ](const QString str) {
             pi->setText(str);
         });
-        connect(port, &dcc::sound::Port::isActiveChanged, this, [ = ](bool isActive) {
+        connect(port, &dcc::sound::Port::isInputActiveChanged, this, [ = ](bool isActive) {
             pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
             if (isActive) {
                 m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");

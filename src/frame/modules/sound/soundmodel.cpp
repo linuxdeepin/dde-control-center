@@ -452,7 +452,10 @@ void Port::setIsActive(bool isActive)
 {
     if (isActive != m_isActive) {
         m_isActive = isActive;
-        Q_EMIT isActiveChanged(isActive);
+        if (m_direction == Port::In)
+            Q_EMIT isInputActiveChanged(isActive);
+        else
+            Q_EMIT isOutputActiveChanged(isActive);
     }
 }
 

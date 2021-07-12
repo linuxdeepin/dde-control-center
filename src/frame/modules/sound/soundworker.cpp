@@ -385,7 +385,7 @@ void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
         }
     }
 
-    m_activeTimer->start();
+    saveStatus();
 }
 
 void SoundWorker::activeSourcePortChanged(const AudioPort &activeSourcePort)
@@ -393,21 +393,21 @@ void SoundWorker::activeSourcePortChanged(const AudioPort &activeSourcePort)
     qDebug() << "active source port changed to: " << activeSourcePort.name;
     m_activeSourcePort = activeSourcePort.name;
 
-    m_activeTimer->start();
+    saveStatus();
 }
 
 void SoundWorker::onSinkCardChanged(const uint &cardId)
 {
     m_activeOutputCard = cardId;
 
-    m_activeTimer->start();
+    saveStatus();
 }
 
 void SoundWorker::onSourceCardChanged(const uint &cardId)
 {
     m_activeInputCard = cardId;
 
-    m_activeTimer->start();
+    saveStatus();
 }
 
 void SoundWorker::onGsettingsChanged(const QString &key)
@@ -462,6 +462,13 @@ void SoundWorker::updatePortActivity()
         const bool isActiveOuputPort = (port->id() == m_activeSinkPort) && (port->cardId() == m_activeOutputCard);
         const bool isActiveInputPort = (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
+    }
+}
+
+void SoundWorker::saveStatus()
+{
+    if (!m_activeTimer->isActive()) {
+        m_activeTimer->start();
     }
 }
 

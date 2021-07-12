@@ -88,7 +88,8 @@ Q_SIGNALS:
     void idChanged(QString id) const;
     void nameChanged(QString name) const;
     void cardNameChanged(QString name) const;
-    void isActiveChanged(bool ative) const;
+    void isInputActiveChanged(bool active) const;
+    void isOutputActiveChanged(bool active) const;
     void directionChanged(Direction direction) const;
     void cardIdChanged(uint cardId) const;
     void currentPortEnabled(bool enable) const;
