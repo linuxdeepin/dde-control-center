@@ -240,6 +240,7 @@ Q_SIGNALS:
 #endif
     void portAdded(const Port *port);
     void portRemoved(const QString & portId, const uint &cardId);
+    void soundDeviceStatusChanged();
     void soundEffectDataChanged(DDesktopServices::SystemSoundEffect effect, const bool enable);
     void enableSoundEffectChanged(bool enableSoundEffect);
     void isLaptopChanged(bool isLaptop);

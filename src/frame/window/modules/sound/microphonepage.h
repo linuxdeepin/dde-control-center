@@ -79,6 +79,7 @@ private Q_SLOTS:
     void addPort(const dcc::sound::Port *port);
     void toggleMute();
     void changeComboxIndex(const int idx);
+    void changeComboxStatus();
 
 private:
     void initSlider();
@@ -108,7 +109,9 @@ private:
     // 确保第一次点击没有延时
     bool m_fristChangePort;
     bool m_currentBluetoothPortStatus;
+    bool m_fristStatusChangePort;
     QTimer *m_waitChangeTimer;
+    QTimer *m_waitStatusChangeTimer;
 };
 
 }

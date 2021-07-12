@@ -67,7 +67,9 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_enable(true)
     , m_fristChangePort(true)
     , m_currentBluetoothPortStatus(true)
+    , m_fristStatusChangePort(true)
     , m_waitChangeTimer(new QTimer (this))
+    , m_waitStatusChangeTimer(new QTimer (this))
 {
     const int titleLeftMargin = 8;
     TitleLabel *labelInput = new TitleLabel(tr("Input"));
@@ -89,12 +91,14 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     m_layout->addWidget(labelInput);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_waitChangeTimer->setSingleShot(true);
+    m_waitStatusChangeTimer->setSingleShot(true);
     setLayout(m_layout);
 }
 
 MicrophonePage::~MicrophonePage()
 {
     m_waitChangeTimer->stop();
+    m_waitStatusChangeTimer->stop();
 
 #ifndef DCC_DISABLE_FEEDBACK
     if (m_feedbackSlider)
@@ -169,8 +173,8 @@ void MicrophonePage::setModel(SoundModel *model)
 
     connect(m_model, &SoundModel::portAdded, this, &MicrophonePage::addPort);
     connect(m_model, &SoundModel::portRemoved, this, &MicrophonePage::removePort);
-
-    connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged),this, &MicrophonePage::changeComboxIndex);
+    connect(m_model, &SoundModel::soundDeviceStatusChanged, this, &MicrophonePage::changeComboxStatus);
+    connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),this, &MicrophonePage::changeComboxIndex);
 
     connect(m_noiseReductionsw, &SwitchWidget::checkedChanged, this, &MicrophonePage::requestReduceNoise);
     connect(m_model, &SoundModel::reduceNoiseChanged, m_noiseReductionsw, &SwitchWidget::setChecked);
@@ -190,10 +194,8 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
             auto item = model->item(i);
             auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
             if (port->id() == portId && cardId == port->cardId()) {
-                disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
                 m_inputSoundCbx->comboBox()->hidePopup();
                 model->removeRow(i);
-                disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
             } else {
                 ++i;
             }
@@ -235,6 +237,23 @@ void MicrophonePage::changeComboxIndex(const int idx)
     showDevice();
 }
 
+void MicrophonePage::changeComboxStatus()
+{
+    int waitSoundPortTime = m_model->currentWaitSoundReceiptTime();
+
+    showWaitSoundPortStatus(false);
+    if (m_fristStatusChangePort) {
+        showWaitSoundPortStatus(true);
+        m_fristStatusChangePort = false;
+    } else {
+        connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
+            showWaitSoundPortStatus(true);
+        }, Qt::UniqueConnection);
+    }
+    m_waitStatusChangeTimer->start(waitSoundPortTime);
+    showDevice();
+}
+
 void MicrophonePage::addPort(const dcc::sound::Port *port)
 {
     if (!port->isEnabled())
@@ -254,21 +273,15 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         connect(port, &dcc::sound::Port::isActiveChanged, this, [ = ](bool isActive) {
             pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
             if (isActive) {
-                disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
                 m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
-                connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
                 m_currentBluetoothPortStatus = port->isBluetoothPort();
                 showDevice();
             }
         });
-        disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
         m_inputSoundCbx->comboBox()->hidePopup();
         m_inputModel->appendRow(pi);
-        connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
         if (port->isActive()) {
-            disconnect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
             m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
-            connect(m_inputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &MicrophonePage::changeComboxIndex);
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
