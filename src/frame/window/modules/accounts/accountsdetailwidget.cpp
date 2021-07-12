@@ -395,7 +395,7 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     pwHLayout->addWidget(new QLabel(tr("Validity Days")), 0, Qt::AlignLeft);
     auto validityDaysBox = new AccountSpinBox();
-    validityDaysBox->lineEdit()->setValidator(new QRegularExpressionValidator(QRegularExpression("0|[1-9]\\d{0,4}"), validityDaysBox->lineEdit()));
+    validityDaysBox->lineEdit()->setValidator(new QRegularExpressionValidator(QRegularExpression("[1-9]\\d{0,4}/^[1-9]\\d*$/"), validityDaysBox->lineEdit()));
     validityDaysBox->setFixedWidth(180);
     validityDaysBox->lineEdit()->setFixedWidth(80);
     validityDaysBox->lineEdit()->setPlaceholderText("99999");
