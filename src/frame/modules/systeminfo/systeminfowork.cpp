@@ -28,6 +28,8 @@
 #include "widgets/basiclistdelegate.h"
 #include "dsysinfo.h"
 
+#include <DApplicationHelper>
+
 #include <QFutureWatcher>
 #include <QtConcurrent>
 
@@ -101,7 +103,10 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
 
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    }
+
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
     connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this] (const int &value) {
@@ -131,7 +136,11 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_model->setKernel(output);
 
 #ifndef DISABLE_ACTIVATOR
-    licenseStateChangeSlot();
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        licenseStateChangeSlot();
+    } else {
+        m_model->setLicenseState(ActiveState::Authorized);
+    }
 #endif
 }
 
