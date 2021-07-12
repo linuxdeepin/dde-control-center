@@ -90,7 +90,16 @@ Q_SIGNALS:
 private Q_SLOTS:
     void removePort(const QString &portId, const uint &cardId);
     void addPort(const dcc::sound::Port *port);
+    /**
+     * @brief changeComboxIndex  处理用户点击下拉框， 选择对应port端口操作， 需要对 setport 进行延时
+     * @param idx
+     */
     void changeComboxIndex(const int idx);
+    /**
+     * @brief changeComboxStatus  仅处理port插拔时的延时置灰操作
+     * @param idex
+     */
+    void changeComboxStatus();
     void clickLeftButton();
     void changeBluetoothMode(const int idx);
 
@@ -129,7 +138,9 @@ private:
     QStringList m_bluetoothModeOpts;
     // 确保第一次点击没有延时
     bool m_fristChangePort;
+    bool m_fristStatusChangePort;
     QTimer *m_waitChangeTimer;
+    QTimer *m_waitStatusChangeTimer;
 };
 
 }

@@ -224,6 +224,7 @@ void SoundModel::addPort(Port *port)
     if (!containsPort(port)) {
         m_ports.append(port);
         Q_EMIT portAdded(port);
+        Q_EMIT soundDeviceStatusChanged();
     }
 }
 
@@ -234,6 +235,7 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
         m_ports.removeOne(port);
         port->deleteLater();
         Q_EMIT portRemoved(portId, cardId);
+        Q_EMIT soundDeviceStatusChanged();
     }
 }
 

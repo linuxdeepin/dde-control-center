@@ -63,7 +63,9 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_mute(false)
     , m_enablePort(false)
     , m_fristChangePort(true)
+    , m_fristStatusChangePort(true)
     , m_waitChangeTimer(new QTimer (this))
+    , m_waitStatusChangeTimer(new QTimer (this))
 {
     const int titleLeftMargin = 8;
     TitleLabel *labelOutput = new TitleLabel(tr("Output"));
@@ -81,12 +83,14 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_layout->addWidget(labelOutput);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
     m_waitChangeTimer->setSingleShot(true);
+    m_waitStatusChangeTimer->setSingleShot(true);
     setLayout(m_layout);
 }
 
 SpeakerPage::~SpeakerPage()
 {
     m_waitChangeTimer->stop();
+    m_waitStatusChangeTimer->stop();
     GSettingWatcher::instance()->erase("soundOutputSlider");
     GSettingWatcher::instance()->erase("soundVolumeBoost");
     GSettingWatcher::instance()->erase("soundBalanceSlider");
@@ -125,6 +129,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
         addPort(port);
     }
 
+    connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), this, &SpeakerPage::changeComboxIndex, Qt::QueuedConnection);
     connect(m_model, &SoundModel::bluetoothModeOptsChanged, this, [ = ](const QStringList bluetoothModeOpts){
         if (m_bluetoothModeOpts != bluetoothModeOpts) {
             m_bluetoothModeOpts = bluetoothModeOpts;
@@ -134,7 +139,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     });
     connect(m_model, &SoundModel::portAdded, this, &SpeakerPage::addPort);
     connect(m_model, &SoundModel::portRemoved, this, &SpeakerPage::removePort);
-    connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
+    connect(m_model, &SoundModel::soundDeviceStatusChanged, this, &SpeakerPage::changeComboxStatus, Qt::UniqueConnection);
     connect(m_model, &SoundModel::bluetoothModeChanged, this, [ = ](const QString &mode) {
         m_blueSoundCbx->setCurrentText(mode);
         m_balance = !mode.contains("headset");
@@ -156,10 +161,8 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
             auto item = model->item(i);
             auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
             if (port->id() == portId && cardId == port->cardId()) {
-                disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
                 m_outputSoundCbx->comboBox()->hidePopup();
                 model->removeRow(i);
-                connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             } else {
                 ++i;
             }
@@ -200,6 +203,23 @@ void SpeakerPage::changeComboxIndex(const int idx)
     showDevice();
 }
 
+void SpeakerPage::changeComboxStatus()
+{
+    int waitSoundPortTime = m_model->currentWaitSoundReceiptTime();
+
+    showWaitSoundPortStatus(false);
+    if (m_fristStatusChangePort) {
+        showWaitSoundPortStatus(true);
+        m_fristStatusChangePort = false;
+    } else {
+        connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
+            showWaitSoundPortStatus(true);
+        }, Qt::UniqueConnection);
+    }
+    m_waitStatusChangeTimer->start(waitSoundPortTime);
+    showDevice();
+}
+
 void SpeakerPage::clickLeftButton()
 {
     Q_EMIT requestMute();
@@ -232,21 +252,15 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         connect(port, &dcc::sound::Port::isActiveChanged, this, [ = ](bool isActive) {
             pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
             if (isActive) {
-                disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
                 m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
                 setBlueModeVisible(port->isBluetoothPort());
-                connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             }
         });
-        disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
         m_outputSoundCbx->comboBox()->hidePopup();
         m_outputModel->appendRow(pi);
-        connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
         if (port->isActive()) {
-            disconnect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
             setBlueModeVisible(port->isBluetoothPort());
-            connect(m_outputSoundCbx->comboBox(), static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &SpeakerPage::changeComboxIndex);
             m_currentPort = port;
             Q_EMIT m_model->requestSwitchEnable(port->cardId(), port->id());
         }
