@@ -32,6 +32,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QApplication>
+#include <DGuiApplicationHelper>
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
@@ -118,7 +119,7 @@ void UpdateWorker::init() {
     m_updateInter = new UpdateInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_managerInter = new ManagerInter("com.deepin.lastore", "/com/deepin/lastore", QDBusConnection::systemBus(), this);
     m_powerInter = new PowerInter("com.deepin.daemon.Power", "/com/deepin/daemon/Power", QDBusConnection::sessionBus(), this);
-    m_powerSystemInter = new PowerSystemInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::sessionBus(), this);
+    m_powerSystemInter = new PowerSystemInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this);
     m_networkInter = new Network("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this);
     m_smartMirrorInter = new SmartMirrorInter("com.deepin.lastore.Smartmirror", "/com/deepin/lastore/Smartmirror", QDBusConnection::systemBus(), this);
     m_abRecoveryInter = new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this);
@@ -144,9 +145,13 @@ void UpdateWorker::init() {
     connect(m_managerInter, &ManagerInter::UpdateModeChanged, m_model, &UpdateModel::setUpdateMode);
     connect(m_updateInter, &UpdateInter::UpdateNotifyChanged, m_model, &UpdateModel::setUpdateNotify);
 
-    connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
-
+    // 平板环境下OnBattery属性不准确，使用BatteryStatus属性表示是否插电，1或5表示插电
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
+    } else {
+        connect(m_powerSystemInter, &__SystemPower::BatteryStatusChanged, this, &UpdateWorker::onBatteryStatusChanged);
+    }
     // connect(m_powerSystemInter, &__SystemPower::BatteryPercentageChanged, this, &UpdateWorker::setSystemBatteryPercentage);
 
     connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
@@ -249,7 +254,11 @@ void UpdateWorker::activate()
 
     m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
 
-    setOnBattery(m_powerInter->onBattery());
+    if (!DGuiApplicationHelper::isTabletEnvironment()) {
+        setOnBattery(m_powerInter->onBattery());
+    } else {
+        setOnBattery(m_powerSystemInter->batteryStatus() != 1 && m_powerSystemInter->batteryStatus() != 5);
+    }
     setBatteryPercentage(m_powerInter->batteryPercentage());
     // setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
     onJobListChanged(m_managerInter->jobList());
@@ -1080,6 +1089,10 @@ void UpdateWorker::onIconThemeChanged(const QString &theme)
 {
     m_iconThemeState = theme;
 }
+
+void UpdateWorker::onBatteryStatusChanged(uint status)
+{
+     setOnBattery(status != 1 && status != 5); }
 
 void UpdateWorker::checkDiskSpace(const QString &jobDescription)
 {

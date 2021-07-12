@@ -130,6 +130,7 @@ private Q_SLOTS:
     void checkDiskSpace(const QString &jobDescription);
     DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
     void onIconThemeChanged(const QString &theme);
+    void onBatteryStatusChanged(uint status);
 
 private:
     AppUpdateInfo getInfo(const AppUpdateInfo &packageInfo, const QString& currentVersion, const QString& lastVersion) const;
