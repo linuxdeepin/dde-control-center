@@ -65,18 +65,17 @@ bool HostNameEdit::eventFilter(QObject *obj, QEvent *event)
             return true;
         }
 
-        if(e->text().isEmpty())
-            return true;
-
-        QRegExp regx("^[A-Za-z0-9-]+$");
-        QRegExpValidator v(regx);
-        QString text = e->text();
-        int pos = 0;
-        if(QValidator::Acceptable != v.validate(text, pos)) {
-            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        if(e->key() >= 0x20 && e->key() <= 0x0a1) {
+            //首先判断键盘事件带的字符串是否为符合"^[A-Za-z0-9-]+$"规则
+            QRegExp regx("^[A-Za-z0-9-]+$");
+            QRegExpValidator v(regx);
+            QString text = e->text();
+            int pos = 0;
+            if(QValidator::Acceptable != v.validate(text, pos)) {
+                DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+            }
         }
     }
-
     return DLineEdit::eventFilter(obj, event);
 }
 
