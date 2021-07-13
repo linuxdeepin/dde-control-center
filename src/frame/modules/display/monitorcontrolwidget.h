@@ -54,6 +54,7 @@ Q_SIGNALS:
     void requestRecognize() const;
     void requestGatherWindows(const QPoint cursor) const;
     void requestSetMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition) const;
+    void requestShowSecondaryScreen() const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
 

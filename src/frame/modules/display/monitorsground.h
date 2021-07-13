@@ -50,6 +50,7 @@ Q_SIGNALS:
     void requestApplySettings(QHash<Monitor *, QPair<int, int>> monitorposition);
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
+    void showSecondaryScreen();
 
 private Q_SLOTS:
     void resetMonitorsView();
