@@ -181,10 +181,12 @@ void NativeInfoWidget::initWidget()
                 if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
                     m_hostNameLineEdit->setAlert(true);
                     m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
+                    m_alertMessage = tr("It cannot start or end with dashes");
                     DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 }else if (hostName.size() > 63) {
                     m_hostNameLineEdit->setAlert(true);
                     m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
+                    m_alertMessage = tr("1~63 characters please");
                     DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 }
             }
@@ -195,6 +197,7 @@ void NativeInfoWidget::initWidget()
                     m_hostNameLineEdit->lineEdit()->backspace();
                     m_hostNameLineEdit->setAlert(true);
                     m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
+                    m_alertMessage = tr("1~63 characters please");
                     DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 } else if (m_hostNameLineEdit->isAlert()) {
                     m_hostNameLineEdit->setAlert(false);
@@ -225,6 +228,7 @@ void NativeInfoWidget::initWidget()
                 if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
                     m_hostNameLineEdit->setAlert(true);
                     m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
+                    m_alertMessage = tr("It cannot start or end with dashes");
                     DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 }
                 else {
@@ -253,6 +257,7 @@ void NativeInfoWidget::initWidget()
             m_hostNameBtn->setVisible(false);
             m_hostNameLineEdit->setAlert(true);
             m_hostNameLineEdit->showAlertMessage(error, this);
+            m_alertMessage = error;
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         });
 
@@ -354,6 +359,16 @@ void NativeInfoWidget::initWidget()
     setType(m_model->type());
 
     setLicenseState(m_model->licenseState());
+}
+
+void NativeInfoWidget::resizeEvent(QResizeEvent *event)
+{
+    ContentWidget::resizeEvent(event);
+
+    if(m_hostNameLineEdit->isAlert()) {
+        m_hostNameLineEdit->hideAlertMessage();
+        m_hostNameLineEdit->showAlertMessage(m_alertMessage,this);
+    }
 }
 
 void NativeInfoWidget::setProductName(const QString &edition)

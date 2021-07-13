@@ -84,6 +84,9 @@ public Q_SLOTS:
 Q_SIGNALS:
     void clickedActivator();
 
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 private:
     dcc::systeminfo::SystemInfoModel *m_model;
     QVBoxLayout *m_mainLayout;
@@ -103,6 +106,7 @@ private:
     dcc::widgets::TitleValueItem *m_memory;
     QGSettings *m_moduleActive{nullptr};
     bool isContensServers;
+    QString m_alertMessage;
 };
 
 }
