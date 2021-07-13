@@ -4,7 +4,7 @@
     <message>
         <location filename="../src/frame/plugins/battery-health/batteryhealthplugin.cpp" line="64"/>
         <source>BatteryHealth</source>
-        <translation>BatteryHealth</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -12,12 +12,12 @@
     <message>
         <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="50"/>
         <source>Optimize battery charging</source>
-        <translation>Optimize battery charging</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="57"/>
         <source>In order to slow down battery aging, optimize battery charging</source>
-        <translation>In order to slow down battery aging, optimize battery charging</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="930"/>
         <source>Bluetooth</source>
         <translation>སོ་སྔོན།</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="968"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="970"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="942"/>
         <source>Drawing Tablet</source>
         <translation>དཔེ་རིས་འབྲི་ས།</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="993"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="995"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="965"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="967"/>
         <source>Updates</source>
         <translation>གསར་སྒྱུར། </translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="986"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="988"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
         <source>General Settings</source>
         <translation>ཀུན་སྤྱོད།</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>མཐེབ་རིས་དམར་ཆུང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="980"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="982"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="954"/>
         <source>Cloud Sync</source>
         <translation>སྤྲིན་ཐོག་མཉམ་བགྲོད།</translation>
     </message>
@@ -177,83 +177,83 @@
     </message>
 </context>
 <context>
+    <name>dccV20::accounts::AccountSpinBox</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="80"/>
+        <source>Always</source>
+        <translation>ཡུན་རིང་གོ་ཆོད།</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="345"/>
         <source>Full Name</source>
         <translation>མིང་ཆ་ཚང་བཟོ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
         <source>The full name is too long</source>
         <translation>མིང་རིང་དྲག་འདུག </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="293"/>
         <source>The name already exists</source>
         <translation>མིང་ཡོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="302"/>
+        <source>The username already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="396"/>
         <source>Validity Days</source>
         <translation>གསང་ཨང་གོ་ཆོད་པའི་ཉིན་གྲངས། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="378"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="379"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="409"/>
-        <source>Always</source>
-        <translation>གོ་ཡུན་རིང་ཆོད་པ། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="402"/>
-        <source>Please input a number between 1-99999</source>
-        <translation>1-99999བར་གྱི་ཨང་ཀི་ནང་འཇུག་བྱེད་རོགས། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="444"/>
         <source>Change Password</source>
         <translation>གསང་ཨང་བཟོ་བཅོས།</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="446"/>
         <source>Delete Account</source>
         <translation>རྩིས་ཁྲ་སུབ་པ། </translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="448"/>
         <source>Auto Login</source>
         <translation>ཐོ་རང་འཇུག </translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="451"/>
         <source>Login Without Password</source>
         <translation>གསང་ཨང་མེད་པར་ཐོ་འཇུག་བྱེད་པ། </translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="482"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>ཐོ་རང་འཇུག་གི་རྩིས་ཁྲ་གཅིག་ལས་འགོ་སློང་མི་ཆོག འགོ་བསླངས་རྗེས་རྩིས་ཁྲ་གཞན་གྱི་ཐོ་རང་འཇུག་གི་འདེམས་གསེས་སྒོ་རྒྱག་རྒྱུ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="484"/>
         <source>Cancel</source>
         <translation>ཕྱིར་འཐེན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="485"/>
         <source>Enable</source>
         <translation>ཁ་འབྱེད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="571"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="588"/>
         <source>Group</source>
         <translation>སྤྱོད་མཁན། </translation>
     </message>
@@ -430,8 +430,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="470"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="480"/>
+        <source>The username already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="470"/>
         <source>The name already exists</source>
         <translation>མིང་ཡོད་པ།</translation>
     </message>
@@ -549,29 +553,29 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
         <source>Show Bluetooth devices without names</source>
         <translation>མིང་མེད་པའི་སོ་སྔོན་སྒྲིག་ཆས་མངོན་སྟོན་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="61"/>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>སོ་སྔོན་སྒྲིག་ཆས་གཞན་གྱིས་འདི་ཉིད་རྙེད་ཐུབ་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="94"/>
         <source>My Devices</source>
         <translation>ངའི་སྒྲིག་ཆས།</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="98"/>
         <source>Other Devices</source>
         <translation>སྒྲིག་ཆས་གཞན།</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="143"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>སོ་སྔོན་སྤྱད་དེ་ཉེ་འགྲམ་གྱི་སྒྲིག་ཆས་འཚོལ་བ། (སྒྲ་སྐྱེད་ཆས། མཐེབ་གཞོང་། ཙི་གུ། )</translation>
     </message>
@@ -635,26 +639,21 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="83"/>
         <source>Updating...</source>
         <translation>གསར་སྒྱུར་བྱེད་བཞིན་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
         <source>Startup Delay</source>
         <translation>ཕྱིར་འགྱངས་འགོ་སློང་།</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
         <source>Theme</source>
         <translation>བརྗོད་གཞི། </translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
-        <source>Click the option in boot menu to set it as the first boot</source>
-        <translation>ཁྱོད་ཀྱིས་འདེམས་བྱང་ནས་སོར་བཞག་འགོ་སློང་ལ་འགྱུར་བ་གཏོང་ཆོག</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="101"/>
@@ -662,12 +661,17 @@
         <translation>ཁྱེད་ཀྱིས་འདེམས་བྱང་མནན་ནས་སོར་བཞག་འགོ་སློང་ཚན་པར་འགྱུར་བ་བཏང་ཆོག་ལ། པར་རིས་སྒེའུ་ཁུང་ནང་འཐེན་ནས་རྒྱབ་རིས་བརྗེས་ཀྱང་ཆོག </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
+        <source>Click the option in boot menu to set it as the first boot</source>
+        <translation>ཁྱོད་ཀྱིས་འདེམས་བྱང་ནས་སོར་བཞག་འགོ་སློང་ལ་འགྱུར་བ་གཏོང་ཆོག</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="111"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>བརྗོད་གཞི་ཁ་ཕྱེ་རྗེས་ཁྱོད་ཀྱིས་འགོ་སློང་འདེམས་བྱང་ནས་བརྗོད་གཞིའི་རྒྱབ་ལྗོངས་མཐོང་ཐུབ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="134"/>
         <source>Boot Menu</source>
         <translation>འགོ་སློང་འདེམས་བྱང་། </translation>
     </message>
@@ -896,7 +900,8 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="51"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (https://www.deepin.org/en/agreement/privacy/).</source>
-        <translation>སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི་ཁ་ཕྱེ་བ་འདིས་ང་ཚོས་ཁྱོད་ཀྱི་སྒྲིག་ཆས་དང་རྒྱུད་ཁོངས་ཆ་འཕྲིན། དེ་བཞིན་ཉེར་སྤྱོད་མཉེན་ཆས་ཀྱི་ཆ་འཕྲིན་བསྡུ་བ་དང་བེད་སྤྱོད་བྱེད་ཆོག་པར་དབང་ཆ་སྤྲད་པ་ཡིན་པར་བརྩི་རྒྱུ་ཡིན། ཁྱོད་ཀྱིས་སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི་ཁ་བརྒྱབ་ནས་ང་ཚོས་གོང་གསལ་གྱི་ཆ་འཕྲིན་བསྡུ་བ་དང་བེད་སྤྱོད་བྱེད་པར་བཀག་འགོག་བྱ་ཆོག ཞིབ་ཕྲའི་གསལ་བཤད་ནིགསང་དོན་སྲིད་ཇུས་ལ་གཟིགས་རོགས། (https://www.deepin.org/zh/agreement/privacy/).</translation>
+        <translation>སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི་ཁ་ཕྱེ་བ་འདིས་ང་ཚོས་ཁྱོད་ཀྱི་སྒྲིག་ཆས་དང་རྒྱུད་ཁོངས་ཆ་འཕྲིན། དེ་བཞིན་ཉེར་སྤྱོད་མཉེན་ཆས་ཀྱི་ཆ་འཕྲིན་བསྡུ་བ་དང་བེད་སྤྱོད་བྱེད་ཆོག་པར་དབང་ཆ་སྤྲད་པ་ཡིན་པར་བརྩི་རྒྱུ་ཡིན། ཁྱོད་ཀྱིས་སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི་ཁ་བརྒྱབ་ནས་ང་ཚོས་གོང་གསལ་གྱི་ཆ་འཕྲིན་བསྡུ་བ་དང་བེད་སྤྱོད་བྱེད་པར་བཀག་འགོག་བྱ་ཆོག ཞིབ་ཕྲའི་གསལ་བཤད་ནིགསང་དོན་སྲིད་ཇུས་ལ་གཟིགས་རོགས།
+(https://www.deepin.org/zh/agreement/privacy/).</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
@@ -1459,7 +1464,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingwidget.cpp" line="46"/>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>མིག་སྔའི་བརྙན་ཡོལ་སྐྱེད་སྐྱུང་ལྡབ་1བྱེད་ཆོག </translation>
+        <translation>མིག་སྔའི་བརྙན་ཡོལ་སྐྱེད་སྐྱུང་ལྡབ100%བྱེད་ཆོག </translation>
     </message>
 </context>
 <context>
@@ -1598,25 +1603,24 @@
 <context>
     <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="68"/>
         <source>General</source>
         <translation>ཀུན་སྤྱོད།</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="70"/>
         <source>Keyboard Layout</source>
         <translation>མཐེབ་གཞོང་བཀོད་པ།</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>System Language</source>
         <translation>རྒྱུད་ཁོངས་སྐད་ཡིག</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Shortcuts</source>
         <translation>མྱུར་མཐེབ།</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
@@ -2185,7 +2189,7 @@
 <context>
     <name>dccV20::network::HotspotPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="278"/>
         <source>Create Hotspot</source>
         <translation>ཚ་གནས་སྣོན་པ།</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
@@ -2194,84 +2198,89 @@
 <context>
     <name>dccV20::network::IpvxSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="33"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="34"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="52"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="212"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="218"/>
         <source>Auto</source>
         <translation>རང་འགུལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="219"/>
         <source>Manual</source>
         <translation>ལག་ཐབས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Ignore</source>
         <translation>སྣང་མེད་གཏོང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
         <source>IP Address</source>
         <translation>IPགནས་ཡུལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="287"/>
         <source>Required</source>
         <translation>ངེས་པར་འབྲི་དགོས། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>Gateway</source>
         <translation>དྲ་སྒོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>Only applied in corresponding resources</source>
         <translation>བལྟོས་བཅས་ཀྱི་དྲ་རྒྱའི་ཐོག་སྤྱོད་པའི་ཐོན་ཁུངས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Method</source>
         <translation>བྱ་ཐབས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="286"/>
         <source>Netmask</source>
         <translation>བུ་དྲ་ཡིབ་ཨང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="297"/>
         <source>Prefix</source>
         <translation>སྔོན་སྦྱོར།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="420"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="482"/>
         <source>Invalid IP address</source>
         <translation>གོ་མི་ཆོད་པའི་IPགནས་ཡུལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="433"/>
         <source>Invalid netmask</source>
         <translation>གོ་མི་ཆོད་པའི་བུ་དྲ་ཡིབ་ཨང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="482"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="498"/>
         <source>Invalid gateway</source>
         <translation>གོ་མི་ཆོད་པའི་དྲ་སྒོ་གནས་ཡུལ།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <source>IP conflict</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4759,34 +4768,48 @@
     </message>
 </context>
 <context>
+    <name>dccV20::sound::DevicemanagesPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="140"/>
+        <source>Output Devices</source>
+        <translation>ཕྱིར་གཏོང་སྒྲིག་ཆས།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="166"/>
+        <source>Enable or disable a device as you want</source>
+        <translation>གཅུས་སྒོར་ཚོད་འཛིན་བྱས་ནས་སྒྲིག་ཆས་འགོ་སློང་བ་དང་སྤྱོད་མི་རུང་བ་བཟོ་བ།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="161"/>
+        <source>Input Devices</source>
+        <translation>ནང་འཇུག་སྒྲིག་ཆས།</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::sound::MicrophonePage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="75"/>
         <source>Input</source>
         <translation>ནང་འཇུག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="81"/>
         <source>Input Device</source>
         <translation>ནང་འདྲེན་སྒྲིག་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="79"/>
-        <source>On</source>
-        <translation>སྤྱོད་པ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="83"/>
         <source>Automatic Noise Suppression</source>
         <translation>སུན་སྒྲ་ཚོད་འཛིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="300"/>
         <source>Input Volume</source>
         <translation>སྒྲ་ཤུགས་ནང་འཇུག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="344"/>
         <source>Input Level</source>
         <translation>སྒྲ་ཤུགས་ལྡོག་སྐྱེལ།</translation>
     </message>
@@ -4802,7 +4825,7 @@
 <context>
     <name>dccV20::sound::SoundModule</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="73"/>
         <source>Sound</source>
         <translation>སྒྲ།</translation>
     </message>
@@ -4811,77 +4834,78 @@
     <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="134"/>
         <source>Output</source>
         <translation>ཕྱིར་འདྲེན།</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="138"/>
         <source>Input</source>
         <translation>ནང་འཇུག</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
         <source>Sound Effects</source>
         <translation>རྒྱུད་ཁོངས་སྒྲ་ནུས།</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
+        <source>Devices</source>
+        <translation>སྒྲིག་ཆས་དོ་དམ།</translation>
+        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>
         <source>Output</source>
         <translation>ཕྱིར་འདྲེན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="76"/>
         <source>Output Device</source>
         <translation>ཕྱིར་འདྲེན་སྒྲིག་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
-        <source>On</source>
-        <translation>སྤྱོད་པ།</translation>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="81"/>
+        <source>Mode</source>
+        <translation>དཔེ་རྣམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="87"/>
-        <source>Speaker</source>
-        <translation>སྒྲ་སྐྱེད་ཆས།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="275"/>
         <source>Output Volume</source>
         <translation>སྒྲ་ཤུགས་ཕྱིར་འདོན།</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="377"/>
         <source>Volume Boost</source>
         <translation>སྐད་ཤུགས་ཆེ་རུ་གཏོང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="384"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>སྒྲ་ཤུགས་100%ལས་ཆེ་བ་ཡོད་སྐབས་སྒྲ་ནུས་ཤོར་སྲིད་པ་མ་ཟད། ཁྱོད་ཀྱི་སྒྲ་སྐྱེད་ཆས་ཀྱང་འཕྲོ་བརླག་གཏོང་ཉེན་ཡོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="394"/>
         <source>Left/Right Balance</source>
         <translation>གཡོན་/གཡས་དོ་སྙོམས།</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="399"/>
         <source>Left</source>
         <translation>གཡོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="400"/>
         <source>Right</source>
         <translation>གཡས།</translation>
     </message>
@@ -5027,94 +5051,112 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="129"/>
+        <source>Computer Name:</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
+        <source>It cannot start or end with dashes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="261"/>
         <source>OS Name:</source>
         <translation>ཐོན་རྫས་ཀྱི་མིང་།</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="266"/>
         <source>Version:</source>
         <translation>པར་གཞིའི་ཨང་གྲངས།</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="271"/>
         <source>Edition:</source>
         <translation>པར་གཞི།</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="276"/>
         <source>Type:</source>
         <translation>རིགས་གྲས།</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="279"/>
         <source>Authorization</source>
         <translation>པར་གཞི་དབང་སྤྲོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="109"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="396"/>
         <source>To be activated</source>
         <translation>སྐུལ་སློང་བྱ་རྒྱུ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="111"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="234"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="410"/>
         <source>Activate</source>
         <translation>སྐུལ་སློང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="291"/>
         <source>Kernel:</source>
         <translation>ལྟེ་བའི་པར་གཞི།</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="296"/>
         <source>Processor:</source>
         <translation>སྒྲིག་གཅོད་ཆས།</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
         <source>Memory:</source>
         <translation>ནང་གསོག</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="376"/>
         <source>%1-bit</source>
         <translation>གནས་%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="392"/>
         <source>Activated</source>
         <translation>སྐུལ་སློང་བྱས་ཟིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="222"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="402"/>
         <source>View</source>
         <translation>ལྟ་བཤེར།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="400"/>
         <source>Expired</source>
         <translation>དུས་ལས་ཡོལ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="404"/>
         <source>In trial period</source>
         <translation>ལས་ཚོད་ལྟ་བའི་དུས་ཡུན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="408"/>
         <source>Trial expired</source>
         <translation>ལས་ཚོད་ལྟ་བའི་དུས་ཡུན་ལས་བརྒལ་བ།</translation>
     </message>
@@ -5129,12 +5171,12 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="51"/>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation>https://www.deepin.org/zh/agreement/privacy/</translation>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="51"/>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="52"/>
@@ -5735,12 +5777,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="50"/>
         <source>Location service</source>
-        <translation>Location service</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="57"/>
         <source>Location services use GPS, Bluetooth and WiFi hotspots and signals to determine your approximate location</source>
-        <translation>Location services use GPS, Bluetooth and WiFi hotspots and signals to determine your approximate location</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -5756,7 +5798,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/privacy/privacyplugin.cpp" line="70"/>
         <source>Privacy</source>
-        <translation>Privacy</translation>
+        <translation>གསང་བ།</translation>
     </message>
 </context>
 <context>
@@ -5764,12 +5806,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="50"/>
         <source>Location service</source>
-        <translation>Location service</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="51"/>
         <source>Photo</source>
-        <translation>Photo</translation>
+        <translation>པར།</translation>
     </message>
     <message>
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="52"/>
@@ -6248,8 +6290,8 @@ Visit User Center and manage your account there.</source>
     <name>dcc::accounts::RemoveUserDialog</name>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
-        <source>All data under this account will be permanently deleted</source>
-        <translation>རྩིས་ཁྲ་འདིའི་ཆ་འཕྲིན་ཡོངས་རྫོགས་སོར་ཆུད་ཐབས་བྲལ།</translation>
+        <source>Are you sure you want to delete this account?</source>
+        <translation>ཁྱོད་ཀྱིས་རྩིས་ཐོ་འདི་བསུབ་རྒྱུ་གཏན་འཁེལ་ལམ།</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -6603,85 +6645,85 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::sound::SoundModel</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="128"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="129"/>
         <source>Boot up</source>
         <translation>ཁ་ཕྱེ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="129"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="130"/>
         <source>Shut down</source>
         <translation>ཁ་བརྒྱབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="130"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
         <source>Log out</source>
         <translation>ཐོ་སུབ་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="142"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="143"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="144"/>
         <source>Wake up</source>
         <translation>གཉིད་ལས་སད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
         <source>Volume +/-</source>
         <translation>སྐད་ཤུགས་སྙོམ་སྒྲིག</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
         <source>Notification</source>
         <translation>བརྡ་ཐོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
         <source>Low battery</source>
         <translation>གློག་མི་འདང་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>འགོ་སློང་ཆས་ནས་རྟགས་རིས་ཅོག་ངོས་སུ་སྐྱེལ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
         <source>Empty Trash</source>
         <translation>སྙིགས་སྒམ་གཙང་སེལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
         <source>Plug in</source>
         <translation>གློག་ཁུངས་དང་མཐུད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
         <source>Plug out</source>
         <translation>གློག་ཁུངས་བཅད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
         <source>Removable device connected</source>
         <translation>སྒུལ་བདེའི་སྒྲིག་ཆས་མཐུད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
         <source>Removable device removed</source>
         <translation>སྒུལ་བདེའི་སྒྲིག་ཆས་འགོག་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="125"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="139"/>
         <source>Error</source>
         <translation>ནོར་འཁྲུལ་གསལ་འདེབས།</translation>
     </message>
@@ -6697,7 +6739,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="197"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="206"/>
         <source>available</source>
         <translation>སྤྱོད་ཆོག</translation>
     </message>
@@ -6710,12 +6752,12 @@ Visit User Center and manage your account there.</source>
         <translation>རྒྱུད་ཁོངས་ཆ་འཕྲིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="421"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Copyright © 2011-2021 གཏིང་ཚད་སྡེ་ཁུལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="423"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright © 2019-2021 ཐུང་ཞིན་མཉེན་ཆས་ལག་རྩལ་ཚད་ཡོད་ཀུང་སི།</translation>
     </message>

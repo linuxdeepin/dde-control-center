@@ -90,8 +90,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="930"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -112,8 +112,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="968"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="970"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="942"/>
         <source>Drawing Tablet</source>
         <translation>Rajztábla</translation>
     </message>
@@ -124,8 +124,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="993"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="995"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="965"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="967"/>
         <source>Updates</source>
         <translation>Frissítések</translation>
     </message>
@@ -136,8 +136,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="986"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="988"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
         <source>General Settings</source>
         <translation>Általános beállítások</translation>
     </message>
@@ -152,8 +152,8 @@
         <translation>Pöcökegér</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="980"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="982"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="954"/>
         <source>Cloud Sync</source>
         <translation>Felhő alapú szinkronizálás</translation>
     </message>
@@ -177,83 +177,83 @@
     </message>
 </context>
 <context>
+    <name>dccV20::accounts::AccountSpinBox</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="80"/>
+        <source>Always</source>
+        <translation>Mindig</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="345"/>
         <source>Full Name</source>
         <translation>Teljes név</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="243"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
         <source>The full name is too long</source>
         <translation>A teljes név túl hosszú</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="293"/>
         <source>The name already exists</source>
         <translation>A név már létezik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="302"/>
+        <source>The username already exists</source>
+        <translation>A felhasználónév már létezik</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="396"/>
         <source>Validity Days</source>
         <translation>Érvényességi napok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="378"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="379"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="390"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="409"/>
-        <source>Always</source>
-        <translation>Mindig</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="402"/>
-        <source>Please input a number between 1-99999</source>
-        <translation>Kérjük írjon be egy számot 1-99999 között</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="444"/>
         <source>Change Password</source>
         <translation>Jelszó megváltoztatása</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="429"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="446"/>
         <source>Delete Account</source>
         <translation>Felhasználói fiók törlése</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="448"/>
         <source>Auto Login</source>
         <translation>Automatikus bejelentkezés</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="451"/>
         <source>Login Without Password</source>
         <translation>Bejelentkezés jelszó nélkül</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="482"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>Csak egy fióknál engedélyezhető az &quot;automatikus bejelentkezés&quot;. Ha folytatja, akkor a többi fióknak ez a lehetősége le lesz tiltva.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="484"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="485"/>
         <source>Enable</source>
         <translation>Engedélyezés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="571"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="588"/>
         <source>Group</source>
         <translation>Csoport</translation>
     </message>
@@ -430,8 +430,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="470"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="480"/>
+        <source>The username already exists</source>
+        <translation>A felhasználónév már létezik</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="470"/>
         <source>The name already exists</source>
         <translation>A név már létezik</translation>
     </message>
@@ -549,29 +553,29 @@
 <context>
     <name>dccV20::bluetooth::AdapterWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="56"/>
         <source>Show Bluetooth devices without names</source>
         <translation>Név nélküli Bluetooth eszközök megjelenítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="61"/>
         <source>Allow other Bluetooth devices to find this device</source>
         <translation>Engedélyezze, hogy más Bluetooth eszközök megtalálják ezt az eszközt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="94"/>
         <source>My Devices</source>
         <translation>Eszközeim</translation>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="98"/>
         <source>Other Devices</source>
         <translation>Egyéb eszközök</translation>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="143"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Engedélyezze a Bluetooth használatát a közeli eszközök (hangszórók, billentyűzet, egér) megkereséséhez</translation>
     </message>
@@ -635,26 +639,21 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="83"/>
         <source>Updating...</source>
         <translation>Frissítés...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
         <source>Startup Delay</source>
         <translation>Indítás késleltetése</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
         <source>Theme</source>
         <translation>Téma</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
-        <source>Click the option in boot menu to set it as the first boot</source>
-        <translation>Kattintson a rendszerindítási menü opciójára, hogy beállíthassa az első rendszerindítási elemnek</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="101"/>
@@ -662,12 +661,17 @@
         <translation>Kattintson a rendszerindítási menü opciójára az első rendszerindítás beállításához, majd húzza át a képet a háttér megváltoztatásához</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
+        <source>Click the option in boot menu to set it as the first boot</source>
+        <translation>Kattintson a rendszerindítási menü opciójára, hogy beállíthassa az első rendszerindítási elemnek</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="111"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>A rendszerindítási menü témájának megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="134"/>
         <source>Boot Menu</source>
         <translation>Rendszerindítási menü</translation>
     </message>
@@ -1602,25 +1606,24 @@ időformátum</translation>
 <context>
     <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="68"/>
         <source>General</source>
         <translation>Általános</translation>
-        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="70"/>
         <source>Keyboard Layout</source>
         <translation>Billentyűzetkiosztás</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="72"/>
         <source>System Language</source>
         <translation>Rendszer nyelve</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="74"/>
         <source>Shortcuts</source>
         <translation>Gyorsbillentyűk</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
@@ -2189,7 +2192,7 @@ időformátum</translation>
 <context>
     <name>dccV20::network::HotspotPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="278"/>
         <source>Create Hotspot</source>
         <translation>Hotspot létrehozása</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
@@ -2198,84 +2201,89 @@ időformátum</translation>
 <context>
     <name>dccV20::network::IpvxSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="33"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="34"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="52"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="212"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="218"/>
         <source>Auto</source>
         <translation>Automatikus</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="219"/>
         <source>Manual</source>
         <translation>Manuális</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="220"/>
         <source>Ignore</source>
         <translation>Kihagyás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
         <source>IP Address</source>
         <translation>IP cím</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="287"/>
         <source>Required</source>
         <translation>Kötelező</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="228"/>
         <source>Gateway</source>
         <translation>Átjáró</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="229"/>
         <source>Only applied in corresponding resources</source>
         <translation>Csak a megfelelő forrásokban alkalmazzuk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="233"/>
         <source>Method</source>
         <translation>Eljárás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="286"/>
         <source>Netmask</source>
         <translation>Hálózati maszk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="297"/>
         <source>Prefix</source>
         <translation>Előtag</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="420"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="466"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="482"/>
         <source>Invalid IP address</source>
         <translation>Érvénytelen IP cím</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="433"/>
         <source>Invalid netmask</source>
         <translation>Érvénytelen hálózati maszk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="441"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="482"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="498"/>
         <source>Invalid gateway</source>
         <translation>Érvénytelen átjáró</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
+        <source>IP conflict</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4768,34 +4776,48 @@ lecsukásakor</translation>
     </message>
 </context>
 <context>
+    <name>dccV20::sound::DevicemanagesPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="140"/>
+        <source>Output Devices</source>
+        <translation>Kimeneti eszközök</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="166"/>
+        <source>Enable or disable a device as you want</source>
+        <translation>Ahogyan szeretné, engedélyezze vagy tiltsa le az eszközt</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="161"/>
+        <source>Input Devices</source>
+        <translation>Bemeneti eszközök</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::sound::MicrophonePage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="75"/>
         <source>Input</source>
         <translation>Bemenet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="81"/>
         <source>Input Device</source>
         <translation>Bemeneti eszköz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="79"/>
-        <source>On</source>
-        <translation>Be</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="83"/>
         <source>Automatic Noise Suppression</source>
         <translation>Automatikus zajcsökkentés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="300"/>
         <source>Input Volume</source>
         <translation>Bemeneti hangerő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="344"/>
         <source>Input Level</source>
         <translation>Bemeneti szint</translation>
     </message>
@@ -4811,7 +4833,7 @@ lecsukásakor</translation>
 <context>
     <name>dccV20::sound::SoundModule</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="73"/>
         <source>Sound</source>
         <translation>Hangok</translation>
     </message>
@@ -4820,77 +4842,78 @@ lecsukásakor</translation>
     <name>dccV20::sound::SoundWidget</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="134"/>
         <source>Output</source>
         <translation>Kimenet</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="138"/>
         <source>Input</source>
         <translation>Bemenet</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="80"/>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
         <source>Sound Effects</source>
         <translation>Hangeffektusok</translation>
         <extra-contents_path>/sound/Sound Effects</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
+        <source>Devices</source>
+        <translation>Eszközök</translation>
+        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>
         <source>Output</source>
         <translation>Kimenet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="76"/>
         <source>Output Device</source>
         <translation>Kimeneti eszköz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
-        <source>On</source>
-        <translation>Be</translation>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="81"/>
+        <source>Mode</source>
+        <translation>Mód</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="87"/>
-        <source>Speaker</source>
-        <translation>Hangszóró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="275"/>
         <source>Output Volume</source>
         <translation>Kimeneti hangerő</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="377"/>
         <source>Volume Boost</source>
         <translation>Hangzás felerősítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="384"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Ha a hangerő 100% -nál nagyobb, torzíthatja a hangot és káros lehet a hangszóróra.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="394"/>
         <source>Left/Right Balance</source>
         <translation>Bal / Jobb Balansz</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="399"/>
         <source>Left</source>
         <translation>Bal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="400"/>
         <source>Right</source>
         <translation>Jobb</translation>
     </message>
@@ -5036,94 +5059,112 @@ lecsukásakor</translation>
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="129"/>
+        <source>Computer Name:</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
+        <source>It cannot start or end with dashes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="261"/>
         <source>OS Name:</source>
         <translation>Operációs rendszer neve:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="266"/>
         <source>Version:</source>
         <translation>Verzió:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="271"/>
         <source>Edition:</source>
         <translation>Kiadás:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="276"/>
         <source>Type:</source>
         <translation>Típus:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="279"/>
         <source>Authorization</source>
         <translation>Engedélyezés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="109"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="396"/>
         <source>To be activated</source>
         <translation>Aktiválandó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="111"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="234"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="238"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="282"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="410"/>
         <source>Activate</source>
         <translation>Aktiválás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="291"/>
         <source>Kernel:</source>
         <translation>Kernel:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="296"/>
         <source>Processor:</source>
         <translation>Processzor:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
         <source>Memory:</source>
         <translation>Memória:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="204"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="376"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="392"/>
         <source>Activated</source>
         <translation>Aktiválva</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="222"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="402"/>
         <source>View</source>
         <translation>Megtekintés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="400"/>
         <source>Expired</source>
         <translation>Lejárt</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="232"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="404"/>
         <source>In trial period</source>
         <translation>Próbaidőszakban</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="236"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="408"/>
         <source>Trial expired</source>
         <translation>A próbaidőszak lejárt</translation>
     </message>
@@ -6257,8 +6298,8 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <name>dcc::accounts::RemoveUserDialog</name>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
-        <source>All data under this account will be permanently deleted</source>
-        <translation>A Felhasználói fiók összes eleme véglegesen törölve lesz.</translation>
+        <source>Are you sure you want to delete this account?</source>
+        <translation>Biztosan törölni szeretné ezt a felhasználói fiókot?</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -6612,85 +6653,85 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
 <context>
     <name>dcc::sound::SoundModel</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="128"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="129"/>
         <source>Boot up</source>
         <translation>Rendszerindítás</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="129"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="130"/>
         <source>Shut down</source>
         <translation>Leállítás</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="130"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
         <source>Log out</source>
         <translation>Kijelentkezés</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="142"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="143"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="144"/>
         <source>Wake up</source>
         <translation>Felébresztés</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
         <source>Volume +/-</source>
         <translation>Hangerő +/-</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
         <source>Notification</source>
         <translation>Értesítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
         <source>Low battery</source>
         <translation>Alacsony akkumulátor töltöttség</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>Ikon küldése az Indítóból az Asztalra</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
         <source>Empty Trash</source>
         <translation>Kuka ürítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
         <source>Plug in</source>
         <translation>Csatlakoztatva</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
         <source>Plug out</source>
         <translation>Lecsatlakoztatva</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
         <source>Removable device connected</source>
         <translation>Eltávolítható eszköz csatlakoztatva</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
         <source>Removable device removed</source>
         <translation>Eltávolítható eszköz lecsatlakozva</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="125"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="139"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
@@ -6706,7 +6747,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
 <context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
-        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="197"/>
+        <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="206"/>
         <source>available</source>
         <translation>Elérhető</translation>
     </message>
@@ -6719,12 +6760,12 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
         <translation>Rendszerinformációk</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="421"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Szerzői jog© 2011-2021 Deepin® Közösség</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="423"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Szerzői Jog© 2019-2021 UnionTech Software Technology Co., LTD</translation>
     </message>
