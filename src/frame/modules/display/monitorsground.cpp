@@ -170,6 +170,9 @@ void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 
     qApp->processEvents();
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
+
+    //延时500ms等待 MonitorInter执行完SetPosition后，在执行showsecondaryScreen显示副屏的配置窗口
+    QTimer::singleShot(500, this,&MonitorsGround::showsecondaryScreen);
 }
 
 void MonitorsGround::adjust(MonitorProxyWidget *pw)

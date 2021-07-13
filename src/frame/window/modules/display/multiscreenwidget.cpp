@@ -233,7 +233,8 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_monitorControlWidget, &MonitorControlWidget::requestMonitorPress, this, &MultiScreenWidget::onMonitorPress);
     connect(m_monitorControlWidget, &MonitorControlWidget::requestMonitorRelease, this, &MultiScreenWidget::onMonitorRelease);
     connect(m_monitorControlWidget, &MonitorControlWidget::requestRecognize, this, &MultiScreenWidget::requestRecognize);
-    connect(m_monitorControlWidget, &MonitorControlWidget::requestSetMonitorPosition, this, &MultiScreenWidget::requestSetMonitorPosition);
+    connect(m_monitorControlWidget, &MonitorControlWidget::requestSetMonitorPosition, this, &MultiScreenWidget::onRequestSetMonitorPosition);
+    connect(m_monitorControlWidget, &MonitorControlWidget::requestShowsecondaryScreen, this, &MultiScreenWidget::onRequestShowsecondaryScreen);
     connect(m_monitorControlWidget, &MonitorControlWidget::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
     connect(this, &MultiScreenWidget::requestGatherEnabled, m_monitorControlWidget, &MonitorControlWidget::onGatherEnabled);
 
@@ -319,6 +320,7 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             }
 
             m_dlg = new SecondaryScreenDialog(this);
+            m_dlg->setAttribute(Qt::WA_WState_WindowOpacitySet);
             m_dlg->setModel(m_model, monitor);
             connect(m_dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);
             connect(m_dlg, &SecondaryScreenDialog::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
@@ -385,4 +387,24 @@ void MultiScreenWidget::onMonitorRelease(Monitor *monitor)
     m_fullIndication->setVisible(false);
     QTimer::singleShot(1000, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor()); });
     m_dlg->resetDialog();
+}
+
+void MultiScreenWidget::onRequestSetMonitorPosition(QHash<dcc::display::Monitor *, QPair<int, int>> monitorPosition)
+{
+    for (int i = 0; i < m_secondaryScreenDlgList.count(); ++i) {
+        SecondaryScreenDialog *screenDialog = m_secondaryScreenDlgList.at(i);
+        Q_ASSERT(screenDialog);
+        screenDialog->setWindowOpacity(std::numeric_limits<double>::min());
+    }
+
+    Q_EMIT requestSetMonitorPosition(monitorPosition);
+
+}
+void MultiScreenWidget::onRequestShowsecondaryScreen()
+{
+    for (int i = 0; i < m_secondaryScreenDlgList.count(); ++i) {
+        SecondaryScreenDialog *screenDialog = m_secondaryScreenDlgList.at(i);
+        Q_ASSERT(screenDialog);
+        screenDialog->setWindowOpacity(1);
+    }
 }

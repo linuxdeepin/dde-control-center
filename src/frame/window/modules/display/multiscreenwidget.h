@@ -92,6 +92,8 @@ private Q_SLOTS:
     void onGatherWindows(const QPoint cursor);
     void onMonitorPress(dcc::display::Monitor *monitor);
     void onMonitorRelease(dcc::display::Monitor *monitor);
+    void onRequestSetMonitorPosition(QHash<dcc::display::Monitor *, QPair<int, int>> monitorPosition);
+    void onRequestShowsecondaryScreen();
 
 private:
     QVBoxLayout *m_contentLayout;

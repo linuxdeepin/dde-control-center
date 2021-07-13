@@ -67,6 +67,7 @@ MonitorControlWidget::MonitorControlWidget(int activateHeight, QWidget *parent)
         Q_EMIT requestGatherWindows(QCursor::pos());
     });
     connect(m_screensGround, &MonitorsGround::requestApplySettings, this, &MonitorControlWidget::requestSetMonitorPosition);
+    connect(m_screensGround, &MonitorsGround::showsecondaryScreen, this, &MonitorControlWidget::requestShowsecondaryScreen);
     connect(m_screensGround, &MonitorsGround::requestMonitorPress, this, &MonitorControlWidget::requestMonitorPress);
     connect(m_screensGround, &MonitorsGround::requestMonitorRelease, this, &MonitorControlWidget::requestMonitorRelease);
 }
