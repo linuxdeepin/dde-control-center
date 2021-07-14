@@ -99,7 +99,6 @@ private Q_SLOTS:
 private:
     void initConnect();
     void updatePortActivity();
-    void saveStatus();
 
 private:
     SoundModel *m_model;
@@ -120,7 +119,6 @@ private:
     QGSettings *m_dccSettings;
 
     QTimer *m_pingTimer;
-    QTimer *m_activeTimer;
     QDBusConnectionInterface *m_inter;
     int m_waitSoundPortReceipt;
     const Port *m_lastPort;

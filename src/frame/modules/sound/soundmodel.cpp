@@ -232,10 +232,11 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
 {
     Port *port = findPort(portId, cardId);
     if (port) {
-        m_ports.removeOne(port);
-        port->deleteLater();
         Q_EMIT portRemoved(portId, cardId);
         Q_EMIT soundDeviceStatusChanged();
+
+        m_ports.removeOne(port);
+        port->deleteLater();
     }
 }
 

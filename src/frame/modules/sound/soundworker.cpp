@@ -50,7 +50,6 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_powerInter(new SystemPowerInter("com.deepin.system.Power", "/com/deepin/system/Power", QDBusConnection::systemBus(), this))
     , m_dccSettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
     , m_pingTimer(new QTimer(this))
-    , m_activeTimer(new QTimer(this))
     , m_inter(QDBusConnection::sessionBus().interface())
 {
     m_audioInter->setSync(false);
@@ -60,8 +59,6 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     m_pingTimer->setSingleShot(false);
 
     m_waitSoundPortReceipt = m_dccSettings->get(GSETTINGS_WAIT_SOUND_RECEIPT).toInt();
-    m_activeTimer->setInterval(m_waitSoundPortReceipt);
-    m_activeTimer->setSingleShot(true);
 
     if (m_inter->isServiceRegistered(m_audioInter->service()).value()) {
         initConnect();
@@ -94,7 +91,6 @@ void SoundWorker::initConnect()
     connect(m_soundEffectInter, &SoundEffect::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_sourceMeter) m_sourceMeter->Tick(); });
-    connect(m_activeTimer, &QTimer::timeout, this, &SoundWorker::updatePortActivity);
     connect(m_powerInter, &SystemPowerInter::HasBatteryChanged, m_model, &SoundModel::setIsLaptop);
     connect(m_dccSettings, &QGSettings::changed, this, &SoundWorker::onGsettingsChanged);
 
@@ -385,7 +381,7 @@ void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
         }
     }
 
-    saveStatus();
+    updatePortActivity();
 }
 
 void SoundWorker::activeSourcePortChanged(const AudioPort &activeSourcePort)
@@ -393,21 +389,21 @@ void SoundWorker::activeSourcePortChanged(const AudioPort &activeSourcePort)
     qDebug() << "active source port changed to: " << activeSourcePort.name;
     m_activeSourcePort = activeSourcePort.name;
 
-    saveStatus();
+    updatePortActivity();
 }
 
 void SoundWorker::onSinkCardChanged(const uint &cardId)
 {
     m_activeOutputCard = cardId;
 
-    saveStatus();
+    updatePortActivity();
 }
 
 void SoundWorker::onSourceCardChanged(const uint &cardId)
 {
     m_activeInputCard = cardId;
 
-    saveStatus();
+    updatePortActivity();
 }
 
 void SoundWorker::onGsettingsChanged(const QString &key)
@@ -462,13 +458,6 @@ void SoundWorker::updatePortActivity()
         const bool isActiveOuputPort = (port->id() == m_activeSinkPort) && (port->cardId() == m_activeOutputCard);
         const bool isActiveInputPort = (port->id() == m_activeSourcePort) && (port->cardId() == m_activeInputCard);
         port->setIsActive(isActiveInputPort || isActiveOuputPort);
-    }
-}
-
-void SoundWorker::saveStatus()
-{
-    if (!m_activeTimer->isActive()) {
-        m_activeTimer->start();
     }
 }
 
