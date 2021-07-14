@@ -142,6 +142,10 @@ int SoundWidget::showPath(const QString &path)
             if (name == "Sound Effects" && m_menuMethod[ i ].itemText == tr("Sound Effects")) {
                 return i;
             }
+
+            if (name == "Devices" && m_menuMethod[ i ].itemText == tr("Devices")) {
+                return i;
+            }
         }
 
         return 0;
