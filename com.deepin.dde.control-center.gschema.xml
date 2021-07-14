@@ -653,7 +653,7 @@
             <description>default is true</description>
         </key>
         <key name="hotspot-switch" enum="com.deepin.dde.control-center.StatusMode">
-            <default>'Hidden'</default>
+            <default>'Enabled'</default>
             <summary></summary>
             <description>default is Enabled</description>
         </key>
