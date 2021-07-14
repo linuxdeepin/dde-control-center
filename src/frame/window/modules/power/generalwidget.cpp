@@ -102,7 +102,7 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     m_layEnergySavingMode->addWidget(label);
     m_layEnergySavingMode->addWidget(saveEnergySettingsGrp);
 
-    if (!PowerSettings()->keys().contains("powerSavingModeEnabled") || !PowerSettings()->get("powerSavingModeEnabled").toBool()) {
+    if (PowerSettings()->keys().contains("powerSavingModeVisible") && !PowerSettings()->get("power-saving-mode-visible").toBool()) {
         label->setVisible(false);
         saveEnergySettingsGrp->setVisible(false);
     }
