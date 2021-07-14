@@ -132,7 +132,7 @@ void NativeInfoWidget::initWidget()
         m_hostNameLayout->addWidget(m_hostNameLabel);
 
         m_hostNameLineEdit = new HostNameEdit();
-        QRegExp regx("^[A-Za-z0-9-]+$");
+        QRegExp regx("^[A-Za-z0-9-]{0,64}$");
         QValidator *validator = new QRegExpValidator(regx, m_hostNameLineEdit);
         m_hostNameLineEdit->lineEdit()->setValidator(validator);
         m_hostNameLineEdit->setAlertMessageAlignment(Qt::AlignRight);
