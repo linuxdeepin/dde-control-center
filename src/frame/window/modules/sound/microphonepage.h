@@ -86,6 +86,7 @@ private:
     void initCombox();
     void refreshIcon();
     void showWaitSoundPortStatus(bool showStatus);
+    void refreshActivePortShow(const dcc::sound::Port *port);
 
 private:
     dcc::sound::SoundModel *m_model{nullptr};
@@ -102,6 +103,7 @@ private:
     const dcc::sound::Port  *m_currentPort{nullptr};
 
     dcc::sound::SoundLabel *m_volumeBtn;
+    int m_waitTimerValue;
     bool m_mute;
     //启用端口但未设置为默认端口判断
     bool m_enablePort;
@@ -110,8 +112,8 @@ private:
     bool m_fristChangePort;
     bool m_currentBluetoothPortStatus;
     bool m_fristStatusChangePort;
-    QTimer *m_waitChangeTimer;
     QTimer *m_waitStatusChangeTimer;
+    QTimer *m_waitCurrentPortRemove;
 };
 
 }

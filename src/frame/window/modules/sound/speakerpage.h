@@ -108,6 +108,10 @@ private:
     void initCombox();
     void refreshIcon();
     void showWaitSoundPortStatus(bool showStatus);
+    /**
+     * @brief refreshActivePortShow 最终确认显示的端口下拉框 保证蓝牙下拉框与之匹配
+     */
+    void refreshActivePortShow(const dcc::sound::Port *port);
 
 private:
     //model类， 为后端数据来源及数据变化信号来源
@@ -125,9 +129,10 @@ private:
     QWidget* m_vbWidget;
     dcc::widgets::TitledSliderItem *m_balanceSlider;
     QStandardItemModel *m_outputModel{nullptr};
-    //当前选中的音频
+    //当前选中的音频 即activeport
     const dcc::sound::Port *m_currentPort{nullptr};
     int m_lastsetvalue;
+    int m_waitTimerValue;
     //左/右平衡音界面是否显示
     bool m_balance;
     dcc::sound::SoundLabel *m_volumeBtn;
@@ -139,8 +144,15 @@ private:
     // 确保第一次点击没有延时
     bool m_fristChangePort;
     bool m_fristStatusChangePort;
-    QTimer *m_waitChangeTimer;
+
+    /**
+     * @brief m_waitStatusChangeTimer 端口切换等待延时
+     */
     QTimer *m_waitStatusChangeTimer;
+    /**
+     * @brief m_waitCurrentPortRemove  1s后移除端口
+     */
+    QTimer *m_waitCurrentPortRemove;
 };
 
 }
