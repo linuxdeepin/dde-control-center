@@ -462,20 +462,20 @@ bool CreateAccountPage::checkFullname()
     }
 
     if (!userFullName.simplified().isEmpty()) {
-        QList<QString> groupList = m_userModel->getAllGroups();
-        /* 与系统中已有的用户名和用户组进行重复性校验 */
-        for (QString &group : groupList) {
-            if (userFullName == group) {
+        QList<User *> userList = m_userModel->userList();
+        /* 与已有的用户全名进行重复性校验 */
+        for (User *user : userList) {
+            if (userFullName == user->fullname()) {
                 m_fullnameEdit->setAlert(true);
                 m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
                 m_fullnameEdit->lineEdit()->selectAll();
                 return false;
             }
         }
-        QList<User *> userList = m_userModel->userList();
-        /* 与已有的用户全名进行重复性校验 */
-        for (User *user : userList) {
-            if (userFullName == user->fullname()) {
+        QList<QString> groupList = m_userModel->getAllGroups();
+        /* 与系统中已有的用户名和用户组进行重复性校验 */
+        for (QString &group : groupList) {
+            if (userFullName == group) {
                 m_fullnameEdit->setAlert(true);
                 m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
                 m_fullnameEdit->lineEdit()->selectAll();
