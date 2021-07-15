@@ -141,7 +141,7 @@ DeveloperModeDialog::DeveloperModeDialog(DAbstractDialog *parent)
         QDBusReply<HardwareInfo> hardwareInfo = licenseInfo.call(QDBus::AutoDetect, "GetHardware");
 
         // 以读写方式打开主目录下的1.json文件，若该文件不存在则会自动创建
-        QString defaultPath = QDir::homePath() + "/Desktop/1.json";
+        QString defaultPath = QDir::homePath() + "/Downloads/1.json";
         auto path = QFileDialog::getSaveFileName(this, "", defaultPath);
         QFile file(path);
         if(!file.open(QIODevice::ReadWrite)) {
