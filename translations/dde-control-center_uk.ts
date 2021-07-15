@@ -1602,24 +1602,25 @@
 <context>
     <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="69"/>
         <source>General</source>
         <translation>Загальне</translation>
+        <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
         <source>Keyboard Layout</source>
         <translation>Розкладка клавіатури</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="73"/>
         <source>System Language</source>
         <translation>Мова Системи</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="75"/>
         <source>Shortcuts</source>
         <translation>Поєднання клавіш</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
@@ -4585,7 +4586,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="359"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="809"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="810"/>
         <source>Window Effect</source>
         <translation>Ефект вікон</translation>
     </message>
@@ -4761,7 +4762,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="335"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="790"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="791"/>
         <source>Cloud Account</source>
         <translation>«Хмарний» обліковий запис</translation>
     </message>
@@ -4803,12 +4804,12 @@
         <translation>Автоматичне придушення шуму</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="303"/>
         <source>Input Volume</source>
         <translation>Вхідна гучність</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="344"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="347"/>
         <source>Input Level</source>
         <translation>Рівень введення</translation>
     </message>
@@ -4854,6 +4855,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
         <source>Devices</source>
         <translation>Пристрої</translation>
         <extra-contents_path>/sound/Devices</extra-contents_path>
@@ -4877,34 +4879,34 @@
         <translation>Режим</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="278"/>
         <source>Output Volume</source>
         <translation>Вихідна гучність</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="380"/>
         <source>Volume Boost</source>
         <translation>Підсилення гучності</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="387"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Значення гучності, які перевищують 100% можуть призвести до викривлення звуку та пошкодження гучномовця</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="394"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="397"/>
         <source>Left/Right Balance</source>
         <translation>Баланс ліво/право</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="402"/>
         <source>Left</source>
         <translation>Ліворуч</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="403"/>
         <source>Right</source>
         <translation>Праворуч</translation>
     </message>
@@ -5057,105 +5059,109 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>It cannot start or end with dashes</source>
         <translation>Не може починатися і завершуватися дефісом</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="200"/>
         <source>1~63 characters please</source>
         <translation>Будь ласка, від 1 до 63 символів</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="266"/>
         <source>OS Name:</source>
         <translation>Назва ОС:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="271"/>
         <source>Version:</source>
         <translation>Версія:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="276"/>
         <source>Edition:</source>
         <translation>Версія: </translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="281"/>
         <source>Type:</source>
         <translation>Тип:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="284"/>
         <source>Authorization</source>
         <translation>Уповноваження</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="280"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="411"/>
         <source>To be activated</source>
         <translation>Ще не активовано</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="282"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="398"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="406"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="287"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="425"/>
         <source>Activate</source>
         <translation>Активувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="296"/>
         <source>Kernel:</source>
         <translation>Ядро:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
         <source>Processor:</source>
         <translation>Процесор:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="306"/>
         <source>Memory:</source>
         <translation>Пам’ять:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="391"/>
         <source>%1-bit</source>
         <translation>%1 біт</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="392"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="407"/>
         <source>Activated</source>
         <translation>Активовано</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="394"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="417"/>
         <source>View</source>
         <translation>Переглянути</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="415"/>
         <source>Expired</source>
         <translation>Вичерпано строк дії</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
         <source>In trial period</source>
         <translation>Тестовий період</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="423"/>
         <source>Trial expired</source>
         <translation>Тестовий період завершено</translation>
     </message>
@@ -6751,12 +6757,12 @@ Visit User Center and manage your account there.</source>
         <translation>Дані щодо системи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="436"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>© Спільнота Deepin, 2011–2021</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="438"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>© UnionTech Software Technology Co., LTD, 2019-2021</translation>
     </message>
