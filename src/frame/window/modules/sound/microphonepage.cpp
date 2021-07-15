@@ -222,18 +222,16 @@ void MicrophonePage::changeComboxIndex(const int idx)
     showWaitSoundPortStatus(false);
     if (m_fristChangePort) {
         tFunc(idx);
-        m_waitChangeTimer->disconnect();
         connect(m_waitChangeTimer, &QTimer::timeout, this, [=](){
             showWaitSoundPortStatus(true);
-        });
+        }, Qt::UniqueConnection);
         m_fristChangePort = false;
     } else {
-        m_waitChangeTimer->disconnect();
         connect(m_waitChangeTimer, &QTimer::timeout, this, [=](){
             // 统一延时处理, 避免多次触发setPort
             tFunc(idx);
             showWaitSoundPortStatus(true);
-        });
+        }, Qt::UniqueConnection);
     }
     m_waitChangeTimer->start(waitSoundPortTime);
     showDevice();
@@ -248,10 +246,9 @@ void MicrophonePage::changeComboxStatus()
         showWaitSoundPortStatus(true);
         m_fristStatusChangePort = false;
     } else {
-        m_waitStatusChangeTimer->disconnect();
         connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
             showWaitSoundPortStatus(true);
-        });
+        }, Qt::UniqueConnection);
     }
     m_waitStatusChangeTimer->start(waitSoundPortTime);
     showDevice();
