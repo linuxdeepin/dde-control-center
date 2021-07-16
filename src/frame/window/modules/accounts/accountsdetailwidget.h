@@ -81,6 +81,7 @@ public:
 protected:
     virtual QString textFromValue(int val) const;
     void focusInEvent(QFocusEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
 };
 
 
