@@ -24,6 +24,8 @@
 
 #include <networkmanagerqt/utils.h>
 
+#include <DApplicationHelper>
+
 #include <QComboBox>
 
 using namespace DCC_NAMESPACE::network;
@@ -278,6 +280,8 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
             m_passwdEdit->setText(m_wsSetting->wepKey0());
             m_passwdEdit->setTitle(tr("Key"));
             m_passwdEdit->setVisible(true);
+            if (!m_wsSetting->wepKey0().isEmpty() && DGuiApplicationHelper::isTabletEnvironment())
+                static_cast<DPasswordEdit*>(m_passwdEdit->dTextEdit())->setEchoButtonIsVisible(false);
         } else {
             m_passwdEdit->setVisible(false);
         }
@@ -291,6 +295,8 @@ void SecretWirelessSection::onKeyMgmtChanged(NetworkManager::WirelessSecuritySet
             m_passwdEdit->setText(m_wsSetting->psk());
             m_passwdEdit->setTitle(tr("Password"));
             m_passwdEdit->setVisible(true);
+            if (!m_wsSetting->psk().isEmpty() && DGuiApplicationHelper::isTabletEnvironment())
+                static_cast<DPasswordEdit*>(m_passwdEdit->dTextEdit())->setEchoButtonIsVisible(false);
         } else {
             m_passwdEdit->setVisible(false);
         }

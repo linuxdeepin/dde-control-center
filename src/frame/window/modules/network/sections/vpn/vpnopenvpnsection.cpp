@@ -22,6 +22,9 @@
 #include "vpnopenvpnsection.h"
 #include "widgets/switchwidget.h"
 
+#include <DPasswordEdit>
+#include <DApplicationHelper>
+
 #include <QComboBox>
 
 using namespace DCC_NAMESPACE::network;
@@ -258,6 +261,9 @@ void VpnOpenVPNSection::initPasswordItems()
     password->setText(m_secretMap.value("password"));
     password->setPlaceholderText(tr("Required"));
     password->textEdit()->installEventFilter(this);
+    if (!m_secretMap.value("password").isEmpty() && DGuiApplicationHelper::isTabletEnvironment()) {
+        static_cast<DPasswordEdit *>(password->dTextEdit())->setEchoButtonIsVisible(false);
+    }
 
     connect(passwordFlagsChooser, &ComboxWidget::dataChanged, this, [ = ](const QVariant &data) {
         m_currentPasswordType = data.value<NetworkManager::Setting::SecretFlagType>();
