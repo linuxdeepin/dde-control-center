@@ -349,15 +349,15 @@ add_custom_command(TARGET check
     COMMAND echo " =================== CREAT LCOV REPROT BEGIN ==================== "
 
     #1.清理原先的gcov信息
-    COMMAND lcov --directory ./CMakeFiles/${BLUETOOTH_NAME}.dir --zerocounters
+    #COMMAND lcov --directory ./CMakeFiles/${BLUETOOTH_NAME}.dir --zerocounters
     COMMAND lcov --directory ./CMakeFiles/${MOUSE_NAME}.dir --zerocounters
-    COMMAND lcov --directory ./CMakeFiles/${DATETIME_NAME}.dir --zerocounters
+    #COMMAND lcov --directory ./CMakeFiles/${DATETIME_NAME}.dir --zerocounters
     COMMAND lcov --directory ./CMakeFiles/${NOTIFICATION_NAME}.dir --zerocounters
     COMMAND lcov --directory ./CMakeFiles/${DEFAPP_NAME}.dir --zerocounters
     COMMAND lcov --directory ./CMakeFiles/${SYSTEMINFO_NAME}.dir --zerocounters
-    COMMAND ./${BLUETOOTH_NAME}
+    #COMMAND ./${BLUETOOTH_NAME}
     COMMAND ./${MOUSE_NAME}
-    COMMAND ./${DATETIME_NAME}
+    #COMMAND ./${DATETIME_NAME}
     COMMAND ./${NOTIFICATION_NAME}
     COMMAND ./${DEFAPP_NAME}
     COMMAND ./${SYSTEMINFO_NAME}
