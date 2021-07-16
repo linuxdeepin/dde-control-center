@@ -118,7 +118,6 @@ void ResolutionWidget::initResolution()
     auto curMode = m_monitor->currentMode();
 
     Resolution preMode;
-    bool first = true;
     for (auto mode : modeList) {
         if (Monitor::isSameResolution(preMode, mode)) {
             continue;
@@ -141,8 +140,7 @@ void ResolutionWidget::initResolution()
 
         auto *item = new DStandardItem;
         auto res = QString::number(mode.width()) + "×" + QString::number(mode.height());
-        if (first) {
-            first = false;
+        if (Monitor::isSameResolution(mode, m_monitor->bestMode())) {
             res += QString(" (%1)").arg(tr("Recommended"));
         }
 
