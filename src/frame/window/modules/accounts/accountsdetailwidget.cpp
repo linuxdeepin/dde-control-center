@@ -83,6 +83,14 @@ void AccountSpinBox::focusInEvent(QFocusEvent *event)
     return DSpinBox::focusInEvent(event);
 };
 
+void AccountSpinBox::focusOutEvent(QFocusEvent *event)
+{
+    if (lineEdit()->text().isEmpty()) {
+        editingFinished();
+    }
+    return DSpinBox::focusOutEvent(event);
+}
+
 AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
@@ -414,11 +422,6 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         int age = validityDaysBox->value();
         if (age == m_curUser->passwordAge())
             return;
-
-        if (age <= 0) {
-            validityDaysBox->setAlert(true);
-            return;
-        }
 
         Q_EMIT requsetSetPassWordAge(m_curUser, validityDaysBox->value());
     });
