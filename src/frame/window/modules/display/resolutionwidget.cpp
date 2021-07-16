@@ -139,17 +139,19 @@ void ResolutionWidget::initResolution()
         }
 
         auto *item = new DStandardItem;
-        auto res = QString::number(mode.width()) + "×" + QString::number(mode.height());
-        if (Monitor::isSameResolution(mode, m_monitor->bestMode())) {
-            res += QString(" (%1)").arg(tr("Recommended"));
-        }
-
-        item->setText(res);
         item->setData(QVariant(mode.id()), IdRole);
         item->setData(QVariant(mode.rate()), RateRole);
         item->setData(QVariant(mode.width()), WidthRole);
         item->setData(QVariant(mode.height()), HeightRole);
-        m_resoItemModel->appendRow(item);
+
+        auto res = QString::number(mode.width()) + "×" + QString::number(mode.height());
+        if (Monitor::isSameResolution(mode, m_monitor->bestMode())) {
+            item->setText(res + QString(" (%1)").arg(tr("Recommended")));
+            m_resoItemModel->insertRow(0, item);
+        } else {
+            item->setText(res);
+            m_resoItemModel->appendRow(item);
+        }
 
         if (Monitor::isSameResolution(curMode, mode)) {
             m_resolutionCombox->setCurrentIndex(item->row());
