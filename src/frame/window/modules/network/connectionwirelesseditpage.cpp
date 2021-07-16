@@ -62,12 +62,10 @@ void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
 
     // init connection setting from data of given ap
     m_connectionSettings->setId(nmAp->ssid());
-
     initApSecretType(nmAp);
 
     m_connectionSettings->setting(NetworkManager::Setting::SettingType::Wireless)
             .staticCast<NetworkManager::WirelessSetting>()->setSsid(nmAp->rawSsid());
-
     m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
 
     connect(m_settingsWidget, &WirelessSettings::requestNextPage, this, &ConnectionWirelessEditPage::onRequestNextPage);
@@ -84,9 +82,7 @@ void ConnectionWirelessEditPage::initApSecretType(NetworkManager::AccessPoint::P
     NetworkManager::AccessPoint::Capabilities capabilities = nmAp->capabilities();
     NetworkManager::AccessPoint::WpaFlags wpaFlags = nmAp->wpaFlags();
     NetworkManager::AccessPoint::WpaFlags rsnFlags = nmAp->rsnFlags();
-
     NetworkManager::WirelessSecuritySetting::KeyMgmt keyMgmt = NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaNone;
-
     if (capabilities.testFlag(NetworkManager::AccessPoint::Capability::Privacy) &&
             !wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::KeyMgmtPsk) &&
             !wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::KeyMgmt8021x)) {
@@ -95,7 +91,16 @@ void ConnectionWirelessEditPage::initApSecretType(NetworkManager::AccessPoint::P
 
     if (wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::KeyMgmtPsk) ||
             rsnFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::KeyMgmtPsk)) {
-        keyMgmt = NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk;
+
+            keyMgmt = NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaPsk;
+
+            //判断是否是wpa3加密的，因为wpa3加密方式，实际上是wpa2的扩展，所以其中会包含KeyMgmtPsk枚举值
+            if (wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae) ||
+                rsnFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::keyMgmtSae)) {
+                keyMgmt = NetworkManager::WirelessSecuritySetting::KeyMgmt::WpaSae;
+            }
+
+
     }
 
     if (wpaFlags.testFlag(NetworkManager::AccessPoint::WpaFlag::KeyMgmt8021x) ||
