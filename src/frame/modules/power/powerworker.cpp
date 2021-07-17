@@ -48,6 +48,10 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
     m_sysPowerInter->setSync(false);
     m_login1ManagerInter->setSync(false);
 
+    bool a = m_powerInter->CanSuspendToHibernate().value();
+
+    m_powerModel->setCanDormantModel(a);
+
     connect(m_powerInter, &PowerInter::ScreenBlackLockChanged, m_powerModel, &PowerModel::setScreenBlackLock);
     connect(m_powerInter, &PowerInter::SleepLockChanged, m_powerModel, &PowerModel::setSleepLock);
     connect(m_powerInter, &PowerInter::LidIsPresentChanged, m_powerModel, &PowerModel::setLidPresent);
@@ -55,8 +59,11 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
 //    connect(m_powerInter, &PowerInter::BatteryLidClosedSleepChanged, m_powerModel, &PowerModel::setSleepOnLidOnBatteryClose);
     connect(m_powerInter, &PowerInter::LinePowerScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnPower);
     connect(m_powerInter, &PowerInter::LinePowerSleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnPower);
+    connect(m_powerInter, &PowerInter::LinePowerHibernateDelayChanged, this, &PowerWorker::setDormantDelayToModelOnPower);
+
     connect(m_powerInter, &PowerInter::BatteryScreenBlackDelayChanged, this, &PowerWorker::setScreenBlackDelayToModelOnBattery);
     connect(m_powerInter, &PowerInter::BatterySleepDelayChanged, this, &PowerWorker::setSleepDelayToModelOnBattery);
+    connect(m_powerInter, &PowerInter::BatteryHibernateDelayChanged, this, &PowerWorker::setDormantDelayToModelOnBattery);
     connect(m_powerInter, &PowerInter::BatteryLockDelayChanged, this, &PowerWorker::setResponseBatteryLockScreenDelay);
     connect(m_powerInter, &PowerInter::LinePowerLockDelayChanged, this, &PowerWorker::setResponsePowerLockScreenDelay);
 #ifndef DCC_DISABLE_POWERSAVE
@@ -107,9 +114,11 @@ void PowerWorker::active()
 
     setScreenBlackDelayToModelOnPower(m_powerInter->linePowerScreenBlackDelay());
     setSleepDelayToModelOnPower(m_powerInter->linePowerSleepDelay());
+    setDormantDelayToModelOnPower(m_powerInter->linePowerHibernateDelay());
 
     setScreenBlackDelayToModelOnBattery(m_powerInter->batteryScreenBlackDelay());
     setSleepDelayToModelOnBattery(m_powerInter->batterySleepDelay());
+    setDormantDelayToModelOnBattery(m_powerInter->batteryHibernateDelay());
 
     setResponseBatteryLockScreenDelay(m_powerInter->batteryLockDelay());
     setResponsePowerLockScreenDelay(m_powerInter->linePowerLockDelay());
@@ -187,6 +196,18 @@ void PowerWorker::setSleepDelayOnBattery(const int delay)
     m_powerInter->setBatterySleepDelay(converToDelayDBus(delay));
 }
 
+void PowerWorker::setDormantOnPower(const int delay)
+{
+    qDebug() << "m_powerInter->setDormantOnPower: " << converToDelayDBus(delay);
+    m_powerInter->setLinePowerHibernateDelay(converToDelayDBus(delay));
+}
+
+void PowerWorker::setDormantOnBattery(const int delay)
+{
+    qDebug() << "m_powerInter->setDormantOnBattery: " << converToDelayDBus(delay);
+    m_powerInter->setBatteryHibernateDelay(converToDelayDBus(delay));
+}
+
 void PowerWorker::setScreenBlackDelayOnPower(const int delay)
 {
     qDebug() << "m_powerInter->setLinePowerScreenBlackDelay: " << converToDelayDBus(delay);
@@ -209,6 +230,11 @@ void PowerWorker::setScreenBlackDelayToModelOnPower(const int delay)
     m_powerModel->setScreenBlackDelayOnPower(converToDelayModel(delay));
 }
 
+void PowerWorker::setDormantDelayToModelOnPower(const int delay)
+{
+    m_powerModel->setDormantDelayOnPower(converToDelayModel(delay));
+}
+
 void PowerWorker::setSleepDelayToModelOnBattery(const int delay)
 {
     m_powerModel->setSleepDelayOnBattery(converToDelayModel(delay));
@@ -217,6 +243,11 @@ void PowerWorker::setSleepDelayToModelOnBattery(const int delay)
 void PowerWorker::setResponseBatteryLockScreenDelay(const int delay)
 {
     m_powerModel->setBatteryLockScreenDelay(converToDelayModel(delay));
+}
+
+void PowerWorker::setDormantDelayToModelOnBattery(const int delay)
+{
+    m_powerModel->setDormantDelayOnBattery(converToDelayModel(delay));
 }
 
 void PowerWorker::setResponsePowerLockScreenDelay(const int delay)

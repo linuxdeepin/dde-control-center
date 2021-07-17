@@ -60,7 +60,6 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
 
     SettingsGroup *powerSettingsGrp = new SettingsGroup;
     powerSettingsGrp->setSpacing(List_Interval);
-
     m_monitorSleepOnPower = new TitledSliderItem(tr("Monitor will suspend after"));
     //~ contents_path /power/Plugged In
     //~ child_page Plugged In
@@ -86,6 +85,19 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
         connect(m_computerSleepOnPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetSleepDelayOnPower);
         powerSettingsGrp->appendItem(m_computerSleepOnPower);
     }
+
+    if(model->canDormantModel()){
+        m_computerDormantPower = new TitledSliderItem("电脑进入休眠模式");
+        m_computerDormantPower->setAccessibleName("电脑进入休眠模式");
+        m_computerDormantPower->slider()->setType(DCCSlider::Vernier);
+        m_computerDormantPower->slider()->setRange(1, 7);
+        m_computerDormantPower->slider()->setTickPosition(QSlider::TicksBelow);
+        m_computerDormantPower->slider()->setTickInterval(1);
+        m_computerDormantPower->slider()->setPageStep(1);
+        connect(m_computerDormantPower->slider(), &DCCSlider::valueChanged, this, &UseElectricWidget::requestSetDormantOnPower);
+        powerSettingsGrp->appendItem(m_computerDormantPower);
+    }
+
 
     QStringList options;
     options << tr("Shut down");
@@ -123,6 +135,9 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     annos << "1m" << "5m" << "10m" << "15m" << "30m" << "1h" << tr("Never");
     if (!IsServerSystem) {
         m_computerSleepOnPower->setAnnotations(annos);
+    }
+    if(model->canDormantModel()){
+        m_computerDormantPower->setAnnotations(annos);
     }
     m_monitorSleepOnPower->setAnnotations(annos);
 
@@ -181,6 +196,11 @@ void UseElectricWidget::setModel(const PowerModel *model)
     if (!IsServerSystem) {
         connect(model, &PowerModel::sleepDelayChangedOnPower, this, &UseElectricWidget::setSleepDelayOnPower);
         setSleepDelayOnPower(model->sleepDelayOnPower());
+    }
+
+    if(model->canDormantModel() && m_computerDormantPower != nullptr){
+        connect(model, &PowerModel::dormantDelayChangeOnPower,this, &UseElectricWidget::setDormantDelayOnPower);
+        setDormantDelayOnPower(model->dormantDelayOnPower());
     }
 
     setLockScreenAfter(model->getPowerLockScreenDelay());
@@ -246,6 +266,14 @@ void UseElectricWidget::setAutoLockScreenOnPower(const int delay)
     m_autoLockScreen->slider()->setValue(delay);
     m_autoLockScreen->setValueLiteral(delayToLiteralString(delay));
     m_autoLockScreen->slider()->blockSignals(false);
+}
+
+void UseElectricWidget::setDormantDelayOnPower(const int delay)
+{
+    m_computerDormantPower->slider()->blockSignals(true);
+    m_computerDormantPower->slider()->setValue(delay);
+    m_computerDormantPower->setValueLiteral(delayToLiteralString(delay));
+    m_computerDormantPower->slider()->blockSignals(false);
 }
 
 void UseElectricWidget::setCloseLid(const dcc::power::PowerModel *model, int lidIndex)
