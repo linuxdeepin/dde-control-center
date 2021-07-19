@@ -345,44 +345,6 @@ target_include_directories(${KEYBOARD_NAME} PUBLIC
 add_custom_target(check
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/tests/dde-control-center)
 
-add_custom_command(TARGET check
-    COMMAND echo " =================== CREAT LCOV REPROT BEGIN ==================== "
-
-    #1.清理原先的gcov信息
-    #COMMAND lcov --directory ./CMakeFiles/${BLUETOOTH_NAME}.dir --zerocounters
-    COMMAND lcov --directory ./CMakeFiles/${MOUSE_NAME}.dir --zerocounters
-    #COMMAND lcov --directory ./CMakeFiles/${DATETIME_NAME}.dir --zerocounters
-    COMMAND lcov --directory ./CMakeFiles/${NOTIFICATION_NAME}.dir --zerocounters
-    COMMAND lcov --directory ./CMakeFiles/${DEFAPP_NAME}.dir --zerocounters
-    COMMAND lcov --directory ./CMakeFiles/${SYSTEMINFO_NAME}.dir --zerocounters
-    #COMMAND ./${BLUETOOTH_NAME}
-    COMMAND ./${MOUSE_NAME}
-    #COMMAND ./${DATETIME_NAME}
-    COMMAND ./${NOTIFICATION_NAME}
-    COMMAND ./${DEFAPP_NAME}
-    COMMAND ./${SYSTEMINFO_NAME}
-    COMMAND ./${KEYBOARD_NAME}
-
-    #2.收集gcov信息到.info文件中
-    COMMAND lcov --directory . --capture --output-file ./coverage.info
-
-    #3.过滤一些我们不感兴趣的文件的覆盖率信息
-    COMMAND echo " =================== do filter begin ==================== "
-    COMMAND lcov --remove ./coverage.info
-    '*/${BLUETOOTH_NAME}_autogen/*' '*/${MOUSE_NAME}_autogen/*' '*/${DATETIME_NAME}_autogen/*' '*/${NOTIFICATION_NAME}_autogen/*' '*/${DEFAPP_NAME}_autogen/*' '*/${SYSTEMINFO_NAME}_autogen/*' '*/${KEYBOARD_NAME}_autogen/*' '*/usr/include/*' '*/tests/*' '*/googletest/*' '*/widgets/*' '*/interface/*'
-    -o ./coverage.info
-    COMMAND echo " =================== do filter end ==================== "
-
-    #3.将.info信息生成报告到reprot文件夹中
-    COMMAND genhtml -o ${CMAKE_BINARY_DIR}/tests/report ./coverage.info
-
-    COMMAND echo " =================== CREAT LCOV REPROT END ==================== "
-
-    COMMAND echo " Coverage files have been output to ${CMAKE_BINARY_DIR}/tests/report "
-
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/tests/dde-control-center
-)
-
 #'make check'命令依赖与我们的测试程序
 add_dependencies(check ${BLUETOOTH_NAME} ${MOUSE_NAME} ${DATETIME_NAME} ${NOTIFICATION_NAME} ${DEFAPP_NAME} ${SYSTEMINFO_NAME} ${KEYBOARD_NAME})
 
