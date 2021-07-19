@@ -81,6 +81,16 @@ void SystemInfoWidget::initData()
         {"dcc_privacy_policy", tr("Privacy Policy"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowPrivacyPolicy), nullptr, "privacyPolicy"}
     };
 
+    if (DSysInfo::isCommunityEdition() && DSysInfo::productType() != DSysInfo::ProductType::Deepin) {
+        auto it = std::find_if(m_itemList.begin(), m_itemList.end(), [=] (const ListSubItem &item) {
+            return item.itemIcon == "dcc_protocol";
+        });
+
+        if (it != m_itemList.end()) {
+            m_itemList.erase(it);
+        }
+    }
+
     for (auto m : m_itemList) {
         DStandardItem *item = new DStandardItem;
         item->setIcon(QIcon::fromTheme(m.itemIcon));
