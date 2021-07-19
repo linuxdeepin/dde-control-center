@@ -101,6 +101,10 @@ void PowerWidget::initConnections()
         for (int i = 0; i < m_itemModel->rowCount(); i++) {
             if (!m_listView->isRowHidden(i))
                 isAllHidden = false;
+
+            if (i == m_batteryIndex && !this->m_bhasBattery) {
+                m_listView->setRowHidden(i, true);
+            }
         }
 
         if (m_listView->selectionModel()->selectedRows().size() > 0) {
