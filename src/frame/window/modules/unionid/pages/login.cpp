@@ -53,7 +53,6 @@ LoginPage::LoginPage(QWidget *parent)
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
-    //~ contents_path /cloudsync/Sync ID Sign In
     DSuggestButton *loginBtn = new DSuggestButton(tr("Sign In"));
     loginBtn->setMinimumWidth(200);
     DTipLabel *tip = new DTipLabel(tr("After signing in, all system features related with Union ID will be available.\n"
