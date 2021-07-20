@@ -111,3 +111,23 @@ void SysItemModel::onSettingChanged(uint item, const QDBusVariant &var)
     }
 }
 
+void SysItemModel::updateSettingInfo(uint item, const QDBusVariant &var)
+{
+    switch (item) {
+    case DNDMODE:
+        setDisturbMode(var.variant().toBool());
+        break;
+    case LOCKSCREENOPENDNDMODE:
+        setLockScreen(var.variant().toBool());
+        break;
+    case OPENBYTIMEINTERVAL:
+        setTimeSlot(var.variant().toBool());
+        break;
+    case STARTTIME:
+        setTimeStart(var.variant().toString());
+        break;
+    case ENDTIME:
+        setTimeEnd(var.variant().toString());
+        break;
+    }
+}

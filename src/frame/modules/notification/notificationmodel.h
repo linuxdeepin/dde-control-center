@@ -43,6 +43,7 @@ public:
     inline SysItemModel *getSystemModel()const {return m_sysItemModel;}
     inline AppItemModel *getAppModel(const int &index) {return m_appItemModels[index];}
     void clearModel();
+    void updateSettingInfo(uint item, const QVariant &var);
 
 public Q_SLOTS:
     void appAdded(AppItemModel* item);

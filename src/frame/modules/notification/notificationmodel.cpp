@@ -47,6 +47,11 @@ void NotificationModel::clearModel()
     m_appItemModels.clear();
 }
 
+void NotificationModel::updateSettingInfo(uint item, const QVariant &var)
+{
+    m_sysItemModel->updateSettingInfo(item, QDBusVariant(var));
+}
+
 void NotificationModel::appAdded(AppItemModel *item)
 {
     m_appItemModels.append(item);

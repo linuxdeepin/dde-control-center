@@ -69,6 +69,7 @@ public:
     void setTimeEnd(const QString &timeEnd);
 
     void onSettingChanged(uint item, const QDBusVariant &var);
+    void updateSettingInfo(uint item, const QDBusVariant &var);
 
 Q_SIGNALS:
     void disturbModeChanged(bool isDisturbMode);

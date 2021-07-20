@@ -121,7 +121,10 @@ void NotificationModule::showSystemNotify()
 {
     SystemNotifyWidget *widget = new SystemNotifyWidget(m_model->getSystemModel(), m_widget);
     widget->setVisible(false);
-    connect(widget, &SystemNotifyWidget::requestSetSysSetting, m_worker, &NotificationWorker::setSystemSetting);
+    connect(widget, &SystemNotifyWidget::requestSetSysSetting, [ = ](uint item, QVariant var) {
+        m_model->updateSettingInfo(item, var);
+        m_worker->setSystemSetting(item, var);
+    });
     m_frameProxy->pushWidget(this, widget);
     widget->setVisible(true);
 }
