@@ -144,7 +144,7 @@ void DeveloperModeWidget::setModel(CommonInfoModel *model)
     if (!model->developerModeState()) {
         m_devBtn->setEnabled(model->isActivate());
         if (!DGuiApplicationHelper::isTabletEnvironment()) {
-            m_lab->setVisible(!model->isActivate());
+            m_lab->setVisible(false);
             m_dtip->setVisible(model->isActivate());
         } else {
             m_lab->setVisible(model->isActivate());
@@ -211,7 +211,7 @@ void DeveloperModeWidget::updateDeveloperModeState(const bool state)
     }
 
     if (DGuiApplicationHelper::isTabletEnvironment()) {
-        m_lab->setVisible(!reply.value());
+        m_lab->setVisible(false);
         m_dtip->setVisible(reply.value());
     }
 }
