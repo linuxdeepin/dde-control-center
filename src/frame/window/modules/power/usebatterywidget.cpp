@@ -46,7 +46,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
-    , m_monitorDormantOnBattery(new TitledSliderItem("电脑进入休眠模式"))
+    , m_monitorDormantOnBattery(new TitledSliderItem(tr("Computer will hibernate after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
     , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
     , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
@@ -92,7 +92,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     m_layout->addWidget(m_computerSleepOnBattery);
 
     if(model->canDormantModel()){
-        m_monitorDormantOnBattery->setAccessibleName("电脑进入休眠模式");
+        m_monitorDormantOnBattery->setAccessibleName(tr("Computer will hibernate after"));
         m_monitorDormantOnBattery->slider()->setType(DCCSlider::Vernier);
         m_monitorDormantOnBattery->slider()->setRange(1, 7);
         m_monitorDormantOnBattery->slider()->setTickPosition(QSlider::TicksBelow);

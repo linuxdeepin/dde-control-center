@@ -87,8 +87,8 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     }
 
     if(model->canDormantModel()){
-        m_computerDormantPower = new TitledSliderItem("电脑进入休眠模式");
-        m_computerDormantPower->setAccessibleName("电脑进入休眠模式");
+        m_computerDormantPower = new TitledSliderItem(tr("Computer will hibernate after"));
+        m_computerDormantPower->setAccessibleName(tr("Computer will hibernate after"));
         m_computerDormantPower->slider()->setType(DCCSlider::Vernier);
         m_computerDormantPower->slider()->setRange(1, 7);
         m_computerDormantPower->slider()->setTickPosition(QSlider::TicksBelow);
