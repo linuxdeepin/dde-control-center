@@ -100,7 +100,7 @@ void MouseDBusProxy::init()
 
     // get redpoint settings from daemon
     connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, m_worker, &MouseWorker::setRedPointExist);
-    connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseDBusProxy::setTrackPointMotionAcceleration);
+    connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, m_worker, &MouseWorker::setTrackPointMotionAcceleration);
 
     // get devices properties from daemon
     connect(m_dbusDevices, &InputDevices::WheelSpeedChanged, m_worker, &MouseWorker::setScrollSpeed);
