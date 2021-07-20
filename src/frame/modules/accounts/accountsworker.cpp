@@ -381,7 +381,7 @@ void AccountsWorker::onUserListChanged(const QStringList &userList)
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd, const bool needResult)
 {
     QProcess process;
-    QProcessEnvironment env;
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     env.insert("LC_ALL", "C");
     process.setProcessEnvironment(env);
 
