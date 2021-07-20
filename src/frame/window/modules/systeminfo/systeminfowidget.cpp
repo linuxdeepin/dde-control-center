@@ -76,6 +76,9 @@ void SystemInfoWidget::initData()
         //~ contents_path /systeminfo/End User License Agreement
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement)},
     };
+    if (QFileInfo::exists(RESTORE_TOOL_PATH)) {
+        m_itemList.append({"dcc_backup", tr("Restore"), QMetaMethod::fromSignal(&SystemInfoWidget::requestRestorePage)});
+    }
 
 #ifndef DISABLE_RECOVERY
 #ifndef QT_DEBUG

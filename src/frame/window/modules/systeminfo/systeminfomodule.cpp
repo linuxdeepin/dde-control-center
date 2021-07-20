@@ -92,6 +92,7 @@ void SystemInfoModule::active()
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowAboutNative, this, &SystemInfoModule::onShowAboutNativePage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowVersionProtocol, this, &SystemInfoModule::onVersionProtocolPage);
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowEndUserLicenseAgreement, this, &SystemInfoModule::onShowEndUserLicenseAgreementPage);
+    connect(m_sysinfoWidget, &SystemInfoWidget::requestRestorePage, this, &SystemInfoModule::onShowSystemRestoreByCloud);
 #ifndef DISABLE_RECOVERY
     connect(m_sysinfoWidget, &SystemInfoWidget::requestShowRestore, this, &SystemInfoModule::onShowSystemRestore);
 #endif
@@ -164,6 +165,13 @@ void SystemInfoModule::onShowEndUserLicenseAgreementPage()
         m_frameProxy->pushWidget(this, w);
         w->setVisible(true);
     });
+}
+
+void SystemInfoModule::onShowSystemRestoreByCloud()
+{
+    qDebug() << Q_FUNC_INFO;
+    CRestoreClientPage *w = new CRestoreClientPage;
+    m_frameProxy->pushWidget(this, w);
 }
 
 #ifndef DISABLE_RECOVERY

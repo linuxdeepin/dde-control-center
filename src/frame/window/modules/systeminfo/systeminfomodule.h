@@ -62,6 +62,7 @@ public Q_SLOTS:
     void onShowAboutNativePage();
     void onVersionProtocolPage();
     void onShowEndUserLicenseAgreementPage();
+    void onShowSystemRestoreByCloud();
 #ifndef DISABLE_RECOVERY
     void onShowSystemRestore();
 #endif

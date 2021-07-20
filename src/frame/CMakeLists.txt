@@ -502,6 +502,8 @@ set(SYSTEMINFO_FILES
                 window/modules/systeminfo/nativeinfowidget.cpp
                 window/modules/systeminfo/versionprotocolwidget.cpp
                 window/modules/systeminfo/userlicensewidget.cpp
+                window/modules/systeminfo/restoreclient.h
+                window/modules/systeminfo/restoreclient.cpp
 )
 
 if (NOT DEFINED DISABLE_RECOVERY)

@@ -24,7 +24,7 @@
 #include "interface/namespace.h"
 #include "window/utils.h"
 #include "window/insertplugin.h"
-
+#include "restoreclient.h"
 #include <DListView>
 
 #include <QWidget>
@@ -56,11 +56,12 @@ public:
 private:
     void initWidget();
     void initData();
-
 Q_SIGNALS:
     void requestShowAboutNative();
     void requestShowVersionProtocol();
     void requestShowEndUserLicenseAgreement();
+    void requestRestorePage();
+
 #ifndef DISABLE_RECOVERY
     void requestShowRestore();
 #endif
