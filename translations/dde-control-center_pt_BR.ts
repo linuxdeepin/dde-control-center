@@ -188,72 +188,72 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="353"/>
         <source>Full Name</source>
         <translation>Nome Completo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="275"/>
         <source>The full name is too long</source>
         <translation>O nome completo é muito longo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="293"/>
-        <source>The name already exists</source>
-        <translation>O nome já existe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="301"/>
         <source>The username already exists</source>
         <translation>O nome de usuário já existe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="396"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="310"/>
+        <source>The name already exists</source>
+        <translation>O nome já existe</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="404"/>
         <source>Validity Days</source>
         <translation>Dias Válidos</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="445"/>
         <source>Change Password</source>
         <translation>Alterar Senha </translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="446"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="447"/>
         <source>Delete Account</source>
         <translation>Excluir Conta</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="449"/>
         <source>Auto Login</source>
         <translation>Login automático</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="452"/>
         <source>Login Without Password</source>
         <translation>Login sem Senha</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="482"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="483"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>Apenas uma conta pode ter o &quot;Login automático&quot; ativado. Se continuar, esta opção das outras contas será desativada.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="484"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="485"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="485"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="486"/>
         <source>Enable</source>
         <translation>Ativar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="588"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="589"/>
         <source>Group</source>
         <translation>Grupo</translation>
     </message>
@@ -430,12 +430,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="431"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="470"/>
         <source>The username already exists</source>
         <translation>O nome de usuário já existe</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="480"/>
         <source>The name already exists</source>
         <translation>O nome já existe</translation>
     </message>
@@ -1378,17 +1378,17 @@
         <translation>Tela Principal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="281"/>
         <source>Duplicate</source>
         <translation>Duplicado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="282"/>
         <source>Extend</source>
         <translation>Estender</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="287"/>
         <source>Only on %1</source>
         <translation>Somente em %1</translation>
     </message>
@@ -1420,7 +1420,7 @@
         <translation>Resolução</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="149"/>
         <source>Recommended</source>
         <translation>Recomendado</translation>
     </message>
@@ -1898,7 +1898,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
         <source>IP Address</source>
-        <translation>Endereço IP</translation>
+        <translation>Endereço de IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
@@ -1945,7 +1945,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="204"/>
         <source>Invalid IP address</source>
-        <translation>Endereço IP inválido</translation>
+        <translation>Endereço de IP inválido</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
@@ -2227,7 +2227,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
         <source>IP Address</source>
-        <translation>Endereço IP</translation>
+        <translation>Endereço de IP</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
@@ -2264,7 +2264,7 @@
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="421"/>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="482"/>
         <source>Invalid IP address</source>
-        <translation>Endereço IP inválido</translation>
+        <translation>Endereço de IP inválido</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="433"/>
@@ -2280,7 +2280,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="457"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflito de IP</translation>
     </message>
 </context>
 <context>
@@ -3768,7 +3768,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="182"/>
         <source>Request an Inner IP Address</source>
-        <translation>Solicitar um Endereço IP Interno</translation>
+        <translation>Solicitar um endereço de IP interno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="185"/>
@@ -4789,27 +4789,27 @@
 <context>
     <name>dccV20::sound::MicrophonePage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="76"/>
         <source>Input</source>
         <translation>Entrada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="82"/>
         <source>Input Device</source>
         <translation>Dispositivo de Entrada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="84"/>
         <source>Automatic Noise Suppression</source>
         <translation>Cancelamento Automático de Ruído</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="289"/>
         <source>Input Volume</source>
         <translation>Volume de Entrada</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="333"/>
         <source>Input Level</source>
         <translation>Nível de Entrada</translation>
     </message>
@@ -4864,49 +4864,49 @@
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
         <source>Output</source>
         <translation>Saída</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="77"/>
         <source>Output Device</source>
         <translation>Dispositivo de Saída</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="82"/>
         <source>Mode</source>
         <translation>Modo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="267"/>
         <source>Output Volume</source>
         <translation>Volume de Saída</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="369"/>
         <source>Volume Boost</source>
         <translation>Amplificar Volume</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="376"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Se o volume for superior a 100%, poderá distorcer o áudio e danificar o alto-falante</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="386"/>
         <source>Left/Right Balance</source>
         <translation>Balanço Esquerda/Direita</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="391"/>
         <source>Left</source>
         <translation>Esquerda</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="392"/>
         <source>Right</source>
         <translation>Direita</translation>
     </message>
@@ -5052,116 +5052,116 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
         <source>Computer Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nome do computador:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="182"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="183"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="229"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="230"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="231"/>
         <source>It cannot start or end with dashes</source>
         <translation>It cannot start or end with dashes</translation>
     </message>
     <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="187"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="198"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="200"/>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>1~63 caracteres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="265"/>
         <source>OS Name:</source>
         <translation>Nome do SO:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="270"/>
         <source>Version:</source>
         <translation>Versão:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="276"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="275"/>
         <source>Edition:</source>
         <translation>Versão:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="280"/>
         <source>Type:</source>
         <translation>Arquitetura:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="283"/>
         <source>Authorization</source>
         <translation>Autorização</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="285"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="410"/>
         <source>To be activated</source>
         <translation>Para ser ativado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="287"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="413"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="421"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="424"/>
         <source>Activate</source>
         <translation>Ativar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="295"/>
         <source>Kernel:</source>
         <translation>Kernel:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="300"/>
         <source>Processor:</source>
         <translation>Processador:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="305"/>
         <source>Memory:</source>
         <translation>Memória:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="390"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="406"/>
         <source>Activated</source>
         <translation>Ativado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="409"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="417"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="416"/>
         <source>View</source>
         <translation>Visualizar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="414"/>
         <source>Expired</source>
         <translation>Expirado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
         <source>In trial period</source>
         <translation>Em período de avaliação</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="423"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="422"/>
         <source>Trial expired</source>
         <translation>A avaliação expirou</translation>
     </message>
@@ -5291,20 +5291,19 @@
 <context>
     <name>dccV20::unionid::LoginPage</name>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="56"/>
         <source>Sign In</source>
         <translation>Entrar</translation>
-        <extra-contents_path>/cloudsync/Sync ID Sign In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="58"/>
         <source>After signing in, all system features related with Union ID will be available.
 Visit User Center and manage your account there.</source>
         <translation>Ao logar-se, todos os recursos do sistema relacionados ao Union ID estarão disponíveis.
 Visite a Central do Usuário para gerenciar a conta.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/unionid/pages/login.cpp" line="68"/>
         <source>Union ID Sign In</source>
         <translation>Entrar com Union ID</translation>
     </message>
@@ -6757,12 +6756,12 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
         <translation>Informações do Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="435"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Copyright© 2011-2021 deepin Community</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="437"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</translation>
     </message>
