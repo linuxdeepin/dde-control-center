@@ -20,6 +20,15 @@ foreach(LETTER ${TRY_KF5_LIBRARIES})
     endif()
 endforeach()
 
+# 用于测试覆盖率的编译条件
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -lgcov")
+
+if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_definitions(-D SANITIZER_CHECK)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -g -fsanitize=address -O2")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -fsanitize=address -O2")
+endif()
+
 if (NOT KF5_QT_LIBRARIES)
     find_library(KF5_QT_LIBRARIES libKF5NetworkManagerQt.so)
 endif()

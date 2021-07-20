@@ -4,6 +4,10 @@
 #include <QDebug>
 #include <QtWidgets/QApplication>
 
+#ifdef SANITIZER_CHECK
+#include <sanitizer/asan_interface.h>
+#endif
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
@@ -14,5 +18,9 @@ int main(int argc, char *argv[])
 
     qDebug() << "run...result:" << ret;
 
-    return app.exec();
+#ifdef SANITIZER_CHECK
+    __sanitizer_set_report_path("asan.log");
+#endif
+
+    return ret;
 }
