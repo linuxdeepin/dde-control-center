@@ -203,6 +203,10 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
     m_editPage = new ConnectionHotspotEditPage(m_wdev->path(), uuid);
     m_editPage->initSettingsWidget();
 
+    //断开连接
+    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, &NetworkModel::requestDisconnctAP);
+    //删除热点连接
+    connect(m_editPage, &ConnectionEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
     connect(m_editPage, &ConnectionHotspotEditPage::requestNextPage, m_page, &HotspotPage::requestNextPage);
 
     Q_EMIT m_page->requestNextPage(m_editPage);
