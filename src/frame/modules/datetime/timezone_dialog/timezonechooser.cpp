@@ -203,6 +203,16 @@ TimeZoneChooser::TimeZoneChooser()
             m_popup->close();
         }
     });
+
+    if (DGuiApplicationHelper::isTabletEnvironment()) {
+        if (QScreen *screen = QGuiApplication::primaryScreen()) {
+            connect(screen, &QScreen::virtualGeometryChanged, this, [this](const QRect &rect) {
+                setupSize();
+                QRect framesize = frameRect();
+                move((rect.width() - framesize.width()) / 2, (rect.height() - framesize.height()) / 2);
+            });
+        }
+    }
 }
 
 void TimeZoneChooser::setIsAddZone(const bool isAdd)

@@ -150,11 +150,14 @@ void TimezoneMap::initConnections() {
 }
 
 void TimezoneMap::initUI() {
+  QVBoxLayout *vlayout = new QVBoxLayout(this);
   QLabel* background_label = new QLabel(this);
   background_label->setObjectName("background_label");
   QPixmap timezone_pixmap = loadPixmap(kTimezoneMapFile);
   Q_ASSERT(!timezone_pixmap.isNull());
   background_label->setPixmap(timezone_pixmap);
+  vlayout->addWidget(background_label);
+  setLayout(vlayout);
 
   // Set parent widget of dot_ to SystemInfoTimezoneFrame.
   dot_ = new QLabel(this->parentWidget());
