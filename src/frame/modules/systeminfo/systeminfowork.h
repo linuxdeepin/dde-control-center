@@ -71,6 +71,7 @@ private:
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
     void getLicenseState();
     QString getHardwareName();
+    QString getCpuModelName();
 
 private:
     SystemInfoModel* m_model;

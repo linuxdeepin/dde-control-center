@@ -77,8 +77,26 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUMaxMHz");
     QList<QVariant> outArgs = reply.arguments();
     double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
-    m_model->setProcessor(QString("%1 @ %2GHz").arg(getHardwareName())
-                          .arg(cpuMaxMhz / 1000));
+    QString hardwareName = getHardwareName();
+    QString cpuModelName = DSysInfo::cpuModelName();
+    if (!hardwareName.isEmpty()) {
+        m_model->setProcessor(QString("%1 @ %2GHz").arg(hardwareName).arg(cpuMaxMhz / 1000));
+    } else {
+        if (!cpuModelName.isEmpty()) {
+            if (cpuModelName.contains("Hz")) {
+                m_model->setProcessor(cpuModelName);
+            } else if (!cpuModelName.contains("Hz")) {
+                m_model->setProcessor(QString("%1 @ %2GHz").arg(cpuModelName).arg(cpuMaxMhz / 1000));
+            }
+        } else {
+            cpuModelName = getCpuModelName();
+            if (cpuModelName.contains("Hz")) {
+                m_model->setProcessor(cpuModelName);
+            } else if (!cpuModelName.contains("Hz")) {
+                m_model->setProcessor(QString("%1 @ %2GHz").arg(cpuModelName).arg(cpuMaxMhz / 1000));
+            }
+        }
+    }
 
     QDBusConnection::sessionBus().connect("com.deepin.daemon.SystemInfo",
                                           "/com/deepin/daemon/SystemInfo",
@@ -352,6 +370,25 @@ QString SystemInfoWork::getHardwareName()
                 }
             }
         } while(lineLength >= 0);
+    }
+    return QString();
+}
+
+QString SystemInfoWork::getCpuModelName()
+{
+    QScopedPointer<QProcess> process(new QProcess);
+    process->start("lscpu");
+    process->waitForFinished(-1);
+    QTextStream stream(process->readAllStandardOutput());
+    QString line;
+    while (stream.readLineInto(&line)) {
+        line = line.simplified();
+        if(line.contains(':')) {
+            QStringList list = line.split(':');
+            if(list.size() == 2 && list.first().contains("Model name")){
+                return list.back().trimmed();
+            }
+        }
     }
     return QString();
 }
