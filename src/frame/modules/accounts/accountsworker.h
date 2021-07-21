@@ -26,6 +26,9 @@
 #ifndef ACCOUNTSWORKER_H
 #define ACCOUNTSWORKER_H
 
+// 与 Qt 中的宏冲突，必须在 Qt 前 include
+#include <libsecret/secret.h>
+
 #include <QObject>
 
 #include <com_deepin_daemon_accounts.h>
@@ -54,14 +57,13 @@ using Notifications = org::freedesktop::Notifications;
 
 namespace dcc {
 namespace accounts {
-
 class AccountsWorker : public QObject
 {
     Q_OBJECT
 
 public:
     explicit AccountsWorker(UserModel * userList, QObject *parent = 0);
-
+    ~AccountsWorker();
     void active();
     QString getCurrentUserName();
 
@@ -110,6 +112,7 @@ private:
     AccountsUser *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);
     QString cryptUserPassword(const QString &password);
+    void initSecret();
 
 private:
     Accounts *m_accountsInter;
@@ -122,6 +125,11 @@ private:
     DisplayManager *m_dmInter;
     QStringList m_onlineUsers;
     UserModel *m_userModel;
+#ifdef USE_TABLET
+    SecretCollection *m_collection;
+    GError *m_err;
+    SecretService *m_service;
+#endif
 };
 
 }   // namespace accounts

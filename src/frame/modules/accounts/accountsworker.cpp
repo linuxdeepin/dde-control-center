@@ -23,8 +23,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-// 与 Qt 中的宏冲突，必须在 Qt 前 include
-#include <libsecret/secret.h>
 #include <gio/gio.h>
 
 #include "accountsworker.h"
@@ -119,6 +117,11 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 #endif
     , m_dmInter(new DisplayManager(DisplayManagerService, "/org/freedesktop/DisplayManager", QDBusConnection::systemBus(), this))
     , m_userModel(userList)
+    #ifdef USE_TABLET
+    , m_collection(nullptr)
+    , m_err(nullptr)
+    , m_service(nullptr)
+    #endif
 {
     struct passwd *pws;
     pws = getpwuid(getuid());
@@ -161,6 +164,18 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 
     bool bShowCreateUser = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showCreateUser", true);
     m_userModel->setCreateUserValid(bShowCreateUser);
+
+#ifdef USE_TABLET
+    initSecret();
+#endif
+}
+
+AccountsWorker::~AccountsWorker()
+{
+#ifdef USE_TABLET
+    if (m_err != nullptr) g_error_free(m_err);
+    if (m_service != nullptr) g_object_unref(m_service);
+#endif
 }
 
 void AccountsWorker::getAllGroups()
@@ -693,70 +708,73 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
     return crypt(password.toUtf8().data(), salt);
 }
 
+void AccountsWorker::initSecret()
+{
+    m_service = secret_service_get_sync(SECRET_SERVICE_OPEN_SESSION, nullptr, &m_err);
+    if (m_service == nullptr) {
+        qWarning() << "failed to get secret service:" << m_err->message;
+        return;
+    }
+
+    m_collection = secret_collection_for_alias_sync(m_service,
+                                                    SECRET_COLLECTION_DEFAULT,
+                                                    SECRET_COLLECTION_NONE,
+                                                    NULL,
+                                                    &m_err);
+}
+
 void AccountsWorker::changeKeyringPasswd(QString passwd, QString newPasswd)
  {
-    GError *err = nullptr;
-        SecretService *service = nullptr;
-        GDBusConnection *bus = nullptr;
-        SecretValue *currentValue = nullptr;
-        SecretValue *newPassValue = nullptr;
+    GError *err = m_err;
+    GDBusConnection *bus = nullptr;
+    SecretValue *currentValue = nullptr;
+    SecretValue *newPassValue = nullptr;
 
-        do {
-            service = secret_service_get_sync(SECRET_SERVICE_OPEN_SESSION, nullptr, &err);
-            if (service == nullptr) {
-                qWarning() << "failed to get secret service:" << err->message;
-                break;
-            }
+    do {
+        if (m_err != nullptr) {
+            qWarning() << "failed to get default secret collection:" << m_err->message;
+            break;
+        }
+        if (m_collection == nullptr) {
+            qDebug() << "default secret collection not exists";
+            break;
+        }
 
-            SecretCollection *collection = secret_collection_for_alias_sync(service,
-                                                                            SECRET_COLLECTION_DEFAULT,
-                                                                            SECRET_COLLECTION_NONE,
-                                                                            NULL,
-                                                                            &err);
-            if (err != nullptr) {
-                qWarning() << "failed to get default secret collection:" << err->message;
-                break;
-            }
-            if (collection == nullptr) {
-                qDebug() << "default secret collection not exists";
-                break;
-            }
+        auto currentLatin1 = passwd.toLatin1();
+        currentValue = secret_value_new(currentLatin1.data(), currentLatin1.length(), PasswordSecretValueContentType);
 
-            auto currentLatin1 = passwd.toLatin1();
-            currentValue = secret_value_new(currentLatin1.data(), currentLatin1.length(), PasswordSecretValueContentType);
+        auto newPassLatin1 = newPasswd.toLatin1();
+        newPassValue = secret_value_new(newPassLatin1.data(), newPassLatin1.length(), PasswordSecretValueContentType);
 
-            auto newPassLatin1 = newPasswd.toLatin1();
-            newPassValue = secret_value_new(newPassLatin1.data(), newPassLatin1.length(), PasswordSecretValueContentType);
+        bus = g_bus_get_sync(G_BUS_TYPE_SESSION, nullptr, &m_err);
+        if (bus == nullptr) {
+            qWarning() << "failed to get session bus:" << m_err->message;
+            break;
+        }
 
-            bus = g_bus_get_sync(G_BUS_TYPE_SESSION, nullptr, &err);
-            if (bus == nullptr) {
-                 qWarning() << "failed to get session bus:" << err->message;
-                 break;
-            }
+        g_dbus_connection_call_sync(bus,
+                                    "org.gnome.keyring",
+                                    "/org/freedesktop/secrets",
+                                    "org.gnome.keyring.InternalUnsupportedGuiltRiddenInterface",
+                                    "ChangeWithMasterPassword",
+                                    g_variant_new("(o@(oayays)@(oayays))",
+                                                  LoginKeyringPath,
+                                                  secret_service_encode_dbus_secret(m_service, currentValue),
+                                                  secret_service_encode_dbus_secret(m_service, newPassValue)),
+                                    nullptr,
+                                    G_DBUS_CALL_FLAGS_NONE,
+                                    G_MAXINT,
+                                    nullptr,
+                                    &m_err);
+        if (m_err != nullptr) {
+            qWarning() << "failed to change keyring password:" << m_err->message;
+            break;
+        }
+    } while (false);
 
-            g_dbus_connection_call_sync(bus,
-                                        "org.gnome.keyring",
-                                        "/org/freedesktop/secrets",
-                                        "org.gnome.keyring.InternalUnsupportedGuiltRiddenInterface",
-                                        "ChangeWithMasterPassword",
-                                        g_variant_new("(o@(oayays)@(oayays))",
-                                                      LoginKeyringPath,
-                                                      secret_service_encode_dbus_secret(service, currentValue),
-                                                      secret_service_encode_dbus_secret(service, newPassValue)),
-                                        nullptr,
-                                        G_DBUS_CALL_FLAGS_NONE,
-                                        G_MAXINT,
-                                        nullptr,
-                                        &err);
-             if (err != nullptr) {
-                 qWarning() << "failed to change keyring password:" << err->message;
-                 break;
-             }
-        } while (false);
+    m_err = err;
 
-        if (err != nullptr) g_error_free(err);
-        if (service != nullptr) g_object_unref(service);
-        if (bus != nullptr) g_object_unref(bus);
-        if (currentValue != nullptr) g_object_unref(bus);
-        if (newPassValue != nullptr) g_object_unref(bus);
+    if (bus != nullptr) g_object_unref(bus);
+    if (currentValue != nullptr) g_object_unref(bus);
+    if (newPassValue != nullptr) g_object_unref(bus);
  }
