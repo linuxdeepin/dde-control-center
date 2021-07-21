@@ -80,14 +80,24 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     QDBusMessage reply = Interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUMaxMHz");
     QList<QVariant> outArgs = reply.arguments();
     double cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
-    if (DSysInfo::cpuModelName().contains("Hz")) {
-        m_model->setProcessor(DSysInfo::cpuModelName());
+    QString hardwareName = getHardwareName();
+    QString cpuModelName = DSysInfo::cpuModelName();
+    if (!hardwareName.isEmpty()) {
+        m_model->setProcessor(QString("%1 @ %2GHz").arg(hardwareName).arg(cpuMaxMhz / 1000));
     } else {
-        if(DSysInfo::cpuModelName().isEmpty()){
-            m_model->setProcessor(QString("%1GHz").arg(cpuMaxMhz / 1000));
+        if (!cpuModelName.isEmpty()) {
+            if (cpuModelName.contains("Hz")) {
+                m_model->setProcessor(cpuModelName);
+            } else if (!cpuModelName.contains("Hz")) {
+                m_model->setProcessor(QString("%1 @ %2GHz").arg(cpuModelName).arg(cpuMaxMhz / 1000));
+            }
         } else {
-            m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
-                                  .arg(cpuMaxMhz / 1000));
+            cpuModelName = getCpuModelName();
+            if (cpuModelName.contains("Hz")) {
+                m_model->setProcessor(cpuModelName);
+            } else if (!cpuModelName.contains("Hz")) {
+                m_model->setProcessor(QString("%1 @ %2GHz").arg(cpuModelName).arg(cpuMaxMhz / 1000));
+            }
         }
     }
 
@@ -363,7 +373,47 @@ void SystemInfoWork::getLicenseState()
     qDebug() << "authorize result:" << reply;
     m_model->setLicenseState(reply);
 }
+
 #endif
+
+QString SystemInfoWork::getHardwareName()
+{
+    QFile file("/proc/cpuinfo");
+    qint64 lineLength = 0;
+    if (file.open(QFile::ReadOnly)) {
+        do {
+            char buf[1024] = {0};
+            lineLength = file.readLine(buf, sizeof(buf));
+            QString str(buf);
+            if(str.contains(':')) {
+                QStringList list = str.split(':');
+                if(list.size() == 2 && list.first().contains("Hardware")){
+                    return list.back().trimmed();
+                }
+            }
+        } while(lineLength >= 0);
+    }
+    return QString();
+}
+
+QString SystemInfoWork::getCpuModelName()
+{
+    QScopedPointer<QProcess> process(new QProcess);
+    process->start("lscpu");
+    process->waitForFinished(-1);
+    QTextStream stream(process->readAllStandardOutput());
+    QString line;
+    while (stream.readLineInto(&line)) {
+        line = line.simplified();
+        if(line.contains(':')) {
+            QStringList list = line.split(':');
+            if(list.size() == 2 && list.first().contains("Model name")){
+                return list.back().trimmed();
+            }
+        }
+    }
+    return QString();
+}
 
 }
 }

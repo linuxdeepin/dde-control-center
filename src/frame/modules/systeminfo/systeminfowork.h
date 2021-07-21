@@ -74,6 +74,8 @@ private:
 #ifndef DISABLE_ACTIVATOR
     void getLicenseState();
 #endif
+    QString getHardwareName();
+    QString getCpuModelName();
 
 private:
     SystemInfoModel* m_model;
