@@ -189,6 +189,12 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
         if (port->id() == portId && cardId == port->cardId()) {
             m_inputSoundCbx->comboBox()->hidePopup();
+            // 当只有一个端口 拔出端口后直接移除，不进行延迟置灰操作
+            if (m_inputModel->rowCount() == 1) {
+                m_inputModel->removeRow(i);
+                showDevice();
+                return;
+            }
             tmpIndex = i;
         }
     }
@@ -200,6 +206,7 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
         m_inputModel->removeRow(tmpIndex);
     });
     m_waitCurrentPortRemove->start(m_waitTimerValue);
+    changeComboxStatus();
     showDevice();
 }
 

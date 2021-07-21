@@ -161,6 +161,12 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
 
         if (port->id() == portId && cardId == port->cardId()) {
             m_outputSoundCbx->comboBox()->hidePopup();
+            if (m_outputModel->rowCount() == 1) {
+                m_outputModel->removeRow(i);
+                showDevice();
+                return;
+            }
+
             tmpIndex = i;
         }
     }
@@ -172,6 +178,7 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
         m_outputModel->removeRow(tmpIndex);
     });
     m_waitCurrentPortRemove->start(m_waitTimerValue);
+    changeComboxStatus();
     showDevice();
 }
 
