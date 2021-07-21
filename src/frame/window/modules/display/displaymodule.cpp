@@ -87,7 +87,9 @@ void DisplayModule::active()
     m_displayWidget->setVisible(false);
     pushScreenWidget();
     m_frameProxy->pushWidget(this, m_displayWidget);
-    QTimer::singleShot(0, m_displayWidget, [=] {
+    QTimer::singleShot(0, this, [=] {
+        if (m_frameProxy->currModule()->name() != name())
+            return;
         m_displayWidget->setVisible(true);
     });
 }
