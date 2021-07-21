@@ -5,10 +5,11 @@
 #include "networkconst.h"
 
 namespace dde {
-namespace network {
-class NetworkDeviceBase;
-class VPNItem;
-}
+  namespace network {
+    class NetworkDeviceBase;
+    class VPNItem;
+    class AccessPoints;
+  }
 }
 
 using namespace dde::network;
@@ -55,6 +56,9 @@ private Q_SLOTS:
 
     void onDSLActiveChanged();
     void onVPNActiveChanged();
+
+    void onNetworkAdded(QList<AccessPoints*> newAps);
+    void onNetworkRemoved(QList<AccessPoints*> rmAps);
 };
 
 #endif // NETWORKHANDLER_H

@@ -20,7 +20,7 @@ using namespace dde::network;
 
 static void outputMessage(const QString &s)
 {
-    qWarning().noquote() << s;
+    qInfo().noquote() << s;
 }
 
 static int getInput(const QString &inputMessage, QString &inputStr)
@@ -273,6 +273,10 @@ void NetworkHandler::onDeviceAdded(QList<NetworkDeviceBase *> devices)
             WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
             connect(wirelessDevice, &WirelessDevice::hotspotEnableChanged,
                     this, &NetworkHandler::onHotspotEnabledChanged);
+            connect(wirelessDevice, &WirelessDevice::networkAdded,
+                    this, &NetworkHandler::onNetworkAdded);
+            connect(wirelessDevice, &WirelessDevice::networkAdded,
+                    this, &NetworkHandler::onNetworkRemoved);
         }
 
         QString deviceMessage = QString("find new Device %1 %2 %3 enabled:%4:  %5").arg(i)
@@ -491,7 +495,7 @@ void NetworkHandler::onStatusChanged()
 
 void NetworkHandler::onHotspotEnabledChanged(const bool &enabled)
 {
-    qWarning() << "hotspot:" << enabled;
+    qInfo() << "hotspot:" << enabled;
 }
 
 void NetworkHandler::onDSLActiveChanged()
@@ -512,4 +516,18 @@ void NetworkHandler::onVPNActiveChanged()
         VPNItem *item = items[0];
         ctrl->connectItem(item);
     }
+}
+
+void NetworkHandler::onNetworkAdded(QList<AccessPoints *> newAps)
+{
+    outputMessage("new accessPoints");
+    for (AccessPoints *ap : newAps)
+        qInfo() << "ssid:" << ap->ssid() << ",path:" << ap->path();
+}
+
+void NetworkHandler::onNetworkRemoved(QList<AccessPoints *> rmAps)
+{
+    outputMessage("removed accessPoints");
+    for (AccessPoints *ap : rmAps)
+        qInfo() << "ssid:" << ap->ssid() << ",path:" << ap->path();
 }

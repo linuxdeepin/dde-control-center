@@ -86,11 +86,12 @@ void VPNController::updateVPNItems(const QJsonArray &vpnArrays)
     // 将列表中不存在的VPN删除
     QList<VPNItem *> rmVpns;
     for (VPNItem *item : m_vpnItems) {
-        if (!paths.contains(item->connection()->path())) {
-            m_vpnItems.removeOne(item);
+        if (!paths.contains(item->connection()->path()))
             rmVpns << item;
-        }
     }
+
+    for (VPNItem *item : rmVpns)
+        m_vpnItems.removeOne(item);
 
     if (rmVpns.size() > 0)
         Q_EMIT itemRemoved(rmVpns);

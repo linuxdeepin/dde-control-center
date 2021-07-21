@@ -189,11 +189,15 @@ void WirelessDevice::syncConnectionAccessPoints()
     }
     updateActiveInfo();
     // 删除列表中没有AccessPoints的Connection，让两边保持数据一致
+    QList<WirelessConnection *> rmConns;
     for (WirelessConnection *connection : m_connections) {
-        if (!connections.contains(connection)) {
-            m_connections.removeOne(connection);
-            delete connection;
-        }
+        if (!connections.contains(connection))
+            rmConns << connection;
+    }
+
+    for (WirelessConnection *rmConnection : rmConns) {
+        m_connections.removeOne(rmConnection);
+        delete rmConnection;
     }
 }
 
@@ -340,14 +344,14 @@ void WirelessDevice::updateConnection(const QJsonArray &info)
             connPaths << path;
     }
 
-    QList<WirelessConnection *> rmConnections;
+    QList<WirelessConnection *> rmConns;
     for (WirelessConnection *conn : m_connections) {
         if (!connPaths.contains(conn->connection()->path()))
-            rmConnections << conn;
+            rmConns << conn;
     }
 
     // 提交改变信号后，删除不在的连接
-    for (WirelessConnection *conn : rmConnections) {
+    for (WirelessConnection *conn : rmConns) {
         m_connections.removeOne(conn);
         delete conn;
     }

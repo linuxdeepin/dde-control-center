@@ -311,26 +311,28 @@ void HotspotController::updateConnections(const QJsonArray &jsons, const QList<N
     if (newItems.size() > 0)
         Q_EMIT itemAdded(newItems);
 
-    QMap<WirelessDevice *, QList<HotspotItem *>> rmItems;
+    QMap<WirelessDevice *, QList<HotspotItem *>> rmItemsMap;
+    QList<HotspotItem *> rmItems;
     // 删除列表中不存在的设备
     for (HotspotItem *item : m_hotspotItems) {
         QString pathKey = QString("%1-%2").arg(item->device()->path()).arg(item->connection()->path());
         if (!allHotsItem.contains(pathKey)) {
-            m_hotspotItems.removeOne(item);
-            rmItems[item->device()] << item;
+            rmItemsMap[item->device()] << item;
+            rmItems << item;
         }
     }
 
+    // 从原来的列表中移除已经删除的对象
+    for (HotspotItem *item : rmItems)
+       m_hotspotItems.removeOne(item);
+
     // 如果有删除的连接，向外发送删除的信号
-    if (rmItems.size() > 0)
-        Q_EMIT itemRemoved(rmItems);
+    if (rmItemsMap.size() > 0)
+        Q_EMIT itemRemoved(rmItemsMap);
 
     // 清空已经删除的对象
-    QList<QList<HotspotItem *>> allRmItems = rmItems.values();
-    for (QList<HotspotItem *> allItem : allRmItems) {
-        for (HotspotItem *item : allItem)
-            delete item;
-    }
+    for (HotspotItem *item : rmItems)
+       delete item;
 }
 
 /**

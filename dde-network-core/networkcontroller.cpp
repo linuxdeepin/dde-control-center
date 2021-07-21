@@ -184,11 +184,12 @@ void NetworkController::onDevicesChanged(const QString &value)
     // 删除已经移除的设备
     QList<NetworkDeviceBase *> rmDevices;
     for (NetworkDeviceBase *device : m_devices) {
-        if (!devPaths.contains(device->path())) {
+        if (!devPaths.contains(device->path()))
             rmDevices << device;
-            m_devices.removeOne(device);
-        }
     }
+
+    for (NetworkDeviceBase *device : rmDevices)
+        m_devices.removeOne(device);
 
     for (NetworkDeviceBase *device : m_devices) {
         if (devInfoMap.contains(device)) {
@@ -516,7 +517,8 @@ void NetworkController::updateNetworkDetails()
 {
     // 删除多余的网络详情的数据
     if (m_networkDetails.size() >= m_activeConnectionInfo.size()) {
-        for (NetworkDetails *detail : m_networkDetails) {
+        for (int i = m_networkDetails.size() - 1; i >= m_activeConnectionInfo.size(); i--) {
+            NetworkDetails *detail = m_networkDetails[i];
             m_networkDetails.removeOne(detail);
             delete detail;
         }

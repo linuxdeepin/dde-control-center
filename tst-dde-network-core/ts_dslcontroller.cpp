@@ -25,13 +25,9 @@ public:
 TEST_F(Tst_DSLController, dslcontroll_test)
 {
     DSLController *controller = m_controller;
-    auto dslChanged = [ = ](const QList<DSLItem *> &changeItems) {
-        Q_UNUSED(changeItems);
-
+    auto dslChanged = [ = ] {
         QList<DSLItem *> items = controller->items();
-        for (DSLItem *item : items)
-            qWarning() << item->connection()->id() << "," << item->connection()->path()
-                       << item->connection()->ssid() << "," << item->connection()->uuid();
+        qInfo() << "items Count:" << items.size();
 
         if (items.size() > 0) {
             DSLItem *item = items[0];
@@ -41,4 +37,13 @@ TEST_F(Tst_DSLController, dslcontroll_test)
 
     QObject::connect(m_controller, &DSLController::itemAdded, dslChanged);
     QObject::connect(m_controller, &DSLController::itemRemoved, dslChanged);
+    QObject::connect(m_controller, &DSLController::activeConnectionChanged, [ = ] {
+        QList<DSLItem *> items = controller->items();
+        for (DSLItem *item : items) {
+            if (item->connectionStatus() == ConnectionStatus::Activated) {
+                // 打印连接成功
+                qInfo() << "connectioned Successed:" << item->connection()->id();
+            }
+        }
+    });
 }

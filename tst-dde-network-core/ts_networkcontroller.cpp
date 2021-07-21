@@ -28,46 +28,58 @@ public:
 TEST_F(Tst_NetworkController, dslcontroll_test)
 {
     NetworkController *controller = m_controller;
+
     auto onDeviceChange = [ = ](QList<NetworkDeviceBase *> changeDevices) {
         Q_UNUSED(changeDevices);
 
         QList<NetworkDeviceBase *> devices = controller->devices();
         for (NetworkDeviceBase *device : devices) {
-            qWarning() << device->deviceName() << "," << device->realHwAdr();
+            qInfo() << device->deviceName() << "," << device->realHwAdr();
             QObject::connect(device, &NetworkDeviceBase::deviceStatusChanged, [ = ](const DeviceStatus & deviceStatus) {
                 int status = (int)deviceStatus;
-                qWarning() << status;
+                qInfo() << status;
             });
             QObject::connect(device, &NetworkDeviceBase::enableChanged, [ = ](const bool enabled) {
                 if (enabled)
-                    qWarning() << "device is enabled";
+                    qInfo() << "device is enabled";
                 else
-                    qWarning() << "device is disabled";
+                    qInfo() << "device is disabled";
             });
             if (device->deviceType() == DeviceType::Wired) {
                 WiredDevice *wiredDevice = static_cast<WiredDevice *>(device);
                 QList<WiredConnection *> connectionItems = wiredDevice->items();
                 for (WiredConnection *conn : connectionItems) {
                     Connection *connection = conn->connection();
-                    qWarning() << connection->path() << "," << connection->id() << "," << connection->ssid()
+                    qInfo() << connection->path() << "," << connection->id() << "," << connection->ssid()
                                << connection->uuid();
                 }
             } else if (device->deviceType() == DeviceType::Wireless) {
                 WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
+                QObject::connect(wirelessDevice, &WirelessDevice::networkAdded, [ = ] (QList<AccessPoints *> accessPoints) {
+                    qInfo() << "new networkAdded:";
+                    for (AccessPoints *ap : accessPoints)
+                        qInfo() << "accessPoints added:" << ap->ssid();
+
+                    qInfo() << "all network:";
+                    QList<AccessPoints *> aps = wirelessDevice->accessPointItems();
+                    for (AccessPoints *ap : aps)
+                        qInfo() << ap->path() << "," << ap->ssid();
+
+                    static bool isFirst = true;
+                    if (isFirst && aps.size() > 0) {
+                        AccessPoints *ap = aps[0];
+                        wirelessDevice->connectNetwork(ap);
+                        qInfo() << ap->path() << "," << ap->ssid();
+                        isFirst = false;
+                    }
+
+                });
+
                 QList<WirelessConnection *> connectionItems = wirelessDevice->items();
                 for (WirelessConnection *conn : connectionItems) {
                     Connection *connection = conn->connection();
-                    qWarning() << connection->path() << "," << connection->id()
+                    qInfo() << connection->path() << "," << connection->id()
                                << "," << connection->ssid() << "," << connection->uuid();
-                }
-                QList<AccessPoints *> accessPoints = wirelessDevice->accessPointItems();
-                for (AccessPoints *ap : accessPoints)
-                    qWarning() << ap->path() << "," << ap->ssid();
-
-                if (accessPoints.size() > 0) {
-                    AccessPoints *ap = accessPoints[0];
-                    wirelessDevice->connectNetwork(ap);
-                    qWarning() << ap->path() << "," << ap->ssid();
                 }
             }
         }
@@ -76,10 +88,10 @@ TEST_F(Tst_NetworkController, dslcontroll_test)
         QList<NetworkDetails *> details = controller->networkDetails();
         for (int i = 0; i < details.size(); i++) {
             NetworkDetails *detail = details[i];
-            qWarning() << detail->name();
+            qInfo() << detail->name();
             QList<QPair<QString, QString>> items = detail->items();
             for (QPair<QString, QString> item : items)
-                qWarning() << item.first << ":" << item.second;
+                qInfo() << item.first << ":" << item.second;
         }
     };
 

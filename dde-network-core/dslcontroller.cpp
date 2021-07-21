@@ -101,11 +101,12 @@ void DSLController::updateDSLItems(const QJsonArray &dsljson)
 
     QList<DSLItem *> rmItems;
     for (DSLItem *item : m_items) {
-        if (!paths.contains(item->connection()->path())) {
+        if (!paths.contains(item->connection()->path()))
             rmItems << item;
-            m_items.removeOne(item);
-        }
     }
+
+    for (DSLItem *item : rmItems)
+        m_items.removeOne(item);
 
     // 如果有连接移除，则向外抛出连接移除的信号
     if (rmItems.size() > 0)

@@ -31,7 +31,7 @@ TEST_F(Tst_VPNController, dslcontroll_test)
         Q_UNUSED(changedItems);
         QList<VPNItem *> items = controller->items();
         for (VPNItem *item : items) {
-            qWarning() << item->connection()->id()
+            qInfo() << item->connection()->id()
                        << "," << item->connection()->path()
                        << "," << item->connection()->ssid()
                        << "," << item->connection()->uuid()

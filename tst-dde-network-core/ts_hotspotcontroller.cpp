@@ -25,10 +25,10 @@ public:
 
 TEST_F(Tst_HotspotController, controll_test)
 {
-    qWarning() << m_controller->supportHotspot();
+    qInfo() << m_controller->supportHotspot();
 
     HotspotController *controller = m_controller;
-    auto onDevicesChanged = [ = ](const QList<WirelessDevice *> &changeDevices) {
+    auto onDevicesChanged = [ = ] (const QList<WirelessDevice *> &changeDevices) {
         Q_UNUSED(changeDevices);
 
         QList<WirelessDevice *> devices = controller->devices();
@@ -36,7 +36,7 @@ TEST_F(Tst_HotspotController, controll_test)
             WirelessDevice *device = devices[0];
             QList<HotspotItem *> items = controller->items(device);
             for (HotspotItem *item : items)
-                qWarning() << item->connection()->id();
+                qInfo() << item->connection()->id();
 
             if (items.size() > 0) {
                 HotspotItem *item = items[0];

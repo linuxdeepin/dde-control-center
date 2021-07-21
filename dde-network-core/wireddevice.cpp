@@ -117,11 +117,12 @@ void WiredDevice::updateConnection(const QJsonArray &info)
 
     QList<WiredConnection *> rmConns;
     for (WiredConnection *connection : m_connections) {
-        if (!connPaths.contains(connection->connection()->path())) {
+        if (!connPaths.contains(connection->connection()->path()))
             rmConns << connection;
-            m_connections.removeOne(connection);
-        }
     }
+
+    for (WiredConnection *connection : rmConns)
+        m_connections.removeOne(connection);
 
     if (newWiredConnections.size() > 0)
         Q_EMIT connectionAdded(newWiredConnections);
