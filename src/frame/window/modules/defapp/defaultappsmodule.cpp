@@ -38,12 +38,16 @@ using namespace DCC_NAMESPACE::defapp;
 
 const QMap<QString, dcc::defapp::DefAppWorker::DefaultAppsCategory> PageMaps = {
     { QStringLiteral("Webpage"), dcc::defapp::DefAppWorker::Browser},
+    #ifndef USE_TABLET
     { QStringLiteral("Mail"), dcc::defapp::DefAppWorker::Mail},
+    #endif
     { QStringLiteral("Text"), dcc::defapp::DefAppWorker::Text},
     { QStringLiteral("Music"), dcc::defapp::DefAppWorker::Music},
     { QStringLiteral("Video"), dcc::defapp::DefAppWorker::Video},
     { QStringLiteral("Picture"), dcc::defapp::DefAppWorker::Picture},
+    #ifndef USE_TABLET
     { QStringLiteral("Terminal"), dcc::defapp::DefAppWorker::Terminal},
+    #endif
 };
 
 DefaultAppsModule::DefaultAppsModule(FrameProxyInterface *frame, QObject *parent)

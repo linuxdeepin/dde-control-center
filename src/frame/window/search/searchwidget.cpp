@@ -218,7 +218,9 @@ SearchModel::SearchModel(QObject *parent)
         "User Experience Program",
         "Join User Experience Program",
         "Startup Delay",
-        "Theme"
+        "Theme",
+        "Mail",
+        "Terminal"
     };
 }
 

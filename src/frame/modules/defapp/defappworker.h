@@ -46,12 +46,16 @@ public:
 
     enum DefaultAppsCategory {
         Browser,
+#ifndef USE_TABLET
         Mail,
+#endif
         Text,
         Music,
         Video,
-        Picture,
-        Terminal
+        Picture
+#ifndef USE_TABLET
+        ,Terminal
+#endif
     };
 
     void active();

@@ -87,9 +87,11 @@ void DefappDetailWidget::setModel(dcc::defapp::DefAppModel *const model)
     case dcc::defapp::DefAppWorker::Browser:
         setCategory(model->getModBrowser());
         break;
+#ifndef USE_TABLET
     case dcc::defapp::DefAppWorker::Mail:
         setCategory(model->getModMail());
         break;
+#endif
     case dcc::defapp::DefAppWorker::Text:
         setCategory(model->getModText());
         break;
@@ -102,9 +104,11 @@ void DefappDetailWidget::setModel(dcc::defapp::DefAppModel *const model)
     case dcc::defapp::DefAppWorker::Picture:
         setCategory(model->getModPicture());
         break;
+#ifndef USE_TABLET
     case dcc::defapp::DefAppWorker::Terminal:
         setCategory(model->getModTerminal());
         break;
+#endif
     default:
         break;
     }
