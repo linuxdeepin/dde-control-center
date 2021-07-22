@@ -232,9 +232,13 @@ void DisplayModule::showMultiScreenWidget()
         windowUpdate();
     }, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
-    connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi) {
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi,  bool isInit) {
         bool stateChanged = false;
+        //窗口初始化且窗口最大化的时候不需要移动窗口
         if (m_pMainWindow->isMaximized()) {
+            if(isInit){
+                return;
+            }
             m_pMainWindow->setNeedRememberLastSize(false);
             m_pMainWindow->showNormal();
 

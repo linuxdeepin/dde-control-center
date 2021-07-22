@@ -81,7 +81,7 @@ Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *monitor, const int mode);
     void requestSetRotate(dcc::display::Monitor *monitor, const int rotate);
     void requestGatherEnabled(const bool enable);
-    void requestSetMainwindowRect(dcc::display::Monitor *monitor);
+    void requestSetMainwindowRect(dcc::display::Monitor *monitor, bool isInit);
 
 private:
     void initModeList();

@@ -315,7 +315,7 @@ void MultiScreenWidget::initSecondaryScreenDialog()
 
         for (const auto &monitor : m_model->monitorList()) {
             if (monitor == m_model->primaryMonitor()) {
-                QTimer::singleShot(0, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor()); });
+                QTimer::singleShot(0, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), true); });
                 continue;
             }
 
@@ -385,7 +385,7 @@ void MultiScreenWidget::onMonitorRelease(Monitor *monitor)
 {
     Q_UNUSED(monitor)
     m_fullIndication->setVisible(false);
-    QTimer::singleShot(1000, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor()); });
+    QTimer::singleShot(1000, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), false); });
     m_dlg->resetDialog();
 }
 
