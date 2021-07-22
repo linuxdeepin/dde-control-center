@@ -56,9 +56,20 @@ SoundWidget::SoundWidget(QWidget *parent)
 
 int SoundWidget::showPath(const QString &path)
 {
+    auto aliasName = [=](const QString &name) {
+        if (name == "Speaker") {
+            return tr("Output");
+        } else if (name == "Microphone") {
+            return tr("Input");
+        } else if (name == "Sound Effects") {
+            return tr("Sound Effects");
+        }
+        return QString();
+    };
+
     for (int i = 0; i < m_menuMethod.size(); ++i) {
         auto menu = m_menuMethod[i];
-        if (tr(path.toStdString().c_str()) == menu.itemText) {
+        if (tr(path.toStdString().c_str()) == menu.itemText || aliasName(path) == menu.itemText) {
             menu.itemSignal.invoke(this);
             m_currentIdx = m_menuList->model()->index(i, 0);
             m_menuList->setCurrentIndex(m_currentIdx);
