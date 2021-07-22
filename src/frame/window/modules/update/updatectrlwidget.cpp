@@ -306,8 +306,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         //~ contents_path /update/Update
         m_fullProcess->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
-        setLowBattery(m_model->lowBattery());
         setShowInfo(m_model->systemActivation());
+        setLowBattery(m_model->lowBattery());
         break;
     case UpdatesStatus::Downloading:
         m_progress->setVisible(true);
@@ -449,13 +449,22 @@ void UpdateCtrlWidget::setProgressValue(const double value)
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 {
     if (m_status == UpdatesStatus::Downloaded || m_status == UpdatesStatus::UpdatesAvailable) {
+        bool activation = false;
+        const UiActiveState value = m_model->systemActivation();
+        if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value || UiActiveState::AuthorizedLapse == value) {
+            activation = true;
+        }
         if (lowBattery) {
             m_powerTip->setText(tr("Your battery is lower than 50%, please plug in to continue"));
         } else {
             m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
         }
+        //电量和授权共同决定
+        if(lowBattery)
+            m_fullProcess->setDisabled(lowBattery);
+        else 
+            m_fullProcess->setDisabled(!activation); 
 
-        m_fullProcess->setDisabled(lowBattery);
         m_powerTip->setVisible(lowBattery);
     }
 }
