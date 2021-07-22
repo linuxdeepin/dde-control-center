@@ -731,6 +731,8 @@ void MainWindow::resizeEvent(QResizeEvent *event)
     if (m_needRememberLastSize && event->oldSize() != event->size()) {
         m_lastSize = event->oldSize();
     }
+    m_needRememberLastSize = true;
+
     DMainWindow::resizeEvent(event);
 
     auto dstWidth = event->size().width();
@@ -767,9 +769,6 @@ void MainWindow::resizeEvent(QResizeEvent *event)
         m_topWidget->setFixedSize(event->size());
         m_topWidget->curWidget()->setMinimumWidth(dstWidth / 2 - 40);
         m_topWidget->setFixedHeight(height() - this->titlebar()->height());
-    }
-    if (this->isMaximized()) {
-        m_needRememberLastSize = true;
     }
 }
 
