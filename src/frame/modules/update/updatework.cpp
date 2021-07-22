@@ -1035,7 +1035,7 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
         m_downloadJob->deleteLater();
 
         // install the updates immediately.
-        if (!m_model->autoDownloadUpdates()) {
+        if (m_bDownAndUpdate) {
             qDebug() << "m_model->autoDownloadUpdates()=" << m_model->autoDownloadUpdates();
             distUpgradeInstallUpdates();
         } else {
