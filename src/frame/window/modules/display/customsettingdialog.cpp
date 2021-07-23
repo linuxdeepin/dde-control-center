@@ -590,24 +590,22 @@ void CustomSettingDialog::initConnect()
 
         //+ 对于merge模式需要获取共同的刷新率，这样切换分辨率时才能保证两个显示屏幕使用同样的刷新率，不会出现一个可以正常显示一个黑屏的现象；
         double rate = -100;
+        QList<Resolution> theSameReslutionList;
         for (auto m : m_monitor->modeList()) {
             if (m.width() != w || m.height() != h)
                 continue;
 
             if (m_model->isMerge()) {
-                bool isCommen = true;
                 for (auto tmonitor : m_model->monitorList()) {
+                    if (tmonitor == m_monitor)
+                        continue;
                     if (!tmonitor->hasResolutionAndRate(m)) {
-                        isCommen = false;
                         break;
                     }
+                    theSameReslutionList.append(m);
                 }
 
-                if (!isCommen)
-                    continue;
             }
-
-            rate = m.rate();
         }
 
         if (m_model->isMerge()) {
@@ -615,11 +613,13 @@ void CustomSettingDialog::initConnect()
                     && h == m_monitor->currentMode().height()) {
                 return;
             }
-
+            qSort(theSameReslutionList.begin(), theSameReslutionList.end(), [=] (Resolution& a, Resolution& b)->bool {
+                return a.rate() > b.rate();
+            });
             ResolutionDate res;
-            res.w = w;
-            res.h = h;
-            res.rate = rate;
+            res.w = theSameReslutionList.first().width();
+            res.h = theSameReslutionList.first().height();
+            res.rate = theSameReslutionList.first().rate();
             this->requestSetResolution(nullptr, res);
         } else {
             if (id == m_monitor->currentMode().id()) {
