@@ -24,7 +24,6 @@
 
 #include <dspinbox.h>
 #include <QDBusMetaType>
-#include <com_deepin_daemon_network.h>
 
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
@@ -442,21 +441,6 @@ bool IpvxSection::ipv4InputIsValid()
             m_gateway->dTextEdit()->showAlertMessage(tr("Invalid gateway"), parentWidget(), 2000);
         } else {
             m_gateway->setIsErr(false);
-        }
-
-        // check ip conflict
-        using NetworkInter = com::deepin::daemon::Network;
-        NetworkInter workInter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this);
-        auto reply = workInter.RequestIPConflictCheck(ip, "");
-        reply.waitForFinished();
-        if (reply.isError()) {
-            qDebug() << "error occurred while check ip conflict" << reply.error();
-        } else if (!reply.value().isEmpty()) {
-            valid = false;
-            m_ipAddress->setIsErr(true);
-            m_ipAddress->dTextEdit()->showAlertMessage(tr("IP conflict"), m_ipAddress, 2000);
-        } else {
-            m_ipAddress->setIsErr(false);
         }
     }
 
