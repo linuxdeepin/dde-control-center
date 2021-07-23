@@ -40,6 +40,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QProcess>
+#include <QGSettings>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
@@ -69,13 +70,19 @@ NetworkModuleWidget::NetworkModuleWidget()
 #ifndef DISABLE_NETWORK_AIRPLANE
     //判断当前的机器是否为盘古v，如果为盘古v则不需要飞行模式功能
     QString productName = qEnvironmentVariable("SYS_PRODUCT_NAME");
-    if (!productName.contains("PGUV")) {
-        qDebug() << "This machine is not PanguV";
-        //~ contents_path /network/Airplane
-        DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
-        airplanemode->setData(QVariant::fromValue(AirplaneModepage), SectionRole);
-        airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
-        m_modelpages->appendRow(airplanemode);
+    if (QGSettings::isSchemaInstalled("com.deepin.sysinfo")) {
+        QString productNameByGseting;
+        QGSettings Gsetting("com.deepin.sysinfo", QByteArray()); //绑定相关的gsetting
+        if (Gsetting.keys().contains("pcName")) //防⽌找不到相关key崩溃 建议⼀般情况下都加上
+            productNameByGseting= Gsetting.get("pc-name").toString(); //这后⾯的类型根据定义类型修改
+        if ((!productName.contains("PGUV")) && (productNameByGseting != "HuaWei") && (productNameByGseting != "panguw") ) {
+            qDebug() << "This machine is not PanguV";
+            //~ contents_path /network/Airplane
+            DStandardItem *airplanemode = new DStandardItem(tr("Airplane Mode"));
+            airplanemode->setData(QVariant::fromValue(AirplaneModepage), SectionRole);
+            airplanemode->setIcon(QIcon::fromTheme("dcc_airplane_mode"));
+            m_modelpages->appendRow(airplanemode);
+        }
     }
 #endif
 
