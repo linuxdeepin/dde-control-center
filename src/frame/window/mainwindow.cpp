@@ -73,7 +73,6 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::search;
 DTK_USE_NAMESPACE
 #define GSETTINGS_HIDE_MODULE "hide-module"
-#define GSETTINGS_HIDE_VERSIONTYPR "hide-version-type-module"
 
 const QByteArray ControlCenterGSettings = "com.deepin.dde.control-center";
 const QString GSettinsWindowWidth = "window-width";
@@ -367,12 +366,9 @@ void MainWindow::initAllModule(const QString &m)
     });
     updateModuleVisible();
 
-    //通过gsetting获取版本类型，设置某模块是否显示
-    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
-        m_versionType  = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
-        auto versionTypeList =  m_versionType->get(GSETTINGS_HIDE_VERSIONTYPR).toStringList();
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         for (auto i : m_modules) {
-            if (versionTypeList.contains((i.first->name()))) {
+            if (m_hideModuleName.contains((i.first->name()))) {
                 setModuleVisible(i.first, false);
             }
         }

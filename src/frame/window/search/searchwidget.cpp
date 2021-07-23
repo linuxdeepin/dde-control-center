@@ -98,6 +98,7 @@ SearchModel::SearchModel(QObject *parent)
     : QStandardItemModel(parent)
     , m_bIsChinese(false)
     , m_bIstextEdited(false)
+    , m_bIsContensServerType(false)
     , m_bIsOnBattery(false)
     , m_bIsUseTouchpad(false)
     , m_deepinwm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
@@ -106,9 +107,11 @@ SearchModel::SearchModel(QObject *parent)
     m_bIsServerType = IsServerSystem;
 
     //是否是contens服务器
-    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
-        m_searchModuleDevelop = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
-        m_bIsContensServerType =  m_searchModuleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC) {
+        m_bIsContensServerType = true;
+    } else {
+
+        m_bIsContensServerType = false;
     }
 
     //first存储和服务器/桌面版有关的文言
