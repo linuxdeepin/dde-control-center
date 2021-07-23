@@ -69,6 +69,7 @@ const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否�
 const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
+const QStringList m_hideModuleName{"update","commoninfo"};
 struct ListSubItem {
     ListSubItem();
     ListSubItem(QString icon, QString text, QMetaMethod signal, QObject *plugin = nullptr, QString gsettingsName = QString())
