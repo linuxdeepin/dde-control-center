@@ -42,6 +42,7 @@ ReminderDialog::ReminderDialog(QRect screenGeometry)
     addButtons(buttons);
 
     addButton(tr("Reboot"), true, ButtonRecommend);
+    setWindowFlags(windowFlags() | Qt::WindowStaysOnTopHint | Qt::Tool);
 }
 
 void ReminderDialog::showEvent(QShowEvent *event)
