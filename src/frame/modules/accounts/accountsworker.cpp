@@ -66,6 +66,7 @@ R"(#!/usr/bin/expect
 set oldpassword [lindex $argv 0]
 set userpass [lindex $argv 1]
 set repeatpass [lindex $argv 2]
+set timeout 1
 
 # spawn the passwd command process
 spawn passwd
