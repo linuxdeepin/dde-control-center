@@ -199,6 +199,9 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
         }
     }
 
+    if (tmpIndex == -1)
+        return;
+
     m_inputSoundCbx->blockSignals(true);
     m_waitCurrentPortRemove->disconnect();
     connect(m_waitCurrentPortRemove, &QTimer::timeout, this, [=](){
@@ -236,10 +239,11 @@ void MicrophonePage::changeComboxStatus()
         showWaitSoundPortStatus(true);
         m_fristStatusChangePort = false;
     } else {
+        m_waitStatusChangeTimer->disconnect();
         connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
             refreshActivePortShow(m_currentPort);
             showWaitSoundPortStatus(true);
-        }, Qt::UniqueConnection);
+        });
     }
     m_waitStatusChangeTimer->start(m_waitTimerValue);
 }
