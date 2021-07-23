@@ -116,11 +116,6 @@ void NativeInfoWidget::initWidget()
     logo->setDescription(systemCopyright());//LogoItem构造函数: set the discription visible=false
     logo->setLogo(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal));
 
-    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
-        m_moduleActive = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
-        isContensServers =  m_moduleActive->get(GSETTINGS_CONTENS_SERVER).toBool();
-    }
-
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
         m_productName = new TitleValueItem(frame);
@@ -284,7 +279,7 @@ void NativeInfoWidget::initWidget()
     m_authorized->setValue(tr("To be activated"));
     m_authorized->setValueForegroundRole(QColor(255, 0, 0));
     m_authorized->setButtonText(tr("Activate"));
-    if (isContensServers) {
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC) {
         m_authorized->setVisable(false);
     } else {
         m_authorized->setVisable(true);

@@ -31,8 +31,6 @@
 #include <QVBoxLayout>
 #include <QGSettings>
 
-#define GSETTINGS_HIDE_VERSIONTYPR_MODULE "hide-version-type-module"
-
 DCORE_USE_NAMESPACE
 
 using namespace dcc;
@@ -103,12 +101,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     onUpdatablePackagesChanged(m_model->getUpdatablePackages());
     connect(m_model, &UpdateModel::updatablePackagesChanged, this, &UpdateModule::onUpdatablePackagesChanged);
 
-    //通过gsetting获取版本类型，设置某模块是否显示
-    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
-        m_versionTypeModue = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
-        versionTypeList = m_versionTypeModue->get(GSETTINGS_HIDE_VERSIONTYPR_MODULE).toStringList();
-    }
-    if (versionTypeList.contains("update")) {
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler && m_hideModuleName.contains("update")) {
         m_frameProxy->setModuleVisible(this, false);
         setDeviceUnavailabel(true);
     } else {

@@ -96,14 +96,9 @@ void CommonInfoWidget::initData()
                        QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget), nullptr, "bootMenu"});
 #endif
 
-    if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
-        m_moduleDevelop = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
-        isContensServer = m_moduleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
-    }
-
     //以下模块只在非服务器版本使用
     if (!IsServerSystem && !IsCommunitySystem) {
-        if (!isContensServer) {
+        if (DSysInfo::uosEditionType() != DSysInfo::UosEuler || DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
             //~ contents_path /commoninfo/Developer Mode
             m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
                                QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget), nullptr, "developerMode"});
