@@ -170,6 +170,9 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
             tmpIndex = i;
         }
     }
+    // 由于移除端口没有做输入输出区分
+    if (tmpIndex == -1)
+        return;
 
     m_outputSoundCbx->blockSignals(true);
     m_waitCurrentPortRemove->disconnect();
@@ -179,7 +182,6 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
     });
     m_waitCurrentPortRemove->start(m_waitTimerValue);
     changeComboxStatus();
-    showDevice();
 }
 
 void SpeakerPage::changeComboxIndex(const int idx)
