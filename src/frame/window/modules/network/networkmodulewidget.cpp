@@ -352,24 +352,19 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
 
 void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devices)
 {
-    bool bRemoveCurrentDevice = false;
-    QModelIndex currentIndex = m_lvnmpages->currentIndex();
-    PageType currentType = currentIndex.data(SectionRole).value<PageType>();
+    const QModelIndex currentIndex = m_lvnmpages->currentIndex();
+    const PageType currentType = currentIndex.data(SectionRole).value<PageType>();
+    const NetworkDevice *currentDevice = currentIndex.data(DeviceRole).value<NetworkDevice *>();
+    const QString currentDevicePath = currentDevice != nullptr ? currentDevice->path() : "";
 
     while ((m_modelpages->item(0)->data(SectionRole).value<PageType>() == WiredPage)
             || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
         m_modelpages->removeRow(0);
-        if ((currentType == WiredPage) || (currentType == WirelessPage)) {
-            bRemoveCurrentDevice = true;
-        }
     }
 
     for (int i = 0; i < m_modelpages->rowCount(); ++i) {
         if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == HotspotPage) {
             m_modelpages->removeRow(i);
-            if (currentType == HotspotPage) {
-                bRemoveCurrentDevice = true;
-            }
             break;
         }
     }
@@ -378,6 +373,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
 
     int wiredDevice = 0;
     int wirelessDevice = 0;
+    bool haveCurrentDevice = false;
     for (auto const dev : devices) {
         switch (dev->type()) {
         case NetworkDevice::Wired:
@@ -389,7 +385,13 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         default:
             break;
         }
+
+        if (currentDevicePath == dev->path())
+            haveCurrentDevice = true;
     }
+
+    //如果当前item的设备路径不为空且在变更后的devices中没有找到该设备,则认为当前设备被移除了.
+    bool bRemoveCurrentDevice = !currentDevicePath.isEmpty() && !haveCurrentDevice;
 
     // add wired device list
     int count = 0;
@@ -415,6 +417,9 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
 
         devits.push_back(createDeviceGroup(dev, ++count, wirelessDevice > 1));
     }
+
+    bool detachCurrentDevice = false;
+    int newRowIndex = currentDevicePath.isEmpty() ? 0 : devits.size();
     for (auto it = devits.rbegin(); it != devits.rend(); ++it) {
         m_modelpages->insertRow(0, *it);
         if ((*it)->data(SectionRole).value<PageType>() == WiredPage) {
@@ -422,6 +427,15 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         }
         if ((*it)->data(SectionRole).value<PageType>() == WirelessPage) {
             m_lvnmpages->setRowHidden((*it)->row(), !m_settings->get("networkWireless").toBool());
+        }
+
+        if (!currentDevicePath.isEmpty()){
+            if (!detachCurrentDevice)
+                newRowIndex--;
+
+            NetworkDevice *device = (*it)->data(DeviceRole).value<NetworkDevice *>();
+            if (nullptr != device && device->path() == currentDevicePath)
+                detachCurrentDevice = true;
         }
     }
 
@@ -432,10 +446,17 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
         m_modelpages->insertRow(m_modelpages->rowCount() - 1, hotspotit);
         GSettingWatcher::instance()->bind("personalHotspot", m_lvnmpages, hotspotit);
+        if (currentType == HotspotPage)
+            newRowIndex = m_modelpages->rowCount() - 2;
     }
 
-    if (bRemoveCurrentDevice) {
+    // 跳转第一个item的情况:
+    // 1.当前item是网络设备且该设备被移除
+    // 2.当前item是热点且设备变更后无热点
+    if (bRemoveCurrentDevice || (currentType == HotspotPage && !have_ap)) {
         setCurrentIndex(0);
+    } else if (currentType == HotspotPage || currentType == WiredPage || currentType == WirelessPage){
+        setCurrentIndex(newRowIndex);
     }
 }
 
