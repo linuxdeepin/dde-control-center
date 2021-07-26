@@ -53,6 +53,7 @@ private:
 Q_SIGNALS:
     void requestUpdateSecondMenu(int);
     void requestUpdateSearchMenu(const QString &, bool);
+    void requestShowSecondMenu(int); //显示第二级页面
 
 private:
     QMultiHash<QString, QWidget *> m_map;

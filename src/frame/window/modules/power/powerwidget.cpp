@@ -96,6 +96,11 @@ void PowerWidget::initConnections()
 {
     connect(m_listView, &DListView::clicked, this, &PowerWidget::onItemClicked);
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestShowSecondMenu, this, [ = ](int row) {
+        if (row == m_batteryIndex && !this->m_bhasBattery) {
+            m_listView->setRowHidden(row, true);
+        }
+    });
     connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](int row) {
         bool isAllHidden = true;
         for (int i = 0; i < m_itemModel->rowCount(); i++) {

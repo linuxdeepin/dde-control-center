@@ -145,9 +145,10 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer,
 
     viewer->setRowHidden(item->row(), !visible);
 
-    if (!visible) {
+    if(visible)
+        Q_EMIT requestShowSecondMenu(item->row());
+    else
         Q_EMIT requestUpdateSecondMenu(item->row());
-    }
 }
 
 /**
