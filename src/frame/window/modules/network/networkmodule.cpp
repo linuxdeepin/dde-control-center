@@ -431,6 +431,7 @@ void NetworkModule::showHotspotPage()
     connect(p, &HotspotPage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
+    connect(p, &HotspotPage::back, this, &NetworkModule::popPage);
 
     m_frameProxy->pushWidget(this, p);
     p->setVisible(true);
