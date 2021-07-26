@@ -390,7 +390,7 @@ void DisplayModule::onCustomPageRequestSetResolution(Monitor *mon, CustomSetting
 
     if (showTimeoutDialog(mon ? mon : m_displayModel->primaryMonitor()) != QDialog::Accepted) {
         //中途拔掉显示器后就没必要往下走了
-        if (!m_displayModel->monitorList().contains(mon)) {
+        if (mon != nullptr && !m_displayModel->monitorList().contains(mon)) {
             return;
         }
         if ((mode.rate + 100) < 1e-5) {
