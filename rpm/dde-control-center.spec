@@ -60,8 +60,8 @@ sed -i -E '/add_compile_definitions/d' CMakeLists.txt
 
 %build
 %cmake . -DDCC_DISABLE_GRUB=YES \
-         -DDISABLE_SYS_UPDATE=YES \
-         -DCVERSION=`git describe --tags|awk -F- '{ print $1}'`
+         -DCVERSION=%{version}  \
+         -DDISABLE_SYS_UPDATE=YES
 %make_build
 
 %post
