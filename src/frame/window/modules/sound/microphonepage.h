@@ -104,6 +104,7 @@ private:
 
     dcc::sound::SoundLabel *m_volumeBtn;
     int m_waitTimerValue;
+    int m_lastRmPortIndex;
     bool m_mute;
     //启用端口但未设置为默认端口判断
     bool m_enablePort;
