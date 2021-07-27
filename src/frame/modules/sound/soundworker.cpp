@@ -219,10 +219,6 @@ void SoundWorker::setReduceNoise(bool value)
 
 void SoundWorker::setPort(const Port *port)
 {
-    if (m_lastPort == port) {
-        return;
-    }
-    m_lastPort = port;
     auto rep = m_audioInter->SetPort(port->cardId(), port->id(), int(port->direction()));
     qDebug() << "cardID:" << port->cardId()  << "portName:" << port->name() << "  " << port->id() << "  " << port->direction();
     qDebug() << rep.error() << "isError:" << rep.isError();

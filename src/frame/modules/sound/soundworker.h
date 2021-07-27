@@ -121,7 +121,6 @@ private:
     QTimer *m_pingTimer;
     QDBusConnectionInterface *m_inter;
     int m_waitSoundPortReceipt;
-    const Port *m_lastPort;
 };
 
 }
