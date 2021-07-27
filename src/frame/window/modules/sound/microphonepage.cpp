@@ -63,6 +63,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_volumeBtn(nullptr)
     , m_waitTimerValue(0)
+    , m_lastRmPortIndex(-1)
     , m_mute(false)
     , m_enablePort(false)
     , m_enable(true)
@@ -183,7 +184,10 @@ void MicrophonePage::setModel(SoundModel *model)
 
 void MicrophonePage::removePort(const QString &portId, const uint &cardId)
 {
-    int tmpIndex = -1;
+    if ((m_inputModel->rowCount() != m_model->ports().size()) && (m_lastRmPortIndex != -1)) {
+        m_inputModel->removeRow(m_lastRmPortIndex);
+    }
+
     for (int i = 0; i < m_inputModel->rowCount(); ++i) {
         auto item = m_inputModel->item(i);
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
@@ -195,18 +199,18 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
                 showDevice();
                 return;
             }
-            tmpIndex = i;
+            m_lastRmPortIndex = i;
         }
     }
 
-    if (tmpIndex == -1)
+    if (m_lastRmPortIndex == -1)
         return;
 
     m_inputSoundCbx->blockSignals(true);
     m_waitCurrentPortRemove->disconnect();
     connect(m_waitCurrentPortRemove, &QTimer::timeout, this, [=](){
         m_inputSoundCbx->blockSignals(false);
-        m_inputModel->removeRow(tmpIndex);
+        m_inputModel->removeRow(m_lastRmPortIndex);
     });
     m_waitCurrentPortRemove->start(m_waitTimerValue);
     changeComboxStatus();
@@ -250,7 +254,7 @@ void MicrophonePage::changeComboxStatus()
 
 void MicrophonePage::refreshActivePortShow(const dcc::sound::Port *port)
 {
-    if (port->isActive()) {
+    if (port && port->isActive()) {
         m_inputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
         m_currentBluetoothPortStatus = port->isBluetoothPort();
         showDevice();

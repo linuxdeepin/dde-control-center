@@ -57,7 +57,7 @@ public:
         In = 2
     };
 
-    explicit Port(QObject * parent) : QObject(parent), m_cardId(0), m_isActive(false), m_direction(Out), m_enabled(false), m_isBluetoothPort(false){}
+    explicit Port(QObject * parent) : QObject(parent),m_id(""), m_name(""), m_cardName(""), m_cardId(0), m_isActive(false), m_enabled(false), m_isBluetoothPort(false), m_direction(Out){}
     virtual ~Port() {}
 
     inline QString id() const { return m_id; }
@@ -98,12 +98,12 @@ Q_SIGNALS:
 private:
     QString m_id;
     QString m_name;
-    uint m_cardId;
     QString m_cardName;
+    uint m_cardId;
     bool m_isActive;
-    Direction m_direction;
     bool m_enabled;
     bool m_isBluetoothPort;
+    Direction m_direction;
 };
 
 class SoundLabel : public QLabel

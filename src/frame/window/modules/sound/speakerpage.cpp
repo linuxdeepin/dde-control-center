@@ -59,6 +59,7 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_balanceSlider(nullptr)
     , m_lastsetvalue(0)
     , m_waitTimerValue(0)
+    , m_lastRmPortIndex(-1)
     , m_balance(true)
     , m_volumeBtn(nullptr)
     , m_mute(false)
@@ -154,11 +155,14 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
 
 void SpeakerPage::removePort(const QString &portId, const uint &cardId)
 {
-    int tmpIndex = -1;
+    // TODO: 用户快速插拔耳机， 1S 内没有及时响应， 下次进入加先删除上次未删除的端口
+    if ((m_outputModel->rowCount() != m_model->ports().size()) && (m_lastRmPortIndex != -1)) {
+            m_outputModel->removeRow(m_lastRmPortIndex);
+    }
+
     for (int i = 0; i < m_outputModel->rowCount(); i++) {
         auto item = m_outputModel->item(i);
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
-
         if (port->id() == portId && cardId == port->cardId()) {
             m_outputSoundCbx->comboBox()->hidePopup();
             if (m_outputModel->rowCount() == 1) {
@@ -167,18 +171,18 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
                 return;
             }
 
-            tmpIndex = i;
+            m_lastRmPortIndex = i;
         }
     }
     // 由于移除端口没有做输入输出区分
-    if (tmpIndex == -1)
+    if (m_lastRmPortIndex == -1)
         return;
 
     m_outputSoundCbx->blockSignals(true);
     m_waitCurrentPortRemove->disconnect();
     connect(m_waitCurrentPortRemove, &QTimer::timeout, this, [=](){
         m_outputSoundCbx->blockSignals(false);
-        m_outputModel->removeRow(tmpIndex);
+        m_outputModel->removeRow(m_lastRmPortIndex);
     });
     m_waitCurrentPortRemove->start(m_waitTimerValue);
     changeComboxStatus();
@@ -230,7 +234,7 @@ void SpeakerPage::changeBluetoothMode(const int idx)
 
 void SpeakerPage::refreshActivePortShow(const dcc::sound::Port *port)
 {
-    if (port->isActive()) {
+    if (port && port->isActive()) {
         m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
         setBlueModeVisible(port->isBluetoothPort());
     }
@@ -464,7 +468,7 @@ void SpeakerPage::refreshIcon()
 
 void SpeakerPage::showWaitSoundPortStatus(bool showStatus)
 {
-    if (!m_currentPort->isBluetoothPort() || m_model->currentBluetoothAudioMode().isEmpty()) {
+    if ((m_currentPort && !m_currentPort->isBluetoothPort()) || m_model->currentBluetoothAudioMode().isEmpty()) {
         m_blueSoundCbx->setVisible(false);
     }
     m_outputSoundCbx->setEnabled(showStatus);
