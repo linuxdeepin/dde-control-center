@@ -57,7 +57,7 @@ TitleEdit::TitleEdit(QWidget *parent)
         editWidget->setVisible(true);
     });
     connect(m_lineEdit, &DLineEdit::textChanged, this, [=](const QString &str) {
-        if (str.length() > 32) {
+        if (str.length() > 64) {
             m_lineEdit->lineEdit()->backspace();
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
         }
