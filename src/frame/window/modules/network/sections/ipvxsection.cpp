@@ -22,8 +22,17 @@
 #include "ipvxsection.h"
 #include "widgets/contentwidget.h"
 
+#include <com_deepin_daemon_network.h>
+#include <org_freedesktop_notifications.h>
+
 #include <dspinbox.h>
 #include <QDBusMetaType>
+
+const unsigned int ipConflictCheckTime = 500;
+
+// check ip conflict
+using NetworkInter = com::deepin::daemon::Network;
+using Notifications = org::freedesktop::Notifications;
 
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
@@ -441,6 +450,22 @@ bool IpvxSection::ipv4InputIsValid()
             m_gateway->dTextEdit()->showAlertMessage(tr("Invalid gateway"), parentWidget(), 2000);
         } else {
             m_gateway->setIsErr(false);
+        }
+
+        bool isIPConflict = false;
+        NetworkInter inter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus());
+        inter.RequestIPConflictCheck(ip, "");
+        connect(&inter, &NetworkInter::IPConflict, this, [&isIPConflict]() {
+            Notifications notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus());
+            notifications.Notify("dde-control-center", static_cast<uint>(QDateTime::currentMSecsSinceEpoch()), "preferences-system", tr("Network"), tr("IP conflict"), QStringList(), QVariantMap(), 3000);
+            isIPConflict = true;
+        });
+
+        QElapsedTimer et;
+        et.start();
+        while (!isIPConflict && et.elapsed() < ipConflictCheckTime) {
+            QThread::msleep(50);
+            QCoreApplication::sendPostedEvents(&inter);
         }
     }
 
