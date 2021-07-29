@@ -165,6 +165,9 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
         if (port->id() == portId && cardId == port->cardId()) {
             m_outputSoundCbx->comboBox()->hidePopup();
+            if (m_currentPort->id() == portId && m_currentPort->cardId() == cardId)
+                m_currentPort = nullptr;
+
             if (m_outputModel->rowCount() == 1) {
                 m_outputModel->removeRow(i);
                 showDevice();
@@ -257,10 +260,11 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
         });
 
         connect(port, &dcc::sound::Port::isOutputActiveChanged, this, [ = ](bool isActive) {
-            pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
-            if (isActive) {
-                m_currentPort = port;
-                changeComboxStatus();
+            m_currentPort = port;
+            if (pi) {
+                pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+                if (isActive)
+                    changeComboxStatus();
             }
         });
         m_outputSoundCbx->comboBox()->hidePopup();
