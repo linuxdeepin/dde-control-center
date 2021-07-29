@@ -193,6 +193,9 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
         if (port->id() == portId && cardId == port->cardId()) {
             m_inputSoundCbx->comboBox()->hidePopup();
+            if (m_currentPort->id() == portId && m_currentPort->cardId() == cardId)
+                m_currentPort = nullptr;
+
             // 当只有一个端口 拔出端口后直接移除，不进行延迟置灰操作
             if (m_inputModel->rowCount() == 1) {
                 m_inputModel->removeRow(i);
@@ -277,10 +280,12 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
             pi->setText(str);
         });
         connect(port, &dcc::sound::Port::isInputActiveChanged, this, [ = ](bool isActive) {
-            pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
-            if (isActive) {
-                m_currentPort = port;
-                changeComboxStatus();
+            // 若关闭设备 此时pi为空
+            m_currentPort = port;
+            if (pi) {
+                pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+                if (isActive)
+                    changeComboxStatus();
             }
         });
         m_inputSoundCbx->comboBox()->hidePopup();
