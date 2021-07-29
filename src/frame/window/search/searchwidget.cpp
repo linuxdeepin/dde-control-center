@@ -234,6 +234,9 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->popup()->setItemDelegate(&styledItemDelegate);
     m_completer->popup()->setAttribute(Qt::WA_InputMethodEnabled);
 
+    if (DGuiApplicationHelper::isTabletEnvironment())
+        m_completer->popup()->setAttribute(Qt::WA_X11NetWmWindowTypePopupMenu);
+
     m_completer->setFilterMode(Qt::MatchContains);//设置QCompleter支持匹配字符搜索
     m_completer->setCaseSensitivity(Qt::CaseInsensitive);//这个属性可设置进行匹配时的大小写敏感性
     m_completer->setCompletionRole(Qt::UserRole); //设置ItemDataRole
