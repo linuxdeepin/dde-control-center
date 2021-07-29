@@ -116,37 +116,46 @@ void ResolutionDetailPage::initResoList()
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
-    DStandardItem *curIdx{nullptr};
-    const auto &modes = moni->modeList();
-    Resolution prevM;
-    for (auto m : modes) {
-        if (Monitor::isSameResolution(m, prevM)) {
-            continue;
+    auto updateResolutionfunc = [ = ](QList<Resolution> modes) {
+        DStandardItem *curIdx{nullptr};
+        Resolution prevM;
+        for (auto m : modes) {
+            if (Monitor::isSameResolution(m, prevM)) {
+                continue;
+            }
+            prevM = m;
+            const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
+
+            DStandardItem *item = new DStandardItem();
+            item->setData(QVariant(m.id()), IdRole);
+            item->setData(QVariant(m.width()), WidthRole);
+            item->setData(QVariant(m.height()), HeightRole);
+            item->setData(VListViewItemMargin, Dtk::MarginsRole);
+            if (Monitor::isSameResolution(m, moni->bestMode())) {
+                //~ contents_path /display/Resolution
+                item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
+                itemModel->insertRow(0, item);
+            } else {
+                item->setText(res);
+                itemModel->appendRow(item);
+            }
+
+            if (Monitor::isSameResolution(m, moni->currentMode()))
+                curIdx = item;
         }
-        prevM = m;
-        const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
 
-        DStandardItem *item = new DStandardItem();
-        item->setData(QVariant(m.id()), IdRole);
-        item->setData(QVariant(m.width()), WidthRole);
-        item->setData(QVariant(m.height()), HeightRole);
-        item->setData(VListViewItemMargin, Dtk::MarginsRole);
-        if (Monitor::isSameResolution(m, moni->bestMode())) {
-            //~ contents_path /display/Resolution
-            item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
-            itemModel->insertRow(0, item);
-        } else {
-            item->setText(res);
-            itemModel->appendRow(item);
+        if (nullptr != curIdx) {
+            itemModel->setData(curIdx->index(), Qt::CheckState::Checked, Qt::CheckStateRole);
         }
+    };
 
-        if (Monitor::isSameResolution(m, moni->currentMode()))
-            curIdx = item;
-    }
-
-    if (nullptr != curIdx) {
-        itemModel->setData(curIdx->index(), Qt::CheckState::Checked, Qt::CheckStateRole);
-    }
+    updateResolutionfunc(moni->modeList());
+    connect(moni, &Monitor::bestmodeChanged, this, [ = ]() {
+        if (!itemModel)
+            return ;
+        itemModel->clear();
+        updateResolutionfunc(moni->modeList());
+    });
 
     connect(rlist, &DListView::clicked, this, [ = ](const QModelIndex & idx) {
         if (itemModel->data(idx, Qt::CheckStateRole) == Qt::CheckState::Checked)
