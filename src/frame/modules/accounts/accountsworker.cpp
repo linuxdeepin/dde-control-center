@@ -379,17 +379,16 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     // process.exitCode() = 0 表示密码修改成功
     int exitCode = process.exitCode();
 
-    // 平板环境修改密码时清空密钥环
-    if (exitCode == 0 && DGuiApplicationHelper::isTabletEnvironment()) {
+    QString outputTxt = process.readAllStandardOutput();
+
+    // 平板环境修改密码时清空密钥环,使用脚本进行校验时，返回值为0并不代表修改密码成功
+    if (exitCode == 0 && DGuiApplicationHelper::isTabletEnvironment() && outputTxt.contains("password updated successfully", Qt::CaseInsensitive)) {
         QTimer::singleShot(500, this, [=] {
             changeKeyringPasswd(passwd, "");
         });
     }
 
     if (needResult) {
-        // process.exitCode() = 0 表示密码修改成功
-        int exitCode = process.exitCode();
-        QString outputTxt = process.readAllStandardOutput();
         Q_EMIT user->passwordModifyFinished(exitCode, outputTxt);
     }
 }
