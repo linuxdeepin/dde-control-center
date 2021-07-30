@@ -197,6 +197,7 @@ void AccountsWidget::addUser(User *user, bool t1)
         if (onlineFlag->widget()) {
             onlineFlag->widget()->setVisible(onlineFlag->isVisible());
         }
+        m_userlistView->update();
     });
 
     m_userItemModel->appendRow(item);
