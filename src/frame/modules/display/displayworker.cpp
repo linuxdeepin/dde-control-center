@@ -354,6 +354,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::ModesChanged, mon, &Monitor::setModeList);
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
     connect(inter, &MonitorInter::EnabledChanged, mon, &Monitor::setMonitorEnable);
+    connect(inter, &MonitorInter::CurrentRotateModeChanged, mon, &Monitor::setCurrentRotateMode);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), mon, &Monitor::setPrimary);
     connect(this, &DisplayWorker::requestUpdateModeList, this, [=] {
         mon->setModeList(inter->modes());
@@ -367,6 +368,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     QDBusReply<bool> reply = m_displayDBusInter->call("CanSetBrightness", inter->name());
     mon->setCanBrightness(reply.value());
     mon->setMonitorEnable(inter->enabled());
+    mon->setCurrentRotateMode(inter->currentRotateMode());
     mon->setPath(path);
     mon->setX(inter->x());
     mon->setY(inter->y());

@@ -44,6 +44,7 @@ Monitor::Monitor(QObject *parent)
     , m_brightness(1.0)
     , m_enable(false)
     , m_canBrightness(true)
+    , m_screenSensingMode(RotateMode::Normal)
 {
 }
 
@@ -233,6 +234,17 @@ void Monitor::setBestMode(const Resolution &mode)
     m_bestMode = mode;
 
     Q_EMIT bestModeChanged();
+}
+
+void Monitor::setCurrentRotateMode(const unsigned char mode)
+{
+    RotateMode screenDate = static_cast<RotateMode>(mode);
+    if (screenDate == RotateMode::Gravity)
+        Q_EMIT currentRotateModeChanged();
+
+    if (m_screenSensingMode != screenDate) {
+        m_screenSensingMode = screenDate;
+    }
 }
 
 bool Monitor::isSameResolution(const Resolution &r1, const Resolution &r2)

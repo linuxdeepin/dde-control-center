@@ -317,8 +317,11 @@ void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)
         if (showTimeoutDialog(monitor) == QDialog::Accepted) {
             m_displayWorker->saveChanges();
         } else {
-            m_displayWorker->setMonitorRotate(monitor, lastRotate);
-            m_displayWorker->applyChanges();
+            // 若是重力感应 调整后不对数据进行保存
+            if (monitor->currentRotateMode() != dcc::display::Monitor::RotateMode::Gravity) {
+                m_displayWorker->setMonitorRotate(monitor, lastRotate);
+                m_displayWorker->applyChanges();
+            }
         }
     });
 }
@@ -338,6 +341,8 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor)
     qreal radio = qApp->devicePixelRatio();
     QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
     QTimer::singleShot(1, this, [=] { timeoutDialog->moveToCenterByRect(rt.toRect()); });
+    // 若用户切换重力旋转 直接退出对话框
+    connect(monitor, &Monitor::currentRotateModeChanged, timeoutDialog, &TimeoutDialog::close);
     connect(monitor, &Monitor::geometryChanged, timeoutDialog, [=] {
         if (timeoutDialog) {
             QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
