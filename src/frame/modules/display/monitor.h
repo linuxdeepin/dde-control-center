@@ -41,9 +41,15 @@ class TouchscreenWorker;
 class Monitor : public QObject
 {
     Q_OBJECT
-
     friend class DisplayWorker;
     friend class TouchscreenWorker;
+
+public:
+    enum RotateMode {
+        Normal,
+        Gravity,
+        Rotate
+    };
 
 public:
     explicit Monitor(QObject *parent = 0);
@@ -81,6 +87,7 @@ public:
     inline const QList<Resolution> modeList() const { return m_modeList; }
     inline bool enable() const { return m_enable; }
     inline const Resolution bestMode() const { return m_bestMode; }
+    inline const RotateMode currentRotateMode() const { return m_screenSensingMode; }
 
 Q_SIGNALS:
     void geometryChanged() const;
@@ -94,6 +101,8 @@ Q_SIGNALS:
     void currentModeChanged(const Resolution &resolution) const;
     void modelListChanged(const QList<Resolution> &resolution) const;
     void enableChanged(bool enable) const;
+    // TODO: 重力旋转
+    void currentRotateModeChanged() const;
 
 public:
     static bool isSameResolution(const Resolution &r1, const Resolution &r2);
@@ -123,6 +132,7 @@ private Q_SLOTS:
     void setModeList(const ResolutionList &modeList);
     void setMonitorEnable(bool enable);
     void setBestMode(const Resolution &mode);
+    void setCurrentRotateMode(const unsigned char mode);
 
 private:
     int m_x;
@@ -145,6 +155,7 @@ private:
     bool m_enable;
     bool m_canBrightness;
     Resolution m_bestMode;
+    RotateMode m_screenSensingMode;
 };
 
 } // namespace display
