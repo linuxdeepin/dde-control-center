@@ -69,7 +69,6 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_enable(true)
     , m_fristChangePort(true)
     , m_currentBluetoothPortStatus(true)
-    , m_fristStatusChangePort(true)
     , m_waitStatusChangeTimer(new QTimer (this))
     , m_waitCurrentPortRemove( new QTimer (this))
 {
@@ -241,17 +240,11 @@ void MicrophonePage::changeComboxIndex(const int idx)
 void MicrophonePage::changeComboxStatus()
 {
     showWaitSoundPortStatus(false);
-    if (m_fristStatusChangePort) {
+    m_waitStatusChangeTimer->disconnect();
+    connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
         refreshActivePortShow(m_currentPort);
         showWaitSoundPortStatus(true);
-        m_fristStatusChangePort = false;
-    } else {
-        m_waitStatusChangeTimer->disconnect();
-        connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
-            refreshActivePortShow(m_currentPort);
-            showWaitSoundPortStatus(true);
-        });
-    }
+    });
     m_waitStatusChangeTimer->start(m_waitTimerValue);
 }
 
