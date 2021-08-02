@@ -164,6 +164,7 @@ void DisplayWorker::mergeScreens()
     qDebug() << Q_FUNC_INFO;
 
     m_model->setIsMerge(true);
+    QGuiApplication::processEvents();
     //保存拆分时候的坐标
     m_model->monitorList()[0]->setLastPoint(m_model->monitorList()[0]->x(), m_model->monitorList()[0]->y());
     m_model->monitorList()[1]->setLastPoint(m_model->monitorList()[1]->x(), m_model->monitorList()[1]->y());
