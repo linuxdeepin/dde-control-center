@@ -68,7 +68,11 @@ const bool IsServerSystem = (DSysInfo::UosServer == UosType);//是否是服务�
 const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否是社区版
 const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
 const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
-const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
+#if DTK_VERSION >= DTK_VERSION_CHECK(5, 4, 7, 0) // dtk从5.4.7版本开始增加教育版标识
+    const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
+#else
+    const bool IsEducationSystem = false; // dtk版本低于5.4.7默认不是教育版
+#endif
 const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
 const QStringList m_hideModuleName{"update","commoninfo"};
 

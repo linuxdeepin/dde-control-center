@@ -20,6 +20,7 @@
  */
 #include "protocolfile.h"
 #include "../include/widgets/utils.h"
+#include "utils.h"
 
 #include <DSysInfo>
 
@@ -118,7 +119,7 @@ QString ProtocolFile::getEnduserAgreement()
     } else if (DSysInfo::isCommunityEdition()) {
         const QString body = getLicenseText("/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/End-User-License-Agreement-CN-%1.txt", "");
         return body;
-    } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosEducation) {
+    } else if (DCC_NAMESPACE::IsEducationSystem) {
         const QString bodypath = getLicensePath(educationEnduserAgreement, "");
         if (QFile::exists(bodypath)) {
             const QString educationbody = getLicenseText(educationEnduserAgreement, "");
