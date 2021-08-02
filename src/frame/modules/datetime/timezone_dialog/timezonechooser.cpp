@@ -183,7 +183,7 @@ TimeZoneChooser::TimeZoneChooser()
         m_popup = m_completer->popup();
 
         if (DGuiApplicationHelper::isTabletEnvironment())
-            m_popup->setAttribute(Qt::WA_X11NetWmWindowTypePopupMenu);
+            m_popup->setAttribute(Qt::WA_X11NetWmWindowTypeCombo);
 
         m_popup->setObjectName("TimezoneCompleter");
         m_popup->setAttribute(Qt::WA_TranslucentBackground);
