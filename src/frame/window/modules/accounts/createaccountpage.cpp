@@ -426,12 +426,13 @@ bool CreateAccountPage::checkName()
         return false;
     }
 
-    if (!m_accountWorker->isUsernameValid(userName).argumentAt(0).toBool() && NAME_ALREADY == m_accountWorker->isUsernameValid(userName).argumentAt(2).toInt()) {
+    QDBusPendingReply<bool, QString, int> result = m_accountWorker->isUsernameValid(userName);
+    result.waitForFinished();
+    if (!result.argumentAt(0).toBool()) {
         m_nameEdit->setAlert(true);
-        m_nameEdit->showAlertMessage(tr("The name already exists"), m_nameEdit, 2000);
+        m_nameEdit->showAlertMessage(result.argumentAt(1).toString(), m_nameEdit, 2000);
         return false;
     }
-
 
     /* 暂时先屏蔽用户名与用户全名的重复性检查 */
     // QList<User *> userList = m_userModel->userList();
