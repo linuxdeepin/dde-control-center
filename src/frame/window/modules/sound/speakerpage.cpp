@@ -142,7 +142,7 @@ void SpeakerPage::setModel(dcc::sound::SoundModel *model)
     connect(m_model, &SoundModel::bluetoothModeChanged, this, [ = ](const QString &mode) {
         m_blueSoundCbx->setCurrentText(mode);
         m_balance = !mode.contains("headset");
-        showDevice();
+        changeComboxStatus();
     });
     connect(m_model, &SoundModel::speakerOnChanged, this, [ = ](bool flag) {
         m_mute = flag;
@@ -216,10 +216,11 @@ void SpeakerPage::changeComboxStatus()
         showWaitSoundPortStatus(true);
         m_fristStatusChangePort = false;
     } else {
+        m_waitStatusChangeTimer->disconnect();
         connect(m_waitStatusChangeTimer, &QTimer::timeout, this, [=](){
             refreshActivePortShow(m_currentPort);
             showWaitSoundPortStatus(true);
-        }, Qt::UniqueConnection);
+        });
     }
     m_waitStatusChangeTimer->start(m_waitTimerValue);
     showDevice();
