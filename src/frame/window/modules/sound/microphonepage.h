@@ -112,7 +112,6 @@ private:
     // 确保第一次点击没有延时
     bool m_fristChangePort;
     bool m_currentBluetoothPortStatus;
-    bool m_fristStatusChangePort;
     QTimer *m_waitStatusChangeTimer;
     QTimer *m_waitCurrentPortRemove;
 };
