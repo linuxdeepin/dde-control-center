@@ -158,6 +158,7 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
     // TODO: 用户快速插拔耳机， 1S 内没有及时响应， 下次进入加先删除上次未删除的端口
     if ((m_outputModel->rowCount() != m_model->ports().size()) && (m_lastRmPortIndex != -1)) {
             m_outputModel->removeRow(m_lastRmPortIndex);
+            m_lastRmPortIndex = -1;
     }
 
     for (int i = 0; i < m_outputModel->rowCount(); i++) {
@@ -186,6 +187,7 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
     connect(m_waitCurrentPortRemove, &QTimer::timeout, this, [=](){
         m_outputSoundCbx->blockSignals(false);
         m_outputModel->removeRow(m_lastRmPortIndex);
+        m_lastRmPortIndex = -1;
     });
     m_waitCurrentPortRemove->start(m_waitTimerValue);
     changeComboxStatus();
