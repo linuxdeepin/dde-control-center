@@ -50,24 +50,32 @@ public:
     void setModel(const dcc::power::PowerModel *model);
     DTK_WIDGET_NAMESPACE::DListView *getListViewPointer();
     bool getIsUseBattety();
-    void setDefaultWidget();
+    void showDefaultWidget();
 
 Q_SIGNALS:
     void requestPushWidget(int index);
     void requestShowGeneral() const;
     void requestShowUseElectric() const;
     void requestShowUseBattery() const;
+    void requestUpdateSecondMenu(bool);
 
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
     void removeBattery(bool state);
 
 private:
-    dcc::widgets::MultiSelectListView *m_listview;
+    void initUi();
+    void initMembers();
+    void initConnections();
+
+private:
+    dcc::widgets::MultiSelectListView *m_listView;
+    QStandardItemModel *m_itemModel;
     const dcc::power::PowerModel *m_model;
     bool m_bhasBattery;
     QList<ListSubItem> m_menuIconText;
     QModelIndex m_lastIndex;
+    int m_batteryIndex;
 };
 
 }// namespace datetime

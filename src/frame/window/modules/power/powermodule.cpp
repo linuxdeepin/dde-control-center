@@ -24,10 +24,12 @@
 #include "modules/power/powerworker.h"
 #include "powerwidget.h"
 #include "window/utils.h"
+#include "window/mainwindow.h"
 
 #include "generalwidget.h"
 #include "useelectricwidget.h"
 #include "usebatterywidget.h"
+#include "window/gsettingwatcher.h"
 
 #include <DNotifySender>
 
@@ -37,6 +39,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::power;
 #define GSETTING_SHOW_SUSPEND "show-suspend"
 #define GSETTING_SHOW_HIBERNATE "show-hibernate"
+#define GSETTING_SHOW_BATTERY "on-battery"
 
 PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *parent)
     : QObject(parent)
@@ -46,7 +49,10 @@ PowerModule::PowerModule(dccV20::FrameProxyInterface *frameProxy, QObject *paren
     , m_timer(new QTimer(this))
     , m_widget(nullptr)
 {
-
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
+    GSettingWatcher::instance()->insertState("general");
+    GSettingWatcher::instance()->insertState("pluggedIn");
+    GSettingWatcher::instance()->insertState("onBattery");
 }
 
 void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
@@ -85,9 +91,8 @@ void PowerModule::active()
     m_widget = new PowerWidget;
     m_widget->setVisible(false);
 
-    m_widget->initialize(m_model->haveBettary());
-
     m_powerSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    m_widget->initialize(m_model->haveBettary() && m_powerSetting->get(GSETTING_SHOW_BATTERY).toBool());
     m_isSuspend = m_powerSetting->get(GSETTING_SHOW_SUSPEND).toBool();
     m_model->setSuspend(m_isSuspend && m_model->canSleep());
 
@@ -98,16 +103,23 @@ void PowerModule::active()
     });
 
     connect(m_model, &PowerModel::hibernateChanged, this, &PowerModule::showUseElectric);
-
-    connect(m_model, &PowerModel::haveBettaryChanged, m_widget, &PowerWidget::removeBattery);
+    connect(m_model, &PowerModel::haveBettaryChanged, this, [ = ] (bool state) {
+        m_widget->removeBattery(state && m_powerSetting->get(GSETTING_SHOW_BATTERY).toBool());
+    });
     connect(m_model, &PowerModel::batteryPercentageChanged, this, &PowerModule::onBatteryPercentageChanged);
     connect(m_widget, &PowerWidget::requestShowGeneral, this, &PowerModule::showGeneral);
     connect(m_widget, &PowerWidget::requestShowUseBattery, this, &PowerModule::showUseBattery);
     connect(m_widget, &PowerWidget::requestShowUseElectric, this, &PowerModule::showUseElectric);
+    connect(m_widget, &PowerWidget::requestUpdateSecondMenu, this, [=](bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop) {
+            m_frameProxy->popWidget(this);
+        }
+        m_widget->showDefaultWidget();
+    });
 
     m_frameProxy->pushWidget(this, m_widget);
     m_widget->setVisible(true);
-    m_widget->setDefaultWidget();
+    m_widget->showDefaultWidget();
 }
 
 int PowerModule::load(const QString &path)

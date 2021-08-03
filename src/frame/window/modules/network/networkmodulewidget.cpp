@@ -25,6 +25,7 @@
 
 #include "networkmodulewidget.h"
 #include "window/utils.h"
+#include "window/gsettingwatcher.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
@@ -41,6 +42,7 @@
 #include <QProcess>
 #include <QDBusInterface>
 #include <QDBusMessage>
+#include <QGSettings>
 
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
@@ -50,6 +52,8 @@ NetworkModuleWidget::NetworkModuleWidget()
     : QWidget()
     , m_lvnmpages(new dcc::widgets::MultiSelectListView(this))
     , m_modelpages(new QStandardItemModel(this))
+    , m_nmConnectionEditorProcess(nullptr)
+    , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
     setObjectName("Network");
     m_lvnmpages->setAccessibleName("List_networkmenulist");
@@ -72,6 +76,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     pppit->setData(QVariant::fromValue(DSLPage), SectionRole);
     pppit->setIcon(QIcon::fromTheme("dcc_dsl"));
     m_modelpages->appendRow(pppit);
+    GSettingWatcher::instance()->bind("networkDsl", m_lvnmpages, pppit);
 #endif
 
 #ifndef DISABLE_NETWORK_VPN
@@ -80,6 +85,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     vpnit->setData(QVariant::fromValue(VPNPage), SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
     m_modelpages->appendRow(vpnit);
+    GSettingWatcher::instance()->bind("networkVpn", m_lvnmpages, vpnit);
 #endif
 
 #ifndef DISABLE_NETWORK_PROXY
@@ -88,12 +94,14 @@ NetworkModuleWidget::NetworkModuleWidget()
     prxyit->setData(QVariant::fromValue(SysProxyPage), SectionRole);
     prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
     m_modelpages->appendRow(prxyit);
+    GSettingWatcher::instance()->bind("systemProxy", m_lvnmpages, prxyit);
 
     //~ contents_path /network/Application Proxy
     DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
     aprxit->setData(QVariant::fromValue(AppProxyPage), SectionRole);
     aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
     m_modelpages->appendRow(aprxit);
+    GSettingWatcher::instance()->bind("applicationProxy", m_lvnmpages, aprxit);
 #endif
 #endif
 
@@ -102,6 +110,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     infoit->setData(QVariant::fromValue(NetworkInfoPage), SectionRole);
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
     m_modelpages->appendRow(infoit);
+    GSettingWatcher::instance()->bind("networkDetails", m_lvnmpages, infoit);
     m_centralLayout->addWidget(m_lvnmpages);
     if (IsServerSystem) {
         handleNMEditor();
@@ -111,6 +120,44 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
     connect(m_lvnmpages, &DListView::clicked, m_lvnmpages, &DListView::activated);
+    connect(m_lvnmpages, &DListView::activated, this, [this](const QModelIndex &idx) {
+        static int devCount = 0;
+        //1.若之前选择的index消失了(网络下电)，也不去更新m_clickPageName，以便网络恢复时能再次进入之前的page(如果不这么处理，就会导致网络恢复进入DSL页面)
+        //2.但是这样会引入一个问题，如果在index消失后(网络下电)，再点击选择其他的page，网络恢复了还是会进入之前的page   (以上1,2目前只能满足一个)
+        if (devCount != m_modelpages->rowCount()) {
+            devCount = m_modelpages->rowCount();
+            return;
+        }
+        qDebug() << Q_FUNC_INFO << "activated index : " << idx.data();
+        if (m_clickPageName != idx.data().toString()) {
+            m_clickPageName = idx.data().toString();
+        }
+    });
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, &NetworkModuleWidget::updateSecondMenu);
+    connect(m_settings, &QGSettings::changed, this, [ = ](const QString &key) {
+        if (key == "networkWired" || key == "networkWireless") {
+            for (int i = 0; i < m_modelpages->rowCount(); i++) {
+                if (m_modelpages->index(i, 0).data(SectionRole).value<PageType>() == WiredPage) {
+                    bool status = m_settings->get("networkWired").toBool();
+                    m_lvnmpages->setRowHidden(i, !status);
+                    if (!status) updateSecondMenu(i);
+                } else if (m_modelpages->index(i, 0).data(SectionRole).value<PageType>() == WirelessPage) {
+                    bool status = m_settings->get("networkWireless").toBool();
+                    m_lvnmpages->setRowHidden(i, !status);
+                    if (!status) updateSecondMenu(i);
+                }
+            }
+        }
+    });
+}
+
+NetworkModuleWidget::~NetworkModuleWidget()
+{
+    if (m_nmConnectionEditorProcess) {
+        m_nmConnectionEditorProcess->close();
+        m_nmConnectionEditorProcess->deleteLater();
+        m_nmConnectionEditorProcess = nullptr;
+    }
 }
 
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
@@ -184,17 +231,41 @@ bool NetworkModuleWidget::handleNMEditor()
     nmConnEditBtn->hide();
     process->start("which nm-connection-editor");
 
-    connect(process, static_cast<void (QProcess:: *)(int)>(&QProcess::finished), this, [=]{
+    connect(process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [ = ] {
         m_strNetworkManageOutput = process->readAll();
         if (!m_strNetworkManageOutput.isEmpty()) {
             nmConnEditBtn->show();
-            connect(nmConnEditBtn, &QPushButton::clicked, this, [] {
-                QProcess::startDetached("nm-connection-editor");
+            connect(nmConnEditBtn, &QPushButton::clicked, this, [ = ] {
+                if (!m_nmConnectionEditorProcess) {
+                    m_nmConnectionEditorProcess = new QProcess(this);
+                }
+                m_nmConnectionEditorProcess->start("nm-connection-editor");
             });
         }
         process->deleteLater();
     });
     return true;
+}
+
+void NetworkModuleWidget::updateSecondMenu(int row)
+{
+    bool isAllHidden = true;
+    for (int i = 0; i < m_modelpages->rowCount(); i++) {
+        if (!m_lvnmpages->isRowHidden(i))
+            isAllHidden = false;
+    }
+
+    if (m_lvnmpages->selectionModel()->selectedRows().size() > 0) {
+        int index = m_lvnmpages->selectionModel()->selectedRows()[0].row();
+        Q_EMIT requestUpdateSecondMenu(index == row);
+    } else {
+        Q_EMIT requestUpdateSecondMenu(false);
+    }
+
+    if (isAllHidden) {
+        m_lastIndex = QModelIndex();
+        m_lvnmpages->clearSelection();
+    }
 }
 
 void NetworkModuleWidget::setModel(NetworkModel *model)
@@ -220,6 +291,16 @@ void NetworkModuleWidget::initSetting(const int settingIndex, const QString &sea
     m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
 }
 
+void NetworkModuleWidget::showDefaultWidget()
+{
+    for (int i = 0; i < m_modelpages->rowCount(); i++) {
+        if (!m_lvnmpages->isRowHidden(i)) {
+            m_lvnmpages->activated(m_modelpages->index(i, 0));
+            break;
+        }
+    }
+}
+
 void NetworkModuleWidget::setCurrentIndex(const int settingIndex)
 {
     // 设置网络列表当前索引
@@ -240,7 +321,7 @@ void NetworkModuleWidget::setIndexFromPath(const QString &path)
 void NetworkModuleWidget::initProxyStatus()
 {
     QDBusInterface interface("com.deepin.daemon.Network", "/com/deepin/daemon/Network"
-                             , "com.deepin.daemon.Network", QDBusConnection::sessionBus(), this);
+                                 , "com.deepin.daemon.Network", QDBusConnection::sessionBus(), this);
     QDBusMessage msg = interface.call("GetProxyMethod");
     QString method = msg.arguments().first().toString();
     //初始化系统代理状态
@@ -286,7 +367,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     PageType currentType = currentIndex.data(SectionRole).value<PageType>();
 
     while ((m_modelpages->item(0)->data(SectionRole).value<PageType>() == WiredPage)
-           || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
+            || (m_modelpages->item(0)->data(SectionRole).value<PageType>() == WirelessPage)) {
         m_modelpages->removeRow(0);
         if ((currentType == WiredPage) || (currentType == WirelessPage)) {
             bRemoveCurrentDevice = true;
@@ -346,6 +427,12 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     }
     for (auto it = devits.rbegin(); it != devits.rend(); ++it) {
         m_modelpages->insertRow(0, *it);
+        if ((*it)->data(SectionRole).value<PageType>() == WiredPage) {
+            m_lvnmpages->setRowHidden((*it)->row(), !m_settings->get("networkWired").toBool());
+        }
+        if ((*it)->data(SectionRole).value<PageType>() == WirelessPage) {
+            m_lvnmpages->setRowHidden((*it)->row(), !m_settings->get("networkWireless").toBool());
+        }
     }
 
     if (have_ap) {
@@ -354,6 +441,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         hotspotit->setData(QVariant::fromValue(HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
         m_modelpages->insertRow(m_modelpages->rowCount() - 1, hotspotit);
+        GSettingWatcher::instance()->bind("personalHotspot", m_lvnmpages, hotspotit);
     }
 
     if (bRemoveCurrentDevice) {
@@ -426,7 +514,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
                 m_lvnmpages->update();
             }
         }
-        connect(wirelssDev, &WirelessDevice::hotspotEnabledChanged, this, [this, dummystatus] (const bool enabled) {
+        connect(wirelssDev, &WirelessDevice::hotspotEnabledChanged, this, [this, dummystatus](const bool enabled) {
             if (enabled && !dummystatus.isNull()) {
                 dummystatus->setText(tr("Disconnected"));
                 m_lvnmpages->update();

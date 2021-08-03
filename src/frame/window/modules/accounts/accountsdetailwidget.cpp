@@ -46,6 +46,7 @@
 #include <QScrollArea>
 #include <QScroller>
 #include <QValidator>
+#include <QGSettings>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -60,6 +61,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     , m_avatarLayout(new QHBoxLayout)
     , m_tipDialog(nullptr)
     , m_deleteAccount(new DWarningButton)
+    , m_modifyPassword(new QPushButton)
+    , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
     m_isServerSystem = IsServerSystem;
     //整体布局
@@ -323,11 +326,9 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
 
 void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 {
-    QPushButton *modifyPassword = new QPushButton;
-
     QHBoxLayout *modifydelLayout = new QHBoxLayout;
     modifydelLayout->setContentsMargins(10, 0, 10, 0);
-    modifydelLayout->addWidget(modifyPassword);
+    modifydelLayout->addWidget(m_modifyPassword);
     modifydelLayout->addSpacing(10);
     modifydelLayout->addWidget(m_deleteAccount);
     layout->addSpacing(40);
@@ -400,12 +401,11 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
-    modifyPassword->setEnabled(isCurUser);
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
     //~ contents_path /accounts/Accounts Detail
-    modifyPassword->setText(tr("Change Password"));
+    m_modifyPassword->setText(tr("Change Password"));
     //~ contents_path /accounts/Accounts Detail
     m_deleteAccount->setText(tr("Delete Account"));
     //~ contents_path /accounts/Accounts Detail
@@ -415,14 +415,16 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
-    //当前用户禁止使用删除按钮
-    m_deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
-    connect(m_curUser, &User::onlineChanged, m_deleteAccount, [ = ](const bool online) {
-        m_deleteAccount->setEnabled(!online && !m_curUser->isCurrentUser());
+    connect(m_curUser, &User::onlineChanged, m_deleteAccount, [this]{
+        this->setDeleteBtnStatus("accountUserDeleteaccount");
     });
 
+    //修改密码状态判断
+    connect(m_gsettings, &QGSettings::changed, this, &AccountsDetailWidget::setModifyPwdBtnStatus);
+    setModifyPwdBtnStatus("accountUserModifypasswd");
+
     //修改密码
-    connect(modifyPassword, &QPushButton::clicked, [ = ] {
+    connect(m_modifyPassword, &QPushButton::clicked, [ = ] {
         Q_EMIT requestShowPwdSettings(m_curUser);
     });
 
@@ -499,6 +501,12 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         connect(m_userModel, &UserModel::noPassWordLoginVisableChanged, m_nopasswdLogin, &SwitchWidget::setVisible);
     }
 
+    setDeleteBtnStatus("accountUserDeleteaccount");
+
+    connect(m_gsettings, &QGSettings::changed, m_deleteAccount, [ = ](const QString &key) {
+        setDeleteBtnStatus(key);
+    });
+
     if (!m_groupItemModel)
         return;
     m_groupItemModel->clear();
@@ -560,6 +568,30 @@ void AccountsDetailWidget::setAllGroups()
 void AccountsDetailWidget::resetDelButtonState()
 {
     m_deleteAccount->setEnabled(true);
+}
+
+void AccountsDetailWidget::setDeleteBtnStatus(const QString &key)
+{
+    if ("accountUserDeleteaccount" != key)
+        return;
+
+    const QString deleteBtnStatus = m_gsettings->get(key).toString();
+
+    m_deleteAccount->setEnabled("Enabled" == deleteBtnStatus && !m_curUser->isCurrentUser() && !m_curUser->online());
+
+    m_deleteAccount->setVisible("Hidden" != deleteBtnStatus);
+}
+
+void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
+{
+    if ("accountUserModifypasswd" != key)
+        return;
+
+    const QString btnStatus = m_gsettings->get(key).toString();
+
+    m_modifyPassword->setEnabled("Enabled" == btnStatus && m_curUser->isCurrentUser());
+
+    m_modifyPassword->setVisible("Hidden" != btnStatus);
 }
 
 void AccountsDetailWidget::userGroupClicked(const QModelIndex &index)
