@@ -36,7 +36,7 @@
 using namespace dcc;
 
 DWIDGET_BEGIN_NAMESPACE
-class DIconButton;
+class DToolButton;
 class DLineEdit;
 class DLabel;
 DWIDGET_END_NAMESPACE
@@ -94,7 +94,7 @@ private:
     dcc::widgets::SettingsItem *m_hostNameSettingItem;
     DLabel *m_hostNameTitleLabel;//计算机名标题
     DLabel *m_hostNameLabel;//计算机名显示
-    DTK_WIDGET_NAMESPACE::DIconButton *m_hostNameBtn;//计算机名编辑按钮
+    DTK_WIDGET_NAMESPACE::DToolButton *m_hostNameBtn;//计算机名编辑按钮
     HostNameEdit *m_hostNameLineEdit;//计算机名编辑框
     dcc::widgets::TitleValueItem *m_productName;
     dcc::widgets::TitleValueItem *m_versionNumber;
