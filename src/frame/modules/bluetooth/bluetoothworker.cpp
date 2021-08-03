@@ -363,6 +363,7 @@ void BluetoothWorker::removeAdapter(const QString &json)
     Adapter *adapter = const_cast<Adapter*>(result);
     if (adapter) {
         adapter->deleteLater();
+        adapter = nullptr;
     }
 }
 

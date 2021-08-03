@@ -40,7 +40,7 @@ public:
     explicit NotificationItem(QWidget *parent = nullptr);
     void setTitle(const QString &title);
 
-    inline bool getState()const;
+    bool getState() const;
     void setState(const bool &state);
 Q_SIGNALS:
     void stateChanged(bool state);

@@ -30,72 +30,24 @@ const QString Service = "com.deepin.daemon.InputDevices";
 
 MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     : QObject(parent)
-    , m_dbusMouse(new Mouse(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
-    , m_dbusTouchPad(new TouchPad(Service, "/com/deepin/daemon/InputDevice/TouchPad", QDBusConnection::sessionBus(), this))
-    , m_dbusTrackPoint(new TrackPoint(Service, "/com/deepin/daemon/InputDevice/Mouse", QDBusConnection::sessionBus(), this))
-    , m_dbusDevices(new InputDevices(Service, "/com/deepin/daemon/InputDevices", QDBusConnection::sessionBus(), this))
     , m_model(model)
 {
-    m_dbusMouse->setSync(false);
-    m_dbusTouchPad->setSync(false);
-    m_dbusTrackPoint->setSync(false);
-    m_dbusDevices->setSync(false);
-
-    connect(m_dbusMouse, &Mouse::ExistChanged, m_model, &MouseModel::setMouseExist);
-    connect(m_dbusMouse, &Mouse::LeftHandedChanged, this, &MouseWorker::setLeftHandState);
-    connect(m_dbusMouse, &Mouse::NaturalScrollChanged, this, &MouseWorker::setMouseNaturalScrollState);
-    connect(m_dbusMouse, &Mouse::DoubleClickChanged, this, &MouseWorker::setDouClick);
-    connect(m_dbusMouse, &Mouse::DisableTpadChanged, this, &MouseWorker::setDisTouchPad);
-    connect(m_dbusMouse, &Mouse::AdaptiveAccelProfileChanged, this, &MouseWorker::setAccelProfile);
-    connect(m_dbusMouse, &Mouse::MotionAccelerationChanged, this, &MouseWorker::setMouseMotionAcceleration);
-
-    connect(m_dbusTouchPad, &TouchPad::ExistChanged, m_model, &MouseModel::setTpadExist);
-    connect(m_dbusTouchPad, &TouchPad::NaturalScrollChanged, this, &MouseWorker::setTouchNaturalScrollState);
-    connect(m_dbusTouchPad, &TouchPad::DisableIfTypingChanged, this, &MouseWorker::setDisTyping);
-    connect(m_dbusTouchPad, &TouchPad::DoubleClickChanged, this, &MouseWorker::setDouClick);
-    connect(m_dbusTouchPad, &TouchPad::MotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
-    connect(m_dbusTouchPad, &TouchPad::TapClickChanged, this, &MouseWorker::setTapClick);
-    connect(m_dbusTouchPad, &TouchPad::PalmDetectChanged, m_model, &MouseModel::setPalmDetect);
-    connect(m_dbusTouchPad, &TouchPad::PalmMinWidthChanged, m_model, &MouseModel::setPalmMinWidth);
-    connect(m_dbusTouchPad, &TouchPad::PalmMinZChanged, m_model, &MouseModel::setPalmMinz);
-
-    connect(m_dbusTrackPoint, &TrackPoint::ExistChanged, m_model, &MouseModel::setRedPointExist);
-    connect(m_dbusTrackPoint, &TrackPoint::MotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
-
-    connect(m_dbusDevices, &InputDevices::WheelSpeedChanged, m_model, &MouseModel::setScrollSpeed);
 
 }
 
-void MouseWorker::active()
+void MouseWorker::setMouseExist(bool exist)
 {
-    setLeftHandState(m_dbusMouse->leftHanded());
-    setMouseNaturalScrollState(m_dbusMouse->naturalScroll());
-    setTouchNaturalScrollState(m_dbusTouchPad->naturalScroll());
-    setDisTyping(m_dbusTouchPad->disableIfTyping());
-    setDisTouchPad(m_dbusMouse->disableTpad());
-    setTapClick(m_dbusTouchPad->tapClick());
-    setDouClick(m_dbusMouse->doubleClick());
-    setAccelProfile(m_dbusMouse->adaptiveAccelProfile());
-    setMouseMotionAcceleration(m_dbusMouse->motionAcceleration());
-    setTouchpadMotionAcceleration(m_dbusTouchPad->motionAcceleration());
-    setTrackPointMotionAcceleration(m_dbusTrackPoint->motionAcceleration());
-
-    m_model->setMouseExist(m_dbusMouse->exist());
-    m_model->setTpadExist(m_dbusTouchPad->exist());
-    m_model->setRedPointExist(m_dbusTrackPoint->exist());
-
-    m_model->setPalmDetect(m_dbusTouchPad->palmDetect());
-    m_model->setPalmMinWidth(m_dbusTouchPad->palmMinWidth());
-    m_model->setPalmMinz(m_dbusTouchPad->palmMinZ());
-
-    m_model->setScrollSpeed(m_dbusDevices->wheelSpeed());
+    m_model->setMouseExist(exist);
 }
 
-void MouseWorker::deactive()
+void MouseWorker::setTpadExist(bool exist)
 {
-    m_dbusMouse->blockSignals(true);
-    m_dbusTouchPad->blockSignals(true);
-    m_dbusTrackPoint->blockSignals(true);
+    m_model->setTpadExist(exist);
+}
+
+void MouseWorker::setRedPointExist(bool exist)
+{
+    m_model->setRedPointExist(exist);
 }
 
 void MouseWorker::setLeftHandState(const bool state)
@@ -155,87 +107,98 @@ void MouseWorker::setTrackPointMotionAcceleration(const double &value)
 
 void MouseWorker::setPalmDetect(bool palmDetect)
 {
-    m_dbusTouchPad->setPalmDetect(palmDetect);
+    m_model->setPalmDetect(palmDetect);
 }
 
 void MouseWorker::setPalmMinWidth(int palmMinWidth)
 {
-    m_dbusTouchPad->setPalmMinWidth(palmMinWidth);
+    m_model->setPalmMinWidth(palmMinWidth);
 }
 
 void MouseWorker::setPalmMinz(int palmMinz)
 {
-    m_dbusTouchPad->setPalmMinZ(palmMinz);
+    m_model->setPalmMinz(palmMinz);
 }
 
-void MouseWorker::setScrollSpeed(int speed)
+void MouseWorker::setScrollSpeed(uint speed)
 {
-    m_dbusDevices->setWheelSpeed(static_cast<uint>(speed));
+    m_model->setScrollSpeed(speed);
 }
 
-void MouseWorker::onDefaultReset()
+
+void MouseWorker::onPalmDetectChanged(bool palmDetect)
 {
-    m_dbusMouse->Reset();
-    m_dbusTouchPad->Reset();
-    m_dbusTrackPoint->Reset();
+    Q_EMIT requestSetPalmDetect(palmDetect);
+}
+
+void MouseWorker::onPalmMinWidthChanged(int palmMinWidth)
+{
+    Q_EMIT requestSetPalmMinWidth(palmMinWidth);
+}
+
+void MouseWorker::onPalmMinzChanged(int palmMinz)
+{
+    Q_EMIT requestSetPalmMinz(palmMinz);
+}
+
+void MouseWorker::onScrollSpeedChanged(int speed)
+{
+    Q_EMIT requestSetScrollSpeed(static_cast<uint>(speed));
 }
 
 void MouseWorker::onLeftHandStateChanged(const bool state)
 {
-    m_dbusMouse->setLeftHanded(state);
-    m_dbusTouchPad->setLeftHanded(state);
-    m_dbusTrackPoint->setLeftHanded(state);
+    Q_EMIT requestSetLeftHandState(state);
 }
 
 void MouseWorker::onMouseNaturalScrollStateChanged(const bool state)
 {
-    m_dbusMouse->setNaturalScroll(state);
+    Q_EMIT requestSetMouseNaturalScrollState(state);
 }
 
 void MouseWorker::onTouchNaturalScrollStateChanged(const bool state)
 {
-    m_dbusTouchPad->setNaturalScroll(state);
+    Q_EMIT requestSetTouchNaturalScrollState(state);
 }
 
 void MouseWorker::onDisTypingChanged(const bool state)
 {
-    m_dbusTouchPad->setDisableIfTyping(state);
+    Q_EMIT requestSetDisTyping(state);
 }
 
 void MouseWorker::onDisTouchPadChanged(const bool state)
 {
-    m_dbusMouse->setDisableTpad(state);
+    Q_EMIT requestSetDisTouchPad(state);
 }
 
 void MouseWorker::onTapClick(const bool state)
 {
-    m_dbusTouchPad->setTapClick(state);
+    Q_EMIT requestSetTapClick(state);
 }
 
 void MouseWorker::onDouClickChanged(const int &value)
 {
-    m_dbusMouse->setDoubleClick(converToDouble(value));
-    m_dbusTouchPad->setDoubleClick(converToDouble(value));
+    Q_EMIT requestSetDouClick(converToDouble(value));
 }
 
 void MouseWorker::onMouseMotionAccelerationChanged(const int &value)
 {
-    m_dbusMouse->setMotionAcceleration(converToMotionAcceleration(value));
+    Q_EMIT requestSetMouseMotionAcceleration(converToMotionAcceleration(value));
 }
 
 void MouseWorker::onAccelProfileChanged(const bool state)
 {
-    m_dbusMouse->setAdaptiveAccelProfile(state);
+    Q_EMIT requestSetAccelProfile(state);
 }
 
 void MouseWorker::onTouchpadMotionAccelerationChanged(const int &value)
 {
-    m_dbusTouchPad->setMotionAcceleration(converToMotionAcceleration(value));
+    Q_EMIT requestSetTouchpadMotionAcceleration(converToMotionAcceleration(value));
 }
 
 void MouseWorker::onTrackPointMotionAccelerationChanged(const int &value)
 {
-    m_dbusTrackPoint->setMotionAcceleration(converToMotionAcceleration(value));
+    Q_EMIT requestSetTrackPointMotionAcceleration(converToMotionAcceleration(value));
 }
 
 int MouseWorker::converToDouble(int value)

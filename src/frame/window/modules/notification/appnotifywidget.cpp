@@ -86,15 +86,19 @@ void AppNotifyWidget::initUI()
     m_settingsGrp->setSpacing(1);
 
     m_itemNotifySound = new NotificationItem;
+    m_itemNotifySound->setObjectName("NotifySound");
     m_itemNotifySound->setTitle(tr("Play a sound"));
     m_settingsGrp->appendItem(m_itemNotifySound);
     m_itemLockShowNotify = new NotificationItem;
+    m_itemLockShowNotify->setObjectName("LockShowNotify");
     m_itemLockShowNotify->setTitle(tr("Show messages on lockscreen"));
     m_settingsGrp->appendItem(m_itemLockShowNotify);
     m_itemShowInNotifyCenter = new NotificationItem;
+    m_itemShowInNotifyCenter->setObjectName("ShowInNotifyCenter");
     m_itemShowInNotifyCenter->setTitle(tr("Show in notification center"));
     m_settingsGrp->appendItem(m_itemShowInNotifyCenter);
     m_itemShowNotifyPreview = new NotificationItem;
+    m_itemShowNotifyPreview->setObjectName("ShowNotifyPreview");
     m_itemShowNotifyPreview->setTitle(tr("Show message preview"));
     m_settingsGrp->appendItem(m_itemShowNotifyPreview);
     mainLayout->addWidget(m_settingsGrp);

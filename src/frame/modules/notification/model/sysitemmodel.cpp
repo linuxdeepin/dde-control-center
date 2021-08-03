@@ -43,7 +43,6 @@ void SysItemModel::setDisturbMode(const bool disturbMode)
     Q_EMIT disturbModeChanged(disturbMode);
 }
 
-#ifdef USE_TABLET
 void SysItemModel::setShowInDock(const bool showInDock)
 {
     if (m_isShowInDock == showInDock)
@@ -51,7 +50,6 @@ void SysItemModel::setShowInDock(const bool showInDock)
     m_isShowInDock = showInDock;
     Q_EMIT showInDockChanged(showInDock);
 }
-#endif
 
 void SysItemModel::setTimeSlot(const bool timeSlot)
 {

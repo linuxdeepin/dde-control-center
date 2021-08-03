@@ -30,6 +30,7 @@ namespace dcc {
 namespace mouse {
 class MouseModel;
 class MouseWorker;
+class MouseDBusProxy;
 }
 }
 
@@ -74,6 +75,7 @@ private:
     TrackPointSettingWidget *m_trackPointSettingWidget = nullptr;
     dcc::mouse::MouseModel  *m_model = nullptr;
     dcc::mouse::MouseWorker *m_worker = nullptr;
+    dcc::mouse::MouseDBusProxy *m_dbusProxy = nullptr;
 };
 }
 }

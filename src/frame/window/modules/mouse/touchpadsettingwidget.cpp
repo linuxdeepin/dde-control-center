@@ -47,9 +47,12 @@ TouchPadSettingWidget::TouchPadSettingWidget(QWidget *parent) : dcc::ContentWidg
     m_touchMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     //~ contents_path /mouse/Touchpad
     m_touchClickStn = new SwitchWidget(tr("Tap to Click"));
+    m_touchClickStn->setObjectName("touchClicked");
     //~ contents_path /mouse/Touchpad
     //~ child_page Touchpad
     m_touchNaturalScroll = new SwitchWidget(tr("Natural Scrolling"));
+    m_touchNaturalScroll->setObjectName("touchNaturalScroll");
+
     m_palmDetectSetting = new PalmDetectSetting;
 
     QStringList touchMoveList;

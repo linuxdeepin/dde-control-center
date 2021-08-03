@@ -53,6 +53,9 @@ public:
     virtual ~BluetoothWidget();
     void setModel(dcc::bluetooth::BluetoothModel *model);
     void loadDetailPage();
+
+    inline QMap<const dcc::bluetooth::Adapter *, AdapterWidget *> getAdapterMap() { return m_valueMap; }
+
 Q_SIGNALS:
     void showBluetoothDetail(const dcc::bluetooth::Adapter *adapter) const;
     void requestModuleVisible(const bool visible) const;
@@ -60,7 +63,6 @@ Q_SIGNALS:
     void requestSetToggleAdapter(const dcc::bluetooth::Adapter *adapter, const bool &toggled);
     void requestConnectDevice(const dcc::bluetooth::Device *device, const dcc::bluetooth::Adapter *adapter);
     void requestDisconnectDevice(const dcc::bluetooth::Device *device);
-    void requestShowDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void requestSetAlias(const dcc::bluetooth::Adapter *adapter, const QString &alias);
     void showDeviceDetail(const dcc::bluetooth::Adapter *adapter, const dcc::bluetooth::Device *device);
     void requestDiscoverable(const dcc::bluetooth::Adapter *adapter, const bool &discoverable);

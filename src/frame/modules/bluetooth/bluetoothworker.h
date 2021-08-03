@@ -30,7 +30,6 @@
 
 #include <com_deepin_daemon_bluetooth.h>
 
-#include "modules/moduleworker.h"
 #include "bluetoothmodel.h"
 #include "pincodedialog.h"
 
@@ -39,7 +38,7 @@ using  DBusBluetooth = com::deepin::daemon::Bluetooth;
 namespace dcc {
 namespace bluetooth {
 
-class BluetoothWorker : public QObject, public ModuleWorker
+class BluetoothWorker : public QObject
 {
     Q_OBJECT
 public:
@@ -47,11 +46,11 @@ public:
 
     BluetoothModel *model() { return m_model; }
 
-    void activate() Q_DECL_OVERRIDE;
-    void deactivate() Q_DECL_OVERRIDE;
+    void activate();
+    void deactivate();
 
     void blockDBusSignals(bool block);
-
+    inline DBusBluetooth *getDBusObject() { return m_bluetoothInter; }
 
 Q_SIGNALS:
     void deviceEnableChanged();
