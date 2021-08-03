@@ -198,7 +198,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="566"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="561"/>
         <source>The full name is too long</source>
         <translation>Celé jméno je příliš dlouhé</translation>
     </message>
@@ -254,7 +254,7 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="94"/>
         <source>Accounts</source>
         <translation>Účty</translation>
     </message>
@@ -1230,13 +1230,13 @@
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="90"/>
         <source>Display</source>
         <translation>Zobrazení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="143"/>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="151"/>
         <source>Multiple Displays</source>
         <translation>Vícero obrazovek</translation>
     </message>
@@ -2141,7 +2141,7 @@
 <context>
     <name>dccV20::network::HotspotPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="290"/>
         <source>Create Hotspot</source>
         <translation>Vytvořit hotspot</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
@@ -2399,43 +2399,43 @@
         <translation>Nastavit prostřednictvím Network Manager</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="337"/>
         <source>Personal Hotspot</source>
         <translation>Osobní hotspot</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="360"/>
         <source>Wired Network %1</source>
         <translation>Drátová síť %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="363"/>
         <source>Wired Network</source>
         <translation>Drátová síť</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="367"/>
         <source>Wireless Network %1</source>
         <translation>Bezdrátová síť %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="370"/>
         <source>Wireless Network</source>
         <translation>Bezdrátová síť</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="388"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="395"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="403"/>
         <source>Disabled</source>
         <translation>Zakázáno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="415"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="413"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="419"/>
         <source>Disconnected</source>
         <translation>Odpojeno</translation>
     </message>
@@ -2867,65 +2867,71 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="134"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Invalid password</source>
         <translation>Neplatné heslo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="171"/>
         <source>None</source>
         <translation>Žádné</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
         <source>WEP</source>
         <translation>WEP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="173"/>
         <source>WPA/WPA2 Personal</source>
         <translation>WPA/WPA2 osobní</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="174"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 podnikové</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="175"/>
+        <source>WPA2/WPA3 Personal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="179"/>
         <source>Shared key</source>
         <translation>Sdílený klíč</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="180"/>
         <source>Open system</source>
         <translation>Nešifrováno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="186"/>
         <source>Security</source>
         <translation>Zabezpečení</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="196"/>
         <source>Required</source>
         <translation>Vyžadováno</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="210"/>
         <source>Authentication</source>
         <translation>Ověření</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="290"/>
         <source>Key</source>
         <translation>Klíč</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="283"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="322"/>
         <source>Password</source>
         <translation>Heslo</translation>
     </message>
@@ -3918,7 +3924,7 @@
         <translation>Ukončit hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="325"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>Pokud se chcete připojit k bezdrátové síti, je třeba nejprve vypnout hotspot</translation>
     </message>
