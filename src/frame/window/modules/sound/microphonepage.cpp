@@ -185,6 +185,7 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
 {
     if ((m_inputModel->rowCount() != m_model->ports().size()) && (m_lastRmPortIndex != -1)) {
         m_inputModel->removeRow(m_lastRmPortIndex);
+        m_lastRmPortIndex = -1;
     }
 
     for (int i = 0; i < m_inputModel->rowCount(); ++i) {
@@ -213,6 +214,7 @@ void MicrophonePage::removePort(const QString &portId, const uint &cardId)
     connect(m_waitCurrentPortRemove, &QTimer::timeout, this, [=](){
         m_inputSoundCbx->blockSignals(false);
         m_inputModel->removeRow(m_lastRmPortIndex);
+        m_lastRmPortIndex = -1;
     });
     m_waitCurrentPortRemove->start(m_waitTimerValue);
     changeComboxStatus();
