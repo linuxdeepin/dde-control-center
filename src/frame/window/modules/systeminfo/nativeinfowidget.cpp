@@ -26,7 +26,7 @@
 #include "window/utils.h"
 #include "window/gsettingwatcher.h"
 
-#include <DIconButton>
+#include <DToolButton>
 #include <DLineEdit>
 #include <DLabel>
 #include <DDesktopServices>
@@ -127,6 +127,8 @@ void NativeInfoWidget::initWidget()
         m_hostNameLayout->addStretch(1);
 
         m_hostNameLabel = new DLabel();
+        m_hostNameLabel->setIndent(10);
+        m_hostNameLabel->setForegroundRole(DPalette::TextTips);
         m_hostNameLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_hostNameLayout->addWidget(m_hostNameLabel);
 
@@ -135,15 +137,24 @@ void NativeInfoWidget::initWidget()
         QValidator *validator = new QRegExpValidator(regx, m_hostNameLineEdit);
         m_hostNameLineEdit->lineEdit()->setValidator(validator);
         m_hostNameLineEdit->setAlertMessageAlignment(Qt::AlignRight);
-        m_hostNameLineEdit->lineEdit()->setFixedHeight(m_hostNameLineEdit->lineEdit()->height() - 4);
+        m_hostNameLineEdit->lineEdit()->setAlignment(Qt::AlignRight);
+        m_hostNameLineEdit->setFixedHeight(36);
+        m_hostNameLineEdit->lineEdit()->setFixedHeight(36);
         m_hostNameLineEdit->lineEdit()->setTextMargins(0,0,0,0);
+        // lineEdit 无边框 透明背景
+        DStyle::setFocusRectVisible(m_hostNameLineEdit->lineEdit(), false);
+        QPalette palette = m_hostNameLineEdit->lineEdit()->palette();
+        palette.setColor(QPalette::Button, Qt::transparent);
+        m_hostNameLineEdit->lineEdit()->setPalette(palette);
+
         m_hostNameLayout->addWidget(m_hostNameLineEdit);
         m_hostNameLineEdit->hide();
-        m_hostNameBtn = new DIconButton(this);
+        m_hostNameBtn = new DToolButton(this);
         m_hostNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
         m_hostNameBtn->setIconSize(QSize(12, 12));
-        m_hostNameBtn->setFlat(true);//设置背景透明
-        m_hostNameLayout->setContentsMargins(10, 10, 10, 10);
+        m_hostNameBtn->setFixedSize(36, 36);
+        // m_hostNameBtn->setFlat(true);//设置背景透明
+        m_hostNameLayout->setContentsMargins(10, 5, 10, 5);
         m_hostNameLayout->addWidget(m_hostNameBtn);
         m_hostNameSettingItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         m_hostNameSettingItem->setLayout(m_hostNameLayout);
@@ -153,7 +164,7 @@ void NativeInfoWidget::initWidget()
         m_hostNameLabel->setText(m_model->hostName());
         m_hostNameLabel->setMinimumHeight(m_hostNameLineEdit->lineEdit()->height());
         //点击编辑按钮
-        connect(m_hostNameBtn, &DIconButton::clicked, this, [ = ]() {
+        connect(m_hostNameBtn, &DToolButton::clicked, this, [ = ]() {
             m_hostNameBtn->setVisible(false);
             m_hostNameLabel->setVisible(false);
             m_hostNameLineEdit->setVisible(true);
@@ -162,6 +173,7 @@ void NativeInfoWidget::initWidget()
             m_hostNameLineEdit->hideAlertMessage();
             m_hostNameLineEdit->lineEdit()->setFocus();
             m_hostNameLineEdit->lineEdit()->selectAll();
+            m_hostNameLayout->setContentsMargins(10, 5, 0, 5);
         });
 
         connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, [ = ](const bool onFocus){
@@ -184,6 +196,7 @@ void NativeInfoWidget::initWidget()
                     DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 }
             }
+            m_hostNameLayout->setContentsMargins(10, 5, 10, 5);
         });
         connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, [ = ](const QString &hostName) {
             if (!hostName.isEmpty()) {
