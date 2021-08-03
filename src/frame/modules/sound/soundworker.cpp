@@ -346,7 +346,7 @@ void SoundWorker::cardsChanged(const QString &cards)
 
                 port->setIsActive(isActiveInputPort || isActiveOuputPort);
 
-                if (!include) { m_model->addPort(port); }
+                if (!include && isEnabled) { m_model->addPort(port); }
 
                 tmpPorts << portId;
             }
