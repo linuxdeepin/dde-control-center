@@ -137,48 +137,55 @@ void DevicemanagesPage::removePort(const QString &portId, const uint &cardId)
 void DevicemanagesPage::initUI()
 {
     // TODO: 输出设备
+    const int titleLeftMargin = 8;
     m_outputDeviceTitle = new TitleLabel(tr("Output Devices"));
     DFontSizeManager::instance()->bind(m_outputDeviceTitle, DFontSizeManager::T5, QFont::DemiBold);
-    m_outputDeviceTitle->setContentsMargins(10, 10, 0, 0);
+    m_outputDeviceTitle->setContentsMargins(titleLeftMargin, 0, 0, 0);
     m_outputDeviceTitle->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    m_outputDeviceTitle->adjustSize();
 
     m_outputlblTip = new  DTipLabel(tr("Enable or disable a device as you want"));
     DFontSizeManager::instance()->bind(m_outputlblTip, DFontSizeManager::T8);
     m_outputlblTip->adjustSize();
     m_outputlblTip->setWordWrap(true);
-    m_outputlblTip->setContentsMargins(10, 0, 0, 0);
+    m_outputlblTip->setContentsMargins(titleLeftMargin, 0, 0, 0);
     m_outputlblTip->setAlignment(Qt::AlignLeft);
 
     m_outputGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
-    m_outputGroup->setContentsMargins(10, 10, 10, 10);
+    m_outputGroup->setContentsMargins(titleLeftMargin, 0, 10, 0);
 
     m_layout->addWidget(m_outputDeviceTitle);
+    m_layout->addSpacing(6);
     m_layout->addWidget(m_outputlblTip);
-    m_layout->addWidget(m_outputGroup);
     m_layout->addSpacing(10);
+    m_layout->addWidget(m_outputGroup);
+    m_layout->addSpacing(20);
 
     // 输入设备
     m_inputDeviceTitle = new TitleLabel(tr("Input Devices"));
     DFontSizeManager::instance()->bind(m_inputDeviceTitle, DFontSizeManager::T5, QFont::DemiBold);
-    m_inputDeviceTitle->setContentsMargins(10, 0, 0, 0);
+    m_inputDeviceTitle->setContentsMargins(titleLeftMargin, 0, 0, 0);
     m_inputDeviceTitle->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     m_inputlblTip = new  DTipLabel(tr("Enable or disable a device as you want"));
     DFontSizeManager::instance()->bind(m_inputlblTip, DFontSizeManager::T8);
     m_inputlblTip->adjustSize();
     m_inputlblTip->setWordWrap(true);
-    m_inputlblTip->setContentsMargins(10, 0, 0, 0);
+    m_inputlblTip->setContentsMargins(titleLeftMargin, 0, 0, 0);
     m_inputlblTip->setAlignment(Qt::AlignLeft);
 
     m_inputGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
-    m_inputGroup->setContentsMargins(10, 10, 10, 10);
+    m_inputGroup->setContentsMargins(titleLeftMargin, 0, 10, 0);
 
     m_layout->addWidget(m_inputDeviceTitle);
+    m_layout->addSpacing(6);
     m_layout->addWidget(m_inputlblTip);
+    m_layout->addSpacing(10);
     m_layout->addWidget(m_inputGroup);
     m_layout->addStretch();
 
-    m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->setContentsMargins(ThirdPageContentsMargins);
+    m_layout->setSpacing(0);
     setLayout(m_layout);
 }
 
