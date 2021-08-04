@@ -248,10 +248,6 @@ void SpeakerPage::refreshActivePortShow(const dcc::sound::Port *port)
 
 void SpeakerPage::addPort(const dcc::sound::Port *port)
 {
-    // 若端口不可见不填加 port信息
-    if (!port->isEnabled())
-        return;
-
     if (dcc::sound::Port::Out == port->direction()) {
         qDebug() << "SpeakerPage::addPort" << port->name();
         DStandardItem *pi = new DStandardItem;
@@ -270,8 +266,19 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
                     changeComboxStatus();
             }
         });
+        connect(port, &dcc::sound::Port::currentPortEnabled, this, [ = ](bool isEnable) {
+            int index = m_outputSoundCbx->comboBox()->findData(port);
+            // 若端口可用 且没有添加
+            if (isEnable && (index == -1) && pi)
+                m_outputModel->appendRow(pi);
+
+            if (!isEnable && (index != -1))
+                m_outputModel->removeRow(index);
+        });
+
         m_outputSoundCbx->comboBox()->hidePopup();
-        m_outputModel->appendRow(pi);
+        if (port->isEnabled())
+            m_outputModel->appendRow(pi);
         if (port->isActive()) {
             m_currentPort = port;
             refreshActivePortShow(m_currentPort);
