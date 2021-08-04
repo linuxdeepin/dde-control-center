@@ -128,7 +128,7 @@ void AvatarWidget::paintEvent(QPaintEvent *e)
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setClipPath(painterPath);
 
-    painter.drawPixmap(e->rect(), m_avatar);
+    painter.drawPixmap(QRect(0, 0, m_avatar.width(), m_avatar.height()), m_avatar);
 
     if (m_selected) {
         setAccessibleDescription("selectedIcon");
