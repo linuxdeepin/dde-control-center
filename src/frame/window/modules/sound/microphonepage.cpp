@@ -261,9 +261,6 @@ void MicrophonePage::refreshActivePortShow(const dcc::sound::Port *port)
 
 void MicrophonePage::addPort(const dcc::sound::Port *port)
 {
-    if (!port->isEnabled())
-        return;
-
     if (port->In == port->direction()) {
         m_enable = port->isEnabled();
 
@@ -283,8 +280,19 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
                     changeComboxStatus();
             }
         });
+        connect(port, &dcc::sound::Port::currentPortEnabled, this, [ = ](bool isEnable) {
+            int index = m_inputSoundCbx->comboBox()->findData(port);
+            // 若端口可用 且没有添加
+            if (isEnable && (index == -1) && pi)
+                m_inputModel->appendRow(pi);
+
+            if (!isEnable && (index != -1))
+                m_inputModel->removeRow(index);
+        });
+
         m_inputSoundCbx->comboBox()->hidePopup();
-        m_inputModel->appendRow(pi);
+        if (port->isEnabled())
+            m_inputModel->appendRow(pi);
         if (port->isActive()) {
             m_currentPort = port;
             refreshActivePortShow(m_currentPort);
