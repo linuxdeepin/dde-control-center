@@ -132,6 +132,13 @@ void NativeInfoWidget::initWidget()
         m_hostNameLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_hostNameLayout->addWidget(m_hostNameLabel);
 
+        m_hostNameBtn = new DToolButton(this);
+        m_hostNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
+        m_hostNameBtn->setIconSize(QSize(12, 12));
+        m_hostNameBtn->setFixedSize(36, 36);
+        m_hostNameLayout->addWidget(m_hostNameBtn);
+        m_hostNameLayout->addSpacing(10);
+
         m_hostNameLineEdit = new HostNameEdit();
         QRegExp regx("^[A-Za-z0-9-]{0,64}$");
         QValidator *validator = new QRegExpValidator(regx, m_hostNameLineEdit);
@@ -146,16 +153,10 @@ void NativeInfoWidget::initWidget()
         QPalette palette = m_hostNameLineEdit->lineEdit()->palette();
         palette.setColor(QPalette::Button, Qt::transparent);
         m_hostNameLineEdit->lineEdit()->setPalette(palette);
-
         m_hostNameLayout->addWidget(m_hostNameLineEdit);
+        m_hostNameLayout->setContentsMargins(10, 5, 0, 5);
         m_hostNameLineEdit->hide();
-        m_hostNameBtn = new DToolButton(this);
-        m_hostNameBtn->setIcon(QIcon::fromTheme("dcc_edit"));
-        m_hostNameBtn->setIconSize(QSize(12, 12));
-        m_hostNameBtn->setFixedSize(36, 36);
-        // m_hostNameBtn->setFlat(true);//设置背景透明
-        m_hostNameLayout->setContentsMargins(10, 5, 10, 5);
-        m_hostNameLayout->addWidget(m_hostNameBtn);
+
         m_hostNameSettingItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         m_hostNameSettingItem->setLayout(m_hostNameLayout);
         m_hostNameSettingItem->addBackground();
@@ -173,7 +174,6 @@ void NativeInfoWidget::initWidget()
             m_hostNameLineEdit->hideAlertMessage();
             m_hostNameLineEdit->lineEdit()->setFocus();
             m_hostNameLineEdit->lineEdit()->selectAll();
-            m_hostNameLayout->setContentsMargins(10, 5, 0, 5);
         });
 
         connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, [ = ](const bool onFocus){
@@ -196,8 +196,8 @@ void NativeInfoWidget::initWidget()
                     DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
                 }
             }
-            m_hostNameLayout->setContentsMargins(10, 5, 10, 5);
         });
+
         connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, [ = ](const QString &hostName) {
             if (!hostName.isEmpty()) {
                if (hostName.size() > 63) {
@@ -215,6 +215,13 @@ void NativeInfoWidget::initWidget()
                 m_hostNameLineEdit->setAlert(false);
                 m_hostNameLineEdit->hideAlertMessage();
             }
+        });
+
+        connect(m_hostNameLineEdit, &DLineEdit::alertChanged, this, [ = ]() {
+            // 输入框保持透明背景
+            QPalette palette = m_hostNameLineEdit->lineEdit()->palette();
+            palette.setColor(QPalette::Button, Qt::transparent);
+            m_hostNameLineEdit->lineEdit()->setPalette(palette);
         });
 
         connect(m_hostNameLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ] {
