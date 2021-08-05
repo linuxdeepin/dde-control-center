@@ -75,6 +75,10 @@ void NotificationWorker::initAppSetting()
 {
     QStringList appList = m_dbus->GetAppList();
     for (int i = 0; i < appList.size(); i++) {
+        // laptop-mode-tools 项目crp打包异常，暂时处理为不在通知列表显示
+        if (appList[i].contains("laptop-mode-tools", Qt::CaseInsensitive))
+            continue;
+
         onAppAdded(appList[i]);
     }
 }
