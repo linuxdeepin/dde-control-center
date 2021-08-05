@@ -152,14 +152,13 @@ void DevicemanagesPage::initUI()
     m_outputlblTip->setAlignment(Qt::AlignLeft);
 
     m_outputGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
-    m_outputGroup->setContentsMargins(titleLeftMargin, 0, 10, 0);
+    m_outputGroup->setContentsMargins(0, 0, 10, 0);
 
     m_layout->addWidget(m_outputDeviceTitle);
-    m_layout->addSpacing(6);
     m_layout->addWidget(m_outputlblTip);
-    m_layout->addSpacing(10);
+    m_layout->addSpacing(8);
     m_layout->addWidget(m_outputGroup);
-    m_layout->addSpacing(20);
+    m_layout->addSpacing(15);
 
     // 输入设备
     m_inputDeviceTitle = new TitleLabel(tr("Input Devices"));
@@ -175,12 +174,11 @@ void DevicemanagesPage::initUI()
     m_inputlblTip->setAlignment(Qt::AlignLeft);
 
     m_inputGroup->getLayout()->setContentsMargins(0, 0, 0, 0);
-    m_inputGroup->setContentsMargins(titleLeftMargin, 0, 10, 0);
+    m_inputGroup->setContentsMargins(0, 0, 10, 0);
 
     m_layout->addWidget(m_inputDeviceTitle);
-    m_layout->addSpacing(6);
     m_layout->addWidget(m_inputlblTip);
-    m_layout->addSpacing(10);
+    m_layout->addSpacing(8);
     m_layout->addWidget(m_inputGroup);
     m_layout->addStretch();
 
