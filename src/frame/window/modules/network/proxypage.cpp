@@ -321,6 +321,7 @@ bool ProxyPage::eventFilter(QObject *watched, QEvent *event)
     if (event->type() == QEvent::FocusIn) {
         if ((dynamic_cast<QLineEdit*>(watched) || dynamic_cast<DTextEdit*>(watched))) {
             m_buttonTuple->setEnabled(true);
+            m_buttonTuple->setFocus();
         }
     }
     return QWidget::eventFilter(watched, event);
