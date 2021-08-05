@@ -273,11 +273,11 @@ void MicrophonePage::addPort(const dcc::sound::Port *port)
         });
         connect(port, &dcc::sound::Port::isInputActiveChanged, this, [ = ](bool isActive) {
             // 若关闭设备 此时pi为空
-            m_currentPort = port;
-            if (pi) {
+            if (pi)
                 pi->setCheckState(isActive ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
-                if (isActive)
-                    changeComboxStatus();
+            if (isActive) {
+                m_currentPort = port;
+                changeComboxStatus();
             }
         });
         connect(port, &dcc::sound::Port::currentPortEnabled, this, [ = ](bool isEnable) {
