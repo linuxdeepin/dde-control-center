@@ -170,6 +170,23 @@ void ChainsProxyPage::setModel(NetworkModel *model)
         m_btns->leftButton()->setEnabled(true);
         m_btns->rightButton()->setEnabled(true);
     });
+
+    m_password->textEdit()->installEventFilter(this);
+    m_port->textEdit()->installEventFilter(this);
+    m_username->textEdit()->installEventFilter(this);
+    m_addr->textEdit()->installEventFilter(this);
+}
+
+bool ChainsProxyPage::eventFilter(QObject *watched, QEvent *event)
+{
+    //实现鼠标点击输入框，保存取消按钮激活，捕捉FocusIn事件
+    if (event->type() == QEvent::FocusIn) {
+        if (dynamic_cast<QLineEdit*>(watched)) {
+            m_btns->leftButton()->setEnabled(true);
+            m_btns->rightButton()->setEnabled(true);
+        }
+    }
+    return QWidget::eventFilter(watched, event);
 }
 
 void ChainsProxyPage::onRestoreValue()

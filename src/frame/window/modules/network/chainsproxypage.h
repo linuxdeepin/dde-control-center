@@ -58,6 +58,8 @@ public:
     explicit ChainsProxyPage(QWidget *parent = nullptr);
     void setModel(dde::network::NetworkModel *model);
 
+    virtual bool eventFilter(QObject *watched, QEvent *event) override;
+
 Q_SIGNALS:
     void requestSet(const dde::network::ProxyConfig &config) const;
     void requestShowTypePage() const;
