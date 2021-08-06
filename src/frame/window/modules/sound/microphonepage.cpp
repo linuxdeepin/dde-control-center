@@ -66,7 +66,6 @@ MicrophonePage::MicrophonePage(QWidget *parent)
     , m_lastRmPortIndex(-1)
     , m_mute(false)
     , m_enablePort(false)
-    , m_enable(true)
     , m_fristChangePort(true)
     , m_currentBluetoothPortStatus(true)
     , m_waitStatusChangeTimer(new QTimer (this))
@@ -139,7 +138,6 @@ void MicrophonePage::setModel(SoundModel *model)
 
     //监听消息设置是否可用
     connect(m_model, &SoundModel::isPortEnableChanged, this, [ = ](bool enable) {
-        m_enable = enable;
         //启用端口后需要再判断是否启用成功后，再设置为默认端口，但因为设置端口后会有端口是否启用的状态判断，
         //导致进入死循环，所以添加判断值，判断是否是启用或禁用端口类型的操作，若是，则设置默认端口
         if (enable && m_enablePort) {
@@ -262,8 +260,6 @@ void MicrophonePage::refreshActivePortShow(const dcc::sound::Port *port)
 void MicrophonePage::addPort(const dcc::sound::Port *port)
 {
     if (port->In == port->direction()) {
-        m_enable = port->isEnabled();
-
         DStandardItem *pi = new DStandardItem;
         pi->setText(port->name() + "(" + port->cardName() + ")");
         pi->setData(QVariant::fromValue<const dcc::sound::Port *>(port), Qt::WhatsThisPropertyRole);
@@ -436,11 +432,7 @@ void MicrophonePage::showDevice()
     if (!m_feedbackSlider || !m_inputSlider || !m_noiseReductionsw)
         return;
 
-    if (1 > m_inputModel->rowCount())
-        setDeviceVisible(false);
-    else {
-        setDeviceVisible(m_enable);
-    }
+    setDeviceVisible(1 <= m_inputModel->rowCount());
 }
 
 void MicrophonePage::setDeviceVisible(bool visable)
