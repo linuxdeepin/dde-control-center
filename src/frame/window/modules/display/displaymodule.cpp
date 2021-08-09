@@ -285,6 +285,8 @@ void DisplayModule::showCustomSettingDialog()
 
     if (dlg->exec() != QDialog::Accepted) {
         keybindInter.AddShortcutKeystroke("display",2,"XF86Display");
+        //在还原前先隐藏OtherDialog防止闪烁
+        dlg->hideOtherDialog();
         m_displayWorker->restore();
     } else {
         keybindInter.AddShortcutKeystroke("display",2,"XF86Display");

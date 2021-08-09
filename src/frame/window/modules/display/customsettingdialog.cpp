@@ -37,6 +37,7 @@
 #include <QStandardItem>
 #include <QDebug>
 #include <QComboBox>
+#include <QGuiApplication>
 
 using namespace dcc::display;
 using namespace dcc::widgets;
@@ -803,6 +804,17 @@ void CustomSettingDialog::resetMonitorObject(Monitor *moni)
             initMoniList();
         }
     });
+}
+
+void CustomSettingDialog::hideOtherDialog()
+{
+    //解决闪烁问题，在还原自定义设置之前现隐藏otherDialog
+    if (m_otherDialog.size()) {
+        for (auto dlg : m_otherDialog) {
+            dlg->setVisible(false);
+        }
+        QGuiApplication::processEvents();
+    }
 }
 
 void CustomSettingDialog::onChangList(QAbstractButton *btn, bool beChecked)
