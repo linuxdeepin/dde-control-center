@@ -69,6 +69,8 @@ public:
 
 public:
     void setModel(dcc::display::DisplayModel *model);
+    //提供隐藏OtherDialog接口，解决还原时闪烁
+    void hideOtherDialog();
 
 enum ResolutionRole {
     IdRole = Dtk::UserRole,
