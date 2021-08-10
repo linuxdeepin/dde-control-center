@@ -272,11 +272,6 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     if (m_isServerSystem) {
         m_accountChooser->addItem(tr("Customized"));
     }
-    if (!m_isServerSystem) {
-        accountTypeLabel->setVisible(false);
-        m_accountChooser->setVisible(false);
-        m_accountChooser->setCurrentIndex(1);
-    }
 
     m_nameEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
