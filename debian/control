@@ -5,13 +5,15 @@ Priority: optional
 Maintainer: donghualin <donghualin@uniontech.com>
 Build-Depends: debhelper-compat (= 12),
                cmake,
-	           libdframeworkdbus-dev (>= 1.0.2),
-	           libgsettings-qt-dev,
-	           pkg-config,
-	           qtbase5-dev,
-	           qttools5-dev-tools,
-	           libgtest-dev,
-	           libkf5networkmanagerqt-dev
+               libdframeworkdbus-dev (>= 1.0.2),
+               libgsettings-qt-dev,
+               pkg-config,
+               qtbase5-dev,
+               qttools5-dev-tools,
+               libgtest-dev,
+               libkf5networkmanagerqt-dev,
+               libdtkwidget-dev,
+               dde-control-center-dev
 Rules-Requires-Root: no
 Standards-Version: 4.5.0
 Homepage: https://gerrit.uniontech.com/admin/repos/dde-network-core

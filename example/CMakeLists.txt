@@ -7,19 +7,32 @@ set(CMAKE_PREFIX_PATH $ENV{Qt5_DIR})
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+find_package(DdeControlCenter REQUIRED)
+
+aux_source_directory(../dcc-network-plugin DCCPLUGINDIR)
+aux_source_directory(../dcc-network-plugin/window DCCPLUGINWINDOWDIR)
 aux_source_directory(../dde-network-core NETWORKDIR)
 set(QRCFILE "./example.qrc")
-set(COMPILEFILES ./networkhandler.h ./networkhandler.cpp ./main.cpp)
-list(REMOVE_ITEM NETWORKDIR "../dde-network-core/debian")
+set(COMPILEFILES
+    ./networkhandler.h
+    ./networkhandler.cpp
+    ./main.cpp
+    ./dccplugintestwidget.h
+    ./dccplugintestwidget.cpp)
+
+#list(REMOVE_ITEM NETWORKDIR "../dde-network-core/debian")
 
 add_executable(${PROJECT_NAME}
     ${COMPILEFILES}
+    ${DCCPLUGINDIR}
+    ${DCCPLUGINWINDOWDIR}
     ${NETWORKDIR}
     ${QRCFILE})
 
 find_package(Qt5 COMPONENTS Core DBus Network REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
+find_package(DtkWidget REQUIRED)
 
 get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
 
@@ -40,6 +53,9 @@ IMPORTED_LOCATION_NOCONFIG
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     ../dde-network-core
+    ../dcc-network-plugin
+    ${DdeControlCenter_INCLUDE_DIR}
+    ${DtkWidget_INCLUDE_DIRS}
     ${Qt5Core_INCLUDE_DIRS}
     ${Qt5DBus_INCLUDE_DIRS}
     ${Qt5Widget_INCLUDE_DIRS}
@@ -50,6 +66,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${KF5_QT_INCLUDE_DIRS})
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
+    ${DdeControlCenter_LIBRARIES}
+    ${DtkWidget_LIBRARIES}
     ${Qt5Core_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
     ${LibNM_LIBRARIES}
