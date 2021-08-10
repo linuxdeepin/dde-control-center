@@ -54,12 +54,15 @@ DeveloperModeWidget::DeveloperModeWidget(QWidget *parent)
                                  QDBusConnection::systemBus(), this))
     , m_developerDialog(new DeveloperModeDialog(this))
 {
+    setAccessibleName("DeveloperModeWidget");
     m_devBtn = new QPushButton(tr("Request Root Access"));
     m_dtip = new DTipLabel(tr("Developer mode enables you to get root privileges, install and run unsigned apps not listed in app store, but your system integrity may also be damaged, please use it carefully."));
+    m_dtip->setAccessibleName("DeveloperModeWidget_dtip ");
     m_dtip->setAlignment(Qt::AlignLeft | Qt::AlignTop);
     m_dtip->setWordWrap(true);
 
     m_lab = new DLabel(tr("The feature is not available at present, please activate your system first"));
+    m_lab->setAccessibleName("DeveloperModeWidget_lab");
     m_lab->setWordWrap(true);
     m_lab->setVisible(false);
 

@@ -73,6 +73,7 @@ void CommonInfoWidget::showDefaultWidget()
 
 void CommonInfoWidget::initWidget()
 {
+    setAccessibleName("CommonInfoWidget");
     m_listView->setAccessibleName("List_commonlist");
     m_listView->setViewportMargins(ScrollAreaMargins);
     m_listView->setFrameShape(QFrame::NoFrame);

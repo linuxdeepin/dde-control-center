@@ -39,6 +39,7 @@ DWIDGET_USE_NAMESPACE
 UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     : QWidget(parent)
 {
+    setAccessibleName("UserExperienceProgramWidget");
     QVBoxLayout *vBoxLayout = new QVBoxLayout;
 
     m_joinUeProgram = new SwitchWidget();
@@ -56,6 +57,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
                                     "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
                                     "To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en)."));
     }
+    tipLabel->setAccessibleName("UserExperienceProgramWidget_tipLabel");
     tipLabel->setWordWrap(true);
     tipLabel->setContentsMargins(5, 0, 5, 0);
     tipLabel->setAlignment(Qt::AlignJustify);

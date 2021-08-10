@@ -109,6 +109,7 @@ BootWidget::BootWidget(QWidget *parent)
     backgroundLabel->setAlignment(Qt::AlignLeft);
 #ifndef DCC_DISABLE_GRUB_THEME
     m_themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"));
+    m_themeLbl->setAccessibleName("themeLbl");
     m_themeLbl->setWordWrap(true);
     m_themeLbl->setContentsMargins(5, 0, 10, 0);
     m_themeLbl->setAlignment(Qt::AlignLeft);
