@@ -49,12 +49,14 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
     , m_importFile(new QFileDialog(this))
     , m_exportFile(new QFileDialog(this))
 {
+    setAccessibleName("DeveloperModeDialog");
     setMinimumSize(QSize(350, 380));
     //总布局
     QVBoxLayout *vBoxLayout = new QVBoxLayout(this);
     //图标和关闭按钮布局
     QHBoxLayout *titleHBoxLayout = new QHBoxLayout();
     DTitlebar *titleIcon = new DTitlebar();
+    titleIcon->setAccessibleName("DeveloperModeDialog_titleIcon");
     titleIcon->setFrameStyle(QFrame::NoFrame);//无边框
     titleIcon->setBackgroundTransparent(true);//透明
     titleIcon->setIcon(QIcon::fromTheme("preferences-system"));
@@ -71,6 +73,7 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
     contentVBoxLayout->addWidget(chooseModeTip, 0, Qt::AlignTop);
 
     auto hw = new QWidget();
+    hw->setAccessibleName("hBoxLayout");
     QHBoxLayout *hBoxLayout = new QHBoxLayout();
     m_onlineBtn = new DRadioButton(tr("Online"));
     m_offlineBtn = new DRadioButton(tr("Offline"));
@@ -84,6 +87,7 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
 
     //在线激活模式提示
     auto chooseModeCommonts = new DTextBrowser();
+    chooseModeCommonts->setAccessibleName("DeveloperModeDialog_DTextBrowser");
     auto mpalette = this->palette();
     mpalette.setBrush(QPalette::Base, QBrush(Qt::NoBrush));
     chooseModeCommonts->setPalette(mpalette);
@@ -100,6 +104,7 @@ DeveloperModeDialog::DeveloperModeDialog(QObject *parent)
     //离线激活模式导出机器信息和导入证书按钮
     auto exportBtn = new QPushButton(tr("Export PC Info"));
     auto importBtn = new DSuggestButton(tr("Import Certificate"));
+    importBtn->setAccessibleName("importBtn");
     exportBtn->setVisible(false);
     importBtn->setVisible(false);
 
