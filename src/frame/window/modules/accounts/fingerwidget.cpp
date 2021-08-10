@@ -43,6 +43,8 @@ FingerWidget::FingerWidget(User *user, QWidget *parent)
 	//注册所有的事件
     installEventFilter(this);
 
+    this->setAccessibleName("FingerWidget");
+
     m_clearBtn = new DCommandLinkButton(tr("Edit"));
     m_clearBtn->setCheckable(true);
 

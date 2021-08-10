@@ -82,6 +82,8 @@ AvatarListWidget::~AvatarListWidget()
 
 void AvatarListWidget::initWidgets()
 {
+    m_fd->setAccessibleName("QFileDialog");
+
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     setViewMode(QListView::IconMode);
     setDragDropMode(QAbstractItemView::NoDragDrop);
@@ -232,6 +234,7 @@ void AvatarListWidget::addItemFromDefaultDir()
 void AvatarListWidget::addLastItem()
 {
     DStandardItem *item = new DStandardItem();
+    item->setAccessibleText("LastItem");
     item->setData(m_avatarSize, Qt::SizeHintRole);
     item->setData("", AvatarListWidget::SaveAvatarRole);
     m_avatarItemModel->appendRow(item);

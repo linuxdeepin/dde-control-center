@@ -60,6 +60,7 @@ ModifyPasswdPage::~ModifyPasswdPage()
 
 void ModifyPasswdPage::initWidget()
 {
+    this->setAccessibleName("ModifyPasswdPage");
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->addSpacing(40);
 
