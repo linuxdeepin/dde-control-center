@@ -41,6 +41,7 @@ TimezoneList::TimezoneList(QWidget *parent)
     , m_headItem(new SettingsHead)
     , m_contentList(new TimezoneContentList(this))
 {
+    setAccessibleName("TimezoneList");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     QVBoxLayout *m_headLayout = new QVBoxLayout;
     m_headItem->setEditEnable(true);

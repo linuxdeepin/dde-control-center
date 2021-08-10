@@ -46,7 +46,6 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
     , m_clockItem(new ClockItem(this))
     , m_model(nullptr)
 {
-    m_listview->setAccessibleName("settinglist");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     init();
 }

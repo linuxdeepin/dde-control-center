@@ -64,6 +64,8 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
                                           "/com/deepin/daemon/LangSelector",
                                           QDBusConnection::sessionBus(), this))
 {
+    m_blurEffect->setAccessibleName("blurEffect");
+
     setWindowFlags(Qt::Dialog);
     setAttribute(Qt::WA_TranslucentBackground);
     setupSize();
@@ -184,6 +186,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
         m_popup->installEventFilter(this);
 
         DBlurEffectWidget *blurEffect = new DBlurEffectWidget(m_popup);
+        blurEffect->setAccessibleName("blurEffect");
         blurEffect->setMaskColor(Qt::white);
 
         QHBoxLayout *layout = new QHBoxLayout;

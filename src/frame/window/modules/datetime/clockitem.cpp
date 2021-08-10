@@ -49,6 +49,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
     , m_longTimeFormat("HH:mm:ss")
     , m_timeLayout(new QHBoxLayout)
 {
+    m_clock->setAccessibleName("ClockItem_clock");
     m_clock->setMinimumSize(210, 210);
     m_clock->setAutoNightMode(false);
     updateDateTime();
@@ -85,13 +86,16 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         }
 
         auto twidget = new QWidget();
+        twidget->setAccessibleName("topLayout");
         twidget->setContentsMargins(0, 0, 0, 0);
         twidget->setLayout(topLayout);
         twidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         tlayout->addWidget(twidget, 0, Qt::AlignVCenter);
 
         m_label = new DTipLabel("");
+        m_label->setAccessibleName("ClockItem_label");
         m_labelDate = new DTipLabel("");
+        m_labelDate->setAccessibleName("ClockItem_labelDate");
         m_timeLayout->addWidget(m_label, 0, Qt::AlignLeft);
         m_timeLayout->addWidget(m_labelDate, 0, Qt::AlignRight);
         tlayout->addLayout(m_timeLayout);
@@ -99,6 +103,7 @@ ClockItem::ClockItem(QWidget *parent, bool isDisplay)
         SettingsItem *item = new SettingsItem;
 
         twidget = new QWidget();
+        twidget->setAccessibleName("tlayout");
         twidget->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
         twidget->setLayout(tlayout);
 

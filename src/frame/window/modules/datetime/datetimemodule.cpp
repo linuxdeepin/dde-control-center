@@ -277,6 +277,7 @@ void DatetimeModule::showTimezoneList()
     }
 
     QWidget *widget = new QWidget;
+    widget->setAccessibleName("TimezoneList");
     widget->setVisible(false);
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
