@@ -86,6 +86,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_centralLayout->addWidget(m_nightShift);
 
     m_nightTips = new DTipLabel(tr("The screen hue will be auto adjusted according to your location"), m_tempratureColorWidget);
+    m_tempratureColorWidget->setAccessibleName("BrightnessWidget_tempratureColor");
     m_nightTips->setForegroundRole(DPalette::TextTips);
     m_nightTips->setWordWrap(true);
     m_nightTips->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -305,6 +306,7 @@ void BrightnessWidget::addSlider()
                     });
         }
         QWidget *brightnessSlideritem = new QWidget(this);
+        brightnessSlideritem->setAccessibleName("brightnessSlideritem");
         QVBoxLayout *sliderLayout = new QVBoxLayout(brightnessSlideritem);
         sliderLayout->setContentsMargins(0, 10, 0, 0);
         GSettingWatcher::instance()->bind("displayLightLighting", slideritem);  // 使用GSettings来控制显示状态

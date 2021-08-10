@@ -46,6 +46,7 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     , m_tipLabel(new DTipLabel(tr("The monitor only supports 100% display scaling"), this))
     , m_slider(new TitledSliderItem(QString(), this))
 {
+    m_tipWidget->setAccessibleName("ScalingWidget_tipWidget");
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(8);
     GSettingWatcher::instance()->bind("displayScaling", m_title);  // 使用GSettings来控制显示状态

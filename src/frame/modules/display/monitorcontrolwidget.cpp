@@ -40,6 +40,8 @@ MonitorControlWidget::MonitorControlWidget(int activateHeight, QWidget *parent)
     , m_recognize(new QPushButton(QIcon::fromTheme("dcc_recognize"), tr("Recognize")))
     , m_gather(new QPushButton(QIcon::fromTheme("dcc_gather"), tr("Gather Windows")))
 {
+    m_screensGround->setAccessibleName("screensGround");
+
     m_recognize->setFocusPolicy(Qt::NoFocus);
     m_recognize->setMinimumWidth(106);
     m_recognize->setMinimumHeight(36);

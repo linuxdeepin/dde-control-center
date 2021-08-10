@@ -64,6 +64,9 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_rotateWidget(new RotateWidget(300, this))
     , m_model(nullptr)
 {
+    m_monitorControlWidget->setAccessibleName("MultiScreenWidget_monitorControl");
+    m_fullIndication->setAccessibleName("fullIndication");
+
     m_contentLayout->setSpacing(0);
     m_contentLayout->setContentsMargins(56, 20, 56, 0);
     m_contentLayout->addWidget(m_monitorControlWidget);
@@ -320,6 +323,7 @@ void MultiScreenWidget::initSecondaryScreenDialog()
             }
 
             m_dlg = new SecondaryScreenDialog(this);
+            m_dlg->setAccessibleName("SecondaryScreen");
             m_dlg->setAttribute(Qt::WA_WState_WindowOpacitySet);
             m_dlg->setModel(m_model, monitor);
             connect(m_dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);

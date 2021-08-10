@@ -39,6 +39,7 @@ RefreshRateWidget::RefreshRateWidget(int comboxWidth, QWidget *parent)
     , m_monitor(nullptr)
     , m_refreshItemModel(new QStandardItemModel)
 {
+    setAccessibleName("RefreshRateWidget");
     addBackground();
     setMinimumHeight(48);
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
