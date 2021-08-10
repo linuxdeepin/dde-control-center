@@ -24,6 +24,10 @@ SyncWidget::SyncWidget(QWidget *parent)
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
+    m_loginPage->setAccessibleName("LoginPage");
+    m_indexPage->setAccessibleName("IndexPage");
+    m_cnonlyPage->setAccessibleName("LogoutPage");
+
     m_indexPage->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_mainLayout->addWidget(m_loginPage);
     m_mainLayout->addWidget(m_indexPage);

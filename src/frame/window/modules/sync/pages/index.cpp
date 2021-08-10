@@ -73,6 +73,7 @@ IndexPage::IndexPage(QWidget *parent)
     m_mainLayout->setSpacing(0);
 
     QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setAccessibleName("IndexPage_scrollArea");
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -82,6 +83,7 @@ IndexPage::IndexPage(QWidget *parent)
     scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContentsOnFirstShow);//暂时没效果,最好还是加上
 
     QWidget *backgroundWidget = new QWidget;
+    backgroundWidget->setAccessibleName("IndexPage_backgroundWidget");
     backgroundWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     backgroundWidget->setFixedWidth(340);
     QVBoxLayout *backgroundLayout = new QVBoxLayout;
@@ -89,6 +91,7 @@ IndexPage::IndexPage(QWidget *parent)
 
     //加一个新的布局
     auto hwidget = new QWidget();
+    hwidget->setAccessibleName("IndexPage_hwidget");
     auto hBoxlayout = new QHBoxLayout();
     hwidget->setLayout(hBoxlayout);
     hBoxlayout->addWidget(backgroundWidget, 0, Qt::AlignHCenter);
@@ -108,6 +111,7 @@ IndexPage::IndexPage(QWidget *parent)
     logoutBtn->setText(tr("Sign Out"));
 
     auto bottomWidget = new QWidget();
+    bottomWidget->setAccessibleName("IndexPage_bottomWidget");
     QHBoxLayout *bottomLayout = new QHBoxLayout;
     bottomLayout->setSpacing(0);
     bottomLayout->setMargin(0);
