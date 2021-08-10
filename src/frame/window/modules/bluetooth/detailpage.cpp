@@ -51,6 +51,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     , m_device(device)
     , m_transFile(new QFileDialog(this))
 {
+    setAccessibleName("DetailPage");
     m_ignoreButton = new QPushButton(tr("Ignore this device"));
     m_ignoreButton->setObjectName("ignoreButton");
 

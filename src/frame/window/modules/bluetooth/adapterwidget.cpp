@@ -62,6 +62,9 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     , m_lastPowerCheck(false)
     , m_bluetoothInter("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)
 {
+    setAccessibleName("AdapterWidget");
+    m_showAnonymousCheckBox->setAccessibleName("AnonymousCheckBox");
+
     initMember();
     initUI();
     initConnect();

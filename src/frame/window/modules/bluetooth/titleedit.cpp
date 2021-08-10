@@ -39,8 +39,10 @@ TitleEdit::TitleEdit(QWidget *parent)
     , m_name(new QLabel)
     , m_lineEdit(new DLineEdit)
 {
+    setAccessibleName("TitleEdit");
     QHBoxLayout *mainlayout = new QHBoxLayout;
     m_lineEdit->lineEdit()->setVisible(false);
+    m_lineEdit->setAccessibleName("TitleEdit_lineEdit");
     mainlayout->addWidget(m_name);
     mainlayout->addWidget(m_lineEdit);
     mainlayout->addSpacing(5);
