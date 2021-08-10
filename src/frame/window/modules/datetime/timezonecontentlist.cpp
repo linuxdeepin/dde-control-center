@@ -35,6 +35,7 @@ TimezoneContentList::TimezoneContentList(QWidget *parent)
     , m_centralLayout(new QVBoxLayout)
     , m_timezoneGroup(new SettingsGroup)
 {
+    setAccessibleName("TimezoneContentList");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_centralLayout->setMargin(0);

@@ -63,7 +63,6 @@ const int kMenuViewMinimumWidth = 60;
 
 PopupMenu::PopupMenu(QWidget* parent) : QFrame(parent) {
   this->setObjectName("popup_menu");
-
   this->initUI();
   this->initConnections();
 }
@@ -184,6 +183,7 @@ void PopupMenu::initUI() {
   menu_model_ = new QStringListModel(this);
   menu_view_ = new QListView(this);
   menu_view_->setObjectName("menu_view");
+  menu_view_->setAccessibleName("menu_view");
   menu_view_->setContentsMargins(0, kMenuViewVerticalMargin,
                                  0, kMenuViewVerticalMargin);
   menu_view_->setModel(menu_model_);

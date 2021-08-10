@@ -42,6 +42,7 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     , m_layout(new QVBoxLayout)
     , mModel(mdoel)
 {
+    setAccessibleName("FormatSetting");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     TitleLabel *headTitle = new TitleLabel(tr("Date and Time Formats"));     //时间格式设置

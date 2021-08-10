@@ -70,7 +70,7 @@ TimezoneMap::TimezoneMap(QWidget* parent)
       total_zones_(GetZoneInfoList()),
       nearest_zones_() {
   this->setObjectName("timezone_map");
-
+  this->setAccessibleName("timezone_map");
   this->initUI();
   this->initConnections();
 }

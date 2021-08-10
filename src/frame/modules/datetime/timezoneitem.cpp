@@ -41,6 +41,7 @@ TimezoneItem::TimezoneItem(QFrame *parent)
     , m_clock(new Clock)
     , m_removeBtn(new DIconButton(this))
 {
+    m_clock->setAccessibleName("TimezoneItem_clock");
     setFixedHeight(60);
 
     QVBoxLayout *vlayout = new QVBoxLayout();
