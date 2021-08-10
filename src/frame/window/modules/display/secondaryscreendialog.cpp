@@ -59,6 +59,8 @@ SecondaryScreenDialog::SecondaryScreenDialog(QWidget *parent)
     setWindowFlags(Qt::CoverWindow | Qt::WindowStaysOnTopHint);
     setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding);
 
+    m_monitorControlWidget->setAccessibleName("monitorControlWidget");
+
     m_contentLayout->setSpacing(10);
     m_contentLayout->setContentsMargins(35, 20, 35, 40);
     m_contentLayout->addWidget(m_monitorControlWidget);
@@ -218,6 +220,7 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
                     });
         }
         QWidget *brightnessWidget = new QWidget(this);
+        brightnessWidget->setAccessibleName("SecondaryScreenDialog_brightnessWidget");
         QVBoxLayout *brightnessLayout = new QVBoxLayout(brightnessWidget);
         brightnessLayout->setContentsMargins(0, 10, 0, 0);
         brightnessLayout->addWidget(headTitle);

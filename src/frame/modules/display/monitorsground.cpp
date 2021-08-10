@@ -60,6 +60,7 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
 
     auto initMW = [this](Monitor * mon) {
         MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
+        pw->setAccessibleName("MonitorProxyWidget");
         pw->setVisible(true);
         m_monitors[pw] = mon;
 

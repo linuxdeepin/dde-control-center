@@ -43,6 +43,7 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     , m_monitor(nullptr)
     , m_resoItemModel(new QStandardItemModel)
 {
+    setAccessibleName("ResolutionWidget");
     addBackground();
     setMinimumHeight(48);
     m_contentLayout->setContentsMargins(10, 0, 10, 0);

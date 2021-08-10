@@ -41,6 +41,7 @@ RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     , m_model(nullptr)
     , m_monitor(nullptr)
 {
+    setAccessibleName("RotateWidget");
     addBackground();
     setMinimumHeight(48);
     m_contentLayout->setContentsMargins(10, 0, 10, 0);
