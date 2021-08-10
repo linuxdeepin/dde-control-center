@@ -111,6 +111,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     setLayout(mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
+    m_scrollArea->setAccessibleName("scrollArea");
     m_scrollArea->setWidgetResizable(true);
     m_scrollArea->setFrameStyle(QFrame::NoFrame);
     m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -118,6 +119,7 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
     m_scrollArea->setContentsMargins(0, 0, 0, 0);
 
     QWidget *widget = new QWidget;
+    widget->setAccessibleName("scrollAreaWidget");
     widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     widget->setContentsMargins(0, 0, 0, 0);
     widget->setMinimumWidth(330);   //设置滑轮区域最小宽度,避免整体窗口最小的时候,fullnamelable太长导致出现滑轮
