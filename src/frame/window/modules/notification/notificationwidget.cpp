@@ -52,6 +52,10 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
 {
     setObjectName("notification");
 
+    this->setAccessibleName("NotificationWidget");
+    m_softwareListView->setAccessibleName("softwareListView");
+    m_systemListView->setAccessibleName("systemListView");
+
     m_centralLayout->setMargin(0);
 
     m_systemListView->setMaximumHeight(50);

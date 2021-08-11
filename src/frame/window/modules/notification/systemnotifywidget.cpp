@@ -61,6 +61,8 @@ void SystemNotifyWidget::setModel(SysItemModel *model)
 
 void SystemNotifyWidget::initUI()
 {
+    this->setAccessibleName("SystemNotifyWidget");
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     mainLayout->setMargin(0);
