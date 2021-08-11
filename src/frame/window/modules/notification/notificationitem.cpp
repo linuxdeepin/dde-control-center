@@ -35,6 +35,7 @@ NotificationItem::NotificationItem(QWidget *parent)
 {
     setFixedHeight(38);
 
+    m_chkState->setAccessibleName("QCheckBox");
     m_layout->setContentsMargins(10, 0, 10, 0);
     m_layout->addWidget(m_chkState);
     m_layout->addStretch();

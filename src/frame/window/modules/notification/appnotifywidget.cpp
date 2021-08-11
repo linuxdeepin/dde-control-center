@@ -56,6 +56,8 @@ void AppNotifyWidget::setModel(AppItemModel *model)
 
 void AppNotifyWidget::initUI()
 {
+    this->setAccessibleName("AppNotifyWidget");
+
     QVBoxLayout *mainLayout = new QVBoxLayout;
     mainLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     mainLayout->setMargin(0);
