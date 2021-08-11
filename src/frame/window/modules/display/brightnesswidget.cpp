@@ -199,6 +199,7 @@ void BrightnessWidget::addSlider()
     for (int i = 0; i < monList.size(); ++i) {
         //单独显示每个亮度调节名
         TitledSliderItem *slideritem = new TitledSliderItem(monList[i]->name(), this);
+        slideritem->setAccessibleName("BrightnessWidget_TitledSliderItem");
         slideritem->addBackground();
         DCCSlider *slider = slideritem->slider();
         int maxBacklight = static_cast<int>(m_displayModel->maxBacklightBrightness());

@@ -59,7 +59,10 @@ class RingColorWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit RingColorWidget(QWidget *parent = nullptr) : m_selectedItem(nullptr){}
+    explicit RingColorWidget(QWidget *parent = nullptr) : m_selectedItem(nullptr)
+    {
+        setAccessibleName("RingColorWidget");
+    }
     virtual ~RingColorWidget() {}
 
     void setSelectedItem(RoundColorWidget* item)

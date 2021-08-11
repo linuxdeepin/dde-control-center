@@ -171,6 +171,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         QVBoxLayout *winEffectVLayout = new QVBoxLayout();
         winEffectVLayout->addSpacing(20);
         m_switchWidget->setLayout(winEffectVLayout);
+        m_switchWidget->setAccessibleName("switchWidget");
 
         m_wmSwitch = new DSwitchButton();
         m_wmSwitch->setAccessibleName("switchbutton");
@@ -270,6 +271,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->addStretch(20);
 
     QScrollArea *scrollArea = new QScrollArea;
+    scrollArea->setAccessibleName("PersonalizationGeneral_scrollArea");
     scrollArea->setWidgetResizable(true);
     scrollArea->setFrameStyle(QFrame::NoFrame);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -282,6 +284,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     mainContentLayout->addWidget(scrollArea);
 
     auto tw = new QWidget();
+    tw->setAccessibleName("centralLayoutWidget");
     tw->setLayout(m_centralLayout);
     m_centralLayout->setContentsMargins(0, 0, 0, 0);
     scrollArea->setWidget(tw);

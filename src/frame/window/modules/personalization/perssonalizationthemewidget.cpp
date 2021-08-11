@@ -37,6 +37,7 @@ PerssonalizationThemeWidget::PerssonalizationThemeWidget(QWidget *parent)
     , m_model(nullptr)
     , m_titleBelowPic(true)
 {
+    setAccessibleName("PerssonalizationThemeWidget");
 }
 
 void PerssonalizationThemeWidget::setModel(dcc::personalization::ThemeModel *const model)
