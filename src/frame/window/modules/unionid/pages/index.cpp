@@ -396,6 +396,12 @@ void IndexPage::setDefaultInfo()
     m_uidLabel->clear();
     m_wxNameLabel->clear();
     m_modButton->setText("");
+    m_accessToken.clear();
+    m_refreshToken.clear();
+    m_phoneNumber.clear();
+    m_wechatunionid.clear();
+    m_userAvatar.clear();
+    m_nickName.clear();
 }
 
 void IndexPage::refreshData(const QString& data)
@@ -541,7 +547,7 @@ void IndexPage::onGetUserInfoResult()
         QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
         QJsonObject jsonObj = jsonDoc.object();
         QJsonValue jsonValueResult = jsonObj.value("phone_number");
-        m_phoneNumber = jsonValueResult.toString();
+        m_phoneNumber = jsonValueResult.toString();       
 
         connect(AuthenticationWindow::instance(),&AuthenticationWindow::toTellrefreshUserInfo,this,&IndexPage::onTokenTimeout);
         AuthenticationWindow::instance()->setData(m_phoneNumber,m_wechatunionid,m_accessToken,m_userAvatar,m_nameLabel->text());
@@ -637,6 +643,30 @@ void IndexPage::onTokenTimeout()
 {
     QNetworkReply *reply = HttpClient::instance()->refreshAccessToken(HttpClient::instance()->getClientId(),m_refreshToken);
     connect(reply,&QNetworkReply::finished,this,&IndexPage::onRefreshAccessToken);
+
+    QNetworkReply *reply1 = HttpClient::instance()->getUserInfo(m_accessToken);
+    connect(reply1,&QNetworkReply::finished,this,&IndexPage::onGetUserInfo);
+}
+
+void IndexPage::onGetUserInfo()
+{
+    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
+    QString result = HttpClient::instance()->checkReply(reply);
+
+    if (!result.isEmpty()) {
+        QByteArray byteJson = result.toLocal8Bit();
+        QJsonParseError jsonError;
+        QJsonDocument jsonDoc = QJsonDocument::fromJson(byteJson, &jsonError);
+        QJsonObject jsonObj = jsonDoc.object();
+        QJsonValue jsonValueResult = jsonObj.value("phone_number");
+        m_phoneNumber = jsonValueResult.toString();
+        jsonValueResult = jsonObj.value("nickname");
+        m_nickName = jsonValueResult.toString();
+        m_nameLabel->setText(m_nickName);
+    } else {
+        Notificationmanager::instance()->showToast(this,Notificationmanager::NetworkError);
+        qInfo() << "昵称获取失败";
+    }
 }
 
 IndexPage::~IndexPage()

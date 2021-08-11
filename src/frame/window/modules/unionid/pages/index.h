@@ -97,6 +97,7 @@ private Q_SLOTS:
     void onRefreshAccessToken();
     //AT超时刷新
     void onTokenTimeout();
+    void onGetUserInfo();
 
 private:
     QVBoxLayout *m_mainLayout;
