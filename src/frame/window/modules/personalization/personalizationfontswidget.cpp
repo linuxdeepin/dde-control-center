@@ -56,6 +56,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     , m_monoFontsCbBox(new QComboBox(this))
     , m_isAppend(false)
 {
+    setAccessibleName("PersonalizationFontsWidget");
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);

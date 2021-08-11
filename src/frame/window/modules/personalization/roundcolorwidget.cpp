@@ -38,6 +38,7 @@ RoundColorWidget::RoundColorWidget(const QColor &color, QWidget *parent)
     , m_isSelected(false)
     , m_color(color)
 {
+    setAccessibleName("RoundColorWidget");
 }
 
 bool RoundColorWidget::isSelected()

@@ -36,6 +36,7 @@ PerssonalizationThemeList::PerssonalizationThemeList(QWidget *parent)
     : QWidget(parent)
     , m_listview(new DListView)
 {
+    setAccessibleName("PerssonalizationThemeList");
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setMargin(0);
     QStandardItemModel *model = new QStandardItemModel(this);
