@@ -512,8 +512,8 @@ void DisplayWorker::onMonitorEnable(Monitor *monitor, const bool enabled)
             Q_ASSERT(m_monitors.contains(mon));
             auto *mInter = m_monitors[mon];
             mInter->SetPosition(static_cast<short>(xOffset), 0).waitForFinished();
-            monitor->setW(xOffset);
-            monitor->setH(0);
+            monitor->setW(mon->w());
+            monitor->setH(mon->h());
             xOffset += mon->w();
         }
     }

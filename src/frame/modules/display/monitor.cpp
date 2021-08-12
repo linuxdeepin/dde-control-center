@@ -70,9 +70,6 @@ void Monitor::setY(const int y)
 
 void Monitor::setW(const int w)
 {
-    if (m_w == w)
-        return;
-
     m_w = w;
 
     Q_EMIT wChanged(m_w);
@@ -81,9 +78,6 @@ void Monitor::setW(const int w)
 
 void Monitor::setH(const int h)
 {
-    if (m_h == h)
-        return;
-
     m_h = h;
 
     Q_EMIT hChanged(m_h);
