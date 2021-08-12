@@ -43,6 +43,7 @@ LoadingItem::LoadingItem(QFrame *parent)
     layout->setMargin(0);
     layout->setSpacing(10);
 
+    m_progress->setAccessibleName("LoadingItem_progress");
     m_progress->setRange(0, 100);
     m_progress->setFixedWidth(200);
     m_progress->setFixedHeight(7);

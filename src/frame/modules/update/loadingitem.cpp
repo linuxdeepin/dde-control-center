@@ -39,6 +39,7 @@ LoadingItem::LoadingItem(QFrame *parent)
     , m_messageLabel(new NormalLabel)
     , m_progress(new QProgressBar(this))
 {
+    m_progress->setAccessibleName("LoadingItem_progress");
     QVBoxLayout* layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(10);

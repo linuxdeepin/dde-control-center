@@ -66,6 +66,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     btnSetting->setAccessibleName("UPDATE_SETTINGS");
     m_btnlist.append(btnUpdate);
     m_btnlist.append(btnSetting);
+    m_topSwitchWidgetBtn->setAccessibleName("topSwitchWidgetBtn");
     m_topSwitchWidgetBtn->setButtonList(m_btnlist, true);
     m_btnlist.first()->setChecked(true);
     m_topSwitchWidgetBtn->setId(btnUpdate, 0);
@@ -86,6 +87,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     m_layout->addLayout(m_mainLayout, 0);
 
     QWidget *recentHistoryWidget = new QWidget;
+    recentHistoryWidget->setAccessibleName("Update_Widget");
     QVBoxLayout *bottomLayout = new QVBoxLayout;
     recentHistoryWidget->setLayout(bottomLayout);
 
@@ -161,6 +163,7 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
     connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
 
     QWidget *updateOutWidget = new QWidget;
+    updateOutWidget->setAccessibleName("updateOutWidget");
     QVBoxLayout *layout = new QVBoxLayout;
     layout->addStretch();
     layout->addWidget(updateWidget, Qt::AlignTop);
