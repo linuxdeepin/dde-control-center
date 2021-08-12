@@ -36,6 +36,7 @@ DownloadProgressBar::DownloadProgressBar(QWidget* parent)
     : QProgressBar(parent)
     , m_currentValue(0)
 {
+    setAccessibleName("DownloadProgressBar");
     setFixedHeight(36);
     setTextVisible(true);
     setTextDirection(QProgressBar::TopToBottom);

@@ -69,6 +69,10 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_checkUpdateBtn(new QPushButton)
     , m_lastCheckTimeTip(new TipsLabel)
 {
+    setAccessibleName("UpdateCtrlWidget");
+    m_checkUpdateItem->setAccessibleName("checkUpdateItem");
+
+    m_updateList->setAccessibleName("updateList");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     m_reminderTip->setText(tr("Restart the computer to use the system and the applications properly"));
@@ -135,6 +139,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     setLayout(layout);
 
     QWidget *contentWidget = new QWidget;
+    contentWidget->setAccessibleName("UpdateCtrlWidget_contentWidget");
     QVBoxLayout *contentLayout = new QVBoxLayout;
     contentLayout->addWidget(m_summaryGroup);
     contentLayout->addStretch();

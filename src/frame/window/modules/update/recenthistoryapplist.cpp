@@ -27,6 +27,7 @@ using namespace DCC_NAMESPACE::update;
 RecentHistoryApplist::RecentHistoryApplist(QWidget *parent)
     : ContentWidget(parent)
 {
+    setAccessibleName("RecentHistoryApplist");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
 
