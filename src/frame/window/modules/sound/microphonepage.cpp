@@ -79,6 +79,7 @@ MicrophonePage::MicrophonePage(QWidget *parent)
 
 
     m_inputSoundCbx = new ComboxWidget(tr("Input Device"));
+    m_inputSoundCbx->comboBox()->setAccessibleName("inputSoundCbx");
 
     TitleLabel *ndTitle = new TitleLabel(tr("Automatic Noise Suppression"));
     DFontSizeManager::instance()->bind(ndTitle, DFontSizeManager::T6);

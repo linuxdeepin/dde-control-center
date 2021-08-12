@@ -48,7 +48,7 @@ DevicemanagesPage::DevicemanagesPage(QWidget *parent)
     , m_outputGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
     , m_inputGroup(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
 {
-
+    setAccessibleName("DevicemanagesPage");
 }
 
 DevicemanagesPage::~DevicemanagesPage()

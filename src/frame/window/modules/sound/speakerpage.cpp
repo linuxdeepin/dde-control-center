@@ -78,9 +78,11 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     m_outputSoundCbx = new ComboxWidget(tr("Output Device"));
     m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);
+    m_outputSoundCbx->comboBox()->setAccessibleName("outputSoundCbx");
 
     m_outputSoundsGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     m_blueSoundCbx = new ComboxWidget(tr("Mode"));
+    m_blueSoundCbx->comboBox()->setAccessibleName("blueSoundCbx");
 
     m_layout->addWidget(labelOutput);
     m_layout->setContentsMargins(ThirdPageContentsMargins);
@@ -410,6 +412,7 @@ void SpeakerPage::initSlider()
     volumeBoostTip->setContentsMargins(10, 0, 0, 0);
     hlayout->addWidget(volumeBoostTip);
     m_vbWidget = new QWidget(this);
+    m_vbWidget->setAccessibleName("SpeakerPage_vbWidget");
     m_vbWidget->setLayout(hlayout);
     m_vbWidget->setVisible(m_model->isPortEnable());
     m_layout->insertWidget(3, m_vbWidget);
