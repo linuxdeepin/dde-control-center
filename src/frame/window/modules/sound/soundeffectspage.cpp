@@ -55,6 +55,7 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     m_layout->setContentsMargins(ThirdPageContentsMargins);
 
     QWidget *widget = new QWidget;
+    widget->setAccessibleName("SoundEffectsPage_QWidget");
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
 
