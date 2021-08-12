@@ -110,7 +110,8 @@ void GeneralWidget::initUi()
     DFontSizeManager::instance()->bind(powerPlansLabel, DFontSizeManager::T5, QFont::DemiBold); // 性能设置label字体
     GSettingWatcher::instance()->bind("powerPlansLabel", powerPlansLabel);                      // 使用GSettings来控制显示状态
     QVBoxLayout *powerPlansLayout = new QVBoxLayout(this);                                            // 性能模式布局
-    m_powerplanListview = new DListView(this);                                                      // 电源模式列表
+    m_powerplanListview = new DListView(this);                                                        // 电源模式列表
+    m_powerplanListview->setAccessibleName("powerplanListview");
 
     m_powerPlanModel = new QStandardItemModel(m_powerplanListview);
     QMap<QString, QString>::iterator iter;
@@ -151,6 +152,7 @@ void GeneralWidget::initUi()
     QStringList annotions;
     annotions << "10%" << "20%" << "30%" << "40%";
 
+    m_sldLowerBrightness->slider()->setAccessibleName("sldLowerBrightness");
     m_sldLowerBrightness->slider()->setAnnotations(annotions);
     m_sldLowerBrightness->slider()->setRange(1, 4);
     m_sldLowerBrightness->slider()->setPageStep(10);
@@ -226,6 +228,7 @@ void GeneralWidget::initUi()
     m_layout->setContentsMargins(0, 2, 0, 5); // 总布局上下边距
 
     ContentWidget *contentWgt = new ContentWidget(this);
+    contentWgt->setAccessibleName("General_ContentWidget");
     QWidget *mainWgt = new TranslucentFrame(this); // 添加一层半透明框架
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);

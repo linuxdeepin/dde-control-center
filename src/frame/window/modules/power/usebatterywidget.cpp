@@ -172,6 +172,7 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
 
     //add scroll
     ContentWidget *contentWgt = new ContentWidget;
+    contentWgt->setAccessibleName("UseBatteryWidget_Content");
     QWidget *mainWgt = new TranslucentFrame;
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
