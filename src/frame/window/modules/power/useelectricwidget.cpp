@@ -104,6 +104,7 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     m_layout->setSpacing(10);
 
     ContentWidget *contentWgt = new ContentWidget;
+    contentWgt->setAccessibleName("UseElectricWidget_Content");
     QWidget *mainWgt = new TranslucentFrame;
     mainWgt->setLayout(m_layout);
     contentWgt->setContent(mainWgt);
