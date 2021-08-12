@@ -104,6 +104,7 @@ void GenericSection::setConnectionNameEditable(const bool editable)
 
 void GenericSection::initUI()
 {
+    setAccessibleName("GenericSection");
     m_connIdItem->setTitle(tr("Name"));
     m_connIdItem->setText(m_connSettings->id());
     m_autoConnItem->setChecked(m_connSettings->autoconnect());

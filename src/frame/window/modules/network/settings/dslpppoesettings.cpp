@@ -36,6 +36,7 @@ DslPppoeSettings::DslPppoeSettings(NetworkManager::ConnectionSettings::Ptr connS
     , m_devicePath(devPath)
     , m_parent(parent)
 {
+    setAccessibleName("DslPppoeSettings");
     initSections();
 }
 

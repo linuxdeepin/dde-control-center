@@ -95,6 +95,7 @@ ConnectionEditPage::~ConnectionEditPage()
 
 void ConnectionEditPage::initUI()
 {
+    setAccessibleName("ConnectionEditPage");
     m_settingsLayout->setSpacing(10);
 
     m_disconnectBtn = m_buttonTuple_conn->leftButton();

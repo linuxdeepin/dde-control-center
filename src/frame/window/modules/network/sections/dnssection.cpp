@@ -53,6 +53,7 @@ DNSSection::~DNSSection()
 
 void DNSSection::initUI()
 {
+    setAccessibleName("DNSSection");
     // 添加头 编辑完成 按钮
     m_headItem->setTitle(tr("DNS"));
     m_headItem->toCancel();

@@ -31,6 +31,7 @@ SecretWiredSection::SecretWiredSection(NetworkManager::Security8021xSetting::Ptr
     , m_secretEnable(new SwitchWidget(this))
     , m_enableWatcher(new Secret8021xEnableWatcher(this))
 {
+    setAccessibleName("SecretWiredSection");
     m_secretEnable->setTitle(tr("Security Required"));
     m_secretEnable->setChecked(!sSetting->toMap().isEmpty());
 
