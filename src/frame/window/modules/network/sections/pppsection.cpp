@@ -99,6 +99,7 @@ void PPPSection::initStrMaps()
 
 void PPPSection::initUI()
 {
+    setAccessibleName("PPPSection");
     bool empty = m_pppSetting->toMap().isEmpty();
 
     m_mppeEnable->setTitle(tr("Use MPPE"));

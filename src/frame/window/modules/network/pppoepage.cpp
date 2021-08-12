@@ -53,6 +53,7 @@ PppoePage::PppoePage(QWidget *parent)
     , m_modelSettings(new QStandardItemModel(this))
     , m_createBtn(new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement))
 {
+    setAccessibleName("PppoePage");
     m_createBtn->setMinimumSize(QSize(47, 47));
     m_createBtn->setToolTip(tr("Create PPPoE Connection"));
     m_createBtn->setAccessibleName(tr("Create PPPoE Connection"));

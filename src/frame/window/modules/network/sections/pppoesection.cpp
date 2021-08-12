@@ -80,6 +80,7 @@ void PPPOESection::saveSettings()
 
 void PPPOESection::initUI()
 {
+    setAccessibleName("PPPOESection");
     m_userName->setTitle(tr("Username"));
     m_userName->setPlaceholderText(tr("Required"));
     m_userName->setText(m_pppoeSetting->username());

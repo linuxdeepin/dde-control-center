@@ -43,6 +43,7 @@ EthernetSection::EthernetSection(NetworkManager::WiredSetting::Ptr wiredSetting,
     , m_wiredSetting(wiredSetting)
     , m_devicePath(devPath)
 {
+    setAccessibleName("EthernetSection");
     // get the macAddress list from all wired devices
     for (auto device : NetworkManager::networkInterfaces()) {
         if (device->type() != NetworkManager::Device::Ethernet) {

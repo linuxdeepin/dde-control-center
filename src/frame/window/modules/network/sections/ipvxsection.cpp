@@ -231,6 +231,7 @@ void IpvxSection::initStrMaps()
 
 void IpvxSection::initUI()
 {
+    setAccessibleName("IpvxSection");
     m_ipAddress->setTitle(tr("IP Address"));
     m_ipAddress->textEdit()->setPlaceholderText(tr("Required"));
     m_gateway->setTitle(tr("Gateway"));

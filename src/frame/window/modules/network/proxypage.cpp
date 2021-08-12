@@ -113,6 +113,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     // 手动代理界面忽略主机编辑框初始化
     m_ignoreList = new DTextEdit;
+    m_ignoreList->setAccessibleName("ProxyPage_ignoreList");
     m_ignoreList->installEventFilter(this);
     QLabel *ignoreTips = new QLabel;
     ignoreTips->setWordWrap(true);
@@ -162,6 +163,7 @@ ProxyPage::ProxyPage(QWidget *parent)
 
     // 加入button布局
     ContentWidget *conentwidget = new ContentWidget;
+    conentwidget->setAccessibleName("ProxyPage_ContentWidget");
     setWindowTitle(tr("System Proxy"));
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(mainLayout);

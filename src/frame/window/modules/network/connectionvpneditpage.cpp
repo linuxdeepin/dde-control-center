@@ -52,6 +52,7 @@ ConnectionVpnEditPage::ConnectionVpnEditPage(const QString &connUuid, QWidget *p
     , m_exportButton(nullptr)
     , m_saveConfig(new QFileDialog(this))
 {
+    m_saveConfig->setAccessibleName("ConnectionVpnEditPage_saveConfig");
     m_saveConfig->setModal(true);
     m_saveConfig->setNameFilter("Config File (*.conf)");
     m_saveConfig->setAcceptMode(QFileDialog::AcceptSave);
