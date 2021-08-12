@@ -69,6 +69,7 @@ ContentWidget::ContentWidget(QWidget *parent)
     m_contentTopLayout->setSpacing(0);
 
     m_contentArea = new QScrollArea;
+    m_contentArea->setAccessibleName("ContentWidget_contentArea");
     m_contentArea->setWidgetResizable(true);
     m_contentArea->setFrameStyle(QFrame::NoFrame);
     m_contentArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

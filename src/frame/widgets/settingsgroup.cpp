@@ -53,6 +53,7 @@ SettingsGroup::SettingsGroup(QFrame *parent, BackgroundStyle bgStyle)
     if (GroupBackground == bgStyle) {
         vLayout = new QVBoxLayout;
         m_bggroup = new DBackgroundGroup(m_layout);
+        m_bggroup->setAccessibleName("bggroup");
         m_bggroup->setBackgroundRole(QPalette::Window);
         m_bggroup->setItemSpacing(1);
         m_bggroup->setUseWidgetBackground(false);

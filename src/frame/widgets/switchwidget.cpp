@@ -41,6 +41,7 @@ namespace widgets {
 SwitchLabel::SwitchLabel(QWidget *parent, Qt::WindowFlags f)
     : QLabel (parent,f)
 {
+    setAccessibleName("SwitchLabel");
 }
 
 void SwitchLabel::resizeEvent(QResizeEvent *event)

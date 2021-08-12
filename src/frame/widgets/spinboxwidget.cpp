@@ -41,6 +41,10 @@ SpinBoxWidget::SpinBoxWidget(QWidget *parent)
     , m_spinBox(new DSpinBox)
     , m_resetBtn(new DIconButton(this))
 {
+    setAccessibleName("SpinBoxWidget");
+    m_title->setAccessibleName("SpinBoxWidget_title");
+    m_spinBox->setAccessibleName("spinBox");
+    m_resetBtn->setAccessibleName("resetBtn");
     m_spinBox->setContextMenuPolicy(Qt::NoContextMenu);
     m_spinBox->setButtonSymbols(QAbstractSpinBox::PlusMinus);
 
