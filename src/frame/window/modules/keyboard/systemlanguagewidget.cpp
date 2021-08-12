@@ -65,6 +65,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     headLayout->addWidget(m_editSystemLang);
 
     m_langListview = new DListView();
+    m_langListview->setAccessibleName("SystemLanguageWidget_langListview");
     m_langListview->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_langListview->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_langListview->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
@@ -81,8 +82,10 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     layout->setContentsMargins(0, 0, 0, 0);
 
     QWidget *widget = new QWidget(this);
+    widget->setAccessibleName("SystemLanguageWidget_QWidget");
     widget->setLayout(layout);
     ContentWidget *contentWidget = new ContentWidget(this);
+    contentWidget->setAccessibleName("SystemLanguageWidget_Content");
     contentWidget->setContent(widget);
 
     QVBoxLayout *vLayout = new QVBoxLayout();

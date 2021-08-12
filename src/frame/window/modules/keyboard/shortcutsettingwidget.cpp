@@ -46,6 +46,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     , m_assistiveToolsGroup(nullptr)
     , m_model(model)
 {
+    setAccessibleName("ShortCutSettingWidget");
     m_searchDelayTimer = new QTimer(this);
     m_searchDelayTimer->setInterval(300);
     m_searchDelayTimer->setSingleShot(true);
@@ -134,9 +135,11 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_layout->addStretch();
 
     QWidget *widget = new QWidget(this);
+    widget->setAccessibleName("ShortCutSettingWidget_widget");
     widget->setContentsMargins(0, 0, 0, 0);
     widget->setLayout(m_layout);
     ContentWidget *contentWidget = new ContentWidget(this);
+    contentWidget->setAccessibleName("ShortCutSettingWidget_ContentWidget");
     contentWidget->setContent(widget);
     vlayout->addWidget(contentWidget);
 

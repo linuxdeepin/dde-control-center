@@ -46,6 +46,7 @@ DouTestWidget::DouTestWidget(QWidget *parent)
     m_mainlayout->setContentsMargins(20, 10, 10, 10);
     m_mainlayout->addWidget(title, 0, Qt::AlignLeft);
     m_testWidget = new DPictureSequenceView;
+    m_testWidget->setAccessibleName("DouTestWidget_testWidget");
     m_testWidget->setFixedSize(128, 76);
     m_testWidget->setSingleShot(true);
     m_mainlayout->addWidget(m_testWidget, 0, Qt::AlignCenter);

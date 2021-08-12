@@ -43,6 +43,7 @@ GeneralSettingWidget::GeneralSettingWidget(QWidget *parent)
     , m_generalSettingsGrp(nullptr)
 {
     QFrame *frame = new QFrame(this);
+    frame->setAccessibleName("GeneralSettingWidget_frame");
     m_generalSettingsGrp = new SettingsGroup(frame);
 
     //~ contents_path /mouse/General

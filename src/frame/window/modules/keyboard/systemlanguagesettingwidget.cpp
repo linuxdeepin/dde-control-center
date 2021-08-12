@@ -43,6 +43,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     , m_keyboardModel(model)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save))
 {
+    setAccessibleName("SystemLanguageSettingWidget");
     m_contentWidget = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);

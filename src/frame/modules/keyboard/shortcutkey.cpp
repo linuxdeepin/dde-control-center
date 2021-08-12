@@ -31,7 +31,7 @@
 
 ShortcutKey::ShortcutKey(QWidget *parent) : QWidget(parent)
 {
-
+    setAccessibleName("ShortcutKey");
     m_mainLayout = new QHBoxLayout;
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(5);
