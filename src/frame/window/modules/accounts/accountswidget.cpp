@@ -29,6 +29,7 @@
 
 #include <DStyleOption>
 #include <DStandardItem>
+#include <DApplicationHelper>
 
 #include <QWidget>
 #include <QVBoxLayout>
@@ -318,7 +319,8 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
     switch (option) {
     case AccountsWidget::ClickCancel: { //点击取消
         QModelIndex qindex0 = m_userItemModel->index(m_saveClickedRow, 0);
-        m_userlistView->setFocus();
+        if (!DGuiApplicationHelper::isTabletEnvironment())
+            m_userlistView->setFocus();
         m_userlistView->setCurrentIndex(qindex0);
         onItemClicked(qindex0);
         }
