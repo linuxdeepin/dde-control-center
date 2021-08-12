@@ -37,6 +37,7 @@ ButtonTuple::ButtonTuple(ButtonType type, QWidget *parent)
     : QWidget(parent)
     , m_leftButton(new LeftButton)
 {
+    setAccessibleName("ButtonTuple");
     createRightButton(type);
 
     QHBoxLayout *layout = new QHBoxLayout;

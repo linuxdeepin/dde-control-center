@@ -59,11 +59,14 @@ void WacomWidget::setModel(WacomModel *model)
 
 void WacomWidget::initWidget()
 {
+    setAccessibleName("WacomWidget");
     m_modeLayout->setMargin(0);
     m_modeLayout->setSpacing(0);
 
     m_modeTitle->setText(tr("Mode"));
+    m_modeTitle->setAccessibleName("WacomWidget_modeTitle");
 
+    m_modeComboBox->setAccessibleName("WacomWidget_modeComboBox");
     m_modeComboBox->addItem(tr("Pen"), false);
     m_modeComboBox->addItem(tr("Mouse"), true);
     m_modeComboBox->setCurrentIndex(0);

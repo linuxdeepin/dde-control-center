@@ -116,6 +116,7 @@ MainWindow::MainWindow(QWidget *parent)
     DMainWindow::installEventFilter(this);
 
     QWidget *content = new QWidget(this);
+    content->setAccessibleName("contentwindow");
     content->setObjectName("contentwindow");
     m_contentLayout = new QHBoxLayout(content);
     m_contentLayout->setContentsMargins(0, 0, 0, 0);
@@ -194,6 +195,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_backwardBtn->setEnabled(false);
     m_backwardBtn->setIcon(QStyle::SP_ArrowBack);
     QWidget *backWidget = new QWidget();
+    backWidget->setAccessibleName("backWidget");
     QHBoxLayout *btnLayout = new QHBoxLayout();
     btnLayout->addSpacing(5);
     btnLayout->addWidget(m_backwardBtn);
@@ -242,6 +244,7 @@ void MainWindow::onBack()
 void MainWindow::resetTabOrder()
 {
     QWidget *pre = m_navView;
+    pre->setAccessibleName("mainwindow_pre");
     pre->setFocusPolicy(Qt::TabFocus);
     for (int i = 0; i < m_contentStack.size(); ++i) {
         auto tw = m_contentStack.at(i).second;

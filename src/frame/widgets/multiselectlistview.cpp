@@ -8,7 +8,7 @@ namespace dcc {
 namespace widgets {
 
 MultiSelectListView::MultiSelectListView(QWidget *parent): DListView(parent) {
-
+    setAccessibleName("MultiSelectListView");
 }
 
 void MultiSelectListView::resetStatus(const QModelIndex &index) {

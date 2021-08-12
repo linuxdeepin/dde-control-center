@@ -31,7 +31,7 @@ namespace widgets {
 TranslucentFrame::TranslucentFrame(QWidget *parent) :
     QFrame(parent)
 {
-
+    setAccessibleName("TranslucentFrame");
 }
 
 }

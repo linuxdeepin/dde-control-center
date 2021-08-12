@@ -74,8 +74,11 @@ LineEditWidget::LineEditWidget(QFrame *parent)
     , m_edit(new DLineEdit)
     , m_errTip(new ErrorTip(this))
 {
+
+    m_title->setAccessibleName("title");
     m_title->setFixedWidth(110);
     m_edit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_edit->setAccessibleName("LineEditWidget");
 
     m_mainLayout = new QHBoxLayout;
     m_mainLayout->addWidget(m_title, 0, Qt::AlignVCenter);
