@@ -102,6 +102,7 @@ NativeInfoWidget::~NativeInfoWidget()
 void NativeInfoWidget::initWidget()
 {
     QFrame *frame = new QFrame(this);
+    frame->setAccessibleName("NativeInfoWidget_frame");
     QWidget *container = new dcc::widgets::TranslucentFrame(this);
     container->setLayout(m_mainLayout);
     setContent(container);

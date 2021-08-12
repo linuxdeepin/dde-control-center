@@ -37,6 +37,7 @@ using namespace DCC_NAMESPACE::systeminfo;
 PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
     : ContentWidget(parent)
 {
+    setAccessibleName("PrivacyPolicyWidget");
     TranslucentFrame *widget = new TranslucentFrame;
     auto layout = new QVBoxLayout;
     layout->setAlignment(Qt::AlignTop);
