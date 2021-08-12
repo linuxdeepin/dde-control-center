@@ -81,8 +81,10 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     mainLayout->setContentsMargins(10, 0, 10, 0);
 
     QWidget *widget = new QWidget(this);
+    widget->setAccessibleName("KBLayoutSettingWidget_Widget");
     widget->setLayout(mainLayout);
     m_contentWidget = new ContentWidget(this);
+    m_contentWidget->setAccessibleName("KBLayoutSettingWidget_contentWidget");
     m_contentWidget->setContent(widget);
 
     QVBoxLayout *vLayout = new QVBoxLayout();
