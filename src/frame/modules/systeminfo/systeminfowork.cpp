@@ -86,8 +86,12 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     if (DSysInfo::cpuModelName().contains("Hz")) {
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
-        if(DSysInfo::cpuModelName().isEmpty()){
-            m_model->setProcessor(QString("%1GHz").arg(cpuMaxMhz / 1000));
+        if (DSysInfo::cpuModelName().isEmpty()){
+            QDBusMessage replyCpuInfo = Interface.call("Get", "com.deepin.daemon.SystemInfo", "Processor");
+            QList<QVariant> outArgsCpuInfo = replyCpuInfo.arguments();
+            QString processor = outArgsCpuInfo.at(0).value<QDBusVariant>().variant().toString();
+            m_model->setProcessor(QString("%1 @ %2GHz").arg(processor)
+                                  .arg(cpuMaxMhz / 1000));
         } else {
             m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
                                   .arg(cpuMaxMhz / 1000));
