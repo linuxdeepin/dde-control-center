@@ -306,6 +306,7 @@ void Notificationmanager::onUserAvatar(QPixmap avatar)
 void Notificationmanager::onGetAccessToken(QString result)
 {
     m_requrestCount++;
+    qInfo() << "onGetAccessToken" << m_requrestCount;
 //    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
 //    QString result = HttpClient::instance()->checkReply(reply);
 
@@ -315,6 +316,9 @@ void Notificationmanager::onGetAccessToken(QString result)
         m_requrestCount = 0;
     } else {
         if (m_requrestCount < 5) {
+            QEventLoop loop;
+            QTimer::singleShot(10000,&loop,SLOT(quit()));
+            loop.exec();
             Q_EMIT toTellGetAccessToken(m_code);
 //            QNetworkReply *reply = HttpClient::instance()->getAccessToken(HttpClient::instance()->getClientId(),m_code);
 //            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetAccessToken);
@@ -346,6 +350,7 @@ void Notificationmanager::onRefreshAccessToken(QString result)
 void Notificationmanager::onGetBindAccountInfo(QString result)
 {
     m_requrestCount++;
+    qInfo() << "onGetBindAccountInfo" << m_requrestCount;
 //    QNetworkReply *reply = static_cast<QNetworkReply *>(sender());
 //    QString result = HttpClient::instance()->checkReply(reply);
 
@@ -366,6 +371,9 @@ void Notificationmanager::onGetBindAccountInfo(QString result)
             }
         } else {
             if (m_requrestCount < 5) {
+                QEventLoop loop;
+                QTimer::singleShot(10000,&loop,SLOT(quit()));
+                loop.exec();
                 Q_EMIT toTellBindAccountInfo(1, 0, m_weChatUnionId);
 //                QNetworkReply *reply = HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
 //                connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
@@ -375,6 +383,9 @@ void Notificationmanager::onGetBindAccountInfo(QString result)
         }
     } else {
         if (m_requrestCount < 5) {
+            QEventLoop loop;
+            QTimer::singleShot(10000,&loop,SLOT(quit()));
+            loop.exec();
             Q_EMIT toTellBindAccountInfo(1, 0, m_weChatUnionId);
 //            QNetworkReply *reply = HttpClient::instance()->getBindAccountInfo(1, 0, m_weChatUnionId);
 //            connect(reply,&QNetworkReply::finished,this,&Notificationmanager::onGetBindAccountInfo);
@@ -387,6 +398,7 @@ void Notificationmanager::onGetBindAccountInfo(QString result)
 void Notificationmanager::readAvatarFromUrl(QByteArray result)
 {
     m_requrestCount++;
+    qInfo() << "readAvatarFromUrl" << m_requrestCount;
 //    QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
 //    QByteArray result = HttpClient::instance()->checkReply(reply);
 //    reply->deleteLater();
@@ -396,6 +408,9 @@ void Notificationmanager::readAvatarFromUrl(QByteArray result)
         m_requrestCount = 0;
     } else {
         if (m_requrestCount < 5) {
+            QEventLoop loop;
+            QTimer::singleShot(10000,&loop,SLOT(quit()));
+            loop.exec();
             Q_EMIT toTellGetPictureFromUrl(m_requrstAvatar);
 //            QNetworkReply *avatarReply = HttpClient::instance()->getPictureFromUrl(m_requrstAvatar);
 //            connect(avatarReply, &QNetworkReply::finished, this, &Notificationmanager::readAvatarFromUrl);

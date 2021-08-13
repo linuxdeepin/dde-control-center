@@ -289,6 +289,7 @@ QString HttpClient::getRequestUrl()
 
 void HttpClient::onGetAccessToken(const QString &code)
 {
+    qInfo() << "HttpClient::onGetAccessToken(";
     QNetworkReply *reply = getAccessToken(m_clientid,code);
     connect(reply,&QNetworkReply::finished, this, &HttpClient::onGetAccessTokenFinished);
 }
@@ -314,28 +315,29 @@ void HttpClient::onRefreshAccessToken(const QString &clientId, const QString &re
 void HttpClient::onGetAccessTokenFinished()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    Q_EMIT toTellGetAccessTokenFinished(checkReply(reply));;
+    Q_EMIT toTellGetAccessTokenFinished(checkReply(reply));
+    qInfo() << "HttpClient::onGetAccessTokenFinished(" << checkReply(reply);
     reply->deleteLater();
 }
 
 void HttpClient::onGetPictureFromUrlFinished()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    Q_EMIT toTellGetPictureFromUrlFinished(checkReply(reply));;
+    Q_EMIT toTellGetPictureFromUrlFinished(checkReply(reply));
     reply->deleteLater();
 }
 
 void HttpClient::onBindAccountInfoFinished()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    Q_EMIT toTellBindAccountInfoFinished(checkReply(reply));;
+    Q_EMIT toTellBindAccountInfoFinished(checkReply(reply));
     reply->deleteLater();
 }
 
 void HttpClient::onRefreshAccessTokenFinished()
 {
     QNetworkReply *reply = static_cast<QNetworkReply *>(QObject::sender());
-    Q_EMIT toTellRefreshAccessTokenFinished(checkReply(reply));;
+    Q_EMIT toTellRefreshAccessTokenFinished(checkReply(reply));
     reply->deleteLater();
 }
 
