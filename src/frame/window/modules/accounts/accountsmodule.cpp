@@ -132,11 +132,7 @@ int AccountsModule::load(const QString &path)
         }
     }
 
-    if (pUser == nullptr) {
-        return -1;
-    }
-
-    if (path == searchList[0]) {
+    if (path == searchList[0] && pUser) {
         onShowAccountsDetailWidget(pUser);
         return 0;
     } else if (path == searchList[1]) {
@@ -184,6 +180,8 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
     m_isCreatePage = false;
+    //当前页面为用户详情页面的时候允许跳转默认帐户，否则只响应用户点击。避免出现显示了创建账户页面，又被账户详情页面隐藏的问题。
+    m_accountsWidget->setShowDefaultAccountInfo(true);
 }
 
 //创建账户界面
@@ -202,6 +200,7 @@ void AccountsModule::onShowCreateAccountPage()
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
     m_isCreatePage = true;
+    m_accountsWidget->setShowDefaultAccountInfo(false);
 }
 
 AccountsModule::~AccountsModule()

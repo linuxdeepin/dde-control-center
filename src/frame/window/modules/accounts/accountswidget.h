@@ -77,6 +77,7 @@ public:
     QPixmap pixmapToRound(const QPixmap &src);
     void handleRequestBack(AccountsWidget::ActionOption option = AccountsWidget::ClickCancel);
 
+    void setShowDefaultAccountInfo(bool showDefaultAccountInfo);
 public Q_SLOTS:
     void addUser(dcc::accounts::User *user, bool t1 = true);
     void removeUser(dcc::accounts::User *user);
@@ -98,10 +99,10 @@ private:
     dcc::accounts::UserModel *m_userModel;
     QList<dcc::accounts::User *> m_userList;
     bool m_isShowFirstUserInfo = false;
-    bool m_currentUserAdded = false;
     int m_saveClickedRow;
     QGSettings *m_accountSetting{nullptr};
     bool m_isCreateValid;
+    bool m_showDefaultAccountInfo;
 };
 
 }   // namespace accounts

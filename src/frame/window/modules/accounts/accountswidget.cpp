@@ -56,6 +56,7 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     , m_userlistView(new dcc::widgets::MultiSelectListView(this))
     , m_userItemModel(new QStandardItemModel(this))
     , m_saveClickedRow(0)
+    , m_showDefaultAccountInfo(true)
 {
     m_createBtn->setFixedSize(50, 50);
     //~ contents_path /accounts/New Account
@@ -132,7 +133,8 @@ void AccountsWidget::setModel(UserModel *model)
 
 void AccountsWidget::showDefaultAccountInfo()
 {
-    if (m_userlistView->count() > 0) {
+    qDebug() << "m_showDefaultAccountInfo" << m_showDefaultAccountInfo;
+    if (m_userlistView->count() > 0 && m_showDefaultAccountInfo) {
         QModelIndex qindex = m_userItemModel->index(0, 0);
         m_userlistView->setCurrentIndex(qindex);
         Q_EMIT m_userlistView->clicked(qindex);
@@ -244,7 +246,6 @@ void AccountsWidget::addUser(User *user, bool t1)
 
         m_userList.push_front(user);
         m_userList.pop_back();
-        m_currentUserAdded = true;
 
         QTimer::singleShot(0, this, &AccountsWidget::showDefaultAccountInfo);
     }
@@ -377,4 +378,9 @@ void AccountsWidget::handleRequestBack(AccountsWidget::ActionOption option)
         }
         break;
     }
+}
+
+void AccountsWidget::setShowDefaultAccountInfo(bool showDefaultAccountInfo)
+{
+    m_showDefaultAccountInfo = showDefaultAccountInfo;
 }
