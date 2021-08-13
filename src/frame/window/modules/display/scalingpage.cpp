@@ -121,7 +121,7 @@ void ScalingPage::addSlider(int monitorID){
     }
 
     //如果仅一个缩放值可用，则不显示
-    auto scale = m_displayModel->uiScale();
+    auto scale = getBestScale();
     if (fscaleList.size()  <= 1 && fabs(scale - 1.0) < 0.000001) {
         m_tip->setText(tr("The monitor only supports 100% display scaling"));
         return;
@@ -145,7 +145,7 @@ void ScalingPage::addSlider(int monitorID){
     m_slider->setAnnotations(fscaleList);
     m_centralLayout->addWidget(m_slider);
 
-    double scaling = m_displayModel->uiScale();
+    double scaling = scale;
     if (scaling < 1.0)
         scaling = 1.0;
     slider->setValue(convertToSlider(scaling));
@@ -276,6 +276,22 @@ int ScalingPage::convertToSlider(const double value)
 double ScalingPage::convertToScale(const int value)
 {
     return 1.0 + (value - 1) * 0.25;
+}
+
+double ScalingPage::getBestScale()
+{
+    if (!QGSettings::isSchemaInstalled("com.deepin.xsettings"))
+        return m_displayModel->uiScale();
+
+    QGSettings Gsetting("com.deepin.xsettings", QByteArray());
+
+    if (!Gsetting.keys().contains("scaleFactor"))
+        return m_displayModel->uiScale();
+
+    double bestScale = Gsetting.get("scaleFactor").toDouble();
+
+    return bestScale;
+
 }
 
 }
