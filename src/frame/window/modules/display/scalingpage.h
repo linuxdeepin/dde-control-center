@@ -31,6 +31,8 @@
 
 #include <QWidget>
 
+#include <QGSettings/QGSettings>
+
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 QT_END_NAMESPACE
@@ -75,6 +77,8 @@ private:
     int convertToSlider(const double value);
     double convertToScale(const int value);
 
+    //获取当前分辨率下最佳缩放值
+    double getBestScale();
 private:
     dcc::display::DisplayModel *m_displayModel{nullptr};
     QVBoxLayout *m_centralLayout{nullptr};
