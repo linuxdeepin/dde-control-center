@@ -27,7 +27,8 @@ QNetworkRequest HttpClient::setNetWorkRequest(const QString &requestApi, QNetwor
 {
     QNetworkRequest networkRequest;
     networkRequest.setHeader(headerType, headerValue);
-    networkRequest.setHeader(QNetworkRequest::UserAgentHeader, userAgentInfo());
+    static QString userAgent = userAgentInfo();
+    networkRequest.setHeader(QNetworkRequest::UserAgentHeader, userAgent);
     networkRequest.setRawHeader("client_id", m_clientid.toUtf8());
     //    networkRequest.setRawHeader("uos_license", Utils::fileContent("/var/cache/gather/glicense.dat").toUtf8());
     networkRequest.setUrl(m_request_url + requestApi);
@@ -48,7 +49,7 @@ QNetworkReply *HttpClient::requestQrCode(const QString &clientId, const QString 
     jsonRoot.insert("redirectUrl", redirectUrl);
 
     QNetworkRequest requset = setNetWorkRequest("/qrcode/generating");
-    return httpRequset("post",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+    return httpRequset("post", requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 //    return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
@@ -66,7 +67,7 @@ QNetworkReply *HttpClient::reportQrCodeStatus(const QString &codeId, const int &
     jsonRoot.insert("codeId", codeId);
     jsonRoot.insert("scanner", scannerJson);
     QNetworkRequest requset = setNetWorkRequest("/qrcode/event");
-    return httpRequset("put",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+    return httpRequset("put", requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 //    return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
@@ -74,7 +75,7 @@ QNetworkReply *HttpClient::getQrCodeStatus(const QString &codeId)
 {
     QString requestApi = QString("/qrcode/status?codeId=%1&targetRole=%2").arg(codeId).arg(1);
     QNetworkRequest request = setNetWorkRequest(requestApi);
-    return httpRequset("get",request,"");
+    return httpRequset("get", request, "");
 //    return manager->get(request);
 }
 
@@ -85,7 +86,7 @@ QNetworkReply *HttpClient::sendSmsCode(const QString &phoneNumber, const QString
     json.insert("phoneNumber", phoneNumber);
 
     QNetworkRequest requset = setNetWorkRequest("/account/sms-code/sending");
-    return httpRequset("post",requset,QJsonDocument(json).toJson(QJsonDocument::Compact));
+    return httpRequset("post", requset, QJsonDocument(json).toJson(QJsonDocument::Compact));
 //    return manager->post(requset, QJsonDocument(json).toJson(QJsonDocument::Compact));
 }
 
@@ -123,7 +124,7 @@ QNetworkReply *HttpClient::bindAccount(const int &currentAccountType, const int 
 
 //    qInfo() << "绑定微信接口：" << QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact);
     QNetworkRequest requset = setNetWorkRequest("/account/bindAccount");
-    return httpRequset("put",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+    return httpRequset("put", requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 //    return manager->put(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
@@ -147,7 +148,7 @@ QNetworkReply *HttpClient::unbindAccount(const int &currentAccountType, const in
 
 //    qInfo() << "解绑微信接口：" << QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact);
     QNetworkRequest requset = setNetWorkRequest("/account/unbindAccount");
-    return httpRequset("post",requset,QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
+    return httpRequset("post", requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 //    return manager->post(requset, QJsonDocument(jsonRoot).toJson(QJsonDocument::Compact));
 }
 
@@ -158,7 +159,7 @@ QNetworkReply *HttpClient::getBindAccountInfo(const int &accountType, const int 
                          .arg(id)
                          .arg(idValue);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
-    return httpRequset("get",requset,"");
+    return httpRequset("get", requset, "");
 //    return manager->get(requset);
 }
 
@@ -169,7 +170,7 @@ QNetworkReply *HttpClient::getAccessToken(const QString &clientId, const QString
                          .arg(code);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
 
-    return httpRequset("get",requset,"");
+    return httpRequset("get", requset, "");
 //    return manager->get(requset);
 }
 
@@ -180,7 +181,7 @@ QNetworkReply *HttpClient::refreshAccessToken(const QString &clientId, const QSt
                          .arg(refreshtoken);
     QNetworkRequest requset = setNetWorkRequest(requestApi);
 
-    return httpRequset("get",requset,"");
+    return httpRequset("get", requset, "");
 //    return manager->get(requset);
 }
 
@@ -191,7 +192,7 @@ QNetworkReply *HttpClient::getUserInfo(const QString &accessToken)
     requset.setUrl(QUrl(qstrUrl));
     requset.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 //    QNetworkAccessManager *netmanager = new QNetworkAccessManager();
-    return httpRequset("get",requset,"");
+    return httpRequset("get", requset, "");
 //    return netmanager->get(requset);
 }
 
@@ -202,7 +203,7 @@ QNetworkReply *HttpClient::getPictureFromUrl(const QString &url)
     requset.setAttribute(QNetworkRequest::FollowRedirectsAttribute, true);
     requset.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 //    QNetworkAccessManager *netmanager = new QNetworkAccessManager();
-    return httpRequset("get",requset,"");
+    return httpRequset("get", requset, "");
     //return netmanager->get(requset);
 }
 
@@ -290,26 +291,26 @@ QString HttpClient::getRequestUrl()
 void HttpClient::onGetAccessToken(const QString &code)
 {
     qInfo() << "HttpClient::onGetAccessToken(";
-    QNetworkReply *reply = getAccessToken(m_clientid,code);
-    connect(reply,&QNetworkReply::finished, this, &HttpClient::onGetAccessTokenFinished);
+    QNetworkReply *reply = getAccessToken(m_clientid, code);
+    connect(reply, &QNetworkReply::finished, this, &HttpClient::onGetAccessTokenFinished);
 }
 
-void HttpClient::onGetPictureFromUrl(const QString& avatarUrl)
+void HttpClient::onGetPictureFromUrl(const QString &avatarUrl)
 {
     QNetworkReply *reply = getPictureFromUrl(avatarUrl);
-    connect(reply,&QNetworkReply::finished, this, &HttpClient::onGetPictureFromUrlFinished);
+    connect(reply, &QNetworkReply::finished, this, &HttpClient::onGetPictureFromUrlFinished);
 }
 
-void HttpClient::onBindAccountInfo(const int &accountType, const int& id, const QString& idValue)
+void HttpClient::onBindAccountInfo(const int &accountType, const int &id, const QString &idValue)
 {
-    QNetworkReply *reply = getBindAccountInfo(accountType,id,idValue);
-    connect(reply,&QNetworkReply::finished, this, &HttpClient::onBindAccountInfoFinished);
+    QNetworkReply *reply = getBindAccountInfo(accountType, id, idValue);
+    connect(reply, &QNetworkReply::finished, this, &HttpClient::onBindAccountInfoFinished);
 }
 
 void HttpClient::onRefreshAccessToken(const QString &clientId, const QString &refreshtoken)
 {
-    QNetworkReply *reply = refreshAccessToken(clientId,refreshtoken);
-    connect(reply,&QNetworkReply::finished, this, &HttpClient::onRefreshAccessTokenFinished);
+    QNetworkReply *reply = refreshAccessToken(clientId, refreshtoken);
+    connect(reply, &QNetworkReply::finished, this, &HttpClient::onRefreshAccessTokenFinished);
 }
 
 void HttpClient::onGetAccessTokenFinished()
@@ -387,15 +388,15 @@ void HttpClient::judgeClienid()
 
 }
 
-QNetworkReply* HttpClient::httpRequset(const QString &type, const QNetworkRequest &requset, const QByteArray &body)
+QNetworkReply *HttpClient::httpRequset(const QString &type, const QNetworkRequest &requset, const QByteArray &body)
 {
     //qInfo() << type << requset.url() << body;
     if (type == "get") {
         return manager->get(requset);
     } else if (type == "post") {
-        return manager->post(requset,body);
+        return manager->post(requset, body);
     } else if (type == "put") {
-        return manager->put(requset,body);
+        return manager->put(requset, body);
     } else {
         return nullptr;
     }
@@ -423,7 +424,7 @@ QString HttpClient::userAgentInfo()
 
 
     QString strUserAgent;
-    strUserAgent = QString("deviceId/%1 ").arg(deviceId)
+    strUserAgent = QString("device_id/%1 ").arg(deviceId)
                    + QString("client/%1 ").arg(client)
                    + QString("client_version/%1 ").arg(clientVersion)
                    + QString("os/%1 ").arg(os)
