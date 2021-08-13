@@ -27,6 +27,8 @@
 #define MONITORPROXYWIDGET_H
 
 #include <QWidget>
+#include <QAbstractGraphicsShapeItem>
+#include <QGraphicsSceneMouseEvent>
 
 class QScrollArea;
 
@@ -36,12 +38,11 @@ namespace display {
 
 class DisplayModel;
 class Monitor;
-class MonitorProxyWidget : public QWidget
+class MonitorProxyWidget : public QObject, public QAbstractGraphicsShapeItem
 {
     Q_OBJECT
 public:
-    explicit MonitorProxyWidget(Monitor *mon, DisplayModel *model,
-                                QWidget *parent = nullptr);
+    explicit MonitorProxyWidget(Monitor *mon, DisplayModel *model);
 
     inline int x() const { return m_movedX; }
     inline int y() const { return m_movedY; }
@@ -53,18 +54,29 @@ public:
 
     const QString name() const;
 
+    inline QPointF getCenter() { return m_center; }
+    inline void setCenter(QPointF p) { m_center = p; }
+
+    inline QPointF getEdge() { return m_edge; }
+    inline void setEdge(QPointF p) { m_edge = p; }
+
+    QRectF boundingRect() const override;
+    QRectF bufferboundingRect() const;
+    QRectF adsorptionbufferboundingRect() const;
+
+
 Q_SIGNALS:
     void requestApplyMove(MonitorProxyWidget *self) const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
 
 protected:
-    void paintEvent(QPaintEvent *) Q_DECL_OVERRIDE;
-    void mousePressEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
-    void mouseMoveEvent(QMouseEvent *e) Q_DECL_OVERRIDE;
-    void mouseReleaseEvent(QMouseEvent *) Q_DECL_OVERRIDE;
-    void enterEvent(QEvent *) override;
-    void leaveEvent(QEvent *) override;
+    void mousePressEvent(QGraphicsSceneMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *e) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QGraphicsSceneMouseEvent *) Q_DECL_OVERRIDE;
+    void focusInEvent(QFocusEvent *event) override;
+    void focusOutEvent(QFocusEvent *event) override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
 private:
     Monitor *m_monitor;
@@ -73,8 +85,8 @@ private:
     int m_movedX;
     int m_movedY;
 
-    QPoint m_lastPos;
-    QScrollArea *m_scrollArea;
+    QPointF m_center;
+    QPointF m_edge;
 };
 
 } // namespace display

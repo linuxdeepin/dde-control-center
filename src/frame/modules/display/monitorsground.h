@@ -28,7 +28,13 @@
 
 #include "monitor.h"
 
-#include <QFrame>
+#include <QWidget>
+#include <QGraphicsScene>
+
+#include <DGraphicsView>
+#include <DApplicationHelper>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 
@@ -36,7 +42,7 @@ namespace display {
 
 class DisplayModel;
 class MonitorProxyWidget;
-class MonitorsGround : public QFrame
+class MonitorsGround : public DGraphicsView
 {
     Q_OBJECT
 
@@ -73,6 +79,8 @@ private:
     int m_viewPortWidth;
     int m_viewPortHeight;
     DisplayModel *m_model;
+    QGraphicsScene m_graphicsScene; //场景
+
     QMap<MonitorProxyWidget *, Monitor *> m_monitors;
 
     QTimer *m_refershTimer;

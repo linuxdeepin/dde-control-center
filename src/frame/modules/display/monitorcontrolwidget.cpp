@@ -36,7 +36,7 @@ namespace display {
 
 MonitorControlWidget::MonitorControlWidget(int activateHeight, QWidget *parent)
     : QFrame(parent)
-    , m_screensGround(new MonitorsGround(activateHeight))
+    , m_screensGround(new MonitorsGround(activateHeight,this))
     , m_recognize(new QPushButton(QIcon::fromTheme("dcc_recognize"), tr("Recognize")))
     , m_gather(new QPushButton(QIcon::fromTheme("dcc_gather"), tr("Gather Windows")))
 {

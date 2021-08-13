@@ -33,11 +33,33 @@ const int MARGIN_W = 20;
 const int MARGIN_H = 10;
 
 MonitorsGround::MonitorsGround(int activateHeight, QWidget *parent)
-    : QFrame(parent)
+    : DGraphicsView(parent)
     , m_refershTimer(new QTimer(this))
 {
     setFixedHeight(activateHeight);
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+    // 隐藏水平/竖直滚动条
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // 设置场景范围
+    QRect rect(0, 0, this->rect().width(), this->rect().height());
+    setSceneRect(rect);
+    // 反锯齿
+    setRenderHints(QPainter::Antialiasing);
+
+    //自动填色和无边框
+    setAutoFillBackground(true);
+    setStyleSheet("border:0px");
+    DPalette pa = DApplicationHelper::instance()->palette(this->parentWidget());
+    QColor curThemeColor = pa.base().color();
+    curThemeColor.setAlphaF(0.001);  // 设置透明度
+    pa.setBrush(QPalette::Base, QBrush(curThemeColor));
+    DApplicationHelper::instance()->setPalette(this, pa);
+
+    //添加场景
+    setScene(&m_graphicsScene);
 
     m_refershTimer->setInterval(100);
     m_refershTimer->setSingleShot(true);
@@ -59,21 +81,22 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
     m_viewPortHeight = model->screenHeight();
 
     auto initMW = [this](Monitor * mon) {
-        MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
-        pw->setVisible(true);
+        MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model);
+
+        m_graphicsScene.addItem(pw);
         m_monitors[pw] = mon;
 
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
         connect(pw, &MonitorProxyWidget::requestMonitorPress, this, &MonitorsGround::requestMonitorPress);
         connect(pw, &MonitorProxyWidget::requestMonitorRelease, this, &MonitorsGround::requestMonitorRelease);
         connect(mon, &Monitor::geometryChanged, m_refershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-        connect(m_model, &DisplayModel::primaryScreenChanged, pw, static_cast<void (MonitorProxyWidget::*)()>(&MonitorProxyWidget::update), Qt::QueuedConnection);
     };
 
     if (!moni) {
         for (auto mon : model->monitorList()) {
             initMW(mon);
         }
+        connect(m_model, &DisplayModel::primaryScreenChanged, this, static_cast<void (MonitorsGround::*)()>(&MonitorsGround::update), Qt::QueuedConnection);
     } else {
         initMW(moni);
     }
@@ -192,7 +215,10 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
             wSingle = wTemp * d;
             hSingle = hTemp * d;
         }
-        pw->setGeometry((width() - wSingle) / 2, (height() - hSingle) / 2, wSingle, hSingle);
+        pw->setPos(QPointF((width() - wSingle) / 2, (height() - hSingle) / 2));
+        qDebug() << "setscenePos" << QPointF((width() - wSingle) / 2, (height() - hSingle) / 2);
+        pw->setCenter(QPointF((width() - wSingle) / 2, (height() - hSingle) / 2));
+        pw->setEdge(QPointF(wSingle, hSingle));
         this->setEnabled(false); //单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发放大
     } else {
         this->setEnabled(true);
@@ -209,7 +235,8 @@ void MonitorsGround::adjust(MonitorProxyWidget *pw)
         const double h = scale * pw->h();
         const double x = scale * pw->x();
         const double y = scale * pw->y();
-        pw->setGeometry(x + offsetX, y + offsetY, w, h);
+        pw->setPos(QPointF(x + offsetX, y + offsetY));
+        pw->setEdge(QPointF(w, h));
     }
     pw->update();
 }
@@ -228,19 +255,27 @@ void MonitorsGround::adjustAll()
         const double y = scale * pw->y();
 
         if (++cnt == 1) {
-            pw->setGeometry(x + offsetX + w / 2 + offset, y + offsetY + h / 2, w, h);
+            pw->setPos(QPointF(x + offsetX + w / 2 + offset, y + offsetY + h / 2));
+            pw->setEdge(QPointF(w, h));
         } else if (m_monitors.size() == 3 && cnt == 2) {
-            pw->setGeometry(x + offsetX + w / 2 - offset, y + offsetY + h / 2, w, h);
+            pw->setPos(QPointF(x + offsetX + w / 2 - offset,  y + offsetY + h / 2));
+            pw->setEdge(QPointF(w, h));
         } else {
-            pw->setGeometry(x + offsetX + w / 2, y + offsetY + h / 2 - offset, w, h + offset * 2);
+            pw->setPos(QPointF(x + offsetX + w / 2, y + offsetY + h / 2 - offset));
+            pw->setEdge(QPointF(w, h + offset * 2));
         }
     }
 }
 
 void MonitorsGround::resizeEvent(QResizeEvent *event)
 {
-    QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
-    QFrame::resizeEvent(event);
+    //QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
+    QRect rect(0, 0, this->rect().width(), this->rect().height());
+    setSceneRect(rect);
+
+    qDebug() << "SceneRect" << rect;
+    resetMonitorsView();
+    QGraphicsView::resizeEvent(event);
 }
 
 void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
