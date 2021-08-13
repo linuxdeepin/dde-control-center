@@ -90,7 +90,7 @@ Q_SIGNALS:
     void requestRecognize();
     void requestMerge();
     void requestSplit();
-    void requestSetMonitorPosition(dcc::display::Monitor *mon, const int x, const int y);
+    void requestSetMonitorPosition(QHash<dcc::display::Monitor *, QPair<int, int>> monitorPosition);
     void requestSetResolution(dcc::display::Monitor *mon, ResolutionDate resolution);
     void requestSetPrimaryMonitor(int idx);
     void requestEnalbeMonitor(dcc::display::Monitor *mon, bool enable);

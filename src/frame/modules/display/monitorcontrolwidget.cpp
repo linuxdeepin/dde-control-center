@@ -39,7 +39,7 @@ namespace display {
 
 MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     : QFrame(parent)
-    , m_screensGround(new MonitorsGround)
+    , m_screensGround(new MonitorsGround(200))
     , m_recognize(new IconButton)
     , m_split(new IconButton)
     , m_join(new IconButton)
@@ -94,7 +94,7 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
 
 void MonitorControlWidget::setDisplayModel(DisplayModel *model, Monitor *moni)
 {
-    m_screensGround->setDisplayModel(model, moni);
+    m_screensGround->setModel(model, moni);
 }
 
 void MonitorControlWidget::setScreensMerged(const bool merged)

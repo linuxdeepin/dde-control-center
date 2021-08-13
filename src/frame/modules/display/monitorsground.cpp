@@ -26,28 +26,44 @@
 #include "monitorsground.h"
 #include "monitorproxywidget.h"
 #include "displaymodel.h"
-#include "monitor.h"
-
-#include <QPainter>
-#include <QDebug>
 
 using namespace dcc::display;
 
 const int MARGIN_W = 20;
 const int MARGIN_H = 10;
-const int VIEW_WIDTH = 400;
-const int VIEW_HEIGHT = 200;
 
-MonitorsGround::MonitorsGround(QWidget *parent)
-    : QFrame(parent)
+MonitorsGround::MonitorsGround(int activateHeight, QWidget *parent)
+    : DGraphicsView(parent)
     , m_refershTimer(new QTimer(this))
 {
+    setFixedHeight(activateHeight);
+    setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
+    // 隐藏水平/竖直滚动条
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // 设置场景范围
+    QRect rect(0, 0, this->rect().width(), this->rect().height());
+    setSceneRect(rect);
+    // 反锯齿
+    setRenderHints(QPainter::Antialiasing);
+
+    //自动填色和无边框
+    setAutoFillBackground(true);
+    setStyleSheet("border:0px");
+    DPalette pa = DApplicationHelper::instance()->palette(this->parentWidget());
+    QColor curThemeColor = pa.base().color();
+    curThemeColor.setAlphaF(0.001);  // 设置透明度
+    pa.setBrush(QPalette::Base, QBrush(curThemeColor));
+    DApplicationHelper::instance()->setPalette(this, pa);
+
+    //添加场景
+    setScene(&m_graphicsScene);
+
     m_refershTimer->setInterval(100);
     m_refershTimer->setSingleShot(true);
-
     connect(m_refershTimer, &QTimer::timeout, this, &MonitorsGround::resetMonitorsView);
-
-    setFixedSize(VIEW_WIDTH + MARGIN_W * 2, VIEW_HEIGHT + MARGIN_H * 2);
 }
 
 MonitorsGround::~MonitorsGround()
@@ -55,36 +71,32 @@ MonitorsGround::~MonitorsGround()
     qDeleteAll(m_monitors.keys());
 }
 
-void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
+void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
 {
+    qDeleteAll(m_monitors.keys());
+    m_monitors.clear();
+
     m_model = model;
     m_viewPortWidth = model->screenWidth();
     m_viewPortHeight = model->screenHeight();
 
-    auto initMW = [ this ](Monitor * mon) {
+    auto initMW = [this](Monitor * mon) {
+        MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model);
 
-        MonitorProxyWidget *pw = new MonitorProxyWidget(mon, m_model, this);
+        m_graphicsScene.addItem(pw);
         m_monitors[pw] = mon;
 
         connect(pw, &MonitorProxyWidget::requestApplyMove, this, &MonitorsGround::monitorMoved);
         connect(pw, &MonitorProxyWidget::requestMonitorPress, this, &MonitorsGround::requestMonitorPress);
         connect(pw, &MonitorProxyWidget::requestMonitorRelease, this, &MonitorsGround::requestMonitorRelease);
         connect(mon, &Monitor::geometryChanged, m_refershTimer, static_cast<void (QTimer::*)()>(&QTimer::start));
-        connect(m_model, &DisplayModel::primaryScreenChanged, pw, static_cast<void (MonitorProxyWidget::*)()>(&MonitorProxyWidget::update), Qt::QueuedConnection);
     };
 
     if (!moni) {
-        Monitor *primary = nullptr;
         for (auto mon : model->monitorList()) {
-            if (mon->isPrimary()) {
-                primary = mon;
-                continue;
-            }
             initMW(mon);
         }
-        if (primary) {
-            initMW(primary);
-        }
+        connect(m_model, &DisplayModel::primaryScreenChanged, this, static_cast<void (MonitorsGround::*)()>(&MonitorsGround::update), Qt::QueuedConnection);
     } else {
         initMW(moni);
     }
@@ -94,120 +106,176 @@ void MonitorsGround::setDisplayModel(DisplayModel *model, Monitor *moni)
 
 void MonitorsGround::resetMonitorsView()
 {
-    qDebug() << Q_FUNC_INFO;
-
     reloadViewPortSize();
-    if (m_model->isMerge()) {
+    if (m_model->displayMode() == MERGE_MODE) {
         adjustAll();
-        return;
     } else {
         for (auto pw : m_monitors.keys())
             adjust(pw);
-    }
 
-    // recheck settings
-    if (!isScreenPerfect()) {
-        monitorMoved(m_monitors.firstKey());
+        // recheck settings
+        if (!isScreenPerfect()) {
+            monitorMoved(m_monitors.firstKey());
+        }
     }
 }
 
 void MonitorsGround::monitorMoved(MonitorProxyWidget *pw)
 {
     qDebug() << Q_FUNC_INFO << pw->name();
+    const QPoint preTopLeft = QPoint(pw->x(), pw->y());
 
-    const double scale = screenScale();
-    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
-
+    double scale = 0.1;
+    if (width() < m_viewPortWidth * 0.1 || height() < m_viewPortHeight * 0.1) {
+        const double scaleW = double(width() - MARGIN_W * 2) / m_viewPortWidth;
+        const double scaleH = double(height() - MARGIN_H * 2) / m_viewPortHeight;
+        scale = std::min(scaleW, scaleH);
+    }
+    const double offsetX = (width() - m_viewPortWidth * scale) / 2;
+    const double offsetY = (height() - m_viewPortHeight * scale) / 2;
     pw->setMovedX(static_cast<int>((pw->pos().x() - offsetX) / scale));
     pw->setMovedY(static_cast<int>((pw->pos().y() - offsetY) / scale));
 
     // ensure screens is 贴合但不相交
     ensureWidgetPerfect(pw);
 
-    // clear global offset
-    int minX = INT_MAX;
-    int minY = INT_MAX;
+    // 移至斜对角时，还原显示器位置
+    const QPoint pwTopLeft = QPoint(pw->x(), pw->y());
+    const QPoint pwTopRight = QPoint(pw->x() + pw->w(), pw->y());
+    const QPoint pwBottomLeft = QPoint(pw->x(), pw->y() + pw->h());
+    const QPoint pwBottomRight = QPoint(pw->x() + pw->w(), pw->y() + pw->h());
+    QRect rpw(pwTopLeft, pwBottomRight);
+
+    MonitorProxyWidget *other = nullptr;
     for (auto w : m_monitors.keys()) {
-        minX = std::min(minX, w->x());
-        minY = std::min(minY, w->y());
-    }
-    for (auto w : m_monitors.keys()) {
-        w->setMovedX(w->x() - minX);
-        w->setMovedY(w->y() - minY);
+        if (w != pw) {
+            other = w;
+            break;
+        }
     }
 
-    applySettings();
+    const QPoint otTopLeft = QPoint(other->x(), other->y());
+    const QPoint otTopRight = QPoint(other->x() + other->w(), other->y());
+    const QPoint otBottomLeft = QPoint(other->x(), other->y() + other->h());
+    const QPoint otBottomRight = QPoint(other->x() + other->w(), other->y() + other->h());
+    QRect rot(otTopLeft, otBottomRight);
+
+    int cnt = 0;
+    cnt += rot.contains(pwTopLeft) ? 1 : 0;
+    cnt += rot.contains(pwTopRight) ? 1 : 0;
+    cnt += rot.contains(pwBottomLeft) ? 1 : 0;
+    cnt += rot.contains(pwBottomRight) ? 1 : 0;
+
+    int otCnt = 0;
+    otCnt += rpw.contains(otTopLeft) ? 1 : 0;
+    otCnt += rpw.contains(otTopRight) ? 1 : 0;
+    otCnt += rpw.contains(otBottomLeft) ? 1 : 0;
+    otCnt += rpw.contains(otBottomRight) ? 1 : 0;
+
+    if (cnt >= 2 || otCnt >= 2) {
+        // clear global offset
+        int minX = INT_MAX;
+        int minY = INT_MAX;
+        for (auto w : m_monitors.keys()) {
+            minX = std::min(minX, w->x());
+            minY = std::min(minY, w->y());
+        }
+        for (auto w : m_monitors.keys()) {
+            w->setMovedX(w->x() - minX);
+            w->setMovedY(w->y() - minY);
+        }
+
+        applySettings();
+    } else {
+        pw->setMovedX(preTopLeft.x());
+        pw->setMovedY(preTopLeft.y());
+    }
+
     qApp->processEvents();
     QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
+
+    //延时500ms等待 MonitorInter执行完SetPosition后，在执行showsecondaryScreen显示副屏的配置窗口
+    QTimer::singleShot(500, this,&MonitorsGround::showsecondaryScreen);
 }
 
 void MonitorsGround::adjust(MonitorProxyWidget *pw)
 {
-    bool bSingle = false;
-    int enabledCount = 0;
-    for (auto* value : m_monitors)
-    {
-        if (value->enable()) {
-            enabledCount++;
-            m_monitors.key(value)->setVisible(true);
-        }
-    }
-    if (1 == enabledCount)
-        bSingle = true;
-
     qDebug() << "adjust" << pw->name();
 
-    const double scale = screenScale();
-
-    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
-
-    const double w = scale * pw->w();
-    const double h = scale * pw->h();
-    const double x = scale * pw->x();
-    const double y = scale * pw->y();
-
-    if (bSingle) {
-        const double wSingle = 0.15 * pw->w();
-        const double hSingle = 0.15 * pw->h();
-        pw->setGeometry(static_cast<int>((width() - wSingle)/2), static_cast<int>((height() - hSingle)/2), static_cast<int>(wSingle), static_cast<int>(hSingle));
-        this->setEnabled(false);//单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发方大
+    if (m_monitors.size() == 1) {
+        double wSingle = 0.1 * pw->w();
+        double hSingle = 0.1 * pw->h();
+        const double wTemp = 0.1 * pw->w();
+        const double hTemp = 0.1 * pw->h();
+        for (double d = 1; wSingle < 192 && hSingle < 108; d += 0.01) {
+            wSingle = wTemp * d;
+            hSingle = hTemp * d;
+        }
+        for (double d = 1; wSingle > width() || hSingle > height() || d <= 0; d -= 0.01) {
+            wSingle = wTemp * d;
+            hSingle = hTemp * d;
+        }
+        pw->setPos(QPointF((width() - wSingle) / 2, (height() - hSingle) / 2));
+        qDebug() << "setscenePos" << QPointF((width() - wSingle) / 2, (height() - hSingle) / 2);
+        pw->setCenter(QPointF((width() - wSingle) / 2, (height() - hSingle) / 2));
+        pw->setEdge(QPointF(wSingle, hSingle));
+        this->setEnabled(false); //单屏时不允许鼠标拖动 不然以前的机制会导致窗体重算引发放大
     } else {
         this->setEnabled(true);
-        pw->setGeometry(static_cast<int>(x + offsetX), static_cast<int>(y + offsetY), static_cast<int>(w), static_cast<int>(h));
+        double scale = 0.1;
+        if (width() < m_viewPortWidth * 0.1 || height() < m_viewPortHeight * 0.1) {
+            const double scaleW = double(width() - MARGIN_W * 2) / m_viewPortWidth;
+            const double scaleH = double(height() - MARGIN_H * 2) / m_viewPortHeight;
+            scale = std::min(scaleW, scaleH);
+        }
+
+        const double offsetX = (width() - m_viewPortWidth * scale) / 2;
+        const double offsetY = (height() - m_viewPortHeight * scale) / 2;
+        const double w = scale * pw->w();
+        const double h = scale * pw->h();
+        const double x = scale * pw->x();
+        const double y = scale * pw->y();
+        pw->setPos(QPointF(x + offsetX, y + offsetY));
+        pw->setEdge(QPointF(w, h));
     }
     pw->update();
 }
 
 void MonitorsGround::adjustAll()
 {
+    int cnt = 0;
+    int offset = 10;
     const double scale = screenScale();
-    int offset = 0;
-    const double offsetX = VIEW_WIDTH / 2 - (m_viewPortWidth * scale) / 2 + MARGIN_W;
-    const double offsetY = VIEW_HEIGHT / 2 - (m_viewPortHeight * scale) / 2 + MARGIN_H;
-    MonitorProxyWidget *primarywdt = nullptr;
+    const double offsetX = (width() - m_viewPortWidth * scale) / 2;
+    const double offsetY = (height() - m_viewPortHeight * scale) / 2;
     for (auto pw : m_monitors.keys()) {
-        if (pw->name() == m_model->primary()) {
-            primarywdt = pw;
-            continue;
-        }
-        const double w = scale * pw->w() * 0.5;
-        const double h = scale * pw->h() * 0.5;
+        const double w = scale * pw->w() / 2;
+        const double h = scale * pw->h() / 2;
         const double x = scale * pw->x();
         const double y = scale * pw->y();
 
-        pw->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
-        offset += 10;
+        if (++cnt == 1) {
+            pw->setPos(QPointF(x + offsetX + w / 2 + offset, y + offsetY + h / 2));
+            pw->setEdge(QPointF(w, h));
+        } else if (m_monitors.size() == 3 && cnt == 2) {
+            pw->setPos(QPointF(x + offsetX + w / 2 - offset,  y + offsetY + h / 2));
+            pw->setEdge(QPointF(w, h));
+        } else {
+            pw->setPos(QPointF(x + offsetX + w / 2, y + offsetY + h / 2 - offset));
+            pw->setEdge(QPointF(w, h + offset * 2));
+        }
     }
-    if (primarywdt) {
-        const double w = scale * primarywdt->w() * 0.5;
-        const double h = scale * primarywdt->h() * 0.5;
-        const double x = scale * primarywdt->x();
-        const double y = scale * primarywdt->y();
+}
 
-        primarywdt->setGeometry(static_cast<int>(x + offsetX + w * 0.5 - offset), static_cast<int>(y + offsetY + h * 0.5 - offset), static_cast<int>(w), static_cast<int>(h));
-    }
+void MonitorsGround::resizeEvent(QResizeEvent *event)
+{
+    //QTimer::singleShot(1, this, &MonitorsGround::resetMonitorsView);
+    QRect rect(0, 0, this->rect().width(), this->rect().height());
+    setSceneRect(rect);
+
+    qDebug() << "SceneRect" << rect;
+    resetMonitorsView();
+    QGraphicsView::resizeEvent(event);
 }
 
 void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
@@ -247,8 +315,14 @@ void MonitorsGround::reloadViewPortSize()
 
 void MonitorsGround::applySettings()
 {
-    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it)
-        Q_EMIT requestApplySettings(it.value(), it.key()->x(), it.key()->y());
+    qRegisterMetaType<QHash<Monitor *, QPair<int, int>>>("QHash<Monitor *, QPair<int, int>>");
+    QHash<Monitor *, QPair<int, int>> monitorPosition;
+    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it) {
+        monitorPosition.insert(it.value(), QPair<int, int>(it.key()->x(), it.key()->y()));
+        qWarning() << "applySettings" << it.value()->name() << it.key()->x() << it.key()->y();
+    }
+
+    Q_EMIT requestApplySettings(monitorPosition);
 }
 
 bool MonitorsGround::isScreenPerfect() const
@@ -299,21 +373,67 @@ const QPoint MonitorsGround::bestMoveOffset(MonitorProxyWidget *pw0, MonitorProx
     // TODO: check screen rect contains another screen and size not equal
     QPoint bestOffset;
     int min = INT_MAX;
-    for (auto p1 : selfPoints) {
-        for (auto p2 : otherPoints) {
-            const int m = (p2 - p1).manhattanLength();
-            if (m >= min)
-                continue;
 
-            const QPoint offset = p1 - p2;
+    //两个屏幕的顶部或底部重合,只用左右平移
+    if (selfTopLeft.y() == otherTopLeft.y() || selfTopLeft.y() + pw0->h() == otherTopLeft.y() + pw1->h()) {
+        QList<int> minlist;
 
-            // test intersect
-            const QRect r0(pw0->x() - offset.x(), pw0->y() - offset.y(), pw0->w(), pw0->h());
-            if (r0.intersects(r1))
-                continue;
+        minlist.append(selfPoints.at(0).x() - otherPoints.at(0).x());
+        minlist.append(selfPoints.at(0).x() - otherPoints.at(1).x());
+        minlist.append(selfPoints.at(1).x() - otherPoints.at(0).x());
+        minlist.append(selfPoints.at(1).x() - otherPoints.at(1).x());
 
-            min = m;
-            bestOffset = offset;
+        for (int index = 0; index < minlist.count(); index++) {
+            if (abs(minlist.at(index)) < min) {
+                const QPoint offset(minlist.at(index), 0);
+                // test intersect
+                const QRect r0(pw0->x() - offset.x(), pw0->y() - offset.y(), pw0->w(), pw0->h());
+                if (r0.intersects(r1))
+                    continue;
+                min = abs(minlist.at(index));
+                bestOffset.setX(minlist.at(index));
+            }
+        }
+        bestOffset.setY(0);
+    } else if (selfTopLeft.x() == otherTopLeft.x() || selfTopLeft.x() + pw0->w() == otherTopLeft.x() + pw1->w()) { //两个屏幕的左边或右边有重合,只有上下平移
+        QList<int> minlist;
+
+        minlist.append(selfPoints.at(0).y() - otherPoints.at(0).y());
+        minlist.append(selfPoints.at(0).y() - otherPoints.at(2).y());
+        minlist.append(selfPoints.at(2).y() - otherPoints.at(0).y());
+        minlist.append(selfPoints.at(2).y() - otherPoints.at(2).y());
+
+        for (int index = 0; index < minlist.count(); index++) {
+            if (abs(minlist.at(index)) < min) {
+                const QPoint offset(0, minlist.at(index));
+
+                // test intersect
+                const QRect r0(pw0->x() - offset.x(), pw0->y() - offset.y(), pw0->w(), pw0->h());
+                if (r0.intersects(r1))
+                    continue;
+
+                min = abs(minlist.at(index));
+                bestOffset.setY(minlist.at(index));
+            }
+        }
+        bestOffset.setX(0);
+    } else {
+        for (auto p1 : selfPoints) {
+            for (auto p2 : otherPoints) {
+                const int m = (p2 - p1).manhattanLength();
+                if (m >= min)
+                    continue;
+
+                const QPoint offset = p1 - p2;
+
+                // test intersect
+                const QRect r0(pw0->x() - offset.x(), pw0->y() - offset.y(), pw0->w(), pw0->h());
+                if (r0.intersects(r1))
+                    continue;
+
+                min = m;
+                bestOffset = offset;
+            }
         }
     }
 

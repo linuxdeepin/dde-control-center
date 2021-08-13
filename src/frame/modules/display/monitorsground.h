@@ -28,7 +28,13 @@
 
 #include "monitor.h"
 
-#include <QFrame>
+#include <QWidget>
+#include <QGraphicsScene>
+
+#include <DGraphicsView>
+#include <DApplicationHelper>
+
+DWIDGET_USE_NAMESPACE
 
 namespace dcc {
 
@@ -36,26 +42,31 @@ namespace display {
 
 class DisplayModel;
 class MonitorProxyWidget;
-class MonitorsGround : public QFrame
+class MonitorsGround : public DGraphicsView
 {
     Q_OBJECT
 
 public:
-    explicit MonitorsGround(QWidget *parent = nullptr);
+    explicit MonitorsGround(int activateHeight, QWidget *parent = nullptr);
     ~MonitorsGround();
 
-    void setDisplayModel(DisplayModel *model, Monitor *moni);
+    void setModel(DisplayModel *model, Monitor *moni = nullptr);
 
 Q_SIGNALS:
-    void requestApplySettings(Monitor *mon, const int x, const int y);
+    void requestApplySettings(QHash<Monitor *, QPair<int, int>> monitorposition);
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
+    void showsecondaryScreen();
 
 private Q_SLOTS:
     void resetMonitorsView();
     void monitorMoved(MonitorProxyWidget *pw);
     void adjust(MonitorProxyWidget *pw);
     void adjustAll();
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 private:
     void ensureWidgetPerfect(MonitorProxyWidget *pw);
     void reloadViewPortSize();
@@ -68,6 +79,8 @@ private:
     int m_viewPortWidth;
     int m_viewPortHeight;
     DisplayModel *m_model;
+    QGraphicsScene m_graphicsScene; //场景
+
     QMap<MonitorProxyWidget *, Monitor *> m_monitors;
 
     QTimer *m_refershTimer;

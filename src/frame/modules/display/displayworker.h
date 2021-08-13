@@ -85,7 +85,7 @@ public Q_SLOTS:
 #endif
     void setMonitorResolution(Monitor *mon, const int mode);
     void setMonitorBrightness(Monitor *mon, const double brightness);
-    void setMonitorPosition(Monitor *mon, const int x, const int y);
+    void setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition);
     void setUiScale(const double value);
     void setIndividualScaling(Monitor *m, const double scaling);
     void setNightMode(const bool nightmode);
