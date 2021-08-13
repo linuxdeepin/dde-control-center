@@ -174,6 +174,9 @@ void SystemLanguageWidget::setCurLangChecked(const QModelIndex &index)
     if (m_bEdit) {
         return;
     }
+    if (DGuiApplicationHelper::isTabletEnvironment())
+        this->setFocus();
+
     int row_count = m_langItemModel->rowCount();
     for (int i = 0; i < row_count; ++i) {
         QStandardItem *item = m_langItemModel->item(i, 0);
