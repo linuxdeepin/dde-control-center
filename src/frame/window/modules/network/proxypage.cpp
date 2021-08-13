@@ -208,7 +208,9 @@ ProxyPage::ProxyPage(QWidget *parent)
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, [this] {
         clearLineEditWidgetFocus();
+        m_autoUrl->dTextEdit()->clearFocus();
         m_buttonTuple->setEnabled(false);
+        m_buttonTuple->setFocus();
         if (m_proxyTypeBox->comboBox()->currentIndex() == ProxyMethodList.indexOf(MANUAL)) {
             onProxyChanged("http", m_model->proxy("http"));
             onProxyChanged("https", m_model->proxy("https"));
@@ -357,7 +359,6 @@ bool ProxyPage::eventFilter(QObject *watched, QEvent *event)
     if (event->type() == QEvent::FocusIn) {
         if ((dynamic_cast<QLineEdit*>(watched) || dynamic_cast<DTextEdit*>(watched))) {
             m_buttonTuple->setEnabled(true);
-            m_buttonTuple->setFocus();
         }
     }
     return QWidget::eventFilter(watched, event);
