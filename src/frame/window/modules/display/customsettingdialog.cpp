@@ -441,7 +441,7 @@ void CustomSettingDialog::initMoniList()
     }
 
     int vseg_size = m_vSegBtn.size();
-    if (vseg_size > 2 && m_vSegBtn[0]->isChecked()) {
+    if (vseg_size > 2) {
         if (m_displaylist == nullptr) {
             m_displaylist = new SettingsGroup();
             m_layout->insertWidget(1, m_displaylist);
