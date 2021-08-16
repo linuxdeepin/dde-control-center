@@ -36,7 +36,7 @@ using namespace DCC_NAMESPACE::keyboard;
 using namespace dcc::widgets;
 KeyboardWidget::KeyboardWidget(QWidget *parent) : QWidget(parent)
 {
-    setObjectName("Mouse");
+    setObjectName("Keyboard");
     m_contentLayout = new QVBoxLayout(this);
     m_contentLayout->setMargin(0);
     m_keyboardListView = new dcc::widgets::MultiSelectListView(this);
@@ -55,6 +55,8 @@ void KeyboardWidget::init()
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
     m_keyboardListView->setAccessibleName("List_keyboardlist");
     m_keyboardListView->setFrameShape(QFrame::NoFrame);
+    m_keyboardListView->setResizeMode(QListView::Adjust);
+    m_keyboardListView->setMovement(QListView::Static);
     m_keyboardListView->setModel(m_listviewModel);
     m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_keyboardListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
