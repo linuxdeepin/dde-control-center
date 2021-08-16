@@ -60,7 +60,7 @@ class SwitchWidget : public SettingsItem
     Q_OBJECT
 
 public:
-//    explicit SwitchWidget(QWidget *parent = nullptr);
+    // explicit SwitchWidget(QWidget *parent = nullptr);
     explicit SwitchWidget(const QString &title, QWidget *parent = nullptr);
     explicit SwitchWidget(QWidget *parent = nullptr, QWidget *widget = nullptr);
 
@@ -83,6 +83,8 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
 
 private:
+    void init();
+
     QWidget *m_leftWidget;
     Dtk::Widget::DSwitchButton *m_switchBtn;
     QHBoxLayout *m_mainLayout;

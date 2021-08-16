@@ -67,9 +67,13 @@ void SwitchLabel::resizeEvent(QResizeEvent *event)
 
 
 SwitchWidget::SwitchWidget(const QString &title, QWidget *parent)
-    : SwitchWidget(parent, new NormalLabel(title))
+    : SettingsItem(parent)
+    , m_leftWidget(new SwitchLabel)
+    , m_switchBtn(new DSwitchButton)
 {
     m_switchBtn->setAccessibleName(title);
+    qobject_cast<SwitchLabel*>(m_leftWidget)->setText(title);
+    init();
 }
 
 SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
@@ -80,6 +84,11 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
     if (!m_leftWidget)
         m_leftWidget = new SwitchLabel();
 
+    init();
+}
+
+void SwitchWidget::init()
+{
     setFixedHeight(SwitchWidgetHeight);
     QHBoxLayout *lableLayout = new QHBoxLayout;
     lableLayout->addWidget(m_leftWidget);
@@ -89,10 +98,9 @@ SwitchWidget::SwitchWidget(QWidget *parent, QWidget *widget)
 
     m_mainLayout->addLayout(lableLayout, 0);
     m_mainLayout->addWidget(m_switchBtn, 0, Qt::AlignVCenter);
+    setLayout(m_mainLayout);
 
     m_leftWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    setLayout(m_mainLayout);
 
     connect(m_switchBtn, &DSwitchButton::toggled, this, &SwitchWidget::checkedChanged);
 }
