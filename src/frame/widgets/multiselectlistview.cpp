@@ -9,6 +9,8 @@ namespace widgets {
 
 MultiSelectListView::MultiSelectListView(QWidget *parent): DListView(parent) {
     setAccessibleName("MultiSelectListView");
+    // 禁用横向滚动条,防止内容被截断
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 }
 
 void MultiSelectListView::resetStatus(const QModelIndex &index) {
