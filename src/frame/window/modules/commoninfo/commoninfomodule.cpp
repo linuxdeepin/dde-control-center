@@ -171,7 +171,7 @@ QStringList CommonInfoModule::availPage() const
     sl << "Boot Menu";
 
     if (!IsServerSystem && !IsCommunitySystem) {
-        sl << "User Experience Program" << "Developer mode";
+        sl << "User Experience Program" << "Developer Mode";
     }
 
     return sl;
