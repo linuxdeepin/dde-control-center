@@ -254,7 +254,9 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
         SearchBoxStruct::Ptr data = getModuleBtnString(path);
         if (data->translateContent != "" && data->fullPagePath != "") {
             for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
-                if (m_EnterNewPagelist[i]->translateContent == data->fullPagePath  && m_EnterNewPagelist[i]->actualModuleName == data->translateContent) {//getModuleBtnString解析SearchBoxStruct.fullPagePath，满足此处判断
+                if (m_EnterNewPagelist[i]->translateContent == data->fullPagePath
+                        && m_EnterNewPagelist[i]->childPageName.isEmpty()
+                        && m_EnterNewPagelist[i]->actualModuleName == data->translateContent) {//getModuleBtnString解析SearchBoxStruct.fullPagePath，满足此处判断
 #if DEBUG_XML_SWITCH
                     qDebug() << " [SearchWidget] m_EnterNewPagelist[i].translateContent : " << m_EnterNewPagelist[i].translateContent << " , fullPagePath : " << m_EnterNewPagelist[i].fullPagePath << " , actualModuleName: " << m_EnterNewPagelist[i].actualModuleName;
                     qDebug() << " [SearchWidget] data.translateContent : " << data.translateContent << " , data.fullPagePath : " << data.fullPagePath << " , data.actualModuleName: " << data.actualModuleName;
@@ -678,6 +680,7 @@ void SearchModel::setLanguage(const QString &type)
             { "Time Settings", QObject::tr("Time Settings") },  //datetime
             { "Timezone List/Change System Timezone", QObject::tr("Change System Timezone") },
             { "System Proxy", QObject::tr("System Proxy") },  //network
+            { "Manage Input Methods", QObject::tr("Input Methods") },
         };
 #if DEBUG_XML_SWITCH
         qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
@@ -735,6 +738,7 @@ void SearchModel::setLanguage(const QString &type)
             //再进入Characters读取出中间数据部分;
             //最后进入时进入EndElement读取出</>中的内容
             QString strSource = "";
+            QString inputMethods = "";
             while (!xmlRead.atEnd()) {
                 switch (xmlRead.readNext()) {
                     case QXmlStreamReader::StartElement:
@@ -778,6 +782,10 @@ void SearchModel::setLanguage(const QString &type)
                                     continue;
                                 }
 
+                                if(searchBoxStrcut->source == "Input Methods"){
+                                    inputMethods = searchBoxStrcut->translateContent;
+                                }
+
                                 //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"
                                 if (isLoadText(searchBoxStrcut->translateContent)) {
                                     searchBoxStrcut = std::make_shared<SearchBoxStruct>();
@@ -814,6 +822,11 @@ void SearchModel::setLanguage(const QString &type)
                                         searchBoxStrcut = std::make_shared<SearchBoxStruct>();
                                         continue;
                                     }
+                                }
+
+                                //因为输入法二级菜单的翻译在插件，所以需要获取输入法的翻译
+                                if(searchBoxStrcut->childPageName == "Input Methods"){
+                                    searchBoxStrcut->childPageName = inputMethods;
                                 }
 
                                 list << searchBoxStrcut;
