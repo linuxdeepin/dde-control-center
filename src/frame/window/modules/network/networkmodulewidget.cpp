@@ -152,17 +152,20 @@ NetworkModuleWidget::~NetworkModuleWidget()
 
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
 {
-    PageType type = idx.data(SectionRole).value<PageType>();
-    if (m_lastIndex == idx) return;
+    //查询一次之后去掉SearchPath,避免下次进来的时候还会search一遍
+    const QString searchPath = idx.data(SearchPath).toString();
+    m_modelpages->itemFromIndex(idx)->setData("", SearchPath);
+    if (m_lastIndex == idx && searchPath.isEmpty()) return;
 
+    PageType type = idx.data(SectionRole).value<PageType>();
     m_lastIndex = idx;
     m_lvnmpages->setCurrentIndex(idx);
     switch (type) {
     case DSLPage:
-        Q_EMIT requestShowPppPage(idx.data(SearchPath).toString());
+        Q_EMIT requestShowPppPage(searchPath);
         break;
     case VPNPage:
-        Q_EMIT requestShowVpnPage(idx.data(SearchPath).toString());
+        Q_EMIT requestShowVpnPage(searchPath);
         break;
     case SysProxyPage:
         Q_EMIT requestShowProxyPage();
@@ -178,7 +181,7 @@ void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
         break;
     case WiredPage:
     case WirelessPage:
-        Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>(), idx.data(SearchPath).toString());
+        Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDevice *>(), searchPath);
         break;
     default:
         break;

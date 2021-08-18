@@ -265,7 +265,7 @@ QStringList NetworkModule::availPage() const
     list << "DSL" << "DSL/Create PPPoE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
          << "System Proxy" << "Application Proxy" << "Network Details";
     if (m_hasWired) {
-        list << "Wired Network" << "Wired Network/Add Network Connection";
+        list << "Wired Network" << "Wired Network/addWiredConnection";
     }
     if (m_hasWireless) {
         list << "Wireless Network";
