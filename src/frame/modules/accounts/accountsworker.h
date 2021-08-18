@@ -127,8 +127,8 @@ private:
     UserModel *m_userModel;
 #ifdef USE_TABLET
     SecretCollection *m_collection;
-    GError *m_err;
     SecretService *m_service;
+    GDBusConnection *m_bus;
 #endif
 };
 

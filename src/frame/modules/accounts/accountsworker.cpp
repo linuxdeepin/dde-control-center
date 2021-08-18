@@ -120,8 +120,8 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     , m_userModel(userList)
     #ifdef USE_TABLET
     , m_collection(nullptr)
-    , m_err(nullptr)
     , m_service(nullptr)
+    , m_bus(nullptr)
     #endif
 {
     struct passwd *pws;
@@ -174,8 +174,11 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 AccountsWorker::~AccountsWorker()
 {
 #ifdef USE_TABLET
-    if (m_err != nullptr) g_error_free(m_err);
-    if (m_service != nullptr) g_object_unref(m_service);
+    if (m_service)
+        g_object_unref(m_service);
+
+    if (m_bus)
+        g_object_unref(m_bus);
 #endif
 }
 
@@ -710,35 +713,37 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
 
 void AccountsWorker::initSecret()
 {
-    m_service = secret_service_get_sync(SECRET_SERVICE_OPEN_SESSION, nullptr, &m_err);
-    if (m_service == nullptr) {
-        qWarning() << "failed to get secret service:" << m_err->message;
+    GError *err = nullptr;
+    m_service = secret_service_get_sync(SECRET_SERVICE_OPEN_SESSION, nullptr, &err);
+    if (!m_service) {
+        qWarning() << "failed to get secret service:" << err->message;
         return;
     }
 
     m_collection = secret_collection_for_alias_sync(m_service,
                                                     SECRET_COLLECTION_DEFAULT,
                                                     SECRET_COLLECTION_NONE,
-                                                    NULL,
-                                                    &m_err);
+                                                    nullptr,
+                                                    &err);
+    if (!m_collection) {
+        qWarning() << "failed to get default secret collection:" << err->message;
+    }
+
+    m_bus = g_bus_get_sync(G_BUS_TYPE_SESSION, nullptr, &err);
+    if (!m_bus) {
+        qWarning() << "failed to get session bus:" << err->message;
+    }
 }
 
 void AccountsWorker::changeKeyringPasswd(QString passwd, QString newPasswd)
  {
-    GError *err = m_err;
-    GDBusConnection *bus = nullptr;
+    GError *err = nullptr;
     SecretValue *currentValue = nullptr;
     SecretValue *newPassValue = nullptr;
 
     do {
-        if (m_err != nullptr) {
-            qWarning() << "failed to get default secret collection:" << m_err->message;
+        if (!m_collection || !m_bus)
             break;
-        }
-        if (m_collection == nullptr) {
-            qDebug() << "default secret collection not exists";
-            break;
-        }
 
         auto currentLatin1 = passwd.toLatin1();
         currentValue = secret_value_new(currentLatin1.data(), currentLatin1.length(), PasswordSecretValueContentType);
@@ -746,13 +751,7 @@ void AccountsWorker::changeKeyringPasswd(QString passwd, QString newPasswd)
         auto newPassLatin1 = newPasswd.toLatin1();
         newPassValue = secret_value_new(newPassLatin1.data(), newPassLatin1.length(), PasswordSecretValueContentType);
 
-        bus = g_bus_get_sync(G_BUS_TYPE_SESSION, nullptr, &m_err);
-        if (bus == nullptr) {
-            qWarning() << "failed to get session bus:" << m_err->message;
-            break;
-        }
-
-        g_dbus_connection_call_sync(bus,
+        g_dbus_connection_call_sync(m_bus,
                                     "org.gnome.keyring",
                                     "/org/freedesktop/secrets",
                                     "org.gnome.keyring.InternalUnsupportedGuiltRiddenInterface",
@@ -765,16 +764,12 @@ void AccountsWorker::changeKeyringPasswd(QString passwd, QString newPasswd)
                                     G_DBUS_CALL_FLAGS_NONE,
                                     G_MAXINT,
                                     nullptr,
-                                    &m_err);
-        if (m_err != nullptr) {
-            qWarning() << "failed to change keyring password:" << m_err->message;
+                                    &err);
+        if (err != nullptr) {
+            qWarning() << "failed to change keyring password:" << err->message;
+            g_error_free(err);
             break;
         }
     } while (false);
 
-    m_err = err;
-
-    if (bus != nullptr) g_object_unref(bus);
-    if (currentValue != nullptr) g_object_unref(bus);
-    if (newPassValue != nullptr) g_object_unref(bus);
  }
