@@ -184,12 +184,12 @@ QString NetworkDetails::ipv6Infomation(QJsonObject connectinfo, NetworkDetails::
     if (connection.isNull())
         return QString();
 
-    NetworkManager::ConnectionSettings::Ptr connectionSettings = connection->settings();
-    NetworkManager::Ipv6Setting::Ptr ipv6Setting = connectionSettings->setting(Setting::Ipv6).staticCast<NetworkManager::Ipv6Setting>();
+    ConnectionSettings::Ptr connectionSettings = connection->settings();
+    Ipv6Setting::Ptr ipv6Setting = connectionSettings->setting(Setting::Ipv6).staticCast<Ipv6Setting>();
     if (ipv6Setting.isNull())
         return QString();
 
-    QList<NetworkManager::IpAddress> addressInfos = ipv6Setting->addresses();
+    QList<IpAddress> addressInfos = ipv6Setting->addresses();
     if (ipv6Setting->method() == Ipv6Setting::Manual) {
         if (addressInfos.count() == 0) {
             qDebug() << "ipv6Setting error! ";

@@ -1,10 +1,10 @@
 prefix=/usr
 exec_prefix=${prefix}
-libdir=${prefix}/lib
+libdir=${prefix}/lib/@HOST_MULTIARCH@
 includedir=${prefix}/include/libddenetworkcore
 
 Name: libddenetworkcore
-Description: libddenetworkcore
+Description: networkcore interface
 Version: 1.0.0
 Libs: -ldde-network-core
 Cflags: -I${includedir}

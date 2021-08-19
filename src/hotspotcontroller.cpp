@@ -23,6 +23,8 @@
 #include "wirelessdevice.h"
 #include "utils.h"
 
+#include <QDebug>
+
 #include <networkmanagerqt/manager.h>
 
 using namespace dde::network;
@@ -117,14 +119,7 @@ QList<HotspotItem *> HotspotController::items(WirelessDevice *device)
 
 QList<WirelessDevice *> HotspotController::devices()
 {
-    // 这里只支持已经启用的设备
-    QList<WirelessDevice *> hotDevices;
-    for (WirelessDevice *dev : m_devices) {
-        if (dev->isEnabled())
-            hotDevices << dev;
-    }
-
-    return hotDevices;
+    return m_devices;
 }
 
 HotspotItem *HotspotController::findItem(WirelessDevice *device, const QJsonObject &json)
@@ -137,6 +132,16 @@ HotspotItem *HotspotController::findItem(WirelessDevice *device, const QJsonObje
     }
 
     return Q_NULLPTR;
+}
+
+bool HotspotController::isHotspotConnection(const QString &uuid)
+{
+    for (HotspotItem *item : m_hotspotItems) {
+        if (item->connection()->uuid() == uuid)
+            return true;
+    }
+
+    return false;
 }
 
 void HotspotController::updateActiveConnection(const QJsonObject &activeConnections)
@@ -162,6 +167,10 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
         QJsonObject activeConnection = activeConnections.value(path).toObject();
 
         QString uuid = activeConnection.value("Uuid").toString();
+
+        if (!isHotspotConnection(uuid))
+            continue;
+
         ConnectionStatus state = convertConnectionStatus(activeConnection.value("State").toInt());
 
         QJsonArray devicePaths = activeConnection.value("Devices").toArray();
@@ -169,16 +178,18 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
             QString devicePath = jsonValue.toString();
             WirelessDevice *device = findDevice(devicePath);
             HotspotItem *hotspotItem = findItem(device, activeConnection);
-            if (hotspotItem) {
-                hotspotItem->setConnectionStatus(state);
-                if (allConnectionStatus.contains(uuid)) {
-                    ConnectionStatus oldConnectionStatus = allConnectionStatus[uuid];
-                    if (!m_activeConnectionChanged && oldConnectionStatus != hotspotItem->connectionStatus()) {
-                        m_activeConnectionChanged = true;
-                        if (!m_activeDevices.contains(device))
-                            m_activeDevices << device;
-                    }
-                }
+            if (!hotspotItem)
+                continue;
+
+            hotspotItem->setConnectionStatus(state);
+            if (!allConnectionStatus.contains(uuid))
+                continue;
+
+            ConnectionStatus oldConnectionStatus = allConnectionStatus[uuid];
+            if (oldConnectionStatus != hotspotItem->connectionStatus()) {
+                m_activeConnectionChanged = true;
+                if (!m_activeDevices.contains(device))
+                    m_activeDevices << device;
             }
         }
 
@@ -200,10 +211,9 @@ void HotspotController::updateActiveConnectionInfo()
         QString devicePath = device->path();
         bool oldEnabled = (m_deviceEnableStatus.contains(devicePath) ? m_deviceEnableStatus.value(devicePath) : false);
         bool newEnabled = (devicePaths.contains(device->path()));
+        m_deviceEnableStatus[devicePath] = newEnabled;
         if (oldEnabled != newEnabled)
             Q_EMIT device->hotspotEnableChanged(newEnabled);
-
-        m_deviceEnableStatus[devicePath] = newEnabled;
     }
 
     // 如果连接信息发生了变化，则需要像外发送连接改变的信号
@@ -231,58 +241,24 @@ void HotspotController::updateActiveConnectionInfo(const QList<QJsonObject> &con
     updateActiveConnectionInfo();
 }
 
-void HotspotController::updateConnections(const QJsonArray &jsons, const QList<NetworkDeviceBase *> &devices)
+void HotspotController::updateDevices(const QList<NetworkDeviceBase *> &devices)
 {
-    // 筛选出通用的(HwAddress为空)热点和指定HwAddress的热点
-    QList<QJsonObject> commonConnections;
-    QMap<QString, QList<QJsonObject>> deviceConnections;
-    for (QJsonValue jsonValue : jsons) {
-        QJsonObject json = jsonValue.toObject();
-        QString hwAddress = json.value("HwAddress").toString();
-        if (hwAddress.isEmpty())
-            commonConnections << json;
-        else
-            deviceConnections[hwAddress] << json;
-    }
-
-    // 将所有热点的UUID缓存，用来对比不存在的热点，删除不存在的热点
-    QMap<WirelessDevice *, QList<HotspotItem *>> newItems;
-    QStringList allHotsItem;
-    // HwAddress为空的热点适用于所有的设备，HwAddress不为空的热点只适用于指定的设备
     QList<WirelessDevice *> tmpDevices = m_devices;
     m_devices.clear();
-    for (NetworkDeviceBase *dev : devices) {
-        if (dev->deviceType() != DeviceType::Wireless)
+    for (NetworkDeviceBase *device : devices) {
+        if (device->deviceType() != DeviceType::Wireless)
             continue;
 
-        WirelessDevice *device = static_cast<WirelessDevice *>(dev);
-        // 如果当前设备不支持热点，则无需继续
         if (!device->supportHotspot())
             continue;
 
-        QList<QJsonObject> hotspotJsons = commonConnections;
-        if (deviceConnections.contains(device->realHwAdr()))
-            hotspotJsons << deviceConnections[device->realHwAdr()];
+        if (!device->isEnabled())
+            continue;
 
-        for (QJsonValue value : hotspotJsons) {
-            QJsonObject json = value.toObject();
-            HotspotItem *item = findItem(device, json);
-            if (!item) {
-                item = new HotspotItem(device);
-                m_hotspotItems << item;
-                newItems[device] << item;
-            }
-
-            item->setConnection(json);
-            QString pathName = QString("%1-%2").arg(device->path()).arg(json.value("Path").toString());
-            allHotsItem << pathName;
-        }
-
-        m_devices << device;
+        m_devices << static_cast<WirelessDevice *>(device);
     }
-
-    bool hotspotEnabled = (tmpDevices.size() > 0);
-    if ((m_devices.size() > 0) != hotspotEnabled)
+    bool hotspotEnabled = (m_devices.size() > 0);
+    if ((tmpDevices.size() > 0) != hotspotEnabled)
         Q_EMIT enabledChanged(hotspotEnabled);
 
     // 查找移除的设备
@@ -306,6 +282,45 @@ void HotspotController::updateConnections(const QJsonArray &jsons, const QList<N
     // 告诉外面有移除的热点设备
     if (rmDevices.size() > 0)
         Q_EMIT deviceRemove(rmDevices);
+}
+
+void HotspotController::updateConnections(const QJsonArray &jsons)
+{
+    // 筛选出通用的(HwAddress为空)热点和指定HwAddress的热点
+    QList<QJsonObject> commonConnections;
+    QMap<QString, QList<QJsonObject>> deviceConnections;
+    for (QJsonValue jsonValue : jsons) {
+        QJsonObject json = jsonValue.toObject();
+        QString hwAddress = json.value("HwAddress").toString();
+        if (hwAddress.isEmpty())
+            commonConnections << json;
+        else
+            deviceConnections[hwAddress] << json;
+    }
+
+    // 将所有热点的UUID缓存，用来对比不存在的热点，删除不存在的热点
+    QMap<WirelessDevice *, QList<HotspotItem *>> newItems;
+    QStringList allHotsItem;
+    // HwAddress为空的热点适用于所有的设备，HwAddress不为空的热点只适用于指定的设备
+    for (WirelessDevice *device : m_devices) {
+        QList<QJsonObject> hotspotJsons = commonConnections;
+        if (deviceConnections.contains(device->realHwAdr()))
+            hotspotJsons << deviceConnections[device->realHwAdr()];
+
+        for (QJsonValue value : hotspotJsons) {
+            QJsonObject json = value.toObject();
+            HotspotItem *item = findItem(device, json);
+            if (!item) {
+                item = new HotspotItem(device);
+                m_hotspotItems << item;
+                newItems[device] << item;
+            }
+
+            item->setConnection(json);
+            QString pathName = QString("%1-%2").arg(device->path()).arg(json.value("Path").toString());
+            allHotsItem << pathName;
+        }
+    }
 
     // 如果有新增的连接，则发送新增连接的信号
     if (newItems.size() > 0)
@@ -324,7 +339,7 @@ void HotspotController::updateConnections(const QJsonArray &jsons, const QList<N
 
     // 从原来的列表中移除已经删除的对象
     for (HotspotItem *item : rmItems)
-       m_hotspotItems.removeOne(item);
+        m_hotspotItems.removeOne(item);
 
     // 如果有删除的连接，向外发送删除的信号
     if (rmItemsMap.size() > 0)
@@ -332,7 +347,7 @@ void HotspotController::updateConnections(const QJsonArray &jsons, const QList<N
 
     // 清空已经删除的对象
     for (HotspotItem *item : rmItems)
-       delete item;
+        delete item;
 }
 
 /**

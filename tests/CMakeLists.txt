@@ -39,7 +39,7 @@ IMPORTED_LOCATION_NOCONFIG
 )
 
 aux_source_directory(. FILES)
-aux_source_directory(../dde-network-core NETWORKDIR)
+aux_source_directory(../src NETWORKDIR)
 
 add_executable(${PROJECT_NAME} ${FILES} ${NETWORKDIR})
 
@@ -50,7 +50,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     ${Qt5Network_INCLUDE_DIRS}
     ${Qt5Widget_INCLUDE_DIRS}
     ${KF5_QT_INCLUDE_DIRS}
-    ../dde-network-core)
+    ../src)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${Qt5Core_LIBRARIES}

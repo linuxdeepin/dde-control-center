@@ -11,7 +11,13 @@ find_package(DdeControlCenter REQUIRED)
 
 aux_source_directory(../dcc-network-plugin DCCPLUGINDIR)
 aux_source_directory(../dcc-network-plugin/window DCCPLUGINWINDOWDIR)
-aux_source_directory(../dde-network-core NETWORKDIR)
+aux_source_directory(../dcc-network-plugin/sections DCCPLUGINSECTIONS)
+aux_source_directory(../dcc-network-plugin/sections/vpn DCCPLUGINSECTIONSVPN)
+aux_source_directory(../dcc-network-plugin/settings DCCPLUGINSETTINGS)
+aux_source_directory(../dcc-network-plugin/settings/vpn DCCPLUGINVPNSETTINGS)
+aux_source_directory(../dcc-network-plugin/themes DCCPLUGINTHEMES)
+aux_source_directory(../src NETWORKDIR)
+
 set(QRCFILE "./example.qrc")
 set(COMPILEFILES
     ./networkhandler.h
@@ -27,6 +33,11 @@ add_executable(${PROJECT_NAME}
     ${DCCPLUGINDIR}
     ${DCCPLUGINWINDOWDIR}
     ${NETWORKDIR}
+    ${DCCPLUGINSECTIONS}
+    ${DCCPLUGINSECTIONSVPN}
+    ${DCCPLUGINSETTINGS}
+    ${DCCPLUGINVPNSETTINGS}
+    ${DCCPLUGINTHEMES}
     ${QRCFILE})
 
 find_package(Qt5 COMPONENTS Core DBus Network REQUIRED)
@@ -52,7 +63,7 @@ IMPORTED_LOCATION_NOCONFIG
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
-    ../dde-network-core
+    ../src
     ../dcc-network-plugin
     ${DdeControlCenter_INCLUDE_DIR}
     ${DtkWidget_INCLUDE_DIRS}

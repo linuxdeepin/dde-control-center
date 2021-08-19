@@ -222,6 +222,8 @@ void NetworkController::onDevicesChanged(const QString &value)
 
         // 设备列表发生变化后，同时也需要更新设备热点的信息
         updateDeviceHotpot();
+        // 更新热点的活动连接信息
+        updateDeviceActiveHotpot();
 
         // 一定要将删除设备放到最后，因为在发出信号后，外面可能还会用到
         for (NetworkDeviceBase *device : rmDevices)
@@ -324,6 +326,8 @@ void NetworkController::activeConnInfoChanged(const QString &conns)
     updateDeviceActiveHotpot();
     // 同时需要更新网络信息
     updateNetworkDetails();
+
+    Q_EMIT activeConnectionChange();
 }
 
 void NetworkController::onAccesspointChanged(const QString &accessPoints)
@@ -481,6 +485,8 @@ HotspotController *NetworkController::hotspotController()
     if (!m_hotspotController) {
         m_hotspotController = new HotspotController(m_networkInter, this);
         updateDeviceHotpot();
+        updateDeviceActiveHotpot();
+        m_hotspotController->updateActiveConnection(m_activeConection);
     }
 
     return m_hotspotController;
@@ -488,12 +494,17 @@ HotspotController *NetworkController::hotspotController()
 
 void NetworkController::updateDeviceHotpot()
 {
-    if (!m_hotspotController || !m_connections.contains("wireless-hotspot"))
+    if (!m_hotspotController)
+        return;
+
+    m_hotspotController->updateDevices(m_devices);
+
+    if (!m_connections.contains("wireless-hotspot"))
         return;
 
     QJsonArray hotspots = m_connections.value("wireless-hotspot").toArray();
     // 更新连接的信息
-    m_hotspotController->updateConnections(hotspots, m_devices);
+    m_hotspotController->updateConnections(hotspots);
 }
 
 void NetworkController::updateDeviceActiveHotpot()
@@ -547,9 +558,4 @@ void NetworkController::updateDSLData()
     m_dslController->updateDevice(m_devices);
     m_dslController->updateDSLItems(m_connections.value("pppoe").toArray());
     m_dslController->updateActiveConnections(m_activeConection);
-}
-
-void NetworkController::updateVPNActiveConnection()
-{
-
 }

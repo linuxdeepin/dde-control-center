@@ -66,6 +66,7 @@ Q_SIGNALS:
     void deviceRemoved(QList<NetworkDeviceBase *>);                               // 移除设备发出的信号
     void connectivityChanged(const Connectivity &) const;                        // 网络连接状态发生变化的时候发出的信号
     void connectionChanged();                                                    // 连接信息发生变化的时候触发的信号
+    void activeConnectionChange();                                               // 网络数据发生变化
 
 protected:
     explicit NetworkController();

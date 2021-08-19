@@ -63,7 +63,8 @@ protected:
     explicit HotspotController(NetworkInter *networkInter, QObject *parent = Q_NULLPTR);
     ~HotspotController();
 
-    void updateConnections(const QJsonArray &jsons, const QList<NetworkDeviceBase *> &devices);
+    void updateDevices(const QList<NetworkDeviceBase *> &devices);
+    void updateConnections(const QJsonArray &jsons);
     HotspotItem *findItem(WirelessDevice *device, const QJsonObject &json);
 
     void updateActiveConnection(const QJsonObject &activeConnections);
@@ -71,6 +72,7 @@ protected:
     void updateActiveConnectionInfo();
 
     WirelessDevice *findDevice(const QString &path);
+    bool isHotspotConnection(const QString &uuid);
 
 private:
     QList<WirelessDevice *> m_devices;

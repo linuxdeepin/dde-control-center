@@ -13,15 +13,26 @@ set(CMAKE_AUTORCC ON)
 file(GLOB_RECURSE SRCS "*.h" "*.cpp")
 
 # 指定要用到的库
-find_package(Qt5Widgets REQUIRED)
-find_package(Qt5DBus REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets DBus Network REQUIRED)
 find_package(DdeControlCenter REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(DtkWidget REQUIRED)
+find_package(KF5NetworkManagerQt REQUIRED)
 
 #pkg_check_modules(DDE-Network-Core REQUIRED dde-network-core)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
+
+get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
+
+set(TRY_KF5_LIBRARIES
+IMPORTED_LOCATION_DEBIAN
+IMPORTED_LOCATION_NOCONFIG
+)
+
+if (NOT KF5_QT_LIBRARIES)
+    find_library(KF5_QT_LIBRARIES libKF5NetworkManagerQt.so)
+endif()
 
 file(GLOB TS_FILES "translations/*.ts")
 #qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
@@ -36,13 +47,15 @@ add_library(${PLUGIN_NAME} SHARED ${SRCS})
 # 变量 ${DtkWidget_INCLUDE_DIRS} 是在前面执行 find_package 命令时引入的
 # 当出现编译失败提示找不到某些库的头文件时应该检查此处是否将所有需要的头文件都包含了
 target_include_directories(${PLUGIN_NAME} PUBLIC
-    ../dde-network-core
+    ../src
     ${Qt5Widgets_INCLUDE_DIRS}
     ${DtkWidget_INCLUDE_DIRS}
     ${DdeControlCenter_INCLUDE_DIR}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${QGSettings_INCLUDE_DIRS}
     ${Qt5DBus_INCLUDE_DIRS}
+    ${KF5_QT_INCLUDE_DIRS}
+    ${Qt5Network_INCLUDE_DIRS}
 #    ${DDE-Network-Core_INCLUDE_DIRS}
 )
 
@@ -56,6 +69,8 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE
     ${DFrameworkDBus_LIBRARIES}
     ${QGSettings_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
+    ${KF5_QT_LIBRARIES}
+    ${Qt5Network_LIBRARIES}
 #    ${DDE-Network-Core_LIBRARIES}
 )
 

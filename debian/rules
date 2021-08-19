@@ -5,30 +5,3 @@ export QT_SELECT = qt5
 
 %:
 	dh $@ --parallel
-
-override_dh_install:
-	rm -rf debian/build
-	mkdir -p debian/build
-	cmake -S./dde-network-core -Bdebian/build
-	make -Cdebian/build -j 16
-	rm -rf debian/dde-network-core
-	mkdir -p debian/dde-network-core/usr/lib/
-	mkdir -p debian/dde-network-core-dev/usr/lib/pkgconfig/
-	mkdir -p debian/dde-network-core-dev/usr/include/
-	mkdir -p debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	mkdir -p debian/dde-network-core/usr/share/doc/pkg
-	cp -r debian/changelog debian/dde-network-core/usr/share/doc/pkg/changelog
-	cp -r debian/build/libdde-network-core.so debian/dde-network-core/usr/lib/libdde-network-core.so
-	cp -r debian/build/libdde-network-core.so debian/dde-network-core-dev/usr/lib/libdde-network-core.so
-	cp -r dde-network-core/dslcontroller.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/hotspotcontroller.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/networkconst.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/networkcontroller.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/networkdetails.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/networkdevicebase.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/proxycontroller.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/vpncontroller.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/wireddevice.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r dde-network-core/wirelessdevice.h debian/dde-network-core-dev/usr/include/libddenetworkcore/
-	cp -r debian/dde-network-core.pc debian/dde-network-core-dev/usr/lib/pkgconfig/dde-network-core.pc
-	rm -rf debian/build

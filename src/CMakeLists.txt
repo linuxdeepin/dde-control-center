@@ -48,3 +48,23 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     ${Qt5Network_LIBRARIES}
     ${QGSettings_LIBRARIES}
     ${KF5_QT_LIBRARIES})
+
+configure_file(dde-network-core.pc.in ../dde-network-core.pc @ONLY)
+
+set(INTERFACEFILES
+    dslcontroller.h
+    hotspotcontroller.h
+    networkconst.h
+    networkcontroller.h
+    networkdetails.h
+    networkdevicebase.h
+    proxycontroller.h
+    vpncontroller.h
+    wireddevice.h
+    wirelessdevice.h)
+
+set(CMAKE_INSTALL_PREFIX "/usr")
+
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}Targets LIBRARY DESTINATION lib)
+install(FILES ${CMAKE_BINARY_DIR}/dde-network-core.pc DESTINATION lib/pkgconfig)
+install(FILES ${INTERFACEFILES} DESTINATION include/libddenetworkcore)

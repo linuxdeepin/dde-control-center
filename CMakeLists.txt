@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(dde-network)
+project(dde-network-core)
 
-add_subdirectory("dde-network-core")
+add_subdirectory("src")
 add_subdirectory("dcc-network-plugin")
-add_subdirectory("tst-dde-network-core")
+add_subdirectory("tests")
 add_subdirectory("example")
