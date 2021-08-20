@@ -244,7 +244,7 @@ void SpeakerPage::refreshActivePortShow(const dcc::sound::Port *port)
 {
     if (port && port->isActive()) {
         m_outputSoundCbx->comboBox()->setCurrentText(port->name() + "(" + port->cardName() + ")");
-        setBlueModeVisible(port->isBluetoothPort());
+        setBlueModeVisible(port->isBluetoothPort() && (m_outputModel->rowCount() > 0));
     }
 }
 
