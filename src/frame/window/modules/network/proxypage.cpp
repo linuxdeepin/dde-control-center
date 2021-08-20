@@ -205,6 +205,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     // 取消、确定按钮响应
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ProxyPage::applySettings);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, [this] {
+        clearLineEditWidgetFocus();
         m_buttonTuple->setEnabled(false);
         if (m_proxyTypeBox->comboBox()->currentIndex() == ProxyMethodList.indexOf(MANUAL)) {
             onProxyChanged("http", m_model->proxy("http"));
@@ -238,6 +239,39 @@ void ProxyPage::setModel(NetworkModel *model)
     onProxyMethodChanged(model->proxyMethod());
     onIgnoreHostsChanged(model->ignoreHosts());
     m_autoUrl->setText(model->autoProxy());
+}
+
+void ProxyPage::clearLineEditWidgetFocus()
+{
+    if (m_autoUrl && m_autoUrl->dTextEdit())
+        m_autoUrl->dTextEdit()->clearFocus();
+
+    if (m_httpAddr && m_httpAddr->dTextEdit())
+        m_httpAddr->dTextEdit()->clearFocus();
+
+    if (m_httpPort && m_httpPort->dTextEdit())
+        m_httpPort->dTextEdit()->clearFocus();
+
+    if (m_httpsAddr && m_httpsAddr->dTextEdit())
+        m_httpsAddr->dTextEdit()->clearFocus();
+
+    if (m_httpsPort && m_httpsPort->dTextEdit())
+        m_httpsPort->dTextEdit()->clearFocus();
+
+    if (m_ftpAddr && m_ftpAddr->dTextEdit())
+        m_ftpAddr->dTextEdit()->clearFocus();
+
+    if (m_ftpPort && m_ftpPort->dTextEdit())
+        m_ftpPort->dTextEdit()->clearFocus();
+
+    if (m_socksAddr && m_socksAddr->dTextEdit())
+        m_socksAddr->dTextEdit()->clearFocus();
+
+    if (m_socksPort && m_socksPort->dTextEdit())
+        m_socksPort->dTextEdit()->clearFocus();
+
+    if (m_ignoreList)
+        m_ignoreList->clearFocus();
 }
 
 void ProxyPage::onProxyMethodChanged(const QString &proxyMethod)
