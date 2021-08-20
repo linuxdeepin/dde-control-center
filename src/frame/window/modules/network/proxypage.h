@@ -61,6 +61,9 @@ public:
 
     void setModel(dde::network::NetworkModel *model);
 
+private:
+    void clearLineEditWidgetFocus();
+
 Q_SIGNALS:
     void requestQueryProxyData() const;
     void requestSetProxy(const QString &type, const QString &addr, const QString &port) const;
