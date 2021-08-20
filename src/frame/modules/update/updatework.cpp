@@ -339,6 +339,12 @@ void UpdateWorker::distUpgradeDownloadUpdates()
         if (!watcher->isError()) {
             QDBusReply<QDBusObjectPath> reply = watcher->reply();
             setDownloadJob(reply.value().path());
+        } else if (watcher->error().message().contains("not found resource")) {
+            // 该错误类型有两种错误:1."not found resource: empty UpgradableApps";2."not found resource: no need download"
+            // 错误1为没有可更新的包,错误2为无需下载新的包
+            // 错误2发生时,可以直接创建安装更新任务,继续更新;错误1发生时,可以采用相同方式,然后在distUpgradeInstallUpdates处理无需更新的错误内容(同样为错误1)
+            qWarning() << watcher->error().message();
+            distUpgradeInstallUpdates();
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
@@ -357,6 +363,8 @@ void UpdateWorker::distUpgradeInstallUpdates()
         if (!watcher->isError()) {
             QDBusReply<QDBusObjectPath> reply = watcher->reply();
             setDistUpgradeJob(reply.value().path());
+        } else if (watcher->error().message().contains("not found resource")) {
+            qWarning() << watcher->error().message();
         } else {
             m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
