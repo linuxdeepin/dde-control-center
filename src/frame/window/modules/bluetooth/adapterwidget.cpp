@@ -196,6 +196,8 @@ void AdapterWidget::initUI()
     layout->addStretch();
     layout->setContentsMargins(QMargins(10,0,10,10));
 
+    m_discoverySwitch->hide();
+    m_powerSwitch->hide();
     setLayout(layout);
 }
 
@@ -354,6 +356,7 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
 {
     m_powerSwitch->setEnabled(true);
     m_powerSwitch->setChecked(bPower);
+    m_powerSwitch->setVisible(true);
     m_discoverySwitch->setEnabled(true);
     m_discoverySwitch->setVisible(bPower);
     m_tip->setVisible(!bPower);
