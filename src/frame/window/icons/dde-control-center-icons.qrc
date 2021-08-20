@@ -179,6 +179,8 @@
         <file>actions/dcc_privacy_policy_32px.svg</file>
         <file>texts/dcc_recognize_16px.svg</file>
         <file>texts/dcc_gather_16px.svg</file>
+        <file>actions/dcc_fingerprint_32px.svg</file>
+        <file>icons/dcc_nav_authentication_42px.svg</file>
+        <file>icons/dcc_nav_authentication_84px.svg</file>
     </qresource>
-    <qresource prefix="/"/>
 </RCC>

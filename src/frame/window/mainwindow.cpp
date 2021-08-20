@@ -18,6 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include "modules/authentication/loginoptionsmodule.h"
 #include "modules/accounts/accountsmodule.h"
 #include "modules/bluetooth/bluetoothmodule.h"
 #include "modules/commoninfo/commoninfomodule.h"
@@ -303,6 +304,7 @@ void MainWindow::initAllModule(const QString &m)
         return;
 
     m_bInit = true;
+    using namespace authentication;
     using namespace sync;
     using namespace unionid;
     using namespace datetime;
@@ -328,6 +330,7 @@ void MainWindow::initAllModule(const QString &m)
         idType = "Deepin ID";
 
     m_modules = {
+        { new LoginOptionsModule (this), tr("Authentication")},
         { new AccountsModule(this), tr("Accounts")},
         // 原union ID 暂时隐藏
         // { new UnionidModule(this), "Union ID"},
