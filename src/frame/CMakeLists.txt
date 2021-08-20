@@ -257,12 +257,8 @@ set(ACCOUNTS_FILES
                 modules/accounts/creationresult.cpp
                 modules/accounts/removeuserdialog.cpp
                 modules/accounts/useroptionitem.cpp
-                modules/accounts/widgets/fingeritem.cpp
-                modules/accounts/widgets/fingerwidget.cpp
                 modules/accounts/accountsworker.cpp
                 modules/accounts/avatarwidget.cpp
-                modules/accounts/fingermodel.cpp
-                modules/accounts/fingerworker.cpp
                 modules/accounts/user.cpp
                 modules/accounts/usermodel.cpp
                 window/modules/accounts/accountsmodule.cpp
@@ -273,9 +269,6 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/accountsdetailwidget.cpp
                 window/modules/accounts/avatarlistwidget.cpp
                 window/modules/accounts/avataritemdelegate.cpp
-                window/modules/accounts/accountfingeitem.cpp
-                window/modules/accounts/addfingedialog.cpp
-                window/modules/accounts/fingerwidget.cpp
                 window/modules/accounts/onlineicon.cpp
 )
 

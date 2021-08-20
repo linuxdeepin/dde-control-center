@@ -27,9 +27,6 @@
 #include "modules/accounts/accountsworker.h"
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
-#include "modules/accounts/fingerworker.h"
-#include "modules/accounts/fingermodel.h"
-#include "addfingedialog.h"
 
 #include <DDialog>
 
@@ -60,14 +57,7 @@ void AccountsModule::initialize()
     m_accountsWorker->moveToThread(qApp->thread());
     m_userModel->moveToThread(qApp->thread());
 
-    m_fingerModel = new FingerModel(this);
-    m_fingerWorker = new FingerWorker(m_fingerModel);
-
-    m_fingerModel->moveToThread(qApp->thread());
-    m_fingerWorker->moveToThread(qApp->thread());
-
     m_accountsWorker->active();
-    connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
     connect(m_accountsWorker, &AccountsWorker::requestMainWindowEnabled, this, &AccountsModule::onSetMainWindowEnabled);
 }
 
@@ -156,8 +146,6 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
 {
     AccountsDetailWidget *w = new AccountsDetailWidget(account, m_userModel);
     w->setVisible(false);
-    m_fingerWorker->refreshUserEnrollList(account->name());
-    w->setFingerModel(m_fingerModel);
 
     connect(m_userModel, &UserModel::deleteUserSuccess, w, &AccountsDetailWidget::requestBack);
     connect(m_userModel, &UserModel::isCancelChanged, w, &AccountsDetailWidget::resetDelButtonState);
@@ -172,10 +160,6 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     });
     connect(w, &AccountsDetailWidget::requestSetAvatar, m_accountsWorker, &AccountsWorker::setAvatar);
     connect(w, &AccountsDetailWidget::requestSetFullname, m_accountsWorker, &AccountsWorker::setFullname);
-    connect(w, &AccountsDetailWidget::requestAddThumbs, this, &AccountsModule::onShowAddThumb);
-    connect(w, &AccountsDetailWidget::requestDeleteFingerItem, m_fingerWorker, &FingerWorker::deleteFingerItem);
-    connect(w, &AccountsDetailWidget::requestRenameFingerItem, m_fingerWorker, &FingerWorker::renameFingerItem);
-    connect(w, &AccountsDetailWidget::noticeEnrollCompleted, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
     connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_accountsWorker, &AccountsWorker::setMaxPasswordAge);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
@@ -226,71 +210,6 @@ void AccountsModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestSetPasswordHint, m_accountsWorker, &AccountsWorker::setPasswordHint);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
-}
-
-//添加指纹界面
-void AccountsModule::onShowAddThumb(const QString &name, const QString &thumb)
-{
-    AddFingeDialog *dlg = new AddFingeDialog(thumb);
-    connect(dlg, &AddFingeDialog::requestEnrollThumb, m_fingerWorker, [=] {
-        m_fingerWorker->tryEnroll(name, thumb);
-    });
-    connect(dlg, &AddFingeDialog::requestStopEnroll, m_fingerWorker, &FingerWorker::stopEnroll);
-    connect(dlg, &AddFingeDialog::requesetCloseDlg, dlg, [=](const QString &userName) {
-        m_fingerWorker->refreshUserEnrollList(userName);
-        onSetMainWindowEnabled(true);
-        dlg->deleteLater();
-    });
-
-    m_fingerWorker->tryEnroll(name, thumb);
-    connect(m_fingerWorker, &FingerWorker::tryEnrollResult, dlg, [=] (FingerWorker::EnrollResult res) {
-        // 第一次tryEnroll进入时显示添加指纹对话框
-        if (m_pMainWindow->isEnabled()) {
-            if (res == FingerWorker::Enroll_Success) {
-                onSetMainWindowEnabled(false);
-                m_fingerModel->resetProgress();
-                dlg->setFingerModel(m_fingerModel);
-                dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
-                dlg->setUsername(name);
-                dlg->show();
-                dlg->setFocus();
-                dlg->activateWindow();
-            } else {
-                m_fingerWorker->stopEnroll(name);
-                dlg->deleteLater();
-            }
-        } else {
-            //　已经在添加指纹对话框中的Enroll处理
-            if (res == FingerWorker::Enroll_AuthFailed) {
-                onSetMainWindowEnabled(true);
-                dlg->deleteLater();
-            } else {
-                dlg->setInitStatus();
-            }
-        }
-    });
-}
-
-void AccountsModule::onHandleVaildChanged(const bool isVaild)
-{
-    if (isVaild) {
-        initFingerData();
-    } else {
-        for (const auto &user : m_userModel->userList()) {
-            disconnect(user, &User::nameChanged, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
-        }
-    }
-
-    //用户运行程序第一次点击账户初始化时
-    //调用过程：　initialize ->　refreshDevice -> GetDefaultDevice -> onGetFprDefaultDevFinished -> 获取指纹设备存在状态,发出vaildChanged信号 -> onHandleVaildChanged
-    //onHandleVaildChanged第一次被调用就行了，后面指纹设备状态发生变化时，有DevicesChanged信号来通知指纹页面。
-    disconnect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
-}
-
-void AccountsModule::initFingerData()
-{
-    QString currentUserName = m_accountsWorker->getCurrentUserName();
-    m_fingerWorker->refreshUserEnrollList(currentUserName);
 }
 
 void AccountsModule::onSetMainWindowEnabled(bool isEnabled)

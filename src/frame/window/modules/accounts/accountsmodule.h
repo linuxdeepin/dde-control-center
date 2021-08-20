@@ -31,8 +31,6 @@ namespace accounts {
 class User;
 class AccountsWorker;
 class UserModel;
-class FingerWorker;
-class FingerModel;
 }
 }
 
@@ -45,7 +43,6 @@ class AccountsModule : public QObject, public ModuleInterface
 
 public:
     explicit AccountsModule(FrameProxyInterface *frame, QObject *parent = nullptr);
-    void initFingerData();
 
     void initialize() override;
     void reset() override;
@@ -64,8 +61,6 @@ public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);
     void onShowCreateAccountPage();
     void onShowPasswordPage(dcc::accounts::User *account);
-    void onShowAddThumb(const QString &name, const QString &thumb);
-    void onHandleVaildChanged(const bool isVaild);
     void onSetMainWindowEnabled(const bool isEnabled);
 
 private:
@@ -74,8 +69,6 @@ private:
 private:
     dcc::accounts::UserModel *m_userModel{nullptr};
     dcc::accounts::AccountsWorker *m_accountsWorker{nullptr};
-    dcc::accounts::FingerWorker *m_fingerWorker{nullptr};
-    dcc::accounts::FingerModel *m_fingerModel{nullptr};
     AccountsWidget *m_accountsWidget = nullptr;
     MainWindow *m_pMainWindow = nullptr;
     bool m_isCreatePage;
