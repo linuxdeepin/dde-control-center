@@ -33,6 +33,7 @@ set(DEFINED_LIST
 DISABLE_OPACITY_ANIMATION
 DISABLE_CLOUD_SYNC
 DISABLE_SYS_UPDATE
+DISABLE_AUTHENTICATION
 DISABLE_ACCOUNT
 DISABLE_DISPLAY
 DISABLE_DEFAULT_APPLICATIONS
@@ -250,6 +251,20 @@ set(WIDGETS_FILES
 
 # load modules
 set(MODULE_FILES
+)
+
+# load authentatication
+set(AUTHENTICATION_FILES
+    modules/authentication/fingermodel.cpp
+    modules/authentication/fingerworker.cpp
+    modules/authentication/widgets/fingeritem.cpp
+    modules/authentication/widgets/fingerwidget.cpp
+    window/modules/authentication/loginoptionsmodule.cpp
+    window/modules/authentication/loginoptionswidget.cpp
+    window/modules/authentication/fingerwidget.cpp
+    window/modules/authentication/accountfingeitem.cpp
+    window/modules/authentication/fingerdetailwidget.cpp
+    window/modules/authentication/addfingedialog.cpp
 )
 
 # load accounts
@@ -546,6 +561,7 @@ set(SRCS
         ${FRAME_FILES}
         ${WINDOW_FILES}
         ${INTERFACES_FILES}
+        ${AUTHENTICATION_FILES}
         ${ACCOUNTS_FILES}
         ${BLUETOOTH_FILES}
         ${DATETIME_FILES}
@@ -576,6 +592,7 @@ set(QRC
         modules/datetime/timezone_dialog.qrc
         modules/power/power.qrc
         modules/systeminfo/systeminfo.qrc
+        modules/authentication/authentication.qrc
         modules/accounts/accounts.qrc
         modules/bluetooth/bluetooth.qrc
         modules/defapp/defapp.qrc

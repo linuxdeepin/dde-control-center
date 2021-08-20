@@ -688,6 +688,12 @@
             <summary></summary>
             <description>default is true</description>
         </key>
+        <!-- Authentication module configuration -->
+        <key name="authentication-finger" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
         <!-- Sound module configuration -->
         <key name="sound-output" type="b">
             <default>true</default>

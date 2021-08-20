@@ -1,0 +1,3 @@
+QLabel#ModuleHeaderIconAccounts {
+    background-image: url(:/authentication/themes/dark/icons/nav_authentication.svg);
+}
