@@ -29,10 +29,7 @@
 #include "widgets/nextpagewidget.h"
 #include "widgets/switchwidget.h"
 #include "avatarlistwidget.h"
-#include "modules/accounts/fingermodel.h"
 #include "widgets/titlelabel.h"
-#include "accountfingeitem.h"
-#include "fingerwidget.h"
 
 #include <DLineEdit>
 #include <DDialog>
@@ -61,12 +58,9 @@ QT_END_NAMESPACE
 
 namespace dcc {
 namespace accounts {
-class FingerModel;
 class UserModel;
 }
 }
-
-using com::deepin::daemon::fprintd::Device;
 
 namespace DCC_NAMESPACE {
 namespace accounts {
@@ -80,7 +74,6 @@ public:
     void initHeadPart(QVBoxLayout *headLayout);
     void initBodyPart(QVBoxLayout *bodyLayout);
     void setAccountModel(dcc::accounts::UserModel *model);
-    void setFingerModel(dcc::accounts::FingerModel *model);
     //获取其它用户是否开启自动登录开关
     bool getOtherUserAutoLogin();
     void setDeleteBtnStatus(const QString &key, const bool &status);
@@ -94,13 +87,9 @@ Q_SIGNALS:
     void requestBack();
     void requestSetAvatar(dcc::accounts::User *user, const QString &filePath);
     void requestSetFullname(dcc::accounts::User *user, const QString &fullname);
-    void requestShowFingerSettings(dcc::accounts::User *user);
-    void requestAddThumbs(const QString &name, const QString &thumb);
     void requestCleanThumbs(dcc::accounts::User *user);
     void requestSetGroups(dcc::accounts::User *user, const QStringList &usrGroups);
     void requsetSetPassWordAge(dcc::accounts::User *user, const int age);
-    void requestDeleteFingerItem(const QString &userName, const QString& finger);
-    void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
     void noticeEnrollCompleted(QString username);
 
 public Q_SLOTS:
@@ -126,8 +115,6 @@ private:
     DLabel *m_fullName;//账户全名
     DTK_WIDGET_NAMESPACE::DToolButton *m_fullNameBtn;//账户全名编辑按钮
     DLineEdit *m_inputLineEdit;//账户全名编辑框
-    dcc::accounts::FingerModel *m_model;
-    FingerWidget *m_fingerWidget;//指纹界面
     AvatarListWidget *m_avatarListWidget;//图像列表
     DTK_WIDGET_NAMESPACE::DListView *m_groupListView;
     QStandardItemModel *m_groupItemModel;

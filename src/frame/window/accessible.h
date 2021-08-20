@@ -39,7 +39,6 @@
 #include "./modules/accounts/createaccountpage.h"
 #include "./modules/accounts/accountsdetailwidget.h"
 #include "./modules/accounts/avatarwidget.h"
-#include "./modules/accounts/accountfingeitem.h"
 
 #include "./modules/bluetooth/bluetoothwidget.h"
 #include "./modules/bluetooth/detailpage.h"
@@ -162,7 +161,6 @@ SET_FORM_ACCESSIBLE(AccountsWidget, "accountswidget")
 SET_FORM_ACCESSIBLE(CreateAccountPage, "createaccountpage")
 SET_FORM_ACCESSIBLE(AccountsDetailWidget, "accountsdetailwidget")
 SET_FORM_ACCESSIBLE(AvatarWidget, "avatarwidget")
-SET_FORM_ACCESSIBLE(FingerWidget, "fingerwidget")
 
 // 蓝牙模块
 using namespace DCC_NAMESPACE::bluetooth;
@@ -348,7 +346,6 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
     USE_ACCESSIBLE(QString(classname).replace("dccV20::accounts::", ""), CreateAccountPage);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::accounts::", ""), AccountsDetailWidget);
     USE_ACCESSIBLE(QString(classname).replace("dcc::accounts::", ""), AvatarWidget);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::accounts::", ""), FingerWidget);
 
     // 蓝牙模块
     USE_ACCESSIBLE(QString(classname).replace("dccV20::bluetooth::", ""), BluetoothWidget);

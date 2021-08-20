@@ -20,7 +20,6 @@
  */
 
 #include "accountsdetailwidget.h"
-#include "accountfingeitem.h"
 #include "groupitem.h"
 #include "window/utils.h"
 #include "modules/accounts/usermodel.h"
@@ -117,20 +116,6 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, QWidget *parent)
 AccountsDetailWidget::~AccountsDetailWidget()
 {
     GSettingWatcher::instance()->erase("accountUserFullnamebtn", m_fullNameBtn);
-}
-
-void AccountsDetailWidget::setFingerModel(FingerModel *model)
-{
-    m_model = model;
-    m_fingerWidget->setFingerModel(model);
-    connect(model, &FingerModel::vaildChanged, this, [this](const bool isVaild) {
-        if (m_curUser->isCurrentUser()) {
-            m_fingerWidget->setVisible(!IsServerSystem && isVaild);
-        }
-    });
-    if (m_curUser->isCurrentUser()) {
-        m_fingerWidget->setVisible(!IsServerSystem && model->isVaild());
-    }
 }
 
 bool AccountsDetailWidget::getOtherUserAutoLogin()
@@ -412,17 +397,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     layout->addWidget(loginGrp);
 
-    m_fingerWidget = new FingerWidget(m_curUser, this);
-    m_fingerWidget->setContentsMargins(0, 0, 0, 0);
-    m_fingerWidget->layout()->setMargin(0);
-    layout->addSpacing(30);
-    layout->addWidget(m_fingerWidget);
-
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
-    m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
     //~ contents_path /accounts/Accounts Detail
     m_modifyPassword->setText(tr("Change Password"));
     //~ contents_path /accounts/Accounts Detail
@@ -487,13 +465,6 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     connect(m_nopasswdLogin, &SwitchWidget::checkedChanged, this, [ = ](const bool nopasswdLogin) {
         Q_EMIT requestNopasswdLogin(m_curUser, nopasswdLogin);
     });
-
-    //指纹界面操作
-    connect(m_fingerWidget, &FingerWidget::requestAddThumbs, this, &AccountsDetailWidget::requestAddThumbs);
-    connect(m_fingerWidget, &FingerWidget::requestCleanThumbs, this, &AccountsDetailWidget::requestCleanThumbs);
-    connect(m_fingerWidget, &FingerWidget::requestDeleteFingerItem, this, &AccountsDetailWidget::requestDeleteFingerItem);
-    connect(m_fingerWidget, &FingerWidget::requestRenameFingerItem, this, &AccountsDetailWidget::requestRenameFingerItem);
-    connect(m_fingerWidget, &FingerWidget::noticeEnrollCompleted, this, &AccountsDetailWidget::noticeEnrollCompleted);
 
     //图像列表操作
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar, this, [ = ](const QString & avatarPath) {
