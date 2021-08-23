@@ -231,6 +231,8 @@ void Monitor::setBestMode(const Resolution &mode)
     if (m_bestMode == mode)
         return;
     m_bestMode = mode;
+
+    Q_EMIT bestModeChanged();
 }
 
 bool Monitor::isSameResolution(const Resolution &r1, const Resolution &r2)
