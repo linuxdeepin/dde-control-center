@@ -44,10 +44,12 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     //~ child_page Mouse
     m_mouseMoveSlider = new TitledSliderItem(tr("Pointer Speed"));
     //~ contents_path /mouse/Mouse
+    //~ child_page Mouse
     m_adaptiveAccelProfile = new SwitchWidget(tr("Mouse Acceleration"));
     m_adaptiveAccelProfile->setAccessibleName(tr("Mouse Acceleration"));
     m_adaptiveAccelProfile->setObjectName("adaptiveAccelProfile");
     //~ contents_path /mouse/Mouse
+    //~ child_page Mouse
     m_disTchStn = new SwitchWidget(tr("Disable touchpad when a mouse is connected"));
     m_disTchStn->setAccessibleName(tr("Disable touchpad when a mouse is connected"));
     m_disTchStn->setObjectName("disableTouchPad");

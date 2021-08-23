@@ -69,11 +69,14 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
 
     m_menuIconText.push_back({ "dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&MouseWidget::showGeneralSetting), nullptr, "mouseGeneral"});
     //~ contents_path /mouse/Mouse
+    //~ child_page Mouse
     m_menuIconText.push_back({ "dcc_mouse", tr("Mouse"), QMetaMethod::fromSignal(&MouseWidget::showMouseSetting), nullptr, "mouseMouse"});
     //~ contents_path /mouse/Touchpad
+    //~ child_page Touchpad
     if (GSettingWatcher::instance()->getStatus("mouseTouchpad") != "Hidden")
         m_menuIconText.push_back({ "dcc_touchpad", tr("Touchpad"), QMetaMethod::fromSignal(&MouseWidget::showTouchpadSetting), nullptr, "mouseTouch"});
     //~ contents_path /mouse/TrackPoint
+    //~ child_page TrackPoint
     m_menuIconText.push_back({ "dcc_trackpoint", tr("TrackPoint"), QMetaMethod::fromSignal(&MouseWidget::showTrackPointSetting), nullptr, "mouseTrackpoint"});
 
     for (auto it = m_menuIconText.cbegin(); it != m_menuIconText.cend(); ++it) {

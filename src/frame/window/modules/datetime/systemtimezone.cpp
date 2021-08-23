@@ -42,12 +42,14 @@ SystemTimezone::SystemTimezone(QWidget *parent)
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     //~ contents_path /datetime/Timezone List/Change System Timezone
+    //~ child_page Timezone List
     m_setSystemTimezone->setText(tr("Change System Timezone"));
     m_systemTimezone->addBackground();
 
     //与背景间距20,外框设置了10,这里只需设置10就够了
     const int titleLeftMargin = 10;
     //~ contents_path /datetime/Timezone List
+    //~ child_page Timezone List
     TitleLabel *title = new TitleLabel(tr("System Timezone"));
     DFontSizeManager::instance()->bind(title, DFontSizeManager::T5, QFont::DemiBold);
     title->setContentsMargins(titleLeftMargin, 0, 0, 0);

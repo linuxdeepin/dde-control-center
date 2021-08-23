@@ -50,18 +50,25 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
 
     QStringList titles;
     //~ contents_path /defapp/Webpage
+    //~ child_page Webpage
     titles << tr("Webpage");
     //~ contents_path /defapp/Mail
+    //~ child_page Mail
     titles << tr("Mail");
     //~ contents_path /defapp/Text
+    //~ child_page Text
     titles << tr("Text");
     //~ contents_path /defapp/Music
+    //~ child_page Music
     titles << tr("Music");
     //~ contents_path /defapp/Video
+    //~ child_page Video
     titles << tr("Video");
     //~ contents_path /defapp/Picture
+    //~ child_page Picture
     titles << tr("Picture");
     //~ contents_path /defapp/Terminal
+    //~ child_page Terminal
     titles << tr("Terminal");
 
     QStringList icons;

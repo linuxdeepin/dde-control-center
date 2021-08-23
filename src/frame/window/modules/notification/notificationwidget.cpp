@@ -69,6 +69,7 @@ NotificationWidget::NotificationWidget(NotificationModel *model, QWidget *parent
     m_systemListView->setIconSize(ListViweIconSize);
 
     //~ contents_path /notification/System Notifications
+    //~ child_page System Notifications
     DStandardItem *systemitem = new DStandardItem(QIcon::fromTheme("dcc_general_purpose"), tr("System Notifications"));
 
     systemitem->setData(VListViewItemMargin, Dtk::MarginsRole);

@@ -106,6 +106,7 @@ void GeneralWidget::initUi()
 
     /**** 性能设置 ************************************************************************/
     //~ contents_path /power/General
+    //~ child_page General
     TitleLabel *powerPlansLabel = new TitleLabel(tr("Power Plans"), this);                            // 性能设置label
     DFontSizeManager::instance()->bind(powerPlansLabel, DFontSizeManager::T5, QFont::DemiBold); // 性能设置label字体
     GSettingWatcher::instance()->bind("powerPlansLabel", powerPlansLabel);                      // 使用GSettings来控制显示状态
@@ -143,6 +144,7 @@ void GeneralWidget::initUi()
 
     /**** 节能设置 ************************************************************************/
     //~ contents_path /power/General
+    //~ child_page General
     TitleLabel *energySavingLabel = new TitleLabel(tr("Power Saving Settings"), this);                  // 节能设置label
     DFontSizeManager::instance()->bind(energySavingLabel, DFontSizeManager::T5, QFont::DemiBold); // 节能设置label字体
     QVBoxLayout *energySavingLayout = new QVBoxLayout(this);                                            // 节能设置布局
@@ -177,6 +179,7 @@ void GeneralWidget::initUi()
 
     /**** 唤醒设置 ************************************************************************/
     //~ contents_path /power/General
+    //~ child_page General
     TitleLabel *wakeupLabel = new TitleLabel(tr("Wakeup Settings"), this);                        // 唤醒设置label
     DFontSizeManager::instance()->bind(wakeupLabel, DFontSizeManager::T5, QFont::DemiBold); // 唤醒设置label字体
     QVBoxLayout *wakeupLayout = new QVBoxLayout(this);                                          // 唤醒设置布局
@@ -196,6 +199,7 @@ void GeneralWidget::initUi()
 
     /**** 电池设置 ************************************************************************/
     //~ contents_path /power/General
+    //~ child_page General
     m_batteryLabel = new TitleLabel(tr("Battery"), this);
     DFontSizeManager::instance()->bind(m_batteryLabel, DFontSizeManager::T5, QFont::DemiBold); // 电池设置label字体
     QVBoxLayout *batteyLayout = new QVBoxLayout(this);                                               // 电池设置布局

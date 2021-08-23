@@ -297,6 +297,7 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
 void SpeakerPage::initSlider()
 {
     //~ contents_path /sound/Speaker
+    //~ child_page Speaker
     m_outputSlider = new TitledSliderItem(tr("Output Volume"), this);
     m_outputSlider->addBackground();
     m_speakSlider = m_outputSlider->slider();
@@ -417,6 +418,7 @@ void SpeakerPage::initSlider()
     m_vbWidget->setVisible(m_model->isPortEnable());
     m_layout->insertWidget(3, m_vbWidget);
     m_layout->addWidget(m_vbWidget);    //~ contents_path /sound/Speaker
+    m_layout->addWidget(m_vbWidget);    //~ child_page Speaker
     m_balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     m_balanceSlider->addBackground();
 

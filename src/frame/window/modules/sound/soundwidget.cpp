@@ -73,12 +73,16 @@ void SoundWidget::initUi()
 void SoundWidget::initMembers()
 {
     //~ contents_path /sound/Speaker
+    //~ child_page Speaker
     m_menuMethod.append({"dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage), nullptr, "soundOutput"});
     //~ contents_path /sound/Microphone
+    //~ child_page Microphone
     m_menuMethod.append({"dcc_noun", tr("Input"), QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage), nullptr, "soundInput"});
     //~ contents_path /sound/Sound Effects
+    //~ child_page Sound Effects
     m_menuMethod.append({"dcc_sound_effect", tr("Sound Effects"), QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage), nullptr, "soundEffects"});
     //~ contents_path /sound/Devices
+    //~ child_page Devices
     m_menuMethod.append({"dcc_device_mange", tr("Devices"), QMetaMethod::fromSignal(&SoundWidget::requsetDeviceManagesPage), nullptr, "deviceManage"});
 
     for (auto mm : m_menuMethod) {

@@ -76,6 +76,7 @@ void SystemNotifyWidget::initUI()
     QHBoxLayout *hLayoutDisturbMode = new QHBoxLayout;
     hLayoutDisturbMode->setContentsMargins(8, 0, 10, 0);
     //~ contents_path /notification/Do Not Disturb
+    //~ child_page Do Not Disturb
     DLabel *lblDisturbMode = new DLabel(tr("Do Not Disturb"));
     DFontSizeManager::instance()->bind(lblDisturbMode, DFontSizeManager::T5, QFont::DemiBold);
     hLayoutDisturbMode->addWidget(lblDisturbMode, Qt::AlignLeft);

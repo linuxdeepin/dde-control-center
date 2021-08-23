@@ -72,12 +72,16 @@ void SystemInfoWidget::initData()
 {
     m_itemList = {
         //~ contents_path /systeminfo/About This PC
+        //~ child_page About This PC
         {"dcc_on_sel", tr("About This PC"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowAboutNative), nullptr, "aboutThisPc"},
         //~ contents_path /systeminfo/Edition License
+        //~ child_page Edition License
         {"dcc_version", tr("Edition License"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowVersionProtocol), nullptr, "editionLicense"},
         //~ contents_path /systeminfo/End User License Agreement
+        //~ child_page End User License Agreement
         {"dcc_protocol", tr("End User License Agreement"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowEndUserLicenseAgreement), nullptr, "endUserLicenseAgreement"},
         //~ contents_path /systeminfo/Privacy Policy
+        //~ child_page Privacy Policy
         {"dcc_privacy_policy", tr("Privacy Policy"), QMetaMethod::fromSignal(&SystemInfoWidget::requestShowPrivacyPolicy), nullptr, "privacyPolicy"}
     };
 

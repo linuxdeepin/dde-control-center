@@ -91,10 +91,12 @@ BootWidget::BootWidget(QWidget *parent)
 
     m_bootDelay = new SwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
+    //~ child_page Boot Menu
     m_bootDelay->setTitle(tr("Startup Delay"));
 #ifndef DCC_DISABLE_GRUB_THEME
     m_theme = new SwitchWidget();
     //~ contents_path /commoninfo/Boot Menu
+    //~ child_page Boot Menu
     m_theme->setTitle(tr("Theme"));
 #endif
     QMap<bool, QString> mapBackgroundMessage;

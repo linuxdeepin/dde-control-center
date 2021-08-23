@@ -72,6 +72,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 #if !defined(DISABLE_NETWORK_PROXY) || !defined(DISABLE_NETWORK_VPN) || !defined(DISABLE_NETWORK_PPPOE)
 #ifndef DISABLE_NETWORK_PPPOE
     //~ contents_path /network/DSL
+    //~ child_page DSL
     DStandardItem *pppit = new DStandardItem(tr("DSL"));
     pppit->setData(QVariant::fromValue(DSLPage), SectionRole);
     pppit->setIcon(QIcon::fromTheme("dcc_dsl"));
@@ -81,6 +82,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 #ifndef DISABLE_NETWORK_VPN
     //~ contents_path /network/VPN
+    //~ child_page VPN
     DStandardItem *vpnit = new DStandardItem(tr("VPN"));
     vpnit->setData(QVariant::fromValue(VPNPage), SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
@@ -90,6 +92,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 #ifndef DISABLE_NETWORK_PROXY
     //~ contents_path /network/System Proxy
+    //~ child_page System Proxy
     DStandardItem *prxyit = new DStandardItem(tr("System Proxy"));
     prxyit->setData(QVariant::fromValue(SysProxyPage), SectionRole);
     prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
@@ -97,6 +100,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     GSettingWatcher::instance()->bind("systemProxy", m_lvnmpages, prxyit);
 
     //~ contents_path /network/Application Proxy
+    //~ child_page Application Proxy
     DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
     aprxit->setData(QVariant::fromValue(AppProxyPage), SectionRole);
     aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
@@ -106,6 +110,7 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 
     //~ contents_path /network/Network Details
+    //~ child_page Network Details
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData(QVariant::fromValue(NetworkInfoPage), SectionRole);
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
@@ -444,6 +449,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
 
     if (have_ap) {
         //~ contents_path /network/Personal Hotspot
+        //~ child_page Personal Hotspot
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
         hotspotit->setData(QVariant::fromValue(HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
@@ -474,6 +480,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
             text = tr("Wired Network %1").arg(number);
         } else {
             //~ contents_path /network/Wired Network
+            //~ child_page Wired Network
             text = tr("Wired Network");
         }
     } else if (dev->type() == NetworkDevice::Wireless) {
@@ -481,6 +488,7 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
             text = tr("Wireless Network %1").arg(number);
         } else {
             //~ contents_path /network/WirelessPage
+            //~ child_page WirelessPage
             text = tr("Wireless Network");
         }
     }

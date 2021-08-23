@@ -73,6 +73,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_tipsGrp->appendItem(tips);
 
     //~ contents_path /network/Wired Network
+    //~ child_page Wired Network
     QLabel *lblTitle = new QLabel(tr("Wired Network Adapter"),this);//有线网卡
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(this, lblTitle);
@@ -93,6 +94,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement,this);
     m_createBtn->setMinimumSize(QSize(47, 47));
     //~ contents_path /network/Wired Network/addWiredConnection
+    //~ child_page Wired Network
     m_createBtn->setToolTip(tr("Add Network Connection"));
     GSettingWatcher::instance()->bind("addConnection", m_createBtn);
 

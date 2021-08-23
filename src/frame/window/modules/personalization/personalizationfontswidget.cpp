@@ -51,6 +51,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
     //~ contents_path /personalization/Font
+    //~ child_page Font
     , m_fontSizeSlider(new TitledSliderItem(tr("Size")))
     , m_standardFontsCbBox(new QComboBox(this))
     , m_monoFontsCbBox(new QComboBox(this))
@@ -84,6 +85,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     m_sfontitem->addBackground();
     m_sfontitem->setLayout(sfontLayout);
     //~ contents_path /personalization/Font
+    //~ child_page Font
     QString sf = tr("Standard Font");
     QLabel *sfLabel = new QLabel(sf);
     sfLabel->setWordWrap(true);
@@ -104,6 +106,7 @@ PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     m_mfontitem->addBackground();
     m_mfontitem->setLayout(mfontLayout);
     //~ contents_path /personalization/Font
+    //~ child_page Font
     QString mf = tr("Monospaced Font");
     QLabel *mfLabel = new QLabel(mf);
     mfLabel->setWordWrap(true);
