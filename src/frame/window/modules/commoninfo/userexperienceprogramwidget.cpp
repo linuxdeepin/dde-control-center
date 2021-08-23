@@ -27,7 +27,9 @@
 #include "window/utils.h"
 
 #include <DTipLabel>
+#include <QDesktopServices>
 
+#include <QUrl>
 #include <QVBoxLayout>
 #include <QTimer>
 
@@ -48,19 +50,26 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     m_joinUeProgram->setTitle(tr("Join User Experience Program"));
 
     DTipLabel *tipLabel = nullptr;
+    QString http = DSysInfo::isCommunityEdition() ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
     if (DSysInfo::isCommunityEdition()) {
-        tipLabel = new DTipLabel(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
+        tipLabel = new DTipLabel(tr("</p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
                                     "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                                    "For details, please refer to Deepin Privacy Policy (https://www.deepin.org/en/agreement/privacy/)."));
+                                    "For details, please refer to Deepin Privacy Policy (<a href=\"%1\"> %1</a>).</p>")
+                                 .arg(http));
     } else {
-        tipLabel = new DTipLabel(tr("Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
-                                    "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                                    "To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en)."));
+        tipLabel = new DTipLabel(
+                    tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
+                       "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
+                       "To know more about the management of your data, please refer to UnionTech OS Privacy Policy (<a href=\"%1\"> %1</a>).</p>")
+                    .arg(http));
     }
     tipLabel->setAccessibleName("UserExperienceProgramWidget_tipLabel");
     tipLabel->setWordWrap(true);
     tipLabel->setContentsMargins(5, 0, 5, 0);
     tipLabel->setAlignment(Qt::AlignJustify);
+    connect(tipLabel, &QLabel::linkActivated, this, [](const QString &link) {
+        QDesktopServices::openUrl(QUrl(link));
+    });
 
     vBoxLayout->setMargin(0);
     vBoxLayout->setContentsMargins(ThirdPageContentsMargins);
