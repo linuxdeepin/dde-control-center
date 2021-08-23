@@ -103,6 +103,7 @@ Q_SIGNALS:
     void enableChanged(bool enable) const;
     // TODO: 重力旋转
     void currentRotateModeChanged() const;
+    void bestModeChanged() const;
 
 public:
     static bool isSameResolution(const Resolution &r1, const Resolution &r2);

@@ -77,6 +77,7 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
     // 先断开信号，设置数据再连接信号
     if (m_monitor != nullptr) {
         disconnect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
+        disconnect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
         disconnect(m_monitor, &Monitor::currentModeChanged, this, nullptr);
     }
 
@@ -85,6 +86,7 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
     initResolution();
 
     connect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
+    connect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
     connect(m_monitor, &Monitor::currentModeChanged, this, [=](const Resolution &mode) {
         // 规避mode == 0
         if (mode.id() == 0) {

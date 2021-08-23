@@ -232,6 +232,8 @@ void Monitor::setBestMode(const Resolution &mode)
     if (m_bestMode == mode)
         return;
     m_bestMode = mode;
+
+    Q_EMIT bestModeChanged();
 }
 
 void Monitor::setCurrentRotateMode(const unsigned char mode)
