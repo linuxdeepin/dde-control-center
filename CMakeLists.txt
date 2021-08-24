@@ -79,11 +79,13 @@ install(FILES files/ModuleVisible/dde-control-center.conf DESTINATION /etc/deepi
 
 # polkit policy file
 install(FILES com.deepin.controlcenter.develop.policy DESTINATION share/polkit-1/actions)
+install(FILES com.deepin.controlcenter.restoreRk.policy DESTINATION share/polkit-1/actions)
 if (OS_DEEPIN_PROFESSIONAL)
     if (${CMAKE_SYSTEM_PROCESSOR} STREQUAL "x86_64")
         install(FILES com.deepin.controlcenter.addomain.policy DESTINATION share/polkit-1/actions)
     endif()
 endif()
+
 
 # dev files
 set(INCLUDE_INSTALL_DIR include/dde-control-center)

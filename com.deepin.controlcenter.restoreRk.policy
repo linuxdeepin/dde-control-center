@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+ "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>The PolicyKit Project</vendor>
+  <vendor_url>http://hal.freedesktop.org/docs/PolicyKit/</vendor_url>
+
+  <action id="com.deepin.controlcenter.restoreRk">
+    <description>Run programs as another user</description>
+    <description xml:lang="zh_CN">RK恢复出厂设置需要root认证</description>
+    <message>Authentication is required to run as a superuser</message>
+    <message xml:lang="zh_CN">需要身份验证才能以超级用户身份运行</message>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/local/bin/update</annotate>
+  </action>
+</policyconfig>
