@@ -85,7 +85,7 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
     initResolution();
 
     connect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
-    connect(m_monitor, &Monitor::bestMode, this, &ResolutionWidget::initResolution);
+    connect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
     connect(m_monitor, &Monitor::currentModeChanged, this, [=](const Resolution &mode) {
         // 规避mode == 0
         if (mode.id() == 0) {
