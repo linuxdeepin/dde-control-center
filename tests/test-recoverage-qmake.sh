@@ -7,7 +7,6 @@ mkdir $BUILD_DIR
 cd $BUILD_DIR
 cmake -DCMAKE_BUILD_TYPE=Debug ..
 make -j16
-make check
 
 cd tests/
 
@@ -21,7 +20,7 @@ cd dde-control-center/
 echo " =================== CREAT LCOV REPROT BEGIN ==================== "
 #lcov --directory ./CMakeFiles/bluetooth-unittest.dir --zerocounters
 lcov --directory ./CMakeFiles/mouse-unittest.dir --zerocounters
-#lcov --directory ./CMakeFiles/datetime-unittest.dir --zerocounters
+lcov --directory ./CMakeFiles/datetime-unittest.dir --zerocounters
 lcov --directory ./CMakeFiles/notification-unittest.dir --zerocounters
 lcov --directory ./CMakeFiles/defapp-unittest.dir --zerocounters
 lcov --directory ./CMakeFiles/systeminfo-unittest.dir --zerocounters
@@ -30,7 +29,7 @@ echo " =================== Start Unit  ==================== "
 #./bluetooth-unittest --gtest_output=xml:dde_test.xml
 ./mouse-unittest --gtest_output=xml:dde_test_report_mouse.xml
 ./systeminfo-unittest --gtest_output=xml:dde_test_report_systeminfo.xml
-#./datetime-unittest --gtest_output=xml:dde_test.xml
+./datetime-unittest --gtest_output=xml:dde_test_report_datetime.xml
 ./defapp-unittest --gtest_output=xml:dde_test_report_defapp.xml
 ./notification-unittest --gtest_output=xml:dde_test_report_notification.xml
 ./keyboard-unittest --gtest_output=xml:dde_test_report_keyboard.xml
@@ -49,6 +48,6 @@ echo " Coverage files have been output to ${CMAKE_BINARY_DIR}/tests/report "
 mv asan_mouse.log* asan_mouse.log
 mv asan_systeminfo.log* asan_systeminfo.log
 mv asan_defapp.log* asan_defapp.log
-#mv asan_datetime.log* .asan_datetime.log
+mv asan_datetime.log* .asan_datetime.log
 mv asan_notification.log* asan_notification.log
 mv asan_keyboard.log* asan_keyboard.log
