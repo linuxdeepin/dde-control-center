@@ -94,7 +94,6 @@ Q_SIGNALS:
     void currentModeChanged(const Resolution &resolution) const;
     void modelListChanged(const QList<Resolution> &resolution) const;
     void enableChanged(bool enable) const;
-    void bestModeChanged() const;
 
 public:
     static bool isSameResolution(const Resolution &r1, const Resolution &r2);
