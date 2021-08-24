@@ -46,9 +46,9 @@ TEST_F(Tst_DateTimeWork, FullTest)
     timedate->Use24HourFormatChanged(!format);
     EXPECT_EQ(model->get24HourFormat(), !format);
 
-    ZoneInfo info = model->currentTimeZone();
-    timedate->TimezoneChanged("Asia/Shanghai1");
-    EXPECT_EQ(info.getZoneCity(), "上海");
+    QString timeZone = model->getTimeZone();
+    timedate->TimezoneChanged(timeZone.append("1"));
+    EXPECT_EQ(model->getTimeZone(), timeZone);
 
     QString ntpAddress = model->ntpServerAddress();
     timedate->NTPServerChanged(ntpAddress.append("1"));
@@ -82,7 +82,6 @@ TEST_F(Tst_DateTimeWork, FullTest)
     work->setDatetime(QDateTime::currentDateTime());
     work->set24HourType(true);
     work->setTimezone("aaaa");
-    work->removeUserTimeZone(info);
     work->addUserTimeZone("aaaa");
     work->setNtpServer("1");
     work->setWeekdayFormat(1);
