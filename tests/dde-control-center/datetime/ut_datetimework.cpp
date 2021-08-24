@@ -42,6 +42,10 @@ TEST_F(Tst_DateTimeWork, FullTest)
     timedate->NTPChanged(!ntp);
     EXPECT_EQ(model->nTP(), !ntp);
 
+    bool format = model->get24HourFormat();
+    timedate->Use24HourFormatChanged(!format);
+    EXPECT_EQ(model->get24HourFormat(), !format);
+
     QString timeZone = model->getTimeZone();
     timedate->TimezoneChanged(timeZone.append("1"));
     EXPECT_EQ(model->getTimeZone(), timeZone);
