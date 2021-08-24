@@ -534,6 +534,7 @@ set(QRC
         modules/bluetooth/bluetooth.qrc
         modules/defapp/defapp.qrc
         modules/sound/sound.qrc
+        modules/display/display.qrc
         modules/personalization/personalization.qrc
         modules/keyboard/keyboard.qrc
         modules/mouse/mouse.qrc

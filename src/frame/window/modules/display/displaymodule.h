@@ -68,6 +68,7 @@ public:
 private Q_SLOTS:
     void onRequestSetResolution(dcc::display::Monitor *monitor, const int mode);
     void onRequestSetRotate(dcc::display::Monitor *monitor, const int rotate);
+    void onRequestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode);
     void showSingleScreenWidget();
     void showMultiScreenWidget();
     void showDisplayRecognize();

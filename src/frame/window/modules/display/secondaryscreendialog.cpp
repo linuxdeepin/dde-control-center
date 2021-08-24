@@ -39,7 +39,7 @@ using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
 DWIDGET_USE_NAMESPACE
 
-const int ComboxWidth = 222;
+const int ComboxWidth = 200;
 const int PercentageNum = 100;
 const double BrightnessMaxScale = 100.0;
 const double DoubleZero = 0.01; //后端传入的doube指为浮点型，有效位数为2位小数，存在精度丢失
@@ -101,6 +101,7 @@ void SecondaryScreenDialog::setModel(DisplayModel *model, dcc::display::Monitor 
     connect(m_monitorControlWidget, &MonitorControlWidget::requestGatherWindows, this, &SecondaryScreenDialog::requestGatherWindows);
     connect(this, &SecondaryScreenDialog::requestGatherEnabled, m_monitorControlWidget, &MonitorControlWidget::onGatherEnabled);
     connect(m_resolutionWidget, &ResolutionWidget::requestSetResolution, this, &SecondaryScreenDialog::requestSetResolution);
+    connect(m_resolutionWidget, &ResolutionWidget::requestSetFillMode, this, &SecondaryScreenDialog::requestSetFillMode);
     connect(m_refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &SecondaryScreenDialog::requestSetResolution);
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &SecondaryScreenDialog::requestSetRotate);
 

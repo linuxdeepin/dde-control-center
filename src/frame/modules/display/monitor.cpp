@@ -218,6 +218,25 @@ void Monitor::setModeList(const ResolutionList &modeList)
     Q_EMIT modelListChanged(m_modeList);
 }
 
+
+void Monitor::setAvailableFillModes(const QStringList &fillModeList)
+{
+    if (m_fillModeList == fillModeList)
+        return;
+
+    m_fillModeList = fillModeList;
+    Q_EMIT availableFillModesChanged(m_fillModeList);
+}
+
+void Monitor::setCurrentFillMode(const QString currentFillMode)
+{
+    if (m_currentFillMode == currentFillMode)
+        return;
+
+    m_currentFillMode = currentFillMode;
+    Q_EMIT currentFillModeChanged(currentFillMode);
+}
+
 void Monitor::setMonitorEnable(bool enable)
 {
     if (m_enable == enable)

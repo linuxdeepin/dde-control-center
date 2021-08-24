@@ -243,11 +243,17 @@ void DisplayWorker::SetMethodAdjustCCT(int mode)
     m_displayInter.SetMethodAdjustCCT(mode);
 }
 
+void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
+{
+    MonitorInter *inter = m_monitors.value(mon);
+    Q_ASSERT(inter);
+    inter->setCurrentFillMode(fillMode);
+}
+
 void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 {
     MonitorInter *inter = m_monitors.value(mon);
     Q_ASSERT(inter);
-
     inter->SetMode(static_cast<uint>(mode)).waitForFinished();
 }
 
@@ -355,6 +361,8 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorInter::RotationsChanged, mon, &Monitor::setRotateList);
     connect(inter, &MonitorInter::EnabledChanged, mon, &Monitor::setMonitorEnable);
     connect(inter, &MonitorInter::CurrentRotateModeChanged, mon, &Monitor::setCurrentRotateMode);
+    connect(inter, &MonitorInter::AvailableFillModesChanged, mon, &Monitor::setAvailableFillModes);
+    connect(inter, &MonitorInter::CurrentFillModeChanged, mon, &Monitor::setCurrentFillMode);
     connect(&m_displayInter, static_cast<void (DisplayInter::*)(const QString &) const>(&DisplayInter::PrimaryChanged), mon, &Monitor::setPrimary);
     connect(this, &DisplayWorker::requestUpdateModeList, this, [=] {
         mon->setModeList(inter->modes());
@@ -369,6 +377,9 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setCanBrightness(reply.value());
     mon->setMonitorEnable(inter->enabled());
     mon->setCurrentRotateMode(inter->currentRotateMode());
+    mon->setMonitorEnable(inter->enabled());
+    mon->setCurrentFillMode(inter->currentFillMode());
+    mon->setAvailableFillModes(inter->availableFillModes());
     mon->setPath(path);
     mon->setX(inter->x());
     mon->setY(inter->y());

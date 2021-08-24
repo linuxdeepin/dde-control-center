@@ -67,6 +67,7 @@ Q_SIGNALS:
     void requestSetMonitorBrightness(dcc::display::Monitor *monitor, const double brightness);
     void requestAmbientLightAdjustBrightness(const bool able);
     void requestSetResolution(dcc::display::Monitor *monitor, const int mode);
+    void requestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode);
     void requestSetRotate(dcc::display::Monitor *monitor, const int rotate);
     void requestGatherWindows(const QPoint cursor);
     void requestGatherEnabled(const bool enable);

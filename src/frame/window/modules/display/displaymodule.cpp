@@ -189,6 +189,10 @@ void DisplayModule::showSingleScreenWidget()
         windowUpdate();
     }, Qt::QueuedConnection);
 
+   connect(resolutionWidget, &ResolutionWidget::requestSetFillMode, this, [this](dcc::display::Monitor *monitor, const QString fillMode) {
+        onRequestSetFillMode(monitor, fillMode);
+    });
+
     RefreshRateWidget *refreshRateWidget = new RefreshRateWidget(300, singleScreenWidget);
     refreshRateWidget->setModel(m_displayModel, m_displayModel->monitorList().count() ? m_displayModel->monitorList().first() : nullptr);
     GSettingWatcher::instance()->bind("displayRefreshRate", refreshRateWidget);  // 使用GSettings来控制显示状态
@@ -231,6 +235,10 @@ void DisplayModule::showMultiScreenWidget()
         onRequestSetResolution(monitor, mode);
         windowUpdate();
     }, Qt::QueuedConnection);
+    connect(multiScreenWidget, &MultiScreenWidget::requestSetFillMode, this, [this](dcc::display::Monitor *monitor, const QString fillMode) {
+        onRequestSetFillMode(monitor, fillMode);
+    });
+
     connect(multiScreenWidget, &MultiScreenWidget::requestSetRotate, this, &DisplayModule::onRequestSetRotate, Qt::QueuedConnection);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMainwindowRect, this, [=](Monitor *moi,  bool isInit) {
         bool stateChanged = false;
@@ -304,6 +312,11 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
             tfunc(monitor, lastRes);
         }
     });
+}
+
+void DisplayModule::onRequestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode)
+{
+    m_displayWorker->setCurrentFillMode(monitor,fillMode);
 }
 
 void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)

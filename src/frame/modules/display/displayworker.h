@@ -75,6 +75,7 @@ public Q_SLOTS:
     void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial);
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
     void setAmbientLightAdjustBrightness(bool);
+    void setCurrentFillMode(Monitor *mon, const QString fillMode);
 
 private Q_SLOTS:
     void onGSettingsChanged(const QString &key);

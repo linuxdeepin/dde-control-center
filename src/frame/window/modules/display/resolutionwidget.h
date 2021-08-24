@@ -28,8 +28,12 @@
 
 #include "interface/namespace.h"
 #include "widgets/settingsitem.h"
+#include "widgets/settingsgroup.h"
 
 #include <DStandardItem>
+#include <DApplicationHelper>
+
+#include <QComboBox>
 
 class Resolution;
 
@@ -37,11 +41,8 @@ QT_BEGIN_NAMESPACE
 class QLabel;
 class QComboBox;
 class QHBoxLayout;
+class QVBoxLayout;
 QT_END_NAMESPACE
-
-DWIDGET_BEGIN_NAMESPACE
-class DStandardItem;
-DWIDGET_END_NAMESPACE
 
 namespace dcc {
 namespace display {
@@ -56,6 +57,31 @@ using namespace dcc::widgets;
 namespace DCC_NAMESPACE {
 
 namespace display {
+
+enum ResizeDesktopRole {
+    FillModeRole = Dtk::UserRole,
+    DarkDefaultIconRole,
+    DarkHighlightIconRole,
+    DarkItemIconRole,
+    LightDefaultIconRole,
+    LightHighlightIconRole,
+    LightItemIconRole
+};
+
+class fillModeCombox : public QComboBox
+{
+    Q_OBJECT
+public:
+    fillModeCombox(QWidget *parent = nullptr);
+    virtual void showPopup() override; //显示下拉框
+    virtual void hidePopup() override; //隐藏下拉框
+    
+    void setDefaultRoleIcon();
+    void setItemRoleIcon();
+
+public Q_SLOTS:
+    void OnHighlighted(int index);
+};
 
 class ResolutionWidget : public SettingsItem
 {
@@ -76,18 +102,33 @@ public:
 
 Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *monitor, const int mode);
+    void requestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode);
+
+public Q_SLOTS:
+    void OnAvailableFillModesChanged(const QStringList &lstFillMode);
 
 private:
     void initResolution();
+    void initResizeDesktop();
+    void setItemIcon();
+    void setResizeDesktopVisible(bool visible);
 
 private:
-    QHBoxLayout *m_contentLayout;
+    QHBoxLayout *m_resolutionLayout;
+    QHBoxLayout *m_resizeDesktopLayout;
+    QVBoxLayout *m_contentLayout;
     QLabel *m_resolutionLabel;
     QComboBox *m_resolutionCombox;
+    QLabel *m_resizeDesktopLabel; //屏幕显示方式
+    fillModeCombox *m_resizeDesktopCombox; //拉伸-居中-适应
+    SettingsItem *m_resizeDesktopItem;
 
     dcc::display::DisplayModel *m_model;
     dcc::display::Monitor *m_monitor;
     QStandardItemModel *m_resoItemModel;
+    QStandardItemModel *m_resizeItemModel;
+
+    QMap<QString, DStandardItem*> m_mapFillModeItems; //铺满方式对应的items
 };
 
 } // namespace display
