@@ -12,7 +12,8 @@ Build-Depends: debhelper-compat (= 12),
                libgtest-dev,
                libkf5networkmanagerqt-dev,
                libdtkwidget-dev,
-               dde-control-center-dev
+               dde-control-center-dev,
+               dde-dock-dev
 Rules-Requires-Root: no
 Standards-Version: 4.5.0
 Homepage: https://gerrit.uniontech.com/admin/repos/dde-network-core
