@@ -58,6 +58,10 @@
             <default>false</default>
             <summary>Magiclamp is loaded or not</summary>
         </key>
+        <key name="effective-day-visible" type="b">
+            <default>true</default>
+	    <summary>display the permission to set password validity days</summary>
+	</key>
         <key name="auto-login-visable" type="b">
             <default>true</default>
             <summary>Account module automatic login visable control</summary>
