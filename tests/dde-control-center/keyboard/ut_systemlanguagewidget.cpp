@@ -44,3 +44,19 @@ TEST_F(Tst_SystemLanguageWidget, emitSignal)
     btn->clicked(true);
     EXPECT_EQ(1, btnSpy.count());
 }
+
+TEST_F(Tst_SystemLanguageWidget, onEditClicked)
+{
+    EXPECT_NO_THROW(widget->onEditClicked());
+}
+
+TEST_F(Tst_SystemLanguageWidget, onAddLanguage)
+{
+    widget->onAddLanguage("简体中文");
+    widget->onSetCurLang(0);
+    widget->onDefault("简体中文");
+    QSignalSpy modelSpy(model, SIGNAL(curLocalLangChanged(const QStringList)));
+    QStringList sl = (QStringList() << "简体中文" << "American English");
+    model->curLocalLangChanged(sl);
+    EXPECT_EQ(1, modelSpy.count());
+}

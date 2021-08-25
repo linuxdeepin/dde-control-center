@@ -42,26 +42,35 @@ void Tst_GeneralKbSetteingWidget::TearDown()
     widget = nullptr;
 }
 
-TEST_F(Tst_GeneralKbSetteingWidget, emitSignal)
+TEST_F(Tst_GeneralKbSetteingWidget, requestKBDelayChanged)
 {
     TitledSliderItem *repeatDealy = widget->findChild<TitledSliderItem * >("RepeatDelay");
     ASSERT_TRUE(repeatDealy != nullptr);
     QSignalSpy spy1(widget, SIGNAL(requestKBDelayChanged(const int)));
     repeatDealy->slider()->valueChanged(3);
     EXPECT_EQ(spy1.count(), 1);
+}
 
+TEST_F(Tst_GeneralKbSetteingWidget, requestKBSpeedChanged)
+{
     TitledSliderItem *repeatRate = widget->findChild<TitledSliderItem * >("RepeatRate");
     ASSERT_TRUE(repeatRate != nullptr);
     QSignalSpy spy2(widget, SIGNAL(requestKBSpeedChanged(const int)));
     repeatRate->slider()->valueChanged(3);
     EXPECT_EQ(spy2.count(), 1);
+}
 
+TEST_F(Tst_GeneralKbSetteingWidget, requestNumLockChanged)
+{
     SwitchWidget *numLock = widget->findChild<SwitchWidget *>("NumLock");
     ASSERT_TRUE(numLock != nullptr);
     QSignalSpy spyNumLock(widget, SIGNAL(requestNumLockChanged(const bool)));
     numLock->checkedChanged(numLock->checked());
     EXPECT_EQ(spyNumLock.count(), 1);
+}
 
+TEST_F(Tst_GeneralKbSetteingWidget, requestCapsLockChanged)
+{
     SwitchWidget *upper = widget->findChild<SwitchWidget *>("Upper");
     ASSERT_TRUE(upper != nullptr);
     QSignalSpy spyUpper(widget, SIGNAL(requestCapsLockChanged(const bool)));
