@@ -44,6 +44,7 @@ class SoundModel;
 
 namespace widgets {
 class TitledSliderItem;
+class SettingsGroup;
 class SwitchWidget;
 class ComboxWidget;
 class Port;
@@ -66,7 +67,8 @@ public:
     SpeakerPage(QWidget *parent = nullptr);
     ~SpeakerPage();
     void showDevice();
-    void setDeviceVisible(bool visable);
+    void setDeviceVisible(bool visible);
+    void setBlueModeVisible(bool visible);
 
 public:
     void setModel(dcc::sound::SoundModel *model);
@@ -83,25 +85,30 @@ Q_SIGNALS:
     void requestBalanceVisible();
     //请求静音切换,flag为false时请求直接取消静音
     void requestMute(bool flag = true);
+    //请求切换蓝牙耳机模式
+    void requstBluetoothMode(QString blueMode);
 
 private Q_SLOTS:
     void removePort(const QString &portId, const uint &cardId);
     void addPort(const dcc::sound::Port *port);
     void changeComboxIndex(const int idx);
     void clickLeftButton();
+    void changeBluetoothMode(const int idx);
 
 private:
-    //初始化使用到的 slider 控件
     void initSlider();
+    void initCombox();
     void refreshIcon();
 
 private:
     //model类， 为后端数据来源及数据变化信号来源
     dcc::sound::SoundModel *m_model{nullptr};
-    //用于切换扬声器开/关的 switch
-    dcc::widgets::SwitchWidget *m_sw{nullptr};
+    dcc::widgets::SettingsGroup *m_outputSoundsGrp;
     //输入列表的下拉框列表
     dcc::widgets::ComboxWidget *m_outputSoundCbx;
+    //蓝牙耳机下拉框
+    dcc::widgets::ComboxWidget *m_blueSoundCbx;
+
     //界面的主layout
     QVBoxLayout *m_layout{nullptr};
     dcc::widgets::TitledSliderItem *m_outputSlider;
@@ -118,6 +125,8 @@ private:
     bool m_mute;
     //启用端口但未设置为默认端口判断
     bool m_enablePort;
+    // 蓝牙模式信息
+    QStringList m_bluetoothModeOpts;
 };
 
 }

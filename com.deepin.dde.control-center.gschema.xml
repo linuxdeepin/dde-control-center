@@ -684,6 +684,11 @@
             <summary></summary>
             <description>default is true</description>
         </key>
+        <key name="device-manage" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
         <key name="about-this-pc" type="b">
             <default>true</default>
             <summary></summary>
