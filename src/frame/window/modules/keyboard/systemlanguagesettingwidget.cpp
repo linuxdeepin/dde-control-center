@@ -46,7 +46,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     setAccessibleName("SystemLanguageSettingWidget");
     m_contentWidget = new TranslucentFrame();
     QVBoxLayout *layout = new QVBoxLayout();
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 5);
     layout->setSpacing(0);
 
     m_model = new QStandardItemModel(this);
