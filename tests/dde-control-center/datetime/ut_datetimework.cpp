@@ -42,10 +42,6 @@ TEST_F(Tst_DateTimeWork, FullTest)
     timedate->NTPChanged(!ntp);
     EXPECT_EQ(model->nTP(), !ntp);
 
-    bool format = model->get24HourFormat();
-    timedate->Use24HourFormatChanged(!format);
-    EXPECT_EQ(model->get24HourFormat(), !format);
-
     QString timeZone = model->getTimeZone();
     timedate->TimezoneChanged(timeZone.append("1"));
     EXPECT_EQ(model->getTimeZone(), timeZone);
@@ -53,6 +49,16 @@ TEST_F(Tst_DateTimeWork, FullTest)
     QString ntpAddress = model->ntpServerAddress();
     timedate->NTPServerChanged(ntpAddress.append("1"));
     EXPECT_EQ(model->ntpServerAddress(), ntpAddress);
+
+
+    model->userTimeZones();
+}
+
+TEST_F(Tst_DateTimeWork, TestDateTimeFormat)
+{
+    bool format = model->get24HourFormat();
+    timedate->Use24HourFormatChanged(!format);
+    EXPECT_EQ(model->get24HourFormat(), !format);
 
     int weektype = model->weekdayFormatType();
     timedate->WeekdayFormatChanged(++weektype);
@@ -77,19 +83,40 @@ TEST_F(Tst_DateTimeWork, FullTest)
     int weekbegin = model->weekStartDayFormat();
     timedate->WeekBeginsChanged(++weekbegin);
     EXPECT_EQ(model->weekStartDayFormat(), weekbegin);
+}
 
-    work->setNTP(ntp);
-    work->setDatetime(QDateTime::currentDateTime());
-    work->set24HourType(true);
-    work->setTimezone("aaaa");
-    work->addUserTimeZone("aaaa");
-    work->setNtpServer("1");
-    work->setWeekdayFormat(1);
-    work->setShortDateFormat(1);
-    work->setLongDateFormat(1);
-    work->setLongTimeFormat(1);
-    work->setShortTimeFormat(1);
-    work->setWeekStartDayFormat(1);
+TEST_F(Tst_DateTimeWork, TestWorkSet)
+{
+    EXPECT_NO_THROW(work->setNTP(true));
+    EXPECT_NO_THROW(work->setDatetime(QDateTime::currentDateTime()));
+    EXPECT_NO_THROW(work->set24HourType(true));
+    EXPECT_NO_THROW(work->setTimezone("aaaa"));
+    EXPECT_NO_THROW(work->addUserTimeZone("aaaa"));
+    EXPECT_NO_THROW(work->setNtpServer("1"));
+    EXPECT_NO_THROW(work->setWeekdayFormat(1));
+    EXPECT_NO_THROW(work->setShortDateFormat(1));
+    EXPECT_NO_THROW(work->setLongDateFormat(1));
+    EXPECT_NO_THROW(work->setLongTimeFormat(1));
+    EXPECT_NO_THROW(work->setShortTimeFormat(1));
+    EXPECT_NO_THROW(work->setWeekStartDayFormat(1));
+}
 
-    model->userTimeZones();
+TEST_F(Tst_DateTimeWork, TestModelSet)
+{
+    EXPECT_NO_THROW(model->setWeekdayFormatType(1));
+    EXPECT_NO_THROW(model->setShortDateFormat(1));
+    EXPECT_NO_THROW(model->setLongDateFormat(1));
+    EXPECT_NO_THROW(model->setLongTimeFormat(1));
+    EXPECT_NO_THROW(model->setShorTimeFormat(1));
+    EXPECT_NO_THROW(model->setWeekStartDayFormat(1));
+    EXPECT_NO_THROW(model->setWeekdayFormatTypeCount(1));
+    EXPECT_NO_THROW(model->setShortDateFormatTypeCount(1));
+    EXPECT_NO_THROW(model->setLongDateFormatTypeCount(1));
+    EXPECT_NO_THROW(model->setLongTimeFormatTypeCount(1));
+    EXPECT_NO_THROW(model->setShorTimeFormatTypeCount(1));
+    EXPECT_NO_THROW(model->setWeekStartDayFormatTypeCount(1));
+    
+    QStringList lstNtpServer;
+    lstNtpServer.append("11");
+    EXPECT_NO_THROW(model->setNTPServerList(lstNtpServer));
 }
