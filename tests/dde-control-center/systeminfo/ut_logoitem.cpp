@@ -33,7 +33,7 @@ void Test_LogoItem::TearDown()
 TEST_F(Test_LogoItem, full)
 {
     EXPECT_NO_THROW(m_item->setLogo("logo"));
+    EXPECT_NO_THROW(m_item->logo());
     EXPECT_NO_THROW(m_item->setDescription("test"));
     EXPECT_NO_THROW(m_item->setDescription(true));
-
 }

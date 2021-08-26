@@ -34,4 +34,8 @@ TEST_F(Test_VersionProtocolWidget, test1)
 {
     VersionProtocolWidget *m_widget  = new VersionProtocolWidget();
     ASSERT_EQ(m_widget->isVisible(), false) ;
+
+    QSignalSpy spy1(m_widget, SIGNAL(loadTextFinished()));
+    m_widget->loadTextFinished();
+    EXPECT_EQ(spy1.count(), 1);
 }

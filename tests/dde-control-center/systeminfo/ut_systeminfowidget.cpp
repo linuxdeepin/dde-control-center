@@ -66,3 +66,12 @@ TEST_F(Test_SysteminfoWidget, full)
     EXPECT_EQ(re, 0);
     EXPECT_EQ(spy1.count(), 3);
 }
+
+TEST_F(Test_SysteminfoWidget, showMenu)
+{
+    EXPECT_NO_THROW(m_widget->showDefaultWidget());
+    // EXPECT_NO_THROW(m_widget->showPath("Backup and Restore"));
+    EXPECT_NO_THROW(m_widget->showPath("test"));
+
+    EXPECT_NO_THROW(m_widget->setCurrentIndex(1));
+}

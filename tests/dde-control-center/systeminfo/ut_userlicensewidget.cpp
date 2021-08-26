@@ -1,4 +1,5 @@
 #include "../src/frame/window/modules/systeminfo/userlicensewidget.h"
+#include "../src/frame/window/protocolfile.h"
 
 #include <DListView>
 #include <QSignalSpy>
