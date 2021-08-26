@@ -52,7 +52,6 @@ public:
     void setDescription(bool isVisible);//修改m_description是否默认不显示
     void setLogo(const QString &logo);
     const QString logo() const { return m_logo->text(); }
-    void setLogo(const QIcon &icon, int w, int h);
 
 private:
     QLabel *m_logo;
