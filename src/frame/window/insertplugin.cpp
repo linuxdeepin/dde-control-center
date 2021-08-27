@@ -48,6 +48,8 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
 
         qDebug() << "loading module: " << i;
 
+        QElapsedTimer et;
+        et.start();
         QPluginLoader loader(path);
         const QJsonObject &meta = loader.metaData().value("MetaData").toObject();
         if (!compareVersion(meta.value("api").toString(), "1.0.0")) {
@@ -67,7 +69,8 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
         if (!module) {
             return;
         }
-        qDebug() << "load plugin Name;" << module->name() << module->displayName();
+        qDebug() << "load plugin Name: " << module->name() << module->displayName();
+        qDebug() << "load this plugin using time: " << et.elapsed() << "ms";
         module->setFrameProxy(frameProxy);
 
         if (module->follow() != MAINWINDOW && frameProxy) {
