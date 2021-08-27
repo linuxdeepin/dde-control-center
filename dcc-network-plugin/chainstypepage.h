@@ -1,0 +1,58 @@
+/*
+ * Copyright (C) 2011 ~ 2021 Deepin Technology Co., Ltd.
+ *
+ * Author:     sbw <sbw@sbw.so>
+ *             kirigaya <kirigaya@mkacg.com>
+ *             Hualet <mr.asianwang@gmail.com>
+ *
+ * Maintainer: sbw <sbw@sbw.so>
+ *             kirigaya <kirigaya@mkacg.com>
+ *             Hualet <mr.asianwang@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef CHAINSTYPEPAGE_H
+#define CHAINSTYPEPAGE_H
+
+#include "widgets/contentwidget.h"
+#include "interface/namespace.h"
+
+namespace dcc {
+  class ContentWidget;
+    namespace widgets {
+    class OptionItem;
+  }
+}
+
+using namespace dcc::widgets;
+
+class ChainsTypePage : public dcc::ContentWidget
+{
+    Q_OBJECT
+public:
+    explicit ChainsTypePage(QWidget *parent = nullptr);
+    void setDefault(const QString &title);
+
+Q_SIGNALS:
+    void requestTypeChanged(const QString &type) const;
+
+private Q_SLOTS:
+    void onTypeChanged();
+
+private:
+    QList<OptionItem *> m_list;
+};
+
+#endif // CHAINSTYPEPAGE_H
