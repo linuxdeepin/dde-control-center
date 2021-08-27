@@ -20,15 +20,16 @@
  */
 
 #include "vpnproxysection.h"
-#include "widgets/contentwidget.h"
-#include "widgets/lineeditwidget.h"
-#include "widgets/comboxwidget.h"
-#include "widgets/spinboxwidget.h"
-#include "widgets/switchwidget.h"
 
-#include <dspinbox.h>
+#include <DSpinBox>
 
 #include <QComboBox>
+
+#include <widgets/contentwidget.h>
+#include <widgets/lineeditwidget.h>
+#include <widgets/comboxwidget.h>
+#include <widgets/spinboxwidget.h>
+#include <widgets/switchwidget.h>
 
 using namespace dcc::widgets;
 using namespace NetworkManager;

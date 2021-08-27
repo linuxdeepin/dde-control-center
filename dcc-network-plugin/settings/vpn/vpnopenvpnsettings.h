@@ -24,6 +24,8 @@
 
 #include "../abstractsettings.h"
 
+#include <QVBoxLayout>
+
 #include <networkmanagerqt/connectionsettings.h>
 
 class VpnOpenVPNSettings : public AbstractSettings

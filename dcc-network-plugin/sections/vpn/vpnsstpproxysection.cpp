@@ -21,7 +21,12 @@
 
 #include "vpnsstpproxysection.h"
 
-#include <dspinbox.h>
+#include <DSpinBox>
+
+#include <widgets/contentwidget.h>
+#include <widgets/lineeditwidget.h>
+#include <widgets/switchwidget.h>
+#include <widgets/spinboxwidget.h>
 
 using namespace dcc::widgets;
 using namespace NetworkManager;

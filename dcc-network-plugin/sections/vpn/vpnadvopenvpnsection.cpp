@@ -21,9 +21,13 @@
 
 #include "vpnadvopenvpnsection.h"
 
+#include <DSpinBox>
+
 #include <QEvent>
 
-#include <dspinbox.h>
+#include <widgets/contentwidget.h>
+#include <widgets/switchwidget.h>
+#include <widgets/spinboxwidget.h>
 
 using namespace dcc::widgets;
 using namespace NetworkManager;

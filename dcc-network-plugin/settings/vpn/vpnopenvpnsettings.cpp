@@ -29,6 +29,8 @@
 #include "../../sections/ipvxsection.h"
 #include "../../sections/dnssection.h"
 
+#include <widgets/contentwidget.h>
+
 using namespace NetworkManager;
 
 VpnOpenVPNSettings::VpnOpenVPNSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)

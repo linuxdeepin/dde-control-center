@@ -23,12 +23,15 @@
 #define VPNSSTPPROXYSECTION_H
 
 #include "../abstractsection.h"
-#include "widgets/contentwidget.h"
-#include "widgets/lineeditwidget.h"
-#include "widgets/switchwidget.h"
-#include "widgets/spinboxwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
+
+namespace dcc {
+  namespace widgets {
+    class LineEditWidget;
+    class SpinBoxWidget;
+  }
+}
 
 using namespace NetworkManager;
 

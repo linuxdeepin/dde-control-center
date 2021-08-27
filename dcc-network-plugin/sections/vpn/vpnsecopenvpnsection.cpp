@@ -23,6 +23,9 @@
 
 #include <QComboBox>
 
+#include <widgets/contentwidget.h>
+#include <widgets/comboxwidget.h>
+
 using namespace dcc::widgets;
 using namespace NetworkManager;
 

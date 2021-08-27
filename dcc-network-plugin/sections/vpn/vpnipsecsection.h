@@ -24,11 +24,14 @@
 
 #include "../abstractsection.h"
 
-#include "widgets/contentwidget.h"
-#include "widgets/switchwidget.h"
-#include "widgets/lineeditwidget.h"
-
 #include <networkmanagerqt/vpnsetting.h>
+
+namespace dcc {
+  namespace widgets {
+    class SwitchWidget;
+    class LineEditWidget;
+  }
+}
 
 using namespace NetworkManager;
 

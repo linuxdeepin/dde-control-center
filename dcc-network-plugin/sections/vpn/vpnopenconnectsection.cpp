@@ -21,10 +21,10 @@
 
 #include "vpnopenconnectsection.h"
 
-#include "widgets/contentwidget.h"
-#include "widgets/lineeditwidget.h"
-#include "widgets/filechoosewidget.h"
-#include "widgets/switchwidget.h"
+#include <widgets/contentwidget.h>
+#include <widgets/lineeditwidget.h>
+#include <widgets/filechoosewidget.h>
+#include <widgets/switchwidget.h>
 
 using namespace dcc::widgets;
 using namespace NetworkManager;

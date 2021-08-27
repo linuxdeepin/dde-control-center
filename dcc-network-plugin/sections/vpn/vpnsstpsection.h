@@ -23,10 +23,15 @@
 #define VPNSSTPSECTION_H
 
 #include "vpnsection.h"
-#include "widgets/filechoosewidget.h"
-#include "widgets/switchwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
+
+namespace dcc {
+  namespace widgets {
+    class FileChooseWidget;
+    class SwitchWidget;
+  }
+}
 
 class VpnSSTPSection : public VpnSection
 {

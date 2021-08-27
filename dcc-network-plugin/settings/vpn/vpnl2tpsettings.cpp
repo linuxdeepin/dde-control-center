@@ -27,6 +27,10 @@
 #include "../../sections/ipvxsection.h"
 #include "../../sections/dnssection.h"
 
+#include <QVBoxLayout>
+
+#include <widgets/contentwidget.h>
+
 using namespace NetworkManager;
 
 VpnL2tpSettings::VpnL2tpSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)

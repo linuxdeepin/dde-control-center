@@ -28,6 +28,10 @@
 #include "../../sections/ipvxsection.h"
 #include "../../sections/dnssection.h"
 
+#include <QVBoxLayout>
+
+#include <widgets/contentwidget.h>
+
 using namespace NetworkManager;
 
 VpnSSTPSettings::VpnSSTPSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)

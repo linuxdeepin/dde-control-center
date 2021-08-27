@@ -26,6 +26,8 @@
 
 #include <networkmanagerqt/connectionsettings.h>
 
+#include <QVBoxLayout>
+
 using namespace NetworkManager;
 
 class VpnVPNCSettings : public AbstractSettings

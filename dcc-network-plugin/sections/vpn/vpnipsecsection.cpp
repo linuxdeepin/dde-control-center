@@ -21,6 +21,10 @@
 
 #include "vpnipsecsection.h"
 
+#include <widgets/contentwidget.h>
+#include <widgets/switchwidget.h>
+#include <widgets/lineeditwidget.h>
+
 using namespace dcc::widgets;
 using namespace NetworkManager;
 

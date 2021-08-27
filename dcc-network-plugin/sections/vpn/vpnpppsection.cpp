@@ -23,6 +23,10 @@
 
 #include <QDebug>
 
+#include <widgets/contentwidget.h>
+#include <widgets/switchwidget.h>
+#include <widgets/comboxwidget.h>
+
 using namespace dcc::widgets;
 using namespace NetworkManager;
 

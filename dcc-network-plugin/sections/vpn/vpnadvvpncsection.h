@@ -23,13 +23,17 @@
 #define VPNADVVPNCSECTION_H
 
 #include "../abstractsection.h"
-#include "widgets/contentwidget.h"
-#include "widgets/lineeditwidget.h"
-#include "widgets/comboxwidget.h"
-#include "widgets/spinboxwidget.h"
-#include "widgets/switchwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
+
+namespace dcc {
+  namespace widgets {
+    class LineEditWidget;
+    class ComboxWidget;
+    class SpinBoxWidget;
+    class SwitchWidget;
+  }
+}
 
 using namespace NetworkManager;
 

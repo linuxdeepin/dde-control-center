@@ -21,6 +21,9 @@
 
 #include "vpnsstpsection.h"
 
+#include <widgets/filechoosewidget.h>
+#include <widgets/switchwidget.h>
+
 using namespace dcc::widgets;
 using namespace NetworkManager;
 

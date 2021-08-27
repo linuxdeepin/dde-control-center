@@ -23,10 +23,14 @@
 #define VPNSECOPENVPNSECTION_H
 
 #include "../abstractsection.h"
-#include "widgets/contentwidget.h"
-#include "widgets/comboxwidget.h"
 
 #include <networkmanagerqt/vpnsetting.h>
+
+namespace dcc {
+  namespace widgets {
+    class ComboxWidget;
+  }
+}
 
 using namespace NetworkManager;
 

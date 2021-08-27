@@ -25,6 +25,10 @@
 #include "../../sections/ipvxsection.h"
 #include "../../sections/dnssection.h"
 
+#include <widgets/contentwidget.h>
+
+#include <QVBoxLayout>
+
 using namespace NetworkManager;
 
 VpnStrongSwanSettings::VpnStrongSwanSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)
