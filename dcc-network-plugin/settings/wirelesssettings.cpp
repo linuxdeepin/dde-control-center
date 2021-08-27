@@ -28,7 +28,7 @@
 #include "../window/gsettingwatcher.h"
 
 #include <widgets/switchwidget.h>
-#include "widgets/contentwidget.h"
+#include <widgets/contentwidget.h>
 
 using namespace NetworkManager;
 

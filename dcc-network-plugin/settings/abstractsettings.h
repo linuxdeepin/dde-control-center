@@ -22,11 +22,9 @@
 #ifndef ABSTRACTSETTINGS_H
 #define ABSTRACTSETTINGS_H
 
-#include "interface/namespace.h"
+#include <QWidget>
 
 #include <KF5/NetworkManagerQt/networkmanagerqt/connectionsettings.h>
-
-#include <QWidget>
 
 namespace dcc {
   class ContentWidget;

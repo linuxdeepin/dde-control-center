@@ -27,9 +27,9 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
-#include <networkmanagerqt/settings.h>
+#include <widgets/contentwidget.h>
 
-#include "widgets/contentwidget.h"
+#include <networkmanagerqt/settings.h>
 
 using namespace NetworkManager;
 

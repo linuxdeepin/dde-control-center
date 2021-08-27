@@ -28,7 +28,6 @@
 #define WIREDPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "interface/namespace.h"
 
 #include <QPointer>
 

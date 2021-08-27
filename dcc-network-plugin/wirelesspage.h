@@ -28,16 +28,11 @@
 #define WIRELESSPAGE_H
 
 #include "widgets/contentwidget.h"
-#include "interface/namespace.h"
 
 #include <DStandardItem>
 #include <DStyleHelper>
 
 #include <QPointer>
-
-#include <wirelessdevice.h>
-#include <networkdevicebase.h>
-#include <networkcontroller.h>
 
 QT_BEGIN_NAMESPACE
 class QTimer;
@@ -59,6 +54,7 @@ namespace dde {
     class NetworkDeviceBase;
     class NetworkController;
     class WirelessDevice;
+    enum class DeviceStatus;
   }
 }
 
@@ -152,7 +148,7 @@ public Q_SLOTS:
     void onAPRemoved(const QList<AccessPoints*> &lstRemovedAccessPoints);
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
-    void onDeviceStatusChanged(const DeviceStatus stat);
+    void onDeviceStatusChanged(const DeviceStatus &stat);
 
 private Q_SLOTS:
     void sortAPList();

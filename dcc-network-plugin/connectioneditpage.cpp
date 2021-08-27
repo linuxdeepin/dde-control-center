@@ -27,11 +27,13 @@
 #include "sections/abstractsection.h"
 
 #include <DDialog>
-
 #include <QPushButton>
 #include <QVBoxLayout>
 
+#include <interface/moduleinterface.h>
+#include <interface/namespace.h>
 #include <widgets/translucentframe.h>
+#include <widgets/buttontuple.h>
 
 #include <networkmanagerqt/settings.h>
 #include <networkmanagerqt/security8021xsetting.h>

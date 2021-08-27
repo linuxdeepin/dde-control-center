@@ -23,9 +23,9 @@
 
 #include <QVBoxLayout>
 
-#include "widgets/settingshead.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/contentwidget.h"
+#include <widgets/settingshead.h>
+#include <widgets/settingsgroup.h>
+#include <widgets/contentwidget.h>
 
 using namespace dcc::widgets;
 

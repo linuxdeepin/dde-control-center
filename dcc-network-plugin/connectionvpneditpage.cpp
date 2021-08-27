@@ -33,12 +33,14 @@
 
 #include <networkmanagerqt/vpnsetting.h>
 
+#include <QPushButton>
 #include <QComboBox>
 #include <QDebug>
 #include <QFileDialog>
 #include <QProcess>
 #include <QRegularExpression>
 #include <QHBoxLayout>
+#include <QStandardPaths>
 
 #include <widgets/comboxwidget.h>
 #include <widgets/titlelabel.h>

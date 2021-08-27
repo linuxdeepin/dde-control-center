@@ -28,12 +28,14 @@
 #include <networkmanagerqt/manager.h>
 #include <networkmanagerqt/wireddevice.h>
 
-#include "widgets/contentwidget.h"
-#include "widgets/comboxwidget.h"
-#include "widgets/lineeditwidget.h"
-#include "widgets/optionitem.h"
-#include "widgets/switchwidget.h"
-#include "widgets/spinboxwidget.h"
+#include <widgets/contentwidget.h>
+#include <widgets/comboxwidget.h>
+#include <widgets/lineeditwidget.h>
+#include <widgets/optionitem.h>
+#include <widgets/switchwidget.h>
+#include <widgets/spinboxwidget.h>
+
+#include <networkmanagerqt/wirelessdevice.h>
 
 #define NotBindValue "NotBind"
 

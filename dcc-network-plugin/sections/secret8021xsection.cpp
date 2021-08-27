@@ -26,11 +26,11 @@
 
 #include <QComboBox>
 
-#include "widgets/comboxwidget.h"
-#include "widgets/lineeditwidget.h"
-#include "widgets/filechoosewidget.h"
-#include "widgets/contentwidget.h"
-#include "widgets/comboxwidget.h"
+#include <widgets/comboxwidget.h>
+#include <widgets/lineeditwidget.h>
+#include <widgets/filechoosewidget.h>
+#include <widgets/contentwidget.h>
+#include <widgets/comboxwidget.h>
 
 using namespace NetworkManager;
 using namespace dcc::widgets;

@@ -26,8 +26,7 @@
 #ifndef NETWORKDETAILPAGE_H
 #define NETWORKDETAILPAGE_H
 
-#include "widgets/contentwidget.h"
-#include "interface/namespace.h"
+#include <widgets/contentwidget.h>
 
 #include <networkmanagerqt/ipaddress.h>
 

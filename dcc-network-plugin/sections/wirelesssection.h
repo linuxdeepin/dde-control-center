@@ -25,7 +25,6 @@
 #include "abstractsection.h"
 
 #include <networkmanagerqt/wirelesssetting.h>
-#include <networkmanagerqt/wirelessdevice.h>
 
 namespace dcc {
   namespace widgets {

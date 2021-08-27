@@ -30,7 +30,6 @@
 #include "window/gsettingwatcher.h"
 
 #include <DStyle>
-#include <wirelessdevice.h>
 #include <DStyleOption>
 #include <DListView>
 #include <DSpinner>
@@ -55,6 +54,11 @@
 #include <widgets/translucentframe.h>
 #include <widgets/tipsitem.h>
 #include <widgets/titlelabel.h>
+
+#include <wirelessdevice.h>
+#include <networkdevicebase.h>
+#include <networkcontroller.h>
+#include <wirelessdevice.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
@@ -441,7 +445,7 @@ void WirelessPage::updateLayout(bool enabled)
     m_mainLayout->invalidate();
 }
 
-void WirelessPage::onDeviceStatusChanged(const DeviceStatus stat)
+void WirelessPage::onDeviceStatusChanged(const DeviceStatus &stat)
 {
     //当wifi状态切换的时候，刷新一下列表，防止出现wifi已经连接，三级页面没有刷新出来的情况，和wifi已经断开，但是页面上还是显示该wifi
     //Q_EMIT requestWirelessScan();

@@ -22,7 +22,6 @@
 #ifndef CONNECTIONWIRELESSEDITPAGE_H
 #define CONNECTIONWIRELESSEDITPAGE_H
 
-#include "interface/namespace.h"
 #include "connectioneditpage.h"
 
 #include <networkmanagerqt/accesspoint.h>
@@ -33,7 +32,7 @@ class ConnectionWirelessEditPage : public ConnectionEditPage
 
 public:
     explicit ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid = QString(), bool isHidden = false, QWidget *parent = nullptr);
-    virtual ~ConnectionWirelessEditPage();
+    virtual ~ConnectionWirelessEditPage() Q_DECL_OVERRIDE;
 
     // This method must be called after initialization
     void initSettingsWidgetFromAp(const QString &apPath);

@@ -22,7 +22,7 @@
 #include "ipvxsection.h"
 #include "widgets/contentwidget.h"
 
-#include <dspinbox.h>
+#include <DSpinBox>
 
 #include <QDBusMetaType>
 #include <QComboBox>

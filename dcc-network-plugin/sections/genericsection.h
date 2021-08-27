@@ -21,7 +21,6 @@
 
 #ifndef GENERICSECTION_H
 #define GENERICSECTION_H
-#include "interface/namespace.h"
 
 #include "abstractsection.h"
 

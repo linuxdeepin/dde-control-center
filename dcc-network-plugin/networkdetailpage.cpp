@@ -24,18 +24,7 @@
  */
 
 #include "networkdetailpage.h"
-#include "widgets/settingshead.h"
-#include "widgets/settingsgroup.h"
-#include "widgets/settingsheaderitem.h"
-#include "widgets/translucentframe.h"
-#include "widgets/titlevalueitem.h"
 #include "window/utils.h"
-
-#include <networkmanagerqt/settings.h>
-#include <networkmanagerqt/connection.h>
-#include <networkmanagerqt/connectionsettings.h>
-#include <networkmanagerqt/ipv6setting.h>
-#include <com_deepin_daemon_network.h>
 
 #include <QVBoxLayout>
 #include <QDebug>
@@ -46,8 +35,20 @@
 #include <QDBusPendingCall>
 #include <QDBusPendingReply>
 
-#include "networkcontroller.h"
-#include "networkdetails.h"
+#include <widgets/settingshead.h>
+#include <widgets/settingsgroup.h>
+#include <widgets/settingsheaderitem.h>
+#include <widgets/translucentframe.h>
+#include <widgets/titlevalueitem.h>
+
+#include <networkcontroller.h>
+#include <networkdetails.h>
+
+#include <networkmanagerqt/settings.h>
+#include <networkmanagerqt/connection.h>
+#include <networkmanagerqt/connectionsettings.h>
+#include <networkmanagerqt/ipv6setting.h>
+#include <com_deepin_daemon_network.h>
 
 using namespace dcc::widgets;
 using namespace dde::network;

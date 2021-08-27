@@ -26,19 +26,24 @@
 
 #include <QPointer>
 
-#include "interface/moduleinterface.h"
-#include "interface/namespace.h"
+#include <widgets/contentwidget.h>
 
 #include <networkmanagerqt/connection.h>
 #include <networkmanagerqt/connectionsettings.h>
 
-#include <widgets/contentwidget.h>
-#include <widgets/buttontuple.h>
+namespace dcc {
+  namespace widgets {
+    class ButtonTuple;
+  }
+}
+namespace dccV20 {
+  class FrameProxyInterface;
+}
 
 class QPushButton;
 class QVBoxLayout;
 
-using namespace DCC_NAMESPACE;
+using namespace dccV20;
 using namespace dcc::widgets;
 
 class ConnectionEditPage : public dcc::ContentWidget
