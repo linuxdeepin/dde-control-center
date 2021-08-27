@@ -81,13 +81,11 @@ void GSettingWatcher::bind(const QString &gsettingsName, QListView *viewer, QSta
  */
 void GSettingWatcher::erase(const QString &gsettingsName)
 {
-    if (!m_map.isEmpty() && m_map.contains(gsettingsName)) {
+    if (!m_map.isEmpty() && m_map.contains(gsettingsName))
         m_map.remove(gsettingsName);
-    }
 
-    if (m_menuMap.contains(gsettingsName)) {
+    if (m_menuMap.contains(gsettingsName))
         m_menuMap.remove(gsettingsName);
-    }
 }
 
 /**

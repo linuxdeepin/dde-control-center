@@ -62,9 +62,20 @@ public:
 
     QWidget *moduleWidget() Q_DECL_OVERRIDE;
 
+private:
+    void removeConnEditPageByDevice(NetworkDeviceBase *dev);
+
 private Q_SLOTS:
     void onDeviceChanged();
     void showWirelessEditPage(NetworkDeviceBase *dev, const QString &connUuid = QString(), const QString &apPath = QString());
+
+    void showPppPage(const QString &searchPath);
+    void showVPNPage(const QString &searchPath);
+    void showDeviceDetailPage(NetworkDeviceBase *dev, const QString &searchPath);
+    void showChainsProxyPage();
+    void showProxyPage();
+    void showHotspotPage();
+    void showDetailPage();
 
 private:
     bool m_hasAp;
@@ -72,6 +83,7 @@ private:
     bool m_hasWireless;
 
     NetworkModuleWidget *m_indexWidget;
+    ConnectionEditPage *m_connEditPage;
 };
 
 #endif // NETWORKINTERFACE_H

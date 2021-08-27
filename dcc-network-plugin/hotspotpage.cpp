@@ -203,7 +203,7 @@ void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
     // 个人热点开启时才尝试激活连接
     if (m_hotspotSwitch->checked()) {
         HotspotController *hotspotController = NetworkController::instance()->hotspotController();
-        hotspotController->connectItem(uuid);
+        hotspotController->connectItem(m_wdev, uuid);
     }
 }
 
@@ -260,6 +260,12 @@ HotspotPage::HotspotPage(QWidget *parent)
     connect(hotspotController, &HotspotController::itemAdded, this, &HotspotPage::onItemAdded);
     connect(hotspotController, &HotspotController::itemRemoved, this, &HotspotPage::onItemRemoved);
     connect(hotspotController, &HotspotController::activeConnectionChanged, this, &HotspotPage::onActiveConnectionChanged);
+
+   /* deviceListChanged(model->devices());
+    connect(m_model, &NetworkModel::deviceListChanged, this, &HotspotPage::deviceListChanged);
+    connect(m_model, &NetworkModel::deviceEnableChanged, this, [this] {
+        this->deviceListChanged(this->m_model->devices());
+    });*/
 
     qDeleteAll(m_listdevw);
     m_listdevw.clear();

@@ -74,7 +74,6 @@ public:
 Q_SIGNALS:
     void requestNextPage(ContentWidget *const w) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
-    void requestActivateConnection(const QString &) const;
     void refreshConnectionList();
 
 private Q_SLOTS:

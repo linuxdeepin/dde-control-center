@@ -71,7 +71,7 @@ APItem::APItem(const QString &text, QStyle *style, DListView *parent)
     setCheckable(false);
 
     m_secureAction = new DViewItemAction(Qt::AlignCenter, QSize(), QSize(), false);
-    setActionList(Qt::Edge::LeftEdge, {m_secureAction});
+    setActionList(Qt::Edge::LeftEdge, { m_secureAction });
 
     m_parentView = parent;
     if (parent != nullptr) {
@@ -384,7 +384,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::hotspotEnableChanged, this, &WirelessPage::onHotspotEnableChanged);
     connect(m_pNetworkController, &NetworkController::deviceRemoved, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::connectionFailed, this, &WirelessPage::onActivateApFailed);
-    //connect(m_device, &UWirelessDevice::activeWirelessConnectionInfoChanged, this, &WirelessPage::updateActiveAp);
     connect(m_device, &WirelessDevice::connectionChanged, this, &WirelessPage::updateActiveAp);
 
     // init data

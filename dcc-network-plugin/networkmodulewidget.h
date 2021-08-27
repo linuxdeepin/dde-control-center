@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2011 ~ 2021 Deepin Technology Co., Ltd.
  *
  * Author:     sbw <sbw@sbw.so>
  *             kirigaya <kirigaya@mkacg.com>
@@ -56,30 +56,35 @@ namespace dcc {
   }
 }
 
+namespace DCC_NAMESPACE {
+  class FrameProxyInterface;
+}
+
 using namespace dde::network;
+using namespace DCC_NAMESPACE;
+
+enum class PageType {
+    NonePage = -1,
+    WiredPage = 0,
+    WirelessPage,
+    DSLPage,
+    VPNPage,
+    SysProxyPage,
+    AppProxyPage,
+    HotspotPage,
+    NetworkInfoPage
+};
 
 class NetworkModuleWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    enum PageType {
-        NonePage = -1,
-        WiredPage = 0,
-        WirelessPage,
-        DSLPage,
-        VPNPage,
-        SysProxyPage,
-        AppProxyPage,
-        HotspotPage,
-        NetworkInfoPage
-    };
-
     explicit NetworkModuleWidget(QWidget *parent = Q_NULLPTR);
     ~NetworkModuleWidget();
     void initSetting(const int settingIndex, const QString &searchPath);
     void showDefaultWidget();
-    //设置当前索引
+    // 设置当前索引
     void setCurrentIndex(const int settingIndex);
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
@@ -95,12 +100,11 @@ Q_SIGNALS:
     void requestUpdateSecondMenu(bool);
 
 private Q_SLOTS:
-    void onDeviceListChanged(const QList<NetworkDeviceBase *> &devices);
+    void onDeviceChanged();
     void onClickCurrentListIndex(const QModelIndex &idx);
     void onProxyMethodChanged(const ProxyMethod &method);
 
 private:
-    QStandardItem *createDeviceGroup(NetworkDeviceBase *dev, const int number, const bool multiple);
     bool handleNMEditor();
     void updateSecondMenu(int row);
 
@@ -111,8 +115,9 @@ private:
     QModelIndex m_lastIndex;
     QProcess *m_nmConnectionEditorProcess;
     QGSettings *m_settings;
+
+    FrameProxyInterface *m_frameProxy;
 };
 
-Q_DECLARE_METATYPE(NetworkModuleWidget::PageType)
-
+Q_DECLARE_METATYPE(PageType)
 #endif // NETWORKMODULEWIDGET_H

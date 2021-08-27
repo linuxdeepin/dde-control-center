@@ -76,10 +76,8 @@ QString vpnConfigType(const QString &path)
 
     if (content.contains("openconnect"))
         return "openconnect";
-
     if (content.contains("l2tp"))
         return "l2tp";
-
     if (content.startsWith("[main]"))
         return "vpnc";
 
@@ -102,8 +100,9 @@ VpnPage::VpnPage(QWidget *parent)
     m_importFile->setNameFilter("*.conf");
     m_importFile->setAcceptMode(QFileDialog::AcceptOpen);
     QStringList directory = QStandardPaths::standardLocations(QStandardPaths::HomeLocation);
-    if (!directory.isEmpty())
+    if (!directory.isEmpty()) {
         m_importFile->setDirectory(directory.first());
+    }
 
     QWidget *widget = new QWidget(this);
     QVBoxLayout *scrollLayout = new QVBoxLayout(widget);
@@ -159,7 +158,11 @@ VpnPage::VpnPage(QWidget *parent)
     setContentsMargins(0, 10, 0, 10);  //设置上下间距为10
     setLayout(mainLayout);
 
-    connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, &VpnPage::requestVpnEnabled);
+    VPNController *vpnController = NetworkController::instance()->vpnController();
+    connect(m_vpnSwitch, &SwitchWidget::checkedChanged, [ = ](const bool checked) {
+        vpnController->setEnabled(checked);
+    });
+
     connect(createVpnBtn, &QPushButton::clicked, this, &VpnPage::createVPN);
     connect(importVpnBtn, &QPushButton::clicked, this, &VpnPage::importVPN);
     connect(m_importFile, &QFileDialog::finished, this, [ = ] (int result) {
@@ -177,6 +180,8 @@ VpnPage::VpnPage(QWidget *parent)
             const auto stat = p.exitCode();
             const QString output = p.readAllStandardOutput();
             QString error = p.readAllStandardError();
+
+            qDebug() << stat << ",output:" << output << ",err:" << error;
 
             if (stat) {
                 const auto ratio = devicePixelRatioF();
@@ -204,8 +209,6 @@ VpnPage::VpnPage(QWidget *parent)
             }
         }
     });
-
-    VPNController *vpnController = NetworkController::instance()->vpnController();
 
     connect(vpnController, &VPNController::enableChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(vpnController, &VPNController::activeConnectionChanged, this, &VpnPage::onActiveConnsInfoChanged);
@@ -260,6 +263,7 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
         m_modelprofiles->appendRow(vpnItem);
     }
 
+    //onActiveConnsInfoChanged(m_model->activeConnInfos());
     m_vpnSwitch->setVisible(m_modelprofiles->rowCount() > 0);
 
     // 延迟刷新，是为了显示正常
@@ -308,8 +312,9 @@ void VpnPage::changeVpnId()
             break;
         }
     }
-    if (!hasSameName)
+    if (!hasSameName) {
         return;
+    }
 
     for (int index = 1; ; index++) {
         hasSameName = false;
@@ -322,9 +327,9 @@ void VpnPage::changeVpnId()
                 break;
             }
         }
-
-        if (!hasSameName)
+        if (!hasSameName) {
             break;
+        }
     }
 
     NetworkManager::Connection::Ptr uuidConn = findConnectionByUuid(m_editingConnUuid);
@@ -334,6 +339,12 @@ void VpnPage::changeVpnId()
         // update function saves the settings on the hard disk
         QDBusPendingReply<> reply = uuidConn->update(connSettings->toMap());
         reply.waitForFinished();
+        if (reply.isError()) {
+            qDebug() << "error occurred while updating the connection" << reply.error();
+            return;
+        }
+        qDebug() << "find Connection By Uuid is success";
+        return;
     }
 }
 

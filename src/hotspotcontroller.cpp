@@ -87,10 +87,10 @@ void HotspotController::connectItem(HotspotItem *item)
     m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(item->devicePath()));
 }
 
-void HotspotController::connectItem(const QString &uuid)
+void HotspotController::connectItem(WirelessDevice *device, const QString &uuid)
 {
     for (HotspotItem *item : m_hotspotItems) {
-        if (item->connection()->uuid() == uuid) {
+        if (item->device() == device && item->connection()->uuid() == uuid) {
             connectItem(item);
             break;
         }

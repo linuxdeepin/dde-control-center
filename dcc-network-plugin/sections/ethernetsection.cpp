@@ -129,9 +129,9 @@ void EthernetSection::initUI()
     // get the macAddress from existing Settings
     const QString &macAddr = QString(m_wiredSetting->macAddress().toHex()).toUpper();
 
-    if (m_macStrMap.values().contains(macAddr)) {
+    if (m_macStrMap.values().contains(macAddr))
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(macAddr));
-    } else {
+    else {
         // 设置当前设备的硬件地址为默认值
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));
 

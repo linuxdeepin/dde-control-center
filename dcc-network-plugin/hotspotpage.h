@@ -116,8 +116,6 @@ public:
 Q_SIGNALS:
     void back();
     void requestNextPage(dcc::ContentWidget * const w) const;
-    void requestDeviceRemanage(const QString &devPath) const;
-    void requestDisconnectConnection(const QString &uuid) const;
 
 private Q_SLOTS:
     void onDeviceAdded(const QList<WirelessDevice *> &devices);

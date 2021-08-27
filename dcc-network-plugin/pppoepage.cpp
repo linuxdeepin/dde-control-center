@@ -87,8 +87,10 @@ PppoePage::PppoePage(QWidget *parent)
     setTitle(tr("PPP"));
     //~ contents_path /network/DSL/Create PPPoE Connection
     connect(m_createBtn, &QPushButton::clicked, this, &PppoePage::createPPPoEConnection);
-    connect(m_lvsettings, &QListView::clicked, this, [this](const QModelIndex &idx) {
-        Q_EMIT requestActivateConnection(idx.data(UuidRole).toString());
+    connect(m_lvsettings, &QListView::clicked, this, [ = ](const QModelIndex &idx) {
+        QString uuid = idx.data(UuidRole).toString();
+        DSLController *dslController = NetworkController::instance()->dslController();
+        dslController->connectItem(uuid);
     });
 
     DSLController *dslController = NetworkController::instance()->dslController();

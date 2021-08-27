@@ -22,6 +22,7 @@
 #include "connectioneditpage.h"
 #include "settings/wiredsettings.h"
 #include "settings/wirelesssettings.h"
+#include "settings/dslpppoesettings.h"
 #include "window/gsettingwatcher.h"
 #include "sections/abstractsection.h"
 
@@ -69,13 +70,15 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
     initUI();
 
     if (m_connectionUuid.isEmpty()) {
+        qDebug() << "connection uuid is empty, creating new ConnectionSettings...";
         createConnSettings();
         m_isNewConnection = true;
     } else {
         m_connection = findConnectionByUuid(m_connectionUuid);
-        if (!m_connection)
+        if (!m_connection) {
+            qDebug() << "can't find connection by uuid";
             return;
-
+        }
         m_connectionSettings = m_connection->settings();
         m_isNewConnection = false;
         initConnectionSecrets();
@@ -135,8 +138,9 @@ void ConnectionEditPage::initUI()
 
 void ConnectionEditPage::initHeaderButtons()
 {
-    if (m_isNewConnection)
+    if (m_isNewConnection) {
         return;
+    }
 
     for (auto conn : activeConnections()) {
         if (conn->uuid() == m_connection->uuid()) {
@@ -152,26 +156,30 @@ void ConnectionEditPage::initHeaderButtons()
     //当只有m_removeBtn显示时,由于布局中添加了space,导致删除按钮未对齐,需要删除空格
     if (!m_disconnectBtn->isHidden())
         return;
-
     m_buttonTuple_conn->removeSpacing();
+
 }
 
 void ConnectionEditPage::initSettingsWidget()
 {
-    if (!m_connectionSettings)
+    if (!m_connectionSettings) {
         return;
+    }
 
     switch (m_connType) {
     case ConnectionSettings::ConnectionType::Wired: {
         m_settingsWidget = new WiredSettings(m_connectionSettings, this);
         break;
     }
-
     case ConnectionSettings::ConnectionType::Wireless: {
         m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
         break;
     }
 
+    case ConnectionSettings::ConnectionType::Pppoe: {
+        m_settingsWidget = new DslPppoeSettings(m_connectionSettings, DevicePath, this);
+        break;
+    }
     default:
         break;
     }
@@ -180,7 +188,6 @@ void ConnectionEditPage::initSettingsWidget()
         m_buttonTuple->leftButton()->setEnabled(true);
         m_buttonTuple->rightButton()->setEnabled(true);
     });
-
     connect(m_settingsWidget, &AbstractSettings::requestNextPage, this, &ConnectionEditPage::onRequestNextPage);
     connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);
 
@@ -199,8 +206,9 @@ void ConnectionEditPage::setDevicePath(const QString &path)
 
 void ConnectionEditPage::onDeviceRemoved()
 {
-    if (m_subPage)
+    if (m_subPage) {
         Q_EMIT m_subPage->back();
+    }
 
     Q_EMIT back();
 }
@@ -225,7 +233,8 @@ void ConnectionEditPage::initConnection()
         btns << tr("Cancel");
         btns << tr("Delete");
         dialog.addButtons(btns);
-        if (dialog.exec() == QDialog::Accepted) {
+        int ret = dialog.exec();
+        if (ret == QDialog::Accepted) {
             m_connection->remove();
             Q_EMIT back();
         }
@@ -240,8 +249,13 @@ void ConnectionEditPage::initConnection()
 
 NMVariantMapMap ConnectionEditPage::secretsMapMapBySettingType(Setting::SettingType settingType)
 {
-    QDBusPendingReply<NMVariantMapMap> reply = m_connection->secrets(m_connectionSettings->setting(settingType)->name());
+    QDBusPendingReply<NMVariantMapMap> reply;
+    reply = m_connection->secrets(m_connectionSettings->setting(settingType)->name());
+
     reply.waitForFinished();
+    if (reply.isError() || !reply.isValid()) {
+        qDebug() << "get secrets error for connection:" << reply.error();
+    }
 
     return reply.value();
 }
@@ -280,9 +294,9 @@ void ConnectionEditPage::initConnectionSecrets()
         if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaNone || keyMgmt == WirelessSecuritySetting::KeyMgmt::Unknown)
             break;
 
-        if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaEap)
+        if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaEap) {
             sType = Setting::SettingType::Security8021x;
-
+        }
         sSecretsMapMap = secretsMapMapBySettingType(sType);
         setSecretsFromMapMap<WirelessSecuritySetting>(sType, sSecretsMapMap);
         break;
@@ -309,18 +323,22 @@ void ConnectionEditPage::initConnectionSecrets()
 
 void ConnectionEditPage::saveConnSettings()
 {
-    if (!m_settingsWidget->allInputValid())
+    if (!m_settingsWidget->allInputValid()) {
         return;
+    }
 
     if (m_settingsWidget->isAutoConnect()) {
         if (!m_isHotSpot) {
             // deactivate this device's ActiveConnection
             QDBusPendingReply<> reply;
             for (auto aConn : activeConnections()) {
-                for (QString devPath : aConn->devices()) {
+                for (auto devPath : aConn->devices()) {
                     if (devPath == DevicePath) {
                         reply = deactivateConnection(aConn->path());
                         reply.waitForFinished();
+                        if (reply.isError()) {
+                            qDebug() << "error occurred while deactivate connection" << reply.error();
+                        }
                     }
                 }
             }
@@ -334,13 +352,14 @@ void ConnectionEditPage::saveConnSettings()
 void ConnectionEditPage::prepareConnection()
 {
     if (!m_connection) {
+        qDebug() << "preparing connection...";
         qDBusRegisterMetaType<QByteArrayList>();
         QDBusPendingReply<QDBusObjectPath> reply = addConnection(m_connectionSettings->toMap());
         reply.waitForFinished();
-
         const QString &connPath = reply.value().path();
         m_connection = findConnection(connPath);
         if (!m_connection) {
+            qDebug() << "create connection failed..." << reply.error();
             Q_EMIT back();
             return;
         }
@@ -357,28 +376,29 @@ void ConnectionEditPage::updateConnection()
     reply = m_connection->update(m_connectionSettings->toMap());
     reply.waitForFinished();
     if (reply.isError()) {
+        qDebug() << "error occurred while updating the connection" << reply.error();
         Q_EMIT back();
         return;
     }
 
     if (m_settingsWidget->isAutoConnect()) {
-        if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WiredConnection)) {
-            Q_EMIT activateWiredConnection(m_connection->path(), m_connectionUuid);
-        } else {
-            if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WirelessConnection))
-                Q_EMIT activateWirelessConnection(m_connectionSettings->id(), m_connectionUuid);
-
-            reply = activateConnection(m_connection->path(), DevicePath, QString());
-            reply.waitForFinished();
-        }
-    }
+         if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WiredConnection)) {
+             Q_EMIT activateWiredConnection(m_connection->path(), m_connectionUuid);
+         } else {
+             if (static_cast<int>(m_connType) == static_cast<int>(ConnectionEditPage::WirelessConnection))
+                 Q_EMIT activateWirelessConnection(m_connectionSettings->id(), m_connectionUuid);
+             reply = activateConnection(m_connection->path(), DevicePath, QString());
+             reply.waitForFinished();
+         }
+     }
 
     Q_EMIT back();
 }
 
 void ConnectionEditPage::createConnSettings()
 {
-    m_connectionSettings = QSharedPointer<ConnectionSettings>(new ConnectionSettings(m_connType));
+    m_connectionSettings = QSharedPointer<ConnectionSettings>(
+                               new ConnectionSettings(m_connType));
 
     // do not handle vpn name here
     QString connName;
@@ -388,11 +408,11 @@ void ConnectionEditPage::createConnSettings()
         break;
     }
     case ConnectionSettings::ConnectionType::Wireless: {
-        if (m_isHotSpot)
+        if (m_isHotSpot) {
             connName = tr("hotspot");
-        else
+        } else {
             connName = tr("Wireless Connection %1");
-
+        }
         m_connectionSettings->setting(Setting::Security8021x).staticCast<Security8021xSetting>()->setPasswordFlags(Setting::AgentOwned);
         break;
     }
@@ -404,30 +424,31 @@ void ConnectionEditPage::createConnSettings()
         break;
     }
 
-    if (!connName.isEmpty())
+    if (!connName.isEmpty()) {
         m_connectionSettings->setId(connName.arg(connectionSuffixNum(connName)));
-
+    }
     m_connectionUuid = m_connectionSettings->createNewUuid();
     while (findConnectionByUuid(m_connectionUuid)) {
         qint64 second = QDateTime::currentDateTime().toSecsSinceEpoch();
         m_connectionUuid.replace(24, QString::number(second).length(), QString::number(second));
     }
-
     m_connectionSettings->setUuid(m_connectionUuid);
 }
 
 int ConnectionEditPage::connectionSuffixNum(const QString &matchConnName)
 {
-    if (matchConnName.isEmpty())
+    if (matchConnName.isEmpty()) {
         return 0;
+    }
 
     Connection::List connList = listConnections();
     QStringList connNameList;
     int connSuffixNum = 1;
 
     for (auto conn : connList) {
-        if (conn->settings()->connectionType() == m_connType)
+        if (conn->settings()->connectionType() == m_connType) {
             connNameList.append(conn->name());
+        }
     }
 
     for (int i = 1; i <= connNameList.size(); ++i) {
@@ -457,7 +478,6 @@ bool ConnectionEditPage::eventFilter(QObject *obj, QEvent *event)
         else if (visible != widget->isVisible())
             widget->setVisible(visible);
     }
-
     return QObject::eventFilter(obj, event);
 }
 

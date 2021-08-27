@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/dcc_nav_network.svg</file>
+    </qresource>
+</RCC>

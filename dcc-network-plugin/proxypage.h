@@ -64,11 +64,6 @@ public:
     ~ProxyPage() Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
-    void requestQueryProxyData() const;
-    void requestSetProxy(const QString &type, const QString &addr, const QString &port) const;
-    void requestSetProxyMethod(const QString &pm) const;
-    void requestSetAutoProxy(const QString &proxy) const;
-    void requestSetIgnoreHosts(const QString &list) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
 private Q_SLOTS:

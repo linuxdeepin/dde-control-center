@@ -46,7 +46,7 @@ public:
     bool enabled(WirelessDevice *device);                                    // 设备的热点是否可用
     bool supportHotspot();                                                   // 是否支持个人热点
     void connectItem(HotspotItem *item);                                     // 连接到个人热点
-    void connectItem(const QString &uuid);                                   // 连接到个人热点
+    void connectItem(WirelessDevice *device, const QString &uuid);                                   // 连接到个人热点
     void disconnectItem();                                                   // 断开连接
     QList<HotspotItem *> items(WirelessDevice *device);                      // 返回列表
     QList<WirelessDevice *> devices();                                       // 获取支持热点的设备列表

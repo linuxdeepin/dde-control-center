@@ -97,7 +97,7 @@ ProxyPage::ProxyPage(QWidget *parent)
         portEdit->textEdit()->installEventFilter(this);
         group->appendItem(proxyEdit);
         group->appendItem(portEdit);
-        connect(portEdit->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str){
+        connect(portEdit->textEdit(), &QLineEdit::textChanged, this, [ = ](const QString &str) {
             if (str.toInt() < 0) {
                 portEdit->setText("0");
             } else if(str.toInt() > 65535) {
@@ -193,7 +193,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     m_autoUrl->setText(proxyController->autoProxy());
 
     // 响应系统代理开关
-    connect(m_proxySwitch, &SwitchWidget::checkedChanged, m_proxyTypeBox, [ = ](const bool checked){
+    connect(m_proxySwitch, &SwitchWidget::checkedChanged, m_proxyTypeBox, [ = ](const bool checked) {
         m_buttonTuple->setEnabled(checked);
         if (checked) {
             // 打开代理默认手动
@@ -293,20 +293,21 @@ void ProxyPage::onProxyMethodChanged(const ProxyMethod &method)
 
 void ProxyPage::applySettings()
 {
+    ProxyController *proxyController = NetworkController::instance()->proxyController();
     this->setFocus();
     m_buttonTuple->setEnabled(false);
     if (!m_proxySwitch->checked()) {
-        Q_EMIT requestSetProxyMethod("none");
+        proxyController->setProxyMethod(ProxyMethod::None);
     } else if (m_proxyTypeBox->comboBox()->currentIndex() == ProxyMethodList.indexOf(MANUAL)) {
-        Q_EMIT requestSetProxy("http", m_httpAddr->text(), m_httpPort->text());
-        Q_EMIT requestSetProxy("https", m_httpsAddr->text(), m_httpsPort->text());
-        Q_EMIT requestSetProxy("ftp", m_ftpAddr->text(), m_ftpPort->text());
-        Q_EMIT requestSetProxy("socks", m_socksAddr->text(), m_socksPort->text());
-        Q_EMIT requestSetIgnoreHosts(m_ignoreList->toPlainText());
-        Q_EMIT requestSetProxyMethod(MANUAL);
+        proxyController->setProxy(SysProxyType::Http, m_httpAddr->text(), m_httpPort->text());
+        proxyController->setProxy(SysProxyType::Https, m_httpsAddr->text(), m_httpsPort->text());
+        proxyController->setProxy(SysProxyType::Ftp, m_ftpAddr->text(), m_ftpPort->text());
+        proxyController->setProxy(SysProxyType::Socks, m_socksAddr->text(), m_socksPort->text());
+        proxyController->setProxyIgnoreHosts(m_ignoreList->toPlainText());
+        proxyController->setProxyMethod(ProxyMethod::Manual);
     } else if (m_proxyTypeBox->comboBox()->currentIndex() == ProxyMethodList.indexOf(AUTO)) {
-        Q_EMIT requestSetAutoProxy(m_autoUrl->text());
-        Q_EMIT requestSetProxyMethod(AUTO);
+        proxyController->setAutoProxy(m_autoUrl->text());
+        proxyController->setProxyMethod(ProxyMethod::Auto);
     }
 }
 
