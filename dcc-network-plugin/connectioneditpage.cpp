@@ -53,7 +53,7 @@ ConnectionEditPage::ConnectionEditPage(ConnectionType connType, const QString &d
     , m_connection(nullptr)
     , m_connectionSettings(nullptr)
     , m_settingsWidget(nullptr)
-    , m_mainLayout(new QVBoxLayout)
+    , m_mainLayout(new QVBoxLayout(this))
     , m_disconnectBtn(nullptr)
     , m_removeBtn(nullptr)
     , m_buttonTuple(new ButtonTuple(ButtonTuple::Save, this))
@@ -120,7 +120,7 @@ void ConnectionEditPage::initUI()
     m_mainLayout->addStretch();
     m_mainLayout->setSpacing(10);
 
-    QWidget *mainWidget = new TranslucentFrame;
+    QWidget *mainWidget = new TranslucentFrame(this);
     mainWidget->setLayout(m_mainLayout);
 
     setContent(mainWidget);
