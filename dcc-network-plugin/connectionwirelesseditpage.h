@@ -1,13 +1,9 @@
 /*
  * Copyright (C) 2011 ~ 2021 Deepin Technology Co., Ltd.
  *
- * Author:     sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Author:     listenerri <listenerri@gmail.com>
  *
- * Maintainer: sbw <sbw@sbw.so>
- *             kirigaya <kirigaya@mkacg.com>
- *             Hualet <mr.asianwang@gmail.com>
+ * Maintainer: listenerri <listenerri@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,29 +19,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETWORKDETAILPAGE_H
-#define NETWORKDETAILPAGE_H
+#ifndef CONNECTIONWIRELESSEDITPAGE_H
+#define CONNECTIONWIRELESSEDITPAGE_H
 
-#include "widgets/contentwidget.h"
 #include "interface/namespace.h"
+#include "connectioneditpage.h"
 
-#include <networkmanagerqt/ipaddress.h>
+#include <networkmanagerqt/accesspoint.h>
 
-using namespace NetworkManager;
-
-class NetworkDetailPage : public dcc::ContentWidget
+class ConnectionWirelessEditPage : public ConnectionEditPage
 {
     Q_OBJECT
 
 public:
-    explicit NetworkDetailPage(QWidget *parent = nullptr);
-    ~NetworkDetailPage();
+    explicit ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid = QString(), bool isHidden = false, QWidget *parent = nullptr);
+    virtual ~ConnectionWirelessEditPage();
 
-private Q_SLOTS:
-    void onUpdateNetworkInfo();
+    // This method must be called after initialization
+    void initSettingsWidgetFromAp(const QString &apPath);
 
 private:
-    QVBoxLayout *m_groupsLayout;
+    void initApSecretType(AccessPoint::Ptr nmAp);
 };
 
-#endif // NETWORKDETAILPAGE_H
+#endif /* CONNECTIONWIRELESSEDITPAGE_H */
