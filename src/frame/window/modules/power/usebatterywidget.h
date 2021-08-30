@@ -63,6 +63,7 @@ private:
     dcc::widgets::TitledSliderItem *m_monitorSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_computerSleepOnBattery;
     dcc::widgets::TitledSliderItem *m_autoLockScreen;
+    dcc::widgets::TitledSliderItem *m_monitorDormantOnBattery;
 
     dcc::widgets::ComboxWidget *m_cmbPowerBtn; // 电源按钮
     dcc::widgets::ComboxWidget *m_cmbCloseLid; // 合盖
@@ -78,6 +79,7 @@ Q_SIGNALS:
     void requestSetScreenBlackDelayOnBattery(const int delay) const;
     void requestSetSleepDelayOnBattery(const int delay) const;
     void requestSetAutoLockScreenOnBattery(const int delay) const;
+    void requestSetDormantOnBattery(const int delay) const;
     void requestSetLowPowerNotifyEnable(const bool bState) const;     // 低电量通知
     void requestSetBatteryPressPowerBtnAction(const int reply) const; // 按下电源
     void requestSetBatteryLidClosedAction(const int reply) const;     // 合上盖子
@@ -88,6 +90,7 @@ public Q_SLOTS:
     void setScreenBlackDelayOnBattery(const int delay);
     void setSleepDelayOnBattery(const int delay);
     void setAutoLockScreenOnBattery(const int delay);
+    void setDormantDelayOnBattery(const int delay);
     void onLowPowerNotifyThreshold(const int value);
     void onLowPowerAutoSleepThreshold(const int value);
     void setCloseLid(const dcc::power::PowerModel *model, int lidIndex);
