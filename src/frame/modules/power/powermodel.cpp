@@ -43,8 +43,10 @@ PowerModel::PowerModel(QObject *parent)
     , m_canHibernate(false)
     , m_screenBlackDelayOnPower(0)
     , m_sleepDelayOnPower(0)
+    , m_dormantDelayOnPower(0)
     , m_screenBlackDelayOnBattery(0)
     , m_sleepDelayOnBattery(0)
+    , m_dormantDelayOnBattery(0)
     , m_haveBettary(false)
     , m_batteryLockScreenDelay(0)
     , m_powerLockScreenDelay(0)
@@ -103,6 +105,15 @@ void PowerModel::setSleepDelayOnPower(const int sleepDelayOnPower)
     }
 }
 
+void PowerModel::setDormantDelayOnPower(const int dormatnDelayOnPower)
+{
+    if (dormatnDelayOnPower != m_dormantDelayOnPower) {
+        m_dormantDelayOnPower = dormatnDelayOnPower;
+
+        Q_EMIT dormantDelayChangeOnPower(dormatnDelayOnPower);
+    }
+}
+
 void PowerModel::setScreenBlackDelayOnBattery(const int screenBlackDelayOnBattery)
 {
     if (screenBlackDelayOnBattery != m_screenBlackDelayOnBattery) {
@@ -118,6 +129,15 @@ void PowerModel::setSleepDelayOnBattery(const int sleepDelayOnBattery)
         m_sleepDelayOnBattery = sleepDelayOnBattery;
 
         Q_EMIT sleepDelayChangedOnBattery(sleepDelayOnBattery);
+    }
+}
+
+void PowerModel::setDormantDelayOnBattery(const int dormatnDelayOnBattery)
+{
+    if (dormatnDelayOnBattery != m_dormantDelayOnBattery) {
+        m_dormantDelayOnBattery = dormatnDelayOnBattery;
+
+        Q_EMIT dormantDelayChangeOnBattery(dormatnDelayOnBattery);
     }
 }
 

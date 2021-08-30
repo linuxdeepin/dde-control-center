@@ -59,11 +59,17 @@ public:
     inline int sleepDelayOnPower() const { return m_sleepDelayOnPower; }
     void setSleepDelayOnPower(const int sleepDelayOnPower);
 
+    inline int dormantDelayOnPower() const { return m_dormantDelayOnPower; }
+    void setDormantDelayOnPower(const int dormantDelayOnPower);
+
     inline int screenBlackDelayOnBattery() const { return m_screenBlackDelayOnBattery; }
     void setScreenBlackDelayOnBattery(const int screenBlackDelayOnBattery);
 
     inline int sleepDelayOnBattery() const { return m_sleepDelayOnBattery; }
     void setSleepDelayOnBattery(const int sleepDelayOnBattery);
+
+    inline int dormantDelayOnBattery() const { return m_dormantDelayOnBattery; }
+    void setDormantDelayOnBattery(const int dormantDelayOnBattery);
 
     inline bool sleepOnLidOnPowerClose() const { return m_sleepOnLidOnPowerClose; }
     void setSleepOnLidOnPowerClose(bool sleepOnLidClose);
@@ -149,8 +155,10 @@ Q_SIGNALS:
     void sleepOnLidOnBatteryCloseChanged(const bool sleepOnLidClose);
     void screenBlackDelayChangedOnPower(const int screenBlackDelay);
     void sleepDelayChangedOnPower(const int sleepDelay);
+    void dormantDelayChangeOnPower(const int dormantDelay);
     void screenBlackDelayChangedOnBattery(const int screenBlackDelay);
     void sleepDelayChangedOnBattery(const int sleepDelay);
+    void dormantDelayChangeOnBattery(const int dormantDelay);
     void canHibernateChanged(const bool canHibernate);
     void hibernateChanged(const bool hibernate);
     void shutdownChanged(const bool shutdown);
@@ -190,8 +198,10 @@ private:
     bool m_canHibernate;
     int m_screenBlackDelayOnPower;
     int m_sleepDelayOnPower;
+    int m_dormantDelayOnPower;
     int m_screenBlackDelayOnBattery;
     int m_sleepDelayOnBattery;
+    int m_dormantDelayOnBattery;
 #ifndef DCC_DISABLE_POWERSAVE
     bool m_autoPowerSaveMode{false};
     bool m_powerSaveMode{false};
