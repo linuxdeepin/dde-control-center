@@ -60,12 +60,15 @@ PrivacyPolicyWidget::PrivacyPolicyWidget(QWidget *parent)
     label->setAlignment(Qt::AlignJustify | Qt::AlignLeft);
     label->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     label->setWordWrap(true);
-    connect(label, &QLabel::linkActivated, this, [](const QString &link) {
-        QDesktopServices::openUrl(QUrl(link));
-    });
+    connect(label, &QLabel::linkActivated, this, &PrivacyPolicyWidget::onLinkActivated);
 
     layout->addWidget(label);
     widget->setLayout(layout);
     setContent(widget);
     setContentsMargins(0, 8, 0, 8);
+}
+
+void PrivacyPolicyWidget::onLinkActivated(const QString link)
+{
+    QDesktopServices::openUrl(QUrl(link));
 }

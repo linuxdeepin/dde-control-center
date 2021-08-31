@@ -81,6 +81,14 @@ public Q_SLOTS:
     void setMemory(const QString &memory);
     void setLicenseState(dcc::systeminfo::ActiveState state);
 
+    void onToolButtonButtonClicked();
+    void onFocusChanged(const bool onFocus);
+    void onTextEdited(const QString &hostName);
+    void onAlertChanged();
+    void onEditingFinished();
+    void onHostNameChanged(const QString &hostName);
+    void onSetHostNameError(const QString &error);
+
 Q_SIGNALS:
     void clickedActivator();
 

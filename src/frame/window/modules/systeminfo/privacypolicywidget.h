@@ -34,6 +34,9 @@ class PrivacyPolicyWidget : public dcc::ContentWidget
     Q_OBJECT
 public:
     explicit PrivacyPolicyWidget(QWidget *parent = nullptr);
+
+public Q_SLOTS:
+    void onLinkActivated(const QString link);
 };
 
 }

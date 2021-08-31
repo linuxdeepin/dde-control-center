@@ -1,4 +1,5 @@
 #include "../src/frame/window/modules/systeminfo/versionprotocolwidget.h"
+#include "../src/frame/window/protocolfile.h"
 
 #include <DListView>
 #include <QSignalSpy>
@@ -30,12 +31,8 @@ void Test_VersionProtocolWidget::TearDown()
     m_widget = nullptr;
 }
 
-TEST_F(Test_VersionProtocolWidget, test1)
+TEST_F(Test_VersionProtocolWidget, fulltest)
 {
     VersionProtocolWidget *m_widget  = new VersionProtocolWidget();
     ASSERT_EQ(m_widget->isVisible(), false) ;
-
-    QSignalSpy spy1(m_widget, SIGNAL(loadTextFinished()));
-    m_widget->loadTextFinished();
-    EXPECT_EQ(spy1.count(), 1);
 }

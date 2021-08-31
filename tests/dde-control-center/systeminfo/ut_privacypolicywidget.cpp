@@ -34,6 +34,8 @@ TEST_F(Test_PrivacyPolicyWidget, full)
 {
     m_widget = new PrivacyPolicyWidget();
     ASSERT_NE(m_widget, nullptr);
+
+    EXPECT_NO_THROW(m_widget->onLinkActivated("\"https://www.uniontech.com/agreement/privacy-en\""));
 }
 
 

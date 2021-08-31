@@ -5,6 +5,7 @@
 #include <QSignalSpy>
 #include <QTest>
 #include <gtest/gtest.h>
+#include <QtConcurrent>
 
 DWIDGET_USE_NAMESPACE
 using namespace dccV20::systeminfo;
@@ -31,7 +32,7 @@ void Test_UserLicenseWidget::TearDown()
     m_widget = nullptr;
 }
 
-TEST_F(Test_UserLicenseWidget, test1)
+TEST_F(Test_UserLicenseWidget, fulltest)
 {
     UserLicenseWidget *m_widget  = new UserLicenseWidget();
     ASSERT_EQ(m_widget->isVisible(), false) ;
