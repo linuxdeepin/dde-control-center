@@ -23,7 +23,6 @@
 #define CONNECTIONHOTSPOTEDITPAGE_H
 
 #include "connectioneditpage.h"
-#include "interface/namespace.h"
 
 class ConnectionHotspotEditPage : public ConnectionEditPage
 {

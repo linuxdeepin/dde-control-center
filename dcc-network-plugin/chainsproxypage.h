@@ -28,8 +28,7 @@
 
 #include <QObject>
 
-#include "widgets/contentwidget.h"
-#include "interface/namespace.h"
+#include <widgets/contentwidget.h>
 
 namespace dde {
   namespace network {
