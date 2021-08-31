@@ -169,120 +169,14 @@ void NativeInfoWidget::initWidget()
         m_hostNameLabel->setText(getElidedText(m_hostNameLabel, m_model->hostName(), Qt::ElideRight, this->width() - hostname_placeholder, 0, __LINE__));
         m_hostNameLabel->setMinimumHeight(m_hostNameLineEdit->lineEdit()->height());
         //点击编辑按钮
-        connect(m_hostNameBtn, &DToolButton::clicked, this, [ = ]() {
-            m_hostNameBtn->setVisible(false);
-            m_hostNameLabel->setVisible(false);
-            m_hostNameLineEdit->setVisible(true);
-            m_hostNameLineEdit->setAlert(false);
-            m_hostNameLineEdit->setText(m_model->hostName());
-            m_hostNameLineEdit->hideAlertMessage();
-            m_hostNameLineEdit->lineEdit()->setFocus();
-            m_hostNameLineEdit->lineEdit()->selectAll();
-        });
+        connect(m_hostNameBtn, &DToolButton::clicked, this, &NativeInfoWidget::onToolButtonButtonClicked);
 
-        connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, [ = ](const bool onFocus){
-            QString hostName = m_hostNameLineEdit->lineEdit()->text();
-            if(!onFocus && hostName.isEmpty()) {
-                m_hostNameLineEdit->setVisible(false);
-                m_hostNameLabel->setVisible(true);
-                m_hostNameBtn->setVisible(true);
-            }
-            else if(!onFocus && !hostName.isEmpty()) {
-                if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
-                    m_hostNameLineEdit->setAlert(true);
-                    m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
-                    m_alertMessage = tr("It cannot start or end with dashes");
-                    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-                }else if (hostName.size() > 63) {
-                    m_hostNameLineEdit->setAlert(true);
-                    m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
-                    m_alertMessage = tr("1~63 characters please");
-                    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-                }
-            }
-        });
-
-        connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, [ = ](const QString &hostName) {
-            m_hostnameEdit = hostName;
-            if (!hostName.isEmpty()) {
-               if (hostName.size() > 63) {
-                    m_hostNameLineEdit->lineEdit()->backspace();
-                    m_hostNameLineEdit->setAlert(true);
-                    m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
-                    m_alertMessage = tr("1~63 characters please");
-                    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-                } else if (m_hostNameLineEdit->isAlert()) {
-                    m_hostNameLineEdit->setAlert(false);
-                    m_hostNameLineEdit->hideAlertMessage();
-                }
-            }
-            else if (m_hostNameLineEdit->isAlert()) {
-                m_hostNameLineEdit->setAlert(false);
-                m_hostNameLineEdit->hideAlertMessage();
-            }
-        });
-
-        connect(m_hostNameLineEdit, &DLineEdit::alertChanged, this, [ = ]() {
-            // 输入框保持透明背景
-            QPalette palette = m_hostNameLineEdit->lineEdit()->palette();
-            palette.setColor(QPalette::Button, Qt::transparent);
-            m_hostNameLineEdit->lineEdit()->setPalette(palette);
-        });
-
-        connect(m_hostNameLineEdit->lineEdit(), &QLineEdit::editingFinished, this, [ = ] {
-            QString hostName = m_hostNameLineEdit->lineEdit()->text();
-            if (hostName == m_model->hostName() || hostName.simplified().isEmpty()) {
-                m_hostNameLineEdit->lineEdit()->clearFocus();
-                m_hostNameLineEdit->setVisible(false);
-                m_hostNameLabel->setVisible(true);
-                m_hostNameBtn->setVisible(true);
-                if (m_hostNameLineEdit->isAlert()) {
-                    m_hostNameLineEdit->setAlert(false);
-                    m_hostNameLineEdit->hideAlertMessage();
-                }
-                return;
-            }
-
-            if(!hostName.isEmpty()) {
-                if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
-                    m_hostNameLineEdit->setAlert(true);
-                    m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
-                    m_alertMessage = tr("It cannot start or end with dashes");
-                    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-                }
-                else {
-                    m_hostNameLineEdit->setAlert(false);
-                    m_hostNameLineEdit->hideAlertMessage();
-                }
-
-                if(!m_hostNameLineEdit->isAlert()) {
-                    m_hostNameLineEdit->lineEdit()->clearFocus();
-                    m_hostNameLineEdit->setVisible(false);
-                    m_hostNameLabel->setVisible(true);
-                    m_hostNameBtn->setVisible(true);
-                    Q_EMIT m_model->setHostNameChanged(hostName);
-                }
-            }
-        });
-
-
-        connect(m_model, &SystemInfoModel::hostNameChanged, m_hostNameLabel, [ = ](const QString &hostName) {
-            m_hostname = hostName;
-            QString name = getElidedText(m_hostNameLabel, hostName, Qt::ElideRight, this->width() - hostname_placeholder, 0, __LINE__);
-            m_hostNameLabel->setText(name);
-            m_hostNameLabel->setToolTip(name);
-        });
-        connect(m_model, &SystemInfoModel::setHostNameError, this, [ = ](QString error){
-            m_hostNameLineEdit->setVisible(true);
-            m_hostNameLineEdit->lineEdit()->setFocus();
-            m_hostNameLabel->setVisible(false);
-            m_hostNameBtn->setVisible(false);
-            m_hostNameLineEdit->setAlert(true);
-            m_hostNameLineEdit->showAlertMessage(error, this);
-            m_alertMessage = error;
-            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
-        });
-
+        connect(m_hostNameLineEdit, &DLineEdit::focusChanged, this, &NativeInfoWidget::onFocusChanged);
+        connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, &NativeInfoWidget::onTextEdited);
+        connect(m_hostNameLineEdit, &DLineEdit::alertChanged, this, &NativeInfoWidget::onAlertChanged);
+        connect(m_hostNameLineEdit->lineEdit(), &QLineEdit::editingFinished, this, &NativeInfoWidget::onEditingFinished);
+        connect(m_model, &SystemInfoModel::hostNameChanged, this, &NativeInfoWidget::onHostNameChanged);
+        connect(m_model, &SystemInfoModel::setHostNameError, this, &NativeInfoWidget::onSetHostNameError);
 
         //~ contents_path /systeminfo/About This PC
         //~ child_page About This PC
@@ -493,6 +387,123 @@ const QString NativeInfoWidget::systemLogo() const
     } else {
         return logo_path;
     }
+}
+void NativeInfoWidget::onSetHostNameError(const QString &error)
+{
+    m_hostNameLineEdit->setVisible(true);
+    m_hostNameLineEdit->lineEdit()->setFocus();
+    m_hostNameLabel->setVisible(false);
+    m_hostNameBtn->setVisible(false);
+    m_hostNameLineEdit->setAlert(true);
+    m_hostNameLineEdit->showAlertMessage(error, this);
+    m_alertMessage = error;
+    DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+}
+
+void NativeInfoWidget::onHostNameChanged(const QString &hostName)
+{
+    m_hostNameLabel->setText(hostName);
+    m_hostNameLabel->setToolTip(hostName);
+}
+
+void NativeInfoWidget::onEditingFinished()
+{
+    QString hostName = m_hostNameLineEdit->lineEdit()->text();
+    if (hostName == m_model->hostName() || hostName.simplified().isEmpty()) {
+        m_hostNameLineEdit->lineEdit()->clearFocus();
+        m_hostNameLineEdit->setVisible(false);
+        m_hostNameLabel->setVisible(true);
+        m_hostNameBtn->setVisible(true);
+        if (m_hostNameLineEdit->isAlert()) {
+            m_hostNameLineEdit->setAlert(false);
+            m_hostNameLineEdit->hideAlertMessage();
+        }
+        return;
+    }
+
+    if(!hostName.isEmpty()) {
+        if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
+            m_hostNameLineEdit->setAlert(true);
+            m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
+            m_alertMessage = tr("It cannot start or end with dashes");
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        }
+        else {
+            m_hostNameLineEdit->setAlert(false);
+            m_hostNameLineEdit->hideAlertMessage();
+        }
+
+        if(!m_hostNameLineEdit->isAlert()) {
+            m_hostNameLineEdit->lineEdit()->clearFocus();
+            m_hostNameLineEdit->setVisible(false);
+            m_hostNameLabel->setVisible(true);
+            m_hostNameBtn->setVisible(true);
+            Q_EMIT m_model->setHostNameChanged(hostName);
+        }
+    }
+}
+
+void NativeInfoWidget::onAlertChanged()
+{
+    // 输入框保持透明背景
+    QPalette palette = m_hostNameLineEdit->lineEdit()->palette();
+    palette.setColor(QPalette::Button, Qt::transparent);
+    m_hostNameLineEdit->lineEdit()->setPalette(palette);
+}
+
+void NativeInfoWidget::onTextEdited(const QString &hostName)
+{
+    if (!hostName.isEmpty()) {
+        if (hostName.size() > 63) {
+            m_hostNameLineEdit->lineEdit()->backspace();
+            m_hostNameLineEdit->setAlert(true);
+            m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
+            m_alertMessage = tr("1~63 characters please");
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        } else if (m_hostNameLineEdit->isAlert()) {
+            m_hostNameLineEdit->setAlert(false);
+            m_hostNameLineEdit->hideAlertMessage();
+        }
+    }
+    else if (m_hostNameLineEdit->isAlert()) {
+        m_hostNameLineEdit->setAlert(false);
+        m_hostNameLineEdit->hideAlertMessage();
+    }
+}
+
+void NativeInfoWidget::onFocusChanged(const bool onFocus)
+{
+    QString hostName = m_hostNameLineEdit->lineEdit()->text();
+    if(!onFocus && hostName.isEmpty()) {
+        m_hostNameLineEdit->setVisible(false);
+        m_hostNameLabel->setVisible(true);
+        m_hostNameBtn->setVisible(true);
+    }
+    else if(!onFocus && !hostName.isEmpty()) {
+        if((hostName.startsWith('-') || hostName.endsWith('-')) && hostName.size() <= 63) {
+            m_hostNameLineEdit->setAlert(true);
+            m_hostNameLineEdit->showAlertMessage(tr("It cannot start or end with dashes"), this);
+            m_alertMessage = tr("It cannot start or end with dashes");
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        }else if (hostName.size() > 63) {
+            m_hostNameLineEdit->setAlert(true);
+            m_hostNameLineEdit->showAlertMessage(tr("1~63 characters please"), this);
+            m_alertMessage = tr("1~63 characters please");
+            DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
+        }
+    }
+}
+
+void NativeInfoWidget::onToolButtonButtonClicked()
+{
+    m_hostNameBtn->setVisible(false);
+    m_hostNameLabel->setVisible(false);
+    m_hostNameLineEdit->setVisible(true);
+    m_hostNameLineEdit->setAlert(false);
+    m_hostNameLineEdit->setText(m_model->hostName());
+    m_hostNameLineEdit->hideAlertMessage();
+    m_hostNameLineEdit->lineEdit()->setFocus();
+    m_hostNameLineEdit->lineEdit()->selectAll();
 }
 
 //used to display long string: "12345678" -> "12345..."
