@@ -72,15 +72,9 @@ void PowerWidget::initUi()
 void PowerWidget::initMembers()
 {
     if (!IsServerSystem) {
-        //~ contents_path /power/General
-        //~ child_page General
         m_menuIconText.append({"dcc_general_purpose", tr("General"), QMetaMethod::fromSignal(&PowerWidget::requestShowGeneral), nullptr, "general"});
     }
-    //~ contents_path /power/Plugged In
-    //~ child_page Plugged In
     m_menuIconText.append({"dcc_using_electric", tr("Plugged In"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseElectric), nullptr, "pluggedIn"});
-    //~ contents_path /power/On Battery
-    //~ child_page On Battery
     m_menuIconText.append({"dcc_battery", tr("On Battery"), QMetaMethod::fromSignal(&PowerWidget::requestShowUseBattery), nullptr, "onBattery"});
 
     DStandardItem *item = nullptr;

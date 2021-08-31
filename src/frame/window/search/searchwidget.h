@@ -87,7 +87,11 @@ class SearchModel : public QStandardItemModel {
 public:
     explicit SearchModel(QObject* parent = nullptr);
 
+private:
+    QString formatSearchData(QString data1, QString data2, QString data3 = "");
+
 public:
+    int getDataNum(QString source, char value);
     bool jumpContentPathWidget(const QString &path);
     void setLanguage(const QString &type);
     void addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation = "");
@@ -101,7 +105,6 @@ Q_SIGNALS:
 
 private:
     void loadxml();
-    SearchBoxStruct::Ptr getModuleBtnString(QString value);
     QString getModulesName(const QString &name, bool state = true);
     QString removeDigital(QString input);
     QString transPinyinToChinese(const QString &pinyin);
@@ -121,8 +124,8 @@ private:
     QList<SearchDataStruct> m_inputList;
     QList<UnexsitStruct>    m_unexsitList;
     QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
-    QList<QString> m_TxtList;
-    QList<QString> m_TxtListAll;
+    QList<QString> m_childWidgetList; //二级页面list
+    QList<QString> m_TxtListAll; //三级页面list
     QStringList m_defaultRemoveableList;//存储已知全部模块是否存在
     QList<QPair<QString, QString>> m_removedefaultWidgetList;//用于存储可以出设备名称，和该名称对应的页面
     QList<QPair<QString, QString>> m_removeableActualExistList;//存储实际模块是否存在
@@ -152,7 +155,6 @@ public:
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
-
 private Q_SLOTS:
     void onCompleterActivated(const QString &value);
     void onAutoComplete(const QString &text);

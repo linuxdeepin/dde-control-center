@@ -59,6 +59,8 @@ SoundEffectsPage::SoundEffectsPage(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout;
     layout->setContentsMargins(0, 0, 0, 0);
 
+    //~ contents_path /sound/Sound Effects
+    //~ child_page Sound Effects
     TitleLabel *lblTitle = new TitleLabel(tr("Sound Effects"));
     lblTitle->setContentsMargins(0, 0, 0, 0);
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T6);

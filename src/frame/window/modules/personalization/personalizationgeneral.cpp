@@ -215,6 +215,8 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         winEffectVLayout->addWidget(m_transparentSlider);
         winEffectVLayout->addSpacing(10);
 
+        //~ contents_path /personalization/General
+        //~ child_page General
         m_cmbMiniEffect->setTitle(tr("Window Minimize Effect"));
         m_cmbMiniEffect->addBackground();
         QStringList options;

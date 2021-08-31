@@ -224,6 +224,12 @@ int UpdateModule::load(const QString &path)
             m_model->setStatus(UpdatesStatus::Checking);
             hasPage = 0;
             m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
+        } else if (path == "Mirror List") {
+            hasPage = 0;
+            m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateSettingMir);
+        } else if (path == "Updates") {
+            hasPage = 0;
+            m_updateWidget->refreshWidget(UpdateWidget::UpdateType::UpdateCheck);
         }
     }
 

@@ -112,10 +112,14 @@ void WirelessSection::setSsidEditable(const bool editable)
 
 void WirelessSection::initUI()
 {
+    //~ contents_path /network/Personal Hotspot
+    //~ child_page Personal Hotspot
     m_apSsid->setTitle(tr("SSID"));
     m_apSsid->setPlaceholderText(tr("Required"));
     m_apSsid->setText(m_wirelessSetting->ssid());
 
+    //~ contents_path /network/Personal Hotspot
+    //~ child_page Personal Hotspot
     m_deviceMacLine->setTitle(tr("Device MAC Addr"));
     m_deviceMacComboBox = m_deviceMacLine->comboBox();
     for (const QString &key : m_macStrMap.keys()) {
@@ -132,6 +136,8 @@ void WirelessSection::initUI()
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));
     }
 
+    //~ contents_path /network/Personal Hotspot
+    //~ child_page Personal Hotspot
     m_customMtuSwitch->setTitle(tr("Customize MTU"));
     m_customMtuSwitch->setChecked(!(m_wirelessSetting->mtu() == 0));
 

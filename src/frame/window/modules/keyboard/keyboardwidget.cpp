@@ -67,17 +67,9 @@ void KeyboardWidget::init()
 
     QList<QPair<QString, QString>> menuIconText;
     menuIconText = {
-        //~ contents_path /keyboard/General
-        //~ child_page General
         { "dcc_general_purpose", tr("General")},
-        //~ contents_path /keyboard/Keyboard Layout
-        //~ child_page Keyboard Layout
         { "dcc_keyboard", tr("Keyboard Layout")},
-        //~ contents_path /keyboard/System Language
-        //~ child_page System Language
         { "dcc_language", tr("System Language")},
-        //~ contents_path /keyboard/Shortcuts
-        //~ child_page Shortcuts
         { "dcc_hot_key", tr("Shortcuts")}
     };
 
@@ -158,6 +150,24 @@ int KeyboardWidget::showPath(const QString &path)
         }
     }
 
+    //从三级页面进入四级页面
+    int index = -1;
+    if (path == "Add Keyboard Layout") {
+        index = getListIndex(tr("Keyboard Layout"));
+    } else if (path == "Add System Language") {
+        index = getListIndex(tr("System Language"));
+    } else if (path == "Add Custom Shortcut") {
+        index = getListIndex(tr("Shortcuts"));
+    } else {
+        return -1;
+    }
+    QString searchData = path;
+    if (index > -1 && index < m_itemList.count()) {
+        m_keyboardListView->clicked(m_listviewModel->index(index, 0));
+        Q_EMIT notifyEnterSearchWidget(searchData);
+        return 0;
+    }
+
     return -1;
 }
 
@@ -171,4 +181,18 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
 
     m_lastIndex = index;
     m_keyboardListView->resetStatus(index);
+}
+
+int KeyboardWidget::getListIndex(QString data)
+{
+    int index = -1;
+    for (int i = 0; i < m_itemList.size(); ++i) {
+        auto menu = m_itemList[i];
+        if (data == menu.itemText) {
+            index = i;
+            return index;
+        }
+    }
+
+    return index;
 }

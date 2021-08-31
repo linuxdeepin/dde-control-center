@@ -45,6 +45,8 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     setAccessibleName("FormatSetting");
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
+    //~ contents_path /datetime/Format Settings
+    //~ child_page Format Settings
     TitleLabel *headTitle = new TitleLabel(tr("Date and Time Formats"));     //时间格式设置
     m_layout->setSpacing(10);
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold);
@@ -55,22 +57,34 @@ FormatSetting::FormatSetting(DatetimeModel *mdoel, QWidget *parent)
     timeGrp->layout()->setContentsMargins(0, 0, 0, 0);
 
     m_weekCbx = new ComboxWidget();
+    //~ contents_path /datetime/Format Settings
+    //~ child_page Format Settings
     m_weekCbx->setTitle(tr("Weeks"));   //星期
 
     m_shortDateCbx = new ComboxWidget();
+    //~ contents_path /datetime/Format Settings
+    //~ child_page Format Settings
     m_shortDateCbx->setTitle(tr("Short Date"));  //短日期
 
     m_longdateCbx = new ComboxWidget();
+    //~ contents_path /datetime/Format Settings
+    //~ child_page Format Settings
     m_longdateCbx->setTitle(tr("Long Date"));  //长日期
 
     m_shortimeCbx = new ComboxWidget();
+    //~ contents_path /datetime/Format Settings
+    //~ child_page Format Settings
     m_shortimeCbx->setTitle(tr("Short Time"));  //短时间
 
     m_longtimeCbx = new ComboxWidget();
+    //~ contents_path /datetime/Format Settings
+    //~ child_page Format Settings
     m_longtimeCbx->setTitle(tr("Long Time"));  //长时间
 
     m_weekStartDayCbx = new ComboxWidget();
-    m_weekStartDayCbx->setTitle(tr("First Day of Week"));  //长时间
+    //~ contents_path /datetime/Format Settings
+    //~ child_page Format Settings
+    m_weekStartDayCbx->setTitle(tr("First Day of Week"));  //一周首日
 
     m_weekCbx->setVisible(QLocale::system().name().contains("zh"));
 

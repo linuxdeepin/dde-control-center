@@ -46,17 +46,11 @@ PersonalizationList::PersonalizationList(QWidget *parent)
 
     //Initialize second page view and model
     QStringList menus;
-    //~ contents_path /personalization/General
-    //~ child_page General
     menus << tr("General");
     //~ contents_path /personalization/Icon Theme
-    //~ child_page Icon Theme
     menus << tr("Icon Theme");
     //~ contents_path /personalization/Cursor Theme
-    //~ child_page Cursor Theme
     menus << tr("Cursor Theme");
-    //~ contents_path /personalization/Font
-    //~ child_page Font
     menus << tr("Font");
 
     QStringList icons;

@@ -127,14 +127,20 @@ int DatetimeModule::load(const QString &path)
 
     if (path == "Timezone List") {
         type = ETimezoneList;
-    } else if (path == "Timezone List/Change System Timezone") {
+    } else if (path == "Timezone List/Change System Timezone") {//Timezone List
         type = ESystemTimezone;
     } else if (path == "Time Settings") {
         type = TimeSetting;
-    } else if (path == "Timezone List/Add Timezone") {
+    } else if (path == "Timezone List/Add Timezone") {//Timezone List
         type = AddTimeZone;
     } else if (path == "Format Settings") {
         type = FormatSetting;
+    }  else if (path == "24-hour Time") {
+        type = ETimezoneList;
+    } else if (path == "Change System Timezone") {
+        type = ESystemTimezone;
+    } else if (path == "Add Timezone") {
+        type = AddTimeZone;
     }
 
     QModelIndex index = list->model()->index(type, 0);

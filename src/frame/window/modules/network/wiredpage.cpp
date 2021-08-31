@@ -93,7 +93,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     //有线网络下的三级菜单的“+”创建按钮大小
     m_createBtn = new DFloatingButton(DStyle::StandardPixmap::SP_IncreaseElement,this);
     m_createBtn->setMinimumSize(QSize(47, 47));
-    //~ contents_path /network/Wired Network/addWiredConnection
+    //~ contents_path /network/Wired Network/Add Network Connection
     //~ child_page Wired Network
     m_createBtn->setToolTip(tr("Add Network Connection"));
     GSettingWatcher::instance()->bind("addConnection", m_createBtn);
@@ -148,7 +148,7 @@ void WiredPage::setModel(NetworkModel *model)
 
 void WiredPage::jumpPath(const QString &searchPath)
 {
-    if (searchPath == "addWiredConnection") {
+    if (searchPath == "Add Network Connection") {
         QTimer::singleShot(20, this, &WiredPage::createNewConnection);
     }
 }

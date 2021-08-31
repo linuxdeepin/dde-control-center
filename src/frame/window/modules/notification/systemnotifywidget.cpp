@@ -46,10 +46,13 @@ SystemNotifyWidget::SystemNotifyWidget(SysItemModel *model, QWidget *parent)
     : QWidget(parent)
     , m_model(model)
     , m_btnDisturbMode(new DSwitchButton)
-    , m_btnShowInDock(new SwitchWidget(tr("Show icon on Dock")))
     , m_itemTimeSlot(new TimeSlotItem)
     , m_itemLockScreen(new NotificationItem)
 {
+    //~ contents_path /notification/System Notifications
+    //~ child_page System Notifications
+    m_btnShowInDock = new SwitchWidget(tr("Show icon on Dock"));
+
     initUI();
     initConnect();
 }
@@ -75,8 +78,8 @@ void SystemNotifyWidget::initUI()
 
     QHBoxLayout *hLayoutDisturbMode = new QHBoxLayout;
     hLayoutDisturbMode->setContentsMargins(8, 0, 10, 0);
-    //~ contents_path /notification/Do Not Disturb
-    //~ child_page Do Not Disturb
+    //~ contents_path /notification/System Notifications
+    //~ child_page System Notifications
     DLabel *lblDisturbMode = new DLabel(tr("Do Not Disturb"));
     DFontSizeManager::instance()->bind(lblDisturbMode, DFontSizeManager::T5, QFont::DemiBold);
     hLayoutDisturbMode->addWidget(lblDisturbMode, Qt::AlignLeft);

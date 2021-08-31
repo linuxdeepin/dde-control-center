@@ -301,6 +301,8 @@ void NativeInfoWidget::initWidget()
     m_type->setTitle(tr("Type:"));
 
     m_authorized = new TitleAuthorizedItem(frame);
+    //~ contents_path /systeminfo/About This PC
+    //~ child_page About This PC
     m_authorized->setTitle(tr("Authorization") + ':');
     m_authorized->setValue(tr("To be activated"));
     m_authorized->setValueForegroundRole(QColor(255, 0, 0));

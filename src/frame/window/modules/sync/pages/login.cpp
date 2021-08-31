@@ -34,8 +34,7 @@ LoginPage::LoginPage(QWidget *parent)
     m_mainLayout->setMargin(0);
     m_mainLayout->setSpacing(0);
 
-    //~ contents_path /cloudsync/Sync ID Sign In
-    //~ child_page Sync ID Sign In
+    //~ contents_path /cloudsync/Union ID Sign In
     DSuggestButton *loginBtn = new DSuggestButton(tr("Sign In"));
     loginBtn->setMinimumWidth(302);
     DTipLabel *tip = new DTipLabel(tr("After signing in, you can use cloud sync, app store, email client, browser and other cloud services.")

@@ -290,8 +290,8 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(nonbc->action(), &QAction::triggered, this, [this] { showConnectHidePage(); });
     m_modelAP->appendRow(nonbc);
 
-    //~ contents_path /network/WirelessPage
-    //~ child_page WirelessPage
+    //~ contents_path /network/Wireless Network
+    //~ child_page Wireless Network
     QLabel *lblTitle = new QLabel(tr("Wireless Network Adapter"));//无线网卡
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(nullptr, lblTitle);

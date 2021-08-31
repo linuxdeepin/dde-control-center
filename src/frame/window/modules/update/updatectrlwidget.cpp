@@ -308,8 +308,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_fullProcess->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        //~ contents_path /update/Update
-        //~ child_page Update
+        //~ contents_path /update/Updates
+        //~ child_page Updates
         m_fullProcess->setMessage(tr("Download and install updates"));
         setDownloadInfo(m_model->downloadInfo());
         setShowInfo(m_model->systemActivation());
@@ -332,8 +332,8 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_fullProcess->setVisible(true);
         m_updateList->setVisible(true);
         m_summary->setVisible(true);
-        //~ contents_path /update/Update
-        //~ child_page Update
+        //~ contents_path /update/Updates
+        //~ child_page Updates
         m_fullProcess->setMessage(tr("Install updates"));
         setDownloadInfo(m_model->downloadInfo());
         setLowBattery(m_model->lowBattery());

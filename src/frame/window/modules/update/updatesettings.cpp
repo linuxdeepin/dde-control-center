@@ -50,14 +50,26 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     , m_model(nullptr)
     , m_autoCheckUpdate(new SwitchWidget(this))
     , m_autoCheckSecureUpdate(new SwitchWidget(tr("Security Updates"), this))
-    , m_autoCheckSystemUpdate(new SwitchWidget(tr("System Updates"), this))
-    , m_autoCheckAppUpdate(new SwitchWidget(tr("App Updates in App Store"), this))
-    , m_updateNotify(new SwitchWidget(tr("Updates Notification"), this))
-    , m_autoDownloadUpdate(new SwitchWidget(tr("Download Updates"), this))
     , m_autoDownloadUpdateTips(new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"), this))
     , m_autoCleanCache(new SwitchWidget(this))
     , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_autoCheckSystemUpdate = new SwitchWidget(tr("System Updates"), this);
+
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_autoCheckAppUpdate = new SwitchWidget(tr("App Updates in App Store"), this);
+
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_updateNotify = new SwitchWidget(tr("Updates Notification"), this);
+
+    //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
+    m_autoDownloadUpdate = new SwitchWidget(tr("Download Updates"), this);
+
     initUi();
     initConnection();
     setModel(model);

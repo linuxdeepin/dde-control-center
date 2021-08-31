@@ -60,11 +60,7 @@ void DatetimeWidget::init()
     QList<QPair<QString, QString>> menuIconText;
     menuIconText = {
         { "dcc_time_zone", tr("Timezone List")},
-        //~ contents_path /datetime/Time Settings
-        //~ child_page Time Settings
         { "dcc_setting", tr("Time Settings")} ,
-        //~ contents_path /datetime/Format Settings
-        //~ child_page Format Settings
         { "dcc_time_format", tr("Time Format")}
     };
 
@@ -96,8 +92,7 @@ void DatetimeWidget::init()
         InsertPlugin::instance()->pushPlugin(model,m_itemList);
 
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
-    //~ contents_path /datetime/Timezone List
-    //~ child_page Timezone List
+    //~ contents_path /datetime
     m_hourTypeSwitch = new SwitchWidget(tr("24-hour Time"));
     m_hourTypeSwitch->setContentsMargins(0, 0, 0, 0);
     m_hourTypeSwitch->addBackground();

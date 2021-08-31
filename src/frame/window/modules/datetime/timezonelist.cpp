@@ -46,8 +46,6 @@ TimezoneList::TimezoneList(QWidget *parent)
     QVBoxLayout *m_headLayout = new QVBoxLayout;
     m_headItem->setEditEnable(true);
     m_headItem->setVisible(true);
-    //~ contents_path /datetime/Timezone List
-    //~ child_page Timezone List
     m_headItem->setTitle(tr("Timezone List"));
     m_headGroup->appendItem(m_headItem);
     m_headItem->removeBackground();
@@ -69,7 +67,7 @@ TimezoneList::TimezoneList(QWidget *parent)
     m_centralLayout->addLayout(btnLayout);
     setLayout(m_centralLayout);
 
-    //~ contents_path /datetime/Timezone List
+    //~ contents_path /datetime/Timezone List/Add Timezone
     //~ child_page Timezone List
     m_addTimezoneButton->setToolTip(tr("Add Timezone"));
     m_addTimezoneButton->setAccessibleName(tr("Add Timezone"));

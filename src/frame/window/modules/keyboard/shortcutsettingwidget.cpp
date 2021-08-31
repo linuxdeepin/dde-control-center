@@ -54,6 +54,8 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchText = QString();
     SettingsHead *systemHead = new SettingsHead();
     systemHead->setEditEnable(false);
+    //~ contents_path /keyboard/Shortcuts
+    //~ child_page Shortcuts
     systemHead->setTitle(tr("System"));
     systemHead->layout()->setContentsMargins(10, 0, 10, 0);
     m_systemGroup = new SettingsGroup();
@@ -62,6 +64,8 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
 
     SettingsHead *windowHead = new SettingsHead();
     windowHead->setEditEnable(false);
+    //~ contents_path /keyboard/Shortcuts
+    //~ child_page Shortcuts
     windowHead->setTitle(tr("Window"));
     windowHead->layout()->setContentsMargins(10, 0, 10, 0);
     m_windowGroup = new SettingsGroup();
@@ -71,6 +75,8 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     if (!DCC_NAMESPACE::IsServerSystem) {
         m_workspaceHead = new SettingsHead();
         m_workspaceHead->setEditEnable(false);
+        //~ contents_path /keyboard/Shortcuts
+        //~ child_page Shortcuts
         m_workspaceHead->setTitle(tr("Workspace"));
         m_workspaceHead->layout()->setContentsMargins(10, 0, 10, 0);
         m_workspaceGroup = new SettingsGroup();

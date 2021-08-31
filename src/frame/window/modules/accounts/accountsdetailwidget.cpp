@@ -447,18 +447,14 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_autoLogin->setEnabled(isCurUser);
     m_nopasswdLogin->setEnabled(isCurUser);
     m_fingerWidget->setVisible(!IsServerSystem && isCurUser);
-    //~ contents_path /accounts/Accounts Detail
-    //~ child_page Accounts Detail
+    //~ contents_path /accounts
     m_modifyPassword->setText(tr("Change Password"));
-    //~ contents_path /accounts/Accounts Detail
-    //~ child_page Accounts Detail
+    //~ contents_path /accounts
     m_deleteAccount->setText(tr("Delete Account"));
-    //~ contents_path /accounts/Accounts Detail
-    //~ child_page Accounts Detail
+    //~ contents_path /accounts
     m_autoLogin->setTitle(tr("Auto Login"));
     m_autoLogin->setChecked(m_curUser->autoLogin());
-    //~ contents_path /accounts/Accounts Detail
-    //~ child_page Accounts Detail
+    //~ contents_path /accounts
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 

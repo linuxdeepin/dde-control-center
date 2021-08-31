@@ -33,12 +33,15 @@ DWIDGET_USE_NAMESPACE
 RefreshRateWidget::RefreshRateWidget(int comboxWidth, QWidget *parent)
     : SettingsItem(parent)
     , m_contentLayout(new QHBoxLayout(this))
-    , m_refreshLabel(new QLabel(tr("Refresh Rate"), this))
     , m_refreshCombox(new QComboBox(this))
     , m_model(nullptr)
     , m_monitor(nullptr)
     , m_refreshItemModel(new QStandardItemModel)
 {
+    //初始化列表无法进行静态翻译
+    //~ contents_path /display
+    m_refreshLabel = new QLabel(tr("Refresh Rate"), this);
+
     setAccessibleName("RefreshRateWidget");
     addBackground();
     setMinimumHeight(48);

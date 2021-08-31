@@ -118,7 +118,7 @@ SearchModel::SearchModel(QObject *parent)
     //second : true 用于记录"服务器"才有的搜索数据
     //second : false用于记录"桌面版"才有的搜索数据
     m_serverTxtList = {
-        {tr("Server"), true},
+//        {tr("Server"), true},
         {tr("Window Effect"), false},
         {tr("Developer Mode"), false},
         {tr("User Experience Program"), false},
@@ -135,8 +135,8 @@ SearchModel::SearchModel(QObject *parent)
         {tr("Auto Mode Switch"), false},
         {tr("Transparency"), false},
         {tr("Create PPPoE Connection"), false},
-        {tr("Disable the touchpad while typing"), false},
-        {tr("Disable the touchpad when inserting the mouse"), false},
+        {tr("Disable touchpad while typing"), false},
+        {tr("Disable touchpad when inserting the mouse"), false},
         {tr("Computer will suspend after"), false},
         {tr("Sign In"), false},
         {tr("Auto power saving on battery"), false},
@@ -164,7 +164,7 @@ SearchModel::SearchModel(QObject *parent)
         {tr("Personal Hotspot"), "Personal Hotspot"},
         {tr("On Battery"), "On Battery"},
         {tr("Wired Network"), "Wired Network"},
-        {tr("Wireless Network"), "WirelessPage"},
+        {tr("Wireless Network"), "Wireless Network"},
         {tr("Multiple Displays"), "Multiple Displays"},
         {tr("Boot Menu"), "Boot Menu"},
     };
@@ -173,6 +173,19 @@ SearchModel::SearchModel(QObject *parent)
     for (auto data : m_removedefaultWidgetList) {
         m_defaultRemoveableList << data.second;
     }
+}
+
+QString SearchModel::formatSearchData(QString data1, QString data2, QString data3)
+{
+    QString ret = "";
+
+    if (data3 != "") {
+        ret = QString("%1 --> %2 / %3").arg(data1).arg(data2).arg(data3);
+    } else {
+        ret = QString("%1 --> %2").arg(data1).arg(data2);
+    }
+
+    return ret;
 }
 
 SearchWidget::SearchWidget(QWidget *parent)
@@ -245,36 +258,104 @@ SearchWidget::~SearchWidget()
 
 }
 
+int SearchModel::getDataNum(QString source, char value)
+{
+    char *data = source.toLatin1().data();
+    int retNum = 0;
+    int place = 0;
+    while (data[place]) {
+        if (data[place] == value)
+            retNum++;
+        place++;
+    }
+
+    return retNum;
+}
+
+//下面以后面数据举例 : 网络 --> 网络详情 / 接口
 bool SearchModel::jumpContentPathWidget(const QString &path)
 {
     qDebug() << Q_FUNC_INFO << path;
-    bool bResult = false;
 
-    if (m_EnterNewPagelist.count() > 0) {
-        SearchBoxStruct::Ptr data = getModuleBtnString(path);
-        if (data->translateContent != "" && data->fullPagePath != "") {
-            for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
-                if (m_EnterNewPagelist[i]->translateContent == data->fullPagePath
-                        && m_EnterNewPagelist[i]->childPageName.isEmpty()
-                        && m_EnterNewPagelist[i]->actualModuleName == data->translateContent) {//getModuleBtnString解析SearchBoxStruct.fullPagePath，满足此处判断
-#if DEBUG_XML_SWITCH
-                    qDebug() << " [SearchWidget] m_EnterNewPagelist[i].translateContent : " << m_EnterNewPagelist[i].translateContent << " , fullPagePath : " << m_EnterNewPagelist[i].fullPagePath << " , actualModuleName: " << m_EnterNewPagelist[i].actualModuleName;
-                    qDebug() << " [SearchWidget] data.translateContent : " << data.translateContent << " , data.fullPagePath : " << data.fullPagePath << " , data.actualModuleName: " << data.actualModuleName;
-#endif
-                    //the data.actualModuleName had translate to All lowercase
-                    Q_EMIT notifyModuleSearch(data->actualModuleName, m_EnterNewPagelist[i]->fullPagePath.section('/', 2, -1));//fullPagePath need delete moduleName
-                    bResult = true;
-                    break;
-                }
-            }
-        } else {
-            qDebug() << "[SearchWidget] translateContent : " << data->translateContent << " , fullPagePath : " << data->fullPagePath;
-        }
+    //网络详情 / 接口
+    QString searchDetailData = path.section('>', 1, -1).remove('>').trimmed();
+
+    //无法解析出来的数据表示为不满足标准格式的搜索数据
+    if (searchDetailData == "")
+        return false;
+
+    //其他语言的模块内子页面信息 : 网络详情
+    QString searchChildWidget = searchDetailData.section('/', 0, 0).remove('/').trimmed();
+
+    //解析出：接口
+    QString searchEndData = searchDetailData.section('/', 1, -1).remove('/').remove(QRegExp("\\s")).trimmed(); //remove(QRegExp("\\s"))去掉空格，避免如[IP 地址]
+
+    //searchEndData为空表示没有子页面, 需要往下继续执行
+    bool isContinue = false;
+
+    //searchEndData为空表示没有子页面或直接输入的子页面名称的搜索, 需要往下继续执行
+    if (searchEndData == "") {
+        //TODO：需要存储子页面的列表，如果searchChildWidget在列表中，而searchEndData为空也不能继续执行
+        //否则已经搜索模块，通过回退就直接可以进搜索页面，不能在搜索框选其他搜索项
+        if (!m_childWidgetList.contains(searchChildWidget))
+            isContinue = true;
     } else {
-        qDebug() << " [SearchWidget] QList is nullptr.";
+        //searchEndData不为空，且搜索数据包含在m_TxtListAll可以执行
+        //对非xml添加的搜索数据内容不作处理, 不在list里面就停止
+        if (m_TxtListAll.contains(searchEndData))
+            isContinue = true;
     }
 
-    return bResult;
+    if (!isContinue)
+        return false;
+
+    //其他语言的模块数据 : 网络
+    QString searchModule = path.section('-', 0, 1).remove('-').trimmed();
+
+    for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
+        //SearchBoxStruct::Ptr data = m_EnterNewPagelist[i]; //used to debug
+        /* m_EnterNewPagelist[i] 数据例子
+           source : Interface
+           translateContent : 接口
+           actualModuleName : 网络
+           childPageName : 网络详情
+           fullPagePath : /network/Network Details
+        */
+        //搜索数据需要匹配的数据：模块，子页面，详细数据
+        if (m_EnterNewPagelist[i]->actualModuleName == searchModule
+                //匹配子页面和详细数据
+                && ((m_EnterNewPagelist[i]->childPageName == searchChildWidget && m_EnterNewPagelist[i]->translateContent == searchEndData)
+                    //子页面为空，详细数据要相等
+                    || (m_EnterNewPagelist[i]->childPageName == "" && m_EnterNewPagelist[i]->translateContent == searchChildWidget)
+                    )
+                ) {
+            //module必须有，childPageName可以为空
+            QString module = m_EnterNewPagelist[i]->fullPagePath.section('/', 1, 1);
+            QString childWidget = "";
+
+            if (getDataNum(m_EnterNewPagelist[i]->fullPagePath, '/') == 3) {
+                //在第3级子页面再打开第4级页面
+                childWidget = m_EnterNewPagelist[i]->fullPagePath.section('/', 3);
+                qInfo() << " [Search] childWidgetCount : 3 , childWidget :" << childWidget;
+            } else {
+                //插件的m_EnterNewPagelist[i]->childPageName为空
+                if (m_EnterNewPagelist[i]->childPageName == "" || m_EnterNewPagelist[i]->childPageName == searchChildWidget) {
+                    childWidget = m_EnterNewPagelist[i]->fullPagePath.section('/', 2, -1);
+                }
+
+                if (childWidget == "") {
+                    childWidget = m_EnterNewPagelist[i]->source;
+                }
+            }
+
+            qInfo() << " search result > module : " << module << " , widget : " << childWidget;
+            Q_EMIT notifyModuleSearch(module, childWidget);
+
+            return true;
+        }
+    }
+
+    return false;
 }
 
 void SearchModel::loadxml()
@@ -347,8 +428,8 @@ void SearchModel::loadxml()
         }
 
         //判断是否使用触控板
-        if (!m_bIsUseTouchpad && (tr("Disable the touchpad when inserting the mouse") == searchBoxStrcut->translateContent
-                                  || tr("Disable the touchpad while typing") == searchBoxStrcut->translateContent)) {
+        if (!m_bIsUseTouchpad && (tr("Disable touchpad when inserting the mouse") == searchBoxStrcut->translateContent
+                                  || tr("Disable touchpad while typing") == searchBoxStrcut->translateContent)) {
             continue;
         }
 
@@ -368,8 +449,6 @@ void SearchModel::loadxml()
 
         m_EnterNewPagelist.append(searchBoxStrcut);
 
-        m_TxtListAll.append(searchBoxStrcut->translateContent);
-
         // Add search result content
         if (!m_bIsChinese) {
             auto icon = m_iconMap.find(searchBoxStrcut->fullPagePath.section('/', 1, 1));
@@ -378,42 +457,19 @@ void SearchModel::loadxml()
             }
 
             if ("" == searchBoxStrcut->childPageName) {
-                appendRow(new QStandardItem(icon.value(), QString("%1 --> %2").arg(searchBoxStrcut->actualModuleName).arg(searchBoxStrcut->translateContent)));
+                appendRow(new QStandardItem(icon.value(), formatSearchData(searchBoxStrcut->actualModuleName, searchBoxStrcut->translateContent)));
             }
             else {
                 appendRow(new QStandardItem(
-                    icon.value(), QString("%1 --> %2 / %3").arg(searchBoxStrcut->actualModuleName).arg(searchBoxStrcut->childPageName).arg(searchBoxStrcut->translateContent)));
+                    icon.value(), formatSearchData(searchBoxStrcut->actualModuleName, searchBoxStrcut->childPageName, searchBoxStrcut->translateContent)));
             }
         }
         else {
             appendChineseData(searchBoxStrcut);
         }
+
+        m_TxtListAll.append(searchBoxStrcut->translateContent.remove('/').remove(QRegExp("\\s")).trimmed());
     }
-}
-
-//Follow display content to Analysis SearchBoxStruct data
-SearchBoxStruct::Ptr SearchModel::getModuleBtnString(QString value)
-{
-    SearchBoxStruct::Ptr data = std::make_shared<SearchBoxStruct>();
-
-    data->translateContent = value.section('-', 0, 1).remove('-').trimmed();
-    //follow actual module name to get path module name
-    data->actualModuleName = getModulesName(data->translateContent, false);
-    data->fullPagePath = value.section('>', 1, -1).remove('>').trimmed();
-
-    if (data->fullPagePath.contains('/', Qt::CaseInsensitive)) {
-        QString strTemp = data->fullPagePath.section('/', 0, 0).remove('/').trimmed();
-        //修复最终字段存在'/'无法跳转的问题
-        if (this->m_TxtListAll.contains(strTemp)) {
-            data->fullPagePath = strTemp;
-        }
-    }
-
-#if DEBUG_XML_SWITCH
-    qDebug() << Q_FUNC_INFO << " [SearchWidget] data.translateContent : " << data.translateContent << "   ,  data.fullPagePath : " << data.fullPagePath;
-#endif
-
-    return data;
 }
 
 //tranlate the path name to tr("name")
@@ -506,21 +562,15 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
         appendRow(new QStandardItem(icon.value(),
-                                    QString("%1 --> %2").arg(dataBackup->actualModuleName).arg(dataBackup->translateContent)));
+                                    formatSearchData(dataBackup->actualModuleName, dataBackup->translateContent)));
 
         //设置汉字的Qt::UserRole数据
-        setData(index(rowCount() - 1, 0),
-                         QString("%1 --> %2")
-                         .arg(dataBackup->actualModuleName)
-                         .arg(dataBackup->translateContent),
-                         Qt::UserRole);
+        setData(index(rowCount() - 1, 0), formatSearchData(dataBackup->actualModuleName, dataBackup->translateContent), Qt::UserRole);
         setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
-        QString hanziTxt = QString("%1 --> %2").arg(dataBackup->actualModuleName).arg(dataBackup->translateContent);
-
-        QString pinyinTxt = QString("%1 --> %2")
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
+        QString hanziTxt = formatSearchData(dataBackup->actualModuleName, dataBackup->translateContent);
+        QString pinyinTxt = formatSearchData(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))),
+                                             removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
 
         // 如果模块名称中英文相同则不继续添加拼音搜索显示,否则会重复索引
         if (dataBackup->actualModuleName == DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName)) return;
@@ -541,23 +591,18 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
         //Qt::EditRole数据用于显示搜索到的结果(汉字)
         //Qt::UserRole数据用于输入框输入的数据(拼音/汉字 均可)
         //即在输入框搜索Qt::UserRole的数据,就会在下拉框显示Qt::EditRole的数据
-        appendRow(new QStandardItem(icon.value(),
-                                    QString("%1 --> %2 / %3").arg(dataBackup->actualModuleName).arg(dataBackup->childPageName).arg(dataBackup->translateContent)));
+        appendRow(new QStandardItem(icon.value(), formatSearchData(dataBackup->actualModuleName, dataBackup->childPageName, dataBackup->translateContent)));
 
         //设置汉字的Qt::UserRole数据
         setData(index(rowCount() - 1, 0),
-                         QString("%1 --> %2 / %3")
-                         .arg(dataBackup->actualModuleName)
-                         .arg(dataBackup->childPageName)
-                         .arg(dataBackup->translateContent),
-                         Qt::UserRole);
+                         formatSearchData(dataBackup->actualModuleName, dataBackup->childPageName, dataBackup->translateContent), Qt::UserRole);
         setData(index(rowCount() - 1, 0), icon->name(), Qt::UserRole + 1);
 
-        QString hanziTxt = QString("%1 --> %2 / %3").arg(dataBackup->actualModuleName).arg(dataBackup->childPageName).arg(dataBackup->translateContent);
-        QString pinyinTxt = QString("%1 --> %2 / %3")
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->childPageName.remove(QRegularExpression(R"([a-zA-Z]+)")))))
-                            .arg(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)")))));
+        QString hanziTxt = formatSearchData(dataBackup->actualModuleName, dataBackup->childPageName, dataBackup->translateContent);
+        QString pinyinTxt = formatSearchData(removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->actualModuleName.remove(QRegularExpression(R"([a-zA-Z]+)")))),
+                                             removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->childPageName.remove(QRegularExpression(R"([a-zA-Z]+)")))),
+                                             removeDigital(DTK_CORE_NAMESPACE::Chinese2Pinyin(dataBackup->translateContent.remove(QRegularExpression(R"([a-zA-Z]+)"))))
+                                             );
         //添加显示的汉字(用于拼音搜索显示)
         auto icons = m_iconMap.find(dataBackup->fullPagePath.section('/', 1, 1));
         if (icons == m_iconMap.end()) {
@@ -669,6 +714,46 @@ void SearchModel::setLanguage(const QString &type)
         //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
         //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
         static QMap<QString, QString> transChildPageName = {
+            { "Create Account", QObject::tr("Create Account") },
+            { "My Devices", QObject::tr("My Devices") },
+            { "Other Devices", QObject::tr("Other Devices") },
+            { "Boot Menu", QObject::tr("Boot Menu") },
+            { "Developer Mode", QObject::tr("Developer Mode") },
+            { "User Experience Program", QObject::tr("User Experience Program") },
+            { "Format Settings", QObject::tr("Format Settings") },
+            { "Timezone List", QObject::tr("Timezone List") },
+            { "Webpage", QObject::tr("Webpage") },
+            { "Mail", QObject::tr("Mail") },
+            { "Text", QObject::tr("Text") },
+            { "Music", QObject::tr("Music") },
+            { "Video", QObject::tr("Video") },
+            { "Picture", QObject::tr("Picture") },
+            { "Terminal", QObject::tr("Terminal") },
+            { "Brightness", QObject::tr("Brightness") },
+            { "Shortcuts", QObject::tr("Shortcuts") },
+            { "Keyboard Layout", QObject::tr("Keyboard Layout") },
+            { "System Language", QObject::tr("System Language") },
+            { "Personal Hotspot", QObject::tr("Personal Hotspot") },
+            { "DSL", QObject::tr("DSL") },
+            { "VPN", QObject::tr("VPN") },
+            { "Wired Network", QObject::tr("Wired Network") },
+            { "Wireless Network", QObject::tr("Wireless Network") },
+            { "Network Details", QObject::tr("Network Details") },
+            { "System Notifications", QObject::tr("System Notifications") },
+            { "Font", QObject::tr("Font") },
+            { "Icon Theme", QObject::tr("Icon Theme") },
+            { "Cursor Theme", QObject::tr("Cursor Theme") },
+            { "Sound Effects", QObject::tr("Sound Effects") },
+            { "Devices", QObject::tr("Devices") },
+            { "Input", QObject::tr("Input") },
+            { "Output", QObject::tr("Output") },
+            { "About This PC", QObject::tr("About This PC") },
+            { "Edition License", QObject::tr("Edition License") },
+            { "End User License Agreement", QObject::tr("End User License Agreement") },
+            { "Privacy Policy", QObject::tr("Privacy Policy") },
+            { "Updates", QObject::tr("Updates") },
+            { "Update Settings", QObject::tr("Update Settings") },
+            { "Pressure Sensitivity", QObject::tr("Pressure Sensitivity") },
             { "On Battery", QObject::tr("On Battery") },  //Power
             { "Plugged In", QObject::tr("Plugged In") },
             { "General", QObject::tr("General") },  //mouse
@@ -682,9 +767,13 @@ void SearchModel::setLanguage(const QString &type)
             { "System Proxy", QObject::tr("System Proxy") },  //network
             { "Manage Input Methods", QObject::tr("Input Methods") },
         };
+
 #if DEBUG_XML_SWITCH
         qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
 #endif
+
+        m_childWidgetList.clear();
+
         for (const QString &i : m_xmlFilePath) {
             QString xmlPath = i.arg(m_lang);
             QFile   file(xmlPath);
@@ -769,7 +858,14 @@ void SearchModel::setLanguage(const QString &type)
                                     searchBoxStrcut->translateContent = xmlRead.text().toString();
                             }
                             else if (XML_Child_Path == xmlExplain) {
-                                searchBoxStrcut->childPageName = transChildPageName.value(xmlRead.text().toString());
+                                QString childPage = transChildPageName.value(xmlRead.text().toString());
+                                if (childPage == "") {
+                                    childPage = xmlRead.text().toString();
+                                    qWarning() << " [SearchWidget]  child page can't translate. childPage : " << childPage;
+                                }
+                                searchBoxStrcut->childPageName = childPage;
+                                if (!m_childWidgetList.contains(childPage))
+                                    m_childWidgetList.append(childPage);
                             }
                             else if (xmlExplain == XML_Explain_Path) {
                                 searchBoxStrcut->fullPagePath = xmlRead.text().toString();
