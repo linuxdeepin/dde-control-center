@@ -50,12 +50,14 @@ DWIDGET_USE_NAMESPACE
 PersonalizationFontsWidget::PersonalizationFontsWidget(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout())
-    //~ contents_path /personalization/Font
-    , m_fontSizeSlider(new TitledSliderItem(tr("Size")))
     , m_standardFontsCbBox(new QComboBox(this))
     , m_monoFontsCbBox(new QComboBox(this))
     , m_isAppend(false)
 {
+    //~ contents_path /personalization/Font
+    //~ child_page Font
+    m_fontSizeSlider = new TitledSliderItem(tr("Size"));
+
     setAccessibleName("PersonalizationFontsWidget");
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(10);

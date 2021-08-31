@@ -41,11 +41,15 @@ namespace display {
 ScalingWidget::ScalingWidget(QWidget *parent)
     : QWidget(parent)
     , m_centralLayout(new QVBoxLayout(this))
-    , m_title(new TitleLabel(tr("Display Scaling"), this))
     , m_tipWidget(new QWidget(this))
     , m_tipLabel(new DTipLabel(tr("The monitor only supports 100% display scaling"), this))
     , m_slider(new TitledSliderItem(QString(), this))
 {
+    //初始化列表无法进行静态翻译
+    //~ contents_path /display
+    m_title = new TitleLabel(tr("Display Scaling"), this);
+    m_title->setText(tr("Display Scaling"));
+
     m_tipWidget->setAccessibleName("ScalingWidget_tipWidget");
     m_centralLayout->setMargin(0);
     m_centralLayout->setSpacing(8);

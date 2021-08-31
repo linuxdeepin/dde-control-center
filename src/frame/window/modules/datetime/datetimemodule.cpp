@@ -127,14 +127,20 @@ int DatetimeModule::load(const QString &path)
 
     if (path == "Timezone List") {
         type = ETimezoneList;
-    } else if (path == "Timezone List/Change System Timezone") {
+    } else if (path == "Timezone List/Change System Timezone") {//Timezone List
         type = ESystemTimezone;
     } else if (path == "Time Settings") {
         type = TimeSetting;
-    } else if (path == "Timezone List/Add Timezone") {
+    } else if (path == "Timezone List/Add Timezone") {//Timezone List
         type = AddTimeZone;
     } else if (path == "Format Settings") {
         type = FormatSetting;
+    }  else if (path == "24-hour Time") {
+        type = ETimezoneList;
+    } else if (path == "Change System Timezone") {
+        type = ESystemTimezone;
+    } else if (path == "Add Timezone") {
+        type = AddTimeZone;
     }
 
     QModelIndex index = list->model()->index(type, 0);
@@ -150,8 +156,11 @@ int DatetimeModule::load(const QString &path)
         list->setCurrentIndex(index);
         list->clicked(index);
 
-        //Then enter systemTimezone
-        showSystemTimezone();
+        //解决时间搜索“修改系统时区”可能失败的问题
+        QTimer::singleShot(0, [this] {
+            //Then enter systemTimezone
+            showSystemTimezone();
+        });
         break;
     case AddTimeZone:
         //First enter timezoneList
@@ -159,9 +168,11 @@ int DatetimeModule::load(const QString &path)
         list->setCurrentIndex(index);
         list->clicked(index);
 
-        //Then enter addTimezone
-        showSystemTimezone();
-        Q_EMIT m_timezonelist->requestAddTimeZone();
+        QTimer::singleShot(0, [this] {
+            //Then enter addTimezone
+            showSystemTimezone();
+            Q_EMIT m_timezonelist->requestAddTimeZone();
+        });
         break;
     case FormatSetting:
         //First enter FormatSetting

@@ -138,6 +138,8 @@ void DevicemanagesPage::initUI()
 {
     // TODO: 输出设备
     const int titleLeftMargin = 8;
+    //~ contents_path /sound/Devices
+    //~ child_page Devices
     m_outputDeviceTitle = new TitleLabel(tr("Output Devices"));
     DFontSizeManager::instance()->bind(m_outputDeviceTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_outputDeviceTitle->setContentsMargins(titleLeftMargin, 0, 0, 0);

@@ -71,7 +71,6 @@ NetworkModuleWidget::NetworkModuleWidget()
 
 #if !defined(DISABLE_NETWORK_PROXY) || !defined(DISABLE_NETWORK_VPN) || !defined(DISABLE_NETWORK_PPPOE)
 #ifndef DISABLE_NETWORK_PPPOE
-    //~ contents_path /network/DSL
     DStandardItem *pppit = new DStandardItem(tr("DSL"));
     pppit->setData(QVariant::fromValue(DSLPage), SectionRole);
     pppit->setIcon(QIcon::fromTheme("dcc_dsl"));
@@ -80,7 +79,6 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 
 #ifndef DISABLE_NETWORK_VPN
-    //~ contents_path /network/VPN
     DStandardItem *vpnit = new DStandardItem(tr("VPN"));
     vpnit->setData(QVariant::fromValue(VPNPage), SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
@@ -89,14 +87,12 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 
 #ifndef DISABLE_NETWORK_PROXY
-    //~ contents_path /network/System Proxy
     DStandardItem *prxyit = new DStandardItem(tr("System Proxy"));
     prxyit->setData(QVariant::fromValue(SysProxyPage), SectionRole);
     prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
     m_modelpages->appendRow(prxyit);
     GSettingWatcher::instance()->bind("systemProxy", m_lvnmpages, prxyit);
 
-    //~ contents_path /network/Application Proxy
     DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
     aprxit->setData(QVariant::fromValue(AppProxyPage), SectionRole);
     aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
@@ -105,7 +101,6 @@ NetworkModuleWidget::NetworkModuleWidget()
 #endif
 #endif
 
-    //~ contents_path /network/Network Details
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData(QVariant::fromValue(NetworkInfoPage), SectionRole);
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
@@ -330,13 +325,13 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
         type = AppProxyPage;
     } else if (path == QStringLiteral("System Proxy")) {
         type = SysProxyPage;
-    } else if (path == QStringLiteral("VPN")) {
+    } else if (path == QStringLiteral("VPN") || path == QStringLiteral("Import VPN") || path == QStringLiteral("Create VPN")) {
         type = VPNPage;
-    } else if (path == QStringLiteral("DSL")) {
+    } else if (path == QStringLiteral("DSL") || path == QStringLiteral("Create PPPoE Connection")) {
         type = DSLPage;
     } else if (path.contains("Wireless Network")) {
         type = WirelessPage;
-    } else if (path.contains("Wired Network")) {
+    } else if (path.contains("Wired Network") || path == QStringLiteral("Add Network Connection")) {
         type = WiredPage;
     } else if (path == QStringLiteral("Personal Hotspot")) {
         type = HotspotPage;
@@ -473,14 +468,12 @@ QStandardItem *NetworkModuleWidget::createDeviceGroup(NetworkDevice *dev, const 
         if (multiple) {
             text = tr("Wired Network %1").arg(number);
         } else {
-            //~ contents_path /network/Wired Network
             text = tr("Wired Network");
         }
     } else if (dev->type() == NetworkDevice::Wireless) {
         if (multiple) {
             text = tr("Wireless Network %1").arg(number);
         } else {
-            //~ contents_path /network/WirelessPage
             text = tr("Wireless Network");
         }
     }

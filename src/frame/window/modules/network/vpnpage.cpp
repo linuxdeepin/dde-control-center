@@ -99,6 +99,8 @@ VpnPage::VpnPage(QWidget *parent)
         m_importFile->setDirectory(directory.first());
     }
 
+    //~ contents_path /network/VPN
+    //~ child_page VPN
     QLabel *lblTitle = new QLabel(tr("VPN Status"));
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_vpnSwitch = new SwitchWidget(nullptr, lblTitle);

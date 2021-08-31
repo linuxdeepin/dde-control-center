@@ -247,15 +247,21 @@ int NetworkModule::load(const QString &path)
             return 0;
         }
     }
+
     QStringList pathList = path.split("/");
     int index = m_networkWidget->gotoSetting(pathList.at(0));
     QTimer::singleShot(120, this, [ = ] {
         if (pathList.count() > 1) {
             m_networkWidget->initSetting(index == -1 ? 0 : index, pathList.at(1));
         } else {
+            if (path == "Create PPPoE Connection" || path ==  "Create VPN" || path ==  "Import VPN" || path == "Add Network Connection") {
+                m_networkWidget->initSetting(index, path);
+                return;
+            }
             m_networkWidget->initSetting(index == -1 ? 0 : index, "");
         }
     });
+
     return index == -1 ? -1 : 0;
 }
 
@@ -265,7 +271,7 @@ QStringList NetworkModule::availPage() const
     list << "DSL" << "DSL/Create PPPoE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
          << "System Proxy" << "Application Proxy" << "Network Details";
     if (m_hasWired) {
-        list << "Wired Network" << "Wired Network/addWiredConnection";
+        list << "Wired Network" << "Wired Network/Add Network Connection";
     }
     if (m_hasWireless) {
         list << "Wireless Network";

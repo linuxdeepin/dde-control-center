@@ -49,19 +49,25 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     m_defAppCatView->setIconSize(ListViweIconSize);
 
     QStringList titles;
-    //~ contents_path /defapp/Webpage
+    //~ contents_path /defapp
     titles << tr("Webpage");
-    //~ contents_path /defapp/Mail
+
+    //~ contents_path /defapp
     titles << tr("Mail");
-    //~ contents_path /defapp/Text
+
+    //~ contents_path /defapp
     titles << tr("Text");
-    //~ contents_path /defapp/Music
+
+    //~ contents_path /defapp
     titles << tr("Music");
-    //~ contents_path /defapp/Video
+
+    //~ contents_path /defapp
     titles << tr("Video");
-    //~ contents_path /defapp/Picture
+
+    //~ contents_path /defapp
     titles << tr("Picture");
-    //~ contents_path /defapp/Terminal
+
+    //~ contents_path /defapp
     titles << tr("Terminal");
 
     QStringList icons;

@@ -37,12 +37,15 @@ DWIDGET_USE_NAMESPACE
 ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     : SettingsItem(parent)
     , m_contentLayout(new QHBoxLayout(this))
-    , m_resolutionLabel(new QLabel(tr("Resolution"), this))
     , m_resolutionCombox(new QComboBox(this))
     , m_model(nullptr)
     , m_monitor(nullptr)
     , m_resoItemModel(new QStandardItemModel)
 {
+    //初始化列表无法进行静态翻译
+    //~ contents_path /display
+    m_resolutionLabel = new QLabel(tr("Resolution"), this);
+
     setAccessibleName("ResolutionWidget");
     addBackground();
     setMinimumHeight(48);

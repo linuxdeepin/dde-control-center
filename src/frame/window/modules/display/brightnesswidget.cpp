@@ -70,7 +70,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
 
     m_centralLayout->addSpacerItem(m_autoLightSpacerItem);
 
-    //~ contents_path /display/Brightness
+    //~ contents_path /display
     m_autoLightMode->setTitle(tr("Auto Brightness"));
     m_autoLightMode->addBackground();
     m_centralLayout->addWidget(m_autoLightMode);
@@ -79,7 +79,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
 
     m_centralLayout->addWidget(m_tempratureColorTitle);
 
-    //~ contents_path /display/Brightness
+    //~ contents_path /display
     m_nightShift->setTitle(tr("Night Shift"));
     m_nightShift->addBackground();
     m_centralLayout->addSpacing(10);
@@ -96,7 +96,7 @@ BrightnessWidget::BrightnessWidget(QWidget *parent)
     m_centralLayout->addSpacing(6);
     m_centralLayout->addWidget(m_nightTips);
 
-    //~ contents_path /display/Brightness
+    //~ contents_path /display
     m_nightManual->setTitle(tr("Change Color Temperature"));
     m_cctItem->setAnnotations({tr("Cool"), "", tr("Warm")});
     m_settingsGroup->appendItem(m_nightManual);

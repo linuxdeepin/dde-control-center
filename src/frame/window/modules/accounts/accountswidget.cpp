@@ -59,7 +59,6 @@ AccountsWidget::AccountsWidget(QWidget *parent)
     , m_showDefaultAccountInfo(true)
 {
     m_createBtn->setFixedSize(50, 50);
-    //~ contents_path /accounts/New Account
     m_createBtn->setToolTip(tr("Create Account"));
     m_createBtn->setAccessibleName(tr("Create Account"));
 

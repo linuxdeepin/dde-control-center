@@ -132,10 +132,16 @@ int AccountsModule::load(const QString &path)
         }
     }
 
-    if (path == searchList[0] && pUser) {
+    QStringList accountsDetailSearchData = {
+        "Change Password",
+        "Delete Account",
+        "Auto Login",
+        "Login Without Password"
+    };
+    if ((path == searchList[0] || accountsDetailSearchData.contains(path)) && pUser) {
         onShowAccountsDetailWidget(pUser);
         return 0;
-    } else if (path == searchList[1]) {
+    } else if (path == searchList[1] || path == "Create Account") {
         onShowCreateAccountPage();
         return 0;
     }

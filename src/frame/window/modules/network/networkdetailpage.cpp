@@ -100,6 +100,50 @@ NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     setTitle(tr("Network Details"));
     layout()->setContentsMargins(0, 8, 0, 8);
     setContent(mainWidget);
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("Interface");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("MAC");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("Band");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("IPv4");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("Gateway");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("Primary DNS");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("Netmask");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("IPv6");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("Primary DNS");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("Prefix");
+
+    //~ contents_path /network/Network Details
+    //~ child_page Network Details
+    tr("Speed");
 }
 
 void NetworkDetailPage::updateNetworkInfo()

@@ -48,13 +48,25 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
-    , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
-    , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
-    , m_swBatteryHint(new SwitchWidget(tr("Low Battery Notification")))
     , m_sldLowBatteryHint(new TitledSliderItem(tr("Low battery level")))
-    , m_sldAutoSuspend(new TitledSliderItem(tr("Auto suspend battery level")))
 //    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
 {
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_cmbPowerBtn = new ComboxWidget(tr("When pressing the power button"));
+
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_cmbCloseLid = new ComboxWidget(tr("When the lid is closed"));
+
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_swBatteryHint = new SwitchWidget(tr("Low Battery Notification"));
+
+    //~ contents_path /power/On Battery
+    //~ child_page On Battery
+    m_sldAutoSuspend = new TitledSliderItem(tr("Auto suspend battery level"));
+
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     QStringList options;
     QStringList annos;

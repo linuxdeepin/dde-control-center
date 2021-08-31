@@ -69,6 +69,8 @@ ProxyPage::ProxyPage(QWidget *parent)
     // 初始化代理开关、代理类型下拉框
     SettingsGroup *proxyTypeGroup = new SettingsGroup;
     m_proxySwitch->setTitle(tr("System Proxy"));
+    //~ contents_path /network/System Proxy
+    //~ child_page System Proxy
     m_proxyTypeBox->setTitle(tr("Proxy Type"));
     // 如果扩展，addItem添加顺序必须与ProxyMethodList顺序一致
     m_proxyTypeBox->comboBox()->addItem(tr("Manual"));
@@ -125,6 +127,8 @@ ProxyPage::ProxyPage(QWidget *parent)
     SettingsGroup *autoGroup = new SettingsGroup;
     m_autoUrl = new LineEditWidget;
     m_autoUrl->setPlaceholderText(tr("Optional"));
+    //~ contents_path /network/System Proxy
+    //~ child_page System Proxy
     m_autoUrl->setTitle(tr("Configuration URL"));
     m_autoUrl->textEdit()->installEventFilter(this);
     autoGroup->appendItem(m_autoUrl);
@@ -164,6 +168,8 @@ ProxyPage::ProxyPage(QWidget *parent)
     // 加入button布局
     ContentWidget *conentwidget = new ContentWidget;
     conentwidget->setAccessibleName("ProxyPage_ContentWidget");
+    //~ contents_path /network/System Proxy
+    //~ child_page System Proxy
     setWindowTitle(tr("System Proxy"));
     TranslucentFrame *w = new TranslucentFrame;
     w->setLayout(mainLayout);

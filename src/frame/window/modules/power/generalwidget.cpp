@@ -61,19 +61,46 @@ GeneralWidget::GeneralWidget(QWidget *parent, bool bIsBattery)
     : QWidget(parent)
     , m_bIsBattery(bIsBattery)
     , m_layout(new QVBoxLayout(this))
-    , m_swLowPowerAutoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on low battery"), this))
-    , m_autoIntoSaveEnergyMode(new SwitchWidget(tr("Auto power saving on battery"), this))
-    , m_sldLowerBrightness(new TitledSliderItem(tr("Decrease brightness"), this))
-    , m_wakeComputerNeedPassword(new SwitchWidget(tr("Password is required to wake up the computer"), this))
-    , m_wakeDisplayNeedPassword(new SwitchWidget(tr("Password is required to wake up the monitor"), this))
     , m_batteryLabel(nullptr)
-    , m_powerShowTimeToFull(new SwitchWidget(tr("Display remaining using and charging time"), this))
-    , m_ShowTimeToFullTips(new PowerDisplayWidget(tr("Maximum capacity"), this))
     //, m_showBatteryCapacity(new SwitchWidget(tr("Show battery capacity"), this))
     , m_batteryCapacity(new TitleValueItem)
 {
+    //~ contents_path /power/General
+    //~ child_page General
+    m_wakeDisplayNeedPassword = new SwitchWidget(tr("Password is required to wake up the monitor"), this);
+
+    //~ contents_path /power/General
+    //~ child_page General
+    m_powerShowTimeToFull = new SwitchWidget(tr("Display remaining using and charging time"), this);
+
+    //~ contents_path /power/General
+    //~ child_page General
+    m_ShowTimeToFullTips = new PowerDisplayWidget(tr("Maximum capacity"), this);
+
+    //~ contents_path /power/General
+    //~ child_page General
+    m_wakeComputerNeedPassword = new SwitchWidget(tr("Password is required to wake up the computer"), this);
+
+    //~ contents_path /power/General
+    //~ child_page General
+    m_autoIntoSaveEnergyMode = new SwitchWidget(tr("Auto power saving on battery"), this);
+
+    //~ contents_path /power/General
+    //~ child_page General
+    m_swLowPowerAutoIntoSaveEnergyMode = new SwitchWidget(tr("Auto power saving on low battery"), this);
+
+    //~ contents_path /power/General
+    //~ child_page General
+    m_sldLowerBrightness = new TitledSliderItem(tr("Decrease brightness"), this);
+
+    //~ contents_path /power/General
+    //~ child_page General
     m_powerPlanMap.insert(BALANCE, tr("Balanced"));
+    //~ contents_path /power/General
+    //~ child_page General
     m_powerPlanMap.insert(PERFORMANCE, tr("High Performance"));
+    //~ contents_path /power/General
+    //~ child_page General
     m_powerPlanMap.insert(POWERSAVE, tr("Power Saver"));
 
     initUi();

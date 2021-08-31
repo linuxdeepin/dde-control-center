@@ -334,7 +334,6 @@ void MainWindow::initAllModule(const QString &m)
         { new AccountsModule(this), tr("Accounts")},
         // 原union ID 暂时隐藏
         // { new UnionidModule(this), "Union ID"},
-        //~ contents_path /cloudsync/Cloud Sync
         { new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "Union ID"},
         { new DisplayModule(this), tr("Display")},
         { new TouchscreenModule(this), tr("Touch Screen")},

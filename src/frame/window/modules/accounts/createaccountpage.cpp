@@ -150,7 +150,8 @@ void CreateAccountPage::initUsrGroup(QVBoxLayout *layout)
 
 void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 {
-    //~ contents_path /accounts/New Account
+    //~ contents_path /accounts/Create Account
+    //~ child_page Create Account
     TitleLabel *titleLabel = new TitleLabel(tr("New Account"));
     titleLabel->setAlignment(Qt::AlignCenter);
     layout->setContentsMargins(10, 10, 10, 10);

@@ -75,6 +75,8 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     labelOutput->setContentsMargins(titleLeftMargin, 0, 0, 0);
     labelOutput->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
+    //~ contents_path /sound/Output
+    //~ child_page Output
     m_outputSoundCbx = new ComboxWidget(tr("Output Device"));
     m_outputModel  = new QStandardItemModel(m_outputSoundCbx->comboBox());
     m_outputSoundCbx->comboBox()->setModel(m_outputModel);
@@ -296,7 +298,8 @@ void SpeakerPage::addPort(const dcc::sound::Port *port)
 
 void SpeakerPage::initSlider()
 {
-    //~ contents_path /sound/Speaker
+    //~ contents_path /sound/Output
+    //~ child_page Output
     m_outputSlider = new TitledSliderItem(tr("Output Volume"), this);
     m_outputSlider->addBackground();
     m_speakSlider = m_outputSlider->slider();
@@ -399,6 +402,8 @@ void SpeakerPage::initSlider()
     auto volumeBoost = new SwitchWidget(this);
     volumeBoost->addBackground();
     volumeBoost->setChecked(m_model->isIncreaseVolume());
+    //~ contents_path /sound/Output
+    //~ child_page Output
     volumeBoost->setTitle(tr("Volume Boost"));
     connect(m_model, &SoundModel::increaseVolumeChanged, volumeBoost, &SwitchWidget::setChecked);
     connect(volumeBoost, &SwitchWidget::checkedChanged, this, &SpeakerPage::requestIncreaseVolume);
@@ -416,7 +421,10 @@ void SpeakerPage::initSlider()
     m_vbWidget->setLayout(hlayout);
     m_vbWidget->setVisible(m_model->isPortEnable());
     m_layout->insertWidget(3, m_vbWidget);
-    m_layout->addWidget(m_vbWidget);    //~ contents_path /sound/Speaker
+    m_layout->addWidget(m_vbWidget);
+    m_layout->addWidget(m_vbWidget);
+    //~ contents_path /sound/Output
+    //~ child_page Output
     m_balanceSlider = new TitledSliderItem(tr("Left/Right Balance"), this);
     m_balanceSlider->addBackground();
 

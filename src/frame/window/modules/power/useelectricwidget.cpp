@@ -49,9 +49,15 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
 //    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
-    , m_cmbPowerBtn(new ComboxWidget(tr("When pressing the power button")))
-    , m_cmbCloseLid(new ComboxWidget(tr("When the lid is closed")))
 {
+    //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
+    m_cmbPowerBtn = new ComboxWidget(tr("When pressing the power button"));
+
+    //~ contents_path /power/Plugged In
+    //~ child_page Plugged In
+    m_cmbCloseLid = new ComboxWidget(tr("When the lid is closed"));
+
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     //~ contents_path /power/Plugged In
     //~ child_page Plugged In
