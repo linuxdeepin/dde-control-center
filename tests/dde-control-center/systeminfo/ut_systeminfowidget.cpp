@@ -1,5 +1,6 @@
+#define private public
 #include "../src/frame/window/modules/systeminfo/systeminfowidget.h"
-#include "../src/frame/window/modules/systeminfo/systeminfomodule.h"
+#undef private
 
 #include <DListView>
 #include <QSignalSpy>
@@ -31,15 +32,19 @@ void Test_SysteminfoWidget::TearDown()
     m_widget = nullptr;
 }
 
-TEST_F(Test_SysteminfoWidget, test1)
+TEST_F(Test_SysteminfoWidget, initData)
 {
-    ASSERT_EQ(1, 1);
+    EXPECT_NO_THROW(m_widget->initData());
 }
 
-TEST_F(Test_SysteminfoWidget, full)
+TEST_F(Test_SysteminfoWidget, initWidget)
 {
-    ASSERT_EQ(1, 1);
+    EXPECT_NO_THROW(m_widget->initWidget());
+}
 
+
+TEST_F(Test_SysteminfoWidget, requestShowAboutNative)
+{
     DListView *listView = m_widget->getSystemListViewPointer();
     ASSERT_NE(listView, nullptr);
 
@@ -49,28 +54,46 @@ TEST_F(Test_SysteminfoWidget, full)
     listView->clicked(listView->model()->index(1, 0));
     listView->clicked(listView->model()->index(0, 0));
     EXPECT_EQ(spy1.count(), 2);
+}
+
+TEST_F(Test_SysteminfoWidget, requestShowVersionProtocol)
+{
+    DListView *listView = m_widget->getSystemListViewPointer();
+    ASSERT_NE(listView, nullptr);
 
     QSignalSpy spy2(m_widget, SIGNAL(requestShowVersionProtocol()));
     listView->clicked(listView->model()->index(1, 0));
     EXPECT_EQ(spy2.count(), 1);
+}
+
+TEST_F(Test_SysteminfoWidget, requestShowEndUserLicenseAgreement)
+{
+    DListView *listView = m_widget->getSystemListViewPointer();
+    ASSERT_NE(listView, nullptr);
 
     QSignalSpy spy3(m_widget, SIGNAL(requestShowEndUserLicenseAgreement()));
     listView->clicked(listView->model()->index(2, 0));
     EXPECT_EQ(spy3.count(), 1);
+}
+
+TEST_F(Test_SysteminfoWidget, requestShowPrivacyPolicy)
+{
+    DListView *listView = m_widget->getSystemListViewPointer();
+    ASSERT_NE(listView, nullptr);
 
     QSignalSpy spy4(m_widget, SIGNAL(requestShowPrivacyPolicy()));
     listView->clicked(listView->model()->index(3, 0));
     EXPECT_EQ(spy4.count(), 1);
-
-    int re = m_widget->showPath("About This PC");
-    EXPECT_EQ(re, 0);
-    EXPECT_EQ(spy1.count(), 3);
 }
 
-TEST_F(Test_SysteminfoWidget, showMenu)
+
+TEST_F(Test_SysteminfoWidget, full)
 {
+    int re = m_widget->showPath("About This PC");
+    EXPECT_EQ(re, 0);
+
     EXPECT_NO_THROW(m_widget->showDefaultWidget());
-    // EXPECT_NO_THROW(m_widget->showPath("Backup and Restore"));
+
     EXPECT_NO_THROW(m_widget->showPath("test"));
 
     EXPECT_NO_THROW(m_widget->setCurrentIndex(1));

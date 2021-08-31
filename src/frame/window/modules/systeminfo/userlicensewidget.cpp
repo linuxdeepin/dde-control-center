@@ -28,7 +28,6 @@
 
 #include <QVBoxLayout>
 #include <QLocale>
-#include <QFutureWatcher>
 #include <QtConcurrent>
 
 using namespace dcc;
