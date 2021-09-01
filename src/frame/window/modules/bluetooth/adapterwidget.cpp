@@ -144,7 +144,6 @@ void AdapterWidget::initUI()
     settingsGrp->appendItem(m_discoverySwitch);
 
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
-    m_tip->setVisible(!m_powerSwitch->checked());
     m_tip->setWordWrap(true);
     m_tip->setContentsMargins(16, 0, 10, 0);
 
@@ -196,8 +195,17 @@ void AdapterWidget::initUI()
     layout->addStretch();
     layout->setContentsMargins(QMargins(10,0,10,10));
 
-    m_discoverySwitch->hide();
-    m_powerSwitch->hide();
+    m_discoverySwitch->setVisible(false);
+    m_tip->setVisible(true);
+    m_myDevicesGroup->setVisible(false);
+    m_otherDevicesGroup->setVisible(false);
+    m_showAnonymousCheckBox->setVisible(false);
+    m_hideAnonymousLabel->setVisible(false);
+    m_spinner->setVisible(false);
+    m_refreshBtn->setVisible(false);
+    m_myDeviceListView->setVisible(false);
+    m_otherDeviceListView->setVisible(false);
+
     setLayout(layout);
 }
 
@@ -360,7 +368,6 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
     m_discoverySwitch->setEnabled(true);
     m_discoverySwitch->setVisible(bPower);
     m_tip->setVisible(!bPower);
-    m_discoverySwitch->setVisible(bPower);
     m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
     m_otherDevicesGroup->setVisible(bPower);
     m_showAnonymousCheckBox->setVisible(bPower);
