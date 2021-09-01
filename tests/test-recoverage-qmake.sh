@@ -37,7 +37,7 @@ echo " =================== do filter begin ==================== "
 lcov --directory . --capture --output-file ./coverage.info
 echo " =================== get info end ==================== "
 echo " =================== do filter begin ==================== "
-lcov --remove ./coverage.info  '*/${MOUSE_NAME}_autogen/*' '*/${NOTIFICATION_NAME}_autogen/*' '*/${DATETIME_NAME}_autogen/*' '*/${DEFAPP_NAME}_autogen/*' '*/${SYSTEMINFO_NAME}_autogen/*' '*/${KEYBOARD_NAME}_autogen/*' '*/usr/include/*' '*/tests/*' '*/googletest/*' '*/widgets/*' '*/interface/*' -o ./coverage.info
+lcov --remove ./coverage.info  '*/${MOUSE_NAME}_autogen/*' '*/${NOTIFICATION_NAME}_autogen/*' '*/${DATETIME_NAME}_autogen/*' '*/${DEFAPP_NAME}_autogen/*' '*/${SYSTEMINFO_NAME}_autogen/*' '*/${KEYBOARD_NAME}_autogen/*' '*/usr/include/*' '*/tests/*' '*/display/*' '*/googletest/*' '*/widgets/*' '*/interface/*' -o ./coverage.info
 echo " =================== do filter end ==================== "
 genhtml -o ../../tests/report ./coverage.info
 echo " =================== CREAT LCOV REPROT END ==================== "
