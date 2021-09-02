@@ -100,6 +100,7 @@ void CommonInfoWidget::initData()
     if (!IsServerSystem && !IsCommunitySystem) {
         if (DSysInfo::uosEditionType() != DSysInfo::UosEuler || DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC) {
             //~ contents_path /commoninfo/Developer Mode
+            //~ child_page Developer Mode
             m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
                                QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget), nullptr, "developerMode"});
         }

@@ -439,6 +439,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
 
     if (have_ap) {
         //~ contents_path /network/Personal Hotspot
+        //~ child_page Personal Hotspot
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
         hotspotit->setData(QVariant::fromValue(HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));

@@ -94,10 +94,12 @@ void AdapterWidget::initMember()
 void AdapterWidget::initUI()
 {
     //~ contents_path /bluetooth/My Devices
+    //~ child_page My Devices
     m_myDevicesGroup = new TitleLabel(tr("My Devices"));
     m_myDevicesGroup->setVisible(false);
 
     //~ contents_path /bluetooth/Other Devices
+    //~ child_page Other Devices
     m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
     m_spinnerBtn = new DSpinner(m_titleEdit);
 

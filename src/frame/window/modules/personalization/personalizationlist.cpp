@@ -48,8 +48,10 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     QStringList menus;
     menus << tr("General");
     //~ contents_path /personalization/Icon Theme
+    //~ child_page Icon Theme
     menus << tr("Icon Theme");
     //~ contents_path /personalization/Cursor Theme
+    //~ child_page Cursor Theme
     menus << tr("Cursor Theme");
     menus << tr("Font");
 

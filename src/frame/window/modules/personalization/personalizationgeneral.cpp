@@ -113,6 +113,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     m_centralLayout->setContentsMargins(ThirdPageContentsMargins);
     //appearance
     //~ contents_path /personalization/General
+    //~ child_page General
     TitleLabel *themeL = new TitleLabel(tr("Theme"));
     m_centralLayout->addWidget(themeL);
     //pictures and types
@@ -123,6 +124,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
 
     //active colors
     //~ contents_path /personalization/General
+    //~ child_page General
     TitleLabel *activeL = new TitleLabel(tr("Accent Color"));
     m_centralLayout->addWidget(activeL);
 
@@ -182,6 +184,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         switem->setLayout(swswitchLayout);
 
         //~ contents_path /personalization/General
+        //~ child_page General
         swswitchLayout->addWidget(new QLabel(tr("Window Effect")));
         swswitchLayout->addStretch();
         swswitchLayout->addWidget(m_wmSwitch);
@@ -191,6 +194,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
         winEffectVLayout->addSpacing(10);
 
         //~ contents_path /personalization/General
+        //~ child_page General
         m_transparentSlider = new dcc::widgets::TitledSliderItem(tr("Transparency"));
         //transparancy switch
         m_transparentSlider->addBackground();

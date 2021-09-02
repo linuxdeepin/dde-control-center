@@ -42,6 +42,7 @@ DouTestWidget::DouTestWidget(QWidget *parent)
 {
     m_mainlayout = new QVBoxLayout;
     //~ contents_path /mouse/General
+    //~ child_page General
     QLabel *title = new QLabel(tr("Double-click Test"));
     m_mainlayout->setContentsMargins(20, 10, 10, 10);
     m_mainlayout->addWidget(title, 0, Qt::AlignLeft);

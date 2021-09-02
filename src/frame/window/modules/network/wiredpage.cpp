@@ -73,6 +73,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_tipsGrp->appendItem(tips);
 
     //~ contents_path /network/Wired Network
+    //~ child_page Wired Network
     QLabel *lblTitle = new QLabel(tr("Wired Network Adapter"),this);//有线网卡
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_switch = new SwitchWidget(this, lblTitle);

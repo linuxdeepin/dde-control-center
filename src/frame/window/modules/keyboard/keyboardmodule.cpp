@@ -107,8 +107,10 @@ void KeyboardModule::active()
             } else if (searchData == "Add System Language") {
                 onPushSystemLanguageSetting();
             } else if (searchData == "Add Keyboard Layout") {
-                if (m_kbLayoutSettingWidget)
-                    m_kbLayoutSettingWidget->onLayoutAdded();
+                QTimer::singleShot(0, [this] {
+                    if (m_kbLayoutSettingWidget)
+                        m_kbLayoutSettingWidget->onLayoutAdded();
+                });
             }
     });
 }

@@ -79,6 +79,7 @@ PppoePage::PppoePage(QWidget *parent)
     setContent(mainWidget);
     setTitle(tr("PPP"));
     //~ contents_path /network/DSL/Create PPPoE Connection
+    //~ child_page DSL
     tr("Create PPPoE Connection");
     connect(m_createBtn, &QPushButton::clicked, this, &PppoePage::createPPPoEConnection);
     connect(m_lvsettings, &QListView::clicked, this, [this](const QModelIndex &idx) {

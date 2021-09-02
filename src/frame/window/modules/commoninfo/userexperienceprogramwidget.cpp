@@ -47,6 +47,7 @@ UserExperienceProgramWidget::UserExperienceProgramWidget(QWidget *parent)
     m_joinUeProgram = new SwitchWidget();
     m_joinUeProgram->addBackground();
     //~ contents_path /commoninfo/User Experience Program
+    //~ child_page User Experience Program
     m_joinUeProgram->setTitle(tr("Join User Experience Program"));
 
     DTipLabel *tipLabel = nullptr;

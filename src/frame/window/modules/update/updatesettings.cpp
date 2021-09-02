@@ -100,6 +100,7 @@ void UpdateSettings::initUi()
     contentLayout->addSpacing(10);
 
     //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
     m_autoCheckUpdate->setTitle(tr("Check for Updates"));
 
     SettingsGroup *checkUpdatesGrp = new SettingsGroup;
@@ -154,6 +155,7 @@ void UpdateSettings::initUi()
 #endif
 
     //~ contents_path /update/Update Settings
+    //~ child_page Update Settings
     m_autoCleanCache->setTitle(tr("Clear Package Cache"));
     m_autoCleanCache->addBackground();
     contentLayout->addWidget(m_autoCleanCache);
@@ -161,6 +163,7 @@ void UpdateSettings::initUi()
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsEducationSystem && !IsDeepinDesktop) {
         //~ contents_path /update/Update Settings
+        //~ child_page Update Settings
         m_sourceCheck = new SwitchWidget(tr("System Repository Detection"), this);
         m_sourceCheck->addBackground();
         contentLayout->addWidget(m_sourceCheck);
@@ -174,11 +177,13 @@ void UpdateSettings::initUi()
 
     if (IsCommunitySystem) {
         //~ contents_path /update/Update Settings
+        //~ child_page Update Settings
         m_smartMirrorBtn = new SwitchWidget(tr("Smart Mirror Switch"), this);
         m_smartMirrorBtn->addBackground();
         contentLayout->addWidget(m_smartMirrorBtn);
 
         //~ contents_path /update/Update Settings
+        //~ child_page Update Settings
         DTipLabel *smartTips = new DTipLabel(tr("Switch it on to connect to the quickest mirror site automatically"), this);
         smartTips->setWordWrap(true);
         smartTips->setAlignment(Qt::AlignLeft);
@@ -187,6 +192,7 @@ void UpdateSettings::initUi()
 
         m_updateMirrors = new NextPageWidget(nullptr, false);
         //~ contents_path /update/Update Settings/Mirror List
+        //~ child_page Update Settings
         m_updateMirrors->setTitle(tr("Mirror List"));
         m_updateMirrors->setRightTxtWordWrap(true);
         m_updateMirrors->addBackground();
