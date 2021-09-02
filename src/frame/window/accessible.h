@@ -82,16 +82,6 @@
 #include "./modules/mouse/trackpointsettingwidget.h"
 #include "./modules/mouse/widget/doutestwidget.h"
 
-#include "./modules/network/networkmodulewidget.h"
-#include "./modules/network/wirelesspage.h"
-#include "./modules/network/wiredpage.h"
-#include "./modules/network/vpnpage.h"
-#include "./modules/network/pppoepage.h"
-#include "./modules/network/chainsproxypage.h"
-#include "./modules/network/proxypage.h"
-#include "./modules/network/networkdetailpage.h"
-#include "./modules/network/hotspotpage.h"
-
 #include "./modules/notification/notificationwidget.h"
 #include "./modules/notification/systemnotifywidget.h"
 #include "./modules/notification/appnotifywidget.h"
@@ -228,19 +218,6 @@ SET_FORM_ACCESSIBLE(MouseSettingWidget, "MouseSettingWidget")
 SET_FORM_ACCESSIBLE(TouchPadSettingWidget, "TouchPadSettingWidget")
 SET_FORM_ACCESSIBLE(TrackPointSettingWidget, "TrackPointSettingWidget")
 SET_FORM_ACCESSIBLE(DouTestWidget, "DouTestWidget")
-
-// 网络模块
-using namespace DCC_NAMESPACE::network;
-
-SET_FORM_ACCESSIBLE(NetworkModuleWidget, "NetworkModuleWidget")
-SET_FORM_ACCESSIBLE(WirelessPage, "WirelessPage")
-SET_FORM_ACCESSIBLE(WiredPage, "WiredPage")
-SET_FORM_ACCESSIBLE(VpnPage, "VpnPage")
-SET_FORM_ACCESSIBLE(PppoePage, "PppoePage")
-SET_FORM_ACCESSIBLE(ChainsProxyPage, "ChainsProxyPage")
-SET_FORM_ACCESSIBLE(ProxyPage, "ProxyPage")
-SET_FORM_ACCESSIBLE(NetworkDetailPage, "NetworkDetailPage")
-SET_FORM_ACCESSIBLE(HotspotPage, "HotspotPage")
 
 // 电源模块
 using namespace DCC_NAMESPACE::power;
@@ -393,17 +370,6 @@ QAccessibleInterface *accessibleFactory(const QString &classname, QObject *objec
     USE_ACCESSIBLE(QString(classname).replace("dccV20::mouse::", ""), TouchPadSettingWidget);
     USE_ACCESSIBLE(QString(classname).replace("dccV20::mouse::", ""), TrackPointSettingWidget);
     USE_ACCESSIBLE(QString(classname).replace("dcc::mouse::", ""), DouTestWidget);
-
-    // 网络模块
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), NetworkModuleWidget);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), WirelessPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), WiredPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), VpnPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), PppoePage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), ChainsProxyPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), ProxyPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), NetworkDetailPage);
-    USE_ACCESSIBLE(QString(classname).replace("dccV20::network::", ""), HotspotPage);
 
     // 个性化模块
     USE_ACCESSIBLE(QString(classname).replace("dccV20::personalization::", ""), PersonalizationList);

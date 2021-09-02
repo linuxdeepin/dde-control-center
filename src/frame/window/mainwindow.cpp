@@ -37,7 +37,6 @@
 #include "modules/sync/syncmodule.h"
 #include "modules/notification/notificationmodule.h"
 #include "modules/systeminfo/systeminfomodule.h"
-#include "modules/network/networkmodule.h"
 #include "modules/defapp/defaultappsmodule.h"
 #include "modules/update/mirrorswidget.h"
 #include "widgets/multiselectlistview.h"
@@ -312,7 +311,6 @@ void MainWindow::initAllModule(const QString &m)
     using namespace unionid;
     using namespace datetime;
     using namespace defapp;
-    using namespace network;
     using namespace display;
     using namespace touchscreen;
     using namespace accounts;
@@ -343,7 +341,6 @@ void MainWindow::initAllModule(const QString &m)
         { new TouchscreenModule(this), tr("Touch Screen")},
         { new DefaultAppsModule(this), tr("Default Applications")},
         { new PersonalizationModule(this), tr("Personalization")},
-        { new NetworkModule(this), tr("Network")},
         { new NotificationModule(this), tr("Notification")},
         { new SoundModule(this), tr("Sound")},
         { new BluetoothModule(this), tr("Bluetooth")},

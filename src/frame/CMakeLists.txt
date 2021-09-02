@@ -38,7 +38,6 @@ DISABLE_ACCOUNT
 DISABLE_DISPLAY
 DISABLE_DEFAULT_APPLICATIONS
 DISABLE_PERSONALIZATION
-DISABLE_NETWORK
 DISABLE_BLUETOOTH
 DISABLE_SOUND
 DISABLE_DATETIME
@@ -47,9 +46,6 @@ DISABLE_MOUSE
 DISABLE_KAYBOARD
 DISABLE_WACOM
 DISABLE_SYSINFO
-DISABLE_NETWORK_PPPOE
-DISABLE_NETWORK_VPN
-DISABLE_NETWORK_PROXY
 DISABLE_SYS_UPDATE_SOURCE_CHECK
 DISABLE_SYS_UPDATE_MIRRORS
 DISABLE_MAIN_PAGE
@@ -390,63 +386,6 @@ set(MOUSE_FILES
                 window/modules/mouse/trackpointsettingwidget.cpp
 )
 
-# load network
-set(NETWORK_FILES
-                window/modules/network/networkdetailpage.cpp
-                window/modules/network/networkmodule.cpp
-                window/modules/network/sections/abstractsection.cpp
-                window/modules/network/sections/generichotspotsection.cpp
-                window/modules/network/sections/genericsection.cpp
-                window/modules/network/sections/pppoesection.cpp
-                window/modules/network/sections/pppsection.cpp
-                window/modules/network/sections/secret8021xsection.cpp
-                window/modules/network/sections/secretwiredsection.cpp
-                window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp
-                window/modules/network/sections/vpn/vpnadvvpncsection.cpp
-                window/modules/network/sections/vpn/vpnipsecsection.cpp
-                window/modules/network/sections/vpn/vpnopenconnectsection.cpp
-                window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp
-                window/modules/network/sections/vpn/vpnsection.cpp
-                window/modules/network/sections/vpn/vpnstrongswansection.cpp
-                window/modules/network/sections/vpn/vpntlssection.cpp
-                window/modules/network/sections/vpn/vpnvpncsection.cpp
-                window/modules/network/sections/vpn/vpnopenvpnsection.cpp
-                window/modules/network/sections/vpn/vpnpppsection.cpp
-                window/modules/network/sections/vpn/vpnproxysection.cpp
-                window/modules/network/sections/vpn/vpnsstpproxysection.cpp
-                window/modules/network/sections/vpn/vpnsstpsection.cpp
-                window/modules/network/sections/ethernetsection.cpp
-                window/modules/network/sections/secrethotspotsection.cpp
-                window/modules/network/sections/secretwirelesssection.cpp
-                window/modules/network/sections/wirelesssection.cpp
-                window/modules/network/sections/ipvxsection.cpp
-                window/modules/network/sections/dnssection.cpp
-                window/modules/network/settings/abstractsettings.cpp
-                window/modules/network/settings/dslpppoesettings.cpp
-                window/modules/network/settings/hotspotsettings.cpp
-                window/modules/network/settings/vpn/vpnl2tpsettings.cpp
-                window/modules/network/settings/vpn/vpnopenconnectsettings.cpp
-                window/modules/network/settings/vpn/vpnopenvpnsettings.cpp
-                window/modules/network/settings/vpn/vpnpptpsettings.cpp
-                window/modules/network/settings/vpn/vpnstrongswansettings.cpp
-                window/modules/network/settings/vpn/vpnvpncsettings.cpp
-                window/modules/network/settings/vpn/vpnsstpsettings.cpp
-                window/modules/network/settings/wiredsettings.cpp
-                window/modules/network/settings/wirelesssettings.cpp
-                window/modules/network/chainsproxypage.cpp
-                window/modules/network/connectioneditpage.cpp
-                window/modules/network/connectionhotspoteditpage.cpp
-                window/modules/network/connectionvpneditpage.cpp
-                window/modules/network/connectionwirelesseditpage.cpp
-                window/modules/network/hotspotpage.cpp
-                window/modules/network/networkmodulewidget.cpp
-                window/modules/network/pppoepage.cpp
-                window/modules/network/proxypage.cpp
-                window/modules/network/vpnpage.cpp
-                window/modules/network/wiredpage.cpp
-                window/modules/network/wirelesspage.cpp
-)
-
 # load personalization
 set(PERSONALIZATION_FILES
                 modules/personalization/model/fontmodel.cpp
@@ -570,7 +509,6 @@ set(SRCS
         ${TOUCHSCREEN_FILES}
         ${KEYBOARD_FILES}
         ${MOUSE_FILES}
-        ${NETWORK_FILES}
         ${SOUND_FILES}
         ${POWER_FILES}
         ${WACOM_FILES}
@@ -587,7 +525,6 @@ set(QRC
         frame.qrc
         modules/wacom/wacom.qrc
         modules/update/update.qrc
-        modules/network/network.qrc
         modules/datetime/datetime.qrc
         modules/datetime/timezone_dialog.qrc
         modules/power/power.qrc
@@ -611,7 +548,6 @@ set(QRC
 find_package(PkgConfig REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
-find_package(KF5NetworkManagerQt REQUIRED)
 find_package(DtkCMake REQUIRED)
 find_package(PolkitQt5-1)
 find_package(Qt5 COMPONENTS
@@ -628,7 +564,6 @@ REQUIRED)
 pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
-pkg_check_modules(DDE-Network-Utils REQUIRED dde-network-utils)
 pkg_check_modules(Gio-2.0 REQUIRED gio-2.0)
 pkg_check_modules(LibNM REQUIRED libnm)
 
@@ -646,25 +581,6 @@ set(Qt_LIBS
     Qt5::Network
     Qt5::Multimedia
 )
-
-# KF5 network manager
-get_target_property(KF5_QT_INCLUDE_DIRS KF5::NetworkManagerQt INTERFACE_INCLUDE_DIRECTORIES)
-
-set(TRY_KF5_LIBRARIES
-IMPORTED_LOCATION_DEBIAN
-IMPORTED_LOCATION_NOCONFIG
-)
-
-foreach(LETTER ${TRY_KF5_LIBRARIES})
-    if (NOT KF5_QT_LIBRARIES)
-        get_target_property(KF5_QT_LIBRARIES KF5::NetworkManagerQt ${LETTER})
-    endif()
-endforeach()
-
-if (NOT KF5_QT_LIBRARIES)
-    find_library(KF5_QT_LIBRARIES libKF5NetworkManagerQt.so)
-endif()
-# end KF5 network manager
 
 set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
 
@@ -771,7 +687,6 @@ target_include_directories(${BIN_NAME} PUBLIC
     ${Qt5Gui_PRIVATE_INCLUDE_DIRS}
     ${PROJECT_BINARY_DIR}
     ${QGSettings_INCLUDE_DIRS}
-    ${DDE-Network-Utils_INCLUDE_DIRS}
     ${Gio-2.0_INCLUDE_DIRS}
     ${LibNM_INCLUDE_DIRS}
     ${Qt5X11Extras_INCLUDE_DIRS}
@@ -790,7 +705,6 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Network_LIBRARIES}
     ${Qt5Multimedia_LIBRARIES}
     ${QGSettings_LIBRARIES}
-    ${DDE-Network-Utils_LIBRARIES}
     ${Gio-2.0_LIBRARIES}
     ${LibNM_LIBRARIES}
     ${KF5_QT_LIBRARIES}
