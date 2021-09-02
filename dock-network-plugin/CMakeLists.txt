@@ -11,11 +11,9 @@ set(CMAKE_AUTORCC ON)
 
 file(GLOB_RECURSE SRCS "*.h" "*.cpp" "item/*.h" "item/*.cpp" "../src/*.h" "../src/*.cpp")
 
-find_package(Qt5 COMPONENTS Core Widgets DBus Network REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets DBus Network LinguistTools REQUIRED)
 find_package(PkgConfig REQUIRED)
-#find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Svg REQUIRED)
-#find_package(Qt5DBus REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(DdeDock REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
@@ -23,6 +21,10 @@ find_package(KF5NetworkManagerQt REQUIRED)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(DDE-Dock REQUIRED dde-dock)
+
+file(GLOB TS_FILES "translations/*.ts")
+qt5_add_translation(QM_FILES ${TS_FILES})
+add_custom_target(language ALL DEPENDS ${QM_FILES})
 
 add_definitions("${QT_DEFINITIONS} -DQT_PLUGIN")
 add_library(${PLUGIN_NAME} SHARED ${SRCS} network.qrc)
@@ -65,5 +67,6 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE
     ${Qt5Network_LIBRARIES}
 )
 
-#set(CMAKE_INSTALL_PREFIX "")
 install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION /lib/dde-dock/plugins/system-trays)
+# 安装 .qm 文件
+install(FILES ${QM_FILES} DESTINATION /usr/share/${PLUGIN_NAME}/translations)

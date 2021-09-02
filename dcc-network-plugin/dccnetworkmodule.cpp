@@ -32,6 +32,10 @@ DCCNetworkModule::DCCNetworkModule()
     , m_hasWireless(false)
     , m_indexWidget(new NetworkModuleWidget(nullptr))
 {
+    QTranslator *translator = new QTranslator(this);
+    translator->load(QString("/usr/share/dcc-network-plugin/translations/dcc-network-plugin_%1.qm").arg(QLocale::system().name()));
+    QCoreApplication::installTranslator(translator);
+
     GSettingWatcher::instance()->insertState("networkWireless");
     GSettingWatcher::instance()->insertState("networkWired");
     GSettingWatcher::instance()->insertState("networkDsl");
@@ -82,7 +86,7 @@ QIcon DCCNetworkModule::icon() const
 
 QString DCCNetworkModule::translationPath() const
 {
-    return QString("share/dcc-network-plugin/translations");
+    return QString("/usr/share/dcc-network-plugin/translations");
 }
 
 QString DCCNetworkModule::path() const

@@ -1,4 +1,6 @@
 usr/lib/libdde-network-core.so
 usr/lib/dde-control-center/modules
 lib/dde-dock/plugins/system-trays/libdock-network-plugin.so
-#usr/share/dcc-network-plugin/translations
+usr/share/dcc-network-plugin/translations
+usr/share/dock-network-plugin/translations
+usr/share/icons/network

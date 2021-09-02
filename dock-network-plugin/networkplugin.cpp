@@ -32,6 +32,9 @@ NetworkPlugin::NetworkPlugin(QObject *parent)
     : QObject(parent)
     , m_networkPanel(Q_NULLPTR)
 {
+    QTranslator *translator = new QTranslator(this);
+    translator->load(QString("/usr/share/dock-network-plugin/translations/dock-network-plugin_%1.qm").arg(QLocale::system().name()));
+    QCoreApplication::installTranslator(translator);
 }
 
 NetworkPlugin::~NetworkPlugin()

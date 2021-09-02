@@ -13,7 +13,7 @@ set(CMAKE_AUTORCC ON)
 file(GLOB_RECURSE SRCS "*.h" "*.cpp" "icons/*")
 
 # 指定要用到的库
-find_package(Qt5 COMPONENTS Core Widgets DBus Network REQUIRED)
+find_package(Qt5 COMPONENTS Core Widgets DBus Network LinguistTools REQUIRED)
 find_package(DdeControlCenter REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(DtkWidget REQUIRED)
@@ -35,12 +35,13 @@ if (NOT KF5_QT_LIBRARIES)
 endif()
 
 file(GLOB TS_FILES "translations/*.ts")
-#qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+
+qt5_add_translation(QM_FILES ${TS_FILES})
+
 add_custom_target(translations ALL DEPENDS ${QM_FILES})
 
 # 新增一个编译目标
 # 这里使用命令 add_library 来表示本项目要生成一个库文件目标，
-#add_library(${PLUGIN_NAME} SHARED ${SRCS} domain.qrc translations/translations.qrc)
 add_library(${PLUGIN_NAME} SHARED ${SRCS})
 
 # 设置目标要使用的 include 目录，即头文件目录
@@ -86,4 +87,4 @@ install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION lib/dde-control-center/module
 install(FILES ${QM_FILES} DESTINATION share/${PLUGIN_NAME}/translations)
 
 # 安装图标文件
-install(FILES ${ICONFILES} DESTINATION /usr/local/share/icons/network)
+install(FILES ${ICONFILES} DESTINATION /usr/share/icons/network)
