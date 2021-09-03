@@ -113,12 +113,12 @@ QString DCCNetworkModule::translationPath() const
 
 QString DCCNetworkModule::path() const
 {
-    return "network";
+    return "mainwindow";
 }
 
 QString DCCNetworkModule::follow() const
 {
-    return "5";
+    return "personalization";
 }
 
 const QString DCCNetworkModule::name() const

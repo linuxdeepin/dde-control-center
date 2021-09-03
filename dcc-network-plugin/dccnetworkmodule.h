@@ -28,7 +28,7 @@ class DCCNetworkModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 
-    Q_PLUGIN_METADATA(IID ModuleInterface_iid)
+    Q_PLUGIN_METADATA(IID ModuleInterface_iid FILE "network.json")
     Q_INTERFACES(DCC_NAMESPACE::ModuleInterface)
 
 public:
@@ -41,7 +41,7 @@ public:
 
     void active() Q_DECL_OVERRIDE;
 
-    QStringList availPage() const;
+    QStringList availPage() const Q_DECL_OVERRIDE;
     // 返回插件名称，用于显示
     const QString displayName() const Q_DECL_OVERRIDE;
 

@@ -10,7 +10,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 # 指定所有源码文件
-file(GLOB_RECURSE SRCS "*.h" "*.cpp" "icons/*")
+file(GLOB_RECURSE SRCS "*.h" "*.cpp" "icons/*" "../src/*.h" "../src/*.cpp")
 
 # 指定要用到的库
 find_package(Qt5 COMPONENTS Core Widgets DBus Network LinguistTools REQUIRED)
