@@ -10,7 +10,14 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
 # 指定所有源码文件
-file(GLOB_RECURSE SRCS "*.h" "*.cpp" "icons/*" "../src/*.h" "../src/*.cpp")
+file(GLOB_RECURSE SRCS "*.h"
+    "*.cpp"
+    "icons/*"
+    "../src/*.h"
+    "../src/*.cpp"
+    "icons/dcc-network-plugin.qrc"
+    "icons/actions/*.svg"
+    "icons/icons/*.svg")
 
 # 指定要用到的库
 find_package(Qt5 COMPONENTS Core Widgets DBus Network LinguistTools REQUIRED)
@@ -75,8 +82,6 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE
 #    ${DDE-Network-Core_LIBRARIES}
 )
 
-file(GLOB ICONFILES icons/*.svg icons/wireless/*.svg)
-
 # 设置安装路径的前缀(默认为"/usr/local")
 set(CMAKE_INSTALL_PREFIX "/usr")
 
@@ -85,6 +90,3 @@ install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION lib/dde-control-center/module
 
 # 安装 .qm 文件
 install(FILES ${QM_FILES} DESTINATION share/${PLUGIN_NAME}/translations)
-
-# 安装图标文件
-install(FILES ${ICONFILES} DESTINATION /usr/share/icons/network)

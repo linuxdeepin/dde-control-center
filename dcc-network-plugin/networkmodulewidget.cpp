@@ -86,35 +86,35 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
 
     DStandardItem *pppIt = new DStandardItem(tr("DSL"));
     pppIt->setData(QVariant::fromValue(PageType::DSLPage), SectionRole);
-    pppIt->setIcon(QIcon::fromTheme("network/dcc_dsl"));
+    pppIt->setIcon(QIcon::fromTheme("dcc_dsl"));
     m_modelpages->appendRow(pppIt);
     GSettingWatcher::instance()->bind("networkDsl", m_lvnmpages, pppIt);
 
-    //~ contents_path /network/VPN
+    //~ contents_path /VPN
     DStandardItem *vpnit = new DStandardItem(tr("VPN"));
     vpnit->setData(QVariant::fromValue(PageType::VPNPage), SectionRole);
-    vpnit->setIcon(QIcon::fromTheme("network/dcc_vpn"));
+    vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
     m_modelpages->appendRow(vpnit);
     GSettingWatcher::instance()->bind("networkVpn", m_lvnmpages, vpnit);
 
     //~ contents_path /network/System Proxy
     DStandardItem *prxyit = new DStandardItem(tr("System Proxy"));
     prxyit->setData(QVariant::fromValue(PageType::SysProxyPage), SectionRole);
-    prxyit->setIcon(QIcon::fromTheme("network/dcc_system_agent"));
+    prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
     m_modelpages->appendRow(prxyit);
     GSettingWatcher::instance()->bind("systemProxy", m_lvnmpages, prxyit);
 
     //~ contents_path /network/Application Proxy
     DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
     aprxit->setData(QVariant::fromValue(PageType::AppProxyPage), SectionRole);
-    aprxit->setIcon(QIcon::fromTheme("network/dcc_app_proxy"));
+    aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
     m_modelpages->appendRow(aprxit);
     GSettingWatcher::instance()->bind("applicationProxy", m_lvnmpages, aprxit);
 
     //~ contents_path /network/Network Details
     DStandardItem *infoit = new DStandardItem(tr("Network Details"));
     infoit->setData(QVariant::fromValue(PageType::NetworkInfoPage), SectionRole);
-    infoit->setIcon(QIcon::fromTheme("network/dcc_network"));
+    infoit->setIcon(QIcon::fromTheme("dcc_network"));
     m_modelpages->appendRow(infoit);
     GSettingWatcher::instance()->bind("networkDetails", m_lvnmpages, infoit);
 
@@ -381,7 +381,7 @@ void NetworkModuleWidget::onDeviceChanged()
         NetworkDeviceBase *device = devices[i];
         DStandardItem *deviceItem = new DStandardItem(device->deviceName());
         deviceItem->setData(QVariant::fromValue(device->deviceType() == DeviceType::Wireless ? PageType::WirelessPage : PageType::WiredPage), SectionRole);
-        deviceItem->setIcon(QIcon::fromTheme(device->deviceType() == DeviceType::Wireless ? "network/dcc_wifi" : "network/dcc_ethernet"));
+        deviceItem->setIcon(QIcon::fromTheme(device->deviceType() == DeviceType::Wireless ? "dcc_wifi" : "dcc_ethernet"));
         deviceItem->setData(QVariant::fromValue(device), DeviceRole);
 
         QPointer<DViewItemAction> dummyStatus(new DViewItemAction(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignVCenter));
@@ -439,7 +439,7 @@ void NetworkModuleWidget::onDeviceChanged()
     if (supportHotspot) {
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
         hotspotit->setData(QVariant::fromValue(PageType::HotspotPage), SectionRole);
-        hotspotit->setIcon(QIcon::fromTheme("network/dcc_hotspot"));
+        hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
         m_modelpages->insertRow(m_modelpages->rowCount() - 1, hotspotit);
         GSettingWatcher::instance()->bind("personalHotspot", m_lvnmpages, hotspotit);
     }

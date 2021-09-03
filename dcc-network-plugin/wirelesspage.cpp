@@ -123,15 +123,15 @@ void APItem::setSignalStrength(int strength)
     }
 
     if (strength <= 5)
-        setIcon(QIcon::fromTheme(QString("network/wireless/dcc_wireless-0")));
+        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-0")));
     else if (strength > 5 && strength <= 30)
-        setIcon(QIcon::fromTheme(QString("network/wireless/dcc_wireless-2")));
+        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-2")));
     else if (strength > 30 && strength <= 55)
-        setIcon(QIcon::fromTheme(QString("network/wireless/dcc_wireless-4")));
+        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-4")));
     else if (strength > 55 && strength <= 65)
-        setIcon(QIcon::fromTheme(QString("network/wireless/dcc_wireless-6")));
+        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-6")));
     else if (strength > 65)
-        setIcon(QIcon::fromTheme(QString("network/wireless/dcc_wireless-8")));
+        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-8")));
 
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = strength;
