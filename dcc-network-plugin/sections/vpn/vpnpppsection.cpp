@@ -33,6 +33,7 @@ using namespace NetworkManager;
 VpnPPPSection::VpnPPPSection(VpnSetting::Ptr vpnSetting, QFrame *parent)
     : AbstractSection(tr("VPN PPP"), parent)
     , m_vpnSetting(vpnSetting)
+    , m_dataMap(vpnSetting->data())
     , m_mppeEnable(new SwitchWidget(this))
     , m_mppeChooser(new ComboxWidget(this))
     , m_mppeStateful(new SwitchWidget(this))
