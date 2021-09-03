@@ -37,6 +37,7 @@ VpnSection::VpnSection(VpnSetting::Ptr vpnSetting, QFrame *parent)
     , m_password(new LineEditWidget(true, this))
     , m_domain(new LineEditWidget(this))
 {
+    setAccessibleName("VpnSection");
     m_dataMap = vpnSetting->data();
     m_secretMap = vpnSetting->secrets();
     m_currentPasswordType = static_cast<Setting::SecretFlagType>(m_dataMap.value("password-flags", "0").toInt());

@@ -62,6 +62,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     , m_lvProfiles(new DListView(this))
 {
     // 有线连接
+    m_lvProfiles->setAccessibleName("lvProfiles");
     m_lvProfiles->setModel(m_modelprofiles = new QStandardItemModel(this));
     m_lvProfiles->setEditTriggers(QAbstractItemView::NoEditTriggers);
     m_lvProfiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
@@ -112,7 +113,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     itemMargins.setLeft(2);
     m_lvProfiles->setItemMargins(itemMargins);
     centralLayout->addWidget(m_lvProfiles);
-    centralLayout->addStretch();
     centralLayout->addWidget(m_createBtn, 0, Qt::AlignmentFlag::AlignHCenter);
     centralLayout->setSpacing(10);                              // 三级菜单控件间的间隙
     centralLayout->setMargin(0);
@@ -180,8 +180,8 @@ void WiredPage::refreshConnectionList()
         connect(editaction, &QAction::triggered, [this, path] {
             this->editConnection(path);
         });
-        it->setActionList(Qt::Edge::RightEdge, {editaction});
 
+        it->setActionList(Qt::Edge::RightEdge, {editaction});
         m_modelprofiles->appendRow(it);
         m_connectionPath.insert(it, path);
     }

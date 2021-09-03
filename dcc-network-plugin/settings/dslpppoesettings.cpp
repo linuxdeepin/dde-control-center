@@ -37,6 +37,7 @@ DslPppoeSettings::DslPppoeSettings(ConnectionSettings::Ptr connSettings, QString
     , m_devicePath(devicePath)
     , m_parent(parent)
 {
+    setAccessibleName("DslPppoeSettings");
     initSections();
 }
 

@@ -36,6 +36,7 @@ using namespace NetworkManager;
 VpnL2tpSettings::VpnL2tpSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)
     : AbstractSettings(connSettings, parent)
 {
+    setAccessibleName("VpnL2tpSettings");
     initSections();
 }
 

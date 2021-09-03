@@ -271,6 +271,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         , m_autoConnectHideSsid("")
         , m_wirelessScanTimer(new QTimer(this))
 {
+    setAccessibleName("WirelessPage");
     qRegisterMetaType<APSortInfo>();
     m_preWifiStatus = Wifi_Unknown;
     m_lvAP->setAccessibleName("List_wirelesslist");

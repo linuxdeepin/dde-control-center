@@ -75,6 +75,8 @@ private Q_SLOTS:
 private:
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
+    void clearLineEditWidgetFocus();
+
 private:
     QWidget *m_autoWidget;
     QWidget *m_manualWidget;

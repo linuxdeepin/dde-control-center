@@ -49,6 +49,7 @@ EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, QString devPath
     , m_wiredSetting(wiredSetting)
     , m_devicePath(devPath)
 {
+    setAccessibleName("EthernetSection");
     // 获取所有有线网卡的Mac地址列表
     for (auto device : networkInterfaces()) {
         if (device->type() != Device::Ethernet)

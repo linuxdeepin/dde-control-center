@@ -80,6 +80,7 @@ void VpnIpsecSection::saveSettings()
 
 void VpnIpsecSection::initUI()
 {
+    setAccessibleName("VpnIpsecSection");
     m_ipsecEnable->setTitle(tr("Enable IPsec"));
     m_ipsecEnable->setChecked(m_dataMap.value("ipsec-enabled") == "yes");
 

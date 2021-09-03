@@ -96,6 +96,7 @@ VpnPage::VpnPage(QWidget *parent)
     m_lvprofiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvprofiles->setSelectionMode(QAbstractItemView::NoSelection);
 
+    m_importFile->setAccessibleName("VpnPage_importFile");
     m_importFile->setModal(true);
     m_importFile->setNameFilter("*.conf");
     m_importFile->setAcceptMode(QFileDialog::AcceptOpen);
@@ -126,6 +127,7 @@ VpnPage::VpnPage(QWidget *parent)
     widget->setLayout(scrollLayout);
 
     ContentWidget *contentWidget = new ContentWidget(this);
+    contentWidget->setAccessibleName("VpnPage_ContentWidget");
     contentWidget->layout()->setMargin(0);
     contentWidget->setContent(widget);
 

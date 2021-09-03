@@ -38,6 +38,7 @@ VpnPPPSection::VpnPPPSection(VpnSetting::Ptr vpnSetting, QFrame *parent)
     , m_mppeStateful(new SwitchWidget(this))
     , m_currentMppeMethod("require-mppe")
 {
+    setAccessibleName("VpnPPPSection");
     initStrMaps();
 
     bool mppeEnable = true;

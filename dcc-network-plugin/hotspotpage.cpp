@@ -92,6 +92,7 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     connect(m_wdev, &WirelessDevice::hotspotEnableChanged, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
 
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotDeviceWidget::onSwitchToggled);
+    GSettingWatcher::instance()->bind("hotspotSwitch", m_hotspotSwitch->switchButton());
 
     QTimer::singleShot(100, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
 }

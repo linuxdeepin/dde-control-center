@@ -134,11 +134,7 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     ProxyController *proxyController = pNetworkController->proxyController();
     connect(proxyController, &ProxyController::proxyMethodChanged, this, &NetworkModuleWidget::onProxyMethodChanged);
 
-    //connect(model, &NetworkModel::appProxyExistChanged, m_appProxy, &NextPageWidget::setVisible);
-    //m_appProxy->setVisible(model->appProxyExist());
-
     onDeviceChanged();
-    //onDeviceListChanged(pNetworkController->devices());
 
     connect(m_settings, &QGSettings::changed, this, [ = ](const QString & key) {
         if (key == "networkWired" || key == "networkWireless") {
@@ -170,17 +166,20 @@ NetworkModuleWidget::~NetworkModuleWidget()
 
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
 {
-    PageType type = idx.data(SectionRole).value<PageType>();
-    if (m_lastIndex == idx) return;
+    const QString searchPath = idx.data(SearchPath).toString();
+    m_modelpages->itemFromIndex(idx)->setData("", SearchPath);
+    if (m_lastIndex == idx && searchPath.isEmpty())
+        return;
 
+    PageType type = idx.data(SectionRole).value<PageType>();
     m_lastIndex = idx;
     m_lvnmpages->setCurrentIndex(idx);
     switch (type) {
     case PageType::DSLPage:
-        Q_EMIT requestShowPppPage(idx.data(SearchPath).toString());
+        Q_EMIT requestShowPppPage(searchPath);
         break;
     case PageType::VPNPage:
-        Q_EMIT requestShowVpnPage(idx.data(SearchPath).toString());
+        Q_EMIT requestShowVpnPage(searchPath);
         break;
     case PageType::SysProxyPage:
         Q_EMIT requestShowProxyPage();
@@ -196,11 +195,12 @@ void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
         break;
     case PageType::WiredPage:
     case PageType::WirelessPage:
-        Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDeviceBase *>(), idx.data(SearchPath).toString());
+        Q_EMIT requestShowDeviceDetail(idx.data(DeviceRole).value<NetworkDeviceBase *>(), searchPath);
         break;
     default:
         break;
     }
+
     m_lvnmpages->resetStatus(idx);
 }
 

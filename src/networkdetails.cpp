@@ -204,7 +204,7 @@ QString NetworkDetails::ipv6Infomation(QJsonObject connectinfo, NetworkDetails::
         }
     }
 
-    if (ipv6Setting->method() == Ipv6Setting::Automatic) {
+    if (ipv6Setting->method() == Ipv6Setting::Automatic || ipv6Setting->method() == Ipv6Setting::LinkLocal) {
         const auto ipv6 = connectinfo.value("Ip6").toObject();
         switch (type) {
         case Ip:

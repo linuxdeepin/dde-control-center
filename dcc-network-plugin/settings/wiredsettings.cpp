@@ -36,6 +36,7 @@ using namespace NetworkManager;
 WiredSettings::WiredSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)
     : AbstractSettings(connSettings, parent)
 {
+    setAccessibleName("WiredSettings");
     initSections();
 }
 
@@ -46,6 +47,7 @@ WiredSettings::~WiredSettings()
 void WiredSettings::initSections()
 {
     QFrame *frame = new QFrame(this);
+    frame->setAccessibleName("WiredSettings_frame");
     GenericSection *genericSection = new GenericSection(m_connSettings, frame);
     genericSection->setConnectionType(ConnectionSettings::Wired);
     Secret8021xSection *secretSection = new SecretWiredSection(m_connSettings->setting(Setting::Security8021x).staticCast<Security8021xSetting>(), frame);

@@ -74,6 +74,28 @@ void DCCNetworkModule::active()
     m_frameProxy->pushWidget(this, m_indexWidget, dccV20::FrameProxyInterface::PushType::Normal);
 }
 
+QStringList DCCNetworkModule::availPage() const
+{
+    QStringList list;
+    list << "DSL" << "DSL/Create PPPoE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
+         << "System Proxy" << "Application Proxy" << "Network Details";
+
+    if (m_hasWired)
+        list << "Wired Network" << "Wired Network/addWiredConnection";
+
+    if (m_hasWireless)
+        list << "Wireless Network";
+
+    if (m_hasAp)
+        list << "Personal Hotspot";
+
+    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+    for (NetworkDeviceBase *dev: devices)
+        list << dev->path();
+
+    return list;
+}
+
 const QString DCCNetworkModule::displayName() const
 {
     return tr("network");
@@ -278,6 +300,12 @@ void DCCNetworkModule::showProxyPage()
     p->setVisible(true);
 }
 
+void DCCNetworkModule::popPage()
+{
+    m_frameProxy->popWidget(this);
+    m_indexWidget->initSetting(0, "");
+}
+
 void DCCNetworkModule::showHotspotPage()
 {
     HotspotPage *p = new HotspotPage();
@@ -288,6 +316,7 @@ void DCCNetworkModule::showHotspotPage()
             m_frameProxy->popWidget(this);
         });
     });
+    connect(p, &HotspotPage::back, this, &DCCNetworkModule::popPage);
 
     m_frameProxy->pushWidget(this, p);
 }

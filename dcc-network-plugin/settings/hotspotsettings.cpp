@@ -39,7 +39,9 @@ HotspotSettings::~HotspotSettings()
 void HotspotSettings::initSections()
 {
     WirelessSetting::Ptr wirelessSetting = m_connSettings->setting(Setting::SettingType::Wireless).staticCast<WirelessSetting>();
+    wirelessSetting->setInitialized(true);
     wirelessSetting->setMode(WirelessSetting::NetworkMode::Ap);
+    wirelessSetting->setSecurity("802-11-wireless-security");
 
     GenericHotspotSection *genericSection = new GenericHotspotSection(m_connSettings);
 
