@@ -30,7 +30,7 @@
 
 GSettingWatcher::GSettingWatcher(QObject *parent)
     : QObject(parent)
-    , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
+    , m_gsettings(SettingsPtr("com.deepin.dde.control-center", QByteArray(), this))
 {
     connect(m_gsettings, &QGSettings::changed, this, &GSettingWatcher::onStatusModeChanged);
 }
@@ -117,7 +117,10 @@ void GSettingWatcher::insertState(const QString &key)
  */
 void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
 {
-    if (!binder)
+    if (!binder || !m_gsettings)
+        return;
+
+    if (!m_gsettings->keys().contains(gsettingsName))
         return;
 
     const QString setting = m_gsettings->get(gsettingsName).toString();
@@ -197,4 +200,14 @@ void GSettingWatcher::onStatusModeChanged(const QString &key)
         insertState(key);
         Q_EMIT requestUpdateSearchMenu(key, m_menuState.value(key));
     }
+}
+
+QGSettings *GSettingWatcher::SettingsPtr(const QString &schema_id, const QByteArray &path, QObject *parent)
+{
+    if (QGSettings::isSchemaInstalled(schema_id.toUtf8())) {
+        QGSettings *settings = new QGSettings(schema_id.toUtf8(), path, parent);
+        return settings;
+    }
+
+    return nullptr;
 }

@@ -49,6 +49,7 @@ private:
     void setStatus(const QString &gsettingsName, QWidget *binder);
     void setStatus(const QString &gsettingsName, QListView *viewer, QStandardItem *item);
     void onStatusModeChanged(const QString &key);
+    QGSettings *SettingsPtr(const QString &schema_id, const QByteArray &path = QByteArray(), QObject *parent = nullptr);
 
 Q_SIGNALS:
     void requestUpdateSecondMenu(int);
