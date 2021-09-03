@@ -57,13 +57,6 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
         fileName = fileName.remove("png").append("svg");
     }
     qDebug() << " download " << url << " to " << fileName << " ready = " << m_isReady;
-    if (QFile::exists(fileName)) {
-        QPixmap pxmap;
-        if (pxmap.load(fileName)) {
-            Q_EMIT fileDownloaded(fileName);
-            return;
-        }
-    }
 
     if (!m_isReady)
         return;
@@ -93,6 +86,13 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
     connect(m_manager, &QNetworkAccessManager::finished, this, &DownloadUrl::onDownloadFileComplete);
 
     m_manager->get(request);
+
+    if (QFile::exists(fileName)) {
+        QPixmap pxmap;
+        if (pxmap.load(fileName)) {
+            Q_EMIT fileDownloaded(fileName);
+        }
+    }
 }
 
 void DownloadUrl::onDownloadFileComplete(QNetworkReply *reply)
