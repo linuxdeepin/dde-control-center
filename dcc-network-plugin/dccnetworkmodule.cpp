@@ -106,12 +106,12 @@ QStringList DCCNetworkModule::availPage() const
 
 const QString DCCNetworkModule::displayName() const
 {
-    return tr("network");
+    return tr("Network");
 }
 
 QIcon DCCNetworkModule::icon() const
 {
-    return QIcon::fromTheme("network/dcc_nav_network");
+    return QIcon::fromTheme("dcc_nav_network");
 }
 
 QString DCCNetworkModule::translationPath() const
@@ -131,7 +131,7 @@ QString DCCNetworkModule::follow() const
 
 const QString DCCNetworkModule::name() const
 {
-    return tr("network");
+    return tr("Network");
 }
 
 void DCCNetworkModule::showPage(const QString &pageName)

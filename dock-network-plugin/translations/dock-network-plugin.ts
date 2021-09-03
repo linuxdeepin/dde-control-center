@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
 <context>
     <name>DeviceControllItem</name>
     <message>
         <location filename="../item/netItem.cpp"/>
-        <source>wireless</source>
-        <translation type="unfinished"></translation>
+        <source>Wireless Network</source>
+        <translation>Wireless Network</translation>
     </message>
     <message>
         <location filename="../item/netItem.cpp"/>
-        <source>wired</source>
-        <translation type="unfinished"></translation>
+        <source>Wired Network</source>
+        <translation>Wired Network</translation>
     </message>
 </context>
 <context>
@@ -19,87 +17,87 @@
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Wired connection: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wired connection: %1</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Wired Network</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Wireless connection: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wireless connection: %1</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Wireless Network</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Device disabled</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"></translation>
+        <translation>Network cable unplugged</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Not connected</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"></translation>
+        <translation>Connecting</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"></translation>
+        <translation>Connected but no Internet access</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Connection failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Connection failed</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Disable wired connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable wired connection</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Enable wired connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable wired connection</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Disable wireless connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable wireless connection</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Enable wireless connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable wireless connection</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Disable network</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable network</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Enable network</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable network</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Network settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Network settings</translation>
     </message>
 </context>
 <context>
@@ -107,30 +105,30 @@
     <message>
         <location filename="../networkplugin.cpp"/>
         <source>Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Network</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkController</name>
     <message>
         <location filename="../../src/networkcontroller.cpp"/>
-        <source>wired</source>
-        <translation type="unfinished"></translation>
+        <source>Wired Network</source>
+        <translation>Wired Network</translation>
     </message>
     <message>
         <location filename="../../src/networkcontroller.cpp"/>
-        <source>wired %1</source>
-        <translation type="unfinished"></translation>
+        <source>Wired Network %1</source>
+        <translation>Wired Network %1</translation>
     </message>
     <message>
         <location filename="../../src/networkcontroller.cpp"/>
-        <source>wireless</source>
-        <translation type="unfinished"></translation>
+        <source>Wireless Network</source>
+        <translation>Wireless Network</translation>
     </message>
     <message>
         <location filename="../../src/networkcontroller.cpp"/>
-        <source>wireless %1</source>
-        <translation type="unfinished"></translation>
+        <source>Wireless Network %1</source>
+        <translation>Wireless Network %1</translation>
     </message>
 </context>
 <context>
@@ -138,77 +136,77 @@
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Hotspot</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>SSID</source>
-        <translation type="unfinished"></translation>
+        <translation>SSID</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Protocol</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Security Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Security Type</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Band</source>
-        <translation type="unfinished"></translation>
+        <translation>Band</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Channel</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Interface</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>MAC</source>
-        <translation type="unfinished"></translation>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>IPv4</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Primary DNS</source>
-        <translation type="unfinished"></translation>
+        <translation>Primary DNS</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Netmask</source>
-        <translation type="unfinished"></translation>
+        <translation>Netmask</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>IPv6</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"></translation>
+        <translation>Prefix</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed</translation>
     </message>
 </context>
 <context>
@@ -216,57 +214,57 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Disconnected</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"></translation>
+        <translation>Connecting</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"></translation>
+        <translation>Authenticating</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
-        <source>Obtaining Address</source>
-        <translation type="unfinished"></translation>
+        <source>Obtaining address</source>
+        <translation>Obtaining address</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Connected</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Failed</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Device disabled</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"></translation>
+        <translation>Connected but no Internet access</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Not connected</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"></translation>
+        <translation>Network cable unplugged</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtaining IP address</translation>
     </message>
 </context>
 </TS>

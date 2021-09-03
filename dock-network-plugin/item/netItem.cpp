@@ -131,9 +131,9 @@ void DeviceControllItem::initItemText()
     standardItem()->setFontSize(DFontSizeManager::T3);
 
     if (m_deviceType == DeviceType::Wireless)
-        standardItem()->setText(tr("wireless"));
+        standardItem()->setText(tr("Wireless Network"));
     else
-        standardItem()->setText(tr("wired"));
+        standardItem()->setText(tr("Wired Network"));
 }
 
 void DeviceControllItem::initSwitcher()

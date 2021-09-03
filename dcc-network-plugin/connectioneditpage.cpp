@@ -412,7 +412,7 @@ void ConnectionEditPage::createConnSettings()
     }
     case ConnectionSettings::ConnectionType::Wireless: {
         if (m_isHotSpot) {
-            connName = tr("hotspot");
+            connName = tr("Hotspot");
         } else {
             connName = tr("Wireless Connection %1");
         }

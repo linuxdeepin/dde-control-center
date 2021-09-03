@@ -185,7 +185,7 @@ QString NetworkDeviceBase::getStatusName()
     case DeviceStatus::Config:        return tr("Connecting");
     case DeviceStatus::Needauth:      return tr("Authenticating");
     case DeviceStatus::IpConfig:
-    case DeviceStatus::IpCheck:       return tr("Obtaining Address");
+    case DeviceStatus::IpCheck:       return tr("Obtaining address");
     case DeviceStatus::Activated:     return tr("Connected");
     case DeviceStatus::Deactivation:  return tr("Disconnected");
     case DeviceStatus::Failed:        return tr("Failed");

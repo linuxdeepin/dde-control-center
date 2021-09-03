@@ -1,72 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
 <context>
     <name>ChainsProxyPage</name>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Application Proxy</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy Type</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>IP Address</source>
-        <translation type="unfinished"></translation>
+        <translation>IP Address</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Optional</source>
-        <translation type="unfinished"></translation>
+        <translation>Optional</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation type="unfinished"></translation>
+        <translation>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Save</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid IP address</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Invalid port</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid port</translation>
     </message>
 </context>
 <context>
@@ -74,7 +72,7 @@
     <message>
         <location filename="../chainstypepage.cpp"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy Type</translation>
     </message>
 </context>
 <context>
@@ -82,47 +80,47 @@
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Disconnect</source>
-        <translation type="unfinished"></translation>
+        <translation>Disconnect</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Delete</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Save</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Are you sure you want to delete this configuration?</source>
-        <translation type="unfinished"></translation>
+        <translation>Are you sure you want to delete this configuration?</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Wired Connection %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wired Connection %1</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
-        <source>hotspot</source>
-        <translation type="unfinished"></translation>
+        <source>Hotspot</source>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Wireless Connection %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wireless Connection %1</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>PPPoE Connection %1</source>
-        <translation type="unfinished"></translation>
+        <translation>PPPoE Connection %1</translation>
     </message>
 </context>
 <context>
@@ -130,100 +128,100 @@
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>New VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>New VPN</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>VPN Type</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN Type</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>L2TP</source>
-        <translation type="unfinished"></translation>
+        <translation>L2TP</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>PPTP</source>
-        <translation type="unfinished"></translation>
+        <translation>PPTP</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>OpenVPN</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenVPN</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>OpenConnect</source>
-        <translation type="unfinished"></translation>
+        <translation>OpenConnect</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>StrongSwan</source>
-        <translation type="unfinished"></translation>
+        <translation>StrongSwan</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>VPNC</source>
-        <translation type="unfinished"></translation>
+        <translation>VPNC</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>Export</source>
-        <translation type="unfinished"></translation>
+        <translation>Export</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>VPN L2TP %1</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN L2TP %1</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>VPN PPTP %1</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN PPTP %1</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>VPN VPNC %1</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN VPNC %1</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>VPN OpenVPN %1</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN OpenVPN %1</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>VPN StrongSwan %1</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN StrongSwan %1</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>VPN OpenConnect %1</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN OpenConnect %1</translation>
     </message>
 </context>
 <context>
     <name>DCCNetworkModule</name>
     <message>
         <location filename="../dccnetworkmodule.cpp"/>
-        <source>network</source>
-        <translation type="unfinished"></translation>
+        <source>Network</source>
+        <translation>Network</translation>
     </message>
     <message>
         <location filename="../dccnetworkmodule.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Wired Network</translation>
     </message>
     <message>
         <location filename="../dccnetworkmodule.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"></translation>
+        <translation>Wireless Network</translation>
     </message>
     <message>
         <location filename="../dccnetworkmodule.cpp"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"></translation>
+        <translation>Personal Hotspot</translation>
     </message>
 </context>
 <context>
@@ -231,12 +229,12 @@
     <message>
         <location filename="../sections/dnssection.cpp"/>
         <source>DNS</source>
-        <translation type="unfinished"></translation>
+        <translation>DNS</translation>
     </message>
     <message>
         <location filename="../sections/dnssection.cpp"/>
         <source>Invalid DNS address</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid DNS address</translation>
     </message>
 </context>
 <context>
@@ -244,32 +242,32 @@
     <message>
         <location filename="../sections/ethernetsection.cpp"/>
         <source>Ethernet</source>
-        <translation type="unfinished"></translation>
+        <translation>Ethernet</translation>
     </message>
     <message>
         <location filename="../sections/ethernetsection.cpp"/>
         <source>Not Bind</source>
-        <translation type="unfinished"></translation>
+        <translation>Not Bind</translation>
     </message>
     <message>
         <location filename="../sections/ethernetsection.cpp"/>
         <source>Device MAC Addr</source>
-        <translation type="unfinished"></translation>
+        <translation>Device MAC Addr</translation>
     </message>
     <message>
         <location filename="../sections/ethernetsection.cpp"/>
         <source>Cloned MAC Addr</source>
-        <translation type="unfinished"></translation>
+        <translation>Cloned MAC Addr</translation>
     </message>
     <message>
         <location filename="../sections/ethernetsection.cpp"/>
         <source>Customize MTU</source>
-        <translation type="unfinished"></translation>
+        <translation>Customize MTU</translation>
     </message>
     <message>
         <location filename="../sections/ethernetsection.cpp"/>
         <source>MTU</source>
-        <translation type="unfinished"></translation>
+        <translation>MTU</translation>
     </message>
 </context>
 <context>
@@ -277,12 +275,12 @@
     <message>
         <location filename="../sections/generichotspotsection.cpp"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>General</translation>
     </message>
     <message>
         <location filename="../sections/generichotspotsection.cpp"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Name</translation>
     </message>
 </context>
 <context>
@@ -290,22 +288,22 @@
     <message>
         <location filename="../sections/genericsection.cpp"/>
         <source>General</source>
-        <translation type="unfinished"></translation>
+        <translation>General</translation>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>
         <source>The name already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>The name already exists</translation>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>
         <source>Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Name</translation>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>
         <source>Auto Connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto Connect</translation>
     </message>
 </context>
 <context>
@@ -313,12 +311,12 @@
     <message>
         <location filename="../hotspotpage.cpp"/>
         <source>Hotspot</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../hotspotpage.cpp"/>
         <source>Add Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Settings</translation>
     </message>
 </context>
 <context>
@@ -326,7 +324,7 @@
     <message>
         <location filename="../hotspotpage.cpp"/>
         <source>Create Hotspot</source>
-        <translation type="unfinished"></translation>
+        <translation>Create Hotspot</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
@@ -335,77 +333,87 @@
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>IPv4</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>IPv6</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Manual</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Ignore</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignore</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>IP Address</source>
-        <translation type="unfinished"></translation>
+        <translation>IP Address</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Only applied in corresponding resources</source>
-        <translation type="unfinished"></translation>
+        <translation>Only applied in corresponding resources</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Method</source>
-        <translation type="unfinished"></translation>
+        <translation>Method</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Netmask</source>
-        <translation type="unfinished"></translation>
+        <translation>Netmask</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"></translation>
+        <translation>Prefix</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid IP address</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid netmask</translation>
     </message>
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid gateway</translation>
+    </message>
+    <message>
+        <location filename="../sections/ipvxsection.cpp"/>
+        <source>Network</source>
+        <translation>Network</translation>
+    </message>
+    <message>
+        <location filename="../sections/ipvxsection.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP conflict</translation>
     </message>
 </context>
 <context>
@@ -413,7 +421,7 @@
     <message>
         <location filename="../networkdetailpage.cpp"/>
         <source>Network Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Network Details</translation>
     </message>
 </context>
 <context>
@@ -421,61 +429,61 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>DSL</source>
-        <translation type="unfinished"></translation>
+        <translation>DSL</translation>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>System Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>System Proxy</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Application Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Application Proxy</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Network Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Network Details</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Disabled</translation>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Manual</translation>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Configure by Network Manager</source>
-        <translation type="unfinished"></translation>
+        <translation>Configure by Network Manager</translation>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Disconnected</translation>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"></translation>
+        <translation>Personal Hotspot</translation>
     </message>
 </context>
 <context>
@@ -483,27 +491,27 @@
     <message>
         <location filename="../sections/pppoesection.cpp"/>
         <source>PPPoE</source>
-        <translation type="unfinished"></translation>
+        <translation>PPPoE</translation>
     </message>
     <message>
         <location filename="../sections/pppoesection.cpp"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../sections/pppoesection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/pppoesection.cpp"/>
         <source>Service</source>
-        <translation type="unfinished"></translation>
+        <translation>Service</translation>
     </message>
     <message>
         <location filename="../sections/pppoesection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
 </context>
 <context>
@@ -511,77 +519,77 @@
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>PPP</source>
-        <translation type="unfinished"></translation>
+        <translation>PPP</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>Refuse EAP Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse EAP Authentication</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>Refuse PAP Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse PAP Authentication</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>Refuse CHAP Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse CHAP Authentication</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse MSCHAP Authentication</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse MSCHAPv2 Authentication</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>No BSD Data Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No BSD Data Compression</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>No Deflate Data Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No Deflate Data Compression</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>No TCP Header Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No TCP Header Compression</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>No Protocol Field Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No Protocol Field Compression</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>No Address/Control Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No Address/Control Compression</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>Send PPP Echo Packets</source>
-        <translation type="unfinished"></translation>
+        <translation>Send PPP Echo Packets</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>Use MPPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Use MPPE</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>128-bit MPPE</source>
-        <translation type="unfinished"></translation>
+        <translation>128-bit MPPE</translation>
     </message>
     <message>
         <location filename="../sections/pppsection.cpp"/>
         <source>Stateful MPPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Stateful MPPE</translation>
     </message>
 </context>
 <context>
@@ -589,12 +597,12 @@
     <message>
         <location filename="../pppoepage.cpp"/>
         <source>Create PPPoE Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Create PPPoE Connection</translation>
     </message>
     <message>
         <location filename="../pppoepage.cpp"/>
         <source>PPP</source>
-        <translation type="unfinished"></translation>
+        <translation>PPP</translation>
     </message>
 </context>
 <context>
@@ -602,72 +610,72 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>System Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>System Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancel</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Save</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy Type</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"></translation>
+        <translation>Manual</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation>Auto</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Optional</source>
-        <translation type="unfinished"></translation>
+        <translation>Optional</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>HTTP Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>HTTP Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>HTTPS Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>HTTPS Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>FTP Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>FTP Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>SOCKS Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>SOCKS Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignore the proxy configurations for the above hosts and domains</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Configuration URL</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuration URL</translation>
     </message>
 </context>
 <context>
@@ -675,157 +683,157 @@
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Security</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>TLS</source>
-        <translation type="unfinished"></translation>
+        <translation>TLS</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>MD5</source>
-        <translation type="unfinished"></translation>
+        <translation>MD5</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>LEAP</source>
-        <translation type="unfinished"></translation>
+        <translation>LEAP</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>FAST</source>
-        <translation type="unfinished"></translation>
+        <translation>FAST</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Tunneled TLS</source>
-        <translation type="unfinished"></translation>
+        <translation>Tunneled TLS</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Protected EAP</source>
-        <translation type="unfinished"></translation>
+        <translation>Protected EAP</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Save password for this user</source>
-        <translation type="unfinished"></translation>
+        <translation>Save password for this user</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Save password for all users</source>
-        <translation type="unfinished"></translation>
+        <translation>Save password for all users</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Ask me always</source>
-        <translation type="unfinished"></translation>
+        <translation>Ask me always</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Disabled</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Anonymous</source>
-        <translation type="unfinished"></translation>
+        <translation>Anonymous</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Authenticated</source>
-        <translation type="unfinished"></translation>
+        <translation>Authenticated</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Both</source>
-        <translation type="unfinished"></translation>
+        <translation>Both</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Automatic</source>
-        <translation type="unfinished"></translation>
+        <translation>Automatic</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Version 0</source>
-        <translation type="unfinished"></translation>
+        <translation>Version 0</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Version 1</source>
-        <translation type="unfinished"></translation>
+        <translation>Version 1</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>EAP Auth</source>
-        <translation type="unfinished"></translation>
+        <translation>EAP Auth</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Identity</source>
-        <translation type="unfinished"></translation>
+        <translation>Identity</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Pwd Options</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Private Key</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>CA Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>CA Cert</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>User Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>User Cert</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Anonymous ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Anonymous ID</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Provisioning</source>
-        <translation type="unfinished"></translation>
+        <translation>Provisioning</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>PAC file</source>
-        <translation type="unfinished"></translation>
+        <translation>PAC file</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Inner Auth</source>
-        <translation type="unfinished"></translation>
+        <translation>Inner Auth</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>PEAP Version</source>
-        <translation type="unfinished"></translation>
+        <translation>PEAP Version</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Private Pwd</source>
-        <translation type="unfinished"></translation>
+        <translation>Private Pwd</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
 </context>
 <context>
@@ -833,42 +841,42 @@
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>Invalid password</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid password</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>None</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>WEP</source>
-        <translation type="unfinished"></translation>
+        <translation>WEP</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>WPA/WPA2 Personal</source>
-        <translation type="unfinished"></translation>
+        <translation>WPA/WPA2 Personal</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Security</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Key</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
 </context>
 <context>
@@ -876,7 +884,7 @@
     <message>
         <location filename="../sections/secretwiredsection.cpp"/>
         <source>Security Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Security Required</translation>
     </message>
 </context>
 <context>
@@ -884,62 +892,62 @@
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Invalid password</source>
-        <translation type="unfinished"></translation>
+        <translation>Invalid password</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>None</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WEP</source>
-        <translation type="unfinished"></translation>
+        <translation>WEP</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Personal</source>
-        <translation type="unfinished"></translation>
+        <translation>WPA/WPA2 Personal</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Enterprise</source>
-        <translation type="unfinished"></translation>
+        <translation>WPA/WPA2 Enterprise</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Shared key</source>
-        <translation type="unfinished"></translation>
+        <translation>Shared key</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Open system</source>
-        <translation type="unfinished"></translation>
+        <translation>Open system</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Security</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Authentication</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Key</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
 </context>
 <context>
@@ -947,72 +955,72 @@
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>VPN Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN Advanced</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Customize Gateway Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Customize Gateway Port</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Gateway Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway Port</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Customize Renegotiation Interval</source>
-        <translation type="unfinished"></translation>
+        <translation>Customize Renegotiation Interval</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Renegotiation Interval</source>
-        <translation type="unfinished"></translation>
+        <translation>Renegotiation Interval</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Use LZO Data Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Use LZO Data Compression</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Use TCP Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Use TCP Connection</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Use TAP Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Use TAP Device</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Customize Tunnel MTU</source>
-        <translation type="unfinished"></translation>
+        <translation>Customize Tunnel MTU</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>MTU</source>
-        <translation type="unfinished"></translation>
+        <translation>MTU</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Customize UDP Fragment Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Customize UDP Fragment Size</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>UDP Fragment Size</source>
-        <translation type="unfinished"></translation>
+        <translation>UDP Fragment Size</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Restrict Tunnel TCP MSS</source>
-        <translation type="unfinished"></translation>
+        <translation>Restrict Tunnel TCP MSS</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Randomize Remote Hosts</source>
-        <translation type="unfinished"></translation>
+        <translation>Randomize Remote Hosts</translation>
     </message>
 </context>
 <context>
@@ -1020,122 +1028,122 @@
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>VPN Advanced</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN Advanced</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Cisco (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Cisco (default)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Netscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Netscreen</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Secure (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Secure (default)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Weak</source>
-        <translation type="unfinished"></translation>
+        <translation>Weak</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>None</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>NAT-T When Available (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>NAT-T When Available (default)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>NAT-T Always</source>
-        <translation type="unfinished"></translation>
+        <translation>NAT-T Always</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Cisco UDP</source>
-        <translation type="unfinished"></translation>
+        <translation>Cisco UDP</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Disabled</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>DH Group 1</source>
-        <translation type="unfinished"></translation>
+        <translation>DH Group 1</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>DH Group 2 (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>DH Group 2 (default)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>DH Group 5</source>
-        <translation type="unfinished"></translation>
+        <translation>DH Group 5</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Server (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>Server (default)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>DH Group 2</source>
-        <translation type="unfinished"></translation>
+        <translation>DH Group 2</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Domain</source>
-        <translation type="unfinished"></translation>
+        <translation>Domain</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Vendor</source>
-        <translation type="unfinished"></translation>
+        <translation>Vendor</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Version</source>
-        <translation type="unfinished"></translation>
+        <translation>Version</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Encryption</source>
-        <translation type="unfinished"></translation>
+        <translation>Encryption</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>NAT Traversal Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>NAT Traversal Mode</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>IKE DH Group</source>
-        <translation type="unfinished"></translation>
+        <translation>IKE DH Group</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Forward Secrecy</source>
-        <translation type="unfinished"></translation>
+        <translation>Forward Secrecy</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Local Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Local Port</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvvpncsection.cpp"/>
         <source>Disable Dead Peer Detection</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable Dead Peer Detection</translation>
     </message>
 </context>
 <context>
@@ -1143,37 +1151,37 @@
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>VPN IPsec</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN IPsec</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>Enable IPsec</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable IPsec</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>Group Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Group Name</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>Group ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Group ID</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>Pre-Shared Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Pre-Shared Key</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>Phase1 Algorithms</source>
-        <translation type="unfinished"></translation>
+        <translation>Phase1 Algorithms</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>Phase2 Algorithms</source>
-        <translation type="unfinished"></translation>
+        <translation>Phase2 Algorithms</translation>
     </message>
 </context>
 <context>
@@ -1181,52 +1189,52 @@
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>CA Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>CA Cert</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation type="unfinished"></translation>
+        <translation>Allow Cisco Secure Desktop Trojan</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>CSD Script</source>
-        <translation type="unfinished"></translation>
+        <translation>CSD Script</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>User Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>User Cert</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Private Key</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Use FSID for Key Passphrase</source>
-        <translation type="unfinished"></translation>
+        <translation>Use FSID for Key Passphrase</translation>
     </message>
 </context>
 <context>
@@ -1234,107 +1242,107 @@
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Certificates (TLS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Certificates (TLS)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Certificates with Password (TLS)</source>
-        <translation type="unfinished"></translation>
+        <translation>Certificates with Password (TLS)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Static Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Static Key</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Saved</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Ask</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Not Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Not Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Auth Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Auth Type</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>CA Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>CA Cert</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>User Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>User Cert</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Private Key</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Pwd Options</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Private Pwd</source>
-        <translation type="unfinished"></translation>
+        <translation>Private Pwd</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Customize Key Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Customize Key Direction</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Key Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Key Direction</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Remote IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Remote IP</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Local IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Local IP</translation>
     </message>
 </context>
 <context>
@@ -1342,92 +1350,92 @@
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>VPN PPP</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN PPP</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>All Available (default)</source>
-        <translation type="unfinished"></translation>
+        <translation>All Available (default)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>40-bit (less secure)</source>
-        <translation type="unfinished"></translation>
+        <translation>40-bit (less secure)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>128-bit (most secure)</source>
-        <translation type="unfinished"></translation>
+        <translation>128-bit (most secure)</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Refuse EAP Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse EAP Authentication</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Refuse PAP Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse PAP Authentication</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Refuse CHAP Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse CHAP Authentication</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Refuse MSCHAP Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse MSCHAP Authentication</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Refuse MSCHAPv2 Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Refuse MSCHAPv2 Authentication</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>No BSD Data Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No BSD Data Compression</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>No Deflate Data Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No Deflate Data Compression</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>No TCP Header Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No TCP Header Compression</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>No Protocol Field Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No Protocol Field Compression</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>No Address/Control Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>No Address/Control Compression</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Send PPP Echo Packets</source>
-        <translation type="unfinished"></translation>
+        <translation>Send PPP Echo Packets</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Use MPPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Use MPPE</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Security</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnpppsection.cpp"/>
         <source>Stateful MPPE</source>
-        <translation type="unfinished"></translation>
+        <translation>Stateful MPPE</translation>
     </message>
 </context>
 <context>
@@ -1435,32 +1443,32 @@
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>VPN Status</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN Status</translation>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Create VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>Create VPN</translation>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Import VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>Import VPN</translation>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Import Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Import Error</translation>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>File error</source>
-        <translation type="unfinished"></translation>
+        <translation>File error</translation>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1468,57 +1476,57 @@
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN Proxy</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Not Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Not Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>HTTP</source>
-        <translation type="unfinished"></translation>
+        <translation>HTTP</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>SOCKS</source>
-        <translation type="unfinished"></translation>
+        <translation>SOCKS</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Proxy Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Proxy Type</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Server IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Server IP</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Retry Indefinitely When Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Retry Indefinitely When Failed</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
 </context>
 <context>
@@ -1526,17 +1534,17 @@
     <message>
         <location filename="../sections/vpn/vpnsstpsection.cpp"/>
         <source>CA File</source>
-        <translation type="unfinished"></translation>
+        <translation>CA File</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsstpsection.cpp"/>
         <source>Ignore Certificate Warnings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ignore Certificate Warnings</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsstpsection.cpp"/>
         <source>Use TLS Hostname Extensions</source>
-        <translation type="unfinished"></translation>
+        <translation>Use TLS Hostname Extensions</translation>
     </message>
 </context>
 <context>
@@ -1544,27 +1552,27 @@
     <message>
         <location filename="../sections/vpn/vpnsecopenvpnsection.cpp"/>
         <source>VPN Security</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN Security</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsecopenvpnsection.cpp"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Default</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsecopenvpnsection.cpp"/>
         <source>None</source>
-        <translation type="unfinished"></translation>
+        <translation>None</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsecopenvpnsection.cpp"/>
         <source>Cipher</source>
-        <translation type="unfinished"></translation>
+        <translation>Cipher</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsecopenvpnsection.cpp"/>
         <source>HMAC Auth</source>
-        <translation type="unfinished"></translation>
+        <translation>HMAC Auth</translation>
     </message>
 </context>
 <context>
@@ -1572,52 +1580,52 @@
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Saved</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Ask</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Not Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Not Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Pwd Options</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>NT Domain</source>
-        <translation type="unfinished"></translation>
+        <translation>NT Domain</translation>
     </message>
 </context>
 <context>
@@ -1625,27 +1633,27 @@
     <message>
         <location filename="../sections/vpn/vpnsstpproxysection.cpp"/>
         <source>VPN Proxy</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN Proxy</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsstpproxysection.cpp"/>
         <source>Server IP</source>
-        <translation type="unfinished"></translation>
+        <translation>Server IP</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsstpproxysection.cpp"/>
         <source>Port</source>
-        <translation type="unfinished"></translation>
+        <translation>Port</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsstpproxysection.cpp"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsstpproxysection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
 </context>
 <context>
@@ -1653,97 +1661,97 @@
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Private Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Private Key</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>SSH Agent</source>
-        <translation type="unfinished"></translation>
+        <translation>SSH Agent</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Smart Card</source>
-        <translation type="unfinished"></translation>
+        <translation>Smart Card</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>EAP</source>
-        <translation type="unfinished"></translation>
+        <translation>EAP</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Pre-Shared Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Pre-Shared Key</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>CA Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>CA Cert</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Auth Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Auth Type</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>User Cert</source>
-        <translation type="unfinished"></translation>
+        <translation>User Cert</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Request an Inner IP Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Request an Inner IP Address</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Enforce UDP Encapsulation</source>
-        <translation type="unfinished"></translation>
+        <translation>Enforce UDP Encapsulation</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Use IP Compression</source>
-        <translation type="unfinished"></translation>
+        <translation>Use IP Compression</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Enable Custom Cipher Proposals</source>
-        <translation type="unfinished"></translation>
+        <translation>Enable Custom Cipher Proposals</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>IKE</source>
-        <translation type="unfinished"></translation>
+        <translation>IKE</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>ESP</source>
-        <translation type="unfinished"></translation>
+        <translation>ESP</translation>
     </message>
 </context>
 <context>
@@ -1751,47 +1759,47 @@
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>VPN TLS Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN TLS Authentication</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Default</source>
-        <translation type="unfinished"></translation>
+        <translation>Default</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Client</source>
-        <translation type="unfinished"></translation>
+        <translation>Client</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Server</source>
-        <translation type="unfinished"></translation>
+        <translation>Server</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Subject Match</source>
-        <translation type="unfinished"></translation>
+        <translation>Subject Match</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Remote Cert Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Remote Cert Type</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Key File</source>
-        <translation type="unfinished"></translation>
+        <translation>Key File</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Customize Key Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Customize Key Direction</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Key Direction</source>
-        <translation type="unfinished"></translation>
+        <translation>Key Direction</translation>
     </message>
 </context>
 <context>
@@ -1799,67 +1807,67 @@
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>VPN</source>
-        <translation type="unfinished"></translation>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Saved</source>
-        <translation type="unfinished"></translation>
+        <translation>Saved</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Ask</source>
-        <translation type="unfinished"></translation>
+        <translation>Ask</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Not Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Not Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Username</source>
-        <translation type="unfinished"></translation>
+        <translation>Username</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Pwd Options</source>
-        <translation type="unfinished"></translation>
+        <translation>Pwd Options</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Password</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Group Name</source>
-        <translation type="unfinished"></translation>
+        <translation>Group Name</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Group Pwd</source>
-        <translation type="unfinished"></translation>
+        <translation>Group Pwd</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Use Hybrid Authentication</source>
-        <translation type="unfinished"></translation>
+        <translation>Use Hybrid Authentication</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>CA File</source>
-        <translation type="unfinished"></translation>
+        <translation>CA File</translation>
     </message>
 </context>
 <context>
@@ -1867,22 +1875,22 @@
     <message>
         <location filename="../wiredpage.cpp"/>
         <source>Plug in the network cable first</source>
-        <translation type="unfinished"></translation>
+        <translation>Plug in the network cable first</translation>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
         <source>Wired Network Adapter</source>
-        <translation type="unfinished"></translation>
+        <translation>Wired Network Adapter</translation>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
         <source>Add Network Connection</source>
-        <translation type="unfinished"></translation>
+        <translation>Add Network Connection</translation>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
         <source>Select Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Select Settings</translation>
     </message>
 </context>
 <context>
@@ -1890,23 +1898,23 @@
     <message>
         <location filename="../wirelesspage.cpp"/>
         <source>Connect to hidden network</source>
-        <translation type="unfinished"></translation>
+        <translation>Connect to hidden network</translation>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>
         <source>Wireless Network Adapter</source>
-        <translation type="unfinished"></translation>
+        <translation>Wireless Network Adapter</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>
         <source>Close Hotspot</source>
-        <translation type="unfinished"></translation>
+        <translation>Close Hotspot</translation>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation type="unfinished"></translation>
+        <translation>Disable hotspot first if you want to connect to a wireless network</translation>
     </message>
 </context>
 <context>
@@ -1914,60 +1922,60 @@
     <message>
         <location filename="../sections/wirelesssection.cpp"/>
         <source>WLAN</source>
-        <translation type="unfinished"></translation>
+        <translation>WLAN</translation>
     </message>
     <message>
         <location filename="../sections/wirelesssection.cpp"/>
         <source>Not Bind</source>
-        <translation type="unfinished"></translation>
+        <translation>Not Bind</translation>
     </message>
     <message>
         <location filename="../sections/wirelesssection.cpp"/>
         <source>SSID</source>
-        <translation type="unfinished"></translation>
+        <translation>SSID</translation>
     </message>
     <message>
         <location filename="../sections/wirelesssection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"></translation>
+        <translation>Required</translation>
     </message>
     <message>
         <location filename="../sections/wirelesssection.cpp"/>
         <source>Device MAC Addr</source>
-        <translation type="unfinished"></translation>
+        <translation>Device MAC Addr</translation>
     </message>
     <message>
         <location filename="../sections/wirelesssection.cpp"/>
         <source>Customize MTU</source>
-        <translation type="unfinished"></translation>
+        <translation>Customize MTU</translation>
     </message>
     <message>
         <location filename="../sections/wirelesssection.cpp"/>
         <source>MTU</source>
-        <translation type="unfinished"></translation>
+        <translation>MTU</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkController</name>
     <message>
         <location filename="../../src/networkcontroller.cpp"/>
-        <source>wired</source>
-        <translation type="unfinished"></translation>
+        <source>Wired Network</source>
+        <translation>Wired Network</translation>
     </message>
     <message>
         <location filename="../../src/networkcontroller.cpp"/>
-        <source>wired %1</source>
-        <translation type="unfinished"></translation>
+        <source>Wired Network %1</source>
+        <translation>Wired Network %1</translation>
     </message>
     <message>
         <location filename="../../src/networkcontroller.cpp"/>
-        <source>wireless</source>
-        <translation type="unfinished"></translation>
+        <source>Wireless Network</source>
+        <translation>Wireless Network</translation>
     </message>
     <message>
         <location filename="../../src/networkcontroller.cpp"/>
-        <source>wireless %1</source>
-        <translation type="unfinished"></translation>
+        <source>Wireless Network %1</source>
+        <translation>Wireless Network %1</translation>
     </message>
 </context>
 <context>
@@ -1975,77 +1983,77 @@
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Hotspot</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>SSID</source>
-        <translation type="unfinished"></translation>
+        <translation>SSID</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Protocol</source>
-        <translation type="unfinished"></translation>
+        <translation>Protocol</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Security Type</source>
-        <translation type="unfinished"></translation>
+        <translation>Security Type</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Band</source>
-        <translation type="unfinished"></translation>
+        <translation>Band</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Channel</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Interface</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>MAC</source>
-        <translation type="unfinished"></translation>
+        <translation>MAC</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>IPv4</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Gateway</source>
-        <translation type="unfinished"></translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Primary DNS</source>
-        <translation type="unfinished"></translation>
+        <translation>Primary DNS</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Netmask</source>
-        <translation type="unfinished"></translation>
+        <translation>Netmask</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>IPv6</source>
-        <translation type="unfinished"></translation>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"></translation>
+        <translation>Prefix</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Speed</source>
-        <translation type="unfinished"></translation>
+        <translation>Speed</translation>
     </message>
 </context>
 <context>
@@ -2053,57 +2061,57 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Disconnected</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"></translation>
+        <translation>Connecting</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"></translation>
+        <translation>Authenticating</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
-        <source>Obtaining Address</source>
-        <translation type="unfinished"></translation>
+        <source>Obtaining address</source>
+        <translation>Obtaining address</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Connected</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Failed</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Device disabled</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"></translation>
+        <translation>Connected but no Internet access</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Not connected</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"></translation>
+        <translation>Network cable unplugged</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"></translation>
+        <translation>Obtaining IP address</translation>
     </message>
 </context>
 </TS>

@@ -245,20 +245,20 @@ void NetworkController::updateDeviceName()
 
     // 更改有线设备的名称
     if (wiredDevice.size() == 1) {
-        wiredDevice[0]->setName(tr("wired"));
+        wiredDevice[0]->setName(tr("Wired Network"));
     } else if (wiredDevice.size() > 1) {
         for (int i = 0; i < wiredDevice.size(); i++) {
-            QString name = QString(tr("wired %1")).arg(i + 1);
+            QString name = QString(tr("Wired Network %1")).arg(i + 1);
             wiredDevice[i]->setName(name);
         }
     }
 
     // 更改无线设备的名称
     if (wirelessDevice.size() == 1) {
-        wirelessDevice[0]->setName(tr("wireless"));
+        wirelessDevice[0]->setName(tr("Wireless Network"));
     } else if (wirelessDevice.size() > 1) {
         for (int i = 0; i < wirelessDevice.size(); i++) {
-            QString name = QString(tr("wireless %1")).arg(i + 1);
+            QString name = QString(tr("Wireless Network %1")).arg(i + 1);
             wirelessDevice[i]->setName(name);
         }
     }
