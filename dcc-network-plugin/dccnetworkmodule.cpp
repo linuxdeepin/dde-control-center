@@ -30,7 +30,7 @@ DCCNetworkModule::DCCNetworkModule()
     , m_hasAp(false)
     , m_hasWired(false)
     , m_hasWireless(false)
-    , m_indexWidget(new NetworkModuleWidget(nullptr))
+    , m_indexWidget(nullptr)
 {
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/dcc-network-plugin/translations/dcc-network-plugin_%1.qm").arg(QLocale::system().name()));
@@ -44,19 +44,12 @@ DCCNetworkModule::DCCNetworkModule()
     GSettingWatcher::instance()->insertState("applicationProxy");
     GSettingWatcher::instance()->insertState("networkDetails");
     GSettingWatcher::instance()->insertState("personalHotspot");
-
-    connect(m_indexWidget, &NetworkModuleWidget::requestShowPppPage, this, &DCCNetworkModule::showPppPage);
-    connect(m_indexWidget, &NetworkModuleWidget::requestShowVpnPage, this, &DCCNetworkModule::showVPNPage);
-    connect(m_indexWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &DCCNetworkModule::showDeviceDetailPage);
-    connect(m_indexWidget, &NetworkModuleWidget::requestShowChainsPage, this, &DCCNetworkModule::showChainsProxyPage);
-    connect(m_indexWidget, &NetworkModuleWidget::requestShowProxyPage, this, &DCCNetworkModule::showProxyPage);
-    connect(m_indexWidget, &NetworkModuleWidget::requestHotspotPage, this, &DCCNetworkModule::showHotspotPage);
-    connect(m_indexWidget, &NetworkModuleWidget::requestShowInfomation, this, &DCCNetworkModule::showDetailPage);
 }
 
 DCCNetworkModule::~DCCNetworkModule()
 {
-    delete m_indexWidget;
+    if (m_indexWidget)
+        m_indexWidget->deleteLater();
 }
 
 void DCCNetworkModule::initialize()
@@ -71,7 +64,22 @@ void DCCNetworkModule::active()
 {
     Q_ASSERT(m_frameProxy);
 
-    m_frameProxy->pushWidget(this, m_indexWidget, dccV20::FrameProxyInterface::PushType::Normal);
+    m_indexWidget = new NetworkModuleWidget;
+
+    connect(m_indexWidget, &NetworkModuleWidget::requestShowPppPage, this, &DCCNetworkModule::showPppPage);
+    connect(m_indexWidget, &NetworkModuleWidget::requestShowVpnPage, this, &DCCNetworkModule::showVPNPage);
+    connect(m_indexWidget, &NetworkModuleWidget::requestShowDeviceDetail, this, &DCCNetworkModule::showDeviceDetailPage);
+    connect(m_indexWidget, &NetworkModuleWidget::requestShowChainsPage, this, &DCCNetworkModule::showChainsProxyPage);
+    connect(m_indexWidget, &NetworkModuleWidget::requestShowProxyPage, this, &DCCNetworkModule::showProxyPage);
+    connect(m_indexWidget, &NetworkModuleWidget::requestHotspotPage, this, &DCCNetworkModule::showHotspotPage);
+    connect(m_indexWidget, &NetworkModuleWidget::requestShowInfomation, this, &DCCNetworkModule::showDetailPage);
+    connect(m_indexWidget, &NetworkModuleWidget::destroyed, [ this ] {
+        m_indexWidget = nullptr;
+    });
+
+    m_frameProxy->pushWidget(this, m_indexWidget);
+    m_indexWidget->setVisible(true);
+    m_indexWidget->showDefaultWidget();
 }
 
 QStringList DCCNetworkModule::availPage() const
@@ -303,7 +311,8 @@ void DCCNetworkModule::showProxyPage()
 void DCCNetworkModule::popPage()
 {
     m_frameProxy->popWidget(this);
-    m_indexWidget->initSetting(0, "");
+    if (m_indexWidget)
+      m_indexWidget->initSetting(0, "");
 }
 
 void DCCNetworkModule::showHotspotPage()
