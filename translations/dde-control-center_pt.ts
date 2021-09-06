@@ -904,12 +904,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="54"/>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="54"/>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="56"/>
@@ -1013,6 +1013,13 @@
         <source>Day</source>
         <translation>Dia</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="126"/>
+        <source>Add Application</source>
+        <translation>Adicionar aplicação</translation>
+        <extra-child_page>Terminal</extra-child_page>
+        <extra-contents_path>/defapp/Terminal/Add Application</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::datetime::DatetimeModule</name>
@@ -1025,22 +1032,29 @@
 <context>
     <name>dccV20::datetime::DatetimeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="54"/>
+        <source>Add Application</source>
+        <translation>Adicionar aplicação</translation>
+        <extra-child_page>Music</extra-child_page>
+        <extra-contents_path>/defapp/Music/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="66"/>
         <source>Timezone List</source>
         <translation>Lista de Fusos Horários</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="67"/>
         <source>Time Settings</source>
         <translation>Definições horárias</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="68"/>
         <source>Time Format</source>
         <translation>Formato da Hora</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="100"/>
         <source>24-hour Time</source>
         <translation>Horário de 24 horas</translation>
         <extra-contents_path>/datetime</extra-contents_path>
@@ -1257,6 +1271,13 @@
         <extra-child_page>Timezone List</extra-child_page>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="94"/>
+        <source>Add Application</source>
+        <translation>Adicionar aplicação</translation>
+        <extra-child_page>Mail</extra-child_page>
+        <extra-contents_path>/defapp/Mail/Add Application</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::defapp::DefappDetailWidget</name>
@@ -1266,7 +1287,7 @@
         <source>Add Application</source>
         <translation>Adicionar aplicação</translation>
         <extra-child_page>Video</extra-child_page>
-        <extra-contents_path>/defapp/Video</extra-contents_path>
+        <extra-contents_path>/defapp/Video/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="82"/>
@@ -1274,7 +1295,7 @@
         <translation>Abrir ficheiro do ambiente de trabalho</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="343"/>
         <source>Invalid</source>
         <translation>Inválido</translation>
     </message>
@@ -1284,9 +1305,9 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="53"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar Aplicação</translation>
         <extra-child_page>Text</extra-child_page>
-        <extra-contents_path>/defapp/Text</extra-contents_path>
+        <extra-contents_path>/defapp/Text/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="103"/>
@@ -1300,50 +1321,50 @@
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
         <source>Webpage</source>
         <translation>Página da Web</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="56"/>
         <source>Mail</source>
         <translation>Correio</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
         <source>Text</source>
         <translation>Texto</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="62"/>
         <source>Music</source>
         <translation>Música</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="65"/>
         <source>Video</source>
         <translation>Vídeo</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="68"/>
         <source>Picture</source>
         <translation>Imagem</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="71"/>
         <source>Terminal</source>
         <translation>Terminal</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="75"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar Aplicação</translation>
         <extra-child_page>Webpage</extra-child_page>
-        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+        <extra-contents_path>/defapp/Webpage/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="142"/>
@@ -4342,21 +4363,19 @@
         <translation>Geral</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Icon Theme</source>
         <translation>Tema de ícones</translation>
-        <extra-child_page>Icon Theme</extra-child_page>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Cursor Theme</source>
         <translation>Tema do cursor</translation>
-        <extra-child_page>Cursor Theme</extra-child_page>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
         <source>Font</source>
         <translation>Fonte</translation>
     </message>
@@ -4773,7 +4792,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="445"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="917"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="921"/>
         <source>Window Effect</source>
         <translation>Efeitos visuais</translation>
     </message>
@@ -4949,7 +4968,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="421"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="898"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="902"/>
         <source>Cloud Account</source>
         <translation>Conta da nuvem</translation>
     </message>
@@ -5416,24 +5435,21 @@
         <translation>Acerca deste PC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="76"/>
         <source>Edition License</source>
         <translation>Licença de edição</translation>
-        <extra-child_page>Edition License</extra-child_page>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="78"/>
         <source>End User License Agreement</source>
         <translation>Contrato de licença do utilizador final</translation>
-        <extra-child_page>End User License Agreement</extra-child_page>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
         <source>Privacy Policy</source>
         <translation>Política de Privacidade</translation>
-        <extra-child_page>Privacy Policy</extra-child_page>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
     </message>
 </context>
@@ -6116,6 +6132,13 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
         <translation>Centro de Controlo</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappmodel.cpp" line="44"/>
+        <source>Add Application</source>
+        <translation>Adicionar Aplicação</translation>
+        <extra-child_page>Picture</extra-child_page>
+        <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
+    </message>
+    <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="717"/>
         <source>Create Account</source>
         <translation>Criar Conta</translation>
@@ -6273,12 +6296,12 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="748"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Entrada</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="749"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Saída</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="750"/>
@@ -6303,7 +6326,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="754"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="755"/>

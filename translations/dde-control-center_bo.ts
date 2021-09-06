@@ -1014,6 +1014,13 @@
         <source>Day</source>
         <translation>ཚེས་གྲངས། </translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="126"/>
+        <source>Add Application</source>
+        <translation>སོར་བཞག་བྱ་རིམ་སྣོན་པ།</translation>
+        <extra-child_page>Terminal</extra-child_page>
+        <extra-contents_path>/defapp/Terminal/Add Application</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::datetime::DatetimeModule</name>
@@ -1026,22 +1033,29 @@
 <context>
     <name>dccV20::datetime::DatetimeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="54"/>
+        <source>Add Application</source>
+        <translation>སོར་བཞག་བྱ་རིམ་སྣོན་པ།</translation>
+        <extra-child_page>Music</extra-child_page>
+        <extra-contents_path>/defapp/Music/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="66"/>
         <source>Timezone List</source>
         <translation>དུས་ཁུལ་གསལ་ཐོ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="67"/>
         <source>Time Settings</source>
         <translation>དུས་ཚོད་སྒྲིག་འགོད། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="68"/>
         <source>Time Format</source>
         <translation>རྣམ་གཞག་སྒྲིག་འགོད། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="100"/>
         <source>24-hour Time</source>
         <translation>ཆུ་ཚོད་24ཡི་ལུགས། </translation>
         <extra-contents_path>/datetime</extra-contents_path>
@@ -1258,6 +1272,13 @@
         <extra-child_page>Timezone List</extra-child_page>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="94"/>
+        <source>Add Application</source>
+        <translation>སོར་བཞག་བྱ་རིམ་སྣོན་པ།</translation>
+        <extra-child_page>Mail</extra-child_page>
+        <extra-contents_path>/defapp/Mail/Add Application</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::defapp::DefappDetailWidget</name>
@@ -1267,7 +1288,7 @@
         <source>Add Application</source>
         <translation>སོར་བཞག་བྱ་རིམ་སྣོན་པ།</translation>
         <extra-child_page>Video</extra-child_page>
-        <extra-contents_path>/defapp/Video</extra-contents_path>
+        <extra-contents_path>/defapp/Video/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="82"/>
@@ -1275,7 +1296,7 @@
         <translation>ཡིག་ཆ་Desktop ཁ་འབྱེད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="343"/>
         <source>Invalid</source>
         <translation>ཕན་མེད།</translation>
     </message>
@@ -1285,9 +1306,9 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="53"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>སོར་བཞག་བྱ་རིམ་སྣོན་པ།</translation>
         <extra-child_page>Text</extra-child_page>
-        <extra-contents_path>/defapp/Text</extra-contents_path>
+        <extra-contents_path>/defapp/Text/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="103"/>
@@ -1301,50 +1322,50 @@
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
         <source>Webpage</source>
         <translation>དྲ་ངོས། </translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="56"/>
         <source>Mail</source>
         <translation>སྦྲག་སྐུར། </translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
         <source>Text</source>
         <translation>ཡིག་རྐྱང་། </translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="62"/>
         <source>Music</source>
         <translation>རོལ་མོ། </translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="65"/>
         <source>Video</source>
         <translation>བརྙན་འཕྲིན།</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="68"/>
         <source>Picture</source>
         <translation>པར་རིས།</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="71"/>
         <source>Terminal</source>
         <translation>མཐའ་སྣེ། </translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="75"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>སོར་བཞག་བྱ་རིམ་སྣོན་པ།</translation>
         <extra-child_page>Webpage</extra-child_page>
-        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+        <extra-contents_path>/defapp/Webpage/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="142"/>
@@ -4343,21 +4364,19 @@
         <translation>ཀུན་སྤྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Icon Theme</source>
         <translation>རྟགས་རིས་བརྗོད་གཞི།</translation>
-        <extra-child_page>Icon Theme</extra-child_page>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Cursor Theme</source>
         <translation>འོད་རྟགས་བརྗོད་གཞི།</translation>
-        <extra-child_page>Cursor Theme</extra-child_page>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
         <source>Font</source>
         <translation>ཡིག་གཟུགས།</translation>
     </message>
@@ -4774,7 +4793,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="445"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="917"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="921"/>
         <source>Window Effect</source>
         <translation>སྒེའུ་ཁུང་གི་ཁྱད་ནུས།</translation>
     </message>
@@ -4859,13 +4878,13 @@
         <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="432"/>
         <source>Disable touchpad while typing</source>
-        <translation type="unfinished"/>
+        <translation>ནང་འཇུག་བྱེད་སྐབས་ཐུག་རེག་བརྙན་ཡོལ་སྤྱོད་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="431"/>
         <source>Disable touchpad when inserting the mouse</source>
-        <translation type="unfinished"/>
+        <translation>ཙི་གུ་འཇུག་སྐབས་ཐུག་རེག་བརྙན་ཡོལ་སྤྱོད་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
@@ -4950,7 +4969,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="421"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="898"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="902"/>
         <source>Cloud Account</source>
         <translation>དྲ་རྒྱའི་རྩིས་ཁྲ།</translation>
     </message>
@@ -5417,24 +5436,21 @@
         <translation>འཕྲུལ་ཆས་འདི་དང་འབྲེལ་བའི་སྐོར།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="76"/>
         <source>Edition License</source>
         <translation>པར་གཞིའི་གྲོས་མཐུན།</translation>
-        <extra-child_page>Edition License</extra-child_page>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="78"/>
         <source>End User License Agreement</source>
         <translation>མཐའ་མའི་སྤྱོད་མཁན་གྱི་ཆོག་འཐུས་གྲོས་མཐུན།</translation>
-        <extra-child_page>End User License Agreement</extra-child_page>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
         <source>Privacy Policy</source>
         <translation>གསང་དོན་སྲིད་ཇུས།</translation>
-        <extra-child_page>Privacy Policy</extra-child_page>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
     </message>
 </context>
@@ -5721,7 +5737,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="420"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>ཉེར་སྤྱོད་%nགསར་སྒྱུར་ཡོད་པ་ཤེས།</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
@@ -5731,7 +5747,7 @@ Visit User Center and manage your account there.</source>
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="427"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <translation><numerusform>རྒྱུད་ཁོངས་ཀྱི་པར་གཞི་གསར་པ་དང་ཉེར་སྤྱོད་གསར་སྒྱུར་%nཡོད་པ་ཤེས།</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
@@ -6117,34 +6133,41 @@ Visit User Center and manage your account there.</source>
         <translation>ཚོད་འཛིན་ལྟེ་གནས།</translation>
     </message>
     <message>
+        <location filename="../src/frame/modules/defapp/defappmodel.cpp" line="44"/>
+        <source>Add Application</source>
+        <translation>སོར་བཞག་བྱ་རིམ་སྣོན་པ།</translation>
+        <extra-child_page>Picture</extra-child_page>
+        <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
+    </message>
+    <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="717"/>
         <source>Create Account</source>
-        <translation type="unfinished"/>
+        <translation>རྩིས་ཁྲ་བཟོ་བ། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="718"/>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>ངའི་སྒྲིག་ཆས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="719"/>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་ཆས་གཞན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="720"/>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>འགོ་སློང་འདེམས་བྱང་། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="721"/>
         <source>Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>གསར་སྤེལ་བའི་དཔེ་རྣམ། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="722"/>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="723"/>
@@ -6154,37 +6177,37 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="724"/>
         <source>Timezone List</source>
-        <translation type="unfinished"/>
+        <translation>དུས་ཁུལ་གསལ་ཐོ། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="725"/>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>དྲ་ངོས། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="726"/>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>སྦྲག་སྐུར། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="727"/>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>ཡིག་རྐྱང་། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="728"/>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>རོལ་མོ། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="729"/>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>བརྙན་འཕྲིན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="730"/>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>པར་རིས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="731"/>
@@ -6194,7 +6217,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="732"/>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>གསལ་ཚད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="733"/>
@@ -6204,47 +6227,47 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="734"/>
         <source>Keyboard Layout</source>
-        <translation type="unfinished"/>
+        <translation>མཐེབ་གཞོང་བཀོད་པ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="735"/>
         <source>System Language</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱུད་ཁོངས་སྐད་ཡིག</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="736"/>
         <source>Personal Hotspot</source>
-        <translation type="unfinished"/>
+        <translation>མི་སྒེར་གྱི་ཚ་གནས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="737"/>
         <source>DSL</source>
-        <translation type="unfinished"/>
+        <translation>DSL</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="738"/>
         <source>VPN</source>
-        <translation type="unfinished"/>
+        <translation>VPN</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="739"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="740"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="741"/>
         <source>Network Details</source>
-        <translation type="unfinished"/>
+        <translation>དྲ་རྒྱ་ཞིབ་ཕྲ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="742"/>
         <source>System Notifications</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱུད་ཁོངས་ཀྱི་བརྡ་ཐོ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="743"/>
@@ -6254,67 +6277,67 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="744"/>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>རྟགས་རིས་བརྗོད་གཞི།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="745"/>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>འོད་རྟགས་བརྗོད་གཞི།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="746"/>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱུད་ཁོངས་སྒྲ་ནུས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="747"/>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་ཆས་དོ་དམ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="748"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>ནང་འཇུག</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="749"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>ཕྱིར་འདྲེན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="750"/>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>འཕྲུལ་ཆས་འདི་དང་འབྲེལ་བའི་སྐོར།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="751"/>
         <source>Edition License</source>
-        <translation type="unfinished"/>
+        <translation>པར་གཞིའི་གྲོས་མཐུན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="752"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>མཐའ་མའི་སྤྱོད་མཁན་གྱི་ཆོག་འཐུས་གྲོས་མཐུན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="753"/>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>གསང་དོན་སྲིད་ཇུས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="754"/>
         <source>Updates</source>
-        <translation type="unfinished"/>
+        <translation>ཞིབ་བཤེར་གསར་སྒྱུར། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="755"/>
         <source>Update Settings</source>
-        <translation type="unfinished"/>
+        <translation>གསར་སྒྱུར་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="756"/>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>གནོན་ཚོར།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="757"/>

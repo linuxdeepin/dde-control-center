@@ -1013,6 +1013,13 @@
         <source>Day</source>
         <translation>日</translation>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datewidget.cpp" line="126"/>
+        <source>Add Application</source>
+        <translation>新增應用程式</translation>
+        <extra-child_page>Terminal</extra-child_page>
+        <extra-contents_path>/defapp/Terminal/Add Application</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::datetime::DatetimeModule</name>
@@ -1025,22 +1032,29 @@
 <context>
     <name>dccV20::datetime::DatetimeWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="54"/>
+        <source>Add Application</source>
+        <translation>新增應用程式</translation>
+        <extra-child_page>Music</extra-child_page>
+        <extra-contents_path>/defapp/Music/Add Application</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="66"/>
         <source>Timezone List</source>
         <translation>時區列表</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="67"/>
         <source>Time Settings</source>
         <translation>時間設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="68"/>
         <source>Time Format</source>
         <translation>格式設定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/datetime/datetimewidget.cpp" line="100"/>
         <source>24-hour Time</source>
         <translation>24 小時制</translation>
         <extra-contents_path>/datetime</extra-contents_path>
@@ -1257,6 +1271,13 @@
         <extra-child_page>Timezone List</extra-child_page>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/datetime/timezonelist.cpp" line="94"/>
+        <source>Add Application</source>
+        <translation>新增應用程式</translation>
+        <extra-child_page>Mail</extra-child_page>
+        <extra-contents_path>/defapp/Mail/Add Application</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::defapp::DefappDetailWidget</name>
@@ -1266,7 +1287,7 @@
         <source>Add Application</source>
         <translation>新增應用程式</translation>
         <extra-child_page>Video</extra-child_page>
-        <extra-contents_path>/defapp/Video</extra-contents_path>
+        <extra-contents_path>/defapp/Video/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="82"/>
@@ -1274,7 +1295,7 @@
         <translation>開啟 Desktop 檔案</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="343"/>
         <source>Invalid</source>
         <translation>無效</translation>
     </message>
@@ -1284,9 +1305,9 @@
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="53"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>新增應用程式</translation>
         <extra-child_page>Text</extra-child_page>
-        <extra-contents_path>/defapp/Text</extra-contents_path>
+        <extra-contents_path>/defapp/Text/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="103"/>
@@ -1300,50 +1321,50 @@
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="53"/>
         <source>Webpage</source>
         <translation>網頁</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="56"/>
         <source>Mail</source>
         <translation>電子郵件</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Mail</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="59"/>
         <source>Text</source>
         <translation>文字工具</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Text</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="62"/>
         <source>Music</source>
         <translation>音樂</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Music</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="65"/>
         <source>Video</source>
         <translation>影片</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Video</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="68"/>
         <source>Picture</source>
         <translation>圖片</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Picture</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="71"/>
         <source>Terminal</source>
         <translation>終端機</translation>
-        <extra-contents_path>/defapp</extra-contents_path>
+        <extra-contents_path>/defapp/Terminal</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="75"/>
         <source>Add Application</source>
-        <translation type="unfinished"/>
+        <translation>新增應用程式</translation>
         <extra-child_page>Webpage</extra-child_page>
-        <extra-contents_path>/defapp/Webpage</extra-contents_path>
+        <extra-contents_path>/defapp/Webpage/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/defapp/defappwidget.cpp" line="142"/>
@@ -4342,21 +4363,19 @@
         <translation>一般</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="51"/>
         <source>Icon Theme</source>
         <translation>圖示主題</translation>
-        <extra-child_page>Icon Theme</extra-child_page>
         <extra-contents_path>/personalization/Icon Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="53"/>
         <source>Cursor Theme</source>
         <translation>滑鼠主題</translation>
-        <extra-child_page>Cursor Theme</extra-child_page>
         <extra-contents_path>/personalization/Cursor Theme</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationlist.cpp" line="54"/>
         <source>Font</source>
         <translation>字型</translation>
     </message>
@@ -4773,7 +4792,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="445"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="917"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="921"/>
         <source>Window Effect</source>
         <translation>視窗特效</translation>
     </message>
@@ -4949,7 +4968,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="421"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="898"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="902"/>
         <source>Cloud Account</source>
         <translation>網路帳戶</translation>
     </message>
@@ -5416,24 +5435,21 @@
         <translation>關於此電腦</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="77"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="76"/>
         <source>Edition License</source>
         <translation>版本許可證</translation>
-        <extra-child_page>Edition License</extra-child_page>
         <extra-contents_path>/systeminfo/Edition License</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="78"/>
         <source>End User License Agreement</source>
         <translation>最終使用者許可協議</translation>
-        <extra-child_page>End User License Agreement</extra-child_page>
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
         <source>Privacy Policy</source>
         <translation>隱私政策</translation>
-        <extra-child_page>Privacy Policy</extra-child_page>
         <extra-contents_path>/systeminfo/Privacy Policy</extra-contents_path>
     </message>
 </context>
@@ -6113,6 +6129,13 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/main.cpp" line="125"/>
         <source>Control Center</source>
         <translation>控制中心</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/defapp/defappmodel.cpp" line="44"/>
+        <source>Add Application</source>
+        <translation>新增應用程式</translation>
+        <extra-child_page>Picture</extra-child_page>
+        <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="717"/>
