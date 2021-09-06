@@ -111,7 +111,8 @@ UpdateWorker::~UpdateWorker()
 
 }
 
-void UpdateWorker::init() {
+void UpdateWorker::init()
+{
     qRegisterMetaType<UpdatesStatus>("UpdatesStatus");
     qRegisterMetaType<UiActiveState>("UiActiveState");
 
@@ -152,13 +153,13 @@ void UpdateWorker::init() {
 
     connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
     connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
-    connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [=] {
-        QTimer::singleShot(100, this, [=] {
+    connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [ = ] {
+        QTimer::singleShot(100, this, [ = ] {
             m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
         });
     }, Qt::UniqueConnection);
 
-    connect(m_abRecoveryInter, &RecoveryInter::JobEnd, this, [=](const QString &kind, bool success, const QString &errMsg) {
+    connect(m_abRecoveryInter, &RecoveryInter::JobEnd, this, [ = ](const QString & kind, bool success, const QString & errMsg) {
         qDebug() << " [abRecovery] RecoveryInter::JobEnd 备份结果 -> kind : " << kind << " , success : " << success << " , errMsg : " << errMsg;
         //kind 在备份时为 "backup"，在恢复时为 "restore" (此处为备份)
         if ("backup" == kind) {
@@ -262,24 +263,29 @@ void UpdateWorker::activate()
 #ifndef DISABLE_ACTIVATOR
     licenseStateChangeSlot();
 
-    QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
-                                         "com.deepin.license.Info", "LicenseStateChange",
-                                         this, SLOT(licenseStateChangeSlot()));
+    QDBusConnection::systemBus().connect("com.deepin.license",
+                                         "/com/deepin/license/Info",
+                                         "com.deepin.license.Info",
+                                         "LicenseStateChange",
+                                         "u",
+                                         this,
+                                         SLOT(licenseStateChangeSlot()));
 #endif
 
     QFutureWatcher<QStringList> *packagesWatcher = new QFutureWatcher<QStringList>();
-    connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [=] {
+    connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [ = ] {
         QStringList updatablePackages = std::move(packagesWatcher->result());
         qDebug() << "UpdatablePackages = " << updatablePackages.count();
         m_model->isUpdatablePackages(updatablePackages.count() > UPDATE_PACKAGE_SIZE);
         packagesWatcher->deleteLater();
     });
 
-    packagesWatcher->setFuture(QtConcurrent::run([=]() -> QStringList {
+    packagesWatcher->setFuture(QtConcurrent::run([ = ]() -> QStringList {
         QDBusInterface Interface("com.deepin.lastore", "/com/deepin/lastore",
                                  "com.deepin.lastore.Updater",
                                  QDBusConnection::systemBus());
-        if (!Interface.isValid()) {
+        if (!Interface.isValid())
+        {
             qDebug() << "com.deepin.license error ," << Interface.lastError().name();
             return {};
         }
@@ -288,12 +294,12 @@ void UpdateWorker::activate()
     }));
 
     QFutureWatcher<QString> *iconWatcher = new QFutureWatcher<QString>();
-    connect(iconWatcher, &QFutureWatcher<QString>::finished, this, [=] {
+    connect(iconWatcher, &QFutureWatcher<QString>::finished, this, [ = ] {
         m_iconThemeState = iconWatcher->result();
         iconWatcher->deleteLater();
     });
 
-    iconWatcher->setFuture(QtConcurrent::run([=] {
+    iconWatcher->setFuture(QtConcurrent::run([ = ] {
         bool isSync = m_iconTheme->sync();
         m_iconTheme->setSync(true);
         const QString &iconTheme = m_iconTheme->iconTheme();
@@ -317,11 +323,13 @@ void UpdateWorker::checkForUpdates()
     QDBusPendingCall call = m_managerInter->UpdateSource();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
-        if (!call.isError()) {
+        if (!call.isError())
+        {
             QDBusReply<QDBusObjectPath> reply = call.reply();
             const QString jobPath = reply.value().path();
             setCheckUpdatesJob(jobPath);
-        } else {
+        } else
+        {
             m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
             if (!m_checkUpdateJob.isNull()) {
@@ -336,10 +344,12 @@ void UpdateWorker::distUpgradeDownloadUpdates()
 {
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->PrepareDistUpgrade(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
-        if (!watcher->isError()) {
+        if (!watcher->isError())
+        {
             QDBusReply<QDBusObjectPath> reply = watcher->reply();
             setDownloadJob(reply.value().path());
-        } else {
+        } else
+        {
             m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
             if (!m_distUpgradeJob.isNull()) {
@@ -354,10 +364,12 @@ void UpdateWorker::distUpgradeInstallUpdates()
 {
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(m_managerInter->DistUpgrade(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, watcher] {
-        if (!watcher->isError()) {
+        if (!watcher->isError())
+        {
             QDBusReply<QDBusObjectPath> reply = watcher->reply();
             setDistUpgradeJob(reply.value().path());
-        } else {
+        } else
+        {
             m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
             if (!m_distUpgradeJob.isNull()) {
@@ -410,7 +422,7 @@ void UpdateWorker::setAppUpdateInfo(const AppUpdateInfoList &list)
 
     // 如果所有可更新包数量大于可更新应用包数量，则添加一条系统更新item
     if (pkgCount > m_updatableApps.count()) {
-        auto it = std::find_if(infos.constBegin(), infos.constEnd(), [ = ](const AppUpdateInfo &info) {
+        auto it = std::find_if(infos.constBegin(), infos.constEnd(), [ = ](const AppUpdateInfo & info) {
             return info.m_packageId == DDEId;
         });
 
@@ -605,12 +617,13 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
     });
 
     connect(qApp, &QApplication::aboutToQuit, this, [ = ] {
-        if (checkUpdateJob) {
+        if (checkUpdateJob)
+        {
             delete checkUpdateJob.data();
         }
     });
 
-    connect(checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress,Qt::QueuedConnection);
+    connect(checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress, Qt::QueuedConnection);
     checkUpdateJob->ProgressChanged(checkUpdateJob->progress());
     checkUpdateJob->StatusChanged(checkUpdateJob->status());
 
@@ -802,7 +815,8 @@ void UpdateWorker::recoveryCanBackup()
     QDBusPendingCall call = m_abRecoveryInter->CanBackup();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, call] {
-        if (!call.isError()) {
+        if (!call.isError())
+        {
             QDBusReply<bool> reply = call.reply();
             bool value = reply.value();
             m_model->setRecoverBackingUp(value);
@@ -815,7 +829,8 @@ void UpdateWorker::recoveryCanBackup()
                 m_model->setStatus(UpdatesStatus::RecoveryBackupFailed, __LINE__);
                 qDebug() << Q_FUNC_INFO << " [abRecovery] 是否能备份(CanBackup)的环境不满足 -> 备份失败 ";
             }
-        } else {
+        } else
+        {
             qDebug() << " [abRecovery] recovery CanBackup error: " << call.error().message();
         }
     });
@@ -858,7 +873,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
         resetDownloadInfo();
     }
 
-    const CheckUpdateJobRet& ret = createCheckUpdateJob(jobPath);
+    const CheckUpdateJobRet &ret = createCheckUpdateJob(jobPath);
     if (ret.status == "succeed") {
         QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_updateInter->ApplicationUpdateInfos(QLocale::system().name()), this);
         connect(w, &QDBusPendingCallWatcher::finished, this, &UpdateWorker::onAppUpdateInfoFinished);
@@ -1043,9 +1058,11 @@ void UpdateWorker::onDownloadStatusChanged(const QString &status)
             qDebug() << "autoDownloadUpdates is open";
             QTimer::singleShot(0, this, [ = ] {
                 qDebug() << "m_model->downloadInfo()->downloadSize()=" << m_model->downloadInfo()->downloadSize();
-                if (m_model->downloadInfo()->downloadSize()) {
+                if (m_model->downloadInfo()->downloadSize())
+                {
                     checkForUpdates();
-                } else {
+                } else
+                {
                     m_model->setStatus(UpdatesStatus::Downloaded, __LINE__);
                 }
             });
