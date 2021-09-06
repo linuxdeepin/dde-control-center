@@ -47,6 +47,29 @@ void FingerDetailWidget::initFingerUI()
 
 void FingerDetailWidget::initNotFingerDevice()
 {
+    QVBoxLayout *mainContentLayout = new QVBoxLayout(this);
+    mainContentLayout->setAlignment(Qt::AlignHCenter | Qt::AlignCenter);
+
+    QLabel *pNotDevice = new QLabel;
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+        Q_UNUSED(themeType);
+        pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+    });
+    pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+    pNotDevice->setAlignment(Qt::AlignHCenter);
+
+    DTipLabel *tip = new DTipLabel(tr("No supported devices found"));
+    tip->setWordWrap(true);
+    tip->setAlignment(Qt::AlignCenter);
+
+    mainContentLayout->addWidget(pNotDevice);
+    mainContentLayout->addWidget(tip);
+    setLayout(mainContentLayout);
+}
+
+QString FingerDetailWidget::getDisplayPath()
+{
     QString theme;
     DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
     switch (type) {
@@ -59,20 +82,7 @@ void FingerDetailWidget::initNotFingerDevice()
         theme = QString("dark");
         break;
     }
-
-    QVBoxLayout *mainContentLayout = new QVBoxLayout(this);
-    mainContentLayout->setAlignment(Qt::AlignHCenter | Qt::AlignCenter);
-    QLabel *pNotDevice = new QLabel;
-    pNotDevice->setPixmap(QIcon::fromTheme(QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme)).pixmap(64, 64));
-    pNotDevice->setAlignment(Qt::AlignHCenter);
-
-    DTipLabel *tip = new DTipLabel(tr("No supported devices found"));
-    tip->setWordWrap(true);
-    tip->setAlignment(Qt::AlignCenter);
-
-    mainContentLayout->addWidget(pNotDevice);
-    mainContentLayout->addWidget(tip);
-    setLayout(mainContentLayout);
+    return QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme);
 }
 
 void FingerDetailWidget::showDeviceStatus(bool hasDevice)
