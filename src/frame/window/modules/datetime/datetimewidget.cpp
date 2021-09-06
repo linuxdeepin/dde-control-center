@@ -48,6 +48,10 @@ DatetimeWidget::DatetimeWidget(QWidget *parent)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     init();
+
+    //~ contents_path /defapp/Music/Add Application
+    //~ child_page Music
+    tr("Add Application");
 }
 
 DatetimeWidget::~DatetimeWidget()

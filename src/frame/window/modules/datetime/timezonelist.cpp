@@ -88,6 +88,10 @@ TimezoneList::TimezoneList(QWidget *parent)
     connect(m_contentList, &TimezoneContentList::notifyItemCount, this, [this](int value) {
         m_headGroup->setVisible(value > 1);
     });
+
+    //~ contents_path /defapp/Mail/Add Application
+    //~ child_page Mail
+    tr("Add Application");
 }
 
 TimezoneList::~TimezoneList()

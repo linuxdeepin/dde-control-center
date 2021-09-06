@@ -38,6 +38,10 @@ DefAppModel::DefAppModel(QObject *parent)
     m_modVideo = new Category(this);
     m_modPicture = new Category(this);
     m_modTerminal = new Category(this);
+
+    //~ contents_path /defapp/Picture/Add Application
+    //~ child_page Picture
+    QObject::tr("Add Application");
 }
 
 DefAppModel::~DefAppModel()

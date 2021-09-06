@@ -335,7 +335,7 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
 
             if (getDataNum(m_EnterNewPagelist[i]->fullPagePath, '/') == 3) {
                 //在第3级子页面再打开第4级页面
-                childWidget = m_EnterNewPagelist[i]->fullPagePath.section('/', 3);
+                childWidget = m_EnterNewPagelist[i]->fullPagePath.section('/', 2, -1);
                 qInfo() << " [Search] childWidgetCount : 3 , childWidget :" << childWidget;
             } else {
                 //插件的m_EnterNewPagelist[i]->childPageName为空
@@ -872,6 +872,10 @@ void SearchModel::setLanguage(const QString &type)
                                 // follow path module name to get actual module name  ->  Left module dispaly can support
                                 // mulLanguages
                                 searchBoxStrcut->actualModuleName = getModulesName(searchBoxStrcut->fullPagePath.section('/', 1, 1));
+                                //存在二级和四级页面都需要响应的问题
+                                if (searchBoxStrcut->fullPagePath.contains("/defapp")) {
+                                    m_childWidgetList.removeOne(searchBoxStrcut->childPageName);
+                                }
 
                                 if ("" == searchBoxStrcut->actualModuleName || "" == searchBoxStrcut->translateContent) {
                                     searchBoxStrcut = std::make_shared<SearchBoxStruct>();

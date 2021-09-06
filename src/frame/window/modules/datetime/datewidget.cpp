@@ -120,6 +120,10 @@ DateWidget::DateWidget(Type type, int minimum, int maximum, QFrame *parent)
     connect(m_lineEdit, &TimeSetLineEdit::notifyClicked, [this] {
         m_lineEdit->setFocus();
     });
+
+    //~ contents_path /defapp/Terminal/Add Application
+    //~ child_page Terminal
+    tr("Add Application");
 }
 
 void DateWidget::setValue(const int &value)
