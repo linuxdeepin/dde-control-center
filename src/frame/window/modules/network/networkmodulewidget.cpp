@@ -43,6 +43,8 @@
 #include <QDBusInterface>
 #include <QDBusMessage>
 
+#define DISABLE_NETWORK_VPN
+
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::network;
 using namespace dde::network;
