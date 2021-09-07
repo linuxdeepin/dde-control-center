@@ -68,26 +68,26 @@ spawn passwd
 
 # Verify the 'Current password'
 expect "Current password: "
-send "$oldpassword\r"
+send -- "$oldpassword\r"
 
 # Type the 'New password'
 expect "New password:"
-send "$userpass\r"
+send -- "$userpass\r"
 
 # current password verify
 send_user "\rpassword right\r"
 
 # Verify the 'Retype password'
 expect "Retype*"
-send "$repeatpass\r"
+send -- "$repeatpass\r"
 
 # Type the 'New password'
 expect "New password:"
-send "$userpass\r"
+send -- "$userpass\r"
 
 # Verify the 'Retype password'
 expect "Retype*"
-send "$repeatpass\r"
+send -- "$repeatpass\r"
 
 expect eof
 )";
@@ -105,11 +105,11 @@ spawn passwd
 
 # Type the 'New password'
 expect "New password:"
-send "$userpass\r"
+send -- "$userpass\r"
 
 # Verify the 'Retype password'
 expect "Retype*"
-send "$repeatpass\r"
+send -- "$repeatpass\r"
 expect eof
 )";
 
