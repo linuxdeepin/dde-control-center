@@ -34,6 +34,7 @@
 #include <QDBusReply>
 #include <QStandardItemModel>
 #include <QHBoxLayout>
+#include <QGSettings>
 
 using namespace DCC_NAMESPACE;
 
@@ -139,6 +140,14 @@ SoundModel::SoundModel(QObject *parent)
     if(IsServerSystem) {
         m_soundEffectMapBattery.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
         m_soundEffectMapPower.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
+    }
+
+    if (QGSettings::isSchemaInstalled("com.deepin.dde.dock.module.trash")) {
+        QGSettings settting("com.deepin.dde.dock.module.trash", QByteArray(), this);
+        if (!settting.get("enable").toBool()) {
+            m_soundEffectMapBattery.removeOne({ tr("Empty Trash"), DDesktopServices::SSE_EmptyTrash });
+            m_soundEffectMapPower.removeOne({ tr("Empty Trash"), DDesktopServices::SSE_EmptyTrash });
+        }
     }
 }
 
