@@ -58,6 +58,17 @@ TitleEdit::TitleEdit(QWidget *parent)
         this->setName();
         editWidget->setVisible(true);
     });
+
+    connect(m_lineEdit, &DLineEdit::focusChanged, this, [this, editWidget](bool onFocus){
+        if (onFocus) {
+            editWidget->setVisible(false);
+            this->setEdit();
+        } else {
+            this->setName();
+            editWidget->setVisible(true);
+        }
+    });
+
     connect(m_lineEdit, &DLineEdit::textChanged, this, [=](const QString &str) {
         if (str.length() > 64) {
             m_lineEdit->lineEdit()->backspace();
