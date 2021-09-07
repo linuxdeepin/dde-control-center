@@ -68,11 +68,11 @@ PowerModel::PowerModel(QObject *parent)
 {
     if (DGuiApplicationHelper::isTabletEnvironment()) {
         m_num2Time = {
-            {1, {"10s", 10}},
-            {2, {"20s", 20}},
-            {3, {"30s", 30}},
-            {4, {"40s", 40}},
-            {5, {"50s", 50}},
+            {1, {"1m", 60}},
+            {2, {"5m", 300}},
+            {3, {"10m", 600}},
+            {4, {"15m", 900}},
+            {5, {"Never", 0}},
         };
     } else {
         m_num2Time = {
