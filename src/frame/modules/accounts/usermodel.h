@@ -66,7 +66,6 @@ public:
     QStringList getAllGroups();
     void setPresetGroups(const QStringList &presetGroups);
     QStringList getPresetGroups();
-    inline int getAdminCnt() const { return m_adminCnt; }
     QString getCurrentUserName() const;
     void setCurrentUserName(const QString &currentUserName);
 
@@ -90,7 +89,6 @@ private:
     QMap<QString, User *> m_userList;
     QStringList m_allGroups;
     QStringList m_presetGroups;
-    int m_adminCnt; // 管理员帐户计数器 TODO: 见 commit message
     QString m_currentUserName;
 #ifdef DCC_ENABLE_ADDOMAIN
     bool m_isJoinADDomain;
