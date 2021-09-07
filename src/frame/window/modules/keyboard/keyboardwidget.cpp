@@ -21,6 +21,7 @@
 
 #include "keyboardwidget.h"
 #include "window/insertplugin.h"
+#include "window/visiblemanagement.h"
 #include "widgets/switchwidget.h"
 #include "widgets/contentwidget.h"
 #include "widgets/settingsgroup.h"
@@ -46,6 +47,14 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) : QWidget(parent)
 void KeyboardWidget::init()
 {
     m_listviewModel = new QStandardItemModel(m_keyboardListView);
+    m_keyboardListView->setModel(m_listviewModel);
+    m_keyboardListView->setAccessibleName("List_keyboardlist");
+    m_keyboardListView->setFrameShape(QFrame::NoFrame);
+    m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_keyboardListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    m_keyboardListView->setViewportMargins(ScrollAreaMargins);
+    m_keyboardListView->setIconSize(ListViweIconSize);
+
     QList<QPair<QString, QString>> menuIconText;
     menuIconText = {
         { "dcc_general_purpose", tr("General")},
@@ -57,29 +66,25 @@ void KeyboardWidget::init()
         { "dcc_hot_key", tr("Shortcuts")}
     };
     DStandardItem *keyboardItem = nullptr;
-    for (auto it = menuIconText.cbegin(); it != menuIconText.cend(); ++it) {
-        keyboardItem = new DStandardItem(QIcon::fromTheme(it->first), it->second);
+
+    m_itemList.append({menuIconText[0].first,menuIconText[0].second,QMetaMethod::fromSignal(&KeyboardWidget::showGeneralSetting), nullptr, "Keyboard_general"});
+    m_itemList.append({menuIconText[1].first,menuIconText[1].second,QMetaMethod::fromSignal(&KeyboardWidget::showKBLayoutSetting), nullptr, "Keyboard_layout"});
+    m_itemList.append({menuIconText[2].first,menuIconText[2].second,QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting), nullptr, "Keyboard_language"});
+    m_itemList.append({menuIconText[3].first,menuIconText[3].second,QMetaMethod::fromSignal(&KeyboardWidget::showShortCutSetting), nullptr, "Keyboard_shortcuts"});
+
+    for (auto item : m_itemList) {
+        keyboardItem = new DStandardItem(QIcon::fromTheme(item.itemIcon), item.itemText);
         keyboardItem->setData(VListViewItemMargin, Dtk::MarginsRole);
         m_listviewModel->appendRow(keyboardItem);
+        VisibleManagement::instance()->bind(item.gsettingsName, m_keyboardListView, keyboardItem);
     }
-
-    m_itemList.append({menuIconText[0].first,menuIconText[0].second,QMetaMethod::fromSignal(&KeyboardWidget::showGeneralSetting)});
-    m_itemList.append({menuIconText[1].first,menuIconText[1].second,QMetaMethod::fromSignal(&KeyboardWidget::showKBLayoutSetting)});
-    m_itemList.append({menuIconText[2].first,menuIconText[2].second,QMetaMethod::fromSignal(&KeyboardWidget::showSystemLanguageSetting)});
-    m_itemList.append({menuIconText[3].first,menuIconText[3].second,QMetaMethod::fromSignal(&KeyboardWidget::showShortCutSetting)});
 
     if(InsertPlugin::instance()->needPushPlugin("Keyboard and Language"))
         InsertPlugin::instance()->pushPlugin(m_listviewModel,m_itemList);
 
-    m_keyboardListView->setAccessibleName("List_keyboardlist");
-    m_keyboardListView->setFrameShape(QFrame::NoFrame);
-    m_keyboardListView->setModel(m_listviewModel);
-    m_keyboardListView->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    m_keyboardListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_keyboardListView->setCurrentIndex(m_listviewModel->index(0, 0));
-    m_keyboardListView->setViewportMargins(ScrollAreaMargins);
-    m_keyboardListView->setIconSize(ListViweIconSize);
     m_lastIndex = m_keyboardListView->currentIndex();
+
     connect(m_keyboardListView, &DListView::clicked, this, &KeyboardWidget::onItemClick);
     connect(m_keyboardListView, &DListView::activated, m_keyboardListView, &QListView::clicked);
 }

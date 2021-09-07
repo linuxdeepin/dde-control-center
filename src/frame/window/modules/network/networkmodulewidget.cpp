@@ -25,6 +25,7 @@
 
 #include "networkmodulewidget.h"
 #include "window/utils.h"
+#include "window/visiblemanagement.h"
 #include "widgets/nextpagewidget.h"
 #include "widgets/settingsgroup.h"
 #include "widgets/switchwidget.h"
@@ -72,6 +73,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     pppit->setData(QVariant::fromValue(DSLPage), SectionRole);
     pppit->setIcon(QIcon::fromTheme("dcc_dsl"));
     m_modelpages->appendRow(pppit);
+    VisibleManagement::instance()->bind("Network_dsl", m_lvnmpages, pppit);
 #endif
 
 #ifndef DISABLE_NETWORK_VPN
@@ -80,6 +82,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     vpnit->setData(QVariant::fromValue(VPNPage), SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
     m_modelpages->appendRow(vpnit);
+    VisibleManagement::instance()->bind("Network_vpn", m_lvnmpages, vpnit);
 #endif
 
 #ifndef DISABLE_NETWORK_PROXY
@@ -88,12 +91,14 @@ NetworkModuleWidget::NetworkModuleWidget()
     prxyit->setData(QVariant::fromValue(SysProxyPage), SectionRole);
     prxyit->setIcon(QIcon::fromTheme("dcc_system_agent"));
     m_modelpages->appendRow(prxyit);
+    VisibleManagement::instance()->bind("Network_systemProxy", m_lvnmpages, prxyit);
 
     //~ contents_path /network/Application Proxy
     DStandardItem *aprxit = new DStandardItem(tr("Application Proxy"));
     aprxit->setData(QVariant::fromValue(AppProxyPage), SectionRole);
     aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
     m_modelpages->appendRow(aprxit);
+    VisibleManagement::instance()->bind("Network_appProxy", m_lvnmpages, aprxit);
 #endif
 #endif
 
@@ -102,6 +107,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     infoit->setData(QVariant::fromValue(NetworkInfoPage), SectionRole);
     infoit->setIcon(QIcon::fromTheme("dcc_network"));
     m_modelpages->appendRow(infoit);
+    VisibleManagement::instance()->bind("Network_details", m_lvnmpages, infoit);
     m_centralLayout->addWidget(m_lvnmpages);
     if (IsServerSystem) {
         handleNMEditor();
@@ -111,6 +117,11 @@ NetworkModuleWidget::NetworkModuleWidget()
 
     connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
     connect(m_lvnmpages, &DListView::clicked, m_lvnmpages, &DListView::activated);
+}
+
+NetworkModuleWidget::~NetworkModuleWidget()
+{
+    VisibleManagement::instance()->clearMenuMap();
 }
 
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
@@ -304,6 +315,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     }
 
     QList<QStandardItem *> devits;
+    QStringList isRootShow;
 
     int wiredDevice = 0;
     int wirelessDevice = 0;
@@ -327,7 +339,9 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
             continue;
 
         qDebug() << "add Wired item!";
-        devits.push_back(createDeviceGroup(dev, ++count, wiredDevice > 1));
+        QStandardItem * item = createDeviceGroup(dev, ++count, wiredDevice > 1);
+        isRootShow << "Network_wired";
+        devits.push_back(item);
     }
 
     // add wireless device list
@@ -342,10 +356,13 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
             have_ap = true;
         }
 
-        devits.push_back(createDeviceGroup(dev, ++count, wirelessDevice > 1));
-    }
-    for (auto it = devits.rbegin(); it != devits.rend(); ++it) {
-        m_modelpages->insertRow(0, *it);
+        QStandardItem * item = createDeviceGroup(dev, ++count, wirelessDevice > 1);
+        isRootShow << "Network_wireless";
+        devits.push_back(item);
+    } 
+    for (int index = 0; index < devits.size(); ++index) {
+        m_modelpages->insertRow(0, devits[index]);
+        VisibleManagement::instance()->bind(isRootShow[index], m_lvnmpages, devits[index]);
     }
 
     if (have_ap) {
@@ -354,6 +371,7 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         hotspotit->setData(QVariant::fromValue(HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
         m_modelpages->insertRow(m_modelpages->rowCount() - 1, hotspotit);
+        VisibleManagement::instance()->bind("Network_hotspot", m_lvnmpages, hotspotit);
     }
 
     if (bRemoveCurrentDevice) {

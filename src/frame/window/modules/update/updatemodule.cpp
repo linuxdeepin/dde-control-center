@@ -26,6 +26,7 @@
 #include "modules/systeminfo/systeminfomodel.h"
 #include "modules/systeminfo/systeminfowork.h"
 #include "widgets/utils.h"
+#include "window/visiblemanagement.h"
 
 #include <QVBoxLayout>
 #include <QGSettings>
@@ -91,11 +92,13 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
         m_versionTypeModue  = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
         versionTypeList =  m_versionTypeModue->get(GSETTINGS_HIDE_VERSIONTYPR_MODULE).toStringList();
     }
+
+        bool isShow = VisibleManagement::instance()->getStatus("Module_" + name());
         if (versionTypeList.contains("update")) {
-            m_frameProxy->setModuleVisible(this, false);
+            m_frameProxy->setModuleVisible(this, false && isShow);
         } else {
             bool bShowUpdate = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", true);
-            m_frameProxy->setModuleVisible(this, bShowUpdate);
+            m_frameProxy->setModuleVisible(this, bShowUpdate && isShow);
         }
 
 }
@@ -247,6 +250,11 @@ void UpdateModule::notifyDisplayReminder(UpdatesStatus status)
 
 void UpdateModule::onUpdatablePackagesChanged(const bool isUpdatablePackages)
 {
+    //当更新都不显示的时候，没必要显示红点图标
+    if (!VisibleManagement::instance()->getStatus("Module_" + name())) {
+        return;
+    }
+
     if (isUpdatablePackages)
         m_frameProxy->setModuleSubscriptVisible(name(), true);
     else

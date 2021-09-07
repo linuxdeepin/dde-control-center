@@ -40,7 +40,7 @@ CommonInfoModule::CommonInfoModule(dccV20::FrameProxyInterface *frame, QObject *
     , m_bootWidget(nullptr)
     , m_ueProgramWidget(nullptr)
 {
-
+    m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 #ifdef DCC_DISABLE_GRUB
     //如果服务器版本，且不显示GRUB(arm),则整个模块不显示
     if (IsServerSystem)
@@ -105,6 +105,11 @@ void CommonInfoModule::active()
     connect(m_commonWidget, &CommonInfoWidget::requestShowDeveloperModeWidget, this, &CommonInfoModule::onShowDeveloperWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowUEPlanWidget, this, &CommonInfoModule::onShowUEPlanWidget);
     connect(m_commonWidget, &CommonInfoWidget::requestShowTabletModeWidget, this, &CommonInfoModule::onShowTabletModeWidget);
+    connect(m_commonWidget, &CommonInfoWidget::requestUpdateSecondMenu, this, [=] (bool needPop) {
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop)
+            m_frameProxy->popWidget(this);
+        m_commonWidget->showDefaultWidget();
+    });
     m_frameProxy->pushWidget(this, m_commonWidget);
     m_commonWidget->setVisible(true);
 
@@ -115,6 +120,7 @@ void CommonInfoModule::active()
 #endif
     QModelIndex curSelectIndex = m_commonWidget->getCommonListView()->model()->index(0, 0); // 第一行
     m_commonWidget->getCommonListView()->setCurrentIndex(curSelectIndex);
+    m_commonWidget->showDefaultWidget();
 }
 
 void CommonInfoModule::deactive()
@@ -190,8 +196,7 @@ void CommonInfoModule::onShowDeveloperWidget()
     pWidget->setModel(m_commonModel);
     connect(pWidget, &DeveloperModeWidget::requestLogin, m_commonWork, &CommonInfoWork::login);
     connect(pWidget, &DeveloperModeWidget::enableDeveloperMode, this, [=](bool enabled) {
-        MainWindow *pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
-        m_commonWork->setEnableDeveloperMode(enabled, pMainWindow);
+        m_commonWork->setEnableDeveloperMode(enabled, m_pMainWindow);
     });
     m_frameProxy->pushWidget(this, pWidget);
     pWidget->setVisible(true);

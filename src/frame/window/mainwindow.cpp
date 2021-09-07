@@ -39,6 +39,7 @@
 #include "modules/defapp/defaultappsmodule.h"
 #include "modules/update/mirrorswidget.h"
 #include "widgets/multiselectlistview.h"
+#include "window/visiblemanagement.h"
 #include "mainwindow.h"
 #include "insertplugin.h"
 #include "constant.h"
@@ -111,6 +112,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     //Initialize view and layout structure
     DMainWindow::installEventFilter(this);
+
+    //设置ModuleVisibleAppName,为后续能找到正确的配置文件做准备
+    VisibleManagement::instance()->setAppName("dde-control-center");
 
     QWidget *content = new QWidget(this);
     content->setObjectName("contentwindow");
@@ -366,6 +370,7 @@ void MainWindow::initAllModule(const QString &m)
         }
         updateModuleVisible();
     });
+    connect(VisibleManagement::instance(), &VisibleManagement::requestDataChanged, this, &MainWindow::updateModuleVisible);
     updateModuleVisible();
 
     //通过gsetting获取版本类型，设置某模块是否显示
@@ -446,10 +451,21 @@ void MainWindow::updateModuleVisible()
 {
     m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
     for (auto i : m_modules) {
+        QString name = "Module_" + i.first->name();
+        //在这里多加一个判断保证高级功能正常
+        bool isShow = VisibleManagement::instance()->getStatus(name);
         if (m_hideModuleNames.contains((i.first->name()))) {
-            setModuleVisible(i.first, false);
+            setModuleVisible(i.first, false && isShow);
         } else {
-            setModuleVisible(i.first, true);
+            setModuleVisible(i.first, isShow);
+        }
+        //当页面处于四级页面的时候，无法正常退出，其他的方式都会回到主页面
+        if (m_navModel->itemFromIndex(m_navView->currentIndex()) && m_navModel->itemFromIndex(m_navView->currentIndex())->text() == i.second && !isShow) {
+            popAllWidgets();
+            m_moduleName = "";
+            resetNavList(m_contentStack.isEmpty());
+            updateViewBackground();
+            updateWinsize();
         }
     }
 }

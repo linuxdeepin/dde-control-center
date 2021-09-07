@@ -22,6 +22,7 @@
 #include "commoninfowidget.h"
 #include "window/insertplugin.h"
 #include "window/utils.h"
+#include "window/visiblemanagement.h"
 #include "widgets/multiselectlistview.h"
 
 
@@ -50,9 +51,24 @@ CommonInfoWidget::CommonInfoWidget(QWidget *parent)
     initData();
 }
 
+CommonInfoWidget::~CommonInfoWidget()
+{
+    VisibleManagement::instance()->clearMenuMap();
+}
+
 dcc::widgets::MultiSelectListView *CommonInfoWidget::getCommonListView()
 {
     return m_listView;
+}
+
+void CommonInfoWidget::showDefaultWidget()
+{
+    for (int i = 0; i < m_itemModel->rowCount(); i++) {
+        if (!m_listView->isRowHidden(i)) {
+            m_listView->activated(m_itemModel->index(i, 0));
+            break;
+        }
+    }
 }
 
 void CommonInfoWidget::initWidget()
@@ -77,12 +93,12 @@ void CommonInfoWidget::initData()
 #ifndef DCC_DISABLE_GRUB
     //~ contents_path /commoninfo/Boot Menu
     m_itemList.append({"dcc_boot_menu", tr("Boot Menu"),
-                       QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget)});
+                       QMetaMethod::fromSignal(&CommonInfoWidget::requestShowBootWidget), nullptr, "CommonInfo_bootMenu"});
 #endif
 
     if (QGSettings::isSchemaInstalled("com.deepin.dde.control-versiontype")) {
         m_moduleDevelop = new QGSettings("com.deepin.dde.control-versiontype", QByteArray(), this);
-        isContensServer =  m_moduleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
+        isContensServer = m_moduleDevelop->get(GSETTINGS_CONTENS_SERVER).toBool();
     }
 
     //以下模块只在非服务器版本使用
@@ -90,13 +106,13 @@ void CommonInfoWidget::initData()
         if (!isContensServer) {
             if (!IsCommunitySystem) {
                 //~ contents_path /commoninfo/Developer Mode
-                m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
-                                   QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget)});
+               m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
+                               QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget), nullptr, "CommonInfo_developerMode"});
             }
         }
         //~ contents_path /commoninfo/User Experience Program
         m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),
-                           QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget)});
+                           QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget), nullptr, "CommonInfo_userExperienceProgram"});
 
 #if 0
         m_itemList.append({"", tr("Tablet Mode"),
@@ -104,16 +120,16 @@ void CommonInfoWidget::initData()
                           });
 #endif
     }
-
     for (auto m : m_itemList) {
         DStandardItem *item = new DStandardItem;
         item->setIcon(QIcon::fromTheme(m.itemIcon));
         item->setText(m.itemText);
         m_itemModel->appendRow(item);
+        VisibleManagement::instance()->bind(m.gsettingsName, m_listView, item);
     }
 
-    if(InsertPlugin::instance()->needPushPlugin("General Settings"))
-        InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
+    if (InsertPlugin::instance()->needPushPlugin("commoninfo"))
+        InsertPlugin::instance()->pushPlugin(m_itemModel, m_itemList);
 
     m_lastIndex = m_listView->model()->index(0, 0);
     connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
@@ -125,5 +141,23 @@ void CommonInfoWidget::initData()
         m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
+    connect(VisibleManagement::instance(), &VisibleManagement::requestUpdateSecondMenu, this, [=](int row) {
+        bool isAllHidden = true;
+        for (int i = 0; i < m_itemModel->rowCount(); i++) {
+            if (!m_listView->isRowHidden(i))
+                isAllHidden = false;
+        }
 
+        if (m_listView->selectionModel()->selectedRows().size() > 0) {
+            int index = m_listView->selectionModel()->selectedRows()[0].row();
+            Q_EMIT requestUpdateSecondMenu(index == row);
+        } else {
+            Q_EMIT requestUpdateSecondMenu(false);
+        }
+
+        if (isAllHidden) {
+            m_lastIndex = QModelIndex();
+            m_listView->clearSelection();
+        }
+    });
 }

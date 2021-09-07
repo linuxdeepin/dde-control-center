@@ -75,6 +75,8 @@ install(FILES data/MainEnglishDictionary_ProbWL.txt DESTINATION share/dict)
 # conf file
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/files/dde-control-center.conf DESTINATION share/dde-control-center)
 
+install(FILES files/ModuleVisible/dde-control-center.conf DESTINATION /etc/deepin/ModuleVisible)
+
 # polkit policy file
 install(FILES com.deepin.controlcenter.develop.policy DESTINATION share/polkit-1/actions)
 if (OS_DEEPIN_PROFESSIONAL)
@@ -95,3 +97,4 @@ configure_package_config_file(DdeControlCenterConfig.cmake.in
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
+

@@ -73,6 +73,7 @@ public:
     };
 
     explicit NetworkModuleWidget();
+    ~NetworkModuleWidget();
     void setModel(dde::network::NetworkModel *model);
     void initSetting(const int settingIndex, const QString &searchPath);
     //设置当前索引

@@ -20,6 +20,7 @@
  */
 #include "searchwidget.h"
 #include "window/utils.h"
+#include "window/visiblemanagement.h"
 #include "interface/moduleinterface.h"
 
 #include <DPinyin>
@@ -648,7 +649,39 @@ void SearchModel::setLanguage(const QString &type)
     connect(watcher, &QFutureWatcher<QList<SearchBoxStruct::Ptr>>::finished, this, [=] {
         m_originList = watcher->result();
         watcher->deleteLater();
+        QMap<QString, bool> menuState = VisibleManagement::instance()->getMenuState();
+
+        for (const QString &key : menuState.keys()) {
+            if (!menuState.value(key)) {
+                for (int j = 0; j < m_originList.size(); ++j) {
+                    QString name = m_originList[j].get()->fullPagePath.remove(QChar(' '));
+                    if (name.contains(key, Qt::CaseInsensitive)) {
+                        m_hideList.append(m_originList.takeAt(j--));
+                    }
+                }
+            }
+        }
+
         return loadxml();
+    });
+
+    connect(VisibleManagement::instance(), &VisibleManagement::requestUpdateSearchMenu, this, [=](const QString &text, bool visible) {
+        if (visible) {
+            for (int i = 0; i < m_hideList.size(); ++i) {
+                QString name = m_hideList[i]->fullPagePath.remove(QChar(' '));
+                if (name.contains(text, Qt::CaseInsensitive)) {
+                    m_originList.append(m_hideList.takeAt(i--));
+                }
+            }
+        } else {
+            for (int i = 0; i < m_originList.size(); ++i) {
+                QString name = m_originList[i]->fullPagePath.remove(QChar(' '));
+                if (name.contains(text, Qt::CaseInsensitive)) {
+                    m_hideList.append(m_originList.takeAt(i--));
+                }
+            }
+        }
+        loadxml();
     });
 
     watcher->setFuture(QtConcurrent::run([=] {
