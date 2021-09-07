@@ -98,7 +98,6 @@ UpdateWorker::UpdateWorker(UpdateModel *model, QObject *parent)
     , m_bDownAndUpdate(false)
     , m_jobPath("")
     , m_downloadProcess(0.0)
-    , m_bIsFirstGetDownloadProcess(true)
     , m_downloadSize(0)
     , m_iconThemeState("")
     , m_beginUpdatesJob(false)
@@ -882,7 +881,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
                                  QDBusConnection::systemBus(), this);
 
     connect(m_downloadJob, &__Job::ProgressChanged, [this](double value) {
-        qDebug() << "[wubw download] m_downloadJob, value : " << value << m_bIsFirstGetDownloadProcess;
+        qDebug() << "[wubw download] m_downloadJob, value : " << value;
         //防止退出后再次进入不确定当前升级的状态,设置正在下载中.
         //假如dbus一直收不到该信号,还是会存在从check直接调到结果的问题(此时就是底层的问题了)
         m_downloadProcess = value;
@@ -895,20 +894,6 @@ void UpdateWorker::setDownloadJob(const QString &jobPath)
                 return;
             }
 
-            //第一次收到下载进度显示暂定,之后再次收到显示更新中
-            if (m_bIsFirstGetDownloadProcess) {
-                //只有当进度为0的时候,才会显示一次暂停
-                if (!compareDouble(m_downloadProcess, 0.0)) {
-                    m_bIsFirstGetDownloadProcess = false;
-                    onNotifyStatusChanged(UpdatesStatus::DownloadPaused);
-                }
-            } else {
-                if (m_downloadSize > 0) {
-                    m_model->setStatus(UpdatesStatus::Downloading, __LINE__);
-                } else {
-                    qDebug() << " m_downloadSize is 0 : do nothing.";
-                }
-            }
             info->setDownloadProgress(value);
             m_model->setUpgradeProgress(value);
         } else {
