@@ -159,7 +159,6 @@ private:
     bool m_bDownAndUpdate;
     QString m_jobPath;
     double m_downloadProcess;
-    bool m_bIsFirstGetDownloadProcess;
     qulonglong m_downloadSize;
     QString m_iconThemeState;
     bool m_beginUpdatesJob;
