@@ -34,7 +34,6 @@ UserModel::UserModel(QObject *parent)
     , m_autoLoginVisable(true)
     , m_noPassWordLoginVisable(true)
     , m_bCreateUserValid(false)
-    , m_adminCnt(0)
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_isJoinADDomain(false)
     , m_isADUserLogind(false)
@@ -64,16 +63,6 @@ void UserModel::addUser(const QString &id, User *user)
 
     m_userList[id] = user;
 
-    if (user->userType() == User::Administrator) {
-        Q_EMIT adminCntChange(++m_adminCnt);
-    }
-
-    connect(user, &User::userTypeChanged, this, [=](int userType) {
-        // 如果现在是个  管理员 , 那么之前是 标准用户, 所以多了一个
-        // 如果现在是个 标准用户, 那么之前是  管理员 , 所以少了一个
-        Q_EMIT adminCntChange(userType == User::Administrator ? ++m_adminCnt : --m_adminCnt);
-    });
-
     Q_EMIT userAdded(user);
 }
 
@@ -82,11 +71,6 @@ void UserModel::removeUser(const QString &id)
     Q_ASSERT(m_userList.contains(id));
 
     User *user = m_userList[id];
-
-    if (user->userType() == User::Administrator) {
-        Q_EMIT adminCntChange(--m_adminCnt);
-    }
-
     m_userList.remove(id);
 
     Q_EMIT userRemoved(user);

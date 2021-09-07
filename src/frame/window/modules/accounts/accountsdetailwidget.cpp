@@ -546,16 +546,24 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         connect(m_userModel, &UserModel::noPassWordLoginVisableChanged, m_nopasswdLogin, &SwitchWidget::setVisible);
     }
 
-    auto isOnlyAdminOnDesktop = [=]() {                         // 是桌面版中的最后一个管理员
-        return !m_isServerSystem                                // 是桌面版
-                && m_curUser->userType() == User::Administrator // 是管理员
-                && m_userModel->getAdminCnt() == 1;             // 管理员只有一个
+    auto adminCnt = [=]() {
+        int adminCnt = 0;
+        for(auto user : m_userModel->userList()) {
+            if(user->userType() == User::UserType::Administrator)
+                adminCnt++;
+        }
+        return adminCnt;
+    };
+
+    auto isOnlyAdmin = [=]() {                                  // 是最后一个管理员
+        return m_curUser->userType() == User::Administrator     // 是管理员
+               && adminCnt() == 1;                              // 管理员只有一个
     };
 
     auto deleteUserBtnEnable = [=]() {      // 可以删除用户
         return !m_curUser->isCurrentUser()  // 不是当前用户
                 && !m_curUser->online()     // 未登录
-                && !isOnlyAdminOnDesktop(); // 不是桌面版的最后一个管理员
+                && !isOnlyAdmin();          // 不是最后一个管理员
     };
 
     setDeleteBtnStatus("accountUserDeleteaccount", deleteUserBtnEnable());
