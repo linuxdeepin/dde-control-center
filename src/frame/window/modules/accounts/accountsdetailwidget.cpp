@@ -673,7 +673,7 @@ void AccountsDetailWidget::setModifyPwdBtnStatus(const QString &key)
 
     const QString btnStatus = m_gsettings->get(key).toString();
 
-    m_modifyPassword->setEnabled("Enabled" == btnStatus && (!m_curUser->online() || m_curUser->isCurrentUser()) && m_curLoginUser->userType() == 1);
+    m_modifyPassword->setEnabled("Enabled" == btnStatus && ((!m_curUser->online() && m_curLoginUser->userType() == User::UserType::Administrator) || m_curUser->isCurrentUser()));
 
     m_modifyPassword->setVisible("Hidden" != btnStatus);
 }
