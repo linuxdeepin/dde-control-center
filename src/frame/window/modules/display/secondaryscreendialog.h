@@ -71,6 +71,7 @@ Q_SIGNALS:
     void requestSetRotate(dcc::display::Monitor *monitor, const int rotate);
     void requestGatherWindows(const QPoint cursor);
     void requestGatherEnabled(const bool enable);
+    void requestCloseRecognize();
 
 private:
     QVBoxLayout *m_contentLayout;

@@ -262,6 +262,7 @@ void SecondaryScreenDialog::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
     case Qt::Key_Escape:
+        Q_EMIT requestCloseRecognize();
         break;
     default:
         QDialog::keyPressEvent(event);

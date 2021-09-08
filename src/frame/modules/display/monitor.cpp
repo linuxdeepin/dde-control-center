@@ -78,7 +78,6 @@ void Monitor::setW(const int w)
     m_w = w;
 
     Q_EMIT wChanged(m_w);
-    Q_EMIT geometryChanged();
 }
 
 void Monitor::setH(const int h)
@@ -89,7 +88,6 @@ void Monitor::setH(const int h)
     m_h = h;
 
     Q_EMIT hChanged(m_h);
-    Q_EMIT geometryChanged();
 }
 
 void Monitor::setMmWidth(const uint mmWidth)
