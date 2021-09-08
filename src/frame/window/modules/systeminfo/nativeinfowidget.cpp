@@ -44,6 +44,7 @@
 using namespace dcc::widgets;
 using namespace dcc::systeminfo;
 #define GSETTINGS_CONTENS_SERVER "iscontens-server"
+const int hostname_placeholder = 120;
 
 DCORE_USE_NAMESPACE
 namespace DCC_NAMESPACE {
@@ -86,6 +87,8 @@ NativeInfoWidget::NativeInfoWidget(SystemInfoModel *model, QWidget *parent)
     , m_hostNameLayout(new QHBoxLayout(this))
     , m_hostNameSettingItem(new SettingsItem(this))
     , isContensServers(false)
+    , m_hostname(model ? model->hostName() : "")
+    , m_hostnameEdit(m_hostname)
 {
     initWidget();
 }
@@ -129,7 +132,6 @@ void NativeInfoWidget::initWidget()
         m_hostNameLayout->addStretch(1);
 
         m_hostNameLabel = new DLabel();
-        m_hostNameLabel->setIndent(10);
         m_hostNameLabel->setForegroundRole(DPalette::TextTips);
         m_hostNameLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         m_hostNameLayout->addWidget(m_hostNameLabel);
@@ -139,9 +141,9 @@ void NativeInfoWidget::initWidget()
         m_hostNameBtn->setIconSize(QSize(12, 12));
         m_hostNameBtn->setFixedSize(36, 36);
         m_hostNameLayout->addWidget(m_hostNameBtn);
-        m_hostNameLayout->addSpacing(10);
 
         m_hostNameLineEdit = new HostNameEdit();
+        m_hostNameLineEdit->lineEdit()->setFixedWidth(this->width() - hostname_placeholder);
         QRegExp regx("^[A-Za-z0-9-]{0,64}$");
         QValidator *validator = new QRegExpValidator(regx, m_hostNameLineEdit);
         m_hostNameLineEdit->lineEdit()->setValidator(validator);
@@ -164,7 +166,7 @@ void NativeInfoWidget::initWidget()
         m_hostNameSettingItem->addBackground();
 
         m_hostNameLabel->setToolTip(m_model->hostName());
-        m_hostNameLabel->setText(m_model->hostName());
+        m_hostNameLabel->setText(getElidedText(m_hostNameLabel, m_model->hostName(), Qt::ElideRight, this->width() - hostname_placeholder, 0, __LINE__));
         m_hostNameLabel->setMinimumHeight(m_hostNameLineEdit->lineEdit()->height());
         //点击编辑按钮
         connect(m_hostNameBtn, &DToolButton::clicked, this, [ = ]() {
@@ -201,6 +203,7 @@ void NativeInfoWidget::initWidget()
         });
 
         connect(m_hostNameLineEdit, &DLineEdit::textEdited, this, [ = ](const QString &hostName) {
+            m_hostnameEdit = hostName;
             if (!hostName.isEmpty()) {
                if (hostName.size() > 63) {
                     m_hostNameLineEdit->lineEdit()->backspace();
@@ -262,9 +265,12 @@ void NativeInfoWidget::initWidget()
             }
         });
 
+
         connect(m_model, &SystemInfoModel::hostNameChanged, m_hostNameLabel, [ = ](const QString &hostName) {
-            m_hostNameLabel->setText(hostName);
-            m_hostNameLabel->setToolTip(hostName);
+            m_hostname = hostName;
+            QString name = getElidedText(m_hostNameLabel, hostName, Qt::ElideRight, this->width() - hostname_placeholder, 0, __LINE__);
+            m_hostNameLabel->setText(name);
+            m_hostNameLabel->setToolTip(name);
         });
         connect(m_model, &SystemInfoModel::setHostNameError, this, [ = ](QString error){
             m_hostNameLineEdit->setVisible(true);
@@ -390,9 +396,19 @@ void NativeInfoWidget::resizeEvent(QResizeEvent *event)
 {
     ContentWidget::resizeEvent(event);
 
+    if (!m_hostNameLineEdit)
+        return;
+
     if(m_hostNameLineEdit->isAlert()) {
         m_hostNameLineEdit->hideAlertMessage();
         m_hostNameLineEdit->showAlertMessage(m_alertMessage,this);
+    }
+
+    if (m_hostNameLineEdit->lineEdit()) {
+        m_hostNameLineEdit->lineEdit()->setFixedWidth(this->width() - hostname_placeholder);
+        m_hostNameLineEdit->lineEdit()->setText(m_hostnameEdit);
+        QString txt = getElidedText(m_hostNameLabel, m_hostname, Qt::ElideRight, this->width() - hostname_placeholder - 30, 0, __LINE__);
+        m_hostNameLabel->setText(txt);
     }
 }
 
@@ -477,6 +493,28 @@ const QString NativeInfoWidget::systemLogo() const
     } else {
         return logo_path;
     }
+}
+
+//used to display long string: "12345678" -> "12345..."
+const QString NativeInfoWidget::getElidedText(QWidget* widget, QString data, Qt::TextElideMode mode, int width, int flags, int line)
+{
+    QString retTxt = data;
+    if (retTxt == "")
+        return retTxt;
+
+
+    QFontMetrics fontMetrics(font());
+    int fontWidth = fontMetrics.width(data);
+
+    qInfo() << Q_FUNC_INFO << " [Enter], data, width, fontWidth : " << data << width << fontWidth << line;
+
+    if (fontWidth > width) {
+        retTxt = widget->fontMetrics().elidedText(data, mode, width, flags);
+    }
+
+    qInfo() << Q_FUNC_INFO << " [End], retTxt : " << retTxt;
+
+    return retTxt;
 }
 
 }

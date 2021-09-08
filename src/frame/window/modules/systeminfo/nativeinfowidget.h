@@ -71,6 +71,7 @@ private:
     void initWidget();
     const QString systemCopyright() const;
     const QString systemLogo() const;
+    const QString getElidedText(QWidget* widget, QString data, Qt::TextElideMode mode = Qt::ElideRight, int width = 100, int flags = 0, int line = 0);
 
 public Q_SLOTS:
     void setProductName(const QString &edition);
@@ -107,6 +108,8 @@ private:
     QGSettings *m_moduleActive{nullptr};
     bool isContensServers;
     QString m_alertMessage;
+    QString m_hostname;//保存计算机的全名
+    QString m_hostnameEdit;//保存编辑时的数据
 };
 
 }
