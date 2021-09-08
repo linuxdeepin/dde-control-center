@@ -27,6 +27,7 @@
 #define MONITORCONTROLWIDGET_H
 
 #include <QFrame>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
@@ -45,10 +46,11 @@ class MonitorControlWidget : public QFrame
     Q_OBJECT
 
 public:
-    explicit MonitorControlWidget(int activateHeight = 200, QWidget *parent = nullptr);
+    explicit MonitorControlWidget(int activateHeight = 240, QWidget *parent = nullptr);
 
     void setModel(DisplayModel *model, Monitor *moni = nullptr);
     void setScreensMerged(const int mode);
+    void setMergeMode(bool val);
 
 Q_SIGNALS:
     void requestRecognize() const;
@@ -60,11 +62,14 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onGatherEnabled(const bool enable);
+    void onSetEffectiveReminderVisible(bool visible, int nEffectiveTime);
 
 private:
     MonitorsGround *m_screensGround;
     QPushButton *m_recognize;
     QPushButton *m_gather;
+    //多屏设置生效提示
+    QLabel *m_effectiveReminder;
 };
 
 } // namespace display

@@ -31,11 +31,13 @@
 #include "modules/display/displaymodel.h"
 #include "modules/display/monitorcontrolwidget.h"
 #include "modules/display/monitorindicator.h"
+#include "modules/display/recognizewidget.h"
 #include "window/gsettingwatcher.h"
 
 #include <QVBoxLayout>
 #include <QApplication>
 #include <QComboBox>
+#include <QDesktopWidget>
 
 using namespace dcc::widgets;
 using namespace dcc::display;
@@ -47,7 +49,7 @@ const int ComboxWidth = 300;
 MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     : QWidget(parent)
     , m_contentLayout(new QVBoxLayout(this))
-    , m_monitorControlWidget(new MonitorControlWidget(200, this))
+    , m_monitorControlWidget(new MonitorControlWidget(240, this)) //根据产品设计更改出事高度为240
     , m_fullIndication(new MonitorIndicator(this))
     , m_multiSettingLabel(new TitleLabel(tr("Multiple Displays"), this))
     , m_modeSettingsItem(new SettingsItem(this))
@@ -63,6 +65,7 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_refreshRateWidget(new RefreshRateWidget(300, this))
     , m_rotateWidget(new RotateWidget(300, this))
     , m_model(nullptr)
+    , m_showRecognizeTimer(new QTimer(this))
 {
     m_contentLayout->setSpacing(0);
     m_contentLayout->setContentsMargins(56, 20, 56, 0);
@@ -116,6 +119,9 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_multiSettingLabel);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_modeSettingsItem);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_primarySettingsItem);
+
+    QDesktopWidget *desktopwidget = QApplication::desktop();
+    connect(desktopwidget,SIGNAL(resized(int)),this,SLOT(onResetSecondaryScreenDlg()));
 }
 
 MultiScreenWidget::~MultiScreenWidget()
@@ -124,6 +130,11 @@ MultiScreenWidget::~MultiScreenWidget()
         dlg->deleteLater();
     }
     m_secondaryScreenDlgList.clear();
+
+    for(auto widget : m_recognizeWidget) {
+        widget->deleteLater();
+    }
+    m_recognizeWidget.clear();
 
     GSettingWatcher::instance()->erase("displayResolution", m_resolutionWidget);
     GSettingWatcher::instance()->erase("displayRefreshRate", m_refreshRateWidget);
@@ -140,11 +151,13 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     initModeList();
     initPrimaryList();
 
+    m_showRecognizeTimer->setSingleShot(true);
+
     connect(m_model, &DisplayModel::displayModeChanged, m_monitorControlWidget, &MonitorControlWidget::setScreensMerged);
     connect(m_model, &DisplayModel::displayModeChanged, this, [=](const int mode) {
         if (mode == MERGE_MODE) {
             m_modeCombox->setCurrentIndex(0);
-            m_primaryCombox->setEnabled(false);
+            m_primarySettingsItem->setVisible(false);
             m_brightnessWidget->showBrightness();
             m_monitorControlWidget->setModel(m_model);
             for (auto dlg : m_secondaryScreenDlgList) {
@@ -153,7 +166,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
             m_secondaryScreenDlgList.clear();
         } else if (mode == EXTEND_MODE) {
             m_modeCombox->setCurrentIndex(1);
-            m_primaryCombox->setEnabled(true);
+            m_primarySettingsItem->setVisible(true);
             m_brightnessWidget->showBrightness(m_model->primaryMonitor());
             m_monitorControlWidget->setModel(m_model);
             initSecondaryScreenDialog();
@@ -168,7 +181,7 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
                 }
             }
 
-            m_primaryCombox->setEnabled(false);
+            m_primarySettingsItem->setVisible(false);
             m_brightnessWidget->showBrightness(m_model->primaryMonitor());
 
             for (auto dlg : m_secondaryScreenDlgList) {
@@ -234,14 +247,15 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_monitorControlWidget, &MonitorControlWidget::requestMonitorRelease, this, &MultiScreenWidget::onMonitorRelease);
     connect(m_monitorControlWidget, &MonitorControlWidget::requestRecognize, this, &MultiScreenWidget::requestRecognize);
     connect(m_monitorControlWidget, &MonitorControlWidget::requestSetMonitorPosition, this, &MultiScreenWidget::onRequestSetMonitorPosition);
-    connect(m_monitorControlWidget, &MonitorControlWidget::requestShowsecondaryScreen, this, &MultiScreenWidget::onRequestShowsecondaryScreen);
     connect(m_monitorControlWidget, &MonitorControlWidget::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
     connect(this, &MultiScreenWidget::requestGatherEnabled, m_monitorControlWidget, &MonitorControlWidget::onGatherEnabled);
 
     connect(m_modeCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
         if (idx <= 1 && m_model->displayMode() != idx + 1) {
+            m_monitorControlWidget->setMergeMode((idx == 0)? true: false);
             Q_EMIT requestSwitchMode(idx + 1);
         } else if (idx > 1 && (m_model->displayMode() != SINGLE_MODE || m_model->monitorList()[idx - 2]->name() != m_model->primary())) {
+            m_monitorControlWidget->setMergeMode(false);
             Q_EMIT requestSwitchMode(SINGLE_MODE, m_model->monitorList()[idx - 2]->name());
         }
     });
@@ -258,12 +272,14 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
     connect(m_refreshRateWidget, &RefreshRateWidget::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
     connect(m_rotateWidget, &RotateWidget::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
 
+    connect(this, &MultiScreenWidget::requestRecognize, this, &MultiScreenWidget::onRequestRecognize);
+
     m_monitorControlWidget->setScreensMerged(m_model->displayMode());
     m_monitorControlWidget->setModel(m_model, m_model->displayMode() == SINGLE_MODE ? m_model->primaryMonitor() : nullptr);
     m_multiSettingLabel->setVisible(m_model->resolutionRefreshEnable() && (GSettingWatcher::instance()->getStatus("displayMultipleDisplays") != "Hidden"));
     m_modeSettingsItem->setVisible(m_model->resolutionRefreshEnable());
     m_primarySettingsItem->setVisible(m_model->resolutionRefreshEnable());
-    m_primaryCombox->setEnabled(m_model->displayMode() == EXTEND_MODE);
+    m_primarySettingsItem->setVisible(m_model->displayMode() == EXTEND_MODE);
     m_brightnessWidget->setMode(m_model);
     m_brightnessWidget->showBrightness(m_model->displayMode() == MERGE_MODE ? nullptr : m_model->primaryMonitor());
     m_brightnessWidget->setVisible(m_model->brightnessEnable());
@@ -284,7 +300,9 @@ void MultiScreenWidget::initModeList()
     auto monitorList = m_model->monitorList();
     for (int idx = 0; idx < monitorList.size(); ++idx) {
         auto monitor = monitorList[idx];
-        m_modeCombox->addItem(tr("Only on %1").arg(monitor->name()));
+        if(monitorList.size() <= 2)
+            m_modeCombox->addItem(tr("Only on %1").arg(monitor->name()));
+
         if (m_model->displayMode() == MERGE_MODE) {
             m_modeCombox->setCurrentIndex(0);
         } else if (m_model->displayMode() == EXTEND_MODE) {
@@ -319,17 +337,18 @@ void MultiScreenWidget::initSecondaryScreenDialog()
                 continue;
             }
 
-            m_dlg = new SecondaryScreenDialog(this);
-            m_dlg->setAttribute(Qt::WA_WState_WindowOpacitySet);
-            m_dlg->setModel(m_model, monitor);
-            connect(m_dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);
-            connect(m_dlg, &SecondaryScreenDialog::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
-            connect(m_dlg, &SecondaryScreenDialog::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);
-            connect(m_dlg, &SecondaryScreenDialog::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
-            connect(m_dlg, &SecondaryScreenDialog::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
-            connect(m_dlg, &SecondaryScreenDialog::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
-            connect(this, &MultiScreenWidget::requestGatherEnabled, m_dlg, &SecondaryScreenDialog::requestGatherEnabled);
-            m_secondaryScreenDlgList.append(m_dlg);
+            SecondaryScreenDialog *dlg = new SecondaryScreenDialog(this);
+            dlg->setAttribute(Qt::WA_WState_WindowOpacitySet);
+            dlg->setModel(m_model, monitor);
+            connect(dlg, &SecondaryScreenDialog::requestRecognize, this, &MultiScreenWidget::requestRecognize);
+            connect(dlg, &SecondaryScreenDialog::requestSetMonitorBrightness, this, &MultiScreenWidget::requestSetMonitorBrightness);
+            connect(dlg, &SecondaryScreenDialog::requestAmbientLightAdjustBrightness, this, &MultiScreenWidget::requestAmbientLightAdjustBrightness);
+            connect(dlg, &SecondaryScreenDialog::requestSetResolution, this, &MultiScreenWidget::requestSetResolution);
+            connect(dlg, &SecondaryScreenDialog::requestSetRotate, this, &MultiScreenWidget::requestSetRotate);
+            connect(dlg, &SecondaryScreenDialog::requestGatherWindows, this, &MultiScreenWidget::onGatherWindows);
+            connect(dlg, &SecondaryScreenDialog::requestCloseRecognize, this, &MultiScreenWidget::onRequestCloseRecognize);
+            connect(this, &MultiScreenWidget::requestGatherEnabled, dlg, &SecondaryScreenDialog::requestGatherEnabled);
+            m_secondaryScreenDlgList.append(dlg);
         }
 
         activateWindow();
@@ -379,6 +398,8 @@ void MultiScreenWidget::onMonitorPress(Monitor *monitor)
     m_fullIndication->setGeometry(monitor->rect());
 
     m_fullIndication->setVisible(true);
+
+    QTimer::singleShot(1000, this, [=] { m_fullIndication->setVisible(false); });
 }
 
 void MultiScreenWidget::onMonitorRelease(Monitor *monitor)
@@ -386,25 +407,82 @@ void MultiScreenWidget::onMonitorRelease(Monitor *monitor)
     Q_UNUSED(monitor)
     m_fullIndication->setVisible(false);
     QTimer::singleShot(1000, this, [=] { requestSetMainwindowRect(m_model->primaryMonitor(), false); });
-    m_dlg->resetDialog();
 }
 
 void MultiScreenWidget::onRequestSetMonitorPosition(QHash<dcc::display::Monitor *, QPair<int, int>> monitorPosition)
 {
-    for (int i = 0; i < m_secondaryScreenDlgList.count(); ++i) {
-        SecondaryScreenDialog *screenDialog = m_secondaryScreenDlgList.at(i);
-        Q_ASSERT(screenDialog);
-        screenDialog->setWindowOpacity(std::numeric_limits<double>::min());
-    }
-
     Q_EMIT requestSetMonitorPosition(monitorPosition);
-
 }
-void MultiScreenWidget::onRequestShowsecondaryScreen()
+
+void MultiScreenWidget::onResetSecondaryScreenDlg()
 {
     for (int i = 0; i < m_secondaryScreenDlgList.count(); ++i) {
         SecondaryScreenDialog *screenDialog = m_secondaryScreenDlgList.at(i);
         Q_ASSERT(screenDialog);
         screenDialog->setWindowOpacity(1);
+        screenDialog->resetDialog();
     }
+}
+
+void MultiScreenWidget::onRequestRecognize()
+{
+    disconnect(m_showRecognizeTimer);
+
+    // 复制模式
+    if (m_model->displayMode() == MERGE_MODE) {
+        QString text = m_model->monitorList().first()->name();
+        for (int idx = 1; idx < m_model->monitorList().size(); idx++) {
+            text += QString(" = %1").arg(m_model->monitorList()[idx]->name());
+        }
+
+        // 所在显示器不存在显示框
+        if (m_recognizeWidget.value(text) == nullptr) {
+            dcc::display::RecognizeWidget *widget = new dcc::display::RecognizeWidget(m_model->monitorList()[0], text);
+            m_recognizeWidget[text] = widget;
+            connect(m_showRecognizeTimer,&QTimer::timeout, this, [=] {
+                widget->deleteLater();
+                m_recognizeWidget.remove(text);
+            });
+            m_showRecognizeTimer->start(5000);
+        }
+    } else { // 扩展模式
+        for (auto monitor : m_model->monitorList()) {
+            // 所在显示器不存在显示框
+            if (m_recognizeWidget.value(monitor->name()) == nullptr) {
+                dcc::display::RecognizeWidget *widget = new dcc::display::RecognizeWidget(monitor, monitor->name());
+                m_recognizeWidget[monitor->name()] = widget;
+            }
+        }
+        connect(m_showRecognizeTimer,&QTimer::timeout, this, [=] {
+            for(auto widget : m_recognizeWidget) {
+                widget->deleteLater();
+            }
+            m_recognizeWidget.clear();
+        });
+        m_showRecognizeTimer->start(5000);
+    }
+
+    this->setFocus(); //获取焦点响应键盘事件
+}
+
+void MultiScreenWidget::onRequestCloseRecognize()
+{
+    disconnect(this, &MultiScreenWidget::requestRecognize, this, &MultiScreenWidget::onRequestRecognize);
+    m_showRecognizeTimer->stop();
+
+    for(auto widget : m_recognizeWidget) {
+        widget->deleteLater();
+    }
+    m_recognizeWidget.clear();
+
+    connect(this, &MultiScreenWidget::requestRecognize, this, &MultiScreenWidget::onRequestRecognize);
+}
+
+void MultiScreenWidget::keyPressEvent(QKeyEvent *e)
+{
+    if(e->key() == Qt::Key_Escape) {
+        onRequestCloseRecognize();
+    }
+
+    QWidget::keyPressEvent(e);
 }

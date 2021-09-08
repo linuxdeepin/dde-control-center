@@ -41,6 +41,7 @@ class Monitor;
 class DisplayModel;
 class MonitorControlWidget;
 class MonitorIndicator;
+class RecognizeWidget;
 } // namespace display
 
 namespace widgets {
@@ -93,7 +94,12 @@ private Q_SLOTS:
     void onMonitorPress(dcc::display::Monitor *monitor);
     void onMonitorRelease(dcc::display::Monitor *monitor);
     void onRequestSetMonitorPosition(QHash<dcc::display::Monitor *, QPair<int, int>> monitorPosition);
-    void onRequestShowsecondaryScreen();
+    void onRequestRecognize();
+    void onRequestCloseRecognize();
+    void onResetSecondaryScreenDlg();
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 
 private:
     QVBoxLayout *m_contentLayout;
@@ -112,11 +118,14 @@ private:
     ResolutionWidget *m_resolutionWidget;
     RefreshRateWidget *m_refreshRateWidget;
     RotateWidget *m_rotateWidget;
-    SecondaryScreenDialog *m_dlg;
 
     dcc::display::DisplayModel *m_model;
 
     QList<SecondaryScreenDialog *> m_secondaryScreenDlgList;
+    QMap<QString, dcc::display::RecognizeWidget *> m_recognizeWidget;
+
+    QTimer *m_showRecognizeTimer;
+    bool isReleaseMonitor = false;
 };
 
 } // namespace display

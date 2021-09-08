@@ -38,15 +38,22 @@ MonitorProxyWidget::MonitorProxyWidget(Monitor *mon, DisplayModel *model)
     , m_model(model)
     , m_movedX(m_monitor->x())
     , m_movedY(m_monitor->y())
-    , m_center(QPointF(0,0))
-    , m_edge(QPointF(0,0))
+    , m_preCenter(QPointF(0,0))
+    , m_selected(false)
+    , m_isMoving(false)
 {
-
     setFlags(QGraphicsItem::ItemIsSelectable | QGraphicsItem::ItemIsMovable | QGraphicsItem::ItemIsFocusable);
-
-    connect(m_monitor, &Monitor::xChanged, this, &MonitorProxyWidget::setMovedX);
-    connect(m_monitor, &Monitor::yChanged, this, &MonitorProxyWidget::setMovedY);
 }
+
+void MonitorProxyWidget::setMovedX(const int x)
+{
+    m_movedX = x;
+}
+void MonitorProxyWidget::setMovedY(const int y)
+{
+    m_movedY = y;
+}
+
 
 int MonitorProxyWidget::w() const
 {
@@ -63,115 +70,128 @@ const QString MonitorProxyWidget::name() const
     return m_monitor->name();
 }
 
-
 void MonitorProxyWidget::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
 
     painter->save();
-    QRectF r(0, 0, abs(m_edge.x()), abs(m_edge.y()));
-    const int arc = 8;
+    QRectF r = this->boundingRect();
     painter->setRenderHint(QPainter::Antialiasing, true);
     painter->setBrush(QColor("#5f5f5f"));
     painter->setPen(QColor("#2e2e2e"));
-    painter->drawRoundedRect(r, arc, arc);
-    painter->setClipRect(this->boundingRect());
+    auto radius = std::max(r.width(), r.height()) / 20;
+    painter->drawRoundedRect(r, radius, radius);
+    painter->setClipRect(r);
 
+    QFont font ("Microsoft YaHei", 100, 20);
+    painter->setFont(font);
     const QFontMetrics fm(painter->font());
-    const int width = fm.boundingRect(m_monitor->name()).width();
+    const int width = fm.boundingRect(name()).width();
+    const int height = fm.boundingRect(name()).height();
     painter->setPen(Qt::white);
     if (m_model->displayMode() != MERGE_MODE) {
-        qreal xstart = r.width() - width - 20;
-        if (xstart > 0) {
-            painter->drawText(r.width() - width - 20, 30, m_monitor->name());
-        } else {
-            painter->drawText(10, 30, m_monitor->name());
-        }
+        painter->drawText(QRectF(r.x() + r.width() - width - height, r.y() + height, width, height), Qt::AlignCenter, name());
     }
 
     // draw dock pattern if it's primary screen
-    if (m_model->displayMode() != MERGE_MODE && m_monitor->isPrimary()) {
-        const int radius = 5;
-        QRectF dockRect = r;
-        dockRect.setTop(r.bottom() - 15);
-        dockRect.setRight(r.width() - r.width() / 4);
-        dockRect.setLeft(r.width() / 4);
-        dockRect.moveTop(dockRect.top() + radius);
-        painter->setBrush(Qt::white);
-        painter->drawRoundedRect(dockRect, radius, radius);
+    if (m_model->displayMode() == EXTEND_MODE) {
+        
+        if(m_monitor->isPrimary()) {
+            QPen penWhite(Qt::white);
+            const qreal width = r.width() / 2.0;
+            const qreal height = r.height() / 2.0;
+            painter->setBrush(Qt::white);
+            painter->drawRoundedRect(QRectF(r.x() + r.width() / 4.0, r.y() + r.height() * 9.0 / 10.0,width, height), radius, radius);
+        }
 
-
-        // draw blue border if the mode is EXTEND_MODE
-        QPen penWhite(Qt::white);
-        penWhite.setWidth(3);
-        painter->setPen(penWhite);
-        painter->setBrush(Qt::transparent);
-        painter->drawRoundedRect(r, arc, arc);
-
-        QPen pen(QColor("#2ca7f8"));
-        pen.setWidth(2);
-        painter->setPen(pen);
-        painter->setBrush(Qt::transparent);
-        painter->drawRoundedRect(r, arc, arc);
+        //根据是否焦点绘制选中状态
+        if (m_selected) {
+            // draw blue border if the mode is EXTEND_MODE
+            QPen penWhite(QColor("#2ca7f8"));
+            penWhite.setWidthF(radius/5.0);
+            painter->setPen(penWhite);
+            painter->setBrush(Qt::transparent);
+            r.adjust(penWhite.width() /2, penWhite.width() / 2, -penWhite.width() /2, -penWhite.width() / 2);
+            painter->drawRoundedRect(r, radius, radius);
+        }
     }
+    
     painter->restore();
 }
 
-void MonitorProxyWidget::mousePressEvent(QGraphicsSceneMouseEvent *e)
+void MonitorProxyWidget::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-
     if (m_model->displayMode() == EXTEND_MODE) {
         Q_EMIT requestMonitorPress(m_monitor);
     }
-    QGraphicsItem::mousePressEvent(e);
+    QGraphicsItem::mousePressEvent(event);
 }
 
-void MonitorProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent *e)
+void MonitorProxyWidget::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    if (m_model->displayMode() == MERGE_MODE)
-        return;
+    QGraphicsItem::mouseMoveEvent(event);
 
-    if (!(e->buttons() & Qt::LeftButton))
-        return;
-
-    QGraphicsItem::mouseMoveEvent(e);
+    if (m_model->displayMode() == EXTEND_MODE) {
+        m_isMoving = true;
+        Q_EMIT requestMouseMove(this);
+    }
 }
 
-void MonitorProxyWidget::mouseReleaseEvent(QGraphicsSceneMouseEvent *e)
+void MonitorProxyWidget::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     if (m_model->displayMode() == EXTEND_MODE) {
-        Q_EMIT requestApplyMove(this);
-        Q_EMIT requestMonitorRelease(m_monitor);
+
+        if(m_isMoving) {
+            Q_EMIT requestMonitorRelease(m_monitor);
+            m_isMoving = false;
+        }
     }
 
-    QGraphicsItem::mouseReleaseEvent(e);
+    QGraphicsItem::mouseReleaseEvent(event);
 }
 
 void MonitorProxyWidget::focusInEvent(QFocusEvent *event)
 {
-    Q_UNUSED(event);
     //增加选中的效果
+    m_selected = true;
+
     QGraphicsItem::focusInEvent(event);
 }
 void MonitorProxyWidget::focusOutEvent(QFocusEvent *event) 
 {
-    Q_UNUSED(event);
     //增加选中的效果
+    m_selected = false;
+
     QGraphicsItem::focusOutEvent(event);
+}
+
+void MonitorProxyWidget::keyPressEvent(QKeyEvent *event)
+{
+    QGraphicsItem::keyPressEvent(event);
+
+   if (m_model->displayMode() == EXTEND_MODE) {
+        Q_EMIT requestKeyPress(this, event->key());
+   }
 }
 
 QRectF MonitorProxyWidget::boundingRect() const
 {
-    return QRectF(0 - abs(m_edge.x()), 0 - abs(m_edge.y()), abs(m_edge.x()) * 2, abs(m_edge.y()) * 2);
+    return QRectF(0, 0, this->w(), this->h());
 }
 
 QRectF MonitorProxyWidget::bufferboundingRect() const
 {
-    return QRectF(m_center.x() - abs(m_edge.x()), m_center.y() - abs(m_edge.y()), abs(m_edge.x()) * 2, abs(m_edge.y()) * 2).adjusted(-10,-10,10,10);
+    return boundingRect().adjusted(-200, -200, 200, 200);
 }
 
-QRectF MonitorProxyWidget::adsorptionbufferboundingRect() const
+QRectF MonitorProxyWidget::justIntersectRect() const
 {
-    return QRectF(m_center.x() - abs(m_edge.x()), m_center.y() - abs(m_edge.y()), abs(m_edge.x()) * 2, abs(m_edge.y()) * 2).adjusted(-10,-10,10,10);/*.adjusted(-m_dx,-m_dy,m_dx,m_dy)*/
+    return boundingRect().adjusted(10, 10, -10, -10);
+}
+
+//外扩0.05个像素, 规避由于计算导致精度丢失或者坐标值完全一致的情况下不能判定为相交的情况
+QRectF MonitorProxyWidget::boundingRectEx() const
+{
+    return boundingRect().adjusted(-0.05, -0.05, 0.05, 0.05);
 }

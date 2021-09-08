@@ -33,7 +33,6 @@
 #include "widgets/timeoutdialog.h"
 #include "modules/display/displaymodel.h"
 #include "modules/display/displayworker.h"
-#include "modules/display/recognizewidget.h"
 
 #include <QApplication>
 
@@ -218,7 +217,6 @@ void DisplayModule::showMultiScreenWidget()
 {
     MultiScreenWidget *multiScreenWidget = new MultiScreenWidget(m_pMainWindow);
     multiScreenWidget->setModel(m_displayModel);
-    connect(multiScreenWidget, &MultiScreenWidget::requestRecognize, this, &DisplayModule::showDisplayRecognize);
     connect(multiScreenWidget, &MultiScreenWidget::requestSwitchMode, m_displayWorker, &DisplayWorker::switchMode);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetMonitorPosition, m_displayWorker, &DisplayWorker::setMonitorPosition);
     connect(multiScreenWidget, &MultiScreenWidget::requestSetPrimary, m_displayWorker, &DisplayWorker::setPrimary);
@@ -348,38 +346,4 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor)
     connect(m_displayModel, &DisplayModel::monitorListChanged, timeoutDialog, &TimeoutDialog::deleteLater);
 
     return timeoutDialog->exec();
-}
-
-void DisplayModule::showDisplayRecognize()
-{
-    // 复制模式
-    if (m_displayModel->displayMode() == MERGE_MODE) {
-        QString text = m_displayModel->monitorList().first()->name();
-        for (int idx = 1; idx < m_displayModel->monitorList().size(); idx++) {
-            text += QString(" = %1").arg(m_displayModel->monitorList()[idx]->name());
-        }
-
-        // 所在显示器不存在显示框
-        if (m_recognizeWidget.value(text) == nullptr) {
-            RecognizeWidget *widget = new RecognizeWidget(m_displayModel->monitorList()[0], text);
-            QTimer::singleShot(5000, this, [=] {
-                widget->deleteLater();
-                m_recognizeWidget.remove(text);
-            });
-            m_recognizeWidget[text] = widget;
-        }
-    } else { // 扩展模式
-        for (auto monitor : m_displayModel->monitorList()) {
-            // 所在显示器不存在显示框
-            if (m_recognizeWidget.value(monitor->name()) == nullptr) {
-                RecognizeWidget *widget = new RecognizeWidget(monitor, monitor->name());
-                m_recognizeWidget[monitor->name()] = widget;
-                QTimer::singleShot(5000, this, [=] {
-                    widget->deleteLater();
-                    m_recognizeWidget.remove(monitor->name());
-                });
-                m_recognizeWidget[monitor->name()] = widget;
-            }
-        }
-    }
 }

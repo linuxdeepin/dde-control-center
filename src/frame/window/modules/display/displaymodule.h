@@ -36,7 +36,6 @@ namespace display {
 class DisplayModel;
 class Monitor;
 class DisplayWorker;
-class RecognizeWidget;
 } // namespace display
 } // namespace dcc
 
@@ -70,7 +69,6 @@ private Q_SLOTS:
     void onRequestSetRotate(dcc::display::Monitor *monitor, const int rotate);
     void showSingleScreenWidget();
     void showMultiScreenWidget();
-    void showDisplayRecognize();
     void pushScreenWidget();
     int showTimeoutDialog(dcc::display::Monitor *monitor);
 
@@ -79,7 +77,6 @@ private:
     dcc::display::DisplayWorker *m_displayWorker;
     DisplayWidget *m_displayWidget;
     MainWindow *m_pMainWindow;
-    QMap<QString, RecognizeWidget *> m_recognizeWidget;
 };
 
 } // namespace display
