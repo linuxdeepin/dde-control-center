@@ -92,34 +92,9 @@ void SystemInfoWidget::initData()
    if(InsertPlugin::instance()->needPushPlugin("systeminfo"))
         InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
 
-    connect(m_listView, &DListView::clicked, this, [&](const QModelIndex & index) {
-        if (m_lastIndex == index)
-            return;
-
-        m_lastIndex = index;
-        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
-        m_listView->resetStatus(index);
-    });
-    connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
-            bool isAllHiden = true;
-            for (int i = 0; i < m_itemModel->rowCount(); i++) {
-                if (!m_listView->isRowHidden(i))
-                    isAllHiden = false;
-            }
-
-            if (m_listView->selectionModel()->selectedRows().size() > 0) {
-                int index = m_listView->selectionModel()->selectedRows()[0].row();
-                Q_EMIT requestUpdateSecondMenu(index == row);
-            } else {
-                Q_EMIT requestUpdateSecondMenu(false);
-            }
-
-            if (isAllHiden) {
-                m_lastIndex = QModelIndex();
-                m_listView->clearSelection();
-            }
-        });
+    connect(m_listView, &DListView::clicked, this, &SystemInfoWidget::onListClicked);
+    connect(m_listView, &DListView::activated, m_listView, &DListView::clicked);
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, &SystemInfoWidget::onRequestUpdateSecondMenu);
 }
 
 DListView *SystemInfoWidget::getSystemListViewPointer()
@@ -163,4 +138,35 @@ void SystemInfoWidget::setCurrentIndex(int index)
     QModelIndex mindex = m_itemModel->index(index, 0);
     m_listView->setCurrentIndex(mindex);
     Q_EMIT m_listView->clicked(mindex);
+}
+
+void SystemInfoWidget::onRequestUpdateSecondMenu(int row)
+{
+    bool isAllHiden = true;
+    for (int i = 0; i < m_itemModel->rowCount(); i++) {
+        if (!m_listView->isRowHidden(i))
+            isAllHiden = false;
+    }
+
+    if (m_listView->selectionModel()->selectedRows().size() > 0) {
+        int index = m_listView->selectionModel()->selectedRows()[0].row();
+        Q_EMIT requestUpdateSecondMenu(index == row);
+    } else {
+        Q_EMIT requestUpdateSecondMenu(false);
+    }
+
+    if (isAllHiden) {
+        m_lastIndex = QModelIndex();
+        m_listView->clearSelection();
+    }
+}
+
+void SystemInfoWidget::onListClicked(const QModelIndex &index)
+{
+    if (m_lastIndex == index)
+	    return;
+
+    m_lastIndex = index;
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+    m_listView->resetStatus(index);
 }

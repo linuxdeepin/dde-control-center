@@ -81,9 +81,13 @@ TEST_F(Test_SysteminfoWidget, requestShowPrivacyPolicy)
     DListView *listView = m_widget->getSystemListViewPointer();
     ASSERT_NE(listView, nullptr);
 
+
     QSignalSpy spy4(m_widget, SIGNAL(requestShowPrivacyPolicy()));
-    listView->clicked(listView->model()->index(3, 0));
+    QModelIndex index1 = listView->model()->index(3, 0);
+    listView->activated(index1);
     EXPECT_EQ(spy4.count(), 1);
+
+    EXPECT_NO_THROW(m_widget->onListClicked(index1));
 }
 
 
