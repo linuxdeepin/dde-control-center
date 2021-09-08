@@ -53,6 +53,8 @@ void Clock::paintEvent(QPaintEvent *)
 
     const QTime time(datetime.time());
 
+    // LCOV_EXCL_START
+    //paintEvent函数单元测试无法命中，使用宏跳过此部分
     QPainter painter(this);
     painter.setRenderHints(painter.renderHints() | QPainter::Antialiasing);
 
@@ -100,6 +102,7 @@ void Clock::paintEvent(QPaintEvent *)
     painter.restore();
 
     painter.end();
+    // LCOV_EXCL_STOP
 }
 
 bool Clock::autoNightMode() const
