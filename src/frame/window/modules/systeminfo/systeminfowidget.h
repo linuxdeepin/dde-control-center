@@ -62,6 +62,9 @@ private:
     void initWidget();
     void initData();
 
+    void onRequestUpdateSecondMenu(int row);
+    void onListClicked(const QModelIndex & index);
+
 Q_SIGNALS:
     void requestShowAboutNative();
     void requestShowVersionProtocol();
