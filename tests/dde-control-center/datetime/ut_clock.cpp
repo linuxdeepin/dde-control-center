@@ -23,16 +23,13 @@ public:
 TEST_F(Tst_Clock, FullTest)
 {
     Clock clock;
-    clock.setAutoNightMode(clock.autoNightMode());
-    clock.setDrawTicks(clock.drawTicks());
+
+    clock.setAutoNightMode(true);
+    EXPECT_EQ(clock.autoNightMode(), true);
+    clock.setDrawTicks(true);
+    EXPECT_EQ(clock.drawTicks(), true);
 
     ZoneInfo zone;
-//    zone.m_zoneName = "Asia/Shanghai";
-//    zone.m_zoneCity = "上海";
-//    zone.m_utcOffset = 28800;
-//    zone.i2 = 0;
-//    zone.i3 = 0;
-//    zone.i4 = 0;
     clock.setTimeZone(zone);
     clock.update();
 }

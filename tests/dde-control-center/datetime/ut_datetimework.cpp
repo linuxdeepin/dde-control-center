@@ -1,4 +1,8 @@
+#define private public
 #include "../src/frame/modules/datetime/datetimework.h"
+#undef private
+
+
 #include "../src/frame/modules/datetime/datetimemodel.h"
 
 #include <types/zoneinfo.h>
@@ -87,8 +91,9 @@ TEST_F(Tst_DateTimeWork, TestDateTimeFormat)
 
 TEST_F(Tst_DateTimeWork, TestWorkSet)
 {
+#define DCC_DISABLE_TIMEZONE
+
     EXPECT_NO_THROW(work->setNTP(true));
-    EXPECT_NO_THROW(work->setDatetime(QDateTime::currentDateTime()));
     EXPECT_NO_THROW(work->set24HourType(true));
     EXPECT_NO_THROW(work->setTimezone("aaaa"));
     EXPECT_NO_THROW(work->addUserTimeZone("aaaa"));
@@ -99,6 +104,13 @@ TEST_F(Tst_DateTimeWork, TestWorkSet)
     EXPECT_NO_THROW(work->setLongTimeFormat(1));
     EXPECT_NO_THROW(work->setShortTimeFormat(1));
     EXPECT_NO_THROW(work->setWeekStartDayFormat(1));
+
+    ZoneInfo info;
+    QString str;
+    EXPECT_NO_THROW(work->removeUserTimeZone(info));
+    EXPECT_NO_THROW(work->GetZoneInfo(str));
+    EXPECT_NO_THROW(work->refreshNtpServerList());
+    EXPECT_NO_THROW(work->setDatetime(QDateTime::currentDateTime()));
 }
 
 TEST_F(Tst_DateTimeWork, TestModelSet)
@@ -119,4 +131,8 @@ TEST_F(Tst_DateTimeWork, TestModelSet)
     QStringList lstNtpServer;
     lstNtpServer.append("11");
     EXPECT_NO_THROW(model->setNTPServerList(lstNtpServer));
+
+    const ZoneInfo info;
+    EXPECT_NO_THROW(model->addUserTimeZone(info));
+    EXPECT_NO_THROW(model->removeUserTimeZone(info));
 }
