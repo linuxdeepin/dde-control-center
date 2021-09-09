@@ -63,6 +63,7 @@ void DCCNetworkModule::initialize()
 void DCCNetworkModule::active()
 {
     Q_ASSERT(m_frameProxy);
+    ConnectionEditPage::setFrameProxy(m_frameProxy);
 
     m_indexWidget = new NetworkModuleWidget;
 
