@@ -57,11 +57,12 @@ Depends: ${shlibs:Depends},
  deepin-desktop-schemas (>=5.8.0.34),
  libdframeworkdbus2 (>=5.3.38),
  libdde-network-utils(>=5.4.9)
-Recommends: 
- netselect, 
+Recommends:
+ netselect,
  deepin-ab-recovery,
  deepin-user-experience-daemon,
- deepin-recovery-plugin
+ deepin-recovery-plugin,
+ dde-control-center-network-plugin
 Suggests: redshift
 Conflicts:
  dde-control-center-plugin-weather,
