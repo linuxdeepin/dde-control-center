@@ -132,7 +132,9 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     });
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
-    connect(m_device, &NetworkDeviceBase::connectionChanged, this, &WiredPage::refreshConnectionList);
+    connect(m_device, &WiredDevice::connectionAdded, this, &WiredPage::refreshConnectionList);
+    connect(m_device, &WiredDevice::connectionRemoved, this, &WiredPage::refreshConnectionList);
+    connect(m_device, &WiredDevice::connectionChanged, this, &WiredPage::onUpdateConnectionStatus);
     connect(m_device, &WiredDevice::deviceStatusChanged, this, &WiredPage::onDeviceStatusChanged);
     connect(m_pNetworkController, &NetworkController::deviceRemoved, this, &WiredPage::onDeviceRemoved);
 
@@ -152,6 +154,19 @@ void WiredPage::jumpPath(const QString &searchPath)
         QTimer::singleShot(20, this, &WiredPage::createNewConnection);
 }
 
+void WiredPage::onUpdateConnectionStatus()
+{
+    QList<WiredConnection *> items = m_device->items();
+
+    // m_modelprofiles
+    for (int i = 0; i < m_modelprofiles->rowCount(); i++) {
+        DStandardItem *item = static_cast<DStandardItem *>(m_modelprofiles->item(i));
+        WiredConnection *connObj = static_cast<WiredConnection *>(item->data(ConnectionRole).value<void *>());
+        if (items.contains(connObj))
+            item->setCheckState(connObj->connected() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+    }
+}
+
 void WiredPage::refreshConnectionList()
 {
     // get all available wired connections path
@@ -169,6 +184,7 @@ void WiredPage::refreshConnectionList()
 
         DStandardItem *it = new DStandardItem(connObj->connection()->id());
         it->setData(path, PathRole);
+        it->setData(QVariant::fromValue((void *)connObj), ConnectionRole);
         it->setCheckable(false);
         it->setCheckState(connObj->connected() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
 

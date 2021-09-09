@@ -86,6 +86,7 @@ private Q_SLOTS:
     void checkActivatedConnection();
     void onDeviceStatusChanged(const DeviceStatus &stat);
     void onDeviceRemoved();
+    void onUpdateConnectionStatus();
 
 private:
     WiredDevice *m_device;
@@ -103,6 +104,7 @@ private:
     QMap<DStandardItem *, QString> m_connectionPath;
 
     static const int PathRole = Qt::UserRole + 100;
+    static const int ConnectionRole = Qt::UserRole + 101;
 };
 
 #endif // WIREDPAGE_H

@@ -44,6 +44,8 @@ DccPluginTestWidget::DccPluginTestWidget(QWidget *parent)
     : DMainWindow(parent)
     , m_topWidget(nullptr)
     , m_translator(new QTranslator)
+    , m_isFinalWidget(false)
+    , m_isFromSecondAddWidget(false)
 {
     QWidget *content = new QWidget(this);
     content->setObjectName("contentwindow");

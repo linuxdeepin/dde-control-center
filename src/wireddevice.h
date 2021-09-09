@@ -43,7 +43,6 @@ private:
 Q_SIGNALS:
     void connectionAdded(const QList<WiredConnection *>);                       // 新增连接
     void connectionRemoved(const QList<WiredConnection *>);                     // 删除连接
-    void connectionChanged(const QList<WiredConnection *>);                     // 有线连接发生变化
 
 public:
     void connectNetwork(WiredConnection *connection);                           // 连接网络，连接成功抛出deviceStatusChanged信号
