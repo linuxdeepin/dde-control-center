@@ -37,26 +37,29 @@ void Tst_SystemLanguageWidget::TearDown()
     widget = nullptr;
 }
 
-TEST_F(Tst_SystemLanguageWidget, emitSignal)
+
+
+TEST_F(Tst_SystemLanguageWidget, widget)
 {
+    QStringList la;
+    QStringList strList;
+    la.append("zh_CN.UTF-8");
+    la.append("ja_JP.UTF-8");
+    la.append("zh_HK.UTF-8");
+    strList.append("简体中文");
+    strList.append("日本語");
+    strList.append("繁體中文(香港)");
+    strList.append("British English");
+    model->setLocaleLang(la);
+    emit model->curLocalLangChanged(strList);
+    widget->onDefault("简体中文");
+    widget->onSetCurLang(0);
+    DCommandLinkButton *btnEdit= widget->findChild<DCommandLinkButton *>("Edit");
+    btnEdit->click();
+    btnEdit->click();
     DFloatingButton *btn = widget->findChild<DFloatingButton *>("AddSystemLanguage");
     QSignalSpy btnSpy(widget, SIGNAL(onSystemLanguageAdded()));
     btn->clicked(true);
     EXPECT_EQ(1, btnSpy.count());
-}
 
-TEST_F(Tst_SystemLanguageWidget, onEditClicked)
-{
-    EXPECT_NO_THROW(widget->onEditClicked());
-}
-
-TEST_F(Tst_SystemLanguageWidget, onAddLanguage)
-{
-    widget->onAddLanguage("简体中文");
-    widget->onSetCurLang(0);
-    widget->onDefault("简体中文");
-    QSignalSpy modelSpy(model, SIGNAL(curLocalLangChanged(const QStringList)));
-    QStringList sl = (QStringList() << "简体中文" << "American English");
-    model->curLocalLangChanged(sl);
-    EXPECT_EQ(1, modelSpy.count());
 }

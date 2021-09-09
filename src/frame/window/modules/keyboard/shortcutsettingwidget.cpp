@@ -91,6 +91,7 @@ ShortCutSettingWidget::ShortCutSettingWidget(ShortcutModel *model, QWidget *pare
     m_searchInput = new SearchInput();
     m_searchInput->setContentsMargins(0, 0, 10, 0);
     m_searchInput->setAccessibleName("KEYBOARD_LINEEDIT");
+    m_searchInput->setObjectName("KeyboardLineEdit");
 
     m_head = new SettingsHead();
     m_head->setEditEnable(true);

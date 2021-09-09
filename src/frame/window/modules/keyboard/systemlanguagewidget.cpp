@@ -59,6 +59,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     TitleLabel *headTitle = new TitleLabel(tr("Language List"));
     DFontSizeManager::instance()->bind(headTitle, DFontSizeManager::T5, QFont::DemiBold); // 设置label字体
     m_editSystemLang = new DCommandLinkButton(tr("Edit"));
+    m_editSystemLang->setObjectName("Edit");
     headLayout->addWidget(headTitle);
     headTitle->setContentsMargins(10, 0, 0, 0);
     headLayout->addStretch();
