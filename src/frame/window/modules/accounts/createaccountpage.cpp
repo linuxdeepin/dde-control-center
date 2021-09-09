@@ -464,19 +464,9 @@ bool CreateAccountPage::checkFullname()
 
     if (!userFullName.simplified().isEmpty()) {
         QList<User *> userList = m_userModel->userList();
-        /* 与已有的用户全名进行重复性校验 */
+        /* 与已有的用户全名和用户名进行重复性校验 */
         for (User *user : userList) {
-            if (userFullName == user->fullname()) {
-                m_fullnameEdit->setAlert(true);
-                m_fullnameEdit->showAlertMessage(tr("The username already exists"), m_fullnameEdit, 2000);
-                m_fullnameEdit->lineEdit()->selectAll();
-                return false;
-            }
-        }
-        QList<QString> groupList = m_userModel->getAllGroups();
-        /* 与系统中已有的用户名和用户组进行重复性校验 */
-        for (QString &group : groupList) {
-            if (userFullName == group) {
+            if (userFullName == user->fullname() || userFullName == user->name()) {
                 m_fullnameEdit->setAlert(true);
                 m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
                 m_fullnameEdit->lineEdit()->selectAll();
