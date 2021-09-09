@@ -873,7 +873,7 @@ void SearchModel::setLanguage(const QString &type)
                                 // mulLanguages
                                 searchBoxStrcut->actualModuleName = getModulesName(searchBoxStrcut->fullPagePath.section('/', 1, 1));
                                 //存在二级和四级页面都需要响应的问题
-                                if (searchBoxStrcut->fullPagePath.contains("/defapp")) {
+                                if (searchBoxStrcut->fullPagePath.contains("/defapp") || searchBoxStrcut->fullPagePath.contains("/keyboard")) {
                                     m_childWidgetList.removeOne(searchBoxStrcut->childPageName);
                                 }
 
