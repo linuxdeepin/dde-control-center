@@ -58,11 +58,13 @@ KBLayoutSettingWidget::KBLayoutSettingWidget(QWidget *parent)
     headTitle->setContentsMargins(10, 0, 0, 0);
 
     m_editKBLayout = new DCommandLinkButton(tr("Edit"));
+    m_editKBLayout->setObjectName("Edit");
     headLayout->addStretch();
     headLayout->addWidget(m_editKBLayout);
     mainLayout->addLayout(headLayout);
 
     m_kbLayoutModel = new QStandardItemModel(m_kbLayoutListView);
+    m_kbLayoutModel->setObjectName("KbLayoutModel");
     m_kbLayoutListView->setAccessibleName("List_kblayoutlist");
     m_kbLayoutListView->setObjectName("KbLayoutListView");
     m_kbLayoutListView->setModel(m_kbLayoutModel);
