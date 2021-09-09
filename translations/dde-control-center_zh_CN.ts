@@ -563,21 +563,19 @@
         <translation>允许蓝牙设备可被发现</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="97"/>
         <source>My Devices</source>
         <translation>我的设备</translation>
-        <extra-child_page>My Devices</extra-child_page>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="101"/>
         <source>Other Devices</source>
         <translation>其他设备</translation>
-        <extra-child_page>Other Devices</extra-child_page>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="146"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>启用蓝牙寻找附近设备（扬声器、键盘、鼠标）</translation>
     </message>
@@ -917,7 +915,7 @@
         <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。详细说明请参照Deepin隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="61"/>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
         <translation>&lt;p&gt;开启用户体验计划视为您授权我们收集和使用您的设备及系统信息，以及应用软件信息，您可以关闭用户体验计划以拒绝我们对前述信息的收集和使用。了解数据的管理方式，请参照统信软件隐私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
     </message>
@@ -5272,126 +5270,126 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
         <source>Computer Name:</source>
         <translation>计算机名：</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="246"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="250"/>
         <source>It cannot start or end with dashes</source>
         <translation>计算机名不能以 - 开头结尾</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
         <source>1~63 characters please</source>
         <translation>计算机名长度必须介于1到63个字符之间</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="289"/>
         <source>OS Name:</source>
         <translation>产品名称：</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="295"/>
         <source>Version:</source>
         <translation>版本号：</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
         <source>Edition:</source>
         <translation>版本：</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="307"/>
         <source>Type:</source>
         <translation>类型：</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="312"/>
         <source>Authorization</source>
         <translation>版本授权</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
         <source>To be activated</source>
         <translation>待激活</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="446"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="462"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="466"/>
         <source>Activate</source>
         <translation>激活</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="325"/>
         <source>Kernel:</source>
         <translation>内核版本：</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="331"/>
         <source>Processor:</source>
         <translation>处理器：</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="337"/>
         <source>Memory:</source>
         <translation>内存：</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="432"/>
         <source>%1-bit</source>
         <translation>%1位</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="448"/>
         <source>Activated</source>
         <translation>已激活</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="434"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="458"/>
         <source>View</source>
         <translation>查看</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="456"/>
         <source>Expired</source>
         <translation>已过期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="460"/>
         <source>In trial period</source>
         <translation>试用期</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="464"/>
         <source>Trial expired</source>
         <translation>试用期过期</translation>
     </message>
@@ -7216,12 +7214,12 @@ Visit User Center and manage your account there.</source>
         <translation>系统信息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Copyright © 2011-2021 深度社区</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright © 2019-2021 统信软件技术有限公司</translation>
     </message>
@@ -7302,17 +7300,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="426"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
         <source>System Updates</source>
         <translation>系统更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
         <source>Patches</source>
         <translation>补丁</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>系统补丁</translation>
     </message>

@@ -563,21 +563,19 @@
         <translation>Permitir que outros dispositivos Bluetooth localizem este dispositivo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="97"/>
         <source>My Devices</source>
         <translation>Meus Dispositivos</translation>
-        <extra-child_page>My Devices</extra-child_page>
         <extra-contents_path>/bluetooth/My Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="101"/>
         <source>Other Devices</source>
         <translation>Outros Dispositivos</translation>
-        <extra-child_page>Other Devices</extra-child_page>
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="146"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Ative o Bluetooth para detectar dispositivos próximos (alto-falante, teclado, mouse...)</translation>
     </message>
@@ -917,7 +915,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="61"/>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
@@ -5272,126 +5270,126 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="128"/>
         <source>Computer Name:</source>
         <translation>Nome do computador:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="246"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="250"/>
         <source>It cannot start or end with dashes</source>
         <translation>It cannot start or end with dashes</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="197"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="212"/>
         <source>1~63 characters please</source>
         <translation>1~63 caracteres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="289"/>
         <source>OS Name:</source>
         <translation>Nome do SO:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="295"/>
         <source>Version:</source>
         <translation>Versão:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
         <source>Edition:</source>
         <translation>Versão:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="307"/>
         <source>Type:</source>
         <translation>Arquitetura:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="312"/>
         <source>Authorization</source>
         <translation>Autorização</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="436"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="452"/>
         <source>To be activated</source>
         <translation>Para ser ativado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="309"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="446"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="462"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="466"/>
         <source>Activate</source>
         <translation>Ativar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="319"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="325"/>
         <source>Kernel:</source>
         <translation>Kernel:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="331"/>
         <source>Processor:</source>
         <translation>Processador:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="337"/>
         <source>Memory:</source>
         <translation>Memória:</translation>
         <extra-child_page>About This PC</extra-child_page>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="432"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="448"/>
         <source>Activated</source>
         <translation>Ativado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="434"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="458"/>
         <source>View</source>
         <translation>Visualizar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="456"/>
         <source>Expired</source>
         <translation>Expirado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="460"/>
         <source>In trial period</source>
         <translation>Em período de avaliação</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="448"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="464"/>
         <source>Trial expired</source>
         <translation>A avaliação expirou</translation>
     </message>
@@ -7216,12 +7214,12 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
         <translation>Informações do Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="477"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Copyright© 2011-2021 deepin Community</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</translation>
     </message>
@@ -7302,17 +7300,17 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="426"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
         <source>System Updates</source>
         <translation>Atualizações do Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
         <source>Patches</source>
         <translation>Correções</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>Correções do sistema</translation>
     </message>
