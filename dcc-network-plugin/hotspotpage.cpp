@@ -51,7 +51,7 @@ const QString defaultHotspotName()
     return getlogin();
 }
 
-HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebtn, QWidget *parent)
+HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent)
     : QWidget(parent)
     , m_wdev(wdev)
     , m_lvprofiles(new DListView)
@@ -72,7 +72,6 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebt
     DFontSizeManager::instance()->bind(lblTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_hotspotSwitch = new SwitchWidget(nullptr, lblTitle);
     m_createBtn->setText(tr("Add Settings"));
-    m_createBtn->setVisible(showcreatebtn);
 
     QVBoxLayout *centralLayout = new QVBoxLayout;
 
@@ -143,6 +142,11 @@ void HotspotDeviceWidget::updateItemStatus(const QList<HotspotItem *> &items)
         if (items.contains(hotspotItem))
             item->setConnectionStatus(hotspotItem->connectionStatus());
     }
+}
+
+void HotspotDeviceWidget::updateCreateButtonStatus(bool showcreatebtn)
+{
+    m_createBtn->setVisible(showcreatebtn);
 }
 
 void HotspotDeviceWidget::closeHotspot()
@@ -298,12 +302,18 @@ void HotspotPage::onDeviceAdded(const QList<WirelessDevice *> &devices)
     for (HotspotDeviceWidget *deviceWidget : m_listdevw)
         currentDevices << deviceWidget->device();
 
-    bool showCreateButton = devices.size() + currentDevices.size();
+    bool showCreateButton = (devices.size() + currentDevices.size()) > 1;
+    // 重新刷新原来的按钮的状态
+
+    for (HotspotDeviceWidget *deviceWidget : m_listdevw)
+        deviceWidget->updateCreateButtonStatus(showCreateButton);
+
     for (WirelessDevice *device : devices) {
         if (currentDevices.contains(device))
             continue;
 
-        HotspotDeviceWidget *deviceWidget = new HotspotDeviceWidget(device, showCreateButton, this);
+        HotspotDeviceWidget *deviceWidget = new HotspotDeviceWidget(device, this);
+        deviceWidget->updateCreateButtonStatus(showCreateButton);
         deviceWidget->setPage(this);
         m_vScrollLayout->addWidget(deviceWidget);
         m_listdevw.append(deviceWidget);
@@ -321,6 +331,10 @@ void HotspotPage::onDeviceRemove(const QList<WirelessDevice *> &rmDevices)
             delete deviceWidget;
         }
     }
+
+    bool showCreateButton = (m_listdevw.size() > 1);
+    for (HotspotDeviceWidget *deviceWidget : m_listdevw)
+        deviceWidget->updateCreateButtonStatus(showCreateButton);
 
     m_newprofile->setVisible(m_listdevw.size() == 1);
 }

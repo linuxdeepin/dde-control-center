@@ -60,7 +60,7 @@ class HotspotDeviceWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit HotspotDeviceWidget(WirelessDevice *wdev, bool showcreatebtn = true, QWidget *parent = nullptr);
+    explicit HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent = nullptr);
     virtual ~HotspotDeviceWidget();
     void setPage(HotspotPage *p);
 
@@ -69,6 +69,7 @@ public:
     void addItems(const QList<HotspotItem *> &newItems);
     void removeItems(const QList<HotspotItem *> &rmItems);
     void updateItemStatus(const QList<HotspotItem *> &items);
+    void updateCreateButtonStatus(bool showcreatebtn);
 
 private:
     void closeHotspot();

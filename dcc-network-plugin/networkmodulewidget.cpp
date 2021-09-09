@@ -350,8 +350,8 @@ void NetworkModuleWidget::onDeviceChanged()
 {
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     QModelIndex currentIndex = m_lvnmpages->currentIndex();
+    PageType pageType = currentIndex.data(SectionRole).value<PageType>();
     NetworkDeviceBase *currentDevice = currentIndex.data(DeviceRole).value<NetworkDeviceBase *>();
-    bool moveFirst = !devices.contains(currentDevice);
 
     for (int i = m_modelpages->rowCount() - 1; i >= 0; i--) {
         QStandardItem *item = m_modelpages->item(i);
@@ -370,13 +370,8 @@ void NetworkModuleWidget::onDeviceChanged()
             break;
         }
     }
-    if (!currentDevice) {
-        // 是否选中的当前设备
-        PageType pageType = currentIndex.data(SectionRole).value<PageType>();
-        if (pageType == PageType::HotspotPage && !supportHotspot)
-            moveFirst = true;
-    }
 
+    int newRowIndex = -1;
     for (int i = 0; i < devices.size(); i++) {
         NetworkDeviceBase *device = devices[i];
         DStandardItem *deviceItem = new DStandardItem(device->deviceName());
@@ -434,6 +429,12 @@ void NetworkModuleWidget::onDeviceChanged()
             }
         }
         m_modelpages->insertRow(i, deviceItem);
+
+        if (pageType == PageType::WiredPage || pageType == PageType::WirelessPage) {
+            // 如果是有线网络或者无线网络，则根据之前的设备和当前的设备是否相同来获取索引
+            if (currentDevice == device)
+                newRowIndex = i;
+        }
     }
 
     if (supportHotspot) {
@@ -443,6 +444,17 @@ void NetworkModuleWidget::onDeviceChanged()
         m_modelpages->insertRow(m_modelpages->rowCount() - 1, hotspotit);
         GSettingWatcher::instance()->bind("personalHotspot", m_lvnmpages, hotspotit);
     }
-    if (moveFirst)
-        setCurrentIndex(0);
+    // 获取之前的索引就和当前的索引对比
+    if (newRowIndex < 0) {
+        for (int i = 0; i < m_modelpages->rowCount(); i++) {
+            QStandardItem *currentRowItem = m_modelpages->item(i);
+            PageType currentPageType = currentRowItem->data(SectionRole).value<PageType>();
+            if (currentPageType == PageType::WiredPage || currentPageType == PageType::WirelessPage)
+                continue;
+
+            if (pageType == currentPageType)
+                newRowIndex = i;
+        }
+    }
+    setCurrentIndex(newRowIndex < 0 ? 0 : newRowIndex);
 }
