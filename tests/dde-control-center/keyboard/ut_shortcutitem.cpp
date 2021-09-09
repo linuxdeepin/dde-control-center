@@ -3,7 +3,7 @@
 #undef private
 
 #include "gtest/gtest.h"
-
+#include <QtTest/QtTest>
 using namespace dcc::keyboard;
 
 DWIDGET_USE_NAMESPACE
@@ -32,8 +32,10 @@ void Tst_ShortcutItem::TearDown()
 TEST_F(Tst_ShortcutItem, item)
 {
     EXPECT_NO_THROW(item->setTitle("test"));
-    EXPECT_NO_THROW(item->setShortcut("testShortcut"));
+    EXPECT_NO_THROW(item->setShortcut("<Control><Alt>T"));
     EXPECT_NO_THROW(item->onEditMode(true));
+    EXPECT_NO_THROW(item->onEditMode(false));
     EXPECT_NO_THROW(item->setConfigName("test"));
     EXPECT_EQ(item->configName(), "test");
+    QTest::mouseClick(item,Qt::LeftButton);
 }
