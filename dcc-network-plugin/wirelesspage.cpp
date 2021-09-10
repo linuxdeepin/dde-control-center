@@ -59,6 +59,7 @@
 #include <networkdevicebase.h>
 #include <networkcontroller.h>
 #include <wirelessdevice.h>
+#include <hotspotcontroller.h>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::widgets;
@@ -415,10 +416,12 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     m_lvAP->setVisible(m_switch->checked() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
     connect(m_device, &WirelessDevice::enableChanged, this, [ this ] { m_switch->setChecked(m_device->isEnabled()); });
     connect(m_device, &WirelessDevice::deviceStatusChanged, this, &WirelessPage::onDeviceStatusChanged);
-    connect(m_device, &WirelessDevice::hotspotEnableChanged, this, &WirelessPage::onHotspotEnableChanged);
     updateLayout(!m_lvAP->isHidden());
     m_switch->setChecked(m_device->isEnabled());
     onDeviceStatusChanged(m_device->deviceStatus());
+
+    HotspotController *hotspotController = NetworkController::instance()->hotspotController();
+    onHotspotEnableChanged(hotspotController->enabled(m_device));
 }
 
 WirelessPage::~WirelessPage()
