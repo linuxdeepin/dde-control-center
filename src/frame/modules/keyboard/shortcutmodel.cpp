@@ -36,6 +36,7 @@
 
 static const QStringList systemFilter = {"terminal",
                                          "terminal-quake",
+                                         "global-search",
                                          "screenshot",
                                          "screenshot-delayed",
                                          "screenshot-fullscreen",
