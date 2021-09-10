@@ -850,6 +850,10 @@
             <default>'Enabled'</default>
             <description></description>
         </key>
+        <key name="global-search-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
         <key name="maximize-config" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <description></description>
