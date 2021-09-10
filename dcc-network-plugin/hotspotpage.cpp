@@ -312,9 +312,21 @@ void HotspotPage::onDeviceAdded(const QList<WirelessDevice *> &devices)
         HotspotDeviceWidget *deviceWidget = new HotspotDeviceWidget(device, this);
         deviceWidget->updateCreateButtonStatus(showCreateButton);
         deviceWidget->setPage(this);
-        m_vScrollLayout->addWidget(deviceWidget);
         m_listdevw.append(deviceWidget);
     }
+
+    // 对设备列表进行排序，然后按照设备的顺序插入到列表中
+    HotspotController *hotspotController = NetworkController::instance()->hotspotController();
+    QList<WirelessDevice *> hotspotDevices = hotspotController->devices();
+    qSort(m_listdevw.begin(), m_listdevw.end(), [ = ] (HotspotDeviceWidget *widget1, HotspotDeviceWidget *widget2) {
+        return hotspotDevices.indexOf(widget1->device()) < hotspotDevices.indexOf(widget2->device());
+    });
+
+    for (int i = m_vScrollLayout->count() - 1; i >= 0; i--)
+        m_vScrollLayout->removeItem(m_vScrollLayout->itemAt(i));
+
+    for (HotspotDeviceWidget *device : m_listdevw)
+        m_vScrollLayout->addWidget(device);
 
     m_newprofile->setVisible(m_listdevw.size() == 1);
 }

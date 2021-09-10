@@ -352,8 +352,15 @@ void NetworkController::onAccesspointChanged(const QString &accessPoints)
 void NetworkController::onDeviceEnableChanged(const QString &devicePath, bool enabled)
 {
     NetworkDeviceBase *device = findDevices(devicePath);
-    if (device)
+    if (device) {
         device->setDeviceEnabledStatus(enabled);
+        // 如果改设备是无线设备，且支持热点，则更新热点的信息
+        if (!m_hotspotController)
+            return;
+
+        if (device->deviceType() == DeviceType::Wireless && device->supportHotspot())
+            updateDeviceHotpot();
+    }
 }
 
 void NetworkController::onConnectivityChanged(int conectivity)
