@@ -237,8 +237,14 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     connect(m_nameEdit, &DLineEdit::editingFinished, this, &CreateAccountPage::checkName);
 
     connect(m_fullnameEdit, &DLineEdit::textEdited, this, [ = ](const QString &userFullName) {
+        /* 90401:在键盘输入下禁止冒号的输入，粘贴情况下自动识别冒号自动删除 */
+        QString fullName = userFullName;
+        fullName.remove(":");
+        if (fullName != userFullName) {
+            m_fullnameEdit->setText(fullName);
+        }
         /* 在输入的过程中仅检查全名的长度，输入完成后检查其它规则 */
-        if (userFullName.size() > 32) {
+        if (fullName.size() > 32) {
             m_fullnameEdit->lineEdit()->backspace();
             m_fullnameEdit->setAlert(true);
             m_fullnameEdit->showAlertMessage(tr("The full name is too long"), m_fullnameEdit, 2000);
