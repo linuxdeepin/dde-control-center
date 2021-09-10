@@ -92,6 +92,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     });
 
     connect(this, &WiredPage::requestDeviceEnabled, this, [this] (const QString & devPath, const bool checked) {
+        Q_UNUSED(devPath);
         m_device->setEnabled(checked);
     });
 
@@ -136,6 +137,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_device, &WiredDevice::connectionRemoved, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::connectionChanged, this, &WiredPage::onUpdateConnectionStatus);
     connect(m_device, &WiredDevice::deviceStatusChanged, this, &WiredPage::onDeviceStatusChanged);
+    connect(m_device, &WiredDevice::enableChanged, this, &WiredPage::onUpdateConnectionStatus);
     connect(m_pNetworkController, &NetworkController::deviceRemoved, this, &WiredPage::onDeviceRemoved);
 
     onDeviceStatusChanged(m_device->deviceStatus());
