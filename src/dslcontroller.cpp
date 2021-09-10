@@ -80,7 +80,7 @@ void DSLController::updateDSLItems(const QJsonArray &dsljson)
     // 更新DSL具体项的数据，先从列表中查找是否存在当前连接的path，如果找到，就直接更新，
     // 没有找到的情况下就新建一个连接，并且将新连接添加到新列表中
     QStringList paths;
-    QList<DSLItem *> newItems;
+    QList<DSLItem *> newItems, changeItems;
     for (QJsonValue value : dsljson) {
         QJsonObject dsl = value.toObject();
         QString path = dsl.value("Path").toString();
@@ -89,11 +89,18 @@ void DSLController::updateDSLItems(const QJsonArray &dsljson)
             item = new DSLItem;
             m_items << item;
             newItems << item;
+        } else {
+            if (item->connection()->id() != dsl.value("Id").toString())
+                changeItems << item;
         }
 
         item->setConnection(dsl);
         paths << path;
     }
+
+    // 如果ID发生变化的数量大于0，则向外抛出连接变化的信号
+    if (changeItems.size())
+        Q_EMIT itemChanged(changeItems);
 
     // 如果新连接列表的数量大于0,则向外抛出连接新增的信号
     if (newItems.size() > 0)

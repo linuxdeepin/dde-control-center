@@ -115,7 +115,6 @@ public:
     ~ HotspotPage();
 
 Q_SIGNALS:
-    void back();
     void requestNextPage(dcc::ContentWidget * const w) const;
 
 private Q_SLOTS:
@@ -123,6 +122,7 @@ private Q_SLOTS:
     void onDeviceRemove(const QList<WirelessDevice *> &rmDevices);
     void onItemAdded(const QMap<WirelessDevice *, QList<HotspotItem *>> &deviceItems);
     void onItemRemoved(const QMap<WirelessDevice *, QList<HotspotItem *>> &deviceItems);
+    void onItemChanged(const QMap<WirelessDevice *, QList<HotspotItem *>> &deviceItems);
     void onActiveConnectionChanged(const QList<WirelessDevice *> &devices);
 
 private:

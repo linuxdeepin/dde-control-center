@@ -64,6 +64,7 @@ void VPNController::updateVPNItems(const QJsonArray &vpnArrays)
 {
     // 更新列表中的VPN状态
     QList<VPNItem *> newVpns;
+    QList<VPNItem *> changeVpns;
     QStringList paths;
     for (const QJsonValue jsonValue : vpnArrays) {
         QJsonObject vpn = jsonValue.toObject();
@@ -75,11 +76,18 @@ void VPNController::updateVPNItems(const QJsonArray &vpnArrays)
             m_vpnItems << item;
             newVpns << item;
         } else {
+            if (item->connection()->id() != vpn.value("Id").toString())
+                changeVpns << item;
+
             item->setConnection(vpn);
         }
 
         paths << path;
     }
+
+    if (changeVpns.size())
+        Q_EMIT itemChanged(changeVpns);
+
     if (newVpns.size())
         Q_EMIT itemAdded(newVpns);
 

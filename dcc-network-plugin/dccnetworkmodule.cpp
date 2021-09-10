@@ -255,9 +255,6 @@ void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QStrin
         WirelessPage *wirelessPage = new WirelessPage(static_cast<WirelessDevice *>(dev));
         wirelessPage->setVisible(false);
         devicePage = wirelessPage;
-        connect(wirelessPage, &WirelessPage::back, [ = ] () {
-            m_frameProxy->popWidget(this);
-        });
         connect(wirelessPage, &WirelessPage::requestNextPage, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
             wirelessPage->setVisible(true);
@@ -270,9 +267,6 @@ void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QStrin
         devicePage->setVisible(false);
 
         WiredPage *wiredPage = static_cast<WiredPage *>(devicePage);
-        connect(wiredPage, &WiredPage::back, [ = ] {
-            m_frameProxy->popWidget(this);
-        });
         connect(wiredPage, &WiredPage::requestNextPage, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
         });
@@ -294,10 +288,6 @@ void DCCNetworkModule::showChainsProxyPage()
 
     m_frameProxy->pushWidget(this, chains);
     chains->setVisible(true);
-
-    connect(chains, &ChainsProxyPage::back, [ = ] {
-        m_frameProxy->popWidget(this);
-    });
 }
 
 void DCCNetworkModule::showProxyPage()
@@ -309,24 +299,12 @@ void DCCNetworkModule::showProxyPage()
     p->setVisible(true);
 }
 
-void DCCNetworkModule::popPage()
-{
-    m_frameProxy->popWidget(this);
-    if (m_indexWidget)
-      m_indexWidget->initSetting(0, "");
-}
-
 void DCCNetworkModule::showHotspotPage()
 {
     HotspotPage *p = new HotspotPage();
     connect(p, &HotspotPage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
-
-        connect(w, &ContentWidget::back, [ = ]() {
-            m_frameProxy->popWidget(this);
-        });
     });
-    connect(p, &HotspotPage::back, this, &DCCNetworkModule::popPage);
 
     m_frameProxy->pushWidget(this, p);
 }

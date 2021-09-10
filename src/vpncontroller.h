@@ -50,6 +50,7 @@ Q_SIGNALS:
     void enableChanged(const bool);                                                              // 开启关闭VPN发出的信号
     void itemAdded(const QList<VPNItem *> &);                                                    // 新增VPN发出的信号
     void itemRemoved(const QList<VPNItem *> &);                                                  // 移除VPN发出的信号
+    void itemChanged(const QList<VPNItem *> &);                                                  // VPN项发生变化（ID）
     void activeConnectionChanged();                                                              // 活动连接发生变化的时候发出的信号
 
 protected:

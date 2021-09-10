@@ -373,7 +373,7 @@ void NetworkController::updateConnectionsInfo(const QList<NetworkDeviceBase *> &
         return;
 
     static QList<QPair<QString, DeviceType>> devConnInfo
-    = {{"wired", DeviceType::Wired}, {"wireless", DeviceType::Wireless}};
+        = {{ "wired", DeviceType::Wired }, { "wireless", DeviceType::Wireless }};
 
     for (const QPair<QString, DeviceType> &connInfo : devConnInfo) {
         if (m_connections.contains(connInfo.first)) {

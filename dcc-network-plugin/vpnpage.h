@@ -69,10 +69,10 @@ Q_SIGNALS:
     void requestVpnEnabled(const bool enabled) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
-public Q_SLOTS:
-    void refreshVpnList(QList<VPNItem *> vpns);
-
 private Q_SLOTS:
+    void refreshVpnList(QList<VPNItem *> vpns);
+    void updateVpnItems(const QList<VPNItem *> &vpns);
+
     void onActiveConnsInfoChanged();
 
     void importVPN();

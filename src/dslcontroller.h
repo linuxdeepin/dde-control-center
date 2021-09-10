@@ -48,6 +48,7 @@ public:
 Q_SIGNALS:
     void itemAdded(const QList<DSLItem *> &);                             // 新增DSL项目
     void itemRemoved(const QList<DSLItem *> &);                           // 移除DSL项目
+    void itemChanged(const QList<DSLItem *> &);                           // 项目发生变化（一般是ID发生了变化）
     void activeConnectionChanged();                                       // 连接状态发生变化
 
 protected:

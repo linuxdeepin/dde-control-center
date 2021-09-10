@@ -300,6 +300,7 @@ void HotspotController::updateConnections(const QJsonArray &jsons)
 
     // 将所有热点的UUID缓存，用来对比不存在的热点，删除不存在的热点
     QMap<WirelessDevice *, QList<HotspotItem *>> newItems;
+    QMap<WirelessDevice *, QList<HotspotItem *>> infoChangeItems;
     QStringList allHotsItem;
     // HwAddress为空的热点适用于所有的设备，HwAddress不为空的热点只适用于指定的设备
     for (WirelessDevice *device : m_devices) {
@@ -314,6 +315,9 @@ void HotspotController::updateConnections(const QJsonArray &jsons)
                 item = new HotspotItem(device);
                 m_hotspotItems << item;
                 newItems[device] << item;
+            } else {
+                if (item->connection()->ssid() != json.value("Ssid").toString())
+                    infoChangeItems[device] << item;
             }
 
             item->setConnection(json);
@@ -321,6 +325,10 @@ void HotspotController::updateConnections(const QJsonArray &jsons)
             allHotsItem << pathName;
         }
     }
+
+    // 若现有连接发生变化，则抛出变化的信号
+    if (infoChangeItems.size() > 0)
+        Q_EMIT itemChanged(infoChangeItems);
 
     // 如果有新增的连接，则发送新增连接的信号
     if (newItems.size() > 0)

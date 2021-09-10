@@ -139,8 +139,10 @@ void HotspotDeviceWidget::updateItemStatus(const QList<HotspotItem *> &items)
     for (int i = 0; i < m_modelprofiles->rowCount(); i++) {
         ConnectionPageItem *item = static_cast<ConnectionPageItem *>(m_modelprofiles->item(i));
         HotspotItem *hotspotItem = static_cast<HotspotItem *>(item->data(itemRole).value<void *>());
-        if (items.contains(hotspotItem))
+        if (items.contains(hotspotItem)) {
+            item->setText(hotspotItem->connection()->ssid());
             item->setConnectionStatus(hotspotItem->connectionStatus());
+        }
     }
 }
 
@@ -264,13 +266,8 @@ HotspotPage::HotspotPage(QWidget *parent)
     connect(hotspotController, &HotspotController::deviceRemove, this, &HotspotPage::onDeviceRemove);
     connect(hotspotController, &HotspotController::itemAdded, this, &HotspotPage::onItemAdded);
     connect(hotspotController, &HotspotController::itemRemoved, this, &HotspotPage::onItemRemoved);
+    connect(hotspotController, &HotspotController::itemChanged, this, &HotspotPage::onItemChanged);
     connect(hotspotController, &HotspotController::activeConnectionChanged, this, &HotspotPage::onActiveConnectionChanged);
-
-   /* deviceListChanged(model->devices());
-    connect(m_model, &NetworkModel::deviceListChanged, this, &HotspotPage::deviceListChanged);
-    connect(m_model, &NetworkModel::deviceEnableChanged, this, [this] {
-        this->deviceListChanged(this->m_model->devices());
-    });*/
 
     qDeleteAll(m_listdevw);
     m_listdevw.clear();
@@ -357,6 +354,18 @@ void HotspotPage::onItemRemoved(const QMap<WirelessDevice *, QList<HotspotItem *
             continue;
 
         deviceWidget->removeItems(deviceItems.value(deviceWidget->device()));
+    }
+}
+
+void HotspotPage::onItemChanged(const QMap<WirelessDevice *, QList<HotspotItem *> > &deviceItems)
+{
+    for (HotspotDeviceWidget *deviceWidget : m_listdevw) {
+        WirelessDevice *device = deviceWidget->device();
+        if (!deviceItems.contains(device))
+            continue;
+
+        QList<HotspotItem *> items = deviceItems.value(device);
+        deviceWidget->updateItemStatus(items);
     }
 }
 

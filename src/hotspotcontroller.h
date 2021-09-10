@@ -55,6 +55,7 @@ Q_SIGNALS:
     void enabledChanged(const bool &);                                       // 热点是否可用发生了变化
     void itemAdded(const QMap<WirelessDevice *, QList<HotspotItem *>> &);    // 新增连接的信号
     void itemRemoved(const QMap<WirelessDevice *, QList<HotspotItem *>> &);  // 删除连接的信号
+    void itemChanged(const QMap<WirelessDevice *, QList<HotspotItem *>> &);  // 连接信息改变的信号
     void activeConnectionChanged(const QList<WirelessDevice *> &);           // 活动连接发生变化
     void deviceAdded(const QList<WirelessDevice *> &);                       // 新增热点设备
     void deviceRemove(const QList<WirelessDevice *> &);                      // 删除热点设备

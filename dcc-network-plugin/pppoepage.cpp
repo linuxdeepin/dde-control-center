@@ -97,6 +97,7 @@ PppoePage::PppoePage(QWidget *parent)
     DSLController *dslController = NetworkController::instance()->dslController();
     connect(dslController, &DSLController::itemAdded, this, &PppoePage::onConnectionListChanged);
     connect(dslController, &DSLController::itemRemoved, this, &PppoePage::onConnectionListChanged);
+    connect(dslController, &DSLController::itemChanged, this, &PppoePage::onItemChanged);
     connect(dslController, &DSLController::activeConnectionChanged, this, &PppoePage::onActiveConnectionChanged);
     connect(this, &PppoePage::refreshConnectionList, this, &PppoePage::onActiveConnectionChanged);
 
@@ -149,6 +150,7 @@ void PppoePage::onConnectionListChanged()
         ConnectionPageItem *pppoe = new ConnectionPageItem(this, m_lvsettings, dslItem->connection());
         pppoe->setText(name);
         pppoe->setData(uuid, UuidRole);
+        pppoe->setItemData(dslItem);
         pppoe->setCheckable(true);
 
         QString devicePath = "/";
@@ -177,6 +179,16 @@ void PppoePage::onConnectionListChanged()
     QTimer::singleShot(100, [ this ] {
         Q_EMIT refreshConnectionList();
     });
+}
+
+void PppoePage::onItemChanged(const QList<DSLItem *> &items)
+{
+    for (int i = 0; i < m_modelSettings->rowCount(); i++) {
+        ConnectionPageItem *pppoe = static_cast<ConnectionPageItem *>(m_modelSettings->item(i));
+        DSLItem *dslItem = static_cast<DSLItem *>(pppoe->itemData());
+        if (items.contains(dslItem))
+            pppoe->setText(dslItem->connection()->id());
+    }
 }
 
 void PppoePage::onActiveConnectionChanged()

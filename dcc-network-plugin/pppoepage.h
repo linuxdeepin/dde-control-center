@@ -79,6 +79,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void createPPPoEConnection();
     void onConnectionListChanged();
+    void onItemChanged(const QList<DSLItem *> &items);
     void onActiveConnectionChanged();
 
 private:

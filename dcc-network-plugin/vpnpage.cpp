@@ -219,10 +219,11 @@ VpnPage::VpnPage(QWidget *parent)
 
     connect(vpnController, &VPNController::enableChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(vpnController, &VPNController::activeConnectionChanged, this, &VpnPage::onActiveConnsInfoChanged);
-    connect(vpnController, &VPNController::itemAdded, this, [ = ] {
+    connect(vpnController, &VPNController::itemChanged, this, &VpnPage::updateVpnItems);
+    connect(vpnController, &VPNController::itemAdded, [ = ] {
         refreshVpnList(vpnController->items());
     });
-    connect(vpnController, &VPNController::itemRemoved, this, [ = ] {
+    connect(vpnController, &VPNController::itemRemoved, [ = ] {
         refreshVpnList(vpnController->items());
     });
 
@@ -273,6 +274,16 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
     QTimer::singleShot(100, [ = ] {
         onActiveConnsInfoChanged();
     });
+}
+
+void VpnPage::updateVpnItems(const QList<VPNItem *> &vpns)
+{
+    for (int i = 0; i < m_modelprofiles->rowCount(); i++) {
+        ConnectionPageItem *pageItem = static_cast<ConnectionPageItem *>(m_modelprofiles->item(i));
+        VPNItem *vpn = static_cast<VPNItem *>(pageItem->itemData());
+        if (vpns.contains(vpn))
+            pageItem->setText(vpn->connection()->id());
+    }
 }
 
 void VpnPage::onActiveConnsInfoChanged()
