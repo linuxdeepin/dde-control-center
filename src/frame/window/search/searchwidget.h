@@ -48,6 +48,7 @@ const QString XML_Title = "translation";
 const QString XML_Numerusform = "numerusform";
 const QString XML_Explain_Path = "extra-contents_path";
 const QString XML_Child_Path = "extra-child_page";
+const QString XML_ChildHide_Path = "extra-child_page_hide";
 
 using WM = com::deepin::wm;
 
@@ -125,6 +126,7 @@ private:
     QList<UnexsitStruct>    m_unexsitList;
     QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
     QList<QString> m_childWidgetList; //二级页面list
+    QList<QString> m_childeHideWidgetList; //不需要显示的二级页面list，比如 “默认程序 --> 终端 / 添加默认程序” 和 “默认程序 --> 终端”
     QList<QString> m_TxtListAll; //三级页面list
     QStringList m_defaultRemoveableList;//存储已知全部模块是否存在
     QList<QPair<QString, QString>> m_removedefaultWidgetList;//用于存储可以出设备名称，和该名称对应的页面

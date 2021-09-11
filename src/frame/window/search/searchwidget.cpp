@@ -151,10 +151,6 @@ SearchModel::SearchModel(QObject *parent)
         {tr("Developer Mode"), true},
     };
 
-    m_contensServerTxtList = {
-        {tr("Developer Mode"), true},
-    };
-
     //first : 可移除设备名称
     //second : 可以除设备具体的页面名称(该页面必须与搜索的页面对应)
     //通过在 loadXml() 301行，使用 “qDebug() << searchBoxStruct.fullPagePath.section('/', 2, -1);”解析
@@ -297,8 +293,9 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
     if (searchEndData == "") {
         //TODO：需要存储子页面的列表，如果searchChildWidget在列表中，而searchEndData为空也不能继续执行
         //否则已经搜索模块，通过回退就直接可以进搜索页面，不能在搜索框选其他搜索项
-        if (!m_childWidgetList.contains(searchChildWidget))
+        if (!m_childWidgetList.contains(searchChildWidget) || m_childeHideWidgetList.contains(searchChildWidget)) {
             isContinue = true;
+        }
     } else {
         //searchEndData不为空，且搜索数据包含在m_TxtListAll可以执行
         //对非xml添加的搜索数据内容不作处理, 不在list里面就停止
@@ -321,26 +318,33 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
            childPageName : 网络详情
            fullPagePath : /network/Network Details
         */
+        QString childPageName = m_EnterNewPagelist[i]->childPageName;
+        QString fullPagePath = m_EnterNewPagelist[i]->fullPagePath;
+
+        //用于区分类似 "默认程序 -> 网页 / 添加默认程序" 和 "默认程序 -> 网页"
+        if (childPageName == "" && searchChildWidget != searchDetailData) {
+            continue;
+        }
         //搜索数据需要匹配的数据：模块，子页面，详细数据
         if (m_EnterNewPagelist[i]->actualModuleName == searchModule
                 //匹配子页面和详细数据
-                && ((m_EnterNewPagelist[i]->childPageName == searchChildWidget && m_EnterNewPagelist[i]->translateContent == searchEndData)
+                && ((childPageName == searchChildWidget && m_EnterNewPagelist[i]->translateContent == searchEndData)
                     //子页面为空，详细数据要相等
-                    || (m_EnterNewPagelist[i]->childPageName == "" && m_EnterNewPagelist[i]->translateContent == searchChildWidget)
+                    || (childPageName == "" && m_EnterNewPagelist[i]->translateContent == searchChildWidget)
                     )
                 ) {
             //module必须有，childPageName可以为空
-            QString module = m_EnterNewPagelist[i]->fullPagePath.section('/', 1, 1);
+            QString module = fullPagePath.section('/', 1, 1);
             QString childWidget = "";
 
-            if (getDataNum(m_EnterNewPagelist[i]->fullPagePath, '/') == 3) {
+            if (getDataNum(fullPagePath, '/') == 3) {
                 //在第3级子页面再打开第4级页面
-                childWidget = m_EnterNewPagelist[i]->fullPagePath.section('/', 2, -1);
+                childWidget = fullPagePath.section('/', 2, -1);
                 qInfo() << " [Search] childWidgetCount : 3 , childWidget :" << childWidget;
             } else {
                 //插件的m_EnterNewPagelist[i]->childPageName为空
-                if (m_EnterNewPagelist[i]->childPageName == "" || m_EnterNewPagelist[i]->childPageName == searchChildWidget) {
-                    childWidget = m_EnterNewPagelist[i]->fullPagePath.section('/', 2, -1);
+                if (childPageName == "" || childPageName == searchChildWidget) {
+                    childWidget = fullPagePath.section('/', 2, -1);
                 }
 
                 if (childWidget == "") {
@@ -709,6 +713,10 @@ void SearchModel::setLanguage(const QString &type)
         loadxml();
     });
 
+    m_childeHideWidgetList.clear();
+    //添加 插件 二级页面和三级页面都要进入的搜索数据，类似 ： “键盘和语言 --> 输入法” 和 “键盘和语言 --> 输入法 / 快捷键”
+    m_childeHideWidgetList.append(QObject::tr("Input Methods"));
+
     watcher->setFuture(QtConcurrent::run([=] {
         QList<SearchBoxStruct::Ptr> list;
         //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
@@ -867,15 +875,19 @@ void SearchModel::setLanguage(const QString &type)
                                 if (!m_childWidgetList.contains(childPage))
                                     m_childWidgetList.append(childPage);
                             }
+                            else if (XML_ChildHide_Path == xmlExplain) {
+                                //添加二级页面和三级页面都要进入的搜索数据，类似 ： "默认程序 -> 网页 / 添加默认程序" 和 "默认程序 -> 网页"
+                                //以上两种数据都需要搜索，因此需要保存一个特殊的子页面list
+                                QString hideChildPage = transChildPageName.value(xmlRead.text().toString());
+                                if (!m_childeHideWidgetList.contains(hideChildPage)) {
+                                    m_childeHideWidgetList.append(hideChildPage);
+                                }
+                            }
                             else if (xmlExplain == XML_Explain_Path) {
                                 searchBoxStrcut->fullPagePath = xmlRead.text().toString();
                                 // follow path module name to get actual module name  ->  Left module dispaly can support
                                 // mulLanguages
                                 searchBoxStrcut->actualModuleName = getModulesName(searchBoxStrcut->fullPagePath.section('/', 1, 1));
-                                //存在二级和四级页面都需要响应的问题
-                                if (searchBoxStrcut->fullPagePath.contains("/defapp") || searchBoxStrcut->fullPagePath.contains("/keyboard")) {
-                                    m_childWidgetList.removeOne(searchBoxStrcut->childPageName);
-                                }
 
                                 if ("" == searchBoxStrcut->actualModuleName || "" == searchBoxStrcut->translateContent) {
                                     searchBoxStrcut = std::make_shared<SearchBoxStruct>();
