@@ -210,7 +210,7 @@ void ProxyController::queryProxyDataByType(const QString &type)
             if (conf.type == uType) {
                 QString url = reply.argumentAt(0).toString();
                 uint port = reply.argumentAt(1).toUInt();
-                if (url != conf.url && port != conf.port) {
+                if (url != conf.url || port != conf.port) {
                     conf.url = url;
                     conf.port = port;
                     Q_EMIT proxyChanged(conf);
