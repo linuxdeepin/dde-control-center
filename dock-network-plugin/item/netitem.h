@@ -33,7 +33,6 @@ DWIDGET_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 
 class NetworkDevice;
-class NetItem;
 class QLabel;
 class QPushButton;
 

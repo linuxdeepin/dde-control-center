@@ -99,6 +99,11 @@
         <source>Network settings</source>
         <translation>Network settings</translation>
     </message>
+    <message>
+        <location filename="../networkpanel.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP conflict</translation>
+    </message>
 </context>
 <context>
     <name>NetworkPlugin</name>

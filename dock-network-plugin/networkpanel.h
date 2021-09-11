@@ -33,6 +33,8 @@
 #include <QWidget>
 #include <QScopedPointer>
 
+#include <com_deepin_daemon_network.h>
+
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE
 
@@ -51,10 +53,14 @@ class QTimer;
 class NetItem;
 
 using namespace dde::network;
+using DbusNetwork = com::deepin::daemon::Network;
 
 class NetworkPanel : public QWidget
 {
     Q_OBJECT
+
+Q_SIGNALS:
+    void sendIpConflictDect(int);
 
 public:
     explicit NetworkPanel(QWidget *parent = Q_NULLPTR);
@@ -88,12 +94,22 @@ private:
     int deviceCount(const DeviceType &devType);
     QStringList ipTipsMessage(const DeviceType &devType);
 
+    void enterEvent(QEvent *event);
+
+    QStringList getIPList(const DeviceType &deviceType) const;
+    QStringList getActiveWiredList() const;
+    QStringList getActiveWirelessList() const;
+    QStringList currentIpList() const;
+
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
 
     void onUpdatePlugView();
 
     void onClickListView(const QModelIndex &index);
+    void onIPConfllict(const QString &ip, const QString &mac);
+    void onSendIpConflictDect(int index = 0);
+    void onDetectConflict();
 
 private:
     PluginState m_pluginState;
@@ -115,6 +131,13 @@ private:
     bool m_timeOut;
 
     QList<NetItem *> m_items;
+
+    DbusNetwork *m_networkInter;
+    QStringList m_disconflictList;         // 解除冲突数据列表
+    QMap<QString, QString> m_conflictMap;  // 缓存有线和无线冲突的ip列表
+    QTimer *m_detectConflictTimer;         // 定时器自检,当其他主机主动解除ip冲突，我方需要更新网络状态
+    bool m_ipConflict;                     // ip冲突的标识
+    bool m_ipConflictChecking;             // 标记是否正在检测中
 };
 
 class NetworkDelegate : public DStyledItemDelegate
