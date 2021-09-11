@@ -87,6 +87,7 @@ private:
     DListView *m_lvprofiles;
     QStandardItemModel *m_modelprofiles;
     QFileDialog *m_importFile;
+    static const int UuidRole = Qt::UserRole + 100;
 };
 
 #endif // VPNPAGE_H

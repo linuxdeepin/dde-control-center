@@ -33,11 +33,6 @@ ConnectionPageItem::ConnectionPageItem(QWidget *widget, DListView *listView, Con
     connect(m_editAction, &QAction::triggered, [ = ] {
         Q_EMIT detailClick(m_connection);
     });
-
-    connect(m_parentView, &QListView::clicked, [ = ](const QModelIndex &idx) {
-        if (idx == this->index())
-            Q_EMIT this->itemClick(m_connection);
-    });
 }
 
 ConnectionPageItem::~ConnectionPageItem()

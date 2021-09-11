@@ -161,6 +161,11 @@ VpnPage::VpnPage(QWidget *parent)
     setLayout(mainLayout);
 
     VPNController *vpnController = NetworkController::instance()->vpnController();
+
+    connect(m_lvprofiles, &DListView::clicked, [ = ] (const QModelIndex &index) {
+        QString uuid = index.data(UuidRole).toString();
+        vpnController->connectItem(uuid);
+    });
     connect(m_vpnSwitch, &SwitchWidget::checkedChanged, [ = ](const bool checked) {
         vpnController->setEnabled(checked);
     });
@@ -241,7 +246,6 @@ VpnPage::~VpnPage()
 void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
 {
     m_modelprofiles->clear();
-    VPNController *vpnController = NetworkController::instance()->vpnController();
 
     for (VPNItem *vpn : vpns) {
         const QString uuid = vpn->connection()->uuid();
@@ -249,6 +253,7 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
         ConnectionPageItem *vpnItem = new ConnectionPageItem(this, m_lvprofiles, vpn->connection());
         vpnItem->setText(vpn->connection()->id());
         vpnItem->setItemData(vpn);
+        vpnItem->setData(uuid, UuidRole);
 
         connect(vpnItem, &ConnectionPageItem::detailClick, [ = ] {
             m_editPage = new ConnectionVpnEditPage(uuid);
@@ -256,10 +261,6 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
             connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
             connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
             Q_EMIT requestNextPage(m_editPage);
-        });
-
-        connect(vpnItem, &ConnectionPageItem::itemClick, [ = ] {
-            vpnController->connectItem(uuid);
         });
 
         m_modelprofiles->appendRow(vpnItem);

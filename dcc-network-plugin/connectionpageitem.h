@@ -36,7 +36,6 @@ public:
 
 Q_SIGNALS:
     void detailClick(const dde::network::Connection *);
-    void itemClick(const dde::network::Connection *);
 
 private:
     void setLoading(const bool isLoading);
