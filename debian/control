@@ -2,13 +2,11 @@ Source: dde-control-center
 Section: admin
 Priority: optional
 Maintainer: Deepin Sysdev <sysdev@deepin.com>
-Build-Depends: debhelper (>= 9),
+Build-Depends: debhelper (>= 11),
  pkg-config,
- dpkg-dev,
  ninja-build,
  libx11-dev,
  cmake,
- qt5-default,
  qtdeclarative5-dev,
  libqt5svg5-dev,
  libdtkcore-dev,
