@@ -587,7 +587,6 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
 
             connect(wirelessDevice, &WirelessDevice::networkAdded, this, &NetworkPanel::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::networkRemoved, this, &NetworkPanel::onUpdatePlugView);
-            connect(wirelessDevice, &WirelessDevice::networkInfoChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::enableChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::connectionChanged, this, &NetworkPanel::onUpdatePlugView);
 

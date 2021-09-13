@@ -124,15 +124,15 @@ void APItem::setSignalStrength(int strength)
     }
 
     if (strength <= 5)
-        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-0")));
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-0")));
     else if (strength > 5 && strength <= 30)
-        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-2")));
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-2")));
     else if (strength > 30 && strength <= 55)
-        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-4")));
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-4")));
     else if (strength > 55 && strength <= 65)
-        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-6")));
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-6")));
     else if (strength > 65)
-        setIcon(QIcon::fromTheme(QString("wireless/dcc_wireless-8")));
+        setIcon(QIcon::fromTheme(QString("dcc_wireless-8")));
 
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = strength;
@@ -384,7 +384,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     });
 
     connect(m_device, &WirelessDevice::networkAdded, this, &WirelessPage::onAPAdded);
-    connect(m_device, &WirelessDevice::networkInfoChanged, this, &WirelessPage::onAPChanged); //需要网络库增加此信号
     connect(m_device, &WirelessDevice::networkRemoved, this, &WirelessPage::onAPRemoved);
     connect(m_device, &WirelessDevice::connectionSuccess, this, &WirelessPage::updateActiveAp);
     connect(m_device, &WirelessDevice::hotspotEnableChanged, this, &WirelessPage::onHotspotEnableChanged);
@@ -528,54 +527,14 @@ void WirelessPage::onAPAdded(const QList<AccessPoints *> &addedAccessPoints)
             apItem->setConnected(ap->connectionStatus() == ConnectionStatus::Activated);
             apItem->setLoading(ap->connectionStatus() == ConnectionStatus::Activating);
             apItem->setSignalStrength(ap->strength());
-            connect(apItem->action(), &QAction::triggered, [ this, apItem ] {
+            connect(apItem->action(), &QAction::triggered, this, [ this, apItem ] {
                 this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(), apItem->data(Qt::ItemDataRole::DisplayRole).toString());
             });
 
-            m_sortDelayTimer->start();
-        }
-    }
-}
-
-void WirelessPage::onAPChanged(const QList<AccessPoints *> &lstChangedAccessPoints)
-{
-    for (auto ap : lstChangedAccessPoints) {
-        if (!m_apItems.contains(ap->ssid())) {
-            APItem *apItem = new APItem(ap->ssid(), style(), m_lvAP);
-            m_apItems[ap->ssid()] = apItem;
-            m_modelAP->appendRow(apItem);
-            apItem->setSecure(ap->secured());
-            apItem->setPath(ap->path());
-            apItem->setConnected(ap->connectionStatus() == ConnectionStatus::Activated);
-            apItem->setLoading(ap->connectionStatus() == ConnectionStatus::Activating);
-            apItem->setSignalStrength(ap->strength());
-            connect(apItem->action(), &QAction::triggered, [ this, apItem ] {
-                this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(), apItem->data(Qt::ItemDataRole::DisplayRole).toString());
+            connect(ap, &AccessPoints::strengthChanged, this, [ = ] (const int strength) {
+                apItem->setSignalStrength(strength);
             });
-            m_sortDelayTimer->start();
-        } else {
-            const QString &path = ap->path();
-            const int strength = ap->strength();
-            const bool isSecure = ap->secured();
-            const QString &ssid = ap->ssid();
-            APItem *it = m_apItems[ssid];
-            if (strength < 5 && !it->checkState() && ap != m_device->activeAccessPoints()) {
-                if (nullptr == m_clickedItem || it->uuid() != m_clickedItem->uuid())
-                    m_lvAP->setRowHidden(it->row(), true);
-            } else {
-                m_lvAP->setRowHidden(it->row(), false);
-            }
 
-            APSortInfo si{ strength, ssid, ap == m_device->activeAccessPoints() };
-            m_apItems[ssid]->setSortInfo(si);
-
-            m_apItems[ssid]->setSignalStrength(strength);
-            if (it->path() != path)
-                m_apItems[ssid]->setPath(path);
-
-            it->setSecure(isSecure);
-            it->setConnected(ap->connectionStatus() == ConnectionStatus::Activated);
-            it->setLoading(ap->connectionStatus() == ConnectionStatus::Activating);
             m_sortDelayTimer->start();
         }
     }

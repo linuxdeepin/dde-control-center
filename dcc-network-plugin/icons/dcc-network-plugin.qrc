@@ -2,12 +2,6 @@
     <qresource prefix="/icons/deepin/builtin">
         <file>icons/dcc_nav_network_42px.svg</file>
         <file>icons/dcc_nav_network_84px.svg</file>
-        <file>icons/wireless/dcc_wireless-0.svg</file>
-        <file>icons/wireless/dcc_wireless-2.svg</file>
-        <file>icons/wireless/dcc_wireless-4.svg</file>
-        <file>icons/wireless/dcc_wireless-6.svg</file>
-        <file>icons/wireless/dcc_wireless-8.svg</file>
-        <file>icons/wireless/dcc_wireless-10.svg</file>
         <file>actions/dcc_app_proxy_32px.svg</file>
         <file>actions/dcc_dsl_32px.svg</file>
         <file>actions/dcc_ethernet_32px.svg</file>
@@ -16,6 +10,12 @@
         <file>actions/dcc_system_agent_32px.svg</file>
         <file>actions/dcc_vpn_32px.svg</file>
         <file>actions/dcc_wifi_32px.svg</file>
+        <file>texts/dcc_wireless-0_16px.svg</file>
+        <file>texts/dcc_wireless-2_16px.svg</file>
+        <file>texts/dcc_wireless-4_16px.svg</file>
+        <file>texts/dcc_wireless-6_16px.svg</file>
+        <file>texts/dcc_wireless-8_16px.svg</file>
+        <file>texts/dcc_wireless-10_16px.svg</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

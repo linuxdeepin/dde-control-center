@@ -144,7 +144,6 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void onAPAdded(const QList<AccessPoints*> &addedAccessPoints);
-    void onAPChanged(const QList<AccessPoints*> &lstChangedAccessPoints);
     void onAPRemoved(const QList<AccessPoints*> &lstRemovedAccessPoints);
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
