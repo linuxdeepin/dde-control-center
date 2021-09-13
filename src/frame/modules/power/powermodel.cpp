@@ -72,7 +72,7 @@ PowerModel::PowerModel(QObject *parent)
             {2, {"5m", 300}},
             {3, {"10m", 600}},
             {4, {"15m", 900}},
-            {5, {"Never", 0}},
+            {5, {tr("Never"), 0}},
         };
     } else {
         m_num2Time = {
@@ -82,7 +82,7 @@ PowerModel::PowerModel(QObject *parent)
             {4, {"15m", 900}},
             {5, {"30m", 1800}},
             {6, {"1h", 3600}},
-            {7, {"Never", 0}},
+            {7, {tr("Never"), 0}},
         };
     }
 }
