@@ -46,12 +46,12 @@ using namespace dcc;
 using namespace dcc::widgets;
 using namespace dde::network;
 
-static int indexFromProxyType(const AppProxyConfig &config)
+static int indexFromProxyType(const AppProxyType &type)
 {
-    if (config.type == AppProxyType::Http)
+    if (type == AppProxyType::Http)
         return 0;
 
-    if (config.type == AppProxyType::Socks4)
+    if (type == AppProxyType::Socks4)
         return 1;
 
     return 2;
@@ -146,10 +146,50 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent)
     connect(m_btns->rightButton(), &QPushButton::clicked, this, &ChainsProxyPage::onCheckValue);
 
     onRestoreValue();
+    initUiData();
 
     connect(m_proxyType, &ComboxWidget::onIndexChanged, this, [ = ] {
         m_btns->leftButton()->setEnabled(true);
         m_btns->rightButton()->setEnabled(true);
+    });
+}
+
+ChainsProxyPage::~ChainsProxyPage()
+{
+    delete m_proxyType;
+}
+
+void ChainsProxyPage::initUiData()
+{
+    ProxyController *proxyController = NetworkController::instance()->proxyController();
+
+    connect(proxyController, &ProxyController::appUsernameChanged, this, [ = ] (const QString &username) {
+        m_username->textEdit()->blockSignals(true);
+        m_username->setText(username);
+        m_username->textEdit()->blockSignals(false);
+    });
+    connect(proxyController, &ProxyController::appPasswordChanged, this, [ = ] (const QString &password) {
+        m_password->textEdit()->blockSignals(true);
+        m_password->setText(password);
+        m_password->textEdit()->blockSignals(false);
+    });
+
+    connect(proxyController, &ProxyController::appIPChanged, this, [ = ] (const QString &ip) {
+        m_addr->textEdit()->blockSignals(true);
+        m_addr->setText(ip);
+        m_addr->textEdit()->blockSignals(false);
+    });
+
+    connect(proxyController, &ProxyController::appTypeChanged, this, [ = ] (const AppProxyType &type) {
+        m_proxyType->comboBox()->blockSignals(true);
+        m_proxyType->setCurrentIndex(indexFromProxyType(type));
+        m_proxyType->comboBox()->blockSignals(false);
+    });
+
+    connect(proxyController, &ProxyController::appPortChanged, this, [ = ] (const uint &port) {
+        m_port->textEdit()->blockSignals(true);
+        m_port->setText(QString::number(port));
+        m_port->textEdit()->blockSignals(false);
     });
 }
 
@@ -159,7 +199,7 @@ void ChainsProxyPage::onRestoreValue()
     AppProxyConfig config = proxyController->appProxy();
 
     m_proxyType->blockSignals(true);
-    m_proxyType->setCurrentIndex(indexFromProxyType(config));
+    m_proxyType->setCurrentIndex(indexFromProxyType(config.type));
     m_proxyType->blockSignals(false);
 
     m_addr->textEdit()->blockSignals(true);

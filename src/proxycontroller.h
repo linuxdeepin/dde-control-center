@@ -61,7 +61,11 @@ Q_SIGNALS:
     void proxyMethodChanged(const ProxyMethod &);                           // 代理模式发生变化
     void proxyIgnoreHostsChanged(const QString &);                          // 忽略的主机发生变化
     /* 应用代理 */
-    void appProxyChanged();                                                 //应用代理数据发生变化
+    void appIPChanged(const QString &ip);                                   // 应用代理IP发生变化
+    void appPasswordChanged(const QString &password);                       // 应用代理密码发生变化
+    void appTypeChanged(const AppProxyType &type);                          // 应用代理类型发生变化
+    void appUsernameChanged(const QString &username);                       // 应用代理用户名发生变化
+    void appPortChanged(const uint &port);                                  // 应用代理端口发生变化
 
 protected:
     explicit ProxyController(NetworkInter *networkInter, QObject *parent = Q_NULLPTR);

@@ -69,7 +69,11 @@ void NetworkHandler::initConnection()
     connect(proxyController, &ProxyController::proxyChanged, this, &NetworkHandler::onProxyChanged);
     connect(proxyController, &ProxyController::proxyMethodChanged, this, &NetworkHandler::onProxyMethodChange);
     connect(proxyController, &ProxyController::proxyIgnoreHostsChanged, this, &NetworkHandler::onProxyIgnoreHostsChanged);
-    connect(proxyController, &ProxyController::appProxyChanged, this, &NetworkHandler::onAppProxyChanged);
+    connect(proxyController, &ProxyController::appUsernameChanged, this, &NetworkHandler::onAppProxyChanged);
+    connect(proxyController, &ProxyController::appPasswordChanged, this, &NetworkHandler::onAppProxyChanged);
+    connect(proxyController, &ProxyController::appTypeChanged, this, &NetworkHandler::onAppProxyChanged);
+    connect(proxyController, &ProxyController::appIPChanged, this, &NetworkHandler::onAppProxyChanged);
+    connect(proxyController, &ProxyController::appPortChanged, this, &NetworkHandler::onAppProxyChanged);
 
     // 无线热点模块
     HotspotController *hotspotController = NetworkController::instance()->hotspotController();

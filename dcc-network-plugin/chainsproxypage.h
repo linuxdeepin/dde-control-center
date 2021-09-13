@@ -56,10 +56,14 @@ class ChainsProxyPage : public dcc::ContentWidget
 
 public:
     explicit ChainsProxyPage(QWidget *parent = nullptr);
+    ~ChainsProxyPage() Q_DECL_OVERRIDE;
     virtual bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 Q_SIGNALS:
     void requestShowTypePage() const;
+
+private:
+    void initUiData();
 
 private Q_SLOTS:
     void onCheckValue();

@@ -278,7 +278,7 @@ void ProxyController::onIPChanged(const QString &value)
     // 应用代理的IP发生变化
     if (value != m_appProxyConfig.ip) {
         m_appProxyConfig.ip = value;
-        Q_EMIT appProxyChanged();
+        Q_EMIT appIPChanged(value);
     }
 }
 
@@ -287,7 +287,7 @@ void ProxyController::onPasswordChanged(const QString &value)
     // 应用代理的密码发生变化
     if (value != m_appProxyConfig.password) {
         m_appProxyConfig.password = value;
-        Q_EMIT appProxyChanged();
+        Q_EMIT appPasswordChanged(value);
     }
 }
 
@@ -309,8 +309,8 @@ QString ProxyController::appProxyType(const AppProxyType &v)
 {
     switch (v) {
     case AppProxyType::Http:     return "http";
-    case AppProxyType::Socks4:   return "sock4";
-    case AppProxyType::Socks5:   return "sock5";
+    case AppProxyType::Socks4:   return "socks4";
+    case AppProxyType::Socks5:   return "socks5";
     }
 
     return "http";
@@ -322,7 +322,7 @@ void ProxyController::onTypeChanged(const QString &value)
     AppProxyType t = appProxyType(value);
     if (t != m_appProxyConfig.type) {
         m_appProxyConfig.type = t;
-        Q_EMIT appProxyChanged();
+        Q_EMIT appTypeChanged(t);
     }
 }
 
@@ -331,7 +331,7 @@ void ProxyController::onUserChanged(const QString &value)
     // 应用代理用户名发生变化
     if (value != m_appProxyConfig.username) {
         m_appProxyConfig.username = value;
-        Q_EMIT appProxyChanged();
+        Q_EMIT appUsernameChanged(value);
     }
 }
 
@@ -340,6 +340,6 @@ void ProxyController::onPortChanged(uint value)
     // 应用代理端口发生变化
     if (value != m_appProxyConfig.port) {
         m_appProxyConfig.port = value;
-        Q_EMIT appProxyChanged();
+        Q_EMIT appPortChanged(value);
     }
 }
