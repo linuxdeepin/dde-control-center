@@ -76,6 +76,14 @@ protected:
     void updateAccesspoint(const QJsonArray &json);
     void setDeviceEnabledStatus(const bool &enabled);
 
+    template<class T>
+    void clearListData(QList<T *> &dataList) {
+        for (T *data : dataList)
+            delete data;
+
+        dataList.clear();
+    }
+
 private:
     QList<WirelessConnection *> m_connections;
     QList<AccessPoints *> m_accessPoints;

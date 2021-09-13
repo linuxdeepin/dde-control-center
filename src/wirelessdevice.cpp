@@ -124,14 +124,8 @@ WirelessDevice::WirelessDevice(NetworkInter *networkInter, QObject *parent)
 
 WirelessDevice::~WirelessDevice()
 {
-    for (AccessPoints *ap : m_accessPoints)
-        delete ap;
-
-    for (WirelessConnection *connection : m_connections)
-        delete connection;
-
-    m_accessPoints.clear();
-    m_connections.clear();
+    clearListData(m_accessPoints);
+    clearListData(m_connections);
 }
 
 WirelessConnection *WirelessDevice::findConnectionByPath(const QString &path)
@@ -172,8 +166,10 @@ WirelessConnection *WirelessDevice::findConnectionByAccessPoint(const AccessPoin
  */
 void WirelessDevice::syncConnectionAccessPoints()
 {
-    if (m_accessPoints.isEmpty() || m_connections.isEmpty())
+    if (m_accessPoints.isEmpty()) {
+        clearListData(m_connections);
         return;
+    }
 
     QList<WirelessConnection *> connections;
     // 找到每个热点对应的Connection，并将其赋值
