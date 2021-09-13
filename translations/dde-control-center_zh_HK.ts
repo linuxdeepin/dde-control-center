@@ -1,22 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_HK" version="2.1">
-<context>
-    <name>AdapterWidget</name>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="47"/>
-        <source>My devices</source>
-        <translation>我的設備</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="48"/>
-        <source>Other devices</source>
-        <translation>其他設備</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/adapterwidget.cpp" line="69"/>
-        <source>Enable bluetooth to find nearby devices (loudspeaker, keyboard, mouse)</source>
-        <translation>啟用藍牙尋找附近設備（揚聲器、鍵盤、鼠標）</translation>
-    </message>
-</context>
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_HK" version="2.0">
 <context>
     <name>BatteryHealthPlugin</name>
     <message>
@@ -69,7 +51,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="431"/>
         <source>Accounts</source>
-        <translation>帳號</translation>
+        <translation>帳戶</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="436"/>
@@ -246,7 +228,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="431"/>
         <source>Delete Account</source>
-        <translation>刪除帳號</translation>
+        <translation>刪除帳戶</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
@@ -292,27 +274,27 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="86"/>
         <source>Accounts</source>
-        <translation>帳號</translation>
+        <translation>帳戶</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="62"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="64"/>
         <source>Create Account</source>
-        <translation>創建帳號</translation>
+        <translation>創建帳戶</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="176"/>
         <source>Administrator</source>
         <translation>管理員</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="167"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="178"/>
         <source>Standard User</source>
         <translation>標準用戶</translation>
     </message>
@@ -358,31 +340,15 @@
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="59"/>
-        <source>Group</source>
-        <translation>分組</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="90"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="385"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="91"/>
-        <source>Create</source>
-        <translation>创建</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <source>New Account</source>
-        <translation>新帳號</translation>
+        <translation>新帳戶</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="187"/>
         <source>Account Type</source>
-        <translation>帳號種類</translation>
+        <translation>帳戶種類</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
@@ -441,6 +407,11 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="384"/>
         <source>Go to Settings</source>
         <translation>前往設置</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="385"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="435"/>
@@ -595,7 +566,7 @@
         <extra-contents_path>/bluetooth/Other Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/bluetooth/adapterwidget.cpp" line="142"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>啟用藍牙尋找附近設備（揚聲器、鍵盤、鼠標）</translation>
     </message>
@@ -1245,12 +1216,12 @@
         <extra-contents_path>/defapp/Webpage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="265"/>
         <source>Open Desktop file</source>
         <translation>打開desktop文件</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/defapp/defappdetailwidget.cpp" line="328"/>
         <source>Invalid</source>
         <translation>無效</translation>
     </message>
@@ -1258,7 +1229,7 @@
 <context>
     <name>dccV20::defapp::DefaultAppsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/defapp/defaultappsmodule.cpp" line="102"/>
         <source>Default Applications</source>
         <translation>默認程序</translation>
     </message>
@@ -1444,7 +1415,6 @@
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="212"/>
         <source>Refresh Rate</source>
         <translation>刷新率</translation>
-        <extra-contents_path>/display/Refresh Rate</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="145"/>
@@ -1672,45 +1642,45 @@
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="59"/>
         <source>Short</source>
         <translation>短</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="60"/>
         <source>Long</source>
         <translation>長</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="64"/>
         <source>Repeat Rate</source>
         <translation>重複速度</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="75"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="76"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="82"/>
         <source>Test here</source>
         <translation>請在此測試</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="104"/>
         <source>Numeric Keypad</source>
         <translation>啟用數字鍵盤</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/keyboard/generalkbsettingwidget.cpp" line="110"/>
         <source>Caps Lock Prompt</source>
         <translation>大寫鎖定提示</translation>
         <extra-contents_path>/keyboard/General</extra-contents_path>
@@ -1725,33 +1695,33 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="214"/>
         <source>Edit</source>
         <translation>更改</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="77"/>
         <source>Switch Layouts (Multiple)</source>
         <translation>切換鍵盤佈局(可多選)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="109"/>
         <source>Applies to</source>
         <translation>切換方式</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="111"/>
         <source>System</source>
         <translation>系統</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="111"/>
         <source>Application</source>
         <translation>應用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="194"/>
         <source>Done</source>
         <translation>完成</translation>
     </message>
@@ -1847,12 +1817,12 @@
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="69"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="75"/>
         <source>Add System Language</source>
         <translation>添加系統語言</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -1907,17 +1877,17 @@
 <context>
     <name>dccV20::mouse::MouseModule</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="66"/>
         <source>Touchpad</source>
         <translation>觸控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="70"/>
         <source>TrackPoint</source>
         <translation>指點杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="165"/>
         <source>Mouse</source>
         <translation>鼠標</translation>
     </message>
@@ -1928,8 +1898,8 @@
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="44"/>
         <source>Pointer Speed</source>
         <translation>指針速度</translation>
-        <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
+        <extra-child_page>Mouse</extra-child_page>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="46"/>
@@ -1939,27 +1909,27 @@
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="49"/>
         <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="51"/>
         <source>Disable touchpad when a mouse is connected</source>
         <translation>插入鼠標時禁用觸控板</translation>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="53"/>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="56"/>
         <source>Natural Scrolling</source>
         <translation>自然滾動</translation>
-        <extra-child_page>Mouse</extra-child_page>
         <extra-contents_path>/mouse/Mouse</extra-contents_path>
+        <extra-child_page>Mouse</extra-child_page>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="60"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/mouse/mousesettingwidget.cpp" line="61"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
@@ -1997,8 +1967,8 @@
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="47"/>
         <source>Pointer Speed</source>
         <translation>指針速度</translation>
-        <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+        <extra-child_page>Touchpad</extra-child_page>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="49"/>
@@ -2007,19 +1977,19 @@
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="53"/>
         <source>Natural Scrolling</source>
         <translation>自然滾動</translation>
-        <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
+        <extra-child_page>Touchpad</extra-child_page>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="59"/>
         <source>Slow</source>
         <translation>慢</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/mouse/touchpadsettingwidget.cpp" line="60"/>
         <source>Fast</source>
         <translation>快</translation>
     </message>
@@ -2030,8 +2000,8 @@
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="39"/>
         <source>Pointer Speed</source>
         <translation>指針速度</translation>
-        <extra-child_page>TrackPoint</extra-child_page>
         <extra-contents_path>/mouse/TrackPoint</extra-contents_path>
+        <extra-child_page>TrackPoint</extra-child_page>
     </message>
     <message>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="41"/>
@@ -2760,7 +2730,6 @@
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="77"/>
         <source>Create PPPoE Connection</source>
         <translation>創建PPPoE連接</translation>
-        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="75"/>
@@ -4171,22 +4140,22 @@
         <translation>允許來自%1的通知，可在屏幕中顯示消息橫幅，也可在通知中心查看歷史未讀消息。</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="90"/>
         <source>Play a sound</source>
         <translation>通知時提示聲音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="94"/>
         <source>Show messages on lockscreen</source>
         <translation>鎖屏時顯示消息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
         <source>Show in notification center</source>
         <translation>在通知中心顯示</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/notification/appnotifywidget.cpp" line="102"/>
         <source>Show message preview</source>
         <translation>顯示消息預覽</translation>
     </message>
@@ -4282,6 +4251,7 @@
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="53"/>
         <source>Size</source>
         <translation>字號</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="116"/>
@@ -4632,31 +4602,24 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="78"/>
         <source>Turn off the display in</source>
         <translation>息屏時間</translation>
-        <extra-contents_path>/battery/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="83"/>
         <source>Monitor will suspend after</source>
         <translation>關閉顯示器於</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="98"/>
         <source>Computer will suspend after</source>
         <translation>電腦進入待機模式</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="55"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="111"/>
         <source>Lock screen after</source>
         <translation>自動鎖屏</translation>
-        <extra-child_page>On Battery</extra-child_page>
-        <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="56"/>
@@ -4673,7 +4636,6 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="75"/>
         <source>Low Battery Notification</source>
         <translation>低電量通知</translation>
-        <extra-contents_path>/battery/On Battery</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="62"/>
@@ -4689,8 +4651,8 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="126"/>
         <source>Shut down</source>
         <translation>關機</translation>
-        <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
+        <extra-child_page>On Battery</extra-child_page>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="128"/>
@@ -4741,8 +4703,6 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="56"/>
         <source>Lock screen after</source>
         <translation>自動鎖屏</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="50"/>
@@ -4759,16 +4719,12 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="67"/>
         <source>Monitor will suspend after</source>
         <translation>關閉顯示器於</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="77"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="80"/>
         <source>Computer will suspend after</source>
         <translation>電腦進入待機模式</translation>
-        <extra-child_page>Plugged In</extra-child_page>
-        <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
@@ -4830,8 +4786,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="116"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="452"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="855"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="860"/>
         <source>Window Effect</source>
         <translation>窗口特效</translation>
     </message>
@@ -5003,8 +4959,8 @@
         <translation>啟動菜單</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="445"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="847"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="450"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="852"/>
         <source>Cloud Account</source>
         <translation>網絡帳戶</translation>
     </message>
@@ -5061,22 +5017,22 @@
 <context>
     <name>dccV20::sound::SoundWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="92"/>
         <source>Output</source>
         <translation>輸出</translation>
-        <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="94"/>
         <source>Input</source>
         <translation>輸入</translation>
-        <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="96"/>
         <source>Sound Effects</source>
         <translation>音效</translation>
-        <extra-contents_path>/sound/Sound Effects</extra-contents_path>
     </message>
 </context>
 <context>
@@ -6020,53 +5976,53 @@ Visit User Center and manage your account there.</source>
         <translation>控制中心</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="725"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="730"/>
         <source>On Battery</source>
         <translation>使用電池</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="726"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="731"/>
         <source>Plugged In</source>
         <translation>使用電源</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="727"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="732"/>
         <source>General</source>
         <translation>通用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="728"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="733"/>
         <source>Mouse</source>
         <translation>鼠標</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="729"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="734"/>
         <source>Touchpad</source>
         <translation>觸控板</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="730"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="735"/>
         <source>TrackPoint</source>
         <translation>指點杆</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="731"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="736"/>
         <source>Application Proxy</source>
         <translation>應用代理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="732"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="735"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="737"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="740"/>
         <source>System Proxy</source>
         <translation>系統代理</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="733"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="738"/>
         <source>Time Settings</source>
         <translation>時間設置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="734"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="739"/>
         <source>Change System Timezone</source>
         <translation>修改系統時區</translation>
     </message>
@@ -6206,38 +6162,38 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
         <source>Accounts</source>
-        <translation>帳號</translation>
+        <translation>帳戶</translation>
     </message>
 </context>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="539"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="542"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>您的主機成功退出了域伺服器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="540"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="543"/>
         <source>Your host joins the domain server successfully</source>
         <translation>您的主機成功加入了域伺服器</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="568"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="571"/>
         <source>Your host failed to leave the domain server</source>
         <translation>您的主機退出域伺服器失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="569"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="572"/>
         <source>Your host failed to join the domain server</source>
         <translation>您的主機加入域伺服器失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="572"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="575"/>
         <source>AD domain settings</source>
         <translation>AD域設置</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="641"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="644"/>
         <source>Password not match</source>
         <translation>密碼不一致</translation>
     </message>
@@ -6429,12 +6385,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>All data under this account will be permanently deleted</source>
-        <translation>該帳號下的所有訊息將無法被恢復</translation>
+        <translation>該帳戶下的所有訊息將無法被恢復</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
         <source>Delete account directory</source>
-        <translation>刪除帳號目錄</translation>
+        <translation>刪除帳戶目錄</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -6453,19 +6409,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
         <source>Bluetooth</source>
         <translation>藍牙</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::bluetooth::DetailPage</name>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="43"/>
-        <source>Ignore</source>
-        <translation>忽略</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/bluetooth/detailpage.cpp" line="44"/>
-        <source>Disconnect</source>
-        <translation>斷開</translation>
     </message>
 </context>
 <context>
@@ -6511,23 +6454,23 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="232"/>
         <source>Confirm</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="228"/>
         <source>Add Timezone</source>
         <translation>添加時區</translation>
         <extra-contents_path>/datetime/Timezone List/Add Timezone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="229"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="231"/>
         <source>Change Timezone</source>
         <translation>修改系統時區</translation>
     </message>
@@ -6535,27 +6478,27 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::datetime::TimezoneItem</name>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="108"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="109"/>
         <source>Tomorrow</source>
         <translation>明天</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="110"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="111"/>
         <source>Yesterday</source>
         <translation>昨天</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="112"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="113"/>
         <source>Today</source>
         <translation>今天</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="131"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="132"/>
         <source>%1 hours earlier than local</source>
         <translation>比本地早了%1個小時</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="133"/>
+        <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="134"/>
         <source>%1 hours later than local</source>
         <translation>比本地晚了%1個小時</translation>
     </message>
@@ -6765,27 +6708,21 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
         <translation>掌壓檢測</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="34"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="42"/>
         <source>Minimum Contact Surface</source>
         <translation>最小接觸面</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="35"/>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="46"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="47"/>
         <source>Minimum Pressure Value</source>
         <translation>最小壓力值</translation>
-        <extra-child_page>Touchpad</extra-child_page>
-        <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="84"/>
+        <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>開啟後若導致觸控板不可用，請關閉此選項即可</translation>
     </message>
@@ -6807,6 +6744,15 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
+    <name>dcc::power::PowerModel</name>
+    <message>
+        <location filename="../src/frame/modules/power/powermodel.cpp" line="75"/>
+        <location filename="../src/frame/modules/power/powermodel.cpp" line="85"/>
+        <source>Never</source>
+        <translation>從不</translation>
+    </message>
+</context>
+<context>
     <name>dcc::power::PowerWidget</name>
     <message>
         <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
@@ -6815,7 +6761,7 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::sound::SoundModel</name>
+    <name>dcc::sound</name>
     <message>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
         <location filename="../src/frame/modules/sound/soundmodel.cpp" line="128"/>
@@ -6927,13 +6873,13 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="241"/>
-        <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation>Copyright © 2011-2020 深度社區</translation>
+        <source>CopyrightÂ© 2011-2020 Deepin Community</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="243"/>
-        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright © 2019-2020 統信軟件技術有限公司</translation>
+        <source>CopyrightÂ© 2019-2020 UnionTech Software Technology Co., LTD</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

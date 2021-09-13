@@ -385,7 +385,7 @@ QString UseBatteryWidget::delayToLiteralString(const int delay) const
             return strData = tr("%1 Minutes").arg(value / 60);
         } else if (text.contains("h") && value == 60 * 60) { // 当时间是1小时
             return strData = tr("1 Hour");
-        } else if (text.contains("Never")) {
+        } else if (text.contains(tr("Never"))) {
             return strData = tr("Never");
         }
     }

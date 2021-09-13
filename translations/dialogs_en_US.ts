@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_US" version="2.1">
 <context>
     <name>ReminderDialog</name>
     <message>
