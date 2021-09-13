@@ -177,6 +177,10 @@ void NetworkController::onDevicesChanged(const QString &value)
             }
         }
     }
+    // 对设备进行排序
+    qSort(m_devices.begin(), m_devices.end(), [ = ] (NetworkDeviceBase *dev1, NetworkDeviceBase *dev2) {
+        return devPaths.indexOf(dev1->path()) < devPaths.indexOf(dev2->path());
+    });
     // 更新设备的时候，同时需要更新连接信息，因为可能连接的信号发生在设备更新信息之前
     updateConnectionsInfo(newDevices);
     // 更新设备的连接信息，因为读取设备状态信息的时候，需要这个连接信息
