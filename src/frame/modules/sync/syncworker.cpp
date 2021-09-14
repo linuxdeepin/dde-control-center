@@ -33,9 +33,9 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     m_activeInfo = new QDBusInterface("com.deepin.license",
                                       "/com/deepin/license/Info",
                                       "com.deepin.license.Info",
-                                      QDBusConnection::systemBus(),this);
+                                      QDBusConnection::systemBus(), this);
 
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    connect(m_activeInfo, SIGNAL(LicenseStateChange(uint)), this, SLOT(licenseStateChangeSlot()));
     connect(m_syncInter, &SyncInter::StateChanged, this, &SyncWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::LastSyncTimeChanged, this, &SyncWorker::onLastSyncTimeChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &SyncWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
@@ -69,11 +69,12 @@ void SyncWorker::deactivate()
 void SyncWorker::refreshSyncState()
 {
     QFutureWatcher<QJsonObject> *watcher = new QFutureWatcher<QJsonObject>(this);
-    connect(watcher, &QFutureWatcher<QJsonObject>::finished, this, [=] {
+    connect(watcher, &QFutureWatcher<QJsonObject>::finished, this, [ = ] {
         watcher->deleteLater();
         QJsonObject obj = std::move(watcher->result());
 
-        if (obj.isEmpty()) {
+        if (obj.isEmpty())
+        {
             qDebug() << "Sync Info is Wrong!";
             return;
         }
@@ -84,12 +85,13 @@ void SyncWorker::refreshSyncState()
             m_model->moduleMap()
         };
 
-        for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it) {
+        for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it)
+        {
             m_model->setModuleSyncState(it->first, obj[it->second.first()].toBool());
         }
     });
 
-    QFuture<QJsonObject> future = QtConcurrent::run([=]() -> QJsonObject {
+    QFuture<QJsonObject> future = QtConcurrent::run([ = ]() -> QJsonObject {
         QDBusPendingReply<QString> reply = m_syncInter->SwitcherDump();
         reply.waitForFinished();
         return QJsonDocument::fromJson(reply.value().toUtf8()).object();
@@ -190,14 +192,14 @@ void SyncWorker::getLicenseState()
         m_model->setActivation(true);
         return;
     }
-    
+
     QDBusInterface licenseInfo("com.deepin.license",
                                "/com/deepin/license/Info",
                                "com.deepin.license.Info",
                                QDBusConnection::systemBus());
 
     if (!licenseInfo.isValid()) {
-        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        qWarning() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
 

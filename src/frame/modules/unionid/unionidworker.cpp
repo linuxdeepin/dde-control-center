@@ -56,9 +56,9 @@ UnionidWorker::UnionidWorker(UnionidModel *model, QObject *parent)
     m_activeInfo = new QDBusInterface("com.deepin.license",
                                       "/com/deepin/license/Info",
                                       "com.deepin.license.Info",
-                                      QDBusConnection::systemBus(),this);
+                                      QDBusConnection::systemBus(), this);
 
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()), this, SLOT(licenseStateChangeSlot()));
+    connect(m_activeInfo, SIGNAL(LicenseStateChange(uint)), this, SLOT(licenseStateChangeSlot()));
     connect(m_deepinId_inter, &DeepinId::UserInfoChanged, m_model, &UnionidModel::setUserinfo, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::StateChanged, this, &UnionidWorker::onStateChanged, Qt::QueuedConnection);
     connect(m_syncInter, &SyncInter::SwitcherChange, this, &UnionidWorker::onSyncModuleStateChanged, Qt::QueuedConnection);
@@ -92,11 +92,12 @@ void UnionidWorker::deactivate()
 void UnionidWorker::refreshSyncState()
 {
     QFutureWatcher<QJsonObject> *watcher = new QFutureWatcher<QJsonObject>(this);
-    connect(watcher, &QFutureWatcher<QJsonObject>::finished, this, [=] {
+    connect(watcher, &QFutureWatcher<QJsonObject>::finished, this, [ = ] {
         watcher->deleteLater();
         QJsonObject obj = std::move(watcher->result());
 
-        if (obj.isEmpty()) {
+        if (obj.isEmpty())
+        {
             qDebug() << "Sync Info is Wrong!";
             return;
         }
@@ -107,12 +108,13 @@ void UnionidWorker::refreshSyncState()
             m_model->moduleMap()
         };
 
-        for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it) {
+        for (auto it = moduleMap.cbegin(); it != moduleMap.cend(); ++it)
+        {
             m_model->setModuleSyncState(it->first, obj[it->second.first()].toBool());
         }
     });
 
-    QFuture<QJsonObject> future = QtConcurrent::run([=]() -> QJsonObject {
+    QFuture<QJsonObject> future = QtConcurrent::run([ = ]() -> QJsonObject {
         QDBusPendingReply<QString> reply = m_syncInter->SwitcherDump();
         reply.waitForFinished();
         return QJsonDocument::fromJson(reply.value().toUtf8()).object();
@@ -164,24 +166,21 @@ void UnionidWorker::requestAgreementPopup(const QString &fileName)
     auto infos = m_model->userinfo();
     const QString region = infos["Region"].toString();
     if (region != "CN") {
-        if(fileName == "servicelabel") {
+        if (fileName == "servicelabel") {
             QDesktopServices::openUrl(QUrl("https://www.uniontech.com/agreement/agreement-en/"));
-        }
-        else if (fileName == "privacyLabel") {
+        } else if (fileName == "privacyLabel") {
             QDesktopServices::openUrl(QUrl("https://www.uniontech.com/agreement/privacy-en/"));
         }
-    }
-    else {
-        if(fileName == "servicelabel") {
+    } else {
+        if (fileName == "servicelabel") {
             QDesktopServices::openUrl(QUrl("https://www.uniontech.com/agreement/agreement-cn/"));
-        }
-        else if (fileName == "privacyLabel") {
+        } else if (fileName == "privacyLabel") {
             QDesktopServices::openUrl(QUrl("https://www.uniontech.com/agreement/privacy-cn/"));
         }
     }
 }
 
-void UnionidWorker::requestModifyDialog(QString )
+void UnionidWorker::requestModifyDialog(QString)
 {
     QDesktopServices::openUrl(QUrl("https://account.chinauos.com/account/"));
 }
@@ -233,7 +232,7 @@ void UnionidWorker::getLicenseState()
                                QDBusConnection::systemBus());
 
     if (!licenseInfo.isValid()) {
-        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        qWarning() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
 

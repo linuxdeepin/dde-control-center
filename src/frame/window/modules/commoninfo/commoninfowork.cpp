@@ -46,22 +46,22 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     , m_content("")
 {
     m_dBusGrub = new GrubDbus("com.deepin.daemon.Grub2",
-                             "/com/deepin/daemon/Grub2",
-                             QDBusConnection::systemBus(),
-                             this);
+                              "/com/deepin/daemon/Grub2",
+                              QDBusConnection::systemBus(),
+                              this);
 
     m_dBusGrubTheme = new GrubThemeDbus("com.deepin.daemon.Grub2",
-                                       "/com/deepin/daemon/Grub2/Theme",
-                                       QDBusConnection::systemBus(), this);
+                                        "/com/deepin/daemon/Grub2/Theme",
+                                        QDBusConnection::systemBus(), this);
 
     m_dBusdeepinIdInter = new GrubDevelopMode("com.deepin.deepinid",
-                                                "/com/deepin/deepinid",
-                                                QDBusConnection::sessionBus(), this);
+                                              "/com/deepin/deepinid",
+                                              QDBusConnection::sessionBus(), this);
 
     m_activeInfo = new QDBusInterface("com.deepin.license",
                                       "/com/deepin/license/Info",
                                       "com.deepin.license.Info",
-                                      QDBusConnection::systemBus(),this);
+                                      QDBusConnection::systemBus(), this);
 
     licenseStateChangeSlot();
 
@@ -73,12 +73,12 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     m_dBusGrubTheme->setSync(false, false);
 
     //监听开发者在线认证失败的错误接口信息
-    connect(m_dBusdeepinIdInter, &GrubDevelopMode::Error, this, [](int code, const QString &msg) {
+    connect(m_dBusdeepinIdInter, &GrubDevelopMode::Error, this, [](int code, const QString & msg) {
         //系统通知弹窗qdbus 接口
         QDBusInterface  tInterNotify("com.deepin.dde.Notification",
-                                                "/com/deepin/dde/Notification",
-                                                "com.deepin.dde.Notification",
-                                                QDBusConnection::sessionBus());
+                                     "/com/deepin/dde/Notification",
+                                     "com.deepin.dde.Notification",
+                                     QDBusConnection::sessionBus());
 
         //初始化Notify 七个参数
         QString in0("dde-control-center");
@@ -116,7 +116,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     connect(m_dBusGrub, &GrubDbus::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
     connect(m_dBusGrub, &GrubDbus::EnableThemeChanged, m_commomModel, &CommonInfoModel::setThemeEnabled);
     connect(m_dBusGrub, &GrubDbus::TimeoutChanged, this, [this](const int &value) {
-        qDebug()<<" CommonInfoWork::TimeoutChanged  value =  "<< value;
+        qDebug() << " CommonInfoWork::TimeoutChanged  value =  " << value;
         m_commomModel->setBootDelay(value > 1);
     });
     connect(m_dBusGrub, &__Grub2::UpdatingChanged, m_commomModel, &CommonInfoModel::setUpdating);
@@ -126,7 +126,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    connect(m_activeInfo, SIGNAL(LicenseStateChange(uint)), this, SLOT(licenseStateChangeSlot()));
 }
 
 CommonInfoWork::~CommonInfoWork()
@@ -164,7 +164,7 @@ bool CommonInfoWork::defaultUeProgram()
 
 void CommonInfoWork::setBootDelay(bool value)
 {
-    qDebug()<<" CommonInfoWork::setBootDelay  value =  "<< value;
+    qDebug() << " CommonInfoWork::setBootDelay  value =  " << value;
     QDBusPendingCall call = m_dBusGrub->SetTimeout(value ? 5 : 1);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
@@ -255,9 +255,9 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
         if (!sl.contains(QLocale::system().name()))
             pathType = "-e";
         m_process->start("dde-license-dialog",
-                                      QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent);
-        qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
-                                                     << "-t" << m_title << pathType << m_content << "-a" << allowContent;
+                         QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent);
+        qDebug() << " Deliver content QStringList() = " << "dde-license-dialog"
+                 << "-t" << m_title << pathType << m_content << "-a" << allowContent;
         connect(m_process, &QProcess::stateChanged, this, [pMainWindow](QProcess::ProcessState state) {
             if (pMainWindow) {
                 pMainWindow->setEnabled(state != QProcess::Running);
@@ -265,7 +265,7 @@ void CommonInfoWork::setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMain
                 qDebug() << "setUeProgram pMainWindow is nullptr";
             }
         });
-        connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
+        connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [ = ](int result) {
             if (96 == result) {
                 if (!m_commomModel->ueProgram()) {
                     m_commomModel->setUeProgram(enabled);
@@ -335,7 +335,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled, DCC_NAMESPACE::MainWin
         }
     });
 
-    connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
+    connect(m_process, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [ = ](int result) {
         if (96 == result) {
             m_dBusdeepinIdInter->call("UnlockDevice");
         } else {
@@ -421,7 +421,7 @@ void CommonInfoWork::getLicenseState()
                                QDBusConnection::systemBus());
 
     if (!licenseInfo.isValid()) {
-        qWarning()<< "com.deepin.license error ,"<< licenseInfo.lastError().name();
+        qWarning() << "com.deepin.license error ," << licenseInfo.lastError().name();
         return;
     }
 

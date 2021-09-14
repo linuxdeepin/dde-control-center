@@ -33,14 +33,14 @@
 
 DCORE_USE_NAMESPACE
 
-namespace dcc{
-namespace systeminfo{
+namespace dcc {
+namespace systeminfo {
 
 static const int ItemWidth = 334;
 static const int ItemHeight = 177;
 
 SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
-    :QObject(parent),
+    : QObject(parent),
       m_model(model)
 {
     m_systemInfoInter = new SystemInfoInter("com.deepin.daemon.SystemInfo",
@@ -65,7 +65,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_activeInfo = new QDBusInterface("com.deepin.license",
                                       "/com/deepin/license/Info",
                                       "com.deepin.license.Info",
-                                      QDBusConnection::systemBus(),this);
+                                      QDBusConnection::systemBus(), this);
 #if 0
     //预留接口
     m_dbusActivator = new GrubThemeDbus("com.deepin.license",
@@ -83,7 +83,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     if (DSysInfo::cpuModelName().contains("Hz")) {
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
-        if(DSysInfo::cpuModelName().isEmpty()){
+        if (DSysInfo::cpuModelName().isEmpty()) {
             m_model->setProcessor(QString("%1GHz").arg(cpuMaxMhz / 1000));
         } else {
             m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
@@ -101,15 +101,15 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     m_dbusGrub->setSync(false, false);
     m_dbusGrubTheme->setSync(false, false);
 
-    connect(m_activeInfo, SIGNAL(LicenseStateChange()),this, SLOT(licenseStateChangeSlot()));
+    connect(m_activeInfo, SIGNAL(LicenseStateChange(uint)), this, SLOT(licenseStateChangeSlot()));
     connect(m_dbusGrub, &GrubDbus::DefaultEntryChanged, m_model, &SystemInfoModel::setDefaultEntry);
     connect(m_dbusGrub, &GrubDbus::EnableThemeChanged, m_model, &SystemInfoModel::setThemeEnabled);
-    connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this] (const int &value) {
+    connect(m_dbusGrub, &GrubDbus::TimeoutChanged, this, [this](const int &value) {
         m_model->setBootDelay(value > 1);
     });
     connect(m_dbusGrub, &__Grub2::UpdatingChanged, m_model, &SystemInfoModel::setUpdating);
 
-    connect(m_dbusGrub, &GrubDbus::serviceStartFinished, this, [=] {
+    connect(m_dbusGrub, &GrubDbus::serviceStartFinished, this, [ = ] {
         QTimer::singleShot(100, this, &SystemInfoWork::grubServerFinished);
     }, Qt::QueuedConnection);
 
@@ -125,7 +125,7 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     process.waitForFinished();
     QByteArray output = process.readAllStandardOutput();
     int idx = output.indexOf('\n');
-    if ( -1 != idx) {
+    if (-1 != idx) {
         output.remove(idx, 1);
     }
     m_model->setKernel(output);
@@ -152,10 +152,10 @@ void SystemInfoWork::activate()
     QString version;
     if (DSysInfo::isDeepin()) {
         version = QString("%1 (%2)").arg(DSysInfo::uosEditionName())
-                                  .arg(DSysInfo::minorVersion());
+                  .arg(DSysInfo::minorVersion());
     } else {
         version = QString("%1 %2").arg(DSysInfo::productVersion())
-                                  .arg(DSysInfo::productTypeString());
+                  .arg(DSysInfo::productTypeString());
     }
 
     m_model->setVersion(version);
@@ -180,7 +180,7 @@ void SystemInfoWork::processChanged(QDBusMessage msg)
     if (DSysInfo::cpuModelName().contains("Hz")) {
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
-        if(DSysInfo::cpuModelName().isEmpty()){
+        if (DSysInfo::cpuModelName().isEmpty()) {
             m_model->setProcessor(QString("%1GHz").arg(cpuMaxMhz / 1000));
         } else {
             m_model->setProcessor(QString("%1 @ %2GHz").arg(DSysInfo::cpuModelName())
@@ -204,7 +204,7 @@ void SystemInfoWork::setBootDelay(bool value)
 
     QDBusPendingCall call = m_dbusGrub->SetTimeout(value ? 5 : 1);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         if (w->isError()) {
             Q_EMIT m_model->bootDelayChanged(m_model->bootDelay());
         }
@@ -220,7 +220,7 @@ void SystemInfoWork::setEnableTheme(bool value)
 
     QDBusPendingCall call = m_dbusGrub->SetEnableTheme(value);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         if (w->isError()) {
             Q_EMIT m_model->themeEnabledChanged(m_model->themeEnabled());
         }
@@ -236,7 +236,7 @@ void SystemInfoWork::setDefaultEntry(const QString &entry)
 
     QDBusPendingCall call = m_dbusGrub->SetDefaultEntry(entry);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         if (w->isError()) {
             Q_EMIT m_model->defaultEntryChanged(m_model->defaultEntry());
         }
@@ -270,7 +270,7 @@ void SystemInfoWork::setBackground(const QString &path)
 
     QDBusPendingCall call = m_dbusGrubTheme->SetBackgroundSourceFile(path);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         Q_EMIT requestSetAutoHideDCC(true);
 
         if (w->isError()) {
@@ -308,7 +308,7 @@ void SystemInfoWork::getEntryTitles()
 {
     QDBusPendingCall call = m_dbusGrub->GetSimpleEntryTitles();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *w) {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         if (!w->isError()) {
             QDBusReply<QStringList> reply = w->reply();
             QStringList entries = reply.value();
