@@ -390,6 +390,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_pNetworkController, &NetworkController::deviceRemoved, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::connectionFailed, this, &WirelessPage::onActivateApFailed);
     connect(m_device, &WirelessDevice::connectionChanged, this, &WirelessPage::updateActiveAp);
+    connect(m_device, &WirelessDevice::deviceStatusChanged, this, &WirelessPage::updateActiveAp);
 
     // init data
     const QList<AccessPoints *> lstUAccessPoints = m_device->accessPointItems();
@@ -690,48 +691,24 @@ void WirelessPage::showConnectHidePage()
 
 void WirelessPage::updateActiveAp()
 {
-    auto status = m_device->deviceStatus();
-    if(!m_device->activeAccessPoints())
-        return;
-
-    auto activedSsid = m_device->activeAccessPoints()->ssid();
-    bool isWifiConnected = status == DeviceStatus::Activated;
-    for (auto it = m_apItems.cbegin(); it != m_apItems.cend(); ++it) {
-        bool isConnected = it.key() == activedSsid;
-        APSortInfo info = it.value()->sortInfo();
-        info.connected = isConnected;
-        it.value()->setSortInfo(info);
-        if (m_clickedItem == it.value() || (m_clickedItem == nullptr && isConnected)) {
-            bool loading = true;
-            it.value()->setConnected(false);
-            if (status == DeviceStatus::Activated || status == DeviceStatus::Disconnected) {
-                loading = false;
-                if(status == DeviceStatus::Activated)
-                    it.value()->setConnected(true);
-            }
-
-            bool isReconnect = it.value()->setLoading(loading);
-            if (isReconnect) {
-                connect(it.value()->action(), &QAction::triggered, this, [ this, it ] {
-                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(), it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                });
-            }
-        } else {
-            bool isReconnect = it.value()->setLoading(false);
-            if (isReconnect) {
-                connect(it.value()->action(), &QAction::triggered, this, [ this, it ] {
-                    this->onApWidgetEditRequested(it.value()->data(APItem::PathRole).toString(), it.value()->data(Qt::ItemDataRole::DisplayRole).toString());
-                });
-            }
-        }
+    QList<AccessPoints *> accessPoints = m_device->accessPointItems();
+    QMap<QString, ConnectionStatus> connectionStatus;
+    bool isConnecting = false;
+    for (AccessPoints *ap : accessPoints) {
+        connectionStatus[ap->ssid()] = ap->connectionStatus();
+        if (ap->connectionStatus() == ConnectionStatus::Activating)
+            isConnecting = true;
     }
-    if (isWifiConnected && m_clickedItem) {
-        bool isReconnect = m_clickedItem->setLoading(false);
-        if (isReconnect) {
-            connect(m_clickedItem->action(), &QAction::triggered, this, [ this ] {
-                this->onApWidgetEditRequested(m_clickedItem->data(APItem::PathRole).toString(), m_clickedItem->data(Qt::ItemDataRole::DisplayRole).toString());
-            });
-        }
+
+    for (int i = 0; i < m_modelAP->rowCount(); i++) {
+        APItem *item = dynamic_cast<APItem *>(m_modelAP->item(i, 0));
+        if (!item || !connectionStatus.contains(item->text()))
+            continue;
+
+        ConnectionStatus status = connectionStatus[item->text()];
+
+        item->setLoading(status == ConnectionStatus::Activating);
+        item->setCheckState((!isConnecting && status == ConnectionStatus::Activated) ? Qt::Checked : Qt::Unchecked);
     }
 
     m_sortDelayTimer->start();
