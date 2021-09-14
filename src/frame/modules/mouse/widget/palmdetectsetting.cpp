@@ -34,16 +34,10 @@ PalmDetectSetting::PalmDetectSetting(QWidget *parent)
     , m_contactSlider(new TitledSliderItem(tr("Minimum Contact Surface"), this))
     , m_pressureSlider(new TitledSliderItem(tr("Minimum Pressure Value"), this))
 {
-    //~ contents_path /mouse/Touchpad
-    //~ child_page Touchpad
     m_detectSwitchBtn->setTitle(tr("Palm Detection"));
-    //~ contents_path /mouse/Touchpad
-    //~ child_page Touchpad
     m_contactSlider->setToolTip(tr("Minimum Contact Surface"));
     m_contactSlider->addBackground();
     m_contactSlider->setObjectName("contact");
-    //~ contents_path /mouse/Touchpad
-    //~ child_page Touchpad
     m_pressureSlider->setToolTip(tr("Minimum Pressure Value"));
     m_pressureSlider->addBackground();
     m_pressureSlider->setObjectName("pressure");
