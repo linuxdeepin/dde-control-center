@@ -87,7 +87,7 @@ ProxyPage::ProxyPage(QWidget *parent)
     proxyTypeGroup->appendItem(m_proxyTypeBox);
 
     // 手动代理编辑界面处理逻辑提取
-    auto initProxyGroup = [this](LineEditWidget *&proxyEdit, LineEditWidget *&portEdit, const QString &proxyTitle, SettingsGroup *&group) {
+    auto initProxyGroup = [ this ](LineEditWidget *&proxyEdit, LineEditWidget *&portEdit, const QString &proxyTitle, SettingsGroup *&group) {
         proxyEdit = new LineEditWidget(group);
         proxyEdit->setPlaceholderText(tr("Optional"));
         proxyEdit->setTitle(proxyTitle);
@@ -199,7 +199,6 @@ ProxyPage::ProxyPage(QWidget *parent)
         m_buttonTuple->setEnabled(checked);
         if (checked) {
             // 打开代理默认手动
-            proxyController->setProxyMethod(ProxyMethod::Manual);
             onProxyMethodChanged(ProxyMethod::Manual);
         } else {
             // 关闭代理
@@ -220,11 +219,6 @@ ProxyPage::ProxyPage(QWidget *parent)
         m_manualWidget->setVisible(index == manualId);
         m_autoWidget->setVisible(index == autoId);
         m_buttonTuple->setVisible(index == manualId || index == autoId);
-
-        if (index == manualId)
-            proxyController->setProxyMethod(ProxyMethod::Manual);
-        else if (index == autoId)
-            proxyController->setProxyMethod(ProxyMethod::Auto);
     });
 
     // 取消、确定按钮响应
