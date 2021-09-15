@@ -323,12 +323,16 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     connect(m_switch, &SwitchWidget::checkedChanged, this, &WirelessPage::onNetworkAdapterChanged);
     connect(m_device, & WirelessDevice::enableChanged, this, [ this ] (const bool enabled) {
+        m_switch->blockSignals(true);
         m_switch->setChecked(enabled);
+        m_switch->blockSignals(false);
         if (m_lvAP) {
             onAPAdded(m_device->accessPointItems());
             m_lvAP->setVisible(enabled && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
             updateLayout(!m_lvAP->isHidden());
         }
+        if (!enabled)
+            onHotspotEnableChanged(false);
     });
 
     m_closeHotspotBtn->setText(tr("Close Hotspot"));
@@ -415,14 +419,13 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     });
 
     m_lvAP->setVisible(m_switch->checked() && QGSettings("com.deepin.dde.control-center", QByteArray(), this).get("wireless").toString() != "Hidden");
-    connect(m_device, &WirelessDevice::enableChanged, this, [ this ] { m_switch->setChecked(m_device->isEnabled()); });
     connect(m_device, &WirelessDevice::deviceStatusChanged, this, &WirelessPage::onDeviceStatusChanged);
     updateLayout(!m_lvAP->isHidden());
     m_switch->setChecked(m_device->isEnabled());
     onDeviceStatusChanged(m_device->deviceStatus());
 
     HotspotController *hotspotController = NetworkController::instance()->hotspotController();
-    onHotspotEnableChanged(hotspotController->enabled(m_device));
+    onHotspotEnableChanged(m_device->isEnabled() && hotspotController->enabled(m_device));
 }
 
 WirelessPage::~WirelessPage()
@@ -453,7 +456,6 @@ void WirelessPage::updateLayout(bool enabled)
 void WirelessPage::onDeviceStatusChanged(const DeviceStatus &stat)
 {
     //当wifi状态切换的时候，刷新一下列表，防止出现wifi已经连接，三级页面没有刷新出来的情况，和wifi已经断开，但是页面上还是显示该wifi
-    //Q_EMIT requestWirelessScan();
     m_device->scanNetwork();
 
     const bool unavailable = stat <= DeviceStatus::Unavailable;
