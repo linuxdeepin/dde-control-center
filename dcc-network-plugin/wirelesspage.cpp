@@ -297,7 +297,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     nonbc->setSignalStrength(-1);
     nonbc->setPath("");
     nonbc->setSortInfo({ -1, "", false });
-    connect(nonbc->action(), &QAction::triggered, this, [this] { showConnectHidePage(); });
+    connect(nonbc->action(), &QAction::triggered, this, [ this ] { showConnectHidePage(); });
     m_modelAP->appendRow(nonbc);
 
     //~ contents_path /network/WirelessPage
@@ -357,7 +357,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     setContentsMargins(0, 10, 0, 10);
 
-    connect(m_lvAP, &QListView::clicked, this, [this](const QModelIndex & idx) {
+    connect(m_lvAP, &QListView::clicked, this, [ this ](const QModelIndex & idx) {
         if (idx.data(APItem::PathRole).toString().length() == 0) {
             this->showConnectHidePage();
             return;
@@ -379,7 +379,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     });
 
     connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
-    connect(m_closeHotspotBtn, &QPushButton::clicked, [ = ] {
+    connect(m_closeHotspotBtn, &QPushButton::clicked, this, [ = ] {
         m_device->disconnectNetwork();
     });
 
@@ -397,7 +397,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
         onAPAdded(lstUAccessPoints);
 
     QGSettings *gsetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
-    connect(gsetting, &QGSettings::changed, [&](const QString &key) {
+    connect(gsetting, &QGSettings::changed, this, [&](const QString &key) {
         if (key == "wireless-scan-interval")
             m_wirelessScanTimer->setInterval(gsetting->get("wireless-scan-interval").toInt());
     });

@@ -162,11 +162,11 @@ VpnPage::VpnPage(QWidget *parent)
 
     VPNController *vpnController = NetworkController::instance()->vpnController();
 
-    connect(m_lvprofiles, &DListView::clicked, [ = ] (const QModelIndex &index) {
+    connect(m_lvprofiles, &DListView::clicked, this, [ = ] (const QModelIndex &index) {
         QString uuid = index.data(UuidRole).toString();
         vpnController->connectItem(uuid);
     });
-    connect(m_vpnSwitch, &SwitchWidget::checkedChanged, [ = ](const bool checked) {
+    connect(m_vpnSwitch, &SwitchWidget::checkedChanged, this, [ = ](const bool checked) {
         vpnController->setEnabled(checked);
     });
 
@@ -220,10 +220,10 @@ VpnPage::VpnPage(QWidget *parent)
     connect(vpnController, &VPNController::enableChanged, m_vpnSwitch, &SwitchWidget::setChecked);
     connect(vpnController, &VPNController::activeConnectionChanged, this, &VpnPage::onActiveConnsInfoChanged);
     connect(vpnController, &VPNController::itemChanged, this, &VpnPage::updateVpnItems);
-    connect(vpnController, &VPNController::itemAdded, [ = ] {
+    connect(vpnController, &VPNController::itemAdded, this, [ = ] {
         refreshVpnList(vpnController->items());
     });
-    connect(vpnController, &VPNController::itemRemoved, [ = ] {
+    connect(vpnController, &VPNController::itemRemoved, this, [ = ] {
         refreshVpnList(vpnController->items());
     });
 
@@ -256,7 +256,7 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
         vpnItem->setItemData(vpn);
         vpnItem->setData(uuid, UuidRole);
 
-        connect(vpnItem, &ConnectionPageItem::detailClick, [ = ] {
+        connect(vpnItem, &ConnectionPageItem::detailClick, this, [ = ] {
             m_editPage = new ConnectionVpnEditPage(uuid);
             m_editPage->initSettingsWidget();
             connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
@@ -271,7 +271,7 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
     m_vpnSwitch->setVisible(m_modelprofiles->rowCount() > 0);
 
     // 延迟刷新，是为了显示正常
-    QTimer::singleShot(100, [ = ] {
+    QTimer::singleShot(100, this, [ = ] {
         onActiveConnsInfoChanged();
     });
 }

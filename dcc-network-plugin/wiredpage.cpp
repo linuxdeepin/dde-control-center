@@ -195,7 +195,7 @@ void WiredPage::refreshConnectionList()
         editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
         editaction->setClickAreaMargins(ArrowEnterClickMargin);
 
-        connect(editaction, &QAction::triggered, [this, path] {
+        connect(editaction, &QAction::triggered, this, [this, path] {
             this->editConnection(path);
         });
 

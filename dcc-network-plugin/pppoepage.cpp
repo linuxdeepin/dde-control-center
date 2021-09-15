@@ -161,7 +161,7 @@ void PppoePage::onConnectionListChanged()
             }
         }
 
-        connect(pppoe, &ConnectionPageItem::detailClick, [ = ] {
+        connect(pppoe, &ConnectionPageItem::detailClick, this, [ = ] {
             m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, devicePath, uuid);
             m_editPage->initSettingsWidget();
 
@@ -176,7 +176,7 @@ void PppoePage::onConnectionListChanged()
     }
 
     // 延迟100毫秒刷新，是因为如果马上刷新的话，界面的尺寸没有调整过来，导致显示状态错误
-    QTimer::singleShot(100, [ this ] {
+    QTimer::singleShot(100, this, [ this ] {
         Q_EMIT refreshConnectionList();
     });
 }

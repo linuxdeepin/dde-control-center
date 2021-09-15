@@ -254,7 +254,7 @@ HotspotPage::HotspotPage(QWidget *parent)
     m_newprofile->setToolTip(tr("Create Hotspot"));
     GSettingWatcher::instance()->bind("createHotspot", m_newprofile);
 
-    connect(m_newprofile, &QAbstractButton::clicked, [this] {
+    connect(m_newprofile, &QAbstractButton::clicked, this, [this] {
         if (this->m_listdevw.empty())
             return;
 
@@ -283,7 +283,7 @@ HotspotPage::HotspotPage(QWidget *parent)
     }
 
     onItemAdded(deviceItems);
-    QTimer::singleShot(100, [ = ] {
+    QTimer::singleShot(100, this, [ = ] {
         onActiveConnectionChanged(devices);
     });
 }
