@@ -46,7 +46,7 @@ ScalingWidget::ScalingWidget(QWidget *parent)
     , m_slider(new TitledSliderItem(QString(), this))
 {
     //初始化列表无法进行静态翻译
-    //~ contents_path /display
+    //~ contents_path /display/Display Scaling
     m_title = new TitleLabel(tr("Display Scaling"), this);
     m_title->setText(tr("Display Scaling"));
 

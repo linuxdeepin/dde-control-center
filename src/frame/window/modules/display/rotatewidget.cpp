@@ -41,7 +41,7 @@ RotateWidget::RotateWidget(int comboxWidth, QWidget *parent)
     , m_monitor(nullptr)
 {
     //初始化列表无法进行静态翻译
-    //~ contents_path /display
+    //~ contents_path /display/Rotation
     m_rotateLabel = new QLabel(tr("Rotation"), this);
 
     setAccessibleName("RotateWidget");

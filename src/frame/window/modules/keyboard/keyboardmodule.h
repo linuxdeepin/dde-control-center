@@ -57,6 +57,7 @@ public:
     explicit KeyboardModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~KeyboardModule();
 
+    void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     void initialize() override;
     void reset() override;
     void active() override;
@@ -65,6 +66,9 @@ public:
     void contentPopped(QWidget *const w) override;
     int load(const QString &path) override;
     QStringList availPage() const override;
+
+private:
+    void initSearchData();
 
 public Q_SLOTS:
     void showGeneralSetting();

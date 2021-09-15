@@ -104,6 +104,18 @@ InsertPlugin *InsertPlugin::instance(QObject *obj, FrameProxyInterface *FramePro
     return INSTANCE;
 }
 
+void InsertPlugin::preInitialize(QString moduleName)
+{
+    for (auto pluginSetting : m_allModules) {
+        if (pluginSetting.first.path == moduleName) {
+            auto *module = qobject_cast<ModuleInterface *>(pluginSetting.second.first);
+            // 调用模块初始化函数搜索数据
+            module->preInitialize(false);
+            break;
+        }
+    }
+}
+
 /**
  * @brief dccV20::InsertPlugin::pushPlugin 加载一级菜单插件
  * @param modules 一级菜单所有模块，将插件添加到其中

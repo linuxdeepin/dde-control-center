@@ -40,8 +40,7 @@ PressureSettings::PressureSettings(QWidget *parent)
 {
     m_mainGroup = new SettingsGroup;
     m_mainLayout = new QVBoxLayout;
-    //~ contents_path /wacon/Pressure Sensitivity
-    //~ child_page Pressure Sensitivity
+    //~ contents_path /wacom/Pressure Sensitivity
     m_pressureSlider = new TitledSliderItem(tr("Pressure Sensitivity"));
     m_pressureSlider->slider()->setType(DCCSlider::Vernier);
     m_pressureSlider->slider()->setTickPosition(QSlider::TicksBelow);

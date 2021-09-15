@@ -57,6 +57,9 @@ public:
     QStringList availPage() const override;
     void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
 
+private:
+    void initSearchData();
+
 public Q_SLOTS:
     void showSpeakerPage();
     void showMicrophonePage();
@@ -68,6 +71,8 @@ private:
     dcc::sound::SoundWorker *m_worker {nullptr};
     DCC_NAMESPACE::sound::SoundWidget *m_soundWidget {nullptr};
     MainWindow *m_pMainWindow;
+    int m_outputPortCount;
+    int m_inputPortCount;
 };
 } // namespace sound
 } // namespace DCC_NAMESPACE

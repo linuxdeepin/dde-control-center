@@ -77,6 +77,8 @@ void CommonInfoModule::preInitialize(bool sync , FrameProxyInterface::PushType p
 #else
     m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), true);
 #endif
+
+    initSearchData();
 }
 
 void CommonInfoModule::initialize()
@@ -236,4 +238,112 @@ void CommonInfoModule::initUeProgramWidget()
         MainWindow *pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
         m_commonWork->setUeProgram(enabled, pMainWindow);
     });
+}
+
+void CommonInfoModule::initSearchData()
+{
+    QString module = tr("General Settings");
+    QString bootMenu = tr("Boot Menu");
+    QString startupDelay = tr("Startup Delay");
+    QString theme = tr("Theme");
+    QString developerMode = tr("Developer Mode");
+    QString experienceProgram = tr("Join User Experience Program");
+    QString userExperienceProgram = tr("User Experience Program");
+
+    QStringList gsSecondList;
+    gsSecondList << "bootMenu" << "developerMode" << "userExperienceProgram";
+
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [=](const QString &gsettings, bool state = false) {
+        if ("" == gsettings) {
+            return false;
+        }
+
+        bool ret = false;
+        if (!state) {
+            ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        } else {
+            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        }
+        gsettingsMap.insert(gsettings, ret);
+        return ret;
+    };
+
+
+    auto func_bootMenu_changed = [ = ] {
+        bool visible = func_is_visible("bootMenu");
+        m_frameProxy->setWidgetVisible(module, bootMenu, visible);
+        m_frameProxy->setDetailVisible(module, bootMenu, startupDelay, visible && func_is_visible("commoninfoBootBootdelay", true));
+        m_frameProxy->setDetailVisible(module, bootMenu, theme, visible && func_is_visible("commoninfoBootTheme", true));
+
+    };
+
+    auto func_developerMode_changed = [ = ] {
+        bool visible = func_is_visible("developerMode");
+        m_frameProxy->setWidgetVisible(module, developerMode, visible);
+        m_frameProxy->setDetailVisible(module, developerMode, developerMode, visible);
+    };
+
+    auto func_userExperienceProgram_changed = [ = ] {
+        bool visible = func_is_visible("userExperienceProgram");
+        m_frameProxy->setWidgetVisible(module, userExperienceProgram, visible);
+        m_frameProxy->setDetailVisible(module, userExperienceProgram, experienceProgram, visible);
+    };
+
+
+    auto func_process_all = [=]() {
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_bootMenu_changed();
+
+        func_developerMode_changed();
+
+        func_userExperienceProgram_changed();
+    };
+
+
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if ("" == gsetting || !gsettingsMap.contains(gsetting)) {
+               return;
+        }
+
+        if (gsSecondList.contains(gsetting)) {
+           if (gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting).toBool()) {
+               return;
+           }
+
+           if ("bootMenu" == gsetting) {
+               func_bootMenu_changed();
+           } else if ("developerMode" == gsetting) {
+               func_developerMode_changed();
+           } else if ("userExperienceProgram" == gsetting) {
+               func_userExperienceProgram_changed();
+           } else {
+               qDebug() << " not contains the gsettings : " << gsetting << state;
+               return;
+           }
+        } else {
+           if (gsettingsMap.value(gsetting) == (GSettingWatcher::instance()->get(gsetting).toString() != "Hidden")) {
+               return;
+           }
+
+           bool bootMenuVisible = func_is_visible("bootMenu");
+           if ("commoninfoBootBootdelay" == gsetting) {
+               m_frameProxy->setDetailVisible(module, bootMenu, startupDelay, bootMenuVisible && func_is_visible("commoninfoBootBootdelay", true));
+           } else if ("commoninfoBootTheme" == gsetting) {
+               m_frameProxy->setDetailVisible(module, bootMenu, theme, bootMenuVisible && func_is_visible("commoninfoBootTheme", true));
+           } else {
+               qDebug() << " not contains the gsettings : " << gsetting << state;
+               return;
+           }
+        }
+
+        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+     });
+
+
+    func_process_all();
 }

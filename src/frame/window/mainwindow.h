@@ -87,6 +87,10 @@ public:
     void popWidget(ModuleInterface *const inter) override;
     void pushWidget(ModuleInterface *const inter, QWidget *const w, PushType type = Normal) override;
     void setModuleVisible(ModuleInterface *const inter, const bool visible) override;
+    void setModuleVisible(const QString &module, bool visible) override;
+    void setWidgetVisible(const QString &module, const QString &widget, bool visible) override;
+    void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible) override;
+    void updateSearchData(const QString &module) override;
     void showModulePage(const QString &module, const QString &page, bool animation) override;
     void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) override;
     void setRemoveableDeviceStatus(QString type, bool state) override;

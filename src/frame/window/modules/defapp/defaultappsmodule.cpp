@@ -64,8 +64,10 @@ DefaultAppsModule::~DefaultAppsModule()
     m_defAppWorker = nullptr;
 }
 
-void DefaultAppsModule::initialize()
+void DefaultAppsModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 {
+    Q_UNUSED(sync)
+
     if (m_defAppModel) {
         delete m_defAppModel;
     }
@@ -74,6 +76,13 @@ void DefaultAppsModule::initialize()
     m_defAppModel->moveToThread(qApp->thread());
     m_defAppWorker->moveToThread(qApp->thread());
     m_defAppWorker->onGetListApps();
+\
+    initSearchData();
+}
+
+void DefaultAppsModule::initialize()
+{
+
 }
 
 void DefaultAppsModule::active()
@@ -142,6 +151,95 @@ QStringList DefaultAppsModule::availPage() const
     sl << "Webpage" << "Mail" << "Text" << "Music" << "Video" << "Picture" << "Terminal";
 
     return sl;
+}
+
+void DefaultAppsModule::initSearchData()
+{
+    QStringList gslist;
+    gslist << "defappWebpage" << "defappText" << "defappMusic" << "defappMail"
+           << "defappVideo" << "defappPicture" << "defappTerminal";
+
+    QString module = tr("Default Applications");
+    QString addApplication = tr("Add Application");
+
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [=](const QString &gsettings) {
+        bool ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        gsettingsMap.insert(gsettings, ret);
+        return ret;
+    };
+
+    auto func_second_changed = [ = ]() {
+        m_frameProxy->setWidgetVisible(module, tr("Webpage"), func_is_visible("defappWebpage"));
+        m_frameProxy->setWidgetVisible(module, tr("Mail"), func_is_visible("defappMail"));
+        m_frameProxy->setWidgetVisible(module, tr("Text"), func_is_visible("defappText"));
+        m_frameProxy->setWidgetVisible(module, tr("Music"), func_is_visible("defappMusic"));
+        m_frameProxy->setWidgetVisible(module, tr("Video"), func_is_visible("defappVideo"));
+        m_frameProxy->setWidgetVisible(module, tr("Picture"), func_is_visible("defappPicture"));
+        m_frameProxy->setWidgetVisible(module, tr("Terminal"), func_is_visible("defappTerminal"));
+    };
+
+    auto func_addapp_changed = [ = ]() {
+        bool bAddApplication = GSettingWatcher::instance()->get("defappApplistAddbtn") != "Hidden";
+        gsettingsMap.insert("defappApplistAddbtn", bAddApplication);
+
+        func_second_changed();
+
+        m_frameProxy->setDetailVisible(module, tr("Webpage"), addApplication, func_is_visible("defappWebpage") && bAddApplication);
+        m_frameProxy->setDetailVisible(module, tr("Mail"), addApplication, func_is_visible("defappMail") && bAddApplication);
+        m_frameProxy->setDetailVisible(module, tr("Text"), addApplication, func_is_visible("defappText") && bAddApplication);
+        m_frameProxy->setDetailVisible(module, tr("Music"), addApplication, func_is_visible("defappMusic") && bAddApplication);
+        m_frameProxy->setDetailVisible(module, tr("Video"), addApplication, func_is_visible("defappVideo") && bAddApplication);
+        m_frameProxy->setDetailVisible(module, tr("Picture"), addApplication, func_is_visible("defappPicture") && bAddApplication);
+        m_frameProxy->setDetailVisible(module, tr("Terminal"), addApplication, func_is_visible("defappTerminal") && bAddApplication);
+    };
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_second_changed();
+
+        func_addapp_changed();
+    };
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+
+        if (!gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        if (gslist.contains(gsetting) && gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting)) {
+            return;
+        }
+
+        if ("defappWebpage" == gsetting) {
+            m_frameProxy->setWidgetVisible(module, tr("Webpage"), func_is_visible("defappWebpage"));
+        } else if ("defappText" == gsetting) {
+            m_frameProxy->setWidgetVisible(module, tr("Text"), func_is_visible("defappText"));
+        } else if ("defappMusic" == gsetting) {
+            m_frameProxy->setWidgetVisible(module, tr("Music"), func_is_visible("defappMusic"));
+        } else if ("defappMail" == gsetting) {
+            m_frameProxy->setWidgetVisible(module, tr("Mail"), func_is_visible("defappMail"));
+        } else if ("defappVideo" == gsetting) {
+            m_frameProxy->setWidgetVisible(module, tr("Video"), func_is_visible("defappVideo"));
+        } else if ("defappPicture" == gsetting) {
+            m_frameProxy->setWidgetVisible(module, tr("Picture"), func_is_visible("defappPicture"));
+        } else if ("defappTerminal" == gsetting) {
+            m_frameProxy->setWidgetVisible(module, tr("Terminal"), func_is_visible("defappTerminal"));
+        } else if ("defappApplistAddbtn" == gsetting) {
+            func_addapp_changed();
+        } else {
+            qDebug() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 void DefaultAppsModule::showDetailWidget(dcc::defapp::DefAppWorker::DefaultAppsCategory category) {

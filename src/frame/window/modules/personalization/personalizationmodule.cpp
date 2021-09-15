@@ -53,14 +53,21 @@ PersonalizationModule::~PersonalizationModule()
         m_work->deleteLater();
 }
 
-void PersonalizationModule::initialize()
+void PersonalizationModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 {
+    Q_UNUSED(sync)
+
     if (m_model) {
         delete m_model;
     }
     m_model  = new dcc::personalization::PersonalizationModel;
     m_work = new dcc::personalization::PersonalizationWork(m_model);
 
+    initSearchData();
+}
+
+void PersonalizationModule::initialize()
+{
     m_model->moveToThread(qApp->thread());
     m_work->moveToThread(qApp->thread());
 }
@@ -195,4 +202,126 @@ void PersonalizationModule::showFontThemeWidget()
 
     m_frameProxy->pushWidget(this, widget);
     widget->setVisible(true);
+}
+
+void PersonalizationModule::initSearchData()
+{
+    QString module = tr("Personalization");
+    QString font = tr("Font");
+    QString general = tr("General");
+    QString iconTheme = tr("Icon Theme");
+    QString cursorTheme = tr("Cursor Theme");
+
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [=](const QString &gsettings, bool isBool = true) {
+        if (gsettings == "") {
+            return false;
+        }
+
+        bool ret = false;
+        if (isBool) {
+            ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        } else {
+            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        }
+        gsettingsMap.insert(gsettings, ret);
+
+        return ret;
+    };
+
+    auto func_font_changed = [ = ](bool bFont) {
+        m_frameProxy->setWidgetVisible(module, font, bFont);
+        m_frameProxy->setDetailVisible(module, font, tr("Size"), bFont);
+        m_frameProxy->setDetailVisible(module, font, tr("Standard Font"), bFont);
+        m_frameProxy->setDetailVisible(module, font, tr("Monospaced Font"), bFont);
+    };
+
+    auto func_general_changed = [ = ](bool bGeneral) {
+        bool bEffects = func_is_visible("perssonalGeneralEffects", false);
+        bool is3DWm = m_model->is3DWm();
+
+        m_frameProxy->setWidgetVisible(module, general, bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Theme"), bGeneral && func_is_visible("perssonalGeneralThemes", false));
+        m_frameProxy->setDetailVisible(module, general, tr("Light"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Dark"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Auto"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Accent Color"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Window Effect"), bGeneral && bEffects);
+        m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3DWm);
+        m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3DWm);
+    };
+
+    auto func_icontheme_changed = [ = ](bool bIconTheme) {
+        m_frameProxy->setWidgetVisible(module, iconTheme, bIconTheme);
+        m_frameProxy->setDetailVisible(module, iconTheme, iconTheme, bIconTheme);
+    };
+
+    auto func_cursortheme_changed = [ = ](bool bCursorTheme) {
+
+        m_frameProxy->setWidgetVisible(module, cursorTheme, bCursorTheme);
+        m_frameProxy->setDetailVisible(module, cursorTheme, cursorTheme, bCursorTheme);
+    };
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_general_changed(func_is_visible("personalizationGeneral"));
+
+        func_icontheme_changed(func_is_visible("personalizationIconTheme"));
+
+        func_cursortheme_changed(func_is_visible("personalizationCursorTheme"));
+
+        func_font_changed(func_is_visible("personalizationFont"));
+     };
+
+    QStringList gslist;
+    gslist << "personalizationGeneral" << "personalizationIconTheme" << "personalizationCursorTheme" << "personalizationFont";
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+
+        if (gsetting == "" || !gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        QVariant value = GSettingWatcher::instance()->get(gsetting);
+        if (gslist.contains(gsetting) && (gsettingsMap.value(gsetting) == value.toBool())) {
+            return;
+        }
+
+        if (("perssonalGeneralThemes" == gsetting || "perssonalGeneralEffects" == gsetting)
+                && (gsettingsMap.value(gsetting) == (value.toString() != "Hidden"))) {
+            return;
+        }
+
+        if ("personalizationGeneral" == gsetting) {
+            func_general_changed(func_is_visible("personalizationGeneral"));
+        } else if ("personalizationIconTheme" == gsetting) {
+            func_icontheme_changed(func_is_visible("personalizationIconTheme"));
+        } else if ("personalizationCursorTheme" == gsetting) {
+            func_cursortheme_changed(func_is_visible("personalizationCursorTheme"));
+        } else if ("personalizationFont" == gsetting) {
+            func_font_changed(func_is_visible("personalizationFont"));
+        } else if ("perssonalGeneralThemes" == gsetting) {
+            func_general_changed(func_is_visible("personalizationGeneral"));
+        } else if ("perssonalGeneralEffects" == gsetting) {
+            func_general_changed(func_is_visible("personalizationGeneral"));
+        } else {
+            qInfo() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_model, &dcc::personalization::PersonalizationModel::wmChanged, this, [ = ](const bool is3d){
+        bool bGeneral = func_is_visible("personalizationGeneral");
+        bool bEffects = func_is_visible("perssonalGeneralEffects", false);
+        m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3d);
+        m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3d);
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }

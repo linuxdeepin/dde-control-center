@@ -142,7 +142,7 @@ int KeyboardWidget::showPath(const QString &path)
             return 0;
         }
 
-        if (menu.pulgin && path == "Manage Input Methods") {
+        if (menu.pulgin && path == "Input Methods") {
             menu.itemSignal.invoke(menu.pulgin);
             m_lastIndex = m_listviewModel->index(i, 0);
             m_keyboardListView->setCurrentIndex(m_lastIndex);

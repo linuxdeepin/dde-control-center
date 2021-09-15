@@ -43,7 +43,7 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     , m_resoItemModel(new QStandardItemModel)
 {
     //初始化列表无法进行静态翻译
-    //~ contents_path /display
+    //~ contents_path /display/Resolution
     m_resolutionLabel = new QLabel(tr("Resolution"), this);
 
     setAccessibleName("ResolutionWidget");

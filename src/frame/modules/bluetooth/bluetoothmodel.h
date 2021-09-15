@@ -43,6 +43,12 @@ public:
     const Adapter *adapterById(const QString &id);
     bool canTransportable() const;
 
+    bool myDeviceVisible() {return m_myDeviceVisible;}
+    void setMyDeviceVisible(const bool visible);
+
+    bool otherDeviceVisible() {return m_otherDeviceVisible;}
+    void setOtherDeviceVisible(const bool visible);
+
 public Q_SLOTS:
     void addAdapter(Adapter *adapter);
     const Adapter *removeAdapater(const QString &adapterId);
@@ -54,11 +60,15 @@ Q_SIGNALS:
     void adpaterListChanged();
     void adpaterPowerChanged(const bool &power) const;
     void transportableChanged(const bool transPortable) const;
+    void notifyMyDeviceVisibleChanged(bool);
+    void notifyOtherDeviceVisibleChanged(bool);
 
 private:
     QMap<QString, const Adapter *> m_adapters;
     bool m_transPortable;
     friend class BluetoothWorker;
+    bool m_myDeviceVisible = false;
+    bool m_otherDeviceVisible = false;
 };
 
 } // namespace bluetooth

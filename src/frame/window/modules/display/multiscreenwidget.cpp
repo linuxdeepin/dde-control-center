@@ -62,11 +62,11 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_model(nullptr)
 {
     //初始化列表无法进行静态翻译
-    //~ contents_path /display
+    //~ contents_path /display/Multiple Displays
     m_multiSettingLabel = new TitleLabel(tr("Multiple Displays"), this);
-    //~ contents_path /display
+    //~ contents_path /display/Mode
     m_modeLabel = new QLabel(tr("Mode"), this);
-    //~ contents_path /display
+    //~ contents_path /display/Main Scree
     m_primaryLabel = new QLabel(tr("Main Screen"), this);
 
     m_monitorControlWidget->setAccessibleName("MultiScreenWidget_monitorControl");

@@ -62,6 +62,9 @@ public:
     int load(const QString &path) override;
     QStringList availPage() const override;
 
+private:
+    void initSearchData();
+
 public Q_SLOTS:
     void showGeneralSetting();
     void showMouseSetting();

@@ -125,6 +125,8 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
         }
     });
 
+    initSearchData();
+
     QTimer::singleShot(0, m_displayWorker, [=] {
         m_displayWorker->active();
     });
@@ -353,6 +355,121 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor)
     connect(m_displayModel, &DisplayModel::monitorListChanged, timeoutDialog, &TimeoutDialog::deleteLater);
 
     return timeoutDialog->exec();
+}
+
+void DisplayModule::initSearchData()
+{
+    static QMap<QString, bool> gsettingsMap;
+
+    QStringList gsSecondList;
+    gsSecondList << "brightnessEnable";
+
+    auto func_is_visible = [=](const QString &gsettings, bool state = true) {
+        if ("" == gsettings) {
+            return false;
+        }
+
+        bool ret = false;
+        if (!state) {
+            ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        } else {
+            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        }
+        gsettingsMap.insert(gsettings, ret);
+        return ret;
+    };
+
+
+    QString module = tr("Display");
+    bool isMulti = m_displayModel->monitorList().size() > 1;
+
+    auto func_mul_changed = [ = ](bool multi) {
+        m_frameProxy->setWidgetVisible(module, tr("Mode"), multi && func_is_visible("displayMultipleDisplays"));
+        m_frameProxy->setWidgetVisible(module, tr("Main Screen"), multi && func_is_visible("displayMultipleDisplays"));
+        m_frameProxy->setWidgetVisible(module, tr("Multiple Displays"), multi && func_is_visible("displayMultipleDisplays"));
+        m_frameProxy->updateSearchData(module);
+    };
+
+    auto func_brightnessEnable_changed = [ = ] {
+        bool isBrightnessEnable = func_is_visible("brightnessEnable", false);
+
+        m_frameProxy->setWidgetVisible(module, tr("Auto Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting") && m_displayModel->autoLightAdjustIsValid());
+        m_frameProxy->setWidgetVisible(module, tr("Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting"));
+
+        m_frameProxy->setWidgetVisible(module, tr("Night Shift"), isBrightnessEnable && func_is_visible("displayColorTemperature"));
+        m_frameProxy->setWidgetVisible(module, tr("Change Color Temperature"), isBrightnessEnable && func_is_visible("displayColorTemperature"));
+    };
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_brightnessEnable_changed();
+
+        m_frameProxy->setWidgetVisible(module, tr("Mode"), isMulti && func_is_visible("displayMultipleDisplays"));
+        m_frameProxy->setWidgetVisible(module, tr("Main Screen"), isMulti && func_is_visible("displayMultipleDisplays"));
+        m_frameProxy->setWidgetVisible(module, tr("Multiple Displays"), isMulti && func_is_visible("displayMultipleDisplays"));
+
+        m_frameProxy->setWidgetVisible(module, tr("Refresh Rate"), func_is_visible("displayRefreshRate"));
+        m_frameProxy->setWidgetVisible(module, tr("Resolution"), func_is_visible("displayResolution"));
+        m_frameProxy->setWidgetVisible(module, tr("Rotation"), func_is_visible("displayRotate"));
+        m_frameProxy->setWidgetVisible(module, tr("Display Scaling"), func_is_visible("displayScaling"));
+
+        func_mul_changed(isMulti);
+     };
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, [=](const QString &gsetting, const QString &state) {
+        if ("" == gsetting || !gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        if (gsSecondList.contains(gsetting)) {
+            if ("brightnessEnable" == gsetting) {
+                func_brightnessEnable_changed();
+            }
+        } else {
+            if (gsettingsMap.value(gsetting) == (GSettingWatcher::instance()->get(gsetting).toString() != "Hidden")) {
+                return;
+            }
+
+            if ("displayLightLighting" == gsetting) {
+                func_brightnessEnable_changed();
+            } else if ("displayColorTemperature" == gsetting) {
+                func_brightnessEnable_changed();
+            } else if ("displayMultipleDisplays" == gsetting) {
+                m_frameProxy->setWidgetVisible(module, tr("Mode"), isMulti && func_is_visible("displayMultipleDisplays"));
+                m_frameProxy->setWidgetVisible(module, tr("Main Screen"), isMulti && func_is_visible("displayMultipleDisplays"));
+                m_frameProxy->setWidgetVisible(module, tr("Multiple Displays"), isMulti && func_is_visible("displayMultipleDisplays"));
+            } else if ("displayRefreshRate" == gsetting) {
+                m_frameProxy->setWidgetVisible(module, tr("Refresh Rate"), func_is_visible("displayRefreshRate"));
+            } else if ("displayResolution" == gsetting) {
+                m_frameProxy->setWidgetVisible(module, tr("Resolution"), func_is_visible("displayResolution"));
+            } else if ("displayRotate" == gsetting) {
+                m_frameProxy->setWidgetVisible(module, tr("Rotation"), func_is_visible("displayRotate"));
+            } else if ("displayScaling" == gsetting) {
+                m_frameProxy->setWidgetVisible(module, tr("Display Scaling"), func_is_visible("displayScaling"));
+            } else {
+                qDebug() << " not contains the gsettings : " << gsetting << state;
+                return;
+            }
+        }
+
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(m_displayModel, &DisplayModel::monitorListChanged, [ = ]() {
+        int count = m_displayModel->monitorList().size();
+        qInfo() << " [monitorListChanged] screen count : " << count;
+        func_mul_changed(count > 1);
+    });
+
+    connect(m_displayModel, &DisplayModel::autoLightAdjustVaildChanged, [ = ](bool enable) {
+        bool isBrightnessEnable = func_is_visible("brightnessEnable", false);
+        m_frameProxy->setWidgetVisible(module, tr("Auto Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting") && enable);
+    });
+
+    func_process_all();
 }
 
 void DisplayModule::showDisplayRecognize()

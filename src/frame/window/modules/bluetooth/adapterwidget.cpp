@@ -86,6 +86,26 @@ bool AdapterWidget::getSwitchState()
     return m_powerSwitch ? m_powerSwitch->checked() : false;
 }
 
+void AdapterWidget::setMyDevicesVisible(bool visible)
+{
+    if (!m_myDevicesGroup) {
+        return;
+    }
+
+    m_myDevicesGroup->setVisible(visible);
+    m_model->setMyDeviceVisible(visible);
+}
+
+void AdapterWidget::setOtherDevicesVisible(bool visible)
+{
+    if (!m_otherDevicesGroup) {
+        return;
+    }
+
+    m_otherDevicesGroup->setVisible(visible);
+    m_model->setOtherDeviceVisible(visible);
+}
+
 void AdapterWidget::initMember()
 {
     m_showUnnamedDevices = m_bluetoothInter.displaySwitch();
@@ -95,7 +115,7 @@ void AdapterWidget::initUI()
 {
     //~ contents_path /bluetooth/My Devices
     m_myDevicesGroup = new TitleLabel(tr("My Devices"));
-    m_myDevicesGroup->setVisible(false);
+    setMyDevicesVisible(false);
 
     //~ contents_path /bluetooth/Other Devices
     m_otherDevicesGroup = new TitleLabel(tr("Other Devices"));
@@ -143,6 +163,7 @@ void AdapterWidget::initUI()
     settingsGrp->appendItem(m_powerSwitch);
     settingsGrp->appendItem(m_discoverySwitch);
 
+    //~ contents_path /bluetooth/Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)
     m_tip = new QLabel(tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
     m_tip->setWordWrap(true);
     m_tip->setContentsMargins(16, 0, 10, 0);
@@ -197,8 +218,8 @@ void AdapterWidget::initUI()
 
     m_discoverySwitch->setVisible(false);
     m_tip->setVisible(true);
-    m_myDevicesGroup->setVisible(false);
-    m_otherDevicesGroup->setVisible(false);
+    setMyDevicesVisible(false);
+    setOtherDevicesVisible(false);
     m_showAnonymousCheckBox->setVisible(false);
     m_hideAnonymousLabel->setVisible(false);
     m_spinner->setVisible(false);
@@ -368,8 +389,8 @@ void AdapterWidget::onPowerStatus(bool bPower, bool bDiscovering)
     m_discoverySwitch->setEnabled(true);
     m_discoverySwitch->setVisible(bPower);
     m_tip->setVisible(!bPower);
-    m_myDevicesGroup->setVisible(bPower && !m_myDevices.isEmpty());
-    m_otherDevicesGroup->setVisible(bPower);
+    setMyDevicesVisible(bPower && !m_myDevices.isEmpty());
+    setOtherDevicesVisible(bPower);
     m_showAnonymousCheckBox->setVisible(bPower);
     m_hideAnonymousLabel->setVisible(bPower);
     m_spinner->setVisible(bPower && bDiscovering);
@@ -434,7 +455,7 @@ void AdapterWidget::categoryDevice(DeviceSettingsItem *deviceItem, const bool pa
         }
     }
     bool isVisible = !m_myDevices.isEmpty() && m_powerSwitch->checked();
-    m_myDevicesGroup->setVisible(isVisible);
+    setMyDevicesVisible(isVisible);
     m_myDeviceListView->setVisible(isVisible);
 }
 
@@ -479,7 +500,7 @@ void AdapterWidget::addDevice(const Device *device)
             }
         }
         bool isVisible = !m_myDevices.isEmpty() && m_powerSwitch->checked();
-        m_myDevicesGroup->setVisible(isVisible);
+        setMyDevicesVisible(isVisible);
         m_myDeviceListView->setVisible(isVisible);
     });
     connect(deviceItem, &DeviceSettingsItem::requestShowDetail, this, [this](const Device * device) {

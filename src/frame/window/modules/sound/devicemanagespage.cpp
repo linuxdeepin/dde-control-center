@@ -163,6 +163,8 @@ void DevicemanagesPage::initUI()
     m_layout->addSpacing(15);
 
     // 输入设备
+    //~ contents_path /sound/Devices
+    //~ child_page Devices
     m_inputDeviceTitle = new TitleLabel(tr("Input Devices"));
     DFontSizeManager::instance()->bind(m_inputDeviceTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_inputDeviceTitle->setContentsMargins(titleLeftMargin, 0, 0, 0);

@@ -131,6 +131,7 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
     }
 
     binder->setVisible("Hidden" != setting);
+    Q_EMIT notifyGSettingsChanged(gsettingsName, setting);
 }
 
 /**
@@ -144,6 +145,7 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer,
     bool visible = m_gsettings->get(gsettingsName).toBool();
 
     viewer->setRowHidden(item->row(), !visible);
+    Q_EMIT notifyGSettingsChanged(gsettingsName, item->data().toString());
 
     if(visible)
         Q_EMIT requestShowSecondMenu(item->row());
@@ -169,6 +171,15 @@ const QString GSettingWatcher::getStatus(const QString &gsettingsName)
 QMap<QString, bool> GSettingWatcher::getMenuState()
 {
     return m_menuState;
+}
+
+QVariant GSettingWatcher::get(const QString &key) const
+{
+    if (!m_gsettings) {
+        return "";
+    }
+
+    return m_gsettings->get(key);
 }
 
 /**
@@ -200,4 +211,6 @@ void GSettingWatcher::onStatusModeChanged(const QString &key)
         insertState(key);
         Q_EMIT requestUpdateSearchMenu(key, m_menuState.value(key));
     }
+
+    Q_EMIT notifyGSettingsChanged(key, "");
 }

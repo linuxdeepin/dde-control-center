@@ -73,6 +73,7 @@ private Q_SLOTS:
     void showDisplayRecognize();
     void pushScreenWidget();
     int showTimeoutDialog(dcc::display::Monitor *monitor);
+    void initSearchData();
 
 private:
     dcc::display::DisplayModel *m_displayModel;

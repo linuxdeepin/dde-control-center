@@ -39,7 +39,7 @@ RefreshRateWidget::RefreshRateWidget(int comboxWidth, QWidget *parent)
     , m_refreshItemModel(new QStandardItemModel)
 {
     //初始化列表无法进行静态翻译
-    //~ contents_path /display
+    //~ contents_path /display/Refresh Rate
     m_refreshLabel = new QLabel(tr("Refresh Rate"), this);
 
     setAccessibleName("RefreshRateWidget");

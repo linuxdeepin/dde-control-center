@@ -64,6 +64,9 @@ public:
     int load(const QString &path) override;
     QStringList availPage() const override;
 
+private:
+    void initSearchData();
+
 private Q_SLOTS:
     void popPage();
     void showVpnPage(const QString &searchPath = "");

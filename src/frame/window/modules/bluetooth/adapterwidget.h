@@ -78,6 +78,8 @@ public:
     const dcc::bluetooth::Adapter *adapter() const;
     void loadDetailPage();
     bool getSwitchState();
+    void setMyDevicesVisible(bool visible);
+    void setOtherDevicesVisible(bool visible);
 
 private:
     void initMember();

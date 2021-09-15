@@ -60,8 +60,9 @@ KeyboardModule::~KeyboardModule()
     GSettingWatcher::instance()->erase("keyboardShortcut");
 }
 
-void KeyboardModule::initialize()
+void KeyboardModule::preInitialize(bool sync, FrameProxyInterface::PushType)
 {
+    Q_UNUSED(sync)
     //公共功能可能泄露。在分配指针“m_model”之前未释放它,因此加了这个处理
     if (m_model) {
         delete m_model;
@@ -69,6 +70,12 @@ void KeyboardModule::initialize()
     m_model = new KeyboardModel();
     m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWorker(m_model);
+
+    initSearchData();
+}
+
+void KeyboardModule::initialize()
+{
     m_work->setShortcutModel(m_shortcutModel);
 
     m_model->moveToThread(qApp->thread());
@@ -133,8 +140,115 @@ QStringList KeyboardModule::availPage() const
        << "System Language/Add System Language"
        << "Shortcuts"
        << "Shortcuts/Add Custom Shortcut"
-       << "Manage Input Methods";
+       << "Input Methods";
     return sl;
+}
+
+void KeyboardModule::initSearchData()
+{
+    QString module = tr("Keyboard and Language");
+    QString general = tr("General");
+    QString keyboardLayout = tr("Keyboard Layout");
+    QString shortcuts = tr("Shortcuts");
+    QString systemLanguage = tr("System Language");
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [=](const QString &gsettings, bool state = true) {
+        if ("" == gsettings) {
+            return false;
+        }
+
+        bool ret = false;
+        if (state) {
+            ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        } else {
+            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        }
+
+        gsettingsMap.insert(gsettings, ret);
+        return ret;
+    };
+
+    auto func_general_changed = [ = ]() {
+        bool bGeneral = func_is_visible("keyboardGeneral");
+        m_frameProxy->setWidgetVisible(module, general, bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Repeat Delay"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Test here"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Repeat Rate"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Numeric Keypad"), bGeneral);
+        m_frameProxy->setDetailVisible(module, general, tr("Caps Lock Prompt"), bGeneral);
+    };
+
+    auto func_keyboard_changed = [ = ]() {
+        bool bKeyLayout = func_is_visible("keyboardLayout");
+        m_frameProxy->setWidgetVisible(module, keyboardLayout, bKeyLayout);
+        m_frameProxy->setDetailVisible(module, keyboardLayout, tr("Keyboard Layout"), bKeyLayout);
+        m_frameProxy->setDetailVisible(module, keyboardLayout, tr("Add Keyboard Layout"), bKeyLayout);
+    };
+
+    auto func_shortcuts_changed = [ = ]() {
+        bool bShortcuts = func_is_visible("keyboardShortcuts") && func_is_visible("keyboardShortcut", false);
+        m_frameProxy->setWidgetVisible(module, shortcuts, bShortcuts);
+        m_frameProxy->setDetailVisible(module, shortcuts, tr("Add Custom Shortcut"), bShortcuts);
+        m_frameProxy->setDetailVisible(module, shortcuts, tr("Custom Shortcut"), bShortcuts);
+        m_frameProxy->setDetailVisible(module, shortcuts, tr("System"), bShortcuts);
+        m_frameProxy->setDetailVisible(module, shortcuts, tr("Window"), bShortcuts);
+        m_frameProxy->setDetailVisible(module, shortcuts, tr("Workspace"), bShortcuts);
+    };
+
+    auto func_syslanguage_changed = [ = ]() {
+        bool bKeyboardLanguage = func_is_visible("keyboardLanguage");
+        m_frameProxy->setWidgetVisible(module, systemLanguage, bKeyboardLanguage);
+        m_frameProxy->setDetailVisible(module, systemLanguage, tr("Add System Language"), bKeyboardLanguage);
+        m_frameProxy->setDetailVisible(module, systemLanguage, tr("Language List"), bKeyboardLanguage);
+    };
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_general_changed();
+
+        func_keyboard_changed();
+
+        func_shortcuts_changed();
+
+        func_syslanguage_changed();
+    };
+    //keyboardGeneral, keyboardLayout,keyboardLanguage,keyboardShortcuts
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if ("" == gsetting || !gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        if ("keyboardShortcut" == gsetting) {
+            if (gsettingsMap.value(gsetting) == (state != "Hidden")) {
+                return;
+            }
+        } else {
+            if (gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting).toBool()) {
+                return;
+            }
+        }
+
+        if ("keyboardGeneral" == gsetting) {
+            func_general_changed();
+        } else if ("keyboardLayout" == gsetting) {
+            func_keyboard_changed();
+        } else if ("keyboardLanguage" == gsetting) {
+            func_syslanguage_changed();
+        } else if ("keyboardShortcuts" == gsetting || "keyboardShortcut" == gsetting) {
+            func_shortcuts_changed();
+        } else {
+            qDebug() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 const QString KeyboardModule::name() const

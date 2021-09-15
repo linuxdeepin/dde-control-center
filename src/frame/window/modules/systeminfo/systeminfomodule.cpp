@@ -53,14 +53,20 @@ SystemInfoModule::~SystemInfoModule()
 {
 }
 
-void SystemInfoModule::initialize()
+void SystemInfoModule::preInitialize(bool sync, dccV20::FrameProxyInterface::PushType)
 {
+    Q_UNUSED(sync)
     if (m_model) {
         delete m_model;
     }
     m_model = new SystemInfoModel(this);
     m_work = new SystemInfoWork(m_model, this);
 
+    initSearchData();
+}
+
+void SystemInfoModule::initialize()
+{
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
 
@@ -120,6 +126,129 @@ QStringList SystemInfoModule::availPage() const
     availList << "About This PC" << "Edition License" << "End User License Agreement" << "Privacy Policy";
 
     return availList;
+}
+
+void SystemInfoModule::initSearchData()
+{
+    QString module = tr("System Info");
+    QString aboutThisPC = tr("About This PC");
+    QString edtLicense = tr("Edition License");
+    QString endUserLicenseAgree = tr("End User License Agreement");
+    QString privacyPolicy = tr("Privacy Policy");
+    QStringList gsSecondList;
+    gsSecondList << "aboutThisPc" << "editionLicense" << "endUserLicenseAgreement" << "privacyPolicy";
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [=](const QString &gsettings, bool state = false) {
+        if ("" == gsettings) {
+            return false;
+        }
+
+        bool ret = false;
+        if (!state) {
+            ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        } else {
+            ret = GSettingWatcher::instance()->get(gsettings).toString() != "Hidden";
+        }
+        gsettingsMap.insert(gsettings, ret);
+        return ret;
+    };
+
+    auto func_aboutthispc_changed = [ = ] {
+        bool bAountThiePc = func_is_visible("aboutThisPc");
+        m_frameProxy->setWidgetVisible(module, aboutThisPC, bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Computer Name:"), bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("OS Name:"), bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Version:"), bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Edition:"), bAountThiePc && func_is_visible("edition", true));
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Type:"), bAountThiePc);
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Authorization"), bAountThiePc && func_is_visible("systeminfoNativeinfoAuthorized", true));
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Kernel:"), bAountThiePc &&  func_is_visible("systeminfoNativeinfoKernel", true));
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Processor:"), bAountThiePc && func_is_visible("systeminfoNativeinfoProcessor", true));
+        m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Memory:"), bAountThiePc && func_is_visible("systeminfoNativeinfoMemory", true));
+    };
+
+    auto func_edtlicense_changed = [ = ] {
+        bool bEdtLicense = func_is_visible("editionLicense");
+        m_frameProxy->setWidgetVisible(module, edtLicense, bEdtLicense);
+        m_frameProxy->setDetailVisible(module, edtLicense, edtLicense, bEdtLicense);
+    };
+
+    auto func_enduserlicenseagreen_changed = [ = ] {
+        bool bEndUserLicenseAgree = func_is_visible("endUserLicenseAgreement");
+        m_frameProxy->setWidgetVisible(module, endUserLicenseAgree, bEndUserLicenseAgree);
+        m_frameProxy->setDetailVisible(module, endUserLicenseAgree, endUserLicenseAgree, bEndUserLicenseAgree);
+    };
+
+    auto func_privacypolicy_changed = [ = ] {
+        bool bPrivacyPolicy = func_is_visible("privacyPolicy");
+        m_frameProxy->setWidgetVisible(module, privacyPolicy, bPrivacyPolicy);
+        m_frameProxy->setDetailVisible(module, privacyPolicy, privacyPolicy, bPrivacyPolicy);
+    };
+
+
+    auto func_process_all = [ = ]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_aboutthispc_changed();
+
+        func_edtlicense_changed();
+
+        func_enduserlicenseagreen_changed();
+
+        func_privacypolicy_changed();
+     };
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if ("" == gsetting || !gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        if (gsSecondList.contains(gsetting)) {
+            if (gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting).toBool()) {
+                return;
+            }
+
+            if ("aboutThisPc" == gsetting) {
+                func_aboutthispc_changed();
+            } else if ("endUserLicenseAgreement" == gsetting) {
+                func_enduserlicenseagreen_changed();
+            } else if ("privacyPolicy" == gsetting) {
+                func_privacypolicy_changed();
+            } else if ("editionLicense" == gsetting) {
+                func_edtlicense_changed();
+            } else {
+                qDebug() << " not contains the gsettings : " << gsetting << state;
+                return;
+            }
+        } else {
+            if (gsettingsMap.value(gsetting) == (GSettingWatcher::instance()->get(gsetting).toString() != "Hidden")) {
+                return;
+            }
+
+            bool isAbout = func_is_visible("aboutThisPc");
+            if ("edition" == gsetting) {
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Edition:"), isAbout && func_is_visible("edition", true));
+            } else if ("systeminfoNativeinfoAuthorized" == gsetting) {
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Authorization"), isAbout && func_is_visible("systeminfoNativeinfoAuthorized", true));
+            } else if ("systeminfoNativeinfoKernel" == gsetting) {
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Kernel:"), isAbout &&  func_is_visible("systeminfoNativeinfoKernel", true));
+            } else if ("systeminfoNativeinfoProcessor" == gsetting) {
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Processor:"), isAbout && func_is_visible("systeminfoNativeinfoProcessor", true));
+            } else if ("systeminfoNativeinfoMemory" == gsetting) {
+                m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Memory:"), isAbout && func_is_visible("systeminfoNativeinfoMemory", true));
+            } else {
+                qDebug() << " not contains the gsettings : " << gsetting << state;
+                return;
+            }
+        }
+
+        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 void SystemInfoModule::onShowAboutNativePage()

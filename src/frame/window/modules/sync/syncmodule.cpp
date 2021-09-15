@@ -81,6 +81,8 @@ void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype
         m_frameProxy->setModuleVisible(this, visible);
         setDeviceUnavailabel(!visible);
     });
+
+    initSearchData();
 }
 
 QStringList SyncModule::availPage() const
@@ -88,4 +90,21 @@ QStringList SyncModule::availPage() const
     QStringList sl;
     sl << "Cloud Sync" << "Sync ID Sign In";
     return sl;
+}
+
+void SyncModule::initSearchData()
+{
+    auto tfunc = [this]() {
+        if (DSysInfo::isCommunityEdition()) {
+            QString module = tr("Deepin ID");
+            m_frameProxy->setModuleVisible(module, true);
+            m_frameProxy->setWidgetVisible(module, tr("Sign In"), true);
+        } else {
+            QString module = tr("Union ID");
+            m_frameProxy->setModuleVisible(module, true);
+            m_frameProxy->setWidgetVisible(module, tr("Sign In"), true);
+        }
+     };
+
+    tfunc();
 }

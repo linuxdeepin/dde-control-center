@@ -62,6 +62,7 @@ public:
 
 private Q_SLOTS:
     void onNotifyDealMirrorWidget(bool state);
+    void initSearchData();
 
 private:
     void notifyDisplayReminder(dcc::update::UpdatesStatus status);

@@ -22,6 +22,7 @@
 #include "bluetoothmodule.h"
 #include "bluetoothwidget.h"
 #include "detailpage.h"
+#include "modules/bluetooth/adapter.h"
 #include "modules/bluetooth/bluetoothmodel.h"
 #include "modules/bluetooth/bluetoothworker.h"
 #include "modules/bluetooth/pincodedialog.h"
@@ -61,6 +62,7 @@ void BluetoothModule::preInitialize(bool sync , FrameProxyInterface::PushType pu
 
     connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this, updateModuleVisible);
 
+    initSearchData();
     updateModuleVisible();
 }
 
@@ -114,6 +116,95 @@ int BluetoothModule::load(const QString &path)
     return -1;
 }
 
+void BluetoothModule::initSearchData()
+{
+    if (!m_frameProxy || !m_bluetoothModel) {
+        return;
+    }
+
+    QString module = tr("Bluetooth");
+    QString myDevices = tr("My Devices");
+    QString otherDevices = tr("Other Devices");
+    QString explain = tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
+
+    static QMap<QString, bool> gsMap = {
+        {myDevices, false},
+        {otherDevices, false},
+        {explain, false},
+    };
+
+    auto setSearchState = [ = ](QString data, bool visible, bool first = false) {
+
+        if (!gsMap.contains(data)) {
+            return;
+        }
+
+        if (gsMap.value(data) == visible) {
+            return;
+        }
+
+        if (!m_frameProxy) {
+            return;
+        }
+
+        //暂无方法获取蓝牙是否开启，如果有可以配合visible一起使用
+        if (myDevices == data) {
+            m_frameProxy->setWidgetVisible(module, myDevices, visible);
+            gsMap.insert(data, visible);
+        } else if (otherDevices == data) {
+            m_frameProxy->setWidgetVisible(module, otherDevices, visible);
+            gsMap.insert(data, visible);
+        } else if (explain == data) {
+            m_frameProxy->setWidgetVisible(module, explain, visible);
+            gsMap.insert(data, visible);
+        } else {
+            qDebug() << " [setSearchState] not match data : " << data << visible;
+        }
+
+        if (!first)
+            m_frameProxy->updateSearchData(module);
+    };
+
+     auto func_process_all = [ = ](bool first = false) {
+         bool bBluetoothModel = m_bluetoothModel->adapters().size() > 0;
+
+         bool powered = false;
+         QMap<QString, const Adapter *>::const_iterator i;
+         for (i = m_bluetoothModel->adapters().constBegin(); i != m_bluetoothModel->adapters().constEnd(); ++i) {
+             if (i.value()->powered()) {
+                 powered = true;
+                 break;
+             }
+         }
+
+         m_frameProxy->setModuleVisible(module, bBluetoothModel);
+         setSearchState(explain, bBluetoothModel, first);
+         setSearchState(myDevices, bBluetoothModel && powered && m_bluetoothModel->myDeviceVisible(), first);
+         setSearchState(otherDevices, bBluetoothModel && powered && m_bluetoothModel->otherDeviceVisible(), first);
+     };
+
+    connect(m_bluetoothModel, &BluetoothModel::notifyMyDeviceVisibleChanged, this, [=](bool visible) {
+        Q_UNUSED(visible);
+        func_process_all();
+    });
+
+    connect(m_bluetoothModel, &BluetoothModel::notifyOtherDeviceVisibleChanged, this, [=](bool visible) {
+        Q_UNUSED(visible);
+        func_process_all();
+    });
+
+    connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this, [=]() {
+        func_process_all();
+    });
+
+    connect(m_bluetoothModel, &BluetoothModel::adpaterPowerChanged, this, [ = ](const bool powered) {
+        Q_UNUSED(powered);
+        func_process_all();
+    });
+
+    func_process_all(true);
+}
+
 void BluetoothModule::contentPopped(QWidget *const w)
 {
     Q_UNUSED(w);
@@ -131,7 +222,6 @@ void BluetoothModule::showDeviceDetail(const Adapter *adapter, const Device *dev
     connect(page, &DetailPage::requestSetDevAlias, m_bluetoothWorker, &BluetoothWorker::setDeviceAlias);
     connect(adapter, &Adapter::deviceRemoved, page, &DetailPage::removeDevice);
     connect(page, &DetailPage::requestBack, this, &BluetoothModule::popPage);
-
 
     m_frameProxy->pushWidget(this, page);
     page->setVisible(true);

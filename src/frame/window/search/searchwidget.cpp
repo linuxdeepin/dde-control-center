@@ -99,9 +99,6 @@ SearchModel::SearchModel(QObject *parent)
     , m_bIsChinese(false)
     , m_bIstextEdited(false)
     , m_bIsContensServerType(false)
-    , m_bIsOnBattery(false)
-    , m_bIsUseTouchpad(false)
-    , m_deepinwm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
 {
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
     m_bIsServerType = IsServerSystem;
@@ -118,7 +115,6 @@ SearchModel::SearchModel(QObject *parent)
     //second : true 用于记录"服务器"才有的搜索数据
     //second : false用于记录"桌面版"才有的搜索数据
     m_serverTxtList = {
-//        {tr("Server"), true},
         {tr("Window Effect"), false},
         {tr("Developer Mode"), false},
         {tr("User Experience Program"), false},
@@ -162,17 +158,16 @@ SearchModel::SearchModel(QObject *parent)
         {tr("Wireless Network"), "Wireless Network"},
         {tr("Multiple Displays"), "Multiple Displays"},
         {tr("Boot Menu"), "Boot Menu"},
+        {tr("When the lid is closed"), "When the lid is closed"},
+        {tr("Display remaining using and charging time"), "Display remaining using and charging time"},
+        {tr("Maximum capacity"), "Maximum capacity"},
+        {tr("Auto power saving on battery"), "Auto power saving on battery"},
     };
 
     //用于区分可移除设备数据，和常驻设备数据（记录页面信息）
     for (auto data : m_removedefaultWidgetList) {
         m_defaultRemoveableList << data.second;
     }
-
-    m_compositingAllowSwitch = m_deepinwm->compositingAllowSwitch();
-    connect(m_deepinwm, &WM::CompositingAllowSwitchChanged, this, [ = ](bool compositingAllowSwitch) {
-        m_compositingAllowSwitch = compositingAllowSwitch;
-    });
 }
 
 QString SearchModel::formatSearchData(QString data1, QString data2, QString data3)
@@ -288,7 +283,10 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
     QString searchChildWidget = searchDetailData.section('/', 0, 0).remove('/').trimmed();
 
     //解析出：接口
-    QString searchEndData = searchDetailData.section('/', 1, -1).remove('/').remove(QRegExp("\\s")).trimmed(); //remove(QRegExp("\\s"))去掉空格，避免如[IP 地址]
+    QString searchEndData = searchDetailData.section('/', 1, -1).remove('/').trimmed();
+    if (m_bIsChinese) {
+        searchEndData = searchEndData.trimmed();
+    }
 
     //searchEndData为空表示没有子页面, 需要往下继续执行
     bool isContinue = false;
@@ -329,6 +327,7 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
         if (childPageName == "" && searchChildWidget != searchDetailData) {
             continue;
         }
+
         //搜索数据需要匹配的数据：模块，子页面，详细数据
         if (m_EnterNewPagelist[i]->actualModuleName == searchModule
                 //匹配子页面和详细数据
@@ -366,8 +365,10 @@ bool SearchModel::jumpContentPathWidget(const QString &path)
     return false;
 }
 
-void SearchModel::loadxml()
+void SearchModel::loadxml(const QString module)
 {
+    Q_UNUSED(module)
+
     clear(); // It doesn't seem to leak memory
     m_EnterNewPagelist.clear();
     m_inputList.clear();
@@ -378,76 +379,49 @@ void SearchModel::loadxml()
     m_inputList.append(SearchDataStruct());
     appendRow(new QStandardItem(""));
 
+    bool bIsContinue = false;
+    bool bIsTwoLevel = false;
+
     for (SearchBoxStruct::Ptr searchBoxStrcut : m_originList) {
-        //"蓝牙","数位板"不存在则不加载该模块search数据
-        //目前只用到了模块名，未使用detail信息，之后再添加模块内区分
-        bool bIsLeapfrog = false;
-        auto res = std::any_of(m_unexsitList.begin(), m_unexsitList.end(), [=](const UnexsitStruct &date) {
-            return searchBoxStrcut->actualModuleName == date.module;
-        });
-
-        if (res) {
-            bIsLeapfrog = true;
+        bool moduleVisible = getModuleVisible(searchBoxStrcut->actualModuleName);
+        if (!moduleVisible) {
             continue;
         }
 
-        if (bIsLeapfrog) continue;
-
-        //“鼠标”可移除设备 : 指点杆，触控板
-        //“网络”模块可移除设备 : 个人热点，有线网，无线网
-        //“电源”模块可移除设备 : 使用电池
-        //不存在时，不加载数据
-        //是以上模块才会有此判断，其他模块不用此判断(包含在m_defaultRemoveableList的页面才需要“添加/移除”xml信息)
-        if (m_defaultRemoveableList.contains(searchBoxStrcut->fullPagePath.section('/', 2, -1))) {
-            auto result = std::find_if(m_removeableActualExistList.begin(),
-                                       m_removeableActualExistList.end(),
-                                       [=](const QPair<QString, QString> &date) {
-                return date.second == searchBoxStrcut->fullPagePath.section('/', 2, -1);
-            });
-
-            //设备不存在，不加载xml数据
-            if (result == m_removeableActualExistList.end()) {
-                continue;
+        bIsContinue = true;
+        bIsTwoLevel = false;
+        do {
+            if (searchBoxStrcut->childPageName == "") {
+                //这样的数据都是只有二级菜单，需要用到source再进行判断，且source需要进行多语言翻译
+                searchBoxStrcut->childPageName = m_transChildPageName.value(searchBoxStrcut->source);
+                bIsTwoLevel = true;
             }
-        }
 
-        if ("" == searchBoxStrcut->actualModuleName || "" == searchBoxStrcut->translateContent) {
-            continue;
-        }
+            bool widgetVisible = getWidgetVisible(searchBoxStrcut->actualModuleName, searchBoxStrcut->childPageName);
 
-        //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"
-        if (isLoadText(searchBoxStrcut->translateContent)) {
-            continue;
-        }
+            if (!widgetVisible) {
+                bIsContinue = false;
+                if (bIsTwoLevel && searchBoxStrcut->childPageName != "")
+                    searchBoxStrcut->childPageName = "";
+                break;
+            }
 
-        //判断是否为contens服务器,是contens服务器时,若当前不是服务器就不添加"Server"
-        if (isLoadContensText(searchBoxStrcut->translateContent)) {
-            continue;
-        }
+            if (bIsTwoLevel) {
+                //数据用完后需要还原, 此时表示只有两级目录需要退出判断
+                searchBoxStrcut->childPageName = "";
+                bIsContinue = true;
+                break;
+            }
 
-        //判断是否为服务器，如果是服务器状态下搜索不到网络账户相关（所有界面）
-        if (m_bIsServerType && tr("Cloud Account") == searchBoxStrcut->actualModuleName) {
-            continue;
-        }
+            bool detailVisible = getDetailVisible(searchBoxStrcut->actualModuleName, searchBoxStrcut->childPageName, searchBoxStrcut->translateContent);
+            if (!detailVisible) {
+                bIsContinue = false;
+                break;
+            }
 
-        //判断是否使用电池
-        if (!m_bIsOnBattery && tr("Battery") == searchBoxStrcut->translateContent) {
-            continue;
-        }
+        } while (0);
 
-        //判断是否使用触控板
-        if (!m_bIsUseTouchpad && (tr("Disable touchpad when inserting the mouse") == searchBoxStrcut->translateContent
-                                  || tr("Disable touchpad while typing") == searchBoxStrcut->translateContent)) {
-            continue;
-        }
-
-        //判断特殊的三级菜单
-        if (m_specialThreeMenuMap.keys().contains(searchBoxStrcut->source)) {
-            if (!m_specialThreeMenuMap[ searchBoxStrcut->source ])
-                continue;
-        }
-
-        if (!m_bIsServerType && !m_compositingAllowSwitch && tr("Window Effect") == searchBoxStrcut->translateContent) {
+        if (!bIsContinue) {
             continue;
         }
 
@@ -472,7 +446,7 @@ void SearchModel::loadxml()
             appendChineseData(searchBoxStrcut);
         }
 
-        m_TxtListAll.append(searchBoxStrcut->translateContent.remove('/').remove(QRegExp("\\s")).trimmed());
+        m_TxtListAll.append(searchBoxStrcut->translateContent.remove('/').trimmed());
     }
 }
 
@@ -675,61 +649,43 @@ void SearchModel::setLanguage(const QString &type)
     connect(watcher, &QFutureWatcher<QList<SearchBoxStruct::Ptr>>::finished, this, [=] {
         m_originList = watcher->result();
         watcher->deleteLater();
-        QMap<QString, bool> menuState = GSettingWatcher::instance()->getMenuState();
-
-        for (const QString &key : menuState.keys()) {
-            if (!menuState.value(key)) {
-                for (int j = 0; j < m_originList.size(); ++j) {
-                    QString originName = m_originList[j].get()->fullPagePath;
-                    QString name = originName.remove(QRegularExpression("[^A-Za-z]"));
-                    if (name.contains(key, Qt::CaseInsensitive)) {
-                        m_hideList.append(m_originList.takeAt(j--));
-                    }
-                }
-            }
-        }
-
         return loadxml();
     });
 
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSearchMenu, this, [=](const QString &text, bool visible) {
-        if (visible) {
-            for (int i = 0; i < m_hideList.size(); ++i) {
-                QString hideName = m_hideList[i].get()->fullPagePath;
-                QString name = hideName.remove(QRegularExpression("[^A-Za-z]"));
-                if (name.contains(text, Qt::CaseInsensitive)) {
-                    m_originList.append(m_hideList.takeAt(i--));
-                }
-            }
-        } else {
-            for (int i = 0; i < m_originList.size(); ++i) {
-                QString originName = m_originList[i].get()->fullPagePath;
-                QString name = originName.remove(QRegularExpression("[^A-Za-z]"));
-                if (name.contains(text, Qt::CaseInsensitive)) {
-                    m_hideList.append(m_originList.takeAt(i--));
-                }
-            }
-        }
-        loadxml();
-    });
-
     m_childeHideWidgetList.clear();
-    //添加 插件 二级页面和三级页面都要进入的搜索数据，类似 ： “键盘和语言 --> 输入法” 和 “键盘和语言 --> 输入法 / 快捷键”
-    m_childeHideWidgetList.append(QObject::tr("Input Methods"));
 
     watcher->setFuture(QtConcurrent::run([=] {
         QList<SearchBoxStruct::Ptr> list;
         //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
         //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
-        static QMap<QString, QString> transChildPageName = {
+        m_transChildPageName = {
+            //account
             { "Create Account", QObject::tr("Create Account") },
+            { "Auto Login", QObject::tr("Auto Login")},
+            { "Login Without Password", QObject::tr("Login Without Password")},
+            { "Change Password", QObject::tr("Change Password")},
+            { "Delete Account", QObject::tr("Delete Account")},
+
+            //union id
+            { "Sign In", /*QObject::tr("Sign In")*/"登 录" },
+
+            //bluetooth
             { "My Devices", QObject::tr("My Devices") },
             { "Other Devices", QObject::tr("Other Devices") },
+            { "Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)", QObject::tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)") },
+
+            //commoninfo
             { "Boot Menu", QObject::tr("Boot Menu") },
             { "Developer Mode", QObject::tr("Developer Mode") },
             { "User Experience Program", QObject::tr("User Experience Program") },
+
+            //datetime
             { "Format Settings", QObject::tr("Format Settings") },
             { "Timezone List", QObject::tr("Timezone List") },
+            { "Time Settings", QObject::tr("Time Settings") },
+            { "Timezone List/Change System Timezone", QObject::tr("Change System Timezone") },
+
+            //defapp
             { "Webpage", QObject::tr("Webpage") },
             { "Mail", QObject::tr("Mail") },
             { "Text", QObject::tr("Text") },
@@ -737,43 +693,82 @@ void SearchModel::setLanguage(const QString &type)
             { "Video", QObject::tr("Video") },
             { "Picture", QObject::tr("Picture") },
             { "Terminal", QObject::tr("Terminal") },
+
+            //display
             { "Brightness", QObject::tr("Brightness") },
+            { "Auto Brightness", QObject::tr("Auto Brightness") },
+            { "Night Shift", QObject::tr("Night Shift") },
+            { "Change Color Temperature", QObject::tr("Change Color Temperature") },
+            { "Multiple Displays", QObject::tr("Multiple Displays") },
+            { "Mode", QObject::tr("Mode") },
+            { "Main Screen", QObject::tr("Main Screen") },
+            { "Refresh Rate", QObject::tr("Refresh Rate") },
+            { "Resolution", QObject::tr("Resolution") },
+            { "Rotation", QObject::tr("Rotation") },
+            { "Display Scaling", QObject::tr("Display Scaling") },
+
+            //keyboard
             { "Shortcuts", QObject::tr("Shortcuts") },
             { "Keyboard Layout", QObject::tr("Keyboard Layout") },
             { "System Language", QObject::tr("System Language") },
+
+            //network
             { "Personal Hotspot", QObject::tr("Personal Hotspot") },
             { "DSL", QObject::tr("DSL") },
             { "VPN", QObject::tr("VPN") },
             { "Wired Network", QObject::tr("Wired Network") },
             { "Wireless Network", QObject::tr("Wireless Network") },
             { "Network Details", QObject::tr("Network Details") },
+            { "Application Proxy", QObject::tr("Application Proxy") },
+            { "System Proxy", QObject::tr("System Proxy") },
+
+            //notification
             { "System Notifications", QObject::tr("System Notifications") },
+
+            //personalization
             { "Font", QObject::tr("Font") },
             { "Icon Theme", QObject::tr("Icon Theme") },
             { "Cursor Theme", QObject::tr("Cursor Theme") },
+
+            //sound
             { "Sound Effects", QObject::tr("Sound Effects") },
             { "Devices", QObject::tr("Devices") },
             { "Input", QObject::tr("Input") },
             { "Output", QObject::tr("Output") },
+
+            //systeminfo
             { "About This PC", QObject::tr("About This PC") },
             { "Edition License", QObject::tr("Edition License") },
             { "End User License Agreement", QObject::tr("End User License Agreement") },
             { "Privacy Policy", QObject::tr("Privacy Policy") },
-            { "Updates", QObject::tr("Updates") },
+
+            //update
+            { "Check for Updates", QObject::tr("Check for Updates") },
+            { "Updates", /*QObject::tr("Updates")*/"检查更新" },
             { "Update Settings", QObject::tr("Update Settings") },
+
+            //wacom
             { "Pressure Sensitivity", QObject::tr("Pressure Sensitivity") },
-            { "On Battery", QObject::tr("On Battery") },  //Power
+            { "Mode", QObject::tr("Mode") },
+
+            //power
+            { "On Battery", QObject::tr("On Battery") },
             { "Plugged In", QObject::tr("Plugged In") },
-            { "General", QObject::tr("General") },  //mouse
+
+            //mouse
+            { "General", QObject::tr("General") },
             { "Mouse", QObject::tr("Mouse") },
             { "Touchpad", QObject::tr("Touchpad") },
             { "TrackPoint", QObject::tr("TrackPoint") },
-            { "Application Proxy", QObject::tr("Application Proxy") },  //network
-            { "System Proxy", QObject::tr("System Proxy") },
-            { "Time Settings", QObject::tr("Time Settings") },  //datetime
-            { "Timezone List/Change System Timezone", QObject::tr("Change System Timezone") },
-            { "System Proxy", QObject::tr("System Proxy") },  //network
-            { "Manage Input Methods", QObject::tr("Input Methods") },
+
+            //plugin : input
+            { "Input Methods", QObject::tr("Input Methods") },
+            { "Backup and Restore", QObject::tr("Backup and Restore") },
+            { "Domain Management", QObject::tr("Domain Management") },
+#ifdef QT_DEBUG
+            { "Backup and Restore", "备份还原" },
+            { "Domain Management", "域管理" },
+#endif
         };
 
 #if DEBUG_XML_SWITCH
@@ -835,7 +830,6 @@ void SearchModel::setLanguage(const QString &type)
             //再进入Characters读取出中间数据部分;
             //最后进入时进入EndElement读取出</>中的内容
             QString strSource = "";
-            QString inputMethods = "";
             while (!xmlRead.atEnd()) {
                 switch (xmlRead.readNext()) {
                     case QXmlStreamReader::StartElement:
@@ -850,23 +844,23 @@ void SearchModel::setLanguage(const QString &type)
                             qDebug() << " [SearchWidget]  xmlRead.text : " << xmlRead.text().toString();
 #endif
                             if (xmlExplain == XML_Source) {  // get xml source date
-                                searchBoxStrcut->translateContent = xmlRead.text().toString();
+                                searchBoxStrcut->translateContent = xmlRead.text().toString().remove('/').trimmed();
                                 searchBoxStrcut->source = xmlRead.text().toString();
                                 strSource = xmlRead.text().toString();
                             }
                             else if (xmlExplain == XML_Title) {
                                 if (xmlRead.text().toString() != "")  // translation not nullptr can set it
-                                    searchBoxStrcut->translateContent = xmlRead.text().toString();
+                                    searchBoxStrcut->translateContent = xmlRead.text().toString().remove('/').trimmed();
 #if DEBUG_XML_SWITCH
                                 qDebug() << " [SearchWidget] searchBoxStrcut->translateContent : " << searchBoxStrcut->translateContent;
 #endif
                             }
                             else if (xmlExplain == XML_Numerusform) {
                                 if (xmlRead.text().toString() != "")  // translation not nullptr can set it
-                                    searchBoxStrcut->translateContent = xmlRead.text().toString();
+                                    searchBoxStrcut->translateContent = xmlRead.text().toString().remove('/').trimmed();
                             }
                             else if (XML_Child_Path == xmlExplain) {
-                                QString childPage = transChildPageName.value(xmlRead.text().toString());
+                                QString childPage = m_transChildPageName.value(xmlRead.text().toString());
                                 if (childPage == "") {
                                     childPage = xmlRead.text().toString();
                                     qWarning() << " [SearchWidget]  child page can't translate. childPage : " << childPage;
@@ -878,7 +872,7 @@ void SearchModel::setLanguage(const QString &type)
                             else if (XML_ChildHide_Path == xmlExplain) {
                                 //添加二级页面和三级页面都要进入的搜索数据，类似 ： "默认程序 -> 网页 / 添加默认程序" 和 "默认程序 -> 网页"
                                 //以上两种数据都需要搜索，因此需要保存一个特殊的子页面list
-                                QString hideChildPage = transChildPageName.value(xmlRead.text().toString());
+                                QString hideChildPage = m_transChildPageName.value(xmlRead.text().toString());
                                 if (!m_childeHideWidgetList.contains(hideChildPage)) {
                                     m_childeHideWidgetList.append(hideChildPage);
                                 }
@@ -892,10 +886,6 @@ void SearchModel::setLanguage(const QString &type)
                                 if ("" == searchBoxStrcut->actualModuleName || "" == searchBoxStrcut->translateContent) {
                                     searchBoxStrcut = std::make_shared<SearchBoxStruct>();
                                     continue;
-                                }
-
-                                if(searchBoxStrcut->source == "Input Methods"){
-                                    inputMethods = searchBoxStrcut->translateContent;
                                 }
 
                                 //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"
@@ -925,16 +915,6 @@ void SearchModel::setLanguage(const QString &type)
                                         searchBoxStrcut = std::make_shared<SearchBoxStruct>();
                                         continue;
                                     }
-                                }
-
-                                if (!m_bIsServerType && !m_compositingAllowSwitch && tr("Window Effect") == searchBoxStrcut->translateContent) {
-                                    searchBoxStrcut = std::make_shared<SearchBoxStruct>();
-                                    continue;
-                                }
-
-                                //因为输入法二级菜单的翻译在插件，所以需要获取输入法的翻译
-                                if(searchBoxStrcut->childPageName == "Input Methods"){
-                                    searchBoxStrcut->childPageName = inputMethods;
                                 }
 
                                 list << searchBoxStrcut;
@@ -995,8 +975,6 @@ void SearchModel::addUnExsitData(const QString &module, const QString &datail)
     data.module = module;
     data.datail = datail;
     m_unexsitList.append(data);
-
-    return loadxml();
 }
 
 void SearchModel::removeUnExsitData(const QString &module, const QString &datail)
@@ -1008,8 +986,6 @@ void SearchModel::removeUnExsitData(const QString &module, const QString &datail
     if (find != m_unexsitList.end()) {
         m_unexsitList.erase(find);
     }
-
-    return loadxml();
 }
 
 void SearchModel::addSpecialThreeMenuMap(const QString &name, bool flag)
@@ -1018,39 +994,176 @@ void SearchModel::addSpecialThreeMenuMap(const QString &name, bool flag)
     loadxml();
 }
 
-void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
+//获取模块是否显示
+bool SearchModel::getModuleVisible(const QString module)
 {
-    QPair<QString, QString> value("", "");
+    if (module == "") {
+        return false;
+    }
 
-    //判断可移除设备是否在默认list中有记录，有记录才需要继续走后面流程
-    //根据name(模块/小模块名称)从默认list，取出对应的模块和page
-    auto res = std::find_if(m_removedefaultWidgetList.begin(), m_removedefaultWidgetList.end(), [=] (const QPair<QString, QString> data)->bool{
-        return (data.first == name);
+    return m_hideModuleList.value(module);
+}
+
+//获取模块内子页面是否显示
+bool SearchModel::getWidgetVisible(const QString module, QString widget)
+{
+    if (module == "") {//widget可以为空
+        return false;
+    }
+
+    HideChildWidgetStruct value;
+    auto findModule = std::find_if(m_hideWidgetList.begin(), m_hideWidgetList.end(), [&module](const HideChildWidgetStruct& item) {
+        return (item.module == module);
     });
 
-    if (res != m_removedefaultWidgetList.end()) {
-        value = (*res);
-        if (res->second == "On Battery") {
-            m_bIsOnBattery = isExist;
-        } else if (res->second == "Touchpad") {
-            m_bIsUseTouchpad = isExist;
+    if (findModule != m_hideWidgetList.end()) {
+        value = (*findModule);
+        return value.childWidgetMap.value(widget);
+    }
+
+    return false;
+}
+
+//获取模块内子页面的搜索数据是否显示
+bool SearchModel::getDetailVisible(const QString module, QString widget, QString detail)
+{
+    if (module == "" || widget == "" || detail == "") {
+        return false;
+    }
+
+    HideChildWidgetDetailStruct value;
+    auto findWidget = std::find_if(m_hideWidgetDetailList.begin(), m_hideWidgetDetailList.end(), [&module, &widget](const HideChildWidgetDetailStruct& item) {
+        return (item.module == module && item.childWidget == widget);
+    });
+
+    if (findWidget != m_hideWidgetDetailList.end()) {
+        value = (*findWidget);
+        return value.detailMap.value(detail);
+    }
+
+    return false;
+}
+
+//设置模块是否显示
+void SearchModel::setModuleVisible(const QString &module, bool visible)
+{
+    if (module == "" || m_hideModuleList.value(module) == visible) {
+        return;
+    }
+
+    m_hideModuleList.insert(module, visible);
+}
+
+//设置模块内子页面是否显示
+void SearchModel::setWidgetVisible(const QString &module, const QString &widget, bool visible)
+{
+    if (module == "" || widget == "") {
+        return;
+    }
+
+    for (auto &data : m_hideWidgetList) {
+        if (data.module == module && data.childWidgetMap.contains(widget)) {
+            data.childWidgetMap.insert(widget, visible);
+            return;
         }
     }
 
-    if ("" != value.first && "" != value.second) {
-        //值存在，移除设备，list移除该值
-        if (!isExist && m_removeableActualExistList.contains(value)) {
-            m_removeableActualExistList.removeOne(value);
-        } else if (isExist && !m_removeableActualExistList.contains(value)) {
-            //值不存在，现在插入设备，list添加该值
-            m_removeableActualExistList.append(value);
-        }
+    //以下为第一次新增数据
+    HideChildWidgetStruct value;
+    value.module = module;
+    value.childWidgetMap.insert(widget, visible);
 
-        qDebug() << "[setRemoveableDeviceStatus] loadWidget : " << name << " , isExist : " << isExist;
-        loadxml();
+    int count = m_hideWidgetList.count();
+    if (count == 0) {
+        m_hideWidgetList.append(value);
     } else {
-        qDebug() << " Not remember the data , name : " << name;
+        for (int i = 0; i < count; i++) {
+            if (m_hideWidgetList[i].module == module) {
+                m_hideWidgetList[i].childWidgetMap.insert(widget, visible);
+                return;
+            }
+            if (i == count - 1) {
+                m_hideWidgetList.append(value);
+            }
+        }
     }
+}
+
+//设置模块内子页面的详细搜索数据是否显示
+void SearchModel::setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible)
+{
+    for (auto &data : m_hideWidgetDetailList) {
+        if (data.module == module && data.childWidget == widget && data.detailMap.contains(detail)) {
+            data.detailMap.insert(detail, visible);
+            return;
+        }
+    }
+
+    //以下为第一次新增数据
+    HideChildWidgetDetailStruct value;
+    value.module = module;
+    value.childWidget = widget;
+    value.detailMap.insert(detail, visible);
+
+    if (!m_hideModuleList.value(module)) {
+        return;
+    }
+
+    int count = m_hideWidgetDetailList.count();
+    if (count == 0) {
+        m_hideWidgetDetailList.append(value);
+    } else {
+        for (int i = 0; i < count; i++) {
+            if (m_hideWidgetDetailList[i].module == module && m_hideWidgetDetailList[i].childWidget == widget) {
+                m_hideWidgetDetailList[i].detailMap.insert(detail, visible);
+                return;
+            }
+            if (i == count -1) {
+                m_hideWidgetDetailList.append(value);
+            }
+        }
+    }
+}
+
+void SearchModel::updateSearchData(const QString &module)
+{
+    loadxml(module);
+}
+
+void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
+{
+//    setModuleVisible(name, isExist);
+//    QPair<QString, QString> value("", "");
+
+//    //判断可移除设备是否在默认list中有记录，有记录才需要继续走后面流程
+//    //根据name(模块/小模块名称)从默认list，取出对应的模块和page
+//    auto res = std::find_if(m_removedefaultWidgetList.begin(), m_removedefaultWidgetList.end(), [=] (const QPair<QString, QString> data)->bool{
+//        return (data.first == name);
+//    });
+
+//    if (res != m_removedefaultWidgetList.end()) {
+//        value = (*res);
+//        if (res->second == "On Battery") {
+//            m_bIsOnBattery = isExist;
+//        } else if (res->second == "Touchpad") {
+//            m_bIsUseTouchpad = isExist;
+//        }
+//    }
+
+//    if ("" != value.first && "" != value.second) {
+//        //值存在，移除设备，list移除该值
+//        if (!isExist && m_removeableActualExistList.contains(value)) {
+//            m_removeableActualExistList.removeOne(value);
+//        } else if (isExist && !m_removeableActualExistList.contains(value)) {
+//            //值不存在，现在插入设备，list添加该值
+//            m_removeableActualExistList.append(value);
+//        }
+
+//        qDebug() << "[setRemoveableDeviceStatus] loadWidget : " << name << " , isExist : " << isExist;
+//        loadxml();
+//    } else {
+//        qDebug() << " Not remember the data , name : " << name;
+//        }
 }
 
 void SearchWidget::onCompleterActivated(const QString &value)
@@ -1171,4 +1284,40 @@ void SearchWidget::setRemoveableDeviceStatus(const QString &name, bool isExist)
 void SearchWidget::addSpecialThreeMenuMap(const QString &name, bool flag)
 {
     return m_model->addSpecialThreeMenuMap(name, flag);
+}
+
+void SearchWidget::setModuleVisible(const QString &module, bool visible)
+{
+    if (!m_model) {
+        return;
+    }
+
+    m_model->setModuleVisible(module, visible);
+}
+
+void SearchWidget::setWidgetVisible(const QString &module, const QString &widget, bool visible)
+{
+    if (!m_model) {
+        return;
+    }
+
+    m_model->setWidgetVisible(module, widget, visible);
+}
+
+void SearchWidget::setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible)
+{
+    if (!m_model) {
+        return;
+    }
+
+    m_model->setDetailVisible(module, widget, detail, visible);
+}
+
+void SearchWidget::updateSearchdata(const QString &module)
+{
+    if (!m_model) {
+        return;
+    }
+
+    m_model->updateSearchData(module);
 }

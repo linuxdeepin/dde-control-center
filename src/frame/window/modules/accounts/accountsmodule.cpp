@@ -30,6 +30,7 @@
 #include "modules/accounts/fingerworker.h"
 #include "modules/accounts/fingermodel.h"
 #include "addfingedialog.h"
+#include "window/gsettingwatcher.h"
 
 #include <DDialog>
 
@@ -49,8 +50,10 @@ AccountsModule::AccountsModule(FrameProxyInterface *frame, QObject *parent)
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
 }
 
-void AccountsModule::initialize()
+void AccountsModule::preInitialize(bool sync, dccV20::FrameProxyInterface::PushType)
 {
+    Q_UNUSED(sync)
+
     if (m_userModel) {
         delete m_userModel;
     }
@@ -67,6 +70,12 @@ void AccountsModule::initialize()
     m_fingerWorker->moveToThread(qApp->thread());
 
     m_accountsWorker->active();
+
+    initSearchData();
+}
+
+void AccountsModule::initialize()
+{
     connect(m_fingerModel, &FingerModel::vaildChanged, this, &AccountsModule::onHandleVaildChanged);
     connect(m_accountsWorker, &AccountsWorker::requestMainWindowEnabled, this, &AccountsModule::onSetMainWindowEnabled);
 }
@@ -218,6 +227,90 @@ AccountsModule::~AccountsModule()
     if (m_accountsWorker)
         m_accountsWorker->deleteLater();
     m_accountsWorker = nullptr;
+}
+
+void AccountsModule::initSearchData()
+{
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible= [=](const QString &gsettings) {
+        return GSettingWatcher::instance()->get(gsettings);
+    };
+
+    QString module = tr("Accounts");
+
+    auto func_process_all = [=]() {
+
+        m_frameProxy->setModuleVisible(module, true);
+
+        //只存在二级页面，childpage为空，在判断是否加载数据时没有翻译，因此这个函数第二个参数不能添加翻译
+        QString gsAccountUserModifypasswd = func_is_visible("accountUserModifypasswd").toString();
+        gsettingsMap.insert("accountUserModifypasswd", gsAccountUserModifypasswd != "Hidden");
+        m_frameProxy->setWidgetVisible(module, tr("Change Password"), gsAccountUserModifypasswd != "Hidden");
+
+        QString gsAccountUserDeleteaccount = func_is_visible("accountUserDeleteaccount").toString();
+        gsettingsMap.insert("accountUserDeleteaccount", gsAccountUserDeleteaccount != "Hidden");
+        m_frameProxy->setWidgetVisible(module, tr("Delete Account"), gsAccountUserDeleteaccount != "Hidden");
+
+        bool gsAutoLoginVisable = func_is_visible("autoLoginVisable").toBool();
+        gsettingsMap.insert("autoLoginVisable", gsAutoLoginVisable);
+        m_frameProxy->setWidgetVisible(module, tr("Auto Login"), gsAutoLoginVisable);
+
+        bool gsNopasswdLoginVisable = func_is_visible("nopasswdLoginVisable").toBool();
+        gsettingsMap.insert("nopasswdLoginVisable", gsNopasswdLoginVisable);
+        m_frameProxy->setWidgetVisible(module, tr("Login Without Password"), gsNopasswdLoginVisable);
+
+        m_frameProxy->setWidgetVisible(module, tr("Create Account"), true);
+        m_frameProxy->setDetailVisible(module, tr("Create Account"), tr("New Account"), true);
+    };
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if (state != "") {
+            return;
+        }
+
+        if (!gsettingsMap.contains(gsetting)) {
+            return;
+        }
+
+        if (gsetting == "accountUserModifypasswd" || gsetting == "accountUserDeleteaccount") {
+            QString status = func_is_visible(gsetting).toString();
+            if (gsettingsMap.value(gsetting) == ("Hidden" != status)) {
+                return;
+            }
+        } else {
+            bool status = func_is_visible(gsetting).toBool();
+            if (gsettingsMap.value(gsetting) == status) {
+                return;
+            }
+        }
+
+        if ("accountUserModifypasswd" == gsetting) {
+            QString gsAccountUserModifypasswd = func_is_visible("accountUserModifypasswd").toString();
+            gsettingsMap.insert("accountUserModifypasswd", gsAccountUserModifypasswd != "Hidden");
+            m_frameProxy->setWidgetVisible(module, tr("Change Password"), gsAccountUserModifypasswd != "Hidden");
+        } else if ("accountUserDeleteaccount" == gsetting) {
+            QString gsAccountUserDeleteaccount = func_is_visible("accountUserDeleteaccount").toString();
+            gsettingsMap.insert("accountUserDeleteaccount", gsAccountUserDeleteaccount != "Hidden");
+            m_frameProxy->setWidgetVisible(module, tr("Delete Account"), gsAccountUserDeleteaccount != "Hidden");
+        } else if ("autoLoginVisable" == gsetting) {
+            bool gsAutoLoginVisable = func_is_visible("autoLoginVisable").toBool();
+            gsettingsMap.insert("autoLoginVisable", gsAutoLoginVisable);
+            m_frameProxy->setWidgetVisible(module, tr("Auto Login"), gsAutoLoginVisable);
+        } else if ("nopasswdLoginVisable" == gsetting) {
+            bool gsNopasswdLoginVisable = func_is_visible("nopasswdLoginVisable").toBool();
+            gsettingsMap.insert("nopasswdLoginVisable", gsNopasswdLoginVisable);
+            m_frameProxy->setWidgetVisible(module, tr("Login Without Password"), gsNopasswdLoginVisable);
+        } else {
+            qDebug() << " not match gsettings : " << gsetting;
+            return;
+        }
+
+        qInfo() << __FUNCTION__ << " [notifyGSettingsChanged]  gsetting, status :" << gsetting << func_is_visible(gsetting);
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 //修改密码界面

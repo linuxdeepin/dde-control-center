@@ -63,9 +63,16 @@ void WacomModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     connect(m_model, &WacomModel::existChanged, this, [this](const bool exist) {
         m_frameProxy->setModuleVisible(this, exist);
         setDeviceUnavailabel(!exist);
+        initSearchData(false);
+    });
+
+    connect(m_model, &WacomModel::cursorModeChanged, this, [ = ] (const bool cursorMode) {
+        Q_UNUSED(cursorMode);
+        initSearchData(false);
     });
 
     setAvailable(m_model->exist());
+    initSearchData();
 }
 
 void WacomModule::initialize()
@@ -108,6 +115,22 @@ QStringList WacomModule::availPage() const
     sl << "Pressure Sensitivity" << "Pen" << "Mouse";
 
     return sl;
+}
+
+void WacomModule::initSearchData(bool isFirst)
+{
+    //todo
+    auto func_process_all = [ = ] {
+        QString module = tr("Drawing Tablet");
+        m_frameProxy->setModuleVisible(module, m_model->exist());
+        m_frameProxy->setWidgetVisible(module, tr("Mode"), m_model->exist());
+        m_frameProxy->setWidgetVisible(module, tr("Pressure Sensitivity"), m_model->exist() && !m_model->getCursorMode());
+
+        if (!isFirst)
+            m_frameProxy->updateSearchData(module);
+     };
+
+    func_process_all();
 }
 }
 }

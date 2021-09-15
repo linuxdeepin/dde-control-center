@@ -41,6 +41,7 @@ public:
     explicit DefaultAppsModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~DefaultAppsModule();
 
+    virtual void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     virtual void initialize() override;
     virtual const QString name() const override;
     virtual const QString displayName() const override;
@@ -48,6 +49,9 @@ public:
     virtual void contentPopped(QWidget *const w) override;
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+
+private:
+    void initSearchData();
 
 Q_SIGNALS:
     void requestSetDefappCategory(dcc::defapp::DefAppWorker::DefaultAppsCategory category);

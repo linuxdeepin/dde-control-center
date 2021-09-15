@@ -63,6 +63,7 @@ void WacomWidget::initWidget()
     m_modeLayout->setMargin(0);
     m_modeLayout->setSpacing(0);
 
+    //~ contents_path /wacom/Mode
     m_modeTitle->setText(tr("Mode"));
     m_modeTitle->setAccessibleName("WacomWidget_modeTitle");
 

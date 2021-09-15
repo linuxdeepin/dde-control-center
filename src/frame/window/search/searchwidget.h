@@ -23,7 +23,6 @@
 #include "interface/namespace.h"
 
 #include "dsearchedit.h"
-#include <com_deepin_wm.h>
 
 #include <QWidget>
 #include <QList>
@@ -50,8 +49,6 @@ const QString XML_Explain_Path = "extra-contents_path";
 const QString XML_Child_Path = "extra-child_page";
 const QString XML_ChildHide_Path = "extra-child_page_hide";
 
-using WM = com::deepin::wm;
-
 namespace DCC_NAMESPACE {
 namespace search {
 struct SearchBoxStruct {
@@ -71,6 +68,17 @@ struct SearchDataStruct {
 struct UnexsitStruct {
     QString module;
     QString datail;
+};
+
+struct HideChildWidgetStruct {
+    QString module;                                     //子页面的模块
+    QMap<QString, bool> childWidgetMap;              //子页面名称, 子页面是否显示
+};
+
+struct HideChildWidgetDetailStruct {
+    QString module;                                     //子页面的模块，避免重复子页面名称
+    QString childWidget;                                //子页面名称
+    QMap<QString, bool> detailMap;                     //详细搜索数据是否显示
 };
 
 class DCompleterStyledItemDelegate : public QStyledItemDelegate
@@ -100,12 +108,20 @@ public:
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
+    bool getModuleVisible(const QString module);
+    bool getWidgetVisible(const QString module, QString widget = "");
+    bool getDetailVisible(const QString module, QString widget = "", QString detail = "");
+    void setModuleVisible(const QString &module, bool visible);
+    void setWidgetVisible(const QString &module, const QString &widget, bool visible);
+    void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible);
+    void updateSearchData(const QString &module);
+
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
 
 private:
-    void loadxml();
+    void loadxml(const QString module = "");
     QString getModulesName(const QString &name, bool state = true);
     QString removeDigital(QString input);
     QString transPinyinToChinese(const QString &pinyin);
@@ -137,11 +153,11 @@ private:
     bool m_bIstextEdited;
     bool m_bIsServerType;
     bool m_bIsContensServerType;
-    bool m_bIsOnBattery;
-    bool m_bIsUseTouchpad;
     QGSettings *m_searchModuleDevelop{nullptr};
-    WM *m_deepinwm;
-    bool m_compositingAllowSwitch = true;
+    QMap<QString, bool> m_hideModuleList;
+    QList<HideChildWidgetStruct> m_hideWidgetList;
+    QList<HideChildWidgetDetailStruct> m_hideWidgetDetailList;
+    QMap<QString, QString> m_transChildPageName;
 };
 
 class SearchWidget : public DTK_WIDGET_NAMESPACE::DSearchEdit
@@ -158,6 +174,11 @@ public:
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
+    void setModuleVisible(const QString &module, bool visible);
+    void setWidgetVisible(const QString &module, const QString &widget, bool visible);
+    void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible);
+    void updateSearchdata(const QString &module);
+
 private Q_SLOTS:
     void onCompleterActivated(const QString &value);
     void onAutoComplete(const QString &text);

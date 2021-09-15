@@ -56,6 +56,7 @@ public:
     explicit SystemInfoModule(FrameProxyInterface *frame, QObject *parent = nullptr);
     ~SystemInfoModule();
 
+    virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     void initialize() override;
     void reset() override;
     const QString name() const override;
@@ -64,6 +65,9 @@ public:
     void active() override;
     int load(const QString &path) override;
     QStringList availPage() const override;
+
+private:
+    void initSearchData();
 
 public Q_SLOTS:
     void onShowAboutNativePage();

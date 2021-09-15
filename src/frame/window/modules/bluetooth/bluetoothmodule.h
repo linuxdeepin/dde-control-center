@@ -55,6 +55,9 @@ public:
     void contentPopped(QWidget *const w) override;
     int load(const QString &path) override;
 
+private:
+    void initSearchData();
+
 public Q_SLOTS:
     void showPinCode(const QDBusObjectPath &device, const QString &code);
     void closePinCode(const QDBusObjectPath &device);

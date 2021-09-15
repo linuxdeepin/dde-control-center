@@ -184,6 +184,8 @@ void NetworkModule::preInitialize(bool sync , FrameProxyInterface::PushType push
 
     connect(m_networkModel, &NetworkModel::deviceListChanged, this, &NetworkModule::onDeviceListChanged);
     onDeviceListChanged(m_networkModel->devices());
+
+    initSearchData();
 }
 
 void NetworkModule::initialize()
@@ -283,6 +285,189 @@ QStringList NetworkModule::availPage() const
         list << dev->path();
     }
     return list;
+}
+
+void NetworkModule::initSearchData()
+{
+    QString module = tr("Network");
+    QString applicationProxy = tr("Application Proxy");
+    QString personalHost = tr("Personal Hotspot");
+    QString networkDetail = tr("Network Details");
+    QString systemProxy = tr("System Proxy");
+    QString wiredNetwork = tr("Wired Network");
+    QString wirelessNetwork = tr("Wireless Network");
+    QString dsl = tr("DSL");
+    QString vpn = tr("VPN");
+    static QMap<QString, bool> gsettingsMap;
+
+    auto func_is_visible = [ = ](const QString &gsettings) {
+        if (gsettings == "") {
+            return false;
+        }
+
+        bool ret = false;
+        ret = GSettingWatcher::instance()->get(gsettings).toBool();
+        gsettingsMap.insert(gsettings, ret);
+
+        return ret;
+    };
+
+    QStringList gslist;
+    gslist << "networkWired" << "networkWireless" <<"personalHotspot" << "applicationProxy"
+           << "networkDetails" << "networkDsl" << "systemProxy" << "networkVpn";
+
+    //设备变化后相关搜索数据也需要调整
+    auto func_device_visible = [ = ](const QList<dde::network::NetworkDevice *> &devices) {
+        m_hasAp = false;
+        m_hasWired = false;
+        m_hasWireless = false;
+        for (auto const dev : devices) {
+            if (dev->type() == NetworkDevice::Wired) {
+                m_hasWired = true;
+            }
+            if (dev->type() != NetworkDevice::Wireless)
+                continue;
+            m_hasWireless = true;
+            if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
+                m_hasAp = true;
+            }
+        }
+    };
+
+    auto func_wired_visible = [ = ](bool visible) {
+        bool bWireNetwork = func_is_visible("networkWired") && visible;
+        m_frameProxy->setWidgetVisible(module, wiredNetwork, bWireNetwork);
+        m_frameProxy->setDetailVisible(module, wiredNetwork, tr("Wired Network Adapter"), bWireNetwork);
+        m_frameProxy->setDetailVisible(module, wiredNetwork, tr("Add Network Connection"), bWireNetwork);
+    };
+
+    auto func_wireless_visible = [ = ](bool visible) {
+        bool bWirelessNetwork = func_is_visible("networkWireless") && visible;
+        m_frameProxy->setWidgetVisible(module, wirelessNetwork, bWirelessNetwork);
+        m_frameProxy->setDetailVisible(module, wirelessNetwork, tr("Wireless Network Adapter"), bWirelessNetwork);
+    };
+
+    auto func_perhotspot_visible = [ = ](bool visible) {
+        bool bPersonalHost = func_is_visible("personalHotspot") && visible;
+        m_frameProxy->setWidgetVisible(module, personalHost, bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("Hotspot"), bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("Create Hotspot"), bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("Name"), bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("Security"), bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("SSID"), bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("Device MAC Addr"), bPersonalHost);
+        m_frameProxy->setDetailVisible(module, personalHost, tr("Customize MTU"), bPersonalHost);
+    };
+
+    auto func_appproxy_visible = [ = ]() {
+        bool bAppProxy = func_is_visible("applicationProxy");
+        m_frameProxy->setWidgetVisible(module, applicationProxy, bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Proxy Type"), bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("IP Address"), bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Port"), bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Username"), bAppProxy);
+        m_frameProxy->setDetailVisible(module, applicationProxy, tr("Password"), bAppProxy);
+    };
+
+    auto func_netdetails_visible = [ = ]() {
+        bool bNetworkDetail = func_is_visible("networkDetails");
+        m_frameProxy->setWidgetVisible(module, networkDetail, bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Interface"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("MAC"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Band"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Port"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("IPv4"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Gateway"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Primary DNS"), bNetworkDetail);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Netmask"), true);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("IPv6"), true);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Prefix"), true);
+        m_frameProxy->setDetailVisible(module, networkDetail, tr("Speed"), true);
+    };
+
+    auto func_dsl_visible = [ = ]() {
+        bool bDSL = func_is_visible("networkDsl");
+        m_frameProxy->setWidgetVisible(module, dsl, bDSL);
+        m_frameProxy->setDetailVisible(module, dsl, tr("Create PPPoE Connection"), bDSL);
+    };
+
+    auto func_sysproxy_visible = [ = ]() {
+        bool bSystemProxy = func_is_visible("systemProxy");
+        m_frameProxy->setWidgetVisible(module, systemProxy, bSystemProxy);
+        m_frameProxy->setDetailVisible(module, systemProxy, tr("Proxy Type"), bSystemProxy);
+        m_frameProxy->setDetailVisible(module, systemProxy, tr("Configuration URL"), bSystemProxy);
+        m_frameProxy->setDetailVisible(module, systemProxy, systemProxy, bSystemProxy);
+    };
+
+    auto func_vpn_visible = [ = ]() {
+        bool bVPN = func_is_visible("networkVpn");
+        m_frameProxy->setWidgetVisible(module, vpn, bVPN);
+        m_frameProxy->setDetailVisible(module, vpn, tr("VPN Status"), bVPN);
+        m_frameProxy->setDetailVisible(module, vpn, tr("Create VPN"), bVPN);
+        m_frameProxy->setDetailVisible(module, vpn, tr("Import VPN"), bVPN);
+    };
+
+    auto func_process_all = [ = ]() {
+        m_frameProxy->setModuleVisible(module, true);
+
+        func_appproxy_visible();
+
+        func_netdetails_visible();
+
+        func_dsl_visible();
+
+        func_sysproxy_visible();
+
+        func_vpn_visible();
+
+        func_device_visible(m_networkModel->devices());
+        func_wired_visible(m_hasWired);
+        func_wireless_visible(m_hasWireless);
+        func_perhotspot_visible(m_hasAp);
+     };
+
+    connect(m_networkModel, &NetworkModel::deviceListChanged, [ = ](const QList<dde::network::NetworkDevice *> &devices) {
+        func_device_visible(devices);
+        func_wired_visible(m_hasWired);
+        func_wireless_visible(m_hasWireless);
+        func_perhotspot_visible(m_hasAp);
+        m_frameProxy->updateSearchData(module);
+    });
+
+    connect(GSettingWatcher::instance(), &GSettingWatcher::notifyGSettingsChanged, this, [=](const QString &gsetting, const QString &state) {
+        if (gsetting == "" || !gsettingsMap.contains(gsetting) || !gslist.contains(gsetting)) {
+            return;
+        }
+
+        if (gsettingsMap.value(gsetting) == GSettingWatcher::instance()->get(gsetting).toBool()) {
+            return;
+        }
+
+        if ("applicationProxy" == gsetting) {
+            func_appproxy_visible();
+        } else if ("networkDetails" == gsetting) {
+            func_netdetails_visible();
+        } else if ("networkDsl" == gsetting) {
+            func_dsl_visible();
+        } else if ("systemProxy" == gsetting) {
+            func_sysproxy_visible();
+        } else if ("networkVpn" == gsetting) {
+            func_vpn_visible();
+        } else if ("networkWired" == gsetting || "networkWireless" == gsetting || "personalHotspot" == gsetting) {
+            func_device_visible(m_networkModel->devices());
+            func_wired_visible(m_hasWired);
+            func_wireless_visible(m_hasWireless);
+            func_perhotspot_visible(m_hasAp);
+        } else {
+            qInfo() << " not contains the gsettings : " << gsetting << state;
+            return;
+        }
+
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        m_frameProxy->updateSearchData(module);
+    });
+
+    func_process_all();
 }
 
 const QString NetworkModule::name() const
