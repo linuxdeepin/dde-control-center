@@ -82,10 +82,7 @@ class NetworkModuleWidget : public QWidget
 public:
     explicit NetworkModuleWidget(QWidget *parent = Q_NULLPTR);
     ~NetworkModuleWidget();
-    void initSetting(const int settingIndex, const QString &searchPath);
     void showDefaultWidget();
-    // 设置当前索引
-    void setCurrentIndex(const int settingIndex);
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
 
@@ -107,16 +104,18 @@ private Q_SLOTS:
 private:
     bool handleNMEditor();
     void updateSecondMenu(int row);
+    // 设置当前索引
+    void setCurrentIndex(const int settingIndex);
 
 private:
     QVBoxLayout *m_centralLayout;
     dcc::widgets::MultiSelectListView *m_lvnmpages;
     QStandardItemModel *m_modelpages;
-    QModelIndex m_lastIndex;
     QProcess *m_nmConnectionEditorProcess;
     QGSettings *m_settings;
 
     FrameProxyInterface *m_frameProxy;
+    bool m_isFirstEnter;
 };
 
 Q_DECLARE_METATYPE(PageType)

@@ -69,6 +69,7 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     , m_modelpages(new QStandardItemModel(this))
     , m_nmConnectionEditorProcess(nullptr)
     , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
+    , m_isFirstEnter(true)
 {
     setObjectName("Network");
     m_lvnmpages->setAccessibleName("List_networkmenulist");
@@ -129,12 +130,20 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
 
     NetworkController *pNetworkController = NetworkController::instance();
     connect(pNetworkController, &NetworkController::deviceRemoved, this, &NetworkModuleWidget::onDeviceChanged);
-    connect(pNetworkController, &NetworkController::deviceAdded, this, &NetworkModuleWidget::onDeviceChanged);
+    connect(pNetworkController, &NetworkController::deviceAdded, this, [ = ] {
+        onDeviceChanged();
+        if (m_isFirstEnter) {
+            showDefaultWidget();
+            m_isFirstEnter = false;
+        }
+    });
 
     ProxyController *proxyController = pNetworkController->proxyController();
     connect(proxyController, &ProxyController::proxyMethodChanged, this, &NetworkModuleWidget::onProxyMethodChanged);
 
     onDeviceChanged();
+    if (NetworkController::instance()->devices().size() > 0)
+        m_isFirstEnter = false;
 
     connect(m_settings, &QGSettings::changed, this, [ = ](const QString & key) {
         if (key == "networkWired" || key == "networkWireless") {
@@ -168,11 +177,8 @@ void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
 {
     const QString searchPath = idx.data(SearchPath).toString();
     m_modelpages->itemFromIndex(idx)->setData("", SearchPath);
-    if (m_lastIndex == idx && searchPath.isEmpty())
-        return;
 
     PageType type = idx.data(SectionRole).value<PageType>();
-    m_lastIndex = idx;
     m_lvnmpages->setCurrentIndex(idx);
     switch (type) {
     case PageType::DSLPage:
@@ -273,26 +279,15 @@ void NetworkModuleWidget::updateSecondMenu(int row)
         Q_EMIT requestUpdateSecondMenu(false);
     }
 
-    if (isAllHidden) {
-        m_lastIndex = QModelIndex();
+    if (isAllHidden)
         m_lvnmpages->clearSelection();
-    }
-}
-
-void NetworkModuleWidget::initSetting(const int settingIndex, const QString &searchPath)
-{
-    if (!searchPath.isEmpty()) {
-        m_modelpages->itemFromIndex(m_modelpages->index(settingIndex, 0))->setData(searchPath, SearchPath);
-    }
-    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
-    m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
 }
 
 void NetworkModuleWidget::showDefaultWidget()
 {
     for (int i = 0; i < m_modelpages->rowCount(); i++) {
         if (!m_lvnmpages->isRowHidden(i)) {
-            m_lvnmpages->activated(m_modelpages->index(i, 0));
+            setCurrentIndex(i);
             break;
         }
     }
@@ -301,7 +296,9 @@ void NetworkModuleWidget::showDefaultWidget()
 void NetworkModuleWidget::setCurrentIndex(const int settingIndex)
 {
     // 设置网络列表当前索引
-    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
+    QModelIndex index = m_modelpages->index(settingIndex, 0);
+    m_lvnmpages->setCurrentIndex(index);
+    m_lvnmpages->activated(index);
 }
 
 void NetworkModuleWidget::setIndexFromPath(const QString &path)
