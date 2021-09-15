@@ -410,14 +410,7 @@ void NetworkModuleWidget::onDeviceChanged()
         if (device->deviceType() == DeviceType::Wireless) {
             WirelessDevice *wirelssDev = qobject_cast<WirelessDevice *>(device);
             if (wirelssDev) {
-                HotspotController *hotspotController = NetworkController::instance()->hotspotController();
-                if (wirelssDev->supportHotspot() && hotspotController->supportHotspot()) {  //热点相关还未实现
-                    if (!dummyStatus.isNull()) {
-                        dummyStatus->setText(tr("Disconnected")); //热点未实现，暂时屏蔽
-                        m_lvnmpages->update();
-                    }
-                }
-                connect(wirelssDev, &WirelessDevice::hotspotEnableChanged, this, [this, dummyStatus](const bool enabled) {
+                connect(wirelssDev, &WirelessDevice::hotspotEnableChanged, this, [ this, dummyStatus ](const bool enabled) {
                     if (enabled && !dummyStatus.isNull()) {
                         dummyStatus->setText(tr("Disconnected"));
                         m_lvnmpages->update();

@@ -385,12 +385,13 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     connect(m_device, &WirelessDevice::networkAdded, this, &WirelessPage::onAPAdded);
     connect(m_device, &WirelessDevice::networkRemoved, this, &WirelessPage::onAPRemoved);
-    connect(m_device, &WirelessDevice::connectionSuccess, this, &WirelessPage::updateActiveAp);
+    connect(m_device, &WirelessDevice::connectionSuccess, this, &WirelessPage::updateApStatus);
+    connect(m_device, &WirelessDevice::accessPointInfoChanged, this, &WirelessPage::onUpdateAccessPointInfo);
     connect(m_device, &WirelessDevice::hotspotEnableChanged, this, &WirelessPage::onHotspotEnableChanged);
     connect(m_pNetworkController, &NetworkController::deviceRemoved, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::connectionFailed, this, &WirelessPage::onActivateApFailed);
-    connect(m_device, &WirelessDevice::connectionChanged, this, &WirelessPage::updateActiveAp);
-    connect(m_device, &WirelessDevice::deviceStatusChanged, this, &WirelessPage::updateActiveAp);
+    connect(m_device, &WirelessDevice::connectionChanged, this, &WirelessPage::updateApStatus);
+    connect(m_device, &WirelessDevice::deviceStatusChanged, this, &WirelessPage::updateApStatus);
 
     // init data
     const QList<AccessPoints *> lstUAccessPoints = m_device->accessPointItems();
@@ -509,6 +510,21 @@ void WirelessPage::onNetworkAdapterChanged(bool checked)
     updateLayout(!m_lvAP->isHidden());
 }
 
+void WirelessPage::onUpdateAccessPointInfo(const QList<AccessPoints *> &changeAps)
+{
+    QMap<QString, int> accessPoints;
+    for (AccessPoints *ap : changeAps)
+        accessPoints[ap->ssid()] = ap->strength();
+
+    for (int i = 0; i < m_modelAP->rowCount(); i++) {
+        APItem *apItem = static_cast<APItem *>(m_modelAP->item(i));
+        if (!accessPoints.contains(apItem->text()))
+            continue;
+
+        apItem->setSignalStrength(accessPoints[apItem->text()]);
+    }
+}
+
 void WirelessPage::onAPAdded(const QList<AccessPoints *> &addedAccessPoints)
 {
     for (AccessPoints *ap: addedAccessPoints) {
@@ -530,10 +546,6 @@ void WirelessPage::onAPAdded(const QList<AccessPoints *> &addedAccessPoints)
             apItem->setSignalStrength(ap->strength());
             connect(apItem->action(), &QAction::triggered, this, [ this, apItem ] {
                 this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(), apItem->data(Qt::ItemDataRole::DisplayRole).toString());
-            });
-
-            connect(ap, &AccessPoints::strengthChanged, this, [ = ] (const int strength) {
-                apItem->setSignalStrength(strength);
             });
 
             m_sortDelayTimer->start();
@@ -689,7 +701,7 @@ void WirelessPage::showConnectHidePage()
     Q_EMIT requestNextPage(m_apEditPage);
 }
 
-void WirelessPage::updateActiveAp()
+void WirelessPage::updateApStatus()
 {
     QList<AccessPoints *> accessPoints = m_device->accessPointItems();
     QMap<QString, ConnectionStatus> connectionStatus;

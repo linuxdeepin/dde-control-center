@@ -142,14 +142,13 @@ Q_SIGNALS:
     void requestNextPage(ContentWidget *const w) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
 
-public Q_SLOTS:
+private Q_SLOTS:
     void onAPAdded(const QList<AccessPoints*> &addedAccessPoints);
     void onAPRemoved(const QList<AccessPoints*> &lstRemovedAccessPoints);
     void onHotspotEnableChanged(const bool enabled);
     void onCloseHotspotClicked();
     void onDeviceStatusChanged(const DeviceStatus &stat);
 
-private Q_SLOTS:
     void sortAPList();
     void onApWidgetEditRequested(const QString &apPath, const QString &ssid);
     void onApWidgetConnectRequested(const QString &path, const QString &ssid);
@@ -158,8 +157,10 @@ private Q_SLOTS:
     void onActivateApFailed(const AccessPoints* pAccessPoints);
     void onNetworkAdapterChanged(bool checked);
 
+    void onUpdateAccessPointInfo(const QList<AccessPoints *> &changeAps);
+
 private:
-    void updateActiveAp();
+    void updateApStatus();
     QString connectionUuid(const QString &ssid);
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);

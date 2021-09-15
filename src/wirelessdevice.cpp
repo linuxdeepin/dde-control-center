@@ -256,6 +256,7 @@ void WirelessDevice::updateAccesspoint(const QJsonArray &json)
     }
 
     QList<AccessPoints *> newAp;
+    QList<AccessPoints *> changedAp;
     QStringList ssids;
     for (const QJsonValue &jsonValue : json) {
         QJsonObject accessInfo = jsonValue.toObject();
@@ -274,12 +275,19 @@ void WirelessDevice::updateAccesspoint(const QJsonArray &json)
             m_accessPoints << accessPoint;
             newAp << accessPoint;
         } else {
+            int strength = accessInfo.value("Strength").toInt();
+            if (accessPoint->strength() != strength)
+                changedAp << accessPoint;
+
             accessPoint->updateAccessPoints(accessInfo);
         }
 
         if (!ssids.contains(ssid))
             ssids << ssid;
     }
+
+    if (changedAp.size())
+        Q_EMIT accessPointInfoChanged(changedAp);
 
     if (newAp.size() > 0)
         Q_EMIT networkAdded(newAp);

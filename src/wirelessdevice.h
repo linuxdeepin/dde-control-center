@@ -56,6 +56,7 @@ Q_SIGNALS:
     void connectionFailed(const AccessPoints *);                    // 连接无线wlan失败，第一个参数为失败的热点，第二个参数为对应的connection的Uuid
     void connectionSuccess(const AccessPoints *);                   // 连接无线网络wlan成功，参数为对应的wlan
     void hotspotEnableChanged(const bool &);                        // 热点是否可用发生变化
+    void accessPointInfoChanged(const QList<AccessPoints *> &);     // wlan信号强度发生变化的网络
 
 protected:
     WirelessDevice(NetworkInter *networkInter, QObject *parent);
