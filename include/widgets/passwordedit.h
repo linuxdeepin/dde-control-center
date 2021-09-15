@@ -33,6 +33,8 @@ class PasswordEdit : public DTK_WIDGET_NAMESPACE::DPasswordEdit
 public:
     explicit PasswordEdit(QWidget *parent = 0);
 
+Q_SIGNALS:
+    void getNewPassWdLevel(QString newPasswd);
 protected:
     bool eventFilter(QObject *, QEvent *) override;
 };

@@ -44,7 +44,9 @@ bool PasswordEdit::eventFilter(QObject *obj, QEvent *event)
             return true;
         }
     }
-
+    if (obj == lineEdit() && event->type() == QEvent::FocusOut) {
+        Q_EMIT getNewPassWdLevel(lineEdit()->text());
+    }
     return DPasswordEdit::eventFilter(obj, event);
 }
 

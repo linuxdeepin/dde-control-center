@@ -32,6 +32,7 @@
 #include <DFontSizeManager>
 #include <DDBusSender>
 #include <DDesktopServices>
+#include <DApplicationHelper>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -39,6 +40,7 @@
 #include <QLabel>
 #include <QSettings>
 #include <QDebug>
+
 
 using namespace dcc::accounts;
 using namespace dcc::widgets;
@@ -52,17 +54,43 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_newPasswordEdit(new PasswordEdit)
     , m_repeatPasswordEdit(new PasswordEdit)
     , m_passwordTipsEdit(new DLineEdit)
+    , m_newPasswdLevelText(new QLabel)
+    , m_passwdLevelImg(new QImage)
+    , m_level(PASSWORD_STRENGTH_LEVEL_HIGH)
+    , m_focusOut(false)
     , m_isCurrent(isCurrent)
+    , m_newPasswdLevelIconModePath(PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH)
+
 {
+    //密码强度label初始化，３个label设置icon用于显示密码强度
+    for (int i = 0; i < PASSWORD_LEVEL_ICON_NUM; i++) {
+        m_newPasswdLevelIcons[i] = new QLabel;
+    }
     initWidget();
 }
 
 ModifyPasswdPage::~ModifyPasswdPage()
 {
+    for (int i = 0; i < PASSWORD_LEVEL_ICON_NUM; i++) {
+        if (m_newPasswdLevelIcons[i] != nullptr)
+            delete m_newPasswdLevelIcons[i];
+    }
+
 }
 
 void ModifyPasswdPage::initWidget()
 {
+    DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
+    switch (type) {
+    case DGuiApplicationHelper::UnknownType:
+        break;
+    case DGuiApplicationHelper::LightType:
+        m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH;
+        break;
+    case DGuiApplicationHelper::DarkType:
+        m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_DEEP_MODE_PATH;
+        break;
+    }
     this->setAccessibleName("ModifyPasswdPage");
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->addSpacing(40);
@@ -83,8 +111,39 @@ void ModifyPasswdPage::initWidget()
         mainContentLayout->addWidget(m_oldPasswordEdit);
     }
 
+    QHBoxLayout *newPasswdLayout = new QHBoxLayout;
     QLabel *newPasswdLabel = new QLabel(tr("New Password") + ":");
-    mainContentLayout->addWidget(newPasswdLabel);
+    newPasswdLayout->addWidget(newPasswdLabel);
+    newPasswdLayout->addSpacing(80);
+
+    QHBoxLayout *newPasswdLevelLayout = new QHBoxLayout;
+    m_newPasswdLevelText->setFixedWidth(55);
+    m_newPasswdLevelText->setFixedHeight(20);
+    newPasswdLevelLayout->addWidget(m_newPasswdLevelText);
+    newPasswdLevelLayout->setSpacing(4);
+
+    m_newPasswdLevelIcons[0]->setFixedWidth(8);
+    m_newPasswdLevelIcons[0]->setFixedHeight(4);
+    m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
+    m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+    newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[0]);
+    newPasswdLevelLayout->setSpacing(4);
+
+    m_newPasswdLevelIcons[1]->setFixedWidth(8);
+    m_newPasswdLevelIcons[1]->setFixedHeight(4);
+    m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+    newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[1]);
+    newPasswdLevelLayout->setSpacing(4);
+
+    m_newPasswdLevelIcons[2]->setFixedWidth(8);
+    m_newPasswdLevelIcons[2]->setFixedHeight(4);
+    m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+    newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[2]);
+    newPasswdLevelLayout->addSpacing(50);
+
+    newPasswdLayout->addLayout(newPasswdLevelLayout);
+
+    mainContentLayout->addLayout(newPasswdLayout);
     mainContentLayout->addWidget(m_newPasswordEdit);
 
     QLabel *repeatPasswdLabel = new QLabel(tr("Repeat Password") + ":");
@@ -151,6 +210,82 @@ void ModifyPasswdPage::initWidget()
         } else if (m_passwordTipsEdit->isAlert()) {
             m_passwordTipsEdit->setAlert(false);
         }
+    });
+    connect(m_newPasswordEdit, &PasswordEdit::getNewPassWdLevel, this, [=](QString newPasswd) {
+
+
+        QPalette palette;
+        m_focusOut = true;
+        m_level = PwqualityManager::instance()->GetNewPassWdLevel(newPasswd);
+
+        if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
+            palette.setColor(QPalette::Text, QColor("#15BB18"));
+            m_newPasswdLevelText->setPalette(palette);
+            m_newPasswdLevelText->setText(tr("Strong"));
+
+            m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_HIGH_PATH);
+            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+
+        } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
+            palette.setColor(QPalette::Text, QColor("#FFAA00"));
+            m_newPasswdLevelText->setPalette(palette);
+            m_newPasswdLevelText->setText(tr("Medium"));
+
+            m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_MIDDLE_PATH);
+            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
+            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+
+            m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"));
+        } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
+            palette.setColor(QPalette::Text, QColor("#FF5736"));
+            m_newPasswdLevelText->setPalette(palette);
+            m_newPasswdLevelText->setText(tr("Weak"));
+
+            m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_LOW_PATH);
+            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
+            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+
+            m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"));
+        } else {
+            m_newPasswordEdit->showAlertMessage(tr("Error occurred when reading the configuration files of password rules!"));
+        }
+
+
+    });
+
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [=](DGuiApplicationHelper::ColorType themeType){
+        switch (themeType) {
+        case DGuiApplicationHelper::UnknownType:
+            break;
+        case DGuiApplicationHelper::LightType:
+            m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH;
+            break;
+        case DGuiApplicationHelper::DarkType:
+            m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_DEEP_MODE_PATH;
+            break;
+        }
+        if (m_focusOut == false) {
+            m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
+            m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+        } else {
+            if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
+                m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
+                m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
+                m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
+                m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+                m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
+            }
+        }
+
     });
 
     m_oldPasswordEdit->lineEdit()->setPlaceholderText(tr("Required"));

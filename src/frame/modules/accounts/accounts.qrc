@@ -11,5 +11,10 @@
         <file>themes/dark/icons/default_avatar.svg</file>
         <file>themes/dark/icons/nav_accounts.svg</file>
         <file>themes/dark/icons/nav_accounts_normal.svg</file>
+        <file>themes/common/icons/dcc_deepin_password_strength_high.svg</file>
+        <file>themes/common/icons/dcc_deepin_password_strength_low.svg</file>
+        <file>themes/common/icons/dcc_deepin_password_strength_middle.svg</file>
+        <file>themes/common/icons/dcc_deepin_password_strength_unactive_deep_mode.svg</file>
+        <file>themes/common/icons/dcc_deepin_password_strength_unactive_light_mode.svg</file>
     </qresource>
 </RCC>

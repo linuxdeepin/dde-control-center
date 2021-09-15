@@ -45,6 +45,7 @@ public:
     * @return 若找到，返回text，反之返回空
     */
     ERROR_TYPE verifyPassword(const QString &user, const QString &password);
+    PASSWORD_LEVEL_TYPE GetNewPassWdLevel(const QString &newPasswd);
     QString getErrorTips(ERROR_TYPE type);
 
 private:

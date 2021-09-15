@@ -33,7 +33,12 @@
 
 using Defender = com::deepin::defender::hmiscreen;
 using DaemonService = com::deepin::defender::daemonservice;
-
+#define PASSWORD_LEVEL_ICON_NUM 3
+#define PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH ":/accounts/themes/common/icons/dcc_deepin_password_strength_unactive_light_mode.svg"
+#define PASSWORD_LEVEL_ICON_DEEP_MODE_PATH ":/accounts/themes/common/icons/dcc_deepin_password_strength_unactive_deep_mode.svg"
+#define PASSWORD_LEVEL_ICON_LOW_PATH ":/accounts/themes/common/icons/dcc_deepin_password_strength_low.svg"
+#define PASSWORD_LEVEL_ICON_MIDDLE_PATH ":/accounts/themes/common/icons/dcc_deepin_password_strength_middle.svg"
+#define PASSWORD_LEVEL_ICON_HIGH_PATH ":/accounts/themes/common/icons/dcc_deepin_password_strength_high.svg"
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
 class QHBoxLayout;
@@ -82,7 +87,14 @@ private:
     dcc::widgets::PasswordEdit *m_newPasswordEdit;
     dcc::widgets::PasswordEdit *m_repeatPasswordEdit;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
+    QLabel *m_newPasswdLevelText;
+    QImage *m_passwdLevelImg;
+    QLabel *m_newPasswdLevelIcons[PASSWORD_LEVEL_ICON_NUM];
+    int m_level;
+    bool m_focusOut;
     bool m_isCurrent;
+    QString m_newPasswdLevelIconModePath;
+
 };
 }
 }
