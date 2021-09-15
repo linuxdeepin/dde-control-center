@@ -46,6 +46,11 @@ PwqualityManager::ERROR_TYPE PwqualityManager::verifyPassword(const QString &use
     return error;
 }
 
+PASSWORD_LEVEL_TYPE PwqualityManager::GetNewPassWdLevel(const QString &newPasswd)
+{
+    return get_new_passwd_strength_level(newPasswd.toLocal8Bit().data());
+}
+
 QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type)
 {
     m_passwordMinLen = get_pw_min_length(LEVEL_STRICT_CHECK);
