@@ -60,6 +60,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     , m_device(dev)
     , m_pNetworkController(NetworkController::instance())
     , m_lvProfiles(new DListView(this))
+    , m_needConnectNew(false)
 {
     // 有线连接
     m_lvProfiles->setAccessibleName("lvProfiles");
@@ -133,7 +134,17 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     });
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
-    connect(m_device, &WiredDevice::connectionAdded, this, &WiredPage::refreshConnectionList);
+    connect(m_device, &WiredDevice::connectionAdded, this, [ = ] (const QList<WiredConnection*> newConnections) {
+        refreshConnectionList();
+        if (m_needConnectNew) {
+            if (newConnections.size() > 0) {
+                WiredConnection *connection = newConnections[0];
+                m_device->connectNetwork(connection);
+            }
+
+            m_needConnectNew = false;
+        }
+    });
     connect(m_device, &WiredDevice::connectionRemoved, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::connectionChanged, this, &WiredPage::onUpdateConnectionStatus);
     connect(m_device, &WiredDevice::deviceStatusChanged, this, &WiredPage::onDeviceStatusChanged);
@@ -246,7 +257,9 @@ void WiredPage::activateConnection(const QString &connectionPath)
 void WiredPage::activateEditConnection(const QString &connectPath, const QString &uuid)
 {
     Q_UNUSED(uuid);
-    m_device->connectNetwork(connectPath);
+    if(!m_device->connectNetwork(connectPath))
+        m_needConnectNew = true;
+
     Q_EMIT back();
 }
 

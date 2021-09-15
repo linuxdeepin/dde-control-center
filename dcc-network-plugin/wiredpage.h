@@ -102,6 +102,7 @@ private:
     SettingsGroup *m_tipsGrp;
 
     QMap<DStandardItem *, QString> m_connectionPath;
+    bool m_needConnectNew;
 
     static const int PathRole = Qt::UserRole + 100;
     static const int ConnectionRole = Qt::UserRole + 101;

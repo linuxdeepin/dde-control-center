@@ -45,8 +45,8 @@ Q_SIGNALS:
     void connectionRemoved(const QList<WiredConnection *>);                     // 删除连接
 
 public:
-    void connectNetwork(WiredConnection *connection);                           // 连接网络，连接成功抛出deviceStatusChanged信号
-    void connectNetwork(const QString &path);                                   // 连接网络重载函数，参数为配置路径
+    bool connectNetwork(WiredConnection *connection);                           // 连接网络，连接成功抛出deviceStatusChanged信号
+    bool connectNetwork(const QString &path);                                   // 连接网络重载函数，参数为配置路径
     void disconnectNetwork();                                                   // 断开网络连接
     bool isConnected() const;                                                   // 是否连接网络，重写基类的虚函数
     DeviceType deviceType() const;                                              // 返回设备类型，适应基类统一的接口

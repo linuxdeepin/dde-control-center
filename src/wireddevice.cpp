@@ -33,22 +33,23 @@ WiredDevice::~WiredDevice()
 {
 }
 
-void WiredDevice::connectNetwork(WiredConnection *connection)
+bool WiredDevice::connectNetwork(WiredConnection *connection)
 {
     if (!connection)
-        return;
+        return false;
 
     networkInter()->ActivateConnection(connection->connection()->uuid(), QDBusObjectPath(path()));
+    return true;
 }
 
-void WiredDevice::connectNetwork(const QString &path)
+bool WiredDevice::connectNetwork(const QString &path)
 {
     for (WiredConnection *connection : m_connections) {
-        if (connection->connection()->path() == path) {
-            connectNetwork(connection);
-            break;
-        }
+        if (connection->connection()->path() == path)
+            return connectNetwork(connection);
     }
+
+    return false;
 }
 
 void WiredDevice::disconnectNetwork()
