@@ -58,9 +58,11 @@ UserLicenseWidget::UserLicenseWidget(QWidget *parent)
         w->setFuture(QtConcurrent::run(ProtocolFile::getEnduserAgreement));
     }
 
+	// LCOV_EXCL_START
     connect(w, &QFutureWatcher<QString>::finished, this, [ = ] {
         const QString r = w->result();
         m_body->setText(r);
         Q_EMIT loadTextFinished();
     });
+	// LCOV_EXCL_STOP
 }

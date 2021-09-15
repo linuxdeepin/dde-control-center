@@ -65,11 +65,13 @@ VersionProtocolWidget::VersionProtocolWidget(QWidget *parent)
     QFutureWatcher<QPair<QString, QString>> *w = new QFutureWatcher<QPair<QString, QString>>(this);
     w->setFuture(QtConcurrent::run(loadLicenses));
 
+    // LCOV_EXCL_START
     connect(w, &QFutureWatcher<QPair<QString, QString>>::finished, this, [ = ] {
         const auto r = w->result();
         m_title->setText(r.first);
         m_body->setText(r.second);
         Q_EMIT loadTextFinished();
     });
+	// LCOV_EXCL_STOP
 }
 
