@@ -197,6 +197,8 @@ void VpnPage::onVpnDetailClicked(const QString &connectionUuid)
     connect(m_editPage, &ConnectionVpnEditPage::requestRefreshVPNStatusSignal, this, &VpnPage::requestRefreshVPNStatus);
     //删除VPN
     connect(m_editPage, &ConnectionVpnEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
+    //断开连接
+    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, &NetworkModel::requestDisconnctAP);
     Q_EMIT requestNextPage(m_editPage);
 }
 

@@ -107,7 +107,6 @@ void PppoePage::createPPPoEConnection()
     //删除有线连接
     connect(m_editPage, &ConnectionEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
-
     Q_EMIT requestNextPage(m_editPage);
 }
 
@@ -149,7 +148,8 @@ void PppoePage::onConnectionDetailClicked(const QString &connectionUuid)
     //删除有线连接
     connect(m_editPage, &ConnectionEditPage::deleteConnectAP, m_model, &NetworkModel::deleteConnection);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
-
+    //断开连接
+    connect(m_editPage, &ConnectionEditPage::disconnectAP, m_model, &NetworkModel::requestDisconnctAP);
     Q_EMIT requestNextPage(m_editPage);
 }
 
