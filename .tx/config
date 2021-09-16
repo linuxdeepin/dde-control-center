@@ -5,25 +5,31 @@ mode = developer
 
 [deepin-desktop-environment.dde-control-center]
 file_filter = translations/dde-control-center_<lang>.ts
-source_file = translations/dde-control-center_en_US.ts
-source_lang = en_US
+source_file = translations/dde-control-center_en.ts
+source_lang = en
 type = QT
 
 [deepin-desktop-environment.dde-control-center_dialogs]
 file_filter = translations/dialogs_<lang>.ts
-source_file = translations/dialogs_en_US.ts
-source_lang = en_US
+source_file = translations/dialogs_en.ts
+source_lang = en
 type = QT
 
 [deepin-desktop-environment.dde-control-center-desktop]
 file_filter = translations/desktop/desktop_<lang>.ts
 source_file = translations/desktop/desktop.ts
-source_lang = en_US
+source_lang = en
 type = QT
 
 [deepin-desktop-environment.dde-ab-recovery]
 file_filter = translations/recovery_<lang>.ts
-source_file = translations/recovery_en_US.ts
-source_lang = en_US
+source_file = translations/recovery_en.ts
+source_lang = en
+type = QT
+
+[deepin-desktop-environment.dde-control-center-keyboard_language]
+file_filter = translations/keyboard_language_<lang>.ts
+source_file = translations/keyboard_language_en.ts
+source_lang = en
 type = QT
 
