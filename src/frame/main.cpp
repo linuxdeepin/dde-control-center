@@ -122,6 +122,11 @@ int main(int argc, char *argv[])
     QTranslator translator;
     translator.load("/usr/share/dde-network-utils/translations/dde-network-utils_" + QLocale::system().name());
     app->installTranslator(&translator);
+
+    QTranslator translatorLanguage;
+    translatorLanguage.load("/usr/share/dde-control-center/translations/keyboard_language_" + QLocale::system().name());
+    app->installTranslator(&translatorLanguage);
+
     app->setApplicationDisplayName(QObject::tr("Control Center"));
     app->setApplicationDescription(QApplication::translate("main", "Control Center provides the options for system settings."));
 
