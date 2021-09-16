@@ -24,7 +24,6 @@
 #include "window/utils.h"
 #include "groupitem.h"
 #include "pwqualitymanager.h"
-#include "widgets/passwordedit.h"
 
 #include <DFontSizeManager>
 #include <DDesktopServices>
@@ -54,8 +53,8 @@ CreateAccountPage::CreateAccountPage(dcc::accounts::AccountsWorker *accountsWork
     , m_avatarListWidget(nullptr)
     , m_nameEdit(new DLineEdit)
     , m_fullnameEdit(new DLineEdit)
-    , m_passwdEdit(new PasswordEdit)
-    , m_repeatpasswdEdit(new PasswordEdit)
+    , m_passwdEdit(new DPasswordEdit)
+    , m_repeatpasswdEdit(new DPasswordEdit)
     , m_passwdTipsEdit(new DLineEdit)
     , m_accountChooser(new DComboBox)
     , m_groupListView(nullptr)
@@ -513,7 +512,7 @@ bool CreateAccountPage::checkFullname()
     return true;
 }
 
-bool CreateAccountPage::checkPassword(PasswordEdit *edit)
+bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
 {
     if (edit == m_repeatpasswdEdit) {
         if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {

@@ -33,6 +33,7 @@
 
 #include <DLineEdit>
 #include <DSuggestButton>
+#include <DPasswordEdit>
 
 #include <QWidget>
 #include <QScrollArea>
@@ -45,6 +46,7 @@ using DaemonService = com::deepin::defender::daemonservice;
 
 using namespace dcc::accounts;
 using namespace DCC_NAMESPACE::accounts;
+DWIDGET_USE_NAMESPACE
 #define NAME_ALREADY 4
 
 QT_BEGIN_NAMESPACE
@@ -53,12 +55,6 @@ class QHBoxLayout;
 class QPushButton;
 class QLabel;
 QT_END_NAMESPACE
-
-namespace dcc {
-namespace widgets {
-class PasswordEdit;
-}
-}
 
 namespace DCC_NAMESPACE {
 namespace accounts {
@@ -102,7 +98,7 @@ protected:
 private Q_SLOTS:
     bool checkName();
     bool checkFullname();
-    bool checkPassword(dcc::widgets::PasswordEdit *edit);
+    bool checkPassword(DPasswordEdit *edit);
 
 private:
     dcc::accounts::User *m_newUser;
@@ -111,8 +107,8 @@ private:
     AvatarListWidget *m_avatarListWidget;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_nameEdit;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_fullnameEdit;
-    dcc::widgets::PasswordEdit *m_passwdEdit;
-    dcc::widgets::PasswordEdit *m_repeatpasswdEdit;
+    DPasswordEdit *m_passwdEdit;
+    DPasswordEdit *m_repeatpasswdEdit;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwdTipsEdit;
     DTK_WIDGET_NAMESPACE::DComboBox *m_accountChooser;
 

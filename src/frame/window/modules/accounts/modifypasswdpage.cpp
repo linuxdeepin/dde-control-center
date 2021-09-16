@@ -24,7 +24,6 @@
 #include "pwqualitymanager.h"
 #include "../../utils.h"
 #include "createaccountpage.h"
-#include "widgets/passwordedit.h"
 
 #include "deepin_pw_check.h"
 
@@ -48,9 +47,9 @@ using namespace DCC_NAMESPACE::accounts;
 ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     : QWidget(parent)
     , m_curUser(user)
-    , m_oldPasswordEdit(new PasswordEdit)
-    , m_newPasswordEdit(new PasswordEdit)
-    , m_repeatPasswordEdit(new PasswordEdit)
+    , m_oldPasswordEdit(new DPasswordEdit)
+    , m_newPasswordEdit(new DPasswordEdit)
+    , m_repeatPasswordEdit(new DPasswordEdit)
     , m_passwordTipsEdit(new DLineEdit)
     , m_isCurrent(isCurrent)
 {
@@ -169,7 +168,7 @@ void ModifyPasswdPage::initWidget()
     setFocusPolicy(Qt::StrongFocus);
 }
 
-bool ModifyPasswdPage::judgeTextEmpty(PasswordEdit *edit)
+bool ModifyPasswdPage::judgeTextEmpty(DPasswordEdit *edit)
 {
     if (edit->text().isEmpty()) {
         edit->setAlert(true);
@@ -271,7 +270,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
     }
 }
 
-void ModifyPasswdPage::setPasswordEditAttribute(PasswordEdit *edit)
+void ModifyPasswdPage::setPasswordEditAttribute(DPasswordEdit *edit)
 {
     edit->setAttribute(Qt::WA_InputMethodEnabled, false);
     edit->lineEdit()->setValidator(new QRegExpValidator(QRegExp("[^\\x4e00-\\x9fa5]+")));

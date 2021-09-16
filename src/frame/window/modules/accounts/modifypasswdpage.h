@@ -28,8 +28,12 @@
 #include <DSuggestButton>
 #include <DLineEdit>
 
+#include <DPasswordEdit>
+
 #include "com_deepin_defender_hmiscreen.h"
 #include "com_deepin_defender_daemonservice.h"
+
+DWIDGET_USE_NAMESPACE
 
 using Defender = com::deepin::defender::hmiscreen;
 using DaemonService = com::deepin::defender::daemonservice;
@@ -41,12 +45,6 @@ class QPushButton;
 class QLabel;
 QT_END_NAMESPACE
 
-namespace dcc {
-namespace widgets{
-class PasswordEdit;
-}
-}
-
 namespace DCC_NAMESPACE {
 namespace accounts {
 //修改密码页面
@@ -57,10 +55,10 @@ public:
     explicit ModifyPasswdPage(dcc::accounts::User *user, bool isCurrent = true, QWidget *parent = nullptr);
     ~ModifyPasswdPage();
     void initWidget();
-    bool judgeTextEmpty(dcc::widgets::PasswordEdit *edit);
+    bool judgeTextEmpty(DPasswordEdit *edit);
     void clickSaveBtn();
     void onPasswordChangeFinished(const int exitCode, const QString &errorTxt);
-    void setPasswordEditAttribute(dcc::widgets::PasswordEdit *);
+    void setPasswordEditAttribute(DPasswordEdit *);
     void resetPassword(const QString &password, const QString &repeatPassword);
 
 protected:
@@ -78,9 +76,9 @@ Q_SIGNALS:
 
 private:
     dcc::accounts::User *m_curUser;
-    dcc::widgets::PasswordEdit *m_oldPasswordEdit;
-    dcc::widgets::PasswordEdit *m_newPasswordEdit;
-    dcc::widgets::PasswordEdit *m_repeatPasswordEdit;
+    DPasswordEdit *m_oldPasswordEdit;
+    DPasswordEdit *m_newPasswordEdit;
+    DPasswordEdit *m_repeatPasswordEdit;
     DTK_WIDGET_NAMESPACE::DLineEdit *m_passwordTipsEdit;
     bool m_isCurrent;
 };
