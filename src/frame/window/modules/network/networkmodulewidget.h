@@ -116,9 +116,9 @@ private:
         DeviceRole,
         SearchPath
     };
-    QModelIndex m_lastIndex;
     QProcess *m_nmConnectionEditorProcess;
     QGSettings *m_settings;
+    QString m_currentItemText;
 };
 }   // namespace network
 }   // namespace dcc

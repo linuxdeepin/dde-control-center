@@ -150,10 +150,11 @@ void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
     //查询一次之后去掉SearchPath,避免下次进来的时候还会search一遍
     const QString searchPath = idx.data(SearchPath).toString();
     m_modelpages->itemFromIndex(idx)->setData("", SearchPath);
-    if (m_lastIndex == idx && searchPath.isEmpty()) return;
+    const QString idxText = idx.data(Qt::DisplayRole).value<QString>();
+    if (m_currentItemText == idxText && searchPath.isEmpty()) return;
 
     PageType type = idx.data(SectionRole).value<PageType>();
-    m_lastIndex = idx;
+    m_currentItemText = idxText;
     m_lvnmpages->setCurrentIndex(idx);
     switch (type) {
     case DSLPage:
@@ -251,7 +252,7 @@ void NetworkModuleWidget::updateSecondMenu(int row)
     }
 
     if (isAllHidden) {
-        m_lastIndex = QModelIndex();
+        m_currentItemText.clear();
         m_lvnmpages->clearSelection();
     }
 }
