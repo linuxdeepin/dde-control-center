@@ -291,6 +291,8 @@ void ResolutionWidget::initResizeDesktop()
 
 void ResolutionWidget::OnAvailableFillModesChanged(const QStringList &lstFillMode)
 {
+    disconnect(m_resizeDesktopCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, nullptr);
+
     m_resizeItemModel->clear();
     setItemIcon();
     for(auto str : lstFillMode) {
