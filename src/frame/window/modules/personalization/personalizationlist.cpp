@@ -67,10 +67,6 @@ PersonalizationList::PersonalizationList(QWidget *parent)
           << "personalizationCursorTheme"
           << "personalizationFont";
 
-
-    if(InsertPlugin::instance()->needPushPlugin("personalization"))
-        InsertPlugin::instance()->pushPlugin(m_model,m_itemList);
-
     m_categoryListView->setModel(m_model);
     m_categoryListView->setEditTriggers(QAbstractItemView:: NoEditTriggers);
 
@@ -113,6 +109,9 @@ PersonalizationList::PersonalizationList(QWidget *parent)
      m_itemList.push_back({icons.at(1),menus.at(1),QMetaMethod::fromSignal(&PersonalizationList::requestShowIconTheme),nullptr,personalizationGsetting.at(1)});
      m_itemList.push_back({icons.at(2),menus.at(2),QMetaMethod::fromSignal(&PersonalizationList::requestShowCursorTheme),nullptr,personalizationGsetting.at(2)});
      m_itemList.push_back({icons.at(3),menus.at(3),QMetaMethod::fromSignal(&PersonalizationList::requestShowFonts),nullptr,personalizationGsetting.at(3)});
+
+     if(InsertPlugin::instance()->needPushPlugin("personalization"))
+         InsertPlugin::instance()->pushPlugin(m_model, m_itemList);
 
     //set default show page
     m_categoryListView->setCurrentIndex(m_model->indexFromItem(m_model->item(0)));
