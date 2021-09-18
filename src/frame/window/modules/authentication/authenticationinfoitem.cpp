@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "accountfingeitem.h"
+#include "authenticationinfoitem.h"
 
 #include <QWidget>
 #include <QHBoxLayout>
@@ -29,7 +29,7 @@
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::authentication;
 
-AccounntFingeItem::AccounntFingeItem(QWidget *parent)
+AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
     : SettingsItem(parent)
     , m_layout(new QHBoxLayout)
     , m_title(new QLabel)
@@ -63,7 +63,7 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     m_layout->addWidget(m_removeBtn, 0, Qt::AlignVCenter);
     setLayout(m_layout);
 
-    connect(m_removeBtn, &DIconButton::clicked, this, &AccounntFingeItem::removeClicked);
+    connect(m_removeBtn, &DIconButton::clicked, this, &AuthenticationInfoItem::removeClicked);
     connect(m_editBtn, &DIconButton::clicked, this, [this] {
         Q_EMIT editClicked(m_editTitle->isVisible());
         if (m_editTitle->isVisible()) {
@@ -85,38 +85,38 @@ AccounntFingeItem::AccounntFingeItem(QWidget *parent)
     });
 }
 
-void AccounntFingeItem::setTitle(const QString &title)
+void AuthenticationInfoItem::setTitle(const QString &title)
 {
     title.isEmpty() ? m_layout->removeWidget(m_title) : m_title->setText(title);
     m_fingerName = title;
 }
 
-void AccounntFingeItem::appendItem(QWidget *widget)
+void AuthenticationInfoItem::appendItem(QWidget *widget)
 {
     m_layout->addWidget(widget, 0, Qt::AlignLeft);
 }
 
-void AccounntFingeItem::setShowIcon(bool state)
+void AuthenticationInfoItem::setShowIcon(bool state)
 {
     m_removeBtn->setVisible(state);
     m_editBtn->setVisible(state);
 }
 
-void AccounntFingeItem::setEditTitle(bool state)
+void AuthenticationInfoItem::setEditTitle(bool state)
 {
     m_title->setVisible(!state);
     m_editBtn->setVisible(!state);
     m_editTitle->setVisible(state);
 }
 
-void AccounntFingeItem::setHideTitle(bool state)
+void AuthenticationInfoItem::setHideTitle(bool state)
 {
     m_title->setVisible(state);
     m_editBtn->setVisible(state);
     m_editTitle->setVisible(state);
 }
 
-bool AccounntFingeItem::validateName(const QString &password)
+bool AuthenticationInfoItem::validateName(const QString &password)
 {
     QString validate_policy = QString("1234567890") + QString("abcdefghijklmnopqrstuvwxyz") +
                               QString("ABCDEFGHIJKLMNOPQRSTUVWXYZ") + QString("_");
@@ -132,7 +132,7 @@ bool AccounntFingeItem::validateName(const QString &password)
     return true;
 }
 
-bool AccounntFingeItem::onNameEditFinished()
+bool AuthenticationInfoItem::onNameEditFinished()
 {
     QString editName = m_editTitle->lineEdit()->text();
     if (editName.isEmpty())
@@ -153,7 +153,7 @@ bool AccounntFingeItem::onNameEditFinished()
     return true;
 }
 
-void AccounntFingeItem::showAlertMessage(const QString &errMsg)
+void AuthenticationInfoItem::showAlertMessage(const QString &errMsg)
 {
     m_editTitle->setAlert(true);
     m_editTitle->showAlertMessage(errMsg, parentWidget()->parentWidget(), 2000);

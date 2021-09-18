@@ -40,11 +40,11 @@ DWIDGET_USE_NAMESPACE
 namespace DCC_NAMESPACE {
 namespace authentication {
 
-class AccounntFingeItem : public dcc::widgets::SettingsItem
+class AuthenticationInfoItem : public dcc::widgets::SettingsItem
 {
     Q_OBJECT
 public:
-    explicit AccounntFingeItem(QWidget *parent = nullptr);
+    explicit AuthenticationInfoItem(QWidget *parent = nullptr);
     void setTitle(const QString &title);
     QString getTitle() const { return m_fingerName; };
     void alertTitleRepeat();
@@ -73,3 +73,4 @@ private:
 
 }
 }
+

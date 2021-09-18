@@ -698,6 +698,16 @@
             <summary></summary>
             <description>default is true</description>
         </key>
+        <key name="authentication-face" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
+        <key name="authentication-iris" type="b">
+            <default>true</default>
+            <summary></summary>
+            <description>default is true</description>
+        </key>
         <!-- Sound module configuration -->
         <key name="sound-output" type="b">
             <default>true</default>

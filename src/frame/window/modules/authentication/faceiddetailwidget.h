@@ -1,11 +1,9 @@
 /*
  * Copyright (C) 2011 ~ 2021 Deepin Technology Co., Ltd.
  *
- * Author:     liuhong <liuhong_cm@deepin.com>
- *             duanhongyu <duanhongyu@uniontech.com>
+ * Author:     duanhongyu <duanhongyu@uniontech.com>
  *
- * Maintainer: liuhong <liuhong_cm@deepin.com>duanhongyu
- *             duanhongyu <duanhongyu@uniontech.com>
+ * Maintainer: duanhongyu <duanhongyu@uniontech.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,13 +22,14 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "fingerwidget.h"
+#include "facewidget.h"
 
+#include <DTipLabel>
 #include <QWidget>
 
 namespace dcc {
 namespace authentication {
-class FingerModel;
+class CharaMangerModel;
 }
 }
 
@@ -40,38 +39,36 @@ class QHBoxLayout;
 class QScrollArea;
 QT_END_NAMESPACE
 
-
 namespace DCC_NAMESPACE {
 namespace authentication {
-class FingerWidget;
-class FingerDetailWidget : public QWidget
+class FaceidDetailWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit FingerDetailWidget(QWidget *parent = nullptr);
-    ~FingerDetailWidget();
-
-    void setFingerModel(dcc::authentication::FingerModel *model);
+    explicit FaceidDetailWidget(dcc::authentication::CharaMangerModel *model, QWidget *parent = nullptr);
+    ~FaceidDetailWidget();
 
 private:
-    void initFingerUI();
-    void initNotFingerDevice();
-    QString getDisplayPath();
+    void initFaceidShow();
 
 Q_SIGNALS:
-    void requestAddThumbs(const QString &name, const QString &thumb);
-    void requestDeleteFingerItem(const QString &userName, const QString& finger);
-    void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
-    void noticeEnrollCompleted(QString username);
+    void requestAddFace(const QString &driverName, const int &charaType, const QString &charaName);
+    void requestDeleteFaceItem(const int &charaType, const QString &charaName);
+    void requestRenameFaceItem(const int &charaType, const QString& oldFaceName, const QString& newFaceName);
+    void noticeEnrollCompleted(const QString &driverName, const int &CharaType);
 
 public Q_SLOTS:
-    void showDeviceStatus(bool hasDevice);
+    void onDeviceStatusChanged(bool hasDevice);
 
 private:
-    QString m_currentUserName;
-    dcc::authentication::FingerModel *m_model;
-    FingerWidget *m_fingerWidget; //指纹界面
+    dcc::authentication::CharaMangerModel *m_model;
+
+    QVBoxLayout *mainContentLayout;
+    FaceWidget *m_faceWidget;
+    QLabel *m_pNotDevice;
+    DTipLabel *m_tip;
 };
 
 }
 }
+

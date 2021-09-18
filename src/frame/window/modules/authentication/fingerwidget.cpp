@@ -132,15 +132,15 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
 
     for (int n = 0; n < 10 && n < thumbs.size(); ++n) {
         QString finger = thumbs.at(n);
-        auto item = new AccounntFingeItem(this);
+        auto item = new AuthenticationInfoItem(this);
         item->setTitle(finger);
         item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
         m_listGrp->appendItem(item);
-        connect(item, &AccounntFingeItem::removeClicked, this, [this, finger] {
+        connect(item, &AuthenticationInfoItem::removeClicked, this, [this, finger] {
             Q_EMIT requestDeleteFingerItem(m_currentUserName, finger);
         });
-        connect(item, &AccounntFingeItem::editTextFinished, this, [this, finger, item, thumbs, n](QString newName) {
+        connect(item, &AuthenticationInfoItem::editTextFinished, this, [this, finger, item, thumbs, n](QString newName) {
             // 没有改名，直接返回
             if (item->getTitle() == newName) {
                 return;
@@ -156,9 +156,9 @@ void FingerWidget::onThumbsListChanged(const QStringList &thumbs)
             Q_EMIT requestRenameFingerItem(m_currentUserName, finger, newName);
         });
 
-        connect(item, &AccounntFingeItem::editClicked, this, [this, item, thumbs]() {
+        connect(item, &AuthenticationInfoItem::editClicked, this, [this, item, thumbs]() {
             for (int k = 0; k < thumbs.size(); ++k) {
-                static_cast<AccounntFingeItem *>(m_listGrp->getItem(k))->setEditTitle(item == m_listGrp->getItem(k));
+                static_cast<AuthenticationInfoItem *>(m_listGrp->getItem(k))->setEditTitle(item == m_listGrp->getItem(k));
             }
         });
 

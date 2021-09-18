@@ -3,6 +3,7 @@
 
 #include <DApplicationHelper>
 #include <DTipLabel>
+
 #include <QBoxLayout>
 #include <QLabel>
 #include <QScrollArea>
@@ -15,7 +16,7 @@ using namespace dcc::authentication;
 
 FingerDetailWidget::FingerDetailWidget(QWidget *parent)
     : QWidget(parent)
-    , m_scrollArea(new QScrollArea)
+    , m_model(nullptr)
     , m_fingerWidget(new FingerWidget)
 {
 }

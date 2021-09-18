@@ -2,7 +2,7 @@
  * Copyright (C) 2011 ~ 2021 Deepin Technology Co., Ltd.
  *
  * Author:     duanhongyu <duanhongyu@uniontech.com>
- *
+
  * Maintainer: duanhongyu <duanhongyu@uniontech.com>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -21,55 +21,57 @@
 
 #pragma once
 #include "interface/namespace.h"
-#include "window/utils.h"
+#include "widgets/settingsitem.h"
 
-#include <QModelIndex>
-#include <QWidget>
+#include <DAbstractDialog>
+#include <DSuggestButton>
+#include <DTipLabel>
+
+DWIDGET_USE_NAMESPACE
 
 QT_BEGIN_NAMESPACE
+class QDialog;
 class QVBoxLayout;
-class QStandardItem;
-class QStandardItemModel;
-class QModelIndex;
 QT_END_NAMESPACE
 
 namespace dcc {
-namespace widgets {
-class MultiSelectListView;
-}
-}
-
-namespace DCC_NAMESPACE {
 namespace authentication {
-class LoginOptionsWidget : public QWidget
-{
-    Q_OBJECT
 
-public:
-    explicit LoginOptionsWidget(QWidget *parent = nullptr);
-    virtual ~LoginOptionsWidget();
-
-    int showPath(const QString &path);
-    void showDefaultWidget();
-
-public Q_SLOTS:
-    void onItemClicked(const QModelIndex &index);
-
-private:
-    void initUI();
-    void initMembers();
-    void initConnections();
-
-Q_SIGNALS:
-    void requestShowFingerDetail();
-    void requestShowFaceIdDetail();
-
-private:
-    QList <ListSubItem> m_menuMethod;
-    dcc::widgets::MultiSelectListView *m_deviceListView;
-    QStandardItemModel *m_deviceItemModel;
-    QModelIndex m_currentIndex;
+enum DisclaimersObj {
+    Faceid,
+    Iris,
 };
 
-}   // namespace authentication
-}   // namespace dccV20
+// 免责声明对话框
+class DisclaimersDialog : public DTK_WIDGET_NAMESPACE::DAbstractDialog
+{
+    Q_OBJECT
+public:
+    explicit DisclaimersDialog(DisclaimersObj disobj, DAbstractDialog *parent = nullptr);
+    ~DisclaimersDialog();
+
+private:
+    void initWidget(DisclaimersObj state);
+    void initConnect();
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
+
+Q_SIGNALS:
+    /**
+     * @brief requestClickStatus 点击确定后 返回登陆界面 显示勾选状态
+     */
+    void requestClickStatus(bool isClick);
+    /**
+     * @brief requesetCloseDlg 离开免责对话框界面 需要恢复父窗口显示状态
+     */
+    void requesetCloseDlg(bool isClose);
+
+private:
+    QVBoxLayout *m_mainLayout;
+    QPushButton* m_cancelBtn;
+    DTK_WIDGET_NAMESPACE::DSuggestButton* m_acceptBtn;
+};
+
+}
+}

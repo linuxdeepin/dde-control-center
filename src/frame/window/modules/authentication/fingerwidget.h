@@ -22,7 +22,7 @@
 #pragma once
 
 #include "interface/namespace.h"
-#include "accountfingeitem.h"
+#include "authenticationinfoitem.h"
 #include "widgets/settingsgroup.h"
 
 #include <com_deepin_daemon_fprintd_device.h>
@@ -64,7 +64,7 @@ private:
     dcc::authentication::FingerModel *m_model;
     dcc::widgets::SettingsGroup *m_listGrp;
     DCommandLinkButton *m_clearBtn;
-    QVector<AccounntFingeItem*> m_vecItem;
+    QVector<AuthenticationInfoItem*> m_vecItem;
 };
 
 }

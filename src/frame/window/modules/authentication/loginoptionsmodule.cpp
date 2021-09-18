@@ -1,9 +1,14 @@
 #include "loginoptionsmodule.h"
 #include "loginoptionswidget.h"
 #include "fingerdetailwidget.h"
+#include "faceiddetailwidget.h"
 #include "addfingedialog.h"
-#include "modules/authentication/fingerworker.h"
+#include "addfaceinfodialog.h"
+#include "faceinfodialog.h"
 #include "modules/authentication/fingermodel.h"
+#include "modules/authentication/fingerworker.h"
+#include "modules/authentication/charamangermodel.h"
+#include "modules/authentication/charamangerworker.h"
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::authentication;
@@ -22,9 +27,15 @@ void LoginOptionsModule::initialize()
 {
     m_fingerModel = new FingerModel(this);
     m_fingerWorker = new FingerWorker(m_fingerModel);
-
     m_fingerModel->moveToThread(qApp->thread());
     m_fingerWorker->moveToThread(qApp->thread());
+
+    m_charaMangerModel = new CharaMangerModel(this);
+    m_charaMangerWorker = new CharaMangerWorker(m_charaMangerModel);
+    m_charaMangerModel->moveToThread(qApp->thread());
+    m_charaMangerWorker->moveToThread(qApp->thread());
+
+    m_facedlg = new FaceInfoDialog(m_charaMangerModel);
 }
 
 void LoginOptionsModule::reset()
@@ -57,6 +68,7 @@ void LoginOptionsModule::active()
     m_loginOptionsWidget = new LoginOptionsWidget;
     m_loginOptionsWidget->setVisible(false);
     connect(m_loginOptionsWidget, &LoginOptionsWidget::requestShowFingerDetail, this, &LoginOptionsModule::showFingerPage);
+    connect(m_loginOptionsWidget, &LoginOptionsWidget::requestShowFaceIdDetail, this, &LoginOptionsModule::showFaceidPage);
     m_frameProxy->pushWidget(this, m_loginOptionsWidget);
     m_loginOptionsWidget->setVisible(true);
     m_loginOptionsWidget->showDefaultWidget();
@@ -64,7 +76,9 @@ void LoginOptionsModule::active()
 
 int LoginOptionsModule::load(const QString &path)
 {
-    return -1;
+    if (m_loginOptionsWidget)
+        active();
+    return m_loginOptionsWidget->showPath(path);
 }
 
 QStringList LoginOptionsModule::availPage() const
@@ -86,6 +100,16 @@ void LoginOptionsModule::showFingerPage()
 
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
+}
+
+void LoginOptionsModule::showFaceidPage()
+{
+    FaceidDetailWidget *w = new FaceidDetailWidget(m_charaMangerModel);
+    connect(w, &FaceidDetailWidget::requestAddFace, this, &LoginOptionsModule::onShowAddFace);
+    connect(w, &FaceidDetailWidget::requestDeleteFaceItem, m_charaMangerWorker, &CharaMangerWorker::deleteFaceidItem);
+    connect(w, &FaceidDetailWidget::requestRenameFaceItem, m_charaMangerWorker, &CharaMangerWorker::renameFaceidItem);
+    connect(w, &FaceidDetailWidget::noticeEnrollCompleted, m_charaMangerWorker, &CharaMangerWorker::refreshUserEnrollList);
+    m_frameProxy->pushWidget(this, w);
 }
 
 // 显示添加指纹弹窗
@@ -131,9 +155,64 @@ void LoginOptionsModule::onShowAddThumb(const QString &name, const QString &thum
     });
 }
 
+// 添加人脸弹框
+void LoginOptionsModule::onShowAddFace(const QString &driverName, const int &charaType, const QString &charaName)
+{
+    // TODO: 人脸视频录入完成后， 将dlg弹出， 显示对应状态
+    // 第一次进入添加人脸对话框
+    if (!m_pMainWindow->isEnabled())
+        return;
+
+    AddFaceInfoDialog *dlg = new AddFaceInfoDialog(m_charaMangerModel);
+
+    connect(dlg, &AddFaceInfoDialog::requestStopEnroll, m_charaMangerWorker, &CharaMangerWorker::stopEnroll);
+    connect(dlg, &AddFaceInfoDialog::requesetCloseDlg, dlg, [=]{
+        onSetMainWindowEnabled(true);
+        dlg->deleteLater();
+    });
+    // 用户点击对话框开始录入
+    connect(dlg, &AddFaceInfoDialog::requestShowFaceInfoDialog, [=](){
+        dlg->hide();
+        onSetMainWindowEnabled(true);
+        qDebug() << "connect(dlg, &AddFaceInfoDialog::requestShowFaceInfoDialog ";
+        onShowAddFaceidVideo(driverName, charaType, charaName);
+    });
+
+    onSetMainWindowEnabled(false);
+    dlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+    dlg->show();
+    dlg->setFocus();
+    dlg->activateWindow();
+}
+
+// 添加人脸数据录入人脸视频对话框 ： 只处理开始录入
+void LoginOptionsModule::onShowAddFaceidVideo(const QString &driverName, const int &charaType, const QString &charaName)
+{
+    // 开始录入人脸
+    connect(m_facedlg, &FaceInfoDialog::requestCloseDlg, m_facedlg, [=]() {
+        m_charaMangerWorker->stopEnroll();
+        onSetMainWindowEnabled(true);
+    });
+
+    // 开始录入就弹出  TODO:  处理拿到FD后的内容
+    disconnect(m_charaMangerWorker, &CharaMangerWorker::tryStartInput, m_facedlg, nullptr);
+    connect(m_charaMangerWorker, &CharaMangerWorker::tryStartInput, m_facedlg, [this](const int &facedf){
+        onSetMainWindowEnabled(false);
+        m_facedlg->faceInfoLabel()->createConnection(facedf);
+
+        m_facedlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+        m_facedlg->exec();
+        m_facedlg->setFocus();
+        m_facedlg->activateWindow();
+    });
+
+    // TODO: FD
+    m_charaMangerWorker->entollStart(driverName, charaType, charaName);
+}
+
 LoginOptionsModule::~LoginOptionsModule()
 {
-
+    m_facedlg->deleteLater();
 }
 
 void LoginOptionsModule::onSetMainWindowEnabled(const bool isEnabled)

@@ -464,5 +464,11 @@
         <file>themes/dark/icons/finger/fingerprint_light.svg</file>
         <file>themes/dark/icons/icon_unknown_device.svg</file>
         <file>themes/light/icons/icon_unknown_device.svg</file>
+        <file>themes/dark/icons/icon_face-start.svg</file>
+        <file>themes/light/icons/icon_face-fail.svg</file>
+        <file>themes/light/icons/icon_face-start.svg</file>
+        <file>themes/light/icons/icon_face-success.svg</file>
+        <file>themes/dark/icons/icon_face-success.svg</file>
+        <file>themes/dark/icons/icon_face-fail.svg</file>
     </qresource>
 </RCC>

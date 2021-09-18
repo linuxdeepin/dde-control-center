@@ -54,6 +54,11 @@ LoginOptionsWidget::~LoginOptionsWidget()
     }
 }
 
+int LoginOptionsWidget::showPath(const QString &path)
+{
+    return 0;
+}
+
 void LoginOptionsWidget::showDefaultWidget()
 {
     for (int i = 0; i < m_deviceListView->model()->rowCount(); i++) {
@@ -104,6 +109,8 @@ void LoginOptionsWidget::initMembers()
 {
     //~ contents_path /authentication/Finger
     m_menuMethod.append({"dcc_fingerprint", tr("Fingerprint"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFingerDetail), nullptr, "authenticationFinger"});
+    //~ contents_path /authentication/Face
+    m_menuMethod.append({"dcc_faceid", tr("Face"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFaceIdDetail), nullptr, "authenticationFace"});
 
     for (auto mm : m_menuMethod) {
         DStandardItem *item = new DStandardItem(mm.itemText);

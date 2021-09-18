@@ -188,5 +188,6 @@
         <file>texts/dcc_start_32px.svg</file>
         <file>texts/dcc_pause_32px.svg</file>
         <file>texts/dcc_retry_32px.svg</file>
+        <file>actions/dcc_faceid_32px.svg</file>
     </qresource>
 </RCC>

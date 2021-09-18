@@ -30,7 +30,8 @@ Build-Depends:
  deepin-desktop-base | deepin-desktop-server | deepin-desktop-device,
  libgtest-dev,
  libdeepin-pw-check-dev,
- libpolkit-qt5-1-dev
+ libpolkit-qt5-1-dev,
+ libdareader-dev
 Standards-Version: 3.9.5
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
@@ -52,7 +53,8 @@ Depends: ${shlibs:Depends},
  libglib2.0-0,
  libdeepin-pw-check,
  deepin-desktop-schemas (>=5.8.0.34),
- libdframeworkdbus2 (>=5.3.38)
+ libdframeworkdbus2 (>=5.3.38),
+ libdareader1
 Recommends:
  netselect,
  deepin-ab-recovery,

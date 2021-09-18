@@ -23,11 +23,14 @@
 
 #include "interface/moduleinterface.h"
 #include "../../mainwindow.h"
+#include "faceinfodialog.h"
 
 namespace dcc {
 namespace authentication {
 class FingerModel;
 class FingerWorker;
+class CharaMangerModel;
+class CharaMangerWorker;
 }
 }
 
@@ -52,7 +55,10 @@ public:
 
 public Q_SLOTS:
     void showFingerPage();
+    void showFaceidPage();
     void onShowAddThumb(const QString &name, const QString &thumb);
+    void onShowAddFace(const QString &driverName, const int &charaType, const QString &charaName);
+    void onShowAddFaceidVideo(const QString &driverName, const int &charaType, const QString &charaName);
 
 private:
     ~LoginOptionsModule();
@@ -63,6 +69,10 @@ private:
     LoginOptionsWidget *m_loginOptionsWidget = nullptr;
     dcc::authentication::FingerModel *m_fingerModel{nullptr};
     dcc::authentication::FingerWorker *m_fingerWorker{nullptr};
+    dcc::authentication::CharaMangerModel *m_charaMangerModel{nullptr};
+    dcc::authentication::CharaMangerWorker *m_charaMangerWorker{nullptr};
+
+    FaceInfoDialog *m_facedlg;
 };
 
 }   // namespace authentication

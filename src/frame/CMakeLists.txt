@@ -259,14 +259,23 @@ set(MODULE_FILES
 set(AUTHENTICATION_FILES
     modules/authentication/fingermodel.cpp
     modules/authentication/fingerworker.cpp
+    modules/authentication/charamangermodel.cpp
+    modules/authentication/charamangerworker.cpp
     modules/authentication/widgets/fingeritem.cpp
+    modules/authentication/widgets/disclaimersitem.cpp
+    modules/authentication/widgets/disclaimersdialog.cpp
     modules/authentication/widgets/fingerwidget.cpp
+    modules/authentication/widgets/faceinfowidget.cpp
     window/modules/authentication/loginoptionsmodule.cpp
     window/modules/authentication/loginoptionswidget.cpp
     window/modules/authentication/fingerwidget.cpp
-    window/modules/authentication/accountfingeitem.cpp
     window/modules/authentication/fingerdetailwidget.cpp
     window/modules/authentication/addfingedialog.cpp
+    window/modules/authentication/faceiddetailwidget.cpp
+    window/modules/authentication/facewidget.cpp
+    window/modules/authentication/authenticationinfoitem.cpp
+    window/modules/authentication/addfaceinfodialog.cpp
+    window/modules/authentication/faceinfodialog.cpp
 )
 
 # load accounts
@@ -599,6 +608,7 @@ set(Qt_LIBS
 )
 
 set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
+set(SHMN_VIDEO libdareader.so)
 
 function(add_build_macro macro)
     string(TOUPPER ${macro} macro)
@@ -726,6 +736,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${KF5_QT_LIBRARIES}
     ${Qt5Svg_LIBRARIES}
     ${DEEPIN_PW_CHECK}
+    ${SHMN_VIDEO}
     crypt
     ${LIBS}
     PolkitQt5-1::Agent
