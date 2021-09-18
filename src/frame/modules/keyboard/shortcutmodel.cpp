@@ -112,6 +112,8 @@ ShortcutModel::~ShortcutModel()
     m_windowInfos.clear();
     m_workspaceInfos.clear();
     m_customInfos.clear();
+    qDeleteAll(m_searchList);
+    m_searchList.clear();
 }
 
 QList<ShortcutInfo *> ShortcutModel::systemInfo() const
@@ -154,6 +156,7 @@ void ShortcutModel::delInfo(ShortcutInfo *info)
     }
 
     delete info;
+    info = nullptr;
 }
 
 void ShortcutModel::onParseInfo(const QString &info)
@@ -359,11 +362,18 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
                 speechInfoList << info;
                 continue;
             }
+
             if (type == 1) {
                 customInfoList << info;
+            }else{
+                delete info;
+                info = nullptr;
             }
+
         } else {
             qDebug() << "not search is:" << info->name;
+            delete info;
+            info = nullptr;
         }
     }
 
