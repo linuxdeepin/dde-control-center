@@ -340,10 +340,12 @@ void CreateAccountPage::setModel(UserModel *userModel, User *user)
     m_groupItemModel->sort(0);
 }
 
-//在修改密码页面当前密码处设置焦点
+//在修改密码页面设置默认焦点
 void CreateAccountPage::showEvent(QShowEvent *event)
 {
-    if (m_nameEdit && !m_nameEdit->hasFocus()) {
+    if (m_accountChooser && m_accountChooser->isVisible() && m_accountChooser->isEnabled())
+        m_accountChooser->setFocus();
+    else if (m_nameEdit && !m_nameEdit->hasFocus()) {
         m_nameEdit->lineEdit()->setFocus();
     }
     QWidget::showEvent(event);
