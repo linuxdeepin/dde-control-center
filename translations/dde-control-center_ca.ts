@@ -2277,12 +2277,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Xarxa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Conflicte d&apos;IP</translation>
     </message>
 </context>
 <context>
@@ -4409,7 +4409,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="95"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ordinador hibernarà al cap de...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
@@ -4537,7 +4537,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="92"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;ordinador hibernarà al cap de...</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="102"/>
@@ -4791,18 +4791,18 @@
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="141"/>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositius de sortida</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="147"/>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="169"/>
         <source>Enable or disable a device as you want</source>
-        <translation type="unfinished"/>
+        <translation>Habiliteu o inhabiliteu un dispositiu quan vulgueu</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="164"/>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositius d&apos;entrada</translation>
     </message>
 </context>
 <context>
@@ -4876,7 +4876,7 @@
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositius</translation>
         <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
@@ -4895,7 +4895,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="84"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mode</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="300"/>
@@ -5073,7 +5073,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="124"/>
         <source>Computer Name:</source>
-        <translation type="unfinished"/>
+        <translation>Nom de l&apos;ordinador:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -5082,7 +5082,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="245"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="246"/>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>No pot començar ni acabar amb guionets.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
@@ -5090,7 +5090,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="208"/>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>De 1 a 63 caràcters, si us plau.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="281"/>
@@ -5958,7 +5958,7 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="683"/>
         <source>Input Methods</source>
-        <translation type="unfinished"/>
+        <translation>Mètodes d&apos;entrada</translation>
     </message>
 </context>
 <context>

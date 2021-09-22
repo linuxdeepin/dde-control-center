@@ -33,12 +33,12 @@
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
         <source>Click icon to enable bluetooth</source>
-        <translation>Bluetooth zapnete klepnutím na ikonu</translation>
+        <translation>Bluetooth zapnete kliknutím na ikonu</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
         <source>Connect to other devices</source>
-        <translation>Připojit se k dalším zařízením</translation>
+        <translation>Připojit se k ostatním zařízením</translation>
     </message>
 </context>
 <context>
@@ -182,7 +182,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="73"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="80"/>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Vždy</translation>
     </message>
 </context>
 <context>
@@ -202,7 +202,7 @@
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="303"/>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="312"/>
         <source>The username already exists</source>
-        <translation type="unfinished"/>
+        <translation>Toto uživatelské jméno už je v počítači používáno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="409"/>
@@ -241,7 +241,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="491"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="492"/>
@@ -289,7 +289,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
@@ -333,7 +333,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="526"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
@@ -428,7 +428,7 @@
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
         <source>The username already exists</source>
-        <translation type="unfinished"/>
+        <translation>Toto uživatelské jméno už je v počítači používáno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="465"/>
@@ -472,7 +472,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="150"/>
         <source>The name already exists</source>
-        <translation>Jméno už existuje</translation>
+        <translation>Název už existuje</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="196"/>
@@ -506,7 +506,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="84"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
@@ -659,7 +659,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
         <source>Click the option in boot menu to set it as the first boot</source>
-        <translation type="unfinished"/>
+        <translation>Pokud ji chcete nastavit jako první v pořadí při zavádění systému, klikněte na položku v nabídce</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="111"/>
@@ -872,7 +872,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="168"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/developermodewidget.cpp" line="168"/>
@@ -929,7 +929,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="90"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
@@ -1386,7 +1386,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="290"/>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Pouze na %1</translation>
     </message>
 </context>
 <context>
@@ -1436,17 +1436,17 @@
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="55"/>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="55"/>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/rotatewidget.cpp" line="55"/>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
 </context>
 <context>
@@ -1497,7 +1497,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="113"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="115"/>
@@ -1665,7 +1665,7 @@
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="67"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="70"/>
@@ -1932,7 +1932,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="103"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="104"/>
@@ -1975,7 +1975,7 @@
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="113"/>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="230"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="114"/>
@@ -2092,7 +2092,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="58"/>
         <source>DNS</source>
-        <translation type="unfinished"/>
+        <translation>DNS</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="212"/>
@@ -2277,12 +2277,12 @@
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Síť</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Konflikt IP adres</translation>
     </message>
 </context>
 <context>
@@ -2614,7 +2614,7 @@
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="64"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/network/proxypage.cpp" line="65"/>
@@ -4295,7 +4295,7 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="70"/>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"/>
+        <translation>Zobrazovat čas chodu a čas zbývající do nabití</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="71"/>
@@ -4409,7 +4409,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="95"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>Počítač bude uspán po</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
@@ -4537,7 +4537,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="92"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>Počítač bude uspán po</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="102"/>
@@ -4747,7 +4747,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="163"/>
         <source>TrackPoint</source>
-        <translation>Ovládání ukazovátka (TrackPoint)</translation>
+        <translation>TrackPoint</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="164"/>
@@ -4791,18 +4791,18 @@
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="141"/>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Výstupní zařízení</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="147"/>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="169"/>
         <source>Enable or disable a device as you want</source>
-        <translation type="unfinished"/>
+        <translation>Zapněte nebo vypněte zařízení dle libosti</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="164"/>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Vstupní zařízení</translation>
     </message>
 </context>
 <context>
@@ -4876,7 +4876,7 @@
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="146"/>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Zařízení</translation>
         <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
@@ -4895,7 +4895,7 @@
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="84"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Režim</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="300"/>
@@ -5073,7 +5073,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="124"/>
         <source>Computer Name:</source>
-        <translation type="unfinished"/>
+        <translation>Název počítače</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
@@ -5082,7 +5082,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="245"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="246"/>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>Nemůže začínat či končit na pomlčky</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
@@ -5090,7 +5090,7 @@
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="208"/>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>1 až 63 znaků prosím</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="281"/>
@@ -5195,17 +5195,17 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="52"/>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="52"/>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/privacypolicywidget.cpp" line="53"/>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Jsme si hluboce vědomi důležitosti vašich osobních údajů pro vás. Proto máme zásady ochrany, které pokrývají to, jak shromažďujeme, používáme, sdílím, přenášíme, zveřejňujeme a uchováváme vaše údaje.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;%1&quot;&gt;Kliknutím sem&lt;/a&gt; si zobrazíte naše nejnovější zásady ochrany soukromí a/nebo si je zobrazte na Internetu navštívením &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Pečlivě si je pročtěte a zcela porozumněte našim praktikám ohledně soukromí zákazníka. Pokud máte jakékoli dotazy, kontaktujte nás na: support@uniontech.com.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -5261,7 +5261,7 @@
     <message>
         <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="65"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="68"/>
@@ -5524,7 +5524,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="418"/>
         <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Je k dispozici aktualizace pro %n aplikaci</numerusform><numerusform>Jsou k dispozici aktualizace pro %n aplikace</numerusform><numerusform>Jsou k dispozici aktualizace pro %n aplikací</numerusform><numerusform>Jsou k dispozici aktualizace pro %n aplikace</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="423"/>
@@ -5534,7 +5534,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message numerus="yes">
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
         <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform><numerusform></numerusform></translation>
+        <translation><numerusform>Je k dispozici nové vydání systému a aktualizace pro %n aplikaci</numerusform><numerusform>Je k dispozici nové vydání systému a aktualizace pro %n aplikace</numerusform><numerusform>Je k dispozici nové vydání systému a aktualizace %n aplikací</numerusform><numerusform>Je k dispozici nové vydání systému a aktualizace pro %n aplikace</numerusform></translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
@@ -5763,12 +5763,12 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
         <source>Copy the screen contents to one or more screens</source>
-        <translation>Kopírovat obsah obrazovky do jedné nebo na více obrazovek.</translation>
+        <translation>Kopírovat ten stejný obraz na další displej(e).</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
         <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Rozšířit obsah obrazovky pro zobrazení různého obsahu na různých obrazovkách</translation>
+        <translation>Roztáhnout obsah po více displejích a zobrazovat tak na každém něco jiného</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
@@ -5783,7 +5783,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
         <source>Click to enter Display Module</source>
-        <translation>Klepnutím vstoupíte do modulu Zobrazení</translation>
+        <translation>Kliknutím vstoupíte do modulu Zobrazení</translation>
     </message>
 </context>
 <context>
@@ -5867,12 +5867,12 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Heslo může obsahovat pouze písmena z anglické abecedy (rozlišují se malá a VELKÁ písmena), číslice a dále ještě speciální symboly (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Je třeba, aby heslo obsahovalo velká a malá písmena z (pouze z anglické abecedy), číslice a symboly (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="65"/>
@@ -5889,12 +5889,12 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="67"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="68"/>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Vytvořte si odolné heslo prosím</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="74"/>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Nesplňuje pravidla pro hesla</translation>
     </message>
 </context>
 <context>
@@ -5958,7 +5958,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="683"/>
         <source>Input Methods</source>
-        <translation type="unfinished"/>
+        <translation>Vstupní metody</translation>
     </message>
 </context>
 <context>
@@ -5976,7 +5976,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
@@ -6052,7 +6052,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
         <source>Click icon to enable VPN</source>
-        <translation>VPN zapnete klepnutím na ikonu</translation>
+        <translation>VPN zapnete kliknutím na ikonu</translation>
     </message>
 </context>
 <context>
@@ -6078,7 +6078,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
         <source>Click icon to enable WLAN</source>
-        <translation>Pro zapnutí Wi-Fi klepněte na ikonu</translation>
+        <translation>Pro zapnutí Wi-Fi klikněte na ikonu</translation>
     </message>
     <message>
         <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
@@ -6199,7 +6199,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="171"/>
         <source>Please scan other fingers</source>
-        <translation>Prosím naskenujte ostatní prsty</translation>
+        <translation>Prosím nasnímejte ostatní prsty</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="121"/>
@@ -6329,7 +6329,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
@@ -6355,7 +6355,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="49"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
@@ -6397,7 +6397,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="61"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
@@ -6475,7 +6475,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="41"/>
         <source>Gather Windows</source>
-        <translation type="unfinished"/>
+        <translation>Shromáždit okna</translation>
     </message>
 </context>
 <context>
@@ -6493,7 +6493,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="72"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="73"/>
@@ -6518,7 +6518,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/customedit.cpp" line="122"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
-        <translation>Tato klávesová zkratka je ve střetu s %1. Pokud chcete, aby platila ta nová, klepněte na Přidat</translation>
+        <translation>Tato klávesová zkratka je ve střetu s %1. Pokud chcete, aby platila ta nová, klikněte na Přidat</translation>
     </message>
 </context>
 <context>
@@ -6531,7 +6531,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/customitem.cpp" line="114"/>
         <source>Please enter a shortcut</source>
-        <translation>Prosím zadejte zkratku</translation>
+        <translation>Zadejte zkratku prosím</translation>
     </message>
 </context>
 <context>
@@ -6545,7 +6545,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="72"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/keyboardlayoutwidget.cpp" line="74"/>
@@ -6571,7 +6571,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="65"/>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation>Storno</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="66"/>
@@ -6586,7 +6586,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="100"/>
         <source>This shortcut conflicts with  %1, click on Replace to make this shortcut effective immediately</source>
-        <translation>Tato klávesová zkratka je ve střetu s %1. Pokud chcete, aby platila ta nová, klepněte na Nahradit</translation>
+        <translation>Tato klávesová zkratka je ve střetu s %1. Pokud chcete, aby platila ta nová, klikněte na Nahradit</translation>
     </message>
 </context>
 <context>
@@ -6602,7 +6602,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/modules/mouse/widget/doutestwidget.cpp" line="45"/>
         <source>Double-click Test</source>
-        <translation>Zkouška dvojklepnutí</translation>
+        <translation>Zkouška dvojkliku</translation>
         <extra-contents_path>/mouse/General</extra-contents_path>
     </message>
 </context>
@@ -6620,7 +6620,7 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="39"/>
         <source>Palm Detection</source>
-        <translation>Zjištění dlaně</translation>
+        <translation>Zjišťování dlaně</translation>
         <extra-child_page>Touchpad</extra-child_page>
         <extra-contents_path>/mouse/Touchpad</extra-contents_path>
     </message>
@@ -6782,12 +6782,12 @@ Přejděte do uživatelského střediska a spravujte v něm svůj účet.</trans
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Autorská práva © 2011-2021 komunita Deepin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>Autorská práva © 2019-2021 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>

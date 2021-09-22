@@ -4410,7 +4410,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="95"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཀླད་གཉིད་དུ་ཡུར་བའི་རྣམ་པར་འགྱུར་བ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
@@ -4538,7 +4538,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="92"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>གློག་ཀླད་གཉིད་དུ་ཡུར་བའི་རྣམ་པར་འགྱུར་བ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="102"/>

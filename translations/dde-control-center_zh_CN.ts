@@ -472,7 +472,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="150"/>
         <source>The name already exists</source>
-        <translation>指纹名称已存在</translation>
+        <translation>名称已被占用</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="196"/>
@@ -5029,7 +5029,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="52"/>
         <source>Deepin ID Sign In</source>
-        <translation>Deepin ID登录</translation>
+        <translation>Deepin ID 登录</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="54"/>

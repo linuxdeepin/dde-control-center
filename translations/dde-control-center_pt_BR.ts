@@ -4409,7 +4409,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="95"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>O computador irá hibernar em seguida</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
@@ -4537,7 +4537,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="92"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>O computador irá hibernar em seguida</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="102"/>
@@ -6137,52 +6137,52 @@ Visite a Central do Usuário para gerenciar a conta.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint1</source>
-        <translation>Digital1</translation>
+        <translation>Impressão digital 1</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint2</source>
-        <translation>Digital2</translation>
+        <translation>Impressão digital 2</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
         <source>Fingerprint3</source>
-        <translation>Digital3</translation>
+        <translation>Impressão digital 3</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint4</source>
-        <translation>Digital4</translation>
+        <translation>Impressão digital 4</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint5</source>
-        <translation>Digital5</translation>
+        <translation>Impressão digital 5</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
         <source>Fingerprint6</source>
-        <translation>Digital6</translation>
+        <translation>Impressão digital 6</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint7</source>
-        <translation>Digital7</translation>
+        <translation>Impressão digital 7</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint8</source>
-        <translation>Digital8</translation>
+        <translation>Impressão digital 8</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
         <source>Fingerprint9</source>
-        <translation>Digital9</translation>
+        <translation>Impressão digital 9</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
         <source>Fingerprint10</source>
-        <translation>Digital10</translation>
+        <translation>Impressão digital 10</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="107"/>
