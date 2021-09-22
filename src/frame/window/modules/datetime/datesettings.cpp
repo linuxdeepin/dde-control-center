@@ -105,12 +105,7 @@ DateSettings::DateSettings(QWidget *parent)
     centerLabel->setContextMenuPolicy(Qt::NoContextMenu);
 
     QTime time(QTime::currentTime());
-    if (m_Is24HourType) {
-        m_timeHourWidget = createDSpinBox(this, 0, 23);
-    } else {
-        m_timeHourWidget = createDSpinBox(this, 1, 12);
-    }
-
+    m_timeHourWidget = createDSpinBox(this, 0, 23);
     m_timeMinWidget = createDSpinBox(this, 0, 59);
     m_timeHourWidget->setValue(time.hour());
     m_timeMinWidget->setValue(time.minute());
@@ -424,16 +419,7 @@ void DateSettings::updateSettingTime()
         m_yearWidget->setValue(datetime.date().year());
         m_monthWidget->setValue(datetime.date().month());
         m_dayWidget->setValue(datetime.date().day());
-        if (m_Is24HourType) {
-            m_timeHourWidget->setValue(datetime.time().hour());
-        } else {
-            if (datetime.time().hour() == 0) {
-                nHours = 12;
-            } else if (datetime.time().hour() > 12) {
-                nHours -= 12;
-            }
-            m_timeHourWidget->setValue(nHours);
-        }
+        m_timeHourWidget->setValue(datetime.time().hour());
         m_timeMinWidget->setValue(datetime.time().minute());
         m_timeSec = 0;
         m_syncSettingTimer->stop();
@@ -446,19 +432,9 @@ void DateSettings::updateTime()
 {
     QDateTime datetime = QDateTime::currentDateTime();
     int nHour = datetime.time().hour();
-    m_timeHourWidget->setMaximum(m_Is24HourType ? 23 : 12);
-    m_timeHourWidget->setMinimum(m_Is24HourType ? 0 : 1);
-
-    if (m_Is24HourType) {
-        m_timeHourWidget->setValue(nHour);
-    } else {
-        if (datetime.time().hour() == 0) {
-            nHour = 12;
-        } else if (datetime.time().hour() > 12) {
-            nHour -= 12;
-        }
-        m_timeHourWidget->setValue(nHour);
-    }
+    m_timeHourWidget->setMaximum(23);
+    m_timeHourWidget->setMinimum(0);
+    m_timeHourWidget->setValue(nHour);
     m_timeMinWidget->setValue(datetime.time().minute());
 }
 
