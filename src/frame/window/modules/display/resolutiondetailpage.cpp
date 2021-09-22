@@ -164,12 +164,12 @@ void ResolutionDetailPage::initResoList()
         for (auto m : moni->modeList()) {
             auto w = itemModel->itemData(idx)[WidthRole].toInt();
             auto h = itemModel->itemData(idx)[HeightRole].toInt();
-            if (m.width() == w && m.height() == h) {
-                requestSetResolution(moni, m.id());
-                return;
-            }
             if (moni->bestMode().width() == w && moni->bestMode().height() == h) {
                 requestSetResolution(moni, moni->bestMode().id());
+                return;
+            }
+            if (m.width() == w && m.height() == h) {
+                requestSetResolution(moni, m.id());
                 return;
             }
         }
