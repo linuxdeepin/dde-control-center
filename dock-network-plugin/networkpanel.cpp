@@ -1066,15 +1066,16 @@ void NetworkPanel::onIPConfllict(const QString &ip, const QString &mac)
 void NetworkPanel::onSendIpConflictDect(int index)
 {
     QTimer::singleShot(500, this, [ = ]() mutable {
-        if (index - 1 > currentIpList().size()) {
+        QStringList currentIps = currentIpList();
+        if (index > currentIps.size()) {
             m_ipConflictChecking = false;
             return;
         }
 
-        m_networkInter->RequestIPConflictCheck(currentIpList().at(index), "");
+        m_networkInter->RequestIPConflictCheck(currentIps.at(index), "");
 
         ++index;
-        if (currentIpList().size() > index)
+        if (currentIps.size() > index)
             emit sendIpConflictDect(index);
         else
             m_ipConflictChecking = false;
