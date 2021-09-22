@@ -132,7 +132,7 @@ QString DCCNetworkModule::follow() const
 
 const QString DCCNetworkModule::name() const
 {
-    return tr("Network");
+    return "network";
 }
 
 void DCCNetworkModule::showPage(const QString &pageName)
