@@ -75,6 +75,7 @@ protected:
     WirelessConnection *findConnectionByPath(const QString &path);
     void updateAccesspoint(const QJsonArray &json);
     void setDeviceEnabledStatus(const bool &enabled);
+    void updateActiveConnectionInfo(const QList<QJsonObject> &infos);
 
     template<class T>
     void clearListData(QList<T *> &dataList) {
@@ -89,6 +90,7 @@ private:
     QList<AccessPoints *> m_accessPoints;
     QJsonObject m_activeHotspotInfo;
     QList<QJsonObject> m_activeAccessPoints;
+    QJsonObject m_hotspotInfo;
 };
 
 /**

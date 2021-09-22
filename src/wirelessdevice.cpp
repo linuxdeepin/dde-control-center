@@ -46,8 +46,10 @@ QList<AccessPoints *> WirelessDevice::accessPointItems() const
      * 等后台反应慢的问题改好后，再把注释打开
      * if (!isEnabled())
         return QList<UAccessPoints *>();*/
+    if (m_hotspotInfo.isEmpty())
+        return m_accessPoints;
 
-    return m_accessPoints;
+    return QList<AccessPoints *>();
 }
 
 void WirelessDevice::scanNetwork()
@@ -229,6 +231,21 @@ void WirelessDevice::updateActiveInfo()
 
     // 调用基类的方法触发连接发生变化，同时向外抛出连接变化的信号
     NetworkDeviceBase::updateActiveInfo(m_activeAccessPoints);
+}
+
+void WirelessDevice::updateActiveConnectionInfo(const QList<QJsonObject> &infos)
+{
+    m_hotspotInfo = QJsonObject();
+    for (QJsonObject info : infos) {
+        QString devicePath = info.value("Device").toString();
+        QString connectionType = info.value("ConnectionType").toString();
+        if (devicePath == this->path() && connectionType == "wireless-hotspot") {
+            m_hotspotInfo = info;
+            break;
+        }
+    }
+
+    NetworkDeviceBase::updateActiveConnectionInfo(infos);
 }
 
 void WirelessDevice::updateAccesspoint(const QJsonArray &json)
