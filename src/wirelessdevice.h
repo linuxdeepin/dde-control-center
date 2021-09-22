@@ -153,6 +153,8 @@ protected:
     WirelessConnection();
     ~WirelessConnection();
 
+    static WirelessConnection *createConnection(AccessPoints *ap);
+
 private:
     Connection *m_connection;
     AccessPoints *m_accessPoints;

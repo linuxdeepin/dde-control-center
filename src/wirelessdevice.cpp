@@ -176,7 +176,7 @@ void WirelessDevice::syncConnectionAccessPoints()
     for (AccessPoints *accessPoint : m_accessPoints) {
         WirelessConnection *connection = findConnectionByAccessPoint(accessPoint);
         if (!connection) {
-            connection = new WirelessConnection;
+            connection = WirelessConnection::createConnection(accessPoint);
             m_connections << connection;
         }
 
@@ -465,4 +465,14 @@ WirelessConnection::WirelessConnection()
 
 WirelessConnection::~WirelessConnection()
 {
+}
+
+WirelessConnection *WirelessConnection::createConnection(AccessPoints *ap)
+{
+    WirelessConnection *wirelessConnection = new WirelessConnection;
+    QJsonObject json;
+    json.insert("Ssid", ap->ssid());
+    wirelessConnection->setConnection(json);
+    wirelessConnection->m_accessPoints = ap;
+    return wirelessConnection;
 }

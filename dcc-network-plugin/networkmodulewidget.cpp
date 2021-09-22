@@ -124,7 +124,11 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
         handleNMEditor();
 
     connect(m_lvnmpages, &DListView::activated, this, &NetworkModuleWidget::onClickCurrentListIndex);
-    connect(m_lvnmpages, &DListView::clicked, m_lvnmpages, &DListView::activated);
+    connect(m_lvnmpages, &DListView::clicked, this, [ this ] (const QModelIndex &index) {
+        m_lvnmpages->activated(index);
+        if (!m_lastDevicePath.isEmpty())
+            m_lastDevicePath.clear();
+    });
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, &NetworkModuleWidget::updateSecondMenu);
 
@@ -312,6 +316,11 @@ void NetworkModuleWidget::setIndexFromPath(const QString &path)
     }
 }
 
+void NetworkModuleWidget::setLastDevicePath(const QString &path)
+{
+    m_lastDevicePath = path;
+}
+
 int NetworkModuleWidget::gotoSetting(const QString &path)
 {
     PageType type = PageType::NonePage;
@@ -424,6 +433,17 @@ void NetworkModuleWidget::onDeviceChanged()
             // 如果是有线网络或者无线网络，则根据之前的设备和当前的设备是否相同来获取索引
             if (currentDevice == device)
                 newRowIndex = i;
+        }
+    }
+    // 如果之前是通过调用关闭热点后
+    if (!m_lastDevicePath.isEmpty()) {
+        for (int i = 0; i < devices.size(); i++) {
+            NetworkDeviceBase *device = devices[i];
+            if (device->path() == m_lastDevicePath) {
+                newRowIndex = i;
+                m_lastDevicePath.clear();
+                break;
+            }
         }
     }
 

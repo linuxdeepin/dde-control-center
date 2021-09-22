@@ -383,9 +383,6 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     });
 
     connect(m_sortDelayTimer, &QTimer::timeout, this, &WirelessPage::sortAPList);
-    connect(m_closeHotspotBtn, &QPushButton::clicked, this, [ = ] {
-        m_device->disconnectNetwork();
-    });
 
     connect(m_device, &WirelessDevice::networkAdded, this, &WirelessPage::onAPAdded);
     connect(m_device, &WirelessDevice::networkRemoved, this, &WirelessPage::onAPRemoved);
@@ -408,8 +405,13 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
             m_wirelessScanTimer->setInterval(gsetting->get("wireless-scan-interval").toInt());
     });
 
+    connect(m_device, &WirelessDevice::destroyed, this, [ this ] {
+       this->m_device = nullptr;
+    });
+
     connect(m_wirelessScanTimer, &QTimer::timeout, this, [ this ] {
-        m_device->scanNetwork();
+        if (m_device)
+            m_device->scanNetwork();
     });
 
     m_wirelessScanTimer->start(gsetting->get("wireless-scan-interval").toInt() * 1000);
@@ -426,6 +428,12 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
 
     HotspotController *hotspotController = NetworkController::instance()->hotspotController();
     onHotspotEnableChanged(m_device->isEnabled() && hotspotController->enabled(m_device));
+    connect(m_closeHotspotBtn, &QPushButton::clicked, this, [ = ] {
+        // 此处抛出这个信号是为了让外面记录当前关闭热点的设备，因为在关闭热点过程中，当前设备会移除一次，然后又会添加一次，相当于触发了两次信号，
+        // 此时外面就会默认选中第一个设备而无法选中当前设备，因此在此处抛出信号是为了让外面能记住当前选择的设备
+        Q_EMIT closeHotspot(m_device);
+        hotspotController->setEnabled(m_device, false);
+    });
 }
 
 WirelessPage::~WirelessPage()
@@ -632,6 +640,9 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
         return;
 
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid);
+    connect(m_apEditPage, &ConnectionWirelessEditPage::destroyed, this, [ this ] {
+        this->m_apEditPage = nullptr;
+    });
 
     if (!uuid.isEmpty()) {
         m_editingUuid = uuid;
@@ -715,14 +726,19 @@ void WirelessPage::updateApStatus()
     }
 
     for (int i = 0; i < m_modelAP->rowCount(); i++) {
-        APItem *item = dynamic_cast<APItem *>(m_modelAP->item(i, 0));
-        if (!item || !connectionStatus.contains(item->text()))
+        APItem *apItem = dynamic_cast<APItem *>(m_modelAP->item(i, 0));
+        if (!apItem || !connectionStatus.contains(apItem->text()))
             continue;
 
-        ConnectionStatus status = connectionStatus[item->text()];
+        ConnectionStatus status = connectionStatus[apItem->text()];
 
-        item->setLoading(status == ConnectionStatus::Activating);
-        item->setCheckState((!isConnecting && status == ConnectionStatus::Activated) ? Qt::Checked : Qt::Unchecked);
+        apItem->setLoading(status == ConnectionStatus::Activating);
+        apItem->setCheckState((!isConnecting && status == ConnectionStatus::Activated) ? Qt::Checked : Qt::Unchecked);
+
+        apItem->action()->disconnect();
+        connect(apItem->action(), &QAction::triggered, this, [ this, apItem ] {
+            this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(), apItem->data(Qt::ItemDataRole::DisplayRole).toString());
+        });
     }
 
     m_sortDelayTimer->start();

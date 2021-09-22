@@ -188,7 +188,6 @@ void DCCNetworkModule::showWirelessEditPage(NetworkDeviceBase *dev, const QStrin
         m_frameProxy->pushWidget(this, w);
     });
 
-    connect(m_connEditPage, &ConnectionEditPage::requestFrameAutoHide, [ = ] {});
     connect(m_connEditPage, &ConnectionEditPage::back, this, [ = ]() {
         m_connEditPage = nullptr;
     });
@@ -255,11 +254,13 @@ void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QStrin
         WirelessPage *wirelessPage = new WirelessPage(static_cast<WirelessDevice *>(dev));
         wirelessPage->setVisible(false);
         devicePage = wirelessPage;
-        connect(wirelessPage, &WirelessPage::requestNextPage, [ = ](ContentWidget * const w) {
+        connect(wirelessPage, &WirelessPage::requestNextPage, this, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
             wirelessPage->setVisible(true);
         });
-        connect(wirelessPage, &WirelessPage::requestFrameKeepAutoHide, [ = ] {});
+        connect(wirelessPage, &WirelessPage::closeHotspot, this, [ = ] (WirelessDevice *device) {
+            m_indexWidget->setLastDevicePath(device->path());
+        });
 
         wirelessPage->jumpByUuid(searchPath);
     } else if (dev->deviceType() == DeviceType::Wired) {
@@ -270,7 +271,6 @@ void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QStrin
         connect(wiredPage, &WiredPage::requestNextPage, [ = ](ContentWidget * const w) {
             m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
         });
-        connect(wiredPage, &WiredPage::requestFrameKeepAutoHide, [ = ] {});
 
         wiredPage->jumpPath(searchPath);
     } else

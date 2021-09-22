@@ -85,6 +85,7 @@ public:
     void showDefaultWidget();
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
+    void setLastDevicePath(const QString &path);
 
 Q_SIGNALS:
     void requestShowVpnPage(const QString &path = "") const;
@@ -116,6 +117,7 @@ private:
 
     FrameProxyInterface *m_frameProxy;
     bool m_isFirstEnter;
+    QString m_lastDevicePath;
 };
 
 Q_DECLARE_METATYPE(PageType)

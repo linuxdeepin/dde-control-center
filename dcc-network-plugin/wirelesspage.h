@@ -141,6 +141,7 @@ public:
 Q_SIGNALS:
     void requestNextPage(ContentWidget *const w) const;
     void requestFrameKeepAutoHide(const bool autoHide) const;
+    void closeHotspot(WirelessDevice *) const;
 
 private Q_SLOTS:
     void onAPAdded(const QList<AccessPoints*> &addedAccessPoints);
