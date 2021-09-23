@@ -182,21 +182,22 @@ MainWindow::MainWindow(QWidget *parent)
     menu->setAccessibleName("titlebarmenu");
     titlebar->setMenu(menu);
 
-    auto action = new QAction(tr("Help"));
-    menu->addAction(action);
-    connect(action, &QAction::triggered, this, [ = ] {
-        QString helpTitle = m_moduleName;
-        if (helpTitle.isEmpty()) {
-            helpTitle = "controlcenter";
-        }
-        const QString dmanInterface = "com.deepin.Manual.Open";
-        QDBusInterface *inter = new QDBusInterface(dmanInterface,
-                                                   "/com/deepin/Manual/Open",
-                                                   dmanInterface,
-                                                   QDBusConnection::sessionBus());
-        inter->call("OpenTitle", "dde", helpTitle);
-        inter->deleteLater();
-    });
+    //PS: 专用系统上不集成帮助手册
+    // auto action = new QAction(tr("Help"));
+    // menu->addAction(action);
+    // connect(action, &QAction::triggered, this, [ = ] {
+    //     QString helpTitle = m_moduleName;
+    //     if (helpTitle.isEmpty()) {
+    //         helpTitle = "controlcenter";
+    //     }
+    //     const QString dmanInterface = "com.deepin.Manual.Open";
+    //     QDBusInterface *inter = new QDBusInterface(dmanInterface,
+    //                                                "/com/deepin/Manual/Open",
+    //                                                dmanInterface,
+    //                                                QDBusConnection::sessionBus());
+    //     inter->call("OpenTitle", "dde", helpTitle);
+    //     inter->deleteLater();
+    // });
 
     m_backwardBtn = new DIconButton(this);
     m_backwardBtn->setAccessibleName("backwardbtn");
