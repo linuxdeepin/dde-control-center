@@ -76,10 +76,7 @@ struct APSortInfo {
         if (connected ^ other.connected)
             return !connected;
 
-        if (signalstrength != other.signalstrength)
-            return signalstrength < other.signalstrength;
-
-        return ssid < other.ssid;
+        return signalstrength <= other.signalstrength;
     }
 };
 

@@ -137,6 +137,7 @@ void APItem::setSignalStrength(int strength)
     APSortInfo si = data(SortRole).value<APSortInfo>();
     si.signalstrength = strength;
     si.ssid = text();
+    si.connected = (checkState() == Qt::CheckState::Checked);
     setData(QVariant::fromValue(si), SortRole);
 }
 
