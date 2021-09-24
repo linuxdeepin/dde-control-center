@@ -63,6 +63,7 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
     , m_currLangSelector(new LangSelector("com.deepin.daemon.LangSelector",
                                           "/com/deepin/daemon/LangSelector",
                                           QDBusConnection::sessionBus(), this))
+    , m_totalZones(installer::GetZoneInfoList())
 {
     m_blurEffect->setAccessibleName("blurEffect");
 
@@ -151,7 +152,8 @@ TimeZoneChooser::TimeZoneChooser(QWidget* parent)
     QTimer::singleShot(0, [this] {
         QStringList completions;
         QStringList completions_filter;
-        for (QString timezone : QTimeZone::availableTimeZoneIds()) {
+        for (const auto &zoneInfo : m_totalZones) {
+            auto timezone = zoneInfo.timezone;
             completions << timezone; // timezone as completion candidate.
 
             // localized timezone as completion candidate.
