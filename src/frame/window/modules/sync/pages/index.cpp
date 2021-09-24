@@ -98,8 +98,8 @@ IndexPage::IndexPage(QWidget *parent)
 
     scrollArea->setWidget(hwidget);
 
-    QScroller::grabGesture(scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
-    QScroller *scroller = QScroller::scroller(hwidget->window());
+    QScroller::grabGesture(qgetenv("WAYLAND_DISPLAY").isEmpty() ? scrollArea->viewport() : this, QScroller::LeftMouseButtonGesture);
+    QScroller *scroller = QScroller::scroller(qgetenv("WAYLAND_DISPLAY").isEmpty() ? hwidget->window() : this);
     QScrollerProperties sp;
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
