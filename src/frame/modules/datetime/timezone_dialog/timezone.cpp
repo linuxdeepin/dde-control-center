@@ -46,7 +46,7 @@ namespace installer {
 namespace {
 
 // Absolute path to zone.tab file.
-const char kZoneTabFile[] = "/usr/share/zoneinfo/zone.tab";
+const char kZoneTabFile[] = "/usr/share/zoneinfo/zone1970.tab";
 
 // Absolute path to backward timezone file.
 const char kTimezoneAliasFile[] = "/timezone_alias";
