@@ -33,6 +33,7 @@
 #include <QMap>
 #include <com_deepin_daemon_langselector.h>
 #include <QCompleter>
+#include "timezone.h"
 
 DWIDGET_USE_NAMESPACE
 
@@ -99,6 +100,7 @@ private:
     DSuggestButton *m_confirmBtn;
     LangSelector *m_currLangSelector;
     QCompleter *m_completer;
+    const installer::ZoneInfoList m_totalZones;
 };
 
 } // namespace datetime
