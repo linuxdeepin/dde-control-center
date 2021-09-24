@@ -248,6 +248,11 @@ void WirelessDevice::updateActiveConnectionInfo(const QList<QJsonObject> &infos)
     NetworkDeviceBase::updateActiveConnectionInfo(infos);
 }
 
+bool dde::network::WirelessDevice::getHotspotEnabeld()
+{
+    return !m_hotspotInfo.isEmpty();
+}
+
 void WirelessDevice::updateAccesspoint(const QJsonArray &json)
 {
     // 先过滤相同的ssid，找出信号强度最大的那个

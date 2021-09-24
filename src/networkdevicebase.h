@@ -101,6 +101,7 @@ protected:
     virtual void updateActiveInfo(const QList<QJsonObject> &info);                               // 当前连接发生变化，例如从一个连接切换到另外一个连接
     virtual void updateActiveConnectionInfo(const QList<QJsonObject> &infos);                    // 当前连接发生变化后，获取设备的活动信息，例如IP等
     void enqueueStatus(const DeviceStatus &status);
+    virtual bool getHotspotEnabeld() { return false; }
 
 protected:
     QString getStatusName();

@@ -76,6 +76,7 @@ protected:
     void updateAccesspoint(const QJsonArray &json);
     void setDeviceEnabledStatus(const bool &enabled);
     void updateActiveConnectionInfo(const QList<QJsonObject> &infos);
+    bool getHotspotEnabeld();
 
     template<class T>
     void clearListData(QList<T *> &dataList) {

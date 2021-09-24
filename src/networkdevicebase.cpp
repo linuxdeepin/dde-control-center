@@ -177,6 +177,9 @@ void NetworkDeviceBase::enqueueStatus(const DeviceStatus &status)
 
 QString NetworkDeviceBase::getStatusName()
 {
+    if (getHotspotEnabeld())
+        return tr("Disconnected");
+
     switch (m_deviceStatus) {
     case DeviceStatus::Unmanaged:
     case DeviceStatus::Unavailable:

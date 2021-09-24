@@ -397,36 +397,22 @@ void NetworkModuleWidget::onDeviceChanged()
             m_lvnmpages->update();
         }
 
-        connect(device, &NetworkDeviceBase::enableChanged, this, [this, device, dummyStatus](const bool enabled) {
+        auto setDeviceStatus = [ this, device, dummyStatus ] {
             if (!dummyStatus.isNull()) {
-                QString txt = enabled ? device->property("statusName").toString() : tr("Disabled");
+                QString txt = device->isEnabled() ? device->property("statusName").toString() : tr("Disabled");
                 dummyStatus->setText(txt);
             }
             this->m_lvnmpages->update();
-        });
+        };
 
-        connect(device, &NetworkDeviceBase::deviceStatusChanged, this, [ this, device, dummyStatus ]() {
-            if (!dummyStatus.isNull()) {
-                if (device->isEnabled()) {
-                    dummyStatus->setText(device->property("statusName").toString());
-                } else {
-                    dummyStatus->setText(tr("Disabled"));
-                }
-            }
-            this->m_lvnmpages->update();
-        });
-
+        connect(device, &NetworkDeviceBase::enableChanged, this, setDeviceStatus);
+        connect(device, &NetworkDeviceBase::deviceStatusChanged, this, setDeviceStatus);
         if (device->deviceType() == DeviceType::Wireless) {
             WirelessDevice *wirelssDev = qobject_cast<WirelessDevice *>(device);
-            if (wirelssDev) {
-                connect(wirelssDev, &WirelessDevice::hotspotEnableChanged, this, [ this, dummyStatus ](const bool enabled) {
-                    if (enabled && !dummyStatus.isNull()) {
-                        dummyStatus->setText(tr("Disconnected"));
-                        m_lvnmpages->update();
-                    }
-                });
-            }
+            if (wirelssDev)
+                connect(wirelssDev, &WirelessDevice::hotspotEnableChanged, this, setDeviceStatus);
         }
+
         m_modelpages->insertRow(i, deviceItem);
 
         if (pageType == PageType::WiredPage || pageType == PageType::WirelessPage) {
