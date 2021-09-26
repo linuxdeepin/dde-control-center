@@ -58,6 +58,7 @@ class KeyboardWidget : public QWidget
 
 public:
     explicit KeyboardWidget(QWidget *parent = nullptr);
+    ~KeyboardWidget();
     void initSetting(const int settingIndex);
 private:
     void init();

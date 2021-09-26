@@ -98,7 +98,7 @@ NetworkModuleWidget::NetworkModuleWidget()
     aprxit->setData(QVariant::fromValue(AppProxyPage), SectionRole);
     aprxit->setIcon(QIcon::fromTheme("dcc_app_proxy"));
     m_modelpages->appendRow(aprxit);
-    VisibleManagement::instance()->bind("Network_appProxy", m_lvnmpages, aprxit);
+    VisibleManagement::instance()->bind("Network_applicationProxy", m_lvnmpages, aprxit);
 #endif
 #endif
 
@@ -128,7 +128,6 @@ void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
 {
     PageType type = idx.data(SectionRole).value<PageType>();
     if (m_lastIndex == idx) return;
-
     m_lastIndex = idx;
     m_lvnmpages->setCurrentIndex(idx);
     switch (type) {
@@ -261,21 +260,21 @@ void NetworkModuleWidget::initProxyStatus()
 int NetworkModuleWidget::gotoSetting(const QString &path)
 {
     PageType type = NonePage;
-    if (path == QStringLiteral("Network Details")) {
+    if (path == QStringLiteral("NetworkDetails")) {
         type = NetworkInfoPage;
-    } else if (path == QStringLiteral("Application Proxy")) {
+    } else if (path == QStringLiteral("ApplicationProxy")) {
         type = AppProxyPage;
-    } else if (path == QStringLiteral("System Proxy")) {
+    } else if (path == QStringLiteral("SystemProxy")) {
         type = SysProxyPage;
     } else if (path == QStringLiteral("VPN")) {
         type = VPNPage;
     } else if (path == QStringLiteral("DSL")) {
         type = DSLPage;
-    } else if (path.contains("Wireless Network")) {
+    } else if (path.contains("WirelessNetwork")) {
         type = WirelessPage;
-    } else if (path.contains("Wired Network")) {
+    } else if (path.contains("WiredNetwork")) {
         type = WiredPage;
-    } else if (path == QStringLiteral("Personal Hotspot")) {
+    } else if (path == QStringLiteral("PersonalHotspot")) {
         type = HotspotPage;
     }
     int index = -1;

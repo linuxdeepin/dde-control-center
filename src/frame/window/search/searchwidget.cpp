@@ -649,7 +649,7 @@ void SearchModel::setLanguage(const QString &type)
     connect(watcher, &QFutureWatcher<QList<SearchBoxStruct::Ptr>>::finished, this, [=] {
         m_originList = watcher->result();
         watcher->deleteLater();
-        QMap<QString, bool> menuState = VisibleManagement::instance()->getMenuState();
+        QMap<QString, bool> menuState = VisibleManagement::instance()->getSeartchState();
 
         for (const QString &key : menuState.keys()) {
             if (!menuState.value(key)) {

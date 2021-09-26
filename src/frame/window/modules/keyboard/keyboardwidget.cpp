@@ -44,6 +44,11 @@ KeyboardWidget::KeyboardWidget(QWidget *parent) : QWidget(parent)
     setLayout(m_contentLayout);
 }
 
+KeyboardWidget::~KeyboardWidget()
+{
+    VisibleManagement::instance()->clearMenuMap();
+}
+
 void KeyboardWidget::init()
 {
     m_listviewModel = new QStandardItemModel(m_keyboardListView);

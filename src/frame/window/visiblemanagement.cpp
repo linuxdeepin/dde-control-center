@@ -64,7 +64,6 @@ void VisibleManagement::bind(const QString &moduleName, QWidget *binder)
 void VisibleManagement::bind(const QString &moduleName, QListView *viewer, QStandardItem *item)
 {
     m_menuMap.insert(moduleName, QPair<QListView *, QStandardItem *>(viewer, item));
-    qInfo() << "getStatus(moduleName) === " << moduleName << getStatus(moduleName);
     setStatus(viewer, item, getStatus(moduleName));
 }
 
@@ -103,9 +102,6 @@ void VisibleManagement::setStatus(QWidget *binder, const bool visible)
 
 void VisibleManagement::initData()
 {
-    if (m_SearchMenuName.isEmpty())
-        m_SearchMenuName << "bootMenu" << "developerMode" << "userExperienceProgram" << "timezoneList" << "timeSettings" << "timeFormat";
-
     if (m_moduleVisble->isValid()) {
         //初始化模块显示隐藏数据
         initDataFromDbus(m_moduleVisble->visible());
@@ -113,13 +109,19 @@ void VisibleManagement::initData()
         //当dbus服务没有启动的时候，则去conf文件中获取数据
         initDataFromConfFile();
     }
+
+    //初始化搜索数据
+    initSeartchData();
+
 }
 
 void VisibleManagement::setStatus(QListView *viewer, QStandardItem *item, const bool visible)
 {
     viewer->setRowHidden(item->row(), !visible);
 
-    if (!visible) Q_EMIT requestUpdateSecondMenu(item->row());
+    if (!visible) {
+        Q_EMIT requestUpdateSecondMenu(item->row());
+    }
 }
 
 
@@ -128,32 +130,16 @@ bool VisibleManagement::getStatus(const QString &moduleName)
     return !m_Visibledata.contains(moduleName) ? true : m_Visibledata.value(moduleName);
 }
 
-QMap<QString, bool> VisibleManagement::getMenuState()
-{
-    QMap<QString, bool> menuStates;
-    for (QString menu: m_SearchMenuName) {
-        menuStates.insert(menu, m_Visibledata.value(menu));
-    }
-    return menuStates;
-}
-
 void VisibleManagement::initDataFromDbus(const QString &visibleData)
 {
     updateData(visibleData);
-    QStringList moduleKeys = m_Visibledata.keys();
-    QStringList widgetKeys = m_map.keys();
-    QStringList viewKeys = m_menuMap.keys();
-    if (!m_map.isEmpty() || !m_menuMap.isEmpty()) {
-        for (QString moduleName : moduleKeys) {
-            if (widgetKeys.contains(moduleName)) {
-                setStatus(m_map.value(moduleName), m_Visibledata.value(moduleName));
-            } else if (viewKeys.contains(moduleName)) {
-                setStatus(m_menuMap.value(moduleName).first, m_menuMap.value(moduleName).second, m_Visibledata.value(moduleName));
-            }
+}
 
-            if (m_SearchMenuName.contains(moduleName))
-                 Q_EMIT requestUpdateSearchMenu(moduleName, m_Visibledata.value(moduleName));
-        }
+void VisibleManagement::initSeartchData()
+{
+    QStringList moudleNames = m_Visibledata.keys();
+    for (auto modulename: moudleNames) {
+        m_seartchMap.insert(modulename.split("_")[1], m_Visibledata.value(modulename));
     }
 }
 
@@ -168,6 +154,13 @@ void VisibleManagement::onPageVisibleChanged(const QString &appName, const QStri
 
     QStringList widgetKeys = m_map.keys();
     QStringList viewKeys = m_menuMap.keys();
+
+    //关闭搜索
+    if (m_seartchMap.keys().contains(pageName)) {
+        m_seartchMap[pageName] = enable;
+        Q_EMIT requestUpdateSearchMenu(pageName, enable);
+    }
+
     if (widgetKeys.contains(key)) {
         setStatus(m_map.value(key), enable);
     } else if (viewKeys.contains(key)) {
@@ -179,8 +172,6 @@ void VisibleManagement::onPageVisibleChanged(const QString &appName, const QStri
 
 void VisibleManagement::updateData(const QString &data)
 {
-    qInfo() << "jsonData" << data << m_appName;
-
     //当没设置appName则找不到相应的配置程序，所以默认为显示状态
     if (m_appName.isEmpty() || !data.contains(m_appName)) return;
 
@@ -209,5 +200,4 @@ void VisibleManagement::initDataFromConfFile()
         }
         setting.endGroup();
     }
-    qInfo() << "22222222222222222" << m_Visibledata << confPath;
 }

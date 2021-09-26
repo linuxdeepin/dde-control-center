@@ -821,7 +821,7 @@ void MainWindow::onEnterSearchWidget(QString moduleName, QString widget)
 {
     QStringList widgetPages = widget.split(",");
     QString widgetFirst = widgetPages[0];
-    qDebug() << Q_FUNC_INFO << " moduleName : " << moduleName << " , widget :" << widgetFirst;
+    qInfo() << Q_FUNC_INFO << " moduleName : " << moduleName << " , widget :" << widgetFirst;
 
     if (!m_contentStack.isEmpty()
             && (m_contentStack.top().first->name() == moduleName)

@@ -44,7 +44,7 @@ public:
     void setAppName(const QString &appName);
     void clearMenuMap();
     bool getStatus(const QString &moduleName);
-    QMap<QString, bool> getMenuState();
+    QMap<QString, bool> getSeartchState() { return m_seartchMap; }
 
 private:
     VisibleManagement(QObject *parent = nullptr);
@@ -57,6 +57,7 @@ private:
 
     void initDataFromConfFile();
     void initDataFromDbus(const QString &visibleData);
+    void initSeartchData();
 
 private Q_SLOTS:
     void onPageVisibleChanged(const QString &appName, const QString &moduleName, const QString &pageName, const bool enable);
@@ -69,9 +70,9 @@ Q_SIGNALS:
 private:
     QHash<QString, QWidget *> m_map;
     QHash<QString, bool> m_Visibledata;
+    QMap<QString, bool> m_seartchMap;
     ModuleVisbleDbus *m_moduleVisble;
     QString m_appName;
-    QStringList m_SearchMenuName;
 
     QHash<QString, QPair<QListView *, QStandardItem *>> m_menuMap;
 };

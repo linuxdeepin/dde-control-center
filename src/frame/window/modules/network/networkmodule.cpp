@@ -193,7 +193,7 @@ void NetworkModule::active()
     connect(m_networkWidget, &NetworkModuleWidget::requestDeviceEnable, m_networkWorker, &NetworkWorker::setDeviceEnable);
     m_frameProxy->pushWidget(this, m_networkWidget);
     m_networkWidget->setVisible(true);
-    m_networkWidget->initSetting(m_networkWidget->gotoSetting("Network Details"), "");
+    m_networkWidget->initSetting(m_networkWidget->gotoSetting("NetworkDetails"), "");
 }
 
 int NetworkModule::load(const QString &path)
@@ -241,15 +241,15 @@ QStringList NetworkModule::availPage() const
 {
     QStringList list;
     list << "DSL" << "DSL/Create PPPoE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
-         << "System Proxy" << "Application Proxy" << "Network Details";
+         << "SystemProxy" << "ApplicationProxy" << "NetworkDetails";
     if (m_hasWired) {
-        list << "Wired Network" << "Wired Network/Add Network Connection";
+        list << "WiredNetwork" << "Wired Network/Add Network Connection";
     }
     if (m_hasWireless) {
-        list << "Wireless Network";
+        list << "WirelessNetwork";
     }
     if (m_hasAp) {
-        list << "Personal Hotspot";
+        list << "PersonalHotspot";
     }
     for (NetworkDevice *dev: m_networkModel->devices()) {
         list << dev->path();
