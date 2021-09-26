@@ -813,6 +813,8 @@ set(NETWORK_FILES
                 window/modules/network/sections/wirelesssection.cpp
                 window/modules/network/sections/pppsection.h
                 window/modules/network/sections/ipvxsection.h
+                window/modules/network/sections/cbandsection.h
+                window/modules/network/sections/cbandsection.cpp
                 window/modules/network/sections/ethernetsection.h
                 window/modules/network/sections/secrethotspotsection.h
                 window/modules/network/sections/pppoesection.h

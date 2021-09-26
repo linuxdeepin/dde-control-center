@@ -23,6 +23,7 @@
 #include "../sections/generichotspotsection.h"
 #include "../sections/secrethotspotsection.h"
 #include "../sections/wirelesssection.h"
+#include "../sections/cbandsection.h"
 
 using namespace DCC_NAMESPACE::network;
 using namespace NetworkManager;
@@ -50,14 +51,16 @@ void HotspotSettings::initSections()
         .staticCast<NetworkManager::WirelessSecuritySetting>());
 
     WirelessSection *wirelessSection = new WirelessSection(wirelessSetting, true);
-
+    CbandSection *bandSection = new CbandSection(wirelessSetting, nullptr);
     m_sectionsLayout->addWidget(genericSection);
     m_sectionsLayout->addWidget(secretHotspotSection);
+    m_sectionsLayout->addWidget(bandSection);
     m_sectionsLayout->addWidget(wirelessSection);
 
     m_settingSections.append(genericSection);
     m_settingSections.append(secretHotspotSection);
     m_settingSections.append(wirelessSection);
+    m_settingSections.append(bandSection);
 }
 
 bool HotspotSettings::clearInterfaceName()
