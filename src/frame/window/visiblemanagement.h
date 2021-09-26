@@ -58,9 +58,11 @@ private:
     void initDataFromConfFile();
     void initDataFromDbus(const QString &visibleData);
     void initSeartchData();
+    void initStatus();
 
 private Q_SLOTS:
     void onPageVisibleChanged(const QString &appName, const QString &moduleName, const QString &pageName, const bool enable);
+    void onAllDataChanged(const QString &data);
 
 Q_SIGNALS:
     void requestUpdateSecondMenu(int);

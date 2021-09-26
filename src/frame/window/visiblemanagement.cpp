@@ -41,6 +41,7 @@ VisibleManagement::VisibleManagement(QObject *parent)
     initData();
     m_moduleVisble->setSync(false);
     connect(m_moduleVisble, &ModuleVisbleDbus::ModuleVisbleChanged, this, &VisibleManagement::onPageVisibleChanged, Qt::QueuedConnection);
+    connect(m_moduleVisble, &ModuleVisbleDbus::VisibleChanged, this, &VisibleManagement::onAllDataChanged);
 }
 
 
@@ -102,6 +103,7 @@ void VisibleManagement::setStatus(QWidget *binder, const bool visible)
 
 void VisibleManagement::initData()
 {
+    m_Visibledata.clear();
     if (m_moduleVisble->isValid()) {
         //初始化模块显示隐藏数据
         initDataFromDbus(m_moduleVisble->visible());
@@ -112,6 +114,9 @@ void VisibleManagement::initData()
 
     //初始化搜索数据
     initSeartchData();
+
+    //初始化显示隐藏状态
+    initStatus();
 
 }
 
@@ -143,6 +148,25 @@ void VisibleManagement::initSeartchData()
     }
 }
 
+void VisibleManagement::initStatus()
+{
+
+    QStringList moduleKeys = m_Visibledata.keys();
+    QStringList widgetKeys = m_map.keys();
+    QStringList viewKeys = m_menuMap.keys();
+
+    for (QString moduleName : moduleKeys) {
+        if (widgetKeys.contains(moduleName)) {
+            setStatus(m_map.value(moduleName), m_Visibledata.value(moduleName));
+        } else if (viewKeys.contains(moduleName)) {
+            setStatus(m_menuMap.value(moduleName).first, m_menuMap.value(moduleName).second, m_Visibledata.value(moduleName));
+        }
+    }
+
+    Q_EMIT requestDataChanged();
+
+}
+
 void VisibleManagement::onPageVisibleChanged(const QString &appName, const QString &moduleName, const QString &pageName, const bool enable)
 {
 
@@ -155,7 +179,7 @@ void VisibleManagement::onPageVisibleChanged(const QString &appName, const QStri
     QStringList widgetKeys = m_map.keys();
     QStringList viewKeys = m_menuMap.keys();
 
-    //关闭搜索
+    //开关搜索字段
     if (m_seartchMap.keys().contains(pageName)) {
         m_seartchMap[pageName] = enable;
         Q_EMIT requestUpdateSearchMenu(pageName, enable);
@@ -166,8 +190,17 @@ void VisibleManagement::onPageVisibleChanged(const QString &appName, const QStri
     } else if (viewKeys.contains(key)) {
         setStatus(m_menuMap.value(key).first, m_menuMap.value(key).second, enable);
     }
+    if (moduleName == "Module")
+        Q_EMIT requestDataChanged();
+}
 
-    Q_EMIT requestDataChanged();
+void VisibleManagement::onAllDataChanged(const QString &data)
+{
+     initDataFromDbus(data);
+     //初始化搜索数据
+     initSeartchData();
+     //初始化显示隐藏状态
+     initStatus();
 }
 
 void VisibleManagement::updateData(const QString &data)
@@ -184,7 +217,6 @@ void VisibleManagement::updateData(const QString &data)
         //这里默认值采用显示，而不是隐藏，防止没有配置的被隐藏
         m_Visibledata.insert(moduleName, jsonData[moduleName].toBool(true));
     }
-    Q_EMIT requestDataChanged();
 }
 
 void VisibleManagement::initDataFromConfFile()
