@@ -103,13 +103,13 @@ void CommonInfoWidget::initData()
 
     //以下模块只在非服务器版本使用
     if (!IsServerSystem) {
-        if (!isContensServer) {
-            if (!IsCommunitySystem) {
-                //~ contents_path /commoninfo/Developer Mode
-               m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
-                               QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget), nullptr, "CommonInfo_developerMode"});
-            }
-        }
+//        if (!isContensServer) {
+//            if (!IsCommunitySystem) {
+//                //~ contents_path /commoninfo/Developer Mode
+//               m_itemList.append({"dcc_developer_mode", tr("Developer Mode"),
+//                               QMetaMethod::fromSignal(&CommonInfoWidget::requestShowDeveloperModeWidget), nullptr, "CommonInfo_developerMode"});
+//            }
+//        }
         //~ contents_path /commoninfo/User Experience Program
         m_itemList.append({"dcc_ue_plan", tr("User Experience Program"),
                            QMetaMethod::fromSignal(&CommonInfoWidget::requestShowUEPlanWidget), nullptr, "CommonInfo_userExperienceProgram"});
