@@ -70,6 +70,7 @@ private:
 
 protected:
     void updateConnection(const QJsonArray &info);
+    void createConnection(const QJsonArray &info);
     void updateActiveInfo(const QList<QJsonObject> &info);
     QString deviceKey();
     WirelessConnection *findConnectionByPath(const QString &path);
@@ -92,6 +93,7 @@ private:
     QJsonObject m_activeHotspotInfo;
     QList<QJsonObject> m_activeAccessPoints;
     QJsonObject m_hotspotInfo;
+    QJsonArray m_connectionJson;
 };
 
 /**

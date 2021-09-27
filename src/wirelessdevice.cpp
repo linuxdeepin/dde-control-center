@@ -334,6 +334,7 @@ void WirelessDevice::updateAccesspoint(const QJsonArray &json)
         return ap1->strength() > ap2->strength();
     });
 
+    createConnection(m_connectionJson);
     syncConnectionAccessPoints();
 }
 
@@ -350,6 +351,15 @@ void WirelessDevice::setDeviceEnabledStatus(const bool &enabled)
 }
 
 void WirelessDevice::updateConnection(const QJsonArray &info)
+{
+    m_connectionJson = info;
+
+    createConnection(info);
+
+    syncConnectionAccessPoints();
+}
+
+void WirelessDevice::createConnection(const QJsonArray &info)
 {
     QStringList connPaths;
     for (const QJsonValue jsonValue : info) {
@@ -381,8 +391,6 @@ void WirelessDevice::updateConnection(const QJsonArray &info)
         m_connections.removeOne(conn);
         delete conn;
     }
-
-    syncConnectionAccessPoints();
 }
 
 void WirelessDevice::updateActiveInfo(const QList<QJsonObject> &info)
