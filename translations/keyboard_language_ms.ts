@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ms" version="2.1">
 <context>
     <name>dcc::keyboard::Language</name>
     <message>
@@ -9,7 +9,7 @@
     <message>
         <location filename="language.h" line="32"/>
         <source>Afrikaans</source>
-        <translation>Afrikaans</translation>
+        <translation>Afrika</translation>
     </message>
     <message>
         <location filename="language.h" line="33"/>
@@ -124,12 +124,12 @@
     <message>
         <location filename="language.h" line="55"/>
         <source>British English</source>
-        <translation>British English</translation>
+        <translation>Inggeris British</translation>
     </message>
     <message>
         <location filename="language.h" line="56"/>
         <source>American English</source>
-        <translation>American English</translation>
+        <translation>Inggeris Amerika</translation>
     </message>
     <message>
         <location filename="language.h" line="57"/>
@@ -419,7 +419,7 @@
     <message>
         <location filename="language.h" line="114"/>
         <source>Nederlands</source>
-        <translation>Nederlands</translation>
+        <translation>Belanda</translation>
     </message>
     <message>
         <location filename="language.h" line="115"/>
@@ -644,7 +644,7 @@
     <message>
         <location filename="language.h" line="159"/>
         <source>Uzbek (Cyrillic)</source>
-        <translation>Uzbek (Cyrillic)</translation>
+        <translation>Uzbek (Cyril)</translation>
     </message>
     <message>
         <location filename="language.h" line="160"/>

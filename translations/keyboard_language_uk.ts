@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
 <context>
     <name>dcc::keyboard::Language</name>
     <message>
@@ -644,7 +644,7 @@
     <message>
         <location filename="language.h" line="159"/>
         <source>Uzbek (Cyrillic)</source>
-        <translation>Uzbek (Cyrillic)</translation>
+        <translation>узбецька (кирилиця)</translation>
     </message>
     <message>
         <location filename="language.h" line="160"/>

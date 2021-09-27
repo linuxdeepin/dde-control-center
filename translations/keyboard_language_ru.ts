@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ru" version="2.1">
 <context>
     <name>dcc::keyboard::Language</name>
     <message>
@@ -34,12 +34,12 @@
     <message>
         <location filename="language.h" line="37"/>
         <source>Беларуская</source>
-        <translation>Беларуская</translation>
+        <translation>Asturianu</translation>
     </message>
     <message>
         <location filename="language.h" line="38"/>
         <source>Biełaruskaja łacinka</source>
-        <translation>Biełaruskaja łacinka</translation>
+        <translation>Беларускі лацінкавы</translation>
     </message>
     <message>
         <location filename="language.h" line="39"/>
@@ -179,7 +179,7 @@
     <message>
         <location filename="language.h" line="66"/>
         <source>Gàidhlig</source>
-        <translation>Gàidhlig</translation>
+        <translation>Gaeilge</translation>
     </message>
     <message>
         <location filename="language.h" line="67"/>
@@ -189,7 +189,7 @@
     <message>
         <location filename="language.h" line="68"/>
         <source>ગુજરાતી </source>
-        <translation>ગુજરાતી </translation>
+        <translation>ગુજરાતી</translation>
     </message>
     <message>
         <location filename="language.h" line="69"/>
@@ -214,7 +214,7 @@
     <message>
         <location filename="language.h" line="73"/>
         <source>Chhattisgarhi</source>
-        <translation>Chhattisgarhi</translation>
+        <translation>हिन्दी</translation>
     </message>
     <message>
         <location filename="language.h" line="74"/>
@@ -299,7 +299,7 @@
     <message>
         <location filename="language.h" line="90"/>
         <source>कश्मीरी - (كشميري)	</source>
-        <translation>कश्मीरी - (كشميري)	</translation>
+        <translation>कश्मीरी - (كشميري)</translation>
     </message>
     <message>
         <location filename="language.h" line="91"/>

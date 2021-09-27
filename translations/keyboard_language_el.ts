@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.1">
 <context>
     <name>dcc::keyboard::Language</name>
     <message>
@@ -189,7 +189,7 @@
     <message>
         <location filename="language.h" line="68"/>
         <source>ગુજરાતી </source>
-        <translation>ગુજરાતી </translation>
+        <translation>ગુજરાતી</translation>
     </message>
     <message>
         <location filename="language.h" line="69"/>

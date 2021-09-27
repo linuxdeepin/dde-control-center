@@ -1,625 +1,625 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ug" version="2.1">
 <context>
     <name>dcc::keyboard::Language</name>
     <message>
         <location filename="language.h" line="31"/>
         <source>Afar</source>
-        <translation>Afar</translation>
+        <translation>ئافار تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="32"/>
         <source>Afrikaans</source>
-        <translation>Afrikaans</translation>
+        <translation>جەنۇبىي ئافرىقا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="33"/>
         <source>አማርኛ</source>
-        <translation>አማርኛ</translation>
+        <translation>ئامخارا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="34"/>
         <source>عربية</source>
-        <translation>عربية</translation>
+        <translation>ئەرەب تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="35"/>
         <source>অসমীয়া</source>
-        <translation>অসমীয়া</translation>
+        <translation>ئاسسام تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="36"/>
         <source>Asturianu</source>
-        <translation>Asturianu</translation>
+        <translation>ئاستۇرىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="37"/>
         <source>Беларуская</source>
-        <translation>Беларуская</translation>
+        <translation>بېلورۇس تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="38"/>
         <source>Biełaruskaja łacinka</source>
-        <translation>Biełaruskaja łacinka</translation>
+        <translation>بېلورۇس لاتىن تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="39"/>
         <source>Български</source>
-        <translation>Български</translation>
+        <translation>بۇلغارىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="40"/>
         <source>বাংলা</source>
-        <translation>বাংলা</translation>
+        <translation>بىنگال تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="41"/>
         <source>বাংলা (ভারত)</source>
-        <translation>বাংলা (ভারত)</translation>
+        <translation>بىنگال تىلى (ھىندىستان)</translation>
     </message>
     <message>
         <location filename="language.h" line="42"/>
         <source>བོད་སྐད།</source>
-        <translation>བོད་སྐད།</translation>
+        <translation>زاڭزۇ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="43"/>
         <source>Brezhoneg</source>
-        <translation>Brezhoneg</translation>
+        <translation>برېتون تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="44"/>
         <source>Bosanski</source>
-        <translation>Bosanski</translation>
+        <translation>بوسنىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="45"/>
         <source>Català</source>
-        <translation>Català</translation>
+        <translation>كاتالان تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="46"/>
         <source>Qırımtatarca</source>
-        <translation>Qırımtatarca</translation>
+        <translation>قېرىم تۈرك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="47"/>
         <source>Český</source>
-        <translation>Český</translation>
+        <translation>چېخ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="48"/>
         <source>Kaszëbsczi</source>
-        <translation>Kaszëbsczi</translation>
+        <translation>كۇشۇبى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="49"/>
         <source>Чăвашла</source>
-        <translation>Чăвашла</translation>
+        <translation>چۇۋاش تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="50"/>
         <source>Cymraeg</source>
-        <translation>Cymraeg</translation>
+        <translation>ۋېلش تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="51"/>
         <source>Dansk</source>
-        <translation>Dansk</translation>
+        <translation>دانىش تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="52"/>
         <source>Deutsch</source>
-        <translation>Deutsch</translation>
+        <translation>نېمىس تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="53"/>
         <source>ཇོང་ཁ</source>
-        <translation>ཇོང་ཁ</translation>
+        <translation>بۇدان تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="54"/>
         <source>Ελληνικά</source>
-        <translation>Ελληνικά</translation>
+        <translation>گرېك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="55"/>
         <source>British English</source>
-        <translation>British English</translation>
+        <translation>ئەنگلىيە ئىنگلىزچىسى</translation>
     </message>
     <message>
         <location filename="language.h" line="56"/>
         <source>American English</source>
-        <translation>American English</translation>
+        <translation>ئامېرىكا ئىنگلىزچىسى</translation>
     </message>
     <message>
         <location filename="language.h" line="57"/>
         <source>Español</source>
-        <translation>Español</translation>
+        <translation>ئىسپان تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="58"/>
         <source>Eesti</source>
-        <translation>Eesti</translation>
+        <translation>ئېستون تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="59"/>
         <source>Euskara</source>
-        <translation>Euskara</translation>
+        <translation>باسكى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="60"/>
         <source>فارسی</source>
-        <translation>فارسی</translation>
+        <translation>پارس تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="61"/>
         <source>Suomi</source>
-        <translation>Suomi</translation>
+        <translation>فىنلاندىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="62"/>
         <source>Føroyskt</source>
-        <translation>Føroyskt</translation>
+        <translation>فارو تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="63"/>
         <source>Français</source>
-        <translation>Français</translation>
+        <translation>فرانسۇز تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="64"/>
         <source>Frysk</source>
-        <translation>Frysk</translation>
+        <translation>غەربىي فرىس تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="65"/>
         <source>Gaeilge</source>
-        <translation>Gaeilge</translation>
+        <translation>ئىرېلاندىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="66"/>
         <source>Gàidhlig</source>
-        <translation>Gàidhlig</translation>
+        <translation>گا ئېل تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="67"/>
         <source>Galego</source>
-        <translation>Galego</translation>
+        <translation>گالىتسىيان تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="68"/>
         <source>ગુજરાતી </source>
-        <translation>ગુજરાતી </translation>
+        <translation>گۇجارات تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="69"/>
         <source>Gaelg</source>
-        <translation>Gaelg</translation>
+        <translation>مەنىش تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="70"/>
         <source>هَوُسَ</source>
-        <translation>هَوُسَ</translation>
+        <translation>خائۇسا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="71"/>
         <source>עברית</source>
-        <translation>עברית</translation>
+        <translation>ھېبرېۋ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="72"/>
         <source>हिन्दी</source>
-        <translation>हिन्दी</translation>
+        <translation>ھىندى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="73"/>
         <source>Chhattisgarhi</source>
-        <translation>Chhattisgarhi</translation>
+        <translation>چاتتىسگارھى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="74"/>
         <source>Hrvatski</source>
-        <translation>Hrvatski</translation>
+        <translation>كرودىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="75"/>
         <source>Hornjoserbsce</source>
-        <translation>Hornjoserbsce</translation>
+        <translation>سوبرالىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="76"/>
         <source>Magyar</source>
-        <translation>Magyar</translation>
+        <translation>ۋېنگرىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="77"/>
         <source>Հայերեն</source>
-        <translation>Հայերեն</translation>
+        <translation>ئەرمەن تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="78"/>
         <source>Indonesia</source>
-        <translation>Indonesia</translation>
+        <translation>ھىندونېزىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="79"/>
         <source>Iñupiak</source>
-        <translation>Iñupiak</translation>
+        <translation>ئىنۇپىك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="80"/>
         <source>Íslenska</source>
-        <translation>Íslenska</translation>
+        <translation>ئىسلاندىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="81"/>
         <source>Italiano</source>
-        <translation>Italiano</translation>
+        <translation>ئىتاليان تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="82"/>
         <source>ᐃᓄᒃᑎᑐᑦ</source>
-        <translation>ᐃᓄᒃᑎᑐᑦ</translation>
+        <translation>ئىنۇكتىتۇت تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="83"/>
         <source>日本語</source>
-        <translation>日本語</translation>
+        <translation>ياپون تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="84"/>
         <source>ქართული</source>
-        <translation>ქართული</translation>
+        <translation>گرۇزىن تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="85"/>
         <source>Қазақша</source>
-        <translation>Қазақша</translation>
+        <translation>قازاق تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="86"/>
         <source>Kalaallisut</source>
-        <translation>Kalaallisut</translation>
+        <translation>گرېنلاندىك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="87"/>
         <source>ខ្មែរ</source>
-        <translation>ខ្មែរ</translation>
+        <translation>كخمېر تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="88"/>
         <source>ಕನ್ನಡ</source>
-        <translation>ಕನ್ನಡ</translation>
+        <translation>كانادا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="89"/>
         <source>한국어</source>
-        <translation>한국어</translation>
+        <translation>چاۋشيەن تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="90"/>
         <source>कश्मीरी - (كشميري)	</source>
-        <translation>कश्मीरी - (كشميري)	</translation>
+        <translation>كەشمىر تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="91"/>
         <source>Kurdî</source>
-        <translation>Kurdî</translation>
+        <translation>كۇرد تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="92"/>
         <source>Kernewek</source>
-        <translation>Kernewek</translation>
+        <translation>كورنۋېل تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="93"/>
         <source>Кыргызча</source>
-        <translation>Кыргызча</translation>
+        <translation>قىرغىز تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="94"/>
         <source>Lëtzebuergesch</source>
-        <translation>Lëtzebuergesch</translation>
+        <translation>ليۇكسېمبۇرگ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="95"/>
         <source>Limburgs</source>
-        <translation>Limburgs</translation>
+        <translation>لىمبۇرگېر تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="96"/>
         <source>ລາວ</source>
-        <translation>ລາວ</translation>
+        <translation>لائۇس تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="97"/>
         <source>Lietuvių</source>
-        <translation>Lietuvių</translation>
+        <translation>لىتۋا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="98"/>
         <source>Latviešu</source>
-        <translation>Latviešu</translation>
+        <translation>لاتۋىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="99"/>
         <source>Maithili</source>
-        <translation>Maithili</translation>
+        <translation>ماتىلى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="100"/>
         <source>Malagasy</source>
-        <translation>Malagasy</translation>
+        <translation>مالگاش تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="101"/>
         <source>Ebon</source>
-        <translation>Ebon</translation>
+        <translation>ئېبون تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="102"/>
         <source>Māori</source>
-        <translation>Māori</translation>
+        <translation>ماۋرى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="103"/>
         <source>Македонски</source>
-        <translation>Македонски</translation>
+        <translation>ماكېدون تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="104"/>
         <source>മലയാളം</source>
-        <translation>മലയാളം</translation>
+        <translation>مالايالام تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="105"/>
         <source>Монгол</source>
-        <translation>Монгол</translation>
+        <translation>موڭغۇل تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="106"/>
         <source>मराठी</source>
-        <translation>मराठी</translation>
+        <translation>ماراتى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="107"/>
         <source>Bahasa Melayu</source>
-        <translation>Bahasa Melayu</translation>
+        <translation>مالاي تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="108"/>
         <source>Malti</source>
-        <translation>Malti</translation>
+        <translation>مالتا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="109"/>
         <source>Myanmasa</source>
-        <translation>Myanmasa</translation>
+        <translation>بىرما تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="110"/>
         <source>Ekakairũ Naoero</source>
-        <translation>Ekakairũ Naoero</translation>
+        <translation>خوككېئىن تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="111"/>
         <source>Norsk (bokmål)</source>
-        <translation>Norsk (bokmål)</translation>
+        <translation>نورۋېگىيە تىلى (بوكمال تىلى)</translation>
     </message>
     <message>
         <location filename="language.h" line="112"/>
         <source>Plattdüütsch</source>
-        <translation>Plattdüütsch</translation>
+        <translation>شىمالىي گېرمانىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="113"/>
         <source>नेपाली</source>
-        <translation>नेपाली</translation>
+        <translation>نېپال تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="114"/>
         <source>Nederlands</source>
-        <translation>Nederlands</translation>
+        <translation>گوللاندىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="115"/>
         <source>Norsk (nynorsk)</source>
-        <translation>Norsk (nynorsk)</translation>
+        <translation>نورۋېگىيە تىلى (يېڭى نورۋېگىيە تىلى)</translation>
     </message>
     <message>
         <location filename="language.h" line="116"/>
         <source>IsiNdebele</source>
-        <translation>IsiNdebele</translation>
+        <translation>جەنۇبىي ندېبېلې تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="117"/>
         <source>Sesotho sa Leboa</source>
-        <translation>Sesotho sa Leboa</translation>
+        <translation>شىمالىي سوتو تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="118"/>
         <source>Occitan</source>
-        <translation>Occitan</translation>
+        <translation>ئاۋكلاند تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="119"/>
         <source>Oromoo</source>
-        <translation>Oromoo</translation>
+        <translation>ئورومو تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="120"/>
         <source>ଓଡ଼ିଆ</source>
-        <translation>ଓଡ଼ିଆ</translation>
+        <translation>ئورىيا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="121"/>
         <source>Иронау</source>
-        <translation>Иронау</translation>
+        <translation>ئوسسېت تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="122"/>
         <source>ਪੰਜਾਬੀ</source>
-        <translation>ਪੰਜਾਬੀ</translation>
+        <translation>پەنجاب تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="123"/>
         <source>Polski</source>
-        <translation>Polski</translation>
+        <translation>پولەك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="124"/>
         <source>پښتو</source>
-        <translation>پښتو</translation>
+        <translation>پۇشتۇ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="125"/>
         <source>Português</source>
-        <translation>Português</translation>
+        <translation>پورتۇگال تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="126"/>
         <source>Português do Brasil</source>
-        <translation>Português do Brasil</translation>
+        <translation>پورتۇگال تىلى (بىرازىلىيە)</translation>
     </message>
     <message>
         <location filename="language.h" line="127"/>
         <source>Română</source>
-        <translation>Română</translation>
+        <translation>رۇمىنىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="128"/>
         <source>Русский</source>
-        <translation>Русский</translation>
+        <translation>رۇس تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="129"/>
         <source>Kinyarwanda</source>
-        <translation>Kinyarwanda</translation>
+        <translation>رۋاندا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="130"/>
         <source>संस्कृत</source>
-        <translation>संस्कृत</translation>
+        <translation>سانسكرىت تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="131"/>
         <source>Sardu</source>
-        <translation>Sardu</translation>
+        <translation>ساردىيان تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="132"/>
         <source>سنڌي</source>
-        <translation>سنڌي</translation>
+        <translation>سىندى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="133"/>
         <source>Sámegiella</source>
-        <translation>Sámegiella</translation>
+        <translation>شىمالىي سامى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="134"/>
         <source>සිංහල</source>
-        <translation>සිංහල</translation>
+        <translation>سىنگال تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="135"/>
         <source>Slovenčina</source>
-        <translation>Slovenčina</translation>
+        <translation>سلوۋاك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="136"/>
         <source>Slovenščina</source>
-        <translation>Slovenščina</translation>
+        <translation>سلوۋېنىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="137"/>
         <source>Soomaaliga</source>
-        <translation>Soomaaliga</translation>
+        <translation>سومالى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="138"/>
         <source>Shqip</source>
-        <translation>Shqip</translation>
+        <translation>ئالبان تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="139"/>
         <source>Српски</source>
-        <translation>Српски</translation>
+        <translation>سېرب تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="140"/>
         <source>srpski (latinica)</source>
-        <translation>srpski (latinica)</translation>
+        <translation>سېربىيە تىلى (لاتىنچە)</translation>
     </message>
     <message>
         <location filename="language.h" line="141"/>
         <source>SiSwati</source>
-        <translation>SiSwati</translation>
+        <translation>سۋاتى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="142"/>
         <source>Sesotho</source>
-        <translation>Sesotho</translation>
+        <translation>جەنۇبىي سوتو تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="143"/>
         <source>Svenska</source>
-        <translation>Svenska</translation>
+        <translation>شۋېتسىيە تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="144"/>
         <source>Swahili</source>
-        <translation>Swahili</translation>
+        <translation>سۋاھلى تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="145"/>
         <source>தமிழ்</source>
-        <translation>தமிழ்</translation>
+        <translation>تامىل تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="146"/>
         <source>తెలుగు</source>
-        <translation>తెలుగు</translation>
+        <translation>تېلۇگۇ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="147"/>
         <source>Тоҷикӣ</source>
-        <translation>Тоҷикӣ</translation>
+        <translation>تاجىك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="148"/>
         <source>ภาษาไทย</source>
-        <translation>ภาษาไทย</translation>
+        <translation>تايلاند تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="149"/>
         <source>ትግርኛ</source>
-        <translation>ትግርኛ</translation>
+        <translation>تىگرىنيا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="150"/>
         <source>Türkmen</source>
-        <translation>Türkmen</translation>
+        <translation>تۈركمەن تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="151"/>
         <source>Setswana</source>
-        <translation>Setswana</translation>
+        <translation>سۋانا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="152"/>
         <source>Türkçe</source>
-        <translation>Türkçe</translation>
+        <translation>تۈرك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="153"/>
         <source>Xitsonga</source>
-        <translation>Xitsonga</translation>
+        <translation>سونگا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="154"/>
         <source>Татарский</source>
-        <translation>Татарский</translation>
+        <translation>تاتار تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="155"/>
@@ -629,77 +629,77 @@
     <message>
         <location filename="language.h" line="156"/>
         <source>Українська</source>
-        <translation>Українська</translation>
+        <translation>ئۇكرائىن تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="157"/>
         <source>اردو</source>
-        <translation>اردو</translation>
+        <translation>ئوردۇ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="158"/>
         <source>Oʻzbekcha</source>
-        <translation>Oʻzbekcha</translation>
+        <translation>ئۇزبىك تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="159"/>
         <source>Uzbek (Cyrillic)</source>
-        <translation>Uzbek (Cyrillic)</translation>
+        <translation>ئۇزبىك تىلى (سىرىلچە)</translation>
     </message>
     <message>
         <location filename="language.h" line="160"/>
         <source>Venda</source>
-        <translation>Venda</translation>
+        <translation>ۋېندا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="161"/>
         <source>Tiếng Việt</source>
-        <translation>Tiếng Việt</translation>
+        <translation>ۋيېتنام تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="162"/>
         <source>Walon</source>
-        <translation>Walon</translation>
+        <translation>ۋاللۇن تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="163"/>
         <source>Wolof</source>
-        <translation>Wolof</translation>
+        <translation>ۋولوف تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="164"/>
         <source>isixhosa</source>
-        <translation>isixhosa</translation>
+        <translation>خوسا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="165"/>
         <source>ייִדיש</source>
-        <translation>ייִדיש</translation>
+        <translation>يىددىش تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="166"/>
         <source>Yorùbá</source>
-        <translation>Yorùbá</translation>
+        <translation>يورۇبا تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="167"/>
         <source>简体中文</source>
-        <translation>简体中文</translation>
+        <translation>ئاددىيلاشتۇرۇلغان خەنزۇ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="168"/>
         <source>繁體中文(香港)</source>
-        <translation>繁體中文(香港)</translation>
+        <translation>مۇرەككەپ خەنزۇ تىلى (شياڭگاڭ)</translation>
     </message>
     <message>
         <location filename="language.h" line="169"/>
         <source>正體中文</source>
-        <translation>正體中文</translation>
+        <translation>قېلىپلاشقان خەنزۇ تىلى</translation>
     </message>
     <message>
         <location filename="language.h" line="170"/>
         <source>isiZulu</source>
-        <translation>isiZulu</translation>
+        <translation>زۇلۇ تىلى</translation>
     </message>
 </context>
 </TS>
