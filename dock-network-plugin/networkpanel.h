@@ -78,6 +78,7 @@ public:
 protected:
     void paintEvent(QPaintEvent *e);
     void resizeEvent(QResizeEvent *e);
+    bool eventFilter(QObject *obj, QEvent *event);
 
 private:
     void setControlBackground();

@@ -104,6 +104,7 @@ void NetworkPanel::initUi()
     m_centerWidget->setAutoFillBackground(false);
     m_applet->viewport()->setAutoFillBackground(false);
     m_applet->setVisible(false);
+    m_applet->installEventFilter(this);
 
     setControlBackground();
 }
@@ -134,7 +135,7 @@ void NetworkPanel::initConnection()
         m_timeOut = true;
     });
 
-    int wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt();
+    int wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt() * 1000;
     m_wirelessScanTimer->setInterval(wirelessScanInterval);
     const QGSettings *gsetting = Utils::SettingsPtr("com.deepin.dde.dock", QByteArray(), this);
     if (gsetting)
@@ -153,8 +154,6 @@ void NetworkPanel::initConnection()
             }
         }
     });
-
-    this->installEventFilter(this);
 }
 
 void NetworkPanel::getPluginState()
@@ -419,15 +418,6 @@ void NetworkPanel::updateView()
     m_centerWidget->setFixedSize(PANELWIDTH, totalHeight);
     m_applet->setFixedSize(PANELWIDTH, height);
     m_netListView->update();
-
-    // 判断当前的面板是否可见状态，如果当前面板可见，则开启计时器(自动刷新网络列表)，否则关闭定时计时器
-    if (isVisible()) {
-        if (!m_wirelessScanTimer->isActive())
-            m_wirelessScanTimer->start();
-    } else {
-        if (m_wirelessScanTimer->isActive())
-            m_wirelessScanTimer->stop();
-    }
 }
 
 QStringList NetworkPanel::ipTipsMessage(const DeviceType &devType)
@@ -551,6 +541,27 @@ void NetworkPanel::resizeEvent(QResizeEvent *e)
     }
 
     refreshIcon();
+}
+
+bool NetworkPanel::eventFilter(QObject *obj, QEvent *event)
+{
+    if (obj == m_applet) {
+        switch (event->type()) {
+        case QEvent::Show: {
+            if (!m_wirelessScanTimer->isActive())
+               m_wirelessScanTimer->start();
+            break;
+        }
+        case QEvent::Hide: {
+            if (m_wirelessScanTimer->isActive())
+                m_wirelessScanTimer->stop();
+            break;
+        }
+        default: break;
+        }
+    }
+
+    return QWidget::eventFilter(obj, event);
 }
 
 int NetworkPanel::deviceCount(const DeviceType &devType)
