@@ -199,7 +199,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     m_repeatpasswdEdit->setAccessibleName("password_hint");
     layout->addWidget(passwdTipsLabel);
     layout->addWidget(m_passwdTipsEdit);
-    layout->addSpacing(7);
+    layout->addSpacing(27);
 
     connect(m_avatarListWidget, &AvatarListWidget::requestSetAvatar,
             m_avatarListWidget, &AvatarListWidget::setCurrentAvatarChecked);
