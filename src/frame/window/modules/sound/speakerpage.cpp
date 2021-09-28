@@ -57,7 +57,6 @@ SpeakerPage::SpeakerPage(QWidget *parent)
     , m_speakSlider(nullptr)
     , m_vbWidget(nullptr)
     , m_balanceSlider(nullptr)
-    , m_lastsetvalue(0)
     , m_waitTimerValue(0)
     , m_lastRmPortIndex(-1)
     , m_balance(true)
@@ -339,25 +338,7 @@ void SpeakerPage::initSlider()
 
     //处理滑块位置变化的槽
     auto slotfunc1 = [ = ](int pos) {
-        //当前设置音量大于上一次设置的音量时，说明音量是在增加
-        if (pos > m_lastsetvalue) {
-            //因为增加5%幅度的区间是110～120,所以要包含110,不包含120,从120开始就是1%的幅度增加
-            if (pos >= 110 && pos < 120) {
-                m_outputSlider->slider()->qtSlider()->setSingleStep(5);
-            } else {
-                m_outputSlider->slider()->qtSlider()->setSingleStep(1);
-            }
-            m_lastsetvalue = pos;
-            //当前设置音量小于上一次设置的音量时，说明音量是在降低
-        } else if (pos < m_lastsetvalue) {
-            //因为增加5%幅度的区间是110～120,所以要不包含121和110,从120～110开始就是5%的幅度降低
-            if (pos > 110 && pos < 121) {
-                m_outputSlider->slider()->qtSlider()->setSingleStep(5);
-            } else {
-                m_outputSlider->slider()->qtSlider()->setSingleStep(1);
-            }
-            m_lastsetvalue = pos;
-        }
+        m_outputSlider->slider()->qtSlider()->setSingleStep(1);
         double vals = pos / 100.0;
         //滑块位置改变时，发送设置音量的信号
         Q_EMIT requestSetSpeakerVolume(vals);

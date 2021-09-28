@@ -131,7 +131,6 @@ private:
     QStandardItemModel *m_outputModel{nullptr};
     //当前选中的音频 即activeport
     const dcc::sound::Port *m_currentPort{nullptr};
-    int m_lastsetvalue;
     int m_waitTimerValue;
     int m_lastRmPortIndex;
     //左/右平衡音界面是否显示
