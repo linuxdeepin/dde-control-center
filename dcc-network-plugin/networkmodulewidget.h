@@ -98,6 +98,7 @@ Q_SIGNALS:
     void requestUpdateSecondMenu(bool);
 
 private Q_SLOTS:
+    void onDeviceStatusChanged();
     void onDeviceChanged();
     void onClickCurrentListIndex(const QModelIndex &idx);
     void onProxyMethodChanged(const ProxyMethod &method);

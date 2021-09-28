@@ -283,6 +283,11 @@ void DccPluginTestWidget::onFirstItemClick(const QModelIndex &index)
     m_navView->setFocus();
     popAllWidgets();
 
+    static bool isFirstEnter = true;
+    if (isFirstEnter) {
+        m_module->initialize();
+        isFirstEnter = false;
+    }
     setCurrModule(m_module);
     m_module->active();
     m_navView->resetStatus(index);
@@ -294,7 +299,6 @@ void DccPluginTestWidget::initNetworkModule()
     m_module->setFrameProxy(this);
     m_translator->load(m_module->translationPath());
     qApp->installTranslator(m_translator);
-    m_module->initialize();
     DStandardItem *item = new DStandardItem;
     item->setIcon(m_module->icon());
     item->setText(m_module->name());

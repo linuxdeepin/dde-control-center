@@ -62,6 +62,7 @@ using namespace dde::network;
 static const int SectionRole = Dtk::UserRole + 1;
 static const int DeviceRole = Dtk::UserRole + 2;
 static const int SearchPath = Dtk::UserRole + 3;
+static const int DumyStatusRole = Dtk::UserRole + 4;
 
 NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     : QWidget(parent)
@@ -134,6 +135,7 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, &NetworkModuleWidget::updateSecondMenu);
 
     NetworkController *pNetworkController = NetworkController::instance();
+    connect(pNetworkController, &NetworkController::activeConnectionChange, this, &NetworkModuleWidget::onDeviceStatusChanged);
     connect(pNetworkController, &NetworkController::deviceRemoved, this, &NetworkModuleWidget::onDeviceChanged);
     connect(pNetworkController, &NetworkController::deviceAdded, this, [ = ] {
         onDeviceChanged();
@@ -356,6 +358,24 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
     return index;
 }
 
+void NetworkModuleWidget::onDeviceStatusChanged()
+{
+    for (int i = 0; i < m_modelpages->rowCount(); i++) {
+        DStandardItem *item = static_cast<DStandardItem *>(m_modelpages->item(i));
+        PageType pageType = item->data(SectionRole).value<PageType>();
+        if (pageType != PageType::WiredPage && pageType != PageType::WirelessPage)
+            continue;
+
+        NetworkDeviceBase *device = item->data(DeviceRole).value<NetworkDeviceBase *>();
+        if (!device)
+            continue;
+
+        QPointer<DViewItemAction> dummyStatus = item->data(DumyStatusRole).value<QPointer<DViewItemAction>>();
+        QString txt = device->isEnabled() ? device->property("statusName").toString() : tr("Disabled");
+        dummyStatus->setText(txt);
+    }
+}
+
 void NetworkModuleWidget::onDeviceChanged()
 {
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
@@ -392,6 +412,7 @@ void NetworkModuleWidget::onDeviceChanged()
 
         QPointer<DViewItemAction> dummyStatus(new DViewItemAction(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignVCenter));
         deviceItem->setActionList(Qt::Edge::RightEdge, { dummyStatus });
+        deviceItem->setData(QVariant::fromValue(dummyStatus), DumyStatusRole);
 
         if (!dummyStatus.isNull()) {
             if (device->isEnabled())
