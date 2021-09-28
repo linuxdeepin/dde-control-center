@@ -79,13 +79,13 @@ struct ListSubItem {
         this->itemIcon = icon;
         this->itemText = text;
         this->itemSignal = signal;
-        this->pulgin = plugin;
+        this->plugin = plugin;
         this->gsettingsName = gsettingsName;
     }
     QString itemIcon;
     QString itemText;
     QMetaMethod itemSignal;
-    QObject *pulgin = nullptr;
+    QObject *plugin = nullptr;
     QString gsettingsName;
 };
 

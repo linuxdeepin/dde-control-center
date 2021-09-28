@@ -88,7 +88,7 @@ void PowerWidget::initMembers()
         GSettingWatcher::instance()->bind(menu.gsettingsName, m_listView, item);
     }
 
-    if (InsertPlugin::instance()->needPushPlugin("power"))
+    if (InsertPlugin::instance()->updatePluginInfo("power"))
         InsertPlugin::instance()->pushPlugin(m_itemModel, m_menuIconText);
 }
 
@@ -161,7 +161,7 @@ void PowerWidget::onItemClicked(const QModelIndex &index)
 
     m_lastIndex = index;
     m_listView->setCurrentIndex(index);
-    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin ? m_menuIconText[index.row()].pulgin : this);
+    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].plugin ? m_menuIconText[index.row()].plugin : this);
     m_listView->resetStatus(index);
 }
 

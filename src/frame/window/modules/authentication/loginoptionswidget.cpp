@@ -70,7 +70,7 @@ void LoginOptionsWidget::onItemClicked(const QModelIndex &index)
         return;
 
     m_currentIndex = index;
-    m_menuMethod[index.row()].itemSignal.invoke(m_menuMethod[index.row()].pulgin ? m_menuMethod[index.row()].pulgin : this);
+    m_menuMethod[index.row()].itemSignal.invoke(m_menuMethod[index.row()].plugin ? m_menuMethod[index.row()].plugin : this);
     m_deviceListView->resetStatus(index);
 }
 

@@ -93,7 +93,7 @@ void KeyboardWidget::init()
         ++index;
     }
 
-    if(InsertPlugin::instance()->needPushPlugin("keyboard"))
+    if(InsertPlugin::instance()->updatePluginInfo("keyboard"))
         InsertPlugin::instance()->pushPlugin(m_listviewModel,m_itemList);
 
     connect(m_keyboardListView, &DListView::clicked, this, &KeyboardWidget::onItemClick);
@@ -146,8 +146,8 @@ int KeyboardWidget::showPath(const QString &path)
             return 0;
         }
 
-        if (menu.pulgin && path == "Manage Input Methods") {
-            menu.itemSignal.invoke(menu.pulgin);
+        if (menu.plugin && path == "Manage Input Methods") {
+            menu.itemSignal.invoke(menu.plugin);
             m_lastIndex = m_listviewModel->index(i, 0);
             m_keyboardListView->setCurrentIndex(m_lastIndex);
             return 0;
@@ -163,7 +163,7 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
         return;
     }
 
-    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin ? m_itemList[index.row()].plugin : this);
 
     m_lastIndex = index;
     m_keyboardListView->resetStatus(index);

@@ -110,7 +110,7 @@ PersonalizationList::PersonalizationList(QWidget *parent)
      m_itemList.push_back({icons.at(2),menus.at(2),QMetaMethod::fromSignal(&PersonalizationList::requestShowCursorTheme),nullptr,personalizationGsetting.at(2)});
      m_itemList.push_back({icons.at(3),menus.at(3),QMetaMethod::fromSignal(&PersonalizationList::requestShowFonts),nullptr,personalizationGsetting.at(3)});
 
-     if(InsertPlugin::instance()->needPushPlugin("personalization"))
+     if(InsertPlugin::instance()->updatePluginInfo("personalization"))
          InsertPlugin::instance()->pushPlugin(m_model, m_itemList);
 
     //set default show page
@@ -124,11 +124,12 @@ PersonalizationList::~PersonalizationList()
 
 void PersonalizationList::onCategoryClicked(const QModelIndex &index)
 {
-    if (index == m_lastIndex) return;
+    if (m_lastIndex == index)
+        return;
 
     m_lastIndex = index;
 
-    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin ? m_itemList[index.row()].plugin : this);
 
     m_categoryListView->resetStatus(index);
 }
@@ -137,8 +138,10 @@ void PersonalizationList::setCurrentIndex(int row)
 {
     if (row > m_model->rowCount())
         row = 0;
-    m_lastIndex = m_model->indexFromItem(m_model->item(row));
-    m_categoryListView->setCurrentIndex(m_lastIndex);
+
+    const QModelIndex &index = m_model->indexFromItem(m_model->item(row));
+    m_categoryListView->setCurrentIndex(index);
+    m_categoryListView->clicked(index);
 }
 
 void PersonalizationList::showDefaultWidget()

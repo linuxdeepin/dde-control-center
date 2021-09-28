@@ -89,10 +89,10 @@ void PersonalizationModule::active()
     firstWidget->setVisible(true);
 
     connect(firstWidget, &PersonalizationList::requestUpdateSecondMenu, this, [=] (bool needPop) {
-           if (m_pMainWindow->getcontentStack().size() >= 2 && needPop)
-               m_frameProxy->popWidget(this);
-           firstWidget->showDefaultWidget();
-       });
+        if (m_pMainWindow->getcontentStack().size() >= 2 && needPop)
+            m_frameProxy->popWidget(this);
+        firstWidget->showDefaultWidget();
+    });
 
     firstWidget->showDefaultWidget();
 }
@@ -107,28 +107,26 @@ int PersonalizationModule::load(const QString &path)
     QString loadPath = path.split("/").at(0);
     int row = -1;
     if (loadPath == QStringLiteral("General")) {
-        showGenaralWidget();
         row = 0;
     } else if (loadPath == QStringLiteral("Icon Theme")) {
-        showIconThemeWidget();
         row = 1;
     } else if (loadPath == QStringLiteral("Cursor Theme")) {
-        showCursorThemeWidget();
         row = 2;
     } else if (loadPath == QStringLiteral("Font")) {
-        showFontThemeWidget();
         row = 3;
+    } else {
+        row = availPage().indexOf(loadPath);
     }
-
     Q_EMIT requestSetCurrentIndex(row);
     return row == -1 ? -1 : 0;
 }
 
 QStringList PersonalizationModule::availPage() const
 {
-    QStringList sl;
-    sl << "General" << "Icon Theme" << "Cursor Theme" << "Font";
-    return sl;
+    QStringList pages;
+    pages << "General" << "Icon Theme" << "Cursor Theme" << "Font";
+    pages.append(InsertPlugin::instance()->availPages("personalization"));
+    return pages;
 }
 
 void PersonalizationModule::showGenaralWidget()

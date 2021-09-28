@@ -45,11 +45,13 @@ class InsertPlugin: public QObject
 public:
     InsertPlugin(QObject *parent, FrameProxyInterface *interface);
     // 查询改模块是否需要加载插件
-    bool needPushPlugin(QString moduleName);
+    bool updatePluginInfo(QString moduleName);
     // 一级菜单插入插件
     void pushPlugin(QList<QPair<ModuleInterface *, QString>> &modules);
     // 二级菜单插入插件
     void pushPlugin(QStandardItemModel *Model, QList<ListSubItem> &itemList);
+
+    QStringList availPages(const QString &moduleName);
     // 获取单例
     static InsertPlugin *instance(QObject *obj = nullptr, FrameProxyInterface *interface = nullptr);
 

@@ -86,7 +86,7 @@ InsertPlugin::InsertPlugin(QObject *obj, FrameProxyInterface *frameProxy)
     }
 }
 
-bool InsertPlugin::needPushPlugin(QString moduleName)
+bool InsertPlugin::updatePluginInfo(QString moduleName)
 {
     m_currentPlugins.clear();
 
@@ -194,7 +194,7 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
                 Model->appendRow(item);
             } else {
                 itemList.insert(index - 1, {module->name(), module->displayName(),
-                                        metaMethod, m_currentPlugins.at(i).second.first});
+                                            metaMethod, m_currentPlugins.at(i).second.first});
                 Model->insertRow(index - 1, item);
             }
         } else {
@@ -215,4 +215,25 @@ void dccV20::InsertPlugin::pushPlugin(QStandardItemModel *Model, QList<dccV20::L
             }
         }
     }
+}
+
+/**
+ * @brief InsertPlugin::availPages  获取模块下加载的插件列表
+ * @param moduleName                一级模块名
+ * @return
+ */
+QStringList InsertPlugin::availPages(const QString &moduleName)
+{
+    updatePluginInfo(moduleName);
+
+    QStringList pages;
+    for (auto it : m_currentPlugins) {
+        if (it.first.path != moduleName)
+            continue;
+
+        QString name = it.second.second;
+        pages.append(name);
+    }
+
+    return pages;
 }

@@ -86,7 +86,7 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
     //Initialize second page view and model
     m_itemModel = new QStandardItemModel(this);
 
-    if(InsertPlugin::instance()->needPushPlugin("defapp"))
+    if(InsertPlugin::instance()->updatePluginInfo("defapp"))
         InsertPlugin::instance()->pushPlugin(m_itemModel,m_itemList);
 
     m_defAppCatView->setModel(m_itemModel);
@@ -151,8 +151,8 @@ void DefaultAppsWidget::onCategoryClicked(const QModelIndex &index) {
     m_lastIndex = index;
     qDebug() << "DefaultAppsWidget clicked row " << index.row();
 
-    if(m_itemList[index.row()].pulgin) {
-        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin);
+    if(m_itemList[index.row()].plugin) {
+        m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin);
     } else {
         m_itemList[index.row()].itemSignal.invoke(this, Qt::ConnectionType::DirectConnection, Q_ARG(int, index.row()));
     }

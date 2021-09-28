@@ -94,7 +94,7 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
         GSettingWatcher::instance()->bind(it->gsettingsName, m_mouseListView, mouseItem);
     }
 
-    if (InsertPlugin::instance()->needPushPlugin("mouse")) {
+    if (InsertPlugin::instance()->updatePluginInfo("mouse")) {
         InsertPlugin::instance()->pushPlugin(m_listviewModel, m_menuIconText);
     }
 
@@ -190,6 +190,6 @@ void MouseWidget::onItemClicked(const QModelIndex &index)
     if (m_lastIndex == index) return;
 
     m_lastIndex = index;
-    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin ? m_menuIconText[index.row()].pulgin : this);
+    m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].plugin ? m_menuIconText[index.row()].plugin : this);
     m_mouseListView->resetStatus(index);
 }

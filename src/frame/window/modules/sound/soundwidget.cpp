@@ -89,7 +89,7 @@ void SoundWidget::initMembers()
         GSettingWatcher::instance()->bind(mm.gsettingsName, m_listView, item);
     }
 
-    if (InsertPlugin::instance()->needPushPlugin("sound")) {
+    if (InsertPlugin::instance()->updatePluginInfo("sound")) {
         InsertPlugin::instance()->pushPlugin(m_itemModel, m_menuMethod);
     }
 }
@@ -101,7 +101,7 @@ void SoundWidget::initConnections()
             return;
 
         m_currentIdx = idx;
-        m_menuMethod[idx.row()].itemSignal.invoke(m_menuMethod[idx.row()].pulgin ? m_menuMethod[idx.row()].pulgin : this);
+        m_menuMethod[idx.row()].itemSignal.invoke(m_menuMethod[idx.row()].plugin ? m_menuMethod[idx.row()].plugin : this);
         m_listView->resetStatus(idx);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);

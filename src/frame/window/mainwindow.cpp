@@ -355,7 +355,7 @@ void MainWindow::initAllModule(const QString &m)
     };
 
     //读取加载一级菜单的插件
-    if (InsertPlugin::instance(this, this)->needPushPlugin("mainwindow"))
+    if (InsertPlugin::instance(this, this)->updatePluginInfo("mainwindow"))
         InsertPlugin::instance()->pushPlugin(m_modules);
 
     //通过gsetting设置某模块是否显示,默认都显示

@@ -90,7 +90,7 @@ void DatetimeWidget::init()
         GSettingWatcher::instance()->bind(it->gsettingsName, m_listview, item);
     }
 
-    if(InsertPlugin::instance()->needPushPlugin("datetime"))
+    if(InsertPlugin::instance()->updatePluginInfo("datetime"))
         InsertPlugin::instance()->pushPlugin(model,m_itemList);
 
     //default open 24 hour type : set hourTypeSwitch(true) , then set ClockItem TimeHourType
@@ -178,7 +178,7 @@ void DatetimeWidget::onItemClicked(const QModelIndex &index)
 
     m_lastIndex = index;
 
-    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].pulgin ? m_itemList[index.row()].pulgin : this);
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin ? m_itemList[index.row()].plugin : this);
     //Q_EMIT requestPushWidget(index.row());
 
     m_listview->resetStatus(index);
