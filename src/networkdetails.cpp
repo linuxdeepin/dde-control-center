@@ -82,6 +82,7 @@ void NetworkDetails::updateData(const QJsonObject &info)
 {
     m_items.clear();
     m_name.clear();
+    m_devicePath = info.value("Device").toString();
     const QString type = info.value("ConnectionType").toString();
     const bool isHotspot = type == "wireless-hotspot";
     const bool isWireless = type == "wireless";
@@ -215,4 +216,9 @@ QString NetworkDetails::ipv6Infomation(QJsonObject connectinfo, NetworkDetails::
     }
 
     return QString();
+}
+
+QString NetworkDetails::devicePath()
+{
+    return m_devicePath;
 }

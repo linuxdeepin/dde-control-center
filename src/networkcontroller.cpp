@@ -177,8 +177,14 @@ void NetworkController::onDevicesChanged(const QString &value)
             }
         }
     }
-    // 对设备进行排序
+    // 对设备进行排序，有线网络始终排在无线网络前面
     qSort(m_devices.begin(), m_devices.end(), [ = ] (NetworkDeviceBase *dev1, NetworkDeviceBase *dev2) {
+        if (dev1->deviceType() == DeviceType::Wired && dev2->deviceType() == DeviceType::Wireless)
+            return true;
+
+        if (dev1->deviceType() == DeviceType::Wireless && dev2->deviceType() == DeviceType::Wired)
+            return false;
+
         return devPaths.indexOf(dev1->path()) < devPaths.indexOf(dev2->path());
     });
     // 更新设备的连接信息，因为读取设备状态信息的时候，需要这个连接信息
@@ -562,6 +568,21 @@ void NetworkController::updateNetworkDetails()
         }
 
         detail->updateData(activeConnection);
+    }
+    if (m_devices.size() > 0) {
+        qSort(m_networkDetails.begin(), m_networkDetails.end(), [ & ] (NetworkDetails *detail1, NetworkDetails *detail2) {
+            int index1 = -1;
+            int index2 = -1;
+            for (int i = 0; i < m_devices.size(); i++) {
+                NetworkDeviceBase *device = m_devices[i];
+                if (device->path() == detail1->devicePath())
+                    index1 = i;
+                else if (device->path() == detail2->devicePath())
+                    index2 = i;
+            }
+
+            return index1 < index2;
+        });
     }
 }
 

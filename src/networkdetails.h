@@ -56,9 +56,11 @@ private:
     void updateData(const QJsonObject &info);
     void appendInfo(const QString &title, const QString &value);
     QString ipv6Infomation(QJsonObject connectinfo, InfoType type);
+    QString devicePath();
 
 private:
     QString m_name;
+    QString m_devicePath;
     QList<QPair<QString, QString>> m_items;
 };
 
