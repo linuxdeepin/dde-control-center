@@ -141,7 +141,7 @@ void HotspotDeviceWidget::updateItemStatus(const QList<HotspotItem *> &items)
         HotspotItem *hotspotItem = static_cast<HotspotItem *>(item->data(itemRole).value<void *>());
         if (items.contains(hotspotItem)) {
             item->setText(hotspotItem->connection()->ssid());
-            item->setConnectionStatus(hotspotItem->connectionStatus());
+            item->setConnectionStatus(hotspotItem->status());
         }
     }
 }

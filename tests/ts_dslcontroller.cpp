@@ -40,7 +40,7 @@ TEST_F(Tst_DSLController, dslcontroll_test)
     QObject::connect(m_controller, &DSLController::activeConnectionChanged, [ = ] {
         QList<DSLItem *> items = controller->items();
         for (DSLItem *item : items) {
-            if (item->connectionStatus() == ConnectionStatus::Activated) {
+            if (item->status() == ConnectionStatus::Activated) {
                 // 打印连接成功
                 qInfo() << "connectioned Successed:" << item->connection()->id();
             }

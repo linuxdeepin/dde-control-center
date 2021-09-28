@@ -572,7 +572,7 @@ void WirelessItem::updateConnectionStatus()
     } else {
         m_button->setVisible(false);
 
-        if (m_accessPoint->connectionStatus() == ConnectionStatus::Activating) {
+        if (m_accessPoint->status() == ConnectionStatus::Activating) {
             // 如果当前网络是正在连接状态
             m_loadingStat->setVisible(true);
             m_loadingStat->start();

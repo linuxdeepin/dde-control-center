@@ -114,7 +114,7 @@ void VPNController::updateActiveConnection(const QJsonObject &activeConection)
     // 先将所有的连接都置为未连接状态
     QMap<QString, ConnectionStatus> allConnectionStatus;
     for (VPNItem *item : m_vpnItems) {
-        allConnectionStatus[item->connection()->uuid()] = item->connectionStatus();
+        allConnectionStatus[item->connection()->uuid()] = item->status();
         item->setConnectionStatus(ConnectionStatus::Deactivated);
     }
 
@@ -189,7 +189,7 @@ void VPNItem::setConnectionStatus(ConnectionStatus connectionStatus)
     m_connectionStatus = connectionStatus;
 }
 
-ConnectionStatus VPNItem::connectionStatus() const
+ConnectionStatus VPNItem::status() const
 {
     return m_connectionStatus;
 }

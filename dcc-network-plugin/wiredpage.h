@@ -105,7 +105,6 @@ private:
     bool m_needConnectNew;
 
     static const int PathRole = Qt::UserRole + 100;
-    static const int ConnectionRole = Qt::UserRole + 101;
 };
 
 #endif // WIREDPAGE_H

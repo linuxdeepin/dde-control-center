@@ -43,6 +43,7 @@ private:
 Q_SIGNALS:
     void connectionAdded(const QList<WiredConnection *>);                       // 新增连接
     void connectionRemoved(const QList<WiredConnection *>);                     // 删除连接
+    void activeConnectionChanged();                                             // 活动连接发生变化的时候发出的信号
 
 public:
     bool connectNetwork(WiredConnection *connection);                           // 连接网络，连接成功抛出deviceStatusChanged信号
@@ -70,13 +71,15 @@ class WiredConnection : public ControllItems
 
 public:
     bool connected();                                                   //网络是否连接成功
+    ConnectionStatus status() const;                             // 当前连接的连接状态
 
 protected:
     WiredConnection();
     ~WiredConnection();
+    void setConnectionStatus(const ConnectionStatus &status);
 
 private:
-    bool m_connected;
+    ConnectionStatus m_status;
 };
 
 }

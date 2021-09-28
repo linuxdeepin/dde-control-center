@@ -27,7 +27,7 @@ using namespace dde::network;
 bool WirelessDevice::isConnected() const
 {
     for (AccessPoints *ap : m_accessPoints) {
-        if (ap->connectionStatus() == ConnectionStatus::Activated)
+        if (ap->status() == ConnectionStatus::Activated)
             return true;
     }
 
@@ -460,7 +460,7 @@ bool AccessPoints::connected() const
     return (m_status == ConnectionStatus::Activated);
 }
 
-ConnectionStatus AccessPoints::connectionStatus() const
+ConnectionStatus AccessPoints::status() const
 {
     return m_status;
 }

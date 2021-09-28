@@ -81,7 +81,7 @@ protected:
     void setConnectionStatus(ConnectionStatus connectStatus);
 
 public:
-    ConnectionStatus connectionStatus() const;                             // 当前连接的连接状态
+    ConnectionStatus status() const;                             // 当前连接的连接状态
 
 private:
     ConnectionStatus m_connectStatus;

@@ -344,7 +344,7 @@ void NetworkHandler::onConnectionChanged()
         WirelessDevice *dev = static_cast<WirelessDevice *>(device);
         QList<AccessPoints *> aps = dev->accessPointItems();
         for (AccessPoints *ap : aps) {
-            switch (ap->connectionStatus()) {
+            switch (ap->status()) {
             case ConnectionStatus::Activated: {
                 outputMessage("ssid:" + ap->ssid() + " is Connected");
                 break;

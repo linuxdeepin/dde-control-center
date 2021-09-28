@@ -26,6 +26,7 @@
 
 #include "wiredpage.h"
 #include "connectioneditpage.h"
+#include "connectionpageitem.h"
 #include "window/utils.h"
 #include "window/gsettingwatcher.h"
 
@@ -149,6 +150,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_device, &WiredDevice::connectionChanged, this, &WiredPage::onUpdateConnectionStatus);
     connect(m_device, &WiredDevice::deviceStatusChanged, this, &WiredPage::onDeviceStatusChanged);
     connect(m_device, &WiredDevice::enableChanged, this, &WiredPage::onUpdateConnectionStatus);
+    connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::onUpdateConnectionStatus);
     connect(m_pNetworkController, &NetworkController::deviceRemoved, this, &WiredPage::onDeviceRemoved);
 
     onDeviceStatusChanged(m_device->deviceStatus());
@@ -173,10 +175,10 @@ void WiredPage::onUpdateConnectionStatus()
 
     // m_modelprofiles
     for (int i = 0; i < m_modelprofiles->rowCount(); i++) {
-        DStandardItem *item = static_cast<DStandardItem *>(m_modelprofiles->item(i));
-        WiredConnection *connObj = static_cast<WiredConnection *>(item->data(ConnectionRole).value<void *>());
+        ConnectionPageItem *item = static_cast<ConnectionPageItem *>(m_modelprofiles->item(i));
+        WiredConnection *connObj = static_cast<WiredConnection *>(item->itemData());
         if (items.contains(connObj))
-            item->setCheckState(connObj->connected() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
+            item->setConnectionStatus(connObj->status());
     }
 }
 
@@ -195,22 +197,14 @@ void WiredPage::refreshConnectionList()
         if (m_connectionPath.values().contains(path))
             continue;
 
-        DStandardItem *it = new DStandardItem(connObj->connection()->id());
+        ConnectionPageItem *it = new ConnectionPageItem(this, m_lvProfiles, connObj->connection());
+        it->setText(connObj->connection()->id());
         it->setData(path, PathRole);
-        it->setData(QVariant::fromValue((void *)connObj), ConnectionRole);
-        it->setCheckable(false);
-        it->setCheckState(connObj->connected() ? Qt::CheckState::Checked : Qt::CheckState::Unchecked);
-
-        DViewItemAction *editaction = new DViewItemAction(Qt::AlignmentFlag::AlignCenter, QSize(), QSize(), true);
-        QStyleOption opt;
-        editaction->setIcon(DStyleHelper(style()).standardIcon(DStyle::SP_ArrowEnter, &opt, nullptr));
-        editaction->setClickAreaMargins(ArrowEnterClickMargin);
-
-        connect(editaction, &QAction::triggered, this, [this, path] {
+        it->setItemData(connObj);
+        it->setConnectionStatus(connObj->status());
+        connect(it, &ConnectionPageItem::detailClick, this, [this, path]{
             this->editConnection(path);
         });
-
-        it->setActionList(Qt::Edge::RightEdge, {editaction});
         m_modelprofiles->appendRow(it);
         m_connectionPath.insert(it, path);
     }

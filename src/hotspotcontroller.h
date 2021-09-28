@@ -93,7 +93,7 @@ class HotspotItem : public ControllItems
 public:
     QString name() const;                                                    // 个人热点名称
     WirelessDevice *device() const;                                          // 当前热点对应的无线设备
-    ConnectionStatus connectionStatus() const;                               // 当前连接的连接状态
+    ConnectionStatus status() const;                               // 当前连接的连接状态
 
 protected:
     HotspotItem(WirelessDevice *device);

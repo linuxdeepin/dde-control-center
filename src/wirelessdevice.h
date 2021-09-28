@@ -128,7 +128,7 @@ public:
     QString path() const;                                           // 路径，对应于返回接口中的Path
     QString devicePath() const;                                     // 对应的设备的路径，为返回接口中的key值
     bool connected() const;                                         // 网络是否连接成功
-    ConnectionStatus connectionStatus() const;                      // 当前网络的连接状态
+    ConnectionStatus status() const;                                // 当前网络的连接状态
 
 Q_SIGNALS:
     void strengthChanged(const int) const;                          // 当前信号强度变化

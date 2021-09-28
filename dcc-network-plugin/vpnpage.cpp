@@ -294,7 +294,7 @@ void VpnPage::onActiveConnsInfoChanged()
         if (!vpnItem)
             continue;
 
-        item->setConnectionStatus(vpnItem->connectionStatus());
+        item->setConnectionStatus(vpnItem->status());
     }
 }
 

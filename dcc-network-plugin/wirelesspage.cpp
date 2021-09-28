@@ -552,8 +552,8 @@ void WirelessPage::onAPAdded(const QList<AccessPoints *> &addedAccessPoints)
 
                 m_clickedItem = apItem;
             }
-            apItem->setConnected(ap->connectionStatus() == ConnectionStatus::Activated);
-            apItem->setLoading(ap->connectionStatus() == ConnectionStatus::Activating);
+            apItem->setConnected(ap->status() == ConnectionStatus::Activated);
+            apItem->setLoading(ap->status() == ConnectionStatus::Activating);
             apItem->setSignalStrength(ap->strength());
             connect(apItem->action(), &QAction::triggered, this, [ this, apItem ] {
                 this->onApWidgetEditRequested(apItem->data(APItem::PathRole).toString(), apItem->data(Qt::ItemDataRole::DisplayRole).toString());
@@ -721,8 +721,8 @@ void WirelessPage::updateApStatus()
     QMap<QString, ConnectionStatus> connectionStatus;
     bool isConnecting = false;
     for (AccessPoints *ap : accessPoints) {
-        connectionStatus[ap->ssid()] = ap->connectionStatus();
-        if (ap->connectionStatus() == ConnectionStatus::Activating)
+        connectionStatus[ap->ssid()] = ap->status();
+        if (ap->status() == ConnectionStatus::Activating)
             isConnecting = true;
     }
 

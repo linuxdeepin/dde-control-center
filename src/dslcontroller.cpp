@@ -129,7 +129,7 @@ void DSLController::updateActiveConnections(const QJsonObject &connectionJson)
     QMap<QString, ConnectionStatus> allConnectionStatus;
     // 恢复所有的状态为未连接
     for (DSLItem *item : m_items) {
-        allConnectionStatus[item->connection()->uuid()] = item->connectionStatus();
+        allConnectionStatus[item->connection()->uuid()] = item->status();
         item->setConnectionStatus(ConnectionStatus::Deactivated);
     }
 
@@ -199,7 +199,7 @@ void DSLItem::setConnectionStatus(ConnectionStatus connectStatus)
     m_connectStatus = connectStatus;
 }
 
-ConnectionStatus DSLItem::connectionStatus() const
+ConnectionStatus DSLItem::status() const
 {
     return m_connectStatus;
 }

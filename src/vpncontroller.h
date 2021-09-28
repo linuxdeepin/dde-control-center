@@ -79,13 +79,13 @@ class VPNItem : public ControllItems
     friend class VPNController;
 
 public:
-    ConnectionStatus connectionStatus() const;                                              // 当前连接的连接状态
+    ConnectionStatus status() const;                                              // 当前连接的连接状态
 
 protected:
     VPNItem();
     ~VPNItem();
 
-    void setConnectionStatus(ConnectionStatus connectionStatus);
+    void setConnectionStatus(ConnectionStatus status);
 
 private:
     ConnectionStatus m_connectionStatus;

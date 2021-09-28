@@ -87,7 +87,7 @@ void WiredDevice::setDeviceEnabledStatus(const bool &enabled)
     if (!enabled) {
         // 禁用网卡的情况下，先清空连接信息
         for (WiredConnection *connection : m_connections)
-            connection->m_connected = false;
+            connection->setConnectionStatus(ConnectionStatus::Deactivated);
     }
 
     NetworkDeviceBase::setDeviceEnabledStatus(enabled);
@@ -146,23 +146,44 @@ WiredConnection *WiredDevice::findWiredConnectionByUuid(const QString &uuid)
     return Q_NULLPTR;
 }
 
+static ConnectionStatus convertStatus(int status)
+{
+    if (status == 1)
+        return ConnectionStatus::Activating;
+
+    if (status == 2)
+        return ConnectionStatus::Activated;
+
+    if (status == 3)
+        return ConnectionStatus::Deactivating;
+
+    if (status == 4)
+        return ConnectionStatus::Deactivated;
+
+    return ConnectionStatus::Unknown;
+}
+
 void WiredDevice::updateActiveInfo(const QList<QJsonObject> &info)
 {
-    // 先将所有的连接信息置空
-    for (WiredConnection *connection : m_connections)
-        connection->m_connected = false;
-
+    bool changeStatus = false;
     // 根据返回的UUID找到对应的连接，找到State=2的连接变成连接成功状态
     for (const QJsonObject &activeInfo : info) {
-        int activeStatus = activeInfo.value("State").toInt();
         QString uuid = activeInfo.value("Uuid").toString();
         WiredConnection *connection = findWiredConnectionByUuid(uuid);
-        if (connection)
-            connection->m_connected = (activeStatus == static_cast<int>(ConnectionStatus::Activated));
+        if (!connection)
+            continue;
+
+        ConnectionStatus status = convertStatus(activeInfo.value("State").toInt());
+        if (connection->status() != status) {
+            connection->setConnectionStatus(status);
+            changeStatus = true;
+        }
     }
 
     // 调用基类的函数，更改设备的状态，同时向外发送信号
     NetworkDeviceBase::updateActiveInfo(info);
+    if (changeStatus)
+        Q_EMIT activeConnectionChanged();
 }
 
 QString WiredDevice::deviceKey()
@@ -175,15 +196,24 @@ QString WiredDevice::deviceKey()
  */
 bool WiredConnection::connected()
 {
-    return m_connected;
+    return (m_status == ConnectionStatus::Activated);
+}
+
+ConnectionStatus WiredConnection::status() const
+{
+    return m_status;
 }
 
 WiredConnection::WiredConnection()
     : ControllItems()
-    , m_connected(false)
 {
 }
 
 WiredConnection::~WiredConnection()
 {
+}
+
+void WiredConnection::setConnectionStatus(const ConnectionStatus &status)
+{
+    m_status = status;
 }

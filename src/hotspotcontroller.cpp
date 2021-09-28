@@ -54,7 +54,7 @@ void HotspotController::setEnabled(WirelessDevice *device, const bool enable)
     } else {
         // 在关闭热点的时候,找到当前已经连接的热点,并断开它的连接
         for (HotspotItem *item : deviceHotsItem) {
-            if (item->connectionStatus() == ConnectionStatus::Activated) {
+            if (item->status() == ConnectionStatus::Activated) {
                 m_networkInter->DeactivateConnection(item->connection()->uuid());
                 break;
             }
@@ -150,7 +150,7 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
     // 先保存所有的连接状态
     QMap<QString, ConnectionStatus> allConnectionStatus;
     for (HotspotItem *item : m_hotspotItems) {
-        allConnectionStatus[item->connection()->uuid()] = item->connectionStatus();
+        allConnectionStatus[item->connection()->uuid()] = item->status();
         item->setConnectionStatus(ConnectionStatus::Deactivated);
     }
 
@@ -186,7 +186,7 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
                 continue;
 
             ConnectionStatus oldConnectionStatus = allConnectionStatus[uuid];
-            if (oldConnectionStatus != hotspotItem->connectionStatus()) {
+            if (oldConnectionStatus != hotspotItem->status()) {
                 m_activeConnectionChanged = true;
                 if (!m_activeDevices.contains(device))
                     m_activeDevices << device;
@@ -394,7 +394,7 @@ QString HotspotItem::devicePath() const
     return m_devicePath;
 }
 
-ConnectionStatus HotspotItem::connectionStatus() const
+ConnectionStatus HotspotItem::status() const
 {
     return m_connectionStatus;
 }

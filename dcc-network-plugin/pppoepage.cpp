@@ -203,7 +203,7 @@ void PppoePage::onActiveConnectionChanged()
             continue;
 
         ConnectionPageItem *item = m_items[uuid];
-        item->setConnectionStatus(connectionItem->connectionStatus());
+        item->setConnectionStatus(connectionItem->status());
     }
 }
 
