@@ -62,6 +62,7 @@ Q_SIGNALS:
     void enableChanged(const bool) const;                                                        // 开启设备或禁用设备的时候发出的信号(参数值True表示开启设备，False表示禁用设备)
     void connectionChanged();                                                                    // 连接发生变化的时候触发的信号
     void nameChanged(const QString &);                                                           // 网卡名称发生变化的时候触发的信号
+    void removed();                                                                              // 设备移除
 
 public:
     inline bool isEnabled() const { return m_enabled; }                                          // 当前的网卡是否启用

@@ -88,6 +88,7 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent)
         openEditPage();
     });
 
+    connect(m_wdev, &WirelessDevice::removed, this, &HotspotDeviceWidget::onDeviceRemoved);
     connect(m_wdev, &WirelessDevice::hotspotEnableChanged, this, &HotspotDeviceWidget::onHotsportEnabledChanged);
 
     connect(m_hotspotSwitch, &SwitchWidget::checkedChanged, this, &HotspotDeviceWidget::onSwitchToggled);

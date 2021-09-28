@@ -151,7 +151,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     connect(m_device, &WiredDevice::deviceStatusChanged, this, &WiredPage::onDeviceStatusChanged);
     connect(m_device, &WiredDevice::enableChanged, this, &WiredPage::onUpdateConnectionStatus);
     connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::onUpdateConnectionStatus);
-    connect(m_pNetworkController, &NetworkController::deviceRemoved, this, &WiredPage::onDeviceRemoved);
+    connect(m_device, &WiredDevice::removed, this, &WiredPage::onDeviceRemoved);
 
     onDeviceStatusChanged(m_device->deviceStatus());
     QTimer::singleShot(1, this, &WiredPage::refreshConnectionList);

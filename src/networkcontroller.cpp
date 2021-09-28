@@ -202,9 +202,12 @@ void NetworkController::onDevicesChanged(const QString &value)
 
     if (newDevices.size() > 0 || rmDevices.size() > 0) {
         // 发送删除的设备列表信号，此时这些设备对象还未析构，外面调用来处理响应的操作，统一在一个线程中处理
-        if (rmDevices.size() > 0)
-            Q_EMIT deviceRemoved(rmDevices);
+        if (rmDevices.size() > 0) {
+            for (NetworkDeviceBase *device : rmDevices)
+                Q_EMIT device->removed();
 
+            Q_EMIT deviceRemoved(rmDevices);
+        }
         // 更新设备名称
         updateDeviceName();
 

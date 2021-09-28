@@ -390,7 +390,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::connectionSuccess, this, &WirelessPage::updateApStatus);
     connect(m_device, &WirelessDevice::accessPointInfoChanged, this, &WirelessPage::onUpdateAccessPointInfo);
     connect(m_device, &WirelessDevice::hotspotEnableChanged, this, &WirelessPage::onHotspotEnableChanged);
-    connect(m_pNetworkController, &NetworkController::deviceRemoved, this, &WirelessPage::onDeviceRemoved);
+    connect(m_device, &WirelessDevice::removed, this, &WirelessPage::onDeviceRemoved);
     connect(m_device, &WirelessDevice::connectionFailed, this, &WirelessPage::onActivateApFailed);
     connect(m_device, &WirelessDevice::connectionChanged, this, &WirelessPage::updateApStatus);
     connect(m_device, &WirelessDevice::deviceStatusChanged, this, &WirelessPage::updateApStatus);

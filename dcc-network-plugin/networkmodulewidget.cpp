@@ -70,6 +70,7 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     , m_nmConnectionEditorProcess(nullptr)
     , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
     , m_isFirstEnter(true)
+    , m_switchIndex(true)
 {
     setObjectName("Network");
     m_lvnmpages->setAccessibleName("List_networkmenulist");
@@ -179,6 +180,9 @@ NetworkModuleWidget::~NetworkModuleWidget()
 
 void NetworkModuleWidget::onClickCurrentListIndex(const QModelIndex &idx)
 {
+    if (!m_switchIndex)
+        return;
+
     const QString searchPath = idx.data(SearchPath).toString();
     m_modelpages->itemFromIndex(idx)->setData("", SearchPath);
 
@@ -377,6 +381,7 @@ void NetworkModuleWidget::onDeviceChanged()
         }
     }
 
+    m_switchIndex = true;
     int newRowIndex = -1;
     for (int i = 0; i < devices.size(); i++) {
         NetworkDeviceBase *device = devices[i];
@@ -417,17 +422,21 @@ void NetworkModuleWidget::onDeviceChanged()
 
         if (pageType == PageType::WiredPage || pageType == PageType::WirelessPage) {
             // 如果是有线网络或者无线网络，则根据之前的设备和当前的设备是否相同来获取索引
-            if (currentDevice == device)
+            // 此时调用setCurrentIndex无需再次创建三级菜单窗口，因此，将m_switchIndex赋值为false
+            if (currentDevice == device) {
                 newRowIndex = i;
+                m_switchIndex = false;
+            }
         }
     }
-    // 如果之前是通过调用关闭热点后
+    // 如果之前是通过调用关闭热点后，因为关闭热点会触发一次deviceRemove，然后再触发一次deviceAdd，导致这个函数会被调用两次，因此，此处需要判断
     if (!m_lastDevicePath.isEmpty()) {
         for (int i = 0; i < devices.size(); i++) {
             NetworkDeviceBase *device = devices[i];
             if (device->path() == m_lastDevicePath) {
                 newRowIndex = i;
                 m_lastDevicePath.clear();
+                m_switchIndex = false;
                 break;
             }
         }
@@ -448,9 +457,16 @@ void NetworkModuleWidget::onDeviceChanged()
             if (currentPageType == PageType::WiredPage || currentPageType == PageType::WirelessPage)
                 continue;
 
-            if (pageType == currentPageType)
+            if (pageType == currentPageType) {
                 newRowIndex = i;
+                m_switchIndex = false;
+            }
         }
     }
-    setCurrentIndex(newRowIndex < 0 ? 0 : newRowIndex);
+
+    if (newRowIndex < 0)
+        newRowIndex = 0;
+
+    setCurrentIndex(newRowIndex);
+    m_switchIndex = true;
 }

@@ -118,6 +118,7 @@ private:
     FrameProxyInterface *m_frameProxy;
     bool m_isFirstEnter;
     QString m_lastDevicePath;
+    bool m_switchIndex;
 };
 
 Q_DECLARE_METATYPE(PageType)
