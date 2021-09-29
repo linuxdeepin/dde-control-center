@@ -453,23 +453,25 @@ bool IpvxSection::ipv4InputIsValid()
             m_gateway->setIsErr(false);
         }
 
-        bool isIPConflict = false;
-        const QString strCurrentIP = m_ipAddress->text();
-        NetworkInter inter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus());
-        inter.RequestIPConflictCheck(ip, "");
-        connect(&inter, &NetworkInter::IPConflict, this, [&strCurrentIP,&isIPConflict] (const QString &strIP, const QString &strMac) {
-            if (!strMac.isEmpty() && strIP == strCurrentIP) {
-                Notifications notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus());
-                notifications.Notify("dde-control-center", static_cast<uint>(QDateTime::currentMSecsSinceEpoch()), "preferences-system", tr("Network"), tr("IP conflict"), QStringList(), QVariantMap(), 3000);
-            }
-            isIPConflict = true;
-        });
+        if (valid) {
+            bool isIPConflict = false;
+            const QString strCurrentIP = m_ipAddress->text();
+            NetworkInter inter("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus());
+            inter.RequestIPConflictCheck(ip, "");
+            connect(&inter, &NetworkInter::IPConflict, this, [&strCurrentIP,&isIPConflict] (const QString &strIP, const QString &strMac) {
+                if (!strMac.isEmpty() && strIP == strCurrentIP) {
+                    Notifications notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus());
+                    notifications.Notify("dde-control-center", static_cast<uint>(QDateTime::currentMSecsSinceEpoch()), "preferences-system", tr("Network"), tr("IP conflict"), QStringList(), QVariantMap(), 3000);
+                }
+                isIPConflict = true;
+            });
 
-        QElapsedTimer et;
-        et.start();
-        while (!isIPConflict && et.elapsed() < ipConflictCheckTime) {
-            QThread::msleep(50);
-            QCoreApplication::sendPostedEvents(&inter);
+            QElapsedTimer et;
+            et.start();
+            while (!isIPConflict && et.elapsed() < ipConflictCheckTime) {
+                QThread::msleep(50);
+                QCoreApplication::sendPostedEvents(&inter);
+            }
         }
     }
 
