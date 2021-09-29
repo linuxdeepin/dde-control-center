@@ -92,7 +92,7 @@ private:
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
 
     int getStrongestAp();
-    int deviceCount(const DeviceType &devType);
+    int deviceCount(const DeviceType &devType) const;
     QStringList ipTipsMessage(const DeviceType &devType);
 
     void enterEvent(QEvent *event);

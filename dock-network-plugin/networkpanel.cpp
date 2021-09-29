@@ -564,7 +564,7 @@ bool NetworkPanel::eventFilter(QObject *obj, QEvent *event)
     return QWidget::eventFilter(obj, event);
 }
 
-int NetworkPanel::deviceCount(const DeviceType &devType)
+int NetworkPanel::deviceCount(const DeviceType &devType) const
 {
     // 获取指定的设备类型的设备数量
     int count = 0;
@@ -698,10 +698,12 @@ void NetworkPanel::setDeviceEnabled(const DeviceType &deviceType, bool enabeld)
 
 const QString NetworkPanel::contextMenu() const
 {
+    int wiredCount = deviceCount(DeviceType::Wired);
+    int wirelessCount = deviceCount(DeviceType::Wireless);
     bool wiredEnabled = deviceEnabled(DeviceType::Wired);
     bool wirelessEnabeld = deviceEnabled(DeviceType::Wireless);
     QList<QVariant> items;
-    if (wiredEnabled && wirelessEnabeld) {
+    if (wiredCount && wirelessCount) {
         items.reserve(3);
         QMap<QString, QVariant> wireEnable;
         wireEnable["itemId"] = MenueWiredEnable;
