@@ -96,6 +96,7 @@ void WiredDevice::setDeviceEnabledStatus(const bool &enabled)
 void WiredDevice::updateConnection(const QJsonArray &info)
 {
     QList<WiredConnection *> newWiredConnections;
+    QList<WiredConnection *> changedWiredConnections;
     QStringList connPaths;
     for (const QJsonValue jsonValue : info) {
         const QJsonObject &jsonObj = jsonValue.toObject();
@@ -109,6 +110,10 @@ void WiredDevice::updateConnection(const QJsonArray &info)
             conn = new WiredConnection;
             m_connections << conn;
             newWiredConnections << conn;
+        } else {
+            if (conn->connection()->id() != jsonObj.value("Id").toString()
+                    || conn->connection()->ssid() != jsonObj.value("Ssid").toString())
+                changedWiredConnections << conn;
         }
 
         conn->setConnection(jsonObj);
@@ -124,6 +129,9 @@ void WiredDevice::updateConnection(const QJsonArray &info)
 
     for (WiredConnection *connection : rmConns)
         m_connections.removeOne(connection);
+
+    if (changedWiredConnections.size())
+        Q_EMIT connectionPropertyChanged(changedWiredConnections);
 
     if (newWiredConnections.size() > 0)
         Q_EMIT connectionAdded(newWiredConnections);

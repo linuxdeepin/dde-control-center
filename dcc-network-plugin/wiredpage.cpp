@@ -148,6 +148,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     });
     connect(m_device, &WiredDevice::connectionRemoved, this, &WiredPage::refreshConnectionList);
     connect(m_device, &WiredDevice::connectionChanged, this, &WiredPage::onUpdateConnectionStatus);
+    connect(m_device, &WiredDevice::connectionPropertyChanged, this, &WiredPage::onConnectionPropertyChanged);
     connect(m_device, &WiredDevice::deviceStatusChanged, this, &WiredPage::onDeviceStatusChanged);
     connect(m_device, &WiredDevice::enableChanged, this, &WiredPage::onUpdateConnectionStatus);
     connect(m_device, &WiredDevice::activeConnectionChanged, this, &WiredPage::onUpdateConnectionStatus);
@@ -179,6 +180,16 @@ void WiredPage::onUpdateConnectionStatus()
         WiredConnection *connObj = static_cast<WiredConnection *>(item->itemData());
         if (items.contains(connObj))
             item->setConnectionStatus(connObj->status());
+    }
+}
+
+void WiredPage::onConnectionPropertyChanged(const QList<WiredConnection *> &changedConnection)
+{
+    for (int i = 0; i < m_modelprofiles->rowCount(); i++) {
+        ConnectionPageItem *item = static_cast<ConnectionPageItem *>(m_modelprofiles->item(i));
+        WiredConnection *connObj = static_cast<WiredConnection *>(item->itemData());
+        if (changedConnection.contains(connObj))
+            item->setText(connObj->connection()->id());
     }
 }
 

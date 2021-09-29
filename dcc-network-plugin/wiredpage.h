@@ -50,6 +50,7 @@ namespace dde {
     class NetworkDeviceBase;
     class NetworkController;
     class WiredDevice;
+    class WiredConnection;
     enum class DeviceStatus;
   }
 }
@@ -87,6 +88,7 @@ private Q_SLOTS:
     void onDeviceStatusChanged(const DeviceStatus &stat);
     void onDeviceRemoved();
     void onUpdateConnectionStatus();
+    void onConnectionPropertyChanged(const QList<WiredConnection *> &changedConnection);
 
 private:
     WiredDevice *m_device;
