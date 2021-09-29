@@ -96,6 +96,7 @@ private:
     QPointer<ConnectionHotspotEditPage> m_editPage;
 
     HotspotPage *m_page;
+    bool m_isClicked;
 
     static const int UuidRole = Dtk::UserRole + 1;
     static const int itemRole = Dtk::UserRole + 2;

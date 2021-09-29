@@ -319,8 +319,12 @@ void NetworkController::updateDeviceConnectiveInfo()
 
 void NetworkController::activeConnInfoChanged(const QString &conns)
 {
+    QJsonParseError error;
+    m_activeConnectionInfo = QJsonDocument::fromJson(conns.toUtf8(), &error).array();
+    if (error.error != QJsonParseError::NoError)
+        return;
+
     QMap<NetworkDeviceBase *, QJsonObject> deviceInfoMap;
-    m_activeConnectionInfo = QJsonDocument::fromJson(conns.toUtf8()).array();
     for (QJsonValue jsonValue : m_activeConnectionInfo) {
         QJsonObject connInfo = jsonValue.toObject();
         const QString devPath = connInfo.value("Device").toString();

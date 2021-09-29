@@ -58,6 +58,7 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent)
     , m_modelprofiles(new QStandardItemModel(this))
     , m_createBtn(new QPushButton)
     , m_page(nullptr)
+    , m_isClicked(false)
 {
     Q_ASSERT(m_wdev->supportHotspot());
 
@@ -83,7 +84,11 @@ HotspotDeviceWidget::HotspotDeviceWidget(WirelessDevice *wdev, QWidget *parent)
     centralLayout->setContentsMargins(0, 0, 0, 0);
     setLayout(centralLayout);
 
-    connect(m_lvprofiles, &QListView::clicked, this, &HotspotDeviceWidget::onConnWidgetSelected);
+    connect(m_lvprofiles, &QListView::clicked, this, [ this ] (const QModelIndex &index) {
+        m_isClicked = true;
+        onConnWidgetSelected(index);
+    });
+
     connect(m_createBtn, &QPushButton::clicked, this, [ = ] {
         openEditPage();
     });
@@ -123,6 +128,7 @@ void HotspotDeviceWidget::addItems(const QList<HotspotItem *> &newItems)
 
         m_modelprofiles->appendRow(pageItem);
     }
+    m_isClicked = false;
 }
 
 void HotspotDeviceWidget::removeItems(const QList<HotspotItem *> &rmItems)
@@ -228,11 +234,13 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
 void HotspotDeviceWidget::onHotsportEnabledChanged()
 {
     // 手动点击选中热点，以及添加热点时不应该触发打开关闭热点操作
-    HotspotController *hotspotController = NetworkController::instance()->hotspotController();
-    m_hotspotSwitch->blockSignals(true);
-    m_hotspotSwitch->setChecked(hotspotController->enabled(m_wdev));
-    m_hotspotSwitch->setEnabled(true);
-    m_hotspotSwitch->blockSignals(false);
+    if (!m_isClicked) {
+        HotspotController *hotspotController = NetworkController::instance()->hotspotController();
+        m_hotspotSwitch->blockSignals(true);
+        m_hotspotSwitch->setChecked(hotspotController->enabled(m_wdev));
+        m_hotspotSwitch->setEnabled(true);
+        m_hotspotSwitch->blockSignals(false);
+    }
 }
 
 HotspotPage::HotspotPage(QWidget *parent)
