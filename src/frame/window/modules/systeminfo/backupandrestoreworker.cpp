@@ -28,7 +28,8 @@ enum ToolErrorType {
 };
 
 //deepin-recovery-tool超时时间设置为1分钟
-const int TimeOut = 60000;
+//pkexec不应该设置超时时间，应该等待其认证返回后继续执行备份or还原操作
+const int TimeOut = -1;
 
 BackupAndRestoreWorker::BackupAndRestoreWorker(BackupAndRestoreModel* model, QObject *parent)
     : QObject(parent)
