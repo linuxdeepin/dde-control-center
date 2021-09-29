@@ -113,16 +113,7 @@ PppoePage::~PppoePage()
 
 void PppoePage::createPPPoEConnection()
 {
-    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
-    NetworkDeviceBase *device = nullptr;
-
-    for (NetworkDeviceBase *dev : devices) {
-        if (dev->deviceType() == DeviceType::Wired) {
-            device = dev;
-            break;
-        }
-    }
-    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, device ? device->path() : "/");
+    m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, "/");
     m_editPage->initSettingsWidget();
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
