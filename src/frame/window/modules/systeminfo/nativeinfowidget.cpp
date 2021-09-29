@@ -392,8 +392,10 @@ void NativeInfoWidget::onSetHostNameError(const QString &error)
 
 void NativeInfoWidget::onHostNameChanged(const QString &hostName)
 {
-    m_hostNameLabel->setText(hostName);
-    m_hostNameLabel->setToolTip(hostName);
+    m_hostname = hostName;
+    QString name = getElidedText(m_hostNameLabel, hostName, Qt::ElideRight, this->width() - hostname_placeholder, 0, __LINE__);
+    m_hostNameLabel->setText(name);
+    m_hostNameLabel->setToolTip(name);
 }
 
 void NativeInfoWidget::onEditingFinished()
@@ -443,6 +445,7 @@ void NativeInfoWidget::onAlertChanged()
 
 void NativeInfoWidget::onTextEdited(const QString &hostName)
 {
+    m_hostnameEdit = hostName;
     if (!hostName.isEmpty()) {
         if (hostName.size() > 63) {
             m_hostNameLineEdit->lineEdit()->backspace();
