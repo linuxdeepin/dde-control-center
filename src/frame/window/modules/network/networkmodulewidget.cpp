@@ -286,6 +286,15 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
             break;
         }
     }
+    //这一段防止内容被屏蔽了，但是跳转的时候可以跳转到该应用
+    if (index == -1) {
+        for (int i = 0; i < m_modelpages->rowCount(); ++i) {
+            if (!m_lvnmpages->isRowHidden(i)) {
+                index = i;
+                break;
+            }
+        }
+    }
 
     qDebug() << "get network list index : " << index;
     return index;
