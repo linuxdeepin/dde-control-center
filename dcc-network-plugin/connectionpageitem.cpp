@@ -30,6 +30,8 @@ ConnectionPageItem::ConnectionPageItem(QWidget *widget, DListView *listView, Con
 
     setActionList(Qt::Edge::RightEdge, { m_editAction });
 
+    setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+
     connect(m_editAction, &QAction::triggered, [ = ] {
         Q_EMIT detailClick(m_connection);
     });
