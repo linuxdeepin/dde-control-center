@@ -100,8 +100,8 @@ void WiredDevice::updateConnection(const QJsonArray &info)
     QStringList connPaths;
     for (const QJsonValue jsonValue : info) {
         const QJsonObject &jsonObj = jsonValue.toObject();
-        QString hwAddress = jsonObj.value("HwAddress").toString();
-        if (!hwAddress.isEmpty() && hwAddress != realHwAdr())
+        QString IfcName = jsonObj.value("IfcName").toString();
+        if (!IfcName.isEmpty() && IfcName != interface())
             continue;
 
         QString path = jsonObj.value("Path").toString();
