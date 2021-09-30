@@ -434,9 +434,13 @@ void DisplayModule::showRotate(Monitor *mon)
     connect(dialog, &RotateDialog::requestRotateAll, m_displayWorker, &DisplayWorker::setMonitorRotateAll);
     connect(m_displayWorker, &DisplayWorker::endRotate,dialog, &RotateDialog::onEndRotate);
 
+    quint16 primaryRotate = 0;
     QMap<Monitor *, quint16> mMonitorRotate;
     for (auto m : m_displayModel->monitorList()) {
         mMonitorRotate.insert(m, m->rotate());
+        if (m->isPrimary()) {
+            primaryRotate = m->rotate();
+        }
     }
 
     qApp->setOverrideCursor(Qt::SizeAllCursor);
@@ -449,12 +453,16 @@ void DisplayModule::showRotate(Monitor *mon)
             m_displayWorker->saveChanges();
         }
     } else {
-        for (auto m : m_displayModel->monitorList()) {
-            if (mMonitorRotate.end() == mMonitorRotate.find(m))
-                continue;
+        if (m_displayModel->isMerge()) {
+            m_displayWorker->setMonitorRotateAll(primaryRotate);
+        } else {
+            for (auto m : m_displayModel->monitorList()) {
+                if (mMonitorRotate.end() == mMonitorRotate.find(m))
+                    continue;
 
-            if (m->rotate() != mMonitorRotate[m]) {
-                m_displayWorker->setMonitorRotate(m, mMonitorRotate[m]);
+                if (m->rotate() != mMonitorRotate[m]) {
+                    m_displayWorker->setMonitorRotate(m, mMonitorRotate[m]);
+                }
             }
         }
     }
