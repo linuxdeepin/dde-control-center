@@ -66,6 +66,7 @@ private Q_SLOTS:
 
 Q_SIGNALS:
     void requestUpdateSecondMenu(int);
+    void requestSearchMenuAll();
     void requestUpdateSearchMenu(const QString &, bool);
     void requestDataChanged();
 

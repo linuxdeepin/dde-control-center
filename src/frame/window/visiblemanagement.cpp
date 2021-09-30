@@ -144,8 +144,10 @@ void VisibleManagement::initSeartchData()
 {
     QStringList moudleNames = m_Visibledata.keys();
     for (auto modulename: moudleNames) {
-        m_seartchMap.insert(modulename.split("_")[1], m_Visibledata.value(modulename));
+        QString pageName = modulename.split("_")[1];
+        m_seartchMap.insert(pageName, m_Visibledata.value(modulename));
     }
+    Q_EMIT requestSearchMenuAll();
 }
 
 void VisibleManagement::initStatus()

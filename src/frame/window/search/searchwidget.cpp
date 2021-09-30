@@ -665,6 +665,31 @@ void SearchModel::setLanguage(const QString &type)
         return loadxml();
     });
 
+    connect(VisibleManagement::instance(), &VisibleManagement::requestSearchMenuAll, this, [ = ]{
+        QMap<QString, bool> menuState = VisibleManagement::instance()->getSeartchState();
+
+        for (const QString &key : menuState.keys()) {
+            if (!menuState.value(key)) {
+                for (int j = 0; j < m_originList.size(); ++j) {
+                    QString name = m_originList[j].get()->fullPagePath.remove(QChar(' '));
+                    if (name.contains(key, Qt::CaseInsensitive)) {
+                        m_hideList.append(m_originList.takeAt(j--));
+                    }
+                }
+            } else {
+                for (int i = 0; i < m_hideList.size(); ++i) {
+                    QString name = m_hideList[i]->fullPagePath.remove(QChar(' '));
+                    QString mouduleName = key+ "/";
+                    // 当将要显示出来的是某个模块的时候，而应该不让其未显示出来的子模块被搜索到。所以加了!name.contains(mouduleName, Qt::CaseInsensitive)这个判断
+                    if (name.contains(key, Qt::CaseInsensitive) && !name.contains(mouduleName, Qt::CaseInsensitive)) {
+                        m_originList.append(m_hideList.takeAt(i--));
+                    }
+                }
+            }
+        }
+        loadxml();
+    });
+
     connect(VisibleManagement::instance(), &VisibleManagement::requestUpdateSearchMenu, this, [=](const QString &text, bool visible) {
         if (visible) {
             for (int i = 0; i < m_hideList.size(); ++i) {
