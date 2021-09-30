@@ -372,6 +372,7 @@ void MainWindow::initAllModule(const QString &m)
         updateModuleVisible();
     });
     connect(VisibleManagement::instance(), &VisibleManagement::requestDataChanged, this, &MainWindow::updateModuleVisible);
+    connect(VisibleManagement::instance(), &VisibleManagement::requestCurrentPageOff, [ = ] () { m_backwardBtn->clicked(true);});
     updateModuleVisible();
 
     //通过gsetting获取版本类型，设置某模块是否显示

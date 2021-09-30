@@ -126,6 +126,8 @@ void VisibleManagement::setStatus(QListView *viewer, QStandardItem *item, const 
 
     if (!visible) {
         Q_EMIT requestUpdateSecondMenu(item->row());
+        if (viewer->currentIndex().row() == item->row())
+            Q_EMIT requestCurrentPageOff();
     }
 }
 

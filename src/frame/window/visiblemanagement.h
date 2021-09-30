@@ -69,6 +69,7 @@ Q_SIGNALS:
     void requestSearchMenuAll();
     void requestUpdateSearchMenu(const QString &, bool);
     void requestDataChanged();
+    void requestCurrentPageOff();
 
 private:
     QHash<QString, QWidget *> m_map;
