@@ -192,7 +192,7 @@ TimeZoneChooser::TimeZoneChooser()
     });
     connect(m_searchInput, &SearchInput::returnPressed, [this] {
         QModelIndex index = m_popup->model()->index(0, 0);
-        if (index.isValid()) {
+        if (index.isValid() && m_popup->isVisible()) {
             m_searchInput->setText(index.data().toString());
             m_popup->close();
         }
