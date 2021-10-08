@@ -425,10 +425,8 @@ void NetworkPanel::updateView()
 
 QStringList NetworkPanel::ipTipsMessage(const DeviceType &devType)
 {
-    int typeCount = deviceCount(devType);
     DeviceType type = static_cast<DeviceType>(devType);
     QStringList tipMessage;
-    int deviceIndex = 1;
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     for (NetworkDeviceBase *device : devices) {
         if (device->deviceType() != type)
@@ -438,23 +436,7 @@ QStringList NetworkPanel::ipTipsMessage(const DeviceType &devType)
         if (ipv4.isEmpty())
             continue;
 
-        switch (type) {
-        case DeviceType::Wired: {
-            if (typeCount == 1)
-                tipMessage << tr("Wired connection: %1").arg(ipv4);
-            else
-                tipMessage << tr("Wired Network").append(QString("%1").arg(deviceIndex++)).append(":" + ipv4);
-            break;
-        }
-        case DeviceType::Wireless: {
-            if (typeCount == 1)
-                tipMessage << tr("Wireless connection: %1").arg(ipv4);
-            else
-                tipMessage << tr("Wireless Network").append(QString("%1").arg(deviceIndex++)).append(":" + ipv4);
-            break;
-        }
-        default: break;
-        }
+        tipMessage << QString("%1: %2").arg(device->deviceName()).arg(ipv4);
     }
 
     return tipMessage;

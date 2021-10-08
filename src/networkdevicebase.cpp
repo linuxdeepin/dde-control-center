@@ -40,24 +40,22 @@ bool NetworkDeviceBase::IPValid()
 
 QString NetworkDeviceBase::ipv4() const
 {
-    // 返回IPv4地址
-    if (m_activeInfoData.contains("Ip4")) {
-        QJsonObject objIpv4 = m_activeInfoData["Ip4"].toObject();
-        return objIpv4.value("Address").toString();
-    }
+    if (!isEnabled() || !m_activeInfoData.contains("Ip4"))
+        return QString();
 
-    return QString();
+    // 返回IPv4地址
+    QJsonObject objIpv4 = m_activeInfoData["Ip4"].toObject();
+    return objIpv4.value("Address").toString();
 }
 
 QString NetworkDeviceBase::ipv6() const
 {
-    // 返回IPv6地址
-    if (m_activeInfoData.contains("Ip6")) {
-        QJsonObject objIpv4 = m_activeInfoData["Ip6"].toObject();
-        return objIpv4.value("Address").toString();
-    }
+    if (!isEnabled() || !m_activeInfoData.contains("Ip6"))
+        return QString();
 
-    return QString();
+    // 返回IPv6地址
+    QJsonObject objIpv4 = m_activeInfoData["Ip6"].toObject();
+    return objIpv4.value("Address").toString();
 }
 
 QJsonObject NetworkDeviceBase::activeConnectionInfo() const
