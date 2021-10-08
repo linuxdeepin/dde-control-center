@@ -72,7 +72,7 @@ void MultiScreenSettingPage::setModel(dcc::display::DisplayModel *model)
 
 void MultiScreenSettingPage::onItemClicked(const QModelIndex &index)
 {
-    if (index.row() == m_modeList->currentIndex().row()) return;
+    if (index.row() == m_currIdx.row()) return;
 
     switch (index.row()) {
     case 0:
