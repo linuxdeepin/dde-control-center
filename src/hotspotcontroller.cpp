@@ -257,6 +257,15 @@ void HotspotController::updateDevices(const QList<NetworkDeviceBase *> &devices)
 
         m_devices << static_cast<WirelessDevice *>(device);
     }
+
+    // 移除不在列表中的热点的数据，防止数据更新不及时访问了野指针
+    for (HotspotItem *item : m_hotspotItems) {
+        if (!m_devices.contains(item->device())) {
+            m_hotspotItems.removeOne(item);
+            delete item;
+        }
+    }
+
     bool hotspotEnabled = (m_devices.size() > 0);
     if ((tmpDevices.size() > 0) != hotspotEnabled)
         Q_EMIT enabledChanged(hotspotEnabled);

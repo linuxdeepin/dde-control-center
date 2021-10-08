@@ -202,10 +202,12 @@ void HotspotDeviceWidget::onDeviceRemoved()
 void HotspotDeviceWidget::onSwitchToggled(const bool checked)
 {
     m_hotspotSwitch->setEnabled(false);
-    if (checked)
+    if (checked) {
         openHotspot();
-    else
+    } else {
         closeHotspot();
+        Q_EMIT requestCloseHotspot(m_wdev);
+    }
 }
 
 void HotspotDeviceWidget::onConnWidgetSelected(const QModelIndex &idx)
@@ -321,6 +323,9 @@ void HotspotPage::onDeviceAdded(const QList<WirelessDevice *> &devices)
         HotspotDeviceWidget *deviceWidget = new HotspotDeviceWidget(device, this);
         deviceWidget->updateCreateButtonStatus(showCreateButton);
         deviceWidget->setPage(this);
+
+        connect(deviceWidget, &HotspotDeviceWidget::requestCloseHotspot, this, &HotspotPage::requestCloseHotspot);
+
         m_listdevw.append(deviceWidget);
     }
 

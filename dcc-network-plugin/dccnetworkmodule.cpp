@@ -216,34 +216,34 @@ void DCCNetworkModule::showWirelessEditPage(NetworkDeviceBase *dev, const QStrin
 
 void DCCNetworkModule::showPppPage(const QString &searchPath)
 {
-    PppoePage *p = new PppoePage;
-    p->setVisible(false);
-    connect(p, &PppoePage::requestNextPage, [ = ](ContentWidget * const w) {
+    PppoePage *pppoe = new PppoePage;
+    pppoe->setVisible(false);
+    connect(pppoe, &PppoePage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, FrameProxyInterface::PushType::CoverTop);
     });
-    connect(p, &PppoePage::requestFrameKeepAutoHide, [ = ] (const bool autoHide) {
+    connect(pppoe, &PppoePage::requestFrameKeepAutoHide, [ = ] (const bool autoHide) {
         Q_UNUSED(autoHide);
     });
 
-    m_frameProxy->pushWidget(this, p);
-    p->setVisible(true);
-    p->jumpPath(searchPath);
+    m_frameProxy->pushWidget(this, pppoe);
+    pppoe->setVisible(true);
+    pppoe->jumpPath(searchPath);
 }
 
 void DCCNetworkModule::showVPNPage(const QString &searchPath)
 {
-    VpnPage *p = new VpnPage;
-    p->setVisible(false);
-    connect(p, &VpnPage::requestNextPage, [ = ](ContentWidget * const w) {
+    VpnPage *vpn = new VpnPage;
+    vpn->setVisible(false);
+    connect(vpn, &VpnPage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
-    connect(p, &VpnPage::requestFrameKeepAutoHide, [ = ] (const bool &hide) {
+    connect(vpn, &VpnPage::requestFrameKeepAutoHide, [ = ] (const bool &hide) {
         Q_UNUSED(hide);
     });
 
-    m_frameProxy->pushWidget(this, p);
-    p->setVisible(true);
-    p->jumpPath(searchPath);
+    m_frameProxy->pushWidget(this, vpn);
+    vpn->setVisible(true);
+    vpn->jumpPath(searchPath);
 }
 
 void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QString &searchPath)
@@ -292,28 +292,31 @@ void DCCNetworkModule::showChainsProxyPage()
 
 void DCCNetworkModule::showProxyPage()
 {
-    ProxyPage *p = new ProxyPage;
-    p->setVisible(false);
+    ProxyPage *proxy = new ProxyPage;
+    proxy->setVisible(false);
 
-    m_frameProxy->pushWidget(this, p);
-    p->setVisible(true);
+    m_frameProxy->pushWidget(this, proxy);
+    proxy->setVisible(true);
 }
 
 void DCCNetworkModule::showHotspotPage()
 {
-    HotspotPage *p = new HotspotPage();
-    connect(p, &HotspotPage::requestNextPage, [ = ](ContentWidget * const w) {
+    HotspotPage *hotspot = new HotspotPage();
+    connect(hotspot, &HotspotPage::requestNextPage, [ = ] (ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
+    connect(hotspot, &HotspotPage::requestCloseHotspot, [ = ] {
+        m_indexWidget->setCloseHotspotFromHotspotPage();
+    });
 
-    m_frameProxy->pushWidget(this, p);
+    m_frameProxy->pushWidget(this, hotspot);
 }
 
 void DCCNetworkModule::showDetailPage()
 {
-    NetworkDetailPage *p = new NetworkDetailPage;
-    p->setVisible(false);
+    NetworkDetailPage *detailPage = new NetworkDetailPage;
+    detailPage->setVisible(false);
 
-    m_frameProxy->pushWidget(this, p);
-    p->setVisible(true);
+    m_frameProxy->pushWidget(this, detailPage);
+    detailPage->setVisible(true);
 }

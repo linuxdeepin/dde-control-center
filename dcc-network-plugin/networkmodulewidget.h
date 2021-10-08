@@ -86,6 +86,7 @@ public:
     int gotoSetting(const QString &path);
     void setIndexFromPath(const QString &path);
     void setLastDevicePath(const QString &path);
+    void setCloseHotspotFromHotspotPage();
 
 Q_SIGNALS:
     void requestShowVpnPage(const QString &path = "") const;
@@ -120,6 +121,7 @@ private:
     bool m_isFirstEnter;
     QString m_lastDevicePath;
     bool m_switchIndex;
+    bool m_closeHotspotFromPage;
 };
 
 Q_DECLARE_METATYPE(PageType)
