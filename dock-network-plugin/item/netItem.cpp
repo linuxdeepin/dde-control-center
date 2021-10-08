@@ -338,6 +338,7 @@ WiredConnection *WiredItem::connection()
 void WiredItem::updateView()
 {
     m_connectionItem->setVisible(m_connection->connected());
+    standardItem()->setText(m_connection->connection()->id());
     if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
         if (m_connection->connected())
             m_connIconAction->setIcon(QIcon(":/wired/resources/wired/network-wired-symbolic-dark.svg"));
