@@ -1,26 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
 <context>
-    <name>BatteryHealthPlugin</name>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthplugin.cpp" line="64"/>
-        <source>BatteryHealth</source>
-        <translation>BatteryHealth</translation>
-    </message>
-</context>
-<context>
-    <name>BatteryHealthwidget</name>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="50"/>
-        <source>Optimize battery charging</source>
-        <translation>Оптимізація заряджання акумулятора</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="57"/>
-        <source>In order to slow down battery aging, optimize battery charging</source>
-        <translation>Щоб уповільнити деградацію акумулятора, оптимізуйте його заряджання</translation>
-    </message>
-</context>
-<context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
@@ -50,33 +29,33 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
+        <source>Authentication</source>
+        <translation>Розпізнавання</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Accounts</source>
         <translation>Облікові записи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Display</source>
         <translation>Дисплей</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Touch Screen</source>
         <translation>Сенсорний екран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Default Applications</source>
         <translation>Типові програми</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Personalization</source>
         <translation>Персоналізація</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
-        <source>Network</source>
-        <translation>Мережа</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
@@ -159,28 +138,10 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AccounntFingeItem</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
-        <source>No more than 15 characters</source>
-        <translation>Не більше 15 символів</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання. Довжина назви не повинна перевищувати 15 символів.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="149"/>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::accounts::AccountSpinBox</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="79"/>
         <source>Always</source>
         <translation>Завжди</translation>
     </message>
@@ -188,68 +149,84 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="224"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="350"/>
         <source>Full Name</source>
         <translation>Повне ім&apos;я</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="272"/>
         <source>The full name is too long</source>
         <translation>Ім&apos;я повністю є надто довгим</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="303"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="307"/>
         <source>The username already exists</source>
         <translation>Таке ім&apos;я користувача вже існує</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="410"/>
         <source>Validity Days</source>
         <translation>Дні чинності</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="442"/>
+        <source>Account Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
         <source>Change Password</source>
         <translation>Змінити пароль</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
         <source>Delete Account</source>
         <translation>Видалити Обліковий запис</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="461"/>
         <source>Auto Login</source>
         <translation>Автоматичний вхід</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
         <source>Login Without Password</source>
         <translation>Входити в Систему без введення Паролю</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="489"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
+        <source>Administrator</source>
+        <translation>Адміністратор</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="499"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>Автоматичний вхід до системи може бути увімкнено лише для одного облікового запису. Якщо ви продовжите виконання дії, автоматичний вхід для інших облікових записів буде вимкнено.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="501"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="492"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="502"/>
         <source>Enable</source>
         <translation>Увімкнути</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="630"/>
         <source>Group</source>
         <translation>Група</translation>
     </message>
@@ -257,7 +234,7 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="76"/>
         <source>Accounts</source>
         <translation>Облікові записи</translation>
     </message>
@@ -285,36 +262,6 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AddFingeDialog</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="131"/>
-        <source>Done</source>
-        <translation>Готово</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
-        <source>Scan Again</source>
-        <translation>Повторити сканування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
-        <source>Scan Suspended</source>
-        <translation>Сканування призупинено</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="103"/>
@@ -331,7 +278,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
@@ -372,178 +319,266 @@
         <translation>Повторіть Пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
+        <source>Password Hint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="488"/>
         <source>The full name is too long</source>
         <translation>Ім&apos;я повністю є надто довгим</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
         <source>Standard User</source>
         <translation>Стандартний користувач</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="291"/>
         <source>Administrator</source>
         <translation>Адміністратор</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Customized</source>
         <translation>Нетиповий</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="278"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
         <source>optional</source>
         <translation>необов&apos;язковий</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <source>The hint is visible to all users. Do not include the password here.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="421"/>
         <source>Policykit authentication failed</source>
         <translation>Не пройдено розпізнавання до Policykit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Ім&apos;я користувача має містити 3-32 символи</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="447"/>
         <source>The first character must be a letter or number</source>
         <translation>Перший символ має бути літерою або цифрою</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="453"/>
         <source>Your username should not only have numbers</source>
         <translation>Ім&apos;я користувача не може складатися лише з цифр</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="498"/>
         <source>The username already exists</source>
         <translation>Таке ім&apos;я користувача вже існує</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="465"/>
-        <source>The name already exists</source>
-        <translation>Таке ім&apos;я вже існує</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
         <source>Passwords do not match</source>
         <translation>Паролі не збігаються</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
         <source>Go to Settings</source>
         <translation>Перейти до параметрів</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::FingerWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="93"/>
-        <source>Edit</source>
-        <translation>Редагувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="51"/>
-        <source>Fingerprint Password</source>
-        <translation>Пароль відбитку пальців</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="52"/>
-        <source>You can add up to 10 fingerprints</source>
-        <translation>Ви можете додати до 10 відбитків</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="89"/>
-        <source>Done</source>
-        <translation>Готово</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="150"/>
-        <source>The name already exists</source>
-        <translation>Таке ім&apos;я вже існує</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="196"/>
-        <source>Add Fingerprint</source>
-        <translation>Додати відбиток пальця</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
         <source>Change Password</source>
         <translation>Змінити пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Current Password</source>
         <translation>Поточний пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
         <source>New Password</source>
         <translation>Новий Пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="89"/>
         <source>Repeat Password</source>
         <translation>Повторіть Пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="93"/>
+        <source>Password Hint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="247"/>
         <source>Cancel</source>
         <translation>Скасувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="132"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="134"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
+        <source>Optional</source>
+        <translation>Необов&apos;язкове</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Password cannot be empty</source>
         <translation>Поле пароля не може бути порожнім</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
+        <source>The hint is visible to all users. Do not include the password here.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
         <source>Wrong password</source>
         <translation>Невірний пароль</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="216"/>
         <source>New password should differ from the current one</source>
         <translation>Новий пароль повинен відрізнятися від попереднього</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
         <source>Passwords do not match</source>
         <translation>Паролі не збігаються</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="246"/>
         <source>Go to Settings</source>
         <translation>Перейти до параметрів</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="143"/>
+        <source>No more than 15 characters</source>
+        <translation>Не більше 15 символів</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="143"/>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання. Довжина назви не повинна перевищувати 15 символів.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="148"/>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::AddFingeDialog</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="86"/>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="132"/>
+        <source>Done</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="204"/>
+        <source>Scan Again</source>
+        <translation>Повторити сканування</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="202"/>
+        <source>Scan Suspended</source>
+        <translation>Сканування призупинено</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerDetailWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
+        <source>No supported devices found</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="92"/>
+        <source>Edit</source>
+        <translation>Редагувати</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="50"/>
+        <source>Fingerprint Password</source>
+        <translation>Пароль відбитку пальців</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="51"/>
+        <source>You can add up to 10 fingerprints</source>
+        <translation>Ви можете додати до 10 відбитків</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="88"/>
+        <source>Done</source>
+        <translation>Готово</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="150"/>
+        <source>The name already exists</source>
+        <translation>Таке ім&apos;я вже існує</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="196"/>
+        <source>Add Fingerprint</source>
+        <translation>Додати відбиток пальця</translation>
     </message>
 </context>
 <context>
@@ -933,42 +968,42 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="222"/>
         <source>Confirm</source>
         <translation>Підтвердити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="139"/>
         <source>Server</source>
         <translation>Сервер</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="147"/>
         <source>Address</source>
         <translation>Адреса</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
         <source>Required</source>
         <translation>Вимагається</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="304"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="350"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="358"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="413"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="471"/>
         <source>Customize</source>
         <translation>Налаштувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="222"/>
         <source>Save</source>
         <translation>Зберегти</translation>
     </message>
@@ -1374,17 +1409,17 @@
         <translation>Головний екран</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="285"/>
         <source>Duplicate</source>
         <translation>Дублювати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="286"/>
         <source>Extend</source>
         <translation>Розширити</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="291"/>
         <source>Only on %1</source>
         <translation>Лише на %1</translation>
     </message>
@@ -1411,12 +1446,34 @@
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="116"/>
         <source>Resolution</source>
         <translation>Роздільність</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="118"/>
+        <source>Resize Desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="217"/>
+        <source>Fit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="231"/>
+        <source>Stretch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="245"/>
+        <source>Center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="372"/>
         <source>Recommended</source>
         <translation>Рекомендовано</translation>
     </message>
@@ -1465,7 +1522,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="116"/>
         <source>Brightness</source>
         <translation>Яскравість</translation>
     </message>
@@ -1572,12 +1629,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="168"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="159"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
@@ -1645,17 +1702,17 @@
         <translation>Допоміжні інструменти</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="99"/>
         <source>Custom Shortcut</source>
         <translation>Користувацькі Ярлики</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="132"/>
         <source>Restore Defaults</source>
         <translation>Відновити за замовчуванням</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="171"/>
         <source>Shortcut</source>
         <translation>Ярлик</translation>
     </message>
@@ -1689,12 +1746,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="150"/>
         <source>Edit</source>
         <translation>Редагувати</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="130"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
@@ -1878,2132 +1935,6 @@
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="42"/>
         <source>Fast</source>
         <translation>Швидко</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsProxyPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
-        <source>Application Proxy</source>
-        <translation>Проксі Програма</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
-        <source>Proxy Type</source>
-        <translation>Тип проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
-        <source>IP Address</source>
-        <translation>IP-адреса</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="65"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
-        <source>Port</source>
-        <translation>Порт</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="69"/>
-        <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="75"/>
-        <source>Optional</source>
-        <translation>Необов&apos;язково</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="74"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
-        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Позначте пункт «Використовувати проксі» у контекстному меню програми у Launcher після налаштовування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="103"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="104"/>
-        <source>Save</source>
-        <translation>Зберегти</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="204"/>
-        <source>Invalid IP address</source>
-        <translation>Некоректна IP-адреса</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
-        <source>Invalid port</source>
-        <translation>Некоректний порт</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsTypePage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
-        <source>Proxy Type</source>
-        <translation>Тип проксі</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionEditPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="105"/>
-        <source>Disconnect</source>
-        <translation>Від’єднано</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="231"/>
-        <source>Delete</source>
-        <translation>Видалити</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="113"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="230"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="114"/>
-        <source>Save</source>
-        <translation>Зберегти</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="227"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="228"/>
-        <source>Are you sure you want to delete this configuration?</source>
-        <translation>Ви впевнені, що хочете видалити цю конфігурацію?</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="410"/>
-        <source>Wired Connection %1</source>
-        <translation>Дротове з&apos;єднання %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="415"/>
-        <source>hotspot</source>
-        <translation>точк доступу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="417"/>
-        <source>Wireless Connection %1</source>
-        <translation>Бездротове з&apos;єднання %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="423"/>
-        <source>PPPoE Connection %1</source>
-        <translation>З&apos;єднання PPPoE %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionVpnEditPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="137"/>
-        <source>New VPN</source>
-        <translation>Новий VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="141"/>
-        <source>VPN Type</source>
-        <translation>Тип VPN </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="146"/>
-        <source>L2TP</source>
-        <translation>L2TP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="147"/>
-        <source>PPTP</source>
-        <translation>PPTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="148"/>
-        <source>OpenVPN</source>
-        <translation>OpenVPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="149"/>
-        <source>OpenConnect</source>
-        <translation>OpenConnect</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="150"/>
-        <source>StrongSwan</source>
-        <translation>StrongSwan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="151"/>
-        <source>VPNC</source>
-        <translation>VPNC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="225"/>
-        <source>Export</source>
-        <translation>Експортувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="242"/>
-        <source>VPN L2TP %1</source>
-        <translation>VPN L2TP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="246"/>
-        <source>VPN PPTP %1</source>
-        <translation>VPN PPTP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="250"/>
-        <source>VPN VPNC %1</source>
-        <translation>VPN VPNC %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="254"/>
-        <source>VPN OpenVPN %1</source>
-        <translation>VPN OpenVPN %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="258"/>
-        <source>VPN StrongSwan %1</source>
-        <translation>VPN StrongSwan %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="262"/>
-        <source>VPN OpenConnect %1</source>
-        <translation>VPN OpenConnect %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::DNSSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="58"/>
-        <source>DNS</source>
-        <translation>DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="212"/>
-        <source>Invalid DNS address</source>
-        <translation>Некоректна адреса DNS</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::EthernetSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="38"/>
-        <source>Ethernet</source>
-        <translation>Ethernet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="62"/>
-        <source>Not Bind</source>
-        <translation>Не прив&apos;язано</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="123"/>
-        <source>Device MAC Addr</source>
-        <translation>Пристрій MAC Addr</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="151"/>
-        <source>Cloned MAC Addr</source>
-        <translation>Адреса клонованого MAC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="164"/>
-        <source>Customize MTU</source>
-        <translation>Налаштувати MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="167"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericHotspotSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
-        <source>General</source>
-        <translation>Загальне</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
-        <source>Name</source>
-        <translation>Назва</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="34"/>
-        <source>General</source>
-        <translation>Загальне</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="77"/>
-        <source>The name already exists</source>
-        <translation>Таке ім&apos;я вже існує</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="108"/>
-        <source>Name</source>
-        <translation>Назва</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="111"/>
-        <source>Auto Connect</source>
-        <translation>Автоматичне з&apos;єднання</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotDeviceWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="71"/>
-        <source>Hotspot</source>
-        <translation>Точка доступу</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="74"/>
-        <source>Add Settings</source>
-        <translation>Додати параметри</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="278"/>
-        <source>Create Hotspot</source>
-        <translation>Створіть точку доступу</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::IpvxSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="42"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="60"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
-        <source>Auto</source>
-        <translation>Автоматично</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="222"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
-        <source>Manual</source>
-        <translation>Інструкція</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="228"/>
-        <source>Ignore</source>
-        <translation>Ігнорувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="235"/>
-        <source>IP Address</source>
-        <translation>IP-адреса</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="236"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="296"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="237"/>
-        <source>Gateway</source>
-        <translation>Шлюз</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="238"/>
-        <source>Only applied in corresponding resources</source>
-        <translation>Використовується тільки у відповідних ресурсах</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
-        <source>Method</source>
-        <translation>Метод</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="295"/>
-        <source>Netmask</source>
-        <translation>Маска мережі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
-        <source>Prefix</source>
-        <translation>Префікс</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="430"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="495"/>
-        <source>Invalid IP address</source>
-        <translation>Некоректна IP-адреса</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="442"/>
-        <source>Invalid netmask</source>
-        <translation>Некоректна маска мережі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="451"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="511"/>
-        <source>Invalid gateway</source>
-        <translation>Некоректний шлюз</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
-        <source>Network</source>
-        <translation>Мережа</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
-        <source>IP conflict</source>
-        <translation>Конфлікт IP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkDetailPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="100"/>
-        <source>Network Details</source>
-        <translation>Деталі Мережі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="165"/>
-        <source>Hotspot</source>
-        <translation>Точка доступу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="169"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="180"/>
-        <source>Protocol</source>
-        <translation>Протокол</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="200"/>
-        <source>Security Type</source>
-        <translation>Тип захисту</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="213"/>
-        <source>Band</source>
-        <translation>Група</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="194"/>
-        <source>Channel</source>
-        <translation>Канал</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="205"/>
-        <source>Interface</source>
-        <translation>Інтерфейс</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="209"/>
-        <source>MAC</source>
-        <translation>МАС</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="221"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="239"/>
-        <source>Gateway</source>
-        <translation>Шлюз</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="229"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="244"/>
-        <source>Primary DNS</source>
-        <translation>Первинний DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="233"/>
-        <source>Netmask</source>
-        <translation>Маска мережі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="238"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="248"/>
-        <source>Prefix</source>
-        <translation>Префікс</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="253"/>
-        <source>Speed</source>
-        <translation>Швидкість</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModule</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="171"/>
-        <source>Wired Network</source>
-        <translation>Провідна мережа</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="172"/>
-        <source>Wireless Network</source>
-        <translation>Бездротова мережа</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="173"/>
-        <source>Personal Hotspot</source>
-        <translation>Особиста точка доступу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="289"/>
-        <source>Network</source>
-        <translation>Мережа</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModuleWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="75"/>
-        <source>DSL</source>
-        <translation>DSL</translation>
-        <extra-contents_path>/network/DSL</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="84"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
-        <source>System Proxy</source>
-        <translation>Системний проксі-сервер</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="100"/>
-        <source>Application Proxy</source>
-        <translation>Проксі Програма</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="109"/>
-        <source>Network Details</source>
-        <translation>Деталі Мережі</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="211"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="500"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="507"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="517"/>
-        <source>Disabled</source>
-        <translation>Вимкнено</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="207"/>
-        <source>Manual</source>
-        <translation>Інструкція</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="209"/>
-        <source>Auto</source>
-        <translation>Автоматично</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="222"/>
-        <source>Configure by Network Manager</source>
-        <translation>Налаштування за допомогою Менеджера мережі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="447"/>
-        <source>Personal Hotspot</source>
-        <translation>Особиста точка доступу</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="474"/>
-        <source>Wired Network %1</source>
-        <translation>Дротова мережа %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="477"/>
-        <source>Wired Network</source>
-        <translation>Провідна мережа</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="481"/>
-        <source>Wireless Network %1</source>
-        <translation>Бездротова мережа %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="484"/>
-        <source>Wireless Network</source>
-        <translation>Бездротова мережа</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="533"/>
-        <source>Disconnected</source>
-        <translation>Від’єднано</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPOESection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="31"/>
-        <source>PPPoE</source>
-        <translation>PPPoE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="84"/>
-        <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="92"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="88"/>
-        <source>Service</source>
-        <translation>Служба</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="91"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="31"/>
-        <source>PPP</source>
-        <translation>Протокол PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="86"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>Відмовитися від аутентифікації EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="87"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>Відмовити у PAP Автентифікації</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="88"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>Відмовитися від CHAP-аутентифікації</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="89"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>Відмовитись від MSCHAP-аутентифікації</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="90"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Відхилити автентифікацію MSCHAPv2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="91"/>
-        <source>No BSD Data Compression</source>
-        <translation>Немає стиснення даних BSD</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="92"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Стиснення даних під час завантаження не здійснюється</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="93"/>
-        <source>No TCP Header Compression</source>
-        <translation>Без стискання заголовків TCP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="94"/>
-        <source>No Protocol Field Compression</source>
-        <translation>Немає стиснення полів протоколу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="95"/>
-        <source>No Address/Control Compression</source>
-        <translation>Без адреси/Стискання керування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="96"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>Надіслати луна-пакети PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="105"/>
-        <source>Use MPPE</source>
-        <translation>Використати MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="108"/>
-        <source>128-bit MPPE</source>
-        <translation>128-бітне MPPE-шифрування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="111"/>
-        <source>Stateful MPPE</source>
-        <translation>MPPE з контролем стану підключень</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PppoePage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="82"/>
-        <source>Create PPPoE Connection</source>
-        <translation>Створити PPPoE з&apos;єднання</translation>
-        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="80"/>
-        <source>PPP</source>
-        <translation>Протокол PPP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ProxyPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="64"/>
-        <source>Cancel</source>
-        <translation>Скасувати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="65"/>
-        <source>Save</source>
-        <translation>Зберегти</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="71"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="167"/>
-        <source>System Proxy</source>
-        <translation>Системний проксі-сервер</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="72"/>
-        <source>Proxy Type</source>
-        <translation>Тип проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
-        <source>Manual</source>
-        <translation>Інструкція</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
-        <source>Auto</source>
-        <translation>Автоматично</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="127"/>
-        <source>Optional</source>
-        <translation>Необов&apos;язково</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
-        <source>Port</source>
-        <translation>Порт</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="103"/>
-        <source>HTTP Proxy</source>
-        <translation>HTTP-проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
-        <source>HTTPS Proxy</source>
-        <translation>HTTPS-проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>FTP Proxy</source>
-        <translation>FTP-проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="112"/>
-        <source>SOCKS Proxy</source>
-        <translation>SOCKS-проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="122"/>
-        <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Ігнорувати конфігурації проксі для зазначених вище вузлів і доменів</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="128"/>
-        <source>Configuration URL</source>
-        <translation>Конфігурація URL</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::Secret8021xSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="35"/>
-        <source>Security</source>
-        <translation>Безпека</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
-        <source>TLS</source>
-        <translation>TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
-        <source>MD5</source>
-        <translation>MD5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
-        <source>LEAP</source>
-        <translation>ІНТЕРВАЛ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
-        <source>FAST</source>
-        <translation>ШВИДКО</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
-        <source>Tunneled TLS</source>
-        <translation>Тунельований TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="169"/>
-        <source>Protected EAP</source>
-        <translation>Захищений EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
-        <source>Save password for this user</source>
-        <translation>Зберегти пароль для цього користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
-        <source>Save password for all users</source>
-        <translation>Зберігати паролі для усіх користувачів</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
-        <source>Ask me always</source>
-        <translation>Завжди питати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="180"/>
-        <source>Disabled</source>
-        <translation>Вимкнено</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="181"/>
-        <source>Anonymous</source>
-        <translation>Анонімно</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="182"/>
-        <source>Authenticated</source>
-        <translation>Ідентифіковано</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="183"/>
-        <source>Both</source>
-        <translation>Обидва</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="199"/>
-        <source>Automatic</source>
-        <translation>Автоматично</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="200"/>
-        <source>Version 0</source>
-        <translation>Версія 0</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="201"/>
-        <source>Version 1</source>
-        <translation>Версія 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="213"/>
-        <source>EAP Auth</source>
-        <translation>EAP-аутентифікація</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="237"/>
-        <source>Identity</source>
-        <translation>Ідентичність</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="253"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="241"/>
-        <source>Pwd Options</source>
-        <translation>Параметри pwd</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="354"/>
-        <source>Private Key</source>
-        <translation>Закритий ключ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="359"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="447"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="483"/>
-        <source>CA Cert</source>
-        <translation>Сертифікат CA</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="364"/>
-        <source>User Cert</source>
-        <translation>Сертифікат користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="391"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="442"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="478"/>
-        <source>Anonymous ID</source>
-        <translation>Анонімний ідентифікатор</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="396"/>
-        <source>Provisioning</source>
-        <translation>Підготовка</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="408"/>
-        <source>PAC file</source>
-        <translation>PAC-файл</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="413"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="499"/>
-        <source>Inner Auth</source>
-        <translation>Внутрішня аутентифікація</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="488"/>
-        <source>PEAP Version</source>
-        <translation>PEAP-версія</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="587"/>
-        <source>Private Pwd</source>
-        <translation>Приватний пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="589"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretHotspotSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
-        <source>Invalid password</source>
-        <translation>Некоректний пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
-        <source>None</source>
-        <translation>Нічого</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
-        <source>WEP</source>
-        <translation>WEP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="116"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>Режим WPA/WPA2 Personal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="123"/>
-        <source>Security</source>
-        <translation>Безпека</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="129"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="160"/>
-        <source>Key</source>
-        <translation>Клавіша</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="166"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWiredSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="35"/>
-        <source>Security Required</source>
-        <translation>Необхідний рівень безпеки</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWirelessSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
-        <source>Invalid password</source>
-        <translation>Некоректний пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
-        <source>None</source>
-        <translation>Нічого</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
-        <source>WEP</source>
-        <translation>WEP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>Режим WPA/WPA2 Personal</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation>Підприємство WPA/WPA2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="165"/>
-        <source>Shared key</source>
-        <translation>Спільний ключ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="166"/>
-        <source>Open system</source>
-        <translation>Відкрита система</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
-        <source>Security</source>
-        <translation>Безпека</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="182"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="193"/>
-        <source>Authentication</source>
-        <translation>Розпізнавання</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="278"/>
-        <source>Key</source>
-        <translation>Клавіша</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="291"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="33"/>
-        <source>VPN Advanced</source>
-        <translation>VPN Прогресивний</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="130"/>
-        <source>Customize Gateway Port</source>
-        <translation>Налаштувати порт шлюзу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="133"/>
-        <source>Gateway Port</source>
-        <translation>Порт Входу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="139"/>
-        <source>Customize Renegotiation Interval</source>
-        <translation>Налаштувати інтервал перегляду</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="142"/>
-        <source>Renegotiation Interval</source>
-        <translation>Інтервал повторного узгодження</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="148"/>
-        <source>Use LZO Data Compression</source>
-        <translation>Використати стиснення файлів LZO</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="151"/>
-        <source>Use TCP Connection</source>
-        <translation>Використайте зв‘язок TCP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="154"/>
-        <source>Use TAP Device</source>
-        <translation>Використати пристрій TAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="157"/>
-        <source>Customize Tunnel MTU</source>
-        <translation>Налаштувати тонель MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="160"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="166"/>
-        <source>Customize UDP Fragment Size</source>
-        <translation>Налаштувати розмір фрагменту UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="169"/>
-        <source>UDP Fragment Size</source>
-        <translation>Розмір фрагменту UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="175"/>
-        <source>Restrict Tunnel TCP MSS</source>
-        <translation>Обмежити Tunnel TCP MSS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="178"/>
-        <source>Randomize Remote Hosts</source>
-        <translation>Розмістити у випадковому порядку віддалені хости</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvVPNCSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
-        <source>VPN Advanced</source>
-        <translation>VPN Прогресивний</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
-        <source>Cisco (default)</source>
-        <translation>Cisco (за замовчуванням)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
-        <source>Netscreen</source>
-        <translation>Мережевий екран</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
-        <source>Secure (default)</source>
-        <translation>Безпечний (за замовчуванням)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
-        <source>Weak</source>
-        <translation>Слабкий</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
-        <source>None</source>
-        <translation>Нічого</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
-        <source>NAT-T When Available (default)</source>
-        <translation>NAT-T, коли доступно (за замовчуванням)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
-        <source>NAT-T Always</source>
-        <translation>Завжди NAT-T</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
-        <source>Cisco UDP</source>
-        <translation>Cisco UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="153"/>
-        <source>Disabled</source>
-        <translation>Вимкнено</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
-        <source>DH Group 1</source>
-        <translation>Обробка даних Групи 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
-        <source>DH Group 2 (default)</source>
-        <translation>DH Group 2 (типове)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
-        <source>DH Group 5</source>
-        <translation>DH група 5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
-        <source>Server (default)</source>
-        <translation>Сервер (за замовчуванням)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
-        <source>DH Group 2</source>
-        <translation>Обробка даних Групи 2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="171"/>
-        <source>Domain</source>
-        <translation>Домен</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="174"/>
-        <source>Vendor</source>
-        <translation>Розробник</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="184"/>
-        <source>Version</source>
-        <translation>Версія</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="187"/>
-        <source>Encryption</source>
-        <translation>Шифрування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="197"/>
-        <source>NAT Traversal Mode</source>
-        <translation>Обхідний режим NAT</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="207"/>
-        <source>IKE DH Group</source>
-        <translation>Група обробки даних IKE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="217"/>
-        <source>Forward Secrecy</source>
-        <translation>Розповсюдити конфіденційність</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="227"/>
-        <source>Local Port</source>
-        <translation>Локальний порт</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="232"/>
-        <source>Disable Dead Peer Detection</source>
-        <translation>Деактивувати функцію виявлення однорангових пристроїв</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnIpsecSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
-        <source>VPN IPsec</source>
-        <translation>VPN IPsec</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="82"/>
-        <source>Enable IPsec</source>
-        <translation>Увімкнути IPsec</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="85"/>
-        <source>Group Name</source>
-        <translation>Ім’я групи</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="88"/>
-        <source>Group ID</source>
-        <translation>Груповий ID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="91"/>
-        <source>Pre-Shared Key</source>
-        <translation>Спільний ключ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="94"/>
-        <source>Phase1 Algorithms</source>
-        <translation>Алгоритми Фази1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="97"/>
-        <source>Phase2 Algorithms</source>
-        <translation>Алгоритми Фази2</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenConnectSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
-        <source>Gateway</source>
-        <translation>Шлюз</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="120"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
-        <source>CA Cert</source>
-        <translation>Сертифікат CA</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
-        <source>Proxy</source>
-        <translation>Проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="109"/>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Дозволити Cisco Secure Desktop Trojan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="112"/>
-        <source>CSD Script</source>
-        <translation>Сценарій CSD</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="115"/>
-        <source>User Cert</source>
-        <translation>Сертифікат користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="119"/>
-        <source>Private Key</source>
-        <translation>Закритий ключ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="123"/>
-        <source>Use FSID for Key Passphrase</source>
-        <translation>Скористайтесь FSID для вводу ключової фрази</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
-        <source>Certificates (TLS)</source>
-        <translation>Сертифікати (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="257"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
-        <source>Certificates with Password (TLS)</source>
-        <translation>Сертифікати з паролем (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
-        <source>Static Key</source>
-        <translation>Статичний ключ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
-        <source>Saved</source>
-        <translation>Збережено</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
-        <source>Ask</source>
-        <translation>Запитати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
-        <source>Not Required</source>
-        <translation>Не вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
-        <source>Gateway</source>
-        <translation>Шлюз</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="308"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
-        <source>Auth Type</source>
-        <translation>Тип аутентифікації</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
-        <source>CA Cert</source>
-        <translation>Сертифікат CA</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="183"/>
-        <source>User Cert</source>
-        <translation>Сертифікат користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
-        <source>Private Key</source>
-        <translation>Закритий ключ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="244"/>
-        <source>Pwd Options</source>
-        <translation>Параметри pwd</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="206"/>
-        <source>Private Pwd</source>
-        <translation>Приватний пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="238"/>
-        <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="290"/>
-        <source>Customize Key Direction</source>
-        <translation>Налаштувати клавішу управління</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="294"/>
-        <source>Key Direction</source>
-        <translation>Керування клавішами</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="301"/>
-        <source>Remote IP</source>
-        <translation>Віддалений IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="307"/>
-        <source>Local IP</source>
-        <translation>Локальний IP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPPPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
-        <source>VPN PPP</source>
-        <translation>VPN PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
-        <source>All Available (default)</source>
-        <translation>Усі доступні (за замовчуванням)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
-        <source>40-bit (less secure)</source>
-        <translation>40-бітна (менш безпечна)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
-        <source>128-bit (most secure)</source>
-        <translation>128-біт (найбезпечніший)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>Відмовитися від аутентифікації EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>Відмовити у PAP Автентифікації</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>Відмовитися від CHAP-аутентифікації</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>Відмовитись від MSCHAP-аутентифікації</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Відхилити автентифікацію MSCHAPv2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
-        <source>No BSD Data Compression</source>
-        <translation>Немає стиснення даних BSD</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Стиснення даних під час завантаження не здійснюється</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
-        <source>No TCP Header Compression</source>
-        <translation>Без стискання заголовків TCP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
-        <source>No Protocol Field Compression</source>
-        <translation>Немає стиснення полів протоколу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
-        <source>No Address/Control Compression</source>
-        <translation>Без адреси/Стискання керування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>Надіслати луна-пакети PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
-        <source>Use MPPE</source>
-        <translation>Використати MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="163"/>
-        <source>Security</source>
-        <translation>Безпека</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="176"/>
-        <source>Stateful MPPE</source>
-        <translation>MPPE з контролем стану підключень</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="102"/>
-        <source>VPN Status</source>
-        <translation>Статус VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="136"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="140"/>
-        <source>Create VPN</source>
-        <translation>Створити VPN</translation>
-        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="145"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="149"/>
-        <source>Import VPN</source>
-        <translation>Імпортувати VPN</translation>
-        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="186"/>
-        <source>Import Error</source>
-        <translation>Помилка імпорту</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="187"/>
-        <source>File error</source>
-        <translation>Помилка під час роботи з файлом</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="188"/>
-        <source>OK</source>
-        <translation>Гаразд</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnProxySection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
-        <source>VPN Proxy</source>
-        <translation>VPN-проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="141"/>
-        <source>Not Required</source>
-        <translation>Не вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="142"/>
-        <source>HTTP</source>
-        <translation>HTTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
-        <source>SOCKS</source>
-        <translation>SOCKS-сервер</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="149"/>
-        <source>Proxy Type</source>
-        <translation>Тип проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
-        <source>Server IP</source>
-        <translation>IP сервера</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="174"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="178"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
-        <source>Port</source>
-        <translation>Порт</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
-        <source>Retry Indefinitely When Failed</source>
-        <translation>У разі збою повторювати спроби нескінченно</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="173"/>
-        <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="177"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSSTPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
-        <source>CA File</source>
-        <translation>Файл CA</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
-        <source>Ignore Certificate Warnings</source>
-        <translation>Ігнорувати попередження щодо сертифікатів</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="86"/>
-        <source>Use TLS Hostname Extensions</source>
-        <translation>Розширення назв вузлів TLS</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSecOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
-        <source>VPN Security</source>
-        <translation>Безпека VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
-        <source>Default</source>
-        <translation>Типово</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="98"/>
-        <source>None</source>
-        <translation>Нічого</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="112"/>
-        <source>Cipher</source>
-        <translation>Шифр</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="124"/>
-        <source>HMAC Auth</source>
-        <translation>HMAC Auth</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="109"/>
-        <source>Saved</source>
-        <translation>Збережено</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="110"/>
-        <source>Ask</source>
-        <translation>Запитати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="111"/>
-        <source>Not Required</source>
-        <translation>Не вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="117"/>
-        <source>Gateway</source>
-        <translation>Шлюз</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="139"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="121"/>
-        <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="125"/>
-        <source>Pwd Options</source>
-        <translation>Параметри pwd</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="138"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="142"/>
-        <source>NT Domain</source>
-        <translation>Домен NT</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSstpProxySection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
-        <source>VPN Proxy</source>
-        <translation>VPN-проксі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="104"/>
-        <source>Server IP</source>
-        <translation>IP сервера</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="107"/>
-        <source>Port</source>
-        <translation>Порт</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="112"/>
-        <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="115"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnStrongSwanSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="173"/>
-        <source>Private Key</source>
-        <translation>Закритий ключ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
-        <source>SSH Agent</source>
-        <translation>SSH Агент</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
-        <source>Smart Card</source>
-        <translation>Смарт-картка</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
-        <source>EAP</source>
-        <translation>EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
-        <source>Pre-Shared Key</source>
-        <translation>Спільний ключ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="151"/>
-        <source>Gateway</source>
-        <translation>Шлюз</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="155"/>
-        <source>CA Cert</source>
-        <translation>Сертифікат CA</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="158"/>
-        <source>Auth Type</source>
-        <translation>Тип аутентифікації</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="170"/>
-        <source>User Cert</source>
-        <translation>Сертифікат користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="176"/>
-        <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="179"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="182"/>
-        <source>Request an Inner IP Address</source>
-        <translation>Запит внутрішньої IP-адреси</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="185"/>
-        <source>Enforce UDP Encapsulation</source>
-        <translation>Забезпечити інкапсуляцію UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="188"/>
-        <source>Use IP Compression</source>
-        <translation>Використовуйте стиснення IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="191"/>
-        <source>Enable Custom Cipher Proposals</source>
-        <translation>Увімкнути нетипові варіанти шифрування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="194"/>
-        <source>IKE</source>
-        <translation>IKE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="197"/>
-        <source>ESP</source>
-        <translation>ESP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnTLSSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
-        <source>VPN TLS Authentication</source>
-        <translation>VPN TLS Автентифікація</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="82"/>
-        <source>Default</source>
-        <translation>Типово</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
-        <source>Client</source>
-        <translation>Клієнт</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="84"/>
-        <source>Server</source>
-        <translation>Сервер</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
-        <source>Subject Match</source>
-        <translation>Збіг теми</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="93"/>
-        <source>Remote Cert Type</source>
-        <translation>Тип віддаленого сертифіката</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="105"/>
-        <source>Key File</source>
-        <translation>Файл ключа</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="108"/>
-        <source>Customize Key Direction</source>
-        <translation>Налаштувати клавішу управління</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="111"/>
-        <source>Key Direction</source>
-        <translation>Керування клавішами</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnVPNCSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
-        <source>Saved</source>
-        <translation>Збережено</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
-        <source>Ask</source>
-        <translation>Запитати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
-        <source>Not Required</source>
-        <translation>Не вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="169"/>
-        <source>Gateway</source>
-        <translation>Шлюз</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="174"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="207"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="173"/>
-        <source>Username</source>
-        <translation>Ім&apos;я користувача</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
-        <source>Pwd Options</source>
-        <translation>Параметри pwd</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="187"/>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
-        <source>Group Name</source>
-        <translation>Ім’я групи</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="206"/>
-        <source>Group Pwd</source>
-        <translation>Груповий пароль</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="210"/>
-        <source>Use Hybrid Authentication</source>
-        <translation>Використати гібридну автентифікацію</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="213"/>
-        <source>CA File</source>
-        <translation>Файл CA</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WiredPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
-        <source>Plug in the network cable first</source>
-        <translation>Спочатку підключіть мережний кабель</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
-        <source>Wired Network Adapter</source>
-        <translation>Дротова Мережева Карта</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="96"/>
-        <source>Add Network Connection</source>
-        <translation>Додати підключення до мережі</translation>
-        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
-        <source>Select Settings</source>
-        <translation>Обрати Налаштування</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="286"/>
-        <source>Connect to hidden network</source>
-        <translation>Підключитися до прихованої мережі</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
-        <source>Wireless Network Adapter</source>
-        <translation>Бездротова Мережева Карта</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="323"/>
-        <source>Close Hotspot</source>
-        <translation>Закрити точку доступу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="326"/>
-        <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>Спочатку вимкніть точку доступу, якщо ви хочете підключитися до бездротової мережі</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
-        <source>WLAN</source>
-        <translation>WLAN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
-        <source>Not Bind</source>
-        <translation>Не прив&apos;язано</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="115"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
-        <source>Required</source>
-        <translation>Вимагається</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="119"/>
-        <source>Device MAC Addr</source>
-        <translation>Пристрій MAC Addr</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="135"/>
-        <source>Customize MTU</source>
-        <translation>Налаштувати MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="138"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
     </message>
 </context>
 <context>
@@ -4409,7 +2340,7 @@
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="95"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>Комп&apos;ютер перейде у стан сну після</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
@@ -4537,7 +2468,7 @@
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="92"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>Комп&apos;ютер перейде у стан сну після</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="102"/>
@@ -4883,49 +2814,49 @@
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
         <source>Output</source>
         <translation>Вивід</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="77"/>
         <source>Output Device</source>
         <translation>Пристрій виведення</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
         <source>Mode</source>
         <translation>Режим</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="299"/>
         <source>Output Volume</source>
         <translation>Вихідна гучність</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="383"/>
         <source>Volume Boost</source>
         <translation>Підсилення гучності</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="390"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Значення гучності, які перевищують 100% можуть призвести до викривлення звуку та пошкодження гучномовця</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="401"/>
         <source>Left/Right Balance</source>
         <translation>Баланс ліво/право</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="406"/>
         <source>Left</source>
         <translation>Ліворуч</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="407"/>
         <source>Right</source>
         <translation>Праворуч</translation>
     </message>
@@ -5796,58 +3727,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>LocationWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="50"/>
-        <source>Location service</source>
-        <translation>Служба розташування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="57"/>
-        <source>Location services use GPS, Bluetooth and WiFi hotspots and signals to determine your approximate location</source>
-        <translation>Служби розташування використовують дані GPS, Bluetooth та точок доступу і сигналів WiFi для визначення вашого приблизного місця перебування</translation>
-    </message>
-</context>
-<context>
-    <name>NavModel</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="187"/>
-        <source>Navigation</source>
-        <translation>Навігація</translation>
-    </message>
-</context>
-<context>
-    <name>PrivacyPlugin</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacyplugin.cpp" line="70"/>
-        <source>Privacy</source>
-        <translation>Конфіденційність</translation>
-    </message>
-</context>
-<context>
-    <name>PrivacyWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="50"/>
-        <source>Location service</source>
-        <translation>Служба розташування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="51"/>
-        <source>Photo</source>
-        <translation>Фото</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="52"/>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="53"/>
-        <source>Microphone</source>
-        <translation>Мікрофон</translation>
-    </message>
-</context>
-<context>
     <name>PwqualityManager</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
@@ -5900,7 +3779,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="125"/>
+        <location filename="../src/frame/main.cpp" line="130"/>
         <source>Control Center</source>
         <translation>Центр керування</translation>
     </message>
@@ -6102,216 +3981,34 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="556"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="608"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Ваш вузол успішно вилучено з сервера домену</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="557"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="609"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Ваш вузол успішно долучено до сервера домену</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="585"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="637"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Не вдалося залишити сервер домену</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="586"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="638"/>
         <source>Your host failed to join the domain server</source>
         <translation>Не вдалося долучитися до сервера домену</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="589"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="641"/>
         <source>AD domain settings</source>
         <translation>Налаштування домену AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="658"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="710"/>
         <source>Password not match</source>
         <translation>Пароль є невідповідним</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::FingerModel</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint1</source>
-        <translation>Відбиток1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint2</source>
-        <translation>Відбиток2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint3</source>
-        <translation>Відбиток3</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint4</source>
-        <translation>Відбиток4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint5</source>
-        <translation>Відбиток5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint6</source>
-        <translation>Відбиток6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint7</source>
-        <translation>Відбиток7</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint8</source>
-        <translation>Відбиток8</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint9</source>
-        <translation>Відбиток9</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
-        <source>Fingerprint10</source>
-        <translation>Відбиток10</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="107"/>
-        <source>Scan failed</source>
-        <translation>Помилка сканування</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="117"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
-        <source>The fingerprint already exists</source>
-        <translation>Відбиток вже існує</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="171"/>
-        <source>Please scan other fingers</source>
-        <translation>Будь ласка, виконайте сканування інших пальців</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="121"/>
-        <source>Unknown error</source>
-        <translation>Невідома помилка</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="122"/>
-        <source>Scan suspended</source>
-        <translation>Сканування призупинено</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="184"/>
-        <source>Cannot recognize</source>
-        <translation>Не вдалося розпізнати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="158"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
-        <source>Moved too fast</source>
-        <translation>Надто швидкий рух</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="159"/>
-        <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>Палець прибрано надто швидко. Будь ласка, не знімайте палець, доки програма вас про це не попросить.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="162"/>
-        <source>Unclear fingerprint</source>
-        <translation>Брудний палець</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="181"/>
-        <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Витріть палець або скоригуйте його позицію. Потім повторіть спробу.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
-        <source>Already scanned</source>
-        <translation>Вже скановано</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="178"/>
-        <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Скоригуйте позицію пальця, щоб програма могла засканувати відбиток повністю.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="175"/>
-        <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Надто швидкий рух пальцем. Будь ласка, не прибирайте палець, доки вас про це не попросять.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation>Прийміть ваш палець, а потім знову торкніться ним сенсора</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::FingerWidget</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="136"/>
-        <source>Place your finger</source>
-        <translation>Притисніть палець</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="137"/>
-        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Щільно притисніть палець до сканера, доки програма не попросить його прибрати</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
-        <source>Scan the edges of your fingerprint</source>
-        <translation>Сканування країв вашого відбитка</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Розташуйте палець у центрі сканера</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
-        <source>Lift your finger</source>
-        <translation>Прийміть ваш палець</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation>Прийміть ваш палець, а потім знову торкніться ним сенсора</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Скоригуйте позицію для сканування країв вашого відбитка</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
-        <source>Lift your finger and do that again</source>
-        <translation>Прийміть ваш палець і повторіть спробу</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
-        <source>Fingerprint added</source>
-        <translation> Відбиток пальця додано</translation>
     </message>
 </context>
 <context>
@@ -6335,6 +4032,188 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
         <translation>Видалити</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::authentication::FingerModel</name>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint1</source>
+        <translation>Відбиток1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint2</source>
+        <translation>Відбиток2</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint3</source>
+        <translation>Відбиток3</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint4</source>
+        <translation>Відбиток4</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint5</source>
+        <translation>Відбиток5</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint6</source>
+        <translation>Відбиток6</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint7</source>
+        <translation>Відбиток7</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint8</source>
+        <translation>Відбиток8</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint9</source>
+        <translation>Відбиток9</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="69"/>
+        <source>Fingerprint10</source>
+        <translation>Відбиток10</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="108"/>
+        <source>Scan failed</source>
+        <translation>Помилка сканування</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="171"/>
+        <source>The fingerprint already exists</source>
+        <translation>Відбиток вже існує</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="172"/>
+        <source>Please scan other fingers</source>
+        <translation>Будь ласка, виконайте сканування інших пальців</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="122"/>
+        <source>Unknown error</source>
+        <translation>Невідома помилка</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="123"/>
+        <source>Scan suspended</source>
+        <translation>Сканування призупинено</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="149"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="150"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="185"/>
+        <source>Cannot recognize</source>
+        <translation>Не вдалося розпізнати</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="159"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="175"/>
+        <source>Moved too fast</source>
+        <translation>Надто швидкий рух</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="160"/>
+        <source>Finger moved too fast, please do not lift until prompted</source>
+        <translation>Палець прибрано надто швидко. Будь ласка, не знімайте палець, доки програма вас про це не попросить.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="163"/>
+        <source>Unclear fingerprint</source>
+        <translation>Брудний палець</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="164"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="182"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Витріть палець або скоригуйте його позицію. Потім повторіть спробу.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="167"/>
+        <source>Already scanned</source>
+        <translation>Вже скановано</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="168"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="179"/>
+        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation>Скоригуйте позицію пальця, щоб програма могла засканувати відбиток повністю.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="176"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>Надто швидкий рух пальцем. Будь ласка, не прибирайте палець, доки вас про це не попросять.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="186"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Прийміть ваш палець, а потім знову торкніться ним сенсора</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::authentication::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="136"/>
+        <source>Place your finger</source>
+        <translation>Притисніть палець</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="65"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="137"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation>Щільно притисніть палець до сканера, доки програма не попросить його прибрати</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="67"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="150"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="153"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation>Сканування країв вашого відбитка</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="68"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation>Розташуйте палець у центрі сканера</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="144"/>
+        <source>Lift your finger</source>
+        <translation>Прийміть ваш палець</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="145"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Прийміть ваш палець, а потім знову торкніться ним сенсора</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="151"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation>Скоригуйте позицію для сканування країв вашого відбитка</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="154"/>
+        <source>Lift your finger and do that again</source>
+        <translation>Прийміть ваш палець і повторіть спробу</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="158"/>
+        <source>Fingerprint added</source>
+        <translation> Відбиток пальця додано</translation>
     </message>
 </context>
 <context>
@@ -6401,22 +4280,22 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>Підтвердити</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>Додати часовий пояс</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>Додати</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>Змінити часовий пояс</translation>
     </message>
@@ -6866,17 +4745,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="426"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
         <source>System Updates</source>
         <translation>Оновлення системи</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
         <source>Patches</source>
         <translation>Латки</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>Латки до системи</translation>
     </message>
@@ -6892,7 +4771,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="126"/>
+        <location filename="../src/frame/main.cpp" line="131"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Центр керування надає параметри для системних налаштувань.</translation>
     </message>

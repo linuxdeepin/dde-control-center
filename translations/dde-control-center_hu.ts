@@ -1,26 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
 <context>
-    <name>BatteryHealthPlugin</name>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthplugin.cpp" line="64"/>
-        <source>BatteryHealth</source>
-        <translation>Akkumulátor állapota</translation>
-    </message>
-</context>
-<context>
-    <name>BatteryHealthwidget</name>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="50"/>
-        <source>Optimize battery charging</source>
-        <translation>Optimalizálja az akkumulátor töltését</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="57"/>
-        <source>In order to slow down battery aging, optimize battery charging</source>
-        <translation>Az akkumulátor öregedésének lassítása érdekében optimalizálja az akkumulátor töltését</translation>
-    </message>
-</context>
-<context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
@@ -50,33 +29,33 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
+        <source>Authentication</source>
+        <translation>Hitelesítés</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Accounts</source>
         <translation>Felhasználói fiókok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Display</source>
         <translation>Képernyő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Touch Screen</source>
         <translation>Érintőképernyő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Default Applications</source>
         <translation>Alapértelmezett alkalmazások</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Personalization</source>
         <translation>Felhasználói felület</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
-        <source>Network</source>
-        <translation>Hálózat</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
@@ -159,28 +138,10 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AccounntFingeItem</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
-        <source>No more than 15 characters</source>
-        <translation>Nem lehet több, mint 15 karakter</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Csak betűket, számokat és aláhúzást használjon, és nem lehet több, mint 15 karakter</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="149"/>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>Csak betűket, számokat és aláhúzást használjon</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::accounts::AccountSpinBox</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="79"/>
         <source>Always</source>
         <translation>Mindig</translation>
     </message>
@@ -188,68 +149,84 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="224"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="350"/>
         <source>Full Name</source>
         <translation>Teljes név</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="272"/>
         <source>The full name is too long</source>
         <translation>A teljes név túl hosszú</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="303"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="307"/>
         <source>The username already exists</source>
         <translation>A felhasználónév már létezik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="410"/>
         <source>Validity Days</source>
         <translation>Érvényességi napok</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="442"/>
+        <source>Account Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
         <source>Change Password</source>
         <translation>Jelszó megváltoztatása</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
         <source>Delete Account</source>
         <translation>Felhasználói fiók törlése</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="461"/>
         <source>Auto Login</source>
         <translation>Automatikus bejelentkezés</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
         <source>Login Without Password</source>
         <translation>Bejelentkezés jelszó nélkül</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="489"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
+        <source>Administrator</source>
+        <translation>Rendszergazda</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="499"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>Csak egy fióknál engedélyezhető az &quot;automatikus bejelentkezés&quot;. Ha folytatja, akkor a többi fióknak ez a lehetősége le lesz tiltva.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="501"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="492"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="502"/>
         <source>Enable</source>
         <translation>Engedélyezés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="630"/>
         <source>Group</source>
         <translation>Csoport</translation>
     </message>
@@ -257,7 +234,7 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="76"/>
         <source>Accounts</source>
         <translation>Felhasználói fiókok</translation>
     </message>
@@ -285,36 +262,6 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AddFingeDialog</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="131"/>
-        <source>Done</source>
-        <translation>Kész</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
-        <source>Scan Again</source>
-        <translation>Újra ellenőrzés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
-        <source>Scan Suspended</source>
-        <translation>Az ellenőrzés felfüggesztve</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="103"/>
@@ -331,7 +278,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
@@ -372,178 +319,266 @@
         <translation>Jelszó ismétlése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
+        <source>Password Hint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="488"/>
         <source>The full name is too long</source>
         <translation>A teljes név túl hosszú</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
         <source>Standard User</source>
         <translation>Általános felhasználó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="291"/>
         <source>Administrator</source>
         <translation>Rendszergazda</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Customized</source>
         <translation>Testreszabott</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="278"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
         <source>Required</source>
         <translation>Kötelező</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
         <source>optional</source>
         <translation>Opcionális</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <source>The hint is visible to all users. Do not include the password here.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="421"/>
         <source>Policykit authentication failed</source>
         <translation>A házirend hitelesítése sikertelen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>A felhasználónév hosszának 3 és 32 karakter között kell lennie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="447"/>
         <source>The first character must be a letter or number</source>
         <translation>Az első karakternek betűnek vagy számnak kell lennie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="453"/>
         <source>Your username should not only have numbers</source>
         <translation>A felhasználónévnek nem csak számokat kell tartalmaznia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="498"/>
         <source>The username already exists</source>
         <translation>A felhasználónév már létezik</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="465"/>
-        <source>The name already exists</source>
-        <translation>A név már létezik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
         <source>Passwords do not match</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
         <source>Go to Settings</source>
         <translation>Ugrás a beállításokhoz</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::FingerWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="93"/>
-        <source>Edit</source>
-        <translation>Szerkesztés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="51"/>
-        <source>Fingerprint Password</source>
-        <translation>Ujjlenyomathoz tartozó jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="52"/>
-        <source>You can add up to 10 fingerprints</source>
-        <translation>Legfeljebb 10 ujjlenyomatot adhat hozzá</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="89"/>
-        <source>Done</source>
-        <translation>Kész</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="150"/>
-        <source>The name already exists</source>
-        <translation>A név már létezik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="196"/>
-        <source>Add Fingerprint</source>
-        <translation>Ujjlenyomat hozzáadása</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
         <source>Change Password</source>
         <translation>Jelszó megváltoztatása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Current Password</source>
         <translation>Jelenlegi jelszó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
         <source>New Password</source>
         <translation>Új jelszó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="89"/>
         <source>Repeat Password</source>
         <translation>Jelszó ismétlése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="93"/>
+        <source>Password Hint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="247"/>
         <source>Cancel</source>
         <translation>Mégsem</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
         <source>Save</source>
         <translation>Mentés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="132"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="134"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
         <source>Required</source>
         <translation>Kötelező</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
+        <source>Optional</source>
+        <translation>Opcionális</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Password cannot be empty</source>
         <translation>A jelszó nem lehet üres</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
+        <source>The hint is visible to all users. Do not include the password here.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
         <source>Wrong password</source>
         <translation>Helytelen jelszó</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="216"/>
         <source>New password should differ from the current one</source>
         <translation>Az új jelszónak különböznie kell a jelenlegitől </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
         <source>Passwords do not match</source>
         <translation>A jelszavak nem egyeznek</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="246"/>
         <source>Go to Settings</source>
         <translation>Ugrás a beállításokhoz</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="143"/>
+        <source>No more than 15 characters</source>
+        <translation>Nem lehet több, mint 15 karakter</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="143"/>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>Csak betűket, számokat és aláhúzást használjon, és nem lehet több, mint 15 karakter</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="148"/>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>Csak betűket, számokat és aláhúzást használjon</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::AddFingeDialog</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="86"/>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="132"/>
+        <source>Done</source>
+        <translation>Kész</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="204"/>
+        <source>Scan Again</source>
+        <translation>Újra ellenőrzés</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="202"/>
+        <source>Scan Suspended</source>
+        <translation>Az ellenőrzés felfüggesztve</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerDetailWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
+        <source>No supported devices found</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="92"/>
+        <source>Edit</source>
+        <translation>Szerkesztés</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="50"/>
+        <source>Fingerprint Password</source>
+        <translation>Ujjlenyomathoz tartozó jelszó</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="51"/>
+        <source>You can add up to 10 fingerprints</source>
+        <translation>Legfeljebb 10 ujjlenyomatot adhat hozzá</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="88"/>
+        <source>Done</source>
+        <translation>Kész</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="150"/>
+        <source>The name already exists</source>
+        <translation>Létező név</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="196"/>
+        <source>Add Fingerprint</source>
+        <translation>Ujjlenyomat hozzáadása</translation>
     </message>
 </context>
 <context>
@@ -933,42 +968,42 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="222"/>
         <source>Confirm</source>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="139"/>
         <source>Server</source>
         <translation>Szerver</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="147"/>
         <source>Address</source>
         <translation>Cím</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
         <source>Required</source>
         <translation>Kötelező</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="304"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="350"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="358"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="413"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="471"/>
         <source>Customize</source>
         <translation>Testreszabás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="222"/>
         <source>Save</source>
         <translation>Mentés</translation>
     </message>
@@ -1378,17 +1413,17 @@ időformátum</translation>
         <translation>Főképernyő</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="285"/>
         <source>Duplicate</source>
         <translation>Megkettőzés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="286"/>
         <source>Extend</source>
         <translation>Kiterjesztés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="291"/>
         <source>Only on %1</source>
         <translation>Megjelenítés csak a %1-n</translation>
     </message>
@@ -1415,12 +1450,34 @@ időformátum</translation>
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="116"/>
         <source>Resolution</source>
         <translation>Felbontás</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="118"/>
+        <source>Resize Desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="217"/>
+        <source>Fit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="231"/>
+        <source>Stretch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="245"/>
+        <source>Center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="372"/>
         <source>Recommended</source>
         <translation>Ajánlott</translation>
     </message>
@@ -1469,7 +1526,7 @@ időformátum</translation>
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="116"/>
         <source>Brightness</source>
         <translation>Fényerősség</translation>
     </message>
@@ -1576,12 +1633,12 @@ időformátum</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="168"/>
         <source>Edit</source>
         <translation>Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="159"/>
         <source>Done</source>
         <translation>Kész</translation>
     </message>
@@ -1649,17 +1706,17 @@ időformátum</translation>
         <translation>Kisegítő eszközök</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="99"/>
         <source>Custom Shortcut</source>
         <translation>Egyedi gyorsbillentyű</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="132"/>
         <source>Restore Defaults</source>
         <translation>Alapértelmezések visszaállítása</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="171"/>
         <source>Shortcut</source>
         <translation>Gyorsbillentyű</translation>
     </message>
@@ -1693,12 +1750,12 @@ időformátum</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="150"/>
         <source>Edit</source>
         <translation>Szerkesztés</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="130"/>
         <source>Done</source>
         <translation>Kész</translation>
     </message>
@@ -1882,2132 +1939,6 @@ időformátum</translation>
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="42"/>
         <source>Fast</source>
         <translation>Gyors</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsProxyPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
-        <source>Application Proxy</source>
-        <translation>Alkalmazás proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
-        <source>Proxy Type</source>
-        <translation>Proxy típusa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
-        <source>IP Address</source>
-        <translation>IP cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="65"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="69"/>
-        <source>Username</source>
-        <translation>Felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="75"/>
-        <source>Optional</source>
-        <translation>Opcionális</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="74"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
-        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>A konfigurálás után jelölje be az Indító alkalmazás helyi menüjében a &quot;Proxy használata&quot; lehetőséget</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="103"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="104"/>
-        <source>Save</source>
-        <translation>Mentés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="204"/>
-        <source>Invalid IP address</source>
-        <translation>Érvénytelen IP cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
-        <source>Invalid port</source>
-        <translation>Érvénytelen port</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsTypePage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
-        <source>Proxy Type</source>
-        <translation>Proxy típusa</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionEditPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="105"/>
-        <source>Disconnect</source>
-        <translation>Szétkapcsolás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="231"/>
-        <source>Delete</source>
-        <translation>Törlés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="113"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="230"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="114"/>
-        <source>Save</source>
-        <translation>Mentés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="227"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="228"/>
-        <source>Are you sure you want to delete this configuration?</source>
-        <translation>Biztosan törölni szeretné ezt a beállítást?</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="410"/>
-        <source>Wired Connection %1</source>
-        <translation>Vezetékes kapcsolat %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="415"/>
-        <source>hotspot</source>
-        <translation>Hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="417"/>
-        <source>Wireless Connection %1</source>
-        <translation>Vezeték nélküli kapcsolat %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="423"/>
-        <source>PPPoE Connection %1</source>
-        <translation>PPPoE kapcsolat %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionVpnEditPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="137"/>
-        <source>New VPN</source>
-        <translation>Új VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="141"/>
-        <source>VPN Type</source>
-        <translation>VPN típusa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="146"/>
-        <source>L2TP</source>
-        <translation>L2TP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="147"/>
-        <source>PPTP</source>
-        <translation>PPTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="148"/>
-        <source>OpenVPN</source>
-        <translation>OpenVPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="149"/>
-        <source>OpenConnect</source>
-        <translation>OpenConnect</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="150"/>
-        <source>StrongSwan</source>
-        <translation>StrongSwan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="151"/>
-        <source>VPNC</source>
-        <translation>VPNC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="225"/>
-        <source>Export</source>
-        <translation>Exportálás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="242"/>
-        <source>VPN L2TP %1</source>
-        <translation>VPN L2TP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="246"/>
-        <source>VPN PPTP %1</source>
-        <translation>VPN PPTP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="250"/>
-        <source>VPN VPNC %1</source>
-        <translation>VPN VPNC %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="254"/>
-        <source>VPN OpenVPN %1</source>
-        <translation>VPN OpenVPN %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="258"/>
-        <source>VPN StrongSwan %1</source>
-        <translation>VPN StrongSwan %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="262"/>
-        <source>VPN OpenConnect %1</source>
-        <translation>VPN OpenConnect %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::DNSSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="58"/>
-        <source>DNS</source>
-        <translation>DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="212"/>
-        <source>Invalid DNS address</source>
-        <translation>Érvénytelen DNS cím</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::EthernetSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="38"/>
-        <source>Ethernet</source>
-        <translation>Vezetékes hálózat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="62"/>
-        <source>Not Bind</source>
-        <translation>Nem kötött</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="123"/>
-        <source>Device MAC Addr</source>
-        <translation>Eszköz MAC címe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="151"/>
-        <source>Cloned MAC Addr</source>
-        <translation>Klónozott MAC cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="164"/>
-        <source>Customize MTU</source>
-        <translation>MTU testreszabása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="167"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericHotspotSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
-        <source>General</source>
-        <translation>Általános</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
-        <source>Name</source>
-        <translation>Név</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="34"/>
-        <source>General</source>
-        <translation>Általános</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="77"/>
-        <source>The name already exists</source>
-        <translation>A név már létezik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="108"/>
-        <source>Name</source>
-        <translation>Név</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="111"/>
-        <source>Auto Connect</source>
-        <translation>Automatikus csatlakozás</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotDeviceWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="71"/>
-        <source>Hotspot</source>
-        <translation>Hotspot</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="74"/>
-        <source>Add Settings</source>
-        <translation>Beállítások hozzáadása</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="278"/>
-        <source>Create Hotspot</source>
-        <translation>Hotspot létrehozása</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::IpvxSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="42"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="60"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
-        <source>Auto</source>
-        <translation>Automatikus</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="222"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
-        <source>Manual</source>
-        <translation>Manuális</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="228"/>
-        <source>Ignore</source>
-        <translation>Kihagyás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="235"/>
-        <source>IP Address</source>
-        <translation>IP cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="236"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="296"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="237"/>
-        <source>Gateway</source>
-        <translation>Átjáró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="238"/>
-        <source>Only applied in corresponding resources</source>
-        <translation>Csak a megfelelő forrásokban alkalmazzuk</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
-        <source>Method</source>
-        <translation>Eljárás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="295"/>
-        <source>Netmask</source>
-        <translation>Hálózati maszk</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
-        <source>Prefix</source>
-        <translation>Előtag</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="430"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="495"/>
-        <source>Invalid IP address</source>
-        <translation>Érvénytelen IP cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="442"/>
-        <source>Invalid netmask</source>
-        <translation>Érvénytelen hálózati maszk</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="451"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="511"/>
-        <source>Invalid gateway</source>
-        <translation>Érvénytelen átjáró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
-        <source>Network</source>
-        <translation>Hálózat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
-        <source>IP conflict</source>
-        <translation>IP cím ütközés</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkDetailPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="100"/>
-        <source>Network Details</source>
-        <translation>Hálózati adatok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="165"/>
-        <source>Hotspot</source>
-        <translation>Hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="169"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="180"/>
-        <source>Protocol</source>
-        <translation>Protokoll</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="200"/>
-        <source>Security Type</source>
-        <translation>Biztonság típusa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="213"/>
-        <source>Band</source>
-        <translation>Sáv</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="194"/>
-        <source>Channel</source>
-        <translation>Csatorna</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="205"/>
-        <source>Interface</source>
-        <translation>Felület</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="209"/>
-        <source>MAC</source>
-        <translation>MAC cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="221"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="239"/>
-        <source>Gateway</source>
-        <translation>Átjáró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="229"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="244"/>
-        <source>Primary DNS</source>
-        <translation>Elsődleges DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="233"/>
-        <source>Netmask</source>
-        <translation>Hálózati maszk</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="238"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="248"/>
-        <source>Prefix</source>
-        <translation>Előtag</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="253"/>
-        <source>Speed</source>
-        <translation>Sebesség</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModule</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="171"/>
-        <source>Wired Network</source>
-        <translation>Vezetékes hálózat </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="172"/>
-        <source>Wireless Network</source>
-        <translation>Vezeték nélküli hálózat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="173"/>
-        <source>Personal Hotspot</source>
-        <translation>Személyes hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="289"/>
-        <source>Network</source>
-        <translation>Hálózat</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModuleWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="75"/>
-        <source>DSL</source>
-        <translation>DSL</translation>
-        <extra-contents_path>/network/DSL</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="84"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
-        <source>System Proxy</source>
-        <translation>Rendszer proxy</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="100"/>
-        <source>Application Proxy</source>
-        <translation>Alkalmazás proxy</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="109"/>
-        <source>Network Details</source>
-        <translation>Hálózati adatok</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="211"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="500"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="507"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="517"/>
-        <source>Disabled</source>
-        <translation>Letiltva</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="207"/>
-        <source>Manual</source>
-        <translation>Manuális</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="209"/>
-        <source>Auto</source>
-        <translation>Automatikus</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="222"/>
-        <source>Configure by Network Manager</source>
-        <translation>A Hálózati Kezelő által konfigurálva</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="447"/>
-        <source>Personal Hotspot</source>
-        <translation>Személyes hotspot</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="474"/>
-        <source>Wired Network %1</source>
-        <translation>Vezetékes hálózat %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="477"/>
-        <source>Wired Network</source>
-        <translation>Vezetékes hálózat </translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="481"/>
-        <source>Wireless Network %1</source>
-        <translation>Vezeték nélküli hálózat %1 </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="484"/>
-        <source>Wireless Network</source>
-        <translation>Vezeték nélküli hálózat</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="533"/>
-        <source>Disconnected</source>
-        <translation>Szétkapcsolva</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPOESection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="31"/>
-        <source>PPPoE</source>
-        <translation>PPPoE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="84"/>
-        <source>Username</source>
-        <translation>Felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="92"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="88"/>
-        <source>Service</source>
-        <translation>Szolgáltatás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="91"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="31"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="86"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>EAP hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="87"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>PAP hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="88"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>CHAP hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="89"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>MSCHAP hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="90"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>MSCHAPv2 hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="91"/>
-        <source>No BSD Data Compression</source>
-        <translation>Nincs BSD Adattömörítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="92"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Nincs Delflate adattömörítés </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="93"/>
-        <source>No TCP Header Compression</source>
-        <translation>Nincs TCP fejléc tömörítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="94"/>
-        <source>No Protocol Field Compression</source>
-        <translation>Nincs protokoll mező tömörítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="95"/>
-        <source>No Address/Control Compression</source>
-        <translation>Nincs cím/vezérlés tömörítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="96"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>PPP Echo csomagok küldése</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="105"/>
-        <source>Use MPPE</source>
-        <translation>MPPE használata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="108"/>
-        <source>128-bit MPPE</source>
-        <translation>128 bites MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="111"/>
-        <source>Stateful MPPE</source>
-        <translation>Állapotfüggő MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PppoePage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="82"/>
-        <source>Create PPPoE Connection</source>
-        <translation>PPPoE kapcsolat létrehozása</translation>
-        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="80"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ProxyPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="64"/>
-        <source>Cancel</source>
-        <translation>Mégsem</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="65"/>
-        <source>Save</source>
-        <translation>Mentés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="71"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="167"/>
-        <source>System Proxy</source>
-        <translation>Rendszer proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="72"/>
-        <source>Proxy Type</source>
-        <translation>Proxy típusa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
-        <source>Manual</source>
-        <translation>Manuális</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
-        <source>Auto</source>
-        <translation>Automatikus</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="127"/>
-        <source>Optional</source>
-        <translation>Opcionális</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="103"/>
-        <source>HTTP Proxy</source>
-        <translation>HTTP Proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
-        <source>HTTPS Proxy</source>
-        <translation>HTTPS Proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>FTP Proxy</source>
-        <translation>FTP Proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="112"/>
-        <source>SOCKS Proxy</source>
-        <translation>SOCKS Proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="122"/>
-        <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Hagyja figyelmen kívül a fenti gazdagépek és tartományok proxykonfigurációit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="128"/>
-        <source>Configuration URL</source>
-        <translation>Konfigurációs URL</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::Secret8021xSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="35"/>
-        <source>Security</source>
-        <translation>Biztonság</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
-        <source>TLS</source>
-        <translation>TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
-        <source>MD5</source>
-        <translation>MD5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
-        <source>LEAP</source>
-        <translation>LEAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
-        <source>FAST</source>
-        <translation>GYORS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
-        <source>Tunneled TLS</source>
-        <translation>Elrejtett TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="169"/>
-        <source>Protected EAP</source>
-        <translation>Védett EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
-        <source>Save password for this user</source>
-        <translation>Jelszó mentése ezen felhasználó számára</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
-        <source>Save password for all users</source>
-        <translation>Jelszó mentése az összes felhasználó számára</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
-        <source>Ask me always</source>
-        <translation>Kérdezze meg mindig</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="180"/>
-        <source>Disabled</source>
-        <translation>Letiltva</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="181"/>
-        <source>Anonymous</source>
-        <translation>Névtelen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="182"/>
-        <source>Authenticated</source>
-        <translation>Hitelesítve</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="183"/>
-        <source>Both</source>
-        <translation>Mindkettő</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="199"/>
-        <source>Automatic</source>
-        <translation>Automatikus</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="200"/>
-        <source>Version 0</source>
-        <translation>Verzió 0</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="201"/>
-        <source>Version 1</source>
-        <translation>Verzió 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="213"/>
-        <source>EAP Auth</source>
-        <translation>EAP hitelesítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="237"/>
-        <source>Identity</source>
-        <translation>Azonosság</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="253"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="241"/>
-        <source>Pwd Options</source>
-        <translation>Jelszó beállítások</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="354"/>
-        <source>Private Key</source>
-        <translation>Privát kulcs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="359"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="447"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="483"/>
-        <source>CA Cert</source>
-        <translation>CA tanúsítvány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="364"/>
-        <source>User Cert</source>
-        <translation>Felhasználói tanúsítvány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="391"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="442"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="478"/>
-        <source>Anonymous ID</source>
-        <translation>Névtelen Azonosító</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="396"/>
-        <source>Provisioning</source>
-        <translation>Ellátás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="408"/>
-        <source>PAC file</source>
-        <translation>PAC fájl</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="413"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="499"/>
-        <source>Inner Auth</source>
-        <translation>Belső hitelesítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="488"/>
-        <source>PEAP Version</source>
-        <translation>PEAP verzió</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="587"/>
-        <source>Private Pwd</source>
-        <translation>Privát jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="589"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretHotspotSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
-        <source>Invalid password</source>
-        <translation>Érvénytelen jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
-        <source>None</source>
-        <translation>Nincs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
-        <source>WEP</source>
-        <translation>WEP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="116"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Személyes</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="123"/>
-        <source>Security</source>
-        <translation>Biztonság</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="129"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="160"/>
-        <source>Key</source>
-        <translation>Kulcs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="166"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWiredSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="35"/>
-        <source>Security Required</source>
-        <translation>Szükséges biztonság</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWirelessSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
-        <source>Invalid password</source>
-        <translation>Érvénytelen jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
-        <source>None</source>
-        <translation>Nincs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
-        <source>WEP</source>
-        <translation>WEP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Személyes</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 Vállalati</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="165"/>
-        <source>Shared key</source>
-        <translation>Közös kulcs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="166"/>
-        <source>Open system</source>
-        <translation>Nyitott rendszer</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
-        <source>Security</source>
-        <translation>Biztonság</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="182"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="193"/>
-        <source>Authentication</source>
-        <translation>Hitelesítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="278"/>
-        <source>Key</source>
-        <translation>Kulcs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="291"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="33"/>
-        <source>VPN Advanced</source>
-        <translation>Haladó VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="130"/>
-        <source>Customize Gateway Port</source>
-        <translation>Átjáró port testreszabása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="133"/>
-        <source>Gateway Port</source>
-        <translation>Átjáró port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="139"/>
-        <source>Customize Renegotiation Interval</source>
-        <translation>Az újratárgyalási intervallum testreszabása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="142"/>
-        <source>Renegotiation Interval</source>
-        <translation>Újratárgyalási intervallum</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="148"/>
-        <source>Use LZO Data Compression</source>
-        <translation>LZO adattömörítés használata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="151"/>
-        <source>Use TCP Connection</source>
-        <translation>TCP kapcsolat használata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="154"/>
-        <source>Use TAP Device</source>
-        <translation>TAP eszköz használata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="157"/>
-        <source>Customize Tunnel MTU</source>
-        <translation>MTU csatorna testreszabása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="160"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="166"/>
-        <source>Customize UDP Fragment Size</source>
-        <translation>UDP töredékméret testreszabása </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="169"/>
-        <source>UDP Fragment Size</source>
-        <translation>UDP töredék mérete</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="175"/>
-        <source>Restrict Tunnel TCP MSS</source>
-        <translation>Korlátozza a TCP MSS alagutat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="178"/>
-        <source>Randomize Remote Hosts</source>
-        <translation>Hosztok véletlenszerű elrendezése</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvVPNCSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
-        <source>VPN Advanced</source>
-        <translation>Haladó VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
-        <source>Cisco (default)</source>
-        <translation>Cisco (alapértelmezett)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
-        <source>Netscreen</source>
-        <translation>Netscreen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
-        <source>Secure (default)</source>
-        <translation>Biztonságos (alap)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
-        <source>Weak</source>
-        <translation>Gyenge</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
-        <source>None</source>
-        <translation>Nincs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
-        <source>NAT-T When Available (default)</source>
-        <translation>NAT-T Amikor Elérhető (alapértelmezett)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
-        <source>NAT-T Always</source>
-        <translation>NAT-T Mindig</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
-        <source>Cisco UDP</source>
-        <translation>Cisco UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="153"/>
-        <source>Disabled</source>
-        <translation>Letiltva</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
-        <source>DH Group 1</source>
-        <translation>DH csoport 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
-        <source>DH Group 2 (default)</source>
-        <translation>DH csoport 2 (alapértelmezett)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
-        <source>DH Group 5</source>
-        <translation>DH Csoport 5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
-        <source>Server (default)</source>
-        <translation>Szerver (alapértelmezett)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
-        <source>DH Group 2</source>
-        <translation>DH Csoport 2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="171"/>
-        <source>Domain</source>
-        <translation>Tartomány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="174"/>
-        <source>Vendor</source>
-        <translation>Előállító</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="184"/>
-        <source>Version</source>
-        <translation>Verzió</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="187"/>
-        <source>Encryption</source>
-        <translation>Titkosítás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="197"/>
-        <source>NAT Traversal Mode</source>
-        <translation>NAT átjáró mód</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="207"/>
-        <source>IKE DH Group</source>
-        <translation>IKE DH csoport</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="217"/>
-        <source>Forward Secrecy</source>
-        <translation>Elő titkosítás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="227"/>
-        <source>Local Port</source>
-        <translation>Helyi port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="232"/>
-        <source>Disable Dead Peer Detection</source>
-        <translation>Halott peer észlelés letiltása</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnIpsecSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
-        <source>VPN IPsec</source>
-        <translation>VPN IPsec</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="82"/>
-        <source>Enable IPsec</source>
-        <translation>IPsec engedélyezése</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="85"/>
-        <source>Group Name</source>
-        <translation>Csoportnév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="88"/>
-        <source>Group ID</source>
-        <translation>Csoport azonosító</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="91"/>
-        <source>Pre-Shared Key</source>
-        <translation>Előre megosztott kulcs </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="94"/>
-        <source>Phase1 Algorithms</source>
-        <translation>Phase1 Algoritmusok</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="97"/>
-        <source>Phase2 Algorithms</source>
-        <translation>Phase2 Algoritmusok</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenConnectSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
-        <source>Gateway</source>
-        <translation>Átjáró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="120"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
-        <source>CA Cert</source>
-        <translation>CA tanúsítvány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
-        <source>Proxy</source>
-        <translation>Proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="109"/>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Cisco trójai védelem engedélyezése</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="112"/>
-        <source>CSD Script</source>
-        <translation>CSD szkript</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="115"/>
-        <source>User Cert</source>
-        <translation>Felhasználói tanúsítvány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="119"/>
-        <source>Private Key</source>
-        <translation>Privát kulcs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="123"/>
-        <source>Use FSID for Key Passphrase</source>
-        <translation>FSID azonosítókulcs használata </translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
-        <source>Certificates (TLS)</source>
-        <translation>Tanúsítványok (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="257"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
-        <source>Certificates with Password (TLS)</source>
-        <translation>Tanúsítványok jelszóval (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
-        <source>Static Key</source>
-        <translation>Statikus kulcs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
-        <source>Saved</source>
-        <translation>Elmentve</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
-        <source>Ask</source>
-        <translation>Kérdezze meg</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
-        <source>Not Required</source>
-        <translation>Nem kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
-        <source>Gateway</source>
-        <translation>Átjáró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="308"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
-        <source>Auth Type</source>
-        <translation>Hitelesítés típusa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
-        <source>CA Cert</source>
-        <translation>CA tanúsítvány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="183"/>
-        <source>User Cert</source>
-        <translation>Felhasználói tanúsítvány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
-        <source>Private Key</source>
-        <translation>Privát kulcs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="244"/>
-        <source>Pwd Options</source>
-        <translation>Jelszó beállítások</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="206"/>
-        <source>Private Pwd</source>
-        <translation>Privát jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="238"/>
-        <source>Username</source>
-        <translation>Felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="290"/>
-        <source>Customize Key Direction</source>
-        <translation>Kulcs irány testreszabása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="294"/>
-        <source>Key Direction</source>
-        <translation>Kulcs irány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="301"/>
-        <source>Remote IP</source>
-        <translation>Távoli IP cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="307"/>
-        <source>Local IP</source>
-        <translation>Helyi IP cím</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPPPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
-        <source>VPN PPP</source>
-        <translation>VPN PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
-        <source>All Available (default)</source>
-        <translation>Minden elérhető (alap)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
-        <source>40-bit (less secure)</source>
-        <translation>40-bit (Kevésbé biztonságos)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
-        <source>128-bit (most secure)</source>
-        <translation>128-bit (Legbiztonságosabb)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>EAP hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>PAP hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>CHAP hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>MSCHAP hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>MSCHAPv2 hitelesítés visszautasítása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
-        <source>No BSD Data Compression</source>
-        <translation>Nincs BSD Adattömörítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Nincs Delflate adattömörítés </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
-        <source>No TCP Header Compression</source>
-        <translation>Nincs TCP fejléc tömörítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
-        <source>No Protocol Field Compression</source>
-        <translation>Nincs protokoll mező tömörítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
-        <source>No Address/Control Compression</source>
-        <translation>Nincs cím/vezérlés tömörítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>PPP Echo csomagok küldése</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
-        <source>Use MPPE</source>
-        <translation>MPPE használata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="163"/>
-        <source>Security</source>
-        <translation>Biztonság</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="176"/>
-        <source>Stateful MPPE</source>
-        <translation>Állapotfüggő MPPE</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="102"/>
-        <source>VPN Status</source>
-        <translation>VPN állapota</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="136"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="140"/>
-        <source>Create VPN</source>
-        <translation>VPN létrehozása</translation>
-        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="145"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="149"/>
-        <source>Import VPN</source>
-        <translation>VPN beállítások importálása</translation>
-        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="186"/>
-        <source>Import Error</source>
-        <translation>Importálási hiba</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="187"/>
-        <source>File error</source>
-        <translation>Fájl hiba</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="188"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnProxySection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
-        <source>VPN Proxy</source>
-        <translation>VPN proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="141"/>
-        <source>Not Required</source>
-        <translation>Nem kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="142"/>
-        <source>HTTP</source>
-        <translation>HTTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
-        <source>SOCKS</source>
-        <translation>SOCKS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="149"/>
-        <source>Proxy Type</source>
-        <translation>Proxy típusa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
-        <source>Server IP</source>
-        <translation>Szerver IP cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="174"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="178"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
-        <source>Retry Indefinitely When Failed</source>
-        <translation>Ha sikertelen, próbálkozzon újra a végtelenségig</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="173"/>
-        <source>Username</source>
-        <translation>Felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="177"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSSTPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
-        <source>CA File</source>
-        <translation>CA fájl</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
-        <source>Ignore Certificate Warnings</source>
-        <translation>Tanúsítvánnyal kapcsolatos figyelmeztetések figyelmen kívül hagyása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="86"/>
-        <source>Use TLS Hostname Extensions</source>
-        <translation>TLS kiszolgálónév kiterjesztések használata</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSecOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
-        <source>VPN Security</source>
-        <translation>VPN biztonság</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
-        <source>Default</source>
-        <translation>Alapértelmezett</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="98"/>
-        <source>None</source>
-        <translation>Nincs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="112"/>
-        <source>Cipher</source>
-        <translation>Titkosírás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="124"/>
-        <source>HMAC Auth</source>
-        <translation>HMAC Hitelesítés</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="109"/>
-        <source>Saved</source>
-        <translation>Elmentve</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="110"/>
-        <source>Ask</source>
-        <translation>Kérdezze meg</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="111"/>
-        <source>Not Required</source>
-        <translation>Nem kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="117"/>
-        <source>Gateway</source>
-        <translation>Átjáró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="139"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="121"/>
-        <source>Username</source>
-        <translation>Felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="125"/>
-        <source>Pwd Options</source>
-        <translation>Jelszó beállítások</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="138"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="142"/>
-        <source>NT Domain</source>
-        <translation>NT Tartomány</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSstpProxySection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
-        <source>VPN Proxy</source>
-        <translation>VPN proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="104"/>
-        <source>Server IP</source>
-        <translation>Szerver IP cím</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="107"/>
-        <source>Port</source>
-        <translation>Port</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="112"/>
-        <source>Username</source>
-        <translation>Felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="115"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnStrongSwanSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="173"/>
-        <source>Private Key</source>
-        <translation>Privát kulcs</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
-        <source>SSH Agent</source>
-        <translation>SSH Ügynök</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
-        <source>Smart Card</source>
-        <translation>Intelligens Kártya</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
-        <source>EAP</source>
-        <translation>EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
-        <source>Pre-Shared Key</source>
-        <translation>Előre megosztott kulcs </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="151"/>
-        <source>Gateway</source>
-        <translation>Átjáró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="155"/>
-        <source>CA Cert</source>
-        <translation>CA tanúsítvány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="158"/>
-        <source>Auth Type</source>
-        <translation>Hitelesítés típusa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="170"/>
-        <source>User Cert</source>
-        <translation>Felhasználói tanúsítvány</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="176"/>
-        <source>Username</source>
-        <translation>Felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="179"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="182"/>
-        <source>Request an Inner IP Address</source>
-        <translation>Belső IP cím igénylése</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="185"/>
-        <source>Enforce UDP Encapsulation</source>
-        <translation>Az UDP tokozás kikényszerítése</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="188"/>
-        <source>Use IP Compression</source>
-        <translation>IP Tömörítés Használata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="191"/>
-        <source>Enable Custom Cipher Proposals</source>
-        <translation>Engedélyezze az egyedi titkosítási javaslatokat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="194"/>
-        <source>IKE</source>
-        <translation>IKE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="197"/>
-        <source>ESP</source>
-        <translation>ESP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnTLSSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
-        <source>VPN TLS Authentication</source>
-        <translation>VPN TLS hitelesítés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="82"/>
-        <source>Default</source>
-        <translation>Alapértelmezett</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
-        <source>Client</source>
-        <translation>Kliens</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="84"/>
-        <source>Server</source>
-        <translation>Szerver</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
-        <source>Subject Match</source>
-        <translation>Tárgy egyezés</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="93"/>
-        <source>Remote Cert Type</source>
-        <translation>Távoli tanúsítvány típusa</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="105"/>
-        <source>Key File</source>
-        <translation>Kulcs fájl</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="108"/>
-        <source>Customize Key Direction</source>
-        <translation>Kulcs irány testreszabása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="111"/>
-        <source>Key Direction</source>
-        <translation>Kulcs irány</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnVPNCSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
-        <source>Saved</source>
-        <translation>Elmentve</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
-        <source>Ask</source>
-        <translation>Kérdezze meg</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
-        <source>Not Required</source>
-        <translation>Nem kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="169"/>
-        <source>Gateway</source>
-        <translation>Átjáró</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="174"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="207"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="173"/>
-        <source>Username</source>
-        <translation>Felhasználónév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
-        <source>Pwd Options</source>
-        <translation>Jelszó beállítások</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="187"/>
-        <source>Password</source>
-        <translation>Jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
-        <source>Group Name</source>
-        <translation>Csoportnév</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="206"/>
-        <source>Group Pwd</source>
-        <translation>Csoport jelszó</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="210"/>
-        <source>Use Hybrid Authentication</source>
-        <translation>Hibrid hitelesítés használata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="213"/>
-        <source>CA File</source>
-        <translation>CA fájl</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WiredPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
-        <source>Plug in the network cable first</source>
-        <translation>Először csatlakoztassa a hálózati kábelt</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
-        <source>Wired Network Adapter</source>
-        <translation>Vezetékes hálózati kártya</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="96"/>
-        <source>Add Network Connection</source>
-        <translation>Hálózati kapcsolat hozzáadása</translation>
-        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
-        <source>Select Settings</source>
-        <translation>Beállítások kiválasztása</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="286"/>
-        <source>Connect to hidden network</source>
-        <translation>Kapcsolódás rejtett hálózathoz</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
-        <source>Wireless Network Adapter</source>
-        <translation>Vezeték nélküli kártya</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="323"/>
-        <source>Close Hotspot</source>
-        <translation>Hotspot bezárása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="326"/>
-        <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>Először tiltsa le a hotspotot, ha vezeték nélküli hálózathoz szeretne csatlakozni</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
-        <source>WLAN</source>
-        <translation>Vezeték nélküli hálózat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
-        <source>Not Bind</source>
-        <translation>Nem kötött</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="115"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
-        <source>Required</source>
-        <translation>Kötelező</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="119"/>
-        <source>Device MAC Addr</source>
-        <translation>Eszköz MAC címe</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="135"/>
-        <source>Customize MTU</source>
-        <translation>MTU testreszabása</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="138"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
     </message>
 </context>
 <context>
@@ -4414,7 +2345,7 @@ effektje</translation>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="95"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>A számítógép alvó állapotba kerül ennyi idő után: </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
@@ -4546,7 +2477,7 @@ lecsukásakor</translation>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="92"/>
         <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
+        <translation>A számítógép alvó állapotba kerül ennyi idő után: </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="102"/>
@@ -4892,49 +2823,49 @@ lecsukásakor</translation>
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
         <source>Output</source>
         <translation>Kimenet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="77"/>
         <source>Output Device</source>
         <translation>Kimeneti eszköz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
         <source>Mode</source>
         <translation>Mód</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="299"/>
         <source>Output Volume</source>
         <translation>Kimeneti hangerő</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="383"/>
         <source>Volume Boost</source>
         <translation>Hangzás felerősítése</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="390"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Ha a hangerő 100% -nál nagyobb, torzíthatja a hangot és káros lehet a hangszóróra.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="401"/>
         <source>Left/Right Balance</source>
         <translation>Bal / Jobb Balansz</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="406"/>
         <source>Left</source>
         <translation>Bal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="407"/>
         <source>Right</source>
         <translation>Jobb</translation>
     </message>
@@ -5805,58 +3736,6 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     </message>
 </context>
 <context>
-    <name>LocationWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="50"/>
-        <source>Location service</source>
-        <translation>Helymeghatározási szolgáltatás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="57"/>
-        <source>Location services use GPS, Bluetooth and WiFi hotspots and signals to determine your approximate location</source>
-        <translation>A helymeghatározási szolgáltatások a GPS, Bluetooth és WiFi hotspotokat, és jeleket használnak a hozzávetőleges tartózkodási hely meghatározásához</translation>
-    </message>
-</context>
-<context>
-    <name>NavModel</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="187"/>
-        <source>Navigation</source>
-        <translation>Navigáció</translation>
-    </message>
-</context>
-<context>
-    <name>PrivacyPlugin</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacyplugin.cpp" line="70"/>
-        <source>Privacy</source>
-        <translation>Adatvédelem</translation>
-    </message>
-</context>
-<context>
-    <name>PrivacyWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="50"/>
-        <source>Location service</source>
-        <translation>Helymeghatározási szolgáltatás</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="51"/>
-        <source>Photo</source>
-        <translation>Fénykép</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="52"/>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="53"/>
-        <source>Microphone</source>
-        <translation>Mikrofon</translation>
-    </message>
-</context>
-<context>
     <name>PwqualityManager</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
@@ -5909,7 +3788,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="125"/>
+        <location filename="../src/frame/main.cpp" line="130"/>
         <source>Control Center</source>
         <translation>Vezérlőközpont</translation>
     </message>
@@ -6111,216 +3990,34 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="556"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="608"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>A számítógépe sikeresen eltávolítva a tartomány szerverről</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="557"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="609"/>
         <source>Your host joins the domain server successfully</source>
         <translation>A számítógépe sikeresen csatlakozott a tartomány szerverhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="585"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="637"/>
         <source>Your host failed to leave the domain server</source>
         <translation>A számítógépe nem tudott lecsatlakozni a tartomány szerverről</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="586"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="638"/>
         <source>Your host failed to join the domain server</source>
         <translation>A számítógépe nem tudott csatlakozni a tartomány szerverhez</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="589"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="641"/>
         <source>AD domain settings</source>
         <translation>AD tartományi beállítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="658"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="710"/>
         <source>Password not match</source>
         <translation>A jelszó nem egyezik</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::FingerModel</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint1</source>
-        <translation>Ujjlenyomat 1.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint2</source>
-        <translation>Ujjlenyomat 2.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint3</source>
-        <translation>Ujjlenyomat 3.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint4</source>
-        <translation>Ujjlenyomat 4.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint5</source>
-        <translation>Ujjlenyomat 5.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint6</source>
-        <translation>Ujjlenyomat 6.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint7</source>
-        <translation>Ujjlenyomat 7.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint8</source>
-        <translation>Ujjlenyomat 8.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint9</source>
-        <translation>Ujjlenyomat 9.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
-        <source>Fingerprint10</source>
-        <translation>Ujjlenyomat 10.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="107"/>
-        <source>Scan failed</source>
-        <translation>A beolvasás nem sikerült</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="117"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
-        <source>The fingerprint already exists</source>
-        <translation>Az ujjlenyomat már létezik</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="171"/>
-        <source>Please scan other fingers</source>
-        <translation>Kérjük olvassa be a többi ujját</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="121"/>
-        <source>Unknown error</source>
-        <translation>Ismeretlen hiba</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="122"/>
-        <source>Scan suspended</source>
-        <translation>A beolvasás felfüggesztve</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="184"/>
-        <source>Cannot recognize</source>
-        <translation>Nem ismerhető fel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="158"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
-        <source>Moved too fast</source>
-        <translation>Túl gyorsan mozgatta</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="159"/>
-        <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>Az ujját túl gyorsan mozgatta, kérjük ne emelje fel, amíg nem kérjük</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="162"/>
-        <source>Unclear fingerprint</source>
-        <translation>Nem tiszta ujjlenyomat</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="181"/>
-        <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Tisztítsa meg az ujját, vagy állítsa be az ujja helyzetét, majd próbálkozzon újra</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
-        <source>Already scanned</source>
-        <translation>Már beolvasva</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="178"/>
-        <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Állítsa be az ujj helyzetét az ujjlenyomat teljes beolvasásához</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="175"/>
-        <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Az ujját túl gyorsan mozgatta, kérjük ne emelje fel, amíg nem jelezzük</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation>Emelje fel az ujját, és helyezze ismét az érzékelőre</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::FingerWidget</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="136"/>
-        <source>Place your finger</source>
-        <translation>Helyezze az ujját</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="137"/>
-        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Tegye az ujját határozottan az érzékelőre, amíg nem kérjük, hogy emelje fel</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
-        <source>Scan the edges of your fingerprint</source>
-        <translation>Olvassa be az ujjlenyomat széleit</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Helyezze az ujjlenyomat széleit az érzékelőre</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
-        <source>Lift your finger</source>
-        <translation>Emelje fel az ujját</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation>Emelje fel az ujját, és helyezze ismét az érzékelőre</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Állítsa be az ujj helyzetét az ujjlenyomat széleinek beolvasásához</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
-        <source>Lift your finger and do that again</source>
-        <translation>Emelje fel az ujját, és próbálja újra</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
-        <source>Fingerprint added</source>
-        <translation>Ujjlenyomat hozzáadva</translation>
     </message>
 </context>
 <context>
@@ -6344,6 +4041,188 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
         <translation>Törlés</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::authentication::FingerModel</name>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint1</source>
+        <translation>Ujjlenyomat 1.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint2</source>
+        <translation>Ujjlenyomat 2.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint3</source>
+        <translation>Ujjlenyomat 3.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint4</source>
+        <translation>Ujjlenyomat 4.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint5</source>
+        <translation>Ujjlenyomat 5.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint6</source>
+        <translation>Ujjlenyomat 6.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint7</source>
+        <translation>Ujjlenyomat 7.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint8</source>
+        <translation>Ujjlenyomat 8.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint9</source>
+        <translation>Ujjlenyomat 9.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="69"/>
+        <source>Fingerprint10</source>
+        <translation>Ujjlenyomat 10.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="108"/>
+        <source>Scan failed</source>
+        <translation>A beolvasás nem sikerült</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="171"/>
+        <source>The fingerprint already exists</source>
+        <translation>Az ujjlenyomat már létezik</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="172"/>
+        <source>Please scan other fingers</source>
+        <translation>Kérjük olvassa be a többi ujját</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="122"/>
+        <source>Unknown error</source>
+        <translation>Ismeretlen hiba</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="123"/>
+        <source>Scan suspended</source>
+        <translation>A beolvasás felfüggesztve</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="149"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="150"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="185"/>
+        <source>Cannot recognize</source>
+        <translation>Nem ismerhető fel</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="159"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="175"/>
+        <source>Moved too fast</source>
+        <translation>Túl gyorsan mozgatta</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="160"/>
+        <source>Finger moved too fast, please do not lift until prompted</source>
+        <translation>Az ujját túl gyorsan mozgatta, kérjük ne emelje fel, amíg nem kérjük</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="163"/>
+        <source>Unclear fingerprint</source>
+        <translation>Nem tiszta ujjlenyomat</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="164"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="182"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Tisztítsa meg az ujját, vagy állítsa be az ujja helyzetét, majd próbálkozzon újra</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="167"/>
+        <source>Already scanned</source>
+        <translation>Már beolvasva</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="168"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="179"/>
+        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation>Állítsa be az ujj helyzetét az ujjlenyomat teljes beolvasásához</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="176"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>Az ujját túl gyorsan mozgatta, kérjük ne emelje fel, amíg nem jelezzük</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="186"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Emelje fel az ujját, és helyezze ismét az érzékelőre</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::authentication::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="136"/>
+        <source>Place your finger</source>
+        <translation>Helyezze az ujját</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="65"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="137"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation>Tegye az ujját határozottan az érzékelőre, amíg nem kérjük, hogy emelje fel</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="67"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="150"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="153"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation>Olvassa be az ujjlenyomat széleit</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="68"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation>Helyezze az ujjlenyomat széleit az érzékelőre</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="144"/>
+        <source>Lift your finger</source>
+        <translation>Emelje fel az ujját</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="145"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Emelje fel az ujját, és helyezze ismét az érzékelőre</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="151"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation>Állítsa be az ujj helyzetét az ujjlenyomat széleinek beolvasásához</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="154"/>
+        <source>Lift your finger and do that again</source>
+        <translation>Emelje fel az ujját, és próbálja újra</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="158"/>
+        <source>Fingerprint added</source>
+        <translation>Ujjlenyomat hozzáadva</translation>
     </message>
 </context>
 <context>
@@ -6410,22 +4289,22 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>Megerősítés</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>Időzóna hozzáadása</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>Hozzáadás</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>Időzóna módosítása</translation>
     </message>
@@ -6875,17 +4754,17 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="426"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
         <source>System Updates</source>
         <translation>Rendszer frissítések</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
         <source>Patches</source>
         <translation>Javítások</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>Rendszer javítások</translation>
     </message>
@@ -6901,7 +4780,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="126"/>
+        <location filename="../src/frame/main.cpp" line="131"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>A Vezérlőközpont lehetőséget nyújt a rendszerbeállítások módosítására.</translation>
     </message>

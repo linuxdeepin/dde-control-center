@@ -1,26 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="el" version="2.1">
 <context>
-    <name>BatteryHealthPlugin</name>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthplugin.cpp" line="64"/>
-        <source>BatteryHealth</source>
-        <translation>ΥγείαΜπαταρίας</translation>
-    </message>
-</context>
-<context>
-    <name>BatteryHealthwidget</name>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="50"/>
-        <source>Optimize battery charging</source>
-        <translation>Βελτιστοποίηση φόρτισης μπαταρίας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/battery-health/batteryhealthwidget.cpp" line="57"/>
-        <source>In order to slow down battery aging, optimize battery charging</source>
-        <translation>Για να επιβραδύνετε την γήρανση της μπαταρίας, βελτιστοποιήστε την φόρτιση της</translation>
-    </message>
-</context>
-<context>
     <name>BluetoothDelegate</name>
     <message>
         <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
@@ -50,33 +29,33 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
+        <source>Authentication</source>
+        <translation>Πιστοποίηση</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
         <source>Accounts</source>
         <translation>Λογαριασμοί </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="339"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Display</source>
         <translation>Εμφάνιση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
         <source>Touch Screen</source>
         <translation>Οθόνη Αφής</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Default Applications</source>
         <translation>Προεπιλεγμένες Εφαρμογές</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Personalization</source>
         <translation>Εξατομίκευση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
-        <source>Network</source>
-        <translation>Δίκτυο</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
@@ -159,28 +138,10 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AccounntFingeItem</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
-        <source>No more than 15 characters</source>
-        <translation>Όχι περισσότερο από 15 χαρακτήρες</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="144"/>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Χρησημοποιήστε μόνο γράμματα, αριθμούς και κάτω παύλες, μέχρι και 15 χαρακτήρες </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="149"/>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>Χρησημοποιήστε μόνο γράμματα, αριθμούς και κάτω παύλες</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::accounts::AccountSpinBox</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="79"/>
         <source>Always</source>
         <translation>Πάντα</translation>
     </message>
@@ -188,68 +149,84 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="224"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="350"/>
         <source>Full Name</source>
         <translation>Πλήρες Όνομα</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="272"/>
         <source>The full name is too long</source>
         <translation>Το πλήρες όνομα είναι πολύ μεγάλο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="303"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="312"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="307"/>
         <source>The username already exists</source>
         <translation>Το όνομα χρήστη υπάρχει ήδη</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="410"/>
         <source>Validity Days</source>
         <translation>Μέρες Εγκυρότητας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="442"/>
+        <source>Account Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
         <source>Change Password</source>
         <translation>Αλλαγή Κωδικού Πρόσβασης</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
         <source>Delete Account</source>
         <translation>Διαγραφή λογαριασμού</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="461"/>
         <source>Auto Login</source>
         <translation>Αυτόματη Είσοδος</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
         <source>Login Without Password</source>
         <translation>Είσοδος Χωρίς Κωδικό</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="489"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
+        <source>Administrator</source>
+        <translation>Διαχειριστής</translation>
+        <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="499"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>Μόνο ένας λογαρισμός μπορεί να έχει ενεργοποιημένη την &quot;Αυτόματη Σύνδεση&quot;. Αν προχωρήσετε, η επιλογή για τους άλλους λογαριασμούς θα απενεργοποιηθεί.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="491"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="501"/>
         <source>Cancel</source>
         <translation>Ακύρωση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="492"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="502"/>
         <source>Enable</source>
         <translation>Ενεργοποίηση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="595"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="630"/>
         <source>Group</source>
         <translation>Ομάδα</translation>
     </message>
@@ -257,7 +234,7 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="76"/>
         <source>Accounts</source>
         <translation>Λογαριασμοί </translation>
     </message>
@@ -285,36 +262,6 @@
     </message>
 </context>
 <context>
-    <name>dccV20::accounts::AddFingeDialog</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="85"/>
-        <source>Cancel</source>
-        <translation>Ακύρωση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="131"/>
-        <source>Done</source>
-        <translation>Τέλος</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="93"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="187"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="203"/>
-        <source>Scan Again</source>
-        <translation>Σκανάρισμα Πάλι</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="185"/>
-        <location filename="../src/frame/window/modules/accounts/addfingedialog.cpp" line="201"/>
-        <source>Scan Suspended</source>
-        <translation>Σάρωση Αναστάλθηκε</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::accounts::AvatarListWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/avatarlistwidget.cpp" line="103"/>
@@ -331,7 +278,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="526"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
         <source>Cancel</source>
         <translation>Ακύρωση</translation>
     </message>
@@ -372,178 +319,266 @@
         <translation>Επανάληψη Κωδικού</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="243"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="455"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
+        <source>Password Hint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="488"/>
         <source>The full name is too long</source>
         <translation>Το πλήρες όνομα είναι πολύ μεγάλο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
         <source>Standard User</source>
         <translation>Τυπικός Χρήστης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="291"/>
         <source>Administrator</source>
         <translation>Διαχειριστής</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
         <source>Customized</source>
         <translation>Προσαρμοσμένο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="278"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
         <source>Required</source>
         <translation>Απαιτείται</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
         <source>optional</source>
         <translation>προαιρετικό</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <source>The hint is visible to all users. Do not include the password here.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="421"/>
         <source>Policykit authentication failed</source>
         <translation>Επαλήθευση του Policykit απέτυχε</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>Το όνομα χρήστη πρέπει να έχει μήκος μεταξύ 3-32 χαρακτήρων</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="414"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="447"/>
         <source>The first character must be a letter or number</source>
         <translation>Ο πρώτος χαρακτήρας πρέπει να είναι γράμμα ή αριθμός</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="453"/>
         <source>Your username should not only have numbers</source>
         <translation>Το όνομα χρήστη σας δεν μπορεί να περιέχει μόνο αριθμούς</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="498"/>
         <source>The username already exists</source>
         <translation>Το όνομα χρήστη υπάρχει ήδη</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="465"/>
-        <source>The name already exists</source>
-        <translation>Το όνομα υπάρχει ήδη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="497"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
         <source>Passwords do not match</source>
         <translation>Οι κωδικοί δεν ταιριάζουν</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="525"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
         <source>Go to Settings</source>
         <translation>Πήγαινε στις Ρυθμίσεις</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::accounts::FingerWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="48"/>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="93"/>
-        <source>Edit</source>
-        <translation>Επεξεργασία</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="51"/>
-        <source>Fingerprint Password</source>
-        <translation>Κωδικός Αποτυπώματος</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="52"/>
-        <source>You can add up to 10 fingerprints</source>
-        <translation>Μπορείτε να προσθέσετε μέχρι και 10 δακτυλικά αποτυπώματα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="89"/>
-        <source>Done</source>
-        <translation>Τέλος</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="150"/>
-        <source>The name already exists</source>
-        <translation>Το όνομα υπάρχει ήδη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/fingerwidget.cpp" line="196"/>
-        <source>Add Fingerprint</source>
-        <translation>Προσθήκη Αποτυπώματος</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
         <source>Change Password</source>
         <translation>Αλλαγή Κωδικού Πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <source>Reset Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
         <source>Current Password</source>
         <translation>Καθαρισμός Κωδικού Πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
         <source>New Password</source>
         <translation>Νέος Κωδικός Πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="89"/>
         <source>Repeat Password</source>
         <translation>Επανάληψη Κωδικού</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="84"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="209"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="93"/>
+        <source>Password Hint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="247"/>
         <source>Cancel</source>
         <translation>Ακύρωση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
         <source>Save</source>
         <translation>Αποθήκευση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="132"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="134"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
         <source>Required</source>
         <translation>Απαιτείται</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
+        <source>Optional</source>
+        <translation>Προαιρετικό</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
         <source>Password cannot be empty</source>
         <translation>Ο κωδικός πρόσβασης δεν μπορεί να είναι κενός</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
+        <source>The hint is visible to all users. Do not include the password here.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
         <source>Wrong password</source>
         <translation>Λανθασμένος κωδικός πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="216"/>
         <source>New password should differ from the current one</source>
         <translation>Ο νέος κωδικός πρόσβασης πρέπει να διαφέρει από τον ισχύοντα</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
         <source>Passwords do not match</source>
         <translation>Οι κωδικοί δεν ταιριάζουν</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="246"/>
         <source>Go to Settings</source>
         <translation>Πήγαινε στις Ρυθμίσεις</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::AccounntFingeItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="143"/>
+        <source>No more than 15 characters</source>
+        <translation>Όχι περισσότερο από 15 χαρακτήρες</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="143"/>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>Χρησημοποιήστε μόνο γράμματα, αριθμούς και κάτω παύλες, μέχρι και 15 χαρακτήρες </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/accountfingeitem.cpp" line="148"/>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>Χρησημοποιήστε μόνο γράμματα, αριθμούς και κάτω παύλες</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::AddFingeDialog</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="86"/>
+        <source>Cancel</source>
+        <translation>Ακύρωση</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="132"/>
+        <source>Done</source>
+        <translation>Τέλος</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="204"/>
+        <source>Scan Again</source>
+        <translation>Σάρωση Πάλι</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="202"/>
+        <source>Scan Suspended</source>
+        <translation>Σάρωση Αναστάλθηκε</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerDetailWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
+        <source>No supported devices found</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="47"/>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="92"/>
+        <source>Edit</source>
+        <translation>Επεξεργασία</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="50"/>
+        <source>Fingerprint Password</source>
+        <translation>Κωδικός Αποτυπώματος</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="51"/>
+        <source>You can add up to 10 fingerprints</source>
+        <translation>Μπορείτε να προσθέσετε μέχρι και 10 δακτυλικά αποτυπώματα</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="88"/>
+        <source>Done</source>
+        <translation>Τέλος</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="150"/>
+        <source>The name already exists</source>
+        <translation>Το όνομα υπάρχει ήδη</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="196"/>
+        <source>Add Fingerprint</source>
+        <translation>Προσθήκη Αποτυπώματος</translation>
     </message>
 </context>
 <context>
@@ -933,42 +968,42 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="222"/>
         <source>Confirm</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="139"/>
         <source>Server</source>
         <translation>Διακομιστής</translation>
         <extra-contents_path>/datetime/Time Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="147"/>
         <source>Address</source>
         <translation>Διεύθυνση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="149"/>
         <source>Required</source>
         <translation>Απαιτείται</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="163"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="226"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="304"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="350"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="358"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="413"/>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="495"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="471"/>
         <source>Customize</source>
         <translation>Προσαρμογή</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="227"/>
+        <location filename="../src/frame/window/modules/datetime/datesettings.cpp" line="222"/>
         <source>Save</source>
         <translation>Αποθήκευση</translation>
     </message>
@@ -1374,17 +1409,17 @@
         <translation>Κύρια Οθόνη</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="285"/>
         <source>Duplicate</source>
         <translation>Διπλότυπο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="286"/>
         <source>Extend</source>
         <translation>Επέκταση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="291"/>
         <source>Only on %1</source>
         <translation>Μόνο στο-α %1</translation>
     </message>
@@ -1411,12 +1446,34 @@
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="40"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="116"/>
         <source>Resolution</source>
         <translation>Ανάλυση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="118"/>
+        <source>Resize Desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="217"/>
+        <source>Fit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="231"/>
+        <source>Stretch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="245"/>
+        <source>Center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="372"/>
         <source>Recommended</source>
         <translation>Απαραίτητο</translation>
     </message>
@@ -1465,7 +1522,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="116"/>
         <source>Brightness</source>
         <translation>Φωτεινότητα</translation>
     </message>
@@ -1572,12 +1629,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="168"/>
         <source>Edit</source>
         <translation>Επεξεργασία</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/keyboard/kblayoutsettingwidget.cpp" line="159"/>
         <source>Done</source>
         <translation>Τέλος</translation>
     </message>
@@ -1645,17 +1702,17 @@
         <translation>Βοηθητικά Εργαλεία</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="99"/>
         <source>Custom Shortcut</source>
         <translation>Προσαρμοσμένη Συντόμευση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="132"/>
         <source>Restore Defaults</source>
         <translation>Ανάκτηση Προεπιλογών</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/keyboard/shortcutsettingwidget.cpp" line="171"/>
         <source>Shortcut</source>
         <translation>Συντόμευση</translation>
     </message>
@@ -1689,12 +1746,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="150"/>
         <source>Edit</source>
         <translation>Επεξεργασία</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="129"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagewidget.cpp" line="130"/>
         <source>Done</source>
         <translation>Τέλος</translation>
     </message>
@@ -1878,2132 +1935,6 @@
         <location filename="../src/frame/window/modules/mouse/trackpointsettingwidget.cpp" line="42"/>
         <source>Fast</source>
         <translation>Γρήγορα</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsProxyPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="48"/>
-        <source>Application Proxy</source>
-        <translation>Διακομιστής Μεσολάβησης Εφαρμογής</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="51"/>
-        <source>Proxy Type</source>
-        <translation>Τύπος διακομιστή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="59"/>
-        <source>IP Address</source>
-        <translation>Διεύθυνση IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="60"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="65"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="64"/>
-        <source>Port</source>
-        <translation>Θύρα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="69"/>
-        <source>Username</source>
-        <translation>Όνομα χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="70"/>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="75"/>
-        <source>Optional</source>
-        <translation>Προαιρετικό</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="74"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="96"/>
-        <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Ελέγξτε το &quot;Χρήση Διακομιστή Μεσολάβησης&quot; στο πλαίσιο του μενού εφαρμογών στον Εκκινητή μετά την ρύθμιση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="103"/>
-        <source>Cancel</source>
-        <translation>Ακύρωση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="104"/>
-        <source>Save</source>
-        <translation>Αποθήκευση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="204"/>
-        <source>Invalid IP address</source>
-        <translation>Μη έγκυρη διεύθυνση IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="212"/>
-        <source>Invalid port</source>
-        <translation>Μη έγκυρη θύρα</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ChainsTypePage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/chainstypepage.cpp" line="37"/>
-        <source>Proxy Type</source>
-        <translation>Τύπος διακομιστή</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionEditPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="105"/>
-        <source>Disconnect</source>
-        <translation>Αποσύνδεση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="107"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="231"/>
-        <source>Delete</source>
-        <translation>Διαγραφή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="113"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="230"/>
-        <source>Cancel</source>
-        <translation>Ακύρωση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="114"/>
-        <source>Save</source>
-        <translation>Αποθήκευση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="227"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="228"/>
-        <source>Are you sure you want to delete this configuration?</source>
-        <translation>Είστε σίγουροι ότι θέλετε να διαγράψετε αυτές τις ρυθμίσεις παραμέτρων;</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="410"/>
-        <source>Wired Connection %1</source>
-        <translation>Ενσύρματη Σύνδεση: %1 </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="415"/>
-        <source>hotspot</source>
-        <translation>hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="417"/>
-        <source>Wireless Connection %1</source>
-        <translation>Ασύρματη Σύνδεση %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="423"/>
-        <source>PPPoE Connection %1</source>
-        <translation>PPPoE Σύνδεση %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ConnectionVpnEditPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="137"/>
-        <source>New VPN</source>
-        <translation>Νέο VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="141"/>
-        <source>VPN Type</source>
-        <translation>Τύπος VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="146"/>
-        <source>L2TP</source>
-        <translation>L2TP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="147"/>
-        <source>PPTP</source>
-        <translation>PPTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="148"/>
-        <source>OpenVPN</source>
-        <translation>OpenVPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="149"/>
-        <source>OpenConnect</source>
-        <translation>OpenConnect</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="150"/>
-        <source>StrongSwan</source>
-        <translation>StrongSwan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="151"/>
-        <source>VPNC</source>
-        <translation>VPNC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="225"/>
-        <source>Export</source>
-        <translation>Εξαγωγή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="242"/>
-        <source>VPN L2TP %1</source>
-        <translation>VPN L2TP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="246"/>
-        <source>VPN PPTP %1</source>
-        <translation>VPN PPTP %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="250"/>
-        <source>VPN VPNC %1</source>
-        <translation>VPN VPNC %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="254"/>
-        <source>VPN OpenVPN %1</source>
-        <translation>VPN OpenVPN %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="258"/>
-        <source>VPN StrongSwan %1</source>
-        <translation>VPN StrongSwan %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/connectionvpneditpage.cpp" line="262"/>
-        <source>VPN OpenConnect %1</source>
-        <translation>VPN OpenConnect %1</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::DNSSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="58"/>
-        <source>DNS</source>
-        <translation>DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/dnssection.cpp" line="212"/>
-        <source>Invalid DNS address</source>
-        <translation>Μη έγκυρη διεύθυνση DNS</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::EthernetSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="38"/>
-        <source>Ethernet</source>
-        <translation>Ethernet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="62"/>
-        <source>Not Bind</source>
-        <translation>Μη Δ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="123"/>
-        <source>Device MAC Addr</source>
-        <translation>Διεύθυνση MAC συσκευής</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="151"/>
-        <source>Cloned MAC Addr</source>
-        <translation>Κλωνοποιημένη διεύθυνση MAC </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="164"/>
-        <source>Customize MTU</source>
-        <translation>Προσαρμογή MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ethernetsection.cpp" line="167"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericHotspotSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="31"/>
-        <source>General</source>
-        <translation>Γενικά</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
-        <source>Name</source>
-        <translation>Όνομα</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::GenericSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="34"/>
-        <source>General</source>
-        <translation>Γενικά</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="77"/>
-        <source>The name already exists</source>
-        <translation>Το όνομα υπάρχει ήδη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="108"/>
-        <source>Name</source>
-        <translation>Όνομα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/genericsection.cpp" line="111"/>
-        <source>Auto Connect</source>
-        <translation>Αυτόματη σύνδεση</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotDeviceWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="71"/>
-        <source>Hotspot</source>
-        <translation>Hotspot</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="74"/>
-        <source>Add Settings</source>
-        <translation>Προσθήκη Ρυθμίσεων</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::HotspotPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="278"/>
-        <source>Create Hotspot</source>
-        <translation>Δημιουργία Hotspot</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::IpvxSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="42"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="60"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="226"/>
-        <source>Auto</source>
-        <translation>Αυτόματο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="222"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="227"/>
-        <source>Manual</source>
-        <translation>Μη αυτόματα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="228"/>
-        <source>Ignore</source>
-        <translation>Παράβλεψη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="235"/>
-        <source>IP Address</source>
-        <translation>Διεύθυνση IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="236"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="296"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="237"/>
-        <source>Gateway</source>
-        <translation>Gateway</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="238"/>
-        <source>Only applied in corresponding resources</source>
-        <translation>Αφορά μόνο σχετικούς πόρους</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="242"/>
-        <source>Method</source>
-        <translation>Μέθοδος</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="295"/>
-        <source>Netmask</source>
-        <translation>Μάσκα Δικτύου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="306"/>
-        <source>Prefix</source>
-        <translation>Πρόθεμα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="430"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="495"/>
-        <source>Invalid IP address</source>
-        <translation>Μη έγκυρη διεύθυνση IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="442"/>
-        <source>Invalid netmask</source>
-        <translation>Μη έγκυρη μάσκα δικτύου (netmask)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="451"/>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="511"/>
-        <source>Invalid gateway</source>
-        <translation>Μη έγκυρη πύλη δικτύου (gateway)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
-        <source>Network</source>
-        <translation>Δίκτυο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/ipvxsection.cpp" line="463"/>
-        <source>IP conflict</source>
-        <translation>Αντιτίθεση IP </translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkDetailPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="100"/>
-        <source>Network Details</source>
-        <translation>Λεπτομέριες Δικτύου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="165"/>
-        <source>Hotspot</source>
-        <translation>Hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="169"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="180"/>
-        <source>Protocol</source>
-        <translation>Πρωτόκολλο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="200"/>
-        <source>Security Type</source>
-        <translation>Τύπος Ασφαλείας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="189"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="213"/>
-        <source>Band</source>
-        <translation>Mπάντα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="194"/>
-        <source>Channel</source>
-        <translation>Kανάλι</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="205"/>
-        <source>Interface</source>
-        <translation>Διεπαφή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="209"/>
-        <source>MAC</source>
-        <translation>MAC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="221"/>
-        <source>IPv4</source>
-        <translation>IPv4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="239"/>
-        <source>Gateway</source>
-        <translation>Gateway</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="229"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="244"/>
-        <source>Primary DNS</source>
-        <translation>Πρωτεύον DNS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="233"/>
-        <source>Netmask</source>
-        <translation>Μάσκα Δικτύου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="238"/>
-        <source>IPv6</source>
-        <translation>IPv6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="248"/>
-        <source>Prefix</source>
-        <translation>Πρόθεμα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="253"/>
-        <source>Speed</source>
-        <translation>Ταχύτητα</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModule</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="171"/>
-        <source>Wired Network</source>
-        <translation>Ενσύρματο Δίκτυο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="172"/>
-        <source>Wireless Network</source>
-        <translation>Ασύρματο Δίκτυο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="173"/>
-        <source>Personal Hotspot</source>
-        <translation>Προσωπικό Hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="289"/>
-        <source>Network</source>
-        <translation>Δίκτυο</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::NetworkModuleWidget</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="75"/>
-        <source>DSL</source>
-        <translation>DSL</translation>
-        <extra-contents_path>/network/DSL</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="84"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-        <extra-contents_path>/network/VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
-        <source>System Proxy</source>
-        <translation>Σύστημα μεσολάβησης</translation>
-        <extra-contents_path>/network/System Proxy</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="100"/>
-        <source>Application Proxy</source>
-        <translation>Διακομιστής Μεσολάβησης Εφαρμογής</translation>
-        <extra-contents_path>/network/Application Proxy</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="109"/>
-        <source>Network Details</source>
-        <translation>Λεπτομέριες Δικτύου</translation>
-        <extra-contents_path>/network/Network Details</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="205"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="211"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="500"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="507"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="517"/>
-        <source>Disabled</source>
-        <translation>Απενεργοποιημένο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="207"/>
-        <source>Manual</source>
-        <translation>Μη αυτόματα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="209"/>
-        <source>Auto</source>
-        <translation>Αυτόματο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="222"/>
-        <source>Configure by Network Manager</source>
-        <translation>Ρύθμιση με τον Διαχειριστή Δικτύου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="447"/>
-        <source>Personal Hotspot</source>
-        <translation>Προσωπικό Hotspot</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="474"/>
-        <source>Wired Network %1</source>
-        <translation>Ενσύρματο Δίκτυο %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="477"/>
-        <source>Wired Network</source>
-        <translation>Ενσύρματο Δίκτυο</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="481"/>
-        <source>Wireless Network %1</source>
-        <translation>Ασύρματο Δίκτυο %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="484"/>
-        <source>Wireless Network</source>
-        <translation>Ασύρματο Δίκτυο</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="527"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="533"/>
-        <source>Disconnected</source>
-        <translation>Αποσυνδέθηκε</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPOESection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="31"/>
-        <source>PPPoE</source>
-        <translation>PPPoE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="84"/>
-        <source>Username</source>
-        <translation>Όνομα χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="92"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="88"/>
-        <source>Service</source>
-        <translation>Υπηρεσία</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppoesection.cpp" line="91"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PPPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="31"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="86"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>Άρνηση ελέγχου ταυτότητας EAP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="87"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>Απόρριψη ελέγχου ταυτότητας PAP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="88"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>Άρνηση ελέγχου ταυτότητας CHAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="89"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>Άρνηση ελέγχου ταυτότητας MSCHAP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="90"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Άρνηση ελέγχου ταυτότητας MSCHAPv2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="91"/>
-        <source>No BSD Data Compression</source>
-        <translation>Χωρίς Συμπίεση Δεδομένων BSD</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="92"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Χωρίς Ξεφούσκωμα Συμπίεσης Δεδομένων</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="93"/>
-        <source>No TCP Header Compression</source>
-        <translation>Χωρίς Συμπίεση Κεφαλίδας TCP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="94"/>
-        <source>No Protocol Field Compression</source>
-        <translation>Χωρίς Συμπίεση Πεδίου Πρωτοκόλλου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="95"/>
-        <source>No Address/Control Compression</source>
-        <translation>Καμία συμπίεση Διεύθυνσης/Ελέγχου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="96"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>Αποστολή Πακέτων Αντήχησης PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="105"/>
-        <source>Use MPPE</source>
-        <translation>Χρήση MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="108"/>
-        <source>128-bit MPPE</source>
-        <translation>128-bit MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/pppsection.cpp" line="111"/>
-        <source>Stateful MPPE</source>
-        <translation>MPPE με επίβλεψη κατάστασης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::PppoePage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="58"/>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="59"/>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="82"/>
-        <source>Create PPPoE Connection</source>
-        <translation>Δημιουργία Σύνδεσης PPPoE</translation>
-        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/pppoepage.cpp" line="80"/>
-        <source>PPP</source>
-        <translation>PPP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::ProxyPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="64"/>
-        <source>Cancel</source>
-        <translation>Ακύρωση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="65"/>
-        <source>Save</source>
-        <translation>Αποθήκευση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="71"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="167"/>
-        <source>System Proxy</source>
-        <translation>Σύστημα μεσολάβησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="72"/>
-        <source>Proxy Type</source>
-        <translation>Τύπος διακομιστή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="74"/>
-        <source>Manual</source>
-        <translation>Μη αυτόματα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="75"/>
-        <source>Auto</source>
-        <translation>Αυτόματο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="83"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="87"/>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="127"/>
-        <source>Optional</source>
-        <translation>Προαιρετικό</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="88"/>
-        <source>Port</source>
-        <translation>Θύρα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="103"/>
-        <source>HTTP Proxy</source>
-        <translation>HTTP Διακομιστής Μεσολάβησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="106"/>
-        <source>HTTPS Proxy</source>
-        <translation>HTTPS Διακομιστής Μεσολάβησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="109"/>
-        <source>FTP Proxy</source>
-        <translation>FTP Διακομιστής Μεσολάβησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="112"/>
-        <source>SOCKS Proxy</source>
-        <translation>SOCKS Proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="122"/>
-        <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Αγνοήστε τις παραπάνω ρυθμίσεις proxy για hosts και domains</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/proxypage.cpp" line="128"/>
-        <source>Configuration URL</source>
-        <translation>URL ρύθμισης παραμέτρων</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::Secret8021xSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="35"/>
-        <source>Security</source>
-        <translation>Ασφάλεια</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="164"/>
-        <source>TLS</source>
-        <translation>TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="165"/>
-        <source>MD5</source>
-        <translation>MD5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="166"/>
-        <source>LEAP</source>
-        <translation>LEAP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="167"/>
-        <source>FAST</source>
-        <translation>ΓΡΗΓΟΡΑ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="168"/>
-        <source>Tunneled TLS</source>
-        <translation>TLS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="169"/>
-        <source>Protected EAP</source>
-        <translation>Προστατευόμενη EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="174"/>
-        <source>Save password for this user</source>
-        <translation>Αποθήκευση κωδικού για αυτόν τον χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="175"/>
-        <source>Save password for all users</source>
-        <translation>Αποθήκευση κωδικού για όλους τους χρήστες</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="176"/>
-        <source>Ask me always</source>
-        <translation>Πάντα να γίνεται ερώτηση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="180"/>
-        <source>Disabled</source>
-        <translation>Απενεργοποιημένο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="181"/>
-        <source>Anonymous</source>
-        <translation>Ανώνυμο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="182"/>
-        <source>Authenticated</source>
-        <translation>Πιστοποιήθηκε</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="183"/>
-        <source>Both</source>
-        <translation>Και τα δύο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="199"/>
-        <source>Automatic</source>
-        <translation>Αυτόματο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="200"/>
-        <source>Version 0</source>
-        <translation>Έκδοση 0</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="201"/>
-        <source>Version 1</source>
-        <translation>Έκδοση 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="213"/>
-        <source>EAP Auth</source>
-        <translation>EAP Auth</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="237"/>
-        <source>Identity</source>
-        <translation>Ταυτότητα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="239"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="253"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="241"/>
-        <source>Pwd Options</source>
-        <translation>Eπιλογές Pwd</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="354"/>
-        <source>Private Key</source>
-        <translation>Ιδιωτικό Κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="359"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="447"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="483"/>
-        <source>CA Cert</source>
-        <translation>CA Cert</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="364"/>
-        <source>User Cert</source>
-        <translation>Πιστοποιητικό Χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="391"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="442"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="478"/>
-        <source>Anonymous ID</source>
-        <translation>Ανώνυμο αναγνωριστικό</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="396"/>
-        <source>Provisioning</source>
-        <translation>Προμήθεια</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="408"/>
-        <source>PAC file</source>
-        <translation>Αρχείο PAC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="413"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="452"/>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="499"/>
-        <source>Inner Auth</source>
-        <translation>Εσωτερικός έλεγχος ταυτότητας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="488"/>
-        <source>PEAP Version</source>
-        <translation>Έκδοση PEAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="587"/>
-        <source>Private Pwd</source>
-        <translation>Ιδιωτικός Κωδ. Προσβ.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secret8021xsection.cpp" line="589"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretHotspotSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="80"/>
-        <source>Invalid password</source>
-        <translation>Μη έγκυρος κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="114"/>
-        <source>None</source>
-        <translation>Κανένα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="115"/>
-        <source>WEP</source>
-        <translation>WEP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="116"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Προσωπικό</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="123"/>
-        <source>Security</source>
-        <translation>Ασφάλεια</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="129"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="160"/>
-        <source>Key</source>
-        <translation>Κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="166"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWiredSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwiredsection.cpp" line="35"/>
-        <source>Security Required</source>
-        <translation>Απαιτείται ασφάλεια</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::SecretWirelessSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="99"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="109"/>
-        <source>Invalid password</source>
-        <translation>Μη έγκυρος κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="158"/>
-        <source>None</source>
-        <translation>Κανένα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="159"/>
-        <source>WEP</source>
-        <translation>WEP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="160"/>
-        <source>WPA/WPA2 Personal</source>
-        <translation>WPA/WPA2 Προσωπικό</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="161"/>
-        <source>WPA/WPA2 Enterprise</source>
-        <translation>WPA/WPA2 Enterprise</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="165"/>
-        <source>Shared key</source>
-        <translation>Κοινόχρηστο κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="166"/>
-        <source>Open system</source>
-        <translation>Άνοιγμα συστήματος</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
-        <source>Security</source>
-        <translation>Ασφάλεια</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="182"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="193"/>
-        <source>Authentication</source>
-        <translation>Πιστοποίηση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="242"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="278"/>
-        <source>Key</source>
-        <translation>Κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="291"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="33"/>
-        <source>VPN Advanced</source>
-        <translation>Προχωρημένο VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="130"/>
-        <source>Customize Gateway Port</source>
-        <translation>Προσαρμοσμένη Θύρα Πύλης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="133"/>
-        <source>Gateway Port</source>
-        <translation>Θύρα Πύλης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="139"/>
-        <source>Customize Renegotiation Interval</source>
-        <translation>Προσαρμόστε το Διάστημα Επαναδιαπραγμάτευσης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="142"/>
-        <source>Renegotiation Interval</source>
-        <translation>Διάστημα επαναδιαπραγμάτευσης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="148"/>
-        <source>Use LZO Data Compression</source>
-        <translation>Χρήση Συμπίεσης Δεδομένων LZO </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="151"/>
-        <source>Use TCP Connection</source>
-        <translation>Χρήση Σύνδεσης TCP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="154"/>
-        <source>Use TAP Device</source>
-        <translation>Χρήση Συσκευής TAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="157"/>
-        <source>Customize Tunnel MTU</source>
-        <translation>Προσαρμογή Tunnel MTU </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="160"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="166"/>
-        <source>Customize UDP Fragment Size</source>
-        <translation>Προσαρμογή Μεγέθους Τμήματος UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="169"/>
-        <source>UDP Fragment Size</source>
-        <translation>Μέγεθος τμήματος UDP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="175"/>
-        <source>Restrict Tunnel TCP MSS</source>
-        <translation>Περιορισμός διοχέτευσης TCP MSS </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvopenvpnsection.cpp" line="178"/>
-        <source>Randomize Remote Hosts</source>
-        <translation>Τυχαίος απομακρυσμένος κεντρικός υπολογιστής</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnAdvVPNCSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="33"/>
-        <source>VPN Advanced</source>
-        <translation>Προχωρημένο VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="141"/>
-        <source>Cisco (default)</source>
-        <translation>Cisco (προεπιλογή)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="142"/>
-        <source>Netscreen</source>
-        <translation>Netscreen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="145"/>
-        <source>Secure (default)</source>
-        <translation>Ασφαλές (προεπιλογή)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="146"/>
-        <source>Weak</source>
-        <translation>Αδύναμο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="162"/>
-        <source>None</source>
-        <translation>Κανένα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="150"/>
-        <source>NAT-T When Available (default)</source>
-        <translation>NAT-T Όταν Είναι Διαθέσιμο (προεπιλογή)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="151"/>
-        <source>NAT-T Always</source>
-        <translation>Πάντα NAT-T</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="152"/>
-        <source>Cisco UDP</source>
-        <translation>Cisco UDP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="153"/>
-        <source>Disabled</source>
-        <translation>Απενεργοποιημένο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="156"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="163"/>
-        <source>DH Group 1</source>
-        <translation>DH Ομάδα 1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="157"/>
-        <source>DH Group 2 (default)</source>
-        <translation>DH Ομάδα 2 (προεπιλογή)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="158"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="165"/>
-        <source>DH Group 5</source>
-        <translation>DH Ομάδα 5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="161"/>
-        <source>Server (default)</source>
-        <translation>Server (default) </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="164"/>
-        <source>DH Group 2</source>
-        <translation>DH Ομάδα 2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="171"/>
-        <source>Domain</source>
-        <translation>Τομέας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="174"/>
-        <source>Vendor</source>
-        <translation>Προμηθευτής</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="184"/>
-        <source>Version</source>
-        <translation>Έκδοση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="187"/>
-        <source>Encryption</source>
-        <translation>Κρυπτογράφηση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="197"/>
-        <source>NAT Traversal Mode</source>
-        <translation>Λειτουργία Διέλευσης NAT</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="207"/>
-        <source>IKE DH Group</source>
-        <translation>IKE DH Group </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="217"/>
-        <source>Forward Secrecy</source>
-        <translation>Άμεση Εμπιστευτικότητα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="227"/>
-        <source>Local Port</source>
-        <translation>Τοπική Πύλη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnadvvpncsection.cpp" line="232"/>
-        <source>Disable Dead Peer Detection</source>
-        <translation>Απενεργοποίηση Ανίχνευσης Dead Peer</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnIpsecSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="29"/>
-        <source>VPN IPsec</source>
-        <translation>VPN IPsec</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="82"/>
-        <source>Enable IPsec</source>
-        <translation>Ενεργοποίηση IPsec</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="85"/>
-        <source>Group Name</source>
-        <translation>Όνομα Ομάδας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="88"/>
-        <source>Group ID</source>
-        <translation>ID Ομάδας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="91"/>
-        <source>Pre-Shared Key</source>
-        <translation>Ήδη κοινόχρηστο κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="94"/>
-        <source>Phase1 Algorithms</source>
-        <translation>Αλγόριθμοι Phase1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="97"/>
-        <source>Phase2 Algorithms</source>
-        <translation>Αλγόριθμοι Phase2</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenConnectSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="99"/>
-        <source>Gateway</source>
-        <translation>Gateway</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="100"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="116"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="120"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="103"/>
-        <source>CA Cert</source>
-        <translation>CA Cert</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="106"/>
-        <source>Proxy</source>
-        <translation>Διακομιστής Μεσολάβησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="109"/>
-        <source>Allow Cisco Secure Desktop Trojan</source>
-        <translation>Να επιτρέπεται ο Ασφαλής Δούρειος Ίππος Επιφάνειας Εργασίας Cisco</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="112"/>
-        <source>CSD Script</source>
-        <translation>CSD Script</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="115"/>
-        <source>User Cert</source>
-        <translation>Πιστοποιητικό Χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="119"/>
-        <source>Private Key</source>
-        <translation>Ιδιωτικό Κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenconnectsection.cpp" line="123"/>
-        <source>Use FSID for Key Passphrase</source>
-        <translation>Χρησιμοποιήστε FSID για Key Passphrase </translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="32"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="116"/>
-        <source>Certificates (TLS)</source>
-        <translation>Πιστοποιητικά (TLS)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="117"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="257"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="118"/>
-        <source>Certificates with Password (TLS)</source>
-        <translation>Πιστοποιητικά με κωδικούς πρόσβασης (TLS) </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="285"/>
-        <source>Static Key</source>
-        <translation>Στατικό κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="124"/>
-        <source>Saved</source>
-        <translation>Αποθηκεύτηκε</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="125"/>
-        <source>Ask</source>
-        <translation>Ερώτηση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="126"/>
-        <source>Not Required</source>
-        <translation>Δεν Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="132"/>
-        <source>Gateway</source>
-        <translation>Gateway</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="133"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="208"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="240"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="259"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="308"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="136"/>
-        <source>Auth Type</source>
-        <translation>Τύπος Πιστοποίησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="148"/>
-        <source>CA Cert</source>
-        <translation>CA Cert</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="183"/>
-        <source>User Cert</source>
-        <translation>Πιστοποιητικό Χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="188"/>
-        <source>Private Key</source>
-        <translation>Ιδιωτικό Κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="244"/>
-        <source>Pwd Options</source>
-        <translation>Eπιλογές Pwd</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="206"/>
-        <source>Private Pwd</source>
-        <translation>Ιδιωτικός Κωδ. Προσβ.</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="238"/>
-        <source>Username</source>
-        <translation>Όνομα χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="290"/>
-        <source>Customize Key Direction</source>
-        <translation>Προσαρμογή Κατεύθυνσης Κλειδιού</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="294"/>
-        <source>Key Direction</source>
-        <translation>Βασική Κατεύθυνση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="301"/>
-        <source>Remote IP</source>
-        <translation>Απομακρυσμένη IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnopenvpnsection.cpp" line="307"/>
-        <source>Local IP</source>
-        <translation>Τοπική IP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPPPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="31"/>
-        <source>VPN PPP</source>
-        <translation>VPN PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
-        <source>All Available (default)</source>
-        <translation>Όλα τα διαθέσιμα (προεπιλογή)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
-        <source>40-bit (less secure)</source>
-        <translation>40-bit (λιγότερο ασφαλές)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
-        <source>128-bit (most secure)</source>
-        <translation>128-bit (πιο ασφαλές)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
-        <source>Refuse EAP Authentication</source>
-        <translation>Άρνηση ελέγχου ταυτότητας EAP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
-        <source>Refuse PAP Authentication</source>
-        <translation>Απόρριψη ελέγχου ταυτότητας PAP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
-        <source>Refuse CHAP Authentication</source>
-        <translation>Άρνηση ελέγχου ταυτότητας CHAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
-        <source>Refuse MSCHAP Authentication</source>
-        <translation>Άρνηση ελέγχου ταυτότητας MSCHAP </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
-        <source>Refuse MSCHAPv2 Authentication</source>
-        <translation>Άρνηση ελέγχου ταυτότητας MSCHAPv2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
-        <source>No BSD Data Compression</source>
-        <translation>Χωρίς Συμπίεση Δεδομένων BSD</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
-        <source>No Deflate Data Compression</source>
-        <translation>Χωρίς Ξεφούσκωμα Συμπίεσης Δεδομένων</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
-        <source>No TCP Header Compression</source>
-        <translation>Χωρίς Συμπίεση Κεφαλίδας TCP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
-        <source>No Protocol Field Compression</source>
-        <translation>Χωρίς Συμπίεση Πεδίου Πρωτοκόλλου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
-        <source>No Address/Control Compression</source>
-        <translation>Καμία συμπίεση Διεύθυνσης/Ελέγχου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
-        <source>Send PPP Echo Packets</source>
-        <translation>Αποστολή Πακέτων Αντήχησης PPP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
-        <source>Use MPPE</source>
-        <translation>Χρήση MPPE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="163"/>
-        <source>Security</source>
-        <translation>Ασφάλεια</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="176"/>
-        <source>Stateful MPPE</source>
-        <translation>MPPE με επίβλεψη κατάστασης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="102"/>
-        <source>VPN Status</source>
-        <translation>Κατάσταση VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="136"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="139"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="140"/>
-        <source>Create VPN</source>
-        <translation>Δημιουργία VPN</translation>
-        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="145"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="149"/>
-        <source>Import VPN</source>
-        <translation>Εισαγωγή VPN</translation>
-        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="186"/>
-        <source>Import Error</source>
-        <translation>Σφάλμα Εισαγωγής</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="187"/>
-        <source>File error</source>
-        <translation>Σφάλμα αρχείου</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="188"/>
-        <source>OK</source>
-        <translation>OK</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnProxySection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="38"/>
-        <source>VPN Proxy</source>
-        <translation>VPN Proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="141"/>
-        <source>Not Required</source>
-        <translation>Δεν Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="142"/>
-        <source>HTTP</source>
-        <translation>HTTP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="143"/>
-        <source>SOCKS</source>
-        <translation>SOCKS</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="149"/>
-        <source>Proxy Type</source>
-        <translation>Τύπος διακομιστή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="161"/>
-        <source>Server IP</source>
-        <translation>IP διακομιστή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="162"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="174"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="178"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="165"/>
-        <source>Port</source>
-        <translation>Θύρα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="170"/>
-        <source>Retry Indefinitely When Failed</source>
-        <translation>Συνεχής προσπάθεια σε περίπτωση αποτυχίας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="173"/>
-        <source>Username</source>
-        <translation>Όνομα χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnproxysection.cpp" line="177"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSSTPSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="80"/>
-        <source>CA File</source>
-        <translation>Αρχείο CA</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="83"/>
-        <source>Ignore Certificate Warnings</source>
-        <translation>Αγνόηση Προειδοποιήσεων Πιστοποίησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpsection.cpp" line="86"/>
-        <source>Use TLS Hostname Extensions</source>
-        <translation>Χρήση Επεκτάσεων TLS για Hostname </translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSecOpenVPNSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="31"/>
-        <source>VPN Security</source>
-        <translation>Ασφάλεια VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="97"/>
-        <source>Default</source>
-        <translation>Προεπιλογή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="77"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="98"/>
-        <source>None</source>
-        <translation>Κανένα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="112"/>
-        <source>Cipher</source>
-        <translation>Κρυπτογράφηση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsecopenvpnsection.cpp" line="124"/>
-        <source>HMAC Auth</source>
-        <translation>HMAC Auth </translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="29"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="109"/>
-        <source>Saved</source>
-        <translation>Αποθηκεύτηκε</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="110"/>
-        <source>Ask</source>
-        <translation>Ερώτηση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="111"/>
-        <source>Not Required</source>
-        <translation>Δεν Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="117"/>
-        <source>Gateway</source>
-        <translation>Gateway</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="122"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="139"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="121"/>
-        <source>Username</source>
-        <translation>Όνομα χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="125"/>
-        <source>Pwd Options</source>
-        <translation>Eπιλογές Pwd</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="138"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsection.cpp" line="142"/>
-        <source>NT Domain</source>
-        <translation>Τομέας NT</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnSstpProxySection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="31"/>
-        <source>VPN Proxy</source>
-        <translation>VPN Proxy</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="104"/>
-        <source>Server IP</source>
-        <translation>IP διακομιστή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="107"/>
-        <source>Port</source>
-        <translation>Θύρα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="112"/>
-        <source>Username</source>
-        <translation>Όνομα χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnsstpproxysection.cpp" line="115"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnStrongSwanSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="141"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="173"/>
-        <source>Private Key</source>
-        <translation>Ιδιωτικό Κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="142"/>
-        <source>SSH Agent</source>
-        <translation>SSH Agent</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="143"/>
-        <source>Smart Card</source>
-        <translation>Έξυπνη Κάρτα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="144"/>
-        <source>EAP</source>
-        <translation>EAP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="145"/>
-        <source>Pre-Shared Key</source>
-        <translation>Ήδη κοινόχρηστο κλειδί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="151"/>
-        <source>Gateway</source>
-        <translation>Gateway</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="152"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="155"/>
-        <source>CA Cert</source>
-        <translation>CA Cert</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="158"/>
-        <source>Auth Type</source>
-        <translation>Τύπος Πιστοποίησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="170"/>
-        <source>User Cert</source>
-        <translation>Πιστοποιητικό Χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="176"/>
-        <source>Username</source>
-        <translation>Όνομα χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="179"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="182"/>
-        <source>Request an Inner IP Address</source>
-        <translation>Αιτηθείτε μια εσωτερική IP διεύθυνση </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="185"/>
-        <source>Enforce UDP Encapsulation</source>
-        <translation>Επιβολή UDP εγκλεισμού</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="188"/>
-        <source>Use IP Compression</source>
-        <translation>Χρήση συμπίεσης IP</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="191"/>
-        <source>Enable Custom Cipher Proposals</source>
-        <translation>Ενεργοποίηση Προσαρμόσμένων Προτάσεων Κρυπτογράφησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="194"/>
-        <source>IKE</source>
-        <translation>IKE</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnstrongswansection.cpp" line="197"/>
-        <source>ESP</source>
-        <translation>ESP</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnTLSSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="31"/>
-        <source>VPN TLS Authentication</source>
-        <translation>Έλεγχος ταυτότητας VPN TLS </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="82"/>
-        <source>Default</source>
-        <translation>Προεπιλογή</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="83"/>
-        <source>Client</source>
-        <translation>Πελάτης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="84"/>
-        <source>Server</source>
-        <translation>Διακομιστής</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="90"/>
-        <source>Subject Match</source>
-        <translation>Συμφωνία θέματος</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="93"/>
-        <source>Remote Cert Type</source>
-        <translation>Απομακρυσμένος τύπος πιστοποιητικού</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="105"/>
-        <source>Key File</source>
-        <translation>Αρχείο κλειδιού</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="108"/>
-        <source>Customize Key Direction</source>
-        <translation>Προσαρμογή Κατεύθυνσης Κλειδιού</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpntlssection.cpp" line="111"/>
-        <source>Key Direction</source>
-        <translation>Βασική Κατεύθυνση</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::VpnVPNCSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="31"/>
-        <source>VPN</source>
-        <translation>VPN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="161"/>
-        <source>Saved</source>
-        <translation>Αποθηκεύτηκε</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="162"/>
-        <source>Ask</source>
-        <translation>Ερώτηση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="163"/>
-        <source>Not Required</source>
-        <translation>Δεν Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="169"/>
-        <source>Gateway</source>
-        <translation>Gateway</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="170"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="174"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="188"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="192"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="207"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="173"/>
-        <source>Username</source>
-        <translation>Όνομα χρήστη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="177"/>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="195"/>
-        <source>Pwd Options</source>
-        <translation>Eπιλογές Pwd</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="187"/>
-        <source>Password</source>
-        <translation>Κωδικός πρόσβασης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="191"/>
-        <source>Group Name</source>
-        <translation>Όνομα Ομάδας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="206"/>
-        <source>Group Pwd</source>
-        <translation>Κωδ. Προσβ. Ομάδας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="210"/>
-        <source>Use Hybrid Authentication</source>
-        <translation>Χρήση Υβριδικής Πιστοποίησης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnvpncsection.cpp" line="213"/>
-        <source>CA File</source>
-        <translation>Αρχείο CA</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WiredPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="70"/>
-        <source>Plug in the network cable first</source>
-        <translation>Συνδέστε το καλώδιο δικτύου πρώτα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="76"/>
-        <source>Wired Network Adapter</source>
-        <translation>Υποδοχέας Δικτύου Ενσύρματης Σύνδεσης</translation>
-        <extra-contents_path>/network/Wired Network</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="96"/>
-        <source>Add Network Connection</source>
-        <translation>Προσθήκη Σύνδεσης Δικτύου</translation>
-        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wiredpage.cpp" line="116"/>
-        <source>Select Settings</source>
-        <translation>Επιλογή Ρυθμίσεων</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessPage</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="286"/>
-        <source>Connect to hidden network</source>
-        <translation>Σύνδεση σε κρυφό δίκτυο</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="294"/>
-        <source>Wireless Network Adapter</source>
-        <translation>Υποδοχέας Δικτύου Ασύρματης Σύνδεσης</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="323"/>
-        <source>Close Hotspot</source>
-        <translation>Απενεργοποίηση Φορητού Σημείου Πρόσβασης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="326"/>
-        <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>Απενεργοποιήστε το φορήτο σημείο πρόσβασης πρώτα, εαν θέλετε να συνδεθείτε σε ένα δίκτυο ασύρματης σύνδεσης</translation>
-    </message>
-</context>
-<context>
-    <name>dccV20::network::WirelessSection</name>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="37"/>
-        <source>WLAN</source>
-        <translation>WLAN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="60"/>
-        <source>Not Bind</source>
-        <translation>Μη Δ</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="115"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
-        <source>Required</source>
-        <translation>Απαιτείται</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="119"/>
-        <source>Device MAC Addr</source>
-        <translation>Διεύθυνση MAC συσκευής</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="135"/>
-        <source>Customize MTU</source>
-        <translation>Προσαρμογή MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="138"/>
-        <source>MTU</source>
-        <translation>MTU</translation>
     </message>
 </context>
 <context>
@@ -4883,49 +2814,49 @@
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
         <source>Output</source>
         <translation>Έξοδος</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="78"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="77"/>
         <source>Output Device</source>
         <translation>Συσκευή Εξόδου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
         <source>Mode</source>
         <translation>Λειτουργία</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="299"/>
         <source>Output Volume</source>
         <translation>Όγκος εξόδου</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="383"/>
         <source>Volume Boost</source>
         <translation>Ενίσχυση Ήχου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="409"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="390"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>Αν η ένταση υπερβεί το 100%, μπορεί να παραμορφωθεί ο ήχος και να δημιουργηθεί βλάβη στο ηχείο σας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="401"/>
         <source>Left/Right Balance</source>
         <translation>Αριστερή/Δεξιά Ισορροπία</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="425"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="406"/>
         <source>Left</source>
         <translation>Αριστερά</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="407"/>
         <source>Right</source>
         <translation>Δεξιά</translation>
     </message>
@@ -5796,58 +3727,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>LocationWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="50"/>
-        <source>Location service</source>
-        <translation>Υπηρεσίες τοποθεσίας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/locationwidget.cpp" line="57"/>
-        <source>Location services use GPS, Bluetooth and WiFi hotspots and signals to determine your approximate location</source>
-        <translation>Οι υπηρεσίες τοποθεσίαςς χρησιμοποιούν GPS, Bluetooth και φορητά σημεία πρόσβασης και σήματα WiFi για να προσδιοριστεί η ακριβής σας τοποθεσία</translation>
-    </message>
-</context>
-<context>
-    <name>NavModel</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="187"/>
-        <source>Navigation</source>
-        <translation>Πλοήγηση</translation>
-    </message>
-</context>
-<context>
-    <name>PrivacyPlugin</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacyplugin.cpp" line="70"/>
-        <source>Privacy</source>
-        <translation>Απόρρητο</translation>
-    </message>
-</context>
-<context>
-    <name>PrivacyWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="50"/>
-        <source>Location service</source>
-        <translation>Υπηρεσίες τοποθεσίας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="51"/>
-        <source>Photo</source>
-        <translation>Φωτογραφία</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="52"/>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="53"/>
-        <source>Microphone</source>
-        <translation>Μικρόφωνο</translation>
-    </message>
-</context>
-<context>
     <name>PwqualityManager</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
@@ -5900,7 +3779,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="125"/>
+        <location filename="../src/frame/main.cpp" line="130"/>
         <source>Control Center</source>
         <translation>Κέντρο Ελέγχου</translation>
     </message>
@@ -6102,216 +3981,34 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="556"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="608"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Ο οικοδεσπότης (host) αφαιρέθηκε από τον διακομιστή δικτύου επιτυχώς</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="557"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="609"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Ο οικοδεσπότης (host) συνδέθηκε στον διακομιστή δικτύου επιτυχώς</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="585"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="637"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Ο οικοδεσπότης (host) απέτυχε να αποσυνδεθεί από τον διακομιστή δικτύου</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="586"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="638"/>
         <source>Your host failed to join the domain server</source>
         <translation>Ο οικοδεσπότης (host) απέτυχε να συνδεθεί στον διακομιστή δικτύου</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="589"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="641"/>
         <source>AD domain settings</source>
         <translation>Ρυθμίσεις δικτύου AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="658"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="710"/>
         <source>Password not match</source>
         <translation>Οι κωδικοί πρόσβασης δεν ταιριάζουν</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::FingerModel</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint1</source>
-        <translation>ΔακτυλικόΑποτύπωμα1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint2</source>
-        <translation>ΔακτυλικόΑποτύπωμα2</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="66"/>
-        <source>Fingerprint3</source>
-        <translation>ΔακτυλικόΑποτύπωμα3</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint4</source>
-        <translation>ΔακτυλικόΑποτύπωμα4</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint5</source>
-        <translation>ΔακτυλικόΑποτύπωμα5</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="67"/>
-        <source>Fingerprint6</source>
-        <translation>ΔακτυλικόΑποτύπωμα6</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint7</source>
-        <translation>ΔακτυλικόΑποτύπωμα7</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint8</source>
-        <translation>ΔακτυλικόΑποτύπωμα8</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="68"/>
-        <source>Fingerprint9</source>
-        <translation>ΔακτυλικόΑποτύπωμα9</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="69"/>
-        <source>Fingerprint10</source>
-        <translation>ΔακτυλικόΑποτύπωμα10</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="107"/>
-        <source>Scan failed</source>
-        <translation>Αποτυχία σάρωσης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="117"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="170"/>
-        <source>The fingerprint already exists</source>
-        <translation>Το δακτυλικό αποτύπωμα υπάρχει ήδη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="118"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="171"/>
-        <source>Please scan other fingers</source>
-        <translation>Παρακαλώ σαρώστε άλλα δάκτυλα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="121"/>
-        <source>Unknown error</source>
-        <translation>Άγνωστο σφάλμα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="122"/>
-        <source>Scan suspended</source>
-        <translation>Αναστολή σάρωσης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="148"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="149"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="184"/>
-        <source>Cannot recognize</source>
-        <translation>Αδυναμία αναγνώρισης</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="158"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="174"/>
-        <source>Moved too fast</source>
-        <translation>Πολύ γρήγορη μετακίνηση</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="159"/>
-        <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>Το δάχτυλο κινήθηκε πολύ γρήγορα, παρακαλώ μην σηκώνετε μέχρι να σας ζητηθεί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="162"/>
-        <source>Unclear fingerprint</source>
-        <translation>Μη ευκρινές δακτυλικό αποτύπωμα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="163"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="181"/>
-        <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation>Καθαρίστε το δάκτυλο σας ή προσαρμόστε την θέση του, και προσπαθήστε ξανά</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="166"/>
-        <source>Already scanned</source>
-        <translation>Σαρώθηκε ήδη</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="167"/>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="178"/>
-        <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation>Προσαρμόστε την θέση του δακτύλου σας για να σαρωθεί πλήρως το δακτυλικό σας αποτύπωμα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="175"/>
-        <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>Το δάκτυλο κινήθηκε πολύ γρήγορα. Παρακαλώ μην το σηκώσετε μέχρι να σας ζητηθεί</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/fingermodel.cpp" line="185"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation>Σηκώστε το δάκτυλο σας και τοποθετήστε το ξανά στον αισθητήρα</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::FingerWidget</name>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="64"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="136"/>
-        <source>Place your finger</source>
-        <translation>Τοποθετήστε το δάκτυλο σας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="65"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="137"/>
-        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Τοποθετήστε το δάκτυλο σας σταθερά στον αισθητήρα μέχρι να σας ζητηθεί να το σηκώσετε</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="67"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="150"/>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="153"/>
-        <source>Scan the edges of your fingerprint</source>
-        <translation>Σάρωση των ακρών του δακτυλικού σας αποτυπώματος</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="68"/>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Τοποθετήστε τις άκρες του δακτυλικού σας αποτυπώματος στον αισθητήρα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="144"/>
-        <source>Lift your finger</source>
-        <translation>Σηκώστε το δάκτυλο σας</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="145"/>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation>Σηκώστε το δάκτυλο σας και τοποθετήστε το ξανά στον αισθητήρα</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="151"/>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Προσαρμόστε την θέση για να σαρωθούν οι άκρες του δακτυλικού σας αποτυπώματος</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="154"/>
-        <source>Lift your finger and do that again</source>
-        <translation>Σηκώστε το δάκτυλο σας και επαναλάβετε</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/accounts/widgets/fingerwidget.cpp" line="158"/>
-        <source>Fingerprint added</source>
-        <translation>Το δακτυλικό αποτύπωμα προστέθηκε</translation>
     </message>
 </context>
 <context>
@@ -6335,6 +4032,188 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="73"/>
         <source>Delete</source>
         <translation>Διαγραφή</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::authentication::FingerModel</name>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint1</source>
+        <translation>ΔακτυλικόΑποτύπωμα1</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint2</source>
+        <translation>ΔακτυλικόΑποτύπωμα2</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="66"/>
+        <source>Fingerprint3</source>
+        <translation>ΔακτυλικόΑποτύπωμα3</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint4</source>
+        <translation>ΔακτυλικόΑποτύπωμα4</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint5</source>
+        <translation>ΔακτυλικόΑποτύπωμα5</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="67"/>
+        <source>Fingerprint6</source>
+        <translation>ΔακτυλικόΑποτύπωμα6</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint7</source>
+        <translation>ΔακτυλικόΑποτύπωμα7</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint8</source>
+        <translation>ΔακτυλικόΑποτύπωμα8</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="68"/>
+        <source>Fingerprint9</source>
+        <translation>ΔακτυλικόΑποτύπωμα9</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="69"/>
+        <source>Fingerprint10</source>
+        <translation>ΔακτυλικόΑποτύπωμα10</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="108"/>
+        <source>Scan failed</source>
+        <translation>Αποτυχία σάρωσης</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="171"/>
+        <source>The fingerprint already exists</source>
+        <translation>Το δακτυλικό αποτύπωμα υπάρχει ήδη</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="172"/>
+        <source>Please scan other fingers</source>
+        <translation>Παρακαλώ σαρώστε άλλα δάκτυλα</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="122"/>
+        <source>Unknown error</source>
+        <translation>Άγνωστο σφάλμα</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="123"/>
+        <source>Scan suspended</source>
+        <translation>Αναστολή σάρωσης</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="149"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="150"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="185"/>
+        <source>Cannot recognize</source>
+        <translation>Αδυναμία αναγνώρισης</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="159"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="175"/>
+        <source>Moved too fast</source>
+        <translation>Πολύ γρήγορη μετακίνηση</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="160"/>
+        <source>Finger moved too fast, please do not lift until prompted</source>
+        <translation>Το δάχτυλο κινήθηκε πολύ γρήγορα, παρακαλώ μην σηκώνετε μέχρι να σας ζητηθεί</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="163"/>
+        <source>Unclear fingerprint</source>
+        <translation>Μη ευκρινές δακτυλικό αποτύπωμα</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="164"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="182"/>
+        <source>Clean your finger or adjust the finger position, and try again</source>
+        <translation>Καθαρίστε το δάκτυλο σας ή προσαρμόστε την θέση του, και προσπαθήστε ξανά</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="167"/>
+        <source>Already scanned</source>
+        <translation>Σαρώθηκε ήδη</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="168"/>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="179"/>
+        <source>Adjust the finger position to scan your fingerprint fully</source>
+        <translation>Προσαρμόστε την θέση του δακτύλου σας για να σαρωθεί πλήρως το δακτυλικό σας αποτύπωμα</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="176"/>
+        <source>Finger moved too fast. Please do not lift until prompted</source>
+        <translation>Το δάκτυλο κινήθηκε πολύ γρήγορα. Παρακαλώ μην το σηκώσετε μέχρι να σας ζητηθεί</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="186"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Σηκώστε το δάκτυλο σας και τοποθετήστε το ξανά στον αισθητήρα</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::authentication::FingerWidget</name>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="64"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="136"/>
+        <source>Place your finger</source>
+        <translation>Τοποθετήστε το δάκτυλο σας</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="65"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="137"/>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation>Τοποθετήστε το δάκτυλο σας σταθερά στον αισθητήρα μέχρι να σας ζητηθεί να το σηκώσετε</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="67"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="150"/>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="153"/>
+        <source>Scan the edges of your fingerprint</source>
+        <translation>Σάρωση των ακρών του δακτυλικού σας αποτυπώματος</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="68"/>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation>Τοποθετήστε τις άκρες του δακτυλικού σας αποτυπώματος στον αισθητήρα</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="144"/>
+        <source>Lift your finger</source>
+        <translation>Σηκώστε το δάκτυλο σας</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="145"/>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation>Σηκώστε το δάκτυλο σας και τοποθετήστε το ξανά στον αισθητήρα</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="151"/>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation>Προσαρμόστε την θέση για να σαρωθούν οι άκρες του δακτυλικού σας αποτυπώματος</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="154"/>
+        <source>Lift your finger and do that again</source>
+        <translation>Σηκώστε το δάκτυλο σας και επαναλάβετε</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="158"/>
+        <source>Fingerprint added</source>
+        <translation>Το δακτυλικό αποτύπωμα προστέθηκε</translation>
     </message>
 </context>
 <context>
@@ -6401,22 +4280,22 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="62"/>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="218"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="220"/>
         <source>Confirm</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="214"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="216"/>
         <source>Add Timezone</source>
         <translation>Προσθέστε Ζώνη ώρας</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="215"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
         <source>Add</source>
         <translation>Προσθήκη</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="217"/>
+        <location filename="../src/frame/modules/datetime/timezone_dialog/timezonechooser.cpp" line="219"/>
         <source>Change Timezone</source>
         <translation>Αλλαγή Ζώνης Ώρας</translation>
     </message>
@@ -6866,17 +4745,17 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="426"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
         <source>System Updates</source>
         <translation>Ενημερώσεις Συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
         <source>Patches</source>
         <translation>Ενημερώσεις κώδικα</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>Επιδιορθώσεις συστήματος</translation>
     </message>
@@ -6892,7 +4771,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="126"/>
+        <location filename="../src/frame/main.cpp" line="131"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>Το Κέντρο Ελέγχου παρέχει επιλογές για ρυθμίσεις συστήματος</translation>
     </message>
