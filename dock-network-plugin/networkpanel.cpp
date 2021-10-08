@@ -145,14 +145,19 @@ void NetworkPanel::initConnection()
                 m_wirelessScanTimer->setInterval(wirelessScanInterval);
             }
         });
-    connect(m_wirelessScanTimer, &QTimer::timeout, [&] {
-        QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+    connect(m_wirelessScanTimer, &QTimer::timeout, [ = ] {
+        QList<NetworkDeviceBase *> devices = networkController->devices();
         for (NetworkDeviceBase *device : devices) {
             if (device->deviceType() == DeviceType::Wireless) {
                 WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
                 wirelessDevice->scanNetwork();
             }
         }
+    });
+
+    QTimer::singleShot(100, this, [ = ] {
+        onDeviceAdded(networkController->devices());
+        m_applet->setVisible(false);
     });
 }
 
@@ -370,8 +375,6 @@ void NetworkPanel::updateItems()
 
 void NetworkPanel::updateView()
 {
-    QList<NetItem *> removeItems;
-
     updateItems();
 
     QList<QStandardItem *> items;
