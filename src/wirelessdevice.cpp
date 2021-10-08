@@ -209,6 +209,7 @@ void WirelessDevice::updateActiveInfo()
         ap->m_status = ConnectionStatus::Unknown;
 
     // 遍历活动连接列表，找到对应的wlan，改变其连接状态，State赋值即可
+    bool changed = false;
     AccessPoints *activeAp = Q_NULLPTR;
     for (const QJsonObject &aapInfo : m_activeAccessPoints) {
         int connectionStatus = aapInfo.value("State").toInt();
@@ -217,10 +218,18 @@ void WirelessDevice::updateActiveInfo()
         if (!ap)
             continue;
 
-        ap->m_status = convertConnectionStatus(connectionStatus);
+        ConnectionStatus status = convertConnectionStatus(connectionStatus);
+        if (ap->status() == status)
+            continue;
+
+        ap->m_status = status;
+        changed = true;
         if (ap->m_status == ConnectionStatus::Activated)
             activeAp = ap;
     }
+
+    if (changed)
+        Q_EMIT activeConnectionChanged();
 
     // 如果发现其中一个连接成功，将这个连接成功的信号移到最上面，然后则向外发送连接成功的信号
     if (activeAp) {

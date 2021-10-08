@@ -394,6 +394,7 @@ WirelessPage::WirelessPage(WirelessDevice *dev, QWidget *parent)
     connect(m_device, &WirelessDevice::connectionFailed, this, &WirelessPage::onActivateApFailed);
     connect(m_device, &WirelessDevice::connectionChanged, this, &WirelessPage::updateApStatus);
     connect(m_device, &WirelessDevice::deviceStatusChanged, this, &WirelessPage::updateApStatus);
+    connect(m_device, &WirelessDevice::activeConnectionChanged, this, &WirelessPage::updateApStatus);
 
     // init data
     const QList<AccessPoints *> lstUAccessPoints = m_device->accessPointItems();
