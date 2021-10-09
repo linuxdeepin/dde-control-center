@@ -372,7 +372,13 @@ void MainWindow::initAllModule(const QString &m)
         updateModuleVisible();
     });
     connect(VisibleManagement::instance(), &VisibleManagement::requestDataChanged, this, &MainWindow::updateModuleVisible);
-    connect(VisibleManagement::instance(), &VisibleManagement::requestCurrentPageOff, [ = ] () { m_backwardBtn->clicked(true);});
+    //这里延迟10毫秒,保证当页面停留在四级页面的时候,可以先走到四级页面的back,然后再走到这里的退出
+    connect(VisibleManagement::instance(), &VisibleManagement::requestCurrentPageOff, [ = ] () {
+        QTimer::singleShot(10, [ = ] {
+            Q_EMIT m_backwardBtn->clicked(true);
+        });
+    });
+
     updateModuleVisible();
 
     //通过gsetting获取版本类型，设置某模块是否显示

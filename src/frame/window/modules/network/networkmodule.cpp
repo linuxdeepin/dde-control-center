@@ -270,7 +270,7 @@ const QString NetworkModule::displayName() const
 void NetworkModule::popPage()
 {
     m_frameProxy->popWidget(this);
-    m_networkWidget->initSetting(0, "");
+    m_networkWidget->initSetting(m_networkWidget->gotoSetting(""), "");
 }
 
 void NetworkModule::showDeviceDetailPage(NetworkDevice *dev, const QString &searchPath)

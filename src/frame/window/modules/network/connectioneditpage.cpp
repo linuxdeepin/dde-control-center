@@ -24,6 +24,7 @@
 #include "settings/wiredsettings.h"
 #include "settings/wirelesssettings.h"
 #include "settings/dslpppoesettings.h"
+#include "window/visiblemanagement.h"
 
 #include <networkmanagerqt/settings.h>
 #include <networkmanagerqt/security8021xsetting.h>
@@ -205,6 +206,8 @@ void ConnectionEditPage::initConnection()
 {
     connect(m_buttonTuple->rightButton(), &QPushButton::clicked, this, &ConnectionEditPage::saveConnSettings);
     connect(m_buttonTuple->leftButton(), &QPushButton::clicked, this, &ConnectionEditPage::back);
+    connect(VisibleManagement::instance(), &VisibleManagement::requestCurrentPageOff, this, &ConnectionEditPage::back);
+
     connect(this, &ConnectionEditPage::saveSettingsDone, this, &ConnectionEditPage::prepareConnection);
     connect(this, &ConnectionEditPage::prepareConnectionDone, this, &ConnectionEditPage::updateConnection);
 
