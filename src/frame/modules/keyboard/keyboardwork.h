@@ -163,7 +163,7 @@ private:
     LangSelector* m_langSelector;
 #endif
     KeybingdingInter* m_keybindInter;
-    ShortcutModel *m_shortcutModel;
+    ShortcutModel *m_shortcutModel = nullptr;
     WM *m_wm;
 };
 }
