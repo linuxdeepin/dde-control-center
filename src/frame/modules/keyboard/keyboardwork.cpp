@@ -99,7 +99,8 @@ void KeyboardWorker::resetAll() {
 
 void KeyboardWorker::onGetWindowWM(bool value)
 {
-    m_shortcutModel->onWindowSwitchChanged(value);
+    if (m_shortcutModel)
+        m_shortcutModel->onWindowSwitchChanged(value);
 }
 
 void KeyboardWorker::setShortcutModel(ShortcutModel *model)
@@ -138,7 +139,8 @@ void KeyboardWorker::windowSwitch()
         return;
     }
 
-    m_shortcutModel->onWindowSwitchChanged(licenseInfo.property("compositingEnabled").toBool());
+    if (m_shortcutModel)
+        m_shortcutModel->onWindowSwitchChanged(licenseInfo.property("compositingEnabled").toBool());
 }
 
 void KeyboardWorker::active()
@@ -301,7 +303,8 @@ bool KeyboardWorker::checkAvaliable(const QString &key)
 void KeyboardWorker::delShortcut(ShortcutInfo* info)
 {
     m_keybindInter->DeleteCustomShortcut(info->id);
-    m_shortcutModel->delInfo(info);
+    if (m_shortcutModel)
+        m_shortcutModel->delInfo(info);
 }
 
 void KeyboardWorker::setRepeatDelay(uint value)
@@ -402,7 +405,8 @@ void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
         map.insert(key, bit);
     }
     m_model->setAllShortcut(map);
-    m_shortcutModel->onParseInfo(info);
+    if (m_shortcutModel)
+        m_shortcutModel->onParseInfo(info);
     watch->deleteLater();
 }
 
@@ -424,7 +428,7 @@ void KeyboardWorker::onAddedFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<QString> reply = *watch;
 
-    if (!watch->isError())
+    if (m_shortcutModel && !watch->isError())
         m_shortcutModel->onCustomInfo(reply.value());
 
     watch->deleteLater();
@@ -517,7 +521,7 @@ void KeyboardWorker::onCurrentLayoutFinished(QDBusPendingCallWatcher *watch)
 void KeyboardWorker::onSearchFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<QString> reply = *watch;
-    if (!watch->isError()) {
+    if (m_shortcutModel && !watch->isError()) {
         m_shortcutModel->setSearchResult(reply.value());
     } else {
         qDebug() << "search finished error." << watch->error();
@@ -614,7 +618,7 @@ void KeyboardWorker::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<QString> reply = *watch;
 
-    if (!watch->isError())
+    if (m_shortcutModel && !watch->isError())
         m_shortcutModel->onKeyBindingChanged(reply.value());
 
     watch->deleteLater();
@@ -622,7 +626,8 @@ void KeyboardWorker::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
 
 void KeyboardWorker::updateKey(ShortcutInfo *info)
 {
-    m_shortcutModel->setCurrentInfo(info);
+    if (m_shortcutModel)
+        m_shortcutModel->setCurrentInfo(info);
 
     m_keybindInter->SelectKeystroke();
 }
