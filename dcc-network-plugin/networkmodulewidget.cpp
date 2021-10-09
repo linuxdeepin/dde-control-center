@@ -464,7 +464,7 @@ void NetworkModuleWidget::onDeviceChanged()
             if (device->path() == m_lastDevicePath) {
                 newRowIndex = i;
                 m_lastDevicePath.clear();
-                m_switchIndex = false;
+                m_switchIndex = true;
                 break;
             }
         }
