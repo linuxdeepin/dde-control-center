@@ -32,7 +32,7 @@
 
 using namespace dcc::update;
 
-DownloadProgressBar::DownloadProgressBar(QWidget* parent)
+DownloadProgressBar::DownloadProgressBar(QWidget *parent)
     : QProgressBar(parent)
     , m_currentValue(0)
 {
@@ -67,7 +67,9 @@ void DownloadProgressBar::mouseReleaseEvent(QMouseEvent *e)
     }
 
     e->accept();
-    Q_EMIT clicked();
+    if (e->button() == Qt::LeftButton) {
+        Q_EMIT clicked();
+    }
 
     QWidget::mouseReleaseEvent(e);
 }
