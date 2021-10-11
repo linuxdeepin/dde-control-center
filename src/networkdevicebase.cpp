@@ -40,7 +40,7 @@ bool NetworkDeviceBase::IPValid()
 
 QString NetworkDeviceBase::ipv4() const
 {
-    if (!isEnabled() || !m_activeInfoData.contains("Ip4"))
+    if (!isConnected() || !isEnabled() || !m_activeInfoData.contains("Ip4"))
         return QString();
 
     // 返回IPv4地址
@@ -50,7 +50,7 @@ QString NetworkDeviceBase::ipv4() const
 
 QString NetworkDeviceBase::ipv6() const
 {
-    if (!isEnabled() || !m_activeInfoData.contains("Ip6"))
+    if (!isConnected() || !isEnabled() || !m_activeInfoData.contains("Ip6"))
         return QString();
 
     // 返回IPv6地址
