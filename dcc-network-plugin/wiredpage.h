@@ -82,7 +82,6 @@ private Q_SLOTS:
     void refreshConnectionList();
     void editConnection(const QString &connectionPath);
     void createNewConnection();
-    void activateConnection(const QString &connectionPath);
     void activateEditConnection(const QString &connectPath, const QString &uuid);
     void checkActivatedConnection();
     void onDeviceStatusChanged(const DeviceStatus &stat);
@@ -104,7 +103,7 @@ private:
     SettingsGroup *m_tipsGrp;
 
     QMap<DStandardItem *, QString> m_connectionPath;
-    bool m_needConnectNew;
+    QString m_newConnectionPath;
 
     static const int PathRole = Qt::UserRole + 100;
 };

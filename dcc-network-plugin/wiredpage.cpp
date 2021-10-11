@@ -61,7 +61,6 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     , m_device(dev)
     , m_pNetworkController(NetworkController::instance())
     , m_lvProfiles(new DListView(this))
-    , m_needConnectNew(false)
 {
     // 有线连接
     m_lvProfiles->setAccessibleName("lvProfiles");
@@ -131,19 +130,20 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
 
     // 点击有线连接按钮
     connect(m_lvProfiles, &DListView::clicked, this, [this](const QModelIndex & idx) {
-        this->activateConnection(idx.data(PathRole).toString());
+        m_device->connectNetwork(idx.data(PathRole).toString());
     });
 
     connect(m_createBtn, &QPushButton::clicked, this, &WiredPage::createNewConnection);
     connect(m_device, &WiredDevice::connectionAdded, this, [ = ] (const QList<WiredConnection*> newConnections) {
         refreshConnectionList();
-        if (m_needConnectNew) {
-            if (newConnections.size() > 0) {
-                WiredConnection *connection = newConnections[0];
-                m_device->connectNetwork(connection);
+        if (!m_newConnectionPath.isEmpty()) {
+            for (WiredConnection *connection : newConnections) {
+                if (connection->connection()->path() == m_newConnectionPath) {
+                    m_device->connectNetwork(connection);
+                    m_newConnectionPath.clear();
+                    break;
+                }
             }
-
-            m_needConnectNew = false;
         }
     });
     connect(m_device, &WiredDevice::connectionRemoved, this, &WiredPage::refreshConnectionList);
@@ -254,16 +254,11 @@ void WiredPage::createNewConnection()
     m_editPage->setButtonTupleEnable(true);
 }
 
-void WiredPage::activateConnection(const QString &connectionPath)
-{
-    m_device->connectNetwork(connectionPath);
-}
-
 void WiredPage::activateEditConnection(const QString &connectPath, const QString &uuid)
 {
     Q_UNUSED(uuid);
     if(!m_device->connectNetwork(connectPath))
-        m_needConnectNew = true;
+        m_newConnectionPath = connectPath;
 
     Q_EMIT back();
 }

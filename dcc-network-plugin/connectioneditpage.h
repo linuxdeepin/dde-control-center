@@ -82,6 +82,7 @@ Q_SIGNALS:
     void requestWiredDeviceEnabled(const QString &devPath, const bool enabled) const;
     void activateWiredConnection(const QString &connString, const QString &uuid);
     void activateWirelessConnection(const QString &ssid, const QString &uuid);
+    void activateVpnConnection(const QString &, const QString &);
     // private signals
     void saveSettingsDone();
     void prepareConnectionDone();

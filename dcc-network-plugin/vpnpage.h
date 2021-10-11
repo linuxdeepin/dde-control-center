@@ -87,6 +87,8 @@ private:
     DListView *m_lvprofiles;
     QStandardItemModel *m_modelprofiles;
     QFileDialog *m_importFile;
+    QString m_newConnectionPath;
+
     static const int UuidRole = Qt::UserRole + 100;
 };
 

@@ -44,6 +44,7 @@ private:
     DSpinner *m_loadingIndicator;
     DListView *m_parentView;
     DViewItemAction *m_editAction;
+    DViewItemAction *m_loadingAction;
     void *m_itemData;
     dde::network::Connection *m_connection;
 };

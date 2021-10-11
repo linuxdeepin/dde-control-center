@@ -221,7 +221,17 @@ VpnPage::VpnPage(QWidget *parent)
     connect(vpnController, &VPNController::activeConnectionChanged, this, &VpnPage::onActiveConnsInfoChanged);
     connect(vpnController, &VPNController::itemChanged, this, &VpnPage::updateVpnItems);
     connect(vpnController, &VPNController::itemAdded, this, [ = ] {
-        refreshVpnList(vpnController->items());
+        QList<VPNItem *> items = vpnController->items();
+        refreshVpnList(items);
+        if (!m_newConnectionPath.isEmpty()) {
+            for (VPNItem *item : items) {
+                if (item->connection()->path() == m_newConnectionPath) {
+                    vpnController->connectItem(item);
+                    m_newConnectionPath.clear();
+                    break;
+                }
+            }
+        }
     });
     connect(vpnController, &VPNController::itemRemoved, this, [ = ] {
         refreshVpnList(vpnController->items());
@@ -374,6 +384,23 @@ void VpnPage::createVPN()
     m_editPage->initSettingsWidgetByType(ConnectionVpnEditPage::VpnType::UNSET);
     connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
     connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionVpnEditPage::activateVpnConnection, this, [ = ] (const QString &path, const QString &devicePath) {
+        Q_UNUSED(devicePath);
+
+        m_newConnectionPath.clear();
+        bool findConnection = false;
+        VPNController *vpnController = NetworkController::instance()->vpnController();
+        QList<VPNItem *> items = vpnController->items();
+        for (VPNItem *item : items) {
+            if (item->connection()->path() == path) {
+                vpnController->connectItem(item);
+                findConnection = true;
+                break;
+            }
+        }
+        if (!findConnection)
+            m_newConnectionPath = path;
+    });
     Q_EMIT requestNextPage(m_editPage);
 
     //only create New Connection can set "Cancel","Save" button
