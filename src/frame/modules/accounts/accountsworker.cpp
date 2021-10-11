@@ -140,6 +140,10 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     m_notifyInter->setSync(false);
 #endif
     QDBusInterface interface(AccountsService, "/com/deepin/daemon/Accounts", AccountsService, QDBusConnection::systemBus());
+    QList<QVariant> currentUserPath = interface.call("FindUserById", QString::number(pws->pw_uid)).arguments();
+    if (!currentUserPath.isEmpty()) {
+        onUserListChanged({currentUserPath.first().toString()});
+    }
     onUserListChanged(interface.property("UserList").toStringList());
     updateUserOnlineStatus(m_dmInter->sessions());
     getAllGroups();
