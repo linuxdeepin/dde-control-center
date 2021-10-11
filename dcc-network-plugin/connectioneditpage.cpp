@@ -498,3 +498,8 @@ void ConnectionEditPage::setButtonTupleEnable(bool enable)
     m_buttonTuple->leftButton()->setEnabled(enable);
     m_buttonTuple->rightButton()->setEnabled(enable);
 }
+
+void ConnectionEditPage::setLeftButtonEnable(bool enable)
+{
+    m_buttonTuple->leftButton()->setEnabled(enable);
+}

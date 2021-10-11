@@ -185,6 +185,7 @@ void HotspotDeviceWidget::openEditPage(const QString &uuid)
 {
     m_editPage = new ConnectionHotspotEditPage(m_wdev->path(), uuid);
     m_editPage->initSettingsWidget();
+    m_editPage->setButtonTupleEnable(true);
 
     Q_EMIT m_page->requestNextPage(m_editPage);
 }
@@ -227,6 +228,7 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
 {
     m_editPage = new ConnectionHotspotEditPage(m_wdev->path(), uuid);
     m_editPage->initSettingsWidget();
+    m_editPage->setLeftButtonEnable(true);
 
     connect(m_editPage, &ConnectionHotspotEditPage::requestNextPage, m_page, &HotspotPage::requestNextPage);
 

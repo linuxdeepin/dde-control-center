@@ -269,6 +269,8 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
         connect(vpnItem, &ConnectionPageItem::detailClick, this, [ = ] {
             m_editPage = new ConnectionVpnEditPage(uuid);
             m_editPage->initSettingsWidget();
+            m_editPage->setLeftButtonEnable(true);
+
             connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
             connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
             Q_EMIT requestNextPage(m_editPage);

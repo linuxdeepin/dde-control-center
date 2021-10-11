@@ -215,6 +215,7 @@ void WiredPage::refreshConnectionList()
         it->setConnectionStatus(connObj->status());
         connect(it, &ConnectionPageItem::detailClick, this, [this, path]{
             this->editConnection(path);
+            m_editPage->setLeftButtonEnable(true);
         });
         m_modelprofiles->appendRow(it);
         m_connectionPath.insert(it, path);

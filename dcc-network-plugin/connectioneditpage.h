@@ -75,6 +75,7 @@ public:
 
     static void setFrameProxy(FrameProxyInterface *frame);
     void setButtonTupleEnable(bool enable);
+    void setLeftButtonEnable(bool enable);
 
 Q_SIGNALS:
     void requestNextPage(ContentWidget *const page);

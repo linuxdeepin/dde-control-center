@@ -652,6 +652,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
     } else {
         m_apEditPage->initSettingsWidgetFromAp(apPath);
     }
+    m_apEditPage->setLeftButtonEnable(true);
 
     connect(m_apEditPage, &ConnectionEditPage::requestNextPage, this, &WirelessPage::requestNextPage);
     connect(m_apEditPage, &ConnectionEditPage::requestFrameAutoHide, this, &WirelessPage::requestFrameKeepAutoHide);
@@ -702,6 +703,7 @@ void WirelessPage::showConnectHidePage()
 {
     m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), QString(), true);
     m_apEditPage->initSettingsWidget();
+    m_apEditPage->setLeftButtonEnable(true);
     connect(m_apEditPage, &ConnectionEditPage::activateWirelessConnection, this, [ this ] (const QString &ssid, const QString &uuid) {
         Q_UNUSED(uuid);
         m_autoConnectHideSsid = ssid;

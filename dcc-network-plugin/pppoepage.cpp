@@ -155,6 +155,7 @@ void PppoePage::onConnectionListChanged()
         connect(pppoe, &ConnectionPageItem::detailClick, this, [ = ] {
             m_editPage = new ConnectionEditPage(ConnectionEditPage::ConnectionType::PppoeConnection, devicePath, uuid);
             m_editPage->initSettingsWidget();
+            m_editPage->setLeftButtonEnable(true);
 
             connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
             connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
