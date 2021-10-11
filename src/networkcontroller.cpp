@@ -210,23 +210,22 @@ void NetworkController::onDevicesChanged(const QString &value)
         // 更新设备名称
         updateDeviceName();
 
-        // 发送删除的设备列表信号，此时这些设备对象还未析构，外面调用来处理响应的操作，统一在一个线程中处理
-        if (rmDevices.size() > 0) {
-            for (NetworkDeviceBase *device : rmDevices)
-                Q_EMIT device->removed();
-
-            Q_EMIT deviceRemoved(rmDevices);
-        }
         // 告诉外面新增的设备列表
         if (newDevices.size() > 0) {
             // 初始化设备的数据，包括设备是否可用等信息
-            for (NetworkDeviceBase *device : newDevices)
+            bool wirelessExist = false;
+            for (NetworkDeviceBase *device : newDevices) {
                 device->initDeviceInfo();
+                if (device->deviceType() == DeviceType::Wireless)
+                    wirelessExist = true;
+            }
 
             // 更新设备的时候，同时需要更新连接信息，因为可能连接的信号发生在设备更新信息之前
             updateConnectionsInfo(newDevices);
-
-            Q_EMIT deviceAdded(newDevices);
+            // 如果新增的设备中存在无线网卡，则同时需要更新wlan的信息，因为存在如下情况
+            // 如果关闭热点的时候，会先移除设备，然后再新增设备，此时如果不更新wlan，这种情况下，新增的那个无线设备的wlan就会为空
+            if (wirelessExist)
+                onAccesspointChanged(m_networkInter->wirelessAccessPoints());
         }
         // 设备列表发生变化的同时，需要同时更新网络连接状态
         onActiveConnectionsChanged(m_networkInter->activeConnections());
@@ -238,6 +237,18 @@ void NetworkController::onDevicesChanged(const QString &value)
         updateDeviceHotpot();
         // 更新热点的活动连接信息
         updateDeviceActiveHotpot();
+
+        // 发送删除的设备列表信号，此时这些设备对象还未析构，外面调用来处理响应的操作，统一在一个线程中处理
+        if (rmDevices.size() > 0) {
+            for (NetworkDeviceBase *device : rmDevices)
+                Q_EMIT device->removed();
+
+            Q_EMIT deviceRemoved(rmDevices);
+        }
+
+        // 需要将新增设备的信号放到更新设备数据之后，因为外部接收到新增设备信号的时候，需要更新设备信息，如果放到更新设备数据前面，则里面的数据不是最新的数据
+        if (newDevices.size() > 0)
+            Q_EMIT deviceAdded(newDevices);
 
         // 一定要将删除设备放到最后，因为在发出信号后，外面可能还会用到
         for (NetworkDeviceBase *device : rmDevices)
@@ -338,7 +349,7 @@ void NetworkController::activeConnInfoChanged(const QString &conns)
     for (auto it = deviceInfoMap.begin(); it != deviceInfoMap.end(); it++) {
         NetworkDeviceBase *device = it.key();
         QList<QJsonObject> json = deviceInfoMap.values(device);
-        device->updateActiveConnectionInfo(json);
+        device->updateActiveConnectionInfo(json, !m_hotspotController);
     }
     // 要更新活动热点信息，是因为如果启用或者禁用热点的话，这个活动连接信息会有变化，通过这里来触发热点启用或禁用的信号
     updateDeviceActiveHotpot();

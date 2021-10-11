@@ -38,7 +38,7 @@ class WiredDevice : public NetworkDeviceBase
 
 private:
     WiredDevice(NetworkInter *networkInter, QObject *parent);
-    ~WiredDevice();
+    ~WiredDevice() override;
 
 Q_SIGNALS:
     void connectionAdded(const QList<WiredConnection *>);                       // 新增连接
@@ -49,18 +49,18 @@ Q_SIGNALS:
 public:
     bool connectNetwork(WiredConnection *connection);                           // 连接网络，连接成功抛出deviceStatusChanged信号
     bool connectNetwork(const QString &path);                                   // 连接网络重载函数，参数为配置路径
-    void disconnectNetwork();                                                   // 断开网络连接
-    bool isConnected() const;                                                   // 是否连接网络，重写基类的虚函数
-    DeviceType deviceType() const;                                              // 返回设备类型，适应基类统一的接口
+    void disconnectNetwork() override;                                          // 断开网络连接
+    bool isConnected() const override;                                          // 是否连接网络，重写基类的虚函数
+    DeviceType deviceType() const override;                                     // 返回设备类型，适应基类统一的接口
     inline QList<WiredConnection *> items() const { return m_connections; }     // 有线网络连接列表
 
 private:
-    void updateConnection(const QJsonArray &info);
-    void updateActiveInfo(const QList<QJsonObject> &info);
-    QString deviceKey();
+    void updateConnection(const QJsonArray &info) override;
+    void updateActiveInfo(const QList<QJsonObject> &info) override;
+    QString deviceKey() override;
     WiredConnection *findConnection(const QString &path);
     WiredConnection *findWiredConnectionByUuid(const QString &uuid);
-    void setDeviceEnabledStatus(const bool &enabled);
+    void setDeviceEnabledStatus(const bool &enabled) override;
 
 private:
     QList<WiredConnection *> m_connections;

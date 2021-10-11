@@ -148,8 +148,10 @@ void NetworkDeviceBase::updateActiveInfo(const QList<QJsonObject> &info)
     }
 }
 
-void NetworkDeviceBase::updateActiveConnectionInfo(const QList<QJsonObject> &infos)
+void NetworkDeviceBase::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
 {
+    Q_UNUSED(emitHotspot);
+
     m_activeInfoData = QJsonObject();
     for (const QJsonValue jsonValue : infos) {
         const QJsonObject &info = jsonValue.toObject();

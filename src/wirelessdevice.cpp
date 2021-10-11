@@ -242,8 +242,10 @@ void WirelessDevice::updateActiveInfo()
     NetworkDeviceBase::updateActiveInfo(m_activeAccessPoints);
 }
 
-void WirelessDevice::updateActiveConnectionInfo(const QList<QJsonObject> &infos)
+void WirelessDevice::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
 {
+    bool enabledHotspotOld = getHotspotEnabeld();
+
     m_hotspotInfo = QJsonObject();
     for (QJsonObject info : infos) {
         QString devicePath = info.value("Device").toString();
@@ -254,7 +256,13 @@ void WirelessDevice::updateActiveConnectionInfo(const QList<QJsonObject> &infos)
         }
     }
 
-    NetworkDeviceBase::updateActiveConnectionInfo(infos);
+    if (emitHotspot) {
+        bool enabledHotspot = getHotspotEnabeld();
+        if (enabledHotspotOld != enabledHotspot)
+            Q_EMIT hotspotEnableChanged(enabledHotspot);
+    }
+
+    NetworkDeviceBase::updateActiveConnectionInfo(infos, emitHotspot);
 }
 
 bool dde::network::WirelessDevice::getHotspotEnabeld()

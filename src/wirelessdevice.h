@@ -40,13 +40,13 @@ class WirelessDevice : public NetworkDeviceBase
     friend class NetworkController;
 
 public:
-    bool isConnected() const;                                       // 是否连接网络，重写基类的虚函数
-    DeviceType deviceType() const;                                  // 返回设备类型，适应基类统一的接口
+    bool isConnected() const override;                              // 是否连接网络，重写基类的虚函数
+    DeviceType deviceType() const override;                         // 返回设备类型，适应基类统一的接口
     QList<AccessPoints *> accessPointItems() const;                 // 当前网卡上所有的网络列表
     void scanNetwork();                                             // 重新加载所有的无线网络列表
     void connectNetwork(const AccessPoints *item);                  // 连接网络，连接成功抛出deviceStatusChanged信号
     void connectNetwork(const QString &ssid);                       // 连接网络，重载函数
-    void disconnectNetwork();                                       // 断开连接
+    void disconnectNetwork() override;                              // 断开连接
     QList<WirelessConnection *> items() const;                      // 无线网络连接列表
     AccessPoints *activeAccessPoints() const;                       // 当前活动的无线连接
 
@@ -61,7 +61,7 @@ Q_SIGNALS:
 
 protected:
     WirelessDevice(NetworkInter *networkInter, QObject *parent);
-    ~WirelessDevice();
+    ~WirelessDevice() override;
 
 private:
     AccessPoints *findAccessPoint(const QString &ssid);
@@ -70,15 +70,15 @@ private:
     void updateActiveInfo();
 
 protected:
-    void updateConnection(const QJsonArray &info);
+    void updateConnection(const QJsonArray &info) override;
     void createConnection(const QJsonArray &info);
-    void updateActiveInfo(const QList<QJsonObject> &info);
-    QString deviceKey();
+    void updateActiveInfo(const QList<QJsonObject> &info) override;
+    QString deviceKey() override;
     WirelessConnection *findConnectionByPath(const QString &path);
     void updateAccesspoint(const QJsonArray &json);
-    void setDeviceEnabledStatus(const bool &enabled);
-    void updateActiveConnectionInfo(const QList<QJsonObject> &infos);
-    bool getHotspotEnabeld();
+    void setDeviceEnabledStatus(const bool &enabled) override;
+    void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot) override;
+    bool getHotspotEnabeld() override;
 
     template<class T>
     void clearListData(QList<T *> &dataList) {
