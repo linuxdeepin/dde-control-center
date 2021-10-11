@@ -97,6 +97,8 @@ LineEditWidget::LineEditWidget(bool isPasswordMode, QWidget *parent)
 {
     if (isPasswordMode) {
         m_edit = new DPasswordEdit;
+        m_edit->setCopyEnabled(false);
+        m_edit->setCutEnabled(false);
     } else {
         m_edit = new DLineEdit;
     }

@@ -61,6 +61,12 @@ CreateAccountPage::CreateAccountPage(dcc::accounts::AccountsWorker *accountsWork
     , m_groupItemModel(nullptr)
     , m_groupTip(new QLabel(tr("Group")))
 {
+    m_passwdEdit->setCopyEnabled(false);
+    m_passwdEdit->setCutEnabled(false);
+
+    m_repeatpasswdEdit->setCopyEnabled(false);
+    m_repeatpasswdEdit->setCutEnabled(false);
+
     m_groupListView = new DListView(this);
     m_isServerSystem = IsServerSystem;
     QVBoxLayout *mainContentLayout = new QVBoxLayout;

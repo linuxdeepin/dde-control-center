@@ -65,6 +65,15 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     for (int i = 0; i < PASSWORD_LEVEL_ICON_NUM; i++) {
         m_newPasswdLevelIcons[i] = new QLabel;
     }
+    m_oldPasswordEdit->setCopyEnabled(false);
+    m_oldPasswordEdit->setCutEnabled(false);
+
+    m_newPasswordEdit->setCopyEnabled(false);
+    m_newPasswordEdit->setCutEnabled(false);
+
+    m_repeatPasswordEdit->setCopyEnabled(false);
+    m_repeatPasswordEdit->setCutEnabled(false);
+
     initWidget();
 }
 
