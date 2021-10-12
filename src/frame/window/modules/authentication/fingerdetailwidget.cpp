@@ -6,6 +6,7 @@
 #include <QBoxLayout>
 #include <QLabel>
 #include <QScrollArea>
+#include <QPalette>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::authentication;
@@ -59,9 +60,16 @@ void FingerDetailWidget::initNotFingerDevice()
     pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
     pNotDevice->setAlignment(Qt::AlignHCenter);
 
+    // 显示高亮字体
+    QPalette palette;
+    QColor color;
+    color.setAlphaF(0.2);
+    palette.setColor(QPalette::BrightText, color);
     DTipLabel *tip = new DTipLabel(tr("No supported devices found"));
+    tip->adjustSize();
     tip->setWordWrap(true);
     tip->setAlignment(Qt::AlignCenter);
+    tip->setPalette(palette);
 
     mainContentLayout->addWidget(pNotDevice);
     mainContentLayout->addWidget(tip);
