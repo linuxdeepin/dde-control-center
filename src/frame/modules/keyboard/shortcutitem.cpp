@@ -84,6 +84,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_shortcutEdit = new QLineEdit;
     m_shortcutEdit->setReadOnly(true);
     layout->addWidget(m_shortcutEdit, 0, Qt::AlignVCenter | Qt::AlignRight);
+    m_shortcutEdit->setMinimumWidth(m_shortcutEdit->fontMetrics().width(tr("Enter a new shortcut")) + 26);
     m_shortcutEdit->setPlaceholderText(tr("Enter a new shortcut"));
     m_shortcutEdit->hide();
 
@@ -129,6 +130,7 @@ void ShortcutItem::setShortcut(const QString &shortcut)
     accels = accels.replace("Control", "Ctrl");
 
     m_key->setTextList(accels.split("-"));
+    QTimer::singleShot(0, this, &ShortcutItem::updateTitleSize);
 }
 
 void ShortcutItem::onEditMode(bool value)
@@ -159,11 +161,18 @@ void ShortcutItem::updateTitleSize()
 {
     show();
 
-    int v = width() - m_key->width() - 32;
+    int v = 0;
+    if(m_shortcutEdit->isHidden())
+        v = width() - m_key->width() - 32;
+    else
+        v = width() - m_shortcutEdit->width() - 32;
     if (m_title->fontMetrics().width(m_info->name) > v) {
         QFontMetrics fontWidth(m_title->font());
-        QString elideNote = fontWidth.elidedText(m_title->text(), Qt::ElideRight, v / 2);
+        QString elideNote = fontWidth.elidedText(m_info->name, Qt::ElideRight, v);
         m_title->setText(elideNote);
+    }
+    else {
+        m_title->setText(m_info->name);
     }
 }
 
@@ -176,12 +185,15 @@ void ShortcutItem::mouseReleaseEvent(QMouseEvent *e)
         m_key->hide();
         m_shortcutEdit->show();
         m_info->item = this;
+        m_shortcutEdit->setFocus();
 
         Q_EMIT requestUpdateKey(m_info);
+
     } else {
         m_shortcutEdit->hide();
         m_key->show();
     }
+    updateTitleSize();
 }
 
 void ShortcutItem::resizeEvent(QResizeEvent *event)
