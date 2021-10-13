@@ -243,6 +243,10 @@ void WiredPage::editConnection(const QString &connectionPath)
     connect(m_editPage, &ConnectionEditPage::activateWiredConnection, this, &WiredPage::activateEditConnection);
     connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &WiredPage::requestNextPage);
     connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &WiredPage::requestFrameKeepAutoHide);
+    connect(m_editPage, &ConnectionEditPage::disconnect, this, [ this ] {
+         m_device->disconnectNetwork();
+    });
+
     Q_EMIT requestNextPage(m_editPage);
 }
 

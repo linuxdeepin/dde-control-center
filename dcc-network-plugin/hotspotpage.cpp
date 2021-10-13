@@ -231,6 +231,9 @@ void HotspotDeviceWidget::onConnEditRequested(const QString &uuid)
     m_editPage->setLeftButtonEnable(true);
 
     connect(m_editPage, &ConnectionHotspotEditPage::requestNextPage, m_page, &HotspotPage::requestNextPage);
+    connect(m_editPage, &ConnectionHotspotEditPage::disconnect, this, [ ] {
+        NetworkController::instance()->hotspotController()->disconnectItem();
+    });
 
     Q_EMIT m_page->requestNextPage(m_editPage);
 }

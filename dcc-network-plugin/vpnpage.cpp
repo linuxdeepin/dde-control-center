@@ -273,6 +273,11 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
 
             connect(m_editPage, &ConnectionVpnEditPage::requestNextPage, this, &VpnPage::requestNextPage);
             connect(m_editPage, &ConnectionVpnEditPage::requestFrameAutoHide, this, &VpnPage::requestFrameKeepAutoHide);
+            connect(m_editPage, &ConnectionVpnEditPage::disconnect, this, [ = ] {
+                VPNController *vpnController = NetworkController::instance()->vpnController();
+                vpnController->disconnectItem();
+            });
+
             Q_EMIT requestNextPage(m_editPage);
         });
 

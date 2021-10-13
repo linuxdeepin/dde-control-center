@@ -645,6 +645,9 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
     connect(m_apEditPage, &ConnectionWirelessEditPage::destroyed, this, [ this ] {
         this->m_apEditPage = nullptr;
     });
+    connect(m_apEditPage, &ConnectionWirelessEditPage::disconnect, this, [ this ] {
+        m_device->disconnectNetwork();
+    });
 
     if (!uuid.isEmpty()) {
         m_editingUuid = uuid;

@@ -146,7 +146,7 @@ bool HotspotController::isHotspotConnection(const QString &uuid)
 
 void HotspotController::updateActiveConnection(const QJsonObject &activeConnections)
 {
-    m_activeDevices.clear();
+    QList<WirelessDevice *> activeDevices;
     // 先保存所有的连接状态
     QMap<QString, ConnectionStatus> allConnectionStatus;
     for (HotspotItem *item : m_hotspotItems) {
@@ -159,7 +159,7 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
 
     // 在这里记录一个标记，用来表示是否发送活动连接发生变化的信号，
     // 因为这个连接更新后，紧接着会调用获取活动连接信息的信号，响应这个信号会调用下面的updateActiveConnectionInfo函数
-    m_activeConnectionChanged = false;
+    bool activeConnectionChanged = false;
 
     QStringList keys = activeConnections.keys();
     for (int i = 0; i < keys.size(); i++) {
@@ -187,14 +187,19 @@ void HotspotController::updateActiveConnection(const QJsonObject &activeConnecti
 
             ConnectionStatus oldConnectionStatus = allConnectionStatus[uuid];
             if (oldConnectionStatus != hotspotItem->status()) {
-                m_activeConnectionChanged = true;
-                if (!m_activeDevices.contains(device))
-                    m_activeDevices << device;
+                activeConnectionChanged = true;
+                if (!activeDevices.contains(device))
+                    activeDevices << device;
             }
         }
 
         if (state == ConnectionStatus::Activated)
             m_activePath = path;
+    }
+
+    if (!m_activeConnectionChanged && activeConnectionChanged) {
+        m_activeConnectionChanged = activeConnectionChanged;
+        m_activeDevices = activeDevices;
     }
 }
 

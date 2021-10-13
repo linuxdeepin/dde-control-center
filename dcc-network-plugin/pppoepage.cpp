@@ -131,7 +131,8 @@ void PppoePage::onConnectionListChanged()
     m_modelSettings->clear();
 
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
-    QList<DSLItem *> items = NetworkController::instance()->dslController()->items();
+    DSLController *dslController = NetworkController::instance()->dslController();
+    QList<DSLItem *> items = dslController->items();
 
     for (DSLItem *dslItem : items) {
         const QString name = dslItem->connection()->id();
@@ -159,6 +160,9 @@ void PppoePage::onConnectionListChanged()
 
             connect(m_editPage, &ConnectionEditPage::requestNextPage, this, &PppoePage::requestNextPage);
             connect(m_editPage, &ConnectionEditPage::requestFrameAutoHide, this, &PppoePage::requestFrameKeepAutoHide);
+            connect(m_editPage, &ConnectionEditPage::disconnect, this, [ = ] {
+                dslController->disconnectItem();
+            });
 
             Q_EMIT requestNextPage(m_editPage);
         });
