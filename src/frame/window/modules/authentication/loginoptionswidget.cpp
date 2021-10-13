@@ -103,7 +103,7 @@ void LoginOptionsWidget::initUI()
 void LoginOptionsWidget::initMembers()
 {
     //~ contents_path /authentication/Finger
-    m_menuMethod.append({"dcc_fingerprint", tr("Finger"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFingerDetail), nullptr, "authenticationFinger"});
+    m_menuMethod.append({"dcc_fingerprint", tr("Fingerprint"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFingerDetail), nullptr, "authenticationFinger"});
 
     for (auto mm : m_menuMethod) {
         DStandardItem *item = new DStandardItem(mm.itemText);

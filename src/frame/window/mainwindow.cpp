@@ -331,7 +331,7 @@ void MainWindow::initAllModule(const QString &m)
         idType = "Deepin ID";
 
     m_modules = {
-        { new LoginOptionsModule (this), tr("Authentication")},
+        { new LoginOptionsModule (this), tr("Biometric Authentication")},
         { new AccountsModule(this), tr("Accounts")},
         // 原union ID 暂时隐藏
         // { new UnionidModule(this), "Union ID"},

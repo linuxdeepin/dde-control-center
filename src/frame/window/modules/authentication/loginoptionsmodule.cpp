@@ -39,7 +39,7 @@ const QString LoginOptionsModule::name() const
 
 const QString LoginOptionsModule::displayName() const
 {
-    return  tr("authentication");
+    return  tr("Biometric Authentications");
 }
 
 void LoginOptionsModule::showPage(const QString &pageName)
