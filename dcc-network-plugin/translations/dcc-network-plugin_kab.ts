@@ -302,6 +302,11 @@
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/genericsection.cpp"/>
         <source>Auto Connect</source>
         <translation>Tuqqna tawurmant</translation>
     </message>

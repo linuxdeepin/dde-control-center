@@ -62,7 +62,7 @@
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>Connection failed</source>
-        <translation type="unfinished"/>
+        <translation>연결 실패</translation>
     </message>
     <message>
         <location filename="../networkpanel.cpp"/>
@@ -102,7 +102,7 @@
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>IP 충돌</translation>
     </message>
 </context>
 <context>
@@ -234,7 +234,7 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>획득 주소</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>

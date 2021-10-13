@@ -282,6 +282,11 @@
         <source>Name</source>
         <translation>Nombre</translation>
     </message>
+    <message>
+        <location filename="../sections/generichotspotsection.cpp"/>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>GenericSection</name>
@@ -299,6 +304,11 @@
         <location filename="../sections/genericsection.cpp"/>
         <source>Name</source>
         <translation>Nombre</translation>
+    </message>
+    <message>
+        <location filename="../sections/genericsection.cpp"/>
+        <source>Required</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>
@@ -2076,7 +2086,7 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Obteniendo dirección</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>

@@ -282,6 +282,11 @@
         <source>Name</source>
         <translation>नाम</translation>
     </message>
+    <message>
+        <location filename="../sections/generichotspotsection.cpp"/>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>GenericSection</name>
@@ -299,6 +304,11 @@
         <location filename="../sections/genericsection.cpp"/>
         <source>Name</source>
         <translation>नाम</translation>
+    </message>
+    <message>
+        <location filename="../sections/genericsection.cpp"/>
+        <source>Required</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>
@@ -413,7 +423,7 @@
     <message>
         <location filename="../sections/ipvxsection.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>आईपी विरोधाभास</translation>
     </message>
 </context>
 <context>
@@ -1993,12 +2003,12 @@
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Protocol</source>
-        <translation type="unfinished"/>
+        <translation>प्रोटोकॉल </translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Security Type</source>
-        <translation type="unfinished"/>
+        <translation>सुरक्षा प्रकार</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>
@@ -2076,7 +2086,7 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>नेटवर्क पता प्राप्त करना जारी</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>

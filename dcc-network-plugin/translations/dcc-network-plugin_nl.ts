@@ -282,6 +282,11 @@
         <source>Name</source>
         <translation>Naam</translation>
     </message>
+    <message>
+        <location filename="../sections/generichotspotsection.cpp"/>
+        <source>Required</source>
+        <translation>Vereist</translation>
+    </message>
 </context>
 <context>
     <name>GenericSection</name>
@@ -299,6 +304,11 @@
         <location filename="../sections/genericsection.cpp"/>
         <source>Name</source>
         <translation>Naam</translation>
+    </message>
+    <message>
+        <location filename="../sections/genericsection.cpp"/>
+        <source>Required</source>
+        <translation>Vereist</translation>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>

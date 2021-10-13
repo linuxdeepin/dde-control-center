@@ -102,7 +102,7 @@
     <message>
         <location filename="../networkpanel.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>IP Konflikt</translation>
     </message>
 </context>
 <context>
@@ -234,7 +234,7 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Adresse wird abgerufen</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>

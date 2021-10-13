@@ -239,7 +239,7 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Connected</source>
-        <translation>E lidhur</translation>
+        <translation>U lidh</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>

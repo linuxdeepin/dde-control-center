@@ -234,7 +234,7 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Obteniendo dirección</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
