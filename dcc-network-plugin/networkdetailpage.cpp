@@ -60,6 +60,7 @@ NetworkDetailPage::NetworkDetailPage(QWidget *parent)
     m_groupsLayout->setSpacing(0);
     m_groupsLayout->setMargin(0);
     m_groupsLayout->setContentsMargins(ThirdPageContentsMargins);
+    m_groupsLayout->setAlignment(Qt::AlignTop);
 
     QWidget *mainWidget = new TranslucentFrame;
     mainWidget->setLayout(m_groupsLayout);
