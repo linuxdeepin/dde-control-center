@@ -221,7 +221,6 @@ void DisplayWorker::splitScreens()
     m_model->setIsMerge(false);
 
     const auto mList = m_model->monitorList();
-    Q_ASSERT(mList.size() == 2);
 
     auto *primary = m_model->primaryMonitor();
     Q_ASSERT(m_monitors.contains(primary));

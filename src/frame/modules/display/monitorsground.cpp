@@ -214,10 +214,6 @@ void MonitorsGround::ensureWidgetPerfect(MonitorProxyWidget *pw)
 {
     qDebug() << Q_FUNC_INFO << pw->name();
 
-    // TODO: only support 2 screens
-    if (m_monitors.size() != 2)
-        return;
-
     MonitorProxyWidget *other = nullptr;
     for (auto w : m_monitors.keys()) {
         if (w != pw) {
