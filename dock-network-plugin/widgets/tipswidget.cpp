@@ -5,6 +5,9 @@
 #include <QTextDocument>
 
 namespace Dock{
+
+#define MARGIN 10
+
 TipsWidget::TipsWidget(QWidget *parent)
     : QFrame(parent)
     , m_type(SingleLine)
@@ -26,7 +29,7 @@ void TipsWidget::setText(const QString &text)
     m_text = "བོད་སྐད་ཡིག་གཟུགས་ཚད་ལེན་ཚོད་ལྟའི་སྐོར་གྱི་རྗོད་ཚིག";
 #endif
 
-    setFixedSize(fontMetrics().width(m_text) + 20, fontMetrics().boundingRect(m_text).height());
+    setFixedSize(fontMetrics().width(m_text) + MARGIN * 2, fontMetrics().boundingRect(m_text).height());
 
     update();
 
@@ -46,7 +49,7 @@ void TipsWidget::setTextList(const QStringList &textList)
     int width = 0;
     int height = 0;
     for (QString text : m_textList) {
-        width = qMax(width, fontMetrics().width(text) + 20);
+        width = qMax(width, fontMetrics().width(text) + MARGIN * 2);
         height += fontMetrics().boundingRect(text).height();
     }
 
@@ -75,12 +78,12 @@ void TipsWidget::paintEvent(QPaintEvent *event)
     }
         break;
     case MultiLine: {
-        int y = 0;
         if (m_textList.size() != 1)
             option.setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        int y = 0;
         for (QString text : m_textList) {
             int lineHeight = fontMetrics().boundingRect(text).height();
-            painter.drawText(QRect(0, y, rect().width(), lineHeight), text, option);
+            painter.drawText(QRect(MARGIN, y, rect().width(), lineHeight), text, option);
             y += lineHeight;
         }
     }
