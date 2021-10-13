@@ -268,7 +268,7 @@ void UpdateWorker::activate()
 
     QFutureWatcher<QStringList> *packagesWatcher = new QFutureWatcher<QStringList>();
     connect(packagesWatcher, &QFutureWatcher<QStringList>::finished, this, [=] {
-        QStringList updatablePackages = std::move(packagesWatcher->result());
+        QStringList updatablePackages = packagesWatcher->result();
         qDebug() << "UpdatablePackages = " << updatablePackages.count();
         m_model->isUpdatablePackages(updatablePackages.count() > UPDATE_PACKAGE_SIZE);
         packagesWatcher->deleteLater();

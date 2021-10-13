@@ -53,7 +53,7 @@ inline const QString getLicenseText(const QString &filePath, const QString &type
     const QByteArray buf = license.readAll();
     license.close();
 
-    return std::move(buf);
+    return buf;
 }
 
 inline const QString getDevelopModeLicense(const QString &filePath, const QString &type)
@@ -76,7 +76,7 @@ inline const QString getDevelopModeLicense(const QString &filePath, const QStrin
     const QByteArray buf = license.readAll();
     license.close();
 
-    return std::move(buf);
+    return buf;
 }
 
 template <typename T>

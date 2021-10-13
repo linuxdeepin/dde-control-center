@@ -65,7 +65,7 @@ void SyncWorker::refreshSyncState()
     QFutureWatcher<QJsonObject> *watcher = new QFutureWatcher<QJsonObject>(this);
     connect(watcher, &QFutureWatcher<QJsonObject>::finished, this, [=] {
         watcher->deleteLater();
-        QJsonObject obj = std::move(watcher->result());
+        QJsonObject obj = watcher->result();
 
         if (obj.isEmpty()) {
             qDebug() << "Sync Info is Wrong!";
