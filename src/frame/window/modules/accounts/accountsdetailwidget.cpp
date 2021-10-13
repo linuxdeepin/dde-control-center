@@ -451,8 +451,8 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
 
     //非当前用户不显示修改密码，自动登录，无密码登录,指纹页面
     bool isCurUser = m_curUser->isCurrentUser();
-    m_autoLogin->setEnabled(isCurUser);
-    m_nopasswdLogin->setEnabled(isCurUser);
+    m_autoLogin->switchButton()->setEnabled(isCurUser);
+    m_nopasswdLogin->switchButton()->setEnabled(isCurUser);
     //~ contents_path /accounts/Accounts Detail
     m_modifyPassword->setText(m_curUser->isCurrentUser() ? tr("Change Password") : tr("Reset Password"));
     //~ contents_path /accounts/Accounts Detail
@@ -589,7 +589,7 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
         setDeleteBtnStatus(key, deleteUserBtnEnable());
     });
 
-    m_asAdministrator->setEnabled(asAdministratorEnable());
+    m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable());
     connect(m_curUser, &User::onlineChanged, m_asAdministrator,
             [=]() { m_asAdministrator->setEnabled(asAdministratorEnable()); });
     connect(m_userModel, &UserModel::adminCntChange, m_asAdministrator,
