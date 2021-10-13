@@ -470,6 +470,15 @@ bool CreateAccountPage::checkFullname()
                 return false;
             }
         }
+        QList<QString> groupList = m_userModel->getAllGroups();
+        for (QString &group : groupList) {
+            if (userFullName == group) {
+                m_fullnameEdit->setAlert(true);
+                m_fullnameEdit->showAlertMessage(tr("The username already exists"), m_fullnameEdit, 2000);
+                m_fullnameEdit->lineEdit()->selectAll();
+                return false;
+            }
+        }
     } else {
         m_fullnameEdit->lineEdit()->clear(); // 输入全空格不保存
     }
