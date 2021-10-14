@@ -253,7 +253,6 @@ void CustomSettingDialog::initOtherDialog()
         if (dlgIdx < m_otherDialog.size()) {
             dlg = m_otherDialog[dlgIdx];
             dlg->resetMonitorObject(mon);
-            ++dlgIdx;
         } else {
             dlg = new CustomSettingDialog(mon, m_model, this);
             m_otherDialog.append(dlg);
@@ -275,6 +274,7 @@ void CustomSettingDialog::initOtherDialog()
                     &CustomSettingDialog::requestRecognize);
         }
 
+        ++dlgIdx;
         dlg->initWithModel();
         dlg->resetDialog();
 
@@ -646,11 +646,8 @@ void CustomSettingDialog::resetMonitorObject(Monitor *moni)
     if (m_monitor == moni)
         return;
 
-    if (!m_monitor) {
-        disconnect(m_monitor, &Monitor::currentModeChanged, this, &CustomSettingDialog::onMonitorModeChange);
-        disconnect(m_monitor, &Monitor::scaleChanged, this, &CustomSettingDialog::resetDialog);
-        disconnect(m_monitor, &Monitor::geometryChanged, this, &CustomSettingDialog::resetDialog);
-        disconnect(m_monitor, &Monitor::enableChanged, this, &CustomSettingDialog::setVisible);
+    if (m_monitor) {
+        disconnect(m_monitor, nullptr, this, nullptr);
     }
 
     m_monitor = moni;

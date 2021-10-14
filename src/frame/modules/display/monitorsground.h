@@ -42,48 +42,79 @@ namespace display {
 
 class DisplayModel;
 class MonitorProxyWidget;
-class MonitorsGround : public DGraphicsView
-{
+class MonitorsGround : public DGraphicsView {
     Q_OBJECT
 
 public:
     explicit MonitorsGround(int activateHeight, QWidget *parent = nullptr);
     ~MonitorsGround();
 
+    void setMergeMode(bool val) { m_setMergeMode = val; }
     void setModel(DisplayModel *model, Monitor *moni = nullptr);
-
 Q_SIGNALS:
     void requestApplySettings(QHash<Monitor *, QPair<int, int>> monitorposition);
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
-    void showsecondaryScreen();
+    void showSecondaryScreen();
+    void setEffectiveReminderVisible(bool visible, int nEffectiveTime);
 
 private Q_SLOTS:
     void resetMonitorsView();
-    void monitorMoved(MonitorProxyWidget *pw);
-    void adjust(MonitorProxyWidget *pw);
+    void onRequestMouseMove(MonitorProxyWidget *pw);
+    void onRequestKeyPress(MonitorProxyWidget *pw, int keyValue);
+    void centeredMonitorsView();
     void adjustAll();
+    void onRequestMonitorRelease(Monitor *mon);
+    void onResize();
+    void onRotateChanged(const quint16 rotate);
+    void onGeometryChanged();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
+    void enterEvent(QEvent *) override;
+    void leaveEvent(QEvent *) override;
 
 private:
-    void ensureWidgetPerfect(MonitorProxyWidget *pw);
-    void reloadViewPortSize();
     void applySettings();
-    bool isScreenPerfect() const;
     double screenScale() const;
-    const QPoint bestMoveOffset(MonitorProxyWidget *pw0, MonitorProxyWidget *pw1) const;
+
+    /*1050-5401*/
+    QPointF multiScreenSortAlgo(bool &isRestore, bool isMove = true); //排序算法 返回值为计算之后需要移动的XY值
+    void multiScreenAutoAdjust(); // 手动调整完如果出现没有完全连通的情况，需要启动自动调整算法
+    void updateConnectedState(bool isInit = false);                           //更新连通状态
+    QList<MonitorProxyWidget *> getConnectedDomain(MonitorProxyWidget *item); //获取每个屏幕的连通域
+    void singleScreenAdjust();     //单屏幕调整
+    void autoCenterData(QMap<MonitorProxyWidget *, QPointF *> &mapPos,
+                        QPointF &dPos,
+                        QPointF &offsetPos); //获取自动居中数据源
+
+    void autoRebound(); //自动回弹流程
+    void autoFitItemsInView();
+
+    void initMonitorProxyWidget(Monitor *mon);
 
 private:
-    int m_viewPortWidth;
-    int m_viewPortHeight;
     DisplayModel *m_model;
     QGraphicsScene m_graphicsScene; //场景
+    QScrollArea *m_scrollArea;
 
     QMap<MonitorProxyWidget *, Monitor *> m_monitors;
 
+    /*1050-5401*/
+    QList<MonitorProxyWidget *> m_lstItems;
+    QList<MonitorProxyWidget *> m_lstSortItems;
+    MonitorProxyWidget *m_movingItem;                                         //正在移动的块
+    QList<QPair<MonitorProxyWidget *, qreal>> m_lstMoveingItemToCenterPosLen; //所有块的中心点到移动点的距离
+    QMap<MonitorProxyWidget *, QList<MonitorProxyWidget *>> m_mapItemConnectedState; //所有块的实时连通状态
+    QMap<MonitorProxyWidget *, QList<MonitorProxyWidget *>> m_mapInitItemConnectedState; //所有块的初始连通状态
+
     QTimer *m_refershTimer;
+    QTimer *m_effectiveTimer;
+
+    int m_isSingleDisplay; //当前界面只显示单个屏幕
+    bool m_isInit;         //初始化完成
+    int m_nEffectiveTime;  //多屏设置生效时间
+    bool m_setMergeMode;
 };
 
 } // namespace display

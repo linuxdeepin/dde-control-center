@@ -25,7 +25,6 @@
 
 #include "displayworker.h"
 #include "displaymodel.h"
-#include "monitorsettingdialog.h"
 #include "widgets/utils.h"
 
 #include <DApplicationHelper>
@@ -224,8 +223,8 @@ void DisplayWorker::splitScreens()
 
     auto *primary = m_model->primaryMonitor();
     Q_ASSERT(m_monitors.contains(primary));
-    m_monitors[primary]->SetPosition(static_cast<short>(m_model->primaryMonitor()->getLastPoint().x()), static_cast<short>(m_model->primaryMonitor()->getLastPoint().y())).waitForFinished();
-    int xOffset = primary->bestMode().width();
+    m_monitors[primary]->SetPosition(0, 0).waitForFinished();
+    short xOffset = primary->bestMode().width();
 
     for (auto *mon : mList) {
         // pass primary
@@ -238,15 +237,11 @@ void DisplayWorker::splitScreens()
         if (mon == primary)
             continue;
 
-        if (mon->getLastPoint() == m_model->primaryMonitor()->getLastPoint()) {
-            mInter->SetPosition(static_cast<short>(xOffset), 0).waitForFinished();
-        } else {
-            mInter->SetPosition(static_cast<short>(mon->getLastPoint().x()), static_cast<short>(mon->getLastPoint().y())).waitForFinished();
-        }
+        mInter->SetPosition(xOffset, 0).waitForFinished();
         xOffset += mon->bestMode().width();
     }
 
-    m_displayInter.ApplyChanges();
+    m_displayInter.ApplyChanges().waitForFinished();
 }
 
 void DisplayWorker::duplicateMode()

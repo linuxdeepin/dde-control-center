@@ -39,7 +39,7 @@ namespace display {
 
 MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     : QFrame(parent)
-    , m_screensGround(new MonitorsGround(200))
+    , m_screensGround(new MonitorsGround(240))
     , m_recognize(new IconButton)
     , m_split(new IconButton)
     , m_join(new IconButton)
@@ -76,7 +76,6 @@ MonitorControlWidget::MonitorControlWidget(QWidget *parent)
     mainLayout->setMargin(0);
     mainLayout->setSpacing(0);
     mainLayout->addWidget(m_screensGround);
-    mainLayout->setAlignment(m_screensGround, Qt::AlignHCenter);
     mainLayout->addLayout(btnsLayout);
 
     setLayout(mainLayout);
