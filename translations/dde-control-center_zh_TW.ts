@@ -1,26 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_TW" version="2.1">
 <context>
-    <name>BluetoothDelegate</name>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
-        <source>Refresh</source>
-        <translation>重新整理</translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
-        <source>Click icon to enable bluetooth</source>
-        <translation>點擊圖示開啟藍牙</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
-        <translation>連線到其他裝置</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::MainWindow</name>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="187"/>
@@ -29,8 +8,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
-        <source>Authentication</source>
-        <translation>安全認證類型</translation>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
@@ -579,6 +558,23 @@
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="196"/>
         <source>Add Fingerprint</source>
         <translation>新增指紋</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::LoginOptionsModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="42"/>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::LoginOptionsWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="106"/>
+        <source>Fingerprint</source>
+        <translation>指紋</translation>
+        <extra-contents_path>/authentication/Finger</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3669,54 +3665,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>DisplayControlModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
-        <source>Copy</source>
-        <translation>同步畫面</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
-        <source>Extend</source>
-        <translation>延伸畫面</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
-        <source>Only Displayed on %1</source>
-        <translation>僅在 %1 顯示</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
-        <source>New Custom Settings</source>
-        <translation>新增設定值</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
-        <source>Copy the screen contents to one or more screens</source>
-        <translation>同步畫面到其他螢幕</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
-        <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>延伸畫面到其他螢幕</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
-        <source>Screen contents are only displayed on %1</source>
-        <translation>畫面僅在 %1 顯示</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
-        <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>若您想變更自訂設定，請進入「顯示」模組</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
-        <source>Click to enter Display Module</source>
-        <translation>點擊進入顯示設定</translation>
-    </message>
-</context>
-<context>
     <name>KeyLabel</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="44"/>
@@ -3840,52 +3788,11 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Restart the computer to use the system and the applications properly</source>
-        <translation>需要重新啟動才能正常使用系統及應用程式</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data had been saved first</source>
-        <translation>請確保已先儲存所有資料</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
-        <source>Shut down</source>
-        <translation>關機</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
-        <source>Reboot</source>
-        <translation>重新啟動</translation>
-    </message>
-</context>
-<context>
     <name>SearchInput</name>
     <message>
         <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
         <translation>搜尋</translation>
-    </message>
-</context>
-<context>
-    <name>SetLocationPage</name>
-    <message>
-        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
-        <source>No search results</source>
-        <translation>找不到結果</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
-        <source>Current City: %1</source>
-        <translation>目前城市：%1</translation>
     </message>
 </context>
 <context>
@@ -3923,58 +3830,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Save</source>
         <translation>儲存</translation>
-    </message>
-</context>
-<context>
-    <name>VpnListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
-        <source>Click icon to enable VPN</source>
-        <translation>點擊圖示開啟 VPN</translation>
-    </message>
-</context>
-<context>
-    <name>WeatherWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
-        <source>Sorry, unable to get weather!</source>
-        <translation>抱歉，無法取得天氣！</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
-        <source>Loading weather...</source>
-        <translation>正在載入天氣…</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
-        <source>Just updated</source>
-        <translation>剛剛更新</translation>
-    </message>
-</context>
-<context>
-    <name>WifiListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
-        <source>Click icon to enable WLAN</source>
-        <translation>點擊圖示開啟 WLAN</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
-        <translation>連線到隱藏網路</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
-        <source>Wireless Card %1</source>
-        <translation>Wi-Fi %1</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::AccountsWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
-        <source>Accounts</source>
-        <translation>帳戶</translation>
     </message>
 </context>
 <context>
@@ -4216,14 +4071,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::bluetooth::BluetoothModule</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
-        <source>Bluetooth</source>
-        <translation>藍牙</translation>
-    </message>
-</context>
-<context>
     <name>dcc::bluetooth::PinCodeDialog</name>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
@@ -4239,22 +4086,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>Confirm</source>
         <translation>確定</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::cloudsync::SyncWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
-        <source>Cloud Sync</source>
-        <translation>雲端同步</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::datetime::Datetime</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
-        <source>Time and Date</source>
-        <translation>日期與時間</translation>
     </message>
 </context>
 <context>
@@ -4325,22 +4156,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="135"/>
         <source>%1 hours later than local</source>
         <translation>比本機晚%1小時</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::defapp::DefAppViewer</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
-        <source>Default Applications</source>
-        <translation>預設程式</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::DisplayWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
-        <source>Display</source>
-        <translation>螢幕</translation>
     </message>
 </context>
 <context>
@@ -4432,14 +4247,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::keyboard::KeyboardWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
-        <source>Keyboard and Language</source>
-        <translation>鍵盤和語言</translation>
-    </message>
-</context>
-<context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
@@ -4485,14 +4292,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::mouse::MouseWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
-        <source>Mouse</source>
-        <translation>滑鼠</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::PalmDetectSetting</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
@@ -4522,30 +4321,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>如果觸控板在啟用此選項後無法運作，請停用。</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::NetworkModuleWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
-        <source>Network</source>
-        <translation>網路</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::PersonalizationWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
-        <source>Personalization</source>
-        <translation>個性化</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::power::PowerWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
-        <source>Power Management</source>
-        <translation>電源管理</translation>
     </message>
 </context>
 <context>
@@ -4635,14 +4410,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::sound::SoundWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
-        <source>Sound</source>
-        <translation>聲音</translation>
-    </message>
-</context>
-<context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="206"/>
@@ -4653,11 +4420,6 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
-        <source>System Information</source>
-        <translation>系統資訊</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Copyright © 2011-2021 Deepin 社群</translation>
@@ -4666,39 +4428,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright © 2019-2021 統信軟體技術有限公司</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::MirrorItem</name>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="45"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
-        <source>Untested</source>
-        <translation>未測試</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="125"/>
-        <source>Timeout</source>
-        <translation>逾時</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="126"/>
-        <source>Slow</source>
-        <translation>慢</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="127"/>
-        <source>Medium</source>
-        <translation>中等</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
-        <source>Fast</source>
-        <translation>快</translation>
     </message>
 </context>
 <context>
@@ -4717,14 +4446,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
         <translation>更新失敗</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::UpdateCtrlWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
-        <source>Update</source>
-        <translation>更新</translation>
     </message>
 </context>
 <context>
@@ -4757,14 +4478,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>系統修補程式</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::wacom::WacomWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
-        <source>Wacom</source>
-        <translation>Wacom</translation>
     </message>
 </context>
 <context>

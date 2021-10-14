@@ -1,26 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
-    <name>BluetoothDelegate</name>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
-        <source>Refresh</source>
-        <translation>Yenile</translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
-        <source>Click icon to enable bluetooth</source>
-        <translation>Bluetooth&apos;u etkinleştirmek için simgeye tıkla</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
-        <translation>Diğer aygıtlara bağlan</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::MainWindow</name>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="187"/>
@@ -29,8 +8,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
-        <source>Authentication</source>
-        <translation>Doğrulama</translation>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
@@ -579,6 +558,23 @@
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="196"/>
         <source>Add Fingerprint</source>
         <translation>Parmak İzi Ekle</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::LoginOptionsModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="42"/>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::LoginOptionsWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="106"/>
+        <source>Fingerprint</source>
+        <translation>Parmak İzi</translation>
+        <extra-contents_path>/authentication/Finger</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3670,54 +3666,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     </message>
 </context>
 <context>
-    <name>DisplayControlModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
-        <source>Copy</source>
-        <translation>Kopyala</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
-        <source>Extend</source>
-        <translation>Genişlet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
-        <source>Only Displayed on %1</source>
-        <translation>Yanlız %1 üzerinde görüntülenir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
-        <source>New Custom Settings</source>
-        <translation>Yeni Özel Ayarlar</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
-        <source>Copy the screen contents to one or more screens</source>
-        <translation>Ekran içeriğini bir ya da daha fazla ekrana kopyala</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
-        <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Ekran içeriğini farklı ekranlarda farklı içerikler görüntülenecek şekilde genişlet</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
-        <source>Screen contents are only displayed on %1</source>
-        <translation>Ekran içerikleri yalnız %1 üzerinde görüntülenir</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
-        <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Lütfen özel ayarlarını değiştirmek istediğiniz ekran modülünü açın</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
-        <source>Click to enter Display Module</source>
-        <translation>Ekran modülünü açmak için tıklayın</translation>
-    </message>
-</context>
-<context>
     <name>KeyLabel</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="44"/>
@@ -3841,52 +3789,11 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Sistemi ve uygulamaları doğru kullanmak için bilgisayarı yeniden başlat</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data had been saved first</source>
-        <translation>Önce tüm verilerin kaydedildiğinden emin olun</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
-        <source>Shut down</source>
-        <translation>Kapat</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
-        <source>Reboot</source>
-        <translation>Yeniden başlat</translation>
-    </message>
-</context>
-<context>
     <name>SearchInput</name>
     <message>
         <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
         <translation>Ara</translation>
-    </message>
-</context>
-<context>
-    <name>SetLocationPage</name>
-    <message>
-        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
-        <source>No search results</source>
-        <translation>Arama sonucu bulunamadı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
-        <source>Current City: %1</source>
-        <translation>Geçerli İl: %1</translation>
     </message>
 </context>
 <context>
@@ -3924,58 +3831,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Save</source>
         <translation>Kaydet</translation>
-    </message>
-</context>
-<context>
-    <name>VpnListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
-        <source>Click icon to enable VPN</source>
-        <translation>VPN bağlantısını açmak için simgeye tıkla</translation>
-    </message>
-</context>
-<context>
-    <name>WeatherWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
-        <source>Sorry, unable to get weather!</source>
-        <translation>Maalesef hava durumu bilgileri alınamadı!</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
-        <source>Loading weather...</source>
-        <translation>Hava durumu yükleniyor...</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
-        <source>Just updated</source>
-        <translation>Az önce güncellendi</translation>
-    </message>
-</context>
-<context>
-    <name>WifiListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
-        <source>Click icon to enable WLAN</source>
-        <translation>WLAN&apos;ı etkinleştirmek için simgeyi tıkla</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
-        <translation>Gizli ağa bağlan</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
-        <source>Wireless Card %1</source>
-        <translation>Kablosuz Ağ Aygıtı %1</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::AccountsWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
-        <source>Accounts</source>
-        <translation>Hesaplar</translation>
     </message>
 </context>
 <context>
@@ -4217,14 +4072,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     </message>
 </context>
 <context>
-    <name>dcc::bluetooth::BluetoothModule</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-</context>
-<context>
     <name>dcc::bluetooth::PinCodeDialog</name>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
@@ -4240,22 +4087,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>Confirm</source>
         <translation>Onayla</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::cloudsync::SyncWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
-        <source>Cloud Sync</source>
-        <translation>Bulut Eşitleyici</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::datetime::Datetime</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
-        <source>Time and Date</source>
-        <translation>Saat ve Tarih</translation>
     </message>
 </context>
 <context>
@@ -4326,22 +4157,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="135"/>
         <source>%1 hours later than local</source>
         <translation>Yerelden %1 saat sonra</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::defapp::DefAppViewer</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
-        <source>Default Applications</source>
-        <translation>Varsayılan Uygulamalar</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::DisplayWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
-        <source>Display</source>
-        <translation>Ekran</translation>
     </message>
 </context>
 <context>
@@ -4433,14 +4248,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     </message>
 </context>
 <context>
-    <name>dcc::keyboard::KeyboardWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
-        <source>Keyboard and Language</source>
-        <translation>Klavye ve Dil</translation>
-    </message>
-</context>
-<context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
@@ -4486,14 +4293,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     </message>
 </context>
 <context>
-    <name>dcc::mouse::MouseWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
-        <source>Mouse</source>
-        <translation>Fare</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::PalmDetectSetting</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
@@ -4523,30 +4322,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>Dokunmatik yüzey çalışmazsa bu seçeneği devre dışı bırak</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::NetworkModuleWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
-        <source>Network</source>
-        <translation>Ağ</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::PersonalizationWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
-        <source>Personalization</source>
-        <translation>Kişiselleştirme</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::power::PowerWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
-        <source>Power Management</source>
-        <translation>Güç Yönetimi</translation>
     </message>
 </context>
 <context>
@@ -4636,14 +4411,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     </message>
 </context>
 <context>
-    <name>dcc::sound::SoundWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
-        <source>Sound</source>
-        <translation>Ses</translation>
-    </message>
-</context>
-<context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="206"/>
@@ -4654,11 +4421,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
-        <source>System Information</source>
-        <translation>Sistem Bilgileri</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Telif Hakkı© 2011-2021 Deepin Topluluğu</translation>
@@ -4667,39 +4429,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Telif Hakkı© 2019-2021 UnionTech Software Technology Co., LTD</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::MirrorItem</name>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="45"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
-        <source>Untested</source>
-        <translation>Denenmemiş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="125"/>
-        <source>Timeout</source>
-        <translation>Zaman Aşımı</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="126"/>
-        <source>Slow</source>
-        <translation>Yavaş</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="127"/>
-        <source>Medium</source>
-        <translation>Orta</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
-        <source>Fast</source>
-        <translation>Hızlı</translation>
     </message>
 </context>
 <context>
@@ -4718,14 +4447,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
         <translation>Güncelleme başarısız</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::UpdateCtrlWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
-        <source>Update</source>
-        <translation>Güncelle</translation>
     </message>
 </context>
 <context>
@@ -4758,14 +4479,6 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
         <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>Sistem yamaları</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::wacom::WacomWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
-        <source>Wacom</source>
-        <translation>Wacom</translation>
     </message>
 </context>
 <context>

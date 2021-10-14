@@ -1,26 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="nl" version="2.1">
 <context>
-    <name>BluetoothDelegate</name>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
-        <source>Refresh</source>
-        <translation>Verversen</translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
-        <source>Click icon to enable bluetooth</source>
-        <translation>Klik op het pictogram om bluetooth in te schakelen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
-        <translation>Verbinden met andere apparaten</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::MainWindow</name>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="187"/>
@@ -29,8 +8,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
-        <source>Authentication</source>
-        <translation>Verificatie</translation>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
@@ -173,7 +152,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="442"/>
         <source>Account Settings</source>
-        <translation type="unfinished"/>
+        <translation>Accountinstellingen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
@@ -184,7 +163,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord herstellen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
@@ -321,7 +300,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoordhint</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
@@ -359,7 +338,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Deze hint is zichtbaar voor alle gebruikers, dus zet hier NIET je wachtwoord neer.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="421"/>
@@ -408,12 +387,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoord herstellen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
         <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
-        <translation type="unfinished"/>
+        <translation>Door het herstellen van je wachtwoord wordt de aanmeldsleutelbos niet gewijzigd. Installeer Seahorse om de sleutelbos te beheren.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
@@ -433,7 +412,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="93"/>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Wachtwoordhint</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="98"/>
@@ -467,7 +446,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="191"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Deze hint is zichtbaar voor alle gebruikers, dus zet hier NIET je wachtwoord neer.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
@@ -544,7 +523,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>Geen geschikt apparaat aangetroffen</translation>
     </message>
 </context>
 <context>
@@ -579,6 +558,23 @@
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="196"/>
         <source>Add Fingerprint</source>
         <translation>Vingerafdruk toevoegen</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::LoginOptionsModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="42"/>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::LoginOptionsWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="106"/>
+        <source>Fingerprint</source>
+        <translation>Vingerafdruk</translation>
+        <extra-contents_path>/authentication/Finger</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1453,22 +1449,22 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="118"/>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Werkbladgrootte aanpassen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="217"/>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Inpassen</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="231"/>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Uitrekken</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="245"/>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centreren</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="350"/>
@@ -3670,54 +3666,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
     </message>
 </context>
 <context>
-    <name>DisplayControlModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
-        <source>Copy</source>
-        <translation>Klonen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
-        <source>Extend</source>
-        <translation>Uitbreiden</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
-        <source>Only Displayed on %1</source>
-        <translation>Wordt alleen getoond op %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
-        <source>New Custom Settings</source>
-        <translation>Nieuwe aangepaste instellingen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
-        <source>Copy the screen contents to one or more screens</source>
-        <translation>Kloon de scherminhoud op één of meerdere schermen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
-        <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>Breidt het scherm uit om verschillende inhoud op verschillende schermen te tonen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
-        <source>Screen contents are only displayed on %1</source>
-        <translation>De scherminhoud wordt enkel getoond op %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
-        <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>Ga naar de beeldscherminstellingen om de standaardinstellingen aan te passen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
-        <source>Click to enter Display Module</source>
-        <translation>Klik om de beeldscherminstellingen te openen</translation>
-    </message>
-</context>
-<context>
     <name>KeyLabel</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="44"/>
@@ -3841,52 +3789,11 @@ In het gebruikerscentrum kun je je account beheren.</translation>
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Restart the computer to use the system and the applications properly</source>
-        <translation>Start de computer opnieuw op om de wijzigingen toe te passen</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data had been saved first</source>
-        <translation>Zorg ervoor dat alle gegevens zijn opgeslagen</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
-        <source>Cancel</source>
-        <translation>Annuleren</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
-        <source>Shut down</source>
-        <translation>Afsluiten</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
-        <source>Reboot</source>
-        <translation>Herstarten</translation>
-    </message>
-</context>
-<context>
     <name>SearchInput</name>
     <message>
         <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
         <translation>Zoeken</translation>
-    </message>
-</context>
-<context>
-    <name>SetLocationPage</name>
-    <message>
-        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
-        <source>No search results</source>
-        <translation>Geen zoekresultaten</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
-        <source>Current City: %1</source>
-        <translation>Huidige locatie: %1</translation>
     </message>
 </context>
 <context>
@@ -3924,58 +3831,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Save</source>
         <translation>Opslaan</translation>
-    </message>
-</context>
-<context>
-    <name>VpnListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
-        <source>Click icon to enable VPN</source>
-        <translation>Klik op het pictogram om vpn in te schakelen</translation>
-    </message>
-</context>
-<context>
-    <name>WeatherWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
-        <source>Sorry, unable to get weather!</source>
-        <translation>De weerinformatie kan niet worden opgehaald!</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
-        <source>Loading weather...</source>
-        <translation>Bezig met laden van weer…</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
-        <source>Just updated</source>
-        <translation>Zojuist bijgewerkt</translation>
-    </message>
-</context>
-<context>
-    <name>WifiListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
-        <source>Click icon to enable WLAN</source>
-        <translation>Klik op het pictogram om draadloos internet in te schakelen</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
-        <translation>Verbinden met verborgen netwerk</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
-        <source>Wireless Card %1</source>
-        <translation>Draadloze kaart %1</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::AccountsWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
-        <source>Accounts</source>
-        <translation>Accounts</translation>
     </message>
 </context>
 <context>
@@ -4217,14 +4072,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::bluetooth::BluetoothModule</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-</context>
-<context>
     <name>dcc::bluetooth::PinCodeDialog</name>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
@@ -4240,22 +4087,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>Confirm</source>
         <translation>Oké</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::cloudsync::SyncWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
-        <source>Cloud Sync</source>
-        <translation>Cloudsynchronisatie</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::datetime::Datetime</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
-        <source>Time and Date</source>
-        <translation>Datum en tijd</translation>
     </message>
 </context>
 <context>
@@ -4326,22 +4157,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="135"/>
         <source>%1 hours later than local</source>
         <translation>%1 uur later dan lokaal</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::defapp::DefAppViewer</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
-        <source>Default Applications</source>
-        <translation>Standaardprogramma&apos;s</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::DisplayWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
-        <source>Display</source>
-        <translation>Beeldscherm</translation>
     </message>
 </context>
 <context>
@@ -4433,14 +4248,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::keyboard::KeyboardWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
-        <source>Keyboard and Language</source>
-        <translation>Toetsenbord en taal</translation>
-    </message>
-</context>
-<context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
@@ -4486,14 +4293,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::mouse::MouseWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
-        <source>Mouse</source>
-        <translation>Muis</translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::PalmDetectSetting</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
@@ -4523,30 +4322,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>Schakel deze optie uit als het touchpad niet blijkt te werken</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::NetworkModuleWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
-        <source>Network</source>
-        <translation>Netwerk</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::PersonalizationWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
-        <source>Personalization</source>
-        <translation>Vormgeving</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::power::PowerWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
-        <source>Power Management</source>
-        <translation>Energiebeheer</translation>
     </message>
 </context>
 <context>
@@ -4636,14 +4411,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
     </message>
 </context>
 <context>
-    <name>dcc::sound::SoundWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
-        <source>Sound</source>
-        <translation>Geluid</translation>
-    </message>
-</context>
-<context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="206"/>
@@ -4654,11 +4421,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
-        <source>System Information</source>
-        <translation>Systeeminformatie</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Copyright© 2011-2021 Deepin-gemeenschap</translation>
@@ -4667,39 +4429,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::MirrorItem</name>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="45"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
-        <source>Untested</source>
-        <translation>Niet getest</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="125"/>
-        <source>Timeout</source>
-        <translation>Time-out</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="126"/>
-        <source>Slow</source>
-        <translation>Traag</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="127"/>
-        <source>Medium</source>
-        <translation>Gemiddeld</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
-        <source>Fast</source>
-        <translation>Snel</translation>
     </message>
 </context>
 <context>
@@ -4718,14 +4447,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
         <translation>Het bijwerken is mislukt</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::UpdateCtrlWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
-        <source>Update</source>
-        <translation>Bijwerken</translation>
     </message>
 </context>
 <context>
@@ -4758,14 +4479,6 @@ In het gebruikerscentrum kun je je account beheren.</translation>
         <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>Systeemaanpassingen</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::wacom::WacomWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
-        <source>Wacom</source>
-        <translation>Wacom</translation>
     </message>
 </context>
 <context>

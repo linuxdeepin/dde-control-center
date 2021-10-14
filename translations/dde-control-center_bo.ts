@@ -1,26 +1,5 @@
 <?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
 <context>
-    <name>BluetoothDelegate</name>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothdelegate.cpp" line="97"/>
-        <source>Refresh</source>
-        <translation>གསར་འདོན།</translation>
-    </message>
-</context>
-<context>
-    <name>BluetoothListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="84"/>
-        <source>Click icon to enable bluetooth</source>
-        <translation>རྟགས་རིས་མནན་ནས་སོ་སྔོན་ཁ་འབྱེད་པ། </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/bluetooth/bluetoothlistmodel.cpp" line="89"/>
-        <source>Connect to other devices</source>
-        <translation>སྒྲིག་ཆས་གཞན་དང་མཐུད་པ།</translation>
-    </message>
-</context>
-<context>
     <name>dccV20::MainWindow</name>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="187"/>
@@ -29,8 +8,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
-        <source>Authentication</source>
-        <translation>བདེ་འཇགས་ར་སྤྲོད་རིགས་གྲས།</translation>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
@@ -173,7 +152,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="442"/>
         <source>Account Settings</source>
-        <translation type="unfinished"/>
+        <translation>རྩིས་ཐོ་སྒྲིག་འགོད།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
@@ -184,7 +163,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་བསྐྱར་བཟོ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
@@ -321,7 +300,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་དྲན་སྐུལ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
@@ -359,7 +338,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་ཚང་མས་མཐོང་ཐུབ་པས། གསང་ཨང་གི་ཞིབ་ཕྲའི་ཆ་འཕྲིན་མ་འབྲི།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="421"/>
@@ -408,12 +387,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་བསྐྱར་བཟོ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
         <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
-        <translation type="unfinished"/>
+        <translation>རྩིས་ཐོའི་གསང་ཨང་བསྐྱར་སྒྲིག་བྱེད་པ་འདིས་“ཐོ་འཇུག་”གི་གསང་ལྡེའི་གསང་ཨང་བསྐྱར་སྒྲིག་བྱེད་མི་སྲིད། eahorseསྒྲིག་འཇུག་བྱས་ནས་དོ་དམ་བྱེད་དགོས།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
@@ -433,7 +412,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="93"/>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་དྲན་སྐུལ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="98"/>
@@ -467,7 +446,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="191"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་ཚང་མས་མཐོང་ཐུབ་པས། གསང་ཨང་གི་ཞིབ་ཕྲའི་ཆ་འཕྲིན་མ་འབྲི།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
@@ -544,7 +523,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱབ་སྐྱོར་བྱེད་ཆོག་པའི་སྒྲིག་ཆས་མ་རྙེད།</translation>
     </message>
 </context>
 <context>
@@ -579,6 +558,23 @@
         <location filename="../src/frame/window/modules/authentication/fingerwidget.cpp" line="196"/>
         <source>Add Fingerprint</source>
         <translation>མཛུབ་རིས་སྣོན་པ། </translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::LoginOptionsModule</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="42"/>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV20::authentication::LoginOptionsWidget</name>
+    <message>
+        <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="106"/>
+        <source>Fingerprint</source>
+        <translation>མཛུབ་རིས།</translation>
+        <extra-contents_path>/authentication/Finger</extra-contents_path>
     </message>
 </context>
 <context>
@@ -1454,22 +1450,22 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="118"/>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ཅོག་ངོས་མངོན་སྟོན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="217"/>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>འཚམ་པ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="231"/>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>འཐེན་པ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="245"/>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>དཀྱིལ་དུ་འཇོག་པ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="350"/>
@@ -3671,54 +3667,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>DisplayControlModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="89"/>
-        <source>Copy</source>
-        <translation>པར་སློག </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="91"/>
-        <source>Extend</source>
-        <translation>རྒྱ་སྐྱེད།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="93"/>
-        <source>Only Displayed on %1</source>
-        <translation>%1ཁོ་ནར་མངོན་སྟོན་བྱེད།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="100"/>
-        <source>New Custom Settings</source>
-        <translation>རང་སྒྲུབ་སྒྲིག་འགོད་གསར་འཚུགས།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="106"/>
-        <source>Copy the screen contents to one or more screens</source>
-        <translation>བརྙན་ཡོལ་གྱི་ནང་དོན་དག་བརྙན་ཡོལ་གཅིག་གམ་མང་པོའི་ནང་པར་སློག་བྱེད་པ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="108"/>
-        <source>Extend the screen contents to display different contents on different screens</source>
-        <translation>བརྙན་ཡོལ་རྒྱ་སྐྱེད་པ་མ་ཟད་བརྙན་ཡོལ་མི་འདྲ་བར་ནང་དོན་མི་འདྲ་བ་མངོན་སྟོན་བྱེད་པ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="110"/>
-        <source>Screen contents are only displayed on %1</source>
-        <translation>%1上འདི་ཁོ་ནའི་ཐོག་བརྙན་ཡོལ་གྱི་ནང་དོན་མངོན་སྟོན་བྱེད།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="115"/>
-        <source>Please enter Display module to set if you want to change the custom settings</source>
-        <translation>རང་སྒྲུབ་མངོན་སྟོན་སྒྲིག་འགོད་ལ་བཟོ་བཅོས་བྱ་དགོས་ཚེ་མངོན་སྟོན་དཔེ་དུམ་གྱི་ཞིབ་ཕྲའི་སྒྲིག་འགོད་ནས་བཟོ་དགོས།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/display/displaycontrolmodel.cpp" line="117"/>
-        <source>Click to enter Display Module</source>
-        <translation>གནོན་ནས་མངོན་སྟོན་དཔེ་དུམ་དུ་མཆོང་སྤོ་བྱེད་པ།</translation>
-    </message>
-</context>
-<context>
     <name>KeyLabel</name>
     <message>
         <location filename="../src/frame/modules/keyboard/keylabel.cpp" line="44"/>
@@ -3842,52 +3790,11 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>ReminderDialog</name>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="35"/>
-        <source>Restart the computer to use the system and the applications properly</source>
-        <translation>ཁྱོད་ཀྱིས་རྒྱུད་ཁོངས་དང་ཉེར་སྤྱོད་རྒྱུན་ལྡན་ངང་བེད་སྤྱོད་བྱ་ཐུབ་ཆེད་གསར་སྒྱུར་བྱས་རྗེས་ཡང་བསྐྱར་འགོ་སློང་དགོས།</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="36"/>
-        <source>Make sure all data had been saved first</source>
-        <translation>གཞི་གྲངས་ཚང་མ་ཉར་ཚགས་བྱས་ཡོད་མེད་གཏན་ཁེལ་བྱེད།</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
-        <source>Cancel</source>
-        <translation>འདོར་བ། </translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="41"/>
-        <source>Shut down</source>
-        <translation>ཁ་བརྒྱབ།</translation>
-    </message>
-    <message>
-        <location filename="../src/reboot-reminder-dialog/reminderdialog.cpp" line="44"/>
-        <source>Reboot</source>
-        <translation>བསྐྱར་སློང་།</translation>
-    </message>
-</context>
-<context>
     <name>SearchInput</name>
     <message>
         <location filename="../src/frame/widgets/searchinput.cpp" line="42"/>
         <source>Search</source>
         <translation>བཤེར་འཚོལ།</translation>
-    </message>
-</context>
-<context>
-    <name>SetLocationPage</name>
-    <message>
-        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="50"/>
-        <source>No search results</source>
-        <translation>འཚོལ་ཞིབ་བྱས་འབྲས་མེད།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/setlocationpage.cpp" line="142"/>
-        <source>Current City: %1</source>
-        <translation>མིག་སྔའི་གྲོང་ཁྱེར། %1</translation>
     </message>
 </context>
 <context>
@@ -3925,58 +3832,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/widgets/timeoutdialog.cpp" line="39"/>
         <source>Save</source>
         <translation>ཉར་ཚགས། </translation>
-    </message>
-</context>
-<context>
-    <name>VpnListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/vpn/vpnlistmodel.cpp" line="71"/>
-        <source>Click icon to enable VPN</source>
-        <translation>རྟགས་རིས་མནན་ནས་VPNཁ་ཕྱེ།</translation>
-    </message>
-</context>
-<context>
-    <name>WeatherWidget</name>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="120"/>
-        <source>Sorry, unable to get weather!</source>
-        <translation>དགོངས་པ་མ་ཚོམ། གནམ་གཤིས་ཆ་འཕྲིན་འཐོབ་ཐབས་བྲལ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="127"/>
-        <source>Loading weather...</source>
-        <translation>གནམ་གཤིས་ཆ་འཕྲིན་ཕབ་ལེན་བྱེད་བཞིན་ཡོད།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/plugins/weather/weatherwidget.cpp" line="197"/>
-        <source>Just updated</source>
-        <translation>གསར་སྒྱུར་བྱས་ཙམ་ཡིན་པ།</translation>
-    </message>
-</context>
-<context>
-    <name>WifiListModel</name>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="84"/>
-        <source>Click icon to enable WLAN</source>
-        <translation>རྟགས་རིས་མནན་ནས་WLANཁ་ཕྱེ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="89"/>
-        <source>Connect to hidden network</source>
-        <translation>ཡིབ་དྲ་དང་མཐུད་པ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/quick_control/wifi/wifilistmodel.cpp" line="219"/>
-        <source>Wireless Card %1</source>
-        <translation>སྐུད་མེད་དྲ་ཁཱ། %1</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::accounts::AccountsWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="149"/>
-        <source>Accounts</source>
-        <translation>རྩིས་ཁྲ། </translation>
     </message>
 </context>
 <context>
@@ -4218,14 +4073,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::bluetooth::BluetoothModule</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="155"/>
-        <source>Bluetooth</source>
-        <translation>སོ་སྔོན།</translation>
-    </message>
-</context>
-<context>
     <name>dcc::bluetooth::PinCodeDialog</name>
     <message>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="41"/>
@@ -4241,22 +4088,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/bluetooth/pincodedialog.cpp" line="51"/>
         <source>Confirm</source>
         <translation>གཏན་ཁེལ། </translation>
-    </message>
-</context>
-<context>
-    <name>dcc::cloudsync::SyncWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="150"/>
-        <source>Cloud Sync</source>
-        <translation>སྤྲིན་ཐོག་མཉམ་བགྲོད།</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::datetime::Datetime</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="157"/>
-        <source>Time and Date</source>
-        <translation>དུས་ཚོད་དང་ཚེས་གྲངས།</translation>
     </message>
 </context>
 <context>
@@ -4327,22 +4158,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/datetime/timezoneitem.cpp" line="135"/>
         <source>%1 hours later than local</source>
         <translation>ས་གནས་འདི་ལས་ཆུ་ཚོད་%1གིས་ཕྱི་བ།</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::defapp::DefAppViewer</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="152"/>
-        <source>Default Applications</source>
-        <translation>སོར་བཞག་བྱ་རིམ། </translation>
-    </message>
-</context>
-<context>
-    <name>dcc::display::DisplayWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="151"/>
-        <source>Display</source>
-        <translation>མངོན་སྟོན།</translation>
     </message>
 </context>
 <context>
@@ -4434,14 +4249,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::keyboard::KeyboardWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="160"/>
-        <source>Keyboard and Language</source>
-        <translation>མཐེབ་གཞོང་དང་སྐད་རིགས། </translation>
-    </message>
-</context>
-<context>
     <name>dcc::keyboard::ShortcutContent</name>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutcontent.cpp" line="50"/>
@@ -4487,14 +4294,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::mouse::MouseWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="159"/>
-        <source>Mouse</source>
-        <translation>ཙི་གུ། </translation>
-    </message>
-</context>
-<context>
     <name>dcc::mouse::PalmDetectSetting</name>
     <message>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="33"/>
@@ -4524,30 +4323,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/mouse/widget/palmdetectsetting.cpp" line="87"/>
         <source>Disable the option if touchpad doesn&apos;t work after enabled</source>
         <translation>ཁ་ཕྱེ་རྗེས་ཐུག་རེག་བརྙན་ཡོལ་བེད་སྤྱོད་བྱེད་མ་ཐུབ་ཚེ་འདི་ཁ་བརྒྱབ་ན་ཆོག</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::network::NetworkModuleWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="154"/>
-        <source>Network</source>
-        <translation>དྲ་རྒྱ།</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::personalization::PersonalizationWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="153"/>
-        <source>Personalization</source>
-        <translation>རང་གཤིས་ཅན། </translation>
-    </message>
-</context>
-<context>
-    <name>dcc::power::PowerWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="158"/>
-        <source>Power Management</source>
-        <translation>གློག་ཁུངས་དོ་དམ།</translation>
     </message>
 </context>
 <context>
@@ -4637,14 +4412,6 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
-    <name>dcc::sound::SoundWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="156"/>
-        <source>Sound</source>
-        <translation>སྒྲ།</translation>
-    </message>
-</context>
-<context>
     <name>dcc::systeminfo::SystemInfoModel</name>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfomodel.cpp" line="206"/>
@@ -4655,11 +4422,6 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="163"/>
-        <source>System Information</source>
-        <translation>རྒྱུད་ཁོངས་ཆ་འཕྲིན།</translation>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation>Copyright © 2011-2021 གཏིང་ཚད་སྡེ་ཁུལ།</translation>
@@ -4668,39 +4430,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation>Copyright © 2019-2021 ཐུང་ཞིན་མཉེན་ཆས་ལག་རྩལ་ཚད་ཡོད་ཀུང་སི།</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::MirrorItem</name>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="45"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="129"/>
-        <source>Untested</source>
-        <translation>དཔྱད་འཇལ་བྱས་མེད།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="91"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="125"/>
-        <source>Timeout</source>
-        <translation>དུས་ཚོད་ལས་བརྒལ་བ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="93"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="126"/>
-        <source>Slow</source>
-        <translation>དལ་པོ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="95"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="127"/>
-        <source>Medium</source>
-        <translation>དཀྱིལ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="97"/>
-        <location filename="../src/frame/modules/update/mirroritem.cpp" line="128"/>
-        <source>Fast</source>
-        <translation>མགྱོགས་པོ།</translation>
     </message>
 </context>
 <context>
@@ -4719,14 +4448,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/update/resultitem.cpp" line="80"/>
         <source>Failed to update</source>
         <translation>གསར་པར་སྒྱུར་མ་ཐུབ།</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::update::UpdateCtrlWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="162"/>
-        <source>Update</source>
-        <translation>གསར་སྒྱུར། </translation>
     </message>
 </context>
 <context>
@@ -4759,14 +4480,6 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
         <source>System patches</source>
         <translation>རྒྱུད་ཁོངས་ལྷན་པ།</translation>
-    </message>
-</context>
-<context>
-    <name>dcc::wacom::WacomWidget</name>
-    <message>
-        <location filename="../src/frame/navigation/navmodel.cpp" line="161"/>
-        <source>Wacom</source>
-        <translation>Wacom དཔེ་རིས་འབྲི་ས།</translation>
     </message>
 </context>
 <context>
