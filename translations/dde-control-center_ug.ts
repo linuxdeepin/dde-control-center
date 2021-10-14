@@ -157,7 +157,7 @@
         <location filename="../src/frame/window/mainwindow.cpp" line="1026"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="1028"/>
         <source>Union ID</source>
-        <translation type="unfinished"/>
+        <translation>Union ID</translation>
     </message>
 </context>
 <context>
@@ -1180,49 +1180,49 @@
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="114"/>
         <source>Displays</source>
         <translation>ئېكراندا كۆرسىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="119"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="120"/>
         <source>Resolution</source>
         <translation>ئېنىقلىق نىسبىتى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="128"/>
         <source>Refresh Rate</source>
         <translation>دەرىجىسىنى يېڭىلاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="157"/>
         <source>Cancel</source>
         <translation>بىكار قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="161"/>
         <source>Save</source>
         <translation>ساقلاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="319"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="327"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="329"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="398"/>
         <source>Recommended</source>
         <translation>تەۋسىيە قىلىندى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="451"/>
         <source>Main Screen</source>
         <translation>ئاساسلىق ئېكران</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="474"/>
         <source>Monitor Connected (Multiple)</source>
         <translation>ئېكراننى ئېچىش(كۆپ تۈر تاللىغىلى بولىدۇ)</translation>
     </message>
@@ -2117,21 +2117,31 @@
 <context>
     <name>dccV20::network::HotspotDeviceWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="69"/>
         <source>Hotspot</source>
         <translation>ھەمبەھىر نۇقتىسى</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="74"/>
         <source>Add Settings</source>
         <translation>تەڭشەك قوشۇش</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="79"/>
+        <source>To enable hotspot sharing, please turn on the wireless network adapter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="85"/>
+        <source>Turn On Now</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV20::network::HotspotPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="290"/>
         <source>Create Hotspot</source>
         <translation>قىزىق نۇقتا قوشۇش</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
@@ -2348,84 +2358,84 @@
 <context>
     <name>dccV20::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="81"/>
         <source>Airplane Mode</source>
         <translation type="unfinished"/>
         <extra-contents_path>/network/Airplane</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="91"/>
         <source>DSL</source>
         <translation>DSL</translation>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="92"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="99"/>
         <source>VPN</source>
         <translation>VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="107"/>
         <source>System Proxy</source>
         <translation>سىستېما ۋاكالەتچىلىكى</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="113"/>
         <source>Application Proxy</source>
         <translation>ئەپ ۋاكالەتچىسى</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="123"/>
         <source>Network Details</source>
         <translation>تور تەپسىلاتى</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="178"/>
         <source>Configure by Network Manager</source>
         <translation>تور باشقۇرغۇچى ئارقىلىق سەپلەش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="344"/>
         <source>Personal Hotspot</source>
         <translation>شەخسىي قىزىق نۇقتا</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="367"/>
         <source>Wired Network %1</source>
         <translation>سىملىق تور%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="370"/>
         <source>Wired Network</source>
         <translation>سىملىق تور</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="374"/>
         <source>Wireless Network %1</source>
         <translation>سىمسىز تور%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="377"/>
         <source>Wireless Network</source>
         <translation>سىمسىز تور</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="387"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="394"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="400"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="410"/>
         <source>Disabled</source>
         <translation>تاقاق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="414"/>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="426"/>
         <source>Disconnected</source>
         <translation>ئۇلانمىدى</translation>
     </message>
@@ -2857,65 +2867,71 @@
 <context>
     <name>dccV20::network::SecretWirelessSection</name>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="134"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="121"/>
         <source>Invalid password</source>
         <translation>پارول ئىناۋەتسىز</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="171"/>
         <source>None</source>
         <translation>قۇرۇق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="172"/>
         <source>WEP</source>
         <translation>WEP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="173"/>
         <source>WPA/WPA2 Personal</source>
         <translation>شەخسىي</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="174"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 كارخانا</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="175"/>
+        <source>WPA2/WPA3 Personal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="179"/>
         <source>Shared key</source>
         <translation>ئورتاقلانغان پارول</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="180"/>
         <source>Open system</source>
         <translation>ئوچۇق سىستېما</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="186"/>
         <source>Security</source>
         <translation>بىخەتەرلىك</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="196"/>
         <source>Required</source>
         <translation>زۆرۈر</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="210"/>
         <source>Authentication</source>
         <translation>بىخەتەرلىك دەلىللەش تۈرى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="310"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="256"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="290"/>
         <source>Key</source>
         <translation>پارول</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="283"/>
-        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/network/sections/secretwirelesssection.cpp" line="322"/>
         <source>Password</source>
         <translation>پارول</translation>
     </message>
@@ -3127,32 +3143,32 @@
         <translation>VPN ئىنتېرنېت كېلىشىم بىخەتەرلىكى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="84"/>
         <source>Enable IPsec</source>
         <translation>ئىنتېرنېت كېلىشىم بىخەتەرلىكىنى قوزغىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="87"/>
         <source>Group Name</source>
         <translation>گۇرۇپپا ئىسمى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="90"/>
         <source>Group ID</source>
         <translation>گۇرۇپپا نومۇرى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="90"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="93"/>
         <source>Pre-Shared Key</source>
         <translation>Pre-Shared ئاچقۇچى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="96"/>
         <source>Phase1 Algorithms</source>
         <translation>پارول ئالماشتۇرۇش كېلىشىمى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnipsecsection.cpp" line="99"/>
         <source>Phase2 Algorithms</source>
         <translation>بىخەتەر پېچەتلەش كېلىشىمى</translation>
     </message>
@@ -3334,87 +3350,87 @@
         <translation>VPN PPP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
         <source>All Available (default)</source>
         <translation>بارلىق ئىشلەتكىلى بولىدىغان(سۈكۈتتىكى)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="141"/>
         <source>40-bit (less secure)</source>
         <translation>40 خانىلىك (بىخەتەرلىكى تۆۋەنرەك)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="142"/>
         <source>128-bit (most secure)</source>
         <translation>128 خانىلىك (ئىنتايىن بىخەتەر)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
         <source>Refuse EAP Authentication</source>
         <translation>EAP دەلىللەشنى رەت قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
         <source>Refuse PAP Authentication</source>
         <translation>PAP دەلىللەشنى رەت قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
         <source>Refuse CHAP Authentication</source>
         <translation>CHAP دەلىللەشنى رەت قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="147"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
         <source>Refuse MSCHAP Authentication</source>
         <translation>MSCHAP دەلىللەشنى رەت قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
         <source>Refuse MSCHAPv2 Authentication</source>
         <translation>MSCHAPv2 دەلىللەشنى رەت قىلىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
         <source>No BSD Data Compression</source>
         <translation>پىرېسلانغان BSD ئۇچۇرى يوق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
         <source>No Deflate Data Compression</source>
         <translation>پىرېسلانغان ئۇچۇر يوق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
         <source>No TCP Header Compression</source>
         <translation>پىرېسلانغان TCP بېشى يوق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
         <source>No Protocol Field Compression</source>
         <translation>پىرېسلانغان كېلىشىم ئەزالىرى يوق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="153"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="155"/>
         <source>No Address/Control Compression</source>
         <translation>پىرېسلانغان ئادرېس كونتروللار يوق</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="156"/>
         <source>Send PPP Echo Packets</source>
         <translation>PPP ئۇچۇر بوغچىسى ئەۋەتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="162"/>
         <source>Use MPPE</source>
         <translation>MPPE نى ئىشلىتىش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="163"/>
         <source>Security</source>
         <translation>بىخەتەرلىك</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/network/sections/vpn/vpnpppsection.cpp" line="176"/>
         <source>Stateful MPPE</source>
         <translation>MPPE ھالىتى</translation>
     </message>
@@ -3443,17 +3459,17 @@
         <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="375"/>
         <source>Import Error</source>
         <translation>ئەكىرىش مەغلۇپ بولدى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="376"/>
         <source>File error</source>
         <translation>ھۆججەتنى كىرگۈزۈشتە خاتالىق بار</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/network/vpnpage.cpp" line="377"/>
         <source>OK</source>
         <translation>جەزىملەشتۈرۈش</translation>
     </message>
@@ -3898,22 +3914,22 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="297"/>
         <source>Wireless Network Adapter</source>
         <translation>سىمسىز تور كارتىسى</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="321"/>
         <source>Close Hotspot</source>
         <translation>قىزىق نۇقتىنى تاقاش</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="325"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>سىمسىز تور ئىقتىدارىنى ئىشلەتمەكچى بولسىڭىز، ئاۋۋال بەھرىلىگەن قىزىق نۇقتىنى تاقاڭ</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="389"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="388"/>
         <source>Connect to hidden network</source>
         <translation>يوشۇرۇن تورغا ئۇلىنىش</translation>
     </message>
@@ -4021,12 +4037,12 @@
 <context>
     <name>dccV20::notification::TimeSlotItem</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="54"/>
         <source>From</source>
         <translation>دىن</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="56"/>
         <source>To</source>
         <translation>غىچە</translation>
     </message>
@@ -4037,7 +4053,6 @@
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="50"/>
         <source>Size</source>
         <translation>چوڭلۇقى</translation>
-        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="81"/>
@@ -5018,7 +5033,8 @@
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="291"/>
         <source>&quot;Reset to factory settings&quot; will clear your system data and reinstall the system, which is highly risky, please confirm before proceeding.
 Note: Create an account with the same username please.</source>
-        <translation type="unfinished"/>
+        <translation>زاۋۇت ئەسلىگە قايتۇرسىڭىز سىستېما سانلىق مەلۇماتىڭىز تازىلىنىدۇ، سىستېما قايتا قاچىلىنىدۇ. بۇ مەشغۇلات ئىنتايىن خەتەرلىك، جەزىملەشتۈرۈپ بولغاندىن كېيىن مەشغۇلات قىلىڭ. 
+دىققەت: ئىشلەتكۈچى قۇرغاندا ئەسلى ئابونت نامىنى ئىشلىتىڭ. </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="295"/>
@@ -5729,7 +5745,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="172"/>
+        <location filename="../src/frame/main.cpp" line="170"/>
         <source>Control Center</source>
         <translation>كونترول مەركىزى </translation>
     </message>
@@ -5787,7 +5803,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="318"/>
         <source>Speaker</source>
-        <translation type="unfinished"/>
+        <translation>كاناي</translation>
     </message>
 </context>
 <context>
@@ -5880,7 +5896,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="16"/>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>ئېچىش</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="17"/>
@@ -5895,12 +5911,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="19"/>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>ئويغىتىش</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="20"/>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>ئاۋازنى تەڭشەش</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="21"/>
@@ -5910,42 +5926,42 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="22"/>
         <source>Low battery</source>
-        <translation type="unfinished"/>
+        <translation>توك ئاز قالدى</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="23"/>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <translation>سىنبەلگىنى قوزغاتقۇچتىن ئۈستەليۈزىگە يوللاش</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="24"/>
         <source>Empty Trash</source>
-        <translation type="unfinished"/>
+        <translation>ئەخلەت ساندۇقىنى تازىلاش</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="25"/>
         <source>Plug in</source>
-        <translation type="unfinished"/>
+        <translation>توك ئۇلاندى</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="26"/>
         <source>Plug out</source>
-        <translation type="unfinished"/>
+        <translation>توك ئۈزۈلدى</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="27"/>
         <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <translation>كۆچمە ئۈسكۈنە ئۇلاندى</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="28"/>
         <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <translation>كۆچمە ئۈسكۈنە ئۈزۈلدى</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/sound/soundeffectpage.cpp" line="29"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>خاتالىق ئۇچۇرى</translation>
     </message>
 </context>
 <context>
@@ -10054,7 +10070,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="122"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>ئاخىرقى ئىشلەتكۈچى ئىجازەت كېلىشىمى</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/systeminfo/systeminfowidget.cpp" line="126"/>
@@ -10082,7 +10098,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/systeminfo/userlicense.cpp" line="15"/>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>ئاخىرقى ئىشلەتكۈچى ئىجازەت كېلىشىمى</translation>
     </message>
 </context>
 <context>
@@ -10176,7 +10192,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="89"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation type="unfinished"/>
+        <translation>بۇ قېتىملىق يېڭىلاشقا ئۇزۇنراق ۋاقىت كېتىشى مۇمكىن، يېڭىلاش تاماملىنىشتىن بۇرۇن كومپيۇتېرنى تاقىماڭ ياكى قايتا قوزغاتماڭ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="176"/>
@@ -10197,7 +10213,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="195"/>
         <source>%1% downloaded (Click to continue)</source>
-        <translation type="unfinished"/>
+        <translation>%1% چۈشۈرۈلدى (بۇ يەرنى چېكىپ داۋاملاشتۇرۇڭ)</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="201"/>
@@ -10227,7 +10243,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="242"/>
         <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <translation>بېقىنىش خاتالىقى، يېڭىلانمىنى تەكشۈرۈش مەغلۇپ بولدى</translation>
     </message>
     <message numerus="yes">
         <location filename="../src/frame/modules/update/updatectrlwidget.cpp" line="264"/>
@@ -10294,7 +10310,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="65"/>
         <source>Updates Notification</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانمىنى ئەسكەرتىش</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="68"/>
@@ -10304,7 +10320,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="70"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
-        <translation type="unfinished"/>
+        <translation>يېڭىلانمىنى ئاپتوماتىك چۈشۈرۈش» ئاچقاندا، سىمسىز ياكى سىملىق توردا يېڭىلانمىلار« ئاپتوماتىك چۈشىدۇ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="77"/>
@@ -10319,12 +10335,12 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="99"/>
         <source>Smart Mirror Switch</source>
-        <translation type="unfinished"/>
+        <translation>ئەقلىي تەسۋىر مەنبەسى</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="105"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
-        <translation type="unfinished"/>
+        <translation>ئەقلىي تەسۋىر مەنبەسىنى ئاچقاندا سۈرئىتى ئەڭ تېز تەسۋىر مەنبەسىنى  ئاپتوماتىك تاللايدۇ</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatesettings.cpp" line="114"/>
@@ -10382,7 +10398,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="44"/>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>بېسىش سېزىمى</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
@@ -10392,7 +10408,7 @@ If no operation, the display will be restored after %1s.</source>
     <message>
         <location filename="../src/frame/modules/wacom/widget/wacomsettings.cpp" line="52"/>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>ئېغىرلىقى</translation>
     </message>
 </context>
 <context>
@@ -10431,7 +10447,7 @@ If no operation, the display will be restored after %1s.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="173"/>
+        <location filename="../src/frame/main.cpp" line="171"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>كونترول مەركىزىدە مەشغۇلات سىستېمىسىنىڭ بارلىق تەڭشەك تۈرلىرى تەمىنلىدۇ</translation>
     </message>
