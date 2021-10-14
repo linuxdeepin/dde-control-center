@@ -54,7 +54,6 @@ void NetworkHandler::initConnection()
     connect(controller, &NetworkController::deviceAdded, this, &NetworkHandler::onDeviceAdded);
     connect(controller, &NetworkController::deviceRemoved, this, &NetworkHandler::onDeviceRemoved);
     connect(controller, &NetworkController::connectionChanged, this, &NetworkHandler::onStatusChanged);
-    connect(controller, &NetworkController::connectivity, this, &NetworkHandler::onConnectivityChanged);
 
     // VPN模块
     VPNController *vpnController = controller->vpnController();
@@ -82,6 +81,8 @@ void NetworkHandler::initConnection()
     // DSL
     DSLController *dslController = NetworkController::instance()->dslController();
     connect(dslController, &DSLController::activeConnectionChanged, this, &NetworkHandler::onDSLActiveChanged);
+
+    onDeviceAdded(controller->devices());
 }
 
 void NetworkHandler::initProxy()

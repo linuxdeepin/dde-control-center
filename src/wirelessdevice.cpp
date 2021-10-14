@@ -54,7 +54,8 @@ QList<AccessPoints *> WirelessDevice::accessPointItems() const
 
 void WirelessDevice::scanNetwork()
 {
-    networkInter()->RequestWirelessScan();
+    QDBusPendingReply<> reply = networkInter()->RequestWirelessScan();
+    reply.waitForFinished();
 }
 
 void WirelessDevice::connectNetwork(const AccessPoints *item)
@@ -105,7 +106,8 @@ void WirelessDevice::connectNetwork(const QString &ssid)
 
 void WirelessDevice::disconnectNetwork()
 {
-    networkInter()->DisconnectDevice(QDBusObjectPath(path()));
+    QDBusPendingReply<> reply = networkInter()->DisconnectDevice(QDBusObjectPath(path()));
+    reply.waitForFinished();
 }
 
 QList<WirelessConnection *> WirelessDevice::items() const

@@ -49,13 +49,15 @@ void HotspotController::setEnabled(WirelessDevice *device, const bool enable)
         if (deviceHotsItem.size() > 0) {
             // 在打开热点的时候,默认开启第一个热点
             HotspotItem *item = deviceHotsItem[0];
-            m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(device->path()));
+            QDBusPendingReply<QDBusObjectPath> reply = m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(device->path()));
+            reply.waitForFinished();
         }
     } else {
         // 在关闭热点的时候,找到当前已经连接的热点,并断开它的连接
         for (HotspotItem *item : deviceHotsItem) {
             if (item->status() == ConnectionStatus::Activated) {
-                m_networkInter->DeactivateConnection(item->connection()->uuid());
+                QDBusPendingReply<QDBusObjectPath> reply = m_networkInter->DeactivateConnection(item->connection()->uuid());
+                reply.waitForFinished();
                 break;
             }
         }
@@ -84,7 +86,8 @@ bool HotspotController::supportHotspot()
 void HotspotController::connectItem(HotspotItem *item)
 {
     // 获取当前连接的UUID和设备的path
-    m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(item->devicePath()));
+    QDBusPendingReply<QDBusObjectPath> reply = m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(item->devicePath()));
+    reply.waitForFinished();
 }
 
 void HotspotController::connectItem(WirelessDevice *device, const QString &uuid)

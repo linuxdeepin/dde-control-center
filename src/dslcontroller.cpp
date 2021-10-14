@@ -46,7 +46,8 @@ void DSLController::connectItem(DSLItem *item)
     if (m_deviceInfo.contains(item->connection()->hwAddress()))
         devicePath = m_deviceInfo[item->connection()->hwAddress()];
 
-    m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(devicePath));
+    QDBusPendingReply<QDBusObjectPath> reply = m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(devicePath));
+    reply.waitForFinished();
 }
 
 void DSLController::connectItem(const QString &uuid)

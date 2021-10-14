@@ -65,7 +65,8 @@ QJsonObject NetworkDeviceBase::activeConnectionInfo() const
 
 void NetworkDeviceBase::setEnabled(bool enabled)
 {
-    m_networkInter->EnableDevice(QDBusObjectPath(path()), enabled);
+    QDBusPendingReply<> reply = m_networkInter->EnableDevice(QDBusObjectPath(path()), enabled);
+    reply.waitForFinished();
 }
 
 Connectivity NetworkDeviceBase::connectivity()

@@ -38,7 +38,8 @@ bool WiredDevice::connectNetwork(WiredConnection *connection)
     if (!connection)
         return false;
 
-    networkInter()->ActivateConnection(connection->connection()->uuid(), QDBusObjectPath(path()));
+    QDBusPendingReply<QDBusObjectPath> reply = networkInter()->ActivateConnection(connection->connection()->uuid(), QDBusObjectPath(path()));
+    reply.waitForFinished();
     return true;
 }
 
@@ -54,7 +55,8 @@ bool WiredDevice::connectNetwork(const QString &path)
 
 void WiredDevice::disconnectNetwork()
 {
-    networkInter()->DisconnectDevice(QDBusObjectPath(path()));
+    QDBusPendingReply<> reply = networkInter()->DisconnectDevice(QDBusObjectPath(path()));
+    reply.waitForFinished();
 }
 
 bool WiredDevice::isConnected() const
