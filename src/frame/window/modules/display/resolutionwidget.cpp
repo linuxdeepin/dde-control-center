@@ -108,6 +108,36 @@ void fillModeCombox:: setItemRoleIcon()
     }
 }
 
+void fillModeCombox:: setHoverRoleIcon()
+{qInfo()<<this->itemData(0, LightHoverIconRole).toString()<<this->itemData(0, DarkHoverIconRole).toString();
+    qInfo()<<QPixmap(this->itemData(0, LightHoverIconRole).toString())<<QPixmap(this->itemData(0, DarkHoverIconRole).toString());
+    //获取当前主题
+    if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        for(int i = 0; i < this->count(); i++) {
+            this->setItemIcon(i, QPixmap(this->itemData(i, LightHoverIconRole).toString()));
+        }
+    } else if(DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::DarkType) {
+        for(int i = 0; i < this->count(); i++) {
+            this->setItemIcon(i, QPixmap(this->itemData(i, DarkHoverIconRole).toString()));
+        }
+    }
+}
+
+bool fillModeCombox::event(QEvent *e)
+{
+    switch (e->type()) {
+    case QEvent::HoverEnter:
+        setHoverRoleIcon();
+        break;
+    case QEvent::HoverLeave:
+        setDefaultRoleIcon();
+        break;
+    default:
+        break;
+    }
+    return QComboBox::event(e);
+}
+
 ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     : SettingsItem(parent)
     , m_resolutionLayout(new QHBoxLayout(this))
@@ -220,10 +250,12 @@ void ResolutionWidget::setItemIcon()
     fitItem->setData(":/display/themes/dark/icons/dark/Fit.svg", DarkItemIconRole);
     fitItem->setData(":/display/themes/dark/icons/dark/Fit.svg", DarkDefaultIconRole);
     fitItem->setData(":/display/themes/dark/icons/white/Fit.svg", DarkHighlightIconRole);
+    fitItem->setData(":/display/themes/dark/icons/hover/Fit.svg", DarkHoverIconRole);
     //浅色
     fitItem->setData(":/display/themes/light/icon/black/Fit.svg", LightItemIconRole);
     fitItem->setData(":/display/themes/light/icon/light/Fit.svg", LightDefaultIconRole);
     fitItem->setData(":/display/themes/light/icon/white/Fit.svg", LightHighlightIconRole);
+    fitItem->setData(":/display/themes/light/icon/hover/Fit.svg", LightHoverIconRole);
 
     m_mapFillModeItems["Full aspect"] = fitItem; /*适应*/
 
@@ -234,10 +266,12 @@ void ResolutionWidget::setItemIcon()
     stretchItem->setData(":/display/themes/dark/icons/dark/Stretch.svg", DarkItemIconRole);
     stretchItem->setData(":/display/themes/dark/icons/dark/Stretch.svg", DarkDefaultIconRole);
     stretchItem->setData(":/display/themes/dark/icons/white/Stretch.svg", DarkHighlightIconRole);
+    stretchItem->setData(":/display/themes/dark/icons/hover/Stretch.svg", DarkHoverIconRole);
     //浅色
     stretchItem->setData(":/display/themes/light/icon/black/Stretch.svg", LightItemIconRole);
     stretchItem->setData(":/display/themes/light/icon/light/Stretch.svg", LightDefaultIconRole);
     stretchItem->setData(":/display/themes/light/icon/white/Stretch.svg", LightHighlightIconRole);
+    stretchItem->setData(":/display/themes/light/icon/hover/Stretch.svg", LightHoverIconRole);
 
     m_mapFillModeItems["Full"] = stretchItem;/*铺满*/
 
@@ -248,10 +282,12 @@ void ResolutionWidget::setItemIcon()
     centerItem->setData(":/display/themes/dark/icons/dark/Center.svg", DarkItemIconRole);
     centerItem->setData(":/display/themes/dark/icons/dark/Center.svg", DarkDefaultIconRole);
     centerItem->setData(":/display/themes/dark/icons/white/Center.svg", DarkHighlightIconRole);
+    centerItem->setData(":/display/themes/dark/icons/hover/Center.svg", DarkHoverIconRole);
     //浅色
     centerItem->setData(":/display/themes/light/icon/black/Center.svg", LightItemIconRole);
     centerItem->setData(":/display/themes/light/icon/light/Center.svg", LightDefaultIconRole);
     centerItem->setData(":/display/themes/light/icon/white/Center.svg", LightHighlightIconRole);
+    centerItem->setData(":/display/themes/light/icon/hover/Center.svg", LightHoverIconRole);
 
     m_mapFillModeItems["Center"] = centerItem;/*居中*/
 }

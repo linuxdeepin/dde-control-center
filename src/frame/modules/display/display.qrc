@@ -6,6 +6,9 @@
         <file>themes/dark/icons/white/Center.svg</file>
         <file>themes/dark/icons/white/Fit.svg</file>
         <file>themes/dark/icons/white/Stretch.svg</file>
+        <file>themes/dark/icons/hover/Center.svg</file>
+        <file>themes/dark/icons/hover/Fit.svg</file>
+        <file>themes/dark/icons/hover/Stretch.svg</file>
         <file>themes/light/icon/black/Center.svg</file>
         <file>themes/light/icon/black/Fit.svg</file>
         <file>themes/light/icon/black/Stretch.svg</file>
@@ -15,5 +18,8 @@
         <file>themes/light/icon/white/Center.svg</file>
         <file>themes/light/icon/white/Fit.svg</file>
         <file>themes/light/icon/white/Stretch.svg</file>
+        <file>themes/light/icon/hover/Center.svg</file>
+        <file>themes/light/icon/hover/Fit.svg</file>
+        <file>themes/light/icon/hover/Stretch.svg</file>
     </qresource>
 </RCC>

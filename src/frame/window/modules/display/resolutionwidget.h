@@ -63,9 +63,11 @@ enum ResizeDesktopRole {
     DarkDefaultIconRole,
     DarkHighlightIconRole,
     DarkItemIconRole,
+    DarkHoverIconRole,
     LightDefaultIconRole,
     LightHighlightIconRole,
-    LightItemIconRole
+    LightItemIconRole,
+    LightHoverIconRole
 };
 
 class fillModeCombox : public QComboBox
@@ -78,9 +80,12 @@ public:
     
     void setDefaultRoleIcon();
     void setItemRoleIcon();
+    void setHoverRoleIcon();
 
 public Q_SLOTS:
     void OnHighlighted(int index);
+protected:
+    bool event(QEvent *e) override;
 };
 
 class ResolutionWidget : public SettingsItem
