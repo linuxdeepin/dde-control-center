@@ -1841,6 +1841,14 @@
     </message>
 </context>
 <context>
+    <name>dccV20::network::CbandSection</name>
+    <message>
+        <location filename="../src/frame/window/modules/network/sections/cbandsection.cpp" line="35"/>
+        <source>Band</source>
+        <translation>Bandă</translation>
+    </message>
+</context>
+<context>
     <name>dccV20::network::ChainsProxyPage</name>
     <message>
         <location filename="../src/frame/window/modules/network/chainsproxypage.cpp" line="47"/>
@@ -4055,6 +4063,7 @@
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="50"/>
         <source>Size</source>
         <translation>Dimensiune</translation>
+        <extra-contents_path>/personalization/Font</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/personalization/personalizationfontswidget.cpp" line="81"/>

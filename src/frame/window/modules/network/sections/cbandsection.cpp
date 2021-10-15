@@ -32,7 +32,7 @@ void CbandSection::initUi()
 {
     m_bandList.insert("5Ghz", NetworkManager::WirelessSetting::FrequencyBand::A);
     m_bandList.insert("2.4Ghz", NetworkManager::WirelessSetting::FrequencyBand::Bg);
-    m_bandChooser->setTitle("Band");
+    m_bandChooser->setTitle(tr("Band"));
     m_bandChooser->comboBox()->addItems(m_bandList.keys());
 
     int index = 0;
