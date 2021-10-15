@@ -724,6 +724,7 @@ void WirelessPage::showConnectHidePage()
 void WirelessPage::updateApStatus()
 {
     QList<AccessPoints *> accessPoints = m_device->accessPointItems();
+    onAPAdded(accessPoints);
     QMap<QString, ConnectionStatus> connectionStatus;
     bool isConnecting = false;
     for (AccessPoints *ap : accessPoints) {
