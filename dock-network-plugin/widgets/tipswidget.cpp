@@ -78,8 +78,7 @@ void TipsWidget::paintEvent(QPaintEvent *event)
     }
         break;
     case MultiLine: {
-        if (m_textList.size() != 1)
-            option.setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+        option.setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
         int y = 0;
         for (QString text : m_textList) {
             int lineHeight = fontMetrics().boundingRect(text).height();
