@@ -101,4 +101,24 @@ private:
     bool m_toggleProcessed;
 };
 
+class DBusControlCenterGrandSearchService: public QDBusAbstractAdaptor
+{
+    Q_OBJECT
+    Q_CLASSINFO("D-Bus Interface", "com.deepin.dde.ControlCenter.GrandSearch")
+
+public:
+    explicit DBusControlCenterGrandSearchService(DCC_NAMESPACE::MainWindow *parent);
+    virtual ~DBusControlCenterGrandSearchService();
+
+    inline DCC_NAMESPACE::MainWindow *parent() const;
+
+public Q_SLOTS: // METHODS
+    QString Search(const QString json);
+    bool Stop(const QString json);
+    bool Action(const QString json);
+
+private:
+    QTimer *m_autoExitTimer;
+};
+
 #endif

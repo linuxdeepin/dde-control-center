@@ -249,6 +249,24 @@ SearchWidget::~SearchWidget()
 
 }
 
+void SearchModel::getJumpPath(QString &moduleName, QString &pageName, const QString &searchName)
+{
+    if (m_EnterNewPagelist.count() > 0) {
+        SearchBoxStruct::Ptr data = getModuleBtnString(searchName);
+        if (data->translateContent != "" && data->fullPagePath != "") {
+            for (int i = 0; i < m_EnterNewPagelist.count(); i++) {
+                if (m_EnterNewPagelist[i]->translateContent == data->fullPagePath
+                        && m_EnterNewPagelist[i]->childPageName.isEmpty()
+                        && m_EnterNewPagelist[i]->actualModuleName == data->translateContent) {
+                    moduleName = data->actualModuleName;
+                    pageName = m_EnterNewPagelist[i]->fullPagePath.section('/', 2, -1);
+                    break;
+                }
+            }
+        }
+    }
+}
+
 bool SearchModel::jumpContentPathWidget(const QString &path)
 {
     qDebug() << Q_FUNC_INFO << path;
@@ -1025,6 +1043,11 @@ bool SearchWidget::jumpContentPathWidget(const QString &path)
     return m_model->jumpContentPathWidget(path);
 }
 
+void SearchWidget::getJumpPath(QString &moduleName, QString &pageName, const QString &searchName)
+{
+    m_model->getJumpPath(moduleName,pageName,searchName);
+}
+
 void SearchWidget::setLanguage(const QString &type)
 {
     if (type == "zh_CN" || type == "zh_HK" || type == "zh_TW") {
@@ -1059,4 +1082,25 @@ void SearchWidget::setRemoveableDeviceStatus(const QString &name, bool isExist)
 void SearchWidget::addSpecialThreeMenuMap(const QString &name, bool flag)
 {
     return m_model->addSpecialThreeMenuMap(name, flag);
+}
+
+
+//返回搜索结果
+QList<QString> SearchWidget::searchResults(const QString text, int &rowCount)
+{
+    QList<QString> lstSearchMsgs;
+    rowCount = m_model->rowCount();
+
+    for (int row = 0; row < m_model->rowCount(); row++) {
+        QString msg = m_model->data(m_model->index(row, 0), Qt::UserRole).toString();
+
+        if(msg.contains(text))
+            lstSearchMsgs.append(msg);
+    }
+
+    for (int i = 0; i < lstSearchMsgs.size(); i++) {
+        lstSearchMsgs[i] = m_model->transPinyinToChinese(lstSearchMsgs[i]);
+    }
+
+    return lstSearchMsgs;
 }

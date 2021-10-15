@@ -147,6 +147,7 @@ int main(int argc, char *argv[])
     gwm = &mw;
 
     DBusControlCenterService adaptor(&mw);
+    DBusControlCenterGrandSearchService grandSearchadAptor(&mw);
 
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService("com.deepin.dde.ControlCenter") ||

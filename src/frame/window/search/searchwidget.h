@@ -95,6 +95,7 @@ public:
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
+    void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
@@ -153,6 +154,9 @@ public:
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
+
+    QList<QString> searchResults(const QString text, int &rowCount);
+    void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
 
 private Q_SLOTS:
     void onCompleterActivated(const QString &value);

@@ -78,6 +78,8 @@ const QByteArray ControlCenterGSettings = "com.deepin.dde.control-center";
 const QString GSettinsWindowWidth = "window-width";
 const QString GSettinsWindowHeight = "window-height";
 const QString ModuleDirectory = "/usr/lib/dde-control-center/modules";
+const QString ControlCenterIconPath = "/usr/share/icons/bloom/apps/64/preferences-system.svg";
+const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
 
 static int WidgetMinimumWidth = 820;
 static int WidgetMinimumHeight = 634;
@@ -1252,4 +1254,83 @@ bool MainWindow::getRemoveableDeviceStatus(QString type) const
 void MainWindow::setSearchPath(ModuleInterface *const inter) const
 {
     m_searchWidget->addModulesName(inter->name(), inter->displayName(), inter->icon(), inter->translationPath());
+}
+
+QString MainWindow::GrandSearchSearch(const QString json)
+{
+    //解析输入的json值
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
+    if(!jsonDocument.isNull()) {
+        QJsonObject jsonObject = jsonDocument.object();
+        m_lstGrandSearchTasks.append(jsonObject);
+
+        //处理搜索任务, 返回搜索结果
+        int rowCount;
+        QList<QString> lstMsg = m_searchWidget->searchResults(jsonObject.value("cont").toString(), rowCount);
+
+        if(rowCount == 0)
+            return QString();
+
+        for(auto msg : lstMsg) {
+            qDebug() << "name:" << msg;
+        }
+
+        QJsonObject jsonResults;
+        QJsonArray items;
+        for (int i = 0; i < lstMsg.size(); i++) {
+            QJsonObject jsonObj;
+            jsonObj.insert("item", lstMsg[i].replace(" ",""));
+            jsonObj.insert("name", lstMsg[i].replace(" ",""));
+            jsonObj.insert("icon", ControlCenterIconPath);
+            jsonObj.insert("type", "application/x-dde-control-center-xx");
+
+            items.insert(i, jsonObj);
+        }
+
+        QJsonObject objCont;
+        objCont.insert("group",ControlCenterGroupName);
+        objCont.insert("items", items);
+
+        QJsonArray arrConts;
+        arrConts.insert(0, objCont);
+
+        jsonResults.insert("ver", jsonObject.value("ver"));
+        jsonResults.insert("mID", jsonObject.value("mID"));
+        jsonResults.insert("cont", arrConts);
+
+        QJsonDocument document;
+        document.setObject(jsonResults);
+        m_lstGrandSearchTasks.removeOne(jsonObject);
+
+        return document.toJson(QJsonDocument::Compact);
+   }
+
+    return QString();
+}
+
+bool MainWindow::GrandSearchStop(const QString json)
+{
+    Q_UNUSED(json)
+    return true;
+}
+
+bool MainWindow::GrandSearchAction(const QString json)
+{
+    QString searchName;
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
+    if(!jsonDocument.isNull()) {
+        QJsonObject jsonObject = jsonDocument.object();
+        if (jsonObject.value("action") == "openitem") {
+            //打开item的操作
+            searchName = jsonObject.value("item").toString();
+        }
+    }
+    QString moduleName, pageName;
+    m_searchWidget->getJumpPath(moduleName, pageName, searchName);
+
+    if(moduleName.isEmpty() || pageName.isEmpty())
+        return false;
+
+    showModulePage(moduleName,pageName,false);
+    return true;
 }
