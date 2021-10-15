@@ -102,6 +102,11 @@ void User::setRepeatPassword(const QString &repeatPassword)
     m_repeatPassword = repeatPassword;
 }
 
+void User::setPasswordHint(const QString &passwordHint)
+{
+    m_passwordHint = passwordHint;
+}
+
 void User::setOnline(bool online)
 {
     if (m_online != online) {

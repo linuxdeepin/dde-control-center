@@ -74,6 +74,9 @@ public:
     inline QString repeatPassword() const { return m_repeatPassword; }
     void setRepeatPassword(const QString &repeatPassword);
 
+    inline QString passwordHint() const { return m_passwordHint; }
+    void setPasswordHint(const QString &passwordHint);
+
     inline bool online() const { return m_online; }
     void setOnline(bool online);
 
@@ -141,6 +144,7 @@ private:
     QStringList m_groups;
     quint64 m_createdTime;
     QString m_gid;
+    QString m_passwordHint;
 };
 
 } // namespace accounts

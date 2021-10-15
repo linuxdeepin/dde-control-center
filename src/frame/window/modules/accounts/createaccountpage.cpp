@@ -372,6 +372,7 @@ void CreateAccountPage::createUser()
     m_newUser->setFullname(m_fullnameEdit->lineEdit()->text());
     m_newUser->setPassword(m_passwdEdit->lineEdit()->text());
     m_newUser->setRepeatPassword(m_repeatpasswdEdit->lineEdit()->text());
+    m_newUser->setPasswordHint(m_passwdTipsEdit->lineEdit()->text());
 
     /* 设置用户组 */
     if (m_accountChooser->currentIndex() == 1) {
@@ -396,9 +397,7 @@ void CreateAccountPage::createUser()
 void CreateAccountPage::setCreationResult(CreationResult *result)
 {
     switch (result->type()) {
-    case CreationResult::NoError:
-        if (!m_passwdTipsEdit->text().simplified().isEmpty())
-            Q_EMIT requestSetPasswordHint(m_newUser, m_passwdTipsEdit->text());
+    case CreationResult::NoError:      
         Q_EMIT requestBack(AccountsWidget::CreateUserSuccess);
         break;
     case CreationResult::UserNameError:

@@ -181,7 +181,6 @@ void AccountsModule::onShowCreateAccountPage()
     connect(w, &CreateAccountPage::requestCreateUser, m_accountsWorker, &AccountsWorker::createAccount);
     connect(m_accountsWorker, &AccountsWorker::accountCreationFinished, w, &CreateAccountPage::setCreationResult);
     connect(w, &CreateAccountPage::requestBack, m_accountsWidget, &AccountsWidget::handleRequestBack);
-    connect(w, &CreateAccountPage::requestSetPasswordHint, m_accountsWorker, &AccountsWorker::setPasswordHint);
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
     m_isCreatePage = true;

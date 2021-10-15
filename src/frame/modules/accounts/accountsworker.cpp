@@ -211,17 +211,9 @@ void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
 void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)
 {
     AccountsUser *userInter = m_userInters.value(user);
+    Q_ASSERT(userInter);
 
-    if (!userInter) {
-        for (auto key : m_userInters.keys()) {
-            if (key->name() == user->name()) {
-                userInter = m_userInters.value(key);
-                break;
-            }
-        }
-    }
-
-    userInter->SetPasswordHint(passwordHint).waitForFinished();
+    userInter->SetPasswordHint(passwordHint);
 }
 
 void AccountsWorker::setGroups(User *user, const QStringList &usrGroups)
@@ -750,11 +742,13 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     bool sifResult = !userDBus->SetIconFile(user->currentAvatar()).isError();
     bool spResult = !userDBus->SetPassword(cryptUserPassword(user->password())).isError();
     bool groupResult = true;
+    bool passwordHintResult = true;
     if (IsServerSystem && !user->groups().isEmpty()) {
         groupResult = !userDBus->SetGroups(user->groups()).isError();
     }
+    passwordHintResult = !userDBus->SetPasswordHint(user->passwordHint()).isError();
 
-    if (!sifResult || !spResult || !groupResult) {
+    if (!sifResult || !spResult || !groupResult || !passwordHintResult) {
         result->setType(CreationResult::UnknownError);
         if (!sifResult)
             result->setMessage("set icon file for new created user failed.");
