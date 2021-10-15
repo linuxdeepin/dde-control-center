@@ -21,6 +21,7 @@
 
 #include "netitem.h"
 #include "constants.h"
+#include "../widgets/statebutton.h"
 
 #include <DApplicationHelper>
 #include <DHiDPIHelper>
@@ -64,11 +65,6 @@ DStandardItem *NetItem::standardItem()
     return m_standardItem;
 }
 
-QWidget *NetItem::parentWidget()
-{
-    return m_parentWidget;
-}
-
 /**
  * @brief baseControllItem::baseControllItem
  * 总线控制器
@@ -76,6 +72,7 @@ QWidget *NetItem::parentWidget()
 DeviceControllItem::DeviceControllItem(const DeviceType &deviceType, QWidget *parent)
     : NetItem(parent)
     , m_deviceType(deviceType)
+    , m_switcher(new DSwitchButton(parent))
 {
     initItemText();
     initSwitcher();
@@ -139,7 +136,6 @@ void DeviceControllItem::initItemText()
 void DeviceControllItem::initSwitcher()
 {
     // 创建右侧的切换开关
-    m_switcher = new DSwitchButton(parentWidget());
     DViewItemAction *switchAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter,
            QSize(0, 0), QSize(0, 0), false);
     m_switcher->setFixedSize(SWITCH_WIDTH, SWITCH_HEIGHT);
@@ -163,6 +159,7 @@ void DeviceControllItem::onSwitchDevices(bool on)
 WiredControllItem::WiredControllItem(QWidget *parent, WiredDevice *device)
     : NetItem(parent)
     , m_device(device)
+    , m_switcher(new DSwitchButton(parent))
 {
     standardItem()->setSizeHint(QSize(-1, 46));
     standardItem()->setText(device->deviceName());
@@ -171,7 +168,6 @@ WiredControllItem::WiredControllItem(QWidget *parent, WiredDevice *device)
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)), NetItemRole::DeviceDataRole);
     standardItem()->setFontSize(DFontSizeManager::T4);
 
-    m_switcher = new DSwitchButton(parentWidget());
     m_switcher->setFixedSize(SWITCH_WIDTH, SWITCH_HEIGHT);
     m_switcher->setChecked(m_device->isEnabled());
 
@@ -225,19 +221,19 @@ QString WirelessControllItem::iconFile()
 WirelessControllItem::WirelessControllItem(QWidget *parent, WirelessDevice *device)
     : NetItem(parent)
     , m_device(device)
+    , m_widget(new QWidget(parent))
+    , m_switcher(new DSwitchButton(m_widget))
+    , m_loadingIndicator(new DLoadingIndicator(m_widget))
 {
-    m_widget = new QWidget(parentWidget());
     QHBoxLayout *layout = new QHBoxLayout(m_widget);
     layout->setContentsMargins(0, 0, 0, 0);
     m_widget->setFixedSize(SWITCH_WIDTH + 50, SWITCH_HEIGHT);
     m_widget->setLayout(layout);
 
-    m_switcher = new DSwitchButton(m_widget);
     m_switcher->setFixedSize(SWITCH_WIDTH, SWITCH_HEIGHT);
     m_switcher->setChecked(device->isEnabled());
 
     QPixmap pixmap = DHiDPIHelper::loadNxPixmap(":/wireless/resources/wireless/refresh.svg");
-    m_loadingIndicator = new DLoadingIndicator(m_widget);
     m_loadingIndicator->setLoading(false);
     m_loadingIndicator->setSmooth(true);
     m_loadingIndicator->setAniDuration(1000);
@@ -320,6 +316,9 @@ WiredItem::WiredItem(QWidget *parent, WiredDevice *device, WiredConnection *conn
     : NetItem(parent)
     , m_connection(connection)
     , m_device(device)
+    , m_connectionWidget(new QWidget(parent))
+    , m_connIcon(new StateButton(m_connectionWidget))
+    , m_connectionItem(new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(16, 16)))
 {
     initUi();
     initConnection();
@@ -327,7 +326,10 @@ WiredItem::WiredItem(QWidget *parent, WiredDevice *device, WiredConnection *conn
 
 WiredItem::~WiredItem()
 {
-    m_button->deleteLater();
+    if (m_connectionItem)
+        m_connectionItem->setVisible(false);
+    if (m_connectionWidget)
+        m_connectionWidget->setVisible(false);
 }
 
 WiredConnection *WiredItem::connection()
@@ -339,17 +341,7 @@ void WiredItem::updateView()
 {
     m_connectionItem->setVisible(m_connection->connected());
     standardItem()->setText(m_connection->connection()->id());
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        if (m_connection->connected())
-            m_connIconAction->setIcon(QIcon(":/wired/resources/wired/network-wired-symbolic-dark.svg"));
-        else
-            m_connIconAction->setIcon(QIcon(":/wired/resources/wired/network-none-symbolic-dark.svg"));
-    } else {
-        if (m_connection->connected())
-            m_connIconAction->setIcon(QIcon(":/wired/resources/wired/network-wired-symbolic.svg"));
-        else
-            m_connIconAction->setIcon(QIcon(":/wired/resources/wired/network-none-symbolic.svg"));
-    }
+    m_connectionItem->setVisible(m_connection->connected());
 }
 
 NetItemType WiredItem::itemType()
@@ -357,58 +349,46 @@ NetItemType WiredItem::itemType()
     return WiredViewItem;
 }
 
-bool WiredItem::eventFilter(QObject *object, QEvent *event)
-{
-    if (object == m_button) {
-        switch (event->type()) {
-        case QEvent::Enter: {
-            m_button->setIcon(QIcon(":/common/resources/common/notify_close_press.png"));
-            break;
-        }
-        case QEvent::Leave: {
-            m_button->setIcon(QIcon(":/common/resources/common/list_select.png"));
-            break;
-        }
-        default: break;
-        }
-    }
-    return QObject::eventFilter(object, event);
-}
-
 void WiredItem::initUi()
 {
     standardItem()->setSizeHint(QSize(-1, 36));
-    // 占位的
-    DViewItemAction *emptyAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
-                                                       QSize(20, 20), QSize(20, 20), false);
-    // 显示连接图标的
-    m_connIconAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
-                                           QSize(20, 20), QSize(20, 20), false);
-    standardItem()->setActionList(Qt::LeftEdge, { emptyAction, m_connIconAction });
     standardItem()->setText(m_connection->connection()->id());
 
-    QString selectIcon = ":/common/resources/common/list_select.png";
-    m_button = new QPushButton(parentWidget());
-    m_button->setFlat(true);
-    m_button->setIcon(QIcon(selectIcon));
-    m_button->installEventFilter(this);
+    // 占位的
+    DViewItemAction *emptyAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
+                                                         QSize(14, 20), QSize(14, 20), false);
 
-    m_connectionItem = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter);
-    m_connectionItem->setWidget(m_button);
+    m_connectionWidget->setFixedSize(22, 16);
+    QHBoxLayout *layout = new QHBoxLayout(m_connectionWidget);
+    layout->setContentsMargins(0, 0, 0, 0);
+    m_connIcon->setFixedSize(16, 16);
+    m_connIcon->setType(StateButton::Check);
+    layout->addWidget(m_connIcon);
+    layout->addStretch();
+
+    standardItem()->setActionList(Qt::LeftEdge, { emptyAction });
+    m_connectionItem->setWidget(m_connectionWidget);
     standardItem()->setActionList(Qt::RightEdge, { m_connectionItem });
+
+    connect(m_connectionItem, &DViewItemAction::destroyed, [ this ] {
+        this->m_connectionItem = nullptr;
+    });
+    connect(m_connectionWidget, &QWidget::destroyed, [ this ] {
+        this->m_connectionWidget = nullptr;
+    });
 
     updateView();
 
     standardItem()->setFlags(Qt::ItemIsEnabled);
     standardItem()->setFontSize(DFontSizeManager::T6);
     standardItem()->setData(NetItemType::WiredViewItem, NetItemRole::TypeRole);
-    standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)) ,NetItemRole::DeviceDataRole);
+    standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)), NetItemRole::DeviceDataRole);
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_connection)), NetItemRole::DataRole);
 }
 
 void WiredItem::initConnection()
 {
-    connect(m_button, &DSwitchButton::clicked, this, &WiredItem::onConnectionClicked);
+    connect(m_connIcon, &StateButton::click, this, &WiredItem::onConnectionClicked);
 }
 
 void WiredItem::onConnectionClicked()
@@ -425,6 +405,10 @@ WirelessItem::WirelessItem(QWidget *parent, WirelessDevice *device, AccessPoints
     : NetItem(parent)
     , m_accessPoint(ap)
     , m_device(device)
+    , m_connectionAction(new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter , QSize(20, 20), QSize(20, 20), false))
+    , m_loadingStat(new DSpinner(parent))
+    , m_connectionWidget(new QWidget(parent))
+    , m_connIcon(new StateButton(m_connectionWidget))
 {
     initUi();
     initConnection();
@@ -432,7 +416,6 @@ WirelessItem::WirelessItem(QWidget *parent, WirelessDevice *device, AccessPoints
 
 WirelessItem::~WirelessItem()
 {
-    m_button->deleteLater();
     m_loadingStat->deleteLater();
 }
 
@@ -451,23 +434,6 @@ void WirelessItem::updateView()
 NetItemType WirelessItem::itemType()
 {
     return WirelessViewItem;
-}
-
-bool WirelessItem::eventFilter(QObject *object, QEvent *event)
-{
-    if (object == m_button) {
-        switch (event->type()) {
-        case QEvent::Enter:
-            m_button->setIcon(QIcon(":/common/resources/common/notify_close_press.png"));
-            break;
-        case QEvent::Leave:
-            m_button->setIcon(QIcon(":/common/resources/common/list_select.png"));
-            break;
-        default: break;
-        }
-    }
-
-    return QObject::eventFilter(object, event);
 }
 
 QString WirelessItem::getStrengthStateString(int strength)
@@ -500,20 +466,23 @@ void WirelessItem::initUi()
     standardItem()->setSizeHint(QSize(-1, 36));
     standardItem()->setActionList(Qt::LeftEdge, { m_securityAction, m_wifiLabel });
 
+    // 绘制连接图标
+    m_connectionWidget->setFixedSize(22, 16);
+    m_connectionWidget->setVisible(false);
+    QHBoxLayout *layout = new QHBoxLayout(m_connectionWidget);
+    layout->setContentsMargins(0, 0, 0, 0);
+    m_connIcon->setFixedSize(16, 16);
+    m_connIcon->setType(StateButton::Check);
+    layout->addWidget(m_connIcon);
+    layout->addStretch();
+
     standardItem()->setText(m_accessPoint->ssid());
 
-    QIcon selectIcon(":/common/resources/common/list_select.png");
-    m_button = new QPushButton(parentWidget());
-    m_button->setIcon(selectIcon);
-    m_button->setFlat(true);
-
-    m_loadingStat = new DSpinner(parentWidget());
     m_loadingStat->setFixedSize(20, 20);
     m_loadingStat->setVisible(false);
 
+    standardItem()->setActionList(Qt::RightEdge, { m_connectionAction });
     // 绘制右侧的连接图标
-    m_connLabel = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter);
-    standardItem()->setActionList(Qt::RightEdge, { m_connLabel });
     standardItem()->setFlags(Qt::ItemIsEnabled);
     updateConnectionStatus();
 
@@ -526,8 +495,7 @@ void WirelessItem::initUi()
 
 void WirelessItem::initConnection()
 {
-    connect(m_button, &QPushButton::clicked, this, &WirelessItem::onConnection);
-    m_button->installEventFilter(this);
+    connect(m_connIcon, &StateButton::click, this, &WirelessItem::onConnection);
 }
 
 void WirelessItem::updateSrcirityIcon()
@@ -561,32 +529,30 @@ void WirelessItem::updateConnectionStatus()
 {
     if (m_accessPoint->connected()) {
         // 当前WiFi已连接，显示
-        m_connLabel->setVisible(true);
-
-        m_button->setVisible(true);
-        m_connLabel->setWidget(m_button);
-
         if (m_loadingStat->isPlaying())
             m_loadingStat->stop();
 
         m_loadingStat->setVisible(false);
+        m_connectionWidget->setVisible(true);
+        m_connectionAction->setWidget(m_connectionWidget);
+        m_connectionAction->setVisible(true);
     } else {
-        m_button->setVisible(false);
+        m_connectionWidget->setVisible(false);
 
         if (m_accessPoint->status() == ConnectionStatus::Activating) {
             // 如果当前网络是正在连接状态
             m_loadingStat->setVisible(true);
             m_loadingStat->start();
 
-            m_connLabel->setWidget(m_loadingStat);
-            m_connLabel->setVisible(true);
+            m_connectionAction->setWidget(m_loadingStat);
+            m_connectionAction->setVisible(true);
         } else {
             if (m_loadingStat->isPlaying()) {
                 m_loadingStat->setVisible(false);
                 m_loadingStat->stop();
             }
 
-            m_connLabel->setVisible(false);
+            m_connectionAction->setVisible(false);
         }
     }
 }

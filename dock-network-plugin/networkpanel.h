@@ -146,13 +146,15 @@ class NetworkDelegate : public DStyledItemDelegate
     Q_OBJECT
 
 public:
-    NetworkDelegate(QAbstractItemView *parent = Q_NULLPTR);
+    explicit NetworkDelegate(QAbstractItemView *parent = Q_NULLPTR);
     ~NetworkDelegate() Q_DECL_OVERRIDE;
 
-private:
+protected:
+    void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     bool needDrawLine(const QModelIndex &index) const;
+    bool cantHover(const QModelIndex &index) const;
 };
 
 #endif // NETWORKPANEL_H

@@ -84,6 +84,7 @@ void NetworkPanel::initUi()
     m_netListView->setFrameShape(QFrame::NoFrame);
     m_netListView->setViewportMargins(0, 0, 0, 0);
     m_netListView->setItemSpacing(1);
+    m_netListView->setItemMargins(QMargins(10, 0, 10, 0));
     m_netListView->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
 
     NetworkDelegate *delegate = new NetworkDelegate(m_netListView);
@@ -139,7 +140,7 @@ void NetworkPanel::initConnection()
     m_wirelessScanTimer->setInterval(wirelessScanInterval);
     const QGSettings *gsetting = Utils::SettingsPtr("com.deepin.dde.dock", QByteArray(), this);
     if (gsetting)
-        connect(gsetting, &QGSettings::changed, [ & ](const QString &key) {
+        connect(gsetting, &QGSettings::changed, [ = ](const QString &key) {
             if (key == "wireless-scan-interval") {
                 int wirelessScanInterval = gsetting->get("wireless-scan-interval").toInt() * 1000;
                 m_wirelessScanTimer->setInterval(wirelessScanInterval);
@@ -407,18 +408,16 @@ void NetworkPanel::updateView()
 
     // 设置高度
     int height = 0;
-    int totalHeight = 0;
     for (int i = 0; i < m_model->rowCount(); i++) {
         QStandardItem *item = m_model->item(i);
         QSize size = item->sizeHint();
-        if (i < 16)
-             height += size.height();
-
-        totalHeight += size.height();
+        height += size.height();
+        if (i >= 15)
+            break;
     }
 
-    m_netListView->setFixedSize(PANELWIDTH, totalHeight);
-    m_centerWidget->setFixedSize(PANELWIDTH, totalHeight);
+    m_netListView->setFixedSize(PANELWIDTH, height);
+    m_centerWidget->setFixedSize(PANELWIDTH, height);
     m_applet->setFixedSize(PANELWIDTH, height);
     m_netListView->update();
 }
@@ -1118,9 +1117,16 @@ NetworkDelegate::~NetworkDelegate()
 {
 }
 
+void NetworkDelegate::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
+{
+    option->state &= ~QStyle::State_MouseOver;
+    DStyledItemDelegate::initStyleOption(option, index);
+}
+
 void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
-    if (needDrawLine(index)) {
+    bool drawLine = needDrawLine(index);
+    if (drawLine) {
         QRect rct = option.rect;
         rct.setY(rct.top() + rct.height() - 2);
         rct.setHeight(2);
@@ -1128,6 +1134,17 @@ void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
             painter->fillRect(rct, QColor(0, 0, 0, 255 * 0.1));
         else
             painter->fillRect(rct, QColor(255, 255, 255, 255 * 0.05));
+    }
+    bool isHoverItem = cantHover(index);
+    QRect rct = option.rect;
+    if (drawLine)
+        rct.setHeight(rct.height() - 2);
+
+    if (!isHoverItem && (option.state & QStyle::State_MouseOver)) {
+        if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+            painter->fillRect(rct, QColor(0, 0, 0, 255 * 0.08));
+        else
+            painter->fillRect(rct, QColor(255, 255, 255, 255 * 0.08));
     }
 
     DStyledItemDelegate::paint(painter, option, index);
@@ -1149,4 +1166,12 @@ bool NetworkDelegate::needDrawLine(const QModelIndex &index) const
 
     NetItemType nextItemType = static_cast<NetItemType>(siblingIndex.data(TypeRole).toInt());
     return itemType != nextItemType;
+}
+
+bool NetworkDelegate::cantHover(const QModelIndex &index) const
+{
+    NetItemType itemType = static_cast<NetItemType>(index.data(TypeRole).toInt());
+    return (itemType == NetItemType::DeviceControllViewItem
+            || itemType == NetItemType::WirelessControllViewItem
+            || itemType == NetItemType::WiredControllViewItem);
 }

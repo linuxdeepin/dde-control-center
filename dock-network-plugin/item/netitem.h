@@ -35,6 +35,7 @@ DGUI_USE_NAMESPACE
 class NetworkDevice;
 class QLabel;
 class QPushButton;
+class StateButton;
 
 namespace dde {
   namespace network {
@@ -88,9 +89,6 @@ public:
     virtual DStandardItem *standardItem();
     virtual void updateView() {}
     virtual NetItemType itemType() = 0;
-
-protected:
-    QWidget *parentWidget();
 
 private:
     DStandardItem *m_standardItem;
@@ -183,9 +181,6 @@ public:
     void updateView() Q_DECL_OVERRIDE;
     NetItemType itemType() Q_DECL_OVERRIDE;
 
-protected:
-    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
-
 private:
     void initUi();
     void initConnection();
@@ -195,11 +190,11 @@ protected Q_SLOTS:
 
 private:
     WiredConnection *m_connection;
-    DViewItemAction *m_connectionItem;
     WiredDevice *m_device;
-    QPushButton *m_button;
 
-    DViewItemAction *m_connIconAction;
+    QWidget *m_connectionWidget;
+    StateButton *m_connIcon;
+    DViewItemAction *m_connectionItem;
 };
 
 class WirelessItem : public NetItem
@@ -215,9 +210,6 @@ public:
     NetItemType itemType() Q_DECL_OVERRIDE;
     static QString getStrengthStateString(int strength);
 
-protected:
-    bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
-
 private:
     void initUi();
     void initConnection();
@@ -230,12 +222,14 @@ private Q_SLOTS:
 
 private:
     AccessPoints *m_accessPoint;
-    DViewItemAction *m_connLabel;
-    QPushButton *m_button;
     WirelessDevice *m_device;
     DViewItemAction *m_securityAction;
     DViewItemAction *m_wifiLabel;
+    DViewItemAction *m_connectionAction;
     DSpinner *m_loadingStat;
+
+    QWidget *m_connectionWidget;
+    StateButton *m_connIcon;
 };
 
 #endif //  NETWORKAPPLETMODEL_H
