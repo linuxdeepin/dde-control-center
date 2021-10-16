@@ -61,8 +61,8 @@ protected:
     // 如果不设置连接的 macAddress 则需要清空 interface-name 字段, 反之不清空, 而是设置为当前设备的 interfaceName
     virtual bool clearInterfaceName() = 0;
 
-private:
-    void resetConnectionInterfaceName();
+protected:
+    virtual void resetConnectionInterfaceName();
 
 protected:
     ConnectionSettings::Ptr m_connSettings;

@@ -30,11 +30,13 @@
 #include <widgets/lineeditwidget.h>
 #include <widgets/switchwidget.h>
 #include <widgets/contentwidget.h>
+#include <networkmanagerqt/settings.h>
 
 using namespace NetworkManager;
 
 WiredSettings::WiredSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)
     : AbstractSettings(connSettings, parent)
+    , m_ethernetSection(nullptr)
 {
     setAccessibleName("WiredSettings");
     initSections();
@@ -98,10 +100,30 @@ void WiredSettings::initSections()
     m_settingSections.append(ipv6Section);
     m_settingSections.append(dnsSection);
     m_settingSections.append(etherNetSection);
+
+    m_ethernetSection = etherNetSection;
 }
 
 bool WiredSettings::clearInterfaceName()
 {
     WiredSetting::Ptr wiredSetting = m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>();
     return wiredSetting->macAddress().isEmpty();
+}
+
+void WiredSettings::resetConnectionInterfaceName()
+{
+    if (!m_ethernetSection) {
+        AbstractSettings::resetConnectionInterfaceName();
+        return;
+    }
+
+    QString devicePath = m_ethernetSection->devicePath();
+    if (devicePath.isEmpty() || clearInterfaceName()) {
+        m_connSettings->setInterfaceName(QString());
+        return;
+    }
+
+    Device::Ptr dev = findNetworkInterface(devicePath);
+    if (dev)
+        m_connSettings->setInterfaceName(dev->interfaceName());
 }

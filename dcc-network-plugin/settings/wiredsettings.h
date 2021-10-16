@@ -26,6 +26,8 @@
 
 #include <networkmanagerqt/connectionsettings.h>
 
+class EthernetSection;
+
 class WiredSettings : public AbstractSettings
 {
     Q_OBJECT
@@ -37,6 +39,10 @@ public:
 protected:
     void initSections() Q_DECL_OVERRIDE;
     bool clearInterfaceName() Q_DECL_OVERRIDE;
+    void resetConnectionInterfaceName() Q_DECL_OVERRIDE;
+
+private:
+    EthernetSection *m_ethernetSection;
 };
 
 #endif /* WIREDSETTINGS_H */
