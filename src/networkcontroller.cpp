@@ -334,24 +334,23 @@ void NetworkController::activeConnInfoChanged(const QString &conns)
 {
     QJsonParseError error;
     m_activeConnectionInfo = QJsonDocument::fromJson(conns.toUtf8(), &error).array();
-    if (error.error != QJsonParseError::NoError)
-        return;
+    if (error.error == QJsonParseError::NoError) {
+        QMap<NetworkDeviceBase *, QJsonObject> deviceInfoMap;
+        for (QJsonValue jsonValue : m_activeConnectionInfo) {
+            QJsonObject connInfo = jsonValue.toObject();
+            const QString devPath = connInfo.value("Device").toString();
+            NetworkDeviceBase *device = findDevices(devPath);
+            if (!device)
+                continue;
 
-    QMap<NetworkDeviceBase *, QJsonObject> deviceInfoMap;
-    for (QJsonValue jsonValue : m_activeConnectionInfo) {
-        QJsonObject connInfo = jsonValue.toObject();
-        const QString devPath = connInfo.value("Device").toString();
-        NetworkDeviceBase *device = findDevices(devPath);
-        if (!device)
-            continue;
+            deviceInfoMap.insertMulti(device, connInfo);
+        }
 
-        deviceInfoMap.insertMulti(device, connInfo);
-    }
-
-    for (auto it = deviceInfoMap.begin(); it != deviceInfoMap.end(); it++) {
-        NetworkDeviceBase *device = it.key();
-        QList<QJsonObject> json = deviceInfoMap.values(device);
-        device->updateActiveConnectionInfo(json, !m_hotspotController);
+        for (auto it = deviceInfoMap.begin(); it != deviceInfoMap.end(); it++) {
+            NetworkDeviceBase *device = it.key();
+            QList<QJsonObject> json = deviceInfoMap.values(device);
+            device->updateActiveConnectionInfo(json, !m_hotspotController);
+        }
     }
     // 要更新活动热点信息，是因为如果启用或者禁用热点的话，这个活动连接信息会有变化，通过这里来触发热点启用或禁用的信号
     updateDeviceActiveHotpot();
@@ -388,7 +387,7 @@ void NetworkController::onDeviceEnableChanged(const QString &devicePath, bool en
         // 如果改设备是无线设备，且支持热点，则更新热点的信息
         if (!m_hotspotController)
             return;
-
+        // 如果当前设备是无线设备切当前设备支持热点，则更新当前设备的热点信息
         if (device->deviceType() == DeviceType::Wireless && device->supportHotspot())
             updateDeviceHotpot();
     }
@@ -426,11 +425,8 @@ void NetworkController::updateConnectionsInfo(const QList<NetworkDeviceBase *> &
 
 void NetworkController::asyncActiveConnectionInfo()
 {
-    QDBusPendingCallWatcher watcher(m_networkInter->GetActiveConnectionInfo(), this);
-    QEventLoop loop;
-    connect(&watcher, &QDBusPendingCallWatcher::finished, &loop, &QEventLoop::quit);
-    loop.exec();
-    QDBusPendingReply<QString> reply = watcher;
+    QDBusPendingReply<QString> reply = m_networkInter->GetActiveConnectionInfo();
+    reply.waitForFinished();
     QString activeConnectionInfo = reply.value();
     activeConnInfoChanged(activeConnectionInfo);
 }
@@ -565,8 +561,12 @@ void NetworkController::updateDeviceActiveHotpot()
 void NetworkController::updateNetworkDetails()
 {
     QStringList devicePaths;
-    for (NetworkDeviceBase *device : m_devices)
+    for (NetworkDeviceBase *device : m_devices) {
+        if (!device->isEnabled())
+            continue;
+
         devicePaths << device->path();
+    }
 
     // 删除不在设备列表中的项
     for (NetworkDetails *detail : m_networkDetails) {
