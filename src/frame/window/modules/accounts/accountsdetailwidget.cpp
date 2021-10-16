@@ -591,9 +591,9 @@ void AccountsDetailWidget::setAccountModel(dcc::accounts::UserModel *model)
 
     m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable());
     connect(m_curUser, &User::onlineChanged, m_asAdministrator,
-            [=]() { m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable()); });
+            [=]() { m_asAdministrator->setEnabled(asAdministratorEnable()); });
     connect(m_userModel, &UserModel::adminCntChange, m_asAdministrator,
-            [=]() { m_asAdministrator->switchButton()->setEnabled(asAdministratorEnable()); });
+            [=]() { m_asAdministrator->setEnabled(asAdministratorEnable()); });
 
     if (!m_groupItemModel)
         return;
