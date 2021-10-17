@@ -340,13 +340,15 @@ void WirelessDevice::updateAccesspoint(const QJsonArray &json)
             rmAccessPoints << ap;
     }
 
-    if (rmAccessPoints.size() > 0)
-        Q_EMIT networkRemoved(rmAccessPoints);
+    if (rmAccessPoints.size() > 0) {
+        for (AccessPoints *ap : rmAccessPoints)
+            m_accessPoints.removeOne(ap);
 
-    for (AccessPoints *ap : rmAccessPoints) {
-        m_accessPoints.removeOne(ap);
-        ap->deleteLater();
+        Q_EMIT networkRemoved(rmAccessPoints);
     }
+
+    for (AccessPoints *ap : rmAccessPoints)
+        ap->deleteLater();
 
     // 按照信号强度从强到弱进行排序
     qSort(m_accessPoints.begin(), m_accessPoints.end(), [ = ](AccessPoints * ap1, AccessPoints * ap2) {
