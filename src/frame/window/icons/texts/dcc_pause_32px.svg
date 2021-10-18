@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>暂停</title>
+    <g id="桌面版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="更新4" transform="translate(-1704.000000, -395.000000)">
+            <g id="控制中心备份-5" transform="translate(960.000000, 130.000000)">
+                <g id="更新" transform="translate(218.000000, 180.000000)">
+                    <g id="Group-17备份-3" transform="translate(0.000000, 65.000000)">
+                        <g id="暂停" transform="translate(526.000000, 20.000000)">
+                            <rect id="矩形" fill="#000000" fill-rule="nonzero" opacity="0" x="0" y="0" width="36" height="36"></rect>
+                            <path d="M20.9999826,12 C20.4482729,12 20,12.6131274 20,13.2700606 L20,22.7299394 C20,23.4306564 20.482746,24 20.9999826,24 C21.5172191,24 22,23.3868726 22,22.7299394 L22,13.2700606 C22,12.5693436 21.5172366,12 21,12 L20.9999826,12 Z M14.9991385,12 C14.4479041,12 14,12.6131274 14,13.2700606 L14,22.7299394 C14,23.4306564 14.4823475,24 14.9991385,24 C15.5159295,24 15.9982596,23.3868726 15.9982596,22.7299394 L15.9982596,13.2700606 C16.0327205,12.5693436 15.550373,12 14.9991385,12 Z" id="形状" fill="#536076"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

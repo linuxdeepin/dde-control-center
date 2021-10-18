@@ -244,6 +244,10 @@ set(WIDGETS_FILES
                 ../../include/widgets/multiselectlistview.h
                 widgets/powerdisplaywidget.cpp
                 ../../include/widgets/powerdisplaywidget.h
+                widgets/passwordedit.cpp
+                ../../include/widgets/passwordedit.h
+                widgets/detailinfoitem.cpp
+                ../../include/widgets/detailinfoitem.h
                 widgets/widgets.qrc
 )
 
@@ -475,6 +479,14 @@ set(UPDATE_FILES
                 modules/update/updatework.cpp
                 modules/update/downloadprogressbar.cpp
                 modules/update/updatemodel.cpp
+                modules/update/updateiteminfo.cpp
+
+                window/modules/update/updatecontrolpanel.cpp
+                window/modules/update/updatesettingitem.cpp
+                window/modules/update/systemupdateitem.cpp
+                window/modules/update/appstoreupdateitem.cpp
+                window/modules/update/safeupdateitem.cpp
+                window/modules/update/unknownupdateitem.cpp
 )
 
 # load wacom

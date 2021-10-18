@@ -183,5 +183,10 @@
         <file>texts/dcc_gather_16px.svg</file>
         <file>actions/dcc_device_mange_32px.svg</file>
         <file>actions/dcc_fingerprint_32px.svg</file>
+        <file>icons/dcc_nav_authentication_42px.svg</file>
+        <file>icons/dcc_nav_authentication_84px.svg</file>
+        <file>texts/dcc_start_32px.svg</file>
+        <file>texts/dcc_pause_32px.svg</file>
+        <file>texts/dcc_retry_32px.svg</file>
     </qresource>
 </RCC>

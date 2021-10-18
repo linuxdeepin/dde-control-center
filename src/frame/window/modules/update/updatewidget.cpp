@@ -56,6 +56,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     , m_topSwitchWidgetBtn(new DButtonBox)
     , m_mainLayout(new QStackedLayout)
 {
+    ;
     //~ contents_path /update/Update
     DButtonBoxButton *btnUpdate = new DButtonBoxButton(QIcon::fromTheme("dcc_update_topupdate"), tr("Updates"));
     btnUpdate->setIconSize(QSize(24, 24));
@@ -75,7 +76,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
 
     m_updateHistoryText->setText(tr("Last Update"));
 
-    connect(m_topSwitchWidgetBtn, &DButtonBox::buttonClicked, [this](QAbstractButton *value) {
+    connect(m_topSwitchWidgetBtn, &DButtonBox::buttonClicked, [this](QAbstractButton * value) {
         refreshWidget(static_cast<UpdateType>(m_topSwitchWidgetBtn->id(value)));
     });
 
@@ -139,14 +140,14 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 {
     m_model = const_cast<UpdateModel *>(model);
     m_work = const_cast<UpdateWorker *>(work);
+    qRegisterMetaType<ClassifyUpdateType>("ClassifyUpdateType");
 
     UpdateCtrlWidget *updateWidget = new UpdateCtrlWidget(m_model);
     updateWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    connect(updateWidget, &UpdateCtrlWidget::requestDownloadUpdates, m_work, &UpdateWorker::downloadAndDistUpgrade);
-    connect(updateWidget, &UpdateCtrlWidget::requestPauseDownload, m_work, &UpdateWorker::pauseDownload);
-    connect(updateWidget, &UpdateCtrlWidget::requestResumeDownload, m_work, &UpdateWorker::resumeDownload);
-    connect(updateWidget, &UpdateCtrlWidget::requestInstallUpdates, m_work, &UpdateWorker::distUpgrade);
     connect(updateWidget, &UpdateCtrlWidget::notifyUpdateState, this, &UpdateWidget::onNotifyUpdateState);
+    connect(updateWidget, &UpdateCtrlWidget::requestUpdates, m_work, &UpdateWorker::distUpgrade);
+    connect(updateWidget, &UpdateCtrlWidget::requestUpdateCtrl, m_work, &UpdateWorker::OnDownloadJobCtrl);
+    connect(updateWidget, &UpdateCtrlWidget::requestOpenAppStroe, m_work, &UpdateWorker::onRequestOpenAppStore);
     updateWidget->setSystemVersion(m_systemVersion);
 
     UpdateSettings *updateSetting = new UpdateSettings(m_model);
@@ -213,7 +214,7 @@ void UpdateWidget::refreshWidget(UpdateType type)
 
 void UpdateWidget::showCheckUpdate()
 {
-    const UpdatesStatus& status = m_model->status();
+    const UpdatesStatus &status = m_model->status();
     qDebug() << Q_FUNC_INFO << " current update status : " << status;
 
     if (status == Checking) {
