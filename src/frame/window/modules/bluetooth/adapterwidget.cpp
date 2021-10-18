@@ -281,7 +281,7 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
         m_switch->switchButton()->show();
         m_spinnerBtn->hide();
     });
-    connect(adapter, &Adapter::discoverabled, m_discoverySwitch, [ = ] {
+    connect(adapter, &Adapter::discoverableChanged, m_discoverySwitch, [ = ] {
             m_discoverySwitch->setChecked(adapter->discoverabled());
         });
     connect(m_model, &BluetoothModel::loadStatus, m_switch, [ = ] {
