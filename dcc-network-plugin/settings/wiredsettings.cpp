@@ -34,9 +34,10 @@
 
 using namespace NetworkManager;
 
-WiredSettings::WiredSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)
+WiredSettings::WiredSettings(ConnectionSettings::Ptr connSettings, const QString devicePath, QWidget *parent)
     : AbstractSettings(connSettings, parent)
     , m_ethernetSection(nullptr)
+    , m_devicePath(devicePath)
 {
     setAccessibleName("WiredSettings");
     initSections();
@@ -56,7 +57,7 @@ void WiredSettings::initSections()
     IpvxSection *ipv4Section = new IpvxSection(m_connSettings->setting(Setting::Ipv4).staticCast<Ipv4Setting>(), frame);
     IpvxSection *ipv6Section = new IpvxSection(m_connSettings->setting(Setting::Ipv6).staticCast<Ipv6Setting>(), frame);
     DNSSection *dnsSection = new DNSSection(m_connSettings);
-    EthernetSection *etherNetSection = new EthernetSection(m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>(), QString(), frame);
+    EthernetSection *etherNetSection = new EthernetSection(m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>(), m_devicePath, frame);
 
     // 指针destroyed时自动解绑
     GSettingWatcher::instance()->bind("wiredEditConnectionName", genericSection->connIdItem());

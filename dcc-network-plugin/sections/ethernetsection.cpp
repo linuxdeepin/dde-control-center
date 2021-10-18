@@ -56,6 +56,9 @@ EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, QString devPath
             continue;
 
         WiredDevice::Ptr wDevice = device.staticCast<WiredDevice>();
+        if (wDevice->uni() != devicePath())
+            continue;
+
         /* Alt:  permanentHardwareAddress to get real hardware address which is connot be changed */
         QString mac = wDevice->permanentHardwareAddress();
         if (mac.isEmpty())

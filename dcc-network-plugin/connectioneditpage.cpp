@@ -171,7 +171,7 @@ void ConnectionEditPage::initSettingsWidget()
 
     switch (m_connType) {
     case ConnectionSettings::ConnectionType::Wired: {
-        m_settingsWidget = new WiredSettings(m_connectionSettings, this);
+        m_settingsWidget = new WiredSettings(m_connectionSettings, DevicePath, this);
         break;
     }
     case ConnectionSettings::ConnectionType::Wireless: {

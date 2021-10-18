@@ -33,7 +33,7 @@ class WiredSettings : public AbstractSettings
     Q_OBJECT
 
 public:
-    explicit WiredSettings(ConnectionSettings::Ptr connSettings, QWidget *parent = nullptr);
+    explicit WiredSettings(ConnectionSettings::Ptr connSettings, const QString devicePath, QWidget *parent = nullptr);
     virtual ~WiredSettings() Q_DECL_OVERRIDE;
 
 protected:
@@ -43,6 +43,7 @@ protected:
 
 private:
     EthernetSection *m_ethernetSection;
+    QString m_devicePath;
 };
 
 #endif /* WIREDSETTINGS_H */
