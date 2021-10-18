@@ -42,18 +42,18 @@
 
 #include "common.h"
 
-using UpdateInter=com::deepin::lastore::Updater;
-using JobInter=com::deepin::lastore::Job;
-using ManagerInter=com::deepin::lastore::Manager;
-using PowerInter=com::deepin::daemon::Power;
-using PowerSystemInter=com::deepin::system::Power;
-using Network=com::deepin::daemon::Network;
-using LastoressionHelper=com::deepin::LastoreSessionHelper;
+using UpdateInter = com::deepin::lastore::Updater;
+using JobInter = com::deepin::lastore::Job;
+using ManagerInter = com::deepin::lastore::Manager;
+using PowerInter = com::deepin::daemon::Power;
+using PowerSystemInter = com::deepin::system::Power;
+using Network = com::deepin::daemon::Network;
+using LastoressionHelper = com::deepin::LastoreSessionHelper;
 using SmartMirrorInter = com::deepin::lastore::Smartmirror;
 using RecoveryInter = com::deepin::ABRecovery;
 using Appearance = com::deepin::daemon::Appearance;
-namespace dcc{
-namespace update{
+namespace dcc {
+namespace update {
 
 struct CheckUpdateJobRet {
     QString status;
@@ -86,10 +86,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void init();
     void checkForUpdates();
-    void pauseDownload();
-    void resumeDownload();
-    void distUpgrade();
-    void downloadAndDistUpgrade();
+    void distUpgrade(ClassifyUpdateType updateType);
     void setAutoCheckUpdates(const bool autoCheckUpdates);
     void setUpdateMode(const quint64 updateMode);
     void setAutoCleanCache(const bool autoCleanCache);
@@ -104,46 +101,87 @@ public Q_SLOTS:
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     void refreshMirrors();
 #endif
-    void recoveryCanBackup();
+    void recoveryCanBackup(ClassifyUpdateType type);
     void recoveryStartRestore();
-    void onNotifyDownloadInfoChanged();
+    void onRecoveryBackupFinshed(const QString &kind, const bool success, const QString &errMsg);
+
     void licenseStateChangeSlot();
     void refreshHistoryAppsInfo();
     void refreshLastTimeAndCheckCircle();
     void setUpdateNotify(const bool notify);
+
+    void OnDownloadJobCtrl(ClassifyUpdateType type, int updateCtrlType);
+    void onRequestOpenAppStore();
+    void onRequestOpenRebootDialog();
+
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
-    void setDownloadJob(const QString &jobPath);
-    void setDistUpgradeJob(const QString &jobPath);
     void onJobListChanged(const QList<QDBusObjectPath> &jobs);
-    void onAppUpdateInfoFinished(QDBusPendingCallWatcher *w);
-    void onDownloadStatusChanged(const QString &status);
-    void onUpgradeStatusChanged(const QString &status);
     void checkDiskSpace(const QString &jobDescription);
-    DownloadInfo *calculateDownloadInfo(const AppUpdateInfoList &list);
     void onIconThemeChanged(const QString &theme);
 
+    void onSysUpdateDownloadProgressChanged(double value);
+    void onAppUpdateDownloadProgressChanged(double value);
+    void onSafeUpdateDownloadProgressChanged(double value);
+    void onUnkonwnUpdateDownloadProgressChanged(double value);
+
+    void onSysUpdateDownloadStatusChanged(const QString &value);
+    void onAppUpdateDownloadStatusChanged(const QString &value);
+    void onSafeUpdateDownloadStatusChanged(const QString &value);
+    void onUnkonwnUpdateDownloadStatusChanged(const QString &value);
+
+    void onSysUpdateInstallProgressChanged(double value);
+    void onAppUpdateInstallProgressChanged(double value);
+    void onSafeUpdateInstallProgressChanged(double value);
+    void onUnkonwnUpdateInstallProgressChanged(double value);
+
+    void onSysUpdateInstallStatusChanged(const QString &value);
+    void onAppUpdateInstallStatusChanged(const QString &value);
+    void onSafeUpdateInstallStatusChanged(const QString &value);
+    void onUnkonwnUpdateInstallStatusChanged(const QString &value);
+
 private:
-    AppUpdateInfo getInfo(const AppUpdateInfo &packageInfo, const QString& currentVersion, const QString& lastVersion) const;
-    void distUpgradeDownloadUpdates();
-    void distUpgradeInstallUpdates();
-    void setAppUpdateInfo(const AppUpdateInfoList &list);
+    QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfo();
+    UpdateItemInfo *getItemInfo(QJsonValue jsonValue);
+    void setUpdateInfo();
+
     inline bool checkDbusIsValid();
     void onSmartMirrorServiceIsValid(bool isvalid);
-    void onNotifyStatusChanged(UpdatesStatus status);
     bool getNotUpdateState();
     void resetDownloadInfo(bool state = false);
     CheckUpdateJobRet createCheckUpdateJob(const QString &jobPath);
 
+    void downloadAndInstallUpdates(ClassifyUpdateType updateType);
+
+    void setDownloadJob(const QString &jobPath, ClassifyUpdateType updateType);
+    void setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType updateType);
+    void setUpdateItemProgress(UpdateItemInfo *itemInfo, double value);
+    bool hasBackedUp();
+
+    QPointer<JobInter> getDownloadJob(ClassifyUpdateType updateType);
+    QPointer<JobInter> getInstallJob(ClassifyUpdateType updateType);
+
+    QString getAppName(QString packageId);
+    bool checkJobIsValid(QPointer<JobInter> dbusJob);
+    void deleteJob(QPointer<JobInter> dbusJob);
+
 private:
-    UpdateModel* m_model;
-    QPointer<JobInter> m_downloadJob;
+    UpdateModel *m_model;
     QPointer<JobInter> m_checkUpdateJob;
-    QPointer<JobInter> m_distUpgradeJob;
-    QPointer<JobInter> m_otherUpdateJob;
+
+    QPointer<JobInter> m_sysUpdateDownloadJob;
+    QPointer<JobInter> m_appUpdateDownloadJob;
+    QPointer<JobInter> m_safeUpdateDownloadJob;
+    QPointer<JobInter> m_unknownUpdateDownloadJob;
+
+    QPointer<JobInter> m_sysUpdateInstallJob;
+    QPointer<JobInter> m_appUpdateInstallJob;
+    QPointer<JobInter> m_safeUpdateInstallJob;
+    QPointer<JobInter> m_unknownUpdateInstallJob;
+
     LastoressionHelper *m_lastoresessionHelper;
-    UpdateInter* m_updateInter;
-    ManagerInter* m_managerInter;
+    UpdateInter *m_updateInter;
+    ManagerInter *m_managerInter;
     PowerInter *m_powerInter;
     PowerSystemInter *m_powerSystemInter;
     Network *m_networkInter;
@@ -153,17 +191,31 @@ private:
     bool m_onBattery;
     double m_batteryPercentage;
     double m_batterySystemPercentage;
-    double m_baseProgress;
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;
-    bool m_bDownAndUpdate;
     QString m_jobPath;
-    double m_downloadProcess;
-    bool m_bIsFirstGetDownloadProcess;
-    qulonglong m_downloadSize;
+    qlonglong m_downloadSize;
     QString m_iconThemeState;
     bool m_beginUpdatesJob;
+
+    QMap<QString, QStringList> m_updatePackages;
+    QStringList m_systemPackages;
+    QStringList m_appPackages;
+    QStringList m_safePackages;
+    QStringList m_unknownPackages;
+
+    // 保存所有可以更新应用的应用名字
+    QMap<QString, QString> m_appUpdateName;
+
+    // 当前备份状态
+    BackupStatus m_backupStatus;
+    // 当前正在备份的更新分类类型
+    ClassifyUpdateType m_backupingClassifyType;
+
+    QMutex m_mutex;
+    QMutex m_downloadMutex;
 };
+
 }
 }
 #endif // UPDATEWORK_H

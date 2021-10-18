@@ -26,8 +26,8 @@
 #include "updatemodel.h"
 #include "modules/systeminfo/systeminfomodel.h"
 
-namespace dcc{
-namespace update{
+namespace dcc {
+namespace update {
 
 DownloadInfo::DownloadInfo(const qlonglong &downloadSize, const QList<AppUpdateInfo> &appInfos, QObject *parent)
     : QObject(parent)
@@ -50,7 +50,15 @@ void DownloadInfo::setDownloadProgress(double downloadProgress)
 UpdateModel::UpdateModel(QObject *parent)
     : QObject(parent)
     , m_status(UpdatesStatus::Default)
+    , m_systemUpdateStatus(UpdatesStatus::Default)
+    , m_appUpdateStatus(UpdatesStatus::Default)
+    , m_safeUpdateStatus(UpdatesStatus::Default)
+    , m_unkonowUpdateStatus(UpdatesStatus::Default)
     , m_downloadInfo(nullptr)
+    , m_systemUpdateInfo(nullptr)
+    , m_appUpdateInfo(nullptr)
+    , m_safeUpdateInfo(nullptr)
+    , m_unknownUpdateInfo(nullptr)
     , m_updateProgress(0.0)
     , m_upgradeProgress(0.0)
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
@@ -89,10 +97,8 @@ void UpdateModel::setDefaultMirror(const QString &mirrorId)
     m_mirrorId = mirrorId;
 
     QList<MirrorInfo>::iterator it = m_mirrorList.begin();
-    for(; it != m_mirrorList.end(); ++it)
-    {
-        if((*it).m_id == mirrorId)
-        {
+    for (; it != m_mirrorList.end(); ++it) {
+        if ((*it).m_id == mirrorId) {
             Q_EMIT defaultMirrorChanged(*it);
         }
     }
@@ -101,6 +107,31 @@ void UpdateModel::setDefaultMirror(const QString &mirrorId)
 DownloadInfo *UpdateModel::downloadInfo() const
 {
     return m_downloadInfo;
+}
+
+UpdateItemInfo *UpdateModel::systemDownloadInfo() const
+{
+    return m_systemUpdateInfo;
+}
+
+UpdateItemInfo *UpdateModel::appDownloadInfo() const
+{
+    return m_appUpdateInfo;
+}
+
+UpdateItemInfo *UpdateModel::safeDownloadInfo() const
+{
+    return m_safeUpdateInfo;
+}
+
+UpdateItemInfo *UpdateModel::unknownDownloadInfo() const
+{
+    return m_unknownUpdateInfo;
+}
+
+QMap<ClassifyUpdateType, UpdateItemInfo *>  UpdateModel::allDownloadInfo() const
+{
+    return m_allUpdateInfos;
 }
 
 void UpdateModel::setDownloadInfo(DownloadInfo *downloadInfo)
@@ -112,6 +143,54 @@ void UpdateModel::setDownloadInfo(DownloadInfo *downloadInfo)
 
     m_downloadInfo = downloadInfo;
     Q_EMIT downloadInfoChanged(downloadInfo);
+}
+
+void UpdateModel::setSystemDownloadInfo(UpdateItemInfo *updateItemInfo)
+{
+    deleteUpdateInfo(m_systemUpdateInfo);
+
+    m_systemUpdateInfo = updateItemInfo;
+    connect(m_systemUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::systemUpdateProgressChanged);
+
+    Q_EMIT systemUpdateInfoChanged(updateItemInfo);
+}
+
+void UpdateModel::setAppDownloadInfo(UpdateItemInfo *updateItemInfo)
+{
+    deleteUpdateInfo(m_appUpdateInfo);
+
+    m_appUpdateInfo = updateItemInfo;
+    connect(m_appUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::appUpdateProgressChanged);
+
+    Q_EMIT appUpdateInfoChanged(updateItemInfo);
+}
+
+void UpdateModel::setSafeDownloadInfo(UpdateItemInfo *updateItemInfo)
+{
+    deleteUpdateInfo(m_safeUpdateInfo);
+    m_safeUpdateInfo = updateItemInfo;
+    connect(m_safeUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::safeUpdateProgressChanged);
+
+    Q_EMIT safeUpdateInfoChanged(updateItemInfo);
+}
+
+void UpdateModel::setUnknownDownloadInfo(UpdateItemInfo *updateItemInfo)
+{
+    deleteUpdateInfo(m_unknownUpdateInfo);
+    m_unknownUpdateInfo = updateItemInfo;
+    connect(m_unknownUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::unkonowUpdateProgressChanged);
+
+    Q_EMIT unknownUpdateInfoChanged(updateItemInfo);
+}
+
+void UpdateModel::setAllDownloadInfo(QMap<ClassifyUpdateType, UpdateItemInfo *> &allUpdateInfoInfo)
+{
+    m_allUpdateInfos = allUpdateInfoInfo;
+
+    setSystemDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::SystemUpdate));
+    setAppDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::AppStoreUpdate));
+    setSafeDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::SecurityUpdate));
+    setUnknownDownloadInfo(allUpdateInfoInfo.value(ClassifyUpdateType::UnknownUpdate));
 }
 
 QMap<QString, int> UpdateModel::mirrorSpeedInfo() const
@@ -156,10 +235,8 @@ void UpdateModel::setAutoDownloadUpdates(bool autoDownloadUpdates)
 MirrorInfo UpdateModel::defaultMirror() const
 {
     QList<MirrorInfo>::const_iterator it = m_mirrorList.begin();
-    for(; it != m_mirrorList.end(); ++it)
-    {
-        if((*it).m_id == m_mirrorId)
-        {
+    for (; it != m_mirrorList.end(); ++it) {
+        if ((*it).m_id == m_mirrorId) {
             return *it;
         }
     }
@@ -251,10 +328,6 @@ void UpdateModel::setAutoCheckUpdates(bool autoCheckUpdates)
     if (autoCheckUpdates == m_autoCheckUpdates) return;
 
     m_autoCheckUpdates = autoCheckUpdates;
-
-    if (!autoCheckUpdates) {
-        setUpdateMode(0);
-    }
 
     Q_EMIT autoCheckUpdatesChanged(autoCheckUpdates);
 }
@@ -440,6 +513,119 @@ void UpdateModel::setUpdateNotify(const bool notify)
     m_updateNotify = notify;
 
     Q_EMIT updateNotifyChanged(notify);
+}
+
+UpdatesStatus UpdateModel::getUnkonowUpdateStatus() const
+{
+    return m_unkonowUpdateStatus;
+}
+
+void UpdateModel::setUnkonowUpdateStatus(const UpdatesStatus &unkonowUpdateStatus)
+{
+    if (m_unkonowUpdateStatus != unkonowUpdateStatus) {
+        m_unkonowUpdateStatus = unkonowUpdateStatus;
+        Q_EMIT unkonowUpdateStatusChanged(unkonowUpdateStatus);
+    }
+}
+
+UpdatesStatus UpdateModel::getSafeUpdateStatus() const
+{
+    return m_safeUpdateStatus;
+}
+
+void UpdateModel::setSafeUpdateStatus(const UpdatesStatus &safeUpdateStatus)
+{
+    if (m_safeUpdateStatus != safeUpdateStatus) {
+        m_safeUpdateStatus = safeUpdateStatus;
+        Q_EMIT safeUpdateStatusChanged(safeUpdateStatus);
+    }
+}
+
+UpdatesStatus UpdateModel::getAppUpdateStatus() const
+{
+    return m_appUpdateStatus;
+}
+
+void UpdateModel::setAppUpdateStatus(const UpdatesStatus &appUpdateStatus)
+{
+
+    if (m_appUpdateStatus != appUpdateStatus) {
+        m_appUpdateStatus = appUpdateStatus;
+        Q_EMIT appUpdateStatusChanged(appUpdateStatus);
+    }
+}
+
+UpdatesStatus UpdateModel::getSystemUpdateStatus() const
+{
+    return m_systemUpdateStatus;
+}
+
+void UpdateModel::setSystemUpdateStatus(const UpdatesStatus &systemUpdateStatus)
+{
+    if (m_systemUpdateStatus != systemUpdateStatus) {
+        m_systemUpdateStatus = systemUpdateStatus;
+        Q_EMIT systemUpdateStatusChanged(systemUpdateStatus);
+    }
+
+}
+
+UpdateModel::~UpdateModel()
+{
+    if (m_systemUpdateInfo != nullptr) {
+        delete m_systemUpdateInfo;
+        m_systemUpdateInfo = nullptr;
+    }
+
+    if (m_appUpdateInfo != nullptr) {
+        delete m_appUpdateInfo;
+        m_appUpdateInfo = nullptr;
+    }
+
+    if (m_safeUpdateInfo != nullptr) {
+        delete m_safeUpdateInfo;
+        m_safeUpdateInfo = nullptr;
+    }
+
+    if (m_unknownUpdateInfo != nullptr) {
+        delete m_unknownUpdateInfo;
+        m_unknownUpdateInfo = nullptr;
+    }
+}
+
+void UpdateModel::setClassifyUpdateTypeStatus(ClassifyUpdateType type, UpdatesStatus status)
+{
+    switch (type) {
+    case ClassifyUpdateType::SystemUpdate:
+        setSystemUpdateStatus(status);
+        break;
+    case ClassifyUpdateType::AppStoreUpdate:
+        setAppUpdateStatus(status);
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        setSafeUpdateStatus(status);
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        setUnkonowUpdateStatus(status);
+        break;
+    default:
+        break;
+    }
+}
+
+void UpdateModel::setAllClassifyUpdateStatus(UpdatesStatus status)
+{
+    setSystemUpdateStatus(status);
+    setAppUpdateStatus(status);
+    setSafeUpdateStatus(status);
+    setUnkonowUpdateStatus(status);
+}
+
+void UpdateModel::deleteUpdateInfo(UpdateItemInfo *updateItemInfo)
+{
+    if (!updateItemInfo) {
+        updateItemInfo->deleteLater();
+        updateItemInfo = nullptr;
+    }
 }
 
 }

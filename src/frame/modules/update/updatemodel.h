@@ -31,9 +31,10 @@
 
 #include "common.h"
 #include "widgets/utils.h"
+#include "updateiteminfo.h"
 
-namespace dcc{
-namespace update{
+namespace dcc {
+namespace update {
 
 class DownloadInfo : public QObject
 {
@@ -56,6 +57,7 @@ private:
     double m_downloadProgress;
     QList<AppUpdateInfo> m_appInfos;
 };
+
 
 class UpdateModel : public QObject
 {
@@ -86,8 +88,9 @@ public:
     Q_OBJECT
 public:
     explicit UpdateModel(QObject *parent = nullptr);
+    ~UpdateModel();
 
-    void setMirrorInfos(const MirrorInfoList& list);
+    void setMirrorInfos(const MirrorInfoList &list);
     MirrorInfoList mirrorInfos() const { return m_mirrorList;}
 
     UpdatesStatus status() const;
@@ -95,10 +98,25 @@ public:
     void setStatus(const UpdatesStatus &status, int line);
 
     MirrorInfo defaultMirror() const;
-    void setDefaultMirror(const QString& mirrorId);
+    void setDefaultMirror(const QString &mirrorId);
 
     DownloadInfo *downloadInfo() const;
     void setDownloadInfo(DownloadInfo *downloadInfo);
+
+    UpdateItemInfo *systemDownloadInfo() const;
+    void setSystemDownloadInfo(UpdateItemInfo *updateItemInfo);
+
+    UpdateItemInfo *appDownloadInfo() const;
+    void setAppDownloadInfo(UpdateItemInfo *updateItemInfo);
+
+    UpdateItemInfo *safeDownloadInfo() const;
+    void setSafeDownloadInfo(UpdateItemInfo *updateItemInfo);
+
+    UpdateItemInfo *unknownDownloadInfo() const;
+    void setUnknownDownloadInfo(UpdateItemInfo *updateItemInfo);
+
+    QMap<ClassifyUpdateType, UpdateItemInfo *> allDownloadInfo() const;
+    void setAllDownloadInfo(QMap<ClassifyUpdateType, UpdateItemInfo *> &allUpdateItemInfo);
 
     QMap<QString, int> mirrorSpeedInfo() const;
     void setMirrorSpeedInfo(const QMap<QString, int> &mirrorSpeedInfo);
@@ -164,11 +182,11 @@ public:
     inline bool getUpdatablePackages() const {return m_isUpdatablePackages;}
     void isUpdatablePackages(bool isUpdatablePackages);
 
-    const QString& lastCheckUpdateTime() const {return m_lastCheckUpdateTime;}
-    void setLastCheckUpdateTime(const QString& lastTime);
+    const QString &lastCheckUpdateTime() const {return m_lastCheckUpdateTime;}
+    void setLastCheckUpdateTime(const QString &lastTime);
 
-    const QList<AppUpdateInfo>& historyAppInfos() const {return m_historyAppInfos;}
-    void setHistoryAppInfos(const QList<AppUpdateInfo>& infos);
+    const QList<AppUpdateInfo> &historyAppInfos() const {return m_historyAppInfos;}
+    void setHistoryAppInfos(const QList<AppUpdateInfo> &infos);
 
     int autoCheckUpdateCircle() const {return m_autoCheckUpdateCircle;}
     void setAutoCheckUpdateCircle(const int interval);
@@ -176,6 +194,24 @@ public:
 
     inline bool updateNotify() { return m_updateNotify; }
     void setUpdateNotify(const bool notify);
+
+    UpdatesStatus getSystemUpdateStatus() const;
+    void setSystemUpdateStatus(const UpdatesStatus &systemUpdateStatus);
+
+    UpdatesStatus getAppUpdateStatus() const;
+    void setAppUpdateStatus(const UpdatesStatus &appUpdateStatus);
+
+    UpdatesStatus getSafeUpdateStatus() const;
+    void setSafeUpdateStatus(const UpdatesStatus &safeUpdateStatus);
+
+    UpdatesStatus getUnkonowUpdateStatus() const;
+    void setUnkonowUpdateStatus(const UpdatesStatus &unkonowUpdateStatus);
+
+    void setClassifyUpdateTypeStatus(ClassifyUpdateType type, UpdatesStatus status);
+    void setAllClassifyUpdateStatus(UpdatesStatus status);
+
+    void deleteUpdateInfo(UpdateItemInfo *updateItemInfo);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void defaultMirrorChanged(const MirrorInfo &mirror);
@@ -185,12 +221,28 @@ Q_SIGNALS:
     void lowBatteryChanged(const bool &lowBattery);
     void statusChanged(const UpdatesStatus &status);
 
+    void systemUpdateStatusChanged(const UpdatesStatus &status);
+    void appUpdateStatusChanged(const UpdatesStatus &status);
+    void safeUpdateStatusChanged(const UpdatesStatus &status);
+    void unkonowUpdateStatusChanged(const UpdatesStatus &status);
+
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void sourceCheckChanged(bool sourceCheck);
 #endif
     void mirrorSpeedInfoAvaiable(const QMap<QString, int> &mirrorSpeedInfo);
 
     void downloadInfoChanged(DownloadInfo *downloadInfo);
+
+    void systemUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
+    void appUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
+    void safeUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
+    void unknownUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
+
+    void systemUpdateProgressChanged(const double &updateProgress);
+    void appUpdateProgressChanged(const double &updateProgress);
+    void safeUpdateProgressChanged(const double &updateProgress);
+    void unkonowUpdateProgressChanged(const double &updateProgress);
+
     void updateProgressChanged(const double &updateProgress);
     void upgradeProgressChanged(const double &upgradeProgress);
     void autoCleanCacheChanged(const bool autoCleanCache);
@@ -209,9 +261,22 @@ Q_SIGNALS:
     void updateHistoryAppInfos();
     void updateNotifyChanged(const bool notify);
     void updatablePackagesChanged(const bool isUpdatablePackages);
+
 private:
     UpdatesStatus m_status;
+
+    UpdatesStatus m_systemUpdateStatus;
+    UpdatesStatus m_appUpdateStatus;
+    UpdatesStatus m_safeUpdateStatus;
+    UpdatesStatus m_unkonowUpdateStatus;
+
     DownloadInfo *m_downloadInfo;
+
+    QMap<ClassifyUpdateType, UpdateItemInfo *> m_allUpdateInfos;
+    UpdateItemInfo *m_systemUpdateInfo;
+    UpdateItemInfo *m_appUpdateInfo;
+    UpdateItemInfo *m_safeUpdateInfo;
+    UpdateItemInfo *m_unknownUpdateInfo;
 
     double m_updateProgress;
     double m_upgradeProgress;

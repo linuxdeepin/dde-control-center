@@ -35,6 +35,10 @@
 #include <QVBoxLayout>
 #include <QSettings>
 #include <QPushButton>
+#include <QScrollArea>
+#include <DFontSizeManager>
+#include <DPalette>
+#include <DSysInfo>
 
 #define UpgradeWarningSize 500
 
@@ -48,11 +52,11 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     : QWidget(parent)
     , m_model(nullptr)
     , m_status(UpdatesStatus::Updated)
-    , m_checkUpdateItem(new LoadingItem)
-    , m_resultItem(new ResultItem)
-    , m_progress(new DownloadProgressBar)
-    , m_fullProcess(new DownloadProgressBar)
-    , m_summaryGroup(new SettingsGroup)
+    , m_checkUpdateItem(new LoadingItem())
+    , m_resultItem(new ResultItem())
+    , m_progress(new DownloadProgressBar(parent))
+    , m_fullProcess(new DownloadProgressBar(parent))
+    , m_summaryGroup(new SettingsGroup())
     , m_upgradeWarningGroup(new SettingsGroup)
     , m_summary(new SummaryItem)
     , m_upgradeWarning(new SummaryItem)
@@ -64,10 +68,24 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
     , m_activeState(UiActiveState::Unknown)
-    , m_updateList(new ContentWidget)
-    , m_authorizationPrompt(new TipsLabel)
-    , m_checkUpdateBtn(new QPushButton)
-    , m_lastCheckTimeTip(new TipsLabel)
+    , m_updateList(new ContentWidget(parent))
+    , m_authorizationPrompt(new TipsLabel(parent))
+    , m_isUpdateingAll(false)
+    , m_checkUpdateBtn(new QPushButton(parent))
+    , m_lastCheckTimeTip(new TipsLabel(parent))
+    , m_CheckAgainBtn(new QPushButton(tr("Check Again")))
+    , m_lastCheckAgainTimeTip(new TipsLabel(parent))
+    , m_versrionTip(new DLabel(parent))
+    , m_spinner(new DSpinner(parent))
+    , m_updateTipsLab(new DLabel(parent))
+    , m_updateSizeLab(new DLabel(parent))
+    , m_updateingTipsLab(new DLabel(parent))
+    , m_fullUpdateBtn(new QPushButton)
+    , m_systemUpdateItem(new SystemUpdateItem(parent))
+    , m_storeUpdateItem(new AppstoreUpdateItem(parent))
+    , m_safeUpdateItem(new SafeUpdateItem(parent))
+    , m_unknownUpdateItem(new UnknownUpdateItem(parent))
+    , m_updateSummaryGroup(new SettingsGroup)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
@@ -106,21 +124,54 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_upgradeWarningGroup->setVisible(false);
     m_upgradeWarningGroup->appendItem(m_upgradeWarning);
 
-    m_checkUpdateBtn->setFixedSize(QSize(300,36));
+    m_checkUpdateBtn->setFixedSize(QSize(300, 36));
     m_checkUpdateBtn->setVisible(false);
     m_lastCheckTimeTip->setAlignment(Qt::AlignCenter);
     m_lastCheckTimeTip->setVisible(false);
 
+    QHBoxLayout *updateTitleHLay = new QHBoxLayout;
+    QVBoxLayout *updateTitleFirstVLay = new QVBoxLayout;
+
+    m_updateTipsLab->setText(tr("Updates Available"));
+    DFontSizeManager::instance()->bind(m_updateTipsLab, DFontSizeManager::T5, QFont::DemiBold);
+    m_updateTipsLab->setForegroundRole(DPalette::TextTitle);
+    m_updateTipsLab->setVisible(false);
+
+    DFontSizeManager::instance()->bind(m_versrionTip, DFontSizeManager::T8);
+    m_versrionTip->setForegroundRole(DPalette::TextTips);
+    updateTitleFirstVLay->addWidget(m_updateTipsLab);
+    updateTitleFirstVLay->addWidget(m_updateSizeLab);
+
+    updateTitleHLay->setContentsMargins(QMargins(12, 50, 10, 20));
+    updateTitleHLay->addLayout(updateTitleFirstVLay);
+    updateTitleHLay->addWidget(m_spinner, 1, Qt::AlignRight);
+    m_spinner->setVisible(false);
+    m_spinner->setFixedSize(24, 24);
+    m_updateingTipsLab->setText(tr("Updating"));
+    m_updateingTipsLab->setVisible(false);
+    DFontSizeManager::instance()->bind(m_updateingTipsLab, DFontSizeManager::T8);
+    m_updateingTipsLab->setForegroundRole(DPalette::TextTips);
+    updateTitleHLay->addSpacing(5);
+    updateTitleHLay->addWidget(m_updateingTipsLab);
+    m_fullUpdateBtn->setText(tr("Update All"));
+    m_fullUpdateBtn->setFixedSize(92, 36);
+    m_fullUpdateBtn->setVisible(false);
+    updateTitleHLay->addWidget(m_fullUpdateBtn);
+
+
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
+    layout->addWidget(m_versrionTip, 0, Qt::AlignHCenter);
     layout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     layout->addWidget(m_upgradeWarningGroup);
     layout->addWidget(m_powerTip);
     layout->addWidget(m_summary);
     layout->addWidget(m_progress);
     layout->addLayout(fullProcesslayout);
-    layout->addWidget(m_updateList ,1);
+
+    layout->addLayout(updateTitleHLay);
+    layout->addWidget(m_updateList, 1);
 
     layout->addStretch();
     layout->addWidget(m_resultItem);
@@ -132,23 +183,76 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->addSpacing(5);
     layout->addWidget(m_lastCheckTimeTip);
     layout->addStretch();
+
     setLayout(layout);
 
     QWidget *contentWidget = new QWidget;
     QVBoxLayout *contentLayout = new QVBoxLayout;
-    contentLayout->addWidget(m_summaryGroup);
+
+    m_systemUpdateItem->setVisible(false);
+    m_updateSummaryGroup->appendItem(m_systemUpdateItem);
+
+    m_storeUpdateItem->setVisible(false);
+    m_updateSummaryGroup->appendItem(m_storeUpdateItem);
+
+    m_safeUpdateItem->setVisible(false);
+    m_updateSummaryGroup->appendItem(m_safeUpdateItem);
+
+    m_unknownUpdateItem->setVisible(false);
+    m_updateSummaryGroup->appendItem(m_unknownUpdateItem);
+
+    m_updateSummaryGroup->setVisible(false);
+    contentLayout->addWidget(m_updateSummaryGroup);
     contentLayout->addStretch();
+
+    m_CheckAgainBtn->setVisible(false);
+    m_lastCheckAgainTimeTip->setVisible(false);
+    m_CheckAgainBtn->setFixedSize(QSize(300, 36));
+    m_lastCheckAgainTimeTip->setAlignment(Qt::AlignCenter);
+
+    contentLayout->addSpacing(20);
+    contentLayout->addWidget(m_CheckAgainBtn, 0, Qt::AlignCenter);
+    contentLayout->addSpacing(5);
+    contentLayout->addWidget(m_lastCheckAgainTimeTip);
     contentWidget->setLayout(contentLayout);
+
     m_updateList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_updateList->setContent(contentWidget);
 
     setModel(model);
 
-    connect(m_progress, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
-    connect(m_fullProcess, &DownloadProgressBar::clicked, this, &UpdateCtrlWidget::onProgressBarClicked);
+    initConnect();
+}
+
+
+void UpdateCtrlWidget::initConnect()
+{
+    auto initUpdateItemConnect = [ = ](UpdateSettingItem * updateItem) {
+        connect(updateItem, &UpdateSettingItem::requestUpdate, this, &UpdateCtrlWidget::onRequestUpdate);
+        connect(updateItem, &UpdateSettingItem::requestUpdateCtrl, this, &UpdateCtrlWidget::requestUpdateCtrl);
+        connect(updateItem, &UpdateSettingItem::UpdateSuccessed, this, &UpdateCtrlWidget::onUpdateSuccessed);
+        connect(updateItem, &UpdateSettingItem::UpdateFailed, this, &UpdateCtrlWidget::onUpdateFailed);
+        connect(updateItem, &UpdateSettingItem::recoveryBackupFailed, this, &UpdateCtrlWidget::onRecoverBackupFailed);
+        connect(updateItem, &UpdateSettingItem::recoveryBackupSuccessed, this, &UpdateCtrlWidget::onRecoverBackupFinshed);
+    };
+
+    initUpdateItemConnect(m_systemUpdateItem);
+    initUpdateItemConnect(m_storeUpdateItem);
+    initUpdateItemConnect(m_safeUpdateItem);
+    initUpdateItemConnect(m_unknownUpdateItem);
+
+    connect(m_storeUpdateItem, &AppstoreUpdateItem::requestOpenAppStroe, this, &UpdateCtrlWidget::requestOpenAppStroe);
+
+    connect(m_fullUpdateBtn, &QPushButton::clicked, this, &UpdateCtrlWidget::onFullUpdateClicked);
     connect(m_checkUpdateBtn, &QPushButton::clicked, m_model, &UpdateModel::beginCheckUpdate);
     connect(m_checkUpdateBtn, &QPushButton::clicked, [this] {
         this->setFocus();
+        m_isUpdateingAll = false;
+    });
+    connect(m_CheckAgainBtn, &QPushButton::clicked, m_model, &UpdateModel::beginCheckUpdate);
+    connect(m_CheckAgainBtn, &QPushButton::clicked, [this] {
+        this->setFocus();
+        m_isUpdateingAll = false;
     });
 }
 
@@ -168,80 +272,6 @@ void UpdateCtrlWidget::setShowInfo(const UiActiveState value)
 
     m_fullProcess->setEnabled(activation);
     m_authorizationPrompt->setVisible(UpdatesStatus::UpdatesAvailable == m_model->status() && !activation);
-}
-
-void UpdateCtrlWidget::loadAppList(const QList<AppUpdateInfo> &infos)
-{
-//    qDebug() << infos.count();
-
-    QLayoutItem *item;
-    while ((item = m_summaryGroup->layout()->takeAt(0)) != nullptr) {
-        item->widget()->deleteLater();
-        delete item;
-    }
-
-    for (const AppUpdateInfo &info : infos) {
-        UpdateItem *items = new UpdateItem();
-        items->setAppInfo(info);
-
-        m_summaryGroup->appendItem(items);
-    }
-
-    // 更新应用列表的 重新检查按钮 和 更新时间标签 放到列表窗口内
-    QWidget *content = new QWidget;
-    QVBoxLayout *vLayout = new QVBoxLayout(content);
-    vLayout->addSpacing(20);
-    QPushButton *checkBtn = new QPushButton(tr("Check Again"));
-    checkBtn->setFixedSize(300, 36);
-    vLayout->addWidget(checkBtn, 0, Qt::AlignHCenter);
-
-    // 只有还未进行下载状态，按钮可用，其他正在下载、暂停、安装、备份等都禁用
-    if (m_status != UpdatesStatus::UpdatesAvailable) {
-        checkBtn->setEnabled(false);
-    }
-
-    // 点击后重新检查更新
-    connect(checkBtn, &QPushButton::clicked, m_model, &UpdateModel::beginCheckUpdate);
-    // 启动下载之后，按钮灰化，不再允许重新检查
-    connect(m_fullProcess, &DownloadProgressBar::clicked, checkBtn, [=] {
-        checkBtn->setEnabled(false);
-    });
-
-    // 更新时间标签初始化
-    m_model->updateCheckUpdateTime();
-    TipsLabel *lastTimeTip = new TipsLabel;
-    lastTimeTip->setAlignment(Qt::AlignCenter);
-    lastTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
-    vLayout->addWidget(lastTimeTip);
-    m_summaryGroup->insertWidget(content);
-
-    //在只有一个更新的时候,为防止item过度的拉伸
-    if (infos.count() > 1) {
-        m_summaryGroup->getLayout()->addStretch();
-    } else {
-        m_summaryGroup->getLayout()->addStretch(1);
-    }
-}
-
-void UpdateCtrlWidget::onProgressBarClicked()
-{
-    switch (m_status) {
-    case UpdatesStatus::UpdatesAvailable:
-        Q_EMIT requestDownloadUpdates();
-        break;
-    case UpdatesStatus::Downloading:
-        Q_EMIT requestPauseDownload();
-        break;
-    case UpdatesStatus::DownloadPaused:
-        Q_EMIT requestResumeDownload();
-        break;
-    case UpdatesStatus::Downloaded:
-        Q_EMIT requestInstallUpdates();
-        break;
-    default:
-        qDebug() << "unhandled status " << m_status;
-        break;
-    }
 }
 
 void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
@@ -264,12 +294,21 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     m_upgradeWarningGroup->setVisible(false);
     m_reminderTip->setVisible(false);
     m_checkUpdateItem->setVisible(false);
-    m_checkUpdateItem->setVisible(false);
     m_checkUpdateItem->setProgressBarVisible(false);
     m_checkUpdateItem->setImageAndTextVisible(false);
     m_summary->setVisible(false);
     m_checkUpdateBtn->setVisible(false);
     m_lastCheckTimeTip->setVisible(false);
+    m_updateSummaryGroup->setVisible(false);
+
+    m_CheckAgainBtn->setVisible(false);
+    m_lastCheckAgainTimeTip->setVisible(false);
+    m_versrionTip->setVisible(false);
+    m_updateTipsLab->setVisible(false);
+    m_updateSizeLab->setVisible(false);
+    m_fullUpdateBtn->setVisible(false);
+    m_spinner->setVisible(false);
+    m_updateingTipsLab->setVisible(false);
 
     auto showCheckButton = [this](const QString & caption) {
         m_model->updateCheckUpdateTime();
@@ -294,56 +333,15 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Checking:
         m_model->beginCheckUpdate();
         m_checkUpdateItem->setVisible(true);
-        m_checkUpdateItem->setVisible(true);
         m_checkUpdateItem->setProgressBarVisible(true);
         m_checkUpdateItem->setMessage(tr("Checking for updates, please wait..."));
         m_checkUpdateItem->setImageOrTextVisible(false);
         break;
     case UpdatesStatus::UpdatesAvailable:
-        m_fullProcess->setVisible(true);
-        m_updateList->setVisible(true);
-        m_summary->setVisible(true);
-        //~ contents_path /update/Update
-        m_fullProcess->setMessage(tr("Download and install updates"));
-        setDownloadInfo(m_model->downloadInfo());
-        setLowBattery(m_model->lowBattery());
-        setShowInfo(m_model->systemActivation());
+        onChangeUpdatesAvailableStatus();
         break;
-    case UpdatesStatus::Downloading:
-        m_progress->setVisible(true);
-        m_updateList->setVisible(true);
-        m_summary->setVisible(true);
-        m_progress->setMessage(tr("%1% downloaded (Click to pause)").arg(m_progress->value()));
-        m_progress->setProcessValue(m_progress->value());
-        break;
-    case UpdatesStatus::DownloadPaused:
-        m_progress->setVisible(true);
-        m_updateList->setVisible(true);
-        m_summary->setVisible(true);
-        m_progress->setMessage(tr("%1% downloaded (Click to continue)").arg(m_progress->value()));
-        break;
-    case UpdatesStatus::Downloaded:
-        m_fullProcess->setVisible(true);
-        m_updateList->setVisible(true);
-        m_summary->setVisible(true);
-        //~ contents_path /update/Update
-        m_fullProcess->setMessage(tr("Install updates"));
-        setDownloadInfo(m_model->downloadInfo());
-        setLowBattery(m_model->lowBattery());
-        break;
-    case UpdatesStatus::Updated:
-        m_checkUpdateItem->setVisible(true);
-        m_checkUpdateItem->setVisible(true);
-        m_checkUpdateItem->setMessage(tr("Your system is up to date"));
-        m_checkUpdateItem->setImageOrTextVisible(true);
-        m_checkUpdateItem->setSystemVersion(m_systemVersion);
-        showCheckButton(tr("Check for Updates"));
-        break;
-    case UpdatesStatus::Installing:
-        m_progress->setVisible(true);
-        m_updateList->setVisible(true);
-        m_summary->setVisible(true);
-        m_progress->setMessage(tr("Updating, please wait..."));
+    case UpdatesStatus::Updateing:
+        showUpdateInfo();
         break;
     case UpdatesStatus::UpdateSucceeded:
         m_resultItem->setVisible(true);
@@ -354,6 +352,17 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_resultItem->setVisible(true);
         m_resultItem->setSuccess(ShowStatus::IsFailed);
         showCheckButton(tr("Check Again"));
+        break;
+    case UpdatesStatus::RecoveryBackupFailed:
+        showUpdateInfo();
+        m_CheckAgainBtn->setEnabled(false);
+        break;
+    case UpdatesStatus::Updated:
+        m_checkUpdateItem->setVisible(true);
+        m_checkUpdateItem->setMessage(tr("Your system is up to date"));
+        m_checkUpdateItem->setImageOrTextVisible(true);
+        m_checkUpdateItem->setSystemVersion(m_systemVersion);
+        showCheckButton(tr("Check for Updates"));
         break;
     case UpdatesStatus::NeedRestart:
         m_checkUpdateItem->setVisible(true);
@@ -377,62 +386,47 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         m_resultItem->setMessage(tr("Dependency error, failed to detect the updates"));
         showCheckButton(tr("Check Again"));
         break;
-    case UpdatesStatus::RecoveryBackingup:
-    case UpdatesStatus::RecoveryBackingSuccessed:
-        m_progress->setVisible(true);
-        m_updateList->setVisible(true);
-        m_summary->setVisible(true);
-        m_progress->setMessage(tr("Backing up, please wait..."));
-        break;
-    case UpdatesStatus::RecoveryBackupFailed:
-        m_resultItem->setVisible(true);
-        m_resultItem->setSuccess(ShowStatus::IsFailed);
-        m_resultItem->setMessage(tr("System backup failed"));
-        break;
     default:
         qDebug() << "unknown status!!!";
         break;
     }
 }
 
-void UpdateCtrlWidget::setDownloadInfo(DownloadInfo *downloadInfo)
+void UpdateCtrlWidget::setSystemUpdateStatus(const UpdatesStatus &status)
 {
-    if (!downloadInfo)
+    if (!m_systemUpdateItem->isVisible()) {
         return;
-
-    const QList<AppUpdateInfo> &apps = downloadInfo->appInfos();
-    const qulonglong downloadSize = downloadInfo->downloadSize();
-
-    int appCount = apps.length();
-    for (const AppUpdateInfo &info : apps) {
-        if (info.m_packageId == "dde") {
-            appCount--;
-        }
     }
 
-    m_summary->setTitle(tr("%n application update(s) available", "", appCount));
+    m_systemUpdateItem->setStatus(status);
 
-    for (const AppUpdateInfo &info : apps) {
-        if (info.m_packageId == "dde") {
-            if (!appCount) {
-                m_summary->setTitle(tr("New system edition available"));
-            } else {
-                m_summary->setTitle(tr("New system edition and %n application update(s) available", "", appCount));
-            }
-            break;
-        }
+}
+
+void UpdateCtrlWidget::setAppUpdateStatus(const UpdatesStatus &status)
+{
+    if (!m_storeUpdateItem->isVisible()) {
+        return;
     }
 
-    if (!downloadSize) {
-        m_summary->setDetails(tr("Downloaded"));
-    } else {
-        m_summary->setDetails(QString(tr("Size: %1").arg(formatCap(downloadSize))));
+    m_storeUpdateItem->setStatus(status);
+}
 
-        if ((static_cast<int>(downloadSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt())
-            m_upgradeWarningGroup->setVisible(true);
+void UpdateCtrlWidget::setSafeUpdateStatus(const UpdatesStatus &status)
+{
+    if (!m_safeUpdateItem->isVisible()) {
+        return;
     }
 
-    loadAppList(apps);
+    m_safeUpdateItem->setStatus(status);
+}
+
+void UpdateCtrlWidget::setUnkonowUpdateStatus(const UpdatesStatus &status)
+{
+    if (!m_unknownUpdateItem->isVisible()) {
+        return;
+    }
+
+    m_unknownUpdateItem->setStatus(status);
 }
 
 void UpdateCtrlWidget::setProgressValue(const double value)
@@ -455,7 +449,6 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
             m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
         }
 
-        m_fullProcess->setDisabled(lowBattery);
         m_powerTip->setVisible(lowBattery);
     }
 }
@@ -497,16 +490,22 @@ void UpdateCtrlWidget::setActiveState(const UiActiveState &activestate)
     } else {
         setStatus(m_model->status());
     }
-
 }
+
 
 void UpdateCtrlWidget::setModel(UpdateModel *model)
 {
     m_model = model;
 
     connect(m_model, &UpdateModel::statusChanged, this, &UpdateCtrlWidget::setStatus);
+
+    connect(m_model, &UpdateModel::systemUpdateStatusChanged, m_systemUpdateItem, &UpdateSettingItem::onUpdateStatuChanged);
+    connect(m_model, &UpdateModel::appUpdateStatusChanged, m_storeUpdateItem, &UpdateSettingItem::onUpdateStatuChanged);
+    connect(m_model, &UpdateModel::safeUpdateStatusChanged, m_safeUpdateItem, &UpdateSettingItem::onUpdateStatuChanged);
+    connect(m_model, &UpdateModel::unkonowUpdateStatusChanged, m_unknownUpdateItem, &UpdateSettingItem::onUpdateStatuChanged);
+
     connect(m_model, &UpdateModel::lowBatteryChanged, this, &UpdateCtrlWidget::setLowBattery);
-    connect(m_model, &UpdateModel::downloadInfoChanged, this, &UpdateCtrlWidget::setDownloadInfo);
+
     connect(m_model, &UpdateModel::upgradeProgressChanged, this, &UpdateCtrlWidget::setProgressValue);
     connect(m_model, &UpdateModel::updateProgressChanged, this, &UpdateCtrlWidget::setUpdateProgress);
     connect(m_model, &UpdateModel::recoverBackingUpChanged, this, &UpdateCtrlWidget::setRecoverBackingUp);
@@ -514,6 +513,15 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::recoverRestoringChanged, this, &UpdateCtrlWidget::setRecoverRestoring);
     connect(m_model, &UpdateModel::systemActivationChanged, this, &UpdateCtrlWidget::setActiveState);
 
+    connect(m_model, &UpdateModel::systemUpdateInfoChanged, this, &UpdateCtrlWidget::setSystemUpdateInfo);
+    connect(m_model, &UpdateModel::appUpdateInfoChanged, this, &UpdateCtrlWidget::setAppUpdateInfo);
+    connect(m_model, &UpdateModel::safeUpdateInfoChanged, this, &UpdateCtrlWidget::setSafeUpdateInfo);
+    connect(m_model, &UpdateModel::unknownUpdateInfoChanged, this, &UpdateCtrlWidget::setUnkonowUpdateInfo);
+
+    connect(m_model, &UpdateModel::systemUpdateProgressChanged, m_systemUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
+    connect(m_model, &UpdateModel::appUpdateProgressChanged, m_storeUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
+    connect(m_model, &UpdateModel::safeUpdateProgressChanged, m_safeUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
+    connect(m_model, &UpdateModel::unkonowUpdateProgressChanged, m_unknownUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
 
     setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());
@@ -524,10 +532,13 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
         setStatus(m_model->status());
     }
 
-    setLowBattery(m_model->lowBattery());
-    setDownloadInfo(m_model->downloadInfo());
 
-    setDownloadInfo(m_model->downloadInfo());
+    setLowBattery(m_model->lowBattery());
+
+    setSystemUpdateInfo(m_model->systemDownloadInfo());
+    setAppUpdateInfo(m_model->appDownloadInfo());
+    setSafeUpdateInfo(m_model->safeDownloadInfo());
+    setUnkonowUpdateInfo(m_model->unknownDownloadInfo());
 }
 
 void UpdateCtrlWidget::setSystemVersion(const QString &version)
@@ -536,3 +547,246 @@ void UpdateCtrlWidget::setSystemVersion(const QString &version)
         m_systemVersion = version;
     }
 }
+
+void UpdateCtrlWidget::setSystemUpdateInfo(UpdateItemInfo *updateItemInfo)
+{
+    if (nullptr == updateItemInfo) {
+        m_systemUpdateItem->setVisible(false);
+        return;
+    }
+
+    initUpdateItem(m_systemUpdateItem);
+    m_systemUpdateItem->setData(updateItemInfo);
+}
+
+void UpdateCtrlWidget::setAppUpdateInfo(UpdateItemInfo *updateItemInfo)
+{
+
+    if (nullptr == updateItemInfo) {
+        m_storeUpdateItem->setVisible(false);
+        return;
+    }
+
+    initUpdateItem(m_storeUpdateItem);
+    m_storeUpdateItem->setData(updateItemInfo);
+
+}
+
+void UpdateCtrlWidget::setSafeUpdateInfo(UpdateItemInfo *updateItemInfo)
+{
+    if (nullptr == updateItemInfo) {
+        m_safeUpdateItem->setVisible(false);
+        return;
+    }
+
+    initUpdateItem(m_safeUpdateItem);
+    m_safeUpdateItem->setData(updateItemInfo);
+
+
+}
+
+void UpdateCtrlWidget::setUnkonowUpdateInfo(UpdateItemInfo *updateItemInfo)
+{
+    if (nullptr == updateItemInfo) {
+        m_unknownUpdateItem->setVisible(false);
+        return;
+    }
+
+    initUpdateItem(m_unknownUpdateItem);
+    m_unknownUpdateItem->setData(updateItemInfo);
+
+}
+
+void UpdateCtrlWidget::setAllUpdateInfo(QMap<ClassifyUpdateType, UpdateItemInfo *> updateInfoMap)
+{
+    setSystemUpdateInfo(updateInfoMap.value(ClassifyUpdateType::SystemUpdate));
+    setAppUpdateInfo(updateInfoMap.value(ClassifyUpdateType::AppStoreUpdate));
+    setSafeUpdateInfo(updateInfoMap.value(ClassifyUpdateType::SecurityUpdate));
+    setUnkonowUpdateInfo(updateInfoMap.value(ClassifyUpdateType::UnknownUpdate));
+}
+
+void UpdateCtrlWidget::showUpdateInfo()
+{
+    m_fullProcess->setVisible(false);
+    m_updateList->setVisible(true);
+    m_summary->setVisible(false);
+    m_powerTip->setVisible(false);
+
+    if (!m_isUpdateingAll) {
+        m_fullUpdateBtn->setVisible(true);
+    } else {
+        m_updateTipsLab->setVisible(true);
+        m_spinner->setVisible(true);
+    }
+
+    m_updateTipsLab->setVisible(true);
+    m_updateSizeLab->setVisible(true);
+    m_versrionTip->setVisible(true);
+
+    m_CheckAgainBtn->setVisible(true);
+    m_model->updateCheckUpdateTime();
+    m_lastCheckAgainTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
+    m_lastCheckAgainTimeTip->setVisible(true);
+    m_updateSummaryGroup->setVisible(true);
+}
+
+void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
+{
+
+    showUpdateInfo();
+
+    //~ contents_path /update/Update
+    setSystemUpdateStatus(m_model->getSystemUpdateStatus());
+    setAppUpdateStatus(m_model->getAppUpdateStatus());
+    setSafeUpdateStatus(m_model->getSafeUpdateStatus());
+    setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
+    setAllUpdateInfo(m_model->allDownloadInfo());
+
+    setLowBattery(m_model->lowBattery());
+    setShowInfo(m_model->systemActivation());
+
+    QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
+    m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
+
+    qlonglong size = m_systemUpdateItem->updateSize() + m_storeUpdateItem->updateSize() + m_safeUpdateItem->updateSize() + m_unknownUpdateItem->updateSize();
+    if (size == 0) {
+        m_CheckAgainBtn->setEnabled(false);
+    }
+
+    QString updateSize = formatCap(size);
+    updateSize = tr("Size") + ": " + updateSize;
+    m_updateSizeLab->setText(updateSize);
+}
+
+void UpdateCtrlWidget::onFullUpdateClicked()
+{
+    m_spinner->setVisible(true);
+    m_spinner->start();
+    m_updateingTipsLab->setVisible(true);
+    m_fullUpdateBtn->setVisible(false);
+    m_isUpdateingAll = true;
+
+    auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
+        if (updateItem->isVisible() && updateItem->status() == UpdatesStatus::UpdatesAvailable) {
+            Q_EMIT  requestUpdates(type);
+        }
+    };
+
+    sendRequestUpdates(m_systemUpdateItem, ClassifyUpdateType::SystemUpdate);
+    sendRequestUpdates(m_storeUpdateItem, ClassifyUpdateType::AppStoreUpdate);
+    sendRequestUpdates(m_safeUpdateItem, ClassifyUpdateType::SecurityUpdate);
+    sendRequestUpdates(m_unknownUpdateItem, ClassifyUpdateType::UnknownUpdate);
+}
+
+void UpdateCtrlWidget::onRequestUpdate(ClassifyUpdateType type)
+{
+    Q_EMIT requestUpdates(type);
+
+    if (checkUpdateItemIsUpdateing(m_systemUpdateItem, type)
+            && checkUpdateItemIsUpdateing(m_storeUpdateItem, type)
+            && checkUpdateItemIsUpdateing(m_safeUpdateItem, type)
+            && checkUpdateItemIsUpdateing(m_unknownUpdateItem, type)) {
+
+        m_isUpdateingAll = true;
+        m_spinner->setVisible(true);
+        m_updateingTipsLab->setVisible(true);
+        m_fullUpdateBtn->setVisible(false);
+    }
+}
+
+bool UpdateCtrlWidget::checkUpdateItemIsUpdateing(UpdateSettingItem *updateItem, ClassifyUpdateType type)
+{
+    if (updateItem->classifyUpdateType() == type
+            || updateItem->status() == UpdatesStatus::Default
+            || updateItem->status() == UpdatesStatus::Downloading
+            || updateItem->status() == UpdatesStatus::DownloadPaused
+            || updateItem->status() == UpdatesStatus::Downloaded
+            || updateItem->status() == UpdatesStatus::Installing
+            || updateItem->status() == UpdatesStatus::UpdateSucceeded
+            || updateItem->status() == UpdatesStatus::UpdateFailed
+            || updateItem->status() == UpdatesStatus::RecoveryBackingup
+            || updateItem->status() == UpdatesStatus::RecoveryBackingSuccessed
+            || updateItem->status() == UpdatesStatus::RecoveryBackupFailed
+            || updateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+        return true;
+    }
+    return false;
+}
+
+void UpdateCtrlWidget::onRecoverBackupFinshed()
+{
+    auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
+        if (updateItem->isVisible() && updateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+            Q_EMIT  requestUpdates(type);
+        }
+    };
+
+    sendRequestUpdates(m_systemUpdateItem, ClassifyUpdateType::SystemUpdate);
+    sendRequestUpdates(m_storeUpdateItem, ClassifyUpdateType::AppStoreUpdate);
+    sendRequestUpdates(m_safeUpdateItem, ClassifyUpdateType::SecurityUpdate);
+    sendRequestUpdates(m_unknownUpdateItem, ClassifyUpdateType::UnknownUpdate);
+
+    m_CheckAgainBtn->setEnabled(false);
+}
+
+void UpdateCtrlWidget::onRecoverBackupFailed()
+{
+    if (m_systemUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_systemUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+        Q_EMIT requestUpdates(ClassifyUpdateType::SystemUpdate);
+        return;
+    }
+
+    if (m_storeUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_systemUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+        Q_EMIT requestUpdates(ClassifyUpdateType::AppStoreUpdate);
+        return;
+    }
+
+    if (m_safeUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_systemUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+        Q_EMIT requestUpdates(ClassifyUpdateType::SecurityUpdate);
+        return;
+    }
+
+    if (m_unknownUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_systemUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+        Q_EMIT requestUpdates(ClassifyUpdateType::UnknownUpdate);
+        return;
+    }
+
+}
+
+void UpdateCtrlWidget::onUpdateSuccessed()
+{
+    auto checkItemSuccessed = [ = ](UpdateSettingItem * updateItem) {
+        return updateItem->status() == UpdatesStatus::UpdateSucceeded || updateItem->status() == UpdatesStatus::Default;
+    };
+
+    if (checkItemSuccessed(m_systemUpdateItem) && checkItemSuccessed(m_storeUpdateItem) && checkItemSuccessed(m_safeUpdateItem) && checkItemSuccessed(m_unknownUpdateItem)) {
+        Q_EMIT requestOpenRebootDialog();
+        setStatus(UpdatesStatus::UpdateSucceeded);
+    }
+}
+
+void UpdateCtrlWidget::onUpdateFailed()
+{
+    bool systemFailed = !m_systemUpdateItem->isVisible() || m_systemUpdateItem->status() == UpdatesStatus::UpdateFailed;
+    bool appFailed = !m_storeUpdateItem->isVisible() || m_storeUpdateItem->status() == UpdatesStatus::UpdateFailed;
+    bool safeFailed = !m_safeUpdateItem->isVisible() || m_safeUpdateItem->status() == UpdatesStatus::UpdateFailed;
+    bool unknownFailed = !m_unknownUpdateItem->isVisible() || m_unknownUpdateItem->status() == UpdatesStatus::UpdateFailed;
+
+    if (systemFailed && appFailed && safeFailed && unknownFailed) {
+        m_CheckAgainBtn->setEnabled(true);
+    }
+
+}
+
+void UpdateCtrlWidget::initUpdateItem(UpdateSettingItem *updateItem)
+{
+    if (updateItem->status() == UpdatesStatus::Default) {
+        updateItem->setStatus(UpdatesStatus::UpdatesAvailable);
+    }
+
+    updateItem->setVisible(true);
+    updateItem->setIconVisible(true);
+}
+
+
+

@@ -90,7 +90,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
         } else {
             UpdatesStatus status = m_model->status();
             if (status == UpdatesStatus::UpdatesAvailable || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
-                status == UpdatesStatus::Installing || status == UpdatesStatus::RecoveryBackingup || status == UpdatesStatus::RecoveryBackingSuccessed || m_model->getUpdatablePackages()) {
+                    status == UpdatesStatus::Installing || status == UpdatesStatus::RecoveryBackingup || status == UpdatesStatus::RecoveryBackingSuccessed || m_model->getUpdatablePackages()) {
                 m_frameProxy->setModuleSubscriptVisible(name(), true);
             }
         }
@@ -111,7 +111,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     }
 
 #ifndef DISABLE_ACTIVATOR
-    connect(m_model, &UpdateModel::systemActivationChanged, this, [=](UiActiveState systemactivation) {
+    connect(m_model, &UpdateModel::systemActivationChanged, this, [ = ](UiActiveState systemactivation) {
         if (systemactivation == UiActiveState::Authorized || systemactivation == UiActiveState::TrialAuthorized || systemactivation == UiActiveState::AuthorizedLapse) {
             if (m_updateWidget)
                 m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
@@ -139,12 +139,11 @@ const QString UpdateModule::displayName() const
 
 void UpdateModule::active()
 {
-    connect(m_model, &UpdateModel::downloadInfoChanged, m_work.get(), &UpdateWorker::onNotifyDownloadInfoChanged);
     connect(m_model, &UpdateModel::beginCheckUpdate, m_work.get(), &UpdateWorker::checkForUpdates);
     connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work.get(), &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
     connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work.get(), &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
 
-    m_updateWidget= new UpdateWidget;
+    m_updateWidget = new UpdateWidget;
     m_updateWidget->setVisible(false);
     m_updateWidget->initialize();
 
@@ -155,7 +154,7 @@ void UpdateModule::active()
     }
     m_updateWidget->setModel(m_model, m_work.get());
 
-    connect(m_updateWidget, &UpdateWidget::pushMirrorsView, this, [=]() {
+    connect(m_updateWidget, &UpdateWidget::pushMirrorsView, this, [ = ]() {
         m_mirrorsWidget = new MirrorsWidget(m_model);
         m_mirrorsWidget->setVisible(false);
         int topWidgetWidth = m_updateWidget->parentWidget()->parentWidget()->width();

@@ -24,8 +24,15 @@
 #include "widgets/contentwidget.h"
 #include "modules/update/common.h"
 #include "widgets/utils.h"
+#include "updatesettingitem.h"
+#include "systemupdateitem.h"
+#include "appstoreupdateitem.h"
+#include "safeupdateitem.h"
+#include "unknownupdateitem.h"
+#include "modules/update/updateiteminfo.h"
 
 #include <QWidget>
+#include <DSpinner>
 
 class AppUpdateInfo;
 class QPushButton;
@@ -41,6 +48,11 @@ class DownloadInfo;
 class SummaryItem;
 class DownloadProgressBar;
 class ResultItem;
+class SystemUpdateItem;
+class AppstoreUpdateItem;
+class SafeUpdateItem;
+class UnknownUpdateItem;
+class UpdateSettingItem;
 }
 
 namespace widgets {
@@ -48,6 +60,8 @@ class SettingsGroup;
 class TipsLabel;
 }
 }
+
+using namespace dcc::update;
 
 namespace DCC_NAMESPACE {
 namespace update {
@@ -59,26 +73,38 @@ class UpdateCtrlWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit UpdateCtrlWidget(dcc::update::UpdateModel *model, QWidget *parent = 0);
+    explicit UpdateCtrlWidget(UpdateModel *model, QWidget *parent = 0);
     ~UpdateCtrlWidget();
 
-    void setModel(dcc::update::UpdateModel *model);
+    void initConnect();
+    void setModel(UpdateModel *model);
     void setSystemVersion(const QString &version);
 
 Q_SIGNALS:
-    void requestDownloadUpdates();
-    void requestPauseDownload();
-    void requestResumeDownload();
-    void requestInstallUpdates();
     void notifyUpdateState(int);
+    void requestUpdates(ClassifyUpdateType type);
+    void requestUpdateCtrl(ClassifyUpdateType type, int ctrlType);
+    void requestOpenAppStroe();
+    void requestOpenRebootDialog();
 
 private Q_SLOTS:
-    void onProgressBarClicked();
-    void loadAppList(const QList<AppUpdateInfo> &infos);
+    void onFullUpdateClicked();
+    void onRequestUpdate(ClassifyUpdateType type);
 
 private:
-    void setStatus(const dcc::update::UpdatesStatus &status);
-    void setDownloadInfo(dcc::update::DownloadInfo *downloadInfo);
+    void setStatus(const UpdatesStatus &status);
+
+    void setSystemUpdateStatus(const UpdatesStatus &status);
+    void setAppUpdateStatus(const UpdatesStatus &status);
+    void setSafeUpdateStatus(const UpdatesStatus &status);
+    void setUnkonowUpdateStatus(const UpdatesStatus &status);
+
+    void setSystemUpdateInfo(UpdateItemInfo *updateItemInfo);
+    void setAppUpdateInfo(UpdateItemInfo *updateItemInfo);
+    void setSafeUpdateInfo(UpdateItemInfo *updateItemInfo);
+    void setUnkonowUpdateInfo(UpdateItemInfo *updateItemInfo);
+    void setAllUpdateInfo(QMap<ClassifyUpdateType, UpdateItemInfo *> updateInfoMap);
+
     void setProgressValue(const double value);
     void setLowBattery(const bool &lowBattery);
     void setUpdateProgress(const double value);
@@ -87,18 +113,28 @@ private:
     void setRecoverRestoring(const bool value);
     void setShowInfo(const UiActiveState value);
     void setActiveState(const UiActiveState &activestate);
+    void showUpdateInfo();
+
+    void onChangeUpdatesAvailableStatus();
+    void onRecoverBackupFinshed();
+    void onRecoverBackupFailed();
+    void onUpdateSuccessed();
+    void onUpdateFailed();
+
+    void initUpdateItem(UpdateSettingItem *updateItem);
+    bool checkUpdateItemIsUpdateing(UpdateSettingItem *updateItem, ClassifyUpdateType type);
 
 private:
-    dcc::update::UpdateModel *m_model;
-    dcc::update::UpdatesStatus m_status;
+    UpdateModel *m_model;
+    UpdatesStatus m_status;
     LoadingItem *m_checkUpdateItem;
-    dcc::update::ResultItem *m_resultItem;
-    dcc::update::DownloadProgressBar *m_progress;
-    dcc::update::DownloadProgressBar *m_fullProcess;
+    ResultItem *m_resultItem;
+    DownloadProgressBar *m_progress;
+    DownloadProgressBar *m_fullProcess;
     dcc::widgets::SettingsGroup *m_summaryGroup;
     dcc::widgets::SettingsGroup *m_upgradeWarningGroup;
-    dcc::update::SummaryItem *m_summary;
-    dcc::update::SummaryItem *m_upgradeWarning;
+    SummaryItem *m_summary;
+    SummaryItem *m_upgradeWarning;
     dcc::widgets::TipsLabel *m_powerTip;
     dcc::widgets::TipsLabel *m_reminderTip;
     dcc::widgets::TipsLabel *m_noNetworkTip;
@@ -110,9 +146,27 @@ private:
     UiActiveState m_activeState;
     dcc::ContentWidget *m_updateList;
     dcc::widgets::TipsLabel *m_authorizationPrompt;
+    bool m_isUpdateingAll;
 
     QPushButton *m_checkUpdateBtn;
     dcc::widgets::TipsLabel *m_lastCheckTimeTip;
+
+    QPushButton *m_CheckAgainBtn;
+    dcc::widgets::TipsLabel *m_lastCheckAgainTimeTip;
+
+    DLabel *m_versrionTip;
+
+    DTK_WIDGET_NAMESPACE::DSpinner *m_spinner;
+    DLabel *m_updateTipsLab;
+    DLabel *m_updateSizeLab;
+    DLabel *m_updateingTipsLab;
+    QPushButton *m_fullUpdateBtn;
+
+    SystemUpdateItem *m_systemUpdateItem;
+    AppstoreUpdateItem *m_storeUpdateItem;
+    SafeUpdateItem *m_safeUpdateItem;
+    UnknownUpdateItem *m_unknownUpdateItem;
+    dcc::widgets::SettingsGroup *m_updateSummaryGroup;
 };
 
 }// namespace datetime

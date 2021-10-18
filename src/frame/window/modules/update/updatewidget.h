@@ -75,7 +75,7 @@ public:
     ~UpdateWidget();
 
     void initialize();
-    void setModel(const dcc::update::UpdateModel *model, const dcc::update::UpdateWorker *work);
+    void setModel(const UpdateModel *model, const UpdateWorker *work);
     void setSystemVersion(QString version);
     void resetUpdateCheckState(bool state = true);
     void mouseDoubleClickEvent(QMouseEvent *event);
@@ -97,13 +97,13 @@ public Q_SLOTS:
 
 private:
     QVBoxLayout *m_layout;
-    dcc::update::UpdateModel *m_model;
-    dcc::update::UpdateWorker *m_work;
+    UpdateModel *m_model;
+    UpdateWorker *m_work;
     QVBoxLayout *m_centerLayout;
     QLabel *m_label;//System Version display
     QString m_systemVersion;
     UpdateHistoryButton *m_historyBtn;//update history button
-    dcc::update::UpdatesStatus m_updateState;
+    UpdatesStatus m_updateState;
     QLabel *m_updateHistoryText;
     dcc::widgets::SettingsGroup *m_applistGroup;
     RecentHistoryApplist *m_recentHistoryApplist;
