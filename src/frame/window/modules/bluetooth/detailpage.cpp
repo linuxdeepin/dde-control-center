@@ -36,6 +36,7 @@
 #include <QFileDialog>
 #include <QApplication>
 #include <QDir>
+#include <QGSettings>
 
 #include <DDesktopServices>
 
@@ -50,6 +51,7 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     , m_adapter(adapter)
     , m_device(device)
     , m_transFile(new QFileDialog(this))
+    , m_setting(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
     setAccessibleName("DetailPage");
     m_ignoreButton = new QPushButton(tr("Ignore this device"));
@@ -64,7 +66,6 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     m_transfileButton = new QPushButton(tr("Send Files"));
     m_transfileButton->setObjectName("transfileButton");
     m_transfileButton->setEnabled(m_bluetoothModel->canTransportable());
-    GSettingWatcher::instance()->bind("bluetoothTransfile", m_transfileButton);  // 使用GSettings来控制显示状态
     setTitle(device->name());
 
     m_transFile->setModal(true);
@@ -169,14 +170,37 @@ DetailPage::DetailPage(const BluetoothModel *model, const Adapter *adapter, cons
     connect(m_editDevAlias, &QLineEdit::editingFinished, this, &DetailPage::onDeviceAliasChanged);
     connect(adapter, &Adapter::destroyed, this, &DetailPage::back);
     connect(backWidgetBtn, &DIconButton::clicked, this, &DetailPage::back);
+    connect(m_setting, &QGSettings::changed, this,  &DetailPage::onSettingChanged);
 }
 
 DetailPage::~DetailPage()
 {
     if (m_transFile)
         m_transFile->deleteLater();
+}
 
-    GSettingWatcher::instance()->erase("bluetoothTransfile", m_transfileButton);
+void DetailPage::onSettingChanged(const QString &key)
+{
+    if (key == "bluetoothTransfile") {
+
+        if (!m_bluetoothModel->canSendFile() || !m_device->canSendFile()) {
+            m_transfileButton->setVisible(false);
+        }
+        else {
+            if (m_setting->get("bluetoothTransfile").toString() == "Enabled") {
+                m_transfileButton->setVisible(true);
+                m_transfileButton->setEnabled(true);
+            }
+            else if (m_setting->get("bluetoothTransfile").toString() == "Disabled") {
+                m_transfileButton->setVisible(true);
+                m_transfileButton->setEnabled(false);
+            }
+            else {
+                m_transfileButton->setVisible(false);
+            }
+        }
+
+    }
 }
 
 void DetailPage::onDeviceStatusChanged()
@@ -186,7 +210,7 @@ void DetailPage::onDeviceStatusChanged()
         if (m_device->connectState()) {
             m_disconnectButton->show();
             m_connectButton->hide();
-            m_transfileButton->setVisible(m_device->canSendFile() && GSettingWatcher::instance()->getStatus("bluetoothTransfile") != "Hidden");
+            onSettingChanged("bluetoothTransfile");
             m_ignoreButton->setEnabled(true);
         } else {
             m_connectButton->show();

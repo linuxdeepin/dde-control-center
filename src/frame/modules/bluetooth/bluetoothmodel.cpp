@@ -31,6 +31,7 @@ namespace bluetooth {
 BluetoothModel::BluetoothModel(QObject *parent)
     : QObject(parent)
     , m_transPortable(false)
+    , m_canSendFile(false)
 {
     m_adapters.clear();
 }
@@ -91,6 +92,14 @@ void BluetoothModel::setTransportable(const bool transPortable)
     if (m_transPortable != transPortable) {
         m_transPortable = transPortable;
         Q_EMIT transportableChanged(transPortable);
+    }
+}
+
+void BluetoothModel::setCanSendFile(const bool canSendFile)
+{
+    if (m_canSendFile != canSendFile) {
+        m_canSendFile = canSendFile;
+        Q_EMIT canSendFileChanged(canSendFile);
     }
 }
 

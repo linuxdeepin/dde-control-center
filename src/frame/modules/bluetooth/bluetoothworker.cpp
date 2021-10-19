@@ -92,7 +92,9 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
     });
 
     connect(m_bluetoothInter, &DBusBluetooth::TransportableChanged, m_model, &BluetoothModel::setTransportable);
+    connect(m_bluetoothInter, &DBusBluetooth::CanSendFileChanged, m_model, &BluetoothModel::setCanSendFile);
     m_model->setTransportable(m_bluetoothInter->transportable());
+    m_model->setCanSendFile(m_bluetoothInter->canSendFile());
 
     m_bluetoothInter->setSync(sync);
 

@@ -31,6 +31,7 @@ class QLabel;
 class QLineEdit;
 class QPushButton;
 class QFileDialog;
+class QGSettings;
 QT_END_NAMESPACE
 
 class TitleLabel;
@@ -65,6 +66,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void onDeviceAliasChanged();
     void onDeviceStatusChanged();
+    void onSettingChanged(const QString &key);
 private:
     const dcc::bluetooth::BluetoothModel *m_bluetoothModel;
     const dcc::bluetooth::Adapter *m_adapter;
@@ -76,6 +78,7 @@ private:
     QLineEdit *m_editDevAlias;
     TitleLabel *m_devNameLabel;
     QFileDialog *m_transFile;
+    QGSettings *m_setting;
 };
 }
 }
