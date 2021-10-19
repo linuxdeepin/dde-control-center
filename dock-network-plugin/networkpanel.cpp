@@ -802,32 +802,10 @@ void NetworkPanel::refreshIcon()
         strength = getStrongestAp();
         stateString = WirelessItem::getStrengthStateString(strength);
         iconString = QString("wireless-%1-symbolic").arg(stateString);
-
-        //如果无线连接有IP冲突，则显示已连接但是无法访问网络的图标
-        if (m_ipConflict && getActiveWirelessList().size() > 0) {
-            foreach(auto ip, getActiveWirelessList()) {
-                if (m_conflictMap.keys().contains(ip)) {
-                    stateString = "offline";
-                    iconString = QString("network-wireless-%1-symbolic").arg(stateString);
-                    break;
-                }
-            }
-        }
         break;
     case PluginState::WiredConnected:
         stateString = "online";
         iconString = QString("network-%1-symbolic").arg(stateString);
-
-        //如果有线连接有IP冲突，则显示有线连接断开的图标
-        if (m_ipConflict && getActiveWiredList().size() > 0) {
-            foreach(auto ip, getActiveWiredList()) {
-                if (m_conflictMap.keys().contains(ip)) {
-                    stateString = "offline";
-                    iconString = QString("network-%1-symbolic").arg(stateString);
-                    break;
-                }
-            }
-        }
         break;
     case PluginState::Disconnected:
     case PluginState::WirelessDisconnected:
@@ -920,6 +898,32 @@ void NetworkPanel::refreshIcon()
     }
     }
 
+    if (m_ipConflict) {
+        //如果无线连接有IP冲突，则显示已连接但是无法访问网络的图标
+        QStringList wirelessIpList = getActiveWirelessList();
+        bool wirelessConflicted = false;
+        if (wirelessIpList.size() > 0) {
+            foreach(auto ip, wirelessIpList) {
+                if (m_conflictMap.keys().contains(ip)) {
+                    stateString = "offline";
+                    iconString = QString("network-wireless-%1-symbolic").arg(stateString);
+                    wirelessConflicted = true;
+                    break;
+                }
+            }
+        }
+        // 如果有线连接有IP冲突，则显示有线连接断开的图标
+        QStringList wiredIpList = getActiveWiredList();
+        if (!wirelessConflicted && wiredIpList.size() > 0) {
+            foreach(auto ip, wiredIpList) {
+                if (m_conflictMap.keys().contains(ip)) {
+                    stateString = "offline";
+                    iconString = QString("network-%1-symbolic").arg(stateString);
+                    break;
+                }
+            }
+        }
+    }
     m_refreshIconTimer->stop();
 
     if (height() <= PLUGIN_BACKGROUND_MIN_SIZE && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
