@@ -108,11 +108,25 @@ void Device::setConnecting(bool connecting)
 
 bool Device::canSendFile() const
 {
-    // 目前pc和手机可以发送蓝牙文件
-    if ((m_deviceType == "pc") || (m_deviceType == "phone")) {
-        return true;
+    bool ret = false;
+  
+    if (!QGSettings::isSchemaInstalled("com.deepin.dde.control-center"))
+        return ret;
+
+    QGSettings gsetting("com.deepin.dde.control-center", QByteArray());
+
+    if (!gsetting.keys().contains("sendFile"))
+        return ret;
+
+    ret = gsetting.get("send-file").toBool();
+
+    if (ret && ((m_deviceType == "pc") || (m_deviceType == "phone"))) {
+        ret = true;
+    } else {
+        ret = false;
     }
-    return false;
+  
+    return ret;
 }
 
 

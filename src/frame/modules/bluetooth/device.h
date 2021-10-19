@@ -28,6 +28,7 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QGSettings/QGSettings>
 
 static const QMap<QString,QString> deviceType2Icon {
     {"unknow","other"},
