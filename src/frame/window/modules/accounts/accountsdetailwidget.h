@@ -54,6 +54,7 @@ class QLineEdit;
 class QEvent;
 class QCommandLinkButton;
 class QStackedWidget;
+class QScrollArea;
 QT_END_NAMESPACE
 
 namespace dcc {
@@ -130,6 +131,7 @@ private:
     QHBoxLayout *m_avatarLayout;
     DDialog *m_tipDialog;
     DWarningButton *m_deleteAccount;
+    QScrollArea *m_scrollArea;
 };
 
 }   // namespace accounts
