@@ -298,7 +298,7 @@
     <message>
         <location filename="../sections/genericsection.cpp"/>
         <source>The name already exists</source>
-        <translation>該名稱已存在</translation>
+        <translation>名稱已被佔用</translation>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>

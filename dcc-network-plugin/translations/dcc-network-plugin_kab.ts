@@ -282,6 +282,11 @@
         <source>Name</source>
         <translation>Isem</translation>
     </message>
+    <message>
+        <location filename="../sections/generichotspotsection.cpp"/>
+        <source>Required</source>
+        <translation>Yettusra</translation>
+    </message>
 </context>
 <context>
     <name>GenericSection</name>
@@ -303,7 +308,7 @@
     <message>
         <location filename="../sections/genericsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Yettusra</translation>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>

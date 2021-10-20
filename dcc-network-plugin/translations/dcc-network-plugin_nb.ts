@@ -286,7 +286,7 @@
     <message>
         <location filename="../sections/generichotspotsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Påkrevd</translation>
     </message>
 </context>
 <context>
@@ -309,7 +309,7 @@
     <message>
         <location filename="../sections/genericsection.cpp"/>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Påkrevd</translation>
     </message>
     <message>
         <location filename="../sections/genericsection.cpp"/>

@@ -1337,12 +1337,12 @@
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Customize Key Direction</source>
-        <translation>Përshtatni Drejtim Kyçi</translation>
+        <translation>Përshtatni Kah Kyçi</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Key Direction</source>
-        <translation>Drejtim Kyçi</translation>
+        <translation>Kah Kyçi</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
@@ -1804,12 +1804,12 @@
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Customize Key Direction</source>
-        <translation>Përshtatni Drejtim Kyçi</translation>
+        <translation>Përshtatni Kah Kyçi</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Key Direction</source>
-        <translation>Drejtim Kyçi</translation>
+        <translation>Kah Kyçi</translation>
     </message>
 </context>
 <context>
