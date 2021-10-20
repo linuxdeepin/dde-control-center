@@ -125,7 +125,6 @@ SearchModel::SearchModel(QObject *parent)
         {tr("Join User Experience Program"), false},
         {tr("Display Scaling"), false},
         {tr("Night Shift"), false},
-        {tr("Auto Login"), false},
         {tr("Login Without Password"), false},
         {tr("Auto Brightness"), false},
         {tr("General"), false},
