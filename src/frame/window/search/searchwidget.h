@@ -136,6 +136,7 @@ private:
     bool m_bIsUseTouchpad;
     QGSettings *m_searchModuleDevelop{nullptr};
     WM *m_deepinwm;
+    bool m_compositingAllowSwitch = true;
 };
 
 class SearchWidget : public DTK_WIDGET_NAMESPACE::DSearchEdit
