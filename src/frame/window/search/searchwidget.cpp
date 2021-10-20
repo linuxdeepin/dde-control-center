@@ -168,6 +168,11 @@ SearchModel::SearchModel(QObject *parent)
     for (auto data : m_removedefaultWidgetList) {
         m_defaultRemoveableList << data.second;
     }
+
+    m_compositingAllowSwitch = m_deepinwm->compositingAllowSwitch();
+    connect(m_deepinwm, &WM::CompositingAllowSwitchChanged, this, [ = ](bool compositingAllowSwitch) {
+        m_compositingAllowSwitch = compositingAllowSwitch;
+    });
 }
 
 QString SearchModel::formatSearchData(QString data1, QString data2, QString data3)
@@ -442,12 +447,8 @@ void SearchModel::loadxml()
                 continue;
         }
 
-        //qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
-        if (!m_bIsServerType && !m_deepinwm->compositingAllowSwitch()) {
-            qDebug() << "search not Window!";
-            if (tr("Window Effect") == searchBoxStrcut->translateContent) {
-                continue;
-            }
+        if (!m_bIsServerType && !m_compositingAllowSwitch && tr("Window Effect") == searchBoxStrcut->translateContent) {
+            continue;
         }
 
         m_EnterNewPagelist.append(searchBoxStrcut);
@@ -799,7 +800,7 @@ void SearchModel::setLanguage(const QString &type)
             QStringRef                  dataName;
             SearchBoxStruct::Ptr searchBoxStrcut = std::make_shared<SearchBoxStruct>();
             QString xmlExplain;
-            const bool compositingAllowSwitch = m_deepinwm->compositingAllowSwitch();
+
             /*
             <message>
                 <source>Update Setting</source>
@@ -926,13 +927,9 @@ void SearchModel::setLanguage(const QString &type)
                                     }
                                 }
 
-                                //qDebug()<<"m_deepinwm->compositingAllowSwitch() = "<<m_deepinwm->compositingAllowSwitch();
-                                if (!m_bIsServerType && !compositingAllowSwitch) {
-                                    qDebug() << "search not Window!";
-                                    if (tr("Window Effect") == searchBoxStrcut->translateContent) {
-                                        searchBoxStrcut = std::make_shared<SearchBoxStruct>();
-                                        continue;
-                                    }
+                                if (!m_bIsServerType && !m_compositingAllowSwitch && tr("Window Effect") == searchBoxStrcut->translateContent) {
+                                    searchBoxStrcut = std::make_shared<SearchBoxStruct>();
+                                    continue;
                                 }
 
                                 //因为输入法二级菜单的翻译在插件，所以需要获取输入法的翻译
