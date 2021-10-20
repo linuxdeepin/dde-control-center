@@ -107,6 +107,7 @@ protected:
 protected:
     QString getStatusName();
     QString statusStringDetail();
+    void setDeviceStatus(const DeviceStatus &status);
 
 private:
     NetworkInter *m_networkInter;

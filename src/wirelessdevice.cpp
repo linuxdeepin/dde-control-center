@@ -254,6 +254,7 @@ void WirelessDevice::updateActiveConnectionInfo(const QList<QJsonObject> &infos,
         QString connectionType = info.value("ConnectionType").toString();
         if (devicePath == this->path() && connectionType == "wireless-hotspot") {
             m_hotspotInfo = info;
+            setDeviceStatus(DeviceStatus::Disconnected);
             break;
         }
     }

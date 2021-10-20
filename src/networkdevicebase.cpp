@@ -110,13 +110,7 @@ void NetworkDeviceBase::updateDeviceInfo(const QJsonObject &info)
     m_data = info;
     DeviceStatus stat = convertDeviceStatus(info.value("State").toInt());
 
-    if (stat != m_deviceStatus) {
-        m_deviceStatus = stat;
-
-        enqueueStatus(stat);
-        // 状态发生变化后，需要向外抛出一个信号
-        Q_EMIT deviceStatusChanged(stat);
-    }
+    setDeviceStatus(stat);
 }
 
 void NetworkDeviceBase::initDeviceInfo()
@@ -235,4 +229,15 @@ QString NetworkDeviceBase::statusStringDetail()
     }
 
     return tr("Failed");
+}
+
+void NetworkDeviceBase::setDeviceStatus(const DeviceStatus &status)
+{
+    if (m_deviceStatus == status)
+        return;
+
+    m_deviceStatus = status;
+    enqueueStatus(status);
+    // 状态发生变化后，需要向外抛出一个信号
+    Q_EMIT deviceStatusChanged(status);
 }
