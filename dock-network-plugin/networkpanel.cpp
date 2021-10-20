@@ -23,7 +23,7 @@
 #include "constants.h"
 #include "widgets/tipswidget.h"
 #include "utils.h"
-#include "item/netitem.h"
+#include "item/netItem.h"
 #include "item/devicestatushandler.h"
 #include "imageutil.h"
 
@@ -37,6 +37,7 @@
 #include <QNetworkInterface>
 #include <QHostAddress>
 #include <QMap>
+#include <QMouseEvent>
 
 #include <networkcontroller.h>
 #include <networkdevicebase.h>
@@ -84,11 +85,34 @@ void NetworkPanel::initUi()
     m_netListView->setFrameShape(QFrame::NoFrame);
     m_netListView->setViewportMargins(0, 0, 0, 0);
     m_netListView->setItemSpacing(1);
+    m_netListView->setMouseTracking(true);
     m_netListView->setItemMargins(QMargins(10, 0, 10, 0));
     m_netListView->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
 
     NetworkDelegate *delegate = new NetworkDelegate(m_netListView);
+    delegate->setMargins(QMargins(10, 0, 10, 0));
     m_netListView->setItemDelegate(delegate);
+    connect(delegate, &NetworkDelegate::closeClicked, this, [ ] (const QModelIndex &index) {
+        // 获取该行数据对应的设备
+        NetItemType type = static_cast<NetItemType>(index.data(NetItemRole::TypeRole).toInt());
+        if (type == NetItemType::WiredViewItem) {
+            WiredDevice *device = static_cast<WiredDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
+            WiredConnection *connection = static_cast<WiredConnection *>(index.data(NetItemRole::DataRole).value<void *>());
+            if (device && connection) {
+                if (connection->connected())
+                    device->disconnectNetwork();
+                else
+                    device->connectNetwork(connection);
+            }
+        } else if (type == NetItemType::WirelessViewItem) {
+            WirelessDevice *device = static_cast<WirelessDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
+            AccessPoints *accessPoint = static_cast<AccessPoints *>(index.data(NetItemRole::DataRole).value<void *>());
+            if (device && accessPoint) {
+                if (device->activeAccessPoints() == accessPoint)
+                    device->disconnectNetwork();
+            }
+        }
+    });
 
     m_model = new QStandardItemModel(this);
     m_netListView->setModel(m_model);
@@ -128,7 +152,7 @@ void NetworkPanel::initConnection()
     connect(m_detectConflictTimer, &QTimer::timeout, this, &NetworkPanel::onDetectConflict);
 
     // 点击列表的信号
-    connect(m_netListView, &DListView::clicked, this, &NetworkPanel::onClickListView);
+    connect(m_netListView, &DListView::pressed, this, &NetworkPanel::onClickListView);
 
     // 连接超时的信号
     connect(m_switchWireTimer, &QTimer::timeout, [ = ]() {
@@ -1108,13 +1132,27 @@ int NetworkPanel::getStrongestAp()
 }
 
 // 用于绘制分割线
+#define RIGHTMARGIN 13
+#define DIAMETER 16
+
 NetworkDelegate::NetworkDelegate(QAbstractItemView *parent)
     : DStyledItemDelegate(parent)
+    , m_parentWidget(parent)
+    , m_currentDegree(0)
+    , m_refreshTimer(new QTimer(this))
 {
+    connect(m_refreshTimer, &QTimer::timeout, this, [ this ] () {
+        this->m_currentDegree += 14;
+        m_parentWidget->update();
+    });
+
+    m_refreshTimer->setInterval(30);
 }
 
 NetworkDelegate::~NetworkDelegate()
 {
+    if (m_refreshTimer->isActive())
+        m_refreshTimer->stop();
 }
 
 void NetworkDelegate::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
@@ -1146,6 +1184,48 @@ void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         else
             painter->fillRect(rct, QColor(255, 255, 255, 255 * 0.08));
     }
+    // 绘制右侧的连接图标
+    NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ItemIsCheckRole).toInt());
+    if (connectionStatus == NetConnectionType::Connecting) {
+        m_ConnectioningIndexs << index;
+    } else {
+        if (m_ConnectioningIndexs.contains(index))
+            m_ConnectioningIndexs.removeOne(index);
+    }
+
+    if (m_ConnectioningIndexs.size() > 0) {
+        if (!m_refreshTimer->isActive())
+            m_refreshTimer->start();
+    } else {
+        if (m_refreshTimer->isActive()) {
+            m_refreshTimer->stop();
+            m_currentDegree = 0;
+        }
+    }
+
+    switch (connectionStatus) {
+    case NetConnectionType::Connected: {
+        painter->setRenderHint(QPainter::Antialiasing, true);
+
+        QRect rct = checkRect(option.rect);
+        painter->setPen(QPen(Qt::NoPen));
+        painter->setBrush(m_parentWidget->palette().color(QPalette::Highlight));
+
+        QPen pen(Qt::white, DIAMETER / 100.0 * 6.20, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin);
+        if (index.data(NetItemRole::MouseInBoundingRole).toBool())
+            drawFork(painter, rct, pen, DIAMETER);
+        else
+            drawCheck(painter, rct, pen, DIAMETER);
+
+        break;
+    }
+    case NetConnectionType::Connecting: {
+        QRect rct = checkRect(option.rect);
+        drawLoading(painter, rct, DIAMETER);
+        break;
+    }
+    default: break;
+    }
 
     DStyledItemDelegate::paint(painter, option, index);
 }
@@ -1174,4 +1254,130 @@ bool NetworkDelegate::cantHover(const QModelIndex &index) const
     return (itemType == NetItemType::DeviceControllViewItem
             || itemType == NetItemType::WirelessControllViewItem
             || itemType == NetItemType::WiredControllViewItem);
+}
+
+void NetworkDelegate::drawCheck(QPainter *painter, QRect &rect, QPen &pen, int radius) const
+{
+    painter->drawPie(rect, 0, 360 * 16);
+    painter->setPen(pen);
+
+    QPointF points[3] = {
+        QPointF(rect.left() + radius / 100.0 * 32,  rect.top() + radius / 100.0 * 57),
+        QPointF(rect.left() + radius / 100.0 * 45,  rect.top() + radius / 100.0 * 70),
+        QPointF(rect.left() + radius / 100.0 * 75,  rect.top() + radius / 100.0 * 35)
+    };
+
+    painter->drawPolyline(points, 3);
+}
+
+void NetworkDelegate::drawFork(QPainter *painter, QRect &rect, QPen &pen, int radius) const
+{
+    painter->drawPie(rect, 0, 360 * 16);
+    pen.setCapStyle(Qt::RoundCap);
+    painter->setPen(pen);
+
+    QPointF pointsl[2] = {
+        QPointF(rect.left() + radius / 100.0 * 35,  rect.top() + radius / 100.0 * 35),
+        QPointF(rect.left() + radius / 100.0 * 65,  rect.top() + radius / 100.0 * 65)
+    };
+
+    painter->drawPolyline(pointsl, 2);
+
+    QPointF pointsr[2] = {
+        QPointF(rect.left() + radius / 100.0 * 65,  rect.top() + radius / 100.0 * 35),
+        QPointF(rect.left() + radius / 100.0 * 35,  rect.top() + radius / 100.0 * 65)
+    };
+
+    painter->drawPolyline(pointsr, 2);
+}
+
+void NetworkDelegate::drawLoading(QPainter *painter, QRect &rect, int diameter) const
+{
+    painter->setRenderHint(QPainter::Antialiasing, true);
+    QList<QList<QColor>> indicatorColors;
+    for (int i = 0; i < 3; i++)
+        indicatorColors << createDefaultIndicatorColorList(m_parentWidget->palette().highlight().color());
+
+    double radius = diameter * 0.66;
+    auto center = QRectF(rect).center();
+    auto indicatorRadius = radius / 2 / 2 * 1.1;
+    auto indicatorDegreeDelta = 360 / indicatorColors.count();
+
+#define INDICATOR_SHADOW_OFFSET 10
+
+    for (int i = 0; i <  indicatorColors.count(); ++i) {
+        auto colors = indicatorColors.value(i);
+        for (int j = 0; j < colors.count(); ++j) {
+            double degreeCurrent = m_currentDegree - j * INDICATOR_SHADOW_OFFSET + indicatorDegreeDelta * i;
+            auto x = (radius - indicatorRadius) * qCos(qDegreesToRadians(degreeCurrent));
+            auto y = (radius - indicatorRadius) * qSin(qDegreesToRadians(degreeCurrent));
+
+            x = center.x() + x;
+            y = center.y() + y;
+            auto tl = QPointF(x - 1 * indicatorRadius, y - 1 * indicatorRadius);
+            QRectF rf(tl.x(), tl.y(), indicatorRadius * 2, indicatorRadius * 2);
+
+            QPainterPath path;
+            path.addEllipse(rf);
+
+            painter->fillPath(path, colors.value(j));
+        }
+    }
+}
+
+bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
+{
+    switch (event->type()) {
+    case QEvent::MouseMove: {
+        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+        QRect rct = checkRect(option.rect);
+        model->setData(index, rct.contains(mouseEvent->pos()), NetItemRole::MouseInBoundingRole);
+        m_parentWidget->update();
+        break;
+    }
+    case QEvent::Leave :{
+        model->setData(index, false, NetItemRole::MouseInBoundingRole);
+        m_parentWidget->update();
+        break;
+    }
+    case QEvent::MouseButtonPress: {
+        NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ItemIsCheckRole).toInt());
+        if (connectionStatus == NetConnectionType::Connected) {
+            QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+            QRect rct = checkRect(option.rect);
+            if (rct.contains(mouseEvent->pos())) {
+                Q_EMIT closeClicked(index);
+                return true;
+            }
+        }
+        break;
+    }
+    default: break;
+    }
+
+    return DStyledItemDelegate::editorEvent(event, model, option, index);
+}
+
+QRect NetworkDelegate::checkRect(const QRect &rct) const
+{
+    int left = rct.right() - RIGHTMARGIN - DIAMETER;
+    int top = rct.top() + (rct.height() - DIAMETER) / 2;
+    QRect rect;
+    rect.setLeft(left);
+    rect.setTop(top);
+    rect.setWidth(DIAMETER);
+    rect.setHeight(DIAMETER);
+    return rect;
+}
+
+QList<QColor> NetworkDelegate::createDefaultIndicatorColorList(QColor color) const
+{
+    QList<QColor> colors;
+    QList<int> opacitys;
+    opacitys << 100 << 30 << 15 << 10 << 5 << 4 << 3 << 2 << 1;
+    for (int i = 0; i < opacitys.count(); ++i) {
+        color.setAlpha(255 * opacitys.value(i) / 100);
+        colors << color;
+    }
+    return colors;
 }

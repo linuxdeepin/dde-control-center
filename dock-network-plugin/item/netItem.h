@@ -35,7 +35,6 @@ DGUI_USE_NAMESPACE
 class NetworkDevice;
 class QLabel;
 class QPushButton;
-class StateButton;
 
 namespace dde {
   namespace network {
@@ -64,7 +63,9 @@ enum NetItemRole
 {
     TypeRole = Qt::UserRole + 100,
     DeviceDataRole,
-    DataRole
+    DataRole,
+    ItemIsCheckRole,
+    MouseInBoundingRole
 };
 
 #define PANELWIDTH 360
@@ -76,6 +77,13 @@ enum NetItemType
     WirelessViewItem,               // 无线列表
     WiredControllViewItem,          // 有线网卡开关
     WiredViewItem                   // 有线列表
+};
+
+enum NetConnectionType
+{
+    UnConnected = 0,               // 未连接
+    Connecting,                     // 正在连接
+    Connected                       // 已连接
 };
 
 class NetItem : public QObject
@@ -183,18 +191,10 @@ public:
 
 private:
     void initUi();
-    void initConnection();
-
-protected Q_SLOTS:
-    void onConnectionClicked();
 
 private:
     WiredConnection *m_connection;
     WiredDevice *m_device;
-
-    QWidget *m_connectionWidget;
-    StateButton *m_connIcon;
-    DViewItemAction *m_connectionItem;
 };
 
 class WirelessItem : public NetItem
@@ -217,19 +217,11 @@ private:
     void updateWifiIcon();
     void updateConnectionStatus();
 
-private Q_SLOTS:
-    void onConnection();
-
 private:
     AccessPoints *m_accessPoint;
     WirelessDevice *m_device;
     DViewItemAction *m_securityAction;
     DViewItemAction *m_wifiLabel;
-    DViewItemAction *m_connectionAction;
-    DSpinner *m_loadingStat;
-
-    QWidget *m_connectionWidget;
-    StateButton *m_connIcon;
 };
 
 #endif //  NETWORKAPPLETMODEL_H

@@ -149,12 +149,30 @@ public:
     explicit NetworkDelegate(QAbstractItemView *parent = Q_NULLPTR);
     ~NetworkDelegate() Q_DECL_OVERRIDE;
 
+Q_SIGNALS:
+    void closeClicked(const QModelIndex &);
+
 protected:
     void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;
     void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
 
     bool needDrawLine(const QModelIndex &index) const;
     bool cantHover(const QModelIndex &index) const;
+
+    void drawCheck(QPainter *painter, QRect &rect, QPen &pen, int radius) const;
+    void drawFork(QPainter *painter, QRect &rect, QPen &pen, int radius) const;
+    void drawLoading(QPainter *painter, QRect &rect, int diameter) const;
+    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
+
+    QRect checkRect(const QRect &rct) const;
+
+    QList<QColor> createDefaultIndicatorColorList(QColor color) const;
+
+private:
+    QAbstractItemView *m_parentWidget;
+    mutable double m_currentDegree;
+    QTimer *m_refreshTimer;
+    mutable QList<QModelIndex> m_ConnectioningIndexs;
 };
 
 #endif // NETWORKPANEL_H

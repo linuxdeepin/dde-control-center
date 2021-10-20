@@ -19,9 +19,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "netitem.h"
+#include "netItem.h"
 #include "constants.h"
-#include "../widgets/statebutton.h"
 
 #include <DApplicationHelper>
 #include <DHiDPIHelper>
@@ -54,6 +53,7 @@ NetItem::NetItem(QWidget *parent)
     , m_parentWidget(parent)
 {
     m_standardItem->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
+    m_standardItem->setData(NetConnectionType::UnConnected, ItemIsCheckRole);
 }
 
 NetItem::~NetItem()
@@ -316,20 +316,12 @@ WiredItem::WiredItem(QWidget *parent, WiredDevice *device, WiredConnection *conn
     : NetItem(parent)
     , m_connection(connection)
     , m_device(device)
-    , m_connectionWidget(new QWidget(parent))
-    , m_connIcon(new StateButton(m_connectionWidget))
-    , m_connectionItem(new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(16, 16)))
 {
     initUi();
-    initConnection();
 }
 
 WiredItem::~WiredItem()
 {
-    if (m_connectionItem)
-        m_connectionItem->setVisible(false);
-    if (m_connectionWidget)
-        m_connectionWidget->setVisible(false);
 }
 
 WiredConnection *WiredItem::connection()
@@ -339,9 +331,18 @@ WiredConnection *WiredItem::connection()
 
 void WiredItem::updateView()
 {
-    m_connectionItem->setVisible(m_connection->connected());
     standardItem()->setText(m_connection->connection()->id());
-    m_connectionItem->setVisible(m_connection->connected());
+    switch (m_connection->status()) {
+    case ConnectionStatus::Activating:
+        standardItem()->setData(NetConnectionType::Connecting, ItemIsCheckRole);
+        break;
+    case ConnectionStatus::Activated:
+        standardItem()->setData(NetConnectionType::Connected, ItemIsCheckRole);
+        break;
+    default:
+        standardItem()->setData(NetConnectionType::UnConnected, ItemIsCheckRole);
+        break;
+    }
 }
 
 NetItemType WiredItem::itemType()
@@ -358,25 +359,7 @@ void WiredItem::initUi()
     DViewItemAction *emptyAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
                                                          QSize(14, 20), QSize(14, 20), false);
 
-    m_connectionWidget->setFixedSize(22, 16);
-    QHBoxLayout *layout = new QHBoxLayout(m_connectionWidget);
-    layout->setContentsMargins(0, 0, 0, 0);
-    m_connIcon->setFixedSize(16, 16);
-    m_connIcon->setType(StateButton::Check);
-    layout->addWidget(m_connIcon);
-    layout->addStretch();
-
     standardItem()->setActionList(Qt::LeftEdge, { emptyAction });
-    m_connectionItem->setWidget(m_connectionWidget);
-    standardItem()->setActionList(Qt::RightEdge, { m_connectionItem });
-
-    connect(m_connectionItem, &DViewItemAction::destroyed, [ this ] {
-        this->m_connectionItem = nullptr;
-    });
-    connect(m_connectionWidget, &QWidget::destroyed, [ this ] {
-        this->m_connectionWidget = nullptr;
-    });
-
     updateView();
 
     standardItem()->setFlags(Qt::ItemIsEnabled);
@@ -386,37 +369,16 @@ void WiredItem::initUi()
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_connection)), NetItemRole::DataRole);
 }
 
-void WiredItem::initConnection()
-{
-    connect(m_connIcon, &StateButton::click, this, &WiredItem::onConnectionClicked);
-}
-
-void WiredItem::onConnectionClicked()
-{
-    // 在网络连接的情况下，断开网络
-    // 在网络未连接的情况下，连接网络
-    if (m_connection->connected())
-        m_device->disconnectNetwork();
-    else
-        m_device->connectNetwork(m_connection);
-}
-
 WirelessItem::WirelessItem(QWidget *parent, WirelessDevice *device, AccessPoints *ap)
     : NetItem(parent)
     , m_accessPoint(ap)
     , m_device(device)
-    , m_connectionAction(new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter , QSize(20, 20), QSize(20, 20), false))
-    , m_loadingStat(new DSpinner(parent))
-    , m_connectionWidget(new QWidget(parent))
-    , m_connIcon(new StateButton(m_connectionWidget))
 {
     initUi();
-    initConnection();
 }
 
 WirelessItem::~WirelessItem()
 {
-    m_loadingStat->deleteLater();
 }
 
 const AccessPoints *WirelessItem::accessPoint()
@@ -466,22 +428,8 @@ void WirelessItem::initUi()
     standardItem()->setSizeHint(QSize(-1, 36));
     standardItem()->setActionList(Qt::LeftEdge, { m_securityAction, m_wifiLabel });
 
-    // 绘制连接图标
-    m_connectionWidget->setFixedSize(22, 16);
-    m_connectionWidget->setVisible(false);
-    QHBoxLayout *layout = new QHBoxLayout(m_connectionWidget);
-    layout->setContentsMargins(0, 0, 0, 0);
-    m_connIcon->setFixedSize(16, 16);
-    m_connIcon->setType(StateButton::Check);
-    layout->addWidget(m_connIcon);
-    layout->addStretch();
-
     standardItem()->setText(m_accessPoint->ssid());
 
-    m_loadingStat->setFixedSize(20, 20);
-    m_loadingStat->setVisible(false);
-
-    standardItem()->setActionList(Qt::RightEdge, { m_connectionAction });
     // 绘制右侧的连接图标
     standardItem()->setFlags(Qt::ItemIsEnabled);
     updateConnectionStatus();
@@ -491,11 +439,6 @@ void WirelessItem::initUi()
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_accessPoint)), NetItemRole::DataRole);
     standardItem()->setBackground(Qt::transparent);
     standardItem()->setFontSize(DFontSizeManager::T6);
-}
-
-void WirelessItem::initConnection()
-{
-    connect(m_connIcon, &StateButton::click, this, &WirelessItem::onConnection);
 }
 
 void WirelessItem::updateSrcirityIcon()
@@ -527,38 +470,15 @@ void WirelessItem::updateWifiIcon()
 
 void WirelessItem::updateConnectionStatus()
 {
-    if (m_accessPoint->connected()) {
-        // 当前WiFi已连接，显示
-        if (m_loadingStat->isPlaying())
-            m_loadingStat->stop();
-
-        m_loadingStat->setVisible(false);
-        m_connectionWidget->setVisible(true);
-        m_connectionAction->setWidget(m_connectionWidget);
-        m_connectionAction->setVisible(true);
-    } else {
-        m_connectionWidget->setVisible(false);
-
-        if (m_accessPoint->status() == ConnectionStatus::Activating) {
-            // 如果当前网络是正在连接状态
-            m_loadingStat->setVisible(true);
-            m_loadingStat->start();
-
-            m_connectionAction->setWidget(m_loadingStat);
-            m_connectionAction->setVisible(true);
-        } else {
-            if (m_loadingStat->isPlaying()) {
-                m_loadingStat->setVisible(false);
-                m_loadingStat->stop();
-            }
-
-            m_connectionAction->setVisible(false);
-        }
+    switch (m_accessPoint->status()) {
+    case ConnectionStatus::Activating:
+        standardItem()->setData(NetConnectionType::Connecting, ItemIsCheckRole);
+        break;
+    case ConnectionStatus::Activated:
+        standardItem()->setData(NetConnectionType::Connected, ItemIsCheckRole);
+        break;
+    default:
+        standardItem()->setData(NetConnectionType::UnConnected, ItemIsCheckRole);
+        break;
     }
-}
-
-void WirelessItem::onConnection()
-{
-    if (m_device->activeAccessPoints() == m_accessPoint)
-        m_device->disconnectNetwork();
 }
