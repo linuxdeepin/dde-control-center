@@ -1246,6 +1246,11 @@
         <source>Use FSID for Key Passphrase</source>
         <translation>Empregar FSID como contrasinal da chave</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VpnOpenVPNSection</name>
@@ -1353,6 +1358,11 @@
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Local IP</source>
         <translation>IP local</translation>
+    </message>
+    <message>
+        <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1637,6 +1647,11 @@
         <source>NT Domain</source>
         <translation>Dominio NT</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VpnSstpProxySection</name>
@@ -1763,6 +1778,11 @@
         <source>ESP</source>
         <translation>ESP</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VpnTLSSection</name>
@@ -1878,6 +1898,11 @@
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>CA File</source>
         <translation>Ficheiro CA</translation>
+    </message>
+    <message>
+        <location filename="../sections/vpn/vpnvpncsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

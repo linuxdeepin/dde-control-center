@@ -1246,6 +1246,11 @@
         <source>Use FSID for Key Passphrase</source>
         <translation>Açar şifrəsi üçün FSİD istifadə edin</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VpnOpenVPNSection</name>
@@ -1353,6 +1358,11 @@
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Local IP</source>
         <translation>Yerlo İP</translation>
+    </message>
+    <message>
+        <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1637,6 +1647,11 @@
         <source>NT Domain</source>
         <translation>NT domen</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VpnSstpProxySection</name>
@@ -1763,6 +1778,11 @@
         <source>ESP</source>
         <translation>ESP</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>VpnTLSSection</name>
@@ -1878,6 +1898,11 @@
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>CA File</source>
         <translation>CA faylı</translation>
+    </message>
+    <message>
+        <location filename="../sections/vpn/vpnvpncsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

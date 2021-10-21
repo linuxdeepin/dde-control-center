@@ -1246,6 +1246,11 @@
         <source>Use FSID for Key Passphrase</source>
         <translation>為金鑰密碼使用 FSID</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>無效的網關地址</translation>
+    </message>
 </context>
 <context>
     <name>VpnOpenVPNSection</name>
@@ -1353,6 +1358,11 @@
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Local IP</source>
         <translation>本機 IP</translation>
+    </message>
+    <message>
+        <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>無效的網關地址</translation>
     </message>
 </context>
 <context>
@@ -1637,6 +1647,11 @@
         <source>NT Domain</source>
         <translation>NT 網域</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>無效的網關地址</translation>
+    </message>
 </context>
 <context>
     <name>VpnSstpProxySection</name>
@@ -1763,6 +1778,11 @@
         <source>ESP</source>
         <translation>ESP</translation>
     </message>
+    <message>
+        <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>無效的網關地址</translation>
+    </message>
 </context>
 <context>
     <name>VpnTLSSection</name>
@@ -1878,6 +1898,11 @@
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>CA File</source>
         <translation>CA 憑證檔</translation>
+    </message>
+    <message>
+        <location filename="../sections/vpn/vpnvpncsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>無效的網關地址</translation>
     </message>
 </context>
 <context>
