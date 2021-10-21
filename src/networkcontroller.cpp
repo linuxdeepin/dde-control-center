@@ -543,7 +543,7 @@ void NetworkController::updateDeviceHotpot()
 
 void NetworkController::updateDeviceActiveHotpot()
 {
-    if (!m_hotspotController || m_activeConnectionInfo.size() == 0)
+    if (!m_hotspotController)
         return;
 
     QList<QJsonObject> conns;
