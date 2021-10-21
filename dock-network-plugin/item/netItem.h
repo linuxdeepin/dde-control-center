@@ -64,11 +64,11 @@ enum NetItemRole
     TypeRole = Qt::UserRole + 100,
     DeviceDataRole,
     DataRole,
-    ItemIsCheckRole,
+    ConnectionStatusRole,
     MouseInBoundingRole
 };
 
-#define PANELWIDTH 360
+#define PANELWIDTH 300
 
 enum NetItemType
 {
@@ -191,10 +191,12 @@ public:
 
 private:
     void initUi();
+    QString symbolicIcon(const bool &connected) const;
 
 private:
     WiredConnection *m_connection;
     WiredDevice *m_device;
+    DViewItemAction *m_connectionIconAction;
 };
 
 class WirelessItem : public NetItem

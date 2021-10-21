@@ -39,8 +39,8 @@
 #include <wirelessdevice.h>
 #include <networkconst.h>
 
-#define SWITCH_WIDTH 60
-#define SWITCH_HEIGHT 32
+#define SWITCH_WIDTH 50
+#define SWITCH_HEIGHT 24
 
 DWIDGET_USE_NAMESPACE
 
@@ -53,7 +53,7 @@ NetItem::NetItem(QWidget *parent)
     , m_parentWidget(parent)
 {
     m_standardItem->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
-    m_standardItem->setData(NetConnectionType::UnConnected, ItemIsCheckRole);
+    m_standardItem->setData(NetConnectionType::UnConnected, ConnectionStatusRole);
 }
 
 NetItem::~NetItem()
@@ -125,7 +125,7 @@ void DeviceControllItem::initItemText()
     standardItem()->setSizeHint(QSize(-1, 46));
     standardItem()->setFlags(Qt::ItemIsEnabled);
     standardItem()->setData(NetItemType::DeviceControllViewItem, NetItemRole::TypeRole);
-    standardItem()->setFontSize(DFontSizeManager::T3);
+    standardItem()->setFontSize(DFontSizeManager::T4);
 
     if (m_deviceType == DeviceType::Wireless)
         standardItem()->setText(tr("Wireless Network"));
@@ -138,7 +138,7 @@ void DeviceControllItem::initSwitcher()
     // 创建右侧的切换开关
     DViewItemAction *switchAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter,
            QSize(0, 0), QSize(0, 0), false);
-    m_switcher->setFixedSize(SWITCH_WIDTH, SWITCH_HEIGHT);
+    m_switcher->setSizeIncrement(SWITCH_WIDTH, SWITCH_HEIGHT);
     switchAction->setWidget(m_switcher);
     standardItem()->setActionList(Qt::RightEdge, { switchAction });
 }
@@ -166,9 +166,9 @@ WiredControllItem::WiredControllItem(QWidget *parent, WiredDevice *device)
     standardItem()->setFlags(Qt::ItemIsEnabled);
     standardItem()->setData(NetItemType::WiredControllViewItem, NetItemRole::TypeRole);
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)), NetItemRole::DeviceDataRole);
-    standardItem()->setFontSize(DFontSizeManager::T4);
+    standardItem()->setFontSize(DFontSizeManager::T5);
 
-    m_switcher->setFixedSize(SWITCH_WIDTH, SWITCH_HEIGHT);
+    m_switcher->setSizeIncrement(SWITCH_WIDTH, SWITCH_HEIGHT);
     m_switcher->setChecked(m_device->isEnabled());
 
     DViewItemAction *switchAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter,
@@ -227,10 +227,10 @@ WirelessControllItem::WirelessControllItem(QWidget *parent, WirelessDevice *devi
 {
     QHBoxLayout *layout = new QHBoxLayout(m_widget);
     layout->setContentsMargins(0, 0, 0, 0);
-    m_widget->setFixedSize(SWITCH_WIDTH + 50, SWITCH_HEIGHT);
+    m_widget->setFixedSize(SWITCH_WIDTH + 30, 46);
     m_widget->setLayout(layout);
 
-    m_switcher->setFixedSize(SWITCH_WIDTH, SWITCH_HEIGHT);
+    m_switcher->setSizeIncrement(SWITCH_WIDTH, SWITCH_HEIGHT);
     m_switcher->setChecked(device->isEnabled());
 
     QPixmap pixmap = DHiDPIHelper::loadNxPixmap(":/wireless/resources/wireless/refresh.svg");
@@ -257,7 +257,7 @@ WirelessControllItem::WirelessControllItem(QWidget *parent, WirelessDevice *devi
     standardItem()->setFlags(Qt::ItemIsEnabled);
     standardItem()->setData(NetItemType::WirelessControllViewItem, NetItemRole::TypeRole);
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)), NetItemRole::DeviceDataRole);
-    standardItem()->setFontSize(DFontSizeManager::T4);
+    standardItem()->setFontSize(DFontSizeManager::T5);
 
     connect(m_switcher, &DSwitchButton::checkedChanged, this, &WirelessControllItem::onSwitchDevices);
 }
@@ -329,20 +329,40 @@ WiredConnection *WiredItem::connection()
     return m_connection;
 }
 
+QString WiredItem::symbolicIcon(const bool &connected) const
+{
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        return connected ? QString(":/wired/resources/wired/network-online-symbolic-dark") :
+                           QString(":/wired/resources/wired/network-none-symbolic-dark");
+    }
+
+    return connected ? QString(":/wired/resources/wired/network-online-symbolic") :
+                       QString(":/wired/resources/wired/network-none-symbolic");
+}
+
 void WiredItem::updateView()
 {
+    // 更新显示的文本
     standardItem()->setText(m_connection->connection()->id());
+    // 更新当前的连接状态
+    QString connectionIconFile;
     switch (m_connection->status()) {
     case ConnectionStatus::Activating:
-        standardItem()->setData(NetConnectionType::Connecting, ItemIsCheckRole);
+        standardItem()->setData(NetConnectionType::Connecting, ConnectionStatusRole);
+        connectionIconFile = symbolicIcon(false);
         break;
     case ConnectionStatus::Activated:
-        standardItem()->setData(NetConnectionType::Connected, ItemIsCheckRole);
+        standardItem()->setData(NetConnectionType::Connected, ConnectionStatusRole);
+        connectionIconFile = symbolicIcon(true);
         break;
     default:
-        standardItem()->setData(NetConnectionType::UnConnected, ItemIsCheckRole);
+        standardItem()->setData(NetConnectionType::UnConnected, ConnectionStatusRole);
+        connectionIconFile = symbolicIcon(false);
         break;
     }
+
+    // 设置左侧的连接图标
+    m_connectionIconAction->setIcon(QIcon(connectionIconFile));
 }
 
 NetItemType WiredItem::itemType()
@@ -357,9 +377,12 @@ void WiredItem::initUi()
 
     // 占位的
     DViewItemAction *emptyAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
-                                                         QSize(14, 20), QSize(14, 20), false);
+                                                       QSize(20, 20), QSize(20, 20), false);
 
-    standardItem()->setActionList(Qt::LeftEdge, { emptyAction });
+    m_connectionIconAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
+                                                         QSize(20, 20), QSize(20, 20), false);
+
+    standardItem()->setActionList(Qt::LeftEdge, { emptyAction, m_connectionIconAction });
     updateView();
 
     standardItem()->setFlags(Qt::ItemIsEnabled);
@@ -472,13 +495,13 @@ void WirelessItem::updateConnectionStatus()
 {
     switch (m_accessPoint->status()) {
     case ConnectionStatus::Activating:
-        standardItem()->setData(NetConnectionType::Connecting, ItemIsCheckRole);
+        standardItem()->setData(NetConnectionType::Connecting, ConnectionStatusRole);
         break;
     case ConnectionStatus::Activated:
-        standardItem()->setData(NetConnectionType::Connected, ItemIsCheckRole);
+        standardItem()->setData(NetConnectionType::Connected, ConnectionStatusRole);
         break;
     default:
-        standardItem()->setData(NetConnectionType::UnConnected, ItemIsCheckRole);
+        standardItem()->setData(NetConnectionType::UnConnected, ConnectionStatusRole);
         break;
     }
 }

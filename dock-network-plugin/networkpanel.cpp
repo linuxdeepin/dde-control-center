@@ -44,7 +44,6 @@
 #include <wireddevice.h>
 #include <wirelessdevice.h>
 
-const int ItemWidth = 250;
 const QString MenueEnable = "enable";
 const QString MenueWiredEnable = "wireEnable";
 const QString MenueWirelessEnable = "wirelessEnable";
@@ -121,7 +120,7 @@ void NetworkPanel::initUi()
     centerLayout->setContentsMargins(0, 0, 0, 0);
     centerLayout->addWidget(m_netListView);
 
-    m_applet->setFixedWidth(ItemWidth);
+    m_applet->setFixedWidth(PANELWIDTH);
     m_applet->setWidget(m_centerWidget);
     m_applet->setFrameShape(QFrame::NoFrame);
     m_applet->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -1190,9 +1189,10 @@ void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
             painter->fillRect(rct, QColor(255, 255, 255, 255 * 0.08));
     }
     // 绘制右侧的连接图标
-    NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ItemIsCheckRole).toInt());
+    NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());
     if (connectionStatus == NetConnectionType::Connecting) {
-        m_ConnectioningIndexs << index;
+        if (!m_ConnectioningIndexs.contains(index))
+            m_ConnectioningIndexs << index;
     } else {
         if (m_ConnectioningIndexs.contains(index))
             m_ConnectioningIndexs.removeOne(index);
@@ -1346,7 +1346,7 @@ bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
         break;
     }
     case QEvent::MouseButtonPress: {
-        NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ItemIsCheckRole).toInt());
+        NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());
         if (connectionStatus == NetConnectionType::Connected) {
             QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
             QRect rct = checkRect(option.rect);
