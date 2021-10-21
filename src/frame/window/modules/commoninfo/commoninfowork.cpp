@@ -28,16 +28,20 @@
 #include "widgets/basiclistdelegate.h"
 #include "widgets/utils.h"
 
+#include <DConfig>
+
 #include <signal.h>
 #include <QStandardPaths>
 #include <QFutureWatcher>
 #include <QtConcurrent>
+#include <QProcess>
 
 using namespace DCC_NAMESPACE;
 using namespace commoninfo;
 
 const QString UeProgramInterface("com.deepin.userexperience.Daemon");
 const QString UeProgramObjPath("/com/deepin/userexperience/Daemon");
+const QString GRUB_EDIT_AUTH_ACCOUNT("root");
 
 CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     : QObject(parent)
@@ -54,9 +58,28 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                        "/com/deepin/daemon/Grub2/Theme",
                                        QDBusConnection::systemBus(), this);
 
+    m_dBusGrubEditAuth = new GrubEditAuthDbus("com.deepin.daemon.Grub2",
+                                              "/com/deepin/daemon/Grub2/EditAuthentication",
+                                              QDBusConnection::systemBus(), this);
+
     m_dBusdeepinIdInter = new GrubDevelopMode("com.deepin.deepinid",
                                                 "/com/deepin/deepinid",
                                                 QDBusConnection::sessionBus(), this);
+
+    // TODO: 使用控制中心统一配置
+    m_commomModel->setShowGrubEditAuth(true);
+//    m_dconfig = new DConfig("dde-control-center-config", QString(), this);
+//    if (!m_dconfig->isValid()) {
+//        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_dconfig->name(), m_dconfig->subpath());
+//    } else {
+//        bool showGrubEditAuthConfig = m_dconfig->value("show-grub-edit-auth-config").toBool();
+//        m_commomModel->setShowGrubEditAuth(showGrubEditAuthConfig);
+//        QObject::connect(m_dconfig, &DConfig::valueChanged, [this](const QString &key) {
+//            if (key == "show-grub-edit-auth-config") {
+//                Q_EMIT showGrubEditAuthChanged(m_dconfig->value("show-grub-edit-auth-config").toBool());
+//            }
+//        });
+//    }
 
     licenseStateChangeSlot();
 
@@ -68,6 +91,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     m_commomModel->setDeveloperModeState(m_dBusdeepinIdInter->deviceUnlocked());
     m_dBusGrub->setSync(false, false);
     m_dBusGrubTheme->setSync(false, false);
+    m_dBusGrubEditAuth->setSync(false, false);
 
     //监听开发者在线认证失败的错误接口信息
     connect(m_dBusdeepinIdInter, &GrubDevelopMode::Error, this, [](int code, const QString &msg) {
@@ -123,6 +147,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     }, Qt::QueuedConnection);
 
     connect(m_dBusGrubTheme, &GrubThemeDbus::BackgroundChanged, this, &CommonInfoWork::onBackgroundChanged);
+    connect(m_dBusGrubEditAuth, &GrubEditAuthDbus::EnabledUsersChanged, this, &CommonInfoWork::onEnabledUsersChanged);
     QDBusConnection::systemBus().connect("com.deepin.license", "/com/deepin/license/Info",
                                          "com.deepin.license.Info", "LicenseStateChange",
                                          this, SLOT(licenseStateChangeSlot()));
@@ -188,6 +213,31 @@ void CommonInfoWork::setEnableTheme(bool value)
     });
 }
 
+void CommonInfoWork::disableGrubEditAuth()
+{
+    QDBusPendingCall call = m_dBusGrubEditAuth->Disable(GRUB_EDIT_AUTH_ACCOUNT);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher * w) {
+        if (w->isError()) {
+            Q_EMIT grubEditAuthCancel();
+        }
+        w->deleteLater();
+    });
+}
+
+void CommonInfoWork::onSetGrubEditPasswd(const QString &password, const bool &isReset)
+{
+    // 密码加密后发送到后端存储
+    QDBusPendingCall call = m_dBusGrubEditAuth->Enable(GRUB_EDIT_AUTH_ACCOUNT, passwdEncrypt(password));
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=](QDBusPendingCallWatcher * w) {
+        if (w->isError() && !isReset) {
+            Q_EMIT grubEditAuthCancel();
+        }
+        w->deleteLater();
+    });
+}
+
 void CommonInfoWork::setDefaultEntry(const QString &entry)
 {
     QDBusPendingCall call = m_dBusGrub->SetDefaultEntry(entry);
@@ -205,6 +255,7 @@ void CommonInfoWork::grubServerFinished()
 {
     m_commomModel->setBootDelay(m_dBusGrub->timeout() > 1);
     m_commomModel->setThemeEnabled(m_dBusGrub->enableTheme());
+    m_commomModel->setGrubEditAuthEnabled(m_dBusGrubEditAuth->enabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
     m_commomModel->setUpdating(m_dBusGrub->updating());
 
     getEntryTitles();
@@ -217,6 +268,12 @@ void CommonInfoWork::onBackgroundChanged()
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &CommonInfoWork::getBackgroundFinished);
+}
+
+void CommonInfoWork::onEnabledUsersChanged(const QStringList & value)
+{
+    Q_UNUSED(value);
+    Q_EMIT m_commomModel->grubEditAuthEnabledChanged(m_dBusGrubEditAuth->enabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
 }
 
 void CommonInfoWork::setBackground(const QString &path)
@@ -401,6 +458,15 @@ void CommonInfoWork::getBackgroundFinished(QDBusPendingCallWatcher *w)
     }
 
     w->deleteLater();
+}
+
+QString CommonInfoWork::passwdEncrypt(const QString &password)
+{
+    static const QString pbkdf2_cmd(R"(echo -e "%1\n%2\n"| grub-mkpasswd-pbkdf2 | grep PBKDF2 | awk '{print $4}')");
+    static QProcess pbkdf2;
+    pbkdf2.start("bash", {"-c", pbkdf2_cmd.arg(password).arg(password)});
+    pbkdf2.waitForFinished();
+    return pbkdf2.readAllStandardOutput();
 }
 
 void CommonInfoWork::licenseStateChangeSlot()

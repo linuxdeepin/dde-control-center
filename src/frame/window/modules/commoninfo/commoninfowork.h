@@ -25,15 +25,23 @@
 #include <com_deepin_daemon_systeminfo.h>
 #include <com_deepin_daemon_grub2.h>
 #include <com_deepin_daemon_grub2_theme.h>
+#include <com_deepin_daemon_grub2_editauthentication.h>
 #include <com_deepin_system_userexperience_daemon.h>
 #include <com_deepin_deepinid.h>
 
 #include <QObject>
 
+#include <DObject>
+
 using GrubDbus = com::deepin::daemon::Grub2;
 using GrubThemeDbus = com::deepin::daemon::grub2::Theme;
+using GrubEditAuthDbus = com::deepin::daemon::grub2::EditAuthentication;
 using UeProgramDbus = com::deepin::userexperience::Daemon;
 using GrubDevelopMode = com::deepin::deepinid;
+
+DCORE_BEGIN_NAMESPACE
+class DConfig;
+DCORE_END_NAMESPACE
 
 namespace DCC_NAMESPACE {
 class MainWindow;
@@ -54,12 +62,19 @@ public:
     bool defaultUeProgram();
     void getLicenseState();
 
+Q_SIGNALS:
+    void grubEditAuthCancel();
+    void showGrubEditAuthChanged(bool show);
+
 public Q_SLOTS:
     void setBootDelay(bool value);
     void setEnableTheme(bool value);
     void setDefaultEntry(const QString &entry);
+    void disableGrubEditAuth();
+    void onSetGrubEditPasswd(const QString &password, const bool &isReset);
     void grubServerFinished();
     void onBackgroundChanged();
+    void onEnabledUsersChanged(const QStringList &value);
     void setBackground(const QString &path);
     void setUeProgram(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow);
     void setEnableDeveloperMode(bool enabled, DCC_NAMESPACE::MainWindow *pMainWindow);
@@ -69,11 +84,14 @@ public Q_SLOTS:
 private:
     void getEntryTitles();
     void getBackgroundFinished(QDBusPendingCallWatcher *w);
+    QString passwdEncrypt(const QString &password);
 
 private:
     CommonInfoModel *m_commomModel;
+    DTK_CORE_NAMESPACE::DConfig *m_dconfig;
     GrubDbus *m_dBusGrub;
     GrubThemeDbus *m_dBusGrubTheme;
+    GrubEditAuthDbus *m_dBusGrubEditAuth;
     UeProgramDbus *m_dBusUeProgram; // for user experience program
     QProcess *m_process = nullptr;
     GrubDevelopMode *m_dBusdeepinIdInter;

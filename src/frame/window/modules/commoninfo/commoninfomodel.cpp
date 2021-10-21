@@ -48,6 +48,19 @@ void CommonInfoModel::setThemeEnabled(const bool enabled)
     }
 }
 
+void CommonInfoModel::setShowGrubEditAuth(const bool enabled)
+{
+    m_isShowGrubEditAuth = enabled;
+}
+
+void CommonInfoModel::setGrubEditAuthEnabled(const bool enabled)
+{
+    if (m_grubEditAuthEnabled != enabled) {
+        m_grubEditAuthEnabled = enabled;
+        Q_EMIT grubEditAuthEnabledChanged(m_grubEditAuthEnabled);
+    }
+}
+
 void CommonInfoModel::setDefaultEntry(const QString &entry)
 {
     if (m_defaultEntry != entry) {

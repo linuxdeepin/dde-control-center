@@ -218,10 +218,21 @@ void CommonInfoModule::initBootWidget()
 
     connect(m_bootWidget, &BootWidget::bootdelay, m_commonWork, &CommonInfoWork::setBootDelay);
     connect(m_bootWidget, &BootWidget::enableTheme, m_commonWork, &CommonInfoWork::setEnableTheme);
+    connect(m_bootWidget, &BootWidget::enableGrubEditAuth, m_commonWork, [this](bool value){
+        if (value) {
+            m_bootWidget->showGrubEditAuthPasswdDialog(false);
+        } else {
+            m_commonWork->disableGrubEditAuth();
+        }
+    });
+    connect(m_bootWidget, &BootWidget::setGrubEditPasswd, m_commonWork, &CommonInfoWork::onSetGrubEditPasswd);
     connect(m_bootWidget, &BootWidget::defaultEntry, m_commonWork, &CommonInfoWork::setDefaultEntry);
     connect(m_bootWidget, &BootWidget::requestSetBackground, m_commonWork, &CommonInfoWork::setBackground);
+    connect(m_commonWork, &CommonInfoWork::grubEditAuthCancel, m_bootWidget, &BootWidget::onGrubEditAuthCancel);
+    connect(m_commonWork, &CommonInfoWork::showGrubEditAuthChanged, m_bootWidget, &BootWidget::setGrubEditAuthVisible);
 
     m_bootWidget->setModel(m_commonModel);
+    m_bootWidget->setGrubEditAuthVisible(m_commonModel->isShowGrubEditAuth());
 }
 
 void CommonInfoModule::initUeProgramWidget()

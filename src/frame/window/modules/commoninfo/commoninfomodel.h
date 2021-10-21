@@ -39,6 +39,8 @@ public:
     inline QString defaultEntry() const { return m_defaultEntry;}
     bool bootDelay() const;
     inline bool themeEnabled() const { return m_themeEnabled; }
+    inline bool isShowGrubEditAuth() { return m_isShowGrubEditAuth; }
+    inline bool grubEditAuthEnabled() { return m_grubEditAuthEnabled; }
     inline bool updating() const { return m_updating; }
     QPixmap background() const;
     void setBackground(const QPixmap &background);
@@ -51,6 +53,7 @@ public:
 Q_SIGNALS:
     void bootDelayChanged(const int timeout) const;
     void themeEnabledChanged(const bool enabled) const;
+    void grubEditAuthEnabledChanged(const bool enabled) const;
     void entryListsChanged(const QStringList &list);
     void defaultEntryChanged(const QString &entry);
     void updatingChanged(const bool &updating);
@@ -63,6 +66,8 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
     void setThemeEnabled(const bool enabled);
+    void setShowGrubEditAuth(const bool enabled);
+    void setGrubEditAuthEnabled(const bool enabled);
     void setDefaultEntry(const QString &entry);
     void setUpdating(bool updating);
     void setUeProgram(const bool ueProgram); // for user experience program
@@ -72,6 +77,8 @@ public Q_SLOTS:
 private:
     bool m_bootDelay;
     bool m_themeEnabled;
+    bool m_isShowGrubEditAuth = false;
+    bool m_grubEditAuthEnabled = false;
     bool m_updating;
     QStringList m_entryLists;
     QString m_defaultEntry;

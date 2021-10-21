@@ -33,6 +33,11 @@ Q_OBJECT
 public:
     typedef PW_ERROR_TYPE ERROR_TYPE;
 
+    enum CheckType {
+        Default,
+        Grub2
+    };
+
     /**
     * @brief PwqualityManager::instance 构造一个 单例
     * @return 返回一个静态实例
@@ -44,9 +49,9 @@ public:
     * @param password 带检密码字符串
     * @return 若找到，返回text，反之返回空
     */
-    ERROR_TYPE verifyPassword(const QString &user, const QString &password);
+    ERROR_TYPE verifyPassword(const QString &user, const QString &password, CheckType checkType = Default);
     PASSWORD_LEVEL_TYPE GetNewPassWdLevel(const QString &newPasswd);
-    QString getErrorTips(ERROR_TYPE type);
+    QString getErrorTips(ERROR_TYPE type, CheckType checkType = Default);
 
 private:
     PwqualityManager();

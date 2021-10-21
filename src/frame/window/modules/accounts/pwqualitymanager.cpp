@@ -35,15 +35,29 @@ PwqualityManager *PwqualityManager::instance()
     return &pwquality;
 }
 
-PwqualityManager::ERROR_TYPE PwqualityManager::verifyPassword(const QString &user, const QString &password)
+PwqualityManager::ERROR_TYPE PwqualityManager::verifyPassword(const QString &user, const QString &password, CheckType checkType)
 {
-    ERROR_TYPE error = deepin_pw_check(user.toLocal8Bit().data(), password.toLocal8Bit().data(), LEVEL_STRICT_CHECK, nullptr);
+    switch (checkType) {
+    case PwqualityManager::Default: {
+        ERROR_TYPE error = deepin_pw_check(user.toLocal8Bit().data(), password.toLocal8Bit().data(), LEVEL_STRICT_CHECK, nullptr);
 
-    if (error == PW_ERR_PW_REPEAT) {
-        error = PW_NO_ERR;
+        if (error == PW_ERR_PW_REPEAT) {
+            error = PW_NO_ERR;
+        }
+        return error;
+    }
+    case PwqualityManager::Grub2: {
+        // LEVEL_STRICT_CHECK?
+        ERROR_TYPE error = deepin_pw_check_grub2(user.toLocal8Bit().data(), password.toLocal8Bit().data(), LEVEL_STANDARD_CHECK, nullptr);
+
+        if (error == PW_ERR_PW_REPEAT) {
+            error = PW_NO_ERR;
+        }
+        return error;
+    }
     }
 
-    return error;
+    return PW_NO_ERR;
 }
 
 PASSWORD_LEVEL_TYPE PwqualityManager::GetNewPassWdLevel(const QString &newPasswd)
@@ -51,10 +65,10 @@ PASSWORD_LEVEL_TYPE PwqualityManager::GetNewPassWdLevel(const QString &newPasswd
     return get_new_passwd_strength_level(newPasswd.toLocal8Bit().data());
 }
 
-QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type)
+QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type, CheckType checkType)
 {
-    m_passwordMinLen = get_pw_min_length(LEVEL_STRICT_CHECK);
-    m_passwordMaxLen = get_pw_max_length(LEVEL_STRICT_CHECK);
+    m_passwordMinLen = (checkType == Default ? get_pw_min_length(LEVEL_STRICT_CHECK) : get_pw_min_length_grub2(LEVEL_STRICT_CHECK));
+    m_passwordMaxLen = (checkType == Default ? get_pw_max_length(LEVEL_STRICT_CHECK) : get_pw_max_length_grub2(LEVEL_STRICT_CHECK));
 
     //通用校验规则
     QMap<int, QString> PasswordFlagsStrMap = {

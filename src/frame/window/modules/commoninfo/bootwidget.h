@@ -31,6 +31,8 @@
 
 DWIDGET_BEGIN_NAMESPACE
 class DTipLabel;
+class DDialog;
+class DCommandLinkButton;
 DWIDGET_END_NAMESPACE
 
 namespace dcc {
@@ -63,10 +65,15 @@ Q_SIGNALS:
     void bootdelay(bool value);
     void defaultEntry(const QString &item);
     void requestSetBackground(const QString &path);
+    void enableGrubEditAuth(bool value);
+    void setGrubEditPasswd(const QString &passwd, const bool &isReset);
 
 public Q_SLOTS:
     void setEntryList(const QStringList &list);
     void onCurrentItem(const QModelIndex &curIndex);
+    void onGrubEditAuthCancel();
+    void setGrubEditAuthVisible(bool show);
+    void showGrubEditAuthPasswdDialog(bool isReset);
 
 private:
     QString m_defaultEntry;                      // 默认启动项
@@ -76,13 +83,17 @@ private:
     DTK_WIDGET_NAMESPACE::DTipLabel *m_themeLbl;    // 主题提示
     QGSettings *m_commoninfoBootWallpaperConfigSetting{nullptr};
 #endif
+    dcc::widgets::SwitchWidget *m_grubVerification;    // grub 验证
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_grubVerifyLbl;  // grub 验证提示
+    DTK_WIDGET_NAMESPACE::DCommandLinkButton *m_grubModifyPasswdLink; // grub修改密码
+    DTK_WIDGET_NAMESPACE::DDialog *m_grubEditAuthDialog = nullptr; // grub修改密码输入框
     DTK_WIDGET_NAMESPACE::DListView *m_bootList; // 启动项目列表
     dcc::widgets::TipsLabel *m_updatingLabel;    // Updating标签
     CommonBackgroundItem *m_background;          // 背景项
     QVBoxLayout *m_listLayout;
     QModelIndex m_curSelectedIndex;
     QStandardItemModel *m_bootItemModel;
-    CommonInfoModel *m_commonInfoModel;
+    CommonInfoModel *m_commonInfoModel = nullptr;
     bool m_isCommoninfoBootWallpaperConfigValid;
 };
 
