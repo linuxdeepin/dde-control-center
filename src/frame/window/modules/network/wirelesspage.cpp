@@ -694,9 +694,10 @@ void WirelessPage::showConnectHidePage()
 QString WirelessPage::connectionUuid(const QString &ssid)
 {
     QString uuid;
-    for (auto item : m_apItems) {
-        if (item->ssid() != ssid) continue;
-        uuid = item->uuid();
+    QList<QJsonObject> connections = m_device->connections();
+    for (auto item : connections) {
+        if (item.value("Ssid").toString() != ssid) continue;
+        uuid = item.value("Uuid").toString();
         if (!uuid.isEmpty()) break;
     }
     return uuid;
