@@ -774,6 +774,14 @@
             <default>'Enabled'</default>
             <description></description>
         </key>
+        <key name="screenshot-scroll-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
+        <key name="screenshot-ocr-config" enum="com.deepin.dde.control-center.StatusMode">
+            <default>'Enabled'</default>
+            <description></description>
+        </key>
         <key name="deepin-screen-recorder-config" enum="com.deepin.dde.control-center.StatusMode">
             <default>'Enabled'</default>
             <description></description>
