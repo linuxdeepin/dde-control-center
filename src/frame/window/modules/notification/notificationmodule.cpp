@@ -85,7 +85,7 @@ const QString NotificationModule::displayName() const
 
 void NotificationModule::active()
 {
-    m_worker->active(true);
+    m_worker->active(false);
 
     m_widget = new NotificationWidget(m_model);
     m_widget->setVisible(false);
