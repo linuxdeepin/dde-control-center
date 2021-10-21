@@ -292,7 +292,7 @@ void VpnPage::refreshVpnList(QList<VPNItem *> vpns)
     m_vpnSwitch->setVisible(m_modelprofiles->rowCount() > 0);
 
     // 延迟刷新，是为了显示正常
-    QTimer::singleShot(100, this, [ = ] {
+    QTimer::singleShot(1, this, [ = ] {
         onActiveConnsInfoChanged();
     });
 }
