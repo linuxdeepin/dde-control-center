@@ -22,6 +22,7 @@
 #include "vpnvpncsection.h"
 
 #include <QComboBox>
+#include <QHostAddress>
 
 #include <widgets/contentwidget.h>
 #include <widgets/lineeditwidget.h>
@@ -68,9 +69,10 @@ bool VpnVPNCSection::allInputValid()
 {
     bool valid = true;
 
-    if (m_gateway->text().isEmpty()) {
+    if (m_gateway->text().isEmpty() || !isIpv4Address(m_gateway->text())) {
         valid = false;
         m_gateway->setIsErr(true);
+        m_gateway->dTextEdit()->showAlertMessage(tr("Invalid gateway"), parentWidget(), 2000);
     } else {
         m_gateway->setIsErr(false);
     }
@@ -277,6 +279,18 @@ void VpnVPNCSection::onGroupPasswordFlagsChanged(Setting::SecretFlagType type)
 {
     m_currentGroupPasswordType = type;
     m_groupPassword->setVisible(m_currentGroupPasswordType == Setting::SecretFlagType::None);
+}
+
+bool VpnVPNCSection::isIpv4Address(const QString &ip)
+{
+    QHostAddress ipAddr(ip);
+    if (ipAddr == QHostAddress(QHostAddress::Null) || ipAddr == QHostAddress(QHostAddress::AnyIPv4)
+            || ipAddr.protocol() != QAbstractSocket::NetworkLayerProtocol::IPv4Protocol) {
+        return false;
+    }
+
+    QRegExp regExpIP("((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])[\\.]){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])");
+    return regExpIP.exactMatch(ip);
 }
 
 bool VpnVPNCSection::eventFilter(QObject *watched, QEvent *event)

@@ -54,6 +54,7 @@ private:
     void initConnection();
     void onAuthTypeChanged(const QString &type);
     void onCustomCipherEnableChanged(const bool enabled);
+    bool isIpv4Address(const QString &ip);
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:

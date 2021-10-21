@@ -68,6 +68,7 @@ private:
     void saveTlsItems();
     void savePasswordItems();
     void saveStaticKeyItems();
+    bool isIpv4Address(const QString &ip);
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:

@@ -52,6 +52,7 @@ private:
     void initConnection();
     void onPasswordFlagsChanged(Setting::SecretFlagType type);
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
+    bool isIpv4Address(const QString &ip);
 
 private:
     QList<QPair<QString, Setting::SecretFlagType>> PasswordFlagsStrMap;

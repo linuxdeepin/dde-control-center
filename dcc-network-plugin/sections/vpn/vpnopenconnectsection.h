@@ -51,6 +51,7 @@ public:
 private:
     void initUI();
     void initConnect();
+    bool isIpv4Address(const QString &ip);
     virtual bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
