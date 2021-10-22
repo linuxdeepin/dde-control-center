@@ -51,7 +51,7 @@ void MonitorIndicator::resizeEvent(QResizeEvent *e)
     rectangle.height = static_cast<ushort>(e->size().height());
 
     // need to restore the cut area, if not,cut out will be repeated.
-    bool isWaylandDisplay = qgetenv("WAYLAND_DISPLAY").isEmpty();
+    bool isWaylandDisplay = !qgetenv("WAYLAND_DISPLAY").isEmpty();
     XShapeCombineRectangles(isWaylandDisplay ? XOpenDisplay(nullptr) : QX11Info::display(), winId(), ShapeBounding, 0, 0, &rectangle, 1, ShapeSet, YXBanded);
 
     rectangle.x = 10;
