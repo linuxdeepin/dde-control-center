@@ -56,7 +56,6 @@ Q_SIGNALS:
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
     void showSecondaryScreen();
-    void setEffectiveReminderVisible(bool visible, int nEffectiveTime);
 
 private Q_SLOTS:
     void resetMonitorsView();
@@ -68,6 +67,7 @@ private Q_SLOTS:
     void onResize();
     void onRotateChanged(const quint16 rotate);
     void onGeometryChanged();
+    void onTakeEffect();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

@@ -70,24 +70,10 @@ MonitorsGround::MonitorsGround(int activateHeight, QWidget *parent)
     //添加场景
     setScene(&m_graphicsScene);
 
-    Q_EMIT setEffectiveReminderVisible(false, m_nEffectiveTime);
-
     m_effectiveTimer->setInterval(m_nEffectiveTime * 1000);
     m_effectiveTimer->setSingleShot(true);
-    connect(m_effectiveTimer, &QTimer::timeout, this, [=]() {
-        m_effectiveTimer->stop();
-        Q_EMIT setEffectiveReminderVisible(false, m_nEffectiveTime);
-        //执行生效操作
-        for (auto mon : m_model->monitorList()) {
-            disconnect(mon, &Monitor::geometryChanged, this, &MonitorsGround::onGeometryChanged);
-        }
-        applySettings();
 
-        qApp->processEvents();
-        //延时1000ms等待 MonitorInter执行完SetPosition后，再执行showsecondaryScreen显示副屏的配置窗口
-        QTimer::singleShot(1000, this, &MonitorsGround::showSecondaryScreen);
-        Q_EMIT requestMonitorRelease(m_monitors[m_movingItem]);
-    });
+    connect(m_effectiveTimer, &QTimer::timeout, this, &MonitorsGround::onTakeEffect);
 }
 
 MonitorsGround::~MonitorsGround() {
@@ -164,6 +150,21 @@ void MonitorsGround::onGeometryChanged() {
     onResize();
 }
 
+void MonitorsGround::onTakeEffect()
+{
+    m_effectiveTimer->stop();
+    //执行生效操作
+    for (auto mon : m_model->monitorList()) {
+        disconnect(mon, &Monitor::geometryChanged, this, &MonitorsGround::onGeometryChanged);
+    }
+    applySettings();
+
+    qApp->processEvents();
+    //延时1000ms等待 MonitorInter执行完SetPosition后，再执行showsecondaryScreen显示副屏的配置窗口
+    QTimer::singleShot(1000, this, &MonitorsGround::showSecondaryScreen);
+    Q_EMIT requestMonitorRelease(m_monitors[m_movingItem]);
+}
+
 void MonitorsGround::onRotateChanged(const quint16 rotate) {
     Q_UNUSED(rotate)
 
@@ -192,9 +193,7 @@ void MonitorsGround::onRequestMonitorRelease(Monitor *mon) {
     updateConnectedState();
     centeredMonitorsView();
 
-    //显示设置生效倒计时提示框
-    Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
-    m_effectiveTimer->start();
+    onTakeEffect();
 }
 
 void MonitorsGround::resetMonitorsView() {
@@ -1115,7 +1114,6 @@ QList<MonitorProxyWidget *> MonitorsGround::getConnectedDomain(MonitorProxyWidge
 //左右边界相交1个像素的情况下,只能像上下运动; 相反如果上下边界相交1个像素的情况下,只能左右运动.
 //鼠标巡边移动
 void MonitorsGround::onRequestKeyPress(MonitorProxyWidget *pw, int keyValue) {
-    Q_EMIT setEffectiveReminderVisible(false, m_nEffectiveTime);
     m_effectiveTimer->stop();
 
     //当鼠标移动的时候开始响应并执行自动吸附的逻辑
@@ -1225,13 +1223,11 @@ void MonitorsGround::onRequestKeyPress(MonitorProxyWidget *pw, int keyValue) {
 
     pw->update();
 
-    Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
     m_effectiveTimer->start();
 }
 
 //自动吸附实现
 void MonitorsGround::onRequestMouseMove(MonitorProxyWidget *pw) {
-    Q_EMIT setEffectiveReminderVisible(false, m_nEffectiveTime);
     m_effectiveTimer->stop();
 
     //当鼠标移动的时候开始响应并执行自动吸附的逻辑
