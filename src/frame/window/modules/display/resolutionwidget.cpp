@@ -195,9 +195,13 @@ void ResolutionWidget::setMonitor(Monitor *monitor)
     connect(m_monitor, &Monitor::modelListChanged, this, &ResolutionWidget::initResolution);
     connect(m_monitor, &Monitor::bestModeChanged, this, &ResolutionWidget::initResolution);
     connect(m_monitor, &Monitor::currentModeChanged, this, [=](const Resolution &mode) {
-        // 规避mode == 0
-        if (mode.id() == 0) {
-            return;
+        // 按主线逻辑，当mode=0时，在x11环境下需要特殊处理
+        // 在wayland环境下，直接跳过
+        if (qEnvironmentVariable("XDG_SESSION_TYPE").contains("x11")) {
+            // 规避mode == 0
+            if (mode.id() == 0) {
+                return;
+            }
         }
 
         for (int idx = 0; idx < m_resoItemModel->rowCount(); ++idx) {
