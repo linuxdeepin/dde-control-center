@@ -1,0 +1,24 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "networkDialogPosition": {
+            "value": "bottom",
+            "serial": 0,
+            "flags": ["nooverride"],
+            "name": "position",
+            "name[zh_CN]": "位置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "networkDialogPoint": {
+            "value": "1200x600",
+            "serial": 0,
+            "flags": ["nooverride"],
+            "name": "point",
+            "name[zh_CN]": "坐标",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+}

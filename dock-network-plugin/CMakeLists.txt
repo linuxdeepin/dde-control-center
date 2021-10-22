@@ -9,7 +9,7 @@ set(CMAKE_AUTOMOC ON)
 # 启用 qrc 资源文件的支持
 set(CMAKE_AUTORCC ON)
 
-file(GLOB_RECURSE SRCS "*.h" "*.cpp" "item/*.h" "item/*.cpp" "../src/*.h" "../src/*.cpp")
+file(GLOB_RECURSE SRCS "*.h" "*.cpp" "item/*.h" "item/*.cpp" "../src/*.h" "../src/*.cpp" "../common-plugin/*.h" "../common-plugin/*.cpp")
 
 find_package(Qt5 COMPONENTS Core Widgets DBus Network LinguistTools REQUIRED)
 find_package(PkgConfig REQUIRED)
@@ -27,7 +27,7 @@ qt5_add_translation(QM_FILES ${TS_FILES})
 add_custom_target(language ALL DEPENDS ${QM_FILES})
 
 add_definitions("${QT_DEFINITIONS} -DQT_PLUGIN")
-add_library(${PLUGIN_NAME} SHARED ${SRCS} network.qrc)
+add_library(${PLUGIN_NAME} SHARED ${SRCS} ../common-plugin/network.qrc)
 
 set(NETWORKINTERFACE "../src")
 list(REMOVE_ITEM NETWORKINTERFACE "utils.h")
@@ -53,6 +53,7 @@ target_include_directories(${PLUGIN_NAME} PUBLIC
     ${DDE_DOCK_INCLUDE_DIR}
     ${Qt5Network_INCLUDE_DIRS}
     ${KF5_QT_INCLUDE_DIRS}
+    "../common-plugin/"
 )
 
 target_link_libraries(${PLUGIN_NAME} PRIVATE

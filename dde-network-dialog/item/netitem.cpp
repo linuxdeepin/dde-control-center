@@ -19,8 +19,11 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "netItem.h"
+#include "netitem.h"
 #include "constants.h"
+#include "../widgets/statebutton.h"
+#include "wirelessconnect.h"
+#include "../localserver.h"
 
 #include <DApplicationHelper>
 #include <DHiDPIHelper>
@@ -28,6 +31,9 @@
 #include <DListView>
 #include <dloadingindicator.h>
 #include <DSpinner>
+#include <DLineEdit>
+#include <DToolButton>
+#include <DPasswordEdit>
 
 #include <QPainter>
 #include <QLabel>
@@ -136,8 +142,7 @@ void DeviceControllItem::initItemText()
 void DeviceControllItem::initSwitcher()
 {
     // 创建右侧的切换开关
-    DViewItemAction *switchAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter,
-           QSize(0, 0), QSize(0, 0), false);
+    DViewItemAction *switchAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(0, 0), QSize(0, 0), false);
     m_switcher->setSizeIncrement(SWITCH_WIDTH, SWITCH_HEIGHT);
     switchAction->setWidget(m_switcher);
     standardItem()->setActionList(Qt::RightEdge, { switchAction });
@@ -171,8 +176,7 @@ WiredControllItem::WiredControllItem(QWidget *parent, WiredDevice *device)
     m_switcher->setSizeIncrement(SWITCH_WIDTH, SWITCH_HEIGHT);
     m_switcher->setChecked(m_device->isEnabled());
 
-    DViewItemAction *switchAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter,
-           QSize(0, 0), QSize(0, 0), false);
+    DViewItemAction *switchAction = new DViewItemAction(Qt::AlignRight | Qt::AlignVCenter, QSize(0, 0), QSize(0, 0), false);
     switchAction->setWidget(m_switcher);
     standardItem()->setActionList(Qt::RightEdge, { switchAction });
 
@@ -298,7 +302,7 @@ bool WirelessControllItem::eventFilter(QObject *object, QEvent *event)
             if (!m_loadingIndicator->loading()) {
                 m_loadingIndicator->setLoading(true);
                 QTimer::singleShot(1000, this, [ = ] {
-                   m_loadingIndicator->setLoading(false);
+                    m_loadingIndicator->setLoading(false);
                 });
             }
         }
@@ -380,7 +384,7 @@ void WiredItem::initUi()
                                                        QSize(20, 20), QSize(20, 20), false);
 
     m_connectionIconAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
-                                                         QSize(20, 20), QSize(20, 20), false);
+                                                 QSize(20, 20), QSize(20, 20), false);
 
     standardItem()->setActionList(Qt::LeftEdge, { emptyAction, m_connectionIconAction });
     updateView();
@@ -392,21 +396,44 @@ void WiredItem::initUi()
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_connection)), NetItemRole::DataRole);
 }
 
+void WiredItem::connectNetwork()
+{
+    if (m_connection && !m_connection->connected()) {
+        m_device->connectNetwork(m_connection);
+    }
+}
+
 WirelessItem::WirelessItem(QWidget *parent, WirelessDevice *device, AccessPoints *ap)
     : NetItem(parent)
     , m_accessPoint(ap)
     , m_device(device)
+    , m_wirelessConnect(new WirelessConnect(this, device, ap))
 {
-    initUi();
+    initUi(parent);
+    initConnection();
+    if (m_accessPoint) {
+        m_wirelessConnect->setSsid(ap->ssid());
+        standardItem()->setText(m_accessPoint->ssid());
+    } else {
+        m_wifiLabel->setVisible(false);
+        standardItem()->setText(tr("Connect to hidden network"));
+    }
 }
 
 WirelessItem::~WirelessItem()
 {
+    m_stackWidget->setParent(nullptr);
+    m_stackWidget->deleteLater();
 }
 
 const AccessPoints *WirelessItem::accessPoint()
 {
     return m_accessPoint;
+}
+
+const WirelessDevice *WirelessItem::wirelessDevice()
+{
+    return m_device;
 }
 
 void WirelessItem::updateView()
@@ -438,35 +465,46 @@ QString WirelessItem::getStrengthStateString(int strength)
     return "80";
 }
 
-void WirelessItem::initUi()
+void WirelessItem::initUi(QWidget *parent)
 {
+    m_expandItem = new DViewItemAction(Qt::AlignBottom, QSize(PANELWIDTH - 10, 20), QSize(PANELWIDTH - 10, 20), false);
+    m_stackWidget = new DStackedWidget(parent);
+    // 初始化展开输入控件
+    initExpandUi();
+    m_expandItem->setWidget(m_stackWidget);
+    m_stackWidget->adjustSize();
+    m_stackWidget->setFixedSize(PANELWIDTH - 10, 80);
+    standardItem()->setActionList(Qt::BottomEdge, { m_expandItem });
+    m_expandItem->setVisible(false);
     // 左侧的加密图标
-    m_securityAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter, QSize(20, 20), QSize(20, 20), false);
+    m_securityAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignTop, QSize(20, 35), QSize(20, 35), false);
     updateSrcirityIcon();
-
     // 绘制WiFi图标
-    m_wifiLabel = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter, QSize(20, 20), QSize(20, 20), false);
+    m_wifiLabel = new DViewItemAction(Qt::AlignLeft | Qt::AlignTop, QSize(20, 35), QSize(20, 35), false);
     updateWifiIcon();
 
     standardItem()->setSizeHint(QSize(-1, 36));
     standardItem()->setActionList(Qt::LeftEdge, { m_securityAction, m_wifiLabel });
-
-    standardItem()->setText(m_accessPoint->ssid());
 
     // 绘制右侧的连接图标
     standardItem()->setFlags(Qt::ItemIsEnabled);
     updateConnectionStatus();
 
     standardItem()->setData(NetItemType::WirelessViewItem, NetItemRole::TypeRole);
-    standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)) ,NetItemRole::DeviceDataRole);
+    standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)), NetItemRole::DeviceDataRole);
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_accessPoint)), NetItemRole::DataRole);
     standardItem()->setBackground(Qt::transparent);
     standardItem()->setFontSize(DFontSizeManager::T6);
 }
 
+void WirelessItem::initConnection()
+{
+    connect(m_wirelessConnect, &WirelessConnect::passwordError, this, &WirelessItem::onInputPassword);
+}
+
 void WirelessItem::updateSrcirityIcon()
 {
-    if (m_accessPoint->secured()) {
+    if (m_accessPoint && m_accessPoint->secured()) {
         QString srcirityIcon;
         if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
             srcirityIcon = ":/wireless/resources/wireless/security_dark.svg";
@@ -481,6 +519,9 @@ void WirelessItem::updateSrcirityIcon()
 
 void WirelessItem::updateWifiIcon()
 {
+    if (!m_accessPoint)
+        return;
+
     QString icon;
     QString strength = getStrengthStateString(m_accessPoint->strength());
     if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
@@ -493,6 +534,9 @@ void WirelessItem::updateWifiIcon()
 
 void WirelessItem::updateConnectionStatus()
 {
+    if (!m_accessPoint)
+        return;
+
     switch (m_accessPoint->status()) {
     case ConnectionStatus::Activating:
         standardItem()->setData(NetConnectionType::Connecting, ConnectionStatusRole);
@@ -504,4 +548,159 @@ void WirelessItem::updateConnectionStatus()
         standardItem()->setData(NetConnectionType::UnConnected, ConnectionStatusRole);
         break;
     }
+}
+
+void WirelessItem::onConnection()
+{
+    if (m_device->activeAccessPoints() == m_accessPoint)
+        m_device->disconnectNetwork();
+}
+
+void WirelessItem::expandWidget(ExpandWidget type)
+{
+    switch (type) {
+    case ExpandWidget::Hide:
+        m_expandItem->setVisible(false);
+        standardItem()->setSizeHint(QSize(-1, 36));
+        if (m_accessPoint) {
+            LocalServer::instance()->changePassword(m_device->path() + m_accessPoint->path(), QString(), false);
+        }
+        break;
+    case ExpandWidget::ShowSSID:
+        m_expandItem->setVisible(true);
+        standardItem()->setSizeHint(QSize(-1, 126));
+        m_stackWidget->setCurrentIndex(type);
+        m_ssidEdit->lineEdit()->setFocus();
+        break;
+    case ExpandWidget::ShowPassword:
+        m_expandItem->setVisible(true);
+        standardItem()->setSizeHint(QSize(-1, 126));
+        m_stackWidget->setCurrentIndex(type);
+        m_passwdEdit->lineEdit()->setFocus();
+        if (!m_passwdEdit->lineEdit()->text().isEmpty()) {
+            m_passwdEdit->showAlertMessage(tr("password error!"));
+        }
+        checkInputValid();
+        break;
+    default:
+        break;
+    }
+    emit sizeChanged();
+}
+
+void WirelessItem::createPasswordEdit()
+{
+    //　密码输入窗
+    DWidget *passwdWidget = new DWidget(m_stackWidget);
+    m_passwdEdit = new DPasswordEdit(passwdWidget);
+    m_passwdEdit->lineEdit()->setPlaceholderText(tr("Password"));
+    m_passwdEdit->lineEdit()->setMaxLength(256);
+    DPushButton *cancelButtion = new DPushButton(tr("Cancel"), passwdWidget);
+    m_connectButton = new DPushButton(tr("Connect"), passwdWidget);
+
+    QHBoxLayout *line2 = new QHBoxLayout;
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    line2->addWidget(cancelButtion);
+    line2->addWidget(m_connectButton);
+    layout->addWidget(m_passwdEdit);
+    layout->addLayout(line2);
+    passwdWidget->setLayout(layout);
+    m_stackWidget->addWidget(passwdWidget);
+
+    connect(cancelButtion, &DPushButton::clicked, this, [ this ]() { this->expandWidget(ExpandWidget::Hide); });
+    connect(m_connectButton, &DPushButton::clicked, this, &WirelessItem::onConnectNetwork);
+    connect(m_passwdEdit->lineEdit(), &QLineEdit::returnPressed, this, &WirelessItem::onConnectNetwork);
+    connect(m_passwdEdit->lineEdit(), &QLineEdit::textChanged, this, &WirelessItem::checkInputValid);
+}
+
+void WirelessItem::createSsidEdit()
+{
+    // ssid输入窗
+    DWidget *ssidWidget = new DWidget(m_stackWidget);
+    m_ssidEdit = new DLineEdit(ssidWidget);
+    m_ssidEdit->setPlaceholderText(tr("Name (SSID)"));
+    m_ssidEdit->lineEdit()->setMaxLength(256);
+
+    DPushButton *cancelButtion = new DPushButton(tr("Cancel"), ssidWidget);
+    DPushButton *nextButton = new DPushButton(tr("Next"), ssidWidget);
+
+    QHBoxLayout *line2 = new QHBoxLayout;
+
+    QVBoxLayout *layout = new QVBoxLayout;
+    line2->addWidget(cancelButtion);
+    line2->addWidget(nextButton);
+    layout->addWidget(m_ssidEdit);
+    layout->addLayout(line2);
+    ssidWidget->setLayout(layout);
+    m_stackWidget->addWidget(ssidWidget);
+
+    connect(cancelButtion, &DPushButton::clicked, this, [ this ]() { this->expandWidget(ExpandWidget::Hide); });
+    connect(nextButton, &DPushButton::clicked, this, &WirelessItem::onConnectHidden);
+    connect(m_ssidEdit->lineEdit(), &QLineEdit::returnPressed, this, &WirelessItem::onConnectHidden);
+}
+
+void WirelessItem::initExpandUi()
+{
+    createPasswordEdit();
+    createSsidEdit();
+}
+
+void WirelessItem::connectNetwork()
+{
+    if (NetConnectionType::UnConnected == standardItem()->data(ConnectionStatusRole)) {
+        // 密码框未显示前尝试直接连接
+        if (!m_expandItem->isVisible()) {
+            if (m_accessPoint) {
+                m_wirelessConnect->connectNetwork();
+            } else {
+                expandWidget(ExpandWidget::ShowSSID);
+            }
+        }
+    }
+}
+
+void WirelessItem::onConnectNetwork()
+{
+    QString password = m_passwdEdit->text();
+    // 输入无效在checkInputValid里已判断
+    if (m_wirelessConnect->passwordIsValid(password)) {
+        if (m_accessPoint) {
+            if (LocalServer::instance()->changePassword(m_device->path() + m_accessPoint->path(), password, true)) {
+                expandWidget(ExpandWidget::Hide);
+                return;
+            }
+        }
+        m_wirelessConnect->connectNetworkPassword(m_passwdEdit->text());
+        expandWidget(ExpandWidget::Hide);
+    }
+}
+
+void WirelessItem::onInputPassword(const QString oldPassword)
+{
+    m_passwdEdit->setText(oldPassword);
+    expandWidget(ExpandWidget::ShowPassword);
+}
+
+void WirelessItem::expandPasswordInput()
+{
+    m_wirelessConnect->getoldPassword();
+}
+
+void WirelessItem::onConnectHidden()
+{
+    QString ssid = m_ssidEdit->text();
+    if (!ssid.isEmpty()) {
+        expandWidget(ExpandWidget::Hide);
+        m_wirelessConnect->setSsid(m_ssidEdit->text());
+        m_wirelessConnect->connectNetwork();
+    }
+}
+
+void WirelessItem::checkInputValid()
+{
+    bool isValid = m_wirelessConnect->passwordIsValid(m_passwdEdit->text());
+
+    m_passwdEdit->setAlert(!isValid);
+    m_connectButton->setEnabled(isValid);
 }

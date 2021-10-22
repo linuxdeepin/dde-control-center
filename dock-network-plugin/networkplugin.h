@@ -57,7 +57,7 @@ public:
     void setSortKey(const QString &itemKey, const int order) override;
 
     void pluginSettingsChanged() override;
-
+    void positionChanged(const Dock::Position position) override;
 private:
     void loadPlugin();
     void refreshPluginItemsVisible();

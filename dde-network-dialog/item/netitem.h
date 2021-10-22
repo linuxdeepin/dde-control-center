@@ -22,45 +22,51 @@
 #ifndef NETITEM_H
 #define NETITEM_H
 
-#include <DStandardItem>
+#include <DStackedWidget>
 
 #include <QAbstractListModel>
 #include <QModelIndex>
 #include <QJsonObject>
 #include <QStyledItemDelegate>
 
-DWIDGET_USE_NAMESPACE
-DGUI_USE_NAMESPACE
 
 class NetworkDevice;
+class NetItem;
+class WirelessConnect;
 class QLabel;
 class QPushButton;
+class StateButton;
 
 namespace dde {
-  namespace network {
-    class NetworkDeviceBase;
-    class WiredDevice;
-    class WirelessDevice;
-    class AccessPoints;
-    class WiredConnection;
-    enum class DeviceType;
-  }
-}
+    namespace network {
+        class NetworkDeviceBase;
+        class WiredDevice;
+        class WirelessDevice;
+        class AccessPoints;
+        class WiredConnection;
+        enum class DeviceType;
+    } // namespace network
+} // namespace dde
 
 using namespace dde::network;
-
 namespace Dtk {
-  namespace Widget {
-    class DListView;
-    class DSwitchButton;
-    class DViewItemAction;
-    class DLoadingIndicator;
-    class DSpinner;
-  }
-}
+    namespace Widget {
+        class DListView;
+        class DSwitchButton;
+        class DViewItemAction;
+        class DLoadingIndicator;
+        class DSpinner;
+        class DPasswordEdit;
+        class DLineEdit;
+        class DStandardItem;
+    } // namespace Widget
+} // namespace Dtk
 
-enum NetItemRole
-{
+DWIDGET_USE_NAMESPACE
+//DGUI_USE_NAMESPACE
+
+
+enum NetItemRole {
     TypeRole = Qt::UserRole + 100,
     DeviceDataRole,
     DataRole,
@@ -70,20 +76,18 @@ enum NetItemRole
 
 #define PANELWIDTH 300
 
-enum NetItemType
-{
-    DeviceControllViewItem = 0,     // 总控开关
-    WirelessControllViewItem,       // 无线网卡开关
-    WirelessViewItem,               // 无线列表
-    WiredControllViewItem,          // 有线网卡开关
-    WiredViewItem                   // 有线列表
+enum NetItemType {
+    DeviceControllViewItem = 0, // 总控开关
+    WirelessControllViewItem,   // 无线网卡开关
+    WirelessViewItem,           // 无线列表
+    WiredControllViewItem,      // 有线网卡开关
+    WiredViewItem               // 有线列表
 };
 
-enum NetConnectionType
-{
-    UnConnected = 0,               // 未连接
-    Connecting,                     // 正在连接
-    Connected                       // 已连接
+enum NetConnectionType {
+    UnConnected = 0, // 未连接
+    Connecting,      // 正在连接
+    Connected        // 已连接
 };
 
 class NetItem : public QObject
@@ -188,10 +192,12 @@ public:
     WiredConnection *connection();
     void updateView() Q_DECL_OVERRIDE;
     NetItemType itemType() Q_DECL_OVERRIDE;
+    void connectNetwork();
 
 private:
     void initUi();
     QString symbolicIcon(const bool &connected) const;
+    void initConnection();
 
 private:
     WiredConnection *m_connection;
@@ -203,27 +209,65 @@ class WirelessItem : public NetItem
 {
     Q_OBJECT
 
+Q_SIGNALS:
+    void sizeChanged();
+
+public:
+    enum ExpandWidget {
+        Hide = -1,
+        ShowPassword,
+        ShowSSID,
+    };
+
 public:
     WirelessItem(QWidget *parent, WirelessDevice *device, AccessPoints *ap);
     ~WirelessItem() Q_DECL_OVERRIDE;
 
     const AccessPoints *accessPoint();
+    const WirelessDevice *wirelessDevice();
     void updateView() Q_DECL_OVERRIDE;
     NetItemType itemType() Q_DECL_OVERRIDE;
     static QString getStrengthStateString(int strength);
+    void expandWidget(ExpandWidget type);
+    void connectNetwork();
+    void expandPasswordInput();
 
 private:
-    void initUi();
+    void initUi(QWidget *parent);
     void initConnection();
     void updateSrcirityIcon();
     void updateWifiIcon();
     void updateConnectionStatus();
+    void createPasswordEdit();
+    void createSsidEdit();
+    void initExpandUi();
+
+private Q_SLOTS:
+    void onConnection();
+    void onConnectNetwork();
+    void onInputPassword(const QString oldPassword);
+    void onConnectHidden();
+    void checkInputValid();
 
 private:
     AccessPoints *m_accessPoint;
     WirelessDevice *m_device;
     DViewItemAction *m_securityAction;
     DViewItemAction *m_wifiLabel;
+    DViewItemAction *m_connectionAction;
+    DSpinner *m_loadingStat;
+
+    QWidget *m_connectionWidget;
+    StateButton *m_connIcon;
+
+    DStackedWidget *m_stackWidget;
+    DViewItemAction *m_expandItem;
+
+    DPasswordEdit *m_passwdEdit;
+    DLineEdit *m_ssidEdit;
+
+    WirelessConnect *m_wirelessConnect;
+    DPushButton *m_connectButton;
 };
 
 #endif //  NETWORKAPPLETMODEL_H

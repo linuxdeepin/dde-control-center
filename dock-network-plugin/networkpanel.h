@@ -23,15 +23,11 @@
 #define NETWORKPANEL_H
 
 #include "item/devicestatushandler.h"
+#include "constants.h"
 
 #include <DGuiApplicationHelper>
-#include <DSwitchButton>
-#include <DListView>
-#include <DStyledItemDelegate>
 #include <dloadingindicator.h>
 
-#include <QWidget>
-#include <QScopedPointer>
 
 #include <com_deepin_daemon_network.h>
 
@@ -49,6 +45,7 @@ namespace dde {
   }
 }
 
+class NetworkDialog;
 class QTimer;
 class NetItem;
 
@@ -75,19 +72,17 @@ public:
 
     void refreshIcon();
 
+    void updatePoint();
 protected:
     void paintEvent(QPaintEvent *e);
     void resizeEvent(QResizeEvent *e);
-    bool eventFilter(QObject *obj, QEvent *event);
 
 private:
     void setControlBackground();
     void initUi();
     void initConnection();
     void getPluginState();
-    void updateView();                                                  // 更新网络列表内容大小
     void updateTooltips();                                              // 更新提示的内容
-    void updateItems();
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
 
@@ -101,13 +96,13 @@ private:
     QStringList getActiveWiredList() const;
     QStringList getActiveWirelessList() const;
     QStringList currentIpList() const;
-
+    QString getStrengthStateString(int strength);
+    void getAppletPosition(int &x, int &y, Dock::Position &position);
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
 
     void onUpdatePlugView();
 
-    void onClickListView(const QModelIndex &index);
     void onIPConfllict(const QString &ip, const QString &mac);
     void onSendIpConflictDect(int index = 0);
     void onDetectConflict();
@@ -123,56 +118,19 @@ private:
     bool m_switchWire;
     QPixmap m_iconPixmap;
 
-    QStandardItemModel *m_model;
-
-    QScrollArea *m_applet;
-    QWidget *m_centerWidget;
-    DListView *m_netListView;
     // 判断定时的时间是否到,否则不重置计时器
     bool m_timeOut;
 
-    QList<NetItem *> m_items;
-
+    NetworkDialog *m_networkDialog;
     DbusNetwork *m_networkInter;
     QStringList m_disconflictList;         // 解除冲突数据列表
     QMap<QString, QString> m_conflictMap;  // 缓存有线和无线冲突的ip列表
     QTimer *m_detectConflictTimer;         // 定时器自检,当其他主机主动解除ip冲突，我方需要更新网络状态
     bool m_ipConflict;                     // ip冲突的标识
     bool m_ipConflictChecking;             // 标记是否正在检测中
-};
 
-class NetworkDelegate : public DStyledItemDelegate
-{
-    Q_OBJECT
-
-public:
-    explicit NetworkDelegate(QAbstractItemView *parent = Q_NULLPTR);
-    ~NetworkDelegate() Q_DECL_OVERRIDE;
-
-Q_SIGNALS:
-    void closeClicked(const QModelIndex &);
-
-protected:
-    void initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const override;
-    void paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const Q_DECL_OVERRIDE;
-
-    bool needDrawLine(const QModelIndex &index) const;
-    bool cantHover(const QModelIndex &index) const;
-
-    void drawCheck(QPainter *painter, QRect &rect, QPen &pen, int radius) const;
-    void drawFork(QPainter *painter, QRect &rect, QPen &pen, int radius) const;
-    void drawLoading(QPainter *painter, QRect &rect, int diameter) const;
-    bool editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index) override;
-
-    QRect checkRect(const QRect &rct) const;
-
-    QList<QColor> createDefaultIndicatorColorList(QColor color) const;
-
-private:
-    QAbstractItemView *m_parentWidget;
-    mutable double m_currentDegree;
-    QTimer *m_refreshTimer;
-    mutable QList<QModelIndex> m_ConnectioningIndexs;
+    QSet<QString> m_wirelessDevicePath;     // 记录无线设备Path,防止信号重复连接
+    QString m_lastActiveWirelessDevicePath;
 };
 
 #endif // NETWORKPANEL_H

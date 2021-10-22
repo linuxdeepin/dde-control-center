@@ -22,22 +22,22 @@
 #include "networkpanel.h"
 #include "constants.h"
 #include "widgets/tipswidget.h"
-#include "utils.h"
-#include "item/netItem.h"
+#include "../common-plugin/utils.h"
 #include "item/devicestatushandler.h"
 #include "imageutil.h"
+#include "networkdialog.h"
+
+#include <NetworkManagerQt/WirelessDevice>
 
 #include <DHiDPIHelper>
 #include <DApplicationHelper>
 #include <DDBusSender>
 
 #include <QTimer>
-#include <QScroller>
 #include <QVBoxLayout>
 #include <QNetworkInterface>
 #include <QHostAddress>
 #include <QMap>
-#include <QMouseEvent>
 
 #include <networkcontroller.h>
 #include <networkdevicebase.h>
@@ -56,10 +56,8 @@ NetworkPanel::NetworkPanel(QWidget *parent)
     , m_wirelessScanTimer(new QTimer(this))
     , m_tipsWidget(new Dock::TipsWidget(this))
     , m_switchWire(true)
-    , m_applet(new QScrollArea(this))
-    , m_centerWidget(new QWidget(this))
-    , m_netListView(new DListView(m_centerWidget))
     , m_timeOut(true)
+    , m_networkDialog(new NetworkDialog(this))
     , m_networkInter(new DbusNetwork("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
     , m_detectConflictTimer(new QTimer(this))
     , m_ipConflict(false)
@@ -77,58 +75,6 @@ void NetworkPanel::initUi()
 {
     m_refreshIconTimer->setInterval(100);
     m_tipsWidget->setVisible(false);
-
-    m_netListView->setAccessibleName("list_network");
-    m_netListView->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
-    m_netListView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_netListView->setFrameShape(QFrame::NoFrame);
-    m_netListView->setViewportMargins(0, 0, 0, 0);
-    m_netListView->setItemSpacing(1);
-    m_netListView->setMouseTracking(true);
-    m_netListView->setItemMargins(QMargins(10, 0, 10, 0));
-    m_netListView->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
-
-    NetworkDelegate *delegate = new NetworkDelegate(m_netListView);
-    delegate->setMargins(QMargins(10, 0, 10, 0));
-    m_netListView->setItemDelegate(delegate);
-    connect(delegate, &NetworkDelegate::closeClicked, this, [ ] (const QModelIndex &index) {
-        // 获取该行数据对应的设备
-        NetItemType type = static_cast<NetItemType>(index.data(NetItemRole::TypeRole).toInt());
-        if (type == NetItemType::WiredViewItem) {
-            WiredDevice *device = static_cast<WiredDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
-            WiredConnection *connection = static_cast<WiredConnection *>(index.data(NetItemRole::DataRole).value<void *>());
-            if (device && connection) {
-                if (connection->connected())
-                    device->disconnectNetwork();
-                else
-                    device->connectNetwork(connection);
-            }
-        } else if (type == NetItemType::WirelessViewItem) {
-            WirelessDevice *device = static_cast<WirelessDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
-            AccessPoints *accessPoint = static_cast<AccessPoints *>(index.data(NetItemRole::DataRole).value<void *>());
-            if (device && accessPoint) {
-                if (device->activeAccessPoints() == accessPoint)
-                    device->disconnectNetwork();
-            }
-        }
-    });
-
-    m_model = new QStandardItemModel(this);
-    m_netListView->setModel(m_model);
-
-    QVBoxLayout *centerLayout = new QVBoxLayout(m_centerWidget);
-    centerLayout->setContentsMargins(0, 0, 0, 0);
-    centerLayout->addWidget(m_netListView);
-
-    m_applet->setFixedWidth(PANELWIDTH);
-    m_applet->setWidget(m_centerWidget);
-    m_applet->setFrameShape(QFrame::NoFrame);
-    m_applet->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_applet->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_centerWidget->setAutoFillBackground(false);
-    m_applet->viewport()->setAutoFillBackground(false);
-    m_applet->setVisible(false);
-    m_applet->installEventFilter(this);
 
     setControlBackground();
 }
@@ -149,9 +95,6 @@ void NetworkPanel::initConnection()
     connect(m_networkInter, &DbusNetwork::IPConflict, this, &NetworkPanel::onIPConfllict);
     connect(this, &NetworkPanel::sendIpConflictDect, this, &NetworkPanel::onSendIpConflictDect);
     connect(m_detectConflictTimer, &QTimer::timeout, this, &NetworkPanel::onDetectConflict);
-
-    // 点击列表的信号
-    connect(m_netListView, &DListView::pressed, this, &NetworkPanel::onClickListView);
 
     // 连接超时的信号
     connect(m_switchWireTimer, &QTimer::timeout, [ = ]() {
@@ -181,7 +124,6 @@ void NetworkPanel::initConnection()
 
     QTimer::singleShot(100, this, [ = ] {
         onDeviceAdded(networkController->devices());
-        m_applet->setVisible(false);
     });
 }
 
@@ -221,228 +163,6 @@ void NetworkPanel::getPluginState()
     default:
         break;
     }
-}
-
-void NetworkPanel::updateItems()
-{
-    auto findBaseController = [ = ](DeviceType t)->DeviceControllItem *{
-        for (NetItem *item : m_items) {
-            if (item->itemType() != NetItemType::DeviceControllViewItem)
-                continue;
-
-            DeviceControllItem *pBaseCtrlItem = static_cast<DeviceControllItem *>(item);
-            if (pBaseCtrlItem->deviceType() == t)
-                return pBaseCtrlItem;
-        }
-
-        return Q_NULLPTR;
-    };
-
-    auto findWiredController = [ = ](WiredDevice *device)->WiredControllItem *{
-        for (NetItem *item : m_items) {
-            if (item->itemType() != NetItemType::WiredControllViewItem)
-                continue;
-
-            WiredControllItem *wiredCtrlItem = static_cast<WiredControllItem *>(item);
-            if (wiredCtrlItem->device() == device)
-                return wiredCtrlItem;
-        }
-
-        return Q_NULLPTR;
-    };
-
-    auto findWiredItem = [ = ](WiredConnection *conn)->WiredItem *{
-        for (NetItem *item : m_items) {
-            if (item->itemType() != NetItemType::WiredViewItem)
-                continue;
-
-            WiredItem *wiredItem = static_cast<WiredItem *>(item);
-            if (wiredItem->connection() == conn)
-                return wiredItem;
-        }
-
-        return Q_NULLPTR;
-    };
-
-    auto findWirelessController = [ = ](WirelessDevice *device)->WirelessControllItem *{
-        for (NetItem *item : m_items) {
-            if (item->itemType() != NetItemType::WirelessControllViewItem)
-                continue;
-
-            WirelessControllItem *wiredCtrlItem = static_cast<WirelessControllItem *>(item);
-            if (wiredCtrlItem->device() == device)
-                return wiredCtrlItem;
-        }
-
-        return Q_NULLPTR;
-    };
-
-    auto findWirelessItem = [ = ](const AccessPoints *ap)->WirelessItem *{
-        for (NetItem *item : m_items) {
-            if (item->itemType() != NetItemType::WirelessViewItem)
-                continue;
-
-            WirelessItem *wirelessItem = static_cast<WirelessItem *>(item);
-            const AccessPoints *apData = wirelessItem->accessPoint();
-            if (apData == ap)
-                return wirelessItem;
-        }
-
-        return Q_NULLPTR;
-    };
-
-    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
-    QList<WiredDevice *> wiredDevices;
-    QList<WirelessDevice *> wirelessDevices;
-
-    for (NetworkDeviceBase *device : devices) {
-        if (device->deviceType() == DeviceType::Wired) {
-            WiredDevice *dev = static_cast<WiredDevice *>(device);
-            wiredDevices << dev;
-        } else if (device->deviceType() == DeviceType::Wireless) {
-            WirelessDevice *dev = static_cast<WirelessDevice *>(device);
-            wirelessDevices << dev;
-        }
-    }
-
-    // 存在多个无线设备的情况下，需要显示总开关
-    QList<NetItem *> items;
-    if (wirelessDevices.size() > 1) {
-        DeviceControllItem *ctrl = findBaseController(DeviceType::Wireless);
-        if (!ctrl)
-            ctrl = new DeviceControllItem(DeviceType::Wireless, m_netListView->viewport());
-        else
-            ctrl->updateView();
-
-        ctrl->setDevices(devices);
-        items << ctrl;
-    }
-
-    // 遍历当前所有的无线网卡
-    auto accessPoints = [ & ](WirelessDevice *device) {
-        if (device->isEnabled())
-            return device->accessPointItems();
-
-        return QList<AccessPoints *>();
-    };
-
-    for (WirelessDevice *device : wirelessDevices) {
-        WirelessControllItem *ctrl = findWirelessController(device);
-        if (!ctrl)
-            ctrl = new WirelessControllItem(m_netListView->viewport(), static_cast<WirelessDevice *>(device));
-        else
-            ctrl->updateView();
-
-        items << ctrl;
-
-        QList<AccessPoints *> aps = accessPoints(device);
-        for (AccessPoints *ap : aps) {
-            WirelessItem *apCtrl = findWirelessItem(ap);
-            if (!apCtrl)
-                apCtrl = new WirelessItem(m_netListView->viewport(), device, ap);
-            else
-                apCtrl->updateView();
-
-            items << apCtrl;
-        }
-    }
-
-    // 存在多个有线设备的情况下，需要显示总开关
-    if (wiredDevices.size() > 1) {
-        DeviceControllItem *ctrl = findBaseController(DeviceType::Wired);
-        if (!ctrl)
-            ctrl = new DeviceControllItem(DeviceType::Wired, m_netListView->viewport());
-        else
-            ctrl->updateView();
-
-        ctrl->setDevices(devices);
-        items << ctrl;
-    }
-
-    auto wiredConnections = [ & ](WiredDevice *device) {
-        if (device->isEnabled())
-            return device->items();
-
-        return QList<WiredConnection *>();
-    };
-
-    // 遍历当前所有的有线网卡
-    for (WiredDevice *device : wiredDevices) {
-        WiredControllItem *ctrl = findWiredController(device);
-        if (!ctrl)
-            ctrl = new WiredControllItem(m_netListView->viewport(), device);
-        else
-            ctrl->updateView();
-
-        items << ctrl;
-
-        QList<WiredConnection *> connItems = wiredConnections(device);
-        for (WiredConnection *conn : connItems) {
-            WiredItem *connectionCtrl = findWiredItem(conn);
-            if (!connectionCtrl)
-                connectionCtrl = new WiredItem(m_netListView->viewport(), device, conn);
-            else
-                connectionCtrl->updateView();
-
-            items << connectionCtrl;
-        }
-    }
-
-    // 把原来列表中不存在的项放到移除列表中
-    for (NetItem *item : m_items) {
-        if (!items.contains(item))
-            delete item;
-    }
-
-    m_items = items;
-}
-
-void NetworkPanel::updateView()
-{
-    updateItems();
-
-    QList<QStandardItem *> items;
-    for (int i = 0; i < m_items.size(); i++) {
-        NetItem *item = m_items[i];
-        int nRow = item->standardItem()->row();
-        if (nRow < 0) {
-            m_model->insertRow(i, item->standardItem());
-        } else if (nRow != i) {
-            m_model->takeItem(nRow, 0);
-            m_model->removeRow(nRow);
-            m_model->insertRow(i, item->standardItem());
-        }
-
-        items << item->standardItem();
-    }
-
-    // 删除model在items中不存在的项目
-    QList<int > rmRows;
-    for (int i = 0; i < m_model->rowCount(); i++) {
-        QStandardItem *item = m_model->item(i);
-        if (!items.contains(item))
-            rmRows << item->row();
-    }
-
-    // 将row按照从大到小的顺序排序，否则会出现删除错误的问题
-    qSort(rmRows.begin(), rmRows.end(), [ = ] (int &row1, int &row2) { return row1 > row2; });
-    for (int row: rmRows)
-        m_model->removeRow(row);
-
-    // 设置高度
-    int height = 0;
-    for (int i = 0; i < m_model->rowCount(); i++) {
-        QStandardItem *item = m_model->item(i);
-        QSize size = item->sizeHint();
-        height += size.height();
-        if (i >= 15)
-            break;
-    }
-
-    m_netListView->setFixedSize(PANELWIDTH, height);
-    m_centerWidget->setFixedSize(PANELWIDTH, height);
-    m_applet->setFixedSize(PANELWIDTH, height);
-    m_netListView->update();
 }
 
 QStringList NetworkPanel::ipTipsMessage(const DeviceType &devType)
@@ -550,25 +270,21 @@ void NetworkPanel::resizeEvent(QResizeEvent *e)
     refreshIcon();
 }
 
-bool NetworkPanel::eventFilter(QObject *obj, QEvent *event)
+QString NetworkPanel::getStrengthStateString(int strength)
 {
-    if (obj == m_applet) {
-        switch (event->type()) {
-        case QEvent::Show: {
-            if (!m_wirelessScanTimer->isActive())
-               m_wirelessScanTimer->start();
-            break;
-        }
-        case QEvent::Hide: {
-            if (m_wirelessScanTimer->isActive())
-                m_wirelessScanTimer->stop();
-            break;
-        }
-        default: break;
-        }
-    }
+    if (5 >= strength)
+        return "0";
 
-    return QWidget::eventFilter(obj, event);
+    if (30 >= strength)
+        return "20";
+
+    if (55 >= strength)
+        return "40";
+
+    if (65 >= strength)
+        return "60";
+
+    return "80";
 }
 
 int NetworkPanel::deviceCount(const DeviceType &devType) const
@@ -766,10 +482,56 @@ QWidget *NetworkPanel::itemTips()
     return m_tipsWidget;
 }
 
+void NetworkPanel::getAppletPosition(int &x, int &y, Dock::Position &position)
+{
+    const QWidget *w = qobject_cast<QWidget *>(this->parentWidget());
+    const QWidget *parentWidget = w;
+    while (w) {
+        parentWidget = w;
+        w = qobject_cast<QWidget *>(w->parentWidget());
+    }
+    if (parentWidget) {
+        Dock::Position pos = qApp->property(PROP_POSITION).value<Dock::Position>();
+        QPoint p = rect().center();
+        QRect rect = parentWidget->rect();
+        switch (pos) {
+        case Dock::Position::Top:
+            p.ry() += rect.height() / 2;
+            break;
+        case Dock::Position::Bottom:
+            p.ry() -= rect.height() / 2;
+            break;
+        case Dock::Position::Left:
+            p.rx() += rect.width() / 2;
+            break;
+        case Dock::Position::Right:
+            p.rx() -= rect.width() / 2;
+            break;
+        }
+        position = pos;
+        p = mapToGlobal(p);
+        x = p.x();
+        y = p.y();
+    }
+}
+
+void NetworkPanel::updatePoint()
+{
+    int x = 0;
+    int y = 0;
+    Dock::Position position;
+    getAppletPosition(x, y, position);
+    m_networkDialog->saveConfig(x, y, position);
+}
+
 QWidget *NetworkPanel::itemApplet()
 {
-    m_applet->setVisible(true);
-    return m_applet;
+    int x = 0;
+    int y = 0;
+    Dock::Position position;
+    getAppletPosition(x, y, position);
+    m_networkDialog->show(x, y, position);
+    return nullptr;
 }
 
 bool NetworkPanel::hasDevice()
@@ -800,7 +562,7 @@ void NetworkPanel::refreshIcon()
     case PluginState::Connected:
     case PluginState::WirelessConnected:
         strength = getStrongestAp();
-        stateString = WirelessItem::getStrengthStateString(strength);
+        stateString = getStrengthStateString(strength);
         iconString = QString("wireless-%1-symbolic").arg(stateString);
         break;
     case PluginState::WiredConnected:
@@ -820,7 +582,7 @@ void NetworkPanel::refreshIcon()
         m_refreshIconTimer->start();
         if (m_switchWire) {
             strength = QTime::currentTime().msec() / 10 % 100;
-            stateString = WirelessItem::getStrengthStateString(strength);
+            stateString = getStrengthStateString(strength);
             iconString = QString("wireless-%1-symbolic").arg(stateString);
             if (height() <= PLUGIN_BACKGROUND_MIN_SIZE
                     && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
@@ -844,7 +606,7 @@ void NetworkPanel::refreshIcon()
     case PluginState::WirelessConnecting: {
         m_refreshIconTimer->start();
         strength = QTime::currentTime().msec() / 10 % 100;
-        stateString = WirelessItem::getStrengthStateString(strength);
+        stateString = getStrengthStateString(strength);
         iconString = QString("wireless-%1-symbolic").arg(stateString);
         if (height() <= PLUGIN_BACKGROUND_MIN_SIZE
                 && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
@@ -979,8 +741,8 @@ void NetworkPanel::setControlBackground()
     else
         backgroud.setColor(QPalette::Background, QColor(0, 0, 0, 0.03 * 255));
 
-    m_applet->setAutoFillBackground(true);
-    m_applet->setPalette(backgroud);
+//    m_applet->setAutoFillBackground(true);
+//    m_applet->setPalette(backgroud);
 }
 
 void NetworkPanel::onUpdatePlugView()
@@ -988,33 +750,6 @@ void NetworkPanel::onUpdatePlugView()
     getPluginState();
     refreshIcon();
     updateTooltips();
-    updateView();
-}
-
-void NetworkPanel::onClickListView(const QModelIndex &index)
-{
-    NetItemType type = static_cast<NetItemType>(index.data(NetItemRole::TypeRole).toInt());
-    switch (type) {
-    case WirelessViewItem: {
-        AccessPoints *ap = static_cast<AccessPoints *>(index.data(NetItemRole::DataRole).value<void *>());
-        if (ap && !ap->connected()) {
-            WirelessDevice *device = static_cast<WirelessDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
-            AccessPoints *activeAp = device->activeAccessPoints();
-            if (activeAp != ap)
-                device->connectNetwork(ap);
-        }
-        break;
-    }
-    case WiredViewItem: {
-        WiredConnection *conn = static_cast<WiredConnection *>(index.data(NetItemRole::DataRole).value<void *>());
-        if (conn && !conn->connected()) {
-            WiredDevice *device = static_cast<WiredDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
-            device->connectNetwork(conn);
-        }
-        break;
-    }
-    default: break;
-    }
 }
 
 /**ip冲突以及冲突解除时，更新网络插件显示状态
@@ -1135,254 +870,4 @@ int NetworkPanel::getStrongestAp()
     return retStrength;
 }
 
-// 用于绘制分割线
-#define RIGHTMARGIN 13
-#define DIAMETER 16
 
-NetworkDelegate::NetworkDelegate(QAbstractItemView *parent)
-    : DStyledItemDelegate(parent)
-    , m_parentWidget(parent)
-    , m_currentDegree(0)
-    , m_refreshTimer(new QTimer(this))
-{
-    connect(m_refreshTimer, &QTimer::timeout, this, [ this ] () {
-        this->m_currentDegree += 14;
-        m_parentWidget->update();
-    });
-
-    m_refreshTimer->setInterval(30);
-}
-
-NetworkDelegate::~NetworkDelegate()
-{
-    if (m_refreshTimer->isActive())
-        m_refreshTimer->stop();
-}
-
-void NetworkDelegate::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
-{
-    option->state &= ~QStyle::State_MouseOver;
-    DStyledItemDelegate::initStyleOption(option, index);
-}
-
-void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
-{
-    bool drawLine = needDrawLine(index);
-    if (drawLine) {
-        QRect rct = option.rect;
-        rct.setY(rct.top() + rct.height() - 2);
-        rct.setHeight(2);
-        if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-            painter->fillRect(rct, QColor(0, 0, 0, 255 * 0.1));
-        else
-            painter->fillRect(rct, QColor(255, 255, 255, 255 * 0.05));
-    }
-    bool isHoverItem = cantHover(index);
-    QRect rct = option.rect;
-    if (drawLine)
-        rct.setHeight(rct.height() - 2);
-
-    if (!isHoverItem && (option.state & QStyle::State_MouseOver)) {
-        if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-            painter->fillRect(rct, QColor(0, 0, 0, 255 * 0.08));
-        else
-            painter->fillRect(rct, QColor(255, 255, 255, 255 * 0.08));
-    }
-    // 绘制右侧的连接图标
-    NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());
-    if (connectionStatus == NetConnectionType::Connecting) {
-        if (!m_ConnectioningIndexs.contains(index))
-            m_ConnectioningIndexs << index;
-    } else {
-        if (m_ConnectioningIndexs.contains(index))
-            m_ConnectioningIndexs.removeOne(index);
-    }
-
-    if (m_ConnectioningIndexs.size() > 0) {
-        if (!m_refreshTimer->isActive())
-            m_refreshTimer->start();
-    } else {
-        if (m_refreshTimer->isActive()) {
-            m_refreshTimer->stop();
-            m_currentDegree = 0;
-        }
-    }
-
-    switch (connectionStatus) {
-    case NetConnectionType::Connected: {
-        painter->setRenderHint(QPainter::Antialiasing, true);
-
-        QRect rct = checkRect(option.rect);
-        painter->setPen(QPen(Qt::NoPen));
-        painter->setBrush(m_parentWidget->palette().color(QPalette::Highlight));
-
-        QPen pen(Qt::white, DIAMETER / 100.0 * 6.20, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin);
-        if (index.data(NetItemRole::MouseInBoundingRole).toBool())
-            drawFork(painter, rct, pen, DIAMETER);
-        else
-            drawCheck(painter, rct, pen, DIAMETER);
-
-        break;
-    }
-    case NetConnectionType::Connecting: {
-        QRect rct = checkRect(option.rect);
-        drawLoading(painter, rct, DIAMETER);
-        break;
-    }
-    default: break;
-    }
-
-    DStyledItemDelegate::paint(painter, option, index);
-}
-
-bool NetworkDelegate::needDrawLine(const QModelIndex &index) const
-{
-    // 如果是最后一行，则无需绘制线条
-    QModelIndex siblingIndex = index.siblingAtRow(index.row() + 1);
-    if (!siblingIndex.isValid())
-        return false;
-
-    // 如果是总控开关，无线开关和有线开关，下面都要分割线
-    NetItemType itemType = static_cast<NetItemType>(index.data(TypeRole).toInt());
-    if (itemType == NetItemType::DeviceControllViewItem
-            || itemType == NetItemType::WirelessControllViewItem
-            || itemType == NetItemType::WiredControllViewItem)
-        return true;
-
-    NetItemType nextItemType = static_cast<NetItemType>(siblingIndex.data(TypeRole).toInt());
-    return itemType != nextItemType;
-}
-
-bool NetworkDelegate::cantHover(const QModelIndex &index) const
-{
-    NetItemType itemType = static_cast<NetItemType>(index.data(TypeRole).toInt());
-    return (itemType == NetItemType::DeviceControllViewItem
-            || itemType == NetItemType::WirelessControllViewItem
-            || itemType == NetItemType::WiredControllViewItem);
-}
-
-void NetworkDelegate::drawCheck(QPainter *painter, QRect &rect, QPen &pen, int radius) const
-{
-    painter->drawPie(rect, 0, 360 * 16);
-    painter->setPen(pen);
-
-    QPointF points[3] = {
-        QPointF(rect.left() + radius / 100.0 * 32,  rect.top() + radius / 100.0 * 57),
-        QPointF(rect.left() + radius / 100.0 * 45,  rect.top() + radius / 100.0 * 70),
-        QPointF(rect.left() + radius / 100.0 * 75,  rect.top() + radius / 100.0 * 35)
-    };
-
-    painter->drawPolyline(points, 3);
-}
-
-void NetworkDelegate::drawFork(QPainter *painter, QRect &rect, QPen &pen, int radius) const
-{
-    painter->drawPie(rect, 0, 360 * 16);
-    pen.setCapStyle(Qt::RoundCap);
-    painter->setPen(pen);
-
-    QPointF pointsl[2] = {
-        QPointF(rect.left() + radius / 100.0 * 35,  rect.top() + radius / 100.0 * 35),
-        QPointF(rect.left() + radius / 100.0 * 65,  rect.top() + radius / 100.0 * 65)
-    };
-
-    painter->drawPolyline(pointsl, 2);
-
-    QPointF pointsr[2] = {
-        QPointF(rect.left() + radius / 100.0 * 65,  rect.top() + radius / 100.0 * 35),
-        QPointF(rect.left() + radius / 100.0 * 35,  rect.top() + radius / 100.0 * 65)
-    };
-
-    painter->drawPolyline(pointsr, 2);
-}
-
-void NetworkDelegate::drawLoading(QPainter *painter, QRect &rect, int diameter) const
-{
-    painter->setRenderHint(QPainter::Antialiasing, true);
-    QList<QList<QColor>> indicatorColors;
-    for (int i = 0; i < 3; i++)
-        indicatorColors << createDefaultIndicatorColorList(m_parentWidget->palette().highlight().color());
-
-    double radius = diameter * 0.66;
-    auto center = QRectF(rect).center();
-    auto indicatorRadius = radius / 2 / 2 * 1.1;
-    auto indicatorDegreeDelta = 360 / indicatorColors.count();
-
-#define INDICATOR_SHADOW_OFFSET 10
-
-    for (int i = 0; i <  indicatorColors.count(); ++i) {
-        auto colors = indicatorColors.value(i);
-        for (int j = 0; j < colors.count(); ++j) {
-            double degreeCurrent = m_currentDegree - j * INDICATOR_SHADOW_OFFSET + indicatorDegreeDelta * i;
-            auto x = (radius - indicatorRadius) * qCos(qDegreesToRadians(degreeCurrent));
-            auto y = (radius - indicatorRadius) * qSin(qDegreesToRadians(degreeCurrent));
-
-            x = center.x() + x;
-            y = center.y() + y;
-            auto tl = QPointF(x - 1 * indicatorRadius, y - 1 * indicatorRadius);
-            QRectF rf(tl.x(), tl.y(), indicatorRadius * 2, indicatorRadius * 2);
-
-            QPainterPath path;
-            path.addEllipse(rf);
-
-            painter->fillPath(path, colors.value(j));
-        }
-    }
-}
-
-bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, const QStyleOptionViewItem &option, const QModelIndex &index)
-{
-    switch (event->type()) {
-    case QEvent::MouseMove: {
-        QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-        QRect rct = checkRect(option.rect);
-        model->setData(index, rct.contains(mouseEvent->pos()), NetItemRole::MouseInBoundingRole);
-        m_parentWidget->update();
-        break;
-    }
-    case QEvent::Leave :{
-        model->setData(index, false, NetItemRole::MouseInBoundingRole);
-        m_parentWidget->update();
-        break;
-    }
-    case QEvent::MouseButtonPress: {
-        NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());
-        if (connectionStatus == NetConnectionType::Connected) {
-            QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
-            QRect rct = checkRect(option.rect);
-            if (rct.contains(mouseEvent->pos())) {
-                Q_EMIT closeClicked(index);
-                return true;
-            }
-        }
-        break;
-    }
-    default: break;
-    }
-
-    return DStyledItemDelegate::editorEvent(event, model, option, index);
-}
-
-QRect NetworkDelegate::checkRect(const QRect &rct) const
-{
-    int left = rct.right() - RIGHTMARGIN - DIAMETER;
-    int top = rct.top() + (rct.height() - DIAMETER) / 2;
-    QRect rect;
-    rect.setLeft(left);
-    rect.setTop(top);
-    rect.setWidth(DIAMETER);
-    rect.setHeight(DIAMETER);
-    return rect;
-}
-
-QList<QColor> NetworkDelegate::createDefaultIndicatorColorList(QColor color) const
-{
-    QList<QColor> colors;
-    QList<int> opacitys;
-    opacitys << 100 << 30 << 15 << 10 << 5 << 4 << 3 << 2 << 1;
-    for (int i = 0; i < opacitys.count(); ++i) {
-        color.setAlpha(255 * opacitys.value(i) / 100);
-        colors << color;
-    }
-    return colors;
-}

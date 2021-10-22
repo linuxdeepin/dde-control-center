@@ -61,6 +61,7 @@ void NetworkPlugin::init(PluginProxyInterface *proxyInter)
 
     if (!pluginIsDisable())
         loadPlugin();
+    m_networkPanel->updatePoint();
 }
 
 void NetworkPlugin::invokedMenuItem(const QString &itemKey, const QString &menuId, const bool checked)
@@ -171,4 +172,9 @@ bool NetworkPlugin::hasDevice()
         return false;
 
     return m_networkPanel.data()->hasDevice();
+}
+
+void NetworkPlugin::positionChanged(const Dock::Position position)
+{
+    m_networkPanel->updatePoint();
 }
