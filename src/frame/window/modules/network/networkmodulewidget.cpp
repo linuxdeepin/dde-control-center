@@ -42,6 +42,7 @@
 #include <QProcess>
 #include <QDBusInterface>
 #include <QDBusMessage>
+#include <QGSettings/QGSettings>
 
 #define DISABLE_NETWORK_VPN
 
