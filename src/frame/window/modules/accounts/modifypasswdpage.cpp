@@ -210,10 +210,10 @@ void ModifyPasswdPage::initWidget()
             m_passwordTipsEdit->setAlert(false);
         }
     });
-    connect(m_newPasswordEdit, &DPasswordEdit::textEdited, this, [=](QString newPasswd) {
+    connect(m_newPasswordEdit, &DPasswordEdit::editingFinished, this, [=]() {
         QPalette palette;
         m_focusOut = true;
-        m_level = PwqualityManager::instance()->GetNewPassWdLevel(newPasswd);
+        m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_newPasswordEdit->text());
 
         if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
             palette.setColor(QPalette::Text, QColor("#15BB18"));
