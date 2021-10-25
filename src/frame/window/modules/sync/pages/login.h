@@ -38,7 +38,6 @@ public:
     void setMainWindow(MainWindow *pMainWindow);
 
 private Q_SLOT:
-    void licenceDialog();
 
 Q_SIGNALS:
     void requestLoginUser() const;

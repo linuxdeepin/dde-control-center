@@ -69,7 +69,7 @@ LoginPage::LoginPage(QWidget *parent)
 
     setLayout(m_mainLayout);
 
-    connect(loginBtn, &QPushButton::clicked, this, &LoginPage::licenceDialog);
+    connect(loginBtn, &QPushButton::clicked, this, &LoginPage::requestLoginUser);
 }
 
 void LoginPage::setMainWindow(MainWindow *pMainWindow)
@@ -77,42 +77,3 @@ void LoginPage::setMainWindow(MainWindow *pMainWindow)
     m_pMainWindow = pMainWindow;
 }
 
-void LoginPage::licenceDialog()
-{
-    // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-    QString title("《隐私政策》");
-    QString allowContent("我已阅读并同意《隐私政策》");
-    // license路径
-    QString zhCN_Content = "";
-    QString enUS_Content = "";
-
-    ProtocolFile::getPrivacyFile(zhCN_Content, enUS_Content);
-
-    m_licenceProcess = new QProcess(this);
-    //添加-u和-b选项显示隐私政策页面表头和选项英文
-    m_licenceProcess->start("dde-license-dialog",
-                            QStringList() << "-t" << title << "-u" << "Privacy Policy"  << "-c" << zhCN_Content
-                            << "-b" << "I have read and agree to the Privacy Policy"
-                            << "-e" << enUS_Content << "-a" << allowContent);
-    qDebug() << "Deliver content QStringList() = " << "dde-license-dialog"
-             << "-t" << title << "-u" << "Privacy Policy"  << "-c" << zhCN_Content
-             << "-b" << "I have read and agree to the Privacy Policy"
-             << "-e" << enUS_Content << "-a" << allowContent;
-    connect(m_licenceProcess, &QProcess::stateChanged, this, [this](QProcess::ProcessState state) {
-        if (m_pMainWindow) {
-            m_pMainWindow->setEnabled(state != QProcess::Running);
-        } else {
-            qDebug() << "licence dialog pMainWindow is nullptr";
-        }
-    });
-    connect(m_licenceProcess, static_cast<void (QProcess::*)(QProcess::ProcessError)>(&QProcess::errorOccurred), this, [](QProcess::ProcessError error) {
-        qDebug() << "error is " << error;
-    });
-    connect(m_licenceProcess, static_cast<void (QProcess::*)(int)>(&QProcess::finished), this, [=](int result) {
-        if (96 == result) {
-            Q_EMIT requestLoginUser();
-        }
-        m_licenceProcess->deleteLater();
-        m_licenceProcess = nullptr;
-    });
-}
