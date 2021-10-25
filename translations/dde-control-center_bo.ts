@@ -41,111 +41,107 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="182"/>
-        <source>Help</source>
-        <translation>རོགས་རམ།</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
         <source>Accounts</source>
         <translation>རྩིས་ཁྲ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Display</source>
         <translation>མངོན་སྟོན།</translation>
+        <extra-contents_path>/cloudsync/Cloud Sync</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Default Applications</source>
         <translation>སོར་བཞག་བྱ་རིམ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Personalization</source>
         <translation>རང་གཤིས་ཅན། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <source>Network</source>
         <translation>དྲ་རྒྱ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Notification</source>
         <translation>བརྡ་ཐོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Sound</source>
         <translation>སྒྲ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="909"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="911"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="932"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="934"/>
         <source>Bluetooth</source>
         <translation>སོ་སྔོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <source>Date and Time</source>
         <translation>དུས་ཚོད་དང་ཚེས་གྲངས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
         <source>Power</source>
         <translation>གློག་ཁུངས་དོ་དམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
         <source>Mouse</source>
         <translation>ཙི་གུ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="921"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="923"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="944"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="946"/>
         <source>Drawing Tablet</source>
         <translation>དཔེ་རིས་འབྲི་ས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
         <source>Keyboard and Language</source>
         <translation>མཐེབ་གཞོང་དང་སྐད་རིགས། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="945"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="947"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="357"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="968"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="971"/>
         <source>Updates</source>
         <translation>གསར་སྒྱུར། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="358"/>
         <source>System Info</source>
         <translation>རྒྱུད་ཁོངས་ཆ་འཕྲིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="939"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="941"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="359"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="962"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="964"/>
         <source>General Settings</source>
         <translation>ཀུན་སྤྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="428"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="439"/>
         <source>Touchpad</source>
         <translation>ཐུག་རེག་པང་ལེབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="429"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="440"/>
         <source>TrackPoint</source>
         <translation>མཐེབ་རིས་དམར་ཆུང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="933"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="935"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
         <source>Cloud Sync</source>
         <translation>སྤྲིན་ཐོག་མཉམ་བགྲོད།</translation>
     </message>
@@ -155,7 +151,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="102"/>
         <source>The name already exists</source>
-        <translation>མཛུབ་རིས་མིང་འདི་འདུག </translation>
+        <translation>མིང་ཡོད་པ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountfingeitem.cpp" line="158"/>
@@ -251,21 +247,21 @@
 <context>
     <name>dccV20::accounts::AccountsWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="60"/>
         <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="62"/>
         <source>Create Account</source>
         <translation>རྩིས་ཁྲ་བཟོ་བ། </translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="146"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="156"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="162"/>
         <source>Administrator</source>
         <translation>དོ་དམ་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="148"/>
-        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="158"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/accountswidget.cpp" line="164"/>
         <source>Standard User</source>
         <translation>སྤྱོད་མཁན་དཀྱུས་མ། </translation>
     </message>
@@ -360,7 +356,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
         <source>Standard</source>
-        <translation>སྤྱོད་མཁན་དཀྱུས་མ། </translation>
+        <translation>ཚད་ལྡན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
@@ -408,7 +404,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="444"/>
         <source>Password must be no more than %1 characters</source>
-        <translation>གསང་ཨང་གི་རིང་ཚད་ཡིག་རྟགས་1ལས་བརྒལ་མི་རུང་། </translation>
+        <translation>གསང་ཨང་གི་རིང་ཚད་%1གཉིས་ལས་བརྒལ་མི་རུང་། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="449"/>
@@ -423,7 +419,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="467"/>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་རྟགས་4ཡན་ཡོད་མི་ཆོག </translation>
+        <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་འབྲུ་4ཡན་ཡོད་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="474"/>
@@ -555,12 +551,12 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="178"/>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་རིང་ཚད་གྲངས་གནས་%1ལས་ཉུང་མི་རུང་།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
         <source>The new password should not be similar to the current one</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་གསར་པ་དང་རྙིང་པར་ཆ་འདྲ་བའི་ཆ་ཤས་ཡོད་མི་རུང་།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
@@ -577,17 +573,17 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="182"/>
         <source>Do not use a password you have used before</source>
-        <translation type="unfinished"/>
+        <translation>དེ་སྔ་སྤྱོད་མྱོང་བའི་གསང་ཨང་སྤྱོད་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="183"/>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་ནི་རྒྱུན་མཐོང་གི་མིང་དང་ཚིག་གྲུབ་ཡིན་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="184"/>
         <source>Do not use common words and combinations in reverse order as password</source>
-        <translation type="unfinished"/>
+        <translation>གསང་ཨང་ནི་རྒྱུན་མཐོང་གི་མིང་དང་ཚིག་གྲུབ་ཀྱི་ལྡོག་འབྲི་ཡིན་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
@@ -613,7 +609,7 @@
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="342"/>
         <source>Password must be no more than %1 characters</source>
-        <translation>གསང་ཨང་གི་རིང་ཚད་ཡིག་རྟགས་%1ལས་བརྒལ་མི་རུང་། </translation>
+        <translation>གསང་ཨང་གི་རིང་ཚད་%1གཉིས་ལས་བརྒལ་མི་རུང་། </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="302"/>
@@ -623,7 +619,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་རྟགས་4ཡན་ཡོད་མི་ཆོག </translation>
+        <translation>གསང་ཨང་ནང་བསྟུད་མར་ཟུང་ལྡན་གྱི་ཡིག་འབྲུ་4ཡན་ཡོད་མི་ཆོག </translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="327"/>
@@ -712,12 +708,12 @@
 <context>
     <name>dccV20::bluetooth::DeviceSettingsItem</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="212"/>
         <source>Connected</source>
         <translation>སྦྲེལ་ཟིན། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/bluetooth/devicesettingsitem.cpp" line="215"/>
         <source>Not connected</source>
         <translation>སྦྲེལ་མེད་པ། </translation>
     </message>
@@ -774,25 +770,25 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="95"/>
         <source>Boot Menu</source>
         <translation>འགོ་སློང་འདེམས་བྱང་། </translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="114"/>
         <source>Developer Mode</source>
         <translation>གསར་སྤེལ་བའི་དཔེ་རྣམ། </translation>
         <extra-contents_path>/commoninfo/Developer Mode</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="119"/>
         <source>User Experience Program</source>
         <translation>སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི།</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowidget.cpp" line="123"/>
         <source>Tablet Mode</source>
         <translation>ངོས་ལེབ་དཔེ་རྣམ། </translation>
     </message>
@@ -981,12 +977,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="51"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (https://www.uniontech.com/agreement/deepin-privacy-en).</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི་ཁ་ཕྱེ་བ་འདིས་ང་ཚོས་ཁྱོད་ཀྱི་སྒྲིག་ཆས་དང་རྒྱུད་ཁོངས་ཆ་འཕྲིན། དེ་བཞིན་ཉེར་སྤྱོད་མཉེན་ཆས་ཀྱི་ཆ་འཕྲིན་བསྡུ་བ་དང་བེད་སྤྱོད་བྱེད་ཆོག་པར་དབང་ཆ་སྤྲད་པ་ཡིན་པར་བརྩི་རྒྱུ་ཡིན། ཁྱོད་ཀྱིས་སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི་ཁ་བརྒྱབ་ནས་ང་ཚོས་གོང་གསལ་གྱི་ཆ་འཕྲིན་བསྡུ་བ་དང་བེད་སྤྱོད་བྱེད་པར་བཀག་འགོག་བྱ་ཆོག ཞིབ་ཕྲའི་གསལ་བཤད་ནིDeepinགསང་དོན་སྲིད་ཇུས་ལ་གཟིགས་རོགས། (https://www.uniontech.com/agreement/deepin-privacy-cn)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
         <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི་ཁ་ཕྱེ་བ་འདིས་ང་ཚོས་ཁྱོད་ཀྱི་སྒྲིག་ཆས་དང་རྒྱུད་ཁོངས་ཆ་འཕྲིན། དེ་བཞིན་ཉེར་སྤྱོད་མཉེན་ཆས་ཀྱི་ཆ་འཕྲིན་བསྡུ་བ་དང་བེད་སྤྱོད་བྱེད་ཆོག་པར་དབང་ཆ་སྤྲད་པ་ཡིན་པར་བརྩི་རྒྱུ་ཡིན། ཁྱོད་ཀྱིས་སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི་ཁ་བརྒྱབ་ནས་ང་ཚོས་གོང་གསལ་གྱི་ཆ་འཕྲིན་བསྡུ་བ་དང་བེད་སྤྱོད་བྱེད་པར་བཀག་འགོག་བྱ་ཆོག གཞི་གྲངས་ཀྱི་དོ་དམ་བྱ་ཐབས་རྒྱུས་ལོན་བྱེད་དགོས་ཚེ། ཐུང་ཞིན་མཉེན་ཆས་ཀྱི་གསང་དོན་སྲིད་ཇུས་ལ་གཟིགས་རོགས། (https://www.uniontech.com/agreement/privacy-cn) </translation>
     </message>
 </context>
 <context>
@@ -1425,50 +1421,51 @@
 <context>
     <name>dccV20::display::CustomSettingDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="99"/>
         <source>Displays</source>
         <translation>བརྙན་ཡོལ་མངོན་སྟོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="105"/>
         <source>Resolution</source>
         <translation>འབྱེད་ཕྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="110"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="168"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="223"/>
         <source>Refresh Rate</source>
         <translation>གསར་འདོན་ཕྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="141"/>
         <source>Cancel</source>
-        <translation>འདོར་བ། </translation>
+        <translation>ཕྱིར་འཐེན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="145"/>
         <source>Save</source>
-        <translation>ཉར་ཚགས། </translation>
+        <translation>ཉར་གསོག་</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="289"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="322"/>
         <source>Hz</source>
         <translation>ཧོ་ཙི།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="291"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="396"/>
         <source>Recommended</source>
         <translation>འོས་སྦྱོར།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="450"/>
         <source>Main Screen</source>
         <translation>བརྙན་ཡོལ་གཙོ་བོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="422"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="468"/>
         <source>Monitor Connected (Multiple)</source>
         <translation>བརྙན་ཡོལ་འབྱེད་པ།（མང་པོ་འདེམས་ཆོག）</translation>
     </message>
@@ -1483,7 +1480,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="147"/>
         <source>Multiple Displays</source>
-        <translation>བརྙན་ཡོལ་མང་པོ་མངོན་སྟོན་དཔེ་རྣམ། </translation>
+        <translation>བརྙན་མང་སྒྲིག་འགོད།</translation>
     </message>
 </context>
 <context>
@@ -1501,7 +1498,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/displaywidget.cpp" line="139"/>
         <source>Multiple Displays</source>
-        <translation>བརྙན་ཡོལ་མང་པོ་མངོན་སྟོན་དཔེ་རྣམ། </translation>
+        <translation>བརྙན་མང་སྒྲིག་འགོད།</translation>
         <extra-contents_path>/display/Multiple Displays</extra-contents_path>
     </message>
     <message>
@@ -1552,32 +1549,32 @@
         <translation>རང་སྒྲུབ་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="132"/>
         <source>Duplicate</source>
         <translation>པར་སློག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="132"/>
         <source>Extend</source>
         <translation>རྒྱ་སྐྱེད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="135"/>
         <source>Show the same image on other screens</source>
         <translation>བརྙན་ཡོལ་གྱི་ནང་དོན་དག་བརྙན་ཡོལ་གཅིག་གམ་མང་པོའི་ནང་པར་སློག་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="136"/>
         <source>Expand the desktop across the screens</source>
         <translation>བརྙན་ཡོལ་རྒྱ་སྐྱེད་པ་མ་ཟད་བརྙན་ཡོལ་མི་འདྲ་བར་ནང་དོན་མི་འདྲ་བ་མངོན་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="138"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="140"/>
         <source>Customize</source>
         <translation>རང་སྒྲུབ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/display/multiscreensettingpage.cpp" line="141"/>
         <source>Configure the display according to your needs</source>
         <translation>ཁྱོད་ཀྱི་དགོས་མཁོ་ལྟར་རང་སྒྲུབ་སྒྲིག་འགོད་བྱེད།</translation>
     </message>
@@ -1591,7 +1588,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="90"/>
         <source>Recommended</source>
         <translation>འོས་སྦྱོར།</translation>
     </message>
@@ -1599,7 +1596,7 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="134"/>
         <source>Recommended</source>
         <translation>འོས་སྦྱོར།</translation>
         <extra-contents_path>/display/Resolution</extra-contents_path>
@@ -1634,7 +1631,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/scalingpage.cpp" line="130"/>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>མིག་སྔའི་བརྙན་ཡོལ་སྐྱེད་སྐྱུང་ལྡབ་1 བྱེད་ཆོག </translation>
+        <translation>མིག་སྔའི་བརྙན་ཡོལ་སྐྱེད་སྐྱུང་ལྡབ100%བྱེད་ཆོག </translation>
     </message>
 </context>
 <context>
@@ -1652,7 +1649,7 @@
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="81"/>
         <source>Cancel</source>
-        <translation>འདོར་བ། </translation>
+        <translation>ཕྱིར་འཐེན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="82"/>
@@ -1660,17 +1657,17 @@
         <translation>གཏན་ཁེལ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="142"/>
+        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="141"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>ཐུག་རེག་བརྙན་ཡོལ། - %1 (%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="194"/>
         <source>Touch Screen Settings</source>
         <translation>ཐུག་རེག་བརྙན་ཡོལ་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/display/touchscreenpage.cpp" line="195"/>
         <source>The settings of touch screen changed</source>
         <translation>ཐུག་རེག་བརྙན་ཡོལ་གྱི་སྒྲིག་བཀོད་སྒྱུར་ཟིན།</translation>
     </message>
@@ -1824,24 +1821,24 @@
 <context>
     <name>dccV20::keyboard::KeyboardWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="51"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="65"/>
         <source>General</source>
         <translation>ཀུན་སྤྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="67"/>
         <source>Keyboard Layout</source>
         <translation>མཐེབ་གཞོང་བཀོད་པ།</translation>
         <extra-contents_path>/keyboard/Keyboard Layout</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="69"/>
         <source>System Language</source>
         <translation>རྒྱུད་ཁོངས་སྐད་ཡིག</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardwidget.cpp" line="71"/>
         <source>Shortcuts</source>
         <translation>མྱུར་མཐེབ།</translation>
         <extra-contents_path>/keyboard/Shortcuts</extra-contents_path>
@@ -1888,17 +1885,17 @@
 <context>
     <name>dccV20::keyboard::SystemLanguageSettingWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="67"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="66"/>
         <source>Cancel</source>
         <translation>འདོར་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="68"/>
         <source>Add</source>
         <translation>ཁ་སྣོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/keyboard/systemlanguagesettingwidget.cpp" line="73"/>
         <source>Add System Language</source>
         <translation>རྒྱུད་ཁོངས་སྐད་ཡིག་སྣོན་པ།</translation>
         <extra-contents_path>/keyboard/System Language</extra-contents_path>
@@ -2181,50 +2178,50 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="101"/>
         <source>Disconnect</source>
         <translation>སྦྲེལ་མཐུད་ཕྲལ་གཅོད། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="221"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="224"/>
         <source>Delete</source>
         <translation>སུབ་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="223"/>
         <source>Cancel</source>
         <translation>འདོར་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="110"/>
         <source>Save</source>
         <translation>ཉར་ཚགས། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="217"/>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="221"/>
         <source>Are you sure you want to delete this configuration?</source>
         <translation>ཁྱོད་ཀྱིས་མིག་སྔའི་སྡེབ་སྒྲིག་བསུབ་རྒྱུ་ཡིན་པ་གཏན་ཁེལ་ལམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="400"/>
         <source>Wired Connection %1</source>
         <translation>སྐུད་ཡོད་འབྲེལ་མཐུད་%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="405"/>
         <source>hotspot</source>
         <translation>ཚ་གནས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="404"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="407"/>
         <source>Wireless Connection %1</source>
         <translation>སྐུད་མེད་འབྲེལ་མཐུད་%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="413"/>
         <source>PPPoE Connection %1</source>
         <translation>PPPoEའབྲེལ་མཐུད་%1</translation>
     </message>
@@ -2504,86 +2501,86 @@
 <context>
     <name>dccV20::network::NetworkDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="100"/>
         <source>Network Details</source>
         <translation>དྲ་རྒྱ་ཞིབ་ཕྲ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="165"/>
         <source>Hotspot</source>
         <translation>ཚ་གནས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="169"/>
         <source>SSID</source>
         <translation>SSID</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="180"/>
         <source>Protocol</source>
         <translation>གྲོས་མཐུན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="159"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="200"/>
         <source>Security Type</source>
         <translation>བདེ་འཇགས་རིགས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="164"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="213"/>
         <source>Band</source>
         <translation>བྱུང་རིམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="194"/>
         <source>Channel</source>
         <translation>དྲ་རྒྱའི་རྒྱུ་ལམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="205"/>
         <source>Interface</source>
         <translation>མཐུད་ཁ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="209"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="221"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="200"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="225"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="239"/>
         <source>Gateway</source>
         <translation>དྲ་སྒོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="204"/>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="229"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="244"/>
         <source>Primary DNS</source>
         <translation>སྔོན་འདེམས་DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="208"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="233"/>
         <source>Netmask</source>
         <translation>བུ་དྲ་ཡིབ་ཨང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="238"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="248"/>
         <source>Prefix</source>
         <translation>སྔོན་སྦྱོར།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="233"/>
+        <location filename="../src/frame/window/modules/network/networkdetailpage.cpp" line="253"/>
         <source>Speed</source>
         <translation>མྱུར་ཚད།</translation>
     </message>
@@ -2614,90 +2611,90 @@
 <context>
     <name>dccV20::network::NetworkModuleWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="75"/>
         <source>DSL</source>
         <translation>DSL</translation>
         <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="84"/>
         <source>VPN</source>
         <translation>VPN</translation>
         <extra-contents_path>/network/VPN</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
         <source>System Proxy</source>
         <translation>རྒྱུད་ཁོངས་ལས་ཚབ།</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="100"/>
         <source>Application Proxy</source>
         <translation>ཉེར་སྤྱོད་ལས་ཚབ།</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="109"/>
         <source>Network Details</source>
         <translation>དྲ་རྒྱ་ཞིབ་ཕྲ།</translation>
         <extra-contents_path>/network/Network Details</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="165"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="398"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="405"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="427"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="444"/>
         <source>Disabled</source>
         <translation>སྤྱོད་མི་ཆོག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="180"/>
         <source>Manual</source>
         <translation>ལག་ཐབས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="182"/>
         <source>Auto</source>
         <translation>རང་འགུལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="195"/>
         <source>Configure by Network Manager</source>
         <translation>དྲ་རྒྱའི་དོ་དམ་བྱེད་ཆས་སྤྱད་དེ་སྡེབ་སྒྲིག་བྱེད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="381"/>
         <source>Personal Hotspot</source>
         <translation>མི་སྒེར་གྱི་ཚ་གནས།</translation>
         <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="401"/>
         <source>Wired Network %1</source>
         <translation>སྐུད་ཡོད་དྲ་རྒྱ་%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="404"/>
         <source>Wired Network</source>
         <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="408"/>
         <source>Wireless Network %1</source>
         <translation>སྐུད་མེད་དྲ་རྒྱ་%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="411"/>
         <source>Wireless Network</source>
         <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="425"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="431"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="460"/>
         <source>Disconnected</source>
         <translation>ཆད་པ།</translation>
     </message>
@@ -4161,23 +4158,23 @@
 <context>
     <name>dccV20::network::WirelessPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="284"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="285"/>
         <source>Connect to hidden network</source>
         <translation>ཡིབ་དྲ་དང་མཐུད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="293"/>
         <source>Wireless Network Adapter</source>
         <translation>སྐུད་མེད་དྲ་ཁཱ།</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="306"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="310"/>
         <source>Close Hotspot</source>
         <translation>ཚ་གནས་ཁ་རྒྱོབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/network/wirelesspage.cpp" line="313"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
         <translation>སྐུད་མེད་དྲ་རྒྱའི་རྩོལ་ནུས་དང་མཐུད་ནས་བེད་སྤྱོད་གཏོང་དགོས་ཚེ། སྔོན་ལ་ཚ་གནས་མཉམ་སྤྱོད་ཁ་རྒྱོབ།</translation>
     </message>
@@ -4295,12 +4292,12 @@
 <context>
     <name>dccV20::notification::TimeSlotItem</name>
     <message>
-        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="52"/>
         <source>From</source>
         <translation>ནས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/notification/timeslotitem.cpp" line="54"/>
         <source>To</source>
         <translation>བར།</translation>
     </message>
@@ -4372,24 +4369,24 @@
         <translation>རྫུ་འཕྲུལ་གློག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="238"/>
         <source>Rounded Corner</source>
-        <translation type="unfinished"/>
+        <translation>སྒེའུ་ཁུང་གི་ཟུར་སྒོར་དབྱིབས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="245"/>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>ཆུང་ངུ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="245"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>འབྲིང་བ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationgeneral.cpp" line="245"/>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>ཆེ་བ།</translation>
     </message>
 </context>
 <context>
@@ -4430,22 +4427,22 @@
 <context>
     <name>dccV20::personalization::PerssonalizationThemeList</name>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="102"/>
         <source>Light</source>
         <translation>མདོག་ཧར་པོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="104"/>
         <source>Dark</source>
         <translation>མདོག་སྣུམ་་པོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="106"/>
         <source>Auto</source>
         <translation>རང་འགུལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/personalization/personalizationthemelist.cpp" line="111"/>
         <source>Default</source>
         <translation>སོར་བཞག</translation>
     </message>
@@ -4522,23 +4519,23 @@
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="91"/>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>ནུས་པའི་དཔེ་རྣམ། </translation>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="97"/>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>དོ་མཉམ་དཔེ་རྣམ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="98"/>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>ནུས་པ་མཐོ་བའི་དཔེ་རྣམ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="99"/>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>ནུས་ཁུངས་གྲོན་ཆུང་གི་དཔེ་རྣམ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="127"/>
@@ -4658,7 +4655,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="65"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="390"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="373"/>
         <source>Never</source>
         <translation>ནམ་ཡང་མིན།</translation>
     </message>
@@ -4690,21 +4687,21 @@
         <translation>བཀོལ་སྤྱོད་གང་ཡང་མེད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="355"/>
         <source>1 Minute</source>
         <translation>སྐར་མ་1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="375"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="378"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="381"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="384"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="358"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="361"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="364"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="376"/>
         <source>%1 Minutes</source>
         <translation>སྐར་མ་%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="370"/>
         <source>1 Hour</source>
         <translation>ཆུ་ཚོད་1 </translation>
     </message>
@@ -4772,212 +4769,214 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="123"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="325"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="309"/>
         <source>Never</source>
         <translation>ནམ་ཡང་མིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="291"/>
         <source>1 Minute</source>
         <translation>སྐར་མ་1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="310"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="313"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="316"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="319"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="328"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="312"/>
         <source>%1 Minutes</source>
         <translation>སྐར་མ་%1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="306"/>
         <source>1 Hour</source>
         <translation>ཆུ་ཚོད་1 </translation>
     </message>
 </context>
 <context>
-    <name>dccV20::search::SearchWidget</name>
+    <name>dccV20::search::SearchModel</name>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="114"/>
         <source>Server</source>
         <translation>ཞབས་ཞུ་འཕྲུལ་ཆས། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="520"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="115"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="390"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="846"/>
         <source>Window Effect</source>
         <translation>སྒེའུ་ཁུང་གི་ཁྱད་ནུས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="156"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="160"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="116"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="148"/>
         <source>Developer Mode</source>
         <translation>གསར་སྤེལ་བའི་དཔེ་རྣམ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="117"/>
         <source>User Experience Program</source>
         <translation>སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞི།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="118"/>
         <source>Join User Experience Program</source>
         <translation>སྤྱོད་མཁན་གྱི་ཉམས་ཞིབ་འཆར་གཞིའི་ནང་ཞུགས་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="119"/>
         <source>Display Scaling</source>
         <translation>བརྙན་ཡོལ་སྐྱེད་སྐྱུང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="120"/>
         <source>Night Shift</source>
         <translation>མདོག་དྲོད་རང་སྙོམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="121"/>
         <source>Auto Login</source>
         <translation>ཐོ་རང་འཇུག </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
         <source>Login Without Password</source>
         <translation>གསང་ཨང་མེད་པར་ཐོ་འཇུག་བྱེད་པ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
         <source>Auto Brightness</source>
         <translation>གསལ་ཚད་རང་སྙོམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="124"/>
         <source>General</source>
         <translation>ཀུན་སྤྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="125"/>
         <source>Password is required to wake up the monitor</source>
         <translation>མངོན་ཆས་གཉིད་ལས་སད་སྐབས་གསང་ཨང་དགོས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="126"/>
         <source>Password is required to wake up the computer</source>
-        <translation>སོར་ཆུད་པར་གསང་ཨང་དགོས།</translation>
+        <translation>སྒུག་སྡོད་སོར་ཆུད་པར་གསང་ཨང་དགོས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="127"/>
         <source>Power Saving Mode</source>
         <translation>ནུས་ཁུངས་གྲོན་ཆུང་དཔེ་རྣམ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
         <source>Auto Mode Switch</source>
         <translation>ནུས་སྲིའི་དཔེ་རྣམ་ལ་རང་བཞིན་གྱིས་བརྗེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Transparency</source>
         <translation>གསལ་ཚད་སྙོམ་སྒྲིག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>Create PPPoE Connection</source>
         <translation>PPPoའབྲེལ་མཐུད་བཟོ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Disable the touchpad while typing</source>
         <translation>ནང་འཇུག་བྱེད་སྐབས་ཐུག་རེག་བརྙན་ཡོལ་སྤྱོད་མི་ཆོག </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>ཙི་གུ་འཇུག་སྐབས་ཐུག་རེག་བརྙན་ཡོལ་སྤྱོད་མི་ཆོག </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Computer will suspend after</source>
         <translation>གློག་ཀླད་སྒུག་པའི་དཔེ་རྣམ་ལ་འགྱུར་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Sign In</source>
         <translation>ཐོ་འཇུག</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
         <source>Auto power saving on battery</source>
         <translation>གློག་སྨན་སྤྱོད་སྐབས་རང་བཞིན་གྱིས་ཕྱེ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="148"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
         <source>Touch Screen</source>
-        <translation type="unfinished"/>
+        <translation>ཐུག་རེག་བརྙན་ཡོལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="149"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>ནུས་པའི་དཔེ་རྣམ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="150"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>ནུས་སྲི་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="151"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>གཉིད་སད་སྒྲིག་འགོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="152"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
         <source>Battery</source>
-        <translation type="unfinished"/>
+        <translation>གློག་སྨན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="167"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="155"/>
         <source>Touchpad</source>
         <translation>ཐུག་རེག་པང་ལེབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="156"/>
         <source>TrackPoint</source>
         <translation>མཐེབ་རིས་དམར་ཆུང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="169"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="157"/>
         <source>Personal Hotspot</source>
         <translation>མི་སྒེར་གྱི་ཚ་གནས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="170"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="158"/>
         <source>On Battery</source>
         <translation>གློག་སྨན་སྤྱོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="171"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="159"/>
         <source>Wired Network</source>
         <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="172"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="160"/>
         <source>Wireless Network</source>
         <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="173"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
         <source>Multiple Displays</source>
         <translation>བརྙན་ཡོལ་མང་པོ་མངོན་སྟོན་དཔེ་རྣམ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="174"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
         <source>Boot Menu</source>
         <translation>འགོ་སློང་འདེམས་བྱང་། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="512"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="838"/>
         <source>Cloud Account</source>
         <translation>དྲ་རྒྱའི་རྩིས་ཁྲ།</translation>
     </message>
@@ -4985,34 +4984,34 @@
 <context>
     <name>dccV20::sound::MicrophonePage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="71"/>
         <source>Input</source>
         <translation>ནང་འཇུག</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="76"/>
         <source>Input Device</source>
         <translation>ནང་འདྲེན་སྒྲིག་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="80"/>
         <source>On</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="84"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="85"/>
         <source>Automatic Noise Suppression</source>
         <translation>སུན་སྒྲ་ཚོད་འཛིན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="287"/>
         <source>Input Volume</source>
         <translation>སྒྲ་ཤུགས་ནང་འཇུག</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/sound/microphonepage.cpp" line="332"/>
         <source>Input Level</source>
         <translation>སྒྲ་ཤུགས་ལྡོག་སྐྱེལ།</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
@@ -5039,13 +5038,13 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="76"/>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>ཕྱིར་འདྲེན།</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="78"/>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>ནང་འཇུག</translation>
         <extra-contents_path>/sound/Microphone</extra-contents_path>
     </message>
     <message>
@@ -5058,55 +5057,55 @@
 <context>
     <name>dccV20::sound::SpeakerPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="67"/>
         <source>Output</source>
         <translation>ཕྱིར་འདྲེན།</translation>
         <extra-contents_path>/sound/Advanced</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="72"/>
         <source>Output Device</source>
         <translation>ཕྱིར་འདྲེན་སྒྲིག་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="84"/>
         <source>On</source>
-        <translation type="unfinished"/>
+        <translation>སྤྱོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="88"/>
         <source>Speaker</source>
         <translation>སྒྲ་སྐྱེད་ཆས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="247"/>
         <source>Output Volume</source>
         <translation>སྒྲ་ཤུགས་ཕྱིར་འདོན།</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="348"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="349"/>
         <source>Volume Boost</source>
         <translation>སྐད་ཤུགས་ཆེ་རུ་གཏོང་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="355"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="356"/>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to your speaker</source>
         <translation>སྒྲ་ཤུགས་100%ལས་ཆེ་བ་ཡོད་སྐབས་སྒྲ་ནུས་ཤོར་སྲིད་པ་མ་ཟད། ཁྱོད་ཀྱི་སྒྲ་སྐྱེད་ཆས་ཀྱང་འཕྲོ་བརླག་གཏོང་ཉེན་ཡོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="369"/>
         <source>Left/Right Balance</source>
         <translation>གཡོན་/གཡས་དོ་སྙོམས།</translation>
         <extra-contents_path>/sound/Speaker</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="374"/>
         <source>Left</source>
         <translation>གཡོན།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/sound/speakerpage.cpp" line="375"/>
         <source>Right</source>
         <translation>གཡས།</translation>
     </message>
@@ -5210,7 +5209,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="52"/>
         <source>Deepin ID Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Union ID ཐོ་འཇུག</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="54"/>
@@ -5241,12 +5240,35 @@
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="34"/>
         <source>Deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>Deepin ID</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/syncmodule.cpp" line="36"/>
         <source>Union ID</source>
         <translation>Union ID</translation>
+    </message>
+</context>
+<context>
+    <name>dccV20::systeminfo::CRestoreClientPage</name>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/restoreclient.cpp" line="27"/>
+        <source>Reset to factory settings</source>
+        <translation>བཟོ་ཐོན་སྒྲིག་འགོད་སོར་ཆུད།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/restoreclient.cpp" line="41"/>
+        <source>It will reset system settings to their defaults without affecting your files and apps, but the username and password will be cleared, please confirm before proceeding</source>
+        <translation>སྒྲིག་འགོད་ཆ་ཚང་སོར་ཆུད་སྐབས་རྒྱུད་ཁོངས་སྡེར་དག་ཁྱོད་ཀྱིས་རྒྱུད་ཁོངས་སྒྲིག་འཇུག་བྱེད་པའི་སྐབས་ཀྱི་རྣམ་པར་རང་ལོག་བྱེད་པ་དང་། ཁྱོད་ཀྱི་གཞི་གྲངས་སོར་བཞག་བྱེད་པ་ལས་སྤྱོད་མཁན་མིང་དང་གསང་ཨང་གཙང་སེལ་བྱེད་སྲིད་པས་གཏན་ཁེལ་རྗེས་བཀོལ་སྤྱོད་བྱེད།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/restoreclient.cpp" line="45"/>
+        <source>Cancel</source>
+        <translation>འདོར་བ། </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/restoreclient.cpp" line="47"/>
+        <source>Confirm</source>
+        <translation>གཏན་ཁེལ། </translation>
     </message>
 </context>
 <context>
@@ -5357,7 +5379,7 @@
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="286"/>
         <source>Cancel</source>
-        <translation>འདོར་བ། </translation>
+        <translation>ཕྱིར་འཐེན།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/manualrestore.cpp" line="289"/>
@@ -5463,7 +5485,7 @@
 <context>
     <name>dccV20::systeminfo::SystemInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfomodule.cpp" line="111"/>
         <source>System Info</source>
         <translation>རྒྱུད་ཁོངས་ཆ་འཕྲིན།</translation>
     </message>
@@ -5489,7 +5511,12 @@
         <extra-contents_path>/systeminfo/End User License Agreement</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="80"/>
+        <source>Restore</source>
+        <translation>སོར་ཆུད།</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/systeminfowidget.cpp" line="96"/>
         <source>Backup and Restore</source>
         <translation>གྲབས་ཉར།/སོར་ཆུད།</translation>
     </message>
@@ -6015,58 +6042,58 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="230"/>
+        <location filename="../src/frame/main.cpp" line="210"/>
         <source>Control Center</source>
         <translation>ཚོད་འཛིན་ལྟེ་གནས།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="317"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="717"/>
         <source>On Battery</source>
         <translation>གློག་སྨན་སྤྱོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="318"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="718"/>
         <source>Plugged In</source>
         <translation>གློག་ཁུངས་སྤྱོད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="319"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="719"/>
         <source>General</source>
         <translation>ཀུན་སྤྱོད།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="320"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="720"/>
         <source>Mouse</source>
         <translation>ཙི་གུ། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="321"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="721"/>
         <source>Touchpad</source>
         <translation>ཐུག་རེག་པང་ལེབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="722"/>
         <source>TrackPoint</source>
         <translation>མཐེབ་རིས་དམར་ཆུང་།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="323"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="723"/>
         <source>Application Proxy</source>
         <translation>ཉེར་སྤྱོད་ལས་ཚབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="324"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="327"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="724"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="727"/>
         <source>System Proxy</source>
         <translation>རྒྱུད་ཁོངས་ལས་ཚབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="325"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="725"/>
         <source>Time Settings</source>
         <translation>དུས་ཚོད་སྒྲིག་འགོད། </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="326"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="726"/>
         <source>Change System Timezone</source>
         <translation>རྒྱུད་ཁོངས་ཀྱི་དུས་ཁུལ་བཟོ་བཅོས།</translation>
     </message>
@@ -6604,12 +6631,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="170"/>
         <source>Cancel</source>
-        <translation>འདོར་བ།</translation>
+        <translation>ཕྱིར་འཐེན།</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="172"/>
         <source>Save</source>
-        <translation>ཉར་ཚགས། </translation>
+        <translation>ཉར་གསོག་</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/display/monitorsettingdialog.cpp" line="179"/>
@@ -6817,85 +6844,87 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::sound::SoundModel</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="90"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="107"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="110"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="127"/>
         <source>Boot up</source>
         <translation>ཁ་ཕྱེ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="91"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="108"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="128"/>
         <source>Shut down</source>
         <translation>ཁ་བརྒྱབ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="92"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="109"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="129"/>
         <source>Log out</source>
         <translation>ཐོ་སུབ་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="93"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="110"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="130"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="141"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="142"/>
         <source>Wake up</source>
         <translation>གཉིད་ལས་སད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="94"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="111"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
         <source>Volume +/-</source>
         <translation>སྐད་ཤུགས་སྙོམ་སྒྲིག</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="95"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
         <source>Notification</source>
         <translation>བརྡ་ཐོ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="96"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
         <source>Low battery</source>
         <translation>གློག་མི་འདང་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="97"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>འགོ་སློང་ཆས་ནས་རྟགས་རིས་ཅོག་ངོས་སུ་སྐྱེལ་བ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="98"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="148"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="149"/>
         <source>Empty Trash</source>
         <translation>སྙིགས་སྒམ་གཙང་སེལ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="99"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
         <source>Plug in</source>
         <translation>གློག་ཁུངས་དང་མཐུད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="100"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
         <source>Plug out</source>
         <translation>གློག་ཁུངས་བཅད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="101"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
         <source>Removable device connected</source>
         <translation>སྒུལ་བདེའི་སྒྲིག་ཆས་མཐུད་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="102"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
         <source>Removable device removed</source>
         <translation>སྒུལ་བདེའི་སྒྲིག་ཆས་འགོག་པ།</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="103"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
         <source>Error</source>
         <translation>ནོར་འཁྲུལ་གསལ་འདེབས།</translation>
     </message>
@@ -6926,7 +6955,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="240"/>
         <source>Copyright© 2011-2020 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>Copyright © 2011-2020 གཏིང་ཚད་སྡེ་ཁུལ།</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
@@ -7012,7 +7041,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="410"/>
         <source>System Updates</source>
-        <translation type="unfinished"/>
+        <translation>རྒྱུད་ཁོངས་གསར་སྒྱུར།</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="419"/>
@@ -7036,7 +7065,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="231"/>
+        <location filename="../src/frame/main.cpp" line="211"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>ཚོད་འཛིན་ལྟེ་གནས་ཀྱིས་རྒྱུད་ཁོངས་བཀོལ་སྤྱོད་བྱེད་པའི་གདམ་གསེས་ཆ་ཚང་འདོན་སྤྲོད་བྱེད་པ།</translation>
     </message>
