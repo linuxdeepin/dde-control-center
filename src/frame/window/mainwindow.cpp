@@ -928,12 +928,24 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 m_searchWidget->removeUnExsitData(tr("Bluetooth"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Bluetooth"));
+
+                //当前处于＂蓝牙＂页面才会回到主页面
+                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == "bluetooth") {
+                    popAllWidgets();
+                    resetNavList(m_contentStack.empty());
+                }
             }
         } else if ("wacom" == find_it->first->name()) {
             if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Drawing Tablet"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Drawing Tablet"));
+
+                //当前处于＂数位板＂页面才会回到主页面
+                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == "wacom") {
+                    popAllWidgets();
+                    resetNavList(m_contentStack.empty());
+                }
             }
         }  else if ("cloudsync" == find_it->first->name()) {
             if (bFinalVisible) {
@@ -957,10 +969,6 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
         }
     } else {
         qDebug() << Q_FUNC_INFO << "Not found module!";
-    }
-    if (!m_contentStack.isEmpty() && m_contentStack.at(0).first->name() == inter->name()) {
-        popAllWidgets();
-        resetNavList(m_contentStack.empty());
     }
 }
 
