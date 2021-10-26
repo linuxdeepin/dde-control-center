@@ -60,7 +60,6 @@ Q_SIGNALS:
     void requestSetScreenBlackDelayOnPower(const int delay) const;
     void requestSetSleepDelayOnPower(const int delay) const;
     void requestSetAutoLockScreenOnPower(const int delay) const;
-    void requestSetDormantOnPower(const int delay) const;
     void requestSetSleepOnLidOnPowerClosed(const bool sleep) const;
     void requestSetLinePowerPressPowerBtnAction(const int reply) const;//按下电源
     void requestSetLinePowerLidClosedAction(const int reply) const;//合上盖子
@@ -69,7 +68,6 @@ public Q_SLOTS:
     void setScreenBlackDelayOnPower(const int delay);
     void setSleepDelayOnPower(const int delay);
     void setAutoLockScreenOnPower(const int delay);
-    void setDormantDelayOnPower(const int delay);
     void setLockScreenAfter(const int delay);
     void setCloseLid(const dcc::power::PowerModel *model, int lidIndex);
     void setPowerBtn(const dcc::power::PowerModel *model, int powIndex);
@@ -83,7 +81,6 @@ private:
     QVBoxLayout *m_layout = nullptr;
     dcc::widgets::TitledSliderItem *m_monitorSleepOnPower = nullptr;
     dcc::widgets::TitledSliderItem *m_computerSleepOnPower = nullptr;
-    dcc::widgets::TitledSliderItem *m_computerDormantPower = nullptr;
     dcc::widgets::TitledSliderItem *m_autoLockScreen = nullptr;
 
     dcc::widgets::ComboxWidget *m_cmbPowerBtn;    //电源按钮
