@@ -219,7 +219,6 @@ void PowerModule::showUseElectric()
     connect(electric, &UseElectricWidget::requestSetSleepDelayOnPower, m_work, &PowerWorker::setSleepDelayOnPower);
     connect(electric, &UseElectricWidget::requestSetSleepOnLidOnPowerClosed, m_work, &PowerWorker::setSleepOnLidOnPowerClosed); //Suspend on lid close
     connect(electric, &UseElectricWidget::requestSetAutoLockScreenOnPower, m_work, &PowerWorker::setLockScreenDelayOnPower);
-    connect(electric, &UseElectricWidget::requestSetDormantOnPower, m_work, &PowerWorker::setDormantOnPower);
 
     //-----------------sp2 add-------------------
     connect(electric, &UseElectricWidget::requestSetLinePowerPressPowerBtnAction, m_work, &PowerWorker::setLinePowerPressPowerBtnAction);
@@ -242,7 +241,6 @@ void PowerModule::showUseBattery()
     connect(battery, &UseBatteryWidget::requestSetScreenBlackDelayOnBattery, m_work, &PowerWorker::setScreenBlackDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetSleepDelayOnBattery, m_work, &PowerWorker::setSleepDelayOnBattery);
     connect(battery, &UseBatteryWidget::requestSetAutoLockScreenOnBattery, m_work, &PowerWorker::setLockScreenDelayOnBattery);
-    connect(battery, &UseBatteryWidget::requestSetDormantOnBattery, m_work, &PowerWorker::setDormantOnBattery);
 
     //-----------------sp2 add-------------------
     connect(battery, &UseBatteryWidget::requestSetBatteryPressPowerBtnAction, m_work, &PowerWorker::setBatteryPressPowerBtnAction);
