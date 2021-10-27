@@ -6959,8 +6959,8 @@ Truy cập Trung tâm người dùng và quản lý tài khoản của bạn ở
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
-        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Bản quyền © Công ty TNHH Công nghệ 2019-2020 Wuhan Deepin</translation>
+        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
+        <translation>Bản quyền © Công ty TNHH Công nghệ 2019-2021 Wuhan Deepin</translation>
     </message>
 </context>
 <context>

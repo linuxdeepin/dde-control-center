@@ -6959,8 +6959,8 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
-        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
+        <translation>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>

@@ -6959,8 +6959,8 @@ Kullanıcı Merkezi&apos;ni ziyaret edin ve hesabınızı oradan yönetin.</tran
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
-        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>Telif Hakkı© 2019-2020 UnionTech Software Technology Co., LTD</translation>
+        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
+        <translation>Telif Hakkı© 2019-2021 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>

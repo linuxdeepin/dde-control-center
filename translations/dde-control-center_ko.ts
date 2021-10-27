@@ -6959,8 +6959,8 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
-        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
-        <translation>저작권© 2019-2020 유니온테크 소프트웨어 기술 유한 공사</translation>
+        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
+        <translation>저작권© 2019-2021 유니온테크 소프트웨어 기술 유한 공사</translation>
     </message>
 </context>
 <context>

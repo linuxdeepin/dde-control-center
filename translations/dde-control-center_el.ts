@@ -6959,7 +6959,7 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="242"/>
-        <source>Copyright© 2019-2020 UnionTech Software Technology Co., LTD</source>
+        <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
         <translation type="unfinished"/>
     </message>
 </context>
