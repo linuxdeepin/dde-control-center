@@ -4438,6 +4438,12 @@
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="197"/>
+        <source>Battery</source>
+        <translation type="unfinished"></translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::power::PowerModule</name>

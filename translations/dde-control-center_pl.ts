@@ -2024,7 +2024,7 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="104"/>
         <source>Disconnect</source>
         <translation>Rozłącz</translation>
     </message>
@@ -2041,7 +2041,7 @@
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="113"/>
         <source>Save</source>
         <translation>Zapisz</translation>
     </message>
@@ -4494,6 +4494,12 @@
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="197"/>
+        <source>Battery</source>
+        <translation>Bateria</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::power::PowerModule</name>
@@ -5026,6 +5032,12 @@
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
         <source>Devices</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
+        <source>Devices</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
 <context>
@@ -6765,12 +6777,12 @@ Odwiedź Centrum użytkownika i tam zarządzaj swoim kontem.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetimework.cpp" line="179"/>
         <source>Authentication is required to set the system timezone</source>
-        <translation>Aby ustawić strefę czasową systemu, wymagane jest uwierzytelnienie</translation>
+        <translation>Aby ustawić strefę czasową systemu wymagane jest uwierzytelnienie</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetimework.cpp" line="199"/>
         <source>Authentication is required to change NTP server</source>
-        <translation>Do zmiany serwera NTP wymagane jest uwierzytelnienie</translation>
+        <translation>Uwierzytelnienie jest wymagane do zmiany serwera NTP</translation>
     </message>
 </context>
 <context>

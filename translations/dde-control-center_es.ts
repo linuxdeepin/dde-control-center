@@ -2024,7 +2024,7 @@
 <context>
     <name>dccV20::network::ConnectionEditPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="104"/>
         <source>Disconnect</source>
         <translation>Desconectar</translation>
     </message>
@@ -2041,7 +2041,7 @@
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="114"/>
+        <location filename="../src/frame/window/modules/network/connectioneditpage.cpp" line="113"/>
         <source>Save</source>
         <translation>Guardar</translation>
     </message>
@@ -4494,6 +4494,12 @@
         <extra-child_page>General</extra-child_page>
         <extra-contents_path>/power/General</extra-contents_path>
     </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/generalwidget.cpp" line="197"/>
+        <source>Battery</source>
+        <translation>Batería</translation>
+        <extra-contents_path>/power/General</extra-contents_path>
+    </message>
 </context>
 <context>
     <name>dccV20::power::PowerModule</name>
@@ -5026,6 +5032,12 @@
         <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="142"/>
         <source>Devices</source>
         <translation>Dispositivos</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sound/soundwidget.cpp" line="82"/>
+        <source>Devices</source>
+        <translation>Dispositivos</translation>
+        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
 <context>
@@ -6024,7 +6036,7 @@ Visite el Centro de usuario y administre su cuenta allí.</translation>
     <message>
         <location filename="../src/frame/plugins/privacy/privacywidget.cpp" line="53"/>
         <source>Microphone</source>
-        <translation>Micrófono</translation>
+        <translation>Micrófono  </translation>
     </message>
 </context>
 <context>
@@ -6764,7 +6776,7 @@ Visite el Centro de usuario y administre su cuenta allí.</translation>
     <message>
         <location filename="../src/frame/modules/datetime/datetimework.cpp" line="179"/>
         <source>Authentication is required to set the system timezone</source>
-        <translation>Se requiere autenticación para configurar la zona horaria del sistema</translation>
+        <translation>Se requiere autenticación para configurar la zona horaria del sistema.</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/datetime/datetimework.cpp" line="199"/>

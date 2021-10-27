@@ -30,6 +30,7 @@
 #include <DLineEdit>
 #include <DIconButton>
 #include <QEvent>
+#include <QSet>
 
 using namespace DCC_NAMESPACE::network;
 using namespace dcc::widgets;
@@ -114,14 +115,19 @@ QList<QHostAddress> DNSSection::getIPvxDate()
     NetworkManager::Ipv6Setting::Ptr ipv6Setting = m_ipv6Setting.staticCast<NetworkManager::Ipv6Setting>();
 
     QList<QHostAddress> alldns ;
+    QList<QHostAddress> saveDns ;
 
     if (ipv4Setting) {
-        const QList<QHostAddress> &dns4 = ipv4Setting->dns();
-        alldns.append(dns4);
+        saveDns.append(ipv4Setting->dns());
     }
     if (ipv6Setting) {
-        const QList<QHostAddress> &dns6 = ipv6Setting->dns();
-        alldns.append(dns6);
+        saveDns.append(ipv6Setting->dns());
+    }
+
+    for (auto dns : saveDns) {
+        if (!alldns.contains(QHostAddress(dns))) {
+            alldns.append(dns);
+        }
     }
 
     return alldns;

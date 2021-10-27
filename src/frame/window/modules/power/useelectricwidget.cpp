@@ -144,10 +144,18 @@ UseElectricWidget::UseElectricWidget(PowerModel *model, QWidget *parent)
                 Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 1 : nIndex);
             }
         } else {
-            if (!model->getHibernate()) {
-                Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 1 ? nIndex + 1 : nIndex);
+            if (DSysInfo::uosEditionType() != DSysInfo::UosEuler) {
+                if (!model->getHibernate()) {
+                    Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 1 ? nIndex + 1 : nIndex);
+                } else {
+                    Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex);
+                }
             } else {
-                Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex);
+                if (!model->getHibernate()) {
+                    Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex > 0 ? nIndex + 2 : nIndex);
+                } else {
+                    Q_EMIT requestSetLinePowerPressPowerBtnAction(nIndex + 1);
+                }
             }
         }
     });
@@ -287,10 +295,18 @@ void UseElectricWidget::setPowerBtn(const dcc::power::PowerModel *model, int pow
             m_cmbPowerBtn->setCurrentIndex(powIndex > 0 ? powIndex - 1 : powIndex);
         }
     } else {
-        if (!model->getHibernate()) {
-            m_cmbPowerBtn->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
+        if (DSysInfo::uosEditionType() !=  DSysInfo::UosEuler) {
+            if (!model->getHibernate()) {
+                m_cmbPowerBtn->setCurrentIndex(powIndex > 2 ? powIndex - 1 : powIndex);
+            } else {
+                m_cmbPowerBtn->setCurrentIndex(powIndex);
+            }
         } else {
-            m_cmbPowerBtn->setCurrentIndex(powIndex);
+            if (!model->getHibernate()) {
+                m_cmbPowerBtn->setCurrentIndex(powIndex > 1 ? powIndex - 2 : powIndex);
+            } else {
+                m_cmbPowerBtn->setCurrentIndex(powIndex - 1);
+            }
         }
     }
 }
@@ -301,7 +317,7 @@ void UseElectricWidget::updatePowerButtonActionList()
     if (m_model->getShutdown()) {
         options << tr("Shut down");
     }
-    if (m_model->getSuspend())
+    if (DSysInfo::uosEditionType() != DSysInfo::UosEuler && m_model->getSuspend())
     {
         options << tr("Suspend");
     }

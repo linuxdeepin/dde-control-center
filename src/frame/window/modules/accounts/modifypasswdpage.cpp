@@ -156,7 +156,7 @@ bool ModifyPasswdPage::judgeTextEmpty(PasswordEdit *edit)
 void ModifyPasswdPage::clickSaveBtn()
 {
     //校验输入密码
-    if (judgeTextEmpty(m_oldPasswordEdit) || judgeTextEmpty(m_newPasswordEdit) || judgeTextEmpty(m_repeatPasswordEdit)) return;
+    if (judgeTextEmpty(m_oldPasswordEdit)) return;
 
     Q_EMIT requestChangePassword(m_curUser, m_oldPasswordEdit->lineEdit()->text(), m_newPasswordEdit->lineEdit()->text(), m_repeatPasswordEdit->lineEdit()->text());
 }
@@ -166,12 +166,14 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
     Q_UNUSED(exitCode)
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
                                                                                       m_newPasswordEdit->lineEdit()->text());
-    if (errorTxt.contains("password unchanged")) {
-        if (!errorTxt.contains("password right", Qt::CaseInsensitive)) {
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler ? exitCode != 0 : errorTxt.contains("password unchanged")) {
+        if (DSysInfo::uosEditionType() == DSysInfo::UosEuler ? errorTxt.startsWith("Current password: Current Password: passwd:", Qt::CaseInsensitive) : !errorTxt.contains("password right", Qt::CaseInsensitive)) {
             m_oldPasswordEdit->setAlert(true);
             m_oldPasswordEdit->showAlertMessage(tr("Wrong password"));
             return;
         }
+
+        if (judgeTextEmpty(m_newPasswordEdit)) return;
 
         if (m_newPasswordEdit->lineEdit()->text() == m_oldPasswordEdit->lineEdit()->text() ) {
             m_newPasswordEdit->setAlert(true);
@@ -180,6 +182,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
         }
 
         if (error == PW_NO_ERR) {
+            if (judgeTextEmpty(m_repeatPasswordEdit)) return;
             if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
                 m_repeatPasswordEdit->setAlert(true);
                 m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);

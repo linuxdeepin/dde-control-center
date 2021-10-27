@@ -479,6 +479,15 @@ bool CreateAccountPage::checkFullname()
                 return false;
             }
         }
+        QList<QString> groupList = m_userModel->getAllGroups();
+        for (QString &group : groupList) {
+            if (userFullName == group) {
+                m_fullnameEdit->setAlert(true);
+                m_fullnameEdit->showAlertMessage(tr("The username already exists"), m_fullnameEdit, 2000);
+                m_fullnameEdit->lineEdit()->selectAll();
+                return false;
+            }
+        }
     } else {
         m_fullnameEdit->lineEdit()->clear(); // 输入全空格不保存
     }
@@ -493,16 +502,8 @@ bool CreateAccountPage::checkFullname()
 
 bool CreateAccountPage::checkPassword(PasswordEdit *edit)
 {
-    if (edit == m_repeatpasswdEdit) {
-        if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
-            m_repeatpasswdEdit->setAlert(true);
-            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
-            return false;
-        }
-    }
-
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
-                                                                                      edit->lineEdit()->text());
+                                                                                      m_passwdEdit->lineEdit()->text());
 
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         m_passwdEdit->setAlert(true);
@@ -545,6 +546,20 @@ bool CreateAccountPage::checkPassword(PasswordEdit *edit)
     } else {
         edit->setAlert(false);
         edit->hideAlertMessage();
+    }
+
+    if (edit == m_repeatpasswdEdit) {
+        if (m_repeatpasswdEdit->text().isEmpty()) {
+            m_repeatpasswdEdit->setAlert(true);
+            m_repeatpasswdEdit->showAlertMessage(tr("Password cannot be empty"), edit, 2000);
+            return false;
+        }
+
+        if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
+            m_repeatpasswdEdit->setAlert(true);
+            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), this->parentWidget(), 2000);
+            return false;
+        }
     }
 
     return true;

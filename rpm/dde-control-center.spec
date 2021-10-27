@@ -40,7 +40,9 @@ Requires:       dde-qt5integration
 Requires:       dde-network-utils
 Requires:       startdde
 Requires:       dde-server-industry-config
-Requires:	   deepin-pw-check
+Requires:       deepin-pw-check
+Requires:       NetworkManager-l2tp
+Requires:       cracklib
 
 %description
 New control center for Linux Deepin.
@@ -54,12 +56,20 @@ Summary:        %{summary}
 %prep
 %setup -q -n %{name}-%{version}
 sed -i 's|lrelease|lrelease-qt5|' translate_generation.sh
-sed -i -E '/add_compile_definitions/d' CMakeLists.txt
 
 %build
 %cmake . -DDCC_DISABLE_GRUB=YES \
+         -DCVERSION=%{version}  \
          -DDISABLE_SYS_UPDATE=YES
 %make_build
+
+%post
+create-cracklib-dict /usr/share/dict/MainEnglishDictionary_ProbWL.txt
+
+%postun
+if [ "$1" = "0" ] ; then
+	create-cracklib-dict /usr/share/dict/MainEnglishDictionary_ProbWL.txt
+fi
 
 %install
 %make_install INSTALL_ROOT=%{buildroot}

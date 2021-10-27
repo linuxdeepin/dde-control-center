@@ -91,6 +91,7 @@ Q_SIGNALS:
     void requestBack();
     void requestLoadUserList();
     void requestUpdatGroupList();
+    void requestPop();
 
 private:
     DTK_WIDGET_NAMESPACE::DFloatingButton *m_createBtn;
