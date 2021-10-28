@@ -34,6 +34,7 @@
 #include <QHBoxLayout>
 #include <QRegularExpression>
 #include <QComboBox>
+#include <QHostAddress>
 
 #include "widgets/buttontuple.h"
 #include "widgets/comboxwidget.h"
@@ -279,18 +280,10 @@ void ChainsProxyPage::onCheckValue()
 
 bool ChainsProxyPage::isIPV4(const QString &ipv4)
 {
-    QRegularExpression reg("(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)");
-    QRegularExpressionMatch match = reg.match(ipv4);
-    bool hasMatch = match.hasMatch();
-
-    if (!hasMatch)
+    QHostAddress ipAddr(ipv4);
+    if (ipAddr == QHostAddress(QHostAddress::Null) || ipAddr == QHostAddress(QHostAddress::AnyIPv4)
+            || ipAddr.protocol() != QAbstractSocket::NetworkLayerProtocol::IPv4Protocol) {
         return false;
-
-    for (int i = 1; i < 5; i++) {
-        const int n = match.captured(i).toInt();
-
-        if (n < 0 || n > 255)
-            return false;
     }
 
     return true;
