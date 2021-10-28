@@ -67,7 +67,9 @@ private Q_SLOTS:
     void onResize();
     void onRotateChanged(const quint16 rotate);
     void onGeometryChanged();
-    void onTakeEffect();
+
+public Q_SLOTS:
+    void onRequestSaveChanged();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

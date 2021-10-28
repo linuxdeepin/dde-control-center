@@ -54,6 +54,7 @@ Q_SIGNALS:
     void requestSetMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition) const;
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);
+    void requestSaveChanged();
 
 private:
     MonitorsGround *m_screensGround;

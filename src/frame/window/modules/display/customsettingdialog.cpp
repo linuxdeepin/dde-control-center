@@ -143,7 +143,12 @@ void CustomSettingDialog::initUI()
         hlayout->addWidget(btn);
 
         btn = new DSuggestButton(tr("Save"), this);
-        connect(btn, &DSuggestButton::clicked, this, &CustomSettingDialog::accept);
+        connect(btn, &DSuggestButton::clicked, this, [this]() {
+            CustomSettingDialog::accept();
+            if (m_monitroControlWidget) {
+                Q_EMIT m_monitroControlWidget->requestSaveChanged();
+            }
+        });
         hlayout->addWidget(btn);
     }
 

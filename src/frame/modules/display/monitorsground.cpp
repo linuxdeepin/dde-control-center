@@ -73,11 +73,11 @@ MonitorsGround::MonitorsGround(int activateHeight, QWidget *parent)
     m_effectiveTimer->setInterval(m_nEffectiveTime * 1000);
     m_effectiveTimer->setSingleShot(true);
 
-    connect(m_effectiveTimer, &QTimer::timeout, this, &MonitorsGround::onTakeEffect);
+    connect(m_effectiveTimer, &QTimer::timeout, this, &MonitorsGround::onRequestSaveChanged);
 }
 
 MonitorsGround::~MonitorsGround() {
-    qDeleteAll(m_monitors.keys());
+
 }
 
 void MonitorsGround::setModel(DisplayModel *model, Monitor *moni) {
@@ -150,7 +150,7 @@ void MonitorsGround::onGeometryChanged() {
     onResize();
 }
 
-void MonitorsGround::onTakeEffect()
+void MonitorsGround::onRequestSaveChanged()
 {
     m_effectiveTimer->stop();
     //执行生效操作
@@ -192,8 +192,6 @@ void MonitorsGround::onRequestMonitorRelease(Monitor *mon) {
     onResize();
     updateConnectedState();
     centeredMonitorsView();
-
-    onTakeEffect();
 }
 
 void MonitorsGround::resetMonitorsView() {
