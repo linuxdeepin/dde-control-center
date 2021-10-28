@@ -187,6 +187,12 @@ SearchWidget::SearchWidget(QWidget *parent)
     m_completer->installEventFilter(this);
     m_completer->setWidget(lineEdit());  //设置自动补全时弹出时相应位置的widget
 
+    m_forbidTextList << " " << " -" << " --" << " -->" << " --> "
+         << "-" << "--" << "-->" << "--> "
+         << "->" << "-> "
+         << ">" << "> "
+         << "/" << " /" << "/ " << " / ";
+
     connect(m_model, &SearchModel::notifyModuleSearch, this, &SearchWidget::notifyModuleSearch);
 
     connect(this, &DTK_WIDGET_NAMESPACE::DSearchEdit::textEdited, this, [ = ] {
@@ -948,6 +954,10 @@ void SearchWidget::onAutoComplete(const QString &text)
 
 void SearchWidget::onSearchTextChange(const QString &text)
 {
+    if (m_forbidTextList.contains(text)) {
+        return;
+    }
+
     //发送该信号，用于解决外部直接setText的时候，搜索的图标不消失的问题
     Q_EMIT focusChanged(true);
     //实现自动补全
