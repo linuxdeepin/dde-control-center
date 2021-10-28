@@ -65,7 +65,6 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     , m_refreshRateWidget(new RefreshRateWidget(300, this))
     , m_rotateWidget(new RotateWidget(300, this))
     , m_model(nullptr)
-    , m_showRecognizeTimer(new QTimer(this))
 {
     m_monitorControlWidget->setAccessibleName("MultiScreenWidget_monitorControl");
     m_fullIndication->setAccessibleName("fullIndication");
@@ -153,8 +152,6 @@ void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)
 
     initModeList();
     initPrimaryList();
-
-    m_showRecognizeTimer->setSingleShot(true);
 
     connect(m_model, &DisplayModel::displayModeChanged, m_monitorControlWidget, &MonitorControlWidget::setScreensMerged);
     connect(m_model, &DisplayModel::displayModeChanged, this, [=](const int mode) {
@@ -430,7 +427,10 @@ void MultiScreenWidget::onResetSecondaryScreenDlg()
 
 void MultiScreenWidget::onRequestRecognize()
 {
-    disconnect(m_showRecognizeTimer);
+    for(auto widget : m_recognizeWidget) {
+        widget->deleteLater();
+    }
+    m_recognizeWidget.clear();
 
     // 复制模式
     if (m_model->displayMode() == MERGE_MODE) {
@@ -443,11 +443,6 @@ void MultiScreenWidget::onRequestRecognize()
         if (m_recognizeWidget.value(text) == nullptr) {
             dcc::display::RecognizeWidget *widget = new dcc::display::RecognizeWidget(m_model->monitorList()[0], text);
             m_recognizeWidget[text] = widget;
-            connect(m_showRecognizeTimer,&QTimer::timeout, this, [=] {
-                widget->deleteLater();
-                m_recognizeWidget.remove(text);
-            });
-            m_showRecognizeTimer->start(5000);
         }
     } else { // 扩展模式
         for (auto monitor : m_model->monitorList()) {
@@ -457,13 +452,6 @@ void MultiScreenWidget::onRequestRecognize()
                 m_recognizeWidget[monitor->name()] = widget;
             }
         }
-        connect(m_showRecognizeTimer,&QTimer::timeout, this, [=] {
-            for(auto widget : m_recognizeWidget) {
-                widget->deleteLater();
-            }
-            m_recognizeWidget.clear();
-        });
-        m_showRecognizeTimer->start(5000);
     }
 
     this->setFocus(); //获取焦点响应键盘事件
@@ -472,7 +460,6 @@ void MultiScreenWidget::onRequestRecognize()
 void MultiScreenWidget::onRequestCloseRecognize()
 {
     disconnect(this, &MultiScreenWidget::requestRecognize, this, &MultiScreenWidget::onRequestRecognize);
-    m_showRecognizeTimer->stop();
 
     for(auto widget : m_recognizeWidget) {
         widget->deleteLater();

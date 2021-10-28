@@ -45,6 +45,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *);
+    void timerEvent(QTimerEvent *event) override;
 
 private Q_SLOTS:
     void onScreenRectChanged();

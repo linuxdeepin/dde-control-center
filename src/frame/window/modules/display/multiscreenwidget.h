@@ -125,7 +125,6 @@ private:
     QList<SecondaryScreenDialog *> m_secondaryScreenDlgList;
     QMap<QString, dcc::display::RecognizeWidget *> m_recognizeWidget;
 
-    QTimer *m_showRecognizeTimer;
     bool isReleaseMonitor = false;
 };
 

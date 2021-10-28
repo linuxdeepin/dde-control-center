@@ -39,9 +39,7 @@ const int HorizentalMargin = 22;
 const int yoffset = 220;
 
 RecognizeWidget::RecognizeWidget(Monitor *monitor, QString text, QWidget *parent)
-    : DBlurEffectWidget(parent)
-    , m_monitor(monitor)
-    , m_text(text)
+    : DBlurEffectWidget(parent), m_monitor(monitor), m_text(text)
 {
     connect(m_monitor, &Monitor::geometryChanged, this, &RecognizeWidget::onScreenRectChanged);
 
@@ -51,6 +49,7 @@ RecognizeWidget::RecognizeWidget(Monitor *monitor, QString text, QWidget *parent
     setMinimumWidth(MiniWidth);
     onScreenRectChanged();
     show();
+    startTimer(5000);
 }
 
 void RecognizeWidget::paintEvent(QPaintEvent *event)
@@ -95,4 +94,10 @@ void RecognizeWidget::onScreenRectChanged()
 
     setGeometry(m_rect);
     update();
+}
+
+void RecognizeWidget::timerEvent(QTimerEvent *event)
+{
+    Q_UNUSED(event)
+    hide();
 }
