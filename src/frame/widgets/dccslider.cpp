@@ -175,7 +175,6 @@ void DCCSlider::paintEvent(QPaintEvent *e)
             pa.drawLine(QPointF(startX + sliderX, startY + 9), QPointF(startX + sliderX, startY + 12));
         }
     }
-    update();
 }
 
 }
