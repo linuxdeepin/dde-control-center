@@ -167,28 +167,39 @@ void CustomSettingDialog::initUI()
     }
 
     m_resetDialogTimer->setSingleShot(true);
+    static bool isFirst = false;
     connect(m_resetDialogTimer, &QTimer::timeout, this, [ = ] {
         m_monitroControlWidget->adjustSize();
         m_monitroControlWidget->updateGeometry();
         adjustSize();
 
         auto rt = rect();
-        if (rt.width() > m_monitor->w())
-            rt.setWidth(m_monitor->w());
+        if (rt.width() > m_model->primaryMonitor()->w())
+            rt.setWidth(m_model->primaryMonitor()->w());
 
-        if (rt.height() > m_monitor->h())
-            rt.setHeight(m_monitor->h());
+        if (rt.height() > m_model->primaryMonitor()->h())
+            rt.setHeight(m_model->primaryMonitor()->h());
 
-        auto mrt = m_monitor->rect();
-        auto tsize = (mrt.size() / m_model->monitorScale(m_monitor) - rt.size()) / 2;
+        auto mrt = m_model->primaryMonitor()->rect();
+        auto tsize = (mrt.size() / m_model->monitorScale(m_model->primaryMonitor()) - rt.size()) / 2;
 
         qDebug() << Q_FUNC_INFO << "-----------------------";
 
-        qDebug() << "monitor name:" << m_monitor->name();
+        qDebug() << "monitor name:" << m_model->primaryMonitor()->name();
         qDebug() << "rt :" << rt;
         qDebug() << "tsize :" << tsize;
-        qDebug() << "scale :" << m_model->monitorScale(m_monitor);
-        rt.moveTo(m_monitor->x() + tsize.width(), m_monitor->y() + tsize.height());
+        qDebug() << "scale :" << m_model->monitorScale(m_model->primaryMonitor());
+
+        if (m_monitor->name() != m_model->primaryMonitor()->name()) {
+            if (isFirst) {
+                rt.moveTo(m_model->primaryMonitor()->x() + tsize.width() - 500, m_model->primaryMonitor()->y() + tsize.height());
+            } else {
+                rt.moveTo(m_model->primaryMonitor()->x() + tsize.width() + 500, m_model->primaryMonitor()->y() + tsize.height());
+            }
+            isFirst = !isFirst;
+        } else {
+            rt.moveTo(m_model->primaryMonitor()->x() + tsize.width(), m_model->primaryMonitor()->y() + tsize.height());
+        }
 
         qDebug() << "mrt :" << mrt;
         qDebug() << "final rt :" << rt;
@@ -284,8 +295,9 @@ void CustomSettingDialog::initOtherDialog()
         dlg->resetDialog();
 
         if (!m_model->isMerge()) {
-            if(mon->enable())
+            if(mon->enable()) {
                 dlg->show();
+            }
         }
     }
 }
