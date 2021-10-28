@@ -241,13 +241,9 @@ void MonitorsGround::adjustAll()
     int offset = static_cast<int>(10/scale);
 
     for (auto pw : m_monitors.keys()) {
-        if (++cnt == 1) {
-            pw->setPos(QPointF(offset,0));
-        } else if (m_monitors.size() == 3 && cnt == 2) {
-            pw->setPos(QPointF(-offset, 0));
-        } else {
-            pw->setPos(QPointF(0, -offset));
-        }
+         pw->setZValue(cnt);
+         pw->setPos(QPointF(offset * cnt, offset * cnt));
+         cnt++;
     }
 
     QPointF dPos = sceneRect().center() - scene()->itemsBoundingRect().center();
@@ -314,6 +310,7 @@ void MonitorsGround::singleScreenAdjest()
 
     resetMatrix();
     this->scale(scale, scale);
+    m_monitors.keys().last()->setPos(0, 0);
     m_monitors.keys().last()->update();
     setEnabled(false);
 }
