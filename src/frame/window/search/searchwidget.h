@@ -78,6 +78,7 @@ private:
     SearchModel *m_model;
     QCompleter *m_completer;
     DCompleterStyledItemDelegate styledItemDelegate;
+    QStringList m_forbidTextList;
 };
 
 }// namespace search
