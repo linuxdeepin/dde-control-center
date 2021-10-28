@@ -33,6 +33,7 @@
 #include <QJsonValue>
 #include <QThreadPool>
 #include "shortcutitem.h"
+#include <QGSettings>
 
 static const QStringList systemFilter = {"terminal",
                                          "terminal-quake",
@@ -195,6 +196,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     m_customInfos.clear();
 
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
+    auto hide_keybinding_list = getHideKeybindingList();
 
     Q_FOREACH (QJsonValue value, array) {
         QJsonObject obj  = value.toObject();
@@ -210,6 +212,10 @@ void ShortcutModel::onParseInfo(const QString &info)
         m_infos << info;
 
         if (type != MEDIAKEY) {
+            if (hide_keybinding_list.contains(info->id)) {
+                continue;
+            }
+
             if (systemShortKeys.contains(info->id)) {
                 m_systemInfos << info;
                 continue;
@@ -325,6 +331,12 @@ ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
     return nullptr;
 }
 
+QStringList ShortcutModel::getHideKeybindingList()
+{
+    QGSettings gsetting("com.deepin.dde.control-center", "/com/deepin/dde/control-center/");
+    return gsetting.get("hide-keybinding").toStringList();
+}
+
 void ShortcutModel::setSearchResult(const QString &searchResult)
 {
     qDeleteAll(m_searchList);
@@ -335,6 +347,7 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
     QList<ShortcutInfo *> workspaceInfoList;
     QList<ShortcutInfo *> customInfoList;
     QList<ShortcutInfo *> speechInfoList;
+    auto hide_keybinding_list = getHideKeybindingList();
 
     QJsonArray array = QJsonDocument::fromJson(searchResult.toStdString().c_str()).array();
     for (auto value : array) {
@@ -348,6 +361,10 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
         info->command = obj["Exec"].toString();
 
         if (type != MEDIAKEY) {
+            if (hide_keybinding_list.contains(info->id)) {
+                continue;
+            }
+
             if (systemFilter.contains(info->id)) {
                 systemInfoList << info;
                 continue;

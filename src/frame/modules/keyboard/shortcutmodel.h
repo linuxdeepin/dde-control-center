@@ -114,6 +114,9 @@ public Q_SLOTS:
     void onWindowSwitchChanged(bool value);
 
 private:
+    QStringList getHideKeybindingList();
+
+private:
     QString m_info;
     QList<ShortcutInfo *> m_infos;
     QList<ShortcutInfo *> m_systemInfos;
