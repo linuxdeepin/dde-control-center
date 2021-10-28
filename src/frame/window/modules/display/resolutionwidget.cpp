@@ -339,6 +339,18 @@ void ResolutionWidget::OnAvailableFillModesChanged(const QStringList &lstFillMod
 
 }
 
+void ResolutionWidget::resolutionWidgetChanged()
+{
+    //推荐分辨率下隐藏铺满方式
+    if (m_resolutionCombox->currentText().contains(tr("Recommended"))) {
+        setMinimumHeight(48);
+        m_resizeDesktopItem->setVisible(false);
+    } else {
+        setMinimumHeight(48*2);
+        m_resizeDesktopItem->setVisible(true);
+    }
+}
+
 void ResolutionWidget::initResolution()
 {
     if (m_monitor == nullptr) {
@@ -395,8 +407,8 @@ void ResolutionWidget::initResolution()
         }
     }
 
-    //推荐分辨率下隐藏铺满方式
-    m_resolutionCombox->currentText().contains(tr("Recommended"))?m_resizeDesktopItem->setVisible(false):m_resizeDesktopItem->setVisible(true);
+    //推荐分辨率下隐藏铺满方式并改变高度
+    resolutionWidgetChanged();
 
     connect(m_resolutionCombox, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, [=](int idx) {
         auto item = m_resoItemModel->item(idx);
@@ -404,8 +416,8 @@ void ResolutionWidget::initResolution()
         auto w = item->data(WidthRole).toInt();
         auto h = item->data(HeightRole).toInt();
 
-        //推荐分辨率下隐藏铺满方式
-        m_resolutionCombox->currentText().contains(tr("Recommended"))?m_resizeDesktopItem->setVisible(false):m_resizeDesktopItem->setVisible(true);
+        //推荐分辨率下隐藏铺满方式并改变高度
+        resolutionWidgetChanged();
 
         // 选中分辨率和当前分别率相同
         if (m_monitor->currentMode().width() == w && m_monitor->currentMode().height() == h) {

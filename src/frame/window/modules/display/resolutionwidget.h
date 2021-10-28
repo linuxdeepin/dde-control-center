@@ -117,6 +117,7 @@ private:
     void initResizeDesktop();
     void setItemIcon();
     void setResizeDesktopVisible(bool visible);
+    void resolutionWidgetChanged();
 
 private:
     QHBoxLayout *m_resolutionLayout;
