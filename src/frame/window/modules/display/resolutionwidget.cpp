@@ -371,43 +371,87 @@ void ResolutionWidget::initResolution()
     auto curMode = m_monitor->currentMode();
 
     Resolution preMode;
-    for (auto mode : modeList) {
-        if (Monitor::isSameResolution(preMode, mode)) {
-            continue;
-        }
+    if (qgetenv("WAYLAND_DISPLAY").isEmpty() ) {
+        for (auto mode : modeList) {
+            if (Monitor::isSameResolution(preMode, mode)) {
+                continue;
+            }
 
-        preMode = mode;
-        if (m_model->displayMode() == MERGE_MODE) {
-            bool isComm = true;
-            for (auto monitor : m_model->monitorList()) {
-                if (!monitor->hasResolution(mode)) {
-                    isComm = false;
-                    break;
+            preMode = mode;
+            if (m_model->displayMode() == MERGE_MODE) {
+                bool isComm = true;
+                for (auto monitor : m_model->monitorList()) {
+                    if (!monitor->hasResolution(mode)) {
+                        isComm = false;
+                        break;
+                    }
+                }
+
+                if (!isComm) {
+                    continue;
                 }
             }
 
-            if (!isComm) {
-                continue;
+            auto *item = new DStandardItem;
+            item->setData(QVariant(mode.id()), IdRole);
+            item->setData(QVariant(mode.rate()), RateRole);
+            item->setData(QVariant(mode.width()), WidthRole);
+            item->setData(QVariant(mode.height()), HeightRole);
+
+            auto res = QString::number(mode.width()) + "×" + QString::number(mode.height());
+            if (Monitor::isSameResolution(mode, m_monitor->bestMode())) {
+                item->setText(res + QString(" (%1)").arg(tr("Recommended")));
+                m_resoItemModel->insertRow(0, item);
+            } else {
+                item->setText(res);
+                m_resoItemModel->appendRow(item);
+            }
+
+            if (Monitor::isSameResolution(curMode, mode)) {
+                m_resolutionCombox->setCurrentIndex(item->row());
             }
         }
+    } else {
+        bool first = true;
+        for (auto mode : modeList) {
+            if (Monitor::isSameResolution(preMode, mode)) {
+                continue;
+            }
 
-        auto *item = new DStandardItem;
-        item->setData(QVariant(mode.id()), IdRole);
-        item->setData(QVariant(mode.rate()), RateRole);
-        item->setData(QVariant(mode.width()), WidthRole);
-        item->setData(QVariant(mode.height()), HeightRole);
+            preMode = mode;
+            if (m_model->displayMode() == MERGE_MODE) {
+                bool isComm = true;
+                for (auto monitor : m_model->monitorList()) {
+                    if (!monitor->hasResolution(mode)) {
+                        isComm = false;
+                        break;
+                    }
+                }
 
-        auto res = QString::number(mode.width()) + "×" + QString::number(mode.height());
-        if (Monitor::isSameResolution(mode, m_monitor->bestMode())) {
-            item->setText(res + QString(" (%1)").arg(tr("Recommended")));
-            m_resoItemModel->insertRow(0, item);
-        } else {
-            item->setText(res);
-            m_resoItemModel->appendRow(item);
-        }
+                if (!isComm) {
+                    continue;
+                }
+            }
 
-        if (Monitor::isSameResolution(curMode, mode)) {
-            m_resolutionCombox->setCurrentIndex(item->row());
+            auto *item = new DStandardItem;
+            item->setData(QVariant(mode.id()), IdRole);
+            item->setData(QVariant(mode.rate()), RateRole);
+            item->setData(QVariant(mode.width()), WidthRole);
+            item->setData(QVariant(mode.height()), HeightRole);
+
+            auto res = QString::number(mode.width()) + "×" + QString::number(mode.height());
+            if (first) {
+                first = false;
+                item->setText(res + QString(" (%1)").arg(tr("Recommended")));
+                m_resoItemModel->insertRow(0, item);
+            } else {
+                item->setText(res);
+                m_resoItemModel->appendRow(item);
+            }
+
+            if (Monitor::isSameResolution(curMode, mode)) {
+                m_resolutionCombox->setCurrentIndex(item->row());
+            }
         }
     }
 
