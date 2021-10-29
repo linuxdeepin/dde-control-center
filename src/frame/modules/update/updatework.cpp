@@ -420,17 +420,11 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 
     UpdateItemInfo *appItemInfo = getItemInfo(object.value("appUpdateInfo"));
     if (appItemInfo != nullptr && m_appPackages.count() > 0 && m_model->autoCheckAppUpdates()) {
-        int count = m_appPackages.count();
-        QString appNames = "";
-        for (int i = 0; i < count; ++i) {
-            appNames += getAppName(m_appPackages.at(i));
-            if (i == 3 || i == count - 1) {
-                break;
-            }
-            appNames += ",";
-        }
+        QString app1Name = getAppName(0);
+        QString app2Name = getAppName(1);
+        QString app3Name = getAppName(2);
 
-        appItemInfo->setName(QString(tr("%1 apps updates available")).arg(appNames));
+        appItemInfo->setName(QString(tr("%1 apps updates available (such as %2, %3, %4)")).arg(m_appPackages.count()).arg(app1Name).arg(app2Name).arg(app3Name));
         appItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_appPackages));
         resultMap.insert(ClassifyUpdateType::AppStoreUpdate, appItemInfo);
     }
@@ -1374,8 +1368,11 @@ QPointer<JobInter> UpdateWorker::getInstallJob(ClassifyUpdateType updateType)
     return job;
 }
 
-QString UpdateWorker::getAppName(QString packageId)
+QString UpdateWorker::getAppName(int id)
 {
+    if(m_appPackages.count() <= id){
+        return "";
+    }
     if (m_appUpdateName.count() < 1) {
         QString a = QLocale::system().name();
 
@@ -1385,7 +1382,7 @@ QString UpdateWorker::getAppName(QString packageId)
         }
     }
 
-    return m_appUpdateName.value(packageId);
+    return m_appUpdateName.value(m_appPackages.at(id));
 }
 
 bool UpdateWorker::checkJobIsValid(QPointer<JobInter> dbusJob)

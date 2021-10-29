@@ -299,7 +299,7 @@
     <message>
         <location filename="language.h" line="90"/>
         <source>कश्मीरी - (كشميري)	</source>
-        <translation>ཁ་ཆེའི་སྐད།</translation>
+        <translation>ཁ་ཆེའི་སྐད།कश्मीरी - (كشميري)</translation>
     </message>
     <message>
         <location filename="language.h" line="91"/>
@@ -479,7 +479,7 @@
     <message>
         <location filename="language.h" line="126"/>
         <source>Português do Brasil</source>
-        <translation>ཕོར་ཐིའུ་ཀེལ་སྐད།（པ་ཞི།）</translation>
+        <translation>ཕོར་ཐིའུ་ཀེལ་སྐད།པ་ཞིPortuguês do Brasil</translation>
     </message>
     <message>
         <location filename="language.h" line="127"/>

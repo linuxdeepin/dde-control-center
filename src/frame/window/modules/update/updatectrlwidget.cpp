@@ -148,7 +148,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     updateTitleHLay->addWidget(m_spinner, 1, Qt::AlignRight);
     m_spinner->setVisible(false);
     m_spinner->setFixedSize(24, 24);
-    m_updateingTipsLab->setText(tr("Updating"));
+    m_updateingTipsLab->setText(tr("Updating..."));
     m_updateingTipsLab->setVisible(false);
     DFontSizeManager::instance()->bind(m_updateingTipsLab, DFontSizeManager::T8);
     m_updateingTipsLab->setForegroundRole(DPalette::TextTips);

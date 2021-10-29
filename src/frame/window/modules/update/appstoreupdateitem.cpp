@@ -25,7 +25,6 @@ void AppstoreUpdateItem::init()
     setClassifyUpdateType(ClassifyUpdateType::AppStoreUpdate);
     m_controlWidget->setDetailLabelVisible(false);
     m_controlWidget->setShowMoreButtomText(tr("View in App Store"));
-    m_controlWidget->setTitle(tr("System Update"));
     m_controlWidget->setVersionVisible(false);
 }
 

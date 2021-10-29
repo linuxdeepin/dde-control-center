@@ -2,116 +2,116 @@
 <context>
     <name>dccV20::MainWindow</name>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="187"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="189"/>
         <source>Help</source>
         <translation>도움말</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="334"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Biometric Authentication</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="335"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
         <source>Accounts</source>
         <translation>계정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="340"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
         <source>Display</source>
         <translation>디스플레이</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Touch Screen</source>
         <translation>터치 스크린</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="342"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
         <source>Default Applications</source>
         <translation>기본 응용프로그램</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
         <source>Personalization</source>
         <translation>개인 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
         <source>Notification</source>
         <translation>알림</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
         <source>Sound</source>
         <translation>사운드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="346"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="926"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="928"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="930"/>
         <source>Bluetooth</source>
         <translation>블루투스</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="347"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
         <source>Date and Time</source>
         <translation>날짜 및 시간</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="348"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
         <source>Power</source>
         <translation>전원</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="349"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
         <source>Mouse</source>
         <translation>마우스</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="350"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="938"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="940"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="942"/>
         <source>Drawing Tablet</source>
         <translation>그리기 태블릿</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="351"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
         <source>Keyboard and Language</source>
         <translation>키보드 및 언어</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="352"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="963"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="965"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="967"/>
         <source>Updates</source>
         <translation>업데이트</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="353"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="355"/>
         <source>System Info</source>
         <translation>시스템 정보</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="354"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="356"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="960"/>
         <source>General Settings</source>
         <translation>일반 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="424"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="426"/>
         <source>Touchpad</source>
         <translation>터치패드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="425"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="427"/>
         <source>TrackPoint</source>
         <translation>추적점</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="950"/>
         <location filename="../src/frame/window/mainwindow.cpp" line="952"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="954"/>
         <source>Cloud Sync</source>
         <translation>클라우드 동기화</translation>
     </message>
@@ -119,8 +119,8 @@
 <context>
     <name>dccV20::accounts::AccountSpinBox</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="80"/>
         <source>Always</source>
         <translation>항상</translation>
     </message>
@@ -128,84 +128,84 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="213"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="351"/>
         <source>Full Name</source>
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
         <source>The full name is too long</source>
         <translation>이름이 너무 깁니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="298"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="307"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="308"/>
         <source>The username already exists</source>
         <translation>사용자 이름이 이미 존재합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="410"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="411"/>
         <source>Validity Days</source>
         <translation>유효 기간</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
         <source>Account Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
         <source>Change Password</source>
         <translation>비밀번호 변경</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
         <source>Reset Password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
         <source>Delete Account</source>
         <translation>계정 삭제</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="461"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="472"/>
         <source>Auto Login</source>
         <translation>자동 로그인</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
         <source>Login Without Password</source>
         <translation>비밀번호없이 로그인</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="478"/>
         <source>Administrator</source>
         <translation>관리자</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="499"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="510"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="512"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="502"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="513"/>
         <source>Enable</source>
         <translation>활성화</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="630"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="641"/>
         <source>Group</source>
         <translation>그룹</translation>
     </message>
@@ -256,123 +256,124 @@
         <translation>그룹</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="563"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="99"/>
         <source>Create</source>
         <translation>생성</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="160"/>
         <source>New Account</source>
         <translation>새로운 계정</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="175"/>
         <source>Account Type</source>
         <translation>계정 타입</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="174"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="180"/>
         <source>Username</source>
         <translation>사용자 이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="180"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="186"/>
         <source>Full Name</source>
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
         <source>Repeat Password</source>
         <translation>비밀번호 재입력</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="204"/>
         <source>Password Hint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="255"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="488"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="493"/>
         <source>The full name is too long</source>
         <translation>이름이 너무 깁니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="296"/>
         <source>Standard User</source>
         <translation>표준 사용자</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="297"/>
         <source>Administrator</source>
         <translation>관리자</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="294"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
         <source>Customized</source>
         <translation>사용자화됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="297"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="299"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="306"/>
         <source>Required</source>
         <translation>필수 항목</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="298"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="304"/>
         <source>optional</source>
         <translation>옵션</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
         <source>Policykit authentication failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="445"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>사용자 이름은 3 ~ 32 자 사이 여야합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="447"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="452"/>
         <source>The first character must be a letter or number</source>
         <translation>첫 번째 문자는 문자 또는 숫자여야 합니다.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="453"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="458"/>
         <source>Your username should not only have numbers</source>
         <translation>사용자 이름에 숫자만 있어야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="459"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="498"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="464"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="503"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="512"/>
         <source>The username already exists</source>
         <translation>사용자 이름이 이미 존재합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="520"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="534"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="562"/>
         <source>Go to Settings</source>
         <translation>설정으로 이동</translation>
     </message>
@@ -380,92 +381,118 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="106"/>
         <source>Change Password</source>
         <translation>비밀번호 변경</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="109"/>
         <source>Reset Password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
         <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
         <source>Current Password</source>
         <translation>현재 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
         <source>New Password</source>
         <translation>새 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="89"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
         <source>Repeat Password</source>
         <translation>비밀번호 재입력</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
         <source>Password Hint</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="98"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="387"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="167"/>
         <source>Save</source>
         <translation>저장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="155"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="159"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="230"/>
+        <source>Strong</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="240"/>
+        <source>Medium</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
+        <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="252"/>
+        <source>Weak</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="262"/>
+        <source>Error occurred when reading the configuration files of password rules!</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
         <source>Required</source>
         <translation>필수 항목</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
         <source>Optional</source>
         <translation>옵션</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
         <source>Password cannot be empty</source>
         <translation>비밀번호는 비워 둘 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="439"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="350"/>
         <source>Wrong password</source>
         <translation>잘못된 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="356"/>
         <source>New password should differ from the current one</source>
         <translation>새 비밀번호는 현재 비밀번호와 같을 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="223"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="292"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="432"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="246"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="386"/>
         <source>Go to Settings</source>
         <translation>설정으로 이동</translation>
     </message>
@@ -618,34 +645,34 @@
 <context>
     <name>dccV20::bluetooth::DetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="57"/>
         <source>Ignore this device</source>
         <translation>이 장치 무시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="60"/>
         <source>Disconnect</source>
         <translation>연결 해제</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="61"/>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="193"/>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="218"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="242"/>
         <source>Connect</source>
         <translation>연결</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="66"/>
         <source>Send Files</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="226"/>
         <source>Connecting</source>
         <translation>연결 중</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="210"/>
+        <location filename="../src/frame/window/modules/bluetooth/detailpage.cpp" line="234"/>
         <source>Disconnecting</source>
         <translation>연결 끊기</translation>
     </message>
@@ -919,19 +946,29 @@
 <context>
     <name>dccV20::commoninfo::UserExperienceProgramWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="48"/>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="50"/>
         <source>Join User Experience Program</source>
         <translation>사용자 경험 프로그램 참여</translation>
         <extra-contents_path>/commoninfo/User Experience Program</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="52"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (https://www.deepin.org/en/agreement/privacy/).</source>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="53"/>
+        <source>https://www.deepin.org/en/agreement/privacy/</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="56"/>
-        <source>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (https://www.uniontech.com/agreement/privacy-en).</source>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="53"/>
+        <source>https://www.uniontech.com/agreement/privacy-en</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="55"/>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/userexperienceprogramwidget.cpp" line="60"/>
+        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. To know more about the management of your data, please refer to UnionTech OS Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1382,7 +1419,7 @@
 <context>
     <name>dccV20::display::DisplayModule</name>
     <message>
-        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/display/displaymodule.cpp" line="80"/>
         <source>Display</source>
         <translation>디스플레이</translation>
     </message>
@@ -1390,32 +1427,32 @@
 <context>
     <name>dccV20::display::MultiScreenWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="54"/>
         <source>Multiple Displays</source>
         <translation>다중 디스플레이</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="56"/>
         <source>Mode</source>
         <translation>모드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="59"/>
         <source>Main Screen</source>
         <translation>기본 화면</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="285"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="301"/>
         <source>Duplicate</source>
         <translation>복제</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="302"/>
         <source>Extend</source>
         <translation>확장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
         <source>Only on %1</source>
         <translation type="unfinished"/>
     </message>
@@ -1442,34 +1479,34 @@
 <context>
     <name>dccV20::display::ResolutionWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="146"/>
         <source>Resolution</source>
         <translation>해상도</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="148"/>
         <source>Resize Desktop</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="247"/>
         <source>Fit</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="231"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="263"/>
         <source>Stretch</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="279"/>
         <source>Center</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="350"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="399"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="408"/>
         <source>Recommended</source>
         <translation>권장</translation>
     </message>
@@ -2283,12 +2320,12 @@
         <translation>전원</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="263"/>
         <source>Battery low, please plug in</source>
         <translation>배터리 부족,. 전원을 연결하세요</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="265"/>
         <source>Battery critically low</source>
         <translation>배터리 잔량 부족</translation>
     </message>
@@ -2318,7 +2355,7 @@
     <name>dccV20::power::UseBatteryWidget</name>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="48"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="71"/>
         <source>Monitor will suspend after</source>
         <translation>다음 시간 이후 모니터 끄기</translation>
         <extra-child_page>On Battery</extra-child_page>
@@ -2326,7 +2363,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="49"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="84"/>
         <source>Computer will suspend after</source>
         <translation>다음 시간 이후 컴퓨터 대기모드</translation>
         <extra-child_page>On Battery</extra-child_page>
@@ -2334,92 +2371,86 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="50"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="95"/>
-        <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="108"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="97"/>
         <source>Lock screen after</source>
         <translation>다음 시간 이후 화면 잠금</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="51"/>
         <source>When pressing the power button</source>
         <translation>전원 버튼을 누를 때</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="52"/>
         <source>When the lid is closed</source>
         <translation>뚜껑이 닫혔을 때</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="53"/>
         <source>Low Battery Notification</source>
         <translation>배터리 부족 알림</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="54"/>
         <source>Low battery level</source>
         <translation>배터리 수준 낮음</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="55"/>
         <source>Auto suspend battery level</source>
         <translation>자동 대기모드 배터리 수준</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="415"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="66"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="390"/>
         <source>Never</source>
         <translation>없음</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="113"/>
         <source>Shut down</source>
         <translation>컴퓨터 끄기</translation>
         <extra-child_page>On Battery</extra-child_page>
         <extra-contents_path>/power/On Battery</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="116"/>
         <source>Suspend</source>
         <translation>대기모드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="119"/>
         <source>Hibernate</source>
         <translation>최대 절전 모드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="121"/>
         <source>Turn off the monitor</source>
         <translation>모니터 끄기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="121"/>
         <source>Do nothing</source>
         <translation>아무것도 하지 않기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="372"/>
         <source>1 Minute</source>
         <translation>1 분</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="400"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="403"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="406"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="409"/>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="393"/>
         <source>%1 Minutes</source>
         <translation>%1 분</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="412"/>
+        <location filename="../src/frame/window/modules/power/usebatterywidget.cpp" line="387"/>
         <source>1 Hour</source>
         <translation>1 시간</translation>
     </message>
@@ -2461,63 +2492,52 @@
         <extra-contents_path>/power/Plugged In</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="91"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="92"/>
-        <source>Computer will hibernate after</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="102"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="335"/>
-        <source>Shut down</source>
-        <translation>컴퓨터 끄기</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="104"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
-        <source>Suspend</source>
-        <translation>대기모드</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="107"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="343"/>
-        <source>Hibernate</source>
-        <translation>최대 절전 모드</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="109"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="345"/>
-        <source>Turn off the monitor</source>
-        <translation>모니터 끄기</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="109"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="345"/>
-        <source>Do nothing</source>
-        <translation>아무것도 하지 않기</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="140"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="336"/>
         <source>Never</source>
         <translation>없음</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="357"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="296"/>
+        <source>Shut down</source>
+        <translation>컴퓨터 끄기</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="300"/>
+        <source>Suspend</source>
+        <translation>대기모드</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="304"/>
+        <source>Hibernate</source>
+        <translation>최대 절전 모드</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="306"/>
+        <source>Turn off the monitor</source>
+        <translation>모니터 끄기</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="306"/>
+        <source>Do nothing</source>
+        <translation>아무것도 하지 않기</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="318"/>
         <source>1 Minute</source>
         <translation>1 분</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="360"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="366"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="369"/>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="324"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="339"/>
         <source>%1 Minutes</source>
         <translation>%1 분</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/modules/power/useelectricwidget.cpp" line="333"/>
         <source>1 Hour</source>
         <translation>1 시간</translation>
     </message>
@@ -2531,15 +2551,15 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="364"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="821"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="836"/>
         <source>Window Effect</source>
         <translation>창 효과</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="123"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="151"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="155"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="150"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="154"/>
         <source>Developer Mode</source>
         <translation>개발자 모드</translation>
     </message>
@@ -2565,150 +2585,145 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="128"/>
-        <source>Auto Login</source>
-        <translation>자동 로그인</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Login Without Password</source>
         <translation>비밀번호없이 로그인</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="129"/>
         <source>Auto Brightness</source>
         <translation>자동 밝기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="130"/>
         <source>General</source>
         <translation>일반</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="131"/>
         <source>Password is required to wake up the monitor</source>
         <translation>모니터를 깨우려면 비밀번호가 필요합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="132"/>
         <source>Password is required to wake up the computer</source>
         <translation>컴퓨터의 절전 모드를 종료하려면 비밀번호가 필요합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="133"/>
         <source>Power Saving Mode</source>
         <translation>절전　모드　</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="134"/>
         <source>Auto Mode Switch</source>
         <translation>자동 모드 전환</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="135"/>
         <source>Transparency</source>
         <translation>투명도</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="136"/>
         <source>Create PPPoE Connection</source>
         <translation>PPPoE 연결 생성</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="373"/>
         <source>Disable the touchpad while typing</source>
         <translation>입력하는 동안 터치패드 사용안함</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="350"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="372"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>마우스를 사용할때 터치 패드 사용안함</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="139"/>
         <source>Computer will suspend after</source>
         <translation>다음 시간 이후 컴퓨터 대기모드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="140"/>
         <source>Sign In</source>
         <translation>로그인</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="141"/>
         <source>Auto power saving on battery</source>
         <translation>배터리 자동 절전</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
         <source>Touch Screen</source>
         <translation>터치 스크린</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
         <source>Power Plans</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="144"/>
         <source>Power Saving Settings</source>
         <translation>절전 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="145"/>
         <source>Wakeup Settings</source>
         <translation>절전모드 해제 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="147"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="367"/>
         <source>Battery</source>
         <translation>배터리</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="161"/>
         <source>Touchpad</source>
         <translation>터치패드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="163"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="162"/>
         <source>TrackPoint</source>
         <translation>추적점</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="164"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="163"/>
         <source>Personal Hotspot</source>
         <translation>개인 핫스팟</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="165"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="164"/>
         <source>On Battery</source>
         <translation>배터리 켜기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="166"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="165"/>
         <source>Wired Network</source>
         <translation>유선 네트워크</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="167"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="166"/>
         <source>Wireless Network</source>
         <translation>무선 네트워크</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="168"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="167"/>
         <source>Multiple Displays</source>
         <translation>다중 디스플레이</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="169"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="168"/>
         <source>Boot Menu</source>
         <translation>부팅 메뉴</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="340"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="802"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="820"/>
         <source>Cloud Account</source>
         <translation>클라우드 계정</translation>
     </message>
@@ -2998,118 +3013,118 @@
 <context>
     <name>dccV20::systeminfo::NativeInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="127"/>
         <source>Computer Name:</source>
         <translation type="unfinished"/>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="190"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="191"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="245"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="246"/>
-        <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="195"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="196"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="207"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="208"/>
-        <source>1~63 characters please</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="281"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="181"/>
         <source>OS Name:</source>
         <translation type="unfinished"/>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="286"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="186"/>
         <source>Version:</source>
         <translation>버전:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="191"/>
         <source>Edition:</source>
         <translation>에디션:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="196"/>
         <source>Type:</source>
         <translation>종류:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="199"/>
         <source>Authorization</source>
         <translation>허가</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="300"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="426"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="336"/>
         <source>To be activated</source>
         <translation>활성화됩니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="302"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="428"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="436"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="440"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="202"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="346"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="350"/>
         <source>Activate</source>
         <translation>활성화</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="211"/>
         <source>Kernel:</source>
         <translation>커널:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="216"/>
         <source>Processor:</source>
         <translation>프로세서:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="321"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="221"/>
         <source>Memory:</source>
         <translation>메모리:</translation>
         <extra-contents_path>/systeminfo/About This PC</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="316"/>
         <source>%1-bit</source>
         <translation>%1-bit</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="422"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="332"/>
         <source>Activated</source>
         <translation>활성화됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="424"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="334"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="342"/>
         <source>View</source>
         <translation>보기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="430"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="340"/>
         <source>Expired</source>
         <translation>만료</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="434"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="344"/>
         <source>In trial period</source>
         <translation>평가판 사용 기간</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="438"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="348"/>
         <source>Trial expired</source>
         <translation>평가판 만료됨</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="417"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="476"/>
+        <source>It cannot start or end with dashes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="450"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="481"/>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3196,17 +3211,17 @@
         <translation>확인</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
         <source>Touch Screen - %1 (%2)</source>
         <translation>터치 스크린 - %1(%2)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>Touch Screen Settings</source>
         <translation>터치 스크린 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
         <source>The settings of touch screen changed</source>
         <translation type="unfinished"/>
     </message>
@@ -3343,145 +3358,116 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="78"/>
-        <source>Restart the computer to use the system and the applications properly</source>
-        <translation>시스템 및 응용프로그램을 올바르게 사용하려면 컴퓨터를 다시 시작하십시오</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="79"/>
-        <source>Network disconnected, please retry after connected</source>
-        <translation>네트워크 연결이 끊김, 연결된 후 다시 시도하세요</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="88"/>
-        <source>Your system is not authorized, please activate first</source>
-        <translation>시스템이 인증되지 않은 경우, 먼저 활성화하십시오</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="108"/>
-        <source>This update may take a long time, please do not shut down or reboot during the process</source>
-        <translation>이 업데이트는 시간이 오래 걸릴 수 있습니다. 프로세스를 종료하거나 재부팅하지 마세요</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="199"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="371"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="377"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
         <source>Check Again</source>
         <translation>다시 확인</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="219"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="283"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
+        <source>Restart the computer to use the system and the applications properly</source>
+        <translation>시스템 및 응용프로그램을 올바르게 사용하려면 컴퓨터를 다시 시작하십시오</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="97"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation>네트워크 연결이 끊김, 연결된 후 다시 시도하세요</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="106"/>
+        <source>Your system is not authorized, please activate first</source>
+        <translation>시스템이 인증되지 않은 경우, 먼저 활성화하십시오</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="126"/>
+        <source>This update may take a long time, please do not shut down or reboot during the process</source>
+        <translation>이 업데이트는 시간이 오래 걸릴 수 있습니다. 프로세스를 종료하거나 재부팅하지 마세요</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="139"/>
+        <source>Updates Available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="154"/>
+        <source>Updating...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="160"/>
+        <source>Update All</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="643"/>
         <source>Last checking time: </source>
         <translation>마지막 확인 시간:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="290"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
         <source>Your system is up to date</source>
         <translation>귀하의 시스템은 최신 상태입니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="293"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="370"/>
         <source>Check for Updates</source>
         <translation>업데이트 확인</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="342"/>
         <source>Checking for updates, please wait...</source>
         <translation>업데이트 확인중입니다, 기다려 주세요...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="312"/>
-        <source>Download and install updates</source>
-        <translation>업데이트 다운로드 및 설치</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="321"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="448"/>
-        <source>%1% downloaded (Click to pause)</source>
-        <translation>%1% 다운로드됨(일시 중지하려면 클릭)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="328"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="450"/>
-        <source>%1% downloaded (Click to continue)</source>
-        <translation>%1% 다운로드됨(계속하려면 클릭)</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="335"/>
-        <source>Install updates</source>
-        <translation>업데이트 설치</translation>
-        <extra-contents_path>/update/Update</extra-contents_path>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="351"/>
-        <source>Updating, please wait...</source>
-        <translation>업데이트중...기다려주십시요　</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>최신 시스템이 설치되었습니다. 적용하려면 다시 시작하십시오</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
         <source>Update failed: insufficient disk space</source>
         <translation>업데이트 실패: 디스크 공간 부족</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>종속성 오류, 업데이트를 검색하지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="390"/>
-        <source>Backing up, please wait...</source>
-        <translation>백업 중, 잠시 기다리십시오...</translation>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
+        <source>%1% downloaded (Click to pause)</source>
+        <translation>%1% 다운로드됨(일시 중지하려면 클릭)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="395"/>
-        <source>System backup failed</source>
-        <translation>시스템 백업 실패함</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="418"/>
-        <source>%n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="444"/>
+        <source>%1% downloaded (Click to continue)</source>
+        <translation>%1% 다운로드됨(계속하려면 클릭)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="423"/>
-        <source>New system edition available</source>
-        <translation>새로운 시스템 에디션 사용가능</translation>
-    </message>
-    <message numerus="yes">
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="425"/>
-        <source>New system edition and %n application update(s) available</source>
-        <translation type="unfinished"><numerusform></numerusform></translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="432"/>
-        <source>Downloaded</source>
-        <translation>다운로드됨</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="434"/>
-        <source>Size: %1</source>
-        <translation>크기: %1</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="463"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="457"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>배터리 잔량이 50%이하입니다, 계속하기 위해 전원을 연결해주세요</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="465"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="459"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>재시작을 위한 충분한 전력을 확보하고, 기기의 전원을 끄거나 전원 플러그를 뽑지 마세요</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="664"/>
+        <source>Current Edition</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="672"/>
+        <source>Size</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3509,12 +3495,12 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
-        <source>System Updates</source>
+        <source>UnionTech</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
-        <source>App Updates in App Store</source>
+        <source>App installed in App Store</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3538,21 +3524,20 @@ Visit User Center and manage your account there.</source>
         <translation>업데이트 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="84"/>
-        <source>Automatic Updating Settings</source>
-        <translation>자동 업데이트 설정</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="91"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
         <source>Check for Updates</source>
         <translation>업데이트 확인</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="99"/>
         <source>Clear Package Cache</source>
         <translation>패키지 캐시 지우기</translation>
-        <extra-contents_path>/update/Update Settings</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="104"/>
+        <source>Updates from Repositories</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="152"/>
@@ -3587,35 +3572,35 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dccV20::update::UpdateWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="60"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="61"/>
         <source>Updates</source>
         <translation>업데이트</translation>
         <extra-contents_path>/update/Update</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="65"/>
         <source>Update Settings</source>
         <translation>업데이트 설정</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="77"/>
         <source>Last Update</source>
         <translation>마지막 업데이트</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="127"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="128"/>
         <source>Return</source>
         <translation>반환</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="187"/>
         <source>Current Edition</source>
         <translation>현재 에디션</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="195"/>
         <source>Update History</source>
         <translation>업데이트 기록</translation>
     </message>
@@ -3677,49 +3662,49 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>PwqualityManager</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="56"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="61"/>
         <source>Password cannot be empty</source>
         <translation>비밀번호는 비워 둘 수 없습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="57"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="62"/>
         <source>Password must have at least %1 characters</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="63"/>
         <source>Password must be no more than %1 characters</source>
         <translation>비밀번호는 %1 자 이하 여야합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="69"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="70"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>비밀번호에는 4자 이상의 회문 문자가 포함되어서는 안됩니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="66"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="71"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="74"/>
         <source>Do not use common words and combinations as password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="67"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="68"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="73"/>
         <source>Create a strong password please</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="79"/>
         <source>It does not meet password rules</source>
         <translation type="unfinished"/>
     </message>
@@ -3732,58 +3717,58 @@ Visit User Center and manage your account there.</source>
         <translation>제어 센터</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="672"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="690"/>
         <source>On Battery</source>
         <translation>배터리 켜기</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="673"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="691"/>
         <source>Plugged In</source>
         <translation>연결됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="674"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="692"/>
         <source>General</source>
         <translation>일반</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="675"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="693"/>
         <source>Mouse</source>
         <translation>마우스</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="676"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="694"/>
         <source>Touchpad</source>
         <translation>터치패드</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="677"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="695"/>
         <source>TrackPoint</source>
         <translation>추적점</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="678"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="696"/>
         <source>Application Proxy</source>
         <translation>응용프로그램 프록시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="679"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="682"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="697"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="700"/>
         <source>System Proxy</source>
         <translation>시스템 프록시</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="680"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="698"/>
         <source>Time Settings</source>
         <translation>시간 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="681"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="699"/>
         <source>Change System Timezone</source>
         <translation>시스템 시간대 변경</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="683"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="701"/>
         <source>Input Methods</source>
         <translation type="unfinished"/>
     </message>
@@ -3836,32 +3821,32 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="608"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="604"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>호스트가 도메인 서버에서 제거되었습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="609"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="605"/>
         <source>Your host joins the domain server successfully</source>
         <translation>호스트가 도메인 서버에 성공적으로 참여합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="637"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="633"/>
         <source>Your host failed to leave the domain server</source>
         <translation>호스트가 도메인 서버를 종료하지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="638"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="634"/>
         <source>Your host failed to join the domain server</source>
         <translation>호스트가 도메인 서버에 참여하지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="641"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="637"/>
         <source>AD domain settings</source>
         <translation>광고 도메인 설정</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="710"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="706"/>
         <source>Password not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
@@ -4171,6 +4156,11 @@ Visit User Center and manage your account there.</source>
         <source>Gather Windows</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="101"/>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dcc::keyboard::CustomEdit</name>
@@ -4279,6 +4269,7 @@ Visit User Center and manage your account there.</source>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
         <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="87"/>
+        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="88"/>
         <source>Enter a new shortcut</source>
         <translation>새 바로가기 입력</translation>
     </message>
@@ -4421,13 +4412,21 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::systeminfo::SystemInfoWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="361"/>
         <source>Copyright© 2011-2021 Deepin Community</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="363"/>
         <source>Copyright© 2019-2021 UnionTech Software Technology Co., LTD</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::update::AppstoreUpdateItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/update/appstoreupdateitem.cpp" line="27"/>
+        <source>View in App Store</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4464,21 +4463,98 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
+    <name>dcc::update::UpdateSettingItem</name>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="132"/>
+        <source>Update failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="139"/>
+        <source>The newest system installed, restart to take effect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="144"/>
+        <source>Waiting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="151"/>
+        <source>Backing up</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="164"/>
+        <source>System backup failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="189"/>
+        <source>Release date: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="190"/>
+        <source>Version</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="425"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="411"/>
         <source>System Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
-        <source>Patches</source>
-        <translation>패치</translation>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="422"/>
+        <source>%1 apps updates available (such as %2, %3, %4)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="435"/>
-        <source>System patches</source>
-        <translation>시스템 패치</translation>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="429"/>
+        <source>Security Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
+        <source>Unknown Apps Updates</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::update::updateControlPanel</name>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="39"/>
+        <source>Download and install</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="88"/>
+        <source>Learn more</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="128"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="269"/>
+        <source>Downloading </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="131"/>
+        <source>Waiting </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="134"/>
+        <source>Installing </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="137"/>
+        <source>Backing up </source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

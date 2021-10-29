@@ -160,7 +160,7 @@ private:
     QPointer<JobInter> getDownloadJob(ClassifyUpdateType updateType);
     QPointer<JobInter> getInstallJob(ClassifyUpdateType updateType);
 
-    QString getAppName(QString packageId);
+    QString getAppName(int id);
     bool checkJobIsValid(QPointer<JobInter> dbusJob);
     void deleteJob(QPointer<JobInter> dbusJob);
     bool checkUpdateSuccessed();

@@ -142,7 +142,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::WaitRecoveryBackup:
         m_controlWidget->showUpdateProcess();
-        m_controlWidget->setProgressText(tr("Watiting"));
+        m_controlWidget->setProgressText(tr("Waiting"));
         m_controlWidget->showButton(false);
         break;
     case UpdatesStatus::RecoveryBackingup:
@@ -187,7 +187,7 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
         return;
     }
 
-    m_controlWidget->setDate(tr("release time ") + ": " + updateItemInfo->updateTime());
+    m_controlWidget->setDate(tr("Release date: ") + updateItemInfo->updateTime());
     m_controlWidget->setVersion(tr("Version") + ": " + updateItemInfo->availableVersion());
     m_controlWidget->setTitle(updateItemInfo->name());
     m_controlWidget->setDetail(updateItemInfo->explain());
