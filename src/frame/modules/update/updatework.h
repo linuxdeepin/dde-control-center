@@ -163,6 +163,7 @@ private:
     QString getAppName(QString packageId);
     bool checkJobIsValid(QPointer<JobInter> dbusJob);
     void deleteJob(QPointer<JobInter> dbusJob);
+    bool checkUpdateSuccessed();
 
 private:
     UpdateModel *m_model;

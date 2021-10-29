@@ -383,6 +383,11 @@ void UpdateWorker::setUpdateInfo()
     } else {
         qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
         m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
+        for (auto item: updateInfoMap.keys()) {
+            if(updateInfoMap.value(item) != nullptr){
+                m_model->setClassifyUpdateTypeStatus(item, UpdatesStatus::UpdatesAvailable);
+            }
+        }
     }
 }
 
@@ -1117,6 +1122,9 @@ void UpdateWorker::onSysUpdateInstallStatusChanged(const QString &value)
     } else if (value == "succeed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
+        if (checkUpdateSuccessed()){
+            m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+        }
         delete m_sysUpdateInstallJob;
         m_sysUpdateInstallJob = nullptr;
     }
@@ -1132,6 +1140,9 @@ void UpdateWorker::onAppUpdateInstallStatusChanged(const QString   &value)
     } else if (value == "succeed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
+        if (checkUpdateSuccessed()){
+            m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+        }
         delete m_appUpdateInstallJob;
         m_appUpdateInstallJob = nullptr;
     }
@@ -1147,6 +1158,9 @@ void UpdateWorker::onSafeUpdateInstallStatusChanged(const QString   &value)
     } else if (value == "succeed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
+        if (checkUpdateSuccessed()){
+            m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+        }
         delete m_safeUpdateInstallJob;
         m_safeUpdateInstallJob = nullptr;
     }
@@ -1161,6 +1175,9 @@ void UpdateWorker::onUnkonwnUpdateInstallStatusChanged(const QString   &value)
     } else if (value == "succeed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
+        if (checkUpdateSuccessed()){
+            m_model->setStatus(UpdatesStatus::UpdateSucceeded);
+        }
         delete m_unknownUpdateInstallJob;
         m_unknownUpdateInstallJob = nullptr;
     }
@@ -1391,6 +1408,18 @@ void UpdateWorker::deleteJob(QPointer<JobInter> dbusJob)
         dbusJob->deleteLater();
         dbusJob = nullptr;
     }
+}
+
+bool UpdateWorker::checkUpdateSuccessed()
+{
+    if((m_model->getSystemUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSystemUpdateStatus() == UpdatesStatus::Default)
+            && (m_model->getAppUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getAppUpdateStatus() == UpdatesStatus::Default)
+            && (m_model->getSafeUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSafeUpdateStatus() == UpdatesStatus::Default)
+            && (m_model->getUnkonowUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getUnkonowUpdateStatus() == UpdatesStatus::Default) ){
+        return  true;
+    }
+
+    return  false;
 }
 
 void UpdateWorker::onRequestOpenAppStore()

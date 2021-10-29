@@ -56,7 +56,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_resultItem(new ResultItem())
     , m_progress(new DownloadProgressBar(parent))
     , m_fullProcess(new DownloadProgressBar(parent))
-    , m_summaryGroup(new SettingsGroup())
     , m_upgradeWarningGroup(new SettingsGroup)
     , m_summary(new SummaryItem)
     , m_upgradeWarning(new SummaryItem)
@@ -108,8 +107,6 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_authorizationPrompt->setVisible(false);
     fullProcesslayout->addWidget(m_fullProcess);
     fullProcesslayout->addWidget(m_authorizationPrompt);
-
-    m_summaryGroup->setVisible(true);
 
     m_powerTip->setWordWrap(true);
     m_powerTip->setAlignment(Qt::AlignHCenter);
@@ -235,8 +232,6 @@ void UpdateCtrlWidget::initConnect()
     auto initUpdateItemConnect = [ = ](UpdateSettingItem * updateItem) {
         connect(updateItem, &UpdateSettingItem::requestUpdate, this, &UpdateCtrlWidget::onRequestUpdate);
         connect(updateItem, &UpdateSettingItem::requestUpdateCtrl, this, &UpdateCtrlWidget::requestUpdateCtrl);
-        connect(updateItem, &UpdateSettingItem::UpdateSuccessed, this, &UpdateCtrlWidget::onUpdateSuccessed);
-        connect(updateItem, &UpdateSettingItem::UpdateFailed, this, &UpdateCtrlWidget::onUpdateFailed);
         connect(updateItem, &UpdateSettingItem::recoveryBackupFailed, this, &UpdateCtrlWidget::onRecoverBackupFailed);
         connect(updateItem, &UpdateSettingItem::recoveryBackupSuccessed, this, &UpdateCtrlWidget::onRecoverBackupFinshed);
     };
@@ -263,7 +258,6 @@ void UpdateCtrlWidget::initConnect()
 
 UpdateCtrlWidget::~UpdateCtrlWidget()
 {
-
 }
 
 void UpdateCtrlWidget::setShowInfo(const UiActiveState value)
@@ -399,9 +393,6 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 
 void UpdateCtrlWidget::setSystemUpdateStatus(const UpdatesStatus &status)
 {
-    if (!m_systemUpdateItem->isVisible()) {
-        return;
-    }
 
     m_systemUpdateItem->setStatus(status);
 
@@ -409,28 +400,17 @@ void UpdateCtrlWidget::setSystemUpdateStatus(const UpdatesStatus &status)
 
 void UpdateCtrlWidget::setAppUpdateStatus(const UpdatesStatus &status)
 {
-    if (!m_storeUpdateItem->isVisible()) {
-        return;
-    }
-
     m_storeUpdateItem->setStatus(status);
 }
 
 void UpdateCtrlWidget::setSafeUpdateStatus(const UpdatesStatus &status)
 {
-    if (!m_safeUpdateItem->isVisible()) {
-        return;
-    }
 
     m_safeUpdateItem->setStatus(status);
 }
 
 void UpdateCtrlWidget::setUnkonowUpdateStatus(const UpdatesStatus &status)
 {
-    if (!m_unknownUpdateItem->isVisible()) {
-        return;
-    }
-
     m_unknownUpdateItem->setStatus(status);
 }
 
@@ -545,6 +525,10 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
         setStatus(UpdatesStatus::Checking);
     } else {
         setStatus(m_model->status());
+        setSystemUpdateStatus(m_model->getSystemUpdateStatus());
+        setAppUpdateStatus(m_model->getAppUpdateStatus());
+        setSafeUpdateStatus(m_model->getSafeUpdateStatus());
+        setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
     }
 
 
@@ -643,19 +627,39 @@ void UpdateCtrlWidget::showUpdateInfo()
     m_lastCheckAgainTimeTip->setText(tr("Last checking time: ") + m_model->lastCheckUpdateTime());
     m_lastCheckAgainTimeTip->setVisible(true);
     m_updateSummaryGroup->setVisible(true);
+
+    setSystemUpdateStatus(m_model->getSystemUpdateStatus());
+    setAppUpdateStatus(m_model->getAppUpdateStatus());
+    setSafeUpdateStatus(m_model->getSafeUpdateStatus());
+    setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
+
+    if(m_systemUpdateItem->status() == UpdatesStatus::Default || m_systemUpdateItem->status() == UpdatesStatus::UpdateSucceeded){
+        m_systemUpdateItem->setVisible(false);
+    }
+
+    if(m_safeUpdateItem->status() == UpdatesStatus::Default || m_safeUpdateItem->status() == UpdatesStatus::UpdateSucceeded){
+        m_safeUpdateItem->setVisible(false);
+    }
+
+    if(m_storeUpdateItem->status() == UpdatesStatus::Default || m_storeUpdateItem->status() == UpdatesStatus::UpdateSucceeded){
+        m_storeUpdateItem->setVisible(false);
+    }
+
+    if(m_unknownUpdateItem->status() == UpdatesStatus::Default || m_unknownUpdateItem->status() == UpdatesStatus::UpdateSucceeded){
+        m_unknownUpdateItem->setVisible(false);
+    }
+
 }
 
 void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
 {
 
+    //~ contents_path /update/Update
+    setAllUpdateInfo(m_model->allDownloadInfo());
+
+
     showUpdateInfo();
 
-    //~ contents_path /update/Update
-    setSystemUpdateStatus(m_model->getSystemUpdateStatus());
-    setAppUpdateStatus(m_model->getAppUpdateStatus());
-    setSafeUpdateStatus(m_model->getSafeUpdateStatus());
-    setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
-    setAllUpdateInfo(m_model->allDownloadInfo());
 
     setLowBattery(m_model->lowBattery());
     setShowInfo(m_model->systemActivation());
@@ -768,17 +772,6 @@ void UpdateCtrlWidget::onRecoverBackupFailed()
 
 }
 
-void UpdateCtrlWidget::onUpdateSuccessed()
-{
-    auto checkItemSuccessed = [ = ](UpdateSettingItem * updateItem) {
-        return updateItem->status() == UpdatesStatus::UpdateSucceeded || updateItem->status() == UpdatesStatus::Default;
-    };
-
-    if (checkItemSuccessed(m_systemUpdateItem) && checkItemSuccessed(m_storeUpdateItem) && checkItemSuccessed(m_safeUpdateItem) && checkItemSuccessed(m_unknownUpdateItem)) {
-        setStatus(UpdatesStatus::UpdateSucceeded);
-    }
-}
-
 void UpdateCtrlWidget::onUpdateFailed()
 {
     bool systemFailed = !m_systemUpdateItem->isVisible() || m_systemUpdateItem->status() == UpdatesStatus::UpdateFailed;
@@ -798,7 +791,6 @@ void UpdateCtrlWidget::initUpdateItem(UpdateSettingItem *updateItem)
         updateItem->setStatus(UpdatesStatus::UpdatesAvailable);
     }
 
-    updateItem->setVisible(true);
     updateItem->setIconVisible(true);
 }
 

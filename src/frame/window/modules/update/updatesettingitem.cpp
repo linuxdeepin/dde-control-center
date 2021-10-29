@@ -94,6 +94,9 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     }
 
     m_status = status;
+    if (m_status != UpdatesStatus::Default){
+        this->setVisible(true);
+    }
 
     switch (m_status) {
     case UpdatesStatus::UpdatesAvailable:
@@ -124,7 +127,6 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::UpdateSucceeded:
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
         this->setVisible(false);
-        Q_EMIT UpdateSuccessed();
         break;
     case UpdatesStatus::UpdateFailed:
         m_controlWidget->showUpdateProcess();
@@ -133,7 +135,6 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         m_controlWidget->showButton(true);
         m_controlWidget->setCtrlButtonEnabled(true);
         m_controlWidget->setButtonStatus(ButtonStatus::retry);
-        Q_EMIT UpdateFailed();
         break;
     case UpdatesStatus::NeedRestart:
         m_controlWidget->setProgressText(tr("The newest system installed, restart to take effect"));

@@ -130,7 +130,6 @@ private:
     ResultItem *m_resultItem;
     DownloadProgressBar *m_progress;
     DownloadProgressBar *m_fullProcess;
-    dcc::widgets::SettingsGroup *m_summaryGroup;
     dcc::widgets::SettingsGroup *m_upgradeWarningGroup;
     SummaryItem *m_summary;
     SummaryItem *m_upgradeWarning;
