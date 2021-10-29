@@ -952,12 +952,22 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 m_searchWidget->removeUnExsitData(tr("Cloud Sync"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Cloud Sync"));
+
+                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == inter->name()) {
+                    popAllWidgets();
+                    resetNavList(m_contentStack.empty());
+                }
             }
         } else if ("commoninfo" == find_it->first->name()) {
             if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("General Settings"));
             } else {
                 m_searchWidget->addUnExsitData(tr("General Settings"));
+
+                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == inter->name()) {
+                    popAllWidgets();
+                    resetNavList(m_contentStack.empty());
+                }
             }
         } else if ("update" == find_it->first->name()) {
             m_updateVisibale = bFinalVisible;
@@ -965,6 +975,16 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
                 m_searchWidget->removeUnExsitData(tr("Updates"));
             } else {
                 m_searchWidget->addUnExsitData(tr("Updates"));
+
+                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == inter->name()) {
+                    popAllWidgets();
+                    resetNavList(m_contentStack.empty());
+                }
+            }
+        } else {
+            if (!bFinalVisible && m_contentStack.count() > 0  && m_contentStack.at(0).first->name() == inter->name()) {
+                popAllWidgets();
+                resetNavList(m_contentStack.empty());
             }
         }
     } else {
