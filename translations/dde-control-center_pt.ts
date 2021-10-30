@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticação biométrica</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
         <source>Touch Screen</source>
-        <translation>Ecrã táctil</translation>
+        <translation>Ecrã tátil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="344"/>
@@ -429,28 +429,28 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="230"/>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Forte</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="240"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Média</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="248"/>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
+        <translation>Recomenda-se uma palavra-passe mais forte: mais de 8 caracteres e conter 3 dos quatro tipos de caracteres: letras minúsculas, letras maiúsculas, números, e símbolos</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="252"/>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Fraca</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="262"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation type="unfinished"/>
+        <translation>Ocorreu um erro ao ler os ficheiros de configuração das regras de palavra-passe!</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="295"/>
@@ -526,7 +526,7 @@
         <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="92"/>
         <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="132"/>
         <source>Done</source>
-        <translation>Feito</translation>
+        <translation>Concluído</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfingedialog.cpp" line="94"/>
@@ -592,7 +592,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="42"/>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticação biométrica</translation>
     </message>
 </context>
 <context>
@@ -2658,7 +2658,7 @@
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="142"/>
         <source>Touch Screen</source>
-        <translation>Ecrã táctil</translation>
+        <translation>Ecrã tátil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="143"/>
@@ -3190,7 +3190,7 @@
     <message>
         <location filename="../src/frame/window/modules/touchscreen/touchscreenmodule.cpp" line="95"/>
         <source>Touch Screen</source>
-        <translation>Ecrã táctil</translation>
+        <translation>Ecrã tátil</translation>
     </message>
 </context>
 <context>
@@ -3198,7 +3198,7 @@
     <message>
         <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="57"/>
         <source>Select your touch screen when connected or set it here.</source>
-        <translation>Selecione o seu ecrã táctil quando ligado ou defina-o aqui</translation>
+        <translation>Selecione o seu ecrã tátil quando ligado ou defina-o aqui</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="65"/>
@@ -3213,17 +3213,17 @@
     <message>
         <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="125"/>
         <source>Touch Screen - %1 (%2)</source>
-        <translation>Ecrã táctil - %1 (%2)</translation>
+        <translation>Ecrã tátil - %1 (%2)</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="190"/>
         <source>Touch Screen Settings</source>
-        <translation>Definições do ecrã táctil</translation>
+        <translation>Definições do ecrã tátil</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/touchscreen/touchscreenwidget.cpp" line="191"/>
         <source>The settings of touch screen changed</source>
-        <translation>As definições do ecrã táctil foram alteradas</translation>
+        <translation>As definições do ecrã tátil foram alteradas</translation>
     </message>
 </context>
 <context>
@@ -3358,116 +3358,116 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
 <context>
     <name>dccV20::update::UpdateCtrlWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="359"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="75"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="380"/>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="386"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="392"/>
         <source>Check Again</source>
         <translation>Verificar novamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>Reinicie o computador para utilizar o sistema e as aplicações corretamente</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="97"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Rede desligada, tente novamente após a ligação</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="105"/>
         <source>Your system is not authorized, please activate first</source>
         <translation>O seu sistema não está autorizado, ativar primeiro</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="126"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="123"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>Esta atualização pode demorar muito tempo, não encerre ou reinicie durante o processo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="136"/>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações disponíveis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="154"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="151"/>
         <source>Updating...</source>
-        <translation type="unfinished"/>
+        <translation>A atualizar...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="160"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="157"/>
         <source>Update All</source>
-        <translation type="unfinished"/>
+        <translation>Atualizar tudo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="322"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="643"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="627"/>
         <source>Last checking time: </source>
         <translation>Hora da última verificação: </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="329"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="323"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="361"/>
         <source>Your system is up to date</source>
         <translation>O sistema está atualizado</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="332"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="370"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="326"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="364"/>
         <source>Check for Updates</source>
         <translation>Procurar por atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="336"/>
         <source>Checking for updates, please wait...</source>
         <translation>A procurar por atualizações, aguarde...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="374"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="368"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>A versão mais recente do sistema foi instalada, reinicie para produzir efeito</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="379"/>
         <source>Update failed: insufficient disk space</source>
         <translation>Falha na atualização: espaço insuficiente no disco</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="385"/>
         <source>Dependency error, failed to detect the updates</source>
         <translation>Erro de dependência, falha ao detetar as atualizações</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="442"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="422"/>
         <source>%1% downloaded (Click to pause)</source>
         <translation>%1% transferido (Clique para parar)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="424"/>
         <source>%1% downloaded (Click to continue)</source>
         <translation>%1% transferido (Clique para continuar)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="457"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="437"/>
         <source>Your battery is lower than 50%, please plug in to continue</source>
         <translation>A sua bateria está abaixo dos 50%, ligue à corrente para continuar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="459"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="439"/>
         <source>Please ensure sufficient power to restart, and don&apos;t power off or unplug your machine</source>
         <translation>Certifique-se que tem carga suficiente para reiniciar e não encerre nem desligue da corrente o seu computador</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="664"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="668"/>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>Edição atual</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="672"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="676"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho</translation>
     </message>
 </context>
 <context>
@@ -3496,12 +3496,12 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
         <source>UnionTech</source>
-        <translation type="unfinished"/>
+        <translation>UnionTech</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>App installed in App Store</source>
-        <translation type="unfinished"/>
+        <translation>Aplicação instalada na Loja de Aplicações</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="55"/>
@@ -3701,7 +3701,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="72"/>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="73"/>
         <source>Create a strong password please</source>
-        <translation>Crie uma palavra-passe forte, por favor</translation>
+        <translation>Crie uma palavra-passe forte</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="79"/>
@@ -3856,7 +3856,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="58"/>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Tem a certeza que deseja eliminar esta conta?</translation>
+        <translation>Eliminar esta conta?</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/accounts/removeuserdialog.cpp" line="67"/>
@@ -3929,7 +3929,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="108"/>
         <source>Scan failed</source>
-        <translation>Falha na verificação</translation>
+        <translation>Falha ao verificar</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="118"/>
@@ -3969,7 +3969,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="160"/>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>Dedo movido muito rápido, por favor, não levante até que seja pedido</translation>
+        <translation>O dedo moveu-se demasiado depressa. Não levantar o dedo até ser solicitado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="163"/>
@@ -3996,7 +3996,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="176"/>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation>O dedo mexeu-se muito depressa. Não levantar o dedo até ser solicitado</translation>
+        <translation>O dedo moveu-se demasiado depressa. Não levantar o dedo até ser solicitado</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/fingermodel.cpp" line="186"/>
@@ -4048,7 +4048,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="154"/>
         <source>Lift your finger and do that again</source>
-        <translation>Levante o dedo e faça de novo</translation>
+        <translation>Levante o dedo e faça isso novamente</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/fingerwidget.cpp" line="158"/>
@@ -4159,7 +4159,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="101"/>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Reorganização do ecrã terá efeito em %1s após alterações</translation>
     </message>
 </context>
 <context>
@@ -4427,7 +4427,7 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/appstoreupdateitem.cpp" line="27"/>
         <source>View in App Store</source>
-        <translation type="unfinished"/>
+        <translation>Ver na Loja de Aplicações</translation>
     </message>
 </context>
 <context>
@@ -4465,62 +4465,62 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
 <context>
     <name>dcc::update::UpdateSettingItem</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="134"/>
         <source>Update failed</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao atualizar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="140"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>A versão mais recente do sistema foi instalada. Reinicie para ter efeito</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="145"/>
         <source>Waiting</source>
-        <translation type="unfinished"/>
+        <translation>A aguardar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="152"/>
         <source>Backing up</source>
-        <translation type="unfinished"/>
+        <translation>A efetuar cópia de segurança</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="165"/>
         <source>System backup failed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="189"/>
-        <source>Release date: </source>
-        <translation type="unfinished"/>
+        <translation>Falha ao criar cópia de segurança do sistema</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="190"/>
+        <source>Release date: </source>
+        <translation>Data de lançamento: </translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="191"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versão</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="411"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="416"/>
         <source>System Updates</source>
         <translation>Atualizações do sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="422"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="427"/>
         <source>%1 apps updates available (such as %2, %3, %4)</source>
-        <translation type="unfinished"/>
+        <translation>%1 atualizações de aplicações disponíveis (tais como %2, %3, %4)</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="429"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
         <source>Security Updates</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações de segurança</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="441"/>
         <source>Unknown Apps Updates</source>
-        <translation type="unfinished"/>
+        <translation>Atualizações de aplicações desconhecidas</translation>
     </message>
 </context>
 <context>
@@ -4528,33 +4528,33 @@ Visite o Centro do Utilizador e faça lá a gestão da sua conta.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="39"/>
         <source>Download and install</source>
-        <translation type="unfinished"/>
+        <translation>Transferir e instalar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="88"/>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Saiba mais</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="128"/>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="269"/>
         <source>Downloading </source>
-        <translation type="unfinished"/>
+        <translation>A transferir</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="131"/>
         <source>Waiting </source>
-        <translation type="unfinished"/>
+        <translation>A aguardar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="134"/>
         <source>Installing </source>
-        <translation type="unfinished"/>
+        <translation>A instalar</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="137"/>
         <source>Backing up </source>
-        <translation type="unfinished"/>
+        <translation>A efetuar cópia de segurança</translation>
     </message>
 </context>
 <context>
