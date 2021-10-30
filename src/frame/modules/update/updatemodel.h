@@ -212,8 +212,16 @@ public:
 
     void deleteUpdateInfo(UpdateItemInfo *updateItemInfo);
 
+    bool getAutoInstallUpdates() const;
+    void setAutoInstallUpdates(bool autoInstallUpdates);
+
+    quint64 getAutoInstallUpdateType() const;
+    void setAutoInstallUpdateType(const quint64 &autoInstallUpdateType);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
+    void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
+    void autoInstallUpdateTypeChanged(const quint64 &autoInstallUpdateType);
     void defaultMirrorChanged(const MirrorInfo &mirror);
 
     void smartMirrorSwitchChanged(bool smartMirrorSwitch);
@@ -289,6 +297,8 @@ private:
     bool m_netselectExist;
     bool m_autoCleanCache;
     bool m_autoDownloadUpdates;
+    bool m_autoInstallUpdates;
+    quint64 m_autoInstallUpdateType;
     bool m_autoCheckUpdates;
     quint64 m_updateMode;
     bool m_autoCheckSecureUpdates;

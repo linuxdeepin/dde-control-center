@@ -91,6 +91,7 @@ public Q_SLOTS:
     void setUpdateMode(const quint64 updateMode);
     void setAutoCleanCache(const bool autoCleanCache);
     void setAutoDownloadUpdates(const bool &autoDownload);
+    void setAutoInstallUpdates(const bool &autoInstall);
     void setMirrorSource(const MirrorInfo &mirror);
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void setSourceCheck(bool enable);

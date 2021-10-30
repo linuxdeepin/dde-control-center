@@ -170,6 +170,8 @@ void UpdateWorker::init()
     connect(m_managerInter, &ManagerInter::AutoCleanChanged, m_model, &UpdateModel::setAutoCleanCache);
 
     connect(m_updateInter, &__Updater::AutoDownloadUpdatesChanged, m_model, &UpdateModel::setAutoDownloadUpdates);
+    connect(m_updateInter, &__Updater::AutoInstallUpdatesChanged, m_model, &UpdateModel::setAutoInstallUpdates);
+    connect(m_updateInter, &__Updater::AutoInstallUpdateTypeChanged, m_model, &UpdateModel::setAutoInstallUpdateType);
     connect(m_updateInter, &__Updater::MirrorSourceChanged, m_model, &UpdateModel::setDefaultMirror);
     connect(m_updateInter, &UpdateInter::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoCheckUpdates);
     connect(m_managerInter, &ManagerInter::UpdateModeChanged, m_model, &UpdateModel::setUpdateMode);
@@ -240,6 +242,8 @@ void UpdateWorker::activate()
 
     m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
+    m_model->setAutoInstallUpdates(m_updateInter->autoInstallUpdates());
+    m_model->setAutoInstallUpdateType(m_updateInter->autoInstallUpdateType());
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
     m_model->setUpdateMode(m_managerInter->updateMode());
     m_model->setUpdateNotify(m_updateInter->updateNotify());
@@ -645,6 +649,14 @@ void UpdateWorker::setUpdateMode(const quint64 updateMode)
 void UpdateWorker::setAutoDownloadUpdates(const bool &autoDownload)
 {
     m_updateInter->SetAutoDownloadUpdates(autoDownload);
+    if(autoDownload == false){
+        m_updateInter->setAutoInstallUpdates(false);
+    }
+}
+
+void UpdateWorker::setAutoInstallUpdates(const bool &autoInstall)
+{
+    m_updateInter->setAutoInstallUpdates(autoInstall);
 }
 
 void UpdateWorker::setMirrorSource(const MirrorInfo &mirror)
@@ -1243,10 +1255,6 @@ void UpdateWorker::refreshLastTimeAndCheckCircle()
 void UpdateWorker::setUpdateNotify(const bool notify)
 {
     m_updateInter->SetUpdateNotify(notify);
-
-    if (!notify) {
-        setAutoDownloadUpdates(false);
-    }
 }
 
 void UpdateWorker::OnDownloadJobCtrl(ClassifyUpdateType type, int updateCtrlType)

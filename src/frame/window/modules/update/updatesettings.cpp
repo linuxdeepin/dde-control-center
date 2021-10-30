@@ -49,12 +49,15 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     : ContentWidget(parent)
     , m_model(nullptr)
     , m_autoCheckUpdate(new SwitchWidget(this))
-    , m_autoCheckSecureUpdate(new SwitchWidget(tr("Security Updates"), this))
-    , m_autoCheckSystemUpdate(new SwitchWidget(tr("UnionTech"), this))
+    , m_autoCheckSecureUpdate(new SwitchWidget(tr("Security Updates Only"), this))
+    , m_autoCheckUniontechUpdate(new SwitchWidget(tr("UnionTech"), this))
     , m_autoCheckAppUpdate(new SwitchWidget(tr("App installed in App Store"), this))
     , m_updateNotify(new SwitchWidget(tr("Updates Notification"), this))
     , m_autoDownloadUpdate(new SwitchWidget(tr("Download Updates"), this))
+    , m_autoInstallUpdate(new SwitchWidget(tr("Auto Install Updates"), this))
+    , m_autoInstallUpdatesTips(new DTipLabel(tr("")))
     , m_autoDownloadUpdateTips(new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"), this))
+    , m_autoCheckSecureUpdateTips(new DTipLabel(tr("Switch it on to only update security vulnerabilities and compatibility issues"), this))
     , m_autoCleanCache(new SwitchWidget(this))
     , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
 {
@@ -69,7 +72,7 @@ UpdateSettings::~UpdateSettings()
     GSettingWatcher::instance()->erase("updateUpdateNotify", m_updateNotify);
     GSettingWatcher::instance()->erase("updateAutoDownlaod", m_autoDownloadUpdate);
     GSettingWatcher::instance()->erase("updateCleanCache", m_autoCleanCache);
-    GSettingWatcher::instance()->erase("updateSystemUpdate", m_autoCheckSystemUpdate);
+    GSettingWatcher::instance()->erase("updateSystemUpdate", m_autoCheckUniontechUpdate);
     GSettingWatcher::instance()->erase("updateAppUpdate", m_autoCheckAppUpdate);
     GSettingWatcher::instance()->erase("updateSecureUpdate", m_autoCheckSecureUpdate);
 }
@@ -94,6 +97,16 @@ void UpdateSettings::initUi()
     m_autoDownloadUpdateTips->setContentsMargins(10, 0, 10, 0);
     contentLayout->addWidget(m_autoDownloadUpdateTips);
     contentLayout->addSpacing(10);
+
+    SettingsGroup *autoInstallGrp = new SettingsGroup;
+    autoInstallGrp->appendItem(m_autoInstallUpdate);
+    contentLayout->addWidget(autoInstallGrp);
+    m_autoInstallUpdatesTips->setWordWrap(true);
+    m_autoInstallUpdatesTips->setAlignment(Qt::AlignLeft);
+    m_autoInstallUpdatesTips->setContentsMargins(10, 0, 10, 0);
+    contentLayout->addWidget(m_autoInstallUpdatesTips);
+    contentLayout->addSpacing(10);
+
     SettingsGroup *updatesNotificationtGrp = new SettingsGroup;
     updatesNotificationtGrp->appendItem(m_updateNotify);
     m_autoCleanCache->setTitle(tr("Clear Package Cache"));
@@ -108,43 +121,14 @@ void UpdateSettings::initUi()
     contentLayout->addSpacing(10);
 
     SettingsGroup *updatesGrp = new SettingsGroup;
-    updatesGrp->appendItem(m_autoCheckSystemUpdate);
+    updatesGrp->appendItem(m_autoCheckUniontechUpdate);
     updatesGrp->appendItem(m_autoCheckAppUpdate);
     updatesGrp->appendItem(m_autoCheckSecureUpdate);
     contentLayout->addWidget(updatesGrp);
-
-#if 0 // 定时、闲时下载功能需添加时再显示
-    //自动下载更新控件初始化
-    m_timerDownload = new SwitchWidget("定时下载可用更新", this);
-    m_timerDownloadLbl = new DTipLabel("当前设置时间为：", this);
-    m_timerDownloadLbl->setWordWrap(true);
-    m_timerDownloadLbl->setAlignment(Qt::AlignLeft);
-    m_timerDownloadLbl->setContentsMargins(10, 0, 10, 0);
-    m_setTimerLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg("更改"));
-
-    //闲时下载更新控件初始化
-    m_freeTimeDownload = new SwitchWidget("闲时下载更新", this);
-    m_freeTimeDownloadLbl = new DTipLabel("当前使用时间段：", this);
-    m_freeTimeDownloadLbl->setWordWrap(true);
-    m_freeTimeDownloadLbl->setAlignment(Qt::AlignLeft);
-    m_freeTimeDownloadLbl->setContentsMargins(10, 0, 10, 0);
-    m_setFreeTimeLbl = new QLabel(QString("<a style='color: blue; text-decoration: none;'; href=' '>%1</a>").arg("更改"));
-
-    auto setDownloadTimeCtrlLayout = [ & ](SwitchWidget * setSwitch, DTipLabel * timeInfoLbl, QLabel * changeLbl) {
-        setSwitch->addBackground();
-        contentLayout->addWidget(setSwitch);
-        QHBoxLayout *downloadLblLayout = new QHBoxLayout;
-        downloadLblLayout->addWidget(timeInfoLbl);
-        downloadLblLayout->addWidget(changeLbl);
-        contentLayout->addLayout(downloadLblLayout);
-    };
-
-    //定时下载更新布局
-    setDownloadTimeCtrlLayout(m_timerDownload, m_timerDownloadLbl, m_setTimerLbl);
-    //闲时下载更新布局
-    setDownloadTimeCtrlLayout(m_freeTimeDownload, m_freeTimeDownloadLbl, m_setFreeTimeLbl);
-#endif
-
+    m_autoCheckSecureUpdateTips->setWordWrap(true);
+    m_autoCheckSecureUpdateTips->setAlignment(Qt::AlignLeft);
+    m_autoCheckSecureUpdateTips->setContentsMargins(10, 0, 10, 0);
+    contentLayout->addWidget(m_autoCheckSecureUpdateTips);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsEducationSystem && !IsDeepinDesktop) {
@@ -190,13 +174,16 @@ void UpdateSettings::initUi()
 void UpdateSettings::initConnection()
 {
     connect(m_autoCheckUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCheckUpdates);
-    connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
-    connect(m_autoCheckSystemUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
-    connect(m_autoCheckAppUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::setUpdateMode);
+    connect(m_autoCheckSecureUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::onAutoSecureUpdateCheckChanged);
+    connect(m_autoCheckUniontechUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::onAutoUpdateCheckChanged);
+    connect(m_autoCheckAppUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::onAutoUpdateCheckChanged);
     connect(m_updateNotify, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetUpdateNotify);
     connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoDownloadUpdates);
-    //connect(m_setTimerLbl, &QLabel::linkActivated,);
-    //connect(m_setFreeTimeLbl, &QLabel::linkActivated,);
+    connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, [ = ](bool state) {
+        setCheckStatus(m_autoInstallUpdate, state, "updateAutoCheck");
+    });
+
+    connect(m_autoInstallUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoInstall);
     connect(m_autoCleanCache, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoCleanCache);
 
 #if 0
@@ -214,6 +201,27 @@ void UpdateSettings::initConnection()
     }
 }
 
+QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
+{
+    QString text = "";
+    if (type & 1) {
+        text = tr("system update");
+    }
+    if (type & 2) {
+        text += tr("Application update ");
+    }
+    if (type & 4) {
+        text += tr("Security update ");
+    }
+    if (type & 8) {
+        text += tr("Third-party unknown update");
+    }
+
+    text += tr("Install alls automatically when the download is complete ");
+
+    return text;
+}
+
 void UpdateSettings::setModel(UpdateModel *model)
 {
     if (m_model == model)
@@ -223,21 +231,35 @@ void UpdateSettings::setModel(UpdateModel *model)
 
     connect(model, &UpdateModel::autoCheckUpdatesChanged, m_autoCheckUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCheckSecureUpdatesChanged, m_autoCheckSecureUpdate, &SwitchWidget::setChecked);
-    connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckSystemUpdate, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::autoCheckSystemUpdatesChanged, m_autoCheckUniontechUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoCheckAppUpdatesChanged, m_autoCheckAppUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::updateNotifyChanged, m_updateNotify, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoDownloadUpdatesChanged, m_autoDownloadUpdate, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, [ = ](bool state) {
+        m_autoInstallUpdate->setVisible(state);
+        m_autoInstallUpdatesTips->setVisible(state);
+    });
+    connect(model, &UpdateModel::autoInstallUpdatesChanged, m_autoInstallUpdate, &SwitchWidget::setChecked);
+    connect(model, &UpdateModel::autoInstallUpdateTypeChanged, this, [ = ](quint64 type) {
+        m_autoInstallUpdatesTips->setText(getAutoInstallUpdateType(type));
+    });
     connect(model, &UpdateModel::autoCleanCacheChanged, m_autoCleanCache, &SwitchWidget::setChecked);
 
     m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
     m_autoCheckSecureUpdate->setChecked(model->autoCheckSecureUpdates());
     m_autoCheckSecureUpdate->setVisible(true);
 //    m_autoCheckSecureUpdate->setVisible(false);//未列入计划，暂时屏蔽
-    m_autoCheckSystemUpdate->setChecked(model->autoCheckSystemUpdates());
+    m_autoCheckUniontechUpdate->setChecked(model->autoCheckSystemUpdates());
     m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
     m_updateNotify->setChecked(model->updateNotify());
     m_autoDownloadUpdate->setChecked(model->autoDownloadUpdates());
     m_autoCleanCache->setChecked(m_model->autoCleanCache());
+
+    quint64 type = m_model->getAutoInstallUpdateType();
+    m_autoInstallUpdatesTips->setText(getAutoInstallUpdateType(type));
+    m_autoInstallUpdate->setVisible(model->autoDownloadUpdates());
+    m_autoInstallUpdate->setChecked(model->getAutoInstallUpdates());
+    m_autoInstallUpdatesTips->setVisible(model->autoDownloadUpdates());
 
     GSettingWatcher::instance()->bind("updateAutoCheck", m_autoCheckUpdate);
     GSettingWatcher::instance()->bind("updateUpdateNotify", m_updateNotify);
@@ -279,12 +301,13 @@ void UpdateSettings::setUpdateMode()
 
     updateMode = updateMode | m_autoCheckSecureUpdate->checked();
     updateMode = (updateMode << 1) | m_autoCheckAppUpdate->checked();
-    updateMode = (updateMode << 1) | m_autoCheckSystemUpdate->checked();
+    updateMode = (updateMode << 1) | m_autoCheckUniontechUpdate->checked();
     requestSetUpdateMode(updateMode);
 }
 
 void UpdateSettings::setCheckStatus(SwitchWidget *widget, bool state, const QString &key)
 {
+    //后续对应配置相关代码
     const QString status = m_settings->get(key).toString();
 
     if ("Enabled" == status) {
@@ -294,4 +317,23 @@ void UpdateSettings::setCheckStatus(SwitchWidget *widget, bool state, const QStr
     }
 
     widget->setVisible("Hidden" != status && state);
+}
+
+void UpdateSettings::onAutoUpdateCheckChanged()
+{
+    if (m_autoCheckSecureUpdate->checked()) {
+        m_autoCheckSecureUpdate->setChecked(false);
+    }
+
+    setUpdateMode();
+}
+
+void UpdateSettings::onAutoSecureUpdateCheckChanged()
+{
+    if (m_autoCheckSecureUpdate->checked()) {
+        m_autoCheckAppUpdate->setChecked(false);
+        m_autoCheckUniontechUpdate->setChecked(false);
+    }
+
+    setUpdateMode();
 }

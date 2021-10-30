@@ -73,25 +73,32 @@ Q_SIGNALS:
 #endif
     void requestEnableSmartMirror(bool enable);
     void requestShowMirrorsView();
+    void requestSetAutoInstall(const bool &autoInstall);
 
 private Q_SLOTS:
     void setUpdateMode();
     void setCheckStatus(dcc::widgets::SwitchWidget *widget, bool state, const QString &key);
+    void onAutoUpdateCheckChanged();
+    void onAutoSecureUpdateCheckChanged();
 
 private:
     void initUi();
     void initConnection();
+    QString getAutoInstallUpdateType(quint64 type);
 
 private:
     dcc::update::UpdateModel *m_model;
 
     dcc::widgets::SwitchWidget *m_autoCheckUpdate;       // 检查更新
     dcc::widgets::SwitchWidget *m_autoCheckSecureUpdate; // 检查安全更新
-    dcc::widgets::SwitchWidget *m_autoCheckSystemUpdate; // 检查系统更新
+    dcc::widgets::SwitchWidget *m_autoCheckUniontechUpdate; // 检查系统更新
     dcc::widgets::SwitchWidget *m_autoCheckAppUpdate;    // 检查应用商店的应用更新
     dcc::widgets::SwitchWidget *m_updateNotify;          // 更新提醒
     dcc::widgets::SwitchWidget *m_autoDownloadUpdate;    // 下载更新
+    dcc::widgets::SwitchWidget *m_autoInstallUpdate;     // 安装更新
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_autoInstallUpdatesTips;
     DTK_WIDGET_NAMESPACE::DTipLabel *m_autoDownloadUpdateTips;
+    DTK_WIDGET_NAMESPACE::DTipLabel *m_autoCheckSecureUpdateTips;
 
     dcc::widgets::SwitchWidget *m_timerDownload; // 定时下载更新
     DTK_WIDGET_NAMESPACE::DTipLabel *m_timerDownloadLbl;

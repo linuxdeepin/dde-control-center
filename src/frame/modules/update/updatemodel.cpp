@@ -628,5 +628,31 @@ void UpdateModel::deleteUpdateInfo(UpdateItemInfo *updateItemInfo)
     }
 }
 
+bool UpdateModel::getAutoInstallUpdates() const
+{
+    return m_autoInstallUpdates;
+}
+
+void UpdateModel::setAutoInstallUpdates(bool autoInstallUpdates)
+{
+    if (m_autoInstallUpdates != autoInstallUpdates) {
+        m_autoInstallUpdates = autoInstallUpdates;
+        Q_EMIT autoInstallUpdatesChanged(autoInstallUpdates);
+    }
+}
+
+quint64 UpdateModel::getAutoInstallUpdateType() const
+{
+    return m_autoInstallUpdateType;
+}
+
+void UpdateModel::setAutoInstallUpdateType(const quint64 &autoInstallUpdateType)
+{
+    if (m_autoInstallUpdateType != autoInstallUpdateType) {
+        m_autoInstallUpdateType = autoInstallUpdateType;
+        Q_EMIT autoInstallUpdateTypeChanged(autoInstallUpdateType);
+    }
+}
+
 }
 }
