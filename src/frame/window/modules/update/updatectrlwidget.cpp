@@ -755,17 +755,17 @@ void UpdateCtrlWidget::onRecoverBackupFailed()
         return;
     }
 
-    if (m_storeUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_systemUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+    if (m_storeUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_storeUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
         Q_EMIT requestUpdates(ClassifyUpdateType::AppStoreUpdate);
         return;
     }
 
-    if (m_safeUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_systemUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+    if (m_safeUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_safeUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
         Q_EMIT requestUpdates(ClassifyUpdateType::SecurityUpdate);
         return;
     }
 
-    if (m_unknownUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_systemUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
+    if (m_unknownUpdateItem->status() != UpdatesStatus::RecoveryBackupFailed && m_unknownUpdateItem->status() == UpdatesStatus::WaitRecoveryBackup) {
         Q_EMIT requestUpdates(ClassifyUpdateType::UnknownUpdate);
         return;
     }
