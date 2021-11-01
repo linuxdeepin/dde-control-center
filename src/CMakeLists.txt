@@ -9,14 +9,12 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_PREFIX_PATH $ENV{Qt5_DIR})
 
-aux_source_directory(. SOURCEFILES)
-list(REMOVE_ITEM SOURCEFILES "debian")
-add_library(${PROJECT_NAME} SHARED ${SOURCEFILES} ${TS_FILES})
+file(GLOB_RECURSE SOURCEFILES "*.h" "*.cpp")
+add_library(${PROJECT_NAME} SHARED ${SOURCEFILES})
 
 find_package(Qt5 COMPONENTS Core DBus Network REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
-#find_package(Qt5DBus REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
@@ -33,6 +31,7 @@ if (NOT KF5_QT_LIBRARIES)
 endif()
 
 target_include_directories(${PROJECT_NAME} PUBLIC
+    realize
     ${Qt5DBus_INCLUDE_DIRS}
     ${DFrameworkDBus_INCLUDE_DIRS}
     ${QGSettings_INCLUDE_DIRS}

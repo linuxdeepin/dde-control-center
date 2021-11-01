@@ -75,6 +75,17 @@ enum class Connectivity {
     Full        // 主机已连接到网络，并且似乎能够访问完整的Internet。
 };
 
+/***
+ * 加载网络的方式
+ */
+
+enum class LoadStyle
+{
+    LoadFromInter = 0,      // 从后台加载
+    LoadFromManager,        // 从NetworkManager加载
+    LoadFromService         // 从后台服务加载(备用)
+};
+
 class Connection
 {
     friend class ControllItems;

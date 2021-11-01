@@ -37,6 +37,7 @@ class NetworkDetails : QObject
     Q_OBJECT
 
     friend class NetworkController;
+    friend class NetworkInterProcesser;
 
 private:
     enum InfoType {

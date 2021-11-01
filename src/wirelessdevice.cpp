@@ -21,12 +21,14 @@
 
 #include "wirelessdevice.h"
 #include "utils.h"
+#include "realize/netinterface.h"
 
 using namespace dde::network;
 
 bool WirelessDevice::isConnected() const
 {
-    for (AccessPoints *ap : m_accessPoints) {
+    QList<AccessPoints *> aps = deviceRealize()->accessPointItems();
+    for (AccessPoints *ap : aps) {
         if (ap->status() == ConnectionStatus::Activated)
             return true;
     }
@@ -46,21 +48,23 @@ QList<AccessPoints *> WirelessDevice::accessPointItems() const
      * 等后台反应慢的问题改好后，再把注释打开
      * if (!isEnabled())
         return QList<UAccessPoints *>();*/
-    if (m_hotspotInfo.isEmpty())
+
+    return deviceRealize()->accessPointItems();
+/*    if (m_hotspotInfo.isEmpty())
         return m_accessPoints;
 
-    return QList<AccessPoints *>();
+    return QList<AccessPoints *>();*/
 }
 
 void WirelessDevice::scanNetwork()
 {
-    QDBusPendingReply<> reply = networkInter()->RequestWirelessScan();
-    reply.waitForFinished();
+    deviceRealize()->scanNetwork();
 }
 
 void WirelessDevice::connectNetwork(const AccessPoints *item)
 {
-    WirelessConnection *wirelessConn = findConnectionByAccessPoint(item);
+    deviceRealize()->connectNetwork(item);
+    /*WirelessConnection *wirelessConn = findConnectionByAccessPoint(item);
     if (!wirelessConn)
         return;
 
@@ -80,13 +84,14 @@ void WirelessDevice::connectNetwork(const AccessPoints *item)
             Q_EMIT deviceStatusChanged(DeviceStatus::Activated);
         }
         w->deleteLater();
-    });
+    });*/
 }
 
 AccessPoints *WirelessDevice::activeAccessPoints() const
 {
+    return deviceRealize()->activeAccessPoints();
     // 如果网卡是关闭的状态下，肯定是没有连接
-    if (!isEnabled())
+    /*if (!isEnabled())
         return Q_NULLPTR;
 
     for (AccessPoints *ap : m_accessPoints) {
@@ -94,7 +99,7 @@ AccessPoints *WirelessDevice::activeAccessPoints() const
             return ap;
     }
 
-    return Q_NULLPTR;
+    return Q_NULLPTR;*/
 }
 
 void WirelessDevice::connectNetwork(const QString &ssid)
@@ -104,35 +109,37 @@ void WirelessDevice::connectNetwork(const QString &ssid)
         connectNetwork(apConnection);
 }
 
-void WirelessDevice::disconnectNetwork()
-{
-    QDBusPendingReply<> reply = networkInter()->DisconnectDevice(QDBusObjectPath(path()));
-    reply.waitForFinished();
-}
-
 QList<WirelessConnection *> WirelessDevice::items() const
 {
-    QList<WirelessConnection *> lstItems;
+    return deviceRealize()->wirelessItems();
+    /*QList<WirelessConnection *> lstItems;
     for (WirelessConnection *item : m_connections) {
         if (item->accessPoints())
             lstItems << item;
     }
 
-    return lstItems;
+    return lstItems;*/
 }
 
-WirelessDevice::WirelessDevice(NetworkInter *networkInter, QObject *parent)
+WirelessDevice::WirelessDevice(NetworkDeviceRealize *networkInter, QObject *parent)
     : NetworkDeviceBase(networkInter, parent)
 {
+    connect(networkInter, &NetworkDeviceRealize::networkAdded, this, &WirelessDevice::networkAdded);
+    connect(networkInter, &NetworkDeviceRealize::networkRemoved, this, &WirelessDevice::networkRemoved);
+    connect(networkInter, &NetworkDeviceRealize::connectionFailed, this, &WirelessDevice::connectionFailed);
+    connect(networkInter, &NetworkDeviceRealize::connectionSuccess, this, &WirelessDevice::connectionSuccess);
+    connect(networkInter, &NetworkDeviceRealize::hotspotEnableChanged, this, &WirelessDevice::hotspotEnableChanged);
+    connect(networkInter, &NetworkDeviceRealize::accessPointInfoChanged, this, &WirelessDevice::accessPointInfoChanged);
+    connect(networkInter, &NetworkDeviceRealize::activeConnectionChanged, this, &WirelessDevice::activeConnectionChanged);
 }
 
 WirelessDevice::~WirelessDevice()
 {
-    clearListData(m_accessPoints);
-    clearListData(m_connections);
+    //clearListData(m_accessPoints);
+    //clearListData(m_connections);
 }
 
-WirelessConnection *WirelessDevice::findConnectionByPath(const QString &path)
+/*WirelessConnection *WirelessDevice::findConnectionByPath(const QString &path)
 {
     for (WirelessConnection *conn : m_connections) {
         if (conn->connection()->path() == path)
@@ -140,11 +147,12 @@ WirelessConnection *WirelessDevice::findConnectionByPath(const QString &path)
     }
 
     return Q_NULLPTR;
-}
+}*/
 
 AccessPoints *WirelessDevice::findAccessPoint(const QString &ssid)
 {
-    for (AccessPoints *accessPoint : m_accessPoints) {
+    QList<AccessPoints *> accessPoints = deviceRealize()->accessPointItems();
+    for (AccessPoints *accessPoint : accessPoints) {
         if (accessPoint->ssid() == ssid)
             return accessPoint;
     }
@@ -152,7 +160,7 @@ AccessPoints *WirelessDevice::findAccessPoint(const QString &ssid)
     return Q_NULLPTR;
 }
 
-WirelessConnection *WirelessDevice::findConnectionByAccessPoint(const AccessPoints *accessPoint)
+/*WirelessConnection *WirelessDevice::findConnectionByAccessPoint(const AccessPoints *accessPoint)
 {
     for (WirelessConnection *connection : m_connections) {
         if (connection->accessPoints() == accessPoint)
@@ -165,9 +173,6 @@ WirelessConnection *WirelessDevice::findConnectionByAccessPoint(const AccessPoin
     return Q_NULLPTR;
 }
 
-/**
- * @brief 同步热点和连接的信息
- */
 void WirelessDevice::syncConnectionAccessPoints()
 {
     if (m_accessPoints.isEmpty()) {
@@ -424,7 +429,7 @@ void WirelessDevice::updateActiveInfo(const QList<QJsonObject> &info)
 QString WirelessDevice::deviceKey()
 {
     return "wireless";
-}
+}*/
 /**
  * @brief 无线网络连接
  */

@@ -19,6 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "realize/netinterface.h"
 #include "networkdevicebase.h"
 #include "utils.h"
 
@@ -38,40 +39,94 @@ bool NetworkDeviceBase::IPValid()
     return true;
 }
 
+DeviceStatus NetworkDeviceBase::deviceStatus() const
+{
+    return deviceRealize()->deviceStatus();
+}
+
+QString NetworkDeviceBase::interface() const
+{
+    return deviceRealize()->interface();
+}
+
+QString NetworkDeviceBase::driver() const
+{
+    return deviceRealize()->driver();
+}
+
+bool NetworkDeviceBase::managed() const
+{
+    return deviceRealize()->managed();
+}
+
+QString NetworkDeviceBase::vendor() const
+{
+    return deviceRealize()->vendor();
+}
+
+QString NetworkDeviceBase::uniqueUuid() const
+{
+    return deviceRealize()->uniqueUuid();
+}
+
+bool NetworkDeviceBase::usbDevice() const
+{
+    return deviceRealize()->usbDevice();
+}
+
+QString NetworkDeviceBase::path() const
+{
+    return deviceRealize()->path();
+}
+
+QString NetworkDeviceBase::activeAp() const
+{
+    return deviceRealize()->activeAp();
+}
+
+bool NetworkDeviceBase::supportHotspot() const
+{
+    return deviceRealize()->supportHotspot();
+}
+
+QString NetworkDeviceBase::realHwAdr() const
+{
+    return deviceRealize()->realHwAdr();
+}
+
+QString NetworkDeviceBase::usingHwAdr() const
+{
+    return deviceRealize()->usingHwAdr();
+}
+
 QString NetworkDeviceBase::ipv4() const
 {
-    if (!isConnected() || !isEnabled() || !m_activeInfoData.contains("Ip4"))
-        return QString();
-
-    // 返回IPv4地址
-    QJsonObject objIpv4 = m_activeInfoData["Ip4"].toObject();
-    return objIpv4.value("Address").toString();
+    return deviceRealize()->ipv4();
 }
 
 QString NetworkDeviceBase::ipv6() const
 {
-    if (!isConnected() || !isEnabled() || !m_activeInfoData.contains("Ip6"))
-        return QString();
-
-    // 返回IPv6地址
-    QJsonObject objIpv4 = m_activeInfoData["Ip6"].toObject();
-    return objIpv4.value("Address").toString();
+    return deviceRealize()->ipv6();
 }
 
 QJsonObject NetworkDeviceBase::activeConnectionInfo() const
 {
-    return m_activeInfoData;
+    return deviceRealize()->activeConnectionInfo();
 }
 
 void NetworkDeviceBase::setEnabled(bool enabled)
 {
-    QDBusPendingReply<> reply = m_networkInter->EnableDevice(QDBusObjectPath(path()), enabled);
-    reply.waitForFinished();
+    deviceRealize()->setEnabled(enabled);
+}
+
+void NetworkDeviceBase::disconnectNetwork()
+{
+    deviceRealize()->disconnectNetwork();
 }
 
 Connectivity NetworkDeviceBase::connectivity()
 {
-    return m_connectivity;
+    return deviceRealize()->connectivity();
 }
 
 void NetworkDeviceBase::setName(const QString &name)
@@ -87,79 +142,29 @@ QString NetworkDeviceBase::deviceName()
     return m_name;
 }
 
-NetworkDeviceBase::NetworkDeviceBase(NetworkInter *networkInter, QObject *parent)
+NetworkDeviceBase::NetworkDeviceBase(NetworkDeviceRealize *deviceInter, QObject *parent)
     : QObject(parent)
-    , m_networkInter(networkInter)
-    , m_deviceStatus(DeviceStatus::Unknown)
+    , m_deviceInterface(deviceInter)
     , m_enabled(true)
-    , m_connectivity(Connectivity::Full)
 {
+    Q_ASSERT(m_deviceInterface);
+    m_deviceInterface->setDevice(this);
+
+    connect(m_deviceInterface, &NetworkDeviceRealize::deviceStatusChanged, this, &NetworkDeviceBase::deviceStatusChanged);
+    connect(m_deviceInterface, &NetworkDeviceRealize::enableChanged, this, &NetworkDeviceBase::enableChanged);
+    connect(m_deviceInterface, &NetworkDeviceRealize::connectionChanged, this, &NetworkDeviceBase::connectionChanged);
+    connect(m_deviceInterface, &NetworkDeviceRealize::nameChanged, this, &NetworkDeviceBase::nameChanged);
+    connect(m_deviceInterface, &NetworkDeviceRealize::removed, this, &NetworkDeviceBase::removed);
 }
 
 NetworkDeviceBase::~NetworkDeviceBase()
 {
+    delete m_deviceInterface;
 }
 
-NetworkInter *NetworkDeviceBase::networkInter()
+NetworkDeviceRealize *NetworkDeviceBase::deviceRealize() const
 {
-    return m_networkInter;
-}
-
-void NetworkDeviceBase::updateDeviceInfo(const QJsonObject &info)
-{
-    m_data = info;
-    DeviceStatus stat = convertDeviceStatus(info.value("State").toInt());
-
-    setDeviceStatus(stat);
-}
-
-void NetworkDeviceBase::initDeviceInfo()
-{
-    if (m_networkInter) {
-        // 状态发生变化后，获取设备的实时信息
-        QDBusPendingReply<bool> netEnabled = m_networkInter->IsDeviceEnabled(QDBusObjectPath(path()));
-        m_enabled = netEnabled.value();
-    }
-}
-
-void NetworkDeviceBase::setDeviceEnabledStatus(const bool &enabled)
-{
-    m_enabled = enabled;
-    Q_EMIT enableChanged(enabled);
-}
-
-void NetworkDeviceBase::updateActiveInfo(const QList<QJsonObject> &info)
-{
-    // 更新活动连接信息，查找当前的设备的最新的状态
-    // 这里无需向外发送connectionChanged()信号，因为连接发生变化后，紧接着会获取IP地址等信息，
-    // 获取IP地址信息是一个异步过程，所以它将会最后发送
-    for (const QJsonValue jsonValue : info) {
-        QJsonObject activeInfo = jsonValue.toObject();
-        int activeStatus = activeInfo.value("State").toInt();
-        if (activeStatus == static_cast<int>(ConnectionStatus::Activated)) {
-            m_deviceStatus = DeviceStatus::Activated;
-            break;
-        }
-    }
-}
-
-void NetworkDeviceBase::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
-{
-    Q_UNUSED(emitHotspot);
-
-    m_activeInfoData = QJsonObject();
-    for (const QJsonValue jsonValue : infos) {
-        const QJsonObject &info = jsonValue.toObject();
-        if (info.value("ConnectionType").toString() == deviceKey()) {
-            // 如果找到了当前硬件地址的连接信息，则直接使用这个数据
-            m_activeInfoData = info;
-            break;
-        }
-    }
-
-    // 获取到完整的IP地址后，向外发送连接改变的信号
-    if (!m_activeInfoData.isEmpty())
-        Q_EMIT connectionChanged();
+    return m_deviceInterface;
 }
 
 void NetworkDeviceBase::enqueueStatus(const DeviceStatus &status)
@@ -172,72 +177,15 @@ void NetworkDeviceBase::enqueueStatus(const DeviceStatus &status)
 
 QString NetworkDeviceBase::getStatusName()
 {
-    if (getHotspotEnabeld())
-        return tr("Disconnected");
-
-    switch (m_deviceStatus) {
-    case DeviceStatus::Unmanaged:
-    case DeviceStatus::Unavailable:
-    case DeviceStatus::Disconnected:  return tr("Disconnected");
-    case DeviceStatus::Prepare:
-    case DeviceStatus::Config:        return tr("Connecting");
-    case DeviceStatus::Needauth:      return tr("Authenticating");
-    case DeviceStatus::IpConfig:
-    case DeviceStatus::IpCheck:       return tr("Obtaining address");
-    case DeviceStatus::Activated:     return tr("Connected");
-    case DeviceStatus::Deactivation:  return tr("Disconnected");
-    case DeviceStatus::Failed:        return tr("Failed");
-    default:;
-    }
-
-    return QString();
+    return deviceRealize()->getStatusName();
 }
 
 QString NetworkDeviceBase::statusStringDetail()
 {
-    if (!m_enabled)
-        return tr("Device disabled");
-
-    if (m_deviceStatus == DeviceStatus::Activated && m_connectivity != Connectivity::Full)
-        return tr("Connected but no Internet access");
-
-    // 确认 没有获取IP显示未连接状态（DHCP服务关闭）
-    if (!IPValid())
-        return tr("Not connected");
-
-    switch (m_deviceStatus) {
-    case DeviceStatus::Unknown:
-    case DeviceStatus::Unmanaged:
-    case DeviceStatus::Unavailable: {
-        switch (deviceType()) {
-        case DeviceType::Unknown:      return QString();
-        case DeviceType::Wired:       return tr("Network cable unplugged");
-        default: break;
-        }
-        break;
-    }
-    case DeviceStatus::Disconnected:  return tr("Not connected");
-    case DeviceStatus::Prepare:
-    case DeviceStatus::Config:        return tr("Connecting");
-    case DeviceStatus::Needauth:      return tr("Authenticating");
-    case DeviceStatus::IpConfig:
-    case DeviceStatus::IpCheck:
-    case DeviceStatus::Secondaries:   return tr("Obtaining IP address");
-    case DeviceStatus::Activated:     return tr("Connected");
-    case DeviceStatus::Deactivation:  return tr("Disconnected");
-    default: break;
-    }
-
-    return tr("Failed");
+    return deviceRealize()->statusStringDetail();
 }
 
-void NetworkDeviceBase::setDeviceStatus(const DeviceStatus &status)
+bool NetworkDeviceBase::isEnabled() const
 {
-    if (m_deviceStatus == status)
-        return;
-
-    m_deviceStatus = status;
-    enqueueStatus(status);
-    // 状态发生变化后，需要向外抛出一个信号
-    Q_EMIT deviceStatusChanged(status);
+    return m_deviceInterface->isEnabled();
 }

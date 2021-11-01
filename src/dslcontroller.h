@@ -37,7 +37,8 @@ class DSLController : public QObject
 {
     Q_OBJECT
 
-    friend class NetworkController;
+    friend class NetworkInterProcesser;
+    friend class NetworkManagerProcesser;
 
 public:
     void connectItem(DSLItem *item);                                      // 连接到当前的DSL

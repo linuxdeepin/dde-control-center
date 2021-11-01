@@ -36,7 +36,8 @@ class VPNController : public QObject
 {
     Q_OBJECT
 
-    friend class NetworkController;
+    friend class NetworkInterProcesser;
+    friend class NetworkManagerProcesser;
 
 public:
     inline void setEnabled(const bool enabled) { m_networkInter->setVpnEnabled(enabled); }       // 开启或者关闭VPN

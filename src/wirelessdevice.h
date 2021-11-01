@@ -30,6 +30,7 @@ namespace network {
 
 class AccessPoints;
 class WirelessConnection;
+class NetworkDeviceRealize;
 /**
  * @brief 无线网络设备-无线网卡
  */
@@ -38,6 +39,7 @@ class WirelessDevice : public NetworkDeviceBase
     Q_OBJECT
 
     friend class NetworkController;
+    friend class NetworkInterProcesser;
 
 public:
     bool isConnected() const override;                              // 是否连接网络，重写基类的虚函数
@@ -46,7 +48,6 @@ public:
     void scanNetwork();                                             // 重新加载所有的无线网络列表
     void connectNetwork(const AccessPoints *item);                  // 连接网络，连接成功抛出deviceStatusChanged信号
     void connectNetwork(const QString &ssid);                       // 连接网络，重载函数
-    void disconnectNetwork() override;                              // 断开连接
     QList<WirelessConnection *> items() const;                      // 无线网络连接列表
     AccessPoints *activeAccessPoints() const;                       // 当前活动的无线连接
 
@@ -60,24 +61,24 @@ Q_SIGNALS:
     void activeConnectionChanged();                                 // 活动连接发生变化的时候发出的信号
 
 protected:
-    WirelessDevice(NetworkInter *networkInter, QObject *parent);
+    WirelessDevice(NetworkDeviceRealize *networkInter, QObject *parent);
     ~WirelessDevice() override;
 
 private:
     AccessPoints *findAccessPoint(const QString &ssid);
-    WirelessConnection *findConnectionByAccessPoint(const AccessPoints *accessPoint);
-    void syncConnectionAccessPoints();
-    void updateActiveInfo();
+    //WirelessConnection *findConnectionByAccessPoint(const AccessPoints *accessPoint);
+    //void syncConnectionAccessPoints();
+    //void updateActiveInfo();
 
-protected:
-    void updateConnection(const QJsonArray &info) override;
+//protected:
+    /*void updateConnection(const QJsonArray &info);
     void createConnection(const QJsonArray &info);
-    void updateActiveInfo(const QList<QJsonObject> &info) override;
-    QString deviceKey() override;
+    //void updateActiveInfo(const QList<QJsonObject> &info);
+    QString deviceKey();
     WirelessConnection *findConnectionByPath(const QString &path);
     void updateAccesspoint(const QJsonArray &json);
-    void setDeviceEnabledStatus(const bool &enabled) override;
-    void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot) override;
+    void setDeviceEnabledStatus(const bool &enabled);
+    void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot);
     bool getHotspotEnabeld() override;
 
     template<class T>
@@ -86,15 +87,15 @@ protected:
             delete data;
 
         dataList.clear();
-    }
+    }*/
 
-private:
-    QList<WirelessConnection *> m_connections;
+//private:
+    /*QList<WirelessConnection *> m_connections;
     QList<AccessPoints *> m_accessPoints;
     QJsonObject m_activeHotspotInfo;
     QList<QJsonObject> m_activeAccessPoints;
     QJsonObject m_hotspotInfo;
-    QJsonArray m_connectionJson;
+    QJsonArray m_connectionJson;*/
 };
 
 /**
@@ -106,6 +107,7 @@ class AccessPoints : public QObject
     Q_OBJECT
 
     friend class WirelessDevice;
+    friend class WirelessDeviceInterRealize;
 
     Q_PROPERTY(QString ssid READ ssid)
     Q_PROPERTY(int strength READ strength)
@@ -150,6 +152,7 @@ private:
 class WirelessConnection: public ControllItems
 {
     friend class WirelessDevice;
+    friend class WirelessDeviceInterRealize;
 
 public:
     AccessPoints *accessPoints() const;                             // 返回当前对应的wlan的指针

@@ -39,7 +39,8 @@ class HotspotController : public QObject
 {
     Q_OBJECT
 
-    friend class NetworkController;
+    friend class NetworkInterProcesser;
+    friend class NetworkManagerProcesser;
 
 public:
     void setEnabled(WirelessDevice *device, const bool enable);              // 开启还是关闭个人热点

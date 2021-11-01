@@ -17,6 +17,7 @@ aux_source_directory(../dcc-network-plugin/settings DCCPLUGINSETTINGS)
 aux_source_directory(../dcc-network-plugin/settings/vpn DCCPLUGINVPNSETTINGS)
 aux_source_directory(../dcc-network-plugin/themes DCCPLUGINTHEMES)
 aux_source_directory(../src NETWORKDIR)
+aux_source_directory(../src/realize REALIZEDIR)
 
 set(QRCFILE "./example.qrc")
 set(COMPILEFILES
@@ -38,6 +39,7 @@ add_executable(${PROJECT_NAME}
     ${DCCPLUGINSETTINGS}
     ${DCCPLUGINVPNSETTINGS}
     ${DCCPLUGINTHEMES}
+    ${REALIZEDIR}
     ${QRCFILE})
 
 find_package(Qt5 COMPONENTS Core DBus Network REQUIRED)
@@ -64,6 +66,7 @@ IMPORTED_LOCATION_NOCONFIG
 
 target_include_directories(${PROJECT_NAME} PUBLIC
     ../src
+    ../src/realize
     ../dcc-network-plugin
     ${DdeControlCenter_INCLUDE_DIR}
     ${DtkWidget_INCLUDE_DIRS}

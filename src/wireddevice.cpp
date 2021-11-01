@@ -21,12 +21,16 @@
 
 #include "wireddevice.h"
 #include "networkconst.h"
+#include "realize/deviceinterrealize.h"
 
 using namespace dde::network;
 
-WiredDevice::WiredDevice(NetworkInter *networkInter, QObject *parent)
+WiredDevice::WiredDevice(NetworkDeviceRealize *networkInter, QObject *parent)
     : NetworkDeviceBase(networkInter, parent)
 {
+    connect(networkInter, &NetworkDeviceRealize::connectionAdded, this, &WiredDevice::connectionAdded);
+    connect(networkInter, &NetworkDeviceRealize::connectionRemoved, this, &WiredDevice::connectionRemoved);
+    connect(networkInter, &NetworkDeviceRealize::connectionPropertyChanged, this, &WiredDevice::connectionPropertyChanged);
 }
 
 WiredDevice::~WiredDevice()
@@ -35,17 +39,18 @@ WiredDevice::~WiredDevice()
 
 bool WiredDevice::connectNetwork(WiredConnection *connection)
 {
-    if (!connection)
-        return false;
+    NetworkDeviceRealize *deviceInterface = deviceRealize();
+    WiredDeviceInterRealize *wiredRealize = qobject_cast<WiredDeviceInterRealize *>(deviceInterface);
+    if (wiredRealize)
+        return wiredRealize->connectNetwork(connection);
 
-    QDBusPendingReply<QDBusObjectPath> reply = networkInter()->ActivateConnection(connection->connection()->uuid(), QDBusObjectPath(path()));
-    reply.waitForFinished();
-    return true;
+    return false;
 }
 
 bool WiredDevice::connectNetwork(const QString &path)
 {
-    for (WiredConnection *connection : m_connections) {
+    QList<WiredConnection *> wiredItems = items();
+    for (WiredConnection *connection : wiredItems) {
         if (connection->connection()->path() == path)
             return connectNetwork(connection);
     }
@@ -53,15 +58,10 @@ bool WiredDevice::connectNetwork(const QString &path)
     return false;
 }
 
-void WiredDevice::disconnectNetwork()
-{
-    QDBusPendingReply<> reply = networkInter()->DisconnectDevice(QDBusObjectPath(path()));
-    reply.waitForFinished();
-}
-
 bool WiredDevice::isConnected() const
 {
-    for (WiredConnection *connection : m_connections) {
+    QList<WiredConnection *> wiredItems = items();
+    for (WiredConnection *connection : wiredItems) {
         if (connection->connected())
             return true;
     }
@@ -74,9 +74,15 @@ DeviceType WiredDevice::deviceType() const
     return DeviceType::Wired;
 }
 
-WiredConnection *WiredDevice::findConnection(const QString &path)
+QList<WiredConnection *> WiredDevice::items() const
 {
-    for (WiredConnection *conn : m_connections) {
+    return deviceRealize()->wiredItems();
+}
+
+/*WiredConnection *WiredDevice::findConnection(const QString &path)
+{
+    QList<WiredConnection *> wiredItems = items();
+    for (WiredConnection *conn : wiredItems) {
         if (conn->connection()->path() == path)
             return conn;
     }
@@ -199,7 +205,7 @@ void WiredDevice::updateActiveInfo(const QList<QJsonObject> &info)
 QString WiredDevice::deviceKey()
 {
     return "wired";
-}
+}*/
 
 /**
  * @brief 无线网络连接信息

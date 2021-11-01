@@ -34,7 +34,8 @@ class ProxyController : public QObject
 {
     Q_OBJECT
 
-    friend class NetworkController;
+    friend class NetworkInterProcesser;
+    friend class NetworkManagerProcesser;
 
 public:
     /* 系统代理 */

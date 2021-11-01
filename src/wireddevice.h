@@ -35,9 +35,10 @@ class WiredDevice : public NetworkDeviceBase
     Q_OBJECT
 
     friend class NetworkController;
+    friend class NetworkInterProcesser;
 
 private:
-    WiredDevice(NetworkInter *networkInter, QObject *parent);
+    WiredDevice(NetworkDeviceRealize *networkInter, QObject *parent);
     ~WiredDevice() override;
 
 Q_SIGNALS:
@@ -49,26 +50,15 @@ Q_SIGNALS:
 public:
     bool connectNetwork(WiredConnection *connection);                           // 连接网络，连接成功抛出deviceStatusChanged信号
     bool connectNetwork(const QString &path);                                   // 连接网络重载函数，参数为配置路径
-    void disconnectNetwork() override;                                          // 断开网络连接
     bool isConnected() const override;                                          // 是否连接网络，重写基类的虚函数
     DeviceType deviceType() const override;                                     // 返回设备类型，适应基类统一的接口
-    inline QList<WiredConnection *> items() const { return m_connections; }     // 有线网络连接列表
-
-private:
-    void updateConnection(const QJsonArray &info) override;
-    void updateActiveInfo(const QList<QJsonObject> &info) override;
-    QString deviceKey() override;
-    WiredConnection *findConnection(const QString &path);
-    WiredConnection *findWiredConnectionByUuid(const QString &uuid);
-    void setDeviceEnabledStatus(const bool &enabled) override;
-
-private:
-    QList<WiredConnection *> m_connections;
+    QList<WiredConnection *> items() const;                                     // 有线网络连接列表
 };
 
 class WiredConnection : public ControllItems
 {
     friend class WiredDevice;
+    friend class WiredDeviceInterRealize;
 
 public:
     bool connected();                                                   //网络是否连接成功
