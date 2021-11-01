@@ -1186,12 +1186,12 @@
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>Phase1 Algorithms</source>
-        <translation>གསང་ལྡེ་བརྗེ་བའི་གྲོས་མཐུན།</translation>
+        <translation>གསང་ལྡེ་1 བརྗེ་བའི་གྲོས་མཐུན།</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnipsecsection.cpp"/>
         <source>Phase2 Algorithms</source>
-        <translation>བདེ་འཇགས་གཏུམ་པའི་གྲོས་མཐུན།</translation>
+        <translation>བདེ་འཇགས་2གཏུམ་པའི་གྲོས་མཐུན།</translation>
     </message>
 </context>
 <context>
@@ -2147,6 +2147,87 @@
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining IP address</source>
         <translation> IP གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkProcesser</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkDeviceRealize</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Disconnected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Authenticating</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Failed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Device disabled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected but no Internet access</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Not connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Network cable unplugged</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining IP address</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
