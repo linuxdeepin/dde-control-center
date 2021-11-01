@@ -107,7 +107,7 @@ updateControlPanel::updateControlPanel(QWidget *parent)
 
 void updateControlPanel::onStartUpdate()
 {
-    showUpdateProcess();
+    showUpdateProcess(true);
 
     setButtonStatus(ButtonStatus::pause);
 
@@ -157,6 +157,7 @@ void updateControlPanel::setButtonIcon(ButtonStatus status)
         m_startButton->setIcon(QIcon::fromTheme("dcc_retry"));
         break;
     default:
+        m_startButton->setIcon(static_cast<QStyle::StandardPixmap>(-1));
         break;
 
     }
@@ -172,12 +173,12 @@ void updateControlPanel::setProgressType(const UpdateDProgressType &progressType
     m_progressType = progressType;
 }
 
-void updateControlPanel::showUpdateProcess()
+void updateControlPanel::showUpdateProcess(bool visible)
 {
-    m_Progess->setVisible(true);
-    m_updateButton->setVisible(false);
-    m_startButton->setVisible(true);
-    m_progressLabel->setVisible(true);
+    m_Progess->setVisible(visible);
+    m_updateButton->setVisible(!visible);
+    m_startButton->setVisible(visible);
+    m_progressLabel->setVisible(visible);
 }
 
 int updateControlPanel::getCurrentValue() const
@@ -217,6 +218,11 @@ void updateControlPanel::setDetailLabelVisible(bool visible)
 void updateControlPanel::setVersionVisible(bool visible)
 {
     m_versionLabel->setVisible(visible);
+}
+
+void updateControlPanel::setUpdateButtonVisible(bool visible)
+{
+    m_updateButton->setVisible(visible);
 }
 
 ButtonStatus updateControlPanel::getButtonStatus() const

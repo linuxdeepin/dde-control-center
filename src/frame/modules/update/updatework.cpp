@@ -33,6 +33,7 @@
 #include <QJsonDocument>
 #include <QApplication>
 #include <QMutexLocker>
+#include <vector>
 
 #define MIN_NM_ACTIVE 50
 #define UPDATE_PACKAGE_SIZE 0
@@ -326,7 +327,8 @@ void UpdateWorker::checkForUpdates()
             QDBusReply<QDBusObjectPath> reply = call.reply();
             const QString jobPath = reply.value().path();
             setCheckUpdatesJob(jobPath);
-        } else{
+        } else
+        {
             m_model->setStatus(UpdatesStatus::UpdateFailed, __LINE__);
             resetDownloadInfo();
             if (!m_checkUpdateJob.isNull()) {
@@ -387,8 +389,8 @@ void UpdateWorker::setUpdateInfo()
     } else {
         qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
         m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
-        for (auto item: updateInfoMap.keys()) {
-            if(updateInfoMap.value(item) != nullptr){
+        for (auto item : updateInfoMap.keys()) {
+            if (updateInfoMap.value(item) != nullptr) {
                 m_model->setClassifyUpdateTypeStatus(item, UpdatesStatus::UpdatesAvailable);
             }
         }
@@ -764,7 +766,8 @@ void UpdateWorker::recoveryCanBackup(ClassifyUpdateType type)
     QDBusPendingCall call = m_abRecoveryInter->CanBackup();
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, [this, type, call] {
-        if (!call.isError()){
+        if (!call.isError())
+        {
             QDBusReply<bool> reply = call.reply();
             bool value = reply.value();
             m_model->setRecoverBackingUp(value);
@@ -796,12 +799,14 @@ void UpdateWorker::recoveryCanBackup(ClassifyUpdateType type)
             } else {
                 m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::RecoveryBackupFailed);
                 m_backupStatus = BackupStatus::BackupFailed;
+                onRecoveryFinshed(false);
                 qDebug() << Q_FUNC_INFO << " [abRecovery] 是否能备份(CanBackup)的环境不满足 -> 备份失败 ";
             }
         } else
         {
             m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::RecoveryBackupFailed);
             m_backupStatus = BackupStatus::BackupFailed;
+            onRecoveryFinshed(false);
             qDebug() << " [abRecovery] recovery CanBackup error: " << call.error().message();
         }
     });
@@ -940,6 +945,32 @@ bool UpdateWorker::hasBackedUp()
     return m_abRecoveryInter->hasBackedUp();
 }
 
+void UpdateWorker::onRecoveryFinshed(bool successed)
+{
+
+    auto requestUpdate = [ = ](ClassifyUpdateType type)->bool{
+        if (m_model->getSystemUpdateStatus() == UpdatesStatus::WaitRecoveryBackup)
+        {
+            distUpgrade(ClassifyUpdateType::SystemUpdate);
+            return true;
+        }
+        return  false;
+    };
+    if (successed) {
+        requestUpdate(ClassifyUpdateType::SystemUpdate);
+        requestUpdate(ClassifyUpdateType::AppStoreUpdate);
+        requestUpdate(ClassifyUpdateType::SecurityUpdate);
+        requestUpdate(ClassifyUpdateType::UnknownUpdate);
+    } else {
+        if (requestUpdate(ClassifyUpdateType::SystemUpdate)
+                ||  requestUpdate(ClassifyUpdateType::AppStoreUpdate)
+                ||  requestUpdate(ClassifyUpdateType::SecurityUpdate)
+                ||  requestUpdate(ClassifyUpdateType::UnknownUpdate)) {
+            return;
+        }
+    }
+}
+
 void UpdateWorker::setAutoCleanCache(const bool autoCleanCache)
 {
     m_managerInter->SetAutoClean(autoCleanCache);
@@ -1020,7 +1051,12 @@ void UpdateWorker::onSysUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "failed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
-        m_model->setSystemUpdateStatus(UpdatesStatus::Downloaded);
+        QString jobName = m_sysUpdateDownloadJob->name();
+        if (jobName.contains("OnlyDownload")) {
+            m_model->setSystemUpdateStatus(UpdatesStatus::AutoDownloaded);
+        } else {
+            m_model->setSystemUpdateStatus(UpdatesStatus::Downloaded);
+        }
     } else if (value == "paused") {
         m_model->setSystemUpdateStatus(UpdatesStatus::DownloadPaused);
     } else if (value == "end") {
@@ -1036,7 +1072,12 @@ void UpdateWorker::onAppUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "failed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
-        m_model->setAppUpdateStatus(UpdatesStatus::Downloaded);
+        QString jobName = m_appUpdateDownloadJob->name();
+        if (jobName.contains("OnlyDownload")) {
+            m_model->setAppUpdateStatus(UpdatesStatus::AutoDownloaded);
+        } else {
+            m_model->setAppUpdateStatus(UpdatesStatus::Downloaded);
+        }
     } else if (value == "paused") {
         m_model->setAppUpdateStatus(UpdatesStatus::DownloadPaused);
     } else if (value == "end") {
@@ -1053,7 +1094,12 @@ void UpdateWorker::onSafeUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "failed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
-        m_model->setSafeUpdateStatus(UpdatesStatus::Downloaded);
+        QString jobName = m_safeUpdateDownloadJob->name();
+        if (jobName.contains("OnlyDownload")) {
+            m_model->setSafeUpdateStatus(UpdatesStatus::AutoDownloaded);
+        } else {
+            m_model->setSafeUpdateStatus(UpdatesStatus::Downloaded);
+        }
     } else if (value == "paused") {
         m_model->setSafeUpdateStatus(UpdatesStatus::DownloadPaused);
     } else if (value == "end") {
@@ -1069,7 +1115,12 @@ void UpdateWorker::onUnkonwnUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "failed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
-        m_model->setUnkonowUpdateStatus(UpdatesStatus::Downloaded);
+        QString jobName = m_unknownUpdateDownloadJob->name();
+        if (jobName.contains("OnlyDownload")) {
+            m_model->setUnkonowUpdateStatus(UpdatesStatus::AutoDownloaded);
+        } else {
+            m_model->setUnkonowUpdateStatus(UpdatesStatus::Downloaded);
+        }
     } else if (value == "paused") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::DownloadPaused);
     } else if (value == "end") {
@@ -1081,7 +1132,7 @@ void UpdateWorker::onUnkonwnUpdateDownloadStatusChanged(const QString   &value)
 void UpdateWorker::onSysUpdateInstallProgressChanged(double value)
 {
     UpdateItemInfo *itemInfo = m_model->systemDownloadInfo();
-    if (itemInfo == nullptr) {
+    if (itemInfo == nullptr || m_sysUpdateInstallJob->status() == "ready") {
         return;
     }
 
@@ -1092,7 +1143,7 @@ void UpdateWorker::onSysUpdateInstallProgressChanged(double value)
 void UpdateWorker::onAppUpdateInstallProgressChanged(double value)
 {
     UpdateItemInfo *itemInfo = m_model->appDownloadInfo();
-    if (itemInfo == nullptr) {
+    if (itemInfo == nullptr ||  m_appUpdateInstallJob->status() == "ready") {
         return;
     }
 
@@ -1102,7 +1153,7 @@ void UpdateWorker::onAppUpdateInstallProgressChanged(double value)
 void UpdateWorker::onSafeUpdateInstallProgressChanged(double value)
 {
     UpdateItemInfo *itemInfo = m_model->safeDownloadInfo();
-    if (itemInfo == nullptr) {
+    if (itemInfo == nullptr || qFuzzyIsNull(value)) {
         return;
     }
 
@@ -1112,7 +1163,7 @@ void UpdateWorker::onSafeUpdateInstallProgressChanged(double value)
 void UpdateWorker::onUnkonwnUpdateInstallProgressChanged(double value)
 {
     UpdateItemInfo *itemInfo = m_model->unknownDownloadInfo();
-    if (itemInfo == nullptr) {
+    if (itemInfo == nullptr || m_unknownUpdateInstallJob->status() == "ready") {
         return;
     }
 
@@ -1121,14 +1172,14 @@ void UpdateWorker::onUnkonwnUpdateInstallProgressChanged(double value)
 
 void UpdateWorker::onSysUpdateInstallStatusChanged(const QString &value)
 {
-    if (value == "running" || value == "ready") {
+    if (value == "running") {
         m_model->setSystemUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
-        if (checkUpdateSuccessed()){
+        if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
         delete m_sysUpdateInstallJob;
@@ -1139,14 +1190,14 @@ void UpdateWorker::onSysUpdateInstallStatusChanged(const QString &value)
 void UpdateWorker::onAppUpdateInstallStatusChanged(const QString   &value)
 {
 
-    if (value == "running" || value == "ready") {
+    if (value == "running") {
         m_model->setAppUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
-        if (checkUpdateSuccessed()){
+        if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
         delete m_appUpdateInstallJob;
@@ -1157,14 +1208,14 @@ void UpdateWorker::onAppUpdateInstallStatusChanged(const QString   &value)
 void UpdateWorker::onSafeUpdateInstallStatusChanged(const QString   &value)
 {
 
-    if (value == "running" || value == "ready") {
+    if (value == "running") {
         m_model->setSafeUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
-        if (checkUpdateSuccessed()){
+        if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
         delete m_safeUpdateInstallJob;
@@ -1174,14 +1225,14 @@ void UpdateWorker::onSafeUpdateInstallStatusChanged(const QString   &value)
 
 void UpdateWorker::onUnkonwnUpdateInstallStatusChanged(const QString   &value)
 {
-    if (value == "running" || value == "ready") {
+    if (value == "running") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
-        if (checkUpdateSuccessed()){
+        if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
         delete m_unknownUpdateInstallJob;
@@ -1320,11 +1371,13 @@ void UpdateWorker::onRecoveryBackupFinshed(const QString &kind, const bool succe
             m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType, UpdatesStatus::RecoveryBackupFailed);
             qDebug() << Q_FUNC_INFO << " [abRecovery] 备份失败 , errMsg : " << errMsg;
             m_backupStatus = BackupStatus::BackupFailed;
+            onRecoveryFinshed(false);
             return;
         }
 
         m_backupStatus = BackupStatus::Backuped;
         m_model->setClassifyUpdateTypeStatus(m_backupingClassifyType, UpdatesStatus::RecoveryBackingSuccessed);
+        onRecoveryFinshed(true);
     }
 }
 
@@ -1378,7 +1431,7 @@ QPointer<JobInter> UpdateWorker::getInstallJob(ClassifyUpdateType updateType)
 
 QString UpdateWorker::getAppName(int id)
 {
-    if(m_appPackages.count() <= id){
+    if (m_appPackages.count() <= id) {
         return "";
     }
     if (m_appUpdateName.count() < 1) {
@@ -1417,10 +1470,15 @@ void UpdateWorker::deleteJob(QPointer<JobInter> dbusJob)
 
 bool UpdateWorker::checkUpdateSuccessed()
 {
-    if((m_model->getSystemUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSystemUpdateStatus() == UpdatesStatus::Default)
+    if ((m_model->getSystemUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSystemUpdateStatus() == UpdatesStatus::Default)
             && (m_model->getAppUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getAppUpdateStatus() == UpdatesStatus::Default)
             && (m_model->getSafeUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getSafeUpdateStatus() == UpdatesStatus::Default)
-            && (m_model->getUnkonowUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getUnkonowUpdateStatus() == UpdatesStatus::Default) ){
+            && (m_model->getUnkonowUpdateStatus() == UpdatesStatus::UpdateSucceeded || m_model->getUnkonowUpdateStatus() == UpdatesStatus::Default)) {
+        QFile file("/tmp/.dcc-update-successd");
+        if (file.exists())
+            return true;
+        file.open(QIODevice::WriteOnly);
+        file.close();
         return  true;
     }
 

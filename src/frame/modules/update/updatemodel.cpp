@@ -654,5 +654,28 @@ void UpdateModel::setAutoInstallUpdateType(const quint64 &autoInstallUpdateType)
     }
 }
 
+UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
+{
+    UpdatesStatus status = UpdatesStatus::Default;
+    switch (type) {
+    case ClassifyUpdateType::SystemUpdate:
+        status = getSystemUpdateStatus();
+        break;
+    case ClassifyUpdateType::AppStoreUpdate:
+        status = getAppUpdateStatus();
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        status = getSafeUpdateStatus();
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        status = getUnkonowUpdateStatus();
+        break;
+    default:
+        break;
+
+    }
+    return status;
+}
+
 }
 }

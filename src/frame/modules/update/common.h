@@ -27,6 +27,11 @@
 #define COMMON_H
 
 #include <QString>
+#include <vector>
+#include <qregexp.h>
+
+using namespace std;
+
 
 namespace dcc {
 namespace update {
@@ -46,6 +51,7 @@ enum UpdatesStatus {
     Downloading,
     DownloadPaused,
     Downloaded,
+    AutoDownloaded,
     Installing,
     UpdateSucceeded,
     UpdateFailed,
@@ -175,6 +181,20 @@ static inline QString formatCap(qulonglong cap, const int size = 1024)
     }
 
     return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
+}
+
+static inline vector<double> getNumListFromStr(const QString& str)
+{
+    //筛选出字符串中的数字
+    QRegExp rx("-?[1-9]\\d*\\.\\d*|0+.[0-9]+|-?0\\.\\d*[1-9]\\d*|-?\\d+");
+    int pos = 0;
+    vector<double> v;
+    while ((pos = rx.indexIn(str, pos)) != -1)
+    {
+        pos += rx.matchedLength();
+        v.push_back(rx.cap(0).toDouble());
+    }
+    return v;
 }
 
 }

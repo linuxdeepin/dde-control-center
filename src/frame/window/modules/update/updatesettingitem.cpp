@@ -104,32 +104,41 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         setVisible(true);
         break;
     case UpdatesStatus::Downloading:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
         m_controlWidget-> setButtonStatus(ButtonStatus::pause);
         m_controlWidget->setCtrlButtonEnabled(true);
         break;
     case UpdatesStatus::DownloadPaused:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Paused);
         m_controlWidget->setButtonStatus(ButtonStatus::start);
         break;
     case UpdatesStatus::Downloaded:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
+        m_controlWidget->setProgressValue(100);
         m_controlWidget->setCtrlButtonEnabled(false);
+        Q_EMIT requestRefreshSize();
+        break;
+    case UpdatesStatus::AutoDownloaded:
+        m_controlWidget->showUpdateProcess(false);
+        Q_EMIT requestRefreshSize();
         break;
     case UpdatesStatus::Installing:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
+        m_controlWidget->setProgressValue(0);
+        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
         m_controlWidget->setCtrlButtonEnabled(false);
         break;
     case UpdatesStatus::UpdateSucceeded:
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
+        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
         this->setVisible(false);
         break;
     case UpdatesStatus::UpdateFailed:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
         m_controlWidget->setProgressText(tr("Update failed"));
         m_controlWidget->showButton(true);
@@ -141,32 +150,31 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         m_controlWidget->showButton(false);
         break;
     case UpdatesStatus::WaitRecoveryBackup:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressText(tr("Waiting"));
         m_controlWidget->showButton(false);
         break;
     case UpdatesStatus::RecoveryBackingup:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
+        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
         m_controlWidget->showButton(false);
         m_controlWidget->setProgressType(UpdateDProgressType::Backup);
         m_controlWidget->setProgressText(tr("Backing up"));
         break;
     case UpdatesStatus::RecoveryBackingSuccessed:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
         setProgress(1.0);
         m_controlWidget->setProgressType(UpdateDProgressType::Backup);
-        m_controlWidget->showButton(false);
-        onStartUpdate();
-        Q_EMIT recoveryBackupSuccessed();
+        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
+        m_controlWidget->setCtrlButtonEnabled(false);
         break;
     case UpdatesStatus::RecoveryBackupFailed:
-        m_controlWidget->showUpdateProcess();
+        m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Backup);
         m_controlWidget->setProgressText(tr("System backup failed"));
         m_controlWidget->showButton(true);
         m_controlWidget->setCtrlButtonEnabled(true);
         m_controlWidget->setButtonStatus(ButtonStatus::retry);
-        Q_EMIT recoveryBackupFailed();
         break;
     default:
         qDebug() << "unknown status!!!";
@@ -179,6 +187,11 @@ void UpdateSettingItem::setProgress(double value)
     qDebug() << "[setProgress download] setProgress, value : " << value;
 
     m_controlWidget->setProgressValue(static_cast<int>(value * 100));
+}
+
+ButtonStatus UpdateSettingItem::getCtrlButtonStatus()
+{
+    return m_controlWidget->getButtonStatus();
 }
 
 void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)

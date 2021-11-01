@@ -24,6 +24,7 @@ SystemUpdateItem::SystemUpdateItem(QWidget *parent)
 
 void SystemUpdateItem::showMore()
 {
+    m_controlWidget->showButton(false);
     for (int i = 0; i < m_updateDetailItemList.count(); i++) {
         m_updateDetailItemList.at(i)->setVisible(true);
         m_line->setVisible(true);
@@ -48,9 +49,14 @@ void SystemUpdateItem::setData(UpdateItemInfo *updateItemInfo)
         m_updateDetailItemList.clear();
     }
 
+    vector<double> systemVer = getNumListFromStr(Dtk::Core::DSysInfo::minorVersion());
     for (int i = 0; i < detailInfoList.count(); i++) {
         DetailInfoItem *detailInfoItem = new DetailInfoItem(this);
         DetailInfo item = detailInfoList.at(i);
+        vector<double> versionVec = getNumListFromStr(item.name);
+        if(versionVec.size() < 1 || systemVer.size() < 1 || versionVec.at(0) <= systemVer.at(0)){
+            continue;
+        }
         detailInfoItem->setTitle(item.name);
         detailInfoItem->setDate(item.updateTime);
         detailInfoItem->setLinkData(item.link);

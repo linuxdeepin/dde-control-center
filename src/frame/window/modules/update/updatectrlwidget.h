@@ -89,6 +89,7 @@ Q_SIGNALS:
 private Q_SLOTS:
     void onFullUpdateClicked();
     void onRequestUpdate(ClassifyUpdateType type);
+    void onRequestRefreshSize();
 
 private:
     void setStatus(const UpdatesStatus &status);
@@ -159,6 +160,8 @@ private:
     DLabel *m_updateSizeLab;
     DLabel *m_updateingTipsLab;
     QPushButton *m_fullUpdateBtn;
+
+    qlonglong m_updateSize;
 
     SystemUpdateItem *m_systemUpdateItem;
     AppstoreUpdateItem *m_storeUpdateItem;

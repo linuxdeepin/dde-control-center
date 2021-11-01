@@ -80,6 +80,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     , m_updateSizeLab(new DLabel(parent))
     , m_updateingTipsLab(new DLabel(parent))
     , m_fullUpdateBtn(new QPushButton)
+    , m_updateSize(0)
     , m_systemUpdateItem(new SystemUpdateItem(parent))
     , m_storeUpdateItem(new AppstoreUpdateItem(parent))
     , m_safeUpdateItem(new SafeUpdateItem(parent))
@@ -232,8 +233,7 @@ void UpdateCtrlWidget::initConnect()
     auto initUpdateItemConnect = [ = ](UpdateSettingItem * updateItem) {
         connect(updateItem, &UpdateSettingItem::requestUpdate, this, &UpdateCtrlWidget::onRequestUpdate);
         connect(updateItem, &UpdateSettingItem::requestUpdateCtrl, this, &UpdateCtrlWidget::requestUpdateCtrl);
-        connect(updateItem, &UpdateSettingItem::recoveryBackupFailed, this, &UpdateCtrlWidget::onRecoverBackupFailed);
-        connect(updateItem, &UpdateSettingItem::recoveryBackupSuccessed, this, &UpdateCtrlWidget::onRecoverBackupFinshed);
+        connect(updateItem, &UpdateSettingItem::requestRefreshSize, this, &UpdateCtrlWidget::onRequestRefreshSize);
     };
 
     initUpdateItemConnect(m_systemUpdateItem);
@@ -657,9 +657,7 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
     //~ contents_path /update/Update
     setAllUpdateInfo(m_model->allDownloadInfo());
 
-
     showUpdateInfo();
-
 
     setLowBattery(m_model->lowBattery());
     setShowInfo(m_model->systemActivation());
@@ -667,12 +665,13 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
     QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
     m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
 
-    qlonglong size = m_systemUpdateItem->updateSize() + m_storeUpdateItem->updateSize() + m_safeUpdateItem->updateSize() + m_unknownUpdateItem->updateSize();
-    if (size == 0) {
+    m_updateSize = m_systemUpdateItem->updateSize() + m_storeUpdateItem->updateSize() + m_safeUpdateItem->updateSize() + m_unknownUpdateItem->updateSize();
+    if (m_updateSize == 0) {
         m_CheckAgainBtn->setEnabled(false);
     }
 
-    QString updateSize = formatCap(size);
+
+    QString updateSize = formatCap(m_updateSize);
     updateSize = tr("Size") + ": " + updateSize;
     m_updateSizeLab->setText(updateSize);
 }
@@ -688,6 +687,11 @@ void UpdateCtrlWidget::onFullUpdateClicked()
     auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
         if (updateItem->isVisible() && updateItem->status() == UpdatesStatus::UpdatesAvailable) {
             Q_EMIT  requestUpdates(type);
+        }
+
+        if(updateItem->status() == UpdatesStatus::DownloadPaused && updateItem->getCtrlButtonStatus()== ButtonStatus::start){
+            int ctrlType = UpdateCtrlType::Start;
+            Q_EMIT requestUpdateCtrl(type, ctrlType);
         }
     };
 
@@ -708,9 +712,28 @@ void UpdateCtrlWidget::onRequestUpdate(ClassifyUpdateType type)
 
         m_isUpdateingAll = true;
         m_spinner->setVisible(true);
+        m_spinner->start();
         m_updateingTipsLab->setVisible(true);
         m_fullUpdateBtn->setVisible(false);
     }
+}
+
+void UpdateCtrlWidget::onRequestRefreshSize()
+{
+    auto refreshUpdateSize = [ = ](UpdateSettingItem * updateItem) {
+        if (updateItem->status() == UpdatesStatus::Downloaded) {
+            m_updateSize -= updateItem->updateSize();
+        }
+    };
+
+    refreshUpdateSize(m_systemUpdateItem);
+    refreshUpdateSize(m_storeUpdateItem);
+    refreshUpdateSize(m_safeUpdateItem);
+    refreshUpdateSize(m_unknownUpdateItem);
+
+    QString updateSize = formatCap(m_updateSize);
+    updateSize = tr("Size") + ": " + updateSize;
+    m_updateSizeLab->setText(updateSize);
 }
 
 bool UpdateCtrlWidget::checkUpdateItemIsUpdateing(UpdateSettingItem *updateItem, ClassifyUpdateType type)

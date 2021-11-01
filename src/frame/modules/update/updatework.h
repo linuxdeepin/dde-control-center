@@ -157,6 +157,7 @@ private:
     void setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType updateType);
     void setUpdateItemProgress(UpdateItemInfo *itemInfo, double value);
     bool hasBackedUp();
+    void onRecoveryFinshed(bool successed);
 
     QPointer<JobInter> getDownloadJob(ClassifyUpdateType updateType);
     QPointer<JobInter> getInstallJob(ClassifyUpdateType updateType);

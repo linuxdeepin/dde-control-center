@@ -63,10 +63,11 @@ public:
     void setShowMoreButtonVisible(bool visible);
     void setDetailLabelVisible(bool visible);
     void setVersionVisible(bool visible);
+    void setUpdateButtonVisible(bool visible);
 
     UpdateDProgressType getProgressType() const;
     void setProgressType(const UpdateDProgressType &progressType);
-    void showUpdateProcess();
+    void showUpdateProcess(bool visible);
     void requestRetry();
 
 Q_SIGNALS:

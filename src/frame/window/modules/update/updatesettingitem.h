@@ -38,6 +38,8 @@ public:
     void setIcon(QString path);
     void setProgress(double value);
 
+    ButtonStatus getCtrlButtonStatus();
+
     virtual void setData(UpdateItemInfo *updateItemInfo);
 
     UpdatesStatus status() const;
@@ -54,6 +56,7 @@ Q_SIGNALS:
     void UpdateFailed();
     void recoveryBackupFailed();
     void recoveryBackupSuccessed();
+    void requestRefreshSize();
 
     void requestUpdate(ClassifyUpdateType type);
     void requestUpdateCtrl(ClassifyUpdateType type, int ctrlType);

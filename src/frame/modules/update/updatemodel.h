@@ -211,6 +211,7 @@ public:
     void setAllClassifyUpdateStatus(UpdatesStatus status);
 
     void deleteUpdateInfo(UpdateItemInfo *updateItemInfo);
+    UpdatesStatus getClassifyUpdateStatus(ClassifyUpdateType type);
 
     bool getAutoInstallUpdates() const;
     void setAutoInstallUpdates(bool autoInstallUpdates);
