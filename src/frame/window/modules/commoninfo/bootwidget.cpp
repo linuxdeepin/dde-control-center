@@ -340,15 +340,17 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
     if (m_grubEditAuthDialog) {
         return;
     }
-    m_grubEditAuthDialog = new DDialog(isReset ? tr("Change grub password") : tr("Set grub password"), nullptr, nullptr);
+    m_grubEditAuthDialog = new DDialog(isReset ? tr("Change GRUB password") : tr("Set GRUB Password"), nullptr, nullptr);
     m_grubEditAuthDialog->setIcon(DStyle().standardIcon(DStyle::SP_MessageBoxWarning));
     // 需要重新布局
     DWidget *widget = new DWidget;
     QGridLayout *grid = new QGridLayout(widget);
-    DLabel *label1 = new DLabel(isReset ? tr("New password:") : tr("Set password:"));
+    DLabel *label1 = new DLabel(tr("New password:"));
     DLabel *label2 = new DLabel(tr("Repeat password:"));
     DPasswordEdit *edit1 = new DPasswordEdit();
     DPasswordEdit *edit2 = new DPasswordEdit();
+    edit1->setPlaceholderText("Required");
+    edit2->setPlaceholderText("Required");
     edit1->setCutEnabled(false);
     edit1->setCopyEnabled(false);
     edit2->setCutEnabled(false);
@@ -359,8 +361,8 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
     grid->addWidget(edit2, 1, 1, 1, 1);
     grid->setRowMinimumHeight(2, 20);
     m_grubEditAuthDialog->addContent(widget);
-    m_grubEditAuthDialog->addButton(tr("Cancel"), false, DDialog::ButtonNormal);
-    m_grubEditAuthDialog->addButton(tr("Ok"), true, DDialog::ButtonRecommend);
+    m_grubEditAuthDialog->addButton(tr("Cancel", "button"), false, DDialog::ButtonNormal);
+    m_grubEditAuthDialog->addButton(tr("Confirm", "button"), true, DDialog::ButtonRecommend);
 
     QList<QAbstractButton*> buttons = m_grubEditAuthDialog->getButtons();
     buttons[1]->setEnabled(false);
