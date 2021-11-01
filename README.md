@@ -19,7 +19,6 @@ DDE Control Center is the control panel of Deepin Desktop Environment.
 * geoip-dev
 * dde-qt-dbus-factory
 * gsettings-qt-dev
-* dde-network-utils-dev
 * kf5networkmanagerqt-dev
 * xrandr-dev
 * mtdev-dev

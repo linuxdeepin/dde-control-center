@@ -118,10 +118,6 @@ int main(int argc, char *argv[])
     app->setWindowIcon(QIcon::fromTheme("preferences-system"));
 
     DApplicationSettings settings;
-    // load dde-network-utils translator
-    QTranslator translator;
-    translator.load("/usr/share/dde-network-utils/translations/dde-network-utils_" + QLocale::system().name());
-    app->installTranslator(&translator);
 
     QTranslator translatorLanguage;
     translatorLanguage.load("/usr/share/dde-control-center/translations/keyboard_language_" + QLocale::system().name());

@@ -14,7 +14,6 @@ Source0:        %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:  gcc-c++
 BuildRequires:  desktop-file-utils
 BuildRequires:  dde-dock-devel
-BuildRequires:  pkgconfig(dde-network-utils)
 BuildRequires:  dtkwidget-devel
 BuildRequires:  dtkgui-devel dtkcore-devel
 BuildRequires:  dde-qt-dbus-factory-devel
@@ -37,7 +36,6 @@ Requires:       dde-account-faces
 Requires:       dde-api
 Requires:       dde-daemon
 Requires:       dde-qt5integration
-Requires:       dde-network-utils
 Requires:       startdde
 Requires:       dde-server-industry-config
 Requires:	   deepin-pw-check

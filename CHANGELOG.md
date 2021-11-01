@@ -1041,7 +1041,6 @@
   *  support close pincode dialog ([47f019bf](https://github.com/linuxdeepin/dde-control-center/commit/47f019bfc79128dce9ca5148e690d194083eea0d))
 * **frame:**  use QAtomInt to set frame visible ([c6583e38](https://github.com/linuxdeepin/dde-control-center/commit/c6583e38a37e5e93ca3523356976786bffa203b2))
 * **network:**
-  *  load dde-network-utils translator ([bbac6bbb](https://github.com/linuxdeepin/dde-control-center/commit/bbac6bbb30fd23a32b66c9cd314eb4df40dce23b))
   *  support remove app proxy config ([906eeb27](https://github.com/linuxdeepin/dde-control-center/commit/906eeb27574b5088a3958f98d04d233eb4320bd3))
   *  hide export button in vpn create page ([2361a9aa](https://github.com/linuxdeepin/dde-control-center/commit/2361a9aa605cfad5dec31981e6e61ed3e3765caa))
 * **personalization:**  country based list sort ([650edb2e](https://github.com/linuxdeepin/dde-control-center/commit/650edb2e940b17e80b4c629c5cd7ee6d76ce6117))

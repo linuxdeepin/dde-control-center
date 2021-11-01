@@ -18,7 +18,6 @@ Build-Depends:
  libgsettings-qt-dev,
  qttools5-dev-tools,
  clang [amd64],
- libdde-network-utils-dev,
  libdtkcore5-bin,
  libkf5networkmanagerqt-dev,
  qtbase5-private-dev,
@@ -55,8 +54,7 @@ Depends: ${shlibs:Depends},
  libglib2.0-0,
  libdeepin-pw-check,
  deepin-desktop-schemas (>=5.8.0.34),
- libdframeworkdbus2 (>=5.3.38),
- libdde-network-utils(>=5.4.9)
+ libdframeworkdbus2 (>=5.3.38)
 Recommends:
  netselect,
  deepin-ab-recovery,
