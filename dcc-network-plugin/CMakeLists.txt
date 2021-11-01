@@ -16,6 +16,7 @@ file(GLOB_RECURSE SRCS "*.h"
     "../src/*.h"
     "../src/*.cpp"
     "icons/dcc-network-plugin.qrc"
+    "translations/translations.qrc"
     "icons/actions/*.svg"
     "icons/icons/*.svg")
 

@@ -88,13 +88,14 @@ NetworkModuleWidget::NetworkModuleWidget(QWidget *parent)
     m_centralLayout->setMargin(0);
     setLayout(m_centralLayout);
 
+    //~ contents_path /network/DSL
     DStandardItem *pppIt = new DStandardItem(tr("DSL"));
     pppIt->setData(QVariant::fromValue(PageType::DSLPage), SectionRole);
     pppIt->setIcon(QIcon::fromTheme("dcc_dsl"));
     m_modelpages->appendRow(pppIt);
     GSettingWatcher::instance()->bind("networkDsl", m_lvnmpages, pppIt);
 
-    //~ contents_path /VPN
+    //~ contents_path /network/VPN
     DStandardItem *vpnit = new DStandardItem(tr("VPN"));
     vpnit->setData(QVariant::fromValue(PageType::VPNPage), SectionRole);
     vpnit->setIcon(QIcon::fromTheme("dcc_vpn"));
@@ -413,8 +414,15 @@ void NetworkModuleWidget::onDeviceChanged()
     for (int i = 0; i < devices.size(); i++) {
         NetworkDeviceBase *device = devices[i];
         DStandardItem *deviceItem = new DStandardItem(device->deviceName());
-        deviceItem->setData(QVariant::fromValue(device->deviceType() == DeviceType::Wireless ? PageType::WirelessPage : PageType::WiredPage), SectionRole);
-        deviceItem->setIcon(QIcon::fromTheme(device->deviceType() == DeviceType::Wireless ? "dcc_wifi" : "dcc_ethernet"));
+        if (device->deviceType() == DeviceType::Wireless) {
+             //~ contents_path /network/WirelessPage
+            deviceItem->setData(QVariant::fromValue(PageType::WirelessPage), SectionRole);
+            deviceItem->setIcon(QIcon::fromTheme("dcc_wifi"));
+        } else {
+             //~ contents_path /network/Wired Network
+            deviceItem->setData(QVariant::fromValue(PageType::WiredPage), SectionRole);
+            deviceItem->setIcon(QIcon::fromTheme("dcc_ethernet"));
+        }
         deviceItem->setData(QVariant::fromValue(device), DeviceRole);
 
         QPointer<DViewItemAction> dummyStatus(new DViewItemAction(Qt::AlignmentFlag::AlignRight | Qt::AlignmentFlag::AlignVCenter));
@@ -471,6 +479,7 @@ void NetworkModuleWidget::onDeviceChanged()
     }
 
     if (supportHotspot) {
+        //~ contents_path /network/Personal Hotspot
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
         hotspotit->setData(QVariant::fromValue(PageType::HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));

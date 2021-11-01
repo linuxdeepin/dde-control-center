@@ -117,7 +117,7 @@ QIcon DCCNetworkModule::icon() const
 
 QString DCCNetworkModule::translationPath() const
 {
-    return QString("/usr/share/dcc-network-plugin/translations");
+    return QString(":/translations/dcc-network-plugin_%1.ts");
 }
 
 QString DCCNetworkModule::path() const
