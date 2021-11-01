@@ -26,12 +26,14 @@
 #include "createaccountpage.h"
 
 #include "deepin_pw_check.h"
-
+#include "unionidbindreminderdialog.h"
 #include <DDialog>
 #include <DFontSizeManager>
 #include <DDBusSender>
 #include <DDesktopServices>
 #include <DApplicationHelper>
+#include <DCommandLinkButton>
+#include <DMessageManager>
 
 #include <QVBoxLayout>
 #include <QHBoxLayout>
@@ -39,6 +41,9 @@
 #include <QLabel>
 #include <QSettings>
 #include <QDebug>
+#include <QStyle>
+
+#include <unistd.h>
 
 
 using namespace dcc::accounts;
@@ -115,7 +120,15 @@ void ModifyPasswdPage::initWidget()
 
     if (m_isCurrent) {
         QLabel *oldPasswdLabel = new QLabel(tr("Current Password") + ":");
-        mainContentLayout->addWidget(oldPasswdLabel);
+        DCommandLinkButton *forgetPasswordBtn = new DCommandLinkButton(tr("Forgot password?"));
+        forgetPasswordBtn->setVisible(getuid() < 9999); // 如果当前账户是域账号,则屏蔽重置密码入口
+        connect(forgetPasswordBtn, &QPushButton::clicked, this, &ModifyPasswdPage::onForgetPasswordBtnClicked);
+        QHBoxLayout *hLayout = new QHBoxLayout;
+        hLayout->addWidget(oldPasswdLabel);
+        hLayout->addStretch();
+        hLayout->addWidget(forgetPasswordBtn);
+        hLayout->addSpacing(50);
+        mainContentLayout->addLayout(hLayout);
         mainContentLayout->addWidget(m_oldPasswordEdit);
     }
 
@@ -192,6 +205,7 @@ void ModifyPasswdPage::initWidget()
         m_oldPasswordEdit->setVisible(status != NO_PASSWORD);
     });
     connect(m_curUser, &User::passwordResetFinished, this, &ModifyPasswdPage::resetPasswordFinished);
+    connect(m_curUser, &User::checkBindFailed, this, &ModifyPasswdPage::onCheckBindFailed);
 
     connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
         if (m_oldPasswordEdit->isAlert()) {
@@ -464,4 +478,35 @@ void ModifyPasswdPage::resetPasswordFinished(const QString &errorText)
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(errorText, m_newPasswordEdit, 2000);
     }
+}
+
+void ModifyPasswdPage::onForgetPasswordBtnClicked()
+{
+    QString uosid;
+    Q_EMIT requestUOSID(uosid);
+    if (uosid.isEmpty()) {
+        return;
+    }
+
+    QString uuid;
+    Q_EMIT requestUUID(uuid);
+    if (uuid.isEmpty()) {
+        return;
+    }
+
+    QString ubid;
+    Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid, ubid);
+    if(!ubid.isEmpty()) {
+        Q_EMIT requestStartResetPasswordExec(m_curUser);
+    } else {
+        UnionIDBindReminderDialog dlg;
+        dlg.exec();
+    }
+}
+
+void ModifyPasswdPage::onCheckBindFailed()
+{
+    DMessageManager::instance()->sendMessage(this,
+                                             style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                             tr("network error"));
 }

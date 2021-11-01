@@ -287,6 +287,7 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/avatarlistwidget.cpp
                 window/modules/accounts/avataritemdelegate.cpp
                 window/modules/accounts/onlineicon.cpp
+                window/modules/accounts/unionidbindreminderdialog.cpp
 )
 
 # load bluetooth

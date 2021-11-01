@@ -76,12 +76,16 @@ private:
     void onModuleStateChanged(std::pair<dcc::cloudsync::SyncType, bool> state);
     void onModuleItemSwitched(const bool checked);
     void onAutoSyncChanged(bool autoSync);
-
+    bool isUserAccountBinded();
+    void onBindUserAccountChanged(bool checked);
+    bool bindUserAccount();
+    bool unbindUserAccount();
 public Q_SLOTS:
     void SyncTimeLbl(bool checked);
 
 private:
     QVBoxLayout *m_mainLayout;
+    dcc::widgets::SwitchWidget *m_bindSwitch;
     dcc::widgets::SwitchWidget *m_autoSyncSwitch;
     DTK_WIDGET_NAMESPACE::DListView *m_listView;
     dcc::cloudsync::SyncStateIcon *m_stateIcon;
@@ -93,6 +97,7 @@ private:
     DTK_WIDGET_NAMESPACE::DTipLabel *m_networkTip;
     std::pair<qint32, QString> m_state;
     QLabel *m_lab;
+    QString m_ubid;
 };
 } // namespace sync
 } // namespace DCC_NAMESPACE

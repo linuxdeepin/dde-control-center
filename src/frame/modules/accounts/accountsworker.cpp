@@ -116,6 +116,7 @@ expect eof
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new Accounts(AccountsService, "/com/deepin/daemon/Accounts", QDBusConnection::systemBus(), this))
+    , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
     , m_fingerPrint(new Fingerprint(FingerPrintService, "/com/deepin/daemon/Authenticate/Fingerprint", QDBusConnection::systemBus(), this))
 #ifdef DCC_ENABLE_ADDOMAIN
     , m_notifyInter(new Notifications("org.freedesktop.Notifications", "/org/freedesktop/Notifications", QDBusConnection::sessionBus(), this))
@@ -206,6 +207,57 @@ void AccountsWorker::getPresetGroupsResult(QDBusPendingCallWatcher *watch)
         qDebug() << "getPresetGroupsResult error." << watch->error();
     }
     watch->deleteLater();
+}
+
+void AccountsWorker::getUOSID(QString &uosid)
+{
+    if (!m_syncHelperInter->isValid()) {
+        return;
+    }
+    QDBusReply<QString> retUOSID = m_syncHelperInter->call("UOSID");
+    if (retUOSID.error().message().isEmpty()) {
+        uosid = retUOSID.value();
+    } else {
+        qDebug() << retUOSID.error().message();
+        return;
+    }
+}
+
+void AccountsWorker::getUUID(QString &uuid)
+{
+    QDBusInterface accountsInter("com.deepin.daemon.Accounts",
+                                 QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()),
+                                 "com.deepin.daemon.Accounts.User",
+                                 QDBusConnection::systemBus());
+    if (!accountsInter.isValid()) {
+        return;
+    }
+    QVariant retUUID = accountsInter.property("UUID");
+    uuid = retUUID.toString();
+}
+
+void AccountsWorker::LocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid)
+{
+    if (!m_syncHelperInter->isValid()) {
+        return;
+    }
+    QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call("LocalBindCheck", uosid, uuid);
+    if (retLocalBindCheck.error().message().isEmpty()) {
+        ubid = retLocalBindCheck.value();
+    } else {
+        qDebug() << "UOSID:" << uosid << "uuid:" << uuid;
+        qDebug() << retLocalBindCheck.error().message();
+        Q_EMIT user->checkBindFailed();
+    }
+}
+
+void AccountsWorker::StartResetPasswordExec(User *user)
+{
+    qWarning() << "begin setpassword";
+    AccountsUser *userInter = m_userInters.value(user);
+    auto reply = userInter->SetPassword("");
+    reply.waitForFinished();
+    qWarning() << "reply setpassword:" << reply.error().message();
 }
 
 void AccountsWorker::setPasswordHint(User *user, const QString &passwordHint)

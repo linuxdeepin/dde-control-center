@@ -92,7 +92,10 @@ public Q_SLOTS:
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
     void setMaxPasswordAge(User *user, const int maxAge);
     void loadUserList();
-
+    void getUOSID(QString &uosid);
+    void getUUID(QString &uuid);
+    void LocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid);
+    void StartResetPasswordExec(dcc::accounts::User *user);
 #ifdef DCC_ENABLE_ADDOMAIN
     void refreshADDomain();
     void ADDomainHandle(const QString &server, const QString &admin, const QString &password);
@@ -108,7 +111,6 @@ private Q_SLOTS:
     void getAllGroupsResult(QDBusPendingCallWatcher *watch);
     void getPresetGroups();
     void getPresetGroupsResult(QDBusPendingCallWatcher *watch);
-
 #ifdef DCC_ENABLE_ADDOMAIN
     void checkADUser();
 #endif
@@ -120,6 +122,7 @@ private:
 
 private:
     Accounts *m_accountsInter;
+    QDBusInterface *m_syncHelperInter;
     Fingerprint *m_fingerPrint;
 #ifdef DCC_ENABLE_ADDOMAIN
     Notifications *m_notifyInter;

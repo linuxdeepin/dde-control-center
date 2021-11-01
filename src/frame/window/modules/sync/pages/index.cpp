@@ -12,6 +12,9 @@
 #include <DWarningButton>
 #include <DListView>
 #include <DTipLabel>
+#include <QDBusPendingReply>
+#include <DDBusSender>
+#include <DMessageManager>
 
 #include <QScrollArea>
 #include <QScrollBar>
@@ -23,6 +26,8 @@
 #include <QDateTime>
 #include <QMap>
 #include <QDir>
+#include <polkit-qt5-1/PolkitQt1/Authority>
+#include <org_freedesktop_hostname1.h>
 
 DWIDGET_USE_NAMESPACE
 
@@ -30,6 +35,7 @@ using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::sync;
 using namespace dcc::widgets;
 using namespace dcc::cloudsync;
+using namespace PolkitQt1;
 
 namespace DCC_NAMESPACE {
 namespace sync {
@@ -43,6 +49,9 @@ IndexPage::IndexPage(QWidget *parent)
     , m_lastSyncTime(0)
     , m_listModel(new QStandardItemModel(this))
 {
+    m_bindSwitch = new SwitchWidget(tr("Link with the user account"));
+    m_bindSwitch->layout()->setContentsMargins(10, 0, 11, 0);
+    m_bindSwitch->setChecked(isUserAccountBinded());
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
     m_autoSyncSwitch->layout()->setContentsMargins(10, 6, 11, 6);
 
@@ -67,6 +76,7 @@ IndexPage::IndexPage(QWidget *parent)
     m_listView->setIconSize(ListViweIconSize);
 
     SettingsGroup *autoSyncGrp = new SettingsGroup;
+    autoSyncGrp->appendItem(m_bindSwitch);
     autoSyncGrp->appendItem(m_autoSyncSwitch);
     m_autoSyncSwitch->layout()->setContentsMargins(10, 0, 10, 0);
     m_mainLayout->setContentsMargins(8, 8, 8, 8);
@@ -152,6 +162,7 @@ IndexPage::IndexPage(QWidget *parent)
     connect(m_listView, &QListView::clicked, this, &IndexPage::onListViewClicked);
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::requestSetAutoSync);
     connect(m_autoSyncSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::SyncTimeLbl);
+    connect(m_bindSwitch, &SwitchWidget::checkedChanged, this, &IndexPage::onBindUserAccountChanged);
     connect(logoutBtn, &QPushButton::clicked, this, &IndexPage::requestLogout);
 }
 
@@ -344,5 +355,138 @@ void IndexPage::onAutoSyncChanged(bool autoSync)
     m_listView->setVisible(!autoSync);
     m_lastSyncTimeLbl->setVisible(!autoSync);
 }
+
+bool IndexPage::isUserAccountBinded()
+{
+    QDBusInterface syncHelperInter("com.deepin.sync.Helper",
+                                   "/com/deepin/sync/Helper",
+                                   "com.deepin.sync.Helper",
+                                   QDBusConnection::systemBus());
+    if (!syncHelperInter.isValid()) {
+        qWarning() << "syncHelper interface:" << syncHelperInter.lastError();
+        return false;
+    }
+    QDBusReply<QString> retUOSID = syncHelperInter.call("UOSID");
+    QString uosid;
+    if (retUOSID.error().message().isEmpty()) {
+        uosid = retUOSID.value();
+    } else {
+        qDebug() << retUOSID.error().message();
+        return false;
+    }
+
+    QDBusInterface accountsInter("com.deepin.daemon.Accounts",
+                                 QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()),
+                                 "com.deepin.daemon.Accounts.User",
+                                 QDBusConnection::systemBus());
+    if (!accountsInter.isValid()) {
+        qWarning() << "accounts interface:" << accountsInter.lastError();
+        return false;
+    }
+    QVariant retUUID = accountsInter.property("UUID");
+    QString uuid = retUUID.toString();
+
+    QDBusReply<QString> retLocalBindCheck= syncHelperInter.call("LocalBindCheck", uosid, uuid);
+    if (!syncHelperInter.isValid()) {
+        return false;
+    }
+    if (retLocalBindCheck.error().message().isEmpty()) {
+        m_ubid = retLocalBindCheck.value();
+    } else {
+        qDebug() << "UOSID:" << uosid;
+        qDebug() << "uuid:" << uuid;
+        qDebug() << retLocalBindCheck.error().message();
+        return false;
+    }
+    if(!m_ubid.isEmpty()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+void IndexPage::onBindUserAccountChanged(bool checked)
+{
+    Authority::Result authenticationResult;
+    authenticationResult = Authority::instance()->checkAuthorizationSync(QString("com.deepin.daemon.accounts.user-administration"),
+                                                                         UnixProcessSubject(getpid()),
+                                                                         Authority::AllowUserInteraction);
+
+    if (Authority::Result::Yes != authenticationResult) {
+        m_bindSwitch->setChecked(!checked);
+        return;
+    }
+
+    if (checked) {
+        m_bindSwitch->setChecked(bindUserAccount());
+    } else {
+        m_bindSwitch->setChecked(!unbindUserAccount());
+    }
+}
+
+bool IndexPage::bindUserAccount()
+{
+    QDBusInterface accountsInter("com.deepin.daemon.Accounts",
+                                 QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()),
+                                 "com.deepin.daemon.Accounts.User",
+                                 QDBusConnection::systemBus());
+    if (!accountsInter.isValid()) {
+        qWarning() << "accounts interface:" << accountsInter.lastError();
+        return false;
+    }
+    QString uuid = accountsInter.property("UUID").toString();
+
+    org::freedesktop::hostname1 hostnameInter("org.freedesktop.hostname1",
+                                              "/org/freedesktop/hostname1",
+                                              QDBusConnection::systemBus());
+    QString hostName = hostnameInter.staticHostname();
+
+    QDBusPendingReply<QString> retUBID = DDBusSender()
+                                         .service("com.deepin.deepinid")
+                                         .interface("com.deepin.deepinid")
+                                         .path("/com/deepin/deepinid")
+                                         .method("BindLocalUUid").arg(uuid).arg(hostName)
+                                         .call();
+    retUBID.waitForFinished();
+    if (retUBID.error().message().isEmpty()) {
+        m_ubid = retUBID.value();
+        qDebug() << "Bind success:" << m_ubid;
+        return true;
+    } else {
+        m_bindSwitch->setChecked(false);
+        DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 "The user acount is linked to Union ID failed!");
+        qWarning() << "uuid:" << uuid << "HostName:" << hostName;
+        qWarning() << "Bind failed:" << retUBID.error().message();
+        return false;
+    }
+}
+
+bool IndexPage::unbindUserAccount()
+{
+    if (m_ubid.isEmpty()) {
+        qWarning() << "ubid is empty";
+        return false;
+    }
+    QDBusPendingReply<QString> retUnBoundle = DDBusSender()
+                                              .service("com.deepin.deepinid")
+                                              .interface("com.deepin.deepinid")
+                                              .path("/com/deepin/deepinid")
+                                              .method("UnBindLocalUUid").arg(m_ubid)
+                                              .call();
+    retUnBoundle.waitForFinished();
+    if (retUnBoundle.error().message().isEmpty()) {
+        qDebug() << "unBind success:" << retUnBoundle.value();
+        return true;
+    } else {
+        m_bindSwitch->setChecked(true);
+        DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 tr("The user acount is unlinked to Union ID failed!"));
+        qWarning() << "ubid:" << m_ubid;
+        qWarning() << "unBind failed:" << retUnBoundle.error().message();
+        return false;
+    }
+}
+
 }
 }

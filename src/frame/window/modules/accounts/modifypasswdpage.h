@@ -71,14 +71,18 @@ protected:
 
 private:
     void resetPasswordFinished(const QString &errorText);
-
+    void onForgetPasswordBtnClicked();
+    void onCheckBindFailed();
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password, const QString &repeatPassword, const bool needResule = true);
     void requestResetPassword(dcc::accounts::User *userInter, const QString &password);
     void requestBack(DCC_NAMESPACE::accounts::AccountsWidget::ActionOption option = DCC_NAMESPACE::accounts::AccountsWidget::ClickCancel);
     void requestSetPasswordHint(dcc::accounts::User *, const QString &);
-
+    void requestUOSID(QString &uosid);
+    void requestUUID(QString &uuid);
+    void requestLocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid);
+    void requestStartResetPasswordExec(dcc::accounts::User *user);
 private:
     dcc::accounts::User *m_curUser;
     DPasswordEdit *m_oldPasswordEdit;
