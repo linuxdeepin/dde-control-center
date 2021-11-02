@@ -548,7 +548,7 @@
 <context>
     <name>dccV20::authentication::FingerDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="68"/>
         <source>No supported devices found</source>
         <translation type="unfinished"/>
     </message>
@@ -693,41 +693,103 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
         <source>Updating...</source>
         <translation>Γίνεται ενημέρωση...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
         <source>Startup Delay</source>
         <translation>Καθυστέρηση Έναρξης</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
         <source>Theme</source>
         <translation>Θέμα</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="101"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="106"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>Πατήστε την επιλογή στο μενού εκκίνησης για να την ορίσετε ως προεπιλεγμένη, και σύρτε μια εικόνα για να αλλάξετε το φόντο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Click the option in boot menu to set it as the first boot</source>
         <translation>Πατήστε την επιλογή στο μενού εκκίνησης για να την ορίσετε ως προεπιλεγμένη</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="116"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>Ενεργοποιήστε το θέμα για να εμφανίζεται στο μενού εκκίνησης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="135"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="139"/>
+        <source>GRUB Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="143"/>
+        <source>GRUB password is required to edit its configuration</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="150"/>
+        <source>Change Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="157"/>
         <source>Boot Menu</source>
         <translation>Μενού Εκκίνησης</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
+        <source>Change GRUB Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
+        <source>Set GRUB Password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
+        <source>New password:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
+        <source>New password:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="349"/>
+        <source>Repeat password:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="362"/>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="363"/>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="416"/>
+        <source>Passwords do not match</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -773,48 +835,48 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoWork</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="94"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="130"/>
         <source>Failed to get root access</source>
         <translation>Αποτυχία διεκδίκησης πρόσβασης root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="120"/>
         <source>Please sign in to your Union ID first</source>
         <translation>Παρακαλώ συνδεθείτε πρώτα στο Union ID σας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="98"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="122"/>
         <source>Cannot read your PC information</source>
         <translation>Αδυναμία ανάγνωσης των πληροφοριών του υπολογιστή σας</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="100"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="124"/>
         <source>No network connection</source>
         <translation>Δεν υπάρχει σύνδεση δικτύου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="102"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="126"/>
         <source>Certificate loading failed, unable to get root access</source>
         <translation>Η φόρτωση πιστοποιητικού απέτυχε, μη δυνατή η διεκδίκηση πρόσβασης root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="128"/>
         <source>Signature verification failed, unable to get root access</source>
         <translation>Επαλήθευση πιστοποίησης απέτυχε, αδυναμία διεκδίκησης πρόσβασης root</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="244"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="301"/>
         <source>Agree and Join User Experience Program</source>
         <translation>Αποδοχή και Συμμετοχή στο Πρόγραμμα Εμπειρίας Χρήστη</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="360"/>
         <source>The Disclaimer of Developer Mode</source>
         <translation>Αποποίηση Ευθυνών Λειτοργίας Προγραμματιστή</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfowork.cpp" line="361"/>
         <source>Agree and Request Root Access</source>
         <translation>Αποδοχή και Αίτηση Πρόσβασης Root</translation>
     </message>
@@ -1442,17 +1504,17 @@
         <translation>Κύρια Οθόνη</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="298"/>
         <source>Duplicate</source>
         <translation>Διπλότυπο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="302"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="299"/>
         <source>Extend</source>
         <translation>Επέκταση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/display/multiscreenwidget.cpp" line="305"/>
         <source>Only on %1</source>
         <translation>Μόνο στο-α %1</translation>
     </message>
@@ -1504,9 +1566,8 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="386"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="399"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="398"/>
         <source>Recommended</source>
         <translation>Απαραίτητο</translation>
     </message>
@@ -2551,8 +2612,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="122"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="383"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="836"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="389"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="842"/>
         <source>Window Effect</source>
         <translation>Εφέ Παραθύρου</translation>
     </message>
@@ -2630,13 +2691,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="137"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="373"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="379"/>
         <source>Disable the touchpad while typing</source>
         <translation>Απενεργοποίηση του χειριστηρίου αφής (touchpad) όταν πληκτρολογείτε</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="138"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="372"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="378"/>
         <source>Disable the touchpad when inserting the mouse</source>
         <translation>Απενεργοποίηση του χειριστηρίου αφής (touchpad) όταν εισάγετε το ποντίκι</translation>
     </message>
@@ -2677,7 +2738,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="146"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="367"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="373"/>
         <source>Battery</source>
         <translation>Μπαταρία</translation>
     </message>
@@ -2722,8 +2783,8 @@
         <translation>Μενού Εκκίνησης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="362"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="820"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="368"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="826"/>
         <source>Cloud Account</source>
         <translation>Λογαριασμός Cloud</translation>
     </message>
@@ -3111,18 +3172,18 @@
         <translation>Η περίοδος δοκιμής έληξε</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="417"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="418"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="475"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="476"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="419"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="420"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="478"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="479"/>
         <source>It cannot start or end with dashes</source>
         <translation>Δεν μπορεί να αρχίζει ή να τελειώνει με κάτω παύλες</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="450"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="451"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="480"/>
-        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="481"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="453"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/systeminfo/nativeinfowidget.cpp" line="484"/>
         <source>1~63 characters please</source>
         <translation>1~63 χαρακτήρες παρακαλώ</translation>
     </message>
@@ -3490,8 +3551,8 @@ Visit User Center and manage your account there.</source>
     <name>dccV20::update::UpdateSettings</name>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
-        <source>Security Updates</source>
-        <translation>Ενημερώσεις Ασφαλείας</translation>
+        <source>Security Updates Only</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
@@ -3515,58 +3576,93 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
+        <source>Auto Install Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
         <source>Switch it on to automatically download the updates in wireless or wired network</source>
         <translation>Ενεργοποιήστε το για να κατέβουν αυτόματα οι ενημερώσεις με ασύρματο ή ενσύρματο δίκτυο</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
+        <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
         <source>Update Settings</source>
         <translation>Ρυθμίσεις Ενημερώσεων</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="88"/>
         <source>Check for Updates</source>
         <translation>Έλεγχος για Ενημερώσεις</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="112"/>
         <source>Clear Package Cache</source>
         <translation>Εκκαθάριση Μνήμης Cache Πακέτων</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="104"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="117"/>
         <source>Updates from Repositories</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
         <source>System Repository Detection</source>
         <translation>Εντοπισμός Αποθήκης Πακέτων Συστήματος</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="155"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="139"/>
         <source>Show a notification if system update repository has been modified</source>
         <translation>Εμφάνιση ειδοποίησης αν έχει τροποποιηθεί η αποθήκη πακέτων ενημερώσεων συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="149"/>
         <source>Smart Mirror Switch</source>
         <translation>Έξυπνη Εναλλαγή Εφεδρικού Διακομιστή</translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="170"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="154"/>
         <source>Switch it on to connect to the quickest mirror site automatically</source>
         <translation>Ενεργοποιήστε το για να συνδεθείτε αυτόματα στο πιο γρήγορο εφεδρικό δίκτυο </translation>
         <extra-contents_path>/update/Update Settings</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="178"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="162"/>
         <source>Mirror List</source>
         <translation>Λίστα Εφεδρικών Διακομιστών</translation>
         <extra-contents_path>/update/Update Settings/Mirror List</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="208"/>
+        <source>System Updates</source>
+        <translation>Ενημερώσεις Συστήματος</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="211"/>
+        <source>App Updates in App Store</source>
+        <translation>Ενημερώσεις Εφαρμογών στο App Store</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="214"/>
+        <source>Security Updates</source>
+        <translation>Ενημερώσεις Ασφαλείας</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="217"/>
+        <source>Unknown Apps Updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
+        <source>Install &quot;%1&quot; automatically when the download is complete</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3594,13 +3690,13 @@ Visit User Center and manage your account there.</source>
         <translation>Επιστροφή</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="181"/>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="182"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="188"/>
         <source>Current Edition</source>
         <translation>Τρέχουσα Έκδοση</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/update/updatewidget.cpp" line="196"/>
         <source>Update History</source>
         <translation>Ιστορικό Ενημερώσεων</translation>
     </message>
@@ -3662,49 +3758,49 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>PwqualityManager</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="75"/>
         <source>Password cannot be empty</source>
         <translation>Ο κωδικός πρόσβασης δεν μπορεί να είναι κενός</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="62"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="76"/>
         <source>Password must have at least %1 characters</source>
         <translation>Ο κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον %1 χαρακτήρες</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="63"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="77"/>
         <source>Password must be no more than %1 characters</source>
         <translation>Ο κωδικός πρόσβασης δεν πρέπει να είναι περισσότερο από %1 χαρακτήρες</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="64"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="78"/>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Ο κωδικός πρόσβασης μπορεί να περιέχει μόνο λατινικούς χαρακτήρες (με διάκριση πεζών-κεφαλαίων), αριθμούς ή ειδικούς χαρακτήρες (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="69"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="83"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
         <translation>Ο κωδικός πρόσβασης πρέπει να περιέχει κεφαλαία και πεζά γράμματα, αριθμούς και σύμβολα (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="70"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="84"/>
         <source>Password must not contain more than 4 palindrome characters</source>
         <translation>Ο κωδικός πρόσβασης δεν μπορεί να περιέχει πάνω από 4 παλινδρομικούς χαρακτήρες</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="71"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="74"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="88"/>
         <source>Do not use common words and combinations as password</source>
         <translation>Μην χρησημοποιήτε συνηθείς λέξεις και συνδυασμούς αυτών ως κωδικό πρόσβασης </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="72"/>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="87"/>
         <source>Create a strong password please</source>
         <translation>Παρακαλώ δημιουργήστε έναν ισχυρό κωδικό πρόσβασης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="79"/>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="93"/>
         <source>It does not meet password rules</source>
         <translation>Δεν πληρεί τις προϋποθέσεις κωδικού πρόσβασης</translation>
     </message>
@@ -3717,58 +3813,58 @@ Visit User Center and manage your account there.</source>
         <translation>Κέντρο Ελέγχου</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="690"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="696"/>
         <source>On Battery</source>
         <translation>Με Μπαταρία</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="691"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="697"/>
         <source>Plugged In</source>
         <translation>Στην πρίζα</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="692"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="698"/>
         <source>General</source>
         <translation>Γενικά</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="693"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="699"/>
         <source>Mouse</source>
         <translation>Ποντίκι</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="694"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="700"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="695"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="701"/>
         <source>TrackPoint</source>
         <translation>Trackpoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="696"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="702"/>
         <source>Application Proxy</source>
         <translation>Διακομιστής Μεσολάβησης Εφαρμογής</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="697"/>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="700"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="703"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="706"/>
         <source>System Proxy</source>
         <translation>Σύστημα μεσολάβησης</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="698"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="704"/>
         <source>Time Settings</source>
         <translation>Ρυθμίσεις ώρας </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="699"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="705"/>
         <source>Change System Timezone</source>
         <translation>Αλλαγή Ζώνης ώρας Συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchwidget.cpp" line="701"/>
+        <location filename="../src/frame/window/search/searchwidget.cpp" line="707"/>
         <source>Input Methods</source>
         <translation>Μέθοδοι Εισαγωγής</translation>
     </message>
@@ -4503,22 +4599,22 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="416"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="420"/>
         <source>System Updates</source>
         <translation>Ενημερώσεις Συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="427"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="431"/>
         <source>%1 apps updates available (such as %2, %3, %4)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="434"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="438"/>
         <source>Security Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="441"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="445"/>
         <source>Unknown Apps Updates</source>
         <translation type="unfinished"/>
     </message>
