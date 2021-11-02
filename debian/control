@@ -17,7 +17,6 @@ Build-Depends:
  libgsettings-qt-dev,
  qttools5-dev-tools,
  libdtkcore5-bin,
- libkf5networkmanagerqt-dev,
  qtbase5-private-dev,
  libxrandr-dev,
  libmtdev-dev,

@@ -19,7 +19,6 @@ BuildRequires:  dtkgui-devel dtkcore-devel
 BuildRequires:  dde-qt-dbus-factory-devel
 BuildRequires:  pkgconfig(gsettings-qt)
 BuildRequires:  pkgconfig(geoip)
-BuildRequires:  pkgconfig(libnm)
 BuildRequires:  libpwquality-devel
 BuildRequires:  qt5-devel
 BuildRequires:  pkgconfig(xcb-ewmh)

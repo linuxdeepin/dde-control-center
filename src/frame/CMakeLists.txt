@@ -588,7 +588,6 @@ find_package(Qt5 COMPONENTS
     Concurrent
     X11Extras
     DBus
-    Network
     Multimedia
     Svg
 REQUIRED)
@@ -597,7 +596,6 @@ pkg_check_modules(XCB_EWMH REQUIRED xcb-ewmh x11 xext)
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
 pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(Gio-2.0 REQUIRED gio-2.0)
-pkg_check_modules(LibNM REQUIRED libnm)
 
 if (NOT DEFINED DISABLE_RECOVERY)
     pkg_search_module(UDisk2 REQUIRED udisks2-qt5)
@@ -610,7 +608,6 @@ set(Qt_LIBS
     Qt5::DBus
     Qt5::Widgets
     Qt5::X11Extras
-    Qt5::Network
     Qt5::Multimedia
 )
 
@@ -725,9 +722,7 @@ target_include_directories(${BIN_NAME} PUBLIC
     ${PROJECT_BINARY_DIR}
     ${QGSettings_INCLUDE_DIRS}
     ${Gio-2.0_INCLUDE_DIRS}
-    ${LibNM_INCLUDE_DIRS}
     ${Qt5X11Extras_INCLUDE_DIRS}
-    ${KF5_QT_INCLUDE_DIRS}
     ${INCLUDES}
 )
 target_link_libraries(${BIN_NAME} PRIVATE
@@ -739,12 +734,9 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Concurrent_LIBRARIES}
     ${Qt5X11Extras_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
-    ${Qt5Network_LIBRARIES}
     ${Qt5Multimedia_LIBRARIES}
     ${QGSettings_LIBRARIES}
     ${Gio-2.0_LIBRARIES}
-    ${LibNM_LIBRARIES}
-    ${KF5_QT_LIBRARIES}
     ${Qt5Svg_LIBRARIES}
     ${DEEPIN_PW_CHECK}
     ${SHMN_VIDEO}
