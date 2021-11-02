@@ -43,7 +43,6 @@ class DeviceInterRealize : public NetworkDeviceRealize
 public:
     inline bool isEnabled() const { return m_enabled; }                                          // 当前的网卡是否启用
     virtual bool isConnected() const = 0;                                                        // 当前网络的网络是否处于连接状态
-    inline DeviceStatus deviceStatus() const { return m_deviceStatus; }                          // 设备状态
     inline QString interface() const { return m_data.value("Interface").toString(); }            // 返回设备上的Interface
     inline QString driver() const { return m_data.value("Driver").toString(); }                  // 驱动，对应于备上返回值的Driver
     inline bool managed() const { return m_data.value("Managed").toBool(); }                     // 对应于设备上返回值的Managed
@@ -78,7 +77,6 @@ private:
     NetworkInter *m_networkInter;
     QJsonObject m_data;
     QJsonObject m_activeInfoData;
-    DeviceStatus m_deviceStatus;
     bool m_enabled;
     Connectivity m_connectivity;
     QQueue<DeviceStatus> m_statusQueue;

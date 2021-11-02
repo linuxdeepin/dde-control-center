@@ -65,7 +65,6 @@ Connectivity DeviceInterRealize::connectivity()
 DeviceInterRealize::DeviceInterRealize(NetworkInter *networkInter, QObject *parent)
     : NetworkDeviceRealize(parent)
     , m_networkInter(networkInter)
-    , m_deviceStatus(DeviceStatus::Unknown)
     , m_enabled(true)
     , m_connectivity(Connectivity::Full)
 {
@@ -111,7 +110,7 @@ void DeviceInterRealize::updateActiveInfo(const QList<QJsonObject> &info)
     for (const QJsonObject &activeInfo : info) {
         int activeStatus = activeInfo.value("State").toInt();
         if (activeStatus == static_cast<int>(ConnectionStatus::Activated)) {
-            m_deviceStatus = DeviceStatus::Activated;
+            setDeviceStatus(DeviceStatus::Activated);
             break;
         }
     }
