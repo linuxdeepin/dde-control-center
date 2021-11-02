@@ -692,14 +692,13 @@ void UpdateCtrlWidget::onFullUpdateClicked()
     m_isUpdateingAll = true;
 
     auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
-        if (updateItem->isVisible() && updateItem->status() == UpdatesStatus::UpdatesAvailable) {
-            Q_EMIT  requestUpdates(type);
-        }
 
         if(updateItem->status() == UpdatesStatus::DownloadPaused && updateItem->getCtrlButtonStatus()== ButtonStatus::start){
             int ctrlType = UpdateCtrlType::Start;
             Q_EMIT requestUpdateCtrl(type, ctrlType);
         }
+
+        Q_EMIT  requestUpdates(type);
     };
 
     sendRequestUpdates(m_systemUpdateItem, ClassifyUpdateType::SystemUpdate);

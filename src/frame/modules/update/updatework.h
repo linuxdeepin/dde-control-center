@@ -74,6 +74,18 @@ public:
     void setSystemBatteryPercentage(const double &value);
     void getLicenseState();
 
+    QString getSysUpdateDownloadJobName() const;
+    void setSysUpdateDownloadJobName(const QString &sysUpdateDownloadJobName);
+
+    QString getAppUpdateDownloadJobName() const;
+    void setAppUpdateDownloadJobName(const QString &appUpdateDownloadJobName);
+
+    QString getSafeUpdateDownloadJobName() const;
+    void setSafeUpdateDownloadJobName(const QString &safeUpdateDownloadJobName);
+
+    QString getUnknownUpdateDownloadJobName() const;
+    void setUnknownUpdateDownloadJobName(const QString &unknownUpdateDownloadJobName);
+
 Q_SIGNALS:
     void requestInit();
     void requestActive();
@@ -180,6 +192,11 @@ private:
     QPointer<JobInter> m_appUpdateInstallJob;
     QPointer<JobInter> m_safeUpdateInstallJob;
     QPointer<JobInter> m_unknownUpdateInstallJob;
+
+    QString m_sysUpdateDownloadJobName;
+    QString m_appUpdateDownloadJobName;
+    QString m_safeUpdateDownloadJobName;
+    QString m_unknownUpdateDownloadJobName;
 
     LastoressionHelper *m_lastoresessionHelper;
     UpdateInter *m_updateInter;

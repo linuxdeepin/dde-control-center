@@ -855,24 +855,28 @@ void UpdateWorker::setDownloadJob(const QString &jobPath, ClassifyUpdateType upd
         m_sysUpdateDownloadJob = job;
         connect(m_sysUpdateDownloadJob, &__Job::StatusChanged, this, &UpdateWorker::onSysUpdateDownloadStatusChanged);
         connect(m_sysUpdateDownloadJob, &__Job::ProgressChanged, this, &UpdateWorker::onSysUpdateDownloadProgressChanged);
+        connect(m_sysUpdateDownloadJob, &__Job::NameChanged, this, &UpdateWorker::setSysUpdateDownloadJobName);
         break;
 
     case ClassifyUpdateType::AppStoreUpdate:
         m_appUpdateDownloadJob = job;
         connect(m_appUpdateDownloadJob, &__Job::StatusChanged, this, &UpdateWorker::onAppUpdateDownloadStatusChanged);
         connect(m_appUpdateDownloadJob, &__Job::ProgressChanged, this, &UpdateWorker::onAppUpdateDownloadProgressChanged);
+        connect(m_appUpdateDownloadJob, &__Job::NameChanged, this, &UpdateWorker::setAppUpdateDownloadJobName);
         break;
 
     case ClassifyUpdateType::SecurityUpdate:
         m_safeUpdateDownloadJob = job;
         connect(m_safeUpdateDownloadJob, &__Job::StatusChanged, this, &UpdateWorker::onSafeUpdateDownloadStatusChanged);
         connect(m_safeUpdateDownloadJob, &__Job::ProgressChanged, this, &UpdateWorker::onSafeUpdateDownloadProgressChanged);
+        connect(m_safeUpdateDownloadJob, &__Job::NameChanged, this, &UpdateWorker::setSafeUpdateDownloadJobName);
         break;
 
     case ClassifyUpdateType::UnknownUpdate:
         m_unknownUpdateDownloadJob = job;
         connect(m_unknownUpdateDownloadJob, &__Job::StatusChanged, this, &UpdateWorker::onUnkonwnUpdateDownloadStatusChanged);
         connect(m_unknownUpdateDownloadJob, &__Job::ProgressChanged, this, &UpdateWorker::onUnkonwnUpdateDownloadProgressChanged);
+        connect(m_unknownUpdateDownloadJob, &__Job::NameChanged, this, &UpdateWorker::setUnknownUpdateDownloadJobName);
         break;
 
     default:
@@ -881,6 +885,7 @@ void UpdateWorker::setDownloadJob(const QString &jobPath, ClassifyUpdateType upd
 
     job->StatusChanged(job->status());
     job->ProgressChanged(job->progress());
+    job->NameChanged(job->name());
 }
 
 void UpdateWorker::setDistUpgradeJob(const QString &jobPath, ClassifyUpdateType updateType)
@@ -1051,8 +1056,7 @@ void UpdateWorker::onSysUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "failed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
-        QString jobName = m_sysUpdateDownloadJob->name();
-        if (jobName.contains("OnlyDownload")) {
+        if (m_sysUpdateDownloadJobName.contains("OnlyDownload")) {
             m_model->setSystemUpdateStatus(UpdatesStatus::AutoDownloaded);
         } else {
             m_model->setSystemUpdateStatus(UpdatesStatus::Downloaded);
@@ -1072,8 +1076,7 @@ void UpdateWorker::onAppUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "failed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
-        QString jobName = m_appUpdateDownloadJob->name();
-        if (jobName.contains("OnlyDownload")) {
+        if (m_appUpdateDownloadJobName.contains("OnlyDownload")) {
             m_model->setAppUpdateStatus(UpdatesStatus::AutoDownloaded);
         } else {
             m_model->setAppUpdateStatus(UpdatesStatus::Downloaded);
@@ -1094,8 +1097,7 @@ void UpdateWorker::onSafeUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "failed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
-        QString jobName = m_safeUpdateDownloadJob->name();
-        if (jobName.contains("OnlyDownload")) {
+        if (m_safeUpdateDownloadJobName.contains("OnlyDownload")) {
             m_model->setSafeUpdateStatus(UpdatesStatus::AutoDownloaded);
         } else {
             m_model->setSafeUpdateStatus(UpdatesStatus::Downloaded);
@@ -1115,8 +1117,7 @@ void UpdateWorker::onUnkonwnUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "failed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateFailed);
     } else if (value == "succeed") {
-        QString jobName = m_unknownUpdateDownloadJob->name();
-        if (jobName.contains("OnlyDownload")) {
+        if (m_unknownUpdateDownloadJobName.contains("OnlyDownload")) {
             m_model->setUnkonowUpdateStatus(UpdatesStatus::AutoDownloaded);
         } else {
             m_model->setUnkonowUpdateStatus(UpdatesStatus::Downloaded);
@@ -1483,6 +1484,46 @@ bool UpdateWorker::checkUpdateSuccessed()
     }
 
     return  false;
+}
+
+QString UpdateWorker::getUnknownUpdateDownloadJobName() const
+{
+    return m_unknownUpdateDownloadJobName;
+}
+
+void UpdateWorker::setUnknownUpdateDownloadJobName(const QString &unknownUpdateDownloadJobName)
+{
+    m_unknownUpdateDownloadJobName = unknownUpdateDownloadJobName;
+}
+
+QString UpdateWorker::getSafeUpdateDownloadJobName() const
+{
+    return m_safeUpdateDownloadJobName;
+}
+
+void UpdateWorker::setSafeUpdateDownloadJobName(const QString &safeUpdateDownloadJobName)
+{
+    m_safeUpdateDownloadJobName = safeUpdateDownloadJobName;
+}
+
+QString UpdateWorker::getAppUpdateDownloadJobName() const
+{
+    return m_appUpdateDownloadJobName;
+}
+
+void UpdateWorker::setAppUpdateDownloadJobName(const QString &appUpdateDownloadJobName)
+{
+    m_appUpdateDownloadJobName = appUpdateDownloadJobName;
+}
+
+QString UpdateWorker::getSysUpdateDownloadJobName() const
+{
+    return m_sysUpdateDownloadJobName;
+}
+
+void UpdateWorker::setSysUpdateDownloadJobName(const QString &sysUpdateDownloadJobName)
+{
+    m_sysUpdateDownloadJobName = sysUpdateDownloadJobName;
 }
 
 void UpdateWorker::onRequestOpenAppStore()
