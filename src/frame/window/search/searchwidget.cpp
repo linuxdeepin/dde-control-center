@@ -705,6 +705,7 @@ void SearchModel::setLanguage(const QString &type)
             { "Timezone List/Change System Timezone", QObject::tr("Change System Timezone") },
             { "System Proxy", QObject::tr("System Proxy") },  //network
             { "Manage Input Methods", QObject::tr("Input Methods") },
+            { "Dock", QObject::tr("Dock") },
         };
 #if DEBUG_XML_SWITCH
         qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
