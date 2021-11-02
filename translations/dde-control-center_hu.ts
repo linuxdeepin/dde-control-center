@@ -727,17 +727,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="139"/>
         <source>GRUB Authentication</source>
-        <translation type="unfinished"/>
+        <translation>GRUB Hitelesítés</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="143"/>
         <source>GRUB password is required to edit its configuration</source>
-        <translation type="unfinished"/>
+        <translation>A konfiguráció szerkesztéséhez GRUB jelszó szükséges</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="150"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó megváltoztatása</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="157"/>
@@ -747,49 +747,49 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
         <source>Change GRUB Password</source>
-        <translation type="unfinished"/>
+        <translation>GRUB Jelszó megváltoztatása</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
         <source>Set GRUB Password</source>
-        <translation type="unfinished"/>
+        <translation>GRUB Jelszó beállítása</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
         <source>New password:</source>
-        <translation type="unfinished"/>
+        <translation>Új jelszó:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
         <source>New password:</source>
-        <translation type="unfinished"/>
+        <translation>Új jelszó:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="349"/>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó ismétlése:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="362"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Mégsem</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="363"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Megerősítés</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="373"/>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A jelszó nem lehet üres</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="386"/>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="416"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>A jelszavak nem egyeznek</translation>
     </message>
 </context>
 <context>
@@ -3561,7 +3561,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
         <source>Security Updates Only</source>
-        <translation type="unfinished"/>
+        <translation>Csak a Biztonsági frissítések</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
@@ -3586,7 +3586,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
         <source>Auto Install Updates</source>
-        <translation type="unfinished"/>
+        <translation>Frissítések automatikus telepítése</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
@@ -3596,7 +3596,7 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation type="unfinished"/>
+        <translation>Kapcsolja be, hogy csak a biztonsági réseket és a kompatibilitási problémákat frissítse</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
@@ -3666,12 +3666,12 @@ Látogasson el a Felhasználói központba, és kezelje ott a fiókját.</transl
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="217"/>
         <source>Unknown Apps Updates</source>
-        <translation type="unfinished"/>
+        <translation>Ismeretlen Alkalmazás frissítések</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>A %1 automatikus telepítése a letöltés befejeztével</translation>
     </message>
 </context>
 <context>

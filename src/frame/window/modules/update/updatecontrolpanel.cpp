@@ -225,6 +225,11 @@ void updateControlPanel::setUpdateButtonVisible(bool visible)
     m_updateButton->setVisible(visible);
 }
 
+void updateControlPanel::setUpdateButtonEnable(bool enable)
+{
+    m_updateButton->setEnabled(enable);
+}
+
 ButtonStatus updateControlPanel::getButtonStatus() const
 {
     return m_buttonStatus;

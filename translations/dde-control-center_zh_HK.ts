@@ -746,50 +746,50 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
-        <source>Change grub password</source>
-        <translation type="unfinished"/>
+        <source>Change GRUB Password</source>
+        <translation>修改grub驗證密碼</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
-        <source>Set grub password</source>
-        <translation type="unfinished"/>
+        <source>Set GRUB Password</source>
+        <translation>設置grub驗證密碼</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
         <source>New password:</source>
-        <translation type="unfinished"/>
+        <translation>新密碼：</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
-        <source>Set password:</source>
-        <translation type="unfinished"/>
+        <source>New password:</source>
+        <translation>新密碼：</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="349"/>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>重複密碼：</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="362"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="363"/>
-        <source>Ok</source>
-        <translation type="unfinished"/>
+        <source>Confirm</source>
+        <translation>確 定</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="373"/>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>密碼不能為空</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="386"/>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="416"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>密碼不一致</translation>
     </message>
 </context>
 <context>
@@ -3527,7 +3527,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="676"/>
         <source>Size</source>
-        <translation>更新大小</translation>
+        <translation>下載大小</translation>
     </message>
 </context>
 <context>
@@ -3551,7 +3551,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
         <source>Security Updates Only</source>
-        <translation type="unfinished"/>
+        <translation>僅安全性更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
@@ -3576,7 +3576,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
         <source>Auto Install Updates</source>
-        <translation type="unfinished"/>
+        <translation>自動安裝</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
@@ -3586,7 +3586,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation type="unfinished"/>
+        <translation>開啟“僅安全性更新”將只會進行安全漏洞和兼容性相關的更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
@@ -3641,7 +3641,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="208"/>
         <source>System Updates</source>
-        <translation>檢查系統更新</translation>
+        <translation>系統更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="211"/>
@@ -3656,12 +3656,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="217"/>
         <source>Unknown Apps Updates</source>
-        <translation type="unfinished"/>
+        <translation>未知來源應用更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>“%1”下載完成後會自動進行安裝</translation>
     </message>
 </context>
 <context>

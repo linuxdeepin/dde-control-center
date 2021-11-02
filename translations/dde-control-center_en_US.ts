@@ -746,12 +746,12 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
-        <source>Change grub password</source>
+        <source>Change GRUB Password</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
-        <source>Set grub password</source>
+        <source>Set GRUB Password</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -761,7 +761,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
-        <source>Set password:</source>
+        <source>New password:</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -776,7 +776,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="363"/>
-        <source>Ok</source>
+        <source>Confirm</source>
         <translation type="unfinished"/>
     </message>
     <message>

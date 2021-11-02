@@ -64,6 +64,8 @@ public:
     void setDetailLabelVisible(bool visible);
     void setVersionVisible(bool visible);
     void setUpdateButtonVisible(bool visible);
+    void setUpdateButtonEnable(bool enable);
+
 
     UpdateDProgressType getProgressType() const;
     void setProgressType(const UpdateDProgressType &progressType);

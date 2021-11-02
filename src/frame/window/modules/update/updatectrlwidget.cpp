@@ -427,7 +427,7 @@ void UpdateCtrlWidget::setProgressValue(const double value)
 
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 {
-    if (m_status == UpdatesStatus::Downloaded || m_status == UpdatesStatus::UpdatesAvailable) {
+    if (m_status == UpdatesStatus::Updateing) {
         bool activation = false;
         const UiActiveState value = m_model->systemActivation();
         if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value || UiActiveState::AuthorizedLapse == value) {
@@ -439,10 +439,17 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
             m_powerTip->setText(tr("Please ensure sufficient power to restart, and don't power off or unplug your machine"));
         }
         //电量和授权共同决定
+        bool enable = false;
         if(lowBattery)
-            m_fullProcess->setDisabled(lowBattery);
-        else 
-            m_fullProcess->setDisabled(!activation); 
+            enable = lowBattery;
+        else
+            enable = !activation;
+
+        m_systemUpdateItem->setLowBattery(enable);
+        m_storeUpdateItem->setLowBattery(enable);
+        m_safeUpdateItem->setLowBattery(enable);
+        m_unknownUpdateItem->setLowBattery(enable);
+        m_fullUpdateBtn->setEnabled(enable);
 
         m_powerTip->setVisible(lowBattery);
     }

@@ -747,12 +747,12 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
         <source>Change GRUB Password</source>
-        <translation type="unfinished"/>
+        <translation>修改grub验证密码</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
         <source>Set GRUB Password</source>
-        <translation type="unfinished"/>
+        <translation>设置grub验证密码</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
@@ -777,7 +777,7 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="363"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>确 定</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="373"/>
@@ -3528,7 +3528,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="676"/>
         <source>Size</source>
-        <translation>更新大小</translation>
+        <translation>下载大小</translation>
     </message>
 </context>
 <context>
@@ -3652,7 +3652,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="214"/>
         <source>Security Updates</source>
-        <translation>安全性更新</translation>
+        <translation>安全更新</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="217"/>
@@ -4611,7 +4611,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="438"/>
         <source>Security Updates</source>
-        <translation>安全性更新</translation>
+        <translation>安全更新</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="445"/>
