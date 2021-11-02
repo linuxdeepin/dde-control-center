@@ -40,6 +40,7 @@ class WirelessDevice : public NetworkDeviceBase
 
     friend class NetworkController;
     friend class NetworkInterProcesser;
+    friend class NetworkManagerProcesser;
 
 public:
     bool isConnected() const override;                              // 是否连接网络，重写基类的虚函数
@@ -58,7 +59,6 @@ Q_SIGNALS:
     void connectionSuccess(const AccessPoints *);                   // 连接无线网络wlan成功，参数为对应的wlan
     void hotspotEnableChanged(const bool &);                        // 热点是否可用发生变化
     void accessPointInfoChanged(const QList<AccessPoints *> &);     // wlan信号强度发生变化的网络
-    void activeConnectionChanged();                                 // 活动连接发生变化的时候发出的信号
 
 protected:
     WirelessDevice(NetworkDeviceRealize *networkInter, QObject *parent);
@@ -66,36 +66,6 @@ protected:
 
 private:
     AccessPoints *findAccessPoint(const QString &ssid);
-    //WirelessConnection *findConnectionByAccessPoint(const AccessPoints *accessPoint);
-    //void syncConnectionAccessPoints();
-    //void updateActiveInfo();
-
-//protected:
-    /*void updateConnection(const QJsonArray &info);
-    void createConnection(const QJsonArray &info);
-    //void updateActiveInfo(const QList<QJsonObject> &info);
-    QString deviceKey();
-    WirelessConnection *findConnectionByPath(const QString &path);
-    void updateAccesspoint(const QJsonArray &json);
-    void setDeviceEnabledStatus(const bool &enabled);
-    void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot);
-    bool getHotspotEnabeld() override;
-
-    template<class T>
-    void clearListData(QList<T *> &dataList) {
-        for (T *data : dataList)
-            delete data;
-
-        dataList.clear();
-    }*/
-
-//private:
-    /*QList<WirelessConnection *> m_connections;
-    QList<AccessPoints *> m_accessPoints;
-    QJsonObject m_activeHotspotInfo;
-    QList<QJsonObject> m_activeAccessPoints;
-    QJsonObject m_hotspotInfo;
-    QJsonArray m_connectionJson;*/
 };
 
 /**
@@ -108,6 +78,7 @@ class AccessPoints : public QObject
 
     friend class WirelessDevice;
     friend class WirelessDeviceInterRealize;
+    friend class DeviceManagerRealize;
 
     Q_PROPERTY(QString ssid READ ssid)
     Q_PROPERTY(int strength READ strength)
@@ -153,6 +124,7 @@ class WirelessConnection: public ControllItems
 {
     friend class WirelessDevice;
     friend class WirelessDeviceInterRealize;
+    friend class DeviceManagerRealize;
 
 public:
     AccessPoints *accessPoints() const;                             // 返回当前对应的wlan的指针

@@ -52,7 +52,7 @@ class NetworkController : public QObject
 public:
     static NetworkController *instance();                                        // 对外返回的单例
     static void setActiveSync(const bool sync = false);                          // 设置QDbus服务通讯的方式 ,true表示同步获取，false表示异步获取
-    static void setSystemService(const LoadStyle netLoadStyle);                 // 是否系统级（用于在登录界面，此时尚未进入用户，无法访问用户接口）
+    static void setServiceSource(const LoadStyle netLoadStyle);                 // 是否系统级（用于在登录界面，此时尚未进入用户，无法访问用户接口）
     ProxyController *proxyController();                                          // 返回代理控制管理器
     VPNController *vpnController();                                              // 返回VPN控制器
     DSLController *dslController();                                              // DSL控制器

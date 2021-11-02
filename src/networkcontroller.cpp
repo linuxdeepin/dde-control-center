@@ -74,7 +74,7 @@ void NetworkController::setActiveSync(const bool sync)
     m_sync = sync;
 }
 
-void NetworkController::setSystemService(const LoadStyle netLoadStyle)
+void NetworkController::setServiceSource(const LoadStyle netLoadStyle)
 {
     m_netLoadStyle = netLoadStyle;
 }

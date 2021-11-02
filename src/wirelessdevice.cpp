@@ -112,13 +112,6 @@ void WirelessDevice::connectNetwork(const QString &ssid)
 QList<WirelessConnection *> WirelessDevice::items() const
 {
     return deviceRealize()->wirelessItems();
-    /*QList<WirelessConnection *> lstItems;
-    for (WirelessConnection *item : m_connections) {
-        if (item->accessPoints())
-            lstItems << item;
-    }
-
-    return lstItems;*/
 }
 
 WirelessDevice::WirelessDevice(NetworkDeviceRealize *networkInter, QObject *parent)
@@ -130,7 +123,6 @@ WirelessDevice::WirelessDevice(NetworkDeviceRealize *networkInter, QObject *pare
     connect(networkInter, &NetworkDeviceRealize::connectionSuccess, this, &WirelessDevice::connectionSuccess);
     connect(networkInter, &NetworkDeviceRealize::hotspotEnableChanged, this, &WirelessDevice::hotspotEnableChanged);
     connect(networkInter, &NetworkDeviceRealize::accessPointInfoChanged, this, &WirelessDevice::accessPointInfoChanged);
-    connect(networkInter, &NetworkDeviceRealize::activeConnectionChanged, this, &WirelessDevice::activeConnectionChanged);
 }
 
 WirelessDevice::~WirelessDevice()

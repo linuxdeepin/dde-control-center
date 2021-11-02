@@ -155,6 +155,7 @@ NetworkDeviceBase::NetworkDeviceBase(NetworkDeviceRealize *deviceInter, QObject 
     connect(m_deviceInterface, &NetworkDeviceRealize::connectionChanged, this, &NetworkDeviceBase::connectionChanged);
     connect(m_deviceInterface, &NetworkDeviceRealize::nameChanged, this, &NetworkDeviceBase::nameChanged);
     connect(m_deviceInterface, &NetworkDeviceRealize::removed, this, &NetworkDeviceBase::removed);
+    connect(m_deviceInterface, &NetworkDeviceRealize::activeConnectionChanged, this, &NetworkDeviceBase::activeConnectionChanged);
 }
 
 NetworkDeviceBase::~NetworkDeviceBase()

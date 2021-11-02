@@ -109,7 +109,16 @@ bool NetworkDeviceRealize::isEnabled() const
 
 bool NetworkDeviceRealize::IPValid()
 {
-    return false;
+    // 判读获取IP地址失败需要满足最后一个状态为未连接，上一个状态为失败，并且包含Config和IpConfig
+    if (m_statusQueue.size() == MaxQueueSize
+            && m_statusQueue[MaxQueueSize - 1] == DeviceStatus::Disconnected
+            && m_statusQueue[MaxQueueSize - 2] == DeviceStatus::Failed
+            && m_statusQueue.contains(DeviceStatus::Config)
+            && m_statusQueue.contains(DeviceStatus::IpConfig)) {
+        return false;
+    }
+
+    return true;
 }
 
 QString NetworkDeviceRealize::interface() const
@@ -198,7 +207,7 @@ Connectivity NetworkDeviceRealize::connectivity()
 
 DeviceStatus NetworkDeviceRealize::deviceStatus() const
 {
-    return DeviceStatus::Disconnected;
+    return m_deviceStatus;
 }
 
 QList<AccessPoints *> NetworkDeviceRealize::accessPointItems() const
@@ -236,6 +245,7 @@ NetworkDeviceRealize::NetworkDeviceRealize(QObject *parent)
     : QObject (parent)
     , m_device(nullptr)
     , m_connectivity(Connectivity::Full)
+    , m_deviceStatus(DeviceStatus::Unknown)
 {
 }
 
@@ -246,6 +256,86 @@ NetworkDeviceRealize::~NetworkDeviceRealize()
 NetworkDeviceBase *NetworkDeviceRealize::device() const
 {
     return m_device;
+}
+
+QString NetworkDeviceRealize::statusStringDetail()
+{
+    if (!isEnabled() || !m_device)
+        return tr("Device disabled");
+
+    if (m_deviceStatus == DeviceStatus::Activated && m_connectivity != Connectivity::Full)
+        return tr("Connected but no Internet access");
+
+    // 确认 没有获取IP显示未连接状态（DHCP服务关闭）
+    if (!IPValid())
+        return tr("Not connected");
+
+    switch (m_deviceStatus) {
+    case DeviceStatus::Unknown:
+    case DeviceStatus::Unmanaged:
+    case DeviceStatus::Unavailable: {
+        switch (m_device->deviceType()) {
+        case DeviceType::Unknown:      return QString();
+        case DeviceType::Wired:       return tr("Network cable unplugged");
+        default: break;
+        }
+        break;
+    }
+    case DeviceStatus::Disconnected:  return tr("Not connected");
+    case DeviceStatus::Prepare:
+    case DeviceStatus::Config:        return tr("Connecting");
+    case DeviceStatus::Needauth:      return tr("Authenticating");
+    case DeviceStatus::IpConfig:
+    case DeviceStatus::IpCheck:
+    case DeviceStatus::Secondaries:   return tr("Obtaining IP address");
+    case DeviceStatus::Activated:     return tr("Connected");
+    case DeviceStatus::Deactivation:  return tr("Disconnected");
+    default: break;
+    }
+
+    return tr("Failed");
+}
+
+QString NetworkDeviceRealize::getStatusName()
+{
+    if (hotspotIsEnabled())
+        return tr("Disconnected");
+
+    switch (m_deviceStatus) {
+    case DeviceStatus::Unmanaged:
+    case DeviceStatus::Unavailable:
+    case DeviceStatus::Disconnected:  return tr("Disconnected");
+    case DeviceStatus::Prepare:
+    case DeviceStatus::Config:        return tr("Connecting");
+    case DeviceStatus::Needauth:      return tr("Authenticating");
+    case DeviceStatus::IpConfig:
+    case DeviceStatus::IpCheck:       return tr("Obtaining address");
+    case DeviceStatus::Activated:     return tr("Connected");
+    case DeviceStatus::Deactivation:  return tr("Disconnected");
+    case DeviceStatus::Failed:        return tr("Failed");
+    default:;
+    }
+
+    return QString();
+}
+
+void NetworkDeviceRealize::enqueueStatus(const DeviceStatus &status)
+{
+    if (m_statusQueue.size() >= MaxQueueSize)
+        m_statusQueue.dequeue();
+
+    m_statusQueue.enqueue(status);
+}
+
+void NetworkDeviceRealize::setDeviceStatus(const DeviceStatus &status)
+{
+    if (m_deviceStatus == status)
+        return;
+
+    m_deviceStatus = status;
+    enqueueStatus(status);
+    // 状态发生变化后，需要向外抛出一个信号
+    Q_EMIT deviceStatusChanged(status);
 }
 
 }

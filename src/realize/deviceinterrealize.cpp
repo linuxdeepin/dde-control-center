@@ -26,20 +26,6 @@
 
 using namespace dde::network;
 
-bool DeviceInterRealize::IPValid()
-{
-    // 判读获取IP地址失败需要满足最后一个状态为未连接，上一个状态为失败，并且包含Config和IpConfig
-    if (m_statusQueue.size() == MaxQueueSize
-            && m_statusQueue[MaxQueueSize - 1] == DeviceStatus::Disconnected
-            && m_statusQueue[MaxQueueSize - 2] == DeviceStatus::Failed
-            && m_statusQueue.contains(DeviceStatus::Config)
-            && m_statusQueue.contains(DeviceStatus::IpConfig)) {
-        return false;
-    }
-
-    return true;
-}
-
 QString DeviceInterRealize::ipv4() const
 {
     if (!isConnected() || !isEnabled() || !m_activeInfoData.contains("Ip4"))
@@ -149,86 +135,6 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
         Q_EMIT connectionChanged();
 }
 
-void DeviceInterRealize::enqueueStatus(const DeviceStatus &status)
-{
-    if (m_statusQueue.size() >= MaxQueueSize)
-        m_statusQueue.dequeue();
-
-    m_statusQueue.enqueue(status);
-}
-
-QString DeviceInterRealize::getStatusName()
-{
-    if (getHotspotEnabeld())
-        return tr("Disconnected");
-
-    switch (m_deviceStatus) {
-    case DeviceStatus::Unmanaged:
-    case DeviceStatus::Unavailable:
-    case DeviceStatus::Disconnected:  return tr("Disconnected");
-    case DeviceStatus::Prepare:
-    case DeviceStatus::Config:        return tr("Connecting");
-    case DeviceStatus::Needauth:      return tr("Authenticating");
-    case DeviceStatus::IpConfig:
-    case DeviceStatus::IpCheck:       return tr("Obtaining address");
-    case DeviceStatus::Activated:     return tr("Connected");
-    case DeviceStatus::Deactivation:  return tr("Disconnected");
-    case DeviceStatus::Failed:        return tr("Failed");
-    default:;
-    }
-
-    return QString();
-}
-
-QString DeviceInterRealize::statusStringDetail()
-{
-    if (!m_enabled)
-        return tr("Device disabled");
-
-    if (m_deviceStatus == DeviceStatus::Activated && m_connectivity != Connectivity::Full)
-        return tr("Connected but no Internet access");
-
-    // 确认 没有获取IP显示未连接状态（DHCP服务关闭）
-    if (!IPValid())
-        return tr("Not connected");
-
-    switch (m_deviceStatus) {
-    case DeviceStatus::Unknown:
-    case DeviceStatus::Unmanaged:
-    case DeviceStatus::Unavailable: {
-        switch (deviceType()) {
-        case DeviceType::Unknown:      return QString();
-        case DeviceType::Wired:       return tr("Network cable unplugged");
-        default: break;
-        }
-        break;
-    }
-    case DeviceStatus::Disconnected:  return tr("Not connected");
-    case DeviceStatus::Prepare:
-    case DeviceStatus::Config:        return tr("Connecting");
-    case DeviceStatus::Needauth:      return tr("Authenticating");
-    case DeviceStatus::IpConfig:
-    case DeviceStatus::IpCheck:
-    case DeviceStatus::Secondaries:   return tr("Obtaining IP address");
-    case DeviceStatus::Activated:     return tr("Connected");
-    case DeviceStatus::Deactivation:  return tr("Disconnected");
-    default: break;
-    }
-
-    return tr("Failed");
-}
-
-void DeviceInterRealize::setDeviceStatus(const DeviceStatus &status)
-{
-    if (m_deviceStatus == status)
-        return;
-
-    m_deviceStatus = status;
-    enqueueStatus(status);
-    // 状态发生变化后，需要向外抛出一个信号
-    Q_EMIT deviceStatusChanged(status);
-}
-
 /**
  * @brief 有线设备类的具体实现
  */
@@ -266,11 +172,6 @@ bool WiredDeviceInterRealize::isConnected() const
     }
 
     return false;
-}
-
-DeviceType WiredDeviceInterRealize::deviceType() const
-{
-    return DeviceType::Wired;
 }
 
 QList<WiredConnection *> WiredDeviceInterRealize::wiredItems() const
@@ -419,11 +320,6 @@ bool WirelessDeviceInterRealize::isConnected() const
     }
 
     return false;
-}
-
-DeviceType WirelessDeviceInterRealize::deviceType() const
-{
-    return DeviceType::Wireless;
 }
 
 QList<AccessPoints *> WirelessDeviceInterRealize::accessPointItems() const
@@ -626,7 +522,7 @@ void WirelessDeviceInterRealize::updateActiveInfo()
 
 void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
 {
-    bool enabledHotspotOld = getHotspotEnabeld();
+    bool enabledHotspotOld = hotspotIsEnabled();
 
     m_hotspotInfo = QJsonObject();
     for (const QJsonObject &info : infos) {
@@ -640,7 +536,7 @@ void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObj
     }
 
     if (emitHotspot) {
-        bool enabledHotspot = getHotspotEnabeld();
+        bool enabledHotspot = hotspotIsEnabled();
         if (enabledHotspotOld != enabledHotspot)
             Q_EMIT hotspotEnableChanged(enabledHotspot);
     }
@@ -648,7 +544,7 @@ void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObj
     DeviceInterRealize::updateActiveConnectionInfo(infos, emitHotspot);
 }
 
-bool dde::network::WirelessDeviceInterRealize::getHotspotEnabeld()
+bool dde::network::WirelessDeviceInterRealize::hotspotIsEnabled()
 {
     return !m_hotspotInfo.isEmpty();
 }

@@ -36,16 +36,16 @@ class WiredDevice : public NetworkDeviceBase
 
     friend class NetworkController;
     friend class NetworkInterProcesser;
+    friend class NetworkManagerProcesser;
 
 private:
-    WiredDevice(NetworkDeviceRealize *networkInter, QObject *parent);
+    WiredDevice(NetworkDeviceRealize *devcieRealize, QObject *parent);
     ~WiredDevice() override;
 
 Q_SIGNALS:
     void connectionAdded(const QList<WiredConnection *>);                       // 新增连接
     void connectionRemoved(const QList<WiredConnection *>);                     // 删除连接
     void connectionPropertyChanged(const QList<WiredConnection *> &);           // 连接属性发生变化
-    void activeConnectionChanged();                                             // 活动连接发生变化的时候发出的信号
 
 public:
     bool connectNetwork(WiredConnection *connection);                           // 连接网络，连接成功抛出deviceStatusChanged信号
@@ -59,6 +59,7 @@ class WiredConnection : public ControllItems
 {
     friend class WiredDevice;
     friend class WiredDeviceInterRealize;
+    friend class DeviceManagerRealize;
 
 public:
     bool connected();                                                   //网络是否连接成功

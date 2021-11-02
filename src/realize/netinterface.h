@@ -137,12 +137,17 @@ protected:
     virtual ~NetworkDeviceRealize();
     NetworkDeviceBase *device() const;
 
-    virtual QString statusStringDetail() { return QString(); }
-    virtual QString getStatusName() { return QString(); }
+    virtual QString statusStringDetail();
+    virtual QString getStatusName();
+    void enqueueStatus(const DeviceStatus &status);
+    virtual bool hotspotIsEnabled() { return false; }
+    void setDeviceStatus(const DeviceStatus &status);
 
 private:
     NetworkDeviceBase *m_device;
     Connectivity m_connectivity;
+    QQueue<DeviceStatus> m_statusQueue;
+    DeviceStatus m_deviceStatus;
 };
 
 }

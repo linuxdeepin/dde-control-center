@@ -43,8 +43,6 @@ class DeviceInterRealize : public NetworkDeviceRealize
 public:
     inline bool isEnabled() const { return m_enabled; }                                          // 当前的网卡是否启用
     virtual bool isConnected() const = 0;                                                        // 当前网络的网络是否处于连接状态
-    bool IPValid();                                                                              // IP是否合法
-    virtual DeviceType deviceType() const = 0;                                                   // 设备类型 未识别 无线网卡 有线网卡，直接在子类中返回当前的类型即可
     inline DeviceStatus deviceStatus() const { return m_deviceStatus; }                          // 设备状态
     inline QString interface() const { return m_data.value("Interface").toString(); }            // 返回设备上的Interface
     inline QString driver() const { return m_data.value("Driver").toString(); }                  // 驱动，对应于备上返回值的Driver
@@ -75,13 +73,6 @@ protected:
     virtual void setDeviceEnabledStatus(const bool &enabled);
     virtual void updateActiveInfo(const QList<QJsonObject> &info);                               // 当前连接发生变化，例如从一个连接切换到另外一个连接
     virtual void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot);  // 当前连接发生变化后，获取设备的活动信息，例如IP等
-    void enqueueStatus(const DeviceStatus &status);
-    virtual bool getHotspotEnabeld() { return false; }
-
-protected:
-    QString getStatusName();
-    QString statusStringDetail();
-    void setDeviceStatus(const DeviceStatus &status);
 
 private:
     NetworkInter *m_networkInter;
@@ -108,7 +99,6 @@ public:
     bool connectNetwork(WiredConnection *connection) override;                                    // 连接网络，连接成功抛出deviceStatusChanged信号
     void disconnectNetwork() override;                                                            // 断开网络连接
     bool isConnected() const override;                                                            // 是否连接网络，重写基类的虚函数
-    DeviceType deviceType() const override;                                                       // 返回设备类型，适应基类统一的接口
     QList<WiredConnection *> wiredItems() const override;                                         // 有线网络连接列表
 
 private:
@@ -131,7 +121,6 @@ class WirelessDeviceInterRealize : public DeviceInterRealize
 
 public:
     bool isConnected() const override;                                                           // 是否连接网络，重写基类的虚函数
-    DeviceType deviceType() const override;                                                      // 返回设备类型，适应基类统一的接口
     QList<AccessPoints *> accessPointItems() const override;                                     // 当前网卡上所有的网络列表
     void scanNetwork() override;                                                                 // 重新加载所有的无线网络列表
     void connectNetwork(const AccessPoints *item) override;                                      // 连接网络，连接成功抛出deviceStatusChanged信号
@@ -158,7 +147,7 @@ protected:
     void updateAccesspoint(const QJsonArray &json);
     void setDeviceEnabledStatus(const bool &enabled) override;
     void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot) override;
-    bool getHotspotEnabeld() override;
+    bool hotspotIsEnabled() override;
 
     template<class T>
     void clearListData(QList<T *> &dataList) {

@@ -589,6 +589,7 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
     for (NetworkDeviceBase *device : devices) {
         // 当网卡连接状态发生变化的时候重新绘制任务栏的图标
         connect(device, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPanel::onUpdatePlugView);
+        connect(device, &NetworkDeviceBase::activeConnectionChanged, this, &NetworkPanel::onUpdatePlugView);
         switch (device->deviceType()) {
         case DeviceType::Wired: {
             WiredDevice *wiredDevice = static_cast<WiredDevice *>(device);
@@ -609,7 +610,6 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
             connect(wirelessDevice, &WirelessDevice::enableChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::connectionChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::hotspotEnableChanged, this, &NetworkPanel::onUpdatePlugView);
-            connect(wirelessDevice, &WirelessDevice::activeConnectionChanged, this, &NetworkPanel::onUpdatePlugView);
 
             wirelessDevice->scanNetwork();
         }
