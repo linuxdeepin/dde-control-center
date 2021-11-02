@@ -42,11 +42,11 @@ const static QString networkPath = "/com/deepin/daemon/Network";
 
 NetworkManagerProcesser::NetworkManagerProcesser(QObject *parent)
     : NetworkProcesser(parent)
-    , m_proxyController(nullptr)
-    , m_vpnController(nullptr)
-    , m_dslController(nullptr)
-    , m_hotspotController(nullptr)
-    , m_networkInter(nullptr)
+    , m_proxyController(Q_NULLPTR)
+    , m_vpnController(Q_NULLPTR)
+    , m_dslController(Q_NULLPTR)
+    , m_hotspotController(Q_NULLPTR)
+    , m_networkInter(Q_NULLPTR)
     , m_connectivity(dde::network::Connectivity::Unknownconnectivity)
 {
     onDeviceChanged();
@@ -128,12 +128,12 @@ void NetworkManagerProcesser::onDeviceChanged()
                 // 有线设备
                 NetworkManager::WiredDevice::Ptr wDevice = device.staticCast<NetworkManager::WiredDevice>();
                 DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(wDevice);
-                dev = new WiredDevice(deviceRealize, nullptr);
+                dev = new WiredDevice(deviceRealize, Q_NULLPTR);
             } else if (device->type() == NetworkManager::Device::Wifi) {
                 // 无线设备
                 NetworkManager::WirelessDevice::Ptr wDevice = device.staticCast<NetworkManager::WirelessDevice>();
                 DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(wDevice);
-                dev = new WirelessDevice(deviceRealize, nullptr);
+                dev = new WirelessDevice(deviceRealize, Q_NULLPTR);
             }
             if (dev) {
                 newDevice << dev;

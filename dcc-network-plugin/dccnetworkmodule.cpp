@@ -54,7 +54,6 @@ DCCNetworkModule::~DCCNetworkModule()
 
 void DCCNetworkModule::initialize()
 {
-    NetworkController::setServiceSource(LoadStyle::LoadFromManager);
     NetworkController *networkController = NetworkController::instance();
     connect(networkController, &NetworkController::deviceRemoved, this, &DCCNetworkModule::onDeviceChanged);
     connect(networkController, &NetworkController::deviceAdded, this, &DCCNetworkModule::onDeviceChanged);

@@ -79,7 +79,7 @@ enum class Connectivity {
  * 加载网络的方式
  */
 
-enum class LoadStyle
+enum class ServiceLoadType
 {
     LoadFromInter = 0,      // 从后台加载
     LoadFromManager,        // 从NetworkManager加载

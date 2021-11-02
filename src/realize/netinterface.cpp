@@ -110,25 +110,21 @@ bool NetworkDeviceRealize::isEnabled() const
 bool NetworkDeviceRealize::IPValid()
 {
     // 判读获取IP地址失败需要满足最后一个状态为未连接，上一个状态为失败，并且包含Config和IpConfig
-    if (m_statusQueue.size() == MaxQueueSize
+    return !(m_statusQueue.size() == MaxQueueSize
             && m_statusQueue[MaxQueueSize - 1] == DeviceStatus::Disconnected
             && m_statusQueue[MaxQueueSize - 2] == DeviceStatus::Failed
             && m_statusQueue.contains(DeviceStatus::Config)
-            && m_statusQueue.contains(DeviceStatus::IpConfig)) {
-        return false;
-    }
-
-    return true;
+            && m_statusQueue.contains(DeviceStatus::IpConfig));
 }
 
 QString NetworkDeviceRealize::interface() const
 {
-    return QString("");
+    return QString();
 }
 
 QString NetworkDeviceRealize::driver() const
 {
-    return QString("");
+    return QString();
 }
 
 bool NetworkDeviceRealize::managed() const

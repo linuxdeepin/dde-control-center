@@ -38,7 +38,7 @@ const static QString networkPath = "/com/deepin/daemon/Network";
 using namespace dde::network;
 
 bool NetworkController::m_sync = false;
-LoadStyle NetworkController::m_netLoadStyle = LoadStyle::LoadFromInter;
+ServiceLoadType NetworkController::m_serviceLoadType = ServiceLoadType::LoadFromInter;
 
 NetworkController::NetworkController()
     : QObject(Q_NULLPTR)
@@ -47,7 +47,7 @@ NetworkController::NetworkController()
     , m_dslController(Q_NULLPTR)
     , m_hotspotController(Q_NULLPTR)
 {
-    if (m_netLoadStyle == LoadStyle::LoadFromManager)
+    if (m_serviceLoadType == ServiceLoadType::LoadFromManager)
         m_processer = new NetworkManagerProcesser(this);
     else
         m_processer = new NetworkInterProcesser(m_sync, this);
@@ -74,9 +74,9 @@ void NetworkController::setActiveSync(const bool sync)
     m_sync = sync;
 }
 
-void NetworkController::setServiceSource(const LoadStyle netLoadStyle)
+void NetworkController::setServiceType(const ServiceLoadType serviceType)
 {
-    m_netLoadStyle = netLoadStyle;
+    m_serviceLoadType = serviceType;
 }
 
 ProxyController *NetworkController::proxyController()

@@ -36,16 +36,16 @@ class NetworkManagerProcesser : public NetworkProcesser
 {
 public:
     explicit NetworkManagerProcesser(QObject *parent = Q_NULLPTR);
-    ~NetworkManagerProcesser();
+    ~NetworkManagerProcesser() override;
 
 protected:
-    QList<NetworkDeviceBase *> devices();
-    dde::network::Connectivity connectivity();
-    QList<NetworkDetails *> networkDetails();
-    ProxyController *proxyController();                                          // 返回代理控制管理器
-    VPNController *vpnController();                                              // 返回VPN控制器
-    DSLController *dslController();                                              // DSL控制器
-    HotspotController *hotspotController();                                      // 个人热点控制器
+    QList<NetworkDeviceBase *> devices() override;
+    dde::network::Connectivity connectivity() override;
+    QList<NetworkDetails *> networkDetails() override;
+    ProxyController *proxyController() override;                                          // 返回代理控制管理器
+    VPNController *vpnController() override;                                              // 返回VPN控制器
+    DSLController *dslController() override;                                              // DSL控制器
+    HotspotController *hotspotController() override;                                      // 个人热点控制器
 
 private:
     void initConnections();
