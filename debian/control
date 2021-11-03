@@ -5,7 +5,6 @@ Maintainer: Deepin Sysdev <sysdev@deepin.com>
 Build-Depends:
  debhelper-compat (= 11),
  pkg-config,
- ninja-build,
  libx11-dev,
  cmake,
  qtbase5-dev,
@@ -17,7 +16,6 @@ Build-Depends:
  libdframeworkdbus-dev,
  libgsettings-qt-dev,
  qttools5-dev-tools,
- clang [amd64],
  libdtkcore5-bin,
  libkf5networkmanagerqt-dev,
  qtbase5-private-dev,
