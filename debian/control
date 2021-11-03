@@ -43,9 +43,15 @@ Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the plugin of network for dde-dock
  dde-dock-plugin module
- 
+
 Package: dde-network-dialog
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the executable of network
  dde-network-dialog module
+
+Package: dde-shell-network-plugin
+Architecture: any
+Depends: ${misc:Depends},${shlibs:Depends},
+Description: the plugin of network for dde-lock
+ dde-shell-network-plugin module

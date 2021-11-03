@@ -79,12 +79,10 @@ private:
 
     int getStrongestAp();
     int deviceCount(const DeviceType &devType);
-    QStringList ipTipsMessage(const DeviceType &devType);
     void expandPasswordInput();
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
-    void onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason);
     void onUpdatePlugView();
 
     void onClickListView(const QModelIndex &index);
@@ -110,7 +108,6 @@ private:
     NetItem *m_selectItem;
     // 记录无线设备Path,防止信号重复连接
     QSet<QString> m_wirelessDevicePath;
-    QString m_lastActiveWirelessDevicePath;
     QString m_reconnectPath;
 };
 

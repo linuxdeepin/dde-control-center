@@ -24,7 +24,7 @@
 #include "utils.h"
 #include "item/netitem.h"
 #include "item/devicestatushandler.h"
-#include "imageutil.h"
+#include "thememanager.h"
 
 #include <NetworkManagerQt/WirelessDevice>
 
@@ -48,7 +48,6 @@
 #include <wireddevice.h>
 #include <wirelessdevice.h>
 
-//const int ItemWidth = 250;
 const QString MenueEnable = "enable";
 const QString MenueWiredEnable = "wireEnable";
 const QString MenueWirelessEnable = "wirelessEnable";
@@ -142,7 +141,7 @@ void NetworkPanel::initConnection()
     connect(networkController, &NetworkController::connectivityChanged, this, &NetworkPanel::onUpdatePlugView);
 
     // 点击列表的信号
-    connect(m_netListView, &DListView::clicked, this, &NetworkPanel::onClickListView);
+    connect(m_netListView, &DListView::pressed, this, &NetworkPanel::onClickListView);
 
     // 连接超时的信号
     connect(m_switchWireTimer, &QTimer::timeout, [=]() {
@@ -450,43 +449,6 @@ void NetworkPanel::updateSize()
     m_netListView->update();
 }
 
-QStringList NetworkPanel::ipTipsMessage(const DeviceType &devType)
-{
-    int typeCount = deviceCount(devType);
-    DeviceType type = static_cast<DeviceType>(devType);
-    QStringList tipMessage;
-    int deviceIndex = 1;
-    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
-    for (NetworkDeviceBase *device : devices) {
-        if (device->deviceType() != type)
-            continue;
-
-        QString ipv4 = device->ipv4();
-        if (ipv4.isEmpty())
-            continue;
-
-        switch (type) {
-        case DeviceType::Wired: {
-            if (typeCount == 1)
-                tipMessage << tr("Wired connection: %1").arg(ipv4);
-            else
-                tipMessage << tr("Wired Network").append(QString("%1").arg(deviceIndex++)).append(":" + ipv4);
-            break;
-        }
-        case DeviceType::Wireless: {
-            if (typeCount == 1)
-                tipMessage << tr("Wireless connection: %1").arg(ipv4);
-            else
-                tipMessage << tr("Wireless Network").append(QString("%1").arg(deviceIndex++)).append(":" + ipv4);
-            break;
-        }
-        default:
-            break;
-        }
-    }
-
-    return tipMessage;
-}
 
 bool NetworkPanel::eventFilter(QObject *obj, QEvent *event)
 {
@@ -528,12 +490,14 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
     for (NetworkDeviceBase *device : devices) {
         // 当网卡连接状态发生变化的时候重新绘制任务栏的图标
         connect(device, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPanel::onUpdatePlugView);
+        connect(device, &NetworkDeviceBase::activeConnectionChanged, this, &NetworkPanel::onUpdatePlugView);
         switch (device->deviceType()) {
         case DeviceType::Wired: {
             WiredDevice *wiredDevice = static_cast<WiredDevice *>(device);
 
             connect(wiredDevice, &WiredDevice::connectionAdded, this, &NetworkPanel::onUpdatePlugView);
             connect(wiredDevice, &WiredDevice::connectionRemoved, this, &NetworkPanel::onUpdatePlugView);
+            connect(wiredDevice, &WiredDevice::connectionPropertyChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wiredDevice, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wiredDevice, &NetworkDeviceBase::enableChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wiredDevice, &NetworkDeviceBase::connectionChanged, this, &NetworkPanel::onUpdatePlugView);
@@ -546,6 +510,8 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
             connect(wirelessDevice, &WirelessDevice::accessPointInfoChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::enableChanged, this, &NetworkPanel::onUpdatePlugView);
             connect(wirelessDevice, &WirelessDevice::connectionChanged, this, &NetworkPanel::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::hotspotEnableChanged, this, &NetworkPanel::onUpdatePlugView);
+
             wirelessDevice->scanNetwork();
         } break;
         default:
@@ -706,19 +672,8 @@ bool NetworkPanel::hasDevice()
 
 void NetworkPanel::setControlBackground()
 {
-    QPalette backgroud;
-    QColor separatorColor;
-    switch (DGuiApplicationHelper::instance()->themeType()) {
-    case DGuiApplicationHelper::LightType:
-        backgroud.setColor(QPalette::Background, QColor(255, 255, 255, 0.03 * 255));
-        break;
-    case DGuiApplicationHelper::DarkType:
-        backgroud.setColor(QPalette::Background, QColor(0, 0, 0, 0.03 * 255));
-        break;
-    case DGuiApplicationHelper::UnknownType:
-        backgroud.setColor(QPalette::Background, QColor(255, 255, 255, 0.05 * 255));
-        break;
-    }
+    QPalette backgroud = m_applet->palette();
+    backgroud.setColor(QPalette::Background, ThemeManager::instance()->backgroundColor());
     m_applet->setAutoFillBackground(true);
     m_applet->setPalette(backgroud);
 }
@@ -780,26 +735,6 @@ void NetworkPanel::passwordError(const QString &path)
     }
     if (!m_reconnectPath.isEmpty()) {
         QTimer::singleShot(0, this, &NetworkPanel::expandPasswordInput);
-    }
-}
-
-void NetworkPanel::onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason)
-{
-    NetworkManager::WirelessDevice *device = qobject_cast<NetworkManager::WirelessDevice *>(sender());
-
-    NetworkManager::AccessPoint::Ptr ap = device->activeAccessPoint();
-    if (!ap.isNull()) {
-        m_lastActiveWirelessDevicePath = device->uni() + ap->uni();
-    }
-    if (newstate == NetworkManager::WirelessDevice::Failed) {
-        switch (reason) {
-        case NetworkManager::Device::NoSecretsReason:
-        case NetworkManager::Device::ConfigUnavailableReason:
-            passwordError(m_lastActiveWirelessDevicePath);
-            break;
-        default:
-            break;
-        }
     }
 }
 
@@ -865,10 +800,7 @@ void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         QRect rct = option.rect;
         rct.setY(rct.top() + rct.height() - 2);
         rct.setHeight(2);
-        if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-            painter->fillRect(rct, QColor(0, 0, 0, 255 * 0.1));
-        else
-            painter->fillRect(rct, QColor(255, 255, 255, 255 * 0.05));
+        painter->fillRect(rct, ThemeManager::instance()->lineColor());
     }
     bool isHoverItem = cantHover(index);
     QRect rct = option.rect;
@@ -876,10 +808,7 @@ void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         rct.setHeight(rct.height() - 2);
 
     if (!isHoverItem && (option.state & QStyle::State_MouseOver)) {
-        if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-            painter->fillRect(rct, QColor(0, 0, 0, 255 * 0.08));
-        else
-            painter->fillRect(rct, QColor(255, 255, 255, 255 * 0.08));
+        painter->fillRect(rct, ThemeManager::instance()->itemBackgroundColor());
     }
     // 绘制右侧的连接图标
     NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());

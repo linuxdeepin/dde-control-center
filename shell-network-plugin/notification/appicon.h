@@ -1,9 +1,7 @@
 /*
- * Copyright (C) 2011 ~ 2018 Deepin Technology Co., Ltd.
+ * Copyright (C) 2015 ~ 2018 Deepin Technology Co., Ltd.
  *
- * Author:     sbw <sbw@sbw.so>
- *
- * Maintainer: sbw <sbw@sbw.so>
+ * Author:     kirigaya <kirigaya@mkacg.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,19 +17,23 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef IMAGEUTIL_H
-#define IMAGEUTIL_H
+#ifndef APPICON_H
+#define APPICON_H
 
-#include <QWidget>
+#include <QLabel>
 #include <QPixmap>
-#include <QSvgRenderer>
-#include <QApplication>
-
-class ImageUtil
+/*!
+ * \~chinese \class AppIcon
+ * \~chinese \brief 自定义控件类,在通知中心气泡中显示App图标的类
+ */
+class AppIcon : public QLabel
 {
+    Q_OBJECT
+
 public:
-    static const QPixmap loadSvg(const QString &iconName, const QString &localPath, const int size, const qreal ratio);
-    static const QPixmap loadSvg(const QString &iconName, const QSize size, const qreal ratio = qApp->devicePixelRatio());
+    explicit AppIcon(QWidget *parent = 0);
+
+    void setIcon(const QString &iconPath, const QString &fallback = "");
 };
 
-#endif // IMAGEUTIL_H
+#endif // APPICON_H

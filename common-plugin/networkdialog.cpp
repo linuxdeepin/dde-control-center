@@ -44,7 +44,6 @@ void NetworkDialog::finished(int, QProcess::ExitStatus)
 {
     if (m_focusWindow) {
         m_focusWindow->setKeyboardGrabEnabled(true);
-        m_focusWindow = nullptr;
     }
 }
 
@@ -55,14 +54,14 @@ void NetworkDialog::saveConfig(int x, int y, Dock::Position position)
 
 void NetworkDialog::show(int x, int y, Dock::Position position, bool isShell)
 {
-    if (m_process->state() == QProcess::Running && !m_connectPath.isEmpty()) {
-        // 正在运行时，密码错误信号由NetworkDialog自己处理
-        m_connectPath.clear();
-        return;
-    }
+    m_process->blockSignals(true);
     m_process->close();
+    m_process->blockSignals(false);
+    QWindow *window = qApp->focusWindow();
     runProcess(x, y, position, false, isShell);
-    m_focusWindow = qApp->focusWindow();
+    if(window && window->objectName() == "LoginWindowClassWindow") {
+        m_focusWindow = window;
+    }
     if (m_focusWindow) {
         m_focusWindow->setKeyboardGrabEnabled(false);
     }

@@ -1,0 +1,6 @@
+[Greeter Active WIFI Connection]
+Identity=unix-user:lightdm
+Action=org.freedesktop.NetworkManager.*
+ResultAny=no
+ResultInactive=no
+ResultActive=yes

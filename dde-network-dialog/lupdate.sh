@@ -7,4 +7,4 @@ rm -f dde-network-dialog.ts
 lupdate ../ ../../src -ts -no-ui-lines -locations none -no-obsolete dde-network-dialog.ts
 cd ../
 
-# tx push -s -b m20
+tx push -s -b m20

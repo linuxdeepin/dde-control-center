@@ -24,6 +24,7 @@
 #include "../widgets/statebutton.h"
 #include "wirelessconnect.h"
 #include "../localserver.h"
+#include "../thememanager.h"
 
 #include <DApplicationHelper>
 #include <DHiDPIHelper>
@@ -97,6 +98,8 @@ void DeviceControllItem::setDevices(const QList<NetworkDeviceBase *> &devices)
     for (NetworkDeviceBase *device : devices)
         if (m_deviceType == device->deviceType())
             m_devices << device;
+
+    updateView();
 }
 
 DeviceType DeviceControllItem::deviceType()
@@ -217,10 +220,7 @@ void WiredControllItem::onSwitchDevices(bool on)
 
 QString WirelessControllItem::iconFile()
 {
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-        return QString(":/wireless/resources/wireless/refresh_dark.svg");
-
-    return QString(":/wireless/resources/wireless/refresh.svg");
+    return ThemeManager::instance()->getIcon("wireless/refresh");
 }
 
 WirelessControllItem::WirelessControllItem(QWidget *parent, WirelessDevice *device)
@@ -238,7 +238,7 @@ WirelessControllItem::WirelessControllItem(QWidget *parent, WirelessDevice *devi
     m_switcher->setSizeIncrement(SWITCH_WIDTH, SWITCH_HEIGHT);
     m_switcher->setChecked(device->isEnabled());
 
-    QPixmap pixmap = DHiDPIHelper::loadNxPixmap(":/wireless/resources/wireless/refresh.svg");
+    QPixmap pixmap = DHiDPIHelper::loadNxPixmap(ThemeManager::instance()->getIcon("wireless/refresh"));
     m_loadingIndicator->setLoading(false);
     m_loadingIndicator->setSmooth(true);
     m_loadingIndicator->setAniDuration(1000);
@@ -336,13 +336,8 @@ WiredConnection *WiredItem::connection()
 
 QString WiredItem::symbolicIcon(const bool &connected) const
 {
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        return connected ? QString(":/wired/resources/wired/network-online-symbolic-dark") :
-                           QString(":/wired/resources/wired/network-none-symbolic-dark");
-    }
-
-    return connected ? QString(":/wired/resources/wired/network-online-symbolic") :
-                       QString(":/wired/resources/wired/network-none-symbolic");
+    QString icon = connected ? QString("wired/network-wired-symbolic") : QString("wired/network-none-symbolic");
+    return ThemeManager::instance()->getIcon(icon);
 }
 
 void WiredItem::updateView()
@@ -506,11 +501,7 @@ void WirelessItem::initConnection()
 void WirelessItem::updateSrcirityIcon()
 {
     if (m_accessPoint && m_accessPoint->secured()) {
-        QString srcirityIcon;
-        if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-            srcirityIcon = ":/wireless/resources/wireless/security_dark.svg";
-        else
-            srcirityIcon = ":/wireless/resources/wireless/security.svg";
+        QString srcirityIcon = ThemeManager::instance()->getIcon("wireless/security");
         // 更新加密图标
         m_securityAction->setIcon(QIcon(srcirityIcon));
     } else {
@@ -523,13 +514,8 @@ void WirelessItem::updateWifiIcon()
     if (!m_accessPoint)
         return;
 
-    QString icon;
     QString strength = getStrengthStateString(m_accessPoint->strength());
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-        icon = QString(":/wireless/resources/wireless/wireless-%1-symbolic-dark.svg").arg(strength);
-    else
-        icon = QString(":/wireless/resources/wireless/wireless-%1-symbolic.svg").arg(strength);
-
+    QString icon = ThemeManager::instance()->getIcon("wireless/wireless-%1-symbolic").arg(strength);
     m_wifiLabel->setIcon(QIcon(icon));
 }
 
@@ -579,7 +565,7 @@ void WirelessItem::expandWidget(ExpandWidget type)
         m_stackWidget->setCurrentIndex(type);
         m_passwdEdit->lineEdit()->setFocus();
         if (!m_passwdEdit->lineEdit()->text().isEmpty()) {
-            m_passwdEdit->showAlertMessage(tr("password error!"));
+            m_passwdEdit->showAlertMessage(tr("Wrong password"));
         }
         checkInputValid();
         break;
@@ -617,6 +603,7 @@ void WirelessItem::createPasswordEdit()
     connect(m_connectButton, &DPushButton::clicked, this, &WirelessItem::onConnectNetwork);
     connect(m_passwdEdit->lineEdit(), &QLineEdit::returnPressed, this, &WirelessItem::onConnectNetwork);
     connect(m_passwdEdit->lineEdit(), &QLineEdit::textChanged, this, &WirelessItem::checkInputValid);
+    ThemeManager::instance()->updateInputStyle(m_passwdEdit);
 }
 
 void WirelessItem::createSsidEdit()
@@ -647,6 +634,7 @@ void WirelessItem::createSsidEdit()
     connect(cancelButtion, &DPushButton::clicked, this, [ this ]() { this->expandWidget(ExpandWidget::Hide); });
     connect(connectButton, &DPushButton::clicked, this, &WirelessItem::onConnectHidden);
     connect(m_ssidEdit->lineEdit(), &QLineEdit::returnPressed, this, &WirelessItem::onConnectHidden);
+    ThemeManager::instance()->updateInputStyle(m_ssidEdit);
 }
 
 void WirelessItem::initExpandUi()

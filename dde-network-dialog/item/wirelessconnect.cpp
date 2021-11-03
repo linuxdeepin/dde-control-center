@@ -236,6 +236,7 @@ void WirelessConnect::connectNetwork()
             emit passwordError(QString());
             return;
         }
+        m_device->connectNetwork(m_accessPoint);
     }
     activateConnection();
 }

@@ -2,18 +2,38 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>DeviceControllItem</name>
+    <name>Bubble</name>
     <message>
-        <source>Wireless Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wired Network</source>
+        <source>1 new message</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>NetworkPanel</name>
+    <message>
+        <source>Device disabled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Network cable unplugged</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connected but no Internet access</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Connection failed</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Disable wired connection</source>
         <translation type="unfinished"></translation>
@@ -39,36 +59,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Network settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>WirelessItem</name>
-    <message>
-        <source>Connect to hidden network</source>
+        <source>Connecting %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Wrong password</source>
+        <source>%1 connected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Password</source>
+        <source>%1 disconnected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <comment>button</comment>
+        <source>Unable to connect %1, please check your router or net cable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Connect</source>
-        <comment>button</comment>
+        <source>Unable to connect %1, please keep closer to the wireless router</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Name (SSID)</source>
+        <source>Connection failed, unable to connect %1, wrong password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password is required to connect %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The %1 802.11 WLAN network could not be found</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
