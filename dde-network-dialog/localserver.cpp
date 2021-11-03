@@ -37,21 +37,33 @@ LocalServer::LocalServer(QObject *parent)
     , m_isWaitPassword(false)
 {
     m_server = new QLocalServer(this);
-    m_server_test = new QLocalServer(this);
     connect(m_server, SIGNAL(newConnection()), this, SLOT(newConnectionHandler()));
     m_server->setSocketOptions(QLocalServer::UserAccessOption);
 }
 
 LocalServer::~LocalServer()
 {
-    for (QLocalSocket *socket : m_clients.keys()) {
-        socket->close();
-        socket->deleteLater();
+    clear();
+}
+
+void LocalServer::clear()
+{
+    if (m_server) {
+        for (QLocalSocket *socket : m_clients.keys()) {
+            socket->close();
+            socket->deleteLater();
+        }
+        m_clients.clear();
+        m_server->close();
+        delete m_server;
+        m_server = nullptr;
     }
-    m_clients.clear();
-    m_server->close();
-    m_server_test->close();
-    delete m_server;
+}
+
+void LocalServer::release()
+{
+    // 显性释放，否则下次创建会有问题
+    LocalServer::instance()->clear();
 }
 
 void LocalServer::setWidget(NetworkPanel *panel, DockPopupWindow *popopWindow)
@@ -62,7 +74,6 @@ void LocalServer::setWidget(NetworkPanel *panel, DockPopupWindow *popopWindow)
 
 bool LocalServer::RunServer(const QString &serverName)
 {
-    qInfo() << "Run Server ok" << serverName;
     return m_server->listen(serverName);
 }
 

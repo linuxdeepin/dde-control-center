@@ -38,7 +38,11 @@
 class MainApp
 {
 public:
-    MainApp() {}
+    MainApp()
+        : m_isWep(false)
+        , m_isSave(false)
+        , m_isLogin(false)
+    {}
     ~MainApp() {}
 
     void run();
@@ -74,7 +78,7 @@ void MainApp::parseArguments()
     QCommandLineOption pointOption(QStringList() << "p", "set point <x>x<y>", "point");
     QCommandLineOption positionOption(QStringList() << "d", "position [l,r,t,b]", "position");
     QCommandLineOption connectPathOption(QStringList() << "c"
-                                                       << "connect",
+                                         << "connect",
                                          "connect wireless ", "path");
     QCommandLineOption loginOption(QStringList() << "l", "login style");
     QCommandLineOption wepOption(QStringList() << "w", "wireless wep-key");
@@ -208,7 +212,7 @@ int main(int argc, char **argv)
     app->setQuitOnLastWindowClosed(true);
 
     QTranslator translator;
-    translator.load("/usr/share/dde-network-connect/translations/dde-network-dialog_" + QLocale::system().name());
+    translator.load("/usr/share/dde-network-dialog/translations/dde-network-dialog_" + QLocale::system().name());
     qApp->installTranslator(&translator);
 
     qApp->setApplicationDisplayName(QObject::tr("NetworkDialog"));

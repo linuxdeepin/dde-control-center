@@ -19,12 +19,12 @@ find_package(DdeDock REQUIRED)
 find_package(KF5NetworkManagerQt REQUIRED)
 
 pkg_check_modules(DFrameworkDBus REQUIRED dframeworkdbus)
-pkg_check_modules(QGSettings REQUIRED gsettings-qt)
+#pkg_check_modules(QGSettings REQUIRED gsettings-qt)
 pkg_check_modules(DDE-Dock REQUIRED dde-dock)
 
 file(GLOB TS_FILES "translations/*.ts")
 qt5_add_translation(QM_FILES ${TS_FILES})
-#add_custom_target(language ALL DEPENDS ${QM_FILES})
+add_custom_target(${TARGET_NAME}_language ALL DEPENDS ${QM_FILES})
 
 add_definitions("${QT_DEFINITIONS} -DQT_PLUGIN")
 #add_library(${TARGET_NAME} SHARED ${SRCS} network.qrc)

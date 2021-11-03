@@ -48,6 +48,8 @@ public:
     bool changePassword(QString key, QString password, bool input);
     // 等待密码输入模式
     void setWaitPassword(bool isWait);
+    void clear();
+    static void release();
 
 private Q_SLOTS:
     void newConnectionHandler();
@@ -56,7 +58,6 @@ private Q_SLOTS:
 
 private:
     QLocalServer *m_server;
-    QLocalServer *m_server_test; // 测试是否已存在
     QMap<QLocalSocket *, QString> m_clients;
 
     NetworkPanel *m_panel;

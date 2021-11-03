@@ -14,3 +14,9 @@ file_filter = dock-network-plugin/translations/dock-network-plugin_<lang>.ts
 source_file = dock-network-plugin/translations/dock-network-plugin.ts
 source_lang = en
 type = QT
+
+[deepin-desktop-environment.dde-network-dialog]
+file_filter = dde-network-dialog/translations/dde-network-dialog_<lang>.ts
+source_file = dde-network-dialog/translations/dde-network-dialog.ts
+source_lang = en
+type = QT

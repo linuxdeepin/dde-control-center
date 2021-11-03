@@ -34,6 +34,7 @@
 #include <DLineEdit>
 #include <DToolButton>
 #include <DPasswordEdit>
+#include <DSuggestButton>
 
 #include <QPainter>
 #include <QLabel>
@@ -595,13 +596,17 @@ void WirelessItem::createPasswordEdit()
     m_passwdEdit = new DPasswordEdit(passwdWidget);
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Password"));
     m_passwdEdit->lineEdit()->setMaxLength(256);
-    DPushButton *cancelButtion = new DPushButton(tr("Cancel"), passwdWidget);
-    m_connectButton = new DPushButton(tr("Connect"), passwdWidget);
+    m_passwdEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    DPushButton *cancelButtion = new DPushButton(tr("Cancel", "button"), passwdWidget); // 取消
+    m_connectButton = new DSuggestButton(tr("Connect", "button"), passwdWidget); // 连接
 
     QHBoxLayout *line2 = new QHBoxLayout;
 
     QVBoxLayout *layout = new QVBoxLayout;
+    line2->setMargin(0);
+    line2->setSpacing(0);
     line2->addWidget(cancelButtion);
+    line2->addSpacing(10);
     line2->addWidget(m_connectButton);
     layout->addWidget(m_passwdEdit);
     layout->addLayout(line2);
@@ -621,22 +626,26 @@ void WirelessItem::createSsidEdit()
     m_ssidEdit = new DLineEdit(ssidWidget);
     m_ssidEdit->setPlaceholderText(tr("Name (SSID)"));
     m_ssidEdit->lineEdit()->setMaxLength(256);
+    m_ssidEdit->setContextMenuPolicy(Qt::NoContextMenu);
 
-    DPushButton *cancelButtion = new DPushButton(tr("Cancel"), ssidWidget);
-    DPushButton *nextButton = new DPushButton(tr("Next"), ssidWidget);
+    DPushButton *cancelButtion = new DPushButton(tr("Cancel", "button"), ssidWidget); // 取消
+    DPushButton *connectButton = new DSuggestButton(tr("Connect", "button"), ssidWidget); // 连接
 
     QHBoxLayout *line2 = new QHBoxLayout;
 
     QVBoxLayout *layout = new QVBoxLayout;
+    line2->setMargin(0);
+    line2->setSpacing(0);
     line2->addWidget(cancelButtion);
-    line2->addWidget(nextButton);
+    line2->addSpacing(10);
+    line2->addWidget(connectButton);
     layout->addWidget(m_ssidEdit);
     layout->addLayout(line2);
     ssidWidget->setLayout(layout);
     m_stackWidget->addWidget(ssidWidget);
 
     connect(cancelButtion, &DPushButton::clicked, this, [ this ]() { this->expandWidget(ExpandWidget::Hide); });
-    connect(nextButton, &DPushButton::clicked, this, &WirelessItem::onConnectHidden);
+    connect(connectButton, &DPushButton::clicked, this, &WirelessItem::onConnectHidden);
     connect(m_ssidEdit->lineEdit(), &QLineEdit::returnPressed, this, &WirelessItem::onConnectHidden);
 }
 
