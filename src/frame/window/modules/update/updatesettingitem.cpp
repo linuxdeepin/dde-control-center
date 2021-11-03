@@ -233,7 +233,7 @@ void UpdateSettingItem::setUpdateSize(const qlonglong &updateSize)
 
 void UpdateSettingItem::setLowBattery(bool lowBattery)
 {
-    m_controlWidget->setUpdatesEnabled(lowBattery);
+    m_controlWidget->setCtrlButtonEnabled(lowBattery);
     if(status() == UpdatesStatus::Downloading){
         onPauseDownload();
         m_controlWidget->setCtrlButtonEnabled(lowBattery);

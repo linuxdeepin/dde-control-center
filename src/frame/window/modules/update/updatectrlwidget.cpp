@@ -441,9 +441,9 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
         //电量和授权共同决定
         bool enable = false;
         if(lowBattery)
-            enable = lowBattery;
+            enable = !lowBattery;
         else
-            enable = !activation;
+            enable = activation;
 
         m_systemUpdateItem->setLowBattery(enable);
         m_storeUpdateItem->setLowBattery(enable);
@@ -698,7 +698,12 @@ void UpdateCtrlWidget::onFullUpdateClicked()
             Q_EMIT requestUpdateCtrl(type, ctrlType);
         }
 
-        Q_EMIT  requestUpdates(type);
+        if(updateItem->status() == UpdatesStatus::UpdatesAvailable
+                || updateItem->status() == UpdatesStatus::UpdateFailed
+                || updateItem->status() == UpdatesStatus::AutoDownloaded){
+            Q_EMIT  requestUpdates(type);
+        }
+
     };
 
     sendRequestUpdates(m_systemUpdateItem, ClassifyUpdateType::SystemUpdate);
