@@ -69,7 +69,7 @@ install(FILES com.deepin.dde.control-center.gschema.xml DESTINATION share/glib-2
 install(CODE "execute_process(COMMAND glib-compile-schemas ${CMAKE_INSTALL_PREFIX}/share/glib-2.0/schemas)")
 
 #dde-grand-search-daemon plugins
-install(FILES com.deepin.dde-grand-search.dde-control-center-setting.conf DESTINATION /usr/lib/${CMAKE_LIBRARY_ARCHITECTURE}/dde-grand-search-daemon/plugins/searcher)
+install(FILES com.deepin.dde-grand-search.dde-control-center-setting.conf DESTINATION lib/${CMAKE_LIBRARY_ARCHITECTURE}/dde-grand-search-daemon/plugins/searcher)
 
 #service
 install(FILES com.deepin.dde.ControlCenter.service DESTINATION share/dbus-1/services)

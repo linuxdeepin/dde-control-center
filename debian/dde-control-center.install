@@ -4,3 +4,4 @@ usr/lib/libdccwidgets.so
 usr/lib/dde-control-center/develop-tool
 usr/lib/dde-control-center/reboot-reminder-dialog
 usr/share
+usr/lib/*/dde-grand-search-daemon/plugins/searcher/com.deepin.dde-grand-search.dde-control-center-setting.conf
