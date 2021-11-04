@@ -46,9 +46,9 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     parser.addHelpOption();
-    QCommandLineOption uuidOption("u", QCoreApplication::translate("main", "uuid"), "uuid", QString::number(0));
+    QCommandLineOption uuidOption("u", "uuid", "uuid", QString::number(0));
     parser.addOption(uuidOption);
-    QCommandLineOption appOption("a", QCoreApplication::translate("main", "app"), "app", QString::number(0));
+    QCommandLineOption appOption("a", "app", "application name", QString::number(0));
     parser.addOption(appOption);
     parser.process(a);
     QString uuid = parser.value(uuidOption);
@@ -58,9 +58,8 @@ int main(int argc, char *argv[])
     translator.load("/usr/share/dde-control-center/translations/reset-password-dialog_" + QLocale::system().name());
     a.installTranslator(&translator);
 
-    DLogManager::setlogFilePath(QString("/var/log/%1/%2/%2.log").arg(a.organizationName(), a.applicationName()));
+    DLogManager::setlogFilePath(QString("/tmp/%1.log").arg(a.applicationName()));
     DLogManager::registerFileAppender();
-    DLogManager::registerConsoleAppender();
 
     Manager *manager = new Manager(uuid, app);
     manager->start();

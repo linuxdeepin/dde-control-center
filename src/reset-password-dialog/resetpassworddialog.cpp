@@ -97,7 +97,7 @@ void ResetPasswordDialog::initWidget()
     mainContentLayout->addWidget(phoneEmaillabel);
     mainContentLayout->addWidget(m_phoneEmailEdit);
 
-    QLabel *codeLabel = new QLabel(tr("Send Code") + ":");
+    QLabel *codeLabel = new QLabel(tr("Get Code") + ":");
     mainContentLayout->addWidget(codeLabel);
     QHBoxLayout *codeLayout = new QHBoxLayout;
     codeLayout->addWidget(m_verificationCodeEdit);
@@ -250,7 +250,7 @@ void ResetPasswordDialog::onPhoneEmailLineEditFocusChanged(bool onFocus)
             m_phoneEmailEdit->setAlert(false);
         } else {
             m_phoneEmailEdit->setAlert(true);
-            m_phoneEmailEdit->showAlertMessage(tr("Phone/Email format is not correct!"), m_repeatPasswordEdit, 2000);
+            m_phoneEmailEdit->showAlertMessage(tr("Phone/Email format is incorrect"), m_repeatPasswordEdit, 2000);
         }
     }
 }
@@ -270,14 +270,6 @@ void ResetPasswordDialog::onVerificationCodeLineEditFocusChanged(bool onFocus)
         if (isContentEmpty(m_verificationCodeEdit)) {
             return;
         }
-        //        m_isCodeCorrect = verifyVerficationCode();
-        //        if (m_isCodeCorrect) {
-        //            m_verificationCodeEdit->setEnabled(false);
-        //            m_verificationCodeEdit->setAlert(false);
-        //        } else {
-        //            m_verificationCodeEdit->setAlert(true);
-        //            m_verificationCodeEdit->showAlertMessage(tr("Verify verification code failed!"), m_verificationCodeEdit, 2000);
-        //        }
     }
 }
 
@@ -323,12 +315,12 @@ void ResetPasswordDialog::onResetPasswordBtnClicked()
         m_verificationCodeEdit->setAlert(false);
     } else {
         m_verificationCodeEdit->setAlert(true);
-        m_verificationCodeEdit->showAlertMessage(tr("Verify verification code failed!"), m_verificationCodeEdit, 2000);
+        m_verificationCodeEdit->showAlertMessage(tr("Wrong verification code"), m_verificationCodeEdit, 2000);
         return;
     }
     if (m_newPasswordEdit->text() != m_repeatPasswordEdit->text()) {
         m_repeatPasswordEdit->setAlert(true);
-        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match!"), m_repeatPasswordEdit, 2000);
+        m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
         return;
     }
     for (auto c : m_newPasswordEdit->text()) {
@@ -372,43 +364,11 @@ void ResetPasswordDialog::setScreenGeometry(const QRect &screenGeometry)
     m_screenGeometry = screenGeometry;
 }
 
-void ResetPasswordDialog::clearInfo()
-{
-    m_phoneEmailEdit->clear();
-    m_phoneEmailEdit->setAlert(false);
-    m_verificationCodeEdit->clear();
-    m_verificationCodeEdit->setAlert(false);
-    m_sendCodeBtn->setText(tr("Required Verification Code"));
-    m_newPasswordEdit->clear();
-    m_newPasswordEdit->setAlert(false);
-    m_repeatPasswordEdit->clear();
-    m_repeatPasswordEdit->setAlert(false);
-    m_passwordTipsEdit->clear();
-    m_passwordTipsEdit->setAlert(false);
-    m_newPasswdLevelText->setText("");
-    DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
-    switch (type) {
-    case DGuiApplicationHelper::UnknownType:
-        break;
-    case DGuiApplicationHelper::LightType:
-        m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH;
-        break;
-    case DGuiApplicationHelper::DarkType:
-        m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_DEEP_MODE_PATH;
-        break;
-    }
-    QImage img;
-    img.load(m_newPasswdLevelIconModePath);
-    m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(img));
-    m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(img));
-    m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(img));
-}
-
 bool ResetPasswordDialog::isContentEmpty(DLineEdit *edit)
 {
     if (edit->text().isEmpty()) {
         edit->setAlert(true);
-        edit->showAlertMessage(tr("Content cannot be empty"), edit, 2000);
+        edit->showAlertMessage(tr("It cannot be empty"), edit, 2000);
     } else {
         edit->setAlert(false);
     }
@@ -539,10 +499,10 @@ bool ResetPasswordDialog::requestVerficationCode()
         int code = parseError(retResetCaptcha.error().message());
         if (code == UNREGISTERED) {
             m_phoneEmailEdit->setAlert(true);
-            m_phoneEmailEdit->showAlertMessage(tr("Phone/Email not registered!"), m_repeatPasswordEdit, 2000);
+            m_phoneEmailEdit->showAlertMessage(tr("Phone/Email not registered"), m_repeatPasswordEdit, 2000);
         } else {
             DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                     tr("request verification code failed!"));
+                                                     tr("Failed to get the code"));
         }
         return false;
     }
@@ -591,7 +551,7 @@ void ResetPasswordDialog::quit()
 {
     DFloatingMessage *m_resetPasswordFloatingMessage = new DFloatingMessage(DFloatingMessage::MessageType::TransientType);
     m_resetPasswordFloatingMessage->setIcon(QIcon::fromTheme("dialog-ok"));
-    m_resetPasswordFloatingMessage->setMessage(tr("Successfully reset, please log in and unlock with the new password!"));
+    m_resetPasswordFloatingMessage->setMessage(tr("Successfully reset, please log in and unlock with the new password"));
     m_resetPasswordFloatingMessage->setDuration(2000);
     DMessageManager::instance()->sendMessage(this, m_resetPasswordFloatingMessage);
     QTimer::singleShot(3000, [this]{ this->close(); });
@@ -602,9 +562,10 @@ void ResetPasswordDialog::onReadFromServerChanged(int fd)
     if(fd != filein.handle())
         return;
     char buffer[1024];
-    read(filein.handle(), buffer, 1024);
+    ssize_t n = read(filein.handle(), buffer, 1024);
+    buffer[n]='\0';
     QString content = buffer;
-    if (content == "success") {
+    if (content.startsWith("success")) {
         quit();
     } else {
         DMessageManager::instance()->sendMessage(this, QIcon::fromTheme("dialog-warning"), content);

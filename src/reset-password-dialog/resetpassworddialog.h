@@ -54,7 +54,6 @@ public:
 
     QRect screenGeometry() const;
     void setScreenGeometry(const QRect &screenGeometry);
-    void clearInfo();
 protected:
     void showEvent(QShowEvent *event);
     void mouseMoveEvent(QMouseEvent *event);

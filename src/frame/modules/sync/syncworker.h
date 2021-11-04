@@ -30,7 +30,12 @@ public Q_SLOTS:
     void logoutUser();
     void setAutoSync(bool autoSync);
     void licenseStateChangeSlot();
-
+    void getUOSID(QString &uosid);
+    void getUUID(QString &uuid);
+    void localBindCheck(const QString &uosid, const QString &uuid, QString &ubid);
+    void getHostName(QString &hostName);
+    void bindAccount(const QString &uuid, const QString &hostName, QString &ubid);
+    void unBindAccount(const QString &ubid, bool &ret);
 private:
     void onSyncModuleStateChanged(const QString& module, bool enable);
     void onStateChanged(const IntString& state);
@@ -41,6 +46,7 @@ private:
     SyncModel *m_model;
     SyncInter *m_syncInter;
     DeepinId *m_deepinId_inter;
+    QDBusInterface *m_syncHelperInter;
 };
 }
 }

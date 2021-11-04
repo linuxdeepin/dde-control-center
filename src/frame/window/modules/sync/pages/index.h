@@ -68,7 +68,12 @@ Q_SIGNALS:
     void requestSetAutoSync(bool enable) const;
     void requestLogout() const;
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
-
+    void requestUOSID(QString &uosid);
+    void requestUUID(QString &uuid);
+    void requestLocalBindCheck(const QString &uosid, const QString &uuid, QString &ubid);
+    void requestHostName(QString &hostName);
+    void requestBindAccount(const QString &uuid, const QString &hostName, QString &ubid);
+    void requestUnBindAccount(const QString &ubid, bool &ret);
 private:
     void onListViewClicked(const QModelIndex &index);
     void onStateChanged(const std::pair<qint32, QString> &state);

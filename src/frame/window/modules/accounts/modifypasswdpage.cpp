@@ -508,5 +508,5 @@ void ModifyPasswdPage::onCheckBindFailed()
 {
     DMessageManager::instance()->sendMessage(this,
                                              style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                             tr("network error"));
+                                             tr("Network error"));
 }

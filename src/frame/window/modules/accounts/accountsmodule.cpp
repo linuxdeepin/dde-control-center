@@ -209,8 +209,8 @@ void AccountsModule::onShowPasswordPage(User *account)
     connect(w, &ModifyPasswdPage::requestSetPasswordHint, m_accountsWorker, &AccountsWorker::setPasswordHint);
     connect(w, &ModifyPasswdPage::requestUOSID, m_accountsWorker, &AccountsWorker::getUOSID);
     connect(w, &ModifyPasswdPage::requestUUID, m_accountsWorker, &AccountsWorker::getUUID);
-    connect(w, &ModifyPasswdPage::requestLocalBindCheck, m_accountsWorker, &AccountsWorker::LocalBindCheck);
-    connect(w, &ModifyPasswdPage::requestStartResetPasswordExec, m_accountsWorker, &AccountsWorker::StartResetPasswordExec);
+    connect(w, &ModifyPasswdPage::requestLocalBindCheck, m_accountsWorker, &AccountsWorker::localBindCheck);
+    connect(w, &ModifyPasswdPage::requestStartResetPasswordExec, m_accountsWorker, &AccountsWorker::startResetPasswordExec);
 
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);

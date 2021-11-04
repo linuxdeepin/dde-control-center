@@ -6,6 +6,9 @@
 #include <QFutureWatcher>
 #include <QtConcurrent>
 #include <DSysInfo>
+#include <unistd.h>
+#include <org_freedesktop_hostname1.h>
+#include <ddbussender.h>
 
 DCORE_USE_NAMESPACE
 
@@ -19,6 +22,7 @@ SyncWorker::SyncWorker(SyncModel *model, QObject *parent)
     , m_model(model)
     , m_syncInter(new SyncInter(SYNC_INTERFACE, "/com/deepin/sync/Daemon", QDBusConnection::sessionBus(), this))
     , m_deepinId_inter(new DeepinId(SYNC_INTERFACE, "/com/deepin/deepinid", QDBusConnection::sessionBus(), this))
+    , m_syncHelperInter(new QDBusInterface("com.deepin.sync.Helper", "/com/deepin/sync/Helper", "com.deepin.sync.Helper", QDBusConnection::systemBus(), this))
 {
     m_syncInter->setSync(false, false);
     m_deepinId_inter->setSync(false, false);
@@ -160,6 +164,92 @@ void SyncWorker::licenseStateChangeSlot()
 
     QFuture<void> future = QtConcurrent::run(this, &SyncWorker::getLicenseState);
     watcher->setFuture(future);
+}
+
+void SyncWorker::getUOSID(QString &uosid)
+{
+    if (!m_syncHelperInter->isValid()) {
+        qWarning() << "syncHelper interface:" << m_syncHelperInter->lastError();
+    }
+    QDBusReply<QString> retUOSID = m_syncHelperInter->call("UOSID");
+    if (retUOSID.error().message().isEmpty()) {
+        uosid = retUOSID.value();
+    } else {
+        qWarning() << retUOSID.error().message();
+    }
+}
+
+void SyncWorker::getUUID(QString &uuid)
+{
+    QDBusInterface accountsInter("com.deepin.daemon.Accounts",
+                                 QString("/com/deepin/daemon/Accounts/User%1").arg(getuid()),
+                                 "com.deepin.daemon.Accounts.User",
+                                 QDBusConnection::systemBus());
+    if (!accountsInter.isValid()) {
+        qWarning() << "accounts interface:" << accountsInter.lastError();
+    }
+    QVariant retUUID = accountsInter.property("UUID");
+    uuid = retUUID.toString();
+}
+
+void SyncWorker::localBindCheck(const QString &uosid, const QString &uuid, QString &ubid)
+{
+    QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call("LocalBindCheck", uosid, uuid);
+    if (!m_syncHelperInter->isValid()) {
+        return;
+    }
+    if (retLocalBindCheck.error().message().isEmpty()) {
+        ubid = retLocalBindCheck.value();
+    } else {
+        qWarning() << "UOSID:" << uosid;
+        qWarning() << "uuid:" << uuid;
+        qWarning() << retLocalBindCheck.error().message();
+    }
+}
+
+void SyncWorker::getHostName(QString &hostName)
+{
+    org::freedesktop::hostname1 hostnameInter("org.freedesktop.hostname1",
+                                              "/org/freedesktop/hostname1",
+                                              QDBusConnection::systemBus());
+    hostName = hostnameInter.staticHostname();
+}
+
+void SyncWorker::bindAccount(const QString &uuid, const QString &hostName, QString &ubid)
+{
+    QDBusPendingReply<QString> retUBID = DDBusSender()
+                                         .service("com.deepin.deepinid")
+                                         .interface("com.deepin.deepinid")
+                                         .path("/com/deepin/deepinid")
+                                         .method("BindLocalUUid").arg(uuid).arg(hostName)
+                                         .call();
+    retUBID.waitForFinished();
+    if (retUBID.error().message().isEmpty()) {
+        ubid = retUBID.value();
+        qDebug() << "Bind success:" << ubid;
+    } else {
+        qWarning() << "uuid:" << uuid << "HostName:" << hostName;
+        qWarning() << "Bind failed:" << retUBID.error().message();
+    }
+}
+
+void SyncWorker::unBindAccount(const QString &ubid, bool &ret)
+{
+    QDBusPendingReply<QString> retUnBoundle = DDBusSender()
+                                              .service("com.deepin.deepinid")
+                                              .interface("com.deepin.deepinid")
+                                              .path("/com/deepin/deepinid")
+                                              .method("UnBindLocalUUid").arg(ubid)
+                                              .call();
+    retUnBoundle.waitForFinished();
+    if (retUnBoundle.error().message().isEmpty()) {
+        qDebug() << "unBind success:" << retUnBoundle.value();
+        ret = true;
+    } else {
+        qWarning() << "ubid:" << ubid;
+        qWarning() << "unBind failed:" << retUnBoundle.error().message();
+        ret = false;
+    }
 }
 
 void SyncWorker::getLicenseState()

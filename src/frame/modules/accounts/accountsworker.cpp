@@ -236,7 +236,7 @@ void AccountsWorker::getUUID(QString &uuid)
     uuid = retUUID.toString();
 }
 
-void AccountsWorker::LocalBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid)
+void AccountsWorker::localBindCheck(dcc::accounts::User *user, const QString &uosid, const QString &uuid, QString &ubid)
 {
     if (!m_syncHelperInter->isValid()) {
         return;
@@ -251,7 +251,7 @@ void AccountsWorker::LocalBindCheck(dcc::accounts::User *user, const QString &uo
     }
 }
 
-void AccountsWorker::StartResetPasswordExec(User *user)
+void AccountsWorker::startResetPasswordExec(User *user)
 {
     qWarning() << "begin setpassword";
     AccountsUser *userInter = m_userInters.value(user);

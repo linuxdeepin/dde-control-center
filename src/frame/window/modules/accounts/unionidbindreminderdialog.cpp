@@ -26,7 +26,7 @@
 DCORE_USE_NAMESPACE
 
 UnionIDBindReminderDialog::UnionIDBindReminderDialog(QWidget *parent)
-    : DDialog(tr("The user acount is not linked to Union ID"),
+    : DDialog(tr("The user account is not linked to Union ID"),
               tr("To reset passwords, you should authenticate your Union ID first. Click \"Go to Link\" to finish the settings."))
 {
     setParent(parent);

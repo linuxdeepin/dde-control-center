@@ -38,6 +38,12 @@ SyncWidget::SyncWidget(QWidget *parent)
     connect(m_indexPage, &IndexPage::requestSetAutoSync, this, &SyncWidget::requestSetAutoSync);
     connect(m_indexPage, &IndexPage::requestLogout, this, &SyncWidget::requestLogoutUser);
     connect(m_indexPage, &IndexPage::requestSetModuleState, this, &SyncWidget::requestSetModuleState);
+    connect(m_indexPage, &IndexPage::requestUOSID, this, &SyncWidget::requestUOSID);
+    connect(m_indexPage, &IndexPage::requestUUID, this, &SyncWidget::requestUUID);
+    connect(m_indexPage, &IndexPage::requestLocalBindCheck, this, &SyncWidget::requestLocalBindCheck);
+    connect(m_indexPage, &IndexPage::requestHostName, this, &SyncWidget::requestHostName);
+    connect(m_indexPage, &IndexPage::requestBindAccount, this, &SyncWidget::requestBindAccount);
+    connect(m_indexPage, &IndexPage::requestUnBindAccount, this, &SyncWidget::requestUnBindAccount);
     connect(m_cnonlyPage, &LogoutPage::requestLogout, this, &SyncWidget::requestLogoutUser);
 }
 
