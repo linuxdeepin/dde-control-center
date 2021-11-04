@@ -13,7 +13,7 @@ SafeUpdateItem::SafeUpdateItem(QWidget *parent)
 void SafeUpdateItem::init()
 {
     setIcon(":/update/updatev20/dcc_safe_update.svg");
-    setClassifyUpdateType(SystemUpdate);
+    setClassifyUpdateType(SecurityUpdate);
     m_controlWidget->setDetailEnable(false);
     m_controlWidget->setShowMoreButtonVisible(false);
     m_controlWidget->setVersionVisible(false);

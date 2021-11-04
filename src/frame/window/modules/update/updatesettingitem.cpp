@@ -100,7 +100,8 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
 
     switch (m_status) {
     case UpdatesStatus::UpdatesAvailable:
-        m_controlWidget->showButton(false);
+        m_controlWidget->showUpdateProcess(false);
+        m_controlWidget->setUpdateButtonVisible(true);
         setVisible(true);
         break;
     case UpdatesStatus::Downloading:

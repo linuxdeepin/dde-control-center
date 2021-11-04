@@ -674,7 +674,20 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
     QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
     m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
 
-    m_updateSize = m_systemUpdateItem->updateSize() + m_storeUpdateItem->updateSize() + m_safeUpdateItem->updateSize() + m_unknownUpdateItem->updateSize();
+    auto refreshUpdateSize = [ = ](UpdateSettingItem * updateItem) {
+        if (updateItem->status() == UpdatesStatus::UpdatesAvailable
+                || updateItem->status() == UpdatesStatus::Downloading
+                || updateItem->status() == UpdatesStatus::DownloadPaused
+                || updateItem->status() == UpdatesStatus::UpdateFailed) {
+            m_updateSize += updateItem->updateSize();
+        }
+    };
+
+    refreshUpdateSize(m_systemUpdateItem);
+    refreshUpdateSize(m_storeUpdateItem);
+    refreshUpdateSize(m_safeUpdateItem);
+    refreshUpdateSize(m_unknownUpdateItem);
+
     if (m_updateSize == 0) {
         m_CheckAgainBtn->setEnabled(false);
     }
@@ -743,6 +756,11 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     refreshUpdateSize(m_storeUpdateItem);
     refreshUpdateSize(m_safeUpdateItem);
     refreshUpdateSize(m_unknownUpdateItem);
+
+    if(m_updateSize <= 0){
+        m_updateSize = 0;
+        m_CheckAgainBtn->setEnabled(false);
+    }
 
     QString updateSize = formatCap(m_updateSize);
     updateSize = tr("Size") + ": " + updateSize;

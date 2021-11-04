@@ -149,11 +149,6 @@ void UpdateWorker::init()
     m_abRecoveryInter = new RecoveryInter("com.deepin.ABRecovery", "/com/deepin/ABRecovery", QDBusConnection::systemBus(), this);
     m_iconTheme = new Appearance("com.deepin.daemon.Appearance", "/com/deepin/daemon/Appearance", QDBusConnection::sessionBus(), this);
 
-    const QList<QDBusObjectPath> jobs = m_managerInter->jobList();
-    if (jobs.count() > 0) {
-        setUpdateInfo();
-    }
-
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
     m_powerInter->setSync(false);
@@ -241,6 +236,8 @@ void UpdateWorker::activate()
     m_model->setLastCheckUpdateTime(checkTime);
     m_model->setAutoCheckUpdateCircle(static_cast<int>(interval));
 
+    m_managerInter->setSync(true);
+    m_updateInter->setSync(true);
     m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     m_model->setAutoInstallUpdates(m_updateInter->autoInstallUpdates());
@@ -259,8 +256,15 @@ void UpdateWorker::activate()
     setOnBattery(m_powerInter->onBattery());
     setBatteryPercentage(m_powerInter->batteryPercentage());
     // setSystemBatteryPercentage(m_powerSystemInter->batteryPercentage());
-    onJobListChanged(m_managerInter->jobList());
 
+    const QList<QDBusObjectPath> jobs = m_managerInter->jobList();
+    if (jobs.count() > 0) {
+        setUpdateInfo();
+    }
+
+    onJobListChanged(m_managerInter->jobList());
+    m_managerInter->setSync(false);
+    m_updateInter->setSync(false);
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
 #endif
