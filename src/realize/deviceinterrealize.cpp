@@ -519,6 +519,11 @@ void WirelessDeviceInterRealize::updateActiveInfo()
     DeviceInterRealize::updateActiveInfo(m_activeAccessPoints);
 }
 
+QList<WirelessConnection *> WirelessDeviceInterRealize::wirelessItems() const
+{
+    return m_connections;
+}
+
 void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
 {
     bool enabledHotspotOld = hotspotIsEnabled();

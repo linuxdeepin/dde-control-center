@@ -42,7 +42,6 @@ class DeviceInterRealize : public NetworkDeviceRealize
 
 public:
     inline bool isEnabled() const { return m_enabled; }                                          // 当前的网卡是否启用
-    virtual bool isConnected() const = 0;                                                        // 当前网络的网络是否处于连接状态
     inline QString interface() const { return m_data.value("Interface").toString(); }            // 返回设备上的Interface
     inline QString driver() const { return m_data.value("Driver").toString(); }                  // 驱动，对应于备上返回值的Driver
     inline bool managed() const { return m_data.value("Managed").toBool(); }                     // 对应于设备上返回值的Managed
@@ -67,6 +66,7 @@ protected:
     NetworkInter *networkInter();
     void updateDeviceInfo(const QJsonObject &info);
     void initDeviceInfo();
+    virtual bool isConnected() const = 0;                                                        // 当前网络的网络是否处于连接状态
     virtual void updateConnection(const QJsonArray &info) = 0;
     virtual QString deviceKey() = 0;                                                             // 返回设备对应的key值
     virtual void setDeviceEnabledStatus(const bool &enabled);
@@ -96,10 +96,10 @@ private:
 public:
     bool connectNetwork(WiredConnection *connection) override;                                    // 连接网络，连接成功抛出deviceStatusChanged信号
     void disconnectNetwork() override;                                                            // 断开网络连接
-    bool isConnected() const override;                                                            // 是否连接网络，重写基类的虚函数
     QList<WiredConnection *> wiredItems() const override;                                         // 有线网络连接列表
 
 private:
+    bool isConnected() const override;                                                            // 是否连接网络，重写基类的虚函数
     void updateConnection(const QJsonArray &info) override;
     void updateActiveInfo(const QList<QJsonObject> &info) override;
     QString deviceKey() override;
@@ -118,7 +118,6 @@ class WirelessDeviceInterRealize : public DeviceInterRealize
     friend class NetworkInterProcesser;
 
 public:
-    bool isConnected() const override;                                                           // 是否连接网络，重写基类的虚函数
     QList<AccessPoints *> accessPointItems() const override;                                     // 当前网卡上所有的网络列表
     void scanNetwork() override;                                                                 // 重新加载所有的无线网络列表
     void connectNetwork(const AccessPoints *item) override;                                      // 连接网络，连接成功抛出deviceStatusChanged信号
@@ -131,10 +130,12 @@ protected:
     ~WirelessDeviceInterRealize() override;
 
 private:
+    bool isConnected() const override;                                                           // 是否连接网络，重写基类的虚函数
     AccessPoints *findAccessPoint(const QString &ssid);
     WirelessConnection *findConnectionByAccessPoint(const AccessPoints *accessPoint);
     void syncConnectionAccessPoints();
     void updateActiveInfo();
+    QList<WirelessConnection *> wirelessItems() const override;                                  // 无线网络连接列表
 
 protected:
     void updateConnection(const QJsonArray &info) override;
