@@ -145,6 +145,43 @@ QWidget *DCCNetworkModule::moduleWidget()
     return m_indexWidget;
 }
 
+int DCCNetworkModule::load(const QString &path)
+{
+    if (!m_indexWidget)
+        active();
+
+    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+    QStringList devPaths = path.split(",");
+    if (devPaths.size() > 1) {
+        for (NetworkDeviceBase *dev: devices) {
+            if (dev->path() == devPaths.at(0)) {
+                showDeviceDetailPage(dev, devPaths.at(1));
+                m_indexWidget->setIndexFromPath(devPaths.at(0));
+                return 0;
+            }
+        }
+    }
+
+    for (NetworkDeviceBase *dev: devices) {
+        if (dev->path() == path) {
+            showDeviceDetailPage(dev);
+            m_indexWidget->setIndexFromPath(path);
+            return 0;
+        }
+    }
+
+    QStringList pathList = path.split("/");
+    int index = m_indexWidget->gotoSetting(pathList.at(0));
+
+    QString searchPath = "";
+    if (pathList.count() > 1)
+        searchPath = pathList[1];
+
+    m_indexWidget->initSetting(index == -1 ? 0 : index, searchPath);
+
+    return index == -1 ? -1 : 0;
+}
+
 void DCCNetworkModule::removeConnEditPageByDevice(NetworkDeviceBase *dev)
 {
     if (m_connEditPage && dev->path() == m_connEditPage->devicePath()) {

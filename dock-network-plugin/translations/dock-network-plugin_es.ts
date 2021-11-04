@@ -244,7 +244,7 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Failed</source>
-        <translation>Falló</translation>
+        <translation>Fallido</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
@@ -268,6 +268,87 @@
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
+        <source>Obtaining IP address</source>
+        <translation>Obteniendo dirección IP</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkProcesser</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network</source>
+        <translation>Red cableada</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network %1</source>
+        <translation>Red cableada %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network</source>
+        <translation>Red inalámbrica</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network %1</source>
+        <translation>Red inalámbrica %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkDeviceRealize</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Disconnected</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connecting</source>
+        <translation>Conectando</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Authenticating</source>
+        <translation>Autentificando</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining address</source>
+        <translation>Obtención de la dirección</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected</source>
+        <translation>Conectado</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Failed</source>
+        <translation>Fallido</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Device disabled</source>
+        <translation>Dispositivo deshabilitado</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected but no Internet access</source>
+        <translation>Conectado pero sin acceso a Internet</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Not connected</source>
+        <translation>Sin conexión</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Network cable unplugged</source>
+        <translation>Cable de red desconectado</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
         <translation>Obteniendo dirección IP</translation>
     </message>

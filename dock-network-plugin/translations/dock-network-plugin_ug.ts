@@ -272,4 +272,85 @@
         <translation>ئادرېسى ئېرىشىش IP </translation>
     </message>
 </context>
+<context>
+    <name>dde::network::NetworkProcesser</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network</source>
+        <translation>سىملىق تور</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network %1</source>
+        <translation>سىملىق تور%1</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network</source>
+        <translation>سىمسىز تور</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network %1</source>
+        <translation>سىمسىز تور%1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkDeviceRealize</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Disconnected</source>
+        <translation>ئۈزۈلدى </translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connecting</source>
+        <translation>ئۇلىنىۋاتىدۇ</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Authenticating</source>
+        <translation>دەلىللەۋاتىدۇ</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining address</source>
+        <translation>ئادرېسىغا ئېرىشىۋاتىدۇ</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected</source>
+        <translation>ئۇلاندى</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Failed</source>
+        <translation>مەغلۇب بولدى</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Device disabled</source>
+        <translation>ئۈسكۈنە ئىشلىتىش چەكلەندى </translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected but no Internet access</source>
+        <translation>تورغا ئۇلاندى،ئەمما تورنى زىيارەت قىلالمىدى</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Not connected</source>
+        <translation>ئۇلانمىدى</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Network cable unplugged</source>
+        <translation>تور سىمى ئۇلانمىغان </translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining IP address</source>
+        <translation>IP ئادرېسىغا ئېرىشىش </translation>
+    </message>
+</context>
 </TS>

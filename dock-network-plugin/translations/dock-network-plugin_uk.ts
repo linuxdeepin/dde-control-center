@@ -272,4 +272,85 @@
         <translation>Отримуємо IP-адресу</translation>
     </message>
 </context>
+<context>
+    <name>dde::network::NetworkProcesser</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network</source>
+        <translation>Дротова мережа</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network %1</source>
+        <translation>Дротова мережа %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network</source>
+        <translation>Бездротова мережа</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network %1</source>
+        <translation>Бездротова мережа %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkDeviceRealize</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Disconnected</source>
+        <translation>Роз&apos;єднано</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connecting</source>
+        <translation>З&apos;єднання</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Authenticating</source>
+        <translation>Розпізнавання</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining address</source>
+        <translation>Отримання адреси</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected</source>
+        <translation>З&apos;єднано</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Failed</source>
+        <translation>Помилка</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Device disabled</source>
+        <translation>Пристрій вимкнено</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected but no Internet access</source>
+        <translation>З&apos;єднано, але немає доступу до інтернету</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Not connected</source>
+        <translation>Не з&apos;єднано</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Network cable unplugged</source>
+        <translation>Кабель мережі від&apos;єднано</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining IP address</source>
+        <translation>Отримуємо IP-адресу</translation>
+    </message>
+</context>
 </TS>

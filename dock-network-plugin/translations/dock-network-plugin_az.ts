@@ -272,4 +272,85 @@
         <translation>İP ünvanlarının alınması</translation>
     </message>
 </context>
+<context>
+    <name>dde::network::NetworkProcesser</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network</source>
+        <translation>Simli şəbəkə</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network %1</source>
+        <translation>Simli şəbəkəsi %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network</source>
+        <translation>Simsiz şəbəkə</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network %1</source>
+        <translation>Simsiz şəbəkə %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkDeviceRealize</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Disconnected</source>
+        <translation>Bağlantı kəsildi</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connecting</source>
+        <translation>Qoşulur...</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Authenticating</source>
+        <translation>Doğrulanır</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining address</source>
+        <translation>Ünvan alınır</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected</source>
+        <translation>Qoşuldu</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Failed</source>
+        <translation>Uğursuz</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Device disabled</source>
+        <translation>Cihaz söndürülüb</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected but no Internet access</source>
+        <translation>Qoşulub, lakin internetə giriş yoxdur</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Not connected</source>
+        <translation>Bağlantı yoxdur</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Network cable unplugged</source>
+        <translation>Şəbəkə kabeli çıxarılıb</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining IP address</source>
+        <translation>İP ünvanları alınır</translation>
+    </message>
+</context>
 </TS>

@@ -335,7 +335,6 @@
         <location filename="../hotspotpage.cpp"/>
         <source>Create Hotspot</source>
         <translation>添加熱點</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -440,6 +439,7 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>DSL</source>
         <translation>DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
@@ -494,6 +494,19 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>Personal Hotspot</source>
         <translation>個人熱點</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wired Network</source>
+        <translation>有線網絡</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wireless Network</source>
+        <translation>無線網絡</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
 <context>
@@ -608,6 +621,7 @@
         <location filename="../pppoepage.cpp"/>
         <source>Create PPPoE Connection</source>
         <translation>創建PPPoE連接</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <location filename="../pppoepage.cpp"/>
@@ -1469,11 +1483,13 @@
         <location filename="../vpnpage.cpp"/>
         <source>Create VPN</source>
         <translation>創建</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Import VPN</source>
         <translation>導入VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
@@ -1921,6 +1937,7 @@
         <location filename="../wiredpage.cpp"/>
         <source>Add Network Connection</source>
         <translation>添加網絡連接</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
@@ -1939,7 +1956,6 @@
         <location filename="../wirelesspage.cpp"/>
         <source>Wireless Network Adapter</source>
         <translation>無線網卡</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>

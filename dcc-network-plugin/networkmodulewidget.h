@@ -87,6 +87,7 @@ public:
     void setIndexFromPath(const QString &path);
     void setLastDevicePath(const QString &path);
     void setCloseHotspotFromHotspotPage();
+    void initSetting(const int settingIndex, const QString &searchPath);
 
 Q_SIGNALS:
     void requestShowVpnPage(const QString &path = "") const;

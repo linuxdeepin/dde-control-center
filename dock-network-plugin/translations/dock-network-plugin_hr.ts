@@ -272,4 +272,85 @@
         <translation>Dobivam IP adresu</translation>
     </message>
 </context>
+<context>
+    <name>dde::network::NetworkProcesser</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network</source>
+        <translation>Žična mreža</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network %1</source>
+        <translation>Žična mreža %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network</source>
+        <translation>Bežična mreža</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network %1</source>
+        <translation>Bežična mreža %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkDeviceRealize</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Disconnected</source>
+        <translation>Odspojeno</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connecting</source>
+        <translation>Povezujem se</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Authenticating</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining address</source>
+        <translation>Dobivanje adrese</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected</source>
+        <translation>Spojeno</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Failed</source>
+        <translation>Neuspjelo</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Device disabled</source>
+        <translation>Uređaj je onemogućen</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected but no Internet access</source>
+        <translation>Spojen ali nema pristupa internetu</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Not connected</source>
+        <translation>Nije spojeno</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Network cable unplugged</source>
+        <translation>Mrežni kabel je isključen</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining IP address</source>
+        <translation>Dobivam IP adresu</translation>
+    </message>
+</context>
 </TS>

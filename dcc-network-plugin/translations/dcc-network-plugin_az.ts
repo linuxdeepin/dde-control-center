@@ -335,7 +335,6 @@
         <location filename="../hotspotpage.cpp"/>
         <source>Create Hotspot</source>
         <translation>Qoşulma nöqtəsi yaratmaq</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -440,6 +439,7 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>DSL</source>
         <translation>DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
@@ -494,6 +494,19 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>Personal Hotspot</source>
         <translation>Fərdi qoşulma nöqtəsi</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wired Network</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wireless Network</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
 <context>
@@ -608,6 +621,7 @@
         <location filename="../pppoepage.cpp"/>
         <source>Create PPPoE Connection</source>
         <translation>PPPoE bağlantısı yaratmaq</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <location filename="../pppoepage.cpp"/>
@@ -1469,11 +1483,13 @@
         <location filename="../vpnpage.cpp"/>
         <source>Create VPN</source>
         <translation>VPN yaratmaq</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Import VPN</source>
         <translation>VPN idxal etmək</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
@@ -1921,6 +1937,7 @@
         <location filename="../wiredpage.cpp"/>
         <source>Add Network Connection</source>
         <translation>Şəbəkə bağlantısı əlavə et</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
@@ -1939,7 +1956,6 @@
         <location filename="../wirelesspage.cpp"/>
         <source>Wireless Network Adapter</source>
         <translation>Simsiz şəbəkə uzlaşdırıcısı</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>
@@ -2154,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Simli şəbəkə</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Simli şəbəkəsi %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Simsiz şəbəkə</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Simsiz şəbəkə %1</translation>
     </message>
 </context>
 <context>
@@ -2177,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantı kəsildi</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Qoşulur...</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Doğrulanır</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Ünvan alınır</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Qoşuldu</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Uğursuz</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Cihaz söndürülüb</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>Qoşulub, lakin internetə giriş yoxdur</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantı yoxdur</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Şəbəkə kabeli çıxarılıb</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>İP ünvanları alınır</translation>
     </message>
 </context>
 </TS>

@@ -234,7 +234,7 @@
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
         <source>Obtaining address</source>
-        <translation>Cím megszerzése</translation>
+        <translation>Cím lekérése</translation>
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
@@ -268,6 +268,87 @@
     </message>
     <message>
         <location filename="../../src/networkdevicebase.cpp"/>
+        <source>Obtaining IP address</source>
+        <translation>IP cím lekérése</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkProcesser</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network</source>
+        <translation>Vezetékes hálózat </translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network %1</source>
+        <translation>Vezetékes hálózat %1</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network</source>
+        <translation>Vezeték nélküli hálózat</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network %1</source>
+        <translation>Vezeték nélküli hálózat %1 </translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkDeviceRealize</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Disconnected</source>
+        <translation>Szétkapcsolva</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connecting</source>
+        <translation>Csatlakozás</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Authenticating</source>
+        <translation>Hitelesítés</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining address</source>
+        <translation>Cím lekérése</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected</source>
+        <translation>Csatlakozva</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Failed</source>
+        <translation>Sikertelen</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Device disabled</source>
+        <translation>Eszköz letiltva</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected but no Internet access</source>
+        <translation>Csatlakoztatva, de nincs internet hozzáférés</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Not connected</source>
+        <translation>Nincs csatlakozva</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Network cable unplugged</source>
+        <translation>A hálózati kábel kihúzva</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
         <translation>IP cím lekérése</translation>
     </message>

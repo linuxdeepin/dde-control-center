@@ -4,7 +4,7 @@
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Application Proxy</source>
-        <translation>Proxy para aplicaciones</translation>
+        <translation>Proxy de aplicación</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
@@ -335,7 +335,6 @@
         <location filename="../hotspotpage.cpp"/>
         <source>Create Hotspot</source>
         <translation>Crear conexión compartida</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -440,6 +439,7 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>DSL</source>
         <translation>DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
@@ -456,7 +456,7 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Application Proxy</source>
-        <translation>Proxy para aplicaciones</translation>
+        <translation>Proxy de aplicación</translation>
         <extra-contents_path>/network/Application Proxy</extra-contents_path>
     </message>
     <message>
@@ -494,6 +494,19 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>Personal Hotspot</source>
         <translation>Compartir conexión personal</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wired Network</source>
+        <translation>Red cableada</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wireless Network</source>
+        <translation>Red inalámbrica</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
 <context>
@@ -608,6 +621,7 @@
         <location filename="../pppoepage.cpp"/>
         <source>Create PPPoE Connection</source>
         <translation>Crear conexión PPPoE</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <location filename="../pppoepage.cpp"/>
@@ -793,7 +807,7 @@
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
         <source>Pwd Options</source>
-        <translation>Opc. contras.</translation>
+        <translation>Opciones de Pwd</translation>
     </message>
     <message>
         <location filename="../sections/secret8021xsection.cpp"/>
@@ -970,7 +984,7 @@
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
         <source>Customize Gateway Port</source>
-        <translation>Personalizar puerta de enlace</translation>
+        <translation>Personalizar puerto de la puerta de enlace</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnadvopenvpnsection.cpp"/>
@@ -1469,11 +1483,13 @@
         <location filename="../vpnpage.cpp"/>
         <source>Create VPN</source>
         <translation>Crear VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Import VPN</source>
         <translation>Importar VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
@@ -1921,6 +1937,7 @@
         <location filename="../wiredpage.cpp"/>
         <source>Add Network Connection</source>
         <translation>Añadir conexión de red</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
@@ -1939,7 +1956,6 @@
         <location filename="../wirelesspage.cpp"/>
         <source>Wireless Network Adapter</source>
         <translation>Tarjeta de red inalámbrica</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>
@@ -2154,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Red cableada</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Red cableada %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Red cableada</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Red inalámbrica %1</translation>
     </message>
 </context>
 <context>
@@ -2177,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Desconectado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Conectando</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Autentificando</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Obtención de la dirección</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Conectado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Fallido</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivo deshabilitado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>Conectado pero sin acceso a Internet</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Sin conexión</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Cable de red desconectado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>Obteniendo dirección IP</translation>
     </message>
 </context>
 </TS>

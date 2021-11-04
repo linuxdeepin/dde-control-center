@@ -335,7 +335,6 @@
         <location filename="../hotspotpage.cpp"/>
         <source>Create Hotspot</source>
         <translation>Створіть точку доступу</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -440,6 +439,7 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>DSL</source>
         <translation>DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
@@ -494,6 +494,19 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>Personal Hotspot</source>
         <translation>Особиста точка доступу</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wired Network</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wireless Network</source>
+        <translation type="unfinished"/>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
 <context>
@@ -608,6 +621,7 @@
         <location filename="../pppoepage.cpp"/>
         <source>Create PPPoE Connection</source>
         <translation>Створити PPPoE з&apos;єднання</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <location filename="../pppoepage.cpp"/>
@@ -1469,11 +1483,13 @@
         <location filename="../vpnpage.cpp"/>
         <source>Create VPN</source>
         <translation>Створити VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Import VPN</source>
         <translation>Імпортувати VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
@@ -1921,6 +1937,7 @@
         <location filename="../wiredpage.cpp"/>
         <source>Add Network Connection</source>
         <translation>Додати підключення до мережі</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
@@ -1939,7 +1956,6 @@
         <location filename="../wirelesspage.cpp"/>
         <source>Wireless Network Adapter</source>
         <translation>Бездротова Мережева Карта</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>
@@ -2154,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Дротова мережа</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Дротова мережа %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Бездротова мережа</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Бездротова мережа %1</translation>
     </message>
 </context>
 <context>
@@ -2177,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Роз&apos;єднано</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>З&apos;єднання</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Розпізнавання</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Отримання адреси</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>З&apos;єднано</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Помилка</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Пристрій вимкнено</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>З&apos;єднано, але немає доступу до інтернету</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Не з&apos;єднано</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Кабель мережі від&apos;єднано</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>Отримуємо IP-адресу</translation>
     </message>
 </context>
 </TS>

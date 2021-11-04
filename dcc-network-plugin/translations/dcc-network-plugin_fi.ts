@@ -335,7 +335,6 @@
         <location filename="../hotspotpage.cpp"/>
         <source>Create Hotspot</source>
         <translation>Luo tukiasema</translation>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -440,6 +439,7 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>DSL</source>
         <translation>DSL</translation>
+        <extra-contents_path>/network/DSL</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
@@ -494,6 +494,19 @@
         <location filename="../networkmodulewidget.cpp"/>
         <source>Personal Hotspot</source>
         <translation>Jaettu tukiasema</translation>
+        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wired Network</source>
+        <translation>Kaapeli</translation>
+        <extra-contents_path>/network/Wired Network</extra-contents_path>
+    </message>
+    <message>
+        <location filename="../networkmodulewidget.cpp"/>
+        <source>Wireless Network</source>
+        <translation>Langaton verkko</translation>
+        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
 <context>
@@ -608,6 +621,7 @@
         <location filename="../pppoepage.cpp"/>
         <source>Create PPPoE Connection</source>
         <translation>Luo PPPoE yhteys</translation>
+        <extra-contents_path>/network/DSL/Create PPPoE Connection</extra-contents_path>
     </message>
     <message>
         <location filename="../pppoepage.cpp"/>
@@ -1469,11 +1483,13 @@
         <location filename="../vpnpage.cpp"/>
         <source>Create VPN</source>
         <translation>Luo VPN</translation>
+        <extra-contents_path>/network/VPN/Create VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
         <source>Import VPN</source>
         <translation>Tuo VPN</translation>
+        <extra-contents_path>/network/VPN/Import VPN</extra-contents_path>
     </message>
     <message>
         <location filename="../vpnpage.cpp"/>
@@ -1921,6 +1937,7 @@
         <location filename="../wiredpage.cpp"/>
         <source>Add Network Connection</source>
         <translation>Lisää verkkoyhteys</translation>
+        <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
         <location filename="../wiredpage.cpp"/>
@@ -1939,7 +1956,6 @@
         <location filename="../wirelesspage.cpp"/>
         <source>Wireless Network Adapter</source>
         <translation>Langaton verkkokortti</translation>
-        <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>
@@ -2154,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Kiinteä verkko</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Kaapeli %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Langaton verkko</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Langaton verkko: %1</translation>
     </message>
 </context>
 <context>
@@ -2177,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Katkaistu</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistää</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Todennus</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Osoitteen haku</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistetty</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Epäonnistui</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Laite suljettu</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistetty, mutta ei internet osoitetta</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Ei yhteyttä</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Verkkokaapeli irrotettu</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>Hakee IP osoitetta</translation>
     </message>
 </context>
 </TS>

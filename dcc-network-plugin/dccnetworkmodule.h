@@ -63,6 +63,8 @@ public:
 
     QWidget *moduleWidget() Q_DECL_OVERRIDE;
 
+    int load(const QString &path);
+
 private:
     void removeConnEditPageByDevice(NetworkDeviceBase *dev);
 
@@ -72,7 +74,7 @@ private Q_SLOTS:
 
     void showPppPage(const QString &searchPath);
     void showVPNPage(const QString &searchPath);
-    void showDeviceDetailPage(NetworkDeviceBase *dev, const QString &searchPath);
+    void showDeviceDetailPage(NetworkDeviceBase *dev, const QString &searchPath = QString());
     void showChainsProxyPage();
     void showProxyPage();
     void showHotspotPage();

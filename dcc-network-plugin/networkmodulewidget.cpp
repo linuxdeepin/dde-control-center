@@ -335,6 +335,15 @@ void NetworkModuleWidget::setCloseHotspotFromHotspotPage()
     m_closeHotspotFromPage = true;
 }
 
+void NetworkModuleWidget::initSetting(const int settingIndex, const QString &searchPath)
+{
+    if (!searchPath.isEmpty())
+        m_modelpages->itemFromIndex(m_modelpages->index(settingIndex, 0))->setData(searchPath, SearchPath);
+
+    m_lvnmpages->setCurrentIndex(m_modelpages->index(settingIndex, 0));
+    m_lvnmpages->clicked(m_modelpages->index(settingIndex, 0));
+}
+
 int NetworkModuleWidget::gotoSetting(const QString &path)
 {
     PageType type = PageType::NonePage;
@@ -348,7 +357,7 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
         type = PageType::VPNPage;
     } else if (path == QStringLiteral("DSL")) {
         type = PageType::DSLPage;
-    } else if (path.contains("Wireless Network")) {
+    } else if (path.contains("WirelessPage")) {
         type = PageType::WirelessPage;
     } else if (path.contains("Wired Network")) {
         type = PageType::WiredPage;
