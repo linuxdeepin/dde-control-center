@@ -25,7 +25,6 @@
 #include "modules/defapp/defaultappsmodule.h"
 #include "modules/keyboard/keyboardmodule.h"
 #include "modules/power/powermodule.h"
-#include "modules/unionid/unionidmodule.h"
 #include "modules/sound/soundmodule.h"
 #include "modules/update/updatemodule.h"
 #include "modules/mouse/mousemodule.h"
@@ -307,7 +306,6 @@ void MainWindow::initAllModule(const QString &m)
 
     m_bInit = true;
     using namespace sync;
-    using namespace unionid;
     using namespace datetime;
     using namespace defapp;
     using namespace network;
@@ -326,14 +324,8 @@ void MainWindow::initAllModule(const QString &m)
     using namespace commoninfo;
     using namespace notification;
 
-    QString idType = "Union ID";
-    if (DSysInfo::isCommunityEdition())
-        idType = "Deepin ID";
-
     m_modules = {
         { new AccountsModule(this), tr("Accounts")},
-        // 原union ID 暂时隐藏
-        // { new UnionidModule(this), "Union ID"},
         { new SyncModule(this), DSysInfo::isCommunityEdition() ? "Deepin ID" : "Union ID"},
         { new DisplayModule(this), tr("Display")},
         { new TouchscreenModule(this), tr("Touch Screen")},

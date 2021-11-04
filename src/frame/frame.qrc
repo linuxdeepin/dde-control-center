@@ -15,13 +15,6 @@
         <file>themes/dark/icons/all_settings_off.png</file>
         <file>themes/dark/icons/bluetooth_on.png</file>
         <file>themes/dark/icons/bluetooth_off.png</file>
-        <file>quick_control/wifi/wireless/security.svg</file>
-        <file>quick_control/wifi/wireless/wireless-0-symbolic.svg</file>
-        <file>quick_control/wifi/wireless/wireless-2-symbolic.svg</file>
-        <file>quick_control/wifi/wireless/wireless-4-symbolic.svg</file>
-        <file>quick_control/wifi/wireless/wireless-6-symbolic.svg</file>
-        <file>quick_control/wifi/wireless/wireless-8-symbolic.svg</file>
-        <file>quick_control/wifi/wireless/wireless-10-symbolic.svg</file>
         <file>themes/dark/icons/remove.png</file>
         <file>themes/dark/icons/copy_mode.png</file>
         <file>themes/dark/icons/extend_mode.png</file>
