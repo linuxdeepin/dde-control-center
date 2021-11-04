@@ -56,8 +56,13 @@ EthernetSection::EthernetSection(WiredSetting::Ptr wiredSetting, QString devPath
             continue;
 
         WiredDevice::Ptr wDevice = device.staticCast<WiredDevice>();
-        if (wDevice->uni() != devicePath())
-            continue;
+        if (m_devicePath.isEmpty() || m_devicePath == "/") {
+            if (!wDevice->managed())
+                continue;
+        } else {
+            if (wDevice->uni() != m_devicePath)
+                continue;
+        }
 
         /* Alt:  permanentHardwareAddress to get real hardware address which is connot be changed */
         QString mac = wDevice->permanentHardwareAddress();
@@ -135,21 +140,8 @@ void EthernetSection::initUI()
 
     if (m_macStrMap.values().contains(macAddr))
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(macAddr));
-    else {
-        // 设置当前设备的硬件地址为默认值
+    else
         m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(NotBindValue));
-
-        if (m_devicePath != "/") {
-            WiredDevice::Ptr dev = findNetworkInterface(m_devicePath).staticCast<WiredDevice>();
-            if (dev) {
-                QString mac = dev->permanentHardwareAddress();
-                if (mac.isEmpty())
-                    mac = dev->hardwareAddress();
-
-                m_deviceMacComboBox->setCurrentIndex(m_deviceMacComboBox->findData(mac.remove(":")));
-            }
-        }
-    }
 
     m_clonedMac->setTitle(tr("Cloned MAC Addr"));
     QString tmp = QString(m_wiredSetting->clonedMacAddress().toHex()).toUpper();
