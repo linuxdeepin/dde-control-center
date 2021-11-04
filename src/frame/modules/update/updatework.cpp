@@ -389,6 +389,7 @@ void UpdateWorker::setUpdateInfo()
     } else {
         qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
         m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
+        m_model->setAllClassifyUpdateStatus(UpdatesStatus::Default);
         for (auto item : updateInfoMap.keys()) {
             if (updateInfoMap.value(item) != nullptr) {
                 m_model->setClassifyUpdateTypeStatus(item, UpdatesStatus::UpdatesAvailable);
@@ -954,9 +955,11 @@ void UpdateWorker::onRecoveryFinshed(bool successed)
 {
 
     auto requestUpdate = [ = ](ClassifyUpdateType type)->bool{
-        if (m_model->getSystemUpdateStatus() == UpdatesStatus::WaitRecoveryBackup)
+        if (m_model->getClassifyUpdateStatus(type) == UpdatesStatus::WaitRecoveryBackup
+                || m_model->getClassifyUpdateStatus(type) == UpdatesStatus::RecoveryBackingup
+                || m_model->getClassifyUpdateStatus(type) == UpdatesStatus::RecoveryBackingSuccessed)
         {
-            distUpgrade(ClassifyUpdateType::SystemUpdate);
+            distUpgrade(type);
             return true;
         }
         return  false;

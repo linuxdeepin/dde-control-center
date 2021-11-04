@@ -621,8 +621,10 @@ void UpdateCtrlWidget::showUpdateInfo()
     if (!m_isUpdateingAll) {
         m_fullUpdateBtn->setVisible(true);
     } else {
-        m_updateTipsLab->setVisible(true);
         m_spinner->setVisible(true);
+        m_spinner->start();
+        m_updateingTipsLab->setVisible(true);
+        m_fullUpdateBtn->setVisible(false);
     }
 
     m_updateTipsLab->setVisible(true);
