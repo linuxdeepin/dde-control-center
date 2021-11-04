@@ -360,13 +360,6 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
         m_modelpages->removeRow(0);
     }
 
-    for (int i = 0; i < m_modelpages->rowCount(); ++i) {
-        if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == HotspotPage) {
-            m_modelpages->removeRow(i);
-            break;
-        }
-    }
-
     QList<QStandardItem *> devits;
 
     int wiredDevice = 0;
@@ -440,6 +433,14 @@ void NetworkModuleWidget::onDeviceListChanged(const QList<NetworkDevice *> &devi
     if (have_ap) {
         //~ contents_path /network/Personal Hotspot
         //~ child_page Personal Hotspot
+        // 先移除之前的个人热点二级菜单，再去创建新的
+        for (int i = 0; i < m_modelpages->rowCount(); ++i) {
+            if (m_modelpages->item(i)->data(SectionRole).value<PageType>() == HotspotPage) {
+                m_modelpages->removeRow(i);
+                break;
+            }
+        }
+
         DStandardItem *hotspotit = new DStandardItem(tr("Personal Hotspot"));
         hotspotit->setData(QVariant::fromValue(HotspotPage), SectionRole);
         hotspotit->setIcon(QIcon::fromTheme("dcc_hotspot"));
