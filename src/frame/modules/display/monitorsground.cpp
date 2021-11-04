@@ -95,6 +95,8 @@ void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
 {
     m_setMergeMode = (model->displayMode() == MERGE_MODE);
 
+    Q_EMIT setEffectiveReminderVisible(false, m_nEffectiveTime);
+    m_effectiveTimer->stop();
     qDeleteAll(m_monitors.keys());
     m_monitors.clear();
     m_lstItems.clear();
