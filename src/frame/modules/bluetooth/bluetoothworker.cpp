@@ -38,7 +38,9 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
     , m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this))
     , m_model(model)
     , m_connectingAudioDevice(false)
+    , m_state(m_bluetoothInter->state())
 {
+    connect(m_bluetoothInter, &DBusBluetooth::StateChanged, this, &BluetoothWorker::onStateChanged);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterAdded, this, &BluetoothWorker::addAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterRemoved, this, &BluetoothWorker::removeAdapter);
     connect(m_bluetoothInter, &DBusBluetooth::AdapterPropertiesChanged, this, &BluetoothWorker::onAdapterPropertiesChanged);
@@ -110,6 +112,15 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
 BluetoothWorker::~BluetoothWorker()
 {
 
+}
+
+void BluetoothWorker::onStateChanged(uint state)
+{
+    //当蓝牙状态由0变成大于0时，强制刷新蓝牙列表
+    if (!m_state && state > 0)
+        refresh(true);
+
+    m_state = state;
 }
 
 BluetoothWorker &BluetoothWorker::Instance(bool sync)

@@ -84,6 +84,7 @@ private Q_SLOTS:
     void removeDevice(const QString &json);
 
     void refresh(bool beFirst = false);
+    void onStateChanged(uint state);
 
 private:
     explicit BluetoothWorker(BluetoothModel *model, bool sync = false);
@@ -95,6 +96,7 @@ private:
     BluetoothModel *m_model;
     QMap<QDBusObjectPath, PinCodeDialog*> m_dialogs;
     bool m_connectingAudioDevice;
+    uint m_state;
 };
 
 } // namespace bluetooth
