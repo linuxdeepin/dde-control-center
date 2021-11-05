@@ -153,8 +153,8 @@ private Q_SLOTS:
     void onUnkonwnUpdateInstallStatusChanged(const QString &value);
 
 private:
-    QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfo();
-    UpdateItemInfo *getItemInfo(QJsonValue jsonValue);
+    QMap<ClassifyUpdateType, UpdateItemInfo*> getAllUpdateInfo();
+    UpdateItemInfo* getItemInfo(QJsonValue jsonValue);
     void setUpdateInfo();
 
     inline bool checkDbusIsValid();

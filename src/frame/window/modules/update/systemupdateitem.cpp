@@ -24,7 +24,7 @@ SystemUpdateItem::SystemUpdateItem(QWidget *parent)
 
 void SystemUpdateItem::showMore()
 {
-    m_controlWidget->showButton(false);
+    m_controlWidget->setShowMoreButtonVisible(false);
     for (int i = 0; i < m_updateDetailItemList.count(); i++) {
         m_updateDetailItemList.at(i)->setVisible(true);
         m_line->setVisible(true);

@@ -85,6 +85,14 @@ UpdateModel::UpdateModel(QObject *parent)
 
 }
 
+UpdateModel::~UpdateModel(){
+    deleteUpdateInfo(m_systemUpdateInfo);
+    deleteUpdateInfo(m_appUpdateInfo);
+    deleteUpdateInfo(m_safeUpdateInfo);
+    deleteUpdateInfo(m_unknownUpdateInfo);
+
+}
+
 void UpdateModel::setMirrorInfos(const MirrorInfoList &list)
 {
     m_mirrorList = list;
@@ -569,29 +577,6 @@ void UpdateModel::setSystemUpdateStatus(const UpdatesStatus &systemUpdateStatus)
 
 }
 
-UpdateModel::~UpdateModel()
-{
-    if (m_systemUpdateInfo != nullptr) {
-        delete m_systemUpdateInfo;
-        m_systemUpdateInfo = nullptr;
-    }
-
-    if (m_appUpdateInfo != nullptr) {
-        delete m_appUpdateInfo;
-        m_appUpdateInfo = nullptr;
-    }
-
-    if (m_safeUpdateInfo != nullptr) {
-        delete m_safeUpdateInfo;
-        m_safeUpdateInfo = nullptr;
-    }
-
-    if (m_unknownUpdateInfo != nullptr) {
-        delete m_unknownUpdateInfo;
-        m_unknownUpdateInfo = nullptr;
-    }
-}
-
 void UpdateModel::setClassifyUpdateTypeStatus(ClassifyUpdateType type, UpdatesStatus status)
 {
     switch (type) {
@@ -622,7 +607,7 @@ void UpdateModel::setAllClassifyUpdateStatus(UpdatesStatus status)
 
 void UpdateModel::deleteUpdateInfo(UpdateItemInfo *updateItemInfo)
 {
-    if (!updateItemInfo) {
+    if (updateItemInfo != nullptr) {
         updateItemInfo->deleteLater();
         updateItemInfo = nullptr;
     }

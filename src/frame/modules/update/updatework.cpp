@@ -422,14 +422,18 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
     const QJsonObject &object = updateInfoDoc.object();
 
     QJsonValue systemUpdateItemInfo =  object.value("systemUpdateInfo");
-    UpdateItemInfo *systemItemInfo = getItemInfo(systemUpdateItemInfo);
+
+    UpdateItemInfo* systemItemInfo = getItemInfo(systemUpdateItemInfo);
     if (systemItemInfo != nullptr && m_systemPackages.count() > 0 && m_model->autoCheckSystemUpdates()) {
         systemItemInfo->setName(tr("System Updates"));
         systemItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_systemPackages));
         resultMap.insert(ClassifyUpdateType::SystemUpdate, systemItemInfo);
+    }else {
+        delete systemItemInfo;
+        systemItemInfo = nullptr;
     }
 
-    UpdateItemInfo *appItemInfo = getItemInfo(object.value("appUpdateInfo"));
+    UpdateItemInfo* appItemInfo = getItemInfo(object.value("appUpdateInfo"));
     if (appItemInfo != nullptr && m_appPackages.count() > 0 && m_model->autoCheckAppUpdates()) {
         QString app1Name = getAppName(0);
         QString app2Name = getAppName(1);
@@ -438,20 +442,29 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
         appItemInfo->setName(QString(tr("%1 apps updates available (such as %2, %3, %4)")).arg(m_appPackages.count()).arg(app1Name).arg(app2Name).arg(app3Name));
         appItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_appPackages));
         resultMap.insert(ClassifyUpdateType::AppStoreUpdate, appItemInfo);
+    }else {
+        delete appItemInfo;
+        appItemInfo = nullptr;
     }
 
-    UpdateItemInfo *safeItemInfo = getItemInfo(object.value("safeUpdateInfo"));
+    UpdateItemInfo*  safeItemInfo = getItemInfo(object.value("safeUpdateInfo"));
     if (safeItemInfo != nullptr && m_safePackages.count() > 0 && m_model->autoCheckSecureUpdates()) {
         safeItemInfo->setName(tr("Security Updates"));
         safeItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_safePackages));
         resultMap.insert(ClassifyUpdateType::SecurityUpdate, safeItemInfo);
+    }else {
+        delete safeItemInfo;
+        safeItemInfo = nullptr;
     }
 
-    UpdateItemInfo *unkownItemInfo = getItemInfo(object.value("otherUpdateInfo"));
+    UpdateItemInfo*  unkownItemInfo = getItemInfo(object.value("otherUpdateInfo"));
     if (unkownItemInfo != nullptr && m_unknownPackages.count() > 0) {
         unkownItemInfo->setName(tr("Unknown Apps Updates"));
         unkownItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_unknownPackages));
         resultMap.insert(ClassifyUpdateType::UnknownUpdate, unkownItemInfo);
+    }else {
+        delete unkownItemInfo;
+        unkownItemInfo = nullptr;
     }
 
     return  resultMap;
@@ -459,11 +472,10 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 
 UpdateItemInfo *UpdateWorker::getItemInfo(QJsonValue jsonValue)
 {
-    UpdateItemInfo *itemInfo = new UpdateItemInfo;
-
     if (jsonValue.isNull()) {
         return nullptr;
     }
+    UpdateItemInfo * itemInfo = new UpdateItemInfo;
 
     itemInfo->setPackageId(jsonValue.toObject().value("package_id").toString());
     itemInfo->setName(jsonValue.toObject().value("name_CN").toString());
@@ -478,15 +490,18 @@ UpdateItemInfo *UpdateWorker::getItemInfo(QJsonValue jsonValue)
         QList<DetailInfo> itemList ;
         int count = array.count();
         for (int i = 0; i < count; ++i) {
-            DetailInfo *detailInfo = new DetailInfo;
-            detailInfo->name = array.at(i).toObject().value("name").toString();
-            detailInfo->updateTime = array.at(i).toObject().value("update_time").toString();
-            detailInfo->info = array.at(i).toObject().value("detail_info").toString();
-            detailInfo->link = array.at(i).toObject().value("link").toString();
-            if (detailInfo->name.isEmpty() && detailInfo->updateTime.isEmpty() && detailInfo->info.isEmpty() && detailInfo->link.isEmpty()) {
+            DetailInfo detailInfo;
+            detailInfo.name = array.at(i).toObject().value("name").toString();
+            detailInfo.updateTime = array.at(i).toObject().value("update_time").toString();
+            detailInfo.info = array.at(i).toObject().value("detail_info").toString();
+            detailInfo.link = array.at(i).toObject().value("link").toString();
+            if (detailInfo.name.isEmpty()
+                    && detailInfo.updateTime.isEmpty()
+                    && detailInfo.info.isEmpty()
+                    && detailInfo.link.isEmpty()) {
                 continue;
             }
-            itemList.append(*detailInfo);
+            itemList.append(detailInfo);
         }
 
         if (itemList.count() > 0) {
