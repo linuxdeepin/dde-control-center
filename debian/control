@@ -44,11 +44,11 @@ Depends: ${misc:Depends},${shlibs:Depends},
 Description: the plugin of network for dde-dock
  dde-dock-plugin module
 
-Package: dde-network-dialog
+Package: dde-network-list
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the executable of network
- dde-network-dialog module
+ dde-network-list module
 
 Package: dde-shell-network-plugin
 Architecture: any
