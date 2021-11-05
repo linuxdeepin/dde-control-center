@@ -212,7 +212,6 @@ void LoginOptionsModule::onShowAddFaceidVideo(const QString &driverName, const i
 
 LoginOptionsModule::~LoginOptionsModule()
 {
-    m_facedlg->deleteLater();
 }
 
 void LoginOptionsModule::onSetMainWindowEnabled(const bool isEnabled)
