@@ -63,7 +63,7 @@ public:
     void getLicenseState();
 
 Q_SIGNALS:
-    void grubEditAuthCancel();
+    void grubEditAuthCancel(bool toEnable);
     void showGrubEditAuthChanged(bool show);
 
 public Q_SLOTS:

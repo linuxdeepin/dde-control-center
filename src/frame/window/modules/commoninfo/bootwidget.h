@@ -71,7 +71,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void setEntryList(const QStringList &list);
     void onCurrentItem(const QModelIndex &curIndex);
-    void onGrubEditAuthCancel();
+    void onGrubEditAuthCancel(bool toEnable);
     void setGrubEditAuthVisible(bool show);
     void showGrubEditAuthPasswdDialog(bool isReset);
 

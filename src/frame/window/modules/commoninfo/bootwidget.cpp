@@ -246,8 +246,8 @@ void BootWidget::setModel(CommonInfoModel *model)
     });
 
     connect(m_grubVerification, &dcc::widgets::SwitchWidget::checkedChanged, this, [&](const bool &value){
-        if (value)
-            m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && value);
+        Q_UNUSED(value);
+        m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && m_grubVerification->checked());
     });
 
     // modified by wuchuanfei 20190909 for 8613
@@ -319,11 +319,10 @@ void BootWidget::onCurrentItem(const QModelIndex &curIndex)
     }
 }
 
-void BootWidget::onGrubEditAuthCancel()
+void BootWidget::onGrubEditAuthCancel(bool toEnable)
 {
-    bool isChecked = m_grubVerification->checked();
-    m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && !isChecked);
-    m_grubVerification->setChecked(!isChecked);
+    m_grubVerification->setChecked(toEnable);
+    m_grubModifyPasswdLink->setVisible(m_commonInfoModel->isShowGrubEditAuth() && toEnable);
 }
 
 void BootWidget::setGrubEditAuthVisible(bool show)
@@ -436,6 +435,11 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
             if (!isReset) {
                 m_grubVerification->setChecked(false);
             }
+        }
+    });
+    QObject::connect(m_grubEditAuthDialog, &DDialog::closed, [=](){
+        if (!isReset) {
+            m_grubVerification->setChecked(false);
         }
     });
     m_grubEditAuthDialog->exec();

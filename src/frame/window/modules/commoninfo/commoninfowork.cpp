@@ -219,7 +219,7 @@ void CommonInfoWork::disableGrubEditAuth()
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this](QDBusPendingCallWatcher * w) {
         if (w->isError()) {
-            Q_EMIT grubEditAuthCancel();
+            Q_EMIT grubEditAuthCancel(true);
         }
         w->deleteLater();
     });
@@ -232,7 +232,7 @@ void CommonInfoWork::onSetGrubEditPasswd(const QString &password, const bool &is
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=](QDBusPendingCallWatcher * w) {
         if (w->isError() && !isReset) {
-            Q_EMIT grubEditAuthCancel();
+            Q_EMIT grubEditAuthCancel(false);
         }
         w->deleteLater();
     });
@@ -466,7 +466,9 @@ QString CommonInfoWork::passwdEncrypt(const QString &password)
     static QProcess pbkdf2;
     pbkdf2.start("bash", {"-c", pbkdf2_cmd.arg(password).arg(password)});
     pbkdf2.waitForFinished();
-    return pbkdf2.readAllStandardOutput();
+    QString pwdOut = pbkdf2.readAllStandardOutput();
+    pwdOut[pwdOut.length() - 1] = '\0';
+    return pwdOut;
 }
 
 void CommonInfoWork::licenseStateChangeSlot()
