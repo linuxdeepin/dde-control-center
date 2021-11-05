@@ -286,7 +286,8 @@ bool ChainsProxyPage::isIPV4(const QString &ipv4)
         return false;
     }
 
-    return true;
+    QRegExp regExpIP("((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])[\\.]){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])");
+    return regExpIP.exactMatch(ipv4);
 }
 
 bool ChainsProxyPage::eventFilter(QObject *watched, QEvent *event)
