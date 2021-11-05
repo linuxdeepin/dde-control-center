@@ -1,80 +1,80 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_HK" version="2.1">
 <context>
     <name>DeviceControllItem</name>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation>無線網絡</translation>
     </message>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation>有線網絡</translation>
     </message>
 </context>
 <context>
     <name>NetworkPanel</name>
     <message>
         <source>Disable wired connection</source>
-        <translation>Disable wired connection</translation>
+        <translation>關閉有線網絡</translation>
     </message>
     <message>
         <source>Enable wired connection</source>
-        <translation>Enable wired connection</translation>
+        <translation>啟用有線網絡</translation>
     </message>
     <message>
         <source>Disable wireless connection</source>
-        <translation>Disable wireless connection</translation>
+        <translation>關閉無線網絡</translation>
     </message>
     <message>
         <source>Enable wireless connection</source>
-        <translation>Enable wireless connection</translation>
+        <translation>啟用無線網絡</translation>
     </message>
     <message>
         <source>Disable network</source>
-        <translation>Disable network</translation>
+        <translation>關閉網絡</translation>
     </message>
     <message>
         <source>Enable network</source>
-        <translation>Enable network</translation>
+        <translation>啟用網絡</translation>
     </message>
     <message>
         <source>Network settings</source>
-        <translation>Network settings</translation>
+        <translation>網絡設置</translation>
     </message>
 </context>
 <context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
-        <translation>Connect to hidden network</translation>
+        <translation>連接到隱藏網絡</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Wrong password</translation>
+        <translation>密碼錯誤</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation>請輸入密碼</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>Cancel</translation>
+        <translation>取 消</translation>
     </message>
     <message>
         <source>Connect</source>
         <comment>button</comment>
-        <translation>Connect</translation>
+        <translation>連 接</translation>
     </message>
     <message>
         <source>Name (SSID)</source>
-        <translation>Name (SSID)</translation>
+        <translation>請輸入網絡名稱（SSID）</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>熱點</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -82,23 +82,23 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>Protocol</translation>
+        <translation>協議</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Security Type</translation>
+        <translation>安全類型</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation>頻段</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>Channel</translation>
+        <translation>聲道</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation>接口</translation>
     </message>
     <message>
         <source>MAC</source>
@@ -110,15 +110,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>閘道器</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation>主要 DNS</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation>子網掩碼</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -126,77 +126,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation>首碼</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation>速率</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation>設備已禁用</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation>已連接網絡但無法訪問互聯網</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation>未連接</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation>未插入網線</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation>連接中</translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Authenticating</translation>
+        <translation>認證中</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>Obtaining IP address</translation>
+        <translation>獲取IP位址</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>Connected</translation>
+        <translation>已連接</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation>已切斷連接</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Failed</translation>
+        <translation>失敗</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>Obtaining address</translation>
+        <translation>獲取地址中</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation>有線網絡</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Wired Network %1</translation>
+        <translation>有線網絡 %1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation>無線網絡</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Wireless Network %1</translation>
+        <translation>無線網絡%1</translation>
     </message>
 </context>
 </TS>

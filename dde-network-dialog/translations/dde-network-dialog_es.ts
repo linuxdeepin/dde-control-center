@@ -1,80 +1,80 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="es" version="2.1">
 <context>
     <name>DeviceControllItem</name>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation>Red inalámbrica</translation>
     </message>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation>Red cableada</translation>
     </message>
 </context>
 <context>
     <name>NetworkPanel</name>
     <message>
         <source>Disable wired connection</source>
-        <translation>Disable wired connection</translation>
+        <translation>Desactivar conexión por cable</translation>
     </message>
     <message>
         <source>Enable wired connection</source>
-        <translation>Enable wired connection</translation>
+        <translation>Activar conexión por cable</translation>
     </message>
     <message>
         <source>Disable wireless connection</source>
-        <translation>Disable wireless connection</translation>
+        <translation>Desactivar conexión inalámbrica</translation>
     </message>
     <message>
         <source>Enable wireless connection</source>
-        <translation>Enable wireless connection</translation>
+        <translation>Activar conexión inalámbrica</translation>
     </message>
     <message>
         <source>Disable network</source>
-        <translation>Disable network</translation>
+        <translation>Desactivar red</translation>
     </message>
     <message>
         <source>Enable network</source>
-        <translation>Enable network</translation>
+        <translation>Activar red</translation>
     </message>
     <message>
         <source>Network settings</source>
-        <translation>Network settings</translation>
+        <translation>Ajustes de red</translation>
     </message>
 </context>
 <context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
-        <translation>Connect to hidden network</translation>
+        <translation>Conectarse a una red oculta</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Wrong password</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>Password</translation>
+        <translation>Contraseña</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>Cancel</translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Connect</source>
         <comment>button</comment>
-        <translation>Connect</translation>
+        <translation>Conectar</translation>
     </message>
     <message>
         <source>Name (SSID)</source>
-        <translation>Name (SSID)</translation>
+        <translation>Nombre (SSID)</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Punto de acceso</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -82,23 +82,23 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>Protocol</translation>
+        <translation>Protocolo</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Security Type</translation>
+        <translation>Tipo de Seguridad</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation>Banda</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>Channel</translation>
+        <translation>Canal</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation>Interfaz</translation>
     </message>
     <message>
         <source>MAC</source>
@@ -110,15 +110,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>Puerta de enlace</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation>DNS primario</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation>Máscara de red</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -126,77 +126,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation>Prefijo</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation>Velocidad</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation>Dispositivo deshabilitado</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation>Conectado pero sin acceso a Internet</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation>Sin conexión</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation>Cable de red desconectado</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation>Conectando</translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Authenticating</translation>
+        <translation>Autentificando</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>Obtaining IP address</translation>
+        <translation>Obteniendo dirección IP</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>Connected</translation>
+        <translation>Conectado</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation>Desconectado</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Failed</translation>
+        <translation>Fallido</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>Obtaining address</translation>
+        <translation>Obtención de la dirección</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation>Red cableada</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Wired Network %1</translation>
+        <translation>Red cableada %1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation>Red inalámbrica</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Wireless Network %1</translation>
+        <translation>Red inalámbrica %1</translation>
     </message>
 </context>
 </TS>

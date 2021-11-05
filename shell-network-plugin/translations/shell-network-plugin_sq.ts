@@ -1,92 +1,92 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="sq" version="2.1">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
-        <translation>1 new message</translation>
+        <translation>1 mesazh i ri</translation>
     </message>
 </context>
 <context>
     <name>NetworkPanel</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation>Pajisje e çaktivizuar</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation>Kablloja e rrjetit është e hequr</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation>Jo e lidhur</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation>Po bëhet lidhja</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation>E lidhur, por pa hyrje Internet</translation>
     </message>
     <message>
         <source>Connection failed</source>
-        <translation>Connection failed</translation>
+        <translation>Lidhja dështoi</translation>
     </message>
     <message>
         <source>Disable wired connection</source>
-        <translation>Disable wired connection</translation>
+        <translation>Çaktivizo lidhje me fill</translation>
     </message>
     <message>
         <source>Enable wired connection</source>
-        <translation>Enable wired connection</translation>
+        <translation>Aktivizo lidhje me fill</translation>
     </message>
     <message>
         <source>Disable wireless connection</source>
-        <translation>Disable wireless connection</translation>
+        <translation>Çaktivizo lidhje pa fill</translation>
     </message>
     <message>
         <source>Enable wireless connection</source>
-        <translation>Enable wireless connection</translation>
+        <translation>Aktivizo lidhje pa fill</translation>
     </message>
     <message>
         <source>Disable network</source>
-        <translation>Disable network</translation>
+        <translation>Çaktivizo rrjetin</translation>
     </message>
     <message>
         <source>Enable network</source>
-        <translation>Enable network</translation>
+        <translation>Aktivizo rrjetin</translation>
     </message>
     <message>
         <source>Connecting %1</source>
-        <translation>Connecting %1</translation>
+        <translation>Po lidhet %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 connected</translation>
+        <translation>%1 u lidh</translation>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%1 disconnected</translation>
+        <translation>%1 u shkëput</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation>Unable to connect %1, please check your router or net cable.</translation>
+        <translation>S’arrihet të lidhet %1, ju lutemi, kontrolloni rrugëzuesin ose kabllin tuaj të rrjetit.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation>Unable to connect %1, please keep closer to the wireless router</translation>
+        <translation>S’arrihet të lidhet %1, ju lutemi, jini pranë rrugëzuesit pa fill</translation>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation>Connection failed, unable to connect %1, wrong password</translation>
+        <translation>Lidhja dështoi, s’arrihet të lidhet %1, fjalëkalim i gabuar</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>Password is required to connect %1</translation>
+        <translation>Fjalëkalimi është i domosdoshëm për t’u lidhur %1</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation>The %1 802.11 WLAN network could not be found</translation>
+        <translation>Rrjeti %1 802.11 WLAN s’u gjet dot</translation>
     </message>
 </context>
 <context>
@@ -101,23 +101,23 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>Protocol</translation>
+        <translation>Protokoll</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Security Type</translation>
+        <translation>Lloj Sigurie</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation>Bandë</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>Channel</translation>
+        <translation>Kanal</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation>Ndërfaqe</translation>
     </message>
     <message>
         <source>MAC</source>
@@ -129,15 +129,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>Kanal</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation>DNS Parësore</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation>NetMask-ë</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -145,77 +145,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation>Parashtesë</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation>Shpejtësi</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation>Pajisje e çaktivizuar</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation>E lidhur, por pa hyrje Internet</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation>Jo e lidhur</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation>Kablloja e rrjetit është e hequr</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation>Po lidhet</translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Authenticating</translation>
+        <translation>Po bëhet mirëfilltësim</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>Obtaining IP address</translation>
+        <translation>Po merret adresë IP</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>Connected</translation>
+        <translation>E lidhur</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation>E shkëputur</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Failed</translation>
+        <translation>U dështua</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>Obtaining address</translation>
+        <translation>Po merret adresë</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation>Rrjet Me Fill</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Wired Network %1</translation>
+        <translation>Rrjet Me Fill %1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation>Rrjet Pa Fill</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Wireless Network %1</translation>
+        <translation>Rrjet Pa Fill %1</translation>
     </message>
 </context>
 </TS>

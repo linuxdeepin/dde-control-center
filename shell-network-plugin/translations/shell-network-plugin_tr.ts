@@ -1,99 +1,99 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="tr" version="2.1">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
-        <translation>1 new message</translation>
+        <translation>1 yeni ileti</translation>
     </message>
 </context>
 <context>
     <name>NetworkPanel</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation>Aygıt devre dışı</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation>Ağ kablosu takılı değil</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation>Bağlı değil</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation>Bağlanıyor</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation>Bağlı ancak İnternet erişimi yok</translation>
     </message>
     <message>
         <source>Connection failed</source>
-        <translation>Connection failed</translation>
+        <translation>Bağlantı başarısız</translation>
     </message>
     <message>
         <source>Disable wired connection</source>
-        <translation>Disable wired connection</translation>
+        <translation>Kablolu bağlantıyı devre dışı bırak</translation>
     </message>
     <message>
         <source>Enable wired connection</source>
-        <translation>Enable wired connection</translation>
+        <translation>Kablolu bağlantıyı etkinleştir</translation>
     </message>
     <message>
         <source>Disable wireless connection</source>
-        <translation>Disable wireless connection</translation>
+        <translation>Kablosuz bağlantıyı devre dışı bırak</translation>
     </message>
     <message>
         <source>Enable wireless connection</source>
-        <translation>Enable wireless connection</translation>
+        <translation>Kablosuz bağlantıyı etkinleştir</translation>
     </message>
     <message>
         <source>Disable network</source>
-        <translation>Disable network</translation>
+        <translation>Ağı devre dışı bırak</translation>
     </message>
     <message>
         <source>Enable network</source>
-        <translation>Enable network</translation>
+        <translation>Ağı etkinleştir</translation>
     </message>
     <message>
         <source>Connecting %1</source>
-        <translation>Connecting %1</translation>
+        <translation>Bağlanıyor %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 connected</translation>
+        <translation>%1 bağlandı</translation>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%1 disconnected</translation>
+        <translation>%1 bağlantısı kesildi</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation>Unable to connect %1, please check your router or net cable.</translation>
+        <translation>%1 bağlantısı kurulamadı, lütfen yönlendiricinizi ya da ağ kablonuzu denetleyin.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation>Unable to connect %1, please keep closer to the wireless router</translation>
+        <translation> %1&apos;e bağlanılamıyor, lütfen kablosuz yönlendiriciye yakın olun</translation>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation>Connection failed, unable to connect %1, wrong password</translation>
+        <translation>Bağlantı başarısız, parola yanlış olduğundan %1 bağlantısı kurulamadı</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>Password is required to connect %1</translation>
+        <translation>%1&apos;e bağlanmak için parola gerekli</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation>The %1 802.11 WLAN network could not be found</translation>
+        <translation>%1  802.11 WLAN ağı bulunamadı</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Bağlantı Noktası</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -101,23 +101,23 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>Protocol</translation>
+        <translation>Protokol</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Security Type</translation>
+        <translation>Güvenlik Türü</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation>Bant</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>Channel</translation>
+        <translation>Kanal</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation>Arayüz</translation>
     </message>
     <message>
         <source>MAC</source>
@@ -129,15 +129,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>Ağ Geçidi</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation>Birincil DNS</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation>Ağ Maskesi</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -145,77 +145,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation>Ön Ek</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation>Hız</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation>Aygıt devre dışı</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation>Bağandı ancak İnternet erişimi yok</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation>Bağlı değil</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation>Ağ kablosu takılı değil</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation>Bağlanıyor</translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Authenticating</translation>
+        <translation>Kimlik doğrulanıyor</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>Obtaining IP address</translation>
+        <translation>IP adresi elde ediliyor</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>Connected</translation>
+        <translation>Bağlandı</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation>Bağlantı kesildi</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Failed</translation>
+        <translation>Başarısız</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>Obtaining address</translation>
+        <translation>Adres elde ediliyor</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation>Kablolu Ağ</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Wired Network %1</translation>
+        <translation>Kablolu Ağ %1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation>Kablosuz Ağ</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Wireless Network %1</translation>
+        <translation>Kablosuz Ağ%1</translation>
     </message>
 </context>
 </TS>

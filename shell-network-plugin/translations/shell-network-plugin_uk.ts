@@ -1,99 +1,99 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="uk" version="2.1">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
-        <translation>1 new message</translation>
+        <translation>Одне нове повідомлення</translation>
     </message>
 </context>
 <context>
     <name>NetworkPanel</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation>Пристрій вимкнено</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation>Кабель мережі від&apos;єднано</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation>Не з&apos;єднано</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation>З&apos;єднання</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation>З&apos;єднано, але немає доступу до інтернету</translation>
     </message>
     <message>
         <source>Connection failed</source>
-        <translation>Connection failed</translation>
+        <translation>Не вдалося встановити з&apos;єднання</translation>
     </message>
     <message>
         <source>Disable wired connection</source>
-        <translation>Disable wired connection</translation>
+        <translation>Вимкнути дротове з&apos;єднання</translation>
     </message>
     <message>
         <source>Enable wired connection</source>
-        <translation>Enable wired connection</translation>
+        <translation>Увімкнути дротове з&apos;єднання</translation>
     </message>
     <message>
         <source>Disable wireless connection</source>
-        <translation>Disable wireless connection</translation>
+        <translation>Вимкнути бездротове з&apos;єднання</translation>
     </message>
     <message>
         <source>Enable wireless connection</source>
-        <translation>Enable wireless connection</translation>
+        <translation>Увімкнути бездротове з&apos;єднання</translation>
     </message>
     <message>
         <source>Disable network</source>
-        <translation>Disable network</translation>
+        <translation>Вимкнути мережу</translation>
     </message>
     <message>
         <source>Enable network</source>
-        <translation>Enable network</translation>
+        <translation>Увімкнути мережу</translation>
     </message>
     <message>
         <source>Connecting %1</source>
-        <translation>Connecting %1</translation>
+        <translation>Встановлюємо з&apos;єднання із %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 connected</translation>
+        <translation>%1 з&apos;єднано</translation>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%1 disconnected</translation>
+        <translation>%1 від&apos;єднано</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation>Unable to connect %1, please check your router or net cable.</translation>
+        <translation>Не вдалося з&apos;єднатися із %1. Будь ласка, перевірте, чи працює ваш маршрутизатор або мережевий кабель.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation>Unable to connect %1, please keep closer to the wireless router</translation>
+        <translation>Не вдалося встановити з&apos;єднання із %1. Будь ласка, підійдіть ближче до бездротового маршрутизатора.</translation>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation>Connection failed, unable to connect %1, wrong password</translation>
+        <translation>Не вдалося встановити з&apos;єднання із %1. Вказано помилковий пароль.</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>Password is required to connect %1</translation>
+        <translation>Для встановлення з&apos;єднання із %1 потрібен пароль</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation>The %1 802.11 WLAN network could not be found</translation>
+        <translation>Не вдалося знайти мережу WLAN 802.11 %1</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>Точка доступу</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -101,23 +101,23 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>Protocol</translation>
+        <translation>Протокол</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Security Type</translation>
+        <translation>Тип захисту</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>Band</translation>
+        <translation>Група</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>Channel</translation>
+        <translation>Канал</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Interface</translation>
+        <translation>Інтерфейс</translation>
     </message>
     <message>
         <source>MAC</source>
@@ -129,15 +129,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Gateway</translation>
+        <translation>Шлюз</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Primary DNS</translation>
+        <translation>Основний DNS</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Netmask</translation>
+        <translation>Маска мережі</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -145,77 +145,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Prefix</translation>
+        <translation>Префікс</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Speed</translation>
+        <translation>Швидкість</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>Device disabled</translation>
+        <translation>Пристрій вимкнено</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Connected but no Internet access</translation>
+        <translation>З&apos;єднано, але немає доступу до інтернету</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Not connected</translation>
+        <translation>Не з&apos;єднано</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>Network cable unplugged</translation>
+        <translation>Кабель мережі від&apos;єднано</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Connecting</translation>
+        <translation>З&apos;єднання</translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Authenticating</translation>
+        <translation>Розпізнавання</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>Obtaining IP address</translation>
+        <translation>Отримуємо IP-адресу</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>Connected</translation>
+        <translation>З&apos;єднано</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Disconnected</translation>
+        <translation>Роз&apos;єднано</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Failed</translation>
+        <translation>Помилка</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>Obtaining address</translation>
+        <translation>Отримання адреси</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Wired Network</translation>
+        <translation>Дротова мережа</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Wired Network %1</translation>
+        <translation>Дротова мережа %1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Wireless Network</translation>
+        <translation>Бездротова мережа</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Wireless Network %1</translation>
+        <translation>Бездротова мережа %1</translation>
     </message>
 </context>
 </TS>
