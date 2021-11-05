@@ -20,57 +20,55 @@
  */
 
 #pragma once
-#include "interface/namespace.h"
-#include "window/utils.h"
 
-#include <QModelIndex>
+#include "interface/namespace.h"
+#include "iriswidget.h"
+
+#include <DTipLabel>
 #include <QWidget>
+
+namespace dcc {
+namespace authentication {
+class CharaMangerModel;
+}
+}
 
 QT_BEGIN_NAMESPACE
 class QVBoxLayout;
-class QStandardItem;
-class QStandardItemModel;
-class QModelIndex;
+class QHBoxLayout;
+class QScrollArea;
 QT_END_NAMESPACE
-
-namespace dcc {
-namespace widgets {
-class MultiSelectListView;
-}
-}
 
 namespace DCC_NAMESPACE {
 namespace authentication {
-class LoginOptionsWidget : public QWidget
+class IrisDetailWidget : public QWidget
 {
     Q_OBJECT
-
 public:
-    explicit LoginOptionsWidget(QWidget *parent = nullptr);
-    virtual ~LoginOptionsWidget();
-
-    int showPath(const QString &path);
-    void showDefaultWidget();
-
-public Q_SLOTS:
-    void onItemClicked(const QModelIndex &index);
+    explicit IrisDetailWidget(dcc::authentication::CharaMangerModel *model, QWidget *parent = nullptr);
+    ~IrisDetailWidget();
 
 private:
-    void initUI();
-    void initMembers();
-    void initConnections();
+    void initIrisShow();
 
 Q_SIGNALS:
-    void requestShowFingerDetail();
-    void requestShowFaceIdDetail();
-    void requestShowIrisDetail();
+    void requestAddIris(const QString &driverName, const int &charaType, const QString &charaName);
+    void requestDeleteIrisItem(const int &charaType, const QString &charaName);
+    void requestRenameIrisItem(const int &charaType, const QString& oldIrisName, const QString& newIrisName);
+    void noticeEnrollCompleted(const QString &driverName, const int &CharaType);
+
+public Q_SLOTS:
+    void onDeviceStatusChanged(bool hasDevice);
 
 private:
-    QList <ListSubItem> m_menuMethod;
-    dcc::widgets::MultiSelectListView *m_deviceListView;
-    QStandardItemModel *m_deviceItemModel;
-    QModelIndex m_currentIndex;
+    dcc::authentication::CharaMangerModel *m_model;
+
+    QVBoxLayout *mainContentLayout;
+    IrisWidget *m_irisWidget;
+    QLabel *m_pNotDevice;
+    DTipLabel *m_tip;
 };
 
-}   // namespace authentication
-}   // namespace dccV20
+}
+}
+

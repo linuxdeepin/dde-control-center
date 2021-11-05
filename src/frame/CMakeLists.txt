@@ -276,6 +276,11 @@ set(AUTHENTICATION_FILES
     window/modules/authentication/authenticationinfoitem.cpp
     window/modules/authentication/addfaceinfodialog.cpp
     window/modules/authentication/faceinfodialog.cpp
+    # IRIS
+    window/modules/authentication/irisdetailwidget.cpp
+    window/modules/authentication/iriswidget.cpp
+    window/modules/authentication/addirisinfodialog.cpp
+    modules/authentication/widgets/irisinfowidget.cpp
 )
 
 # load accounts

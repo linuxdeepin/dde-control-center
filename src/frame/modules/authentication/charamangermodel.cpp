@@ -30,14 +30,11 @@ using namespace dcc::authentication;
 
 CharaMangerModel::CharaMangerModel(QObject *parent)
     : QObject (parent)
-    , m_faceDriverName("")
     , m_isFaceDriverVaild(false)
     , m_facesList(QStringList())
+    , m_isIrisDriverVaild(false)
+    , m_irisList(QStringList())
 {
-    m_predefineFaceNames = {
-        tr("Faceprint1"), tr("Faceprint2"), tr("Faceprint3"),
-        tr("Faceprint4"), tr("Faceprint5")
-    };
 }
 
 void CharaMangerModel::setFaceDriverVaild(bool isVaild)
@@ -58,11 +55,38 @@ void CharaMangerModel::setFaceDriverName(const QString &driverName)
 
 void CharaMangerModel::setFacesList(const QStringList &faces)
 {
-    if (faces != m_facesList) {
-        m_facesList.clear();
-        m_facesList = faces;
-        Q_EMIT facesListChanged(faces);
-    }
+    if (faces == m_facesList)
+        return;
+
+    m_facesList = faces;
+    Q_EMIT facesListChanged(faces);
+}
+
+void CharaMangerModel::setIrisDriverVaild(bool isVaild)
+{
+    if (m_isIrisDriverVaild == isVaild)
+        return;
+    m_isIrisDriverVaild = isVaild;
+
+    Q_EMIT vaildIrisDriverChanged(isVaild);
+}
+
+void CharaMangerModel::setIrisDriverName(const QString &driverName)
+{
+    if (driverName == m_irisDriverName)
+        return;
+
+    m_irisDriverName = driverName;
+}
+
+void CharaMangerModel::setIrisList(const QStringList &iris)
+{
+    if (iris == m_irisList)
+        return;
+
+    m_irisList.clear();
+    m_irisList = iris;
+    Q_EMIT irisListChanged(iris);
 }
 
 void CharaMangerModel::onEnrollStatusChanged(int code, const QString &msg)
@@ -121,6 +145,51 @@ void CharaMangerModel::onEnrollStatusChanged(int code, const QString &msg)
     default:
         break;
     }
+}
+
+void CharaMangerModel::onEnrollIrisStatusChanged(int code, const QString &msg)
+{
+    // TODO： 处理所有录入状态提示信息  未更新
+   Q_UNUSED(msg);
+   QString title = tr("Position your face inside the frame");
+   switch (code) {
+   case STATUS_IRIS_SUCCESS:
+       Q_EMIT enrollIrisInfoState(AddInfoState::Success, tr("Face enrolled"));
+       break;
+   case STATUS_IRIS_TOO_BIG:
+       break;
+   case STATUS_IRIS_TOO_SMALL:
+       title = tr("Position a human face please");
+       Q_EMIT enrollIrisStatusTips(title);
+       break;
+   case STATUS_IRIS_NO_FACE:
+       title = tr("Position your face inside the frame");
+       Q_EMIT enrollIrisStatusTips(title);
+       break;
+   case STATUS_IRIS_NOT_CLEARITY:
+       title = tr("Keep away from the camera");
+       Q_EMIT enrollIrisStatusTips(title);
+       break;
+   case STATUS_IRIS_BRIGHTNESS:
+       title = tr("Get closer to the camera");
+       Q_EMIT enrollIrisStatusTips(title);
+       break;
+   case STATUS_IRIS_EYES_CLOSE:
+       title = tr("Position your face inside the frame");
+       Q_EMIT enrollIrisStatusTips(title);
+       break;
+   case STATUS_IRIS_CANCELED:
+       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("取消"));
+       break;
+   case STATUS_IRIS_Error:
+       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("崩溃"));
+       break;
+   case STATUS_IRIS_OVERTIME:
+       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("Scan timed out"));
+       break;
+   default:
+       break;
+   }
 }
 
 

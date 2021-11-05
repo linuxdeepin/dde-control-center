@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>外圈转动</title>
+    <defs>
+        <polygon id="path-1" points="26 0 26 25 0 25 0 -1.33495908e-12"></polygon>
+        <circle id="path-3" cx="-35" cy="54" r="64"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="128" height="128" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="生物认证" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="生物认证-虹膜录入" transform="translate(-1387.000000, -150.000000)">
+            <g id="创建快捷方式备份-4" transform="translate(1281.000000, 46.000000)">
+                <g id="矩形" transform="translate(95.000000, 92.000000)">
+                    <g id="外圈转动" transform="translate(11.000000, 12.000000)">
+                        <circle id="椭圆形" cx="64" cy="64" r="64"></circle>
+                        <g id="椭圆形" transform="translate(99.000000, 10.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="蒙版"></g>
+                            <g stroke-dasharray="2,2" mask="url(#mask-2)" stroke="#0081FF" stroke-width="4">
+                                <use mask="url(#mask-4)" xlink:href="#path-3"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

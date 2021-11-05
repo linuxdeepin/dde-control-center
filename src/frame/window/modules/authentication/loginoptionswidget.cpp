@@ -111,6 +111,8 @@ void LoginOptionsWidget::initMembers()
     m_menuMethod.append({"dcc_fingerprint", tr("Fingerprint"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFingerDetail), nullptr, "authenticationFinger"});
     //~ contents_path /authentication/Face
     m_menuMethod.append({"dcc_faceid", tr("Face"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFaceIdDetail), nullptr, "authenticationFace"});
+    //~ contents_path /authentication/Iris
+    m_menuMethod.append({"dcc_iris", tr("Iris"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowIrisDetail), nullptr, "authenticationIris"});
 
     for (auto mm : m_menuMethod) {
         DStandardItem *item = new DStandardItem(mm.itemText);

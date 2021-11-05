@@ -51,7 +51,8 @@ private:
     QString getControlCenterDbusSender();
 
 Q_SIGNALS:
-    void tryStartInput(const int &fd);
+    void tryStartInputFace(const int &fd);
+    void tryStartInputIris(CharaMangerModel::AddInfoState state);
 
 public Q_SLOTS:
     void predefineDriverInfo(const QString &driverInfo);
@@ -63,7 +64,7 @@ public Q_SLOTS:
      */
     void refreshUserEnrollList(const QString &driverName, const int &CharaType);
 
-    void refreshUserFaceInfo(const QString &EnrollInfo);
+    void refreshUserInfo(const QString &EnrollInfo, const int &CharaType);
 
     void refreshDriverInfo();
 
@@ -90,8 +91,8 @@ public Q_SLOTS:
      * @param charaType 唯一值
      * @param charaName 对应名称
      */
-    void deleteFaceidItem(const int &charaType, const QString &charaName);
-    void renameFaceidItem(const int &charaType, const QString &oldName, const QString &newName);
+    void deleteCharaItem(const int &charaType, const QString &charaName);
+    void renameCharaItem(const int &charaType, const QString &oldName, const QString &newName);
 
 private:
     CharaMangerModel *m_model;
@@ -104,6 +105,10 @@ private:
     QTimer *m_stopTimer;
     QDBusPendingReply<QDBusUnixFileDescriptor>* m_fileDescriptor;
     QString m_dbusSenderID;
+    /**
+     * @brief m_currentInputCharaType  当前录入方式 注： 确保唯一性
+     */
+    int m_currentInputCharaType;
 };
 
 }

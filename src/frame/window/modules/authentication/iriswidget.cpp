@@ -1,4 +1,4 @@
-#include "facewidget.h"
+#include "iriswidget.h"
 #include "widgets/titlelabel.h"
 #include "modules/authentication/charamangermodel.h"
 
@@ -15,9 +15,9 @@ using namespace dcc;
 using namespace dcc::widgets;
 using namespace dcc::authentication;
 
-#define FACEID_NUM 5
+#define IRISID_NUM 5
 
-FaceWidget::FaceWidget(dcc::authentication::CharaMangerModel *model, QWidget *parent)
+IrisWidget::IrisWidget(dcc::authentication::CharaMangerModel *model, QWidget *parent)
     : QWidget (parent)
     , m_model(model)
     , m_listGrp(new SettingsGroup(nullptr, SettingsGroup::GroupBackground))
@@ -27,17 +27,17 @@ FaceWidget::FaceWidget(dcc::authentication::CharaMangerModel *model, QWidget *pa
     initConnect();
 }
 
-FaceWidget::~FaceWidget()
+IrisWidget::~IrisWidget()
 {
 
 }
 
-void FaceWidget::initUI()
+void IrisWidget::initUI()
 {
     m_clearBtn->setCheckable(true);
 
-    TitleLabel *facetitleLabel = new TitleLabel(tr("Faceid Password"), this);
-    TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 5 faceids"), this);
+    TitleLabel *titleLabel = new TitleLabel(tr("Iris Password"), this);
+    TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 5 iris"), this);
 
     QFont font;
     font.setPointSizeF(10);
@@ -51,7 +51,7 @@ void FaceWidget::initUI()
     QHBoxLayout *headLayout = new QHBoxLayout;
     headLayout->setSpacing(0);
     headLayout->setContentsMargins(10, 0, 10, 0);
-    headLayout->addWidget(facetitleLabel, 0, Qt::AlignLeft);
+    headLayout->addWidget(titleLabel, 0, Qt::AlignLeft);
 
     QHBoxLayout *tipLayout = new QHBoxLayout;
     tipLayout->setSpacing(10);
@@ -89,71 +89,71 @@ void FaceWidget::initUI()
     });
 }
 
-void FaceWidget::initConnect()
+void IrisWidget::initConnect()
 {
     connect(m_model, &CharaMangerModel::enrollInfoState, this, [this](){
-        Q_EMIT noticeEnrollCompleted(m_model->faceDriverName(), m_model->faceCharaType());
+        Q_EMIT noticeEnrollCompleted(m_model->irisDriverName(), m_model->irisCharaType());
     });
-    connect(m_model, &CharaMangerModel::facesListChanged, this, &FaceWidget::onFaceidListChanged);
-    onFaceidListChanged(m_model->facesList());
+    connect(m_model, &CharaMangerModel::irisListChanged, this, &IrisWidget::onIrisListChanged);
+    onIrisListChanged(m_model->irisList());
 
 }
 
-void FaceWidget::addFaceButton(const QString &newFaceName)
+void IrisWidget::addIrisButton(const QString &newIrisName)
 {
-    SettingsItem* addfaceItem = new SettingsItem(this);
-    QString strAddFace = tr("Add Face");
-    DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFace);
-    QHBoxLayout *faceLayout = new QHBoxLayout(this);
-    faceLayout->addWidget(addBtn, 0, Qt::AlignLeft);
-    addfaceItem->setLayout(faceLayout);
-    m_listGrp->insertItem(m_listGrp->itemCount(), addfaceItem);
-    addfaceItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    SettingsItem* addItem = new SettingsItem(this);
+    QString strAddIris = tr("Add Iris");
+    DCommandLinkButton *addBtn = new DCommandLinkButton(strAddIris);
+    QHBoxLayout *irisLayout = new QHBoxLayout(this);
+    irisLayout->addWidget(addBtn, 0, Qt::AlignLeft);
+    addItem->setLayout(irisLayout);
+    m_listGrp->insertItem(m_listGrp->itemCount(), addItem);
+    addItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     DFontSizeManager::instance()->bind(addBtn, DFontSizeManager::T7);
     QFontMetrics fontMetrics(font());
-    int nFontWidth = fontMetrics.width(strAddFace);
+    int nFontWidth = fontMetrics.width(strAddIris);
     addBtn->setMinimumWidth(nFontWidth);
     connect(addBtn, &DCommandLinkButton::clicked, this, [ = ] {
-        Q_EMIT requestAddFace(m_model->faceDriverName(), m_model->faceCharaType(), newFaceName);
+        Q_EMIT requestAddIris(m_model->irisDriverName(), m_model->irisCharaType(), newIrisName);
     });
 }
 
-void FaceWidget::onFaceidListChanged(const QStringList &facelist)
+void IrisWidget::onIrisListChanged(const QStringList &irislist)
 {
     m_vecItem.clear();
     m_listGrp->clear();
 
-    for (int n = 0; n < FACEID_NUM && n < facelist.size(); ++n) {
-        QString faceid = facelist.at(n);
+    for (int n = 0; n < IRISID_NUM && n < irislist.size(); ++n) {
+        QString irisid = irislist.at(n);
         auto item = new AuthenticationInfoItem(this);
-        item->setTitle(faceid);
+        item->setTitle(irisid);
         item->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         DFontSizeManager::instance()->bind(item, DFontSizeManager::T6);
         m_listGrp->appendItem(item);
-        connect(item, &AuthenticationInfoItem::removeClicked, this, [this, faceid] {
-            Q_EMIT requestDeleteFaceItem(m_model->faceCharaType(), faceid);
+        connect(item, &AuthenticationInfoItem::removeClicked, this, [this, irisid] {
+            Q_EMIT requestDeleteIrisItem(m_model->irisCharaType(), irisid);
         });
 
-        connect(item, &AuthenticationInfoItem::editTextFinished, this, [this, faceid, item, facelist, n](QString newName) {
+        connect(item, &AuthenticationInfoItem::editTextFinished, this, [this, irisid, item, irislist, n](QString newName) {
             // 没有改名，直接返回
             if (item->getTitle() == newName) {
                 return;
             }
-            for (int i = 0; i < facelist.size(); ++i) {
-                if (newName == facelist.at(i) && i != n) {
+            for (int i = 0; i < irislist.size(); ++i) {
+                if (newName == irislist.at(i) && i != n) {
                     QString errMsg = tr("The name already exists");
                     item->showAlertMessage(errMsg);
                     return;
                 }
             }
             item->setTitle(newName);
-            Q_EMIT requestRenameFaceItem(m_model->faceCharaType(), faceid, newName);
-            Q_EMIT noticeEnrollCompleted(m_model->faceDriverName(), m_model->faceCharaType());
+            Q_EMIT requestRenameIrisItem(m_model->irisCharaType(), irisid, newName);
+            Q_EMIT noticeEnrollCompleted(m_model->irisDriverName(), m_model->irisCharaType());
         });
 
-        connect(item, &AuthenticationInfoItem::editClicked, this, [this, item, facelist]() {
-            for (int k = 0; k < facelist.size(); ++k) {
+        connect(item, &AuthenticationInfoItem::editClicked, this, [this, item, irislist]() {
+            for (int k = 0; k < irislist.size(); ++k) {
                 static_cast<AuthenticationInfoItem *>(m_listGrp->getItem(k))->setEditTitle(item == m_listGrp->getItem(k));
             }
         });
@@ -165,24 +165,24 @@ void FaceWidget::onFaceidListChanged(const QStringList &facelist)
     }
     m_clearBtn->setVisible(m_listGrp->itemCount());
 
-    if (facelist.size() >= FACEID_NUM) {
+    if (irislist.size() >= IRISID_NUM) {
         return;
     }
 
     // 找到最小的名称以便作为缺省名添加
-    for (int i = 0; i < FACEID_NUM; ++i) {
+    for (int i = 0; i < IRISID_NUM; ++i) {
         bool findNotUsedThumb = false;
-        QString newName(tr("Faceprint") + QString("%1").arg(i + 1));
+        QString newName(tr("Iris") + QString("%1").arg(i + 1));
 
-        for (int n = 0; n < FACEID_NUM && n < facelist.size(); ++n) {
-            if (newName == facelist.at(n)) {
+        for (int n = 0; n < IRISID_NUM && n < irislist.size(); ++n) {
+            if (newName == irislist.at(n)) {
                 findNotUsedThumb = true;
                 break;
             }
         }
 
         if (!findNotUsedThumb) {
-            addFaceButton(newName);
+            addIrisButton(newName);
             break;
         }
     }

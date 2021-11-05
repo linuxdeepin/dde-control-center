@@ -24,6 +24,7 @@
 #include "interface/moduleinterface.h"
 #include "../../mainwindow.h"
 #include "faceinfodialog.h"
+#include "addirisinfodialog.h"
 
 namespace dcc {
 namespace authentication {
@@ -56,9 +57,11 @@ public:
 public Q_SLOTS:
     void showFingerPage();
     void showFaceidPage();
+    void showIrisPage();
     void onShowAddThumb(const QString &name, const QString &thumb);
     void onShowAddFace(const QString &driverName, const int &charaType, const QString &charaName);
     void onShowAddFaceidVideo(const QString &driverName, const int &charaType, const QString &charaName);
+    void onShowAddIris(const QString &driverName, const int &charaType, const QString &charaName);
 
 private:
     ~LoginOptionsModule();

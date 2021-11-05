@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="105px" height="105px" viewBox="0 0 105 105" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>内圈转动</title>
+    <g id="生物认证" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="生物认证-虹膜录入" transform="translate(-1400.000000, -163.000000)">
+            <g id="创建快捷方式备份-4" transform="translate(1281.000000, 46.000000)">
+                <g id="矩形" transform="translate(95.000000, 92.000000)">
+                    <g id="编组-5" transform="translate(11.000000, 12.000000)">
+                        <g id="内圈转动" transform="translate(13.000000, 13.000000)">
+                            <circle id="椭圆形" cx="52.5" cy="52.5" r="52.5"></circle>
+                            <path d="M51,102 C79.1665222,102 102,79.1665222 102,51" id="路径" stroke="#0081FF" stroke-width="6" stroke-linecap="round"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

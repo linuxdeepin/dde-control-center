@@ -39,6 +39,7 @@ CharaMangerWorker::CharaMangerWorker(CharaMangerModel *model, QObject *parent)
                                   QDBusConnection::systemBus(), this))
     , m_stopTimer(new QTimer(this))
     , m_dbusSenderID("")
+    , m_currentInputCharaType(0)
 {
     m_charaMangerInter->setSync(false);
     m_dbusSenderID = getControlCenterDbusSender();
@@ -58,7 +59,13 @@ CharaMangerWorker::CharaMangerWorker(CharaMangerModel *model, QObject *parent)
 
     // 录入时间超时 停止录入
     connect(m_stopTimer, &QTimer::timeout, [this] {
-        m_model->onEnrollStatusChanged(dcc::authentication::CharaMangerModel::EnrollStatusType::STATUS_OVERTIME, QString());
+        if (m_currentInputCharaType & FACE_CHARA) {
+            m_model->onEnrollStatusChanged(dcc::authentication::CharaMangerModel::EnrollFaceStatusType::STATUS_OVERTIME, QString());
+        }
+        if (m_currentInputCharaType & IRIS_CHARA) {
+            m_model->onEnrollIrisStatusChanged(CharaMangerModel::EnrollIrisStatusType::STATUS_IRIS_OVERTIME, QString());
+        }
+
         stopEnroll();
     });
 }
@@ -134,6 +141,7 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
     if (driInfo.begin().value() & 0) {
         // 处理界面显示空设备
         m_model->setFaceDriverVaild(false);
+        m_model->setIrisDriverVaild(false);
         return;
     }
     QMap<QString, uint>::Iterator it;
@@ -150,11 +158,16 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
             irisDriverNames.append(it.key());
     }
 
-    m_model->setFaceDriverVaild(!faceDriverNames.isEmpty());
     // 获取用户录入的数据
     if (!faceDriverNames.isEmpty()) {
+        m_model->setFaceDriverVaild(true);
         m_model->setFaceDriverName(faceDriverNames.at(0));
         refreshUserEnrollList(faceDriverNames.at(0), FACE_CHARA);
+    }
+    if (!irisDriverNames.isEmpty()) {
+        m_model->setIrisDriverVaild(true);
+        m_model->setIrisDriverName(irisDriverNames.at(0));
+        refreshUserEnrollList(irisDriverNames.at(0), IRIS_CHARA);
     }
 }
 
@@ -163,33 +176,43 @@ void CharaMangerWorker::refreshUserEnrollList(const QString &serviceName, const 
     auto call = m_charaMangerInter->List(serviceName, CharaType);
     call.waitForFinished();
 
-    if (call.isError()) {
-        qDebug() << "facePrintInter ListFaces call Error!" << call.error();
-        m_model->setFacesList(QStringList());
+    if (call.isError() || call.value().isEmpty()) {
+        qDebug() << "facePrintInter ListFaces call Error or MangerList is empty! " << call.error();
+        if (CharaType & FACE_CHARA)
+            m_model->setFacesList(QStringList());
+
+        if (CharaType & IRIS_CHARA)
+            m_model->setIrisList(QStringList());
+
         return;
     }
 
-    if (CharaType & FACE_CHARA)
-        refreshUserFaceInfo(call.value());
+    refreshUserInfo(call.value(), CharaType);
 }
 
-void CharaMangerWorker::refreshUserFaceInfo(const QString &EnrollInfo)
+void CharaMangerWorker::refreshUserInfo(const QString &EnrollInfo, const int &CharaType)
 {
-    QStringList faceidList;
+    QStringList userInfoList;
 
     QMap<QString, uint> listInfo = parseCharaNameJsonData(EnrollInfo);
     QMap<QString, uint>::Iterator it;
 
     // 遍历解析后的数据 对用户录入数据进行区分
     for (it = listInfo.begin(); it != listInfo.end(); ++it) {
-        faceidList.append(it.key());
+        userInfoList.append(it.key());
     }
 
-    if (!faceidList.isEmpty()) {
-        m_model->setFacesList(faceidList);
-    } else {
+    if (userInfoList.isEmpty()) {
+        qDebug() << "get userInfo error! ";
         m_model->setFacesList(QStringList());
+        m_model->setIrisList(QStringList());
+        return;
     }
+
+    if (CharaType & FACE_CHARA)
+        m_model->setFacesList(userInfoList);
+    if (CharaType & IRIS_CHARA)
+        m_model->setIrisList(userInfoList);
 }
 
 void CharaMangerWorker::refreshDriverInfo()
@@ -200,22 +223,34 @@ void CharaMangerWorker::refreshDriverInfo()
 
 void CharaMangerWorker::entollStart(const QString &driverName, const int &charaType, const QString &charaName)
 {
+    m_currentInputCharaType = charaType;
+
     m_fileDescriptor = new QDBusPendingReply<QDBusUnixFileDescriptor>();
     *m_fileDescriptor = m_charaMangerInter->EnrollStart(driverName, charaType, charaName);
     m_fileDescriptor->waitForFinished();
     if (m_fileDescriptor->isError()) {
-        qDebug() << "get File Descriptor error!" << m_fileDescriptor->error();
+        qDebug() << "get File Descriptor error! " << m_fileDescriptor->error();
     } else {
         m_stopTimer->start(1000 * 30);
-        Q_EMIT tryStartInput(m_fileDescriptor->value().fileDescriptor());
+
+        if (charaType & FACE_CHARA)
+            Q_EMIT tryStartInputFace(m_fileDescriptor->value().fileDescriptor());
+
+        if (charaType & IRIS_CHARA)
+            Q_EMIT tryStartInputIris(CharaMangerModel::AddInfoState::Processing);
     }
+
 }
 
 
 void CharaMangerWorker::refreshUserEnrollStatus(const QString &senderid, const int &code, const QString &codeInfo)
 {
     Q_UNUSED(senderid);
-    m_model->onEnrollStatusChanged(code, codeInfo);
+    if (m_currentInputCharaType & FACE_CHARA)
+        m_model->onEnrollStatusChanged(code, codeInfo);
+
+    if (m_currentInputCharaType & IRIS_CHARA)
+        m_model->onEnrollIrisStatusChanged(code, codeInfo);
 }
 
 void CharaMangerWorker::stopEnroll()
@@ -224,6 +259,7 @@ void CharaMangerWorker::stopEnroll()
         m_stopTimer->stop();
     }
 
+    m_currentInputCharaType = -1;
     auto call = m_charaMangerInter->EnrollStop();
     if (call.isError()) {
         qDebug() << "call stop Enroll " << call.error();
@@ -240,7 +276,7 @@ void CharaMangerWorker::stopEnroll()
     });
 }
 
-void CharaMangerWorker::deleteFaceidItem(const int &charaType, const QString &charaName)
+void CharaMangerWorker::deleteCharaItem(const int &charaType, const QString &charaName)
 {
     auto call = m_charaMangerInter->Delete(charaType, charaName);
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -253,7 +289,7 @@ void CharaMangerWorker::deleteFaceidItem(const int &charaType, const QString &ch
     }
 }
 
-void CharaMangerWorker::renameFaceidItem(const int &charaType, const QString &oldName, const QString &newName)
+void CharaMangerWorker::renameCharaItem(const int &charaType, const QString &oldName, const QString &newName)
 {
     auto call = m_charaMangerInter->Rename(charaType, oldName, newName);
     call.waitForFinished();

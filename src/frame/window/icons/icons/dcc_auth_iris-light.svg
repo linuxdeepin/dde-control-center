@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>虹膜-light</title>
+    <defs>
+        <circle id="path-1" cx="64" cy="64" r="64"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="128" height="128" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <circle id="path-3" cx="64" cy="64" r="30"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="60" height="60" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="生物认证" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="生物认证-虹膜录入" transform="translate(-989.000000, -138.000000)">
+            <g id="创建快捷方式备份-4" transform="translate(894.000000, 47.000000)">
+                <g id="虹膜-light" transform="translate(95.000000, 91.000000)">
+                    <rect id="矩形" x="0" y="0" width="150" height="150"></rect>
+                    <g id="编组-5" transform="translate(11.000000, 12.000000)">
+                        <path d="M64.0000027,50 C71.2384986,50 78.3171748,53.834702 85.2360314,61.5041059 L85.6202438,61.9341327 C86.1511513,62.5340437 86.1297832,63.4418118 85.5712365,64.0160779 C77.800646,72.0053593 70.6102348,76 64.0000027,76 C57.5099523,76 50.4606276,72.1492932 42.8520286,64.4478797 L42.4287687,64.0160467 C41.8702281,63.4417865 41.8488604,62.5340281 42.3797623,61.9341236 C49.4207155,53.9780412 56.6274623,50 64.0000027,50 Z M64.0000027,53.8235294 C58.9519374,53.8235294 54.8596719,57.9319752 54.8596719,63 C54.8596719,68.0680248 58.9519374,72.1764706 64.0000027,72.1764706 C69.048068,72.1764706 73.1403334,68.0680248 73.1403334,63 C73.1403334,57.9319752 69.048068,53.8235294 64.0000027,53.8235294 Z M64.0000027,57.6470588 C64.542429,57.6470588 65.0659371,57.7283779 65.5590914,57.8795353 C65.0632043,58.4234199 64.7616969,59.1469485 64.7616969,59.9411765 C64.7616969,61.6305181 66.1257854,63 67.8084738,63 C68.3572673,63 68.872172,62.8543311 69.3169189,62.5994057 C69.326885,62.731181 69.3318623,62.865007 69.3318623,63 C69.3318623,65.9563478 66.9447074,68.3529412 64.0000027,68.3529412 C61.0552979,68.3529412 58.6681431,65.9563478 58.6681431,63 C58.6681431,60.0436522 61.0552979,57.6470588 64.0000027,57.6470588 Z" id="蒙版" fill-opacity="0.15" fill="#000000" fill-rule="nonzero"></path>
+                        <use id="椭圆形" stroke-opacity="0.15" stroke="#000000" mask="url(#mask-2)" stroke-width="4" stroke-dasharray="2,2" xlink:href="#path-1"></use>
+                        <circle id="椭圆形" stroke-opacity="0.08" stroke="#000000" stroke-width="16" cx="64" cy="64" r="50"></circle>
+                        <circle id="椭圆形" stroke-opacity="0.1" stroke="#000000" cx="64" cy="64" r="37.5"></circle>
+                        <use id="椭圆形" stroke-opacity="0.2" stroke="#000000" mask="url(#mask-4)" stroke-width="2" stroke-dasharray="2,2" xlink:href="#path-3"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

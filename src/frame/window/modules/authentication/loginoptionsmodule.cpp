@@ -2,9 +2,11 @@
 #include "loginoptionswidget.h"
 #include "fingerdetailwidget.h"
 #include "faceiddetailwidget.h"
+#include "irisdetailwidget.h"
 #include "addfingedialog.h"
 #include "addfaceinfodialog.h"
 #include "faceinfodialog.h"
+#include "addirisinfodialog.h"
 #include "modules/authentication/fingermodel.h"
 #include "modules/authentication/fingerworker.h"
 #include "modules/authentication/charamangermodel.h"
@@ -69,6 +71,7 @@ void LoginOptionsModule::active()
     m_loginOptionsWidget->setVisible(false);
     connect(m_loginOptionsWidget, &LoginOptionsWidget::requestShowFingerDetail, this, &LoginOptionsModule::showFingerPage);
     connect(m_loginOptionsWidget, &LoginOptionsWidget::requestShowFaceIdDetail, this, &LoginOptionsModule::showFaceidPage);
+    connect(m_loginOptionsWidget, &LoginOptionsWidget::requestShowIrisDetail, this, &LoginOptionsModule::showIrisPage);
     m_frameProxy->pushWidget(this, m_loginOptionsWidget);
     m_loginOptionsWidget->setVisible(true);
     m_loginOptionsWidget->showDefaultWidget();
@@ -106,9 +109,19 @@ void LoginOptionsModule::showFaceidPage()
 {
     FaceidDetailWidget *w = new FaceidDetailWidget(m_charaMangerModel);
     connect(w, &FaceidDetailWidget::requestAddFace, this, &LoginOptionsModule::onShowAddFace);
-    connect(w, &FaceidDetailWidget::requestDeleteFaceItem, m_charaMangerWorker, &CharaMangerWorker::deleteFaceidItem);
-    connect(w, &FaceidDetailWidget::requestRenameFaceItem, m_charaMangerWorker, &CharaMangerWorker::renameFaceidItem);
+    connect(w, &FaceidDetailWidget::requestDeleteFaceItem, m_charaMangerWorker, &CharaMangerWorker::deleteCharaItem);
+    connect(w, &FaceidDetailWidget::requestRenameFaceItem, m_charaMangerWorker, &CharaMangerWorker::renameCharaItem);
     connect(w, &FaceidDetailWidget::noticeEnrollCompleted, m_charaMangerWorker, &CharaMangerWorker::refreshUserEnrollList);
+    m_frameProxy->pushWidget(this, w);
+}
+
+void LoginOptionsModule::showIrisPage()
+{
+    IrisDetailWidget *w = new IrisDetailWidget(m_charaMangerModel);
+    connect(w, &IrisDetailWidget::requestAddIris, this, &LoginOptionsModule::onShowAddIris);
+    connect(w, &IrisDetailWidget::requestDeleteIrisItem, m_charaMangerWorker, &CharaMangerWorker::deleteCharaItem);
+    connect(w, &IrisDetailWidget::requestRenameIrisItem, m_charaMangerWorker, &CharaMangerWorker::renameCharaItem);
+    connect(w, &IrisDetailWidget::noticeEnrollCompleted, m_charaMangerWorker, &CharaMangerWorker::refreshUserEnrollList);
     m_frameProxy->pushWidget(this, w);
 }
 
@@ -195,8 +208,8 @@ void LoginOptionsModule::onShowAddFaceidVideo(const QString &driverName, const i
     });
 
     // 开始录入就弹出  TODO:  处理拿到FD后的内容
-    disconnect(m_charaMangerWorker, &CharaMangerWorker::tryStartInput, m_facedlg, nullptr);
-    connect(m_charaMangerWorker, &CharaMangerWorker::tryStartInput, m_facedlg, [this](const int &facedf){
+    disconnect(m_charaMangerWorker, &CharaMangerWorker::tryStartInputFace, m_facedlg, nullptr);
+    connect(m_charaMangerWorker, &CharaMangerWorker::tryStartInputFace, m_facedlg, [this](const int &facedf){
         onSetMainWindowEnabled(false);
         m_facedlg->faceInfoLabel()->createConnection(facedf);
 
@@ -208,6 +221,31 @@ void LoginOptionsModule::onShowAddFaceidVideo(const QString &driverName, const i
 
     // TODO: FD
     m_charaMangerWorker->entollStart(driverName, charaType, charaName);
+}
+
+void LoginOptionsModule::onShowAddIris(const QString &driverName, const int &charaType, const QString &charaName)
+{
+    // 第一次进入添加虹膜对话框
+    if (!m_pMainWindow->isEnabled())
+        return;
+
+    AddIrisInfoDialog *irisDlg = new AddIrisInfoDialog(m_charaMangerModel);
+    connect(m_charaMangerWorker, &CharaMangerWorker::tryStartInputIris, irisDlg, &AddIrisInfoDialog::refreshInfoStatusDisplay);
+
+    connect(irisDlg, &AddIrisInfoDialog::requestStopEnroll, m_charaMangerWorker, &CharaMangerWorker::stopEnroll);
+    connect(irisDlg, &AddIrisInfoDialog::requesetCloseDlg, irisDlg, [ = ] {
+        onSetMainWindowEnabled(true);
+        irisDlg->deleteLater();
+    });
+
+    // 点击下一步开始录入
+    connect(irisDlg, &AddIrisInfoDialog::requestInputIris, m_charaMangerWorker, [ = ]{
+        m_charaMangerWorker->entollStart(driverName, charaType, charaName);
+    });
+
+    onSetMainWindowEnabled(false);
+    irisDlg->setWindowFlags(Qt::Dialog | Qt::Popup | Qt::WindowStaysOnTopHint);
+    irisDlg->exec();
 }
 
 LoginOptionsModule::~LoginOptionsModule()

@@ -189,5 +189,12 @@
         <file>texts/dcc_pause_32px.svg</file>
         <file>texts/dcc_retry_32px.svg</file>
         <file>actions/dcc_faceid_32px.svg</file>
+        <file>icons/dcc_auth_iris-dark.svg</file>
+        <file>icons/dcc_auth_iris-light.svg</file>
+        <file>icons/dcc_auth_success.svg</file>
+        <file>icons/dcc_auth_circle_inside.svg</file>
+        <file>icons/dcc_auth_circle_outside.svg</file>
+        <file>icons/dcc_auth_fail.svg</file>
+        <file>actions/dcc_iris_32px.svg</file>
     </qresource>
 </RCC>

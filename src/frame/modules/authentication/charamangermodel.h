@@ -39,7 +39,7 @@ public:
     /**
      * @brief The EnrollStatusType enum 人脸录入状态
      */
-    enum EnrollStatusType {
+    enum EnrollFaceStatusType {
         STATUS_SUCCESS = 0,   // 成功
         STATUS_NOT_REAL_HUMAN,  // 非人类
         STATUS_FACE_NOT_CENTER,  // 非中心
@@ -56,17 +56,36 @@ public:
     };
 
     /**
-     * @brief The AddInfoState enum 录入人脸的三种状态
+     * @brief The EnrollIrisStatusType enum
+     */
+    enum EnrollIrisStatusType {
+        STATUS_IRIS_SUCCESS = 0,   // 成功
+        STATUS_IRIS_TOO_BIG,  // 太大
+        STATUS_IRIS_TOO_SMALL,
+        STATUS_IRIS_NO_FACE,
+        STATUS_IRIS_NOT_CLEARITY,  // 不清晰
+        STATUS_IRIS_BRIGHTNESS,  // 亮度
+        STATUS_IRIS_EYES_CLOSE,  // 闭目
+        STATUS_IRIS_CANCELED, // 取消
+        STATUS_IRIS_Error, // 崩溃
+        STATUS_IRIS_OVERTIME // 超时
+    };
+
+    /**
+     * @brief The AddInfoState enum 录入的四种状态
      */
     enum AddInfoState {
         StartState,
         Success,
         Fail,
+        Processing,
     };
 
 public:
     explicit CharaMangerModel(QObject *parent = nullptr);
-    inline QList<QString> getPredefineFaceName() const { return m_predefineFaceNames; }
+
+    inline int faceCharaType() const { return  FACE_CHARA; }
+    inline int irisCharaType() const { return  IRIS_CHARA; }
 
     inline bool faceDriverVaild() const {  return m_isFaceDriverVaild; }
     void setFaceDriverVaild(bool isVaild);
@@ -74,12 +93,17 @@ public:
     inline QString faceDriverName() const { return  m_faceDriverName; }
     void setFaceDriverName(const QString &driverName);
 
-    inline int faceCharaType() const { return  FACE_CHARA; }
-    inline int irisCharaType() const { return  IRIS_CHARA; }
-
     inline QStringList facesList() const { return  m_facesList; }
     void setFacesList(const QStringList &faces);
 
+    inline bool irisDriverVaild() const {  return m_isIrisDriverVaild; }
+    void setIrisDriverVaild(bool isVaild);
+
+    inline QString irisDriverName() const { return  m_irisDriverName; }
+    void setIrisDriverName(const QString &driverName);
+
+    inline QStringList irisList() const { return  m_irisList; }
+    void setIrisList(const QStringList &iris);
 
     /**
      * @brief onEnrollStatusChanged 录入状态信号，在录入过程中通过此信号提示当前录入状态
@@ -87,10 +111,14 @@ public:
      * @param msg
      */
     void onEnrollStatusChanged(int code, const QString& msg);
+    void onEnrollIrisStatusChanged(int code, const QString& msg);
 
 Q_SIGNALS:
     void vaildFaceDriverChanged(const bool isVaild);
+    void vaildIrisDriverChanged(const bool isVaild);
+
     void facesListChanged(const QStringList &faces);
+    void irisListChanged(const QStringList &iris);
 
     /**
      * @brief enrollInfoState 注册录入状态  用于区分页面显示状态  注：仅处理成功录入失败状态
@@ -100,11 +128,24 @@ Q_SIGNALS:
     void enrollInfoState(AddInfoState state, const QString &tips);
     void enrollStatusTips(QString title);
 
+    /**
+     * @brief enrollIrisInfoState 注册虹膜录入状态
+     * @param state 录入状态
+     * @param tips 提示信息
+     */
+    void enrollIrisInfoState(AddInfoState state, const QString &tips);
+    void enrollIrisStatusTips(QString title);
+
 private:
+    // 人脸
     QString m_faceDriverName;
     bool m_isFaceDriverVaild;
     QStringList m_facesList;
-    QList<QString> m_predefineFaceNames;
+
+    // 虹膜
+    QString m_irisDriverName;
+    bool m_isIrisDriverVaild;
+    QStringList m_irisList;
 };
 
 }
