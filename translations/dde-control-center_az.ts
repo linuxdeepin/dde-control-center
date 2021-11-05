@@ -381,120 +381,130 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="111"/>
         <source>Change Password</source>
         <translation>Şifrəni dəyişin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="114"/>
         <source>Reset Password</source>
         <translation>Şifrəni sıfırlayın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
         <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
         <translation>Şifrənin sıfırlanması giriş üçün açar bağını dəyişməyəcək. Onları idarə etmək üçün &apos;seahorse&apos; quraşdıra bilərsiniz.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <source>Current Password</source>
         <translation>Hal-hazırki şifrə</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
+        <source>Forgot password?</source>
+        <translation>Şifrəni unutmusunuz?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="136"/>
         <source>New Password</source>
         <translation>Yeni Şifrə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="170"/>
         <source>Repeat Password</source>
         <translation>Təkrar Şifrə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="174"/>
         <source>Password Hint</source>
         <translation>Şifrə göstərişi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="166"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="401"/>
         <source>Cancel</source>
         <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
         <source>Save</source>
         <translation>Saxla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="244"/>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Güclü</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="254"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="252"/>
-        <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Orta</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="262"/>
-        <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="274"/>
+        <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Daha güclü seçimi bu qaydada edin: 8 işarədən, həmçinin kiçik və böyük hərflərdən, saylardan və simvollardan ibarət 3 işarə növündən ibarət</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="266"/>
+        <source>Weak</source>
+        <translation>Zəif</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
+        <source>Error occurred when reading the configuration files of password rules!</source>
+        <translation>Şifrə qaydaları üçün tənzimləmə faylının oxunması zamanı xəta baş verdi!</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
         <source>Required</source>
         <translation>Tələb olunur</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
         <source>Optional</source>
         <translation>İxtiyari</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="329"/>
         <source>Password cannot be empty</source>
         <translation>Şifrə boş ola bilməz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="331"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="453"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>İşarə bütün istifadəçilər üçün görünür. Şifrəni buraya daxil etməyin.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="364"/>
         <source>Wrong password</source>
         <translation>Yanlış parol</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="370"/>
         <source>New password should differ from the current one</source>
         <translation>Yeni şifrə hazırkı şifrədən fərqlənməlidir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
         <source>Passwords do not match</source>
         <translation>Şifrənin təkrarı oxşar deyil</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="400"/>
         <source>Go to Settings</source>
         <translation>Ayarlara keçmək</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="511"/>
+        <source>Network error</source>
+        <translation>Şəbəkə xətası</translation>
     </message>
 </context>
 <context>
@@ -592,7 +602,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="42"/>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrik Kimlik Doğrulaması</translation>
     </message>
 </context>
 <context>
@@ -727,17 +737,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="139"/>
         <source>GRUB Authentication</source>
-        <translation type="unfinished"/>
+        <translation>GRUB kimlik doğrulaması</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="143"/>
         <source>GRUB password is required to edit its configuration</source>
-        <translation type="unfinished"/>
+        <translation>GRUB şifrəsi, onun tənzimləmələrinə düzəliş etməyi tələb edir</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="150"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Şifrəni dəyişin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="157"/>
@@ -746,50 +756,47 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
-        <source>Change GRUB Password</source>
-        <translation type="unfinished"/>
+        <source>Change GRUB password</source>
+        <translation>GRUB şifrəsini dəyişin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
         <source>Set GRUB Password</source>
-        <translation type="unfinished"/>
+        <translation>GRUB şifrəsi təyin edin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
         <source>New password:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
-        <source>New password:</source>
-        <translation type="unfinished"/>
+        <translation>Yeni şifrə:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="349"/>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>Şifrəni təkrarlayın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="364"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <comment>button</comment>
+        <translation>İmtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="365"/>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <comment>button</comment>
+        <translation>Təsdiq edin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="373"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="405"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Şifrə boş ola bilməz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="386"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Şifrələr oxşar deyil</translation>
     </message>
 </context>
 <context>
@@ -2936,82 +2943,87 @@
 <context>
     <name>dccV20::sync::IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="51"/>
+        <source>Link to the user account</source>
+        <translation>İstifadəçi hesabına keçid</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="54"/>
         <source>Auto Sync</source>
         <translation>Avtomatik eyniləşdirmə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="58"/>
         <source>The feature is not available at present, please activate your system first</source>
         <translation>Hal-hazırda bu funksiya əlçatan deyil, öncə sisteminizi açın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="61"/>
         <source>Syncing...</source>
         <translation>Eyniləşdirilir...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
         <source>Sign Out</source>
         <translation>Hesabdan çıxış</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>Şəbəkə ayarları aktivdirsə WLAN şifrələriniz eyniləşdiriləcək</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="193"/>
         <source>Network Settings</source>
         <translation>Şəbəkə ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="194"/>
         <source>Sound Settings</source>
         <translation>Səs ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
         <source>Mouse Settings</source>
         <translation>Siçan ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Update Settings</source>
         <translation>Tənzimləmələri Yenilə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Dock</source>
         <translation>Dok panel</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Launcher</source>
         <translation>Başladıcı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Wallpaper</source>
         <translation>Divar kağızı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Theme</source>
         <translation>Mövzu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Power Settings</source>
         <translation>Elektrik enerjisi ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="337"/>
         <source>Last Sync: %1</source>
         <translation>Sonuncu sinxronizasiya: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="339"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>yyyy-MM-dd hh:mm</translation>
     </message>
@@ -3428,43 +3440,43 @@ Visit User Center and manage your account there.</source>
         <translation>Yenidən yoxlamaq</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>Sistemdən və tətbiqlərdən lazımi qaydada istifadə etmək üçün kompüteri yenidən başladın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="97"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Çəbəkə bağlantısı kəsildi, lütfən, yenidən qoşulun</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="106"/>
         <source>Your system is not authorized, please activate first</source>
         <translation>Sisteminiz səlahiyyətli deyil, öncə aktivləşdirin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="124"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>Bu yenilənmə çox vaxt apara bilər, lütfən bu əməliyyat zamanı komputerinizi söndürməyin və ya yenidən başlatmayın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="137"/>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Yenilənmələr var</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="152"/>
         <source>Updating...</source>
-        <translation type="unfinished"/>
+        <translation>Yenilənir...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="158"/>
         <source>Update All</source>
-        <translation type="unfinished"/>
+        <translation>Hamısını yeniləyin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="316"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="627"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="634"/>
         <source>Last checking time: </source>
         <translation>Sonuncu yoxlanılma vaxtı:</translation>
     </message>
@@ -3521,14 +3533,15 @@ Visit User Center and manage your account there.</source>
         <translation>Yenidən başlatmaq üçün kifayət qədər güc təmin edin və cihazınızı elektrik şəbəkəsindən ayırmayın və söndürməyin</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="668"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="673"/>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>Cari buraxılış</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="676"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="682"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="746"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Ölçü</translation>
     </message>
 </context>
 <context>
@@ -3552,17 +3565,17 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="52"/>
         <source>Security Updates Only</source>
-        <translation type="unfinished"/>
+        <translation>Yalnız təhlükəszlik yenilənmələri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
         <source>UnionTech</source>
-        <translation type="unfinished"/>
+        <translation>UnionTech</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>App installed in App Store</source>
-        <translation type="unfinished"/>
+        <translation>Tətbiq, Tətbiq Mağazasında quraşdırıldı</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="55"/>
@@ -3577,7 +3590,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="57"/>
         <source>Auto Install Updates</source>
-        <translation type="unfinished"/>
+        <translation>Yenilənmələrin avtomatik quraşdırılması</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="59"/>
@@ -3587,7 +3600,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="60"/>
         <source>Switch it on to only update security vulnerabilities and compatibility issues</source>
-        <translation type="unfinished"/>
+        <translation>Yalnız zəif təhlükəsizlik və uyğunluq problemləri yenilənmələri üçün bunu açın</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="82"/>
@@ -3608,7 +3621,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="117"/>
         <source>Updates from Repositories</source>
-        <translation type="unfinished"/>
+        <translation>Repozitoriyalardan yenilənmələr</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="136"/>
@@ -3657,12 +3670,12 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="217"/>
         <source>Unknown Apps Updates</source>
-        <translation type="unfinished"/>
+        <translation>Bilinməyən tətbiq yenilənmələri</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
-        <translation type="unfinished"/>
+        <translation>Endirmə başa çatdlıqdan &quot;%1&quot; avtomatik quraşdırılsın</translation>
     </message>
 </context>
 <context>
@@ -3808,7 +3821,7 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="130"/>
+        <location filename="../src/frame/main.cpp" line="126"/>
         <source>Control Center</source>
         <translation>İdarə Etmə Mərkəzi</translation>
     </message>
@@ -3915,34 +3928,57 @@ Visit User Center and manage your account there.</source>
     </message>
 </context>
 <context>
+    <name>UnionIDBindReminderDialog</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="29"/>
+        <source>The user account is not linked to Union ID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="30"/>
+        <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
+        <translation>Şifrələri sıfırlamaq üçün öncə Union İD ilə daxil olmalısınız. Ayarlamanı tamamlamaq üçün &quot;Keçidi açın&quot; üzərinə vurun.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="35"/>
+        <source>Cancel</source>
+        <translation>İmtina</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
+        <source>Go to Link</source>
+        <translation>Keçidi açın</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="604"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="656"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>Sizin host, domen serverindən uğurla silindi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="605"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="657"/>
         <source>Your host joins the domain server successfully</source>
         <translation>Sizin host, domen serverinə uğurla qoşuldu</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="633"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="685"/>
         <source>Your host failed to leave the domain server</source>
         <translation>Sizin host, domen serverini tərk edə bilmədi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="634"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="686"/>
         <source>Your host failed to join the domain server</source>
         <translation>Sizin host, domen serverinə qoşula bilmədi</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="637"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="689"/>
         <source>AD domain settings</source>
         <translation>AD domen ayarları</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="706"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="758"/>
         <source>Password not match</source>
         <translation>Şifrələr oxşar deyil</translation>
     </message>
@@ -4255,7 +4291,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="101"/>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Ekranın təkrar düzləndirilməsi dəyişiklərdən sonra %1san ərzində qüvvəyə minəcəkdir </translation>
     </message>
 </context>
 <context>
@@ -4523,7 +4559,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/appstoreupdateitem.cpp" line="27"/>
         <source>View in App Store</source>
-        <translation type="unfinished"/>
+        <translation>Tətbiq Mağazasında baxın</translation>
     </message>
 </context>
 <context>
@@ -4561,62 +4597,62 @@ Visit User Center and manage your account there.</source>
 <context>
     <name>dcc::update::UpdateSettingItem</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="143"/>
         <source>Update failed</source>
-        <translation type="unfinished"/>
+        <translation>Yenilənmə baş tutmadı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="149"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Ən yeni sistem quraşdırıldı, qüvvəyə minməsi üçün yenidən başladın</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="154"/>
         <source>Waiting</source>
-        <translation type="unfinished"/>
+        <translation>Gözlənilir</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="162"/>
         <source>Backing up</source>
-        <translation type="unfinished"/>
+        <translation>Ehtiyyat nüsxələmə</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="174"/>
         <source>System backup failed</source>
-        <translation type="unfinished"/>
+        <translation>Sistemin bərpası baş tutmadı</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="203"/>
         <source>Release date: </source>
-        <translation type="unfinished"/>
+        <translation>Buraxılış tarixi:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="204"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versiya</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="420"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="422"/>
         <source>System Updates</source>
         <translation>Sistem yenilənmələri</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="431"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="433"/>
         <source>%1 apps updates available (such as %2, %3, %4)</source>
-        <translation type="unfinished"/>
+        <translation>%1 tətbiq yenilənmələri mövcuddur (%2, %3, %4 kimi)</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="438"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="440"/>
         <source>Security Updates</source>
-        <translation type="unfinished"/>
+        <translation>Təhlükəsizlik yenilənmələri</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="445"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="447"/>
         <source>Unknown Apps Updates</source>
-        <translation type="unfinished"/>
+        <translation>Bilinməyən tətbiq yenilənmələri</translation>
     </message>
 </context>
 <context>
@@ -4624,39 +4660,39 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="39"/>
         <source>Download and install</source>
-        <translation type="unfinished"/>
+        <translation>Endirin və quraşdırın</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="88"/>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Daha çox öyrənin</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="280"/>
         <source>Downloading </source>
-        <translation type="unfinished"/>
+        <translation>Endirilir</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="131"/>
         <source>Waiting </source>
-        <translation type="unfinished"/>
+        <translation>Gözləmə</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="134"/>
         <source>Installing </source>
-        <translation type="unfinished"/>
+        <translation>Quraşdırılır</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="137"/>
         <source>Backing up </source>
-        <translation type="unfinished"/>
+        <translation>Ehtiyyat nüsxələmə</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="131"/>
+        <location filename="../src/frame/main.cpp" line="127"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>İdarəemə Mərkəzi sistem ayarları üçün seçimlər təqdim edir</translation>
     </message>

@@ -9,7 +9,7 @@
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="336"/>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticació biomètrica</translation>
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
         <source>Account Settings</source>
-        <translation type="unfinished"/>
+        <translation>Paràmetres del compte</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
@@ -163,7 +163,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>Restableix la contrasenya</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
@@ -300,7 +300,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="204"/>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Pista de la contrasenya</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="261"/>
@@ -338,7 +338,7 @@
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="369"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>La pista és visible per a tots els usuaris. No hi poseu la contrasenya.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="426"/>
@@ -381,120 +381,130 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="111"/>
         <source>Change Password</source>
         <translation>Canvia la contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="109"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="114"/>
         <source>Reset Password</source>
-        <translation type="unfinished"/>
+        <translation>Restableix la contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="110"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
         <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
-        <translation type="unfinished"/>
+        <translation>Restablir la contrasenya no canvia el clauer d&apos;inici de sessió. Podeu instal·lar seahorse per gestionar-lo.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="122"/>
         <source>Current Password</source>
         <translation>Contrasenya actual</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
+        <source>Forgot password?</source>
+        <translation>Heu oblidat la contrasenya?</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="136"/>
         <source>New Password</source>
         <translation>Contrasenya nova</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="170"/>
         <source>Repeat Password</source>
         <translation>Repetiu la contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="161"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="174"/>
         <source>Password Hint</source>
-        <translation type="unfinished"/>
+        <translation>Pista de la contrasenya</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="166"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="387"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="401"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
         <source>Save</source>
         <translation>Desa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="230"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="244"/>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Forta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="254"/>
         <source>Medium</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="248"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="260"/>
-        <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="252"/>
-        <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Mitjana</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="262"/>
-        <source>Error occurred when reading the configuration files of password rules!</source>
-        <translation type="unfinished"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="274"/>
+        <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>Es recomana una contrasenya més segura: més de 8 caràcters i 3 dels quatre tipus de caràcters: lletres minúscules, majúscules, números i símbols.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="297"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="266"/>
+        <source>Weak</source>
+        <translation>Feble</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
+        <source>Error occurred when reading the configuration files of password rules!</source>
+        <translation>Hi ha hagut un error en llegir els fitxers de configuració de les regles de la contrasenya!</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="309"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="311"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="313"/>
         <source>Required</source>
         <translation>Cal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="301"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
         <source>Optional</source>
         <translation>Opcional</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="315"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="329"/>
         <source>Password cannot be empty</source>
         <translation>La contrasenya no es pot deixar en blanc.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="331"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="439"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="345"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="453"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>La pista és visible per a tots els usuaris. No hi poseu la contrasenya.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="364"/>
         <source>Wrong password</source>
         <translation>Contrasenya incorrecta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="370"/>
         <source>New password should differ from the current one</source>
         <translation>La contrasenya nova hauria de ser diferent de l&apos;actual.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="363"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="432"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="446"/>
         <source>Passwords do not match</source>
         <translation>Les contrasenyes no coincideixen</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="386"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="400"/>
         <source>Go to Settings</source>
         <translation>Ves a la configuració</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="511"/>
+        <source>Network error</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -550,7 +560,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/fingerdetailwidget.cpp" line="68"/>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha trobat cap dispositiu admès.</translation>
     </message>
 </context>
 <context>
@@ -592,7 +602,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionsmodule.cpp" line="42"/>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticació biomètrica</translation>
     </message>
 </context>
 <context>
@@ -727,17 +737,17 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="139"/>
         <source>GRUB Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticació del GRUB</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="143"/>
         <source>GRUB password is required to edit its configuration</source>
-        <translation type="unfinished"/>
+        <translation>Cal la contrasenya del GRUB per editar aquesta configuració.</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="150"/>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Canvia la contrasenya</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="157"/>
@@ -746,7 +756,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
-        <source>Change GRUB Password</source>
+        <source>Change GRUB password</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -757,39 +767,36 @@
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
         <source>New password:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
-        <source>New password:</source>
-        <translation type="unfinished"/>
+        <translation>Contrasenya nova:</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="349"/>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>Repetiu la contrasenya:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="364"/>
         <source>Cancel</source>
+        <comment>button</comment>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="363"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="365"/>
         <source>Confirm</source>
+        <comment>button</comment>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="373"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="403"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="405"/>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya no es pot deixar en blanc.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="386"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="418"/>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Les contrasenyes no coincideixen.</translation>
     </message>
 </context>
 <context>
@@ -1548,22 +1555,22 @@
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="148"/>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Canvia la mida de l&apos;escriptori</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="247"/>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Ajusta&apos;l</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="263"/>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Estira&apos;l</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="279"/>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centra&apos;l</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="345"/>
@@ -2936,82 +2943,87 @@
 <context>
     <name>dccV20::sync::IndexPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="46"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="51"/>
+        <source>Link to the user account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="54"/>
         <source>Auto Sync</source>
         <translation>Sincronització automàtica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="50"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="58"/>
         <source>The feature is not available at present, please activate your system first</source>
         <translation>La funció no està disponible actualment. Si us plau, primer activeu el sistema.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="61"/>
         <source>Syncing...</source>
         <translation>Se sincronitza...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="111"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
         <source>Sign Out</source>
         <translation>Surt de la sessió</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>La contrasenya de la WLAN se sincronitzarà si la Configuració de la xarxa està activada.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="183"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="193"/>
         <source>Network Settings</source>
         <translation>Configuració de la xarxa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="184"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="194"/>
         <source>Sound Settings</source>
         <translation>Configuració del so</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
         <source>Mouse Settings</source>
         <translation>Configuració del ratolí</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="186"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Update Settings</source>
         <translation>Configuració de l&apos;actualització</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="187"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Dock</source>
         <translation>Acoblador</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="188"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Launcher</source>
         <translation>Llançador</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="189"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Wallpaper</source>
         <translation>Fons de pantalla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
         <source>Power Settings</source>
         <translation>Configuració de l&apos;energia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="327"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="337"/>
         <source>Last Sync: %1</source>
         <translation>Darrera sincronització: %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="339"/>
         <source>yyyy-MM-dd hh:mm</source>
         <translation>dd-MM-yyyy hh.mm</translation>
     </message>
@@ -3428,43 +3440,43 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
         <translation>Torna-ho a comprovar</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="95"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
         <source>Restart the computer to use the system and the applications properly</source>
         <translation>Reinicieu l&apos;ordinador per usar correctament el sistema i les aplicacions.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="96"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="97"/>
         <source>Network disconnected, please retry after connected</source>
         <translation>Xarxa desconnectada. Si us plau, torneu-ho a intentar després de connectar.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="105"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="106"/>
         <source>Your system is not authorized, please activate first</source>
         <translation>El sistema no té autorització. Si us plau, activeu-ho primer.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="124"/>
         <source>This update may take a long time, please do not shut down or reboot during the process</source>
         <translation>Aquesta actualització pot trigar força. Si us plau, no atureu ni reinicieu el sistema mentre duri el procés.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="137"/>
         <source>Updates Available</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions disponibles</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="151"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="152"/>
         <source>Updating...</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;actualitza...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="158"/>
         <source>Update All</source>
-        <translation type="unfinished"/>
+        <translation>Actualitza-ho tot</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="316"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="627"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="634"/>
         <source>Last checking time: </source>
         <translation>Darrera hora de comprovació: </translation>
     </message>
@@ -3521,14 +3533,15 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
         <translation>Si us plau, assegureu-vos que hi ha prou energia per reiniciar i no atureu ni desendolleu la màquina.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="668"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="673"/>
         <source>Current Edition</source>
-        <translation type="unfinished"/>
+        <translation>Edició actual</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="676"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="682"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="746"/>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Mida</translation>
     </message>
 </context>
 <context>
@@ -3557,12 +3570,12 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="53"/>
         <source>UnionTech</source>
-        <translation type="unfinished"/>
+        <translation>UnionTech</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="54"/>
         <source>App installed in App Store</source>
-        <translation type="unfinished"/>
+        <translation>Aplicació instal·lada a la Botiga d&apos;aplicacions</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="55"/>
@@ -3808,7 +3821,7 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="130"/>
+        <location filename="../src/frame/main.cpp" line="126"/>
         <source>Control Center</source>
         <translation>Centre de control</translation>
     </message>
@@ -3915,34 +3928,57 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     </message>
 </context>
 <context>
+    <name>UnionIDBindReminderDialog</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="29"/>
+        <source>The user account is not linked to Union ID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="30"/>
+        <source>To reset passwords, you should authenticate your Union ID first. Click &quot;Go to Link&quot; to finish the settings.</source>
+        <translation>Per restablir les contrasenyes, primer heu d&apos;autenticar l&apos;ID d&apos;Union. Cliqueu a Ves a l&apos;enllaç per acabar-ne la configuració.</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="35"/>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/unionidbindreminderdialog.cpp" line="37"/>
+        <source>Go to Link</source>
+        <translation>Ves a l&apos;enllaç</translation>
+    </message>
+</context>
+<context>
     <name>dcc::accounts::AccountsWorker</name>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="604"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="656"/>
         <source>Your host was removed from the domain server successfully</source>
         <translation>L&apos;amfitrió s&apos;ha eliminat del servidor de domini correctament.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="605"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="657"/>
         <source>Your host joins the domain server successfully</source>
         <translation>L&apos;amfitrió s&apos;ha afegit al servidor de domini correctament.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="633"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="685"/>
         <source>Your host failed to leave the domain server</source>
         <translation>L&apos;amfitrió ha fallat abandonar el servidor de domini.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="634"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="686"/>
         <source>Your host failed to join the domain server</source>
         <translation>L&apos;amfitrió ha fallat afegir-se al servidor de domini.</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="637"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="689"/>
         <source>AD domain settings</source>
         <translation>Configuració del domini d&apos;AD</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="706"/>
+        <location filename="../src/frame/modules/accounts/accountsworker.cpp" line="758"/>
         <source>Password not match</source>
         <translation>La contrasenya no coincideix.</translation>
     </message>
@@ -4255,7 +4291,7 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     <message>
         <location filename="../src/frame/modules/display/monitorcontrolwidget.cpp" line="101"/>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>El restabliment de la pantalla tindrà efecte %1s després dels canvis.</translation>
     </message>
 </context>
 <context>
@@ -4523,7 +4559,7 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/appstoreupdateitem.cpp" line="27"/>
         <source>View in App Store</source>
-        <translation type="unfinished"/>
+        <translation>Mostra-ho a la Botiga d&apos;apicacions</translation>
     </message>
 </context>
 <context>
@@ -4561,62 +4597,62 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
 <context>
     <name>dcc::update::UpdateSettingItem</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="134"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="143"/>
         <source>Update failed</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat l&apos;actualització.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="140"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="149"/>
         <source>The newest system installed, restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;ha instal·lat el sistema més nou. Reinicieu-lo perquè els canvis facin efecte.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="145"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="154"/>
         <source>Waiting</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;espera</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="162"/>
         <source>Backing up</source>
-        <translation type="unfinished"/>
+        <translation>Còpia de seguetat</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="174"/>
         <source>System backup failed</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat la còpia de seguretat.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="190"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="203"/>
         <source>Release date: </source>
-        <translation type="unfinished"/>
+        <translation>Data de publicació:</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="204"/>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versió</translation>
     </message>
 </context>
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="420"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="422"/>
         <source>System Updates</source>
         <translation>Actualitzacions del sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="431"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="433"/>
         <source>%1 apps updates available (such as %2, %3, %4)</source>
-        <translation type="unfinished"/>
+        <translation>%1 actualitzacions d&apos;aplicacions disponibles (com ara %2, %3, %4)</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="438"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="440"/>
         <source>Security Updates</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions de seguretat</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="445"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="447"/>
         <source>Unknown Apps Updates</source>
-        <translation type="unfinished"/>
+        <translation>Actualitzacions d&apos;aplicacions desconegudes</translation>
     </message>
 </context>
 <context>
@@ -4624,39 +4660,39 @@ Visiteu el Centre d&apos;usuaris i gestioneu-hi el compte.</translation>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="39"/>
         <source>Download and install</source>
-        <translation type="unfinished"/>
+        <translation>Baixa-les i instal·la-les</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="88"/>
         <source>Learn more</source>
-        <translation type="unfinished"/>
+        <translation>Més informació</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="128"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="280"/>
         <source>Downloading </source>
-        <translation type="unfinished"/>
+        <translation>Es baixa</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="131"/>
         <source>Waiting </source>
-        <translation type="unfinished"/>
+        <translation>S&apos;espera</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="134"/>
         <source>Installing </source>
-        <translation type="unfinished"/>
+        <translation>S&apos;instal·la</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="137"/>
         <source>Backing up </source>
-        <translation type="unfinished"/>
+        <translation>Còpia de seguetat</translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <location filename="../src/frame/main.cpp" line="131"/>
+        <location filename="../src/frame/main.cpp" line="127"/>
         <source>Control Center provides the options for system settings.</source>
         <translation>El Centre de control proporciona les opcions per a la configuració del sistema.</translation>
     </message>
