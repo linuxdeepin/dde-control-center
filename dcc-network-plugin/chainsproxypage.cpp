@@ -129,8 +129,8 @@ ChainsProxyPage::ChainsProxyPage(QWidget *parent)
     layout->addWidget(tip);
 
     m_btns = new ButtonTuple(ButtonTuple::Save);
-    m_btns->leftButton()->setText(tr("Cancel"));
-    m_btns->rightButton()->setText(tr("Save"));
+    m_btns->leftButton()->setText(tr("Cancel", "button"));
+    m_btns->rightButton()->setText(tr("Save", "button"));
     m_btns->leftButton()->setEnabled(false);
     m_btns->rightButton()->setEnabled(false);
 

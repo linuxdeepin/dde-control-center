@@ -2049,7 +2049,7 @@
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Security Type</source>
-        <translation type="unfinished"/>
+        <translation>Vrsta sigurnosti</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>

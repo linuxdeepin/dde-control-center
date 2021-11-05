@@ -499,13 +499,13 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Дротова мережа</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Бездротова мережа</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>

@@ -499,13 +499,13 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Kablolu Ağ</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Kablosuz Ağ</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
@@ -1263,7 +1263,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz ağ geçidi</translation>
     </message>
 </context>
 <context>
@@ -1376,7 +1376,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz ağ geçidi</translation>
     </message>
 </context>
 <context>
@@ -1666,7 +1666,7 @@
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz ağ geçidi</translation>
     </message>
 </context>
 <context>
@@ -1797,7 +1797,7 @@
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz ağ geçidi</translation>
     </message>
 </context>
 <context>
@@ -1918,7 +1918,7 @@
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz ağ geçidi</translation>
     </message>
 </context>
 <context>
@@ -2170,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Kablolu Ağ</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Kablolu Ağ %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Kablosuz Ağ</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Kablosuz Ağ%1</translation>
     </message>
 </context>
 <context>
@@ -2193,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantı kesildi</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Bağlanıyor</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Kimlik doğrulanıyor</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Adres elde ediliyor</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Bağlandı</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Başarısız</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Aygıt devre dışı</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>Bağandı ancak İnternet erişimi yok</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Bağlı değil</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Ağ kablosu takılı değil</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP adresi elde ediliyor</translation>
     </message>
 </context>
 </TS>

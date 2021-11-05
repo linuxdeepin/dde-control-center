@@ -2170,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Xarxa amb fil</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Xarxa amb fil %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Xarxa sense fil</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Xarxa sense fil %1</translation>
     </message>
 </context>
 <context>
@@ -2193,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Desconnectat</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Es connecta</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;autentica</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;obté l&apos;adreça</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Connectat</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Dispositiu inhabilitat</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>Connectat però sense accés a Internet</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>No connectat</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Cable de xarxa desendollat</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>S&apos;obté l&apos;adreça IP</translation>
     </message>
 </context>
 </TS>

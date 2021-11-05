@@ -217,7 +217,7 @@ void ConnectionVpnEditPage::initSettingsWidgetByType(ConnectionVpnEditPage::VpnT
     if (SupportedExportVpnList.contains(vpnType) && !connectionUuid().isEmpty()) {
         if (!m_exportButton) {
             m_exportButton = new QPushButton(this);
-            m_exportButton->setText(tr("Export"));
+            m_exportButton->setText(tr("Export", "button"));
             connect(m_exportButton, &QPushButton::clicked, this, &ConnectionVpnEditPage::exportConnConfig);
             addHeaderButton(m_exportButton);
         }

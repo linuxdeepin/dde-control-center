@@ -49,12 +49,12 @@
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>保 存</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
@@ -85,17 +85,17 @@
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Delete</source>
-        <translation>删除</translation>
+        <translation>删 除</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>保 存</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
@@ -168,7 +168,7 @@
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>Export</source>
-        <translation>导出</translation>
+        <translation>导 出</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
@@ -639,12 +639,12 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>保 存</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>

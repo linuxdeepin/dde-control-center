@@ -106,16 +106,16 @@ void ConnectionEditPage::initUI()
     m_removeBtn = m_buttonTuple_conn->rightButton();
     GSettingWatcher::instance()->bind("removeConnection", m_removeBtn);
 
-    m_disconnectBtn->setText(tr("Disconnect"));
+    m_disconnectBtn->setText(tr("Disconnect", "button"));
     m_disconnectBtn->setVisible(false);
-    m_removeBtn->setText(tr("Delete"));
+    m_removeBtn->setText(tr("Delete", "button"));
     m_removeBtn->setVisible(false);
 
     QPushButton *cancelBtn = m_buttonTuple->leftButton();
     QPushButton *acceptBtn = m_buttonTuple->rightButton();
     m_buttonTuple->setAutoFillBackground(true);
-    cancelBtn->setText(tr("Cancel"));
-    acceptBtn->setText(tr("Save"));
+    cancelBtn->setText(tr("Cancel", "button"));
+    acceptBtn->setText(tr("Save", "button"));
     m_buttonTuple->leftButton()->setEnabled(false);
     m_buttonTuple->rightButton()->setEnabled(false);
 
@@ -233,8 +233,8 @@ void ConnectionEditPage::initConnection()
         dialog.setAccessibleName("Form_delete_configuration?");
         dialog.setTitle(tr("Are you sure you want to delete this configuration?"));
         QStringList btns;
-        btns << tr("Cancel");
-        btns << tr("Delete");
+        btns << tr("Cancel", "button");
+        btns << tr("Delete", "button");
         dialog.addButtons(btns);
         int ret = dialog.exec();
         if (ret == QDialog::Accepted) {

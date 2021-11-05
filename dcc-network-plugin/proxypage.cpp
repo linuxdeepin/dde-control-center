@@ -68,8 +68,8 @@ ProxyPage::ProxyPage(QWidget *parent)
     setWindowTitle(tr("System Proxy"));
     TranslucentFrame *contentFrame = new TranslucentFrame(conentwidget);
 
-    m_buttonTuple->leftButton()->setText(tr("Cancel"));
-    m_buttonTuple->rightButton()->setText(tr("Save"));
+    m_buttonTuple->leftButton()->setText(tr("Cancel", "button"));
+    m_buttonTuple->rightButton()->setText(tr("Save", "button"));
     m_buttonTuple->setVisible(false);
     m_buttonTuple->setEnabled(false);
 
