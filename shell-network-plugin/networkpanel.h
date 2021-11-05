@@ -70,10 +70,14 @@ public:
     void invokeMenuItem(const QString &menuId);
     bool needShowControlCenter();
     const QString contextMenu() const;
-    QString itemTips();
+    QWidget *itemTips();
     bool hasDevice();
 
     void refreshIcon();
+
+protected:
+    void paintEvent(QPaintEvent *e);
+    void resizeEvent(QResizeEvent *e);
 
 private:
     void setControlBackground();
@@ -89,8 +93,6 @@ private:
     QStringList ipTipsMessage(const DeviceType &devType);
 
     void contextMenuEvent(QContextMenuEvent *event) override;
-    void paintEvent(QPaintEvent *e) override;
-    void resizeEvent(QResizeEvent *e) override;
 
     QStringList getIPList(const DeviceType &deviceType) const;
     QStringList getActiveWiredList() const;
@@ -118,7 +120,7 @@ private:
     QTimer *m_switchWireTimer;
     QTimer *m_wirelessScanTimer;
 
-    QString m_tips;
+    Dock::TipsWidget *m_tipsWidget;
     bool m_switchWire;
     QPixmap m_iconPixmap;
 

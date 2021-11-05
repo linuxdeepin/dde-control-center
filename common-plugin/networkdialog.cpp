@@ -59,7 +59,7 @@ void NetworkDialog::show(int x, int y, Dock::Position position, bool isShell)
     m_process->blockSignals(false);
     QWindow *window = qApp->focusWindow();
     runProcess(x, y, position, false, isShell);
-    if(window && window->objectName() == "LoginWindowClassWindow") {
+    if(window) {
         m_focusWindow = window;
     }
     if (m_focusWindow) {

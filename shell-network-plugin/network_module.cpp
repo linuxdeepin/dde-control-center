@@ -37,7 +37,6 @@ NetworkModule::NetworkModule(QObject *parent)
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/shell-network-plugin/translations/shell-network-plugin_%1.qm").arg(QLocale::system().name()));
     QCoreApplication::installTranslator(translator);
-    initUI();
 }
 
 NetworkModule::~NetworkModule()
@@ -52,51 +51,41 @@ void NetworkModule::init()
     initUI();
 }
 
+QWidget *NetworkModule::content()
+{
+    m_networkPanel->onClick();
+    return nullptr;
+}
+
+QWidget *NetworkModule::itemWidget() const
+{
+    return m_networkPanel;
+}
+
+QWidget *NetworkModule::itemTipsWidget() const
+{
+    return m_networkPanel->itemTips();
+}
+
+const QString NetworkModule::itemContextMenu() const
+{
+    return m_networkPanel->contextMenu();
+}
+
+void NetworkModule::invokedMenuItem(const QString &menuId, const bool checked) const
+{
+    Q_UNUSED(checked);
+
+    m_networkPanel->invokeMenuItem(menuId);
+}
+
 void NetworkModule::initUI()
 {
     if (m_networkPanel) {
         return;
     }
     m_networkPanel = new NetworkPanel();
-    m_networkPanel->setAccessibleName(QStringLiteral("NetworkWidget"));
-}
-
-void NetworkModule::invokedMenuItem(const QString &itemKey, const QString &menuId, const bool checked) const
-{
-    Q_UNUSED(checked)
-
-    if (itemKey == NETWORK_KEY)
-         m_networkPanel->invokeMenuItem(menuId);
-}
-
-const QString NetworkModule::itemContextMenu(const QString &itemKey) const
-{
-    if (itemKey == NETWORK_KEY)
-        return m_networkPanel->contextMenu();
-
-    return QString();
-}
-
-QWidget *NetworkModule::itemWidget(const QString &itemKey) const
-{
-    if (itemKey == NETWORK_KEY)
-        return m_networkPanel;
-
-    return Q_NULLPTR;
-}
-
-QString NetworkModule::itemTips(const QString &itemKey) const
-{
-    if (itemKey == NETWORK_KEY)
-        return m_networkPanel->itemTips();
-
-    return QString();
-}
-
-QWidget *NetworkModule::content()
-{
-    m_networkPanel->onClick();
-    return m_networkPanel;
+    m_networkPanel->setAccessibleName(QStringLiteral("NetworkPanel"));
 }
 
 } // namespace module

@@ -79,6 +79,7 @@ NetworkPanel::NetworkPanel(QWidget *parent)
     , m_refreshIconTimer(new QTimer(this))
     , m_switchWireTimer(new QTimer(this))
     , m_wirelessScanTimer(new QTimer(this))
+    , m_tipsWidget(new Dock::TipsWidget(this))
     , m_switchWire(true)
     , m_timeOut(true)
     , m_networkDialog(new NetworkDialog(this))
@@ -102,6 +103,7 @@ void NetworkPanel::initUi()
     setFixedSize(QSize(52, 52));
     setBackgroundRole(DPalette::Button);
     m_refreshIconTimer->setInterval(100);
+    m_tipsWidget->setVisible(false);
 
     setControlBackground();
 }
@@ -213,43 +215,43 @@ void NetworkPanel::updateTooltips()
     case PluginState::Connected: {
         QStringList textList;
         textList << ipTipsMessage(DeviceType::Wireless) << ipTipsMessage(DeviceType::Wired);
-        m_tips = textList.join("\n");
+        m_tipsWidget->setTextList(textList);
         break;
     }
     case PluginState::WirelessConnected:
-        m_tips = ipTipsMessage(DeviceType::Wireless).join("\n");
+        m_tipsWidget->setTextList(ipTipsMessage(DeviceType::Wireless));
         break;
     case PluginState::WiredConnected:
-        m_tips = ipTipsMessage(DeviceType::Wired).join("\n");
+        m_tipsWidget->setTextList(ipTipsMessage(DeviceType::Wired));
         break;
     case PluginState::Disabled:
     case PluginState::WirelessDisabled:
     case PluginState::WiredDisabled:
-        m_tips = tr("Device disabled");
+        m_tipsWidget->setText(tr("Device disabled"));
         break;
     case PluginState::Unknow:
     case PluginState::Nocable:
-        m_tips = tr("Network cable unplugged");
+        m_tipsWidget->setText(tr("Network cable unplugged"));
         break;
     case PluginState::Disconnected:
     case PluginState::WirelessDisconnected:
     case PluginState::WiredDisconnected:
-        m_tips = tr("Not connected");
+        m_tipsWidget->setText(tr("Not connected"));
         break;
     case PluginState::Connecting:
     case PluginState::WirelessConnecting:
     case PluginState::WiredConnecting:
-        m_tips = tr("Connecting");
+        m_tipsWidget->setText(tr("Connecting"));
         break;
     case PluginState::ConnectNoInternet:
     case PluginState::WirelessConnectNoInternet:
     case PluginState::WiredConnectNoInternet:
-        m_tips = tr("Connected but no Internet access");
+        m_tipsWidget->setText(tr("Connected but no Internet access"));
         break;
     case PluginState::Failed:
     case PluginState::WirelessFailed:
     case PluginState::WiredFailed:
-        m_tips = tr("Connection failed");
+        m_tipsWidget->setText(tr("Connection failed"));
         break;
     }
 }
@@ -503,6 +505,11 @@ const QString NetworkPanel::contextMenu() const
     return QJsonDocument::fromVariant(menu).toJson();
 }
 
+QWidget *NetworkPanel::itemTips()
+{
+    return m_tipsWidget;
+}
+
 void NetworkPanel::contextMenuEvent(QContextMenuEvent *event)
 {
     DMenu menu(this);
@@ -536,11 +543,6 @@ void NetworkPanel::contextMenuEvent(QContextMenuEvent *event)
     if (action) {
         invokeMenuItem(action->data().toString());
     }
-}
-
-QString NetworkPanel::itemTips()
-{
-    return m_tips;
 }
 
 bool NetworkPanel::hasDevice()
