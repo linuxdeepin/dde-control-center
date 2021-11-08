@@ -35,7 +35,7 @@ NetworkModule::NetworkModule(QObject *parent)
 {
     setObjectName(QStringLiteral(NETWORK_KEY));
     QTranslator *translator = new QTranslator(this);
-    translator->load(QString("/usr/share/shell-network-plugin/translations/shell-network-plugin_%1.qm").arg(QLocale::system().name()));
+    translator->load(QString("/usr/share/dss-network-plugin/translations/dss-network-plugin_%1.qm").arg(QLocale::system().name()));
     QCoreApplication::installTranslator(translator);
 }
 

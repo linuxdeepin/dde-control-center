@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 
-set(PLUGIN_NAME "shell-network-plugin")
+set(PLUGIN_NAME "dss-network-plugin")
 
 project(${PLUGIN_NAME})
 

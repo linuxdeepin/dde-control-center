@@ -32,25 +32,25 @@ Depends: ${misc:Depends},${shlibs:Depends},
 Description: the interface of networkcode,used for developers
  dde-network-core-dev module
 
-Package: dde-control-center-network-plugin
+Package: dcc-network-plugin
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the plugin of network for dde control center
  dcc-network-plugin module
 
-Package: dde-dock-network-plugin
+Package: dock-network-plugin
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the plugin of network for dde-dock
  dde-dock-plugin module
 
-Package: dde-network-list
+Package: dde-network-dialog
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the executable of network
  dde-network-list module
 
-Package: dde-shell-network-plugin
+Package: dss-network-plugin
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the plugin of network for dde-lock
