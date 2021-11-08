@@ -966,10 +966,10 @@ void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visib
         } else if ("update" == find_it->first->name()) {
             if (bFinalVisible) {
                 m_searchWidget->removeUnExsitData(tr("Updates"));
-                m_updateVisibale = false;
+                m_updateVisibale = true;
             } else {
                 m_searchWidget->addUnExsitData(tr("Updates"));
-                m_updateVisibale = true;
+                m_updateVisibale = false;
             }
         }
     } else {
