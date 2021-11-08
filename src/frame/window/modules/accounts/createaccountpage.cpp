@@ -304,6 +304,7 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
     m_fullnameEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
     m_repeatpasswdEdit->lineEdit()->setPlaceholderText(tr("Required"));//必填
+    m_passwdTipsEdit->lineEdit()->setPlaceholderText(tr("optional"));//选填
 }
 
 void CreateAccountPage::showGroupList(const QString &index)
