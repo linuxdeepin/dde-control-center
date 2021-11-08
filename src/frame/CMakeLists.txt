@@ -134,6 +134,7 @@ set(WINDOW_FILES
     window/modules/update/mirrorswidget.cpp
     window/modules/update/mirrorsourceitem.cpp
     window/search/searchwidget.cpp
+    window/search/searchmodel.cpp
     window/modules/commoninfo/commoninfomodule.cpp
     window/modules/commoninfo/commoninfowidget.cpp
     window/modules/commoninfo/commoninfomodel.cpp
