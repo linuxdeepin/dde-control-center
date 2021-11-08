@@ -96,6 +96,7 @@ public:
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
     void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
+    inline bool getDataUpdateCompleted() { return m_dataUpdateCompleted; }
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);
@@ -138,6 +139,7 @@ private:
     QGSettings *m_searchModuleDevelop{nullptr};
     WM *m_deepinwm;
     bool m_compositingAllowSwitch = true;
+    bool m_dataUpdateCompleted;
 };
 
 class SearchWidget : public DTK_WIDGET_NAMESPACE::DSearchEdit
@@ -155,7 +157,7 @@ public:
     void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
 
-    QList<QString> searchResults(const QString text, int &rowCount);
+    QList<QString> searchResults(const QString text);
     void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
 
 private Q_SLOTS:

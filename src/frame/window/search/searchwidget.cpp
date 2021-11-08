@@ -102,6 +102,7 @@ SearchModel::SearchModel(QObject *parent)
     , m_bIsOnBattery(false)
     , m_bIsUseTouchpad(false)
     , m_deepinwm(new WM("com.deepin.wm", "/com/deepin/wm", QDBusConnection::sessionBus(), this))
+    , m_dataUpdateCompleted(false)
 {
     //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
     m_bIsServerType = IsServerSystem;
@@ -664,7 +665,8 @@ void SearchModel::setLanguage(const QString &type)
             }
         }
 
-        return loadxml();
+        loadxml();
+        m_dataUpdateCompleted = true;
     });
 
     connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSearchMenu, this, [=](const QString &text, bool visible) {
@@ -1097,10 +1099,16 @@ void SearchWidget::addSpecialThreeMenuMap(const QString &name, bool flag)
 
 
 //返回搜索结果
-QList<QString> SearchWidget::searchResults(const QString text, int &rowCount)
+QList<QString> SearchWidget::searchResults(const QString text)
 {
+    QElapsedTimer et;
+    et.start();
+    while (!m_model->getDataUpdateCompleted() && et.elapsed() < 5000) {
+        QThread::msleep(50);
+        QCoreApplication::processEvents();
+    }
+
     QList<QString> lstSearchMsgs;
-    rowCount = m_model->rowCount();
 
     for (int row = 0; row < m_model->rowCount(); row++) {
         QString msg = m_model->data(m_model->index(row, 0), m_model->m_bIsChinese? Qt::UserRole: Qt::DisplayRole).toString();

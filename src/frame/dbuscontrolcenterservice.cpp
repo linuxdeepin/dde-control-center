@@ -213,11 +213,8 @@ DBusControlCenterGrandSearchService::~DBusControlCenterGrandSearchService()
 //匹配搜索结果
 QString DBusControlCenterGrandSearchService::Search(const QString json)
 {
-
     QString val = parent()->GrandSearchSearch(json);
-
     m_autoExitTimer->start();
-
     return val;
 }
 

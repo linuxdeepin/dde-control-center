@@ -1293,11 +1293,7 @@ QString MainWindow::GrandSearchSearch(const QString json)
         m_lstGrandSearchTasks.append(jsonObject);
 
         //处理搜索任务, 返回搜索结果
-        int rowCount;
-        QList<QString> lstMsg = m_searchWidget->searchResults(jsonObject.value("cont").toString(), rowCount);
-
-        if(rowCount == 0)
-            return QString();
+        QList<QString> lstMsg = m_searchWidget->searchResults(jsonObject.value("cont").toString());
 
         for(auto msg : lstMsg) {
             qDebug() << "name:" << msg;
