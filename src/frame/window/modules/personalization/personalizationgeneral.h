@@ -117,7 +117,7 @@ private:
     dcc::widgets::TitledSliderItem *m_transparentSlider;  //透明度调节
     dcc::widgets::ComboxWidget *m_cmbMiniEffect;    //最小化效果
     dcc::personalization::PersonalizationModel *m_model;
-    dcc::widgets:: TitledSliderItem *m_winRoundSlider;   // 自定义圆角(社区版功能)
+    dcc::widgets::TitledSliderItem *m_winRoundSlider;   // 自定义圆角(社区版功能)
     PerssonalizationThemeWidget *m_Themes;
     QList<RoundColorWidget *> m_activeColorsList;
     RingColorWidget *m_bgWidget;
