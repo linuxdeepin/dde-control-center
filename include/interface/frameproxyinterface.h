@@ -1,6 +1,7 @@
 #pragma once
 
 #include "namespace.h"
+#include <QObject>
 
 class QWidget;
 class QString;
@@ -35,8 +36,8 @@ public:
 
     virtual void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) = 0;
 
-    virtual void setRemoveableDeviceStatus(QString type, bool state) = 0;
-    virtual bool getRemoveableDeviceStatus(QString type) const = 0;
+    Q_DECL_DEPRECATED virtual void setRemoveableDeviceStatus(QString type, bool state) = 0;
+    Q_DECL_DEPRECATED virtual bool getRemoveableDeviceStatus(QString type) const = 0;
 
     virtual void setSearchPath(ModuleInterface *const inter) const = 0;
 public:

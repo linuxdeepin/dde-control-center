@@ -310,7 +310,6 @@ void PowerModule::initSearchData()
     };
 
     connect(m_model, &PowerModel::haveBettaryChanged, this, [=](bool state) {
-//        m_frameProxy->setRemoveableDeviceStatus(tr("On Battery"), state);
         func_battary_Changed(state, m_model->lidPresent());
     });
 

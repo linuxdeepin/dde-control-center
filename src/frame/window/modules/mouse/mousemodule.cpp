@@ -70,16 +70,6 @@ void MouseModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_dbusProxy->active();
 
     initSearchData();
-
-    connect(m_model, &MouseModel::tpadExistChanged, this, [this](bool state) {
-        qDebug() << "[Mouse] Touchpad , exist state : " << state;
-        m_frameProxy->setRemoveableDeviceStatus(tr("Touchpad"), state);
-    });//触控板
-
-    connect(m_model, &MouseModel::redPointExistChanged, this, [this](bool state) {
-        qDebug() << "[Mouse] TrackPoint , exist state : " << state;
-        m_frameProxy->setRemoveableDeviceStatus(tr("TrackPoint"), state);
-    });//指点杆
 }
 
 void MouseModule::initialize()
