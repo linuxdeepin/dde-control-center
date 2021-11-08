@@ -1103,9 +1103,9 @@ QList<QString> SearchWidget::searchResults(const QString text, int &rowCount)
     rowCount = m_model->rowCount();
 
     for (int row = 0; row < m_model->rowCount(); row++) {
-        QString msg = m_model->data(m_model->index(row, 0), Qt::UserRole).toString();
+        QString msg = m_model->data(m_model->index(row, 0), m_model->m_bIsChinese? Qt::UserRole: Qt::DisplayRole).toString();
 
-        if(msg.contains(text))
+        if(msg.contains(text,Qt::CaseInsensitive))
             lstSearchMsgs.append(msg);
     }
 

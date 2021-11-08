@@ -1307,8 +1307,8 @@ QString MainWindow::GrandSearchSearch(const QString json)
         QJsonArray items;
         for (int i = 0; i < lstMsg.size(); i++) {
             QJsonObject jsonObj;
-            jsonObj.insert("item", lstMsg[i].replace(" ",""));
-            jsonObj.insert("name", lstMsg[i].replace(" ",""));
+            jsonObj.insert("item", lstMsg[i]);
+            jsonObj.insert("name", lstMsg[i]);
             jsonObj.insert("icon", ControlCenterIconPath);
             jsonObj.insert("type", "application/x-dde-control-center-xx");
 
