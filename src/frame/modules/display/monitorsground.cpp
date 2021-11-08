@@ -310,10 +310,10 @@ void MonitorsGround::singleScreenAdjest()
 
     const double scale = std::min(scaleW, scaleH);
 
+    QPointF dPos = sceneRect().center() - scene()->itemsBoundingRect().center();
+    m_monitors.keys().last()->setPos(m_monitors.keys().last()->pos() + dPos);
     resetMatrix();
     this->scale(scale, scale);
-    m_monitors.keys().last()->setPos(0, 0);
-    m_monitors.keys().last()->update();
     setEnabled(false);
 }
 
