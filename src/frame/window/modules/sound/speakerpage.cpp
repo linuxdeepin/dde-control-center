@@ -167,7 +167,7 @@ void SpeakerPage::removePort(const QString &portId, const uint &cardId)
         auto port = item->data(Qt::WhatsThisPropertyRole).value<const dcc::sound::Port *>();
         if (port->id() == portId && cardId == port->cardId()) {
             m_outputSoundCbx->comboBox()->hidePopup();
-            if (m_currentPort->id() == portId && m_currentPort->cardId() == cardId)
+            if (m_currentPort && m_currentPort->id() == portId && m_currentPort->cardId() == cardId)
                 m_currentPort = nullptr;
 
             if (m_outputModel->rowCount() == 1) {
