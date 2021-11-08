@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sudo useradd -M pwd_changer
+sudo usermod -L pwd_changer
+sudo chown pwd_changer:pwd_changer /usr/lib/dde-control-center/reset-password-dialog
+sudo chmod 500 /usr/lib/dde-control-center/reset-password-dialog
+
+exit 0

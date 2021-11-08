@@ -57,10 +57,4 @@ target_link_libraries(${BIN_NAME} PRIVATE
 # bin
 install(TARGETS ${BIN_NAME} DESTINATION lib/dde-control-center/)
 
-# configure
-install(CODE "execute_process(COMMAND sudo useradd -M pwd_changer)")
-install(CODE "execute_process(COMMAND sudo usermod -L pwd_changer)")
-install(CODE "execute_process(COMMAND sudo chown pwd_changer:pwd_changer /usr/lib/dde-control-center/${BIN_NAME})")
-install(CODE "execute_process(COMMAND sudo chmod 500 /usr/lib/dde-control-center/${BIN_NAME})")
-
 endif()
