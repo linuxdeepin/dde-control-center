@@ -465,8 +465,9 @@ void ModifyPasswdPage::resetPassword(const QString &password, const QString &rep
 void ModifyPasswdPage::showEvent(QShowEvent *event)
 {
     Q_UNUSED(event);
-    if (m_oldPasswordEdit && !m_oldPasswordEdit->hasFocus()) {
-        m_oldPasswordEdit->lineEdit()->setFocus();
+    DPasswordEdit *passwordEdit = m_isCurrent? m_oldPasswordEdit: m_newPasswordEdit;
+    if (passwordEdit && !passwordEdit->hasFocus()) {
+        passwordEdit->lineEdit()->setFocus();
     }
 }
 
