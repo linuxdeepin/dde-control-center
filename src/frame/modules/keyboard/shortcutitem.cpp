@@ -46,6 +46,7 @@ ShortcutItem::ShortcutItem(QFrame *parent)
 {
     installEventFilter(this);
     setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Expanding);
+    setFocusPolicy(Qt::FocusPolicy::StrongFocus);
     setMinimumHeight(36);
 
     setMouseTracking(true);
