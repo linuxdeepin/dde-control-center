@@ -60,7 +60,7 @@ Recommends:
  deepin-ab-recovery,
  deepin-user-experience-daemon,
  deepin-recovery-plugin,
- dde-control-center-network-plugin
+ dcc-network-plugin
 Suggests: redshift
 Conflicts:
  dde-control-center-plugin-weather,
