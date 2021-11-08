@@ -138,6 +138,7 @@ void WirelessSection::initUI()
     m_apSsid->setTitle(tr("SSID"));
     m_apSsid->setPlaceholderText(tr("Required"));
     m_apSsid->setText(m_wirelessSetting->ssid());
+    m_apSsid->textEdit()->setMaxLength(256);
 
     m_deviceMacLine->setTitle(tr("Device MAC Addr"));
     m_deviceMacComboBox = m_deviceMacLine->comboBox();
