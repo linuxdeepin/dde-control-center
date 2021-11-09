@@ -26,17 +26,20 @@
 #include <QScreen>
 #include <QLabel>
 #include <QDebug>
+#include <QWindow>
+#include <QStyle>
+
 #include <pwd.h>
 #include <unistd.h>
 #include <libintl.h>
 #include <random>
 #include <crypt.h>
+#include <iostream>
+
 #include <DDesktopServices>
 #include <DGuiApplicationHelper>
 #include <DMessageManager>
-#include <QStyle>
 #include <DFloatingMessage>
-#include <iostream>
 
 DGUI_USE_NAMESPACE
 
@@ -56,9 +59,18 @@ ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, QString uuid, QSt
     , m_uuid(uuid)
     , m_monitorTimer(new QTimer(this))
     , m_app(app)
+    , m_client(new QLocalSocket(this))
 {
     initWidget();
     initData();
+}
+
+ResetPasswordDialog::~ResetPasswordDialog()
+{
+    m_client->close();
+    if (window()->windowHandle() && window()->windowHandle()->setKeyboardGrabEnabled(false)) {
+        qWarning() << "setKeyboardGrabEnabled(false) success！";
+    }
 }
 
 void ResetPasswordDialog::showEvent(QShowEvent *event)
@@ -148,8 +160,7 @@ void ResetPasswordDialog::initWidget()
     this->addButtons(buttons);
     this->addButton(tr("Reset"), true, ButtonRecommend);
 
-    Qt::WindowFlags m_flags = windowFlags();
-    setWindowFlags(m_flags | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     setOnButtonClickedClose(false);
     setAttribute(Qt::WA_DeleteOnClose, true);
 }
@@ -238,6 +249,14 @@ void ResetPasswordDialog::initData()
     if (m_app != "control-center") {
         m_monitorTimer->start(300);
     }
+    m_client->connectToServer("GrabKeyboard");
+    if(!m_client->waitForConnected(1000))//等待连接（时常可设置，这里设置1000ms）
+    {
+        qWarning() << "连接失败!";
+        return;
+    }
+    connect(m_client,SIGNAL(connected()),this,SLOT(onConnected()));
+    connect(m_client,SIGNAL(disconnected()),this,SLOT(onDisConnected()));
 }
 
 void ResetPasswordDialog::onPhoneEmailLineEditFocusChanged(bool onFocus)
@@ -311,11 +330,9 @@ void ResetPasswordDialog::onResetPasswordBtnClicked()
     if (isContentEmpty(m_verificationCodeEdit) ||isContentEmpty(m_newPasswordEdit) || isContentEmpty(m_repeatPasswordEdit)) {
         return;
     }
-    if (verifyVerficationCode()) {
-        m_verificationCodeEdit->setAlert(false);
-    } else {
-        m_verificationCodeEdit->setAlert(true);
-        m_verificationCodeEdit->showAlertMessage(tr("Wrong verification code"), m_verificationCodeEdit, 2000);
+    if (m_newPasswordEdit->text().contains(" ")) {
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(tr("Passwords shouldn't contain space"), m_repeatPasswordEdit, 2000);
         return;
     }
     if (m_newPasswordEdit->text() != m_repeatPasswordEdit->text()) {
@@ -329,6 +346,13 @@ void ResetPasswordDialog::onResetPasswordBtnClicked()
             m_passwordTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), m_passwordTipsEdit, 2000);
             return;
         }
+    }
+    if (verifyVerficationCode()) {
+        m_verificationCodeEdit->setAlert(false);
+    } else {
+        m_verificationCodeEdit->setAlert(true);
+        m_verificationCodeEdit->showAlertMessage(tr("Wrong verification code"), m_verificationCodeEdit, 2000);
+        return;
     }
     if (!m_passwordTipsEdit->text().simplified().isEmpty()) {
         m_user->SetPasswordHint(m_passwordTipsEdit->text()).waitForFinished();
@@ -578,6 +602,42 @@ void ResetPasswordDialog::startMonitor()
     int x = deskRt.left() + (deskRt.width() - width()) / 2;
     int y = deskRt.top() + (deskRt.height() - height()) / 2;
     move(x, y);
+}
+
+void ResetPasswordDialog::onConnected()
+{
+    tryGrabKeyboard();
+}
+
+void ResetPasswordDialog::onDisConnected()
+{
+    if (window()->windowHandle() && window()->windowHandle()->setKeyboardGrabEnabled(false)) {
+        qWarning() << "setKeyboardGrabEnabled(false) success！";
+    }
+}
+
+void ResetPasswordDialog::tryGrabKeyboard()
+{
+#ifdef QT_DEBUG
+    return;
+#endif
+
+    if (qgetenv("XDG_SESSION_TYPE").contains("wayland"))
+        return;
+
+    if (window()->windowHandle() && window()->windowHandle()->setKeyboardGrabEnabled(true)) {
+        m_failures = 0;
+        return;
+    }
+
+    m_failures++;
+
+    if (m_failures == 15) {
+        qWarning() << "Trying grabkeyboard has exceeded the upper limit. reset password dialog will quit.";
+        return qApp->quit();
+    }
+
+    QTimer::singleShot(100, this, &ResetPasswordDialog::tryGrabKeyboard);
 }
 
 Manager::Manager(QString uuid, QString app)

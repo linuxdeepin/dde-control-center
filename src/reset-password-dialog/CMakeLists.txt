@@ -32,6 +32,7 @@ set(QRC resetpassworddialog.qrc)
 find_package(PkgConfig REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5DBus REQUIRED)
+find_package(Qt5Network REQUIRED)
 find_package(DtkWidget REQUIRED)
 find_package(DtkGui REQUIRED)
 
@@ -49,6 +50,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${DFrameworkDBus_LIBRARIES}
     ${DtkWidget_LIBRARIES}
     ${Qt5Widgets_LIBRARIES}
+    ${Qt5Network_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
     crypt
     ${LIBS}
