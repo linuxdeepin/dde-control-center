@@ -15,7 +15,7 @@ FaceidDetailWidget::FaceidDetailWidget(dcc::authentication::CharaMangerModel *mo
     : QWidget (parent)
     , m_model (model)
     , mainContentLayout(new QVBoxLayout(this))
-    , m_faceWidget(new FaceWidget(model))
+    , m_faceWidget(new FaceWidget(model, this))
     , m_pNotDevice(new QLabel(this))
     , m_tip(new DTipLabel(tr("No supported devices found"), this))
 {

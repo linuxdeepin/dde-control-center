@@ -141,12 +141,6 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
 
     // TODO: 处理设备信息
     QMap<QString, uint> driInfo = parseDriverNameJsonData(driverInfo);
-    if (driInfo.begin().value() & 0) {
-        // 处理界面显示空设备
-        m_model->setFaceDriverVaild(false);
-        m_model->setIrisDriverVaild(false);
-        return;
-    }
     QMap<QString, uint>::Iterator it;
 
     qDebug() << "info: " << driInfo.size() << driverInfo;
@@ -160,6 +154,13 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
         if (it.value() & IRIS_CHARA) {
             irisDriverNames.append(it.key());
         }
+
+        if (it.value() & 0) {
+            // 处理界面显示空设备
+            m_model->setFaceDriverVaild(false);
+            m_model->setIrisDriverVaild(false);
+            return;
+        }
     }
 
     // 获取用户录入的数据
@@ -167,11 +168,16 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
         m_model->setFaceDriverVaild(true);
         m_model->setFaceDriverName(faceDriverNames.at(0));
         refreshUserEnrollList(faceDriverNames.at(0), FACE_CHARA);
+    } else {
+        m_model->setFaceDriverVaild(false);
     }
+
     if (!irisDriverNames.isEmpty()) {
         m_model->setIrisDriverVaild(true);
         m_model->setIrisDriverName(irisDriverNames.at(0));
         refreshUserEnrollList(irisDriverNames.at(0), IRIS_CHARA);
+    } else {
+        m_model->setIrisDriverVaild(false);
     }
 }
 

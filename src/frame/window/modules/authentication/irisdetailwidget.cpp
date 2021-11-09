@@ -15,7 +15,7 @@ IrisDetailWidget::IrisDetailWidget(dcc::authentication::CharaMangerModel *model,
     : QWidget (parent)
     , m_model (model)
     , mainContentLayout(new QVBoxLayout(this))
-    , m_irisWidget(new IrisWidget(model))
+    , m_irisWidget(new IrisWidget(model, this))
     , m_pNotDevice(new QLabel(this))
     , m_tip(new DTipLabel(tr("No supported devices found"), this))
 {
