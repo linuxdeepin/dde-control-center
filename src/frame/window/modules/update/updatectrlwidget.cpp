@@ -713,7 +713,10 @@ void UpdateCtrlWidget::onFullUpdateClicked()
             Q_EMIT requestUpdateCtrl(type, ctrlType);
         }
 
-        if(updateItem->status() == UpdatesStatus::UpdatesAvailable
+        if(updateItem->status() != UpdatesStatus::Default
+                || updateItem->status() == UpdatesStatus::UpdateFailed
+                || updateItem->status() == UpdatesStatus::Downloaded
+                || updateItem->status() == UpdatesStatus::Downloading
                 || updateItem->status() == UpdatesStatus::UpdateFailed
                 || updateItem->status() == UpdatesStatus::AutoDownloaded){
             Q_EMIT  requestUpdates(type);
