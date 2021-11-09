@@ -28,8 +28,6 @@
 #include <DRegionMonitor>
 #include <com_deepin_daemon_accounts_user.h>
 
-#include <QLocalSocket>
-
 #define PASSWORD_LEVEL_ICON_NUM 3
 #define PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH ":/icons/dcc_deepin_password_strength_unactive_light_mode.svg"
 #define PASSWORD_LEVEL_ICON_DEEP_MODE_PATH ":/icons/dcc_deepin_password_strength_unactive_deep_mode.svg"
@@ -52,7 +50,7 @@ class ResetPasswordDialog : public DDialog
 public:
     ResetPasswordDialog() = default;
     explicit ResetPasswordDialog(QRect screenGeometry, QString uuid ="", QString app = "");
-    ~ResetPasswordDialog();
+    ~ResetPasswordDialog() {}
 
     QRect screenGeometry() const;
     void setScreenGeometry(const QRect &screenGeometry);
@@ -72,7 +70,6 @@ private:
     bool verifyVerficationCode();
     void startCount();
     void quit();
-    void tryGrabKeyboard();
 
 private slots:
     void onPhoneEmailLineEditFocusChanged(bool);
@@ -84,8 +81,6 @@ private slots:
     void onResetPasswordBtnClicked();
     void onReadFromServerChanged(int);
     void startMonitor();
-    void onConnected();
-    void onDisConnected();
 private:
     QRect m_screenGeometry;
     DLineEdit *m_phoneEmailEdit;
@@ -109,8 +104,6 @@ private:
     QString m_uuid;
     QTimer *m_monitorTimer;
     QString m_app;
-    QLocalSocket *m_client;
-    int m_failures;
 };
 
 class Manager : public QObject
