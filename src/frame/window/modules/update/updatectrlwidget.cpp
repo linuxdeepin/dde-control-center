@@ -427,7 +427,7 @@ void UpdateCtrlWidget::setProgressValue(const double value)
 
 void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
 {
-    if (m_status == UpdatesStatus::Updateing) {
+    if (m_status == UpdatesStatus::Updateing || m_status == UpdatesStatus::UpdatesAvailable) {
         bool activation = false;
         const UiActiveState value = m_model->systemActivation();
         if (UiActiveState::Authorized == value || UiActiveState::TrialAuthorized == value || UiActiveState::AuthorizedLapse == value) {

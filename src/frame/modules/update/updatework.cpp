@@ -472,10 +472,11 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 
 UpdateItemInfo *UpdateWorker::getItemInfo(QJsonValue jsonValue)
 {
-    if (jsonValue.isNull()) {
-        return nullptr;
-    }
     UpdateItemInfo * itemInfo = new UpdateItemInfo;
+    if (jsonValue.isNull()) {
+        return itemInfo;
+    }
+
 
     itemInfo->setPackageId(jsonValue.toObject().value("package_id").toString());
     itemInfo->setName(jsonValue.toObject().value("name_CN").toString());
