@@ -142,7 +142,8 @@ int KeyboardWidget::showPath(const QString &path)
             return 0;
         }
 
-        if (menu.pulgin && path == "Input Methods") {
+        //正常情况应该使用 "Input Methods" 进行判断，因为输入法写错了因此这里需要根据输入法错误写法适配
+        if (menu.pulgin && path == "Manage Input Methods") {
             menu.itemSignal.invoke(menu.pulgin);
             m_lastIndex = m_listviewModel->index(i, 0);
             m_keyboardListView->setCurrentIndex(m_lastIndex);

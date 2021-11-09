@@ -255,53 +255,76 @@ void SearchModel::loadxml(const QString module)
     m_inputList.append(SearchDataStruct());
     appendRow(new QStandardItem(""));
 
+    bool isPlugins = false;
     bool bIsContinue = false;
-    bool bIsTwoLevel = false;
+    bool bIsTwoLevel = false;  
+    QString searchModule = "";
+    QString searchData = "";
 
     for (SearchBoxStruct::Ptr searchBoxStrcut : m_originList) {
-        bool moduleVisible = getModuleVisible(searchBoxStrcut->actualModuleName);
-        if (!moduleVisible) {
-            continue;
+
+        searchModule = searchBoxStrcut->fullPagePath.section('/', 0, 1).remove('/').trimmed();
+        searchData = searchBoxStrcut->fullPagePath.section('/', 2, -1).remove('/').trimmed();
+
+        //插件数据默认都显示 --> 未解决历史遗留问题，修改接口后依旧兼容旧接口； 如果统一使用setxxxVisible可以删除这里
+        if (!m_transPlusData.value(searchModule).isEmpty() || !m_transPlusData.value(searchData).isEmpty()) {
+            qInfo() << " [loadxml] Plugins data :"
+                       << searchBoxStrcut->actualModuleName
+                       << searchBoxStrcut->childPageName
+                       <<searchBoxStrcut->fullPagePath
+                       <<searchBoxStrcut->source
+                       <<searchBoxStrcut->translateContent;
+            if (!specialProcessData(searchBoxStrcut)) {
+                isPlugins = true;
+            }
         }
 
-        bIsContinue = true;
-        bIsTwoLevel = false;
-        do {
-            if (searchBoxStrcut->childPageName == "") {
-                //这样的数据都是只有二级菜单，需要用到source再进行判断，且source需要进行多语言翻译
-                searchBoxStrcut->childPageName = m_transChildPageName.value(searchBoxStrcut->source);
-                bIsTwoLevel = true;
+        if (!isPlugins) {
+            bool moduleVisible = getModuleVisible(searchBoxStrcut->actualModuleName);
+            if (!moduleVisible) {
+                continue;
             }
 
-            bool widgetVisible = getWidgetVisible(searchBoxStrcut->actualModuleName, searchBoxStrcut->childPageName);
+            bIsContinue = true;
+            bIsTwoLevel = false;
+            do {
+                if (searchBoxStrcut->childPageName == "") {
+                    //这样的数据都是只有二级菜单，需要用到source再进行判断，且source需要进行多语言翻译
+                    searchBoxStrcut->childPageName = m_transChildPageName.value(searchBoxStrcut->source);
+                    bIsTwoLevel = true;
+                }
 
-            if (!widgetVisible) {
-                bIsContinue = false;
-                if (bIsTwoLevel && searchBoxStrcut->childPageName != "")
+                bool widgetVisible = getWidgetVisible(searchBoxStrcut->actualModuleName, searchBoxStrcut->childPageName);
+
+                if (!widgetVisible) {
+                    bIsContinue = false;
+                    if (bIsTwoLevel && searchBoxStrcut->childPageName != "")
+                        searchBoxStrcut->childPageName = "";
+                    break;
+                }
+
+                if (bIsTwoLevel) {
+                    //数据用完后需要还原, 此时表示只有两级目录需要退出判断
                     searchBoxStrcut->childPageName = "";
-                break;
+                    bIsContinue = true;
+                    break;
+                }
+
+                bool detailVisible = getDetailVisible(searchBoxStrcut->actualModuleName, searchBoxStrcut->childPageName, searchBoxStrcut->translateContent);
+                if (!detailVisible) {
+                    bIsContinue = false;
+                    break;
+                }
+
+            } while (0);
+
+            if (!bIsContinue) {
+                continue;
             }
-
-            if (bIsTwoLevel) {
-                //数据用完后需要还原, 此时表示只有两级目录需要退出判断
-                searchBoxStrcut->childPageName = "";
-                bIsContinue = true;
-                break;
-            }
-
-            bool detailVisible = getDetailVisible(searchBoxStrcut->actualModuleName, searchBoxStrcut->childPageName, searchBoxStrcut->translateContent);
-            if (!detailVisible) {
-                bIsContinue = false;
-                break;
-            }
-
-        } while (0);
-
-        if (!bIsContinue) {
-            continue;
         }
 
         m_EnterNewPagelist.append(searchBoxStrcut);
+        isPlugins = false;
 
         // Add search result content
         if (!m_bIsChinese) {
@@ -513,6 +536,16 @@ bool SearchModel::isLoadContensText(const QString &text)
     return false;
 }
 
+//主要用于解决一些特殊数据，比如同时加载了二级和三级页面搜索数据，而要删除二级页面数据； true : 不加载
+bool SearchModel::specialProcessData(SearchBoxStruct::Ptr data)
+{
+    bool ret = false;
+    if (data->fullPagePath == "/keyboard/Manage Input Methods" && data->childPageName == "") {
+        return true;
+    }
+    return ret;
+}
+
 void SearchModel::setLanguage(const QString &type)
 {
     m_lang = type;
@@ -637,14 +670,24 @@ void SearchModel::setLanguage(const QString &type)
             { "Touchpad", QObject::tr("Touchpad") },
             { "TrackPoint", QObject::tr("TrackPoint") },
 
+
+            { "Manage Input Methods", QObject::tr("Input Methods") },
+        };
+
+        //解决历史遗留问题，适配已经存在的插件搜索数据(不需要翻译,只要第二个字符串不为空即可)
+        m_transPlusData = {
             //plugin : input
-            { "Input Methods", QObject::tr("Input Methods") },
-            { "Backup and Restore", QObject::tr("Backup and Restore") },
-            { "Domain Management", QObject::tr("Domain Management") },
-#ifdef QT_DEBUG
-            { "Backup and Restore", "备份还原" },
-            { "Domain Management", "域管理" },
-#endif
+            { "Input Methods", "Input Methods" },
+            { "Manage Input Methods", "Manage Input Methods" },
+
+            { "Backup and Restore", "Backup and Restore" },
+            { "Domain Management", "Domain Management" },
+
+            { "translation", "Translation" },
+            { "assistant", "Desktop AI Assistant" },
+            { "iat", "Speech to Text" },
+            { "tts", "Text to Speech" },
+
         };
 
 #if DEBUG_XML_SWITCH
@@ -1008,6 +1051,8 @@ void SearchModel::updateSearchData(const QString &module)
 
 void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
 {
+    Q_UNUSED(name)
+    Q_UNUSED(isExist)
 //    setModuleVisible(name, isExist);
 //    QPair<QString, QString> value("", "");
 

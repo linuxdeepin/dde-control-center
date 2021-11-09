@@ -102,6 +102,7 @@ private:
     void appendChineseData(SearchBoxStruct::Ptr data);
     bool isLoadText(const QString &txt);
     bool isLoadContensText(const QString &text);
+    bool specialProcessData(SearchBoxStruct::Ptr data);
 
 private:
     QList<SearchBoxStruct::Ptr> m_originList;
@@ -130,6 +131,7 @@ private:
     QList<HideChildWidgetStruct> m_hideWidgetList;
     QList<HideChildWidgetDetailStruct> m_hideWidgetDetailList;
     QMap<QString, QString> m_transChildPageName;
+    QMap<QString, QString> m_transPlusData;
 };
 
 }// namespace search
