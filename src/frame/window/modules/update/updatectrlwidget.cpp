@@ -280,6 +280,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
 {
     m_status = status;
 
+    qDebug() << "UpdateCtrlWidget::setStatus  " << status;
     if (m_model->systemActivation() == UiActiveState::Unauthorized || m_model->systemActivation() == UiActiveState::TrialExpired) {
         m_status = NoAtive;
     }
@@ -826,10 +827,6 @@ void UpdateCtrlWidget::onUpdateFailed()
 
 void UpdateCtrlWidget::initUpdateItem(UpdateSettingItem *updateItem)
 {
-    if (updateItem->status() == UpdatesStatus::Default) {
-        updateItem->setStatus(UpdatesStatus::UpdatesAvailable);
-    }
-
     updateItem->setIconVisible(true);
 }
 

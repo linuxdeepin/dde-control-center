@@ -82,10 +82,6 @@ UpdatesStatus UpdateSettingItem::status() const
 
 void UpdateSettingItem::setStatus(const UpdatesStatus &status)
 {
-    if (m_status == status) {
-        return;
-    }
-
     qDebug() << "UpdateSettingItem::setStatus: " << status;
 
     if (status == UpdatesStatus::RecoveryBackingSuccessed && m_status != UpdatesStatus::RecoveryBackingup && m_status != UpdatesStatus::WaitRecoveryBackup) {
@@ -97,11 +93,12 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     }
 
     m_status = status;
-    if (m_status != UpdatesStatus::Default){
-        this->setVisible(true);
-    }
+    this->setVisible(true);
 
     switch (m_status) {
+    case UpdatesStatus::Default:
+        this->setVisible(false);
+        break;
     case UpdatesStatus::UpdatesAvailable:
         m_controlWidget->showUpdateProcess(false);
         m_controlWidget->setUpdateButtonVisible(true);
@@ -133,7 +130,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Installing:
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
-        setProgress(m_progressVlaue);
+        //setProgress(m_progressVlaue);
         m_controlWidget->setButtonIcon(ButtonStatus::invalid);
         m_controlWidget->setCtrlButtonEnabled(false);
         break;

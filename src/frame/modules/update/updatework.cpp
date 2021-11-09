@@ -346,6 +346,7 @@ void UpdateWorker::checkForUpdates()
 
 void UpdateWorker::setUpdateInfo()
 {
+    qDebug() << " UpdateWorker::setUpdateInfo() ";
     m_updateInter->setSync(true);
     m_managerInter->setSync(true);
 
@@ -378,15 +379,25 @@ void UpdateWorker::setUpdateInfo()
     qDebug() << " UpdateWorker::setUpdateInfo: updateInfoMap.count()" << updateInfoMap.count();
     QMap<ClassifyUpdateType, UpdateItemInfo *>::iterator iterator = updateInfoMap.begin();
 
-    while (iterator != updateInfoMap.end()) {
-        m_downloadSize += iterator.value()->downloadSize();
-        iterator++;
-    }
-
     qDebug() << "systemUpdate packages:" <<  m_systemPackages;
     qDebug() << "appUpdate packages:" <<  m_appPackages;
     qDebug() << "safeUpdate packages:" <<  m_safePackages;
     qDebug() << "unkonowUpdate packages:" <<  m_unknownPackages;
+
+    if (updateInfoMap.count() == 0) {
+        m_model->setStatus(UpdatesStatus::Updated, __LINE__);
+    } else {
+        qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
+        m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
+        for (auto item : updateInfoMap.keys()) {
+            if (updateInfoMap.value(item) != nullptr) {
+                m_downloadSize += updateInfoMap.value(item) ->downloadSize();
+                if(m_model->getClassifyUpdateStatus(item) == UpdatesStatus::Default || m_model->getClassifyUpdateStatus(item) == UpdatesStatus::UpdateSucceeded){
+                    m_model->setClassifyUpdateTypeStatus(item, UpdatesStatus::UpdatesAvailable);
+                }
+            }
+        }
+    }
 }
 
 QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
@@ -843,19 +854,6 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     const CheckUpdateJobRet &ret = createCheckUpdateJob(jobPath);
     if (ret.status == "succeed") {
         setUpdateInfo();
-        QMap<ClassifyUpdateType, UpdateItemInfo *> updateInfos = m_model->getAllUpdateInfos();
-        if (updateInfos.count() == 0) {
-            m_model->setStatus(UpdatesStatus::Updated, __LINE__);
-        } else {
-            qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
-            m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
-            m_model->setAllClassifyUpdateStatus(UpdatesStatus::Default);
-            for (auto item : updateInfos.keys()) {
-                if (updateInfos.value(item) != nullptr) {
-                    m_model->setClassifyUpdateTypeStatus(item, UpdatesStatus::UpdatesAvailable);
-                }
-            }
-        }
     } else {
         m_managerInter->CleanJob(ret.jobID);
         checkDiskSpace(ret.jobDescription);
@@ -1156,7 +1154,7 @@ void UpdateWorker::onUnkonwnUpdateDownloadStatusChanged(const QString   &value)
 void UpdateWorker::onSysUpdateInstallProgressChanged(double value)
 {
     UpdateItemInfo *itemInfo = m_model->systemDownloadInfo();
-    if (itemInfo == nullptr || m_sysUpdateInstallJob->status() == "ready") {
+    if (itemInfo == nullptr || qFuzzyIsNull(value)) {
         return;
     }
 
@@ -1167,7 +1165,7 @@ void UpdateWorker::onSysUpdateInstallProgressChanged(double value)
 void UpdateWorker::onAppUpdateInstallProgressChanged(double value)
 {
     UpdateItemInfo *itemInfo = m_model->appDownloadInfo();
-    if (itemInfo == nullptr ||  m_appUpdateInstallJob->status() == "ready") {
+    if (itemInfo == nullptr || qFuzzyIsNull(value)) {
         return;
     }
 
@@ -1187,7 +1185,7 @@ void UpdateWorker::onSafeUpdateInstallProgressChanged(double value)
 void UpdateWorker::onUnkonwnUpdateInstallProgressChanged(double value)
 {
     UpdateItemInfo *itemInfo = m_model->unknownDownloadInfo();
-    if (itemInfo == nullptr || m_unknownUpdateInstallJob->status() == "ready") {
+    if (itemInfo == nullptr || qFuzzyIsNull(value)) {
         return;
     }
 
