@@ -137,7 +137,7 @@ void AddIrisInfoDialog::initConnect()
 
     connect(m_cancelBtn, &QPushButton::clicked, this, &AddIrisInfoDialog::close);
     connect(m_acceptBtn, &QPushButton::clicked, this, &AddIrisInfoDialog::requestInputIris);
-    connect(m_acceptBtn, &QPushButton::clicked, this, [this]{
+    connect(m_cancelBtn, &QPushButton::clicked, this, [this]{
         if (m_acceptBtn->text() == "Done") {
             this->close();
         }
@@ -160,17 +160,22 @@ void AddIrisInfoDialog::refreshInfoStatusDisplay(CharaMangerModel::AddInfoState 
         m_resultTips->setText(tr("Iris enrolled"));
         m_disclaimersItem->setVisible(false);
         m_cancelBtn->setVisible(true);
-        m_cancelBtn->setText(tr("Close"));
-        m_acceptBtn->setVisible(true);
-        m_cancelBtn->setText(tr("Try Again"));
+        m_cancelBtn->setText(tr("Done"));
+        m_acceptBtn->setVisible(false);
+
+        Q_EMIT requestStopEnroll();
     }
         break;
     case CharaMangerModel::AddInfoState::Fail:{
         m_resultTips->setVisible(true);
         m_resultTips->setText(tr("Failed to enroll your iris"));
         m_disclaimersItem->setVisible(false);
+        m_cancelBtn->setVisible(true);
+        m_cancelBtn->setText("Done");
         m_acceptBtn->setVisible(true);
-        m_cancelBtn->setText("enrolled");
+        m_acceptBtn->setText(tr("Try Again"));
+
+        Q_EMIT requestStopEnroll();
     }
         break;
     }

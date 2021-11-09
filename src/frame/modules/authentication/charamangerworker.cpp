@@ -32,6 +32,8 @@ using namespace dcc::authentication;
 const QString CharaMangerService("com.deepin.daemon.Authenticate");
 const QString FreeDesktopService("org.freedesktop.DBus");
 
+#define INPUT_TIME 30
+
 CharaMangerWorker::CharaMangerWorker(CharaMangerModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
@@ -131,6 +133,7 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
     if (driverInfo.isNull()) {
         // 处理界面显示空设备
         m_model->setFaceDriverVaild(false);
+        m_model->setIrisDriverVaild(false);
         return;
     }
     QStringList faceDriverNames;
@@ -146,7 +149,7 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
     }
     QMap<QString, uint>::Iterator it;
 
-    qDebug() << "info: " << driInfo.size();
+    qDebug() << "info: " << driInfo.size() << driverInfo;
     // 记录driver信息
     for (it = driInfo.begin(); it != driInfo.end(); ++it) {
         // 可用人脸driverName
@@ -154,8 +157,9 @@ void CharaMangerWorker::predefineDriverInfo(const QString &driverInfo)
             faceDriverNames.append(it.key());
         }
 
-        if (it.value() & IRIS_CHARA)
+        if (it.value() & IRIS_CHARA) {
             irisDriverNames.append(it.key());
+        }
     }
 
     // 获取用户录入的数据
@@ -223,6 +227,7 @@ void CharaMangerWorker::refreshDriverInfo()
 
 void CharaMangerWorker::entollStart(const QString &driverName, const int &charaType, const QString &charaName)
 {
+    qDebug() << "CharaMangerWorker::entollStart " << driverName << charaType << charaName;
     m_currentInputCharaType = charaType;
 
     m_fileDescriptor = new QDBusPendingReply<QDBusUnixFileDescriptor>();
@@ -231,7 +236,7 @@ void CharaMangerWorker::entollStart(const QString &driverName, const int &charaT
     if (m_fileDescriptor->isError()) {
         qDebug() << "get File Descriptor error! " << m_fileDescriptor->error();
     } else {
-        m_stopTimer->start(1000 * 30);
+        m_stopTimer->start(1000 * INPUT_TIME);
 
         if (charaType & FACE_CHARA)
             Q_EMIT tryStartInputFace(m_fileDescriptor->value().fileDescriptor());

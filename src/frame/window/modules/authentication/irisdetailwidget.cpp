@@ -71,8 +71,6 @@ void IrisDetailWidget::initIrisShow()
 
 void IrisDetailWidget::onDeviceStatusChanged(bool hasDevice)
 {
-    // TODO： test
-    hasDevice = true;
     if (hasDevice) {
         m_pNotDevice->hide();
         m_tip->hide();
