@@ -53,6 +53,9 @@ public:
 
     void setLowBattery(bool lowBattery);
 
+    double getProgressVlaue() const;
+    void setProgressVlaue(double progressVlaue);
+
 Q_SIGNALS:
     void UpdateSuccessed();
     void UpdateFailed();
@@ -79,6 +82,7 @@ private:
     UpdatesStatus m_status;
     ClassifyUpdateType m_classifyUpdateType;
     qlonglong m_updateSize;
+    double m_progressVlaue;
 
 protected:
     updateControlPanel *m_controlWidget;

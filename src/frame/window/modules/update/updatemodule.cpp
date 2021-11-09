@@ -89,7 +89,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
             m_frameProxy->setModuleSubscriptVisible(name(), false);
         } else {
             UpdatesStatus status = m_model->status();
-            if (status == UpdatesStatus::UpdatesAvailable || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
+            if (status == UpdatesStatus::UpdatesAvailable|| status == UpdatesStatus::Updateing || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
                     status == UpdatesStatus::Installing || status == UpdatesStatus::RecoveryBackingup || status == UpdatesStatus::RecoveryBackingSuccessed || m_model->getUpdatablePackages()) {
                 m_frameProxy->setModuleSubscriptVisible(name(), true);
             }
@@ -258,6 +258,7 @@ void UpdateModule::notifyDisplayReminder(UpdatesStatus status)
         //do nothing
     } else if (status == UpdatesStatus::UpdatesAvailable ||
                status == UpdatesStatus::Downloading ||
+               status == UpdatesStatus::Updateing ||
                status == UpdatesStatus::DownloadPaused ||
                status == UpdatesStatus::Downloaded ||
                status == UpdatesStatus::Installing ||

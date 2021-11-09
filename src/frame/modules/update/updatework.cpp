@@ -387,19 +387,6 @@ void UpdateWorker::setUpdateInfo()
     qDebug() << "appUpdate packages:" <<  m_appPackages;
     qDebug() << "safeUpdate packages:" <<  m_safePackages;
     qDebug() << "unkonowUpdate packages:" <<  m_unknownPackages;
-
-    if (updateInfoMap.count() == 0) {
-        m_model->setStatus(UpdatesStatus::Updated, __LINE__);
-    } else {
-        qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
-        m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
-        m_model->setAllClassifyUpdateStatus(UpdatesStatus::Default);
-        for (auto item : updateInfoMap.keys()) {
-            if (updateInfoMap.value(item) != nullptr) {
-                m_model->setClassifyUpdateTypeStatus(item, UpdatesStatus::UpdatesAvailable);
-            }
-        }
-    }
 }
 
 QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
@@ -856,6 +843,19 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     const CheckUpdateJobRet &ret = createCheckUpdateJob(jobPath);
     if (ret.status == "succeed") {
         setUpdateInfo();
+        QMap<ClassifyUpdateType, UpdateItemInfo *> updateInfos = m_model->getAllUpdateInfos();
+        if (updateInfos.count() == 0) {
+            m_model->setStatus(UpdatesStatus::Updated, __LINE__);
+        } else {
+            qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
+            m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
+            m_model->setAllClassifyUpdateStatus(UpdatesStatus::Default);
+            for (auto item : updateInfos.keys()) {
+                if (updateInfos.value(item) != nullptr) {
+                    m_model->setClassifyUpdateTypeStatus(item, UpdatesStatus::UpdatesAvailable);
+                }
+            }
+        }
     } else {
         m_managerInter->CleanJob(ret.jobID);
         checkDiskSpace(ret.jobDescription);
@@ -1196,7 +1196,9 @@ void UpdateWorker::onUnkonwnUpdateInstallProgressChanged(double value)
 
 void UpdateWorker::onSysUpdateInstallStatusChanged(const QString &value)
 {
-    if (value == "running") {
+    if(value == "ready"){
+        m_model->setSystemUpdateStatus(UpdatesStatus::Downloaded);
+    } else if (value == "running") {
         m_model->setSystemUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateFailed);
@@ -1214,7 +1216,9 @@ void UpdateWorker::onSysUpdateInstallStatusChanged(const QString &value)
 void UpdateWorker::onAppUpdateInstallStatusChanged(const QString   &value)
 {
 
-    if (value == "running") {
+    if(value == "ready"){
+        m_model->setAppUpdateStatus(UpdatesStatus::Downloaded);
+    } else if (value == "running") {
         m_model->setAppUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateFailed);
@@ -1232,7 +1236,9 @@ void UpdateWorker::onAppUpdateInstallStatusChanged(const QString   &value)
 void UpdateWorker::onSafeUpdateInstallStatusChanged(const QString   &value)
 {
 
-    if (value == "running") {
+    if(value == "ready"){
+        m_model->setSafeUpdateStatus(UpdatesStatus::Downloaded);
+    } else if (value == "running") {
         m_model->setSafeUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateFailed);
@@ -1249,7 +1255,9 @@ void UpdateWorker::onSafeUpdateInstallStatusChanged(const QString   &value)
 
 void UpdateWorker::onUnkonwnUpdateInstallStatusChanged(const QString   &value)
 {
-    if (value == "running") {
+    if(value == "ready"){
+        m_model->setUnkonowUpdateStatus(UpdatesStatus::Downloaded);
+    } else if (value == "running") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateFailed);

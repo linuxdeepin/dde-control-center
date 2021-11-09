@@ -639,6 +639,16 @@ void UpdateModel::setAutoInstallUpdateType(const quint64 &autoInstallUpdateType)
     }
 }
 
+QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateModel::getAllUpdateInfos() const
+{
+    return m_allUpdateInfos;
+}
+
+void UpdateModel::setAllUpdateInfos(const QMap<ClassifyUpdateType, UpdateItemInfo *> &allUpdateInfos)
+{
+    m_allUpdateInfos = allUpdateInfos;
+}
+
 UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)
 {
     UpdatesStatus status = UpdatesStatus::Default;

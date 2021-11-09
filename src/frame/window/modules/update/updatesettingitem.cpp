@@ -20,6 +20,7 @@ UpdateSettingItem::UpdateSettingItem(QWidget *parent)
     , m_icon(new SmallLabel(this))
     , m_status(UpdatesStatus::Default)
     , m_updateSize(0)
+    , m_progressVlaue(0)
     , m_controlWidget(new updateControlPanel(this))
     , m_settingsGroup(new dcc::widgets::SettingsGroup(this, SettingsGroup::BackgroundStyle::NoneBackground))
 {
@@ -85,6 +86,8 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         return;
     }
 
+    qDebug() << "UpdateSettingItem::setStatus: " << status;
+
     if (status == UpdatesStatus::RecoveryBackingSuccessed && m_status != UpdatesStatus::RecoveryBackingup && m_status != UpdatesStatus::WaitRecoveryBackup) {
         return;
     }
@@ -118,7 +121,8 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Downloaded:
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
-        m_controlWidget->setProgressValue(100);
+        setProgressVlaue(1.0);
+        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
         m_controlWidget->setCtrlButtonEnabled(false);
         Q_EMIT requestRefreshSize();
         break;
@@ -129,7 +133,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Installing:
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
-        m_controlWidget->setProgressValue(0);
+        setProgress(m_progressVlaue);
         m_controlWidget->setButtonIcon(ButtonStatus::invalid);
         m_controlWidget->setCtrlButtonEnabled(false);
         break;
@@ -164,7 +168,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::RecoveryBackingSuccessed:
         m_controlWidget->showUpdateProcess(true);
-        setProgress(1.0);
+        setProgressVlaue(1.0);
         m_controlWidget->setProgressType(UpdateDProgressType::Backup);
         m_controlWidget->setButtonIcon(ButtonStatus::invalid);
         m_controlWidget->setCtrlButtonEnabled(false);
@@ -206,7 +210,7 @@ void UpdateSettingItem::setData(UpdateItemInfo *updateItemInfo)
     m_controlWidget->setTitle(updateItemInfo->name());
     m_controlWidget->setDetail(updateItemInfo->explain());
 
-    setProgress(updateItemInfo->downloadProgress());
+    setProgressVlaue(updateItemInfo->downloadProgress());
     setUpdateSize(updateItemInfo->downloadSize());
 }
 
@@ -219,7 +223,18 @@ void UpdateSettingItem::onUpdateStatuChanged(const UpdatesStatus &status)
 
 void UpdateSettingItem::onUpdateProgressChanged(const double &value)
 {
-    setProgress(value);
+    setProgressVlaue(value);
+}
+
+double UpdateSettingItem::getProgressVlaue() const
+{
+    return m_progressVlaue;
+}
+
+void UpdateSettingItem::setProgressVlaue(double progressVlaue)
+{
+    m_progressVlaue = progressVlaue;
+    setProgress(progressVlaue);
 }
 
 qlonglong UpdateSettingItem::updateSize() const
@@ -265,7 +280,7 @@ void UpdateSettingItem::onPauseDownload()
 
 void UpdateSettingItem::onRetryUpdate()
 {
-    setProgress(0);
+    setProgressVlaue(0);
     m_controlWidget->showButton(false);
     onStartUpdate();
 }

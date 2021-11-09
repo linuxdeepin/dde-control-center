@@ -140,7 +140,10 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_updateTipsLab->setVisible(false);
 
     DFontSizeManager::instance()->bind(m_versrionTip, DFontSizeManager::T8);
-    m_versrionTip->setForegroundRole(DPalette::TextTips);
+    m_versrionTip->setForegroundRole(DPalette::TextTips);    
+    QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
+    m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
+
     updateTitleFirstVLay->addWidget(m_updateTipsLab);
     updateTitleFirstVLay->addWidget(m_updateSizeLab);
 
@@ -341,6 +344,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::Updateing:
         showUpdateInfo();
+        onRequestRefreshSize();
         break;
     case UpdatesStatus::UpdateSucceeded:
         m_resultItem->setVisible(true);
@@ -528,6 +532,11 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());
 
+    setSystemUpdateInfo(m_model->systemDownloadInfo());
+    setAppUpdateInfo(m_model->appDownloadInfo());
+    setSafeUpdateInfo(m_model->safeDownloadInfo());
+    setUnkonowUpdateInfo(m_model->unknownDownloadInfo());
+
     if (m_model->enterCheckUpdate()) {
         setStatus(UpdatesStatus::Checking);
     } else {
@@ -538,13 +547,7 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
         setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
     }
 
-
     setLowBattery(m_model->lowBattery());
-
-    setSystemUpdateInfo(m_model->systemDownloadInfo());
-    setAppUpdateInfo(m_model->appDownloadInfo());
-    setSafeUpdateInfo(m_model->safeDownloadInfo());
-    setUnkonowUpdateInfo(m_model->unknownDownloadInfo());
 }
 
 void UpdateCtrlWidget::setSystemVersion(const QString &version)
@@ -671,31 +674,7 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
     setLowBattery(m_model->lowBattery());
     setShowInfo(m_model->systemActivation());
 
-    QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
-    m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
-
-    auto refreshUpdateSize = [ = ](UpdateSettingItem * updateItem) {
-        if (updateItem->status() == UpdatesStatus::UpdatesAvailable
-                || updateItem->status() == UpdatesStatus::Downloading
-                || updateItem->status() == UpdatesStatus::DownloadPaused
-                || updateItem->status() == UpdatesStatus::UpdateFailed) {
-            m_updateSize += updateItem->updateSize();
-        }
-    };
-
-    refreshUpdateSize(m_systemUpdateItem);
-    refreshUpdateSize(m_storeUpdateItem);
-    refreshUpdateSize(m_safeUpdateItem);
-    refreshUpdateSize(m_unknownUpdateItem);
-
-    if (m_updateSize == 0) {
-        m_CheckAgainBtn->setEnabled(false);
-    }
-
-
-    QString updateSize = formatCap(m_updateSize);
-    updateSize = tr("Size") + ": " + updateSize;
-    m_updateSizeLab->setText(updateSize);
+    onRequestRefreshSize();
 }
 
 void UpdateCtrlWidget::onFullUpdateClicked()
@@ -749,9 +728,13 @@ void UpdateCtrlWidget::onRequestUpdate(ClassifyUpdateType type)
 
 void UpdateCtrlWidget::onRequestRefreshSize()
 {
+    m_updateSize = 0;
     auto refreshUpdateSize = [ = ](UpdateSettingItem * updateItem) {
-        if (updateItem->status() == UpdatesStatus::Downloaded) {
-            m_updateSize -= updateItem->updateSize();
+        if (updateItem->status() == UpdatesStatus::UpdatesAvailable
+                || updateItem->status() == UpdatesStatus::Downloading
+                || updateItem->status() == UpdatesStatus::DownloadPaused
+                || updateItem->status() == UpdatesStatus::UpdateFailed) {
+            m_updateSize += updateItem->updateSize();
         }
     };
 
@@ -760,8 +743,7 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     refreshUpdateSize(m_safeUpdateItem);
     refreshUpdateSize(m_unknownUpdateItem);
 
-    if(m_updateSize <= 0){
-        m_updateSize = 0;
+    if (m_updateSize == 0) {
         m_CheckAgainBtn->setEnabled(false);
     }
 

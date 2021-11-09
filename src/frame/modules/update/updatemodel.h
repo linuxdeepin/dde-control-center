@@ -219,6 +219,9 @@ public:
     quint64 getAutoInstallUpdateType() const;
     void setAutoInstallUpdateType(const quint64 &autoInstallUpdateType);
 
+    QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfos() const;
+    void setAllUpdateInfos(const QMap<ClassifyUpdateType, UpdateItemInfo *> &allUpdateInfos);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
