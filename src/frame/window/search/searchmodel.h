@@ -103,6 +103,7 @@ private:
     bool isLoadText(const QString &txt);
     bool isLoadContensText(const QString &text);
     SearchBoxStruct::Ptr getModuleBtnString(QString value);
+    bool specialProcessData(SearchBoxStruct::Ptr data);
 
 private:
     QList<SearchBoxStruct::Ptr> m_originList;
@@ -132,6 +133,7 @@ private:
     QList<HideChildWidgetDetailStruct> m_hideWidgetDetailList;
     QMap<QString, QString> m_transChildPageName;
     bool m_dataUpdateCompleted;
+    QMap<QString, QString> m_transPlusData;
 };
 
 }// namespace search

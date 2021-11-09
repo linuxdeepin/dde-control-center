@@ -149,6 +149,7 @@ int KeyboardWidget::showPath(const QString &path)
             return 0;
         }
 
+        //正常情况应该使用 "Input Methods" 进行判断，因为输入法写错了因此这里需要根据输入法错误写法适配
         if (menu.plugin && path == "Manage Input Methods") {
             menu.itemSignal.invoke(menu.plugin);
             m_lastIndex = m_listviewModel->index(i, 0);
