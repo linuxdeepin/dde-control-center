@@ -68,7 +68,10 @@ target_link_libraries(${TARGET_NAME} PRIVATE
     ${Qt5Network_LIBRARIES}
 )
 
+file(GLOB CONFIG_FILES "configs/*")
 dconfig_meta_files(APPID ${TARGET_NAME} FILES ./configs/${TARGET_NAME}.json)
+
 install(TARGETS ${TARGET_NAME} DESTINATION /usr/bin)
 # 安装 .qm 文件
 install(FILES ${QM_FILES} DESTINATION /usr/share/${TARGET_NAME}/translations)
+install(FILES ${CONFIG_FILES} DESTINATION /usr/share/dsg/apps/${TARGET_NAME}/configs/)

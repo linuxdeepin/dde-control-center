@@ -75,4 +75,4 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE
 install(TARGETS ${PLUGIN_NAME} LIBRARY DESTINATION /lib/dde-session-shell/modules)
 # 安装 .qm 文件
 install(FILES ${QM_FILES} DESTINATION /usr/share/${PLUGIN_NAME}/translations)
-install(FILES 10-network-manager.pkla DESTINATION /var/lib/polkit-l/localauthority/10-vendor.d)
+install(FILES 10-network-manager.pkla DESTINATION /var/lib/polkit-1/localauthority/10-vendor.d)
