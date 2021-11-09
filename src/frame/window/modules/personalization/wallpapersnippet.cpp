@@ -29,6 +29,7 @@
 #include <QLabel>
 #include <QDBusConnection>
 #include <QDir>
+#include <QPainterPath>
 
 DGUI_USE_NAMESPACE
 DWIDGET_USE_NAMESPACE

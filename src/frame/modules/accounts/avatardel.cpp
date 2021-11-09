@@ -28,6 +28,7 @@
 #include <QPainter>
 #include <dimagebutton.h>
 #include <QVBoxLayout>
+#include <QPainterPath>
 
 DWIDGET_USE_NAMESPACE
 

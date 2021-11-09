@@ -31,6 +31,7 @@
 #include <QVBoxLayout>
 #include <QEvent>
 #include <QScroller>
+#include <QPainterPath>
 
 using namespace DCC_NAMESPACE;
 using namespace DCC_NAMESPACE::keyboard;
