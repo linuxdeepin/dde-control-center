@@ -119,6 +119,7 @@ void SystemLanguageSettingWidget::onSearch(const QString &text)
         m_view->setModel(m_model);
     } else {
         m_searchStatus = true;
+        m_searchModelIndex = QModelIndex();
         m_searchModel = new QStandardItemModel(this);
 
         for (auto md : m_datas) {
