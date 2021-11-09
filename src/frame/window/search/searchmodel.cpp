@@ -632,7 +632,7 @@ void SearchModel::setLanguage(const QString &type)
             { "Delete Account", QObject::tr("Delete Account")},
 
             //union id
-            { "Sign In", /*QObject::tr("Sign In")*/"登 录" },
+            { "Sign In", QObject::tr("Sign In") },
 
             //bluetooth
             { "My Devices", QObject::tr("My Devices") },
@@ -709,7 +709,7 @@ void SearchModel::setLanguage(const QString &type)
 
             //update
             { "Check for Updates", QObject::tr("Check for Updates") },
-            { "Updates", /*QObject::tr("Updates")*/"检查更新" },
+            { "Updates", QObject::tr("Updates") },
             { "Update Settings", QObject::tr("Update Settings") },
 
             //wacom
