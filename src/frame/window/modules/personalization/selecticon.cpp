@@ -24,6 +24,7 @@
 #include <DStyle>
 
 #include <QPainter>
+#include <QPainterPath>
 
 DWIDGET_USE_NAMESPACE
 using namespace DCC_NAMESPACE::personalization;

@@ -33,6 +33,7 @@
 #include <QLineEdit>
 #include <QEvent>
 #include <QLocale>
+#include <QPainterPath>
 
 using namespace dcc;
 

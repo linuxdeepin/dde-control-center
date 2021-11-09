@@ -24,6 +24,7 @@
 #include <DStyle>
 
 #include <QPainter>
+#include <QPainterPath>
 
 const int PixmapSize = 230;
 
