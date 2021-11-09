@@ -26,7 +26,10 @@
 #include <DPasswordEdit>
 #include <DSuggestButton>
 #include <DRegionMonitor>
+
 #include <com_deepin_daemon_accounts_user.h>
+
+#include <QLocalSocket>
 
 #define PASSWORD_LEVEL_ICON_NUM 3
 #define PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH ":/icons/dcc_deepin_password_strength_unactive_light_mode.svg"
@@ -81,6 +84,7 @@ private slots:
     void onResetPasswordBtnClicked();
     void onReadFromServerChanged(int);
     void startMonitor();
+
 private:
     QRect m_screenGeometry;
     DLineEdit *m_phoneEmailEdit;
@@ -104,6 +108,7 @@ private:
     QString m_uuid;
     QTimer *m_monitorTimer;
     QString m_app;
+    QLocalSocket *m_client;
 };
 
 class Manager : public QObject

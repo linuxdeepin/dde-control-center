@@ -26,17 +26,20 @@
 #include <QScreen>
 #include <QLabel>
 #include <QDebug>
+#include <QStyle>
+#include <QWindow>
+
 #include <pwd.h>
 #include <unistd.h>
 #include <libintl.h>
 #include <random>
 #include <crypt.h>
+#include <iostream>
+
 #include <DDesktopServices>
 #include <DGuiApplicationHelper>
 #include <DMessageManager>
-#include <QStyle>
 #include <DFloatingMessage>
-#include <iostream>
 
 DGUI_USE_NAMESPACE
 
@@ -56,6 +59,7 @@ ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, QString uuid, QSt
     , m_uuid(uuid)
     , m_monitorTimer(new QTimer(this))
     , m_app(app)
+    , m_client(new QLocalSocket(this))
 {
     initWidget();
     initData();
@@ -148,8 +152,7 @@ void ResetPasswordDialog::initWidget()
     this->addButtons(buttons);
     this->addButton(tr("Reset"), true, ButtonRecommend);
 
-    Qt::WindowFlags m_flags = windowFlags();
-    setWindowFlags(m_flags | Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint);
     setOnButtonClickedClose(false);
     setAttribute(Qt::WA_DeleteOnClose, true);
 }
@@ -237,6 +240,12 @@ void ResetPasswordDialog::initData()
     connect(m_monitorTimer, &QTimer::timeout, this, &ResetPasswordDialog::startMonitor);
     if (m_app != "control-center") {
         m_monitorTimer->start(300);
+    }
+
+    m_client->connectToServer("GrabKeyboard");
+    if(!m_client->waitForConnected(1000)) {
+        qWarning() << "连接失败!";
+        return;
     }
 }
 
