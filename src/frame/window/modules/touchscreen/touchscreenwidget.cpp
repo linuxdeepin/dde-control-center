@@ -119,7 +119,7 @@ void TouchscreenWidget::onMonitorChanged()
     int idx = 0;
     int monitorMaxIdx = monitorList.count() - 1;
     for (const auto &i : touchscreenList) {
-        QString touchscreenSerial = i.serialNumber;
+        QString touchscreenUUID = i.uuid;
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new DLabel(title);
@@ -128,7 +128,7 @@ void TouchscreenWidget::onMonitorChanged()
 
         MCombobox *listCombo = new MCombobox;
         listCombo->setProperty("touchscreenName", i.name);
-        listCombo->setProperty("touchscreenSerial", touchscreenSerial);
+        listCombo->setProperty("touchscreenUUID", touchscreenUUID);
         for (Monitor *m : monitorList) {
             listCombo->addItem(m->name());
         }
@@ -138,8 +138,8 @@ void TouchscreenWidget::onMonitorChanged()
             listCombo->setCurrentIndex(idx > monitorMaxIdx ? monitorMaxIdx : idx);
         }
 
-        if (touchMap.find(touchscreenSerial) != touchMap.end()) {
-            listCombo->setCurrentText(touchMap.value(touchscreenSerial));
+        if (touchMap.find(touchscreenUUID) != touchMap.end()) {
+            listCombo->setCurrentText(touchMap.value(touchscreenUUID));
         }
 
         m_list.push_back(listCombo);
@@ -171,15 +171,15 @@ void TouchscreenWidget::save()
     bool changed = false;
     for (auto i : m_list) {
         QString touchscreenName = i->property("touchscreenName").toString();
-        QString touchscreenSerial = i->property("touchscreenSerial").toString();
+        QString touchscreenUUID = i->property("touchscreenUUID").toString();
         QString output = i->currentText();
         TouchscreenMap touchMap = m_model->touchMap();
-        if (touchMap.value(touchscreenSerial) == output) {
+        if (touchMap.value(touchscreenUUID) == output) {
             continue;
         }
 
         changed = true;
-        Q_EMIT requestAssociateTouch(output, touchscreenSerial);
+        Q_EMIT requestAssociateTouch(output, touchscreenUUID);
     }
 
     if (changed) {
