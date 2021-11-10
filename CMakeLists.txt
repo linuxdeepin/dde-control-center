@@ -65,6 +65,10 @@ install(FILES ${QM_FILES} DESTINATION share/dde-control-center/translations)
 install(FILES dde-control-center.desktop DESTINATION share/applications)
 install(FILES dde-control-center-wapper DESTINATION bin PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
 
+#dconfig
+file(GLOB DCONFIG_FILES "configs/dde.control-center*.json")
+install(FILES ${DCONFIG_FILES} DESTINATION /usr/share/dsg/apps/dde-control-center/configs/)
+
 #schemas
 install(FILES com.deepin.dde.control-center.gschema.xml DESTINATION share/glib-2.0/schemas)
 install(CODE "execute_process(COMMAND glib-compile-schemas ${CMAKE_INSTALL_PREFIX}/share/glib-2.0/schemas)")

@@ -84,6 +84,8 @@ set(WINDOW_FILES
     window/utils.h
     window/gsettingwatcher.cpp
     window/gsettingwatcher.h
+    window/dconfigwatcher.cpp
+    window/dconfigwatcher.h
     window/accessibleinterface.h
     window/accessible.h
     window/protocolfile.cpp
@@ -611,6 +613,10 @@ set(Qt_LIBS
     Qt5::Network
     Qt5::Multimedia
 )
+
+# dconfig
+file(GLOB DCONFIG_FILES "../../configs/dde.control-center*.json")
+dconfig_meta_files(APPID dde-control-center BASE ../../configs FILES ${DCONFIG_FILES})
 
 set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
 set(SHMN_VIDEO libdareader.so)
