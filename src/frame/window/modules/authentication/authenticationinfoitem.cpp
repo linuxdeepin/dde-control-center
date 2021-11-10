@@ -26,6 +26,9 @@
 #include <QLabel>
 #include <QDebug>
 
+#include <DApplicationHelper>
+#include <DStyleHelper>
+
 using namespace dcc::widgets;
 using namespace DCC_NAMESPACE::authentication;
 
@@ -36,7 +39,8 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
     , m_removeBtn(new DIconButton(this))
     , m_editBtn(new DIconButton(this))
     , m_editTitle(new DLineEdit(this))
-    , m_fingerName("")
+    , m_itemName("")
+    , m_currentpa(DApplicationHelper::instance()->palette(this))
 {
     setFixedHeight(36);
 
@@ -65,6 +69,7 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
 
     connect(m_removeBtn, &DIconButton::clicked, this, &AuthenticationInfoItem::removeClicked);
     connect(m_editBtn, &DIconButton::clicked, this, [this] {
+        m_editBtn->hide();
         Q_EMIT editClicked(m_editTitle->isVisible());
         if (m_editTitle->isVisible()) {
             m_editTitle->lineEdit()->setText(m_title->text());
@@ -88,7 +93,7 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
 void AuthenticationInfoItem::setTitle(const QString &title)
 {
     title.isEmpty() ? m_layout->removeWidget(m_title) : m_title->setText(title);
-    m_fingerName = title;
+    m_itemName = title;
 }
 
 void AuthenticationInfoItem::appendItem(QWidget *widget)
@@ -99,20 +104,17 @@ void AuthenticationInfoItem::appendItem(QWidget *widget)
 void AuthenticationInfoItem::setShowIcon(bool state)
 {
     m_removeBtn->setVisible(state);
-    m_editBtn->setVisible(state);
 }
 
 void AuthenticationInfoItem::setEditTitle(bool state)
 {
     m_title->setVisible(!state);
-    m_editBtn->setVisible(!state);
     m_editTitle->setVisible(state);
 }
 
 void AuthenticationInfoItem::setHideTitle(bool state)
 {
     m_title->setVisible(state);
-    m_editBtn->setVisible(state);
     m_editTitle->setVisible(state);
 }
 
@@ -158,4 +160,33 @@ void AuthenticationInfoItem::showAlertMessage(const QString &errMsg)
     m_editTitle->setAlert(true);
     m_editTitle->showAlertMessage(errMsg, parentWidget()->parentWidget(), 2000);
     m_editTitle->lineEdit()->selectAll();
+}
+
+void AuthenticationInfoItem::enterEvent(QEvent *event)
+{
+    DPalette pa = DApplicationHelper::instance()->palette(this);
+    DStyleHelper styleHelper;
+    styleHelper = DStyleHelper(this->style());
+
+    QBrush brush;
+    if (styleHelper.dstyle()) {
+        brush = styleHelper.dstyle()->generatedBrush(DStyle::SS_HoverState, pa.itemBackground(), DPalette::Normal, DPalette::ItemBackground);
+    }
+    pa.setBrush(DPalette::Window, Qt::transparent);
+    pa.setBrush(DPalette::ItemBackground, brush);
+    DApplicationHelper::instance()->setPalette(this, pa);
+
+    if (m_editTitle->isVisible())
+        m_editBtn->hide();
+    else
+        m_editBtn->show();
+
+    QFrame::enterEvent(event);
+}
+
+void AuthenticationInfoItem::leaveEvent(QEvent *event)
+{
+    DApplicationHelper::instance()->setPalette(this, m_currentpa);
+    m_editBtn->hide();
+    QFrame::leaveEvent(event);
 }

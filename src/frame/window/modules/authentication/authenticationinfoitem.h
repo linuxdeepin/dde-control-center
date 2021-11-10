@@ -46,7 +46,7 @@ class AuthenticationInfoItem : public dcc::widgets::SettingsItem
 public:
     explicit AuthenticationInfoItem(QWidget *parent = nullptr);
     void setTitle(const QString &title);
-    QString getTitle() const { return m_fingerName; };
+    QString getTitle() const { return m_itemName; };
     void alertTitleRepeat();
     void appendItem(QWidget *widget);
     void setShowIcon(bool state);
@@ -62,13 +62,18 @@ Q_SIGNALS:
     void editClicked(bool state);
     void editTextFinished(QString finger);
 
+protected:
+    void enterEvent(QEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+
 private:
     QHBoxLayout *m_layout;
     QLabel *m_title;
     DIconButton *m_removeBtn;
     DIconButton *m_editBtn;
     DLineEdit *m_editTitle;
-    QString m_fingerName;
+    QString m_itemName;
+    DPalette m_currentpa;
 };
 
 }
