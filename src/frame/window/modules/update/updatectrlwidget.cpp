@@ -140,7 +140,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_updateTipsLab->setVisible(false);
 
     DFontSizeManager::instance()->bind(m_versrionTip, DFontSizeManager::T8);
-    m_versrionTip->setForegroundRole(DPalette::TextTips);    
+    m_versrionTip->setForegroundRole(DPalette::TextTips);
     QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
     m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
 
@@ -445,7 +445,7 @@ void UpdateCtrlWidget::setLowBattery(const bool &lowBattery)
         }
         //电量和授权共同决定
         bool enable = false;
-        if(lowBattery)
+        if (lowBattery)
             enable = !lowBattery;
         else
             enable = activation;
@@ -646,19 +646,19 @@ void UpdateCtrlWidget::showUpdateInfo()
     setSafeUpdateStatus(m_model->getSafeUpdateStatus());
     setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
 
-    if(m_systemUpdateItem->status() == UpdatesStatus::Default || m_systemUpdateItem->status() == UpdatesStatus::UpdateSucceeded){
+    if (m_systemUpdateItem->status() == UpdatesStatus::Default || m_systemUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
         m_systemUpdateItem->setVisible(false);
     }
 
-    if(m_safeUpdateItem->status() == UpdatesStatus::Default || m_safeUpdateItem->status() == UpdatesStatus::UpdateSucceeded){
+    if (m_safeUpdateItem->status() == UpdatesStatus::Default || m_safeUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
         m_safeUpdateItem->setVisible(false);
     }
 
-    if(m_storeUpdateItem->status() == UpdatesStatus::Default || m_storeUpdateItem->status() == UpdatesStatus::UpdateSucceeded){
+    if (m_storeUpdateItem->status() == UpdatesStatus::Default || m_storeUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
         m_storeUpdateItem->setVisible(false);
     }
 
-    if(m_unknownUpdateItem->status() == UpdatesStatus::Default || m_unknownUpdateItem->status() == UpdatesStatus::UpdateSucceeded){
+    if (m_unknownUpdateItem->status() == UpdatesStatus::Default || m_unknownUpdateItem->status() == UpdatesStatus::UpdateSucceeded) {
         m_unknownUpdateItem->setVisible(false);
     }
 
@@ -688,17 +688,17 @@ void UpdateCtrlWidget::onFullUpdateClicked()
 
     auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
 
-        if(updateItem->status() == UpdatesStatus::DownloadPaused && updateItem->getCtrlButtonStatus()== ButtonStatus::start){
+        if (updateItem->status() == UpdatesStatus::DownloadPaused && updateItem->getCtrlButtonStatus() == ButtonStatus::start) {
             int ctrlType = UpdateCtrlType::Start;
             Q_EMIT requestUpdateCtrl(type, ctrlType);
         }
 
-        if(updateItem->status() != UpdatesStatus::Default
+        if (updateItem->status() != UpdatesStatus::Default
                 || updateItem->status() == UpdatesStatus::UpdateFailed
                 || updateItem->status() == UpdatesStatus::Downloaded
                 || updateItem->status() == UpdatesStatus::Downloading
                 || updateItem->status() == UpdatesStatus::UpdateFailed
-                || updateItem->status() == UpdatesStatus::AutoDownloaded){
+                || updateItem->status() == UpdatesStatus::AutoDownloaded) {
             Q_EMIT  requestUpdates(type);
         }
 
@@ -746,6 +746,11 @@ void UpdateCtrlWidget::onRequestRefreshSize()
 
     if (m_updateSize == 0) {
         m_CheckAgainBtn->setEnabled(false);
+        m_upgradeWarningGroup->setVisible(false);
+    } else if ((static_cast<int>(m_updateSize) / 1024) / 1024 >= m_qsettings->value("upgrade_waring_size", UpgradeWarningSize).toInt()) {
+        m_upgradeWarningGroup->setVisible(true);
+    } else {
+        m_upgradeWarningGroup->setVisible(false);
     }
 
     QString updateSize = formatCap(m_updateSize);
