@@ -46,22 +46,28 @@ int main(int argc, char *argv[])
 
     QCommandLineParser parser;
     parser.addHelpOption();
-    QCommandLineOption uuidOption("u", "uuid", "uuid", QString::number(0));
-    parser.addOption(uuidOption);
-    QCommandLineOption appOption("a", "app", "application name", QString::number(0));
-    parser.addOption(appOption);
-    parser.process(a);
-    QString uuid = parser.value(uuidOption);
-    QString app = parser.value(appOption);
+    QCommandLineOption userNameOption(QStringList() << "u" << "username", "user name", "username", "");
+    parser.addOption(userNameOption);
+    QCommandLineOption appNameOption(QStringList() << "a" << "appname", "application name", "applicationName", "");
+    parser.addOption(appNameOption);
+
+    parser.parse(QCoreApplication::arguments());
+
+    QString userName = parser.value(userNameOption);
+    QString appName = parser.value(appNameOption);
 
     QTranslator translator;
     translator.load("/usr/share/dde-control-center/translations/reset-password-dialog_" + QLocale::system().name());
     a.installTranslator(&translator);
 
-    DLogManager::setlogFilePath(QString("/tmp/%1.log").arg(a.applicationName()));
+    DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();
+    DLogManager::setlogFilePath(QString("/tmp/%1.log").arg(a.applicationName()));
+    const QDir &logDir = QFileInfo((Dtk::Core::DLogManager::getlogFilePath())).dir();
+    if (!logDir.exists())
+        QDir().mkpath(logDir.path());
 
-    Manager *manager = new Manager(uuid, app);
+    Manager *manager = new Manager(userName, appName);
     manager->start();
 
     return a.exec();

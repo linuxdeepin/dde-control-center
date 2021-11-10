@@ -40,10 +40,84 @@
 #include <DGuiApplicationHelper>
 #include <DMessageManager>
 #include <DFloatingMessage>
+#include <QCloseEvent>
 
 DGUI_USE_NAMESPACE
 
-ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, QString uuid, QString app)
+PwqualityManager::PwqualityManager()
+    : m_passwordMinLen(0)
+    , m_passwordMaxLen(0)
+{
+}
+
+PwqualityManager *PwqualityManager::instance()
+{
+    static PwqualityManager pwquality;
+    return &pwquality;
+}
+
+PwqualityManager::ERROR_TYPE PwqualityManager::verifyPassword(const QString &user, const QString &password, CheckType checkType)
+{
+    switch (checkType) {
+    case PwqualityManager::Default: {
+        ERROR_TYPE error = deepin_pw_check(user.toLocal8Bit().data(), password.toLocal8Bit().data(), LEVEL_STRICT_CHECK, nullptr);
+
+        if (error == PW_ERR_PW_REPEAT) {
+            error = PW_NO_ERR;
+        }
+        return error;
+    }
+    case PwqualityManager::Grub2: {
+        // LEVEL_STRICT_CHECK?
+        ERROR_TYPE error = deepin_pw_check_grub2(user.toLocal8Bit().data(), password.toLocal8Bit().data(), LEVEL_STANDARD_CHECK, nullptr);
+
+        if (error == PW_ERR_PW_REPEAT) {
+            error = PW_NO_ERR;
+        }
+        return error;
+    }
+    }
+
+    return PW_NO_ERR;
+}
+
+PASSWORD_LEVEL_TYPE PwqualityManager::GetNewPassWdLevel(const QString &newPasswd)
+{
+    return get_new_passwd_strength_level(newPasswd.toLocal8Bit().data());
+}
+
+QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type, CheckType checkType)
+{
+    m_passwordMinLen = (checkType == Default ? get_pw_min_length(LEVEL_STRICT_CHECK) : get_pw_min_length_grub2(LEVEL_STRICT_CHECK));
+    m_passwordMaxLen = (checkType == Default ? get_pw_max_length(LEVEL_STRICT_CHECK) : get_pw_max_length_grub2(LEVEL_STRICT_CHECK));
+
+    //通用校验规则
+    QMap<int, QString> PasswordFlagsStrMap = {
+        {PW_ERR_PASSWORD_EMPTY, tr("Password cannot be empty")},
+        {PW_ERR_LENGTH_SHORT, tr("Password must have at least %1 characters").arg(m_passwordMinLen)},
+        {PW_ERR_LENGTH_LONG, tr("Password must be no more than %1 characters").arg(m_passwordMaxLen)},
+        {PW_ERR_CHARACTER_INVALID, tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)")},
+    };
+
+    //服务器版校验规则
+    if (IsServerSystem) {
+        PasswordFlagsStrMap[PW_ERR_CHARACTER_INVALID] = tr("Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&*()-_+=|\\{}[]:\"'<>,.?/)");
+        PasswordFlagsStrMap[PW_ERR_PALINDROME] = tr("Password must not contain more than 4 palindrome characters");
+        PasswordFlagsStrMap[PW_ERR_WORD] = tr("Do not use common words and combinations as password");
+        PasswordFlagsStrMap[PW_ERR_PW_MONOTONE] = tr("Create a strong password please");
+        PasswordFlagsStrMap[PW_ERR_PW_CONSECUTIVE_SAME] = tr("Create a strong password please");
+        PasswordFlagsStrMap[PW_ERR_PW_FIRST_UPPERM] = tr("Do not use common words and combinations as password");
+    }
+
+    //规则校验以外的情况统一返回密码不符合安全要求
+    if (PasswordFlagsStrMap.value(type).isEmpty()) {
+        PasswordFlagsStrMap[type] = tr("It does not meet password rules");
+    }
+
+    return PasswordFlagsStrMap.value(type);
+}
+
+ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &userName, const QString &appName)
     : DDialog(tr("Reset Password"), tr("By Union ID"))
     , m_screenGeometry(screenGeometry)
     , m_phoneEmailEdit (new DLineEdit )
@@ -53,13 +127,14 @@ ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, QString uuid, QSt
     , m_repeatPasswordEdit(new DPasswordEdit)
     , m_passwordTipsEdit(new DLineEdit)
     , m_newPasswdLevelText(new QLabel)
-    , m_timer(new QTimer(this))
     , m_count(0)
     , m_isCodeCorrect(false)
-    , m_uuid(uuid)
+    , m_userName(userName)
+    , m_appName(appName)
+    , m_codeTimer(new QTimer(this))
     , m_monitorTimer(new QTimer(this))
-    , m_app(app)
     , m_client(new QLocalSocket(this))
+    , m_verifyCodeSuccess(false)
 {
     initWidget();
     initData();
@@ -75,6 +150,13 @@ void ResetPasswordDialog::showEvent(QShowEvent *event)
 void ResetPasswordDialog::mouseMoveEvent(QMouseEvent *event)
 {
     Q_UNUSED(event)
+}
+
+void ResetPasswordDialog::mousePressEvent(QMouseEvent *event)
+{
+    if (this->geometry().contains(event->globalPos())) {
+        DDialog::mousePressEvent(event);
+    }
 }
 
 void ResetPasswordDialog::initWidget()
@@ -170,17 +252,20 @@ void ResetPasswordDialog::initData()
     QSocketNotifier* sn = new QSocketNotifier(filein.handle(), QSocketNotifier::Read, this);
     sn->setEnabled(true);
 
-    const QString AccountsService("com.deepin.daemon.Accounts");
-    const QString path = QString("/com/deepin/daemon/Accounts/User%1").arg(getuid());
-    m_user = new com::deepin::daemon::accounts::User(AccountsService, path, QDBusConnection::systemBus());
+    m_accountInter = new com::deepin::daemon::Accounts("com.deepin.daemon.Accounts", "/com/deepin/daemon/Accounts", QDBusConnection::systemBus());
+    auto reply = m_accountInter->FindUserByName(m_userName);
+    reply.waitForFinished();
+    if (reply.isValid()) {
+        m_user = reply.value();
+        m_userInter = new com::deepin::daemon::accounts::User("com.deepin.daemon.Accounts", m_user, QDBusConnection::systemBus());
+    } else {
+        qWarning() << QString("get user (%1) failed:").arg(m_user) << reply.error();
+    }
 
     connect(sn, SIGNAL(activated(int)), this, SLOT(onReadFromServerChanged(int)));
     connect(m_phoneEmailEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onPhoneEmailLineEditFocusChanged);
-    connect(m_verificationCodeEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onVerificationCodeLineEditFocusChanged);
     connect(m_newPasswordEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onNewPasswordLineEditFocusChanged);
-    connect(m_repeatPasswordEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onRepeatPasswordLineEditFocusChanged);
-    connect(m_passwordTipsEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onPasswordTipLineEditFocusChanged);
-    connect(getButton(0), &QPushButton::clicked, this, [this]{ this->close(); });
+    connect(getButton(0), &QPushButton::clicked, this, [this]{ this->close(); qApp->quit(); });
     connect(getButton(1), &QPushButton::clicked, this, &ResetPasswordDialog::onResetPasswordBtnClicked);
     connect(m_phoneEmailEdit, &DLineEdit::textEdited, this, [ & ] {
         if (m_phoneEmailEdit->isAlert()) {
@@ -236,9 +321,10 @@ void ResetPasswordDialog::initData()
         }
     });
     connect(m_sendCodeBtn, &QPushButton::clicked, this, &ResetPasswordDialog::onVerificationCodeBtnClicked);
-    connect(m_timer, &QTimer::timeout, this, &ResetPasswordDialog::startCount);
+    connect(m_codeTimer, &QTimer::timeout, this, &ResetPasswordDialog::startCount);
     connect(m_monitorTimer, &QTimer::timeout, this, &ResetPasswordDialog::startMonitor);
-    if (m_app != "control-center") {
+
+    if (m_appName != "control-center") {
         m_monitorTimer->start(300);
     }
 
@@ -251,10 +337,7 @@ void ResetPasswordDialog::initData()
 
 void ResetPasswordDialog::onPhoneEmailLineEditFocusChanged(bool onFocus)
 {
-    if (!onFocus) {
-        if(isContentEmpty(m_phoneEmailEdit)) {
-            return;
-        }
+    if (!onFocus && !m_phoneEmailEdit->text().isEmpty()) {
         if (checkPhoneEmailFormat(m_phoneEmailEdit->text())) {
             m_phoneEmailEdit->setAlert(false);
         } else {
@@ -266,52 +349,39 @@ void ResetPasswordDialog::onPhoneEmailLineEditFocusChanged(bool onFocus)
 
 void ResetPasswordDialog::onVerificationCodeBtnClicked()
 {
-    bool ret = requestVerficationCode();
-    if (ret) {
-        m_sendCodeBtn->setText(tr("Resend (%1s)").arg(m_count));
-        m_timer->start(1000);
+    if (isContentEmpty(m_phoneEmailEdit)) {
+        return;
     }
-}
 
-void ResetPasswordDialog::onVerificationCodeLineEditFocusChanged(bool onFocus)
-{
-    if (!onFocus) {
-        if (isContentEmpty(m_verificationCodeEdit)) {
-            return;
-        }
+    if (checkPhoneEmailFormat(m_phoneEmailEdit->text())) {
+        m_phoneEmailEdit->setAlert(false);
+    } else {
+        m_phoneEmailEdit->setAlert(true);
+        m_phoneEmailEdit->showAlertMessage(tr("Phone/Email format is incorrect"), m_repeatPasswordEdit, 2000);
+        return;
+    }
+
+    m_verifyCodeSuccess = false;
+    int ret = requestVerficationCode();
+    if (ret == UNION_ID_ERROR_NO_ERR) {
+        m_sendCodeBtn->setText(tr("Resend (%1s)").arg(m_count));
+        m_codeTimer->start(1000);
+    } else if (ret == UNION_ID_ERROR_USER_UNBIND) {
+        m_phoneEmailEdit->setAlert(true);
+        m_phoneEmailEdit->showAlertMessage(getErrorTips(UNION_ID_ERROR_USER_UNBIND), m_repeatPasswordEdit, 2000);
+    } else if (ret == UNION_ID_ERROR_REQUEST_REACHED) {
+        DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 getErrorTips(UNION_ID_ERROR_REQUEST_REACHED));
+    } else {
+        DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 tr("Failed to get the code"));
     }
 }
 
 void ResetPasswordDialog::onNewPasswordLineEditFocusChanged(bool onFocus)
 {
-    if (!onFocus) {
-        if (isContentEmpty(m_newPasswordEdit)) {
-            m_newPasswordEdit->setText("");
-            return;
-        }
+    if (!onFocus && !m_newPasswordEdit->text().isEmpty()) {
         updatePasswordStrengthLevelWidget();
-    }
-}
-
-void ResetPasswordDialog::onRepeatPasswordLineEditFocusChanged(bool onFocus)
-{
-    if (!onFocus) {
-        if (isContentEmpty(m_newPasswordEdit)) {
-            return;
-        }
-    }
-}
-
-void ResetPasswordDialog::onPasswordTipLineEditFocusChanged(bool onFocus)
-{
-    if (!onFocus) {
-        for (auto c : m_newPasswordEdit->text()) {
-            if (m_passwordTipsEdit->text().contains(c)) {
-                m_passwordTipsEdit->setAlert(true);
-                m_passwordTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), m_passwordTipsEdit->parentWidget(), 2000);
-                return;
-            }
-        }
     }
 }
 
@@ -320,28 +390,48 @@ void ResetPasswordDialog::onResetPasswordBtnClicked()
     if (isContentEmpty(m_verificationCodeEdit) ||isContentEmpty(m_newPasswordEdit) || isContentEmpty(m_repeatPasswordEdit)) {
         return;
     }
-    if (verifyVerficationCode()) {
-        m_verificationCodeEdit->setAlert(false);
-    } else {
-        m_verificationCodeEdit->setAlert(true);
-        m_verificationCodeEdit->showAlertMessage(tr("Wrong verification code"), m_verificationCodeEdit, 2000);
+
+    // 密码强度
+    PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_userName,
+                                                                                      m_newPasswordEdit->text());
+
+    if (error != PW_NO_ERR) {
+        m_newPasswordEdit->setAlert(true);
+        m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
         return;
     }
+
+    // 验证码
+    if (!m_verifyCodeSuccess) {
+        if (verifyVerficationCode() == UNION_ID_ERROR_NO_ERR) {
+            m_verifyCodeSuccess = true;
+            m_verificationCodeEdit->setAlert(false);
+        } else {
+            m_verificationCodeEdit->setAlert(true);
+            m_verificationCodeEdit->showAlertMessage(tr("Wrong verification code"), m_verificationCodeEdit, 2000);
+            return;
+        }
+    }
+
+    // 新密码和旧密码是否一致
     if (m_newPasswordEdit->text() != m_repeatPasswordEdit->text()) {
         m_repeatPasswordEdit->setAlert(true);
         m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
         return;
     }
+
+    // 密码提示
     for (auto c : m_newPasswordEdit->text()) {
         if (m_passwordTipsEdit->text().contains(c)) {
             m_passwordTipsEdit->setAlert(true);
-            m_passwordTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), m_passwordTipsEdit, 2000);
+            m_passwordTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), getButton(1), 2000);
             return;
         }
     }
     if (!m_passwordTipsEdit->text().simplified().isEmpty()) {
-        m_user->SetPasswordHint(m_passwordTipsEdit->text()).waitForFinished();
+        m_userInter->SetPasswordHint(m_passwordTipsEdit->text()).waitForFinished();
     }
+
     std::cout << cryptUserPassword(m_newPasswordEdit->text()).toStdString().c_str() << std::endl;
 }
 
@@ -361,6 +451,22 @@ int ResetPasswordDialog::parseError(const QString& errorMsg)
         }
     }
     return -1;
+}
+
+QString ResetPasswordDialog::getErrorTips(ResetPasswordDialog::UNION_ID_ERROR_TYPE errorType)
+{
+    QMap<int, QString> errorTypeMap = {
+        {UNION_ID_ERROR_NO_ERR,   ""},
+        {UNION_ID_ERROR_SYSTEM_ERROR, "system error"},
+        {UNION_ID_ERROR_PARA_ERROR, "parameter error"},
+        {UNION_ID_ERROR_LOGIN_EXPIRED, "login expired"},
+        {UNION_ID_ERROR_NO_PERMISSION, "no permission"},
+        {UNION_ID_ERROR_NETWORK_ERROR, tr("Network error")},
+        {UNION_ID_ERROR_CONFIGURE_ERROR, "Configuration error"},
+        {UNION_ID_ERROR_REQUEST_REACHED, tr("You have reached the number limit to get the code today")},
+        {UNION_ID_ERROR_USER_UNBIND, tr("Phone/Email not registered")},
+    };
+    return errorTypeMap.value(errorType);
 }
 
 QRect ResetPasswordDialog::screenGeometry() const
@@ -472,13 +578,13 @@ void ResetPasswordDialog::updatePasswordStrengthLevelWidget()
     }
 }
 
-bool ResetPasswordDialog::requestVerficationCode()
+int ResetPasswordDialog::requestVerficationCode()
 {
     QDBusInterface syncHelperInter("com.deepin.sync.Helper", "/com/deepin/sync/Helper",
                                    "com.deepin.sync.Helper", QDBusConnection::systemBus());
     if (!syncHelperInter.isValid()) {
         qWarning() << "syncHelper interface:" << syncHelperInter.lastError();
-        return false;
+        return -1;
     }
     QDBusReply<QString> retUOSID = syncHelperInter.call("UOSID");
     QString uosid;
@@ -486,17 +592,31 @@ bool ResetPasswordDialog::requestVerficationCode()
         uosid = retUOSID.value();
         qDebug() << "UOSID:" << uosid;
     } else {
-        qDebug() << "UOSID failed:" << retUOSID.error().message();
-        return false;
+        qWarning() << "UOSID failed:" << retUOSID.error().message();
+        return -1;
     }
 
-    QDBusReply<QString> retLocalBindCheck= syncHelperInter.call("LocalBindCheck", uosid, m_uuid);
+    if (m_user.isEmpty()) {
+        return -1;
+    }
+    QDBusInterface accountsInter("com.deepin.daemon.Accounts",
+                                 m_user,
+                                 "com.deepin.daemon.Accounts.User",
+                                 QDBusConnection::systemBus());
+    if (!accountsInter.isValid()) {
+        return -1;
+    }
+
+    QVariant retUUID = accountsInter.property("UUID");
+    QString uuid = retUUID.toString();
+
+    QDBusReply<QString> retLocalBindCheck= syncHelperInter.call("LocalBindCheck", uosid, uuid);
     if (retLocalBindCheck.error().message().isEmpty()) {
         m_ubid = retLocalBindCheck.value();
         qDebug() << "isBinded:" << m_ubid;
     } else {
-        qDebug() << "isBinded failed:" << retLocalBindCheck.error().message();
-        return false;
+        qWarning() << "isBinded failed:" << retLocalBindCheck.error().message();
+        return -1;
     }
 
     QDBusReply<int> retResetCaptcha = syncHelperInter.call("SendResetCaptcha", m_ubid, m_phoneEmailEdit->text());
@@ -504,21 +624,14 @@ bool ResetPasswordDialog::requestVerficationCode()
         m_count = retResetCaptcha.value();
         qDebug() << "SendResetCaptcha success:" << m_count;
     } else {
-        qDebug() << "SendResetCaptcha failed:" << retResetCaptcha.error().message();
+        qWarning() << "SendResetCaptcha failed:" << retResetCaptcha.error().message();
         int code = parseError(retResetCaptcha.error().message());
-        if (code == UNREGISTERED) {
-            m_phoneEmailEdit->setAlert(true);
-            m_phoneEmailEdit->showAlertMessage(tr("Phone/Email not registered"), m_repeatPasswordEdit, 2000);
-        } else {
-            DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                                     tr("Failed to get the code"));
-        }
-        return false;
+        return code;
     }
-    return true;
+    return 0;
 }
 
-bool ResetPasswordDialog::verifyVerficationCode()
+int ResetPasswordDialog::verifyVerficationCode()
 {
     QDBusInterface syncHelperInter("com.deepin.sync.Helper",
                                    "/com/deepin/sync/Helper",
@@ -526,28 +639,31 @@ bool ResetPasswordDialog::verifyVerficationCode()
                                    QDBusConnection::systemBus());
     if (!syncHelperInter.isValid()) {
         qWarning() << "syncHelper interface:" << syncHelperInter.lastError();
-        return false;
+        return -1;
     }
     QDBusReply<bool> retVerifyResetCaptcha = syncHelperInter.call("VerifyResetCaptcha",
                                                                   m_ubid,
                                                                   m_phoneEmailEdit->text(),
                                                                   m_verificationCodeEdit->text());
-    bool ret = false;
+    int ret = -1;
     if (retVerifyResetCaptcha.error().message().isEmpty()) {
         ret = retVerifyResetCaptcha.value();
         qDebug() << "VerifyResetCaptcha success";
+        ret = 0;
     } else {
         qWarning() << "phoneEmail:" << m_phoneEmailEdit->text();
         qWarning() << "verification code:" << m_verificationCodeEdit->text();
         qWarning() << "VerifyResetCaptcha failed:" << retVerifyResetCaptcha.error().message();
+        ret = parseError(retVerifyResetCaptcha.error().message());
     }
+
     return ret;
 }
 
 void ResetPasswordDialog::startCount()
 {
     if (m_count == 1) {
-        m_timer->stop();
+        m_codeTimer->stop();
         m_sendCodeBtn->setEnabled(true);
         m_sendCodeBtn->setText(tr("Get Code"));
     } else {
@@ -589,11 +705,11 @@ void ResetPasswordDialog::startMonitor()
     move(x, y);
 }
 
-Manager::Manager(QString uuid, QString app)
+Manager::Manager(const QString &userName, const QString &appName)
     : QObject()
     , m_dialog(nullptr)
-    , m_uuid(uuid)
-    , m_app(app)
+    , m_usrName(userName)
+    , m_appName(appName)
 {
 }
 
@@ -608,12 +724,11 @@ void Manager::setupDialog()
         // the results can be obtained using the original information.
         // If the original screen contains the original mouse, save the scaled geometry.
         if (g.contains(cp)) {
-            if (!m_dialog){
-                m_dialog = new ResetPasswordDialog(realRect, m_uuid, m_app);
-            }
-            else
+            if (!m_dialog) {
+                m_dialog = new ResetPasswordDialog(realRect, m_usrName, m_appName);
+            } else {
                 m_dialog->setScreenGeometry(realRect);
-
+            }
             break;
         }
     }

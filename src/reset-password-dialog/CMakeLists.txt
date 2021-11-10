@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.7)
 set(VERSION 4.0)
 
 set(BIN_NAME reset-password-dialog)
+set(DEEPIN_PW_CHECK libdeepin_pw_check.so)
 
 #set(CMAKE_VERBOSE_MAKEFILE ON)
 set(CMAKE_CXX_STANDARD 14)
@@ -52,6 +53,7 @@ target_link_libraries(${BIN_NAME} PRIVATE
     ${Qt5Widgets_LIBRARIES}
     ${Qt5Network_LIBRARIES}
     ${Qt5DBus_LIBRARIES}
+    ${DEEPIN_PW_CHECK}
     crypt
     ${LIBS}
 )
