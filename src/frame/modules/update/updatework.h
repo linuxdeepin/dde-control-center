@@ -132,6 +132,8 @@ private Q_SLOTS:
     void checkDiskSpace(const QString &jobDescription);
     void onIconThemeChanged(const QString &theme);
 
+    void onCheckUpdateStatusChanged(const QString &value);
+
     void onSysUpdateDownloadProgressChanged(double value);
     void onAppUpdateDownloadProgressChanged(double value);
     void onSafeUpdateDownloadProgressChanged(double value);

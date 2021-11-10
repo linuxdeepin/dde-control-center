@@ -90,6 +90,7 @@ private Q_SLOTS:
     void onFullUpdateClicked();
     void onRequestUpdate(ClassifyUpdateType type);
     void onRequestRefreshSize();
+    void onRequestRefreshWidget();
 
 private:
     void setStatus(const UpdatesStatus &status);

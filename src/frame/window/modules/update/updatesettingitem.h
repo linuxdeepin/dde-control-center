@@ -62,6 +62,7 @@ Q_SIGNALS:
     void recoveryBackupFailed();
     void recoveryBackupSuccessed();
     void requestRefreshSize();
+    void requestRefreshWidget();
 
     void requestUpdate(ClassifyUpdateType type);
     void requestUpdateCtrl(ClassifyUpdateType type, int ctrlType);

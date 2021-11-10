@@ -580,39 +580,24 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
     CheckUpdateJobRet ret;
     ret.status = "failed";
 
-    QPointer<JobInter> checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
+    m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
 
-    ret.jobID = checkUpdateJob->id();
-    ret.jobDescription = checkUpdateJob->description();
+    ret.jobID = m_checkUpdateJob->id();
+    ret.jobDescription = m_checkUpdateJob->description();
 
-    connect(checkUpdateJob, &__Job::StatusChanged, [ &ret, checkUpdateJob ](const QString & status) {
-        qDebug() << "[setCheckUpdatesJob]status is: " << status;
-        if (status == "failed" || status.isEmpty()) {
-            qWarning() << "check for updates job failed";
-            ret.status = "failed";
-            if (checkUpdateJob) {
-                delete checkUpdateJob.data();
-            }
-        } else if (status == "success" || status == "succeed") {
-            ret.status = "succeed";
-            if (checkUpdateJob) {
-                delete checkUpdateJob.data();
-            }
-        }
-    });
-
+    connect(m_checkUpdateJob, &__Job::StatusChanged, this, &UpdateWorker::onCheckUpdateStatusChanged);
     connect(qApp, &QApplication::aboutToQuit, this, [ = ] {
-        if (checkUpdateJob)
+        if (m_checkUpdateJob)
         {
-            delete checkUpdateJob.data();
+            delete m_checkUpdateJob.data();
         }
     });
 
-    connect(checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress, Qt::QueuedConnection);
-    checkUpdateJob->ProgressChanged(checkUpdateJob->progress());
-    checkUpdateJob->StatusChanged(checkUpdateJob->status());
+    connect(m_checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress, Qt::QueuedConnection);
+    m_checkUpdateJob->ProgressChanged(m_checkUpdateJob->progress());
+    m_checkUpdateJob->StatusChanged(m_checkUpdateJob->status());
 
-    while (checkUpdateJob) {
+    while (m_checkUpdateJob) {
         qApp->processEvents();
         QThread::msleep(10);
     }
@@ -851,13 +836,7 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
         resetDownloadInfo();
     }
 
-    const CheckUpdateJobRet &ret = createCheckUpdateJob(jobPath);
-    if (ret.status == "succeed") {
-        setUpdateInfo();
-    } else {
-        m_managerInter->CleanJob(ret.jobID);
-        checkDiskSpace(ret.jobDescription);
-    }
+    createCheckUpdateJob(jobPath);
 
     m_beginUpdatesJob = false;
 }
@@ -1016,10 +995,8 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
         const QString &id = jobInter.id();
 
         qDebug() << "[wubw] onJobListChanged, id : " << id << " , m_jobPath : " << m_jobPath;
-        if (id == "update_source" || id == "custom_update") {
-            QTimer::singleShot(0, this, [this]() {
-                setCheckUpdatesJob(m_jobPath);
-            });
+        if ((id == "update_source" || id == "custom_update") && m_checkUpdateJob == nullptr) {
+	        setCheckUpdatesJob(m_jobPath);
         } else if (id == "prepare_system_upgrade" && m_sysUpdateDownloadJob == nullptr) {
             setDownloadJob(m_jobPath, ClassifyUpdateType::SystemUpdate);
         } else if (id == "prepare_appstore_upgrade" && m_appUpdateDownloadJob == nullptr) {
@@ -1071,7 +1048,6 @@ void UpdateWorker::onUnkonwnUpdateDownloadProgressChanged(double value)
 
 void UpdateWorker::onSysUpdateDownloadStatusChanged(const QString   &value)
 {
-
     if (value == "running" || value == "ready") {
         m_model->setSystemUpdateStatus(UpdatesStatus::Downloading);
     } else if (value == "failed") {
@@ -1273,6 +1249,24 @@ void UpdateWorker::onUnkonwnUpdateInstallStatusChanged(const QString   &value)
 void UpdateWorker::onIconThemeChanged(const QString &theme)
 {
     m_iconThemeState = theme;
+}
+
+void UpdateWorker::onCheckUpdateStatusChanged(const QString &value)
+{
+    qDebug() << "[setCheckUpdatesJob]status is: " << value;
+    if (value == "failed" || value.isEmpty()) {
+        qWarning() << "check for updates job failed";
+        if(m_checkUpdateJob != nullptr){
+            m_managerInter->CleanJob(m_checkUpdateJob->id());
+            checkDiskSpace(m_checkUpdateJob->description());
+            deleteJob(m_checkUpdateJob);
+        }
+    } else if (value == "success" || value == "succeed") {
+        setUpdateInfo();
+    }else if (value == "end") {
+        delete m_safeUpdateInstallJob;
+        m_safeUpdateInstallJob = nullptr;
+    }
 }
 
 void UpdateWorker::checkDiskSpace(const QString &jobDescription)

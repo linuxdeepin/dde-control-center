@@ -93,6 +93,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     }
 
     m_status = status;
+    Q_EMIT requestRefreshWidget();
     this->setVisible(true);
 
     switch (m_status) {

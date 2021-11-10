@@ -237,6 +237,7 @@ void UpdateCtrlWidget::initConnect()
         connect(updateItem, &UpdateSettingItem::requestUpdate, this, &UpdateCtrlWidget::onRequestUpdate);
         connect(updateItem, &UpdateSettingItem::requestUpdateCtrl, this, &UpdateCtrlWidget::requestUpdateCtrl);
         connect(updateItem, &UpdateSettingItem::requestRefreshSize, this, &UpdateCtrlWidget::onRequestRefreshSize);
+        connect(updateItem, &UpdateSettingItem::requestRefreshWidget, this, &UpdateCtrlWidget::onRequestRefreshWidget);
     };
 
     initUpdateItemConnect(m_systemUpdateItem);
@@ -346,6 +347,7 @@ void UpdateCtrlWidget::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Updateing:
         showUpdateInfo();
         onRequestRefreshSize();
+        onRequestRefreshWidget();
         break;
     case UpdatesStatus::UpdateSucceeded:
         m_resultItem->setVisible(true);
@@ -676,6 +678,7 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
     setShowInfo(m_model->systemActivation());
 
     onRequestRefreshSize();
+    onRequestRefreshWidget();
 }
 
 void UpdateCtrlWidget::onFullUpdateClicked()
@@ -756,6 +759,30 @@ void UpdateCtrlWidget::onRequestRefreshSize()
     QString updateSize = formatCap(m_updateSize);
     updateSize = tr("Size") + ": " + updateSize;
     m_updateSizeLab->setText(updateSize);
+}
+
+void UpdateCtrlWidget::onRequestRefreshWidget()
+{
+    auto refreshUpdateWidget = [ = ](UpdateSettingItem * updateItem)->bool{
+        if (updateItem->status() == UpdatesStatus::Installing
+                || updateItem->status() == UpdatesStatus::Downloading
+                || updateItem->status() == UpdatesStatus::DownloadPaused
+                || updateItem->status() == UpdatesStatus::RecoveryBackingup) {
+            return true;
+        }
+        return  false;
+    };
+
+    if(refreshUpdateWidget(m_systemUpdateItem)
+            || refreshUpdateWidget(m_storeUpdateItem)
+            || refreshUpdateWidget(m_safeUpdateItem)
+            || refreshUpdateWidget(m_unknownUpdateItem)){
+        m_CheckAgainBtn->setEnabled(false);
+    }else {
+        m_CheckAgainBtn->setEnabled(true);
+    }
+
+
 }
 
 bool UpdateCtrlWidget::checkUpdateItemIsUpdateing(UpdateSettingItem *updateItem, ClassifyUpdateType type)
