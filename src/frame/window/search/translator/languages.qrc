@@ -130,5 +130,6 @@
         <file>../../../../../translations/dde-control-center_sr.ts</file>
         <file>../../../../../translations/dialogs_ml.ts</file>
         <file>../../../../../translations/dialogs_pl.ts</file>
+        <file>../../../../../translations/dde-control-center_en.ts</file>
     </qresource>
 </RCC>
