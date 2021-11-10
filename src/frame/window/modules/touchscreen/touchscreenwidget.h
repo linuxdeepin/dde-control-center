@@ -74,7 +74,7 @@ private Q_SLOTS:
     void clearShake();
 
 Q_SIGNALS:
-    void requestAssociateTouch(const QString &monitor, const QString &touchscreenSerial);
+    void requestAssociateTouch(const QString &monitor, const QString &touchscreenUUID);
 
 private:
     dcc::display::TouchscreenModel *m_model;

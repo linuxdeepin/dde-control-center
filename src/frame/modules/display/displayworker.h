@@ -72,7 +72,7 @@ public Q_SLOTS:
     void setUiScale(const double value);
     void setIndividualScaling(Monitor *m, const double scaling);
     void setNightMode(const bool nightmode);
-    void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial);
+    void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID);
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
     void setAmbientLightAdjustBrightness(bool);
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
