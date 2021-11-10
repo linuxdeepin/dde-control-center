@@ -344,6 +344,8 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
     // 需要重新布局
     DWidget *widget = new DWidget;
     QGridLayout *grid = new QGridLayout(widget);
+    DLabel *usernameLabel = new DLabel(tr("Username:"));
+    DLabel *rootLabel = new DLabel(tr("root"));
     DLabel *label1 = new DLabel(tr("New password:"));
     DLabel *label2 = new DLabel(tr("Repeat password:"));
     DPasswordEdit *edit1 = new DPasswordEdit();
@@ -354,11 +356,13 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
     edit1->setCopyEnabled(false);
     edit2->setCutEnabled(false);
     edit2->setCopyEnabled(false);
-    grid->addWidget(label1, 0, 0, 1, 1);
-    grid->addWidget(edit1, 0, 1, 1, 1);
-    grid->addWidget(label2, 1, 0, 1, 1);
-    grid->addWidget(edit2, 1, 1, 1, 1);
-    grid->setRowMinimumHeight(2, 20);
+    grid->addWidget(usernameLabel, 0, 0, 1, 1);
+    grid->addWidget(rootLabel, 0, 1, 1, 1);
+    grid->addWidget(label1, 1, 0, 1, 1);
+    grid->addWidget(edit1, 1, 1, 1, 1);
+    grid->addWidget(label2, 2, 0, 1, 1);
+    grid->addWidget(edit2, 2, 1, 1, 1);
+    grid->setRowMinimumHeight(0, 40);
     m_grubEditAuthDialog->addContent(widget);
     m_grubEditAuthDialog->addButton(tr("Cancel", "button"), false, DDialog::ButtonNormal);
     m_grubEditAuthDialog->addButton(tr("Confirm", "button"), true, DDialog::ButtonRecommend);
