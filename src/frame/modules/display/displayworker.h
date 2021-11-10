@@ -91,7 +91,7 @@ public Q_SLOTS:
     void setNightMode(const bool nightmode);
     void record(); // save mutilScreenConfig
     void restore(); // restore mutilScreenConfig
-    void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial);
+    void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID);
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
 
 public Q_SLOTS:

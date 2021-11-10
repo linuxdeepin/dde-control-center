@@ -137,6 +137,7 @@ void TouchscreenPage::onMonitorChanged()
     QList<Monitor *> monitorList = m_model->monitorList();
     for (const auto &i : touchscreenList) {
         QString touchscreenSerial = i.serialNumber;
+        QString touchscreenUUID = i.uuid;
 
         auto title = QString(tr("Touch Screen - %1 (%2)")).arg(i.name).arg(i.id);
         auto *label = new QLabel(title);
@@ -151,12 +152,13 @@ void TouchscreenPage::onMonitorChanged()
         MCombobox *listCombo = new MCombobox();
         listCombo->setProperty("touchscreenName", i.name);
         listCombo->setProperty("touchscreenSerial", touchscreenSerial);
+        listCombo->setProperty("touchscreenUUID", touchscreenUUID);
         listCombo->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         for (Monitor *m : monitorList) {
             listCombo->addItem(m->name());
         }
-        if (touchMap.find(touchscreenSerial) != touchMap.end()) {
-            listCombo->setCurrentText(touchMap.value(touchscreenSerial));
+        if (touchMap.find(touchscreenUUID) != touchMap.end()) {
+            listCombo->setCurrentText(touchMap.value(touchscreenUUID));
         }
         contentLayout->addWidget(listCombo);
 
@@ -177,6 +179,7 @@ void TouchscreenPage::save()
     for (auto i : m_list) {
         QString touchscreenName = i->property("touchscreenName").toString();
         QString touchscreenSerial = i->property("touchscreenSerial").toString();
+        QString touchscreenUUID = i->property("touchscreenUUID").toString();
         QString output = i->currentText();
         TouchscreenMap touchMap = m_model->touchMap();
         if (touchMap.value(touchscreenSerial) == output) {
@@ -184,7 +187,7 @@ void TouchscreenPage::save()
         }
 
         changed = true;
-        Q_EMIT requestAssociateTouch(output, touchscreenSerial);
+        Q_EMIT requestAssociateTouch(output, touchscreenUUID);
     }
 
     if (changed) {

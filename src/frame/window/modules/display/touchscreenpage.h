@@ -79,7 +79,7 @@ protected:
     bool eventFilter(QObject *obj, QEvent *event);
 
 Q_SIGNALS:
-    void requestAssociateTouch(const QString &monitor, const QString &touchscreenSerial);
+    void requestAssociateTouch(const QString &monitor, const QString &touchscreenUUID);
 
 private:
     dcc::display::DisplayModel *m_model{nullptr};

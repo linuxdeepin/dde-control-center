@@ -762,9 +762,9 @@ void DisplayWorker::setAmbientLightAdjustBrightness(bool able)
     m_powerInter->setAmbientLightAdjustBrightness(able);
 }
 
-void DisplayWorker::setTouchScreenAssociation(const QString &monitor, const QString &touchscreenSerial)
+void DisplayWorker::setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID)
 {
-    m_displayInter.AssociateTouch(monitor, touchscreenSerial);
+    m_displayInter.AssociateTouch(monitor, touchscreenUUID);
 }
 
 void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, const int height)
