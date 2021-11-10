@@ -24,67 +24,60 @@
 
 #include "item/devicestatushandler.h"
 
-#include <NetworkManagerQt/Device>
-
 #include <DGuiApplicationHelper>
-#include <DFloatingButton>
 
+#include <NetworkManagerQt/Device>
 
 #include <com_deepin_daemon_network.h>
 
 DGUI_USE_NAMESPACE
-DWIDGET_USE_NAMESPACE
 
 namespace Dock {
-    class TipsWidget;
+class TipsWidget;
 }
 
 namespace dde {
-    namespace network {
-        enum class DeviceType;
-        class NetworkDeviceBase;
-    }
-}
+namespace network {
+enum class DeviceType;
+class NetworkDeviceBase;
+} // namespace network
+} // namespace dde
 
 class NetworkDialog;
 class QTimer;
 class NetItem;
 
-class BubbleManager;
-class QTimer;
-
 using namespace dde::network;
 using DbusNetwork = com::deepin::daemon::Network;
 
-class NetworkPanel : public QWidget
+class NetworkPanel : public QObject
 {
     Q_OBJECT
 
 Q_SIGNALS:
     void sendIpConflictDect(int);
+    void iconChange();
+    void addDevice(const QString &devicePath);
 
 public:
-    explicit NetworkPanel(QWidget *parent = Q_NULLPTR);
+    explicit NetworkPanel(QObject *parent = Q_NULLPTR);
     ~NetworkPanel();
 
     void invokeMenuItem(const QString &menuId);
     bool needShowControlCenter();
-    const QString contextMenu() const;
+    const QString contextMenu(bool hasSetting) const;
     QWidget *itemTips();
     bool hasDevice();
+    void setGreeterStyle(bool greeterStyle);
 
     void refreshIcon();
-
-protected:
-    void paintEvent(QPaintEvent *e);
-    void resizeEvent(QResizeEvent *e);
+    QPixmap icon();
 
 private:
-    void setControlBackground();
     void initUi();
     void initConnection();
     void getPluginState();
-    void updateTooltips();                                              // 更新提示的内容
+    void updateTooltips(); // 更新提示的内容
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
 
@@ -92,16 +85,11 @@ private:
     int deviceCount(const DeviceType &devType) const;
     QStringList ipTipsMessage(const DeviceType &devType);
 
-    void contextMenuEvent(QContextMenuEvent *event) override;
-
     QStringList getIPList(const DeviceType &deviceType) const;
     QStringList getActiveWiredList() const;
     QStringList getActiveWirelessList() const;
     QStringList currentIpList() const;
     QString getStrengthStateString(int strength);
-
-public Q_SLOTS:
-    void onClick();
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
@@ -111,7 +99,6 @@ private Q_SLOTS:
     void onIPConfllict(const QString &ip, const QString &mac);
     void onSendIpConflictDect(int index = 0);
     void onDetectConflict();
-    void lockScreen(bool lock);
 
 private:
     PluginState m_pluginState;
@@ -127,17 +114,15 @@ private:
     // 判断定时的时间是否到,否则不重置计时器
     bool m_timeOut;
 
-    NetworkDialog *m_networkDialog;
     DbusNetwork *m_networkInter;
-    QStringList m_disconflictList;         // 解除冲突数据列表
-    QMap<QString, QString> m_conflictMap;  // 缓存有线和无线冲突的ip列表
-    QTimer *m_detectConflictTimer;         // 定时器自检,当其他主机主动解除ip冲突，我方需要更新网络状态
-    bool m_ipConflict;                     // ip冲突的标识
-    bool m_ipConflictChecking;             // 标记是否正在检测中
-    bool m_isLockModel;
-    bool m_isLockScreen;
+    QStringList m_disconflictList;        // 解除冲突数据列表
+    QMap<QString, QString> m_conflictMap; // 缓存有线和无线冲突的ip列表
+    QTimer *m_detectConflictTimer;        // 定时器自检,当其他主机主动解除ip冲突，我方需要更新网络状态
+    bool m_ipConflict;                    // ip冲突的标识
+    bool m_ipConflictChecking;            // 标记是否正在检测中
+    bool m_greeterStyle;                  // 登录界面样式
 
-    QSet<QString> m_devicePaths;     // 记录无线设备Path,防止信号重复连接
+    QSet<QString> m_devicePaths; // 记录无线设备Path,防止信号重复连接
     QString m_lastActiveWirelessDevicePath;
 };
 

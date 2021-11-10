@@ -22,14 +22,10 @@
 #include "networkpanel.h"
 #include "constants.h"
 #include "widgets/tipswidget.h"
-#include "../common-plugin/utils.h"
+#include "utils.h"
 #include "item/devicestatushandler.h"
 #include "imageutil.h"
 #include "networkdialog.h"
-
-#include <NetworkManagerQt/WirelessDevice>
-#include <NetworkManagerQt/Manager>
-#include <NetworkManagerQt/ConnectionSettings>
 
 #include <DHiDPIHelper>
 #include <DApplicationHelper>
@@ -39,56 +35,40 @@
 #include <QTimer>
 #include <QVBoxLayout>
 #include <QAction>
-#include "notificationmanager.h"
 
 #include <networkcontroller.h>
 #include <networkdevicebase.h>
 #include <wireddevice.h>
 #include <wirelessdevice.h>
 
-const QString MenueEnable = "enable";
-const QString MenueWiredEnable = "wireEnable";
-const QString MenueWirelessEnable = "wirelessEnable";
-const QString MenueSettings = "settings";
+#include <NetworkManagerQt/WirelessDevice>
+#include <NetworkManagerQt/Manager>
+#include <NetworkManagerQt/ConnectionSettings>
 
-const QString notifyIconNetworkOffline = "notification-network-offline";
-const QString notifyIconWiredConnected = "notification-network-wired-connected";
-const QString notifyIconWiredDisconnected = "notification-network-wired-disconnected";
-const QString notifyIconWiredError = "notification-network-wired-disconnected";
-const QString notifyIconWirelessConnected = "notification-network-wireless-full";
-const QString notifyIconWirelessDisconnected = "notification-network-wireless-disconnected";
-const QString notifyIconWirelessDisabled = "notification-network-wireless-disabled";
-const QString notifyIconWirelessError = "notification-network-wireless-disconnected";
-const QString notifyIconVpnConnected = "notification-network-vpn-connected";
-const QString notifyIconVpnDisconnected = "notification-network-vpn-disconnected";
-const QString notifyIconProxyEnabled = "notification-network-proxy-enabled";
-const QString notifyIconProxyDisabled = "notification-network-proxy-disabled";
-const QString notifyIconNetworkConnected = "notification-network-wired-connected";
-const QString notifyIconNetworkDisconnected = "notification-network-wired-disconnected";
-const QString notifyIconMobile2gConnected = "notification-network-mobile-2g-connected";
-const QString notifyIconMobile2gDisconnected = "notification-network-mobile-2g-disconnected";
-const QString notifyIconMobile3gConnected = "notification-network-mobile-3g-connected";
-const QString notifyIconMobile3gDisconnected = "notification-network-mobile-3g-disconnected";
-const QString notifyIconMobile4gConnected = "notification-network-mobile-4g-connected";
-const QString notifyIconMobile4gDisconnected = "notification-network-mobile-4g-disconnected";
-const QString notifyIconMobileUnknownConnected = "notification-network-mobile-unknown-connected";
-const QString notifyIconMobileUnknownDisconnected = "notification-network-mobile-unknown-disconnected";
+enum MenuItemKey : int {
+    MenuSettings = 1,
+    MenuEnable,
+    MenuDisable,
+    MenuWiredEnable,
+    MenuWiredDisable,
+    MenuWirelessEnable,
+    MenuWirelessDisable,
+};
 
-NetworkPanel::NetworkPanel(QWidget *parent)
-    : QWidget(parent)
+NetworkPanel::NetworkPanel(QObject *parent)
+    : QObject(parent)
     , m_refreshIconTimer(new QTimer(this))
     , m_switchWireTimer(new QTimer(this))
     , m_wirelessScanTimer(new QTimer(this))
-    , m_tipsWidget(new Dock::TipsWidget(this))
+    , m_tipsWidget(new Dock::TipsWidget())
     , m_switchWire(true)
     , m_timeOut(true)
-    , m_networkDialog(new NetworkDialog(this))
+    , m_networkInter(new DbusNetwork("com.deepin.daemon.Network", "/com/deepin/daemon/Network", QDBusConnection::sessionBus(), this))
+    , m_detectConflictTimer(new QTimer(this))
+    , m_ipConflict(false)
+    , m_ipConflictChecking(false)
+    , m_greeterStyle(false)
 {
-    QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(lockScreen(bool)));
-    m_isLockModel = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.lockFront");
-    if (!m_isLockModel) {
-        dde::network::NetworkController::setServiceType(dde::network::ServiceLoadType::LoadFromManager);
-    }
     initUi();
     initConnection();
 }
@@ -99,13 +79,8 @@ NetworkPanel::~NetworkPanel()
 
 void NetworkPanel::initUi()
 {
-    setAccessibleName(QStringLiteral("SwitchAuthBtn"));
-    setFixedSize(QSize(52, 52));
-    setBackgroundRole(DPalette::Button);
     m_refreshIconTimer->setInterval(100);
     m_tipsWidget->setVisible(false);
-
-    setControlBackground();
 }
 
 void NetworkPanel::initConnection()
@@ -121,26 +96,29 @@ void NetworkPanel::initConnection()
     connect(networkController, &NetworkController::deviceAdded, this, &NetworkPanel::onDeviceAdded);
     connect(networkController, &NetworkController::deviceRemoved, this, &NetworkPanel::onUpdatePlugView);
     connect(networkController, &NetworkController::connectivityChanged, this, &NetworkPanel::onUpdatePlugView);
+    connect(m_networkInter, &DbusNetwork::IPConflict, this, &NetworkPanel::onIPConfllict);
+    connect(this, &NetworkPanel::sendIpConflictDect, this, &NetworkPanel::onSendIpConflictDect);
+    connect(m_detectConflictTimer, &QTimer::timeout, this, &NetworkPanel::onDetectConflict);
 
     // 连接超时的信号
     connect(m_switchWireTimer, &QTimer::timeout, [ = ]() {
         m_switchWire = !m_switchWire;
         m_timeOut = true;
     });
+
     int wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt() * 1000;
     m_wirelessScanTimer->setInterval(wirelessScanInterval);
     const QGSettings *gsetting = Utils::SettingsPtr("com.deepin.dde.dock", QByteArray(), this);
     if (gsetting)
-        connect(gsetting, &QGSettings::changed, [ = ](const QString & key) {
-        if (key == "wireless-scan-interval") {
-            int wirelessScanInterval = gsetting->get("wireless-scan-interval").toInt() * 1000;
-            m_wirelessScanTimer->setInterval(wirelessScanInterval);
-        }
-    });
+        connect(gsetting, &QGSettings::changed, [ = ](const QString &key) {
+            if (key == "wireless-scan-interval") {
+                int wirelessScanInterval = gsetting->get("wireless-scan-interval").toInt() * 1000;
+                m_wirelessScanTimer->setInterval(wirelessScanInterval);
+            }
+        });
     connect(m_wirelessScanTimer, &QTimer::timeout, [ = ] {
         QList<NetworkDeviceBase *> devices = networkController->devices();
-        for (NetworkDeviceBase *device : devices)
-        {
+        for (NetworkDeviceBase *device : devices) {
             if (device->deviceType() == DeviceType::Wireless) {
                 WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
                 wirelessDevice->scanNetwork();
@@ -206,11 +184,17 @@ QStringList NetworkPanel::ipTipsMessage(const DeviceType &devType)
 
         tipMessage << QString("%1: %2").arg(device->deviceName()).arg(ipv4);
     }
+
     return tipMessage;
 }
 
 void NetworkPanel::updateTooltips()
 {
+    if (m_ipConflict) {
+        m_tipsWidget->setText(tr("IP conflict"));
+        return;
+    }
+
     switch (m_pluginState) {
     case PluginState::Connected: {
         QStringList textList;
@@ -256,34 +240,6 @@ void NetworkPanel::updateTooltips()
     }
 }
 
-void NetworkPanel::paintEvent(QPaintEvent *e)
-{
-    QWidget::paintEvent(e);
-
-    QPainter painter(this);
-    const QRectF &rf = rect();
-    const QRectF &rfp = QRectF(m_iconPixmap.rect());
-    painter.drawPixmap(rf.center() - rfp.center() / m_iconPixmap.devicePixelRatioF(),
-                       m_iconPixmap);
-}
-
-void NetworkPanel::resizeEvent(QResizeEvent *e)
-{
-    QWidget::resizeEvent(e);
-
-    const Dock::Position position = qApp->property(PROP_POSITION).value<Dock::Position>();
-    // 保持横纵比
-    if (position == Dock::Bottom || position == Dock::Top) {
-        setMaximumWidth(height());
-        setMaximumHeight(QWIDGETSIZE_MAX);
-    } else {
-        setMaximumHeight(width());
-        setMaximumWidth(QWIDGETSIZE_MAX);
-    }
-
-    refreshIcon();
-}
-
 QString NetworkPanel::getStrengthStateString(int strength)
 {
     if (5 >= strength)
@@ -321,25 +277,7 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
         connect(device, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPanel::onUpdatePlugView);
         connect(device, &NetworkDeviceBase::activeConnectionChanged, this, &NetworkPanel::onUpdatePlugView);
 
-        if (!m_isLockModel) {
-            // 登录界面才监听该信号，用于横幅、密码错误处理
-            QString devicePath = device->path();
-            if (!m_devicePaths.contains(devicePath)) {
-                NetworkManager::Device *nmDevice = nullptr;
-                if (device->deviceType() == DeviceType::Wireless) {
-                    NetworkManager::WirelessDevice *wDevice = new NetworkManager::WirelessDevice(devicePath, device);
-                    nmDevice = wDevice;
-                    connect(wDevice, &NetworkManager::WirelessDevice::activeAccessPointChanged, this, [this](const QString & ap) {
-                        m_lastActiveWirelessDevicePath = static_cast<NetworkManager::WirelessDevice *>(sender())->uni() + ap;
-                    });
-                } else {
-                    nmDevice = new NetworkManager::Device(devicePath, device);
-                }
-                connect(nmDevice, &NetworkManager::Device::stateChanged, this, &NetworkPanel::onDeviceStatusChanged);
-                m_devicePaths.insert(devicePath);
-            }
-        }
-
+        emit addDevice(device->path());
         switch (device->deviceType()) {
         case DeviceType::Wired: {
             WiredDevice *wiredDevice = static_cast<WiredDevice *>(device);
@@ -373,25 +311,38 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
 
 void NetworkPanel::invokeMenuItem(const QString &menuId)
 {
-    // 有线设备是否可用
-    bool wiredEnabled = deviceEnabled(DeviceType::Wired);
-    // 无线设备是否可用
-    bool wirelessEnabeld = deviceEnabled(DeviceType::Wireless);
-    if (menuId == MenueEnable) {
-        setDeviceEnabled(DeviceType::Wired, !wiredEnabled);
-        setDeviceEnabled(DeviceType::Wireless, !wirelessEnabeld);
-    } else if (menuId == MenueWiredEnable) {
-        setDeviceEnabled(DeviceType::Wired, !wiredEnabled);
-    } else if (menuId == MenueWirelessEnable) {
-        setDeviceEnabled(DeviceType::Wireless, !wirelessEnabeld);
-    } else if (menuId == MenueSettings) {
+    switch (menuId.toInt()) {
+    case MenuItemKey::MenuEnable:
+        setDeviceEnabled(DeviceType::Wired, true);
+        setDeviceEnabled(DeviceType::Wireless, true);
+        break;
+    case MenuItemKey::MenuDisable:
+        setDeviceEnabled(DeviceType::Wired, false);
+        setDeviceEnabled(DeviceType::Wireless, false);
+        break;
+    case MenuItemKey::MenuWiredEnable:
+        setDeviceEnabled(DeviceType::Wired, true);
+        break;
+    case MenuItemKey::MenuWiredDisable:
+        setDeviceEnabled(DeviceType::Wired, false);
+        break;
+    case MenuItemKey::MenuWirelessEnable:
+        setDeviceEnabled(DeviceType::Wireless, true);
+        break;
+    case MenuItemKey::MenuWirelessDisable:
+        setDeviceEnabled(DeviceType::Wireless, false);
+        break;
+    case MenuItemKey::MenuSettings:
         DDBusSender()
-        .service("com.deepin.dde.ControlCenter")
-        .interface("com.deepin.dde.ControlCenter")
-        .path("/com/deepin/dde/ControlCenter")
-        .method(QString("ShowModule"))
-        .arg(QString("network"))
-        .call();
+            .service("com.deepin.dde.ControlCenter")
+            .interface("com.deepin.dde.ControlCenter")
+            .path("/com/deepin/dde/ControlCenter")
+            .method(QString("ShowModule"))
+            .arg(QString("network"))
+            .call();
+        break;
+    default:
+        break;
     }
 }
 
@@ -402,7 +353,7 @@ bool NetworkPanel::needShowControlCenter()
     int wirelessCount = deviceCount(DeviceType::Wireless);
     bool onlyOneTypeDevice = false;
     if ((wiredCount == 0 && wirelessCount > 0)
-            || (wiredCount > 0 && wirelessCount == 0))
+        || (wiredCount > 0 && wirelessCount == 0))
         onlyOneTypeDevice = true;
 
     if (onlyOneTypeDevice) {
@@ -456,7 +407,7 @@ void NetworkPanel::setDeviceEnabled(const DeviceType &deviceType, bool enabeld)
             device->setEnabled(enabeld);
 }
 
-const QString NetworkPanel::contextMenu() const
+const QString NetworkPanel::contextMenu(bool hasSetting) const
 {
     int wiredCount = deviceCount(DeviceType::Wired);
     int wirelessCount = deviceCount(DeviceType::Wireless);
@@ -466,37 +417,49 @@ const QString NetworkPanel::contextMenu() const
     if (wiredCount && wirelessCount) {
         items.reserve(3);
         QMap<QString, QVariant> wireEnable;
-        wireEnable["itemId"] = MenueWiredEnable;
-        if (wiredEnabled)
+        if (wiredEnabled) {
+            wireEnable["itemId"] = QString::number(MenuWiredDisable);
             wireEnable["itemText"] = tr("Disable wired connection");
-        else
+        } else {
+            wireEnable["itemId"] = QString::number(MenuWiredEnable);
             wireEnable["itemText"] = tr("Enable wired connection");
+        }
 
         wireEnable["isActive"] = true;
         items.push_back(wireEnable);
 
         QMap<QString, QVariant> wirelessEnable;
-        wirelessEnable["itemId"] = MenueWirelessEnable;
-        if (wirelessEnabeld)
+        if (wirelessEnabeld) {
             wirelessEnable["itemText"] = tr("Disable wireless connection");
-        else
+            wirelessEnable["itemId"] = QString::number(MenuWirelessDisable);
+        } else {
             wirelessEnable["itemText"] = tr("Enable wireless connection");
+            wirelessEnable["itemId"] = QString::number(MenuWirelessEnable);
+        }
 
         wirelessEnable["isActive"] = true;
         items.push_back(wirelessEnable);
     } else {
         items.reserve(2);
         QMap<QString, QVariant> enable;
-        enable["itemId"] = MenueEnable;
-        if (wiredEnabled || wirelessEnabeld)
+        if (wiredEnabled || wirelessEnabeld) {
+            enable["itemId"] = QString::number(MenuDisable);
             enable["itemText"] = tr("Disable network");
-        else
+        } else {
+            enable["itemId"] = QString::number(MenuEnable);
             enable["itemText"] = tr("Enable network");
+        }
 
         enable["isActive"] = true;
         items.push_back(enable);
     }
-
+    if (hasSetting) {
+        QMap<QString, QVariant> settings;
+        settings["itemId"] = QString::number(MenuSettings);
+        settings["itemText"] = tr("Network settings");
+        settings["isActive"] = true;
+        items.push_back(settings);
+    }
     QMap<QString, QVariant> menu;
     menu["items"] = items;
     menu["checkableMenu"] = false;
@@ -510,41 +473,6 @@ QWidget *NetworkPanel::itemTips()
     return m_tipsWidget;
 }
 
-void NetworkPanel::contextMenuEvent(QContextMenuEvent *event)
-{
-    DMenu menu(this);
-    bool wiredEnabled = deviceEnabled(DeviceType::Wired);
-    bool wirelessEnabeld = deviceEnabled(DeviceType::Wireless);
-    if (wiredEnabled && wirelessEnabeld) {
-        QAction *wiredCtrl = menu.addAction(QString());
-        wiredCtrl->setData(MenueWiredEnable);
-        if (wiredEnabled) {
-            wiredCtrl->setText(tr("Disable wired connection"));
-        } else {
-            wiredCtrl->setText(tr("Enable wired connection"));
-        }
-
-        QAction *wirelessCtrl = menu.addAction(QString());
-        wirelessCtrl->setData(MenueWirelessEnable);
-        if (wirelessEnabeld)
-            wirelessCtrl->setText(tr("Disable wireless connection"));
-        else
-            wirelessCtrl->setText(tr("Enable wireless connection"));
-
-    } else {
-        QAction *networkCtrl = menu.addAction(QString());
-        networkCtrl->setData(MenueEnable);
-        if (wiredEnabled || wirelessEnabeld)
-            networkCtrl->setText(tr("Disable network"));
-        else
-            networkCtrl->setText(tr("Enable network"));
-    }
-    QAction *action = menu.exec(cursor().pos());
-    if (action) {
-        invokeMenuItem(action->data().toString());
-    }
-}
-
 bool NetworkPanel::hasDevice()
 {
     return NetworkController::instance()->devices().size() > 0;
@@ -552,11 +480,9 @@ bool NetworkPanel::hasDevice()
 
 void NetworkPanel::refreshIcon()
 {
-    setControlBackground();
-
     QString stateString;
     QString iconString;
-    const auto ratio = devicePixelRatioF();
+    const auto ratio = 1.0;
     int iconSize = PLUGIN_ICON_MAX_SIZE;
     int strength = 0;
 
@@ -595,22 +521,20 @@ void NetworkPanel::refreshIcon()
             strength = QTime::currentTime().msec() / 10 % 100;
             stateString = getStrengthStateString(strength);
             iconString = QString("wireless-%1-symbolic").arg(stateString);
-            if (height() <= PLUGIN_BACKGROUND_MIN_SIZE
-                    && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+            if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
                 iconString.append(PLUGIN_MIN_ICON_NAME);
             m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-            update();
+            emit iconChange();
             return;
         } else {
             m_refreshIconTimer->start(200);
             const int index = QTime::currentTime().msec() / 200 % 10;
             const int num = index + 1;
             iconString = QString("network-wired-symbolic-connecting%1").arg(num);
-            if (height() <= PLUGIN_BACKGROUND_MIN_SIZE
-                    && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+            if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
                 iconString.append(PLUGIN_MIN_ICON_NAME);
             m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-            update();
+            emit iconChange();
             return;
         }
     }
@@ -619,11 +543,10 @@ void NetworkPanel::refreshIcon()
         strength = QTime::currentTime().msec() / 10 % 100;
         stateString = getStrengthStateString(strength);
         iconString = QString("wireless-%1-symbolic").arg(stateString);
-        if (height() <= PLUGIN_BACKGROUND_MIN_SIZE
-                && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+        if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
             iconString.append(PLUGIN_MIN_ICON_NAME);
         m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-        update();
+        emit iconChange();
         return;
     }
     case PluginState::WiredConnecting: {
@@ -631,11 +554,10 @@ void NetworkPanel::refreshIcon()
         const int index = QTime::currentTime().msec() / 200 % 10;
         const int num = index + 1;
         iconString = QString("network-wired-symbolic-connecting%1").arg(num);
-        if (height() <= PLUGIN_BACKGROUND_MIN_SIZE
-                && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+        if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
             iconString.append(PLUGIN_MIN_ICON_NAME);
         m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-        update();
+        emit iconChange();
         return;
     }
     case PluginState::ConnectNoInternet:
@@ -699,12 +621,17 @@ void NetworkPanel::refreshIcon()
     }
     m_refreshIconTimer->stop();
 
-    if (height() <= PLUGIN_BACKGROUND_MIN_SIZE && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+    if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
         iconString.append(PLUGIN_MIN_ICON_NAME);
 
     m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
 
-    update();
+    emit iconChange();
+}
+
+QPixmap NetworkPanel::icon()
+{
+    return m_iconPixmap;
 }
 
 QStringList NetworkPanel::getIPList(const DeviceType &deviceType) const
@@ -741,16 +668,6 @@ QStringList NetworkPanel::currentIpList() const
     nativeIpList.append(getActiveWirelessList());
 
     return nativeIpList;
-}
-
-void NetworkPanel::setControlBackground()
-{
-    QPalette backgroud;
-    QColor separatorColor;
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-        backgroud.setColor(QPalette::Background, QColor(255, 255, 255, 0.03 * 255));
-    else
-        backgroud.setColor(QPalette::Background, QColor(0, 0, 0, 0.03 * 255));
 }
 
 void NetworkPanel::onUpdatePlugView()
@@ -835,7 +752,7 @@ void NetworkPanel::onIPConfllict(const QString &ip, const QString &mac)
  */
 void NetworkPanel::onSendIpConflictDect(int index)
 {
-    QTimer::singleShot(500, this, [ = ] () mutable {
+    QTimer::singleShot(500, this, [ = ]() mutable {
         const QStringList ipList = currentIpList();
         if (index >= ipList.size()) {
             m_ipConflictChecking = false;
@@ -877,155 +794,8 @@ int NetworkPanel::getStrongestAp()
 
     return retStrength;
 }
-// 连接中
-static bool isDeviceStateInActivating(NetworkManager::Device::State state)
+
+void NetworkPanel::setGreeterStyle(bool greeterStyle)
 {
-    return state >= NetworkManager::Device::Preparing && state <= NetworkManager::Device::Activated;
-}
-
-void NetworkPanel::onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason)
-{
-    if (m_isLockModel) {
-        return;
-    }
-    NetworkManager::Device *d = qobject_cast<NetworkManager::Device *>(sender());
-    NetworkManager::Device::Ptr device(new NetworkManager::Device(d->uni()));
-    QString path = device->uni();
-    switch (newstate) {
-    case NetworkManager::Device::State::Preparing: { // 正在连接
-        NetworkManager::ActiveConnection::Ptr conn = device->activeConnection();
-        QString icon;
-        switch (device->type()) {
-        case NetworkManager::Device::Type::Ethernet:
-            icon = notifyIconWiredConnected;
-            break;
-        case NetworkManager::Device::Type::Wifi:
-            icon = notifyIconWirelessConnected;
-            break;
-        }
-        if (oldstate == NetworkManager::Device::State::Disconnected && !conn.isNull()) {
-            NotificationManager::Notify(icon, "", tr("Connecting %1").arg(conn->id()));
-        }
-    } break;
-    case NetworkManager::Device::State::Activated: { // 连接成功
-        NetworkManager::ActiveConnection::Ptr conn = device->activeConnection();
-        if (conn.isNull()) {
-            return;
-        }
-        QString icon;
-        switch (device->type()) {
-        case NetworkManager::Device::Type::Ethernet:
-            icon = notifyIconWiredConnected;
-            break;
-        case NetworkManager::Device::Type::Wifi:
-            icon = notifyIconWirelessConnected;
-            break;
-        }
-        NotificationManager::Notify(icon, "", tr("%1 connected").arg(conn->id()));
-    } break;
-    case NetworkManager::Device::State::Failed: {
-        if (device->type() == NetworkManager::Device::Wifi) {
-            switch (reason) {
-            case NetworkManager::Device::NoSecretsReason:
-            case NetworkManager::Device::ConfigUnavailableReason:
-                m_networkDialog->setConnectWireless(m_lastActiveWirelessDevicePath);
-                onClick();
-                break;
-            default:
-                break;
-            }
-        }
-    } // 没有break，还需要继续处理横幅
-    case NetworkManager::Device::State::Disconnected:
-    case NetworkManager::Device::State::NeedAuth:
-    case NetworkManager::Device::State::Unmanaged:
-    case NetworkManager::Device::State::Unavailable: {
-        NetworkManager::ActiveConnection::Ptr conn = device->activeConnection();
-        if (conn.isNull()) {
-            return;
-        }
-        if (reason == NetworkManager::Device::StateChangeReason::DeviceRemovedReason) {
-            return;
-        }
-
-        // ignore if device's old state is not available
-        if (!(oldstate > NetworkManager::Device::State::Unavailable)) {
-            qDebug("no notify, old state is not available");
-            return;
-        }
-
-        if (!NetworkManager::isNetworkingEnabled()) {
-            qDebug("no notify, network disabled");
-            return;
-        }
-
-        // ignore invalid reasons
-        if (reason == NetworkManager::Device::StateChangeReason::UnknownReason) {
-            qDebug("no notify, device state reason invalid");
-            return;
-        }
-
-        QString icon;
-        QString msg;
-        switch (device->type()) {
-        case NetworkManager::Device::Type::Ethernet:
-            icon = notifyIconWiredDisconnected;
-            break;
-        case NetworkManager::Device::Type::Wifi:
-            icon = notifyIconWirelessDisconnected;
-            break;
-        }
-
-        switch (reason) {
-        case NetworkManager::Device::StateChangeReason::UserRequestedReason:
-            if (newstate == NetworkManager::Device::State::Disconnected) {
-                msg = tr("%1 disconnected").arg(conn->id());
-            }
-            break;
-        case NetworkManager::Device::StateChangeReason::NewActivation:
-        case NetworkManager::Device::StateChangeReason::ConfigUnavailableReason:
-            switch (conn->type()) {
-            case NetworkManager::ConnectionSettings::ConnectionType::Wired:
-                msg = tr("Unable to connect %1, please check your router or net cable.").arg(conn->id());
-                break;
-            case NetworkManager::ConnectionSettings::ConnectionType::Wireless:
-                msg = tr("Unable to connect %1, please keep closer to the wireless router").arg(conn->id());
-                break;
-            }
-            break;
-        case NetworkManager::Device::StateChangeReason::AuthSupplicantDisconnectReason:
-            if (oldstate == NetworkManager::Device::State::ConfiguringHardware && newstate == NetworkManager::Device::State::NeedAuth) {
-                msg = tr("Connection failed, unable to connect %1, wrong password").arg(conn->id());
-            }
-            break;
-        case NetworkManager::Device::StateChangeReason::CarrierReason:
-            if (device->type() == NetworkManager::Device::Ethernet) {
-                qDebug("unplugged device is ethernet");
-                msg = tr("%1 disconnected").arg(conn->id());
-            }
-            break;
-        case NetworkManager::Device::StateChangeReason::NoSecretsReason:
-            msg = tr("Password is required to connect %1").arg(conn->id());
-            break;
-        case NetworkManager::Device::StateChangeReason::SsidNotFound:
-            msg = tr("The %1 802.11 WLAN network could not be found").arg(conn->id());
-            break;
-        }
-        if (!msg.isEmpty()) {
-            NotificationManager::Notify(icon, "", msg);
-        }
-    } break;
-    }
-}
-
-void NetworkPanel::onClick()
-{
-    QPoint point = this->mapToGlobal(QPoint(width() / 2, 0));
-    m_networkDialog->show(point.x(), point.y(), Dock::Position::Bottom, !m_isLockModel);
-}
-
-void NetworkPanel::lockScreen(bool lock)
-{
-    m_isLockModel = true;
-    m_isLockScreen = lock;
+    m_greeterStyle = greeterStyle;
 }

@@ -48,11 +48,6 @@
 #include <wireddevice.h>
 #include <wirelessdevice.h>
 
-const QString MenueEnable = "enable";
-const QString MenueWiredEnable = "wireEnable";
-const QString MenueWirelessEnable = "wirelessEnable";
-const QString MenueSettings = "settings";
-
 NetworkPanel::NetworkPanel(QObject *parent)
     : QObject(parent)
     , m_switchWireTimer(new QTimer(this))
@@ -120,7 +115,7 @@ void NetworkPanel::initUi()
     m_applet->setWidget(m_centerWidget);
     m_applet->setFrameShape(QFrame::NoFrame);
     m_applet->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    m_applet->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_applet->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_centerWidget->setAutoFillBackground(false);
     m_applet->viewport()->setAutoFillBackground(false);
     m_applet->setVisible(false);
@@ -265,14 +260,15 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWirelessItem = [=](const AccessPoints *ap) -> WirelessItem * {
+    auto findWirelessItem = [=](const AccessPoints *ap, const WirelessDevice *device) -> WirelessItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WirelessViewItem)
                 continue;
 
             WirelessItem *wirelessItem = static_cast<WirelessItem *>(item);
             const AccessPoints *apData = wirelessItem->accessPoint();
-            if (apData == ap)
+            const WirelessDevice *wirelessdevice = wirelessItem->wirelessDevice();
+            if (apData == ap && wirelessdevice == device)
                 return wirelessItem;
         }
 
@@ -317,25 +313,23 @@ void NetworkPanel::updateItems()
         WirelessControllItem *ctrl = findWirelessController(device);
         if (!ctrl)
             ctrl = new WirelessControllItem(m_netListView->viewport(), static_cast<WirelessDevice *>(device));
-        else
-            ctrl->updateView();
+        ctrl->updateView();
 
         items << ctrl;
         if (device->isEnabled()) {
             QList<AccessPoints *> aps = accessPoints(device);
             for (AccessPoints *ap : aps) {
-                WirelessItem *apCtrl = findWirelessItem(ap);
+                WirelessItem *apCtrl = findWirelessItem(ap, device);
                 if (!apCtrl) {
                     apCtrl = new WirelessItem(m_netListView->viewport(), device, ap);
                     connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::updateSize);
-                } else {
-                    apCtrl->updateView();
                 }
+                apCtrl->updateView();
 
                 items << apCtrl;
             }
             // 连接隐藏网络
-            WirelessItem *apCtrl = findWirelessItem(nullptr);
+            WirelessItem *apCtrl = findWirelessItem(nullptr, device);
             if (!apCtrl) {
                 apCtrl = new WirelessItem(m_netListView->viewport(), device, nullptr);
                 connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::updateSize);
@@ -349,8 +343,7 @@ void NetworkPanel::updateItems()
         DeviceControllItem *ctrl = findBaseController(DeviceType::Wired);
         if (!ctrl)
             ctrl = new DeviceControllItem(DeviceType::Wired, m_netListView->viewport());
-        else
-            ctrl->updateView();
+        ctrl->updateView();
 
         ctrl->setDevices(devices);
         items << ctrl;
@@ -368,8 +361,7 @@ void NetworkPanel::updateItems()
         WiredControllItem *ctrl = findWiredController(device);
         if (!ctrl)
             ctrl = new WiredControllItem(m_netListView->viewport(), device);
-        else
-            ctrl->updateView();
+        ctrl->updateView();
 
         items << ctrl;
 
@@ -378,8 +370,7 @@ void NetworkPanel::updateItems()
             WiredItem *connectionCtrl = findWiredItem(conn);
             if (!connectionCtrl)
                 connectionCtrl = new WiredItem(m_netListView->viewport(), device, conn);
-            else
-                connectionCtrl->updateView();
+            connectionCtrl->updateView();
 
             items << connectionCtrl;
         }
@@ -448,7 +439,6 @@ void NetworkPanel::updateSize()
     m_applet->setFixedSize(PANELWIDTH, height);
     m_netListView->update();
 }
-
 
 bool NetworkPanel::eventFilter(QObject *obj, QEvent *event)
 {
@@ -522,30 +512,6 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
     onUpdatePlugView();
 }
 
-void NetworkPanel::invokeMenuItem(const QString &menuId)
-{
-    // 有线设备是否可用
-    bool wiredEnabled = deviceEnabled(DeviceType::Wired);
-    // 无线设备是否可用
-    bool wirelessEnabeld = deviceEnabled(DeviceType::Wireless);
-    if (menuId == MenueEnable) {
-        setDeviceEnabled(DeviceType::Wired, !wiredEnabled);
-        setDeviceEnabled(DeviceType::Wireless, !wirelessEnabeld);
-    } else if (menuId == MenueWiredEnable) {
-        setDeviceEnabled(DeviceType::Wired, !wiredEnabled);
-    } else if (menuId == MenueWirelessEnable) {
-        setDeviceEnabled(DeviceType::Wireless, !wirelessEnabeld);
-    } else if (menuId == MenueSettings) {
-        DDBusSender()
-            .service("com.deepin.dde.ControlCenter")
-            .interface("com.deepin.dde.ControlCenter")
-            .path("/com/deepin/dde/ControlCenter")
-            .method(QString("ShowModule"))
-            .arg(QString("network"))
-            .call();
-    }
-}
-
 bool NetworkPanel::needShowControlCenter()
 {
     // 得到有线设备和无线设备的数量
@@ -605,59 +571,6 @@ void NetworkPanel::setDeviceEnabled(const DeviceType &deviceType, bool enabeld)
     for (NetworkDeviceBase *device : devices)
         if (device->deviceType() == deviceType)
             device->setEnabled(enabeld);
-}
-
-const QString NetworkPanel::contextMenu() const
-{
-    bool wiredEnabled = deviceEnabled(DeviceType::Wired);
-    bool wirelessEnabeld = deviceEnabled(DeviceType::Wireless);
-    QList<QVariant> items;
-    if (wiredEnabled && wirelessEnabeld) {
-        items.reserve(3);
-        QMap<QString, QVariant> wireEnable;
-        wireEnable["itemId"] = MenueWiredEnable;
-        if (wiredEnabled)
-            wireEnable["itemText"] = tr("Disable wired connection");
-        else
-            wireEnable["itemText"] = tr("Enable wired connection");
-
-        wireEnable["isActive"] = true;
-        items.push_back(wireEnable);
-
-        QMap<QString, QVariant> wirelessEnable;
-        wirelessEnable["itemId"] = MenueWirelessEnable;
-        if (wirelessEnabeld)
-            wirelessEnable["itemText"] = tr("Disable wireless connection");
-        else
-            wirelessEnable["itemText"] = tr("Enable wireless connection");
-
-        wirelessEnable["isActive"] = true;
-        items.push_back(wirelessEnable);
-    } else {
-        items.reserve(2);
-        QMap<QString, QVariant> enable;
-        enable["itemId"] = MenueEnable;
-        if (wiredEnabled || wirelessEnabeld)
-            enable["itemText"] = tr("Disable network");
-        else
-            enable["itemText"] = tr("Enable network");
-
-        enable["isActive"] = true;
-        items.push_back(enable);
-    }
-
-    QMap<QString, QVariant> settings;
-    settings["itemId"] = MenueSettings;
-    settings["itemText"] = tr("Network settings");
-    settings["isActive"] = true;
-    items.push_back(settings);
-
-    QMap<QString, QVariant> menu;
-    menu["items"] = items;
-    menu["checkableMenu"] = false;
-    menu["singleCheck"] = false;
-
-    return QJsonDocument::fromVariant(menu).toJson();
 }
 
 QWidget *NetworkPanel::itemApplet()

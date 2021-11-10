@@ -288,6 +288,7 @@ void WirelessControllItem::updateView()
     // 刷新按钮图标
     QPixmap pix = DHiDPIHelper::loadNxPixmap(iconFile());
     m_loadingIndicator->setImageSource(pix);
+    m_loadingIndicator->setVisible(m_device->isEnabled());
 }
 
 NetItemType WirelessControllItem::itemType()

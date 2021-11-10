@@ -43,7 +43,6 @@ class QStandardItemModel;
 class QTimer;
 class QScrollArea;
 
-
 using namespace dde::network;
 
 DGUI_USE_NAMESPACE
@@ -57,9 +56,7 @@ public:
     explicit NetworkPanel(QObject *parent = Q_NULLPTR);
     ~NetworkPanel();
 
-    void invokeMenuItem(const QString &menuId);
     bool needShowControlCenter();
-    const QString contextMenu() const;
     QWidget *itemApplet();
     bool hasDevice();
     void passwordError(const QString &path);
@@ -72,7 +69,7 @@ private:
     void initUi();
     void initConnection();
     void getPluginState();
-    void updateView();                                                  // 更新网络列表内容大小
+    void updateView(); // 更新网络列表内容大小
     void updateItems();
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
@@ -86,7 +83,7 @@ private Q_SLOTS:
     void onUpdatePlugView();
 
     void onClickListView(const QModelIndex &index);
-    void updateSize();                                                  // 更新窗口大小
+    void updateSize(); // 更新窗口大小
 
 private:
     PluginState m_pluginState;

@@ -21,16 +21,19 @@
 
 #include "networkplugin.h"
 #include "networkpanel.h"
+#include "trayicon.h"
+#include "networkdialog.h"
 
 #include <DDBusSender>
 
 #include <networkcontroller.h>
 
-#define STATE_KEY       "enabled"
+#define STATE_KEY "enabled"
 
 NetworkPlugin::NetworkPlugin(QObject *parent)
     : QObject(parent)
     , m_networkPanel(Q_NULLPTR)
+    , m_networkDialog(Q_NULLPTR)
 {
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/dock-network-plugin/translations/dock-network-plugin_%1.qm").arg(QLocale::system().name()));
@@ -54,14 +57,14 @@ const QString NetworkPlugin::pluginDisplayName() const
 void NetworkPlugin::init(PluginProxyInterface *proxyInter)
 {
     m_proxyInter = proxyInter;
-    if(m_networkPanel)
+    if (m_networkPanel)
         return;
 
     m_networkPanel.reset(new NetworkPanel);
+    m_networkDialog = new NetworkDialog(this);
 
     if (!pluginIsDisable())
         loadPlugin();
-    m_networkPanel->updatePoint();
 }
 
 void NetworkPlugin::invokedMenuItem(const QString &itemKey, const QString &menuId, const bool checked)
@@ -69,7 +72,7 @@ void NetworkPlugin::invokedMenuItem(const QString &itemKey, const QString &menuI
     Q_UNUSED(checked)
 
     if (itemKey == NETWORK_KEY)
-         m_networkPanel->invokeMenuItem(menuId);
+        m_networkPanel->invokeMenuItem(menuId);
 }
 
 void NetworkPlugin::refreshIcon(const QString &itemKey)
@@ -107,15 +110,20 @@ const QString NetworkPlugin::itemCommand(const QString &itemKey)
 const QString NetworkPlugin::itemContextMenu(const QString &itemKey)
 {
     if (itemKey == NETWORK_KEY)
-        return m_networkPanel->contextMenu();
+        return m_networkPanel->contextMenu(true);
 
     return QString();
 }
 
 QWidget *NetworkPlugin::itemWidget(const QString &itemKey)
 {
-    if (itemKey == NETWORK_KEY)
-        return m_networkPanel.data();
+    if (itemKey == NETWORK_KEY) {
+        TrayIcon *trayIcon = new TrayIcon(m_networkPanel.data());
+        connect(this, &NetworkPlugin::signalShowNetworkDialog, trayIcon, &TrayIcon::showNetworkDialog);
+        connect(trayIcon, &TrayIcon::signalShowNetworkDialog, this, &NetworkPlugin::showNetworkDialog);
+        QTimer::singleShot(100, this, &NetworkPlugin::updatePoint);
+        return trayIcon;
+    }
 
     return Q_NULLPTR;
 }
@@ -130,9 +138,6 @@ QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 
 QWidget *NetworkPlugin::itemPopupApplet(const QString &itemKey)
 {
-    if (itemKey == NETWORK_KEY && hasDevice() && !m_networkPanel->needShowControlCenter())
-        return m_networkPanel->itemApplet();
-
     return Q_NULLPTR;
 }
 
@@ -168,7 +173,7 @@ void NetworkPlugin::refreshPluginItemsVisible()
 
 bool NetworkPlugin::hasDevice()
 {
-    if(m_networkPanel.isNull())
+    if (m_networkPanel.isNull())
         return false;
 
     return m_networkPanel.data()->hasDevice();
@@ -176,5 +181,47 @@ bool NetworkPlugin::hasDevice()
 
 void NetworkPlugin::positionChanged(const Dock::Position position)
 {
-    m_networkPanel->updatePoint();
+    updatePoint();
+}
+
+void NetworkPlugin::updatePoint()
+{
+    m_networkDialog->setSaveMode(true);
+    emit signalShowNetworkDialog();
+}
+
+void NetworkPlugin::showNetworkDialog(QWidget *widget) const
+{
+    const QWidget *w = qobject_cast<QWidget *>(widget->parentWidget());
+    const QWidget *parentWidget = w;
+    Dock::Position position = Dock::Position::Bottom;
+    QPoint point;
+    while (w) {
+        parentWidget = w;
+        w = qobject_cast<QWidget *>(w->parentWidget());
+    }
+    if (parentWidget) {
+        Dock::Position pos = qApp->property(PROP_POSITION).value<Dock::Position>();
+        QPoint p = widget->rect().center();
+        QRect rect = parentWidget->rect();
+        switch (pos) {
+        case Dock::Position::Top:
+            p.ry() += rect.height() / 2;
+            break;
+        case Dock::Position::Bottom:
+            p.ry() -= rect.height() / 2;
+            break;
+        case Dock::Position::Left:
+            p.rx() += rect.width() / 2;
+            break;
+        case Dock::Position::Right:
+            p.rx() -= rect.width() / 2;
+            break;
+        }
+        position = pos;
+        p = widget->mapToGlobal(p);
+        point = p;
+    }
+
+    m_networkDialog->show(point.x(), point.y(), position);
 }

@@ -27,6 +27,7 @@
 #define NETWORK_KEY "network-item-key"
 
 class NetworkPanel;
+class NetworkDialog;
 
 class NetworkPlugin : public QObject, PluginsItemInterface
 {
@@ -34,6 +35,13 @@ class NetworkPlugin : public QObject, PluginsItemInterface
 
     Q_INTERFACES(PluginsItemInterface)
     Q_PLUGIN_METADATA(IID "com.deepin.dock.PluginsItemInterface" FILE "network.json")
+
+Q_SIGNALS:
+    void signalShowNetworkDialog();
+
+public Q_SLOTS:
+    void showNetworkDialog(QWidget *w)  const;
+    void updatePoint();
 
 public:
     explicit NetworkPlugin(QObject *parent = Q_NULLPTR);
@@ -64,8 +72,8 @@ private:
     bool hasDevice();
 
 private:
-
     QScopedPointer<NetworkPanel> m_networkPanel;
+    NetworkDialog *m_networkDialog;
 };
 
 #endif // NETWORKPLUGIN_H

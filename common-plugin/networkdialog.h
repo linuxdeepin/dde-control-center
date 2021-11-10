@@ -33,15 +33,24 @@ class NetworkDialog : public QObject
     Q_OBJECT
 
 public:
+    enum RunReason {
+        Lock,      // 锁屏插件唤起
+        Greeter,   // greeter插件唤起
+        Dock,      // 任务栏插件唤起
+        Password,  // 密码错误唤起
+    };
+
     explicit NetworkDialog(QObject *parent = Q_NULLPTR);
     ~NetworkDialog();
 
     void saveConfig(int x, int y, Dock::Position position = Dock::Position::Bottom);
-    void show(int x, int y, Dock::Position position = Dock::Position::Bottom, bool isShell = false);
+    void show(int x, int y, Dock::Position position = Dock::Position::Bottom);
     void setConnectWireless(const QString &path);
+    void setRunReason(RunReason reason);
+    void setSaveMode(bool isSave);
 
 private:
-    void runProcess(int x, int y, Dock::Position position = Dock::Position::Bottom, bool isSave = false, bool isShell = false);
+    void runProcess(int x, int y, Dock::Position position = Dock::Position::Bottom);
 
 private Q_SLOTS:
     void finished(int, QProcess::ExitStatus);
@@ -50,6 +59,8 @@ private:
     QProcess *m_process;
     QWindow *m_focusWindow;
     QString m_connectPath;
+    RunReason m_runReason;
+    bool m_saveMode;
 };
 
 #endif // NETWORKDIALOG_H

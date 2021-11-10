@@ -71,8 +71,8 @@ void sig_crash(int sig)
     // 捕获异常，打印崩溃日志到配置文件中
     try {
         QString head = "\n#####" + qApp->applicationName() + "#####\n"
-                + QDateTime::currentDateTime().toString("[yyyy-MM-dd hh:mm:ss:zzz]")
-                + "[crash signal number:" + QString::number(sig) + "]\n";
+                       + QDateTime::currentDateTime().toString("[yyyy-MM-dd hh:mm:ss:zzz]")
+                       + "[crash signal number:" + QString::number(sig) + "]\n";
         file->write(head.toUtf8());
 
 #ifdef Q_OS_LINUX
@@ -91,7 +91,7 @@ void sig_crash(int sig)
             QString strSymbol = QString::fromStdString(symbol);
             int pos1 = strSymbol.indexOf("[");
             int pos2 = strSymbol.lastIndexOf("]");
-            QString address = strSymbol.mid(pos1 + 1,pos2 - pos1 - 1);
+            QString address = strSymbol.mid(pos1 + 1, pos2 - pos1 - 1);
 
             // 按照内存地址找到对应代码的行号
             QString cmd = "addr2line -C -f -e " + qApp->applicationName() + " " + address;
@@ -128,12 +128,21 @@ void init_sig_crash()
 class MainApp
 {
 public:
+    enum RunReason {
+        Lock,      // 锁屏插件唤起
+        Greeter,   // greeter插件唤起
+        NeedFocus, // 小于该值需要处理焦点
+        Dock,      // 任务栏插件唤起
+        Password,  // 密码错误唤起
+    };
+
     MainApp()
         : m_isWep(false)
         , m_isSave(false)
-        , m_isLogin(false)
-    {}
-    ~MainApp() {}
+        , m_reason(Dock)
+    {
+    }
+    ~MainApp() { }
 
     void run();
     // 解析参数
@@ -148,7 +157,7 @@ private:
     QString m_path;
     bool m_isWep;
     bool m_isSave;
-    bool m_isLogin;
+    RunReason m_reason;
 };
 
 void MainApp::run()
@@ -168,9 +177,11 @@ void MainApp::parseArguments()
     QCommandLineOption pointOption(QStringList() << "p", "set point <x>x<y>", "point");
     QCommandLineOption positionOption(QStringList() << "d", "position [l,r,t,b]", "position");
     QCommandLineOption connectPathOption(QStringList() << "c"
-                                         << "connect",
+                                                       << "connect",
                                          "connect wireless ", "path");
-    QCommandLineOption loginOption(QStringList() << "l", "login style");
+    QCommandLineOption reasonOption(QStringList() << "r"
+                                                  << "reason",
+                                    "run reason", "reason");
     QCommandLineOption wepOption(QStringList() << "w", "wireless wep-key");
     QCommandLineOption saveOption(QStringList() << "s", "save config", "save");
 
@@ -181,7 +192,7 @@ void MainApp::parseArguments()
     parser.addOption(pointOption);
     parser.addOption(positionOption);
     parser.addOption(connectPathOption);
-    parser.addOption(loginOption);
+    parser.addOption(reasonOption);
     parser.addOption(wepOption);
     parser.addOption(saveOption);
     parser.process(*qApp);
@@ -235,7 +246,18 @@ void MainApp::parseArguments()
 
     m_isWep = parser.isSet(wepOption);
     m_isSave = parser.isSet(saveOption);
-    m_isLogin = parser.isSet(loginOption);
+    if (parser.isSet(reasonOption)) {
+        QString reason = parser.value(reasonOption);
+        if (reason == "Lock") {
+            m_reason = Lock;
+        } else if (reason == "Greeter") {
+            m_reason = Greeter;
+        } else if (reason == "Dock") {
+            m_reason = Dock;
+        } else if (reason == "Password") {
+            m_reason = Password;
+        }
+    }
 }
 
 void MainApp::saveConfig()
@@ -275,10 +297,17 @@ bool MainApp::clientModel()
 
 void MainApp::showWidget()
 {
-    if(m_isLogin) {
+    switch (m_reason) {
+    case Greeter:
         dde::network::NetworkController::setServiceType(dde::network::ServiceLoadType::LoadFromManager);
+        // 此处没break, Greeter的样式处理同Lock
+    case Lock:
         ThemeManager::instance()->setThemeType(ThemeManager::LoginType);
+        break;
+    default:
+        break;
     }
+
     LocalServer::instance()->RunServer(qAppName());
     DockPopupWindow *popopWindow = new DockPopupWindow();
     NetworkPanel *panel = new NetworkPanel(popopWindow);

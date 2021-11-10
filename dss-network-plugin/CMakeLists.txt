@@ -9,7 +9,7 @@ set(CMAKE_AUTOMOC ON)
 # 启用 qrc 资源文件的支持
 set(CMAKE_AUTORCC ON)
 
-file(GLOB_RECURSE SRCS "*.h" "*.cpp"  "../src/*.h" "../src/*.cpp" "../common-plugin/*.h" "../common-plugin/*.cpp" "../dde-network-dialog/dockpopupwindow.h" "../dde-network-dialog/dockpopupwindow.cpp")
+file(GLOB_RECURSE SRCS "*.h" "*.cpp"  "../src/*.h" "../src/*.cpp" "../common-plugin/*.h" "../common-plugin/*.cpp")
 
 find_package(Qt5 COMPONENTS Core Widgets DBus Network LinguistTools REQUIRED)
 find_package(PkgConfig REQUIRED)

@@ -31,8 +31,10 @@ NetworkDialog::NetworkDialog(QObject *parent)
     : QObject(parent)
     , m_process(new QProcess(this))
     , m_focusWindow(nullptr)
+    , m_runReason(Dock)
+    , m_saveMode(false)
 {
-    connect(m_process, static_cast<void(QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &NetworkDialog::finished);
+    connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &NetworkDialog::finished);
 }
 
 NetworkDialog::~NetworkDialog()
@@ -42,36 +44,38 @@ NetworkDialog::~NetworkDialog()
 
 void NetworkDialog::finished(int, QProcess::ExitStatus)
 {
-    if (m_focusWindow) {
+    if ((m_runReason <= Greeter) && m_focusWindow) {
         m_focusWindow->setKeyboardGrabEnabled(true);
     }
 }
 
 void NetworkDialog::saveConfig(int x, int y, Dock::Position position)
 {
-    runProcess(x, y, position, true, false);
+    m_saveMode = true;
+    runProcess(x, y, position);
 }
 
-void NetworkDialog::show(int x, int y, Dock::Position position, bool isShell)
+void NetworkDialog::show(int x, int y, Dock::Position position)
 {
     m_process->blockSignals(true);
     m_process->close();
     m_process->blockSignals(false);
     QWindow *window = qApp->focusWindow();
-    runProcess(x, y, position, false, isShell);
-    if(window) {
+    runProcess(x, y, position);
+    if (window) {
         m_focusWindow = window;
     }
-    if (m_focusWindow) {
+    if ((m_runReason <= Greeter) && m_focusWindow) {
         m_focusWindow->setKeyboardGrabEnabled(false);
     }
 }
 
-void NetworkDialog::runProcess(int x, int y, Dock::Position position, bool isSave, bool isShell)
+void NetworkDialog::runProcess(int x, int y, Dock::Position position)
 {
     QStringList argList;
-    if (isSave) {
+    if (m_saveMode) {
         argList << "-s";
+        m_saveMode = false;
     }
     argList << "-p" << QString("%1x%2").arg(x).arg(y);
     QString pos = "bottom";
@@ -94,13 +98,41 @@ void NetworkDialog::runProcess(int x, int y, Dock::Position position, bool isSav
         argList << "-c" << m_connectPath;
         m_connectPath.clear();
     }
-    if (isShell) {
-        argList << "-l";
+    switch (m_runReason) {
+    case Lock:
+        argList << "-r"
+                << "Lock";
+        break;
+    case Greeter:
+        argList << "-r"
+                << "Greeter";
+        break;
+    case Dock:
+        argList << "-r"
+                << "Dock";
+        break;
+    case Password:
+        argList << "-r"
+                << "Password";
+        break;
+    default:
+        break;
     }
+
     m_process->start(NetworkDialogApp, argList);
 }
 
 void NetworkDialog::setConnectWireless(const QString &path)
 {
     m_connectPath = path;
+}
+
+void NetworkDialog::setRunReason(RunReason reason)
+{
+    m_runReason = reason;
+}
+
+void NetworkDialog::setSaveMode(bool isSave)
+{
+    m_saveMode = isSave;
 }
