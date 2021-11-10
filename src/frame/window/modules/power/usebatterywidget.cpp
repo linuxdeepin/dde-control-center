@@ -47,7 +47,6 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     , m_layout(new QVBoxLayout)
     , m_monitorSleepOnBattery(new TitledSliderItem(tr("Monitor will suspend after")))
     , m_computerSleepOnBattery(new TitledSliderItem(tr("Computer will suspend after")))
-    , m_monitorDormantOnBattery(new TitledSliderItem(tr("Computer will hibernate after")))
     , m_autoLockScreen(new TitledSliderItem(tr("Lock screen after")))
     , m_sldLowBatteryHint(new TitledSliderItem(tr("Low battery level")))
 //    , m_suspendOnLidClose(new SwitchWidget(tr("Suspend on lid close")))
@@ -103,16 +102,6 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     m_computerSleepOnBattery->setAnnotations(annos);
     m_computerSleepOnBattery->addBackground();
     m_layout->addWidget(m_computerSleepOnBattery);
-
-    m_monitorDormantOnBattery->setAccessibleName(tr("Computer will hibernate after"));
-    m_monitorDormantOnBattery->slider()->setType(DCCSlider::Vernier);
-    m_monitorDormantOnBattery->slider()->setRange(1, 7);
-    m_monitorDormantOnBattery->slider()->setTickPosition(QSlider::TicksBelow);
-    m_monitorDormantOnBattery->slider()->setTickInterval(1);
-    m_monitorDormantOnBattery->slider()->setPageStep(1);
-    m_monitorDormantOnBattery->setAnnotations(annos);
-    m_monitorDormantOnBattery->addBackground();
-    m_layout->addWidget(m_monitorDormantOnBattery);
 
     /*** 超时自动锁屏 ***/
     //~ contents_path /power/On Battery
@@ -211,7 +200,6 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     connect(m_autoLockScreen->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetAutoLockScreenOnBattery);
 
 
-    connect(m_monitorDormantOnBattery->slider(), &DCCSlider::valueChanged, this, &UseBatteryWidget::requestSetDormantOnBattery);
 
     connect(m_cmbPowerBtn, &ComboxWidget::onIndexChanged, this, [ = ](int nIndex) {
         if (!model->getSuspend()) {
@@ -264,11 +252,6 @@ void UseBatteryWidget::setModel(const PowerModel *model)
 
     setScreenBlackDelayOnBattery(model->screenBlackDelayOnBattery());
     setSleepDelayOnBattery(model->sleepDelayOnBattery());
-
-    if(m_monitorDormantOnBattery != nullptr){
-        connect(model, &PowerModel::dormantDelayChangeOnBattery, this, &UseBatteryWidget::setDormantDelayOnBattery);
-        setDormantDelayOnBattery(model->dormantDelayOnBattery());
-    }
 
     connect(m_swBatteryHint, &SwitchWidget::checkedChanged, this, [ = ](bool bLowPowerNotifyEnable) {
         Q_EMIT requestSetLowPowerNotifyEnable(bLowPowerNotifyEnable);
@@ -332,14 +315,6 @@ void UseBatteryWidget::setSleepDelayOnBattery(const int delay)
     m_computerSleepOnBattery->slider()->setValue(delay);
     m_computerSleepOnBattery->setValueLiteral(delayToLiteralString(delay));
     m_computerSleepOnBattery->slider()->blockSignals(false);
-}
-
-void UseBatteryWidget::setDormantDelayOnBattery(const int delay)
-{
-    m_monitorDormantOnBattery->slider()->blockSignals(true);
-    m_monitorDormantOnBattery->slider()->setValue(delay);
-    m_monitorDormantOnBattery->setValueLiteral(delayToLiteralString(delay));
-    m_monitorDormantOnBattery->slider()->blockSignals(false);
 }
 
 void UseBatteryWidget::setAutoLockScreenOnBattery(const int delay)
