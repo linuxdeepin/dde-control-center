@@ -192,7 +192,7 @@ void SyncWorker::getUUID(QString &uuid)
     uuid = retUUID.toString();
 }
 
-void SyncWorker::localBindCheck(const QString &uosid, const QString &uuid, QString &ubid)
+void SyncWorker::localBindCheck(const QString &uosid, const QString &uuid, QString &ubid, QString &errorTxt)
 {
     QDBusReply<QString> retLocalBindCheck= m_syncHelperInter->call("LocalBindCheck", uosid, uuid);
     if (!m_syncHelperInter->isValid()) {
@@ -204,6 +204,7 @@ void SyncWorker::localBindCheck(const QString &uosid, const QString &uuid, QStri
         qWarning() << "UOSID:" << uosid;
         qWarning() << "uuid:" << uuid;
         qWarning() << retLocalBindCheck.error().message();
+        errorTxt = retLocalBindCheck.error().message();
     }
 }
 
@@ -215,7 +216,7 @@ void SyncWorker::getHostName(QString &hostName)
     hostName = hostnameInter.staticHostname();
 }
 
-void SyncWorker::bindAccount(const QString &uuid, const QString &hostName, QString &ubid)
+void SyncWorker::bindAccount(const QString &uuid, const QString &hostName, QString &ubid, QString &errorTxt)
 {
     QDBusPendingReply<QString> retUBID = DDBusSender()
                                          .service("com.deepin.deepinid")
@@ -230,10 +231,11 @@ void SyncWorker::bindAccount(const QString &uuid, const QString &hostName, QStri
     } else {
         qWarning() << "uuid:" << uuid << "HostName:" << hostName;
         qWarning() << "Bind failed:" << retUBID.error().message();
+        errorTxt = retUBID.error().message();
     }
 }
 
-void SyncWorker::unBindAccount(const QString &ubid, bool &ret)
+void SyncWorker::unBindAccount(const QString &ubid, bool &ret, QString &errorTxt)
 {
     QDBusPendingReply<QString> retUnBoundle = DDBusSender()
                                               .service("com.deepin.deepinid")
@@ -248,6 +250,7 @@ void SyncWorker::unBindAccount(const QString &ubid, bool &ret)
     } else {
         qWarning() << "ubid:" << ubid;
         qWarning() << "unBind failed:" << retUnBoundle.error().message();
+        errorTxt = retUnBoundle.error().message();
         ret = false;
     }
 }

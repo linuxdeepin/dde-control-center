@@ -70,10 +70,10 @@ Q_SIGNALS:
     void requestSetModuleState(std::pair<dcc::cloudsync::SyncType, bool> state);
     void requestUOSID(QString &uosid);
     void requestUUID(QString &uuid);
-    void requestLocalBindCheck(const QString &uosid, const QString &uuid, QString &ubid);
+    void requestLocalBindCheck(const QString &uosid, const QString &uuid, QString &ubid, QString &errorTxt);
     void requestHostName(QString &hostName);
-    void requestBindAccount(const QString &uuid, const QString &hostName, QString &ubid);
-    void requestUnBindAccount(const QString &ubid, bool &ret);
+    void requestBindAccount(const QString &uuid, const QString &hostName, QString &ubid, QString &errorTxt);
+    void requestUnBindAccount(const QString &ubid, bool &ret, QString &errorTxt);
 private:
     void onListViewClicked(const QModelIndex &index);
     void onStateChanged(const std::pair<qint32, QString> &state);

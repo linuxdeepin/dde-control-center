@@ -32,10 +32,10 @@ public Q_SLOTS:
     void licenseStateChangeSlot();
     void getUOSID(QString &uosid);
     void getUUID(QString &uuid);
-    void localBindCheck(const QString &uosid, const QString &uuid, QString &ubid);
+    void localBindCheck(const QString &uosid, const QString &uuid, QString &ubid, QString &errorTxt);
     void getHostName(QString &hostName);
-    void bindAccount(const QString &uuid, const QString &hostName, QString &ubid);
-    void unBindAccount(const QString &ubid, bool &ret);
+    void bindAccount(const QString &uuid, const QString &hostName, QString &ubid, QString &errorTxt);
+    void unBindAccount(const QString &ubid, bool &ret, QString &errorTxt);
 private:
     void onSyncModuleStateChanged(const QString& module, bool enable);
     void onStateChanged(const IntString& state);

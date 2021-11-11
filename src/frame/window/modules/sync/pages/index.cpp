@@ -369,7 +369,21 @@ bool IndexPage::isUserAccountBinded()
         return false;
     }
 
-    Q_EMIT requestLocalBindCheck(uosid, uuid, m_ubid);
+    QString errorTxt;
+    Q_EMIT requestLocalBindCheck(uosid, uuid, m_ubid, errorTxt);
+    if (!errorTxt.isEmpty()) {
+        QString tips;
+        if (errorTxt.contains("7500")) {
+            tips = tr("System error");
+        } else if (errorTxt.contains("7506")) {
+            tips = tr("Network error");
+        } else {
+            tips = errorTxt;
+        }
+        DMessageManager::instance()->sendMessage(this,
+                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 tips);
+    }
     if(!m_ubid.isEmpty()) {
         return true;
     } else {
@@ -410,7 +424,24 @@ bool IndexPage::bindUserAccount()
         return false;
     }
 
-    Q_EMIT requestBindAccount(uuid, hostName, m_ubid);
+    QString errorTxt;
+    Q_EMIT requestBindAccount(uuid, hostName, m_ubid, errorTxt);
+
+    if (!errorTxt.isEmpty()) {
+        QString tips;
+        if (errorTxt.contains("7500")) {
+            tips = tr("System error");
+        } else if (errorTxt.contains("7506")) {
+            tips = tr("Network error");
+        } else if (errorTxt.contains("7502")) {
+            tips = tr("Login expired, please sign in to the Union ID again");
+        } else {
+            tips = errorTxt;
+        }
+        DMessageManager::instance()->sendMessage(this,
+                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 tips);
+    }
 
     return !m_ubid.isEmpty();
 }
@@ -421,8 +452,25 @@ bool IndexPage::unbindUserAccount()
         qWarning() << "ubid is empty";
         return false;
     }
+
     bool ret = false;
-    Q_EMIT requestUnBindAccount(m_ubid, ret);
+    QString errorTxt;
+    Q_EMIT requestUnBindAccount(m_ubid, ret, errorTxt);
+    if (!errorTxt.isEmpty()) {
+        QString tips;
+        if (errorTxt.contains("7500")) {
+            tips = tr("System error");
+        } else if (errorTxt.contains("7506")) {
+            tips = tr("Network error");
+        } else if (errorTxt.contains("7502")) {
+            tips = tr("Login expired, please sign in to the Union ID again");
+        } else {
+            tips = errorTxt;
+        }
+        DMessageManager::instance()->sendMessage(this,
+                                                 style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 tips);
+    }
     return ret;
 }
 

@@ -64,6 +64,7 @@ ModifyPasswdPage::ModifyPasswdPage(User *user, bool isCurrent, QWidget *parent)
     , m_focusOut(false)
     , m_isCurrent(isCurrent)
     , m_newPasswdLevelIconModePath(PASSWORD_LEVEL_ICON_LIGHT_MODE_PATH)
+    , m_isBindCheckError(false)
 
 {
     //密码强度label初始化，３个label设置icon用于显示密码强度
@@ -498,16 +499,27 @@ void ModifyPasswdPage::onForgetPasswordBtnClicked()
     QString ubid;
     Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid, ubid);
     if(!ubid.isEmpty()) {
+        m_isBindCheckError = false;
         Q_EMIT requestStartResetPasswordExec(m_curUser);
-    } else {
+    }
+    if (ubid.isEmpty() && !m_isBindCheckError) {
         UnionIDBindReminderDialog dlg;
         dlg.exec();
     }
 }
 
-void ModifyPasswdPage::onCheckBindFailed()
+void ModifyPasswdPage::onCheckBindFailed(const QString &errorText)
 {
+    m_isBindCheckError = true;
+    QString tips;
+    if (errorText.contains("7500")) {
+        tips = tr("System error");
+    } else if (errorText.contains("7506")) {
+        tips = tr("Network error");
+    } else {
+        tips = errorText;
+    }
     DMessageManager::instance()->sendMessage(this,
                                              style()->standardIcon(QStyle::SP_MessageBoxWarning),
-                                             tr("Network error"));
+                                             tips);
 }

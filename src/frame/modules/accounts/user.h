@@ -125,7 +125,7 @@ Q_SIGNALS:
     void passwordAgeChanged(const int age) const;
     void gidChanged(const QString &gid);
     void passwordResetFinished(const QString &errorText) const;
-    void checkBindFailed();
+    void checkBindFailed(const QString &errorText);
 private:
     bool m_isCurrentUser;
     bool m_autoLogin;

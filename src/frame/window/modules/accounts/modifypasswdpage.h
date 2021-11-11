@@ -72,7 +72,7 @@ protected:
 private:
     void resetPasswordFinished(const QString &errorText);
     void onForgetPasswordBtnClicked();
-    void onCheckBindFailed();
+    void onCheckBindFailed(const QString &errorText);
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password, const QString &repeatPassword, const bool needResule = true);
@@ -96,6 +96,7 @@ private:
     bool m_focusOut;
     bool m_isCurrent;
     QString m_newPasswdLevelIconModePath;
+    bool m_isBindCheckError;
 
 };
 }

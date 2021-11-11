@@ -372,6 +372,15 @@ void ResetPasswordDialog::onVerificationCodeBtnClicked()
     } else if (ret == UNION_ID_ERROR_REQUEST_REACHED) {
         DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                                  getErrorTips(UNION_ID_ERROR_REQUEST_REACHED));
+    } else if (ret == UNION_ID_ERROR_SYSTEM_ERROR) {
+        DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 getErrorTips(UNION_ID_ERROR_SYSTEM_ERROR));
+    } else if (ret == UNION_ID_ERROR_LOGIN_EXPIRED) {
+        DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 getErrorTips(UNION_ID_ERROR_LOGIN_EXPIRED));
+    } else if (ret == UNION_ID_ERROR_NETWORK_ERROR) {
+        DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                 getErrorTips(UNION_ID_ERROR_NETWORK_ERROR));
     } else {
         DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
                                                  tr("Failed to get the code"));
@@ -403,9 +412,22 @@ void ResetPasswordDialog::onResetPasswordBtnClicked()
 
     // 验证码
     if (!m_verifyCodeSuccess) {
-        if (verifyVerficationCode() == UNION_ID_ERROR_NO_ERR) {
+        int ret = verifyVerficationCode();
+        if ( ret == UNION_ID_ERROR_NO_ERR) {
             m_verifyCodeSuccess = true;
             m_verificationCodeEdit->setAlert(false);
+        } else if (ret == UNION_ID_ERROR_USER_UNBIND) {
+            m_phoneEmailEdit->setAlert(true);
+            m_phoneEmailEdit->showAlertMessage(getErrorTips(UNION_ID_ERROR_USER_UNBIND), m_repeatPasswordEdit, 2000);
+        } else if (ret == UNION_ID_ERROR_SYSTEM_ERROR) {
+            DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                     getErrorTips(UNION_ID_ERROR_SYSTEM_ERROR));
+        } else if (ret == UNION_ID_ERROR_LOGIN_EXPIRED) {
+            DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                     getErrorTips(UNION_ID_ERROR_LOGIN_EXPIRED));
+        } else if (ret == UNION_ID_ERROR_NETWORK_ERROR) {
+            DMessageManager::instance()->sendMessage(this, style()->standardIcon(QStyle::SP_MessageBoxWarning),
+                                                     getErrorTips(UNION_ID_ERROR_NETWORK_ERROR));
         } else {
             m_verificationCodeEdit->setAlert(true);
             m_verificationCodeEdit->showAlertMessage(tr("Wrong verification code"), m_verificationCodeEdit, 2000);
@@ -457,14 +479,14 @@ QString ResetPasswordDialog::getErrorTips(ResetPasswordDialog::UNION_ID_ERROR_TY
 {
     QMap<int, QString> errorTypeMap = {
         {UNION_ID_ERROR_NO_ERR,   ""},
-        {UNION_ID_ERROR_SYSTEM_ERROR, "system error"},
+        {UNION_ID_ERROR_SYSTEM_ERROR, tr("System error")},
         {UNION_ID_ERROR_PARA_ERROR, "parameter error"},
-        {UNION_ID_ERROR_LOGIN_EXPIRED, "login expired"},
+        {UNION_ID_ERROR_LOGIN_EXPIRED, tr("Login expired, please sign in to the Union ID again")},
         {UNION_ID_ERROR_NO_PERMISSION, "no permission"},
         {UNION_ID_ERROR_NETWORK_ERROR, tr("Network error")},
         {UNION_ID_ERROR_CONFIGURE_ERROR, "Configuration error"},
         {UNION_ID_ERROR_REQUEST_REACHED, tr("You have reached the number limit to get the code today")},
-        {UNION_ID_ERROR_USER_UNBIND, tr("Phone/Email not registered")},
+        {UNION_ID_ERROR_USER_UNBIND, tr("The Union ID is not linked to a user account")},
     };
     return errorTypeMap.value(errorType);
 }
@@ -616,7 +638,8 @@ int ResetPasswordDialog::requestVerficationCode()
         qDebug() << "isBinded:" << m_ubid;
     } else {
         qWarning() << "isBinded failed:" << retLocalBindCheck.error().message();
-        return -1;
+        int code = parseError(retLocalBindCheck.error().message());
+        return code;
     }
 
     QDBusReply<int> retResetCaptcha = syncHelperInter.call("SendResetCaptcha", m_ubid, m_phoneEmailEdit->text());

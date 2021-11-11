@@ -247,7 +247,7 @@ void AccountsWorker::localBindCheck(dcc::accounts::User *user, const QString &uo
     } else {
         qDebug() << "UOSID:" << uosid << "uuid:" << uuid;
         qDebug() << retLocalBindCheck.error().message();
-        Q_EMIT user->checkBindFailed();
+        Q_EMIT user->checkBindFailed(retLocalBindCheck.error().message());
     }
 }
 
