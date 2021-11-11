@@ -97,6 +97,20 @@ CustomContent::CustomContent(ShortcutModel *model, QWidget *parent)
     connect(m_shortCutCmdEdit, &DFileChooserEdit::textChanged, this, [this] {
         if (!m_shortCutCmdEdit->text().isEmpty()) {
             m_shortCutCmdEdit->setAlert(false);
+
+            bool exist = false;
+            QList<ShortcutInfo *> lstInfo;
+            lstInfo.append(m_model->customInfo());
+            lstInfo.append(m_model->assistiveToolsInfo());
+            lstInfo.append(m_model->systemInfo());
+            lstInfo.append(m_model->workspaceInfo());
+            for (auto info : lstInfo) {
+                if (!info->name.compare(m_shortCutNameEdit->text(),Qt::CaseSensitive)) {
+                    exist = true;
+                    break;
+                }
+            }
+            m_buttonTuple->rightButton()->setEnabled(!exist);
         }
     });
 
