@@ -339,10 +339,10 @@ void DCCNetworkModule::showProxyPage()
 void DCCNetworkModule::showHotspotPage()
 {
     HotspotPage *hotspot = new HotspotPage();
-    connect(hotspot, &HotspotPage::requestNextPage, [ = ] (ContentWidget * const w) {
+    connect(hotspot, &HotspotPage::requestNextPage, this, [ = ] (ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w, dccV20::FrameProxyInterface::PushType::CoverTop);
     });
-    connect(hotspot, &HotspotPage::requestCloseHotspot, [ = ] {
+    connect(hotspot, &HotspotPage::requestCloseHotspot, this, [ = ] {
         m_indexWidget->setCloseHotspotFromHotspotPage();
     });
 

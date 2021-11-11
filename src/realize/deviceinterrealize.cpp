@@ -53,8 +53,7 @@ QJsonObject DeviceInterRealize::activeConnectionInfo() const
 
 void DeviceInterRealize::setEnabled(bool enabled)
 {
-    QDBusPendingReply<> reply = m_networkInter->EnableDevice(QDBusObjectPath(path()), enabled);
-    reply.waitForFinished();
+    m_networkInter->EnableDevice(QDBusObjectPath(path()), enabled);
 }
 
 Connectivity DeviceInterRealize::connectivity()
@@ -152,15 +151,13 @@ bool WiredDeviceInterRealize::connectNetwork(WiredConnection *connection)
     if (!connection)
         return false;
 
-    QDBusPendingReply<QDBusObjectPath> reply = networkInter()->ActivateConnection(connection->connection()->uuid(), QDBusObjectPath(path()));
-    reply.waitForFinished();
+    networkInter()->ActivateConnection(connection->connection()->uuid(), QDBusObjectPath(path()));
     return true;
 }
 
 void WiredDeviceInterRealize::disconnectNetwork()
 {
-    QDBusPendingReply<> reply = networkInter()->DisconnectDevice(QDBusObjectPath(path()));
-    reply.waitForFinished();
+    networkInter()->DisconnectDevice(QDBusObjectPath(path()));
 }
 
 bool WiredDeviceInterRealize::isConnected() const
@@ -336,8 +333,7 @@ QList<AccessPoints *> WirelessDeviceInterRealize::accessPointItems() const
 
 void WirelessDeviceInterRealize::scanNetwork()
 {
-    QDBusPendingReply<> reply = networkInter()->RequestWirelessScan();
-    reply.waitForFinished();
+    networkInter()->RequestWirelessScan();
 }
 
 void WirelessDeviceInterRealize::connectNetwork(const AccessPoints *item)
@@ -381,8 +377,7 @@ AccessPoints *WirelessDeviceInterRealize::activeAccessPoints() const
 
 void WirelessDeviceInterRealize::disconnectNetwork()
 {
-    QDBusPendingReply<> reply = networkInter()->DisconnectDevice(QDBusObjectPath(path()));
-    reply.waitForFinished();
+    networkInter()->DisconnectDevice(QDBusObjectPath(path()));
 }
 
 QList<WirelessConnection *> WirelessDeviceInterRealize::items() const

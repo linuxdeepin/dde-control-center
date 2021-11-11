@@ -46,8 +46,7 @@ void DSLController::connectItem(DSLItem *item)
     if (m_deviceInfo.contains(item->connection()->hwAddress()))
         devicePath = m_deviceInfo[item->connection()->hwAddress()];
 
-    QDBusPendingReply<QDBusObjectPath> reply = m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(devicePath));
-    reply.waitForFinished();
+    m_networkInter->ActivateConnection(item->connection()->uuid(), QDBusObjectPath(devicePath));
 }
 
 void DSLController::connectItem(const QString &uuid)
@@ -63,10 +62,8 @@ void DSLController::connectItem(const QString &uuid)
 
 void DSLController::disconnectItem()
 {
-    if (!m_activePath.isEmpty()) {
-        QDBusPendingReply<> reply = deactivateConnection(m_activePath);
-        reply.waitForFinished();
-    }
+    if (!m_activePath.isEmpty())
+        deactivateConnection(m_activePath);
 }
 
 void DSLController::updateDevice(const QList<NetworkDeviceBase *> &devices)

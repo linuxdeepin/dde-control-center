@@ -35,16 +35,13 @@ void VPNController::connectItem(VPNItem *item)
 
 void VPNController::connectItem(const QString &uuid)
 {
-    QDBusPendingReply<QDBusObjectPath> reply = m_networkInter->ActivateConnection(uuid, QDBusObjectPath("/"));
-    reply.waitForFinished();
+    m_networkInter->ActivateConnection(uuid, QDBusObjectPath("/"));
 }
 
 void VPNController::disconnectItem()
 {
-    if (!m_activePath.isEmpty()) {
-        QDBusPendingReply<> reply = deactivateConnection(m_activePath);
-        reply.waitForFinished();
-    }
+    if (!m_activePath.isEmpty())
+        deactivateConnection(m_activePath);
 }
 
 VPNController::VPNController(NetworkInter *networkInter, QObject *parent)

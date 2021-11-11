@@ -236,10 +236,8 @@ void DeviceManagerRealize::connectNetwork(const AccessPoints *item)
         return;
 
     WirelessConnection *conn = findConnectionByAccessPoint(item, m_wirelessConnections);
-    if (conn) {
-        QDBusPendingReply<> reply = NetworkManager::activateConnection(conn->connection()->path(), m_wDevice->uni(), "");
-        reply.waitForFinished();
-    }
+    if (conn)
+        NetworkManager::activateConnection(conn->connection()->path(), m_wDevice->uni(), "");
 }
 
 QList<WirelessConnection *> DeviceManagerRealize::wirelessItems() const
@@ -269,9 +267,8 @@ bool DeviceManagerRealize::connectNetwork(WiredConnection *connection)
     if (m_wDevice->type() != NetworkManager::Device::Ethernet)
         return false;
 
-    QDBusPendingReply<> reply = NetworkManager::activateConnection(connection->connection()->path(), m_wDevice->uni(), "");
-    reply.waitForFinished();
-    return (!reply.isError());
+    NetworkManager::activateConnection(connection->connection()->path(), m_wDevice->uni(), "");
+    return true;
 }
 
 QList<WiredConnection *> DeviceManagerRealize::wiredItems() const

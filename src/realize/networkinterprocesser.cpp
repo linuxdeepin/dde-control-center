@@ -414,10 +414,13 @@ void NetworkInterProcesser::updateConnectionsInfo(const QList<NetworkDeviceBase 
 
 void NetworkInterProcesser::asyncActiveConnectionInfo()
 {
-    QDBusPendingReply<QString> reply = m_networkInter->GetActiveConnectionInfo();
-    reply.waitForFinished();
-    QString activeConnectionInfo = reply.value();
-    activeConnInfoChanged(activeConnectionInfo);
+    QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->GetActiveConnectionInfo(), this);
+    connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
+    connect(w, &QDBusPendingCallWatcher::finished, [ = ](QDBusPendingCallWatcher * w) {
+        QDBusPendingReply<QString> reply = *w;
+        QString activeConnectionInfo = reply.value();
+        activeConnInfoChanged(activeConnectionInfo);
+    });
 }
 
 void NetworkInterProcesser::activeInfoChanged(const QString &conns)
