@@ -57,6 +57,7 @@ SystemLanguageSettingWidget::SystemLanguageSettingWidget(KeyboardModel *model, Q
     m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_view->setBackgroundType(DStyledItemDelegate::ClipCornerBackground);
     m_view->setSelectionMode(QAbstractItemView::NoSelection);
+    m_view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     QScroller *scroller = QScroller::scroller(m_view->viewport());
     QScrollerProperties sp;
