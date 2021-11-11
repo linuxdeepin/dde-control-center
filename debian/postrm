@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if getent passwd deepin_pwd_changer >/dev/null; then
+    if which deluser >/dev/null; then
+        deluser --system deepin_pwd_changer || echo "Could not remove deepin_pwd_changer user."
+    fi
+fi
+
+if getent group deepin_pwd_changer >/dev/null; then
+    if which delgroup >/dev/null; then
+        delgroup --system deepin_pwd_changer || echo "Could not remove deepin_pwd_changer group."
+    fi
+fi
+
+exit 0

@@ -1,8 +1,11 @@
 #!/bin/sh
 
-sudo useradd -M pwd_changer
-sudo usermod -L pwd_changer
-sudo chown pwd_changer:pwd_changer /usr/lib/dde-control-center/reset-password-dialog
-sudo chmod 500 /usr/lib/dde-control-center/reset-password-dialog
+if ! getent passwd deepin_pwd_changer >/dev/null; then
+    useradd -M -r deepin_pwd_changer
+    usermod -L deepin_pwd_changer
+fi
+
+chown deepin_pwd_changer:deepin_pwd_changer /usr/lib/dde-control-center/reset-password-dialog
+chmod 500 /usr/lib/dde-control-center/reset-password-dialog
 
 exit 0
