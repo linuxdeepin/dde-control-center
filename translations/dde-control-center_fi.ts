@@ -7053,7 +7053,7 @@
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="579"/>
         <source>Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Kirjaudu sisään</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="582"/>

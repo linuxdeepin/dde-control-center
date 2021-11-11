@@ -6926,7 +6926,7 @@
     <message>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="126"/>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Tryb</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/wacom/wacommodule.cpp" line="127"/>
@@ -7054,7 +7054,7 @@
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="579"/>
         <source>Sign In</source>
-        <translation type="unfinished"/>
+        <translation>Zaloguj się</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="582"/>

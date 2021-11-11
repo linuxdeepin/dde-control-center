@@ -5699,7 +5699,7 @@
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="81"/>
         <source>Sign In</source>
-        <translation>登錄</translation>
+        <translation>登 錄</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="82"/>
@@ -6116,7 +6116,7 @@
     <message>
         <location filename="../src/frame/window/modules/sync/pages/login.cpp" line="38"/>
         <source>Sign In</source>
-        <translation>登入</translation>
+        <translation>登錄</translation>
         <extra-contents_path>/cloudsync/Sign In</extra-contents_path>
     </message>
     <message>
@@ -7053,7 +7053,7 @@
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="579"/>
         <source>Sign In</source>
-        <translation>登錄</translation>
+        <translation>登 錄</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="582"/>

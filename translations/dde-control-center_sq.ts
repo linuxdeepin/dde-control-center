@@ -1119,7 +1119,7 @@
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="260"/>
         <source>Short Time</source>
-        <translation>Kohë e shkurtër</translation>
+        <translation>Kohë e Shkurtër</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/datetime/datetimemodule.cpp" line="261"/>
@@ -5937,12 +5937,12 @@
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="127"/>
         <source>Output Devices</source>
-        <translation>Pajisje Në Dalje</translation>
+        <translation>Pajisje Output-i</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="129"/>
         <source>Input Devices</source>
-        <translation>Pajisje Në Hyrje</translation>
+        <translation>Pajisje Input-i</translation>
     </message>
 </context>
 <context>
@@ -6700,7 +6700,7 @@
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="283"/>
         <source>Download and install updates</source>
-        <translation>Shkarko dhe instaloni përditësime</translation>
+        <translation>Shkarko dhe instalo përditësime</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatemodule.cpp" line="284"/>

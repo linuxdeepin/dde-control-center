@@ -5699,7 +5699,7 @@
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="81"/>
         <source>Sign In</source>
-        <translation>登入</translation>
+        <translation>登 入</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="82"/>
@@ -7053,7 +7053,7 @@
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="579"/>
         <source>Sign In</source>
-        <translation>登入</translation>
+        <translation>登 入</translation>
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="582"/>
