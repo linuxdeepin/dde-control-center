@@ -607,7 +607,12 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
 
 void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
 {
+    UpdatesStatus status = m_model->getClassifyUpdateStatus(updateType);
+
     if (m_backupStatus == BackupStatus::Backingup) {
+        if(status == UpdatesStatus::Downloading){
+            OnDownloadJobCtrl(updateType,UpdateCtrlType::Pause);
+        }
         m_model->setClassifyUpdateTypeStatus(updateType, UpdatesStatus::WaitRecoveryBackup);
         return;;
 
@@ -622,6 +627,10 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
         m_backupingClassifyType = ClassifyUpdateType::Invalid;
         downloadAndInstallUpdates(updateType);
         return;
+    }
+
+    if(status == UpdatesStatus::Downloading){
+        OnDownloadJobCtrl(updateType,UpdateCtrlType::Pause);
     }
 
     m_backupStatus = BackupStatus::Backingup;

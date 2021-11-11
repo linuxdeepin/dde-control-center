@@ -691,15 +691,11 @@ void UpdateCtrlWidget::onFullUpdateClicked()
 
     auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
 
-        if (updateItem->status() == UpdatesStatus::DownloadPaused && updateItem->getCtrlButtonStatus() == ButtonStatus::start) {
-            int ctrlType = UpdateCtrlType::Start;
-            Q_EMIT requestUpdateCtrl(type, ctrlType);
-        }
-
-        if (updateItem->status() != UpdatesStatus::Default
+        if (updateItem->status() == UpdatesStatus::UpdatesAvailable
                 || updateItem->status() == UpdatesStatus::UpdateFailed
                 || updateItem->status() == UpdatesStatus::Downloaded
                 || updateItem->status() == UpdatesStatus::Downloading
+                || updateItem->status() == UpdatesStatus::DownloadPaused
                 || updateItem->status() == UpdatesStatus::UpdateFailed
                 || updateItem->status() == UpdatesStatus::AutoDownloaded) {
             Q_EMIT  requestUpdates(type);
