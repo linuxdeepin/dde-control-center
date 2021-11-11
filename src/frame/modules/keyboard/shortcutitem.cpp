@@ -35,6 +35,7 @@
 #include <QLineEdit>
 #include <QTimer>
 #include <QGSettings>
+#include <QApplication>
 
 using namespace dcc;
 DWIDGET_USE_NAMESPACE
@@ -85,8 +86,17 @@ ShortcutItem::ShortcutItem(QFrame *parent)
     m_shortcutEdit = new QLineEdit;
     m_shortcutEdit->setReadOnly(true);
     layout->addWidget(m_shortcutEdit, 0, Qt::AlignVCenter | Qt::AlignRight);
-    m_shortcutEdit->setMinimumWidth(m_shortcutEdit->fontMetrics().width(tr("Enter a new shortcut")) + 26);
+
     m_shortcutEdit->setPlaceholderText(tr("Enter a new shortcut"));
+    QFontMetrics fm = m_shortcutEdit->fontMetrics();
+    QRect strRect = fm.boundingRect(m_shortcutEdit->placeholderText());
+    QStyleOptionFrame opt;
+    initStyleOption(&opt);
+    int strWidth = (style()->sizeFromContents(QStyle::CT_LineEdit, &opt, strRect.size().
+                                           expandedTo(QApplication::globalStrut()), m_shortcutEdit)).width();
+    int borderWidth = m_shortcutEdit->minimumSizeHint().width() - fm.maxWidth();
+
+    m_shortcutEdit->setMinimumWidth(strWidth + borderWidth + 8);  //始终有些误差
     m_shortcutEdit->hide();
 
     setLayout(layout);
