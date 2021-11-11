@@ -20,17 +20,17 @@ Standards-Version: 4.5.0
 Homepage: https://gerrit.uniontech.com/admin/repos/dde-network-core
 Vcs-Browser: https://gerrit.uniontech.com/admin/repos/dde-network-core
 
-Package: dde-network-core
+Package: libdde-network-core
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the library of network
- dde-network-core module
+ libdde-network-core module
 
-Package: dde-network-core-dev
+Package: libdde-network-core-dev
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the interface of networkcode,used for developers
- dde-network-core-dev module
+ libdde-network-core-dev module
 
 Package: dcc-network-plugin
 Architecture: any
@@ -42,16 +42,16 @@ Package: dock-network-plugin
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the plugin of network for dde-dock
- dde-dock-plugin module
+ dock-plugin module
 
 Package: dde-network-dialog
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the executable of network
- dde-network-list module
+ dde-network-dialog module
 
 Package: dss-network-plugin
 Architecture: any
 Depends: ${misc:Depends},${shlibs:Depends},
 Description: the plugin of network for dde-lock
- dde-shell-network-plugin module
+ dss-network-plugin module
