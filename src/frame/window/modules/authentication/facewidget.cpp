@@ -106,6 +106,7 @@ void FaceWidget::addFaceButton(const QString &newFaceName)
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFace);
     QHBoxLayout *faceLayout = new QHBoxLayout(this);
     faceLayout->addWidget(addBtn, 0, Qt::AlignLeft);
+    faceLayout->setContentsMargins(10, 5, 0, 5);
     addfaceItem->setLayout(faceLayout);
     m_listGrp->insertItem(m_listGrp->itemCount(), addfaceItem);
     addfaceItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
