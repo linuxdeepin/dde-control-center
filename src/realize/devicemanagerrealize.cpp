@@ -163,15 +163,29 @@ QString DeviceManagerRealize::usingHwAdr() const
 
 QString DeviceManagerRealize::ipv4() const
 {
-    if (!isEnabled())
+    if (!device() || !device()->isConnected() || !isEnabled())
         return QString();
 
-    QHostAddress addr = m_wDevice->ipV4Address();
-    return addr.toString();
+    NetworkManager::IpAddresses ipv4AddrList = m_wDevice->ipV4Config().addresses();
+    if (!ipv4AddrList.isEmpty()) {
+        IpAddress ipAddr = ipv4AddrList[0];
+        return ipAddr.ip().toString();
+    }
+
+    return QString();
 }
 
 QString DeviceManagerRealize::ipv6() const
 {
+    if (!device() || !device()->isConnected() || !isEnabled())
+        return QString();
+
+    NetworkManager::IpAddresses ipv6AddrList = m_wDevice->ipV6Config().addresses();
+    if (!ipv6AddrList.isEmpty()) {
+        IpAddress ipAddr = ipv6AddrList[0];
+        return ipAddr.ip().toString();
+    }
+
     return QString();
 }
 

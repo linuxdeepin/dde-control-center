@@ -51,6 +51,7 @@ NetworkManagerProcesser::NetworkManagerProcesser(QObject *parent)
 {
     onDeviceChanged();
     initConnections();
+    onConnectivityChanged(NetworkManager::connectivity());
 }
 
 NetworkManagerProcesser::~NetworkManagerProcesser()
