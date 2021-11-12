@@ -85,7 +85,8 @@ UpdateModel::UpdateModel(QObject *parent)
 
 }
 
-UpdateModel::~UpdateModel(){
+UpdateModel::~UpdateModel()
+{
     deleteUpdateInfo(m_systemUpdateInfo);
     deleteUpdateInfo(m_appUpdateInfo);
     deleteUpdateInfo(m_safeUpdateInfo);
@@ -647,6 +648,68 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateModel::getAllUpdateInfos() cons
 void UpdateModel::setAllUpdateInfos(const QMap<ClassifyUpdateType, UpdateItemInfo *> &allUpdateInfos)
 {
     m_allUpdateInfos = allUpdateInfos;
+}
+
+UpdateJobErrorMessage UpdateModel::getSystemUpdateJobError() const
+{
+    return m_systemUpdateJobError;
+}
+
+void UpdateModel::setSystemUpdateJobError(const UpdateJobErrorMessage &systemUpdateJobError)
+{
+    m_systemUpdateJobError = systemUpdateJobError;
+}
+
+UpdateJobErrorMessage UpdateModel::getAppUpdateJobError() const
+{
+    return m_appUpdateJobError;
+}
+
+void UpdateModel::setAppUpdateJobError(const UpdateJobErrorMessage &appUpdateJobError)
+{
+    m_appUpdateJobError = appUpdateJobError;
+}
+
+UpdateJobErrorMessage UpdateModel::getSafeUpdateJobError() const
+{
+    return m_safeUpdateJobError;
+}
+
+void UpdateModel::setSafeUpdateJobError(const UpdateJobErrorMessage &safeUpdateJobError)
+{
+    m_safeUpdateJobError = safeUpdateJobError;
+}
+
+UpdateJobErrorMessage UpdateModel::getUnkonwUpdateJobError() const
+{
+    return m_UnkonwUpdateJobError;
+}
+
+void UpdateModel::setUnkonwUpdateJobError(const UpdateJobErrorMessage &UnkonwUpdateJobError)
+{
+    m_UnkonwUpdateJobError = UnkonwUpdateJobError;
+}
+
+void UpdateModel::setClassityUpdateJonError(ClassifyUpdateType type, const UpdateJobErrorMessage &UnkonwUpdateJobError)
+{
+    switch (type) {
+    case ClassifyUpdateType::SystemUpdate:
+        setSystemUpdateJobError(UnkonwUpdateJobError);
+        break;
+    case ClassifyUpdateType::AppStoreUpdate:
+        setAppUpdateJobError(UnkonwUpdateJobError);
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        setSafeUpdateJobError(UnkonwUpdateJobError);
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        setUnkonwUpdateJobError(UnkonwUpdateJobError);
+        break;
+    default:
+        break;
+    }
+
+    Q_EMIT classityUpdateJobErrorChanged(type, UnkonwUpdateJobError.jobErrorMessage);
 }
 
 UpdatesStatus UpdateModel::getClassifyUpdateStatus(ClassifyUpdateType type)

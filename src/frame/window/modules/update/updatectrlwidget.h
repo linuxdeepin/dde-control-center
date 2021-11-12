@@ -91,6 +91,7 @@ private Q_SLOTS:
     void onRequestUpdate(ClassifyUpdateType type);
     void onRequestRefreshSize();
     void onRequestRefreshWidget();
+    void onClassityUpdateJonErrorChanged(ClassifyUpdateType type, const QString &errorMessage);
 
 private:
     void setStatus(const UpdatesStatus &status);

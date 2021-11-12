@@ -61,6 +61,7 @@ struct CheckUpdateJobRet {
     QString jobDescription;
 };
 
+
 class UpdateWorker : public QObject
 {
     Q_OBJECT
@@ -74,16 +75,9 @@ public:
     void setSystemBatteryPercentage(const double &value);
     void getLicenseState();
 
-    QString getSysUpdateDownloadJobName() const;
     void setSysUpdateDownloadJobName(const QString &sysUpdateDownloadJobName);
-
-    QString getAppUpdateDownloadJobName() const;
     void setAppUpdateDownloadJobName(const QString &appUpdateDownloadJobName);
-
-    QString getSafeUpdateDownloadJobName() const;
     void setSafeUpdateDownloadJobName(const QString &safeUpdateDownloadJobName);
-
-    QString getUnknownUpdateDownloadJobName() const;
     void setUnknownUpdateDownloadJobName(const QString &unknownUpdateDownloadJobName);
 
 Q_SIGNALS:
@@ -133,30 +127,22 @@ private Q_SLOTS:
     void onIconThemeChanged(const QString &theme);
 
     void onCheckUpdateStatusChanged(const QString &value);
+    void onClassityDownloadStatusChanged(const ClassifyUpdateType type, const QString &value);
+    void onClassityInstallStatusChanged(const ClassifyUpdateType type, const QString &value);
 
     void onSysUpdateDownloadProgressChanged(double value);
     void onAppUpdateDownloadProgressChanged(double value);
     void onSafeUpdateDownloadProgressChanged(double value);
     void onUnkonwnUpdateDownloadProgressChanged(double value);
 
-    void onSysUpdateDownloadStatusChanged(const QString &value);
-    void onAppUpdateDownloadStatusChanged(const QString &value);
-    void onSafeUpdateDownloadStatusChanged(const QString &value);
-    void onUnkonwnUpdateDownloadStatusChanged(const QString &value);
-
     void onSysUpdateInstallProgressChanged(double value);
     void onAppUpdateInstallProgressChanged(double value);
     void onSafeUpdateInstallProgressChanged(double value);
     void onUnkonwnUpdateInstallProgressChanged(double value);
 
-    void onSysUpdateInstallStatusChanged(const QString &value);
-    void onAppUpdateInstallStatusChanged(const QString &value);
-    void onSafeUpdateInstallStatusChanged(const QString &value);
-    void onUnkonwnUpdateInstallStatusChanged(const QString &value);
-
 private:
-    QMap<ClassifyUpdateType, UpdateItemInfo*> getAllUpdateInfo();
-    UpdateItemInfo* getItemInfo(QJsonValue jsonValue);
+    QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfo();
+    UpdateItemInfo *getItemInfo(QJsonValue jsonValue);
     void setUpdateInfo();
 
     inline bool checkDbusIsValid();
@@ -179,8 +165,12 @@ private:
     QString getAppName(int id);
     bool checkJobIsValid(QPointer<JobInter> dbusJob);
     void deleteJob(QPointer<JobInter> dbusJob);
+    void deleteClassityDownloadJob(ClassifyUpdateType type);
+    void deleteClassityInstallJob(ClassifyUpdateType type);
     bool checkUpdateSuccessed();
     void cleanLastoreJob(QPointer<JobInter> dbusJob);
+    UpdateJobErrorMessage analyzeJobErrorMessage(QString jobDescription);
+    QString getClassityUpdateDownloadJobName(ClassifyUpdateType updateType);
 
 private:
     UpdateModel *m_model;
@@ -219,7 +209,6 @@ private:
     double m_downloadProcess;
     qlonglong m_downloadSize;
     QString m_iconThemeState;
-    bool m_beginUpdatesJob;
 
     QMap<QString, QStringList> m_updatePackages;
     QStringList m_systemPackages;

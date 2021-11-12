@@ -56,6 +56,9 @@ public:
     double getProgressVlaue() const;
     void setProgressVlaue(double progressVlaue);
 
+    QString getUpdateJobErrorMessage() const;
+    void setUpdateJobErrorMessage(const QString &updateJobErrorMessage);
+
 Q_SIGNALS:
     void UpdateSuccessed();
     void UpdateFailed();
@@ -84,6 +87,7 @@ private:
     ClassifyUpdateType m_classifyUpdateType;
     qlonglong m_updateSize;
     double m_progressVlaue;
+    QString m_updateJobErrorMessage;
 
 protected:
     updateControlPanel *m_controlWidget;

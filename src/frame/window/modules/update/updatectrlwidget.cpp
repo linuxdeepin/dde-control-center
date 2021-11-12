@@ -521,6 +521,7 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::recoverConfigValidChanged, this, &UpdateCtrlWidget::setRecoverConfigValid);
     connect(m_model, &UpdateModel::recoverRestoringChanged, this, &UpdateCtrlWidget::setRecoverRestoring);
     connect(m_model, &UpdateModel::systemActivationChanged, this, &UpdateCtrlWidget::setActiveState);
+    connect(m_model, &UpdateModel::classityUpdateJobErrorChanged, this, &UpdateCtrlWidget::onClassityUpdateJonErrorChanged);
 
     connect(m_model, &UpdateModel::systemUpdateInfoChanged, this, &UpdateCtrlWidget::setSystemUpdateInfo);
     connect(m_model, &UpdateModel::appUpdateInfoChanged, this, &UpdateCtrlWidget::setAppUpdateInfo);
@@ -539,6 +540,10 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     setAppUpdateInfo(m_model->appDownloadInfo());
     setSafeUpdateInfo(m_model->safeDownloadInfo());
     setUnkonowUpdateInfo(m_model->unknownDownloadInfo());
+    m_systemUpdateItem->setUpdateJobErrorMessage(m_model->getSystemUpdateJobError().jobErrorMessage);
+    m_storeUpdateItem->setUpdateJobErrorMessage(m_model->getAppUpdateJobError().jobErrorMessage);
+    m_safeUpdateItem->setUpdateJobErrorMessage(m_model->getSafeUpdateJobError().jobErrorMessage);
+    m_unknownUpdateItem->setUpdateJobErrorMessage(m_model->getUnkonwUpdateJobError().jobErrorMessage);
 
     if (m_model->enterCheckUpdate()) {
         setStatus(UpdatesStatus::Checking);
@@ -763,18 +768,19 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
         if (updateItem->status() == UpdatesStatus::Installing
                 || updateItem->status() == UpdatesStatus::Downloading
                 || updateItem->status() == UpdatesStatus::DownloadPaused
-                || updateItem->status() == UpdatesStatus::RecoveryBackingup) {
+                || updateItem->status() == UpdatesStatus::RecoveryBackingup)
+        {
             return true;
         }
         return  false;
     };
 
-    if(refreshUpdateWidget(m_systemUpdateItem)
+    if (refreshUpdateWidget(m_systemUpdateItem)
             || refreshUpdateWidget(m_storeUpdateItem)
             || refreshUpdateWidget(m_safeUpdateItem)
-            || refreshUpdateWidget(m_unknownUpdateItem)){
+            || refreshUpdateWidget(m_unknownUpdateItem)) {
         m_CheckAgainBtn->setEnabled(false);
-    }else {
+    } else {
         m_CheckAgainBtn->setEnabled(true);
     }
 
@@ -856,6 +862,26 @@ void UpdateCtrlWidget::onUpdateFailed()
 void UpdateCtrlWidget::initUpdateItem(UpdateSettingItem *updateItem)
 {
     updateItem->setIconVisible(true);
+}
+
+void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(ClassifyUpdateType type, const QString &errorMessage)
+{
+    switch (type) {
+    case ClassifyUpdateType::SystemUpdate:
+        m_systemUpdateItem->setUpdateJobErrorMessage(errorMessage);
+        break;
+    case ClassifyUpdateType::AppStoreUpdate:
+        m_storeUpdateItem->setUpdateJobErrorMessage(errorMessage);
+        break;
+    case ClassifyUpdateType::SecurityUpdate:
+        m_safeUpdateItem->setUpdateJobErrorMessage(errorMessage);
+        break;
+    case ClassifyUpdateType::UnknownUpdate:
+        m_unknownUpdateItem->setUpdateJobErrorMessage(errorMessage);
+        break;
+    default:
+        break;
+    }
 }
 
 

@@ -63,7 +63,6 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     m_progressLabel->setVisible(false);
     DFontSizeManager::instance()->bind(m_progressLabel, DFontSizeManager::T10);
     m_progressLabel->setMaximumWidth(100);
-    m_progressLabel->setMaximumHeight(10);
     progressLay->addWidget(m_progressLabel, 0, Qt::AlignCenter);
     progressLay->addWidget(m_Progess, 0, Qt::AlignBottom);
 

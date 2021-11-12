@@ -58,6 +58,11 @@ private:
     QList<AppUpdateInfo> m_appInfos;
 };
 
+struct UpdateJobErrorMessage {
+    QString jobErrorType;
+    QString jobErrorMessage;
+};
+
 
 class UpdateModel : public QObject
 {
@@ -222,6 +227,20 @@ public:
     QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfos() const;
     void setAllUpdateInfos(const QMap<ClassifyUpdateType, UpdateItemInfo *> &allUpdateInfos);
 
+    UpdateJobErrorMessage getSystemUpdateJobError() const;
+    void setSystemUpdateJobError(const UpdateJobErrorMessage &systemUpdateJobError);
+
+    UpdateJobErrorMessage getAppUpdateJobError() const;
+    void setAppUpdateJobError(const UpdateJobErrorMessage &appUpdateJobError);
+
+    UpdateJobErrorMessage getSafeUpdateJobError() const;
+    void setSafeUpdateJobError(const UpdateJobErrorMessage &safeUpdateJobError);
+
+    UpdateJobErrorMessage getUnkonwUpdateJobError() const;
+    void setUnkonwUpdateJobError(const UpdateJobErrorMessage &UnkonwUpdateJobError);
+
+    void setClassityUpdateJonError(ClassifyUpdateType type, const UpdateJobErrorMessage &UnkonwUpdateJobError);
+
 Q_SIGNALS:
     void autoDownloadUpdatesChanged(const bool &autoDownloadUpdates);
     void autoInstallUpdatesChanged(const bool &autoInstallUpdates);
@@ -249,6 +268,8 @@ Q_SIGNALS:
     void appUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
     void safeUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
     void unknownUpdateInfoChanged(UpdateItemInfo *updateItemInfo);
+
+    void classityUpdateJobErrorChanged(ClassifyUpdateType type, const QString &errorMessage);
 
     void systemUpdateProgressChanged(const double &updateProgress);
     void appUpdateProgressChanged(const double &updateProgress);
@@ -324,6 +345,11 @@ private:
     QList<AppUpdateInfo> m_historyAppInfos; //历史更新应用列表
     int m_autoCheckUpdateCircle; //决定进入检查更新界面是否自动检查,单位：小时
     bool m_isUpdatablePackages;
+
+    UpdateJobErrorMessage m_systemUpdateJobError;
+    UpdateJobErrorMessage m_appUpdateJobError;
+    UpdateJobErrorMessage m_safeUpdateJobError;
+    UpdateJobErrorMessage m_UnkonwUpdateJobError;
 };
 
 }

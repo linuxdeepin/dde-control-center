@@ -21,6 +21,7 @@ UpdateSettingItem::UpdateSettingItem(QWidget *parent)
     , m_status(UpdatesStatus::Default)
     , m_updateSize(0)
     , m_progressVlaue(0)
+    , m_updateJobErrorMessage("")
     , m_controlWidget(new updateControlPanel(this))
     , m_settingsGroup(new dcc::widgets::SettingsGroup(this, SettingsGroup::BackgroundStyle::NoneBackground))
 {
@@ -142,8 +143,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         break;
     case UpdatesStatus::UpdateFailed:
         m_controlWidget->showUpdateProcess(true);
-        m_controlWidget->setProgressType(UpdateDProgressType::Install);
-        m_controlWidget->setProgressText(tr("Update failed"));
+        m_controlWidget->setProgressText(m_updateJobErrorMessage);
         m_controlWidget->showButton(true);
         m_controlWidget->setCtrlButtonEnabled(true);
         m_controlWidget->setButtonStatus(ButtonStatus::retry);
@@ -224,6 +224,16 @@ void UpdateSettingItem::onUpdateProgressChanged(const double &value)
     setProgressVlaue(value);
 }
 
+QString UpdateSettingItem::getUpdateJobErrorMessage() const
+{
+    return m_updateJobErrorMessage;
+}
+
+void UpdateSettingItem::setUpdateJobErrorMessage(const QString &updateJobErrorMessage)
+{
+    m_updateJobErrorMessage = updateJobErrorMessage;
+}
+
 double UpdateSettingItem::getProgressVlaue() const
 {
     return m_progressVlaue;
@@ -279,7 +289,7 @@ void UpdateSettingItem::onPauseDownload()
 void UpdateSettingItem::onRetryUpdate()
 {
     m_controlWidget->setProgressType(UpdateDProgressType::InvalidType);
-    setProgressVlaue(0);    
+    setProgressVlaue(0);
     m_controlWidget->showButton(false);
     onStartUpdate();
 }
