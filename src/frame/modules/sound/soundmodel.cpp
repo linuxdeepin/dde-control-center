@@ -106,7 +106,9 @@ SoundModel::SoundModel(QObject *parent)
 #ifndef DCC_DISABLE_FEEDBACK
     , m_microphoneFeedback(50)
 #endif
-    ,m_soundEffectMapBattery{}
+    , m_soundEffectMapBattery{}
+    , m_inputVisibled(false)
+    , m_outputVisibled(false)
 {
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },
@@ -223,8 +225,19 @@ void SoundModel::addPort(Port *port)
 {
     if (!containsPort(port)) {
         m_ports.append(port);
+
+        if (port->direction() == Port::Out) {
+            m_outputPorts.append(port);
+        }
+        else {
+            m_inputPorts.append(port);
+        }
+
         Q_EMIT portAdded(port);
         Q_EMIT soundDeviceStatusChanged();
+
+        setInputDevicesVisible(m_inputPorts.isEmpty()? false: true);
+        setOutputDevicesVisible(m_outputPorts.isEmpty()? false: true);
     }
 }
 
@@ -233,9 +246,19 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
     Port *port = findPort(portId, cardId);
     if (port) {
         m_ports.removeOne(port);
+
+        if (port->direction() == Port::Out) {
+            m_outputPorts.removeOne(port);
+        }
+        else {
+            m_inputPorts.removeOne(port);
+        }
         port->deleteLater();
 
         Q_EMIT portRemoved(portId, cardId);
+
+        setInputDevicesVisible(m_inputPorts.isEmpty()? false: true);
+        setOutputDevicesVisible(m_outputPorts.isEmpty()? false: true);
     }
 }
 
@@ -421,6 +444,22 @@ void SoundModel::setWaitSoundReceiptTime(const int receiptTime)
     if (m_waitSoundReceiptTime != receiptTime) {
         qDebug() << "Sound Receopt Time is: " << receiptTime;
         m_waitSoundReceiptTime = receiptTime;
+    }
+}
+
+void SoundModel::setInputDevicesVisible(bool value)
+{
+    if (value != m_inputVisibled) {
+        m_inputVisibled = value;
+        Q_EMIT inputDevicesVisibleChanged("Input Devices",value);
+    }
+}
+
+void SoundModel::setOutputDevicesVisible(bool value)
+{
+    if (value != m_outputVisibled) {
+        m_outputVisibled = value;
+        Q_EMIT outputDevicesVisibleChanged("Output Devices",value);
     }
 }
 

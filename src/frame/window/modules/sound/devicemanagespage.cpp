@@ -138,6 +138,7 @@ void DevicemanagesPage::initUI()
 {
     // TODO: 输出设备
     const int titleLeftMargin = 8;
+    //~ contents_path /sound/Devices
     m_outputDeviceTitle = new TitleLabel(tr("Output Devices"));
     DFontSizeManager::instance()->bind(m_outputDeviceTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_outputDeviceTitle->setContentsMargins(titleLeftMargin, 0, 0, 0);
@@ -161,6 +162,7 @@ void DevicemanagesPage::initUI()
     m_layout->addSpacing(15);
 
     // 输入设备
+    //~ contents_path /sound/Devices
     m_inputDeviceTitle = new TitleLabel(tr("Input Devices"));
     DFontSizeManager::instance()->bind(m_inputDeviceTitle, DFontSizeManager::T5, QFont::DemiBold);
     m_inputDeviceTitle->setContentsMargins(titleLeftMargin, 0, 0, 0);

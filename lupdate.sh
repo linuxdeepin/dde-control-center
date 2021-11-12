@@ -3,7 +3,12 @@ cd ./translations
 rm -f dde-control-center_en.ts
 # files.tmp 参加翻译的文件列表，从CMakeLists中提取.h和.cpp文件
 rm -f files.tmp
-for i in $(grep "\.[h|cpp]" ../src/frame/CMakeLists.txt)
+for i in $(grep "\.h" ../src/frame/CMakeLists.txt)
+do
+	echo ../src/frame/$i >> files.tmp
+done
+
+for i in $(grep "\.cpp" ../src/frame/CMakeLists.txt)
 do
 	echo ../src/frame/$i >> files.tmp
 done

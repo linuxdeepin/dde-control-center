@@ -212,6 +212,9 @@ public:
     inline int currentWaitSoundReceiptTime() { return m_waitSoundReceiptTime; }
     void setWaitSoundReceiptTime(const int receiptTime);
 
+    void setInputDevicesVisible(bool value);
+    void setOutputDevicesVisible(bool value);
+
 Q_SIGNALS:
     void speakerOnChanged(bool speakerOn) const;
     void microphoneOnChanged(bool microphoneOn) const;
@@ -235,6 +238,10 @@ Q_SIGNALS:
 
     //声音平衡模块是否可见
     void balanceVisibleChanged(QString name, bool flag);
+    //声音输入设备是否可见
+    void inputDevicesVisibleChanged(QString name, bool flag);
+    //声音输出设备是否可见
+    void outputDevicesVisibleChanged(QString name, bool flag);
 
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
@@ -264,6 +271,8 @@ private:
     double m_microphoneFeedback;
 #endif
     QList<Port *> m_ports;
+    QList<Port *> m_inputPorts;
+    QList<Port *> m_outputPorts;
     Port *m_activePort;
 
     QDBusObjectPath m_defaultSource;
@@ -276,6 +285,9 @@ private:
     SoundEffectList m_soundEffectMapBattery;
     QMap<DDesktopServices::SystemSoundEffect, bool> m_soundEffectData;
     QMap<DDesktopServices::SystemSoundEffect, QString> m_soundEffectPaths;
+
+    bool m_inputVisibled;
+    bool m_outputVisibled;
 };
 
 } // namespace sound

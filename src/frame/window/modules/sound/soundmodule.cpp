@@ -57,6 +57,8 @@ void SoundModule::preInitialize(bool, FrameProxyInterface::PushType pushtype)
     m_worker->moveToThread(qApp->thread());
 
     connect(m_model, &SoundModel::balanceVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
+    connect(m_model, &SoundModel::inputDevicesVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
+    connect(m_model, &SoundModel::outputDevicesVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
 }
 
 void SoundModule::initialize()
