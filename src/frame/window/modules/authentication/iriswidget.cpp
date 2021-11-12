@@ -36,8 +36,8 @@ void IrisWidget::initUI()
 {
     m_clearBtn->setCheckable(true);
 
-    TitleLabel *titleLabel = new TitleLabel(tr("Iris Password"), this);
-    TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 5 iris"), this);
+    TitleLabel *titleLabel = new TitleLabel(tr("Manage Irises"), this);
+    TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 5 irises"), this);
 
     QFont font;
     font.setPointSizeF(10);

@@ -22,9 +22,9 @@ DisclaimersItem::DisclaimersItem(QWidget *parent)
     , m_layout(new QHBoxLayout(this))
     , m_acceptCheck(new QCheckBox(this))
 {
-    m_acceptCheck->setText(tr("I have read and agree to"));
+    m_acceptCheck->setText(tr("I have read and agree to the"));
 
-    m_disclaimersBtn = new DCommandLinkButton(tr("《the statement》"));
+    m_disclaimersBtn = new DCommandLinkButton(tr("《Disclaimer》"));
 
     m_layout->setContentsMargins(10, 0, 10, 0);
     m_layout->addStretch();

@@ -36,8 +36,8 @@ void FaceWidget::initUI()
 {
     m_clearBtn->setCheckable(true);
 
-    TitleLabel *facetitleLabel = new TitleLabel(tr("Faceid Password"), this);
-    TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 5 faceids"), this);
+    TitleLabel *facetitleLabel = new TitleLabel(tr("Manage Faces"), this);
+    TitleLabel *maxFingerTip = new TitleLabel(tr("You can add up to 5 faces"), this);
 
     QFont font;
     font.setPointSizeF(10);

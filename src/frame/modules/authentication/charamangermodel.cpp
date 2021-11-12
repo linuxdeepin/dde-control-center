@@ -133,7 +133,7 @@ void CharaMangerModel::onEnrollStatusChanged(int code, const QString &msg)
         Q_EMIT enrollStatusTips(title);
         break;
     case STATUS_FACE_COVERD:
-        title = tr("keep your face uncovered");
+        title = tr("Keep your face uncovered");
         Q_EMIT enrollStatusTips(title);
         break;
     case STATUS_OVERTIME:
@@ -179,10 +179,10 @@ void CharaMangerModel::onEnrollIrisStatusChanged(int code, const QString &msg)
        Q_EMIT enrollIrisStatusTips(title);
        break;
    case STATUS_IRIS_CANCELED:
-       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("取消"));
+       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("Cancel"));
        break;
    case STATUS_IRIS_Error:
-       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("崩溃"));
+       Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("Device crashed, please scan sgain!"));
        break;
    case STATUS_IRIS_OVERTIME:
        Q_EMIT enrollIrisInfoState(AddInfoState::Fail, tr("Scan timed out"));

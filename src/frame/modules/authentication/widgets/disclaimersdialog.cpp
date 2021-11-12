@@ -37,7 +37,7 @@ void DisclaimersDialog::initWidget(DisclaimersObj state)
     titleIcon->setFrameStyle(QFrame::NoFrame);
     titleIcon->setBackgroundTransparent(true);
     titleIcon->setMenuVisible(false);
-    titleIcon->setTitle(tr("免责声明"));
+    titleIcon->setTitle(tr("Disclaimer"));
 
     DTipLabel *tipLabel = new DTipLabel("");
     if (state == DisclaimersObj::Faceid) {
@@ -51,7 +51,7 @@ void DisclaimersDialog::initWidget(DisclaimersObj state)
                                           "1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.\n"
                                           "2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.\n"
                                           "3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.\n"
-                                          "If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to \"Biometric Authentication\"> \"Face\" to delete the enrolled facial data.\n"));
+                                          "If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to \"Biometric Authentication\" > \"Face\" to delete the enrolled facial data.\n"));
     }
 
     DFontSizeManager::instance()->bind(tipLabel, DFontSizeManager::T6);
