@@ -84,12 +84,12 @@ private:
     QTimer *m_timer;
     dcc::authentication::FingerModel *m_model;
     QVBoxLayout *m_mainLayout;
-    QHBoxLayout *m_titleHLayout;
     QHBoxLayout *m_btnHLayout;
     dcc::authentication::FingerWidget *m_fingeWidget;
     QString m_thumb;
     QString m_username;
     QPushButton *m_cancelBtn;
+    QWidget *m_spaceWidget;
     DTK_WIDGET_NAMESPACE::DSuggestButton *m_addBtn;
     bool m_isEnrolling{true};
 };

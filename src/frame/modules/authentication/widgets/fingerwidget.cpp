@@ -91,14 +91,14 @@ FingerWidget::FingerWidget(QWidget *parent)
 
     m_titleLbl->setAlignment(Qt::AlignCenter);
     m_tipLbl->setWordWrap(true);
-    m_tipLbl->setMinimumHeight(80);
     m_tipLbl->setAlignment(Qt::AlignCenter);
 
     QVBoxLayout *layout = new QVBoxLayout;
-
-    layout->addSpacing(80);
-    layout->addWidget(m_view, 0, Qt::AlignCenter);
+    m_view->setMinimumHeight(90);
+    layout->addWidget(m_view, 0, Qt::AlignTop);
+    layout->addSpacing(20);
     layout->addWidget(m_titleLbl, 0, Qt::AlignHCenter);
+    layout->addSpacing(10);
     layout->addWidget(m_tipLbl, 0, Qt::AlignHCenter);
     setLayout(layout);
 
