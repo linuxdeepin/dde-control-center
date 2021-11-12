@@ -1174,7 +1174,8 @@ void MainWindow::onFirstItemClick(const QModelIndex &index)
 {
     ModuleInterface *inter = m_modules[index.row()].first;
 
-    if (!m_contentStack.isEmpty() && m_contentStack.last().first == inter) {
+    if (!m_contentStack.isEmpty() && m_contentStack.first().first == inter) {
+        m_navView->setFocus();
         return;
     }
 
