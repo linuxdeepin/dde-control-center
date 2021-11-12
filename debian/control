@@ -21,7 +21,6 @@ Build-Depends:
  libxrandr-dev,
  libmtdev-dev,
  libfontconfig1-dev,
- libfreetype6-dev,
  libegl1-mesa-dev,
  libxcb-ewmh-dev,
  libudisks2-qt5-dev,
