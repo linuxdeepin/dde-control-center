@@ -180,6 +180,7 @@ private:
     bool checkJobIsValid(QPointer<JobInter> dbusJob);
     void deleteJob(QPointer<JobInter> dbusJob);
     bool checkUpdateSuccessed();
+    void cleanLastoreJob(QPointer<JobInter> dbusJob);
 
 private:
     UpdateModel *m_model;

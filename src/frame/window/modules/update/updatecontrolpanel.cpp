@@ -22,7 +22,9 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     , m_showMoreBUtton(new DCommandLinkButton("", this))
     , m_startButton(new DIconButton(this))
     , m_Progess(new DProgressBar)
-    , m_progressType(UpdateDProgressType::Download)
+    , m_buttonStatus(ButtonStatus::invalid)
+    , m_progressType(UpdateDProgressType::InvalidType)
+    , m_currentValue(0)
 {
     QVBoxLayout *titleLay = new QVBoxLayout();
     m_titleLable->setForegroundRole(DPalette::TextTitle);

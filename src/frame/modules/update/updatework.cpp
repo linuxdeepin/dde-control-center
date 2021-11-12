@@ -389,12 +389,20 @@ void UpdateWorker::setUpdateInfo()
     } else {
         qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
         m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
-        for (auto item : updateInfoMap.keys()) {
-            if (updateInfoMap.value(item) != nullptr) {
-                m_downloadSize += updateInfoMap.value(item) ->downloadSize();
-                if(m_model->getClassifyUpdateStatus(item) == UpdatesStatus::Default || m_model->getClassifyUpdateStatus(item) == UpdatesStatus::UpdateSucceeded){
-                    m_model->setClassifyUpdateTypeStatus(item, UpdatesStatus::UpdatesAvailable);
+        for (uint type = ClassifyUpdateType::SystemUpdate; type <= ClassifyUpdateType::UnknownUpdate; type++) {
+            ClassifyUpdateType classifyType =uintToclassifyUpdateType(type);
+            if(updateInfoMap.contains(classifyType)){
+                if (updateInfoMap.value(classifyType) != nullptr) {
+                    m_downloadSize += updateInfoMap.value(classifyType) ->downloadSize();
+                    if(m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::Downloading
+                            || m_model->getClassifyUpdateStatus(classifyType) == UpdatesStatus::DownloadPaused
+                            || m_model->getClassifyUpdateStatus(classifyType) == UpdatesStatus::Downloaded
+                            || m_model->getClassifyUpdateStatus(classifyType) == UpdatesStatus::Installing){
+                        m_model->setClassifyUpdateTypeStatus(classifyType, UpdatesStatus::UpdatesAvailable);
+                    }
                 }
+            }else {
+                m_model->setClassifyUpdateTypeStatus(classifyType, UpdatesStatus::Default);
             }
         }
     }
@@ -579,6 +587,9 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
 {
     CheckUpdateJobRet ret;
     ret.status = "failed";
+    if(m_checkUpdateJob != nullptr){
+        return ret;
+    }
 
     m_checkUpdateJob = new JobInter("com.deepin.lastore", jobPath, QDBusConnection::systemBus(), this);
 
@@ -596,11 +607,6 @@ CheckUpdateJobRet UpdateWorker::createCheckUpdateJob(const QString &jobPath)
     connect(m_checkUpdateJob, &__Job::ProgressChanged, m_model, &UpdateModel::setUpdateProgress, Qt::QueuedConnection);
     m_checkUpdateJob->ProgressChanged(m_checkUpdateJob->progress());
     m_checkUpdateJob->StatusChanged(m_checkUpdateJob->status());
-
-    while (m_checkUpdateJob) {
-        qApp->processEvents();
-        QThread::msleep(10);
-    }
 
     return  ret;
 }
@@ -833,10 +839,6 @@ void UpdateWorker::recoveryStartRestore()
 
 void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
 {
-    if (m_beginUpdatesJob)
-        return;
-
-    m_beginUpdatesJob = true;
     qDebug() << "[setCheckUpdatesJob] start status : " << m_model->status();
     UpdatesStatus state = m_model->status();
     if (UpdatesStatus::Downloading != state && UpdatesStatus::DownloadPaused != state && UpdatesStatus::Installing != state) {
@@ -846,8 +848,6 @@ void UpdateWorker::setCheckUpdatesJob(const QString &jobPath)
     }
 
     createCheckUpdateJob(jobPath);
-
-    m_beginUpdatesJob = false;
 }
 
 void UpdateWorker::setDownloadJob(const QString &jobPath, ClassifyUpdateType updateType)
@@ -1061,6 +1061,7 @@ void UpdateWorker::onSysUpdateDownloadStatusChanged(const QString   &value)
         m_model->setSystemUpdateStatus(UpdatesStatus::Downloading);
     } else if (value == "failed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(m_sysUpdateDownloadJob);
     } else if (value == "succeed") {
         if (m_sysUpdateDownloadJobName.contains("OnlyDownload")) {
             m_model->setSystemUpdateStatus(UpdatesStatus::AutoDownloaded);
@@ -1070,8 +1071,7 @@ void UpdateWorker::onSysUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "paused") {
         m_model->setSystemUpdateStatus(UpdatesStatus::DownloadPaused);
     } else if (value == "end") {
-        delete m_sysUpdateDownloadJob;
-        m_sysUpdateDownloadJob = nullptr;
+        deleteJob(m_sysUpdateDownloadJob);
     }
 }
 
@@ -1081,6 +1081,7 @@ void UpdateWorker::onAppUpdateDownloadStatusChanged(const QString   &value)
         m_model->setAppUpdateStatus(UpdatesStatus::Downloading);
     } else if (value == "failed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(m_appUpdateDownloadJob);
     } else if (value == "succeed") {
         if (m_appUpdateDownloadJobName.contains("OnlyDownload")) {
             m_model->setAppUpdateStatus(UpdatesStatus::AutoDownloaded);
@@ -1090,8 +1091,7 @@ void UpdateWorker::onAppUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "paused") {
         m_model->setAppUpdateStatus(UpdatesStatus::DownloadPaused);
     } else if (value == "end") {
-        delete m_appUpdateDownloadJob;
-        m_appUpdateDownloadJob = nullptr;
+        deleteJob(m_appUpdateDownloadJob);
     }
 }
 
@@ -1102,6 +1102,7 @@ void UpdateWorker::onSafeUpdateDownloadStatusChanged(const QString   &value)
         m_model->setSafeUpdateStatus(UpdatesStatus::Downloading);
     } else if (value == "failed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(m_safeUpdateDownloadJob);
     } else if (value == "succeed") {
         if (m_safeUpdateDownloadJobName.contains("OnlyDownload")) {
             m_model->setSafeUpdateStatus(UpdatesStatus::AutoDownloaded);
@@ -1111,8 +1112,7 @@ void UpdateWorker::onSafeUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "paused") {
         m_model->setSafeUpdateStatus(UpdatesStatus::DownloadPaused);
     } else if (value == "end") {
-        delete m_safeUpdateDownloadJob;
-        m_safeUpdateDownloadJob = nullptr;
+        deleteJob(m_safeUpdateDownloadJob);
     }
 }
 
@@ -1122,6 +1122,7 @@ void UpdateWorker::onUnkonwnUpdateDownloadStatusChanged(const QString   &value)
         m_model->setUnkonowUpdateStatus(UpdatesStatus::Downloading);
     } else if (value == "failed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(m_unknownUpdateDownloadJob);
     } else if (value == "succeed") {
         if (m_unknownUpdateDownloadJobName.contains("OnlyDownload")) {
             m_model->setUnkonowUpdateStatus(UpdatesStatus::AutoDownloaded);
@@ -1131,8 +1132,7 @@ void UpdateWorker::onUnkonwnUpdateDownloadStatusChanged(const QString   &value)
     } else if (value == "paused") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::DownloadPaused);
     } else if (value == "end") {
-        delete m_unknownUpdateDownloadJob;
-        m_unknownUpdateDownloadJob = nullptr;
+        deleteJob(m_unknownUpdateDownloadJob);
     }
 }
 
@@ -1185,14 +1185,14 @@ void UpdateWorker::onSysUpdateInstallStatusChanged(const QString &value)
         m_model->setSystemUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(m_sysUpdateInstallJob);
     } else if (value == "succeed") {
         m_model->setSystemUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
         if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
-        delete m_sysUpdateInstallJob;
-        m_sysUpdateInstallJob = nullptr;
+        deleteJob(m_sysUpdateInstallJob);
     }
 }
 
@@ -1205,14 +1205,14 @@ void UpdateWorker::onAppUpdateInstallStatusChanged(const QString   &value)
         m_model->setAppUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(m_appUpdateInstallJob);
     } else if (value == "succeed") {
         m_model->setAppUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
         if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
-        delete m_appUpdateInstallJob;
-        m_appUpdateInstallJob = nullptr;
+        deleteJob(m_appUpdateInstallJob);
     }
 }
 
@@ -1225,14 +1225,14 @@ void UpdateWorker::onSafeUpdateInstallStatusChanged(const QString   &value)
         m_model->setSafeUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(m_safeUpdateInstallJob);
     } else if (value == "succeed") {
         m_model->setSafeUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
         if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
-        delete m_safeUpdateInstallJob;
-        m_safeUpdateInstallJob = nullptr;
+        deleteJob(m_safeUpdateInstallJob);
     }
 }
 
@@ -1244,14 +1244,14 @@ void UpdateWorker::onUnkonwnUpdateInstallStatusChanged(const QString   &value)
         m_model->setUnkonowUpdateStatus(UpdatesStatus::Installing);
     } else if (value == "failed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateFailed);
+        cleanLastoreJob(m_unknownUpdateInstallJob);
     } else if (value == "succeed") {
         m_model->setUnkonowUpdateStatus(UpdatesStatus::UpdateSucceeded);
     } else if (value == "end") {
         if (checkUpdateSuccessed()) {
             m_model->setStatus(UpdatesStatus::UpdateSucceeded);
         }
-        delete m_unknownUpdateInstallJob;
-        m_unknownUpdateInstallJob = nullptr;
+        deleteJob(m_unknownUpdateInstallJob);
     }
 }
 
@@ -1273,8 +1273,7 @@ void UpdateWorker::onCheckUpdateStatusChanged(const QString &value)
     } else if (value == "success" || value == "succeed") {
         setUpdateInfo();
     }else if (value == "end") {
-        delete m_safeUpdateInstallJob;
-        m_safeUpdateInstallJob = nullptr;
+        deleteJob(m_checkUpdateJob);
     }
 }
 
@@ -1516,6 +1515,14 @@ bool UpdateWorker::checkUpdateSuccessed()
     }
 
     return  false;
+}
+
+void UpdateWorker::cleanLastoreJob(QPointer<JobInter> dbusJob)
+{
+    if(dbusJob != nullptr){
+        m_managerInter->CleanJob(dbusJob->id());
+        deleteJob(dbusJob);
+    }
 }
 
 QString UpdateWorker::getUnknownUpdateDownloadJobName() const

@@ -278,7 +278,8 @@ void UpdateSettingItem::onPauseDownload()
 
 void UpdateSettingItem::onRetryUpdate()
 {
-    setProgressVlaue(0);
+    m_controlWidget->setProgressType(UpdateDProgressType::InvalidType);
+    setProgressVlaue(0);    
     m_controlWidget->showButton(false);
     onStartUpdate();
 }
