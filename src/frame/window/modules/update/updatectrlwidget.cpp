@@ -635,14 +635,7 @@ void UpdateCtrlWidget::showUpdateInfo()
     m_summary->setVisible(false);
     m_powerTip->setVisible(false);
 
-    if (!m_isUpdateingAll) {
-        m_fullUpdateBtn->setVisible(true);
-    } else {
-        m_spinner->setVisible(true);
-        m_spinner->start();
-        m_updateingTipsLab->setVisible(true);
-        m_fullUpdateBtn->setVisible(false);
-    }
+    showAllUpdate();
 
     m_updateTipsLab->setVisible(true);
     m_updateSizeLab->setVisible(true);
@@ -694,11 +687,8 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
 
 void UpdateCtrlWidget::onFullUpdateClicked()
 {
-    m_spinner->setVisible(true);
-    m_spinner->start();
-    m_updateingTipsLab->setVisible(true);
-    m_fullUpdateBtn->setVisible(false);
-    m_isUpdateingAll = true;
+	m_isUpdateingAll = true;
+	showAllUpdate();
 
     auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
 
@@ -785,12 +775,14 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
             || refreshUpdateWidget(m_storeUpdateItem)
             || refreshUpdateWidget(m_safeUpdateItem)
             || refreshUpdateWidget(m_unknownUpdateItem)) {
-        m_CheckAgainBtn->setEnabled(false);
+	    m_isUpdateingAll = true;
+        m_CheckAgainBtn->setEnabled(false);        
     } else {
+	    m_isUpdateingAll = false;
         m_CheckAgainBtn->setEnabled(true);
     }
 
-
+    showAllUpdate();
 }
 
 bool UpdateCtrlWidget::checkUpdateItemIsUpdateing(UpdateSettingItem *updateItem, ClassifyUpdateType type)
@@ -810,6 +802,19 @@ bool UpdateCtrlWidget::checkUpdateItemIsUpdateing(UpdateSettingItem *updateItem,
         return true;
     }
     return false;
+}
+
+void UpdateCtrlWidget::showAllUpdate()
+{
+    m_spinner->setVisible(m_isUpdateingAll);
+    if(m_isUpdateingAll){
+       m_spinner->start();
+    } else {
+        m_spinner->stop();
+    }
+
+    m_updateingTipsLab->setVisible(m_isUpdateingAll);
+    m_fullUpdateBtn->setVisible(!m_isUpdateingAll);
 }
 
 void UpdateCtrlWidget::onRecoverBackupFinshed()
@@ -854,10 +859,10 @@ void UpdateCtrlWidget::onRecoverBackupFailed()
 
 void UpdateCtrlWidget::onUpdateFailed()
 {
-    bool systemFailed = !m_systemUpdateItem->isVisible() || m_systemUpdateItem->status() == UpdatesStatus::UpdateFailed;
-    bool appFailed = !m_storeUpdateItem->isVisible() || m_storeUpdateItem->status() == UpdatesStatus::UpdateFailed;
-    bool safeFailed = !m_safeUpdateItem->isVisible() || m_safeUpdateItem->status() == UpdatesStatus::UpdateFailed;
-    bool unknownFailed = !m_unknownUpdateItem->isVisible() || m_unknownUpdateItem->status() == UpdatesStatus::UpdateFailed;
+    bool systemFailed = m_systemUpdateItem->status() == UpdatesStatus::Default || m_systemUpdateItem->status() == UpdatesStatus::UpdateFailed;
+    bool appFailed = m_storeUpdateItem->status() == UpdatesStatus::Default  || m_storeUpdateItem->status() == UpdatesStatus::UpdateFailed;
+    bool safeFailed = m_safeUpdateItem->status() == UpdatesStatus::Default  || m_safeUpdateItem->status() == UpdatesStatus::UpdateFailed;
+    bool unknownFailed = m_unknownUpdateItem->status() == UpdatesStatus::Default || m_unknownUpdateItem->status() == UpdatesStatus::UpdateFailed;
 
     if (systemFailed && appFailed && safeFailed && unknownFailed) {
         m_CheckAgainBtn->setEnabled(true);

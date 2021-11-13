@@ -127,6 +127,7 @@ private:
 
     void initUpdateItem(UpdateSettingItem *updateItem);
     bool checkUpdateItemIsUpdateing(UpdateSettingItem *updateItem, ClassifyUpdateType type);
+    void showAllUpdate();
 
 private:
     UpdateModel *m_model;

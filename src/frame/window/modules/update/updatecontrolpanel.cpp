@@ -293,10 +293,12 @@ void updateControlPanel::onButtonClicked()
         break;
     case ButtonStatus::pause:
         status = ButtonStatus::start;
+        setProgressText(text);
         Q_EMIT PauseDownload();
         break;
     case ButtonStatus::retry:
         status = ButtonStatus::pause;
+        setProgressText("");
         Q_EMIT RetryUpdate();
         break;
     default:
