@@ -73,6 +73,9 @@ Q_SIGNALS:
     void requestGatherEnabled(const bool enable);
     void requestCloseRecognize();
 
+public Q_SLOTS:
+    void OnRequestResizeDesktopVisibleChanged(bool visible);
+
 private:
     QVBoxLayout *m_contentLayout;
     dcc::display::MonitorControlWidget *m_monitorControlWidget;

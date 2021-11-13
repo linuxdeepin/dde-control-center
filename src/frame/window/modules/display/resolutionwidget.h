@@ -108,6 +108,7 @@ public:
 Q_SIGNALS:
     void requestSetResolution(dcc::display::Monitor *monitor, const int mode);
     void requestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode);
+    void requestResizeDesktopVisibleChanged(bool visible);
 
 public Q_SLOTS:
     void OnAvailableFillModesChanged(const QStringList &lstFillMode);

@@ -349,9 +349,11 @@ void ResolutionWidget::resolutionWidgetChanged()
     if (m_resolutionCombox->currentText().contains(tr("Recommended"))) {
         setMinimumHeight(48);
         m_resizeDesktopItem->setVisible(false);
+        Q_EMIT requestResizeDesktopVisibleChanged(false);
     } else {
         setMinimumHeight(48*2);
         m_resizeDesktopItem->setVisible(true);
+        Q_EMIT requestResizeDesktopVisibleChanged(true);
     }
 }
 
