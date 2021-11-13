@@ -31,6 +31,10 @@
 #include <NetworkManagerQt/Ipv6Setting>
 #include <NetworkManagerQt/Utils>
 
+#include <pwd.h>
+
+#define LIGHTDM_USER "lightdm"
+
 using namespace dde::network;
 using namespace NetworkManager;
 
@@ -89,6 +93,10 @@ WirelessSecuritySetting::KeyMgmt WirelessConnect::getKeyMgmtByAp(dde::network::A
 
 void WirelessConnect::initConnection()
 {
+    // 登录界面(用户为lightdm)密码保存为储存所有用户密码
+    struct passwd *userInfo = getpwuid(getuid());
+    Setting::SecretFlagType defaultSecretFalg = (QString(userInfo->pw_name) == LIGHTDM_USER) ? Setting::None : Setting::AgentOwned;
+
     NetworkManager::Connection::Ptr conn;
     const QList<WirelessConnection *> lstConnections = m_device->items();
     for (auto item : lstConnections) {
@@ -150,14 +158,9 @@ void WirelessConnect::initConnection()
             WirelessSecuritySetting::KeyMgmt keyMgmt = getKeyMgmtByAp(m_accessPoint);
             wsSetting->setKeyMgmt(keyMgmt);
             if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
-                wsSetting->setAuthAlg(WirelessSecuritySetting::AuthAlg::Open);
-                wsSetting->setWepKeyType(WirelessSecuritySetting::WepKeyType::Passphrase);
-                wsSetting->setPsk("");
+                wsSetting->setWepKeyFlags(defaultSecretFalg);
             } else if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
-                wsSetting->setPskFlags(Setting::AgentOwned);
-                wsSetting->setProto(QList<WirelessSecuritySetting::WpaProtocolVersion> {WirelessSecuritySetting::Wpa, WirelessSecuritySetting::Rsn});
-                wsSetting->setGroup(QList<WirelessSecuritySetting::WpaEncryptionCapabilities> {WirelessSecuritySetting::Ccmp});
-                wsSetting->setPairwise(QList<WirelessSecuritySetting::WpaEncryptionCapabilities> {WirelessSecuritySetting::Ccmp});
+                wsSetting->setPskFlags(defaultSecretFalg);
             }
 
             wsSetting->setInitialized(true);
@@ -167,18 +170,6 @@ void WirelessConnect::initConnection()
         wirelessSetting->setMacAddress(QByteArray());
         wirelessSetting->setMtu(0);
         wirelessSetting->setInitialized(true);
-
-        Ipv4Setting::Ptr ipv4Setting = m_connectionSettings->setting(Setting::Ipv4).dynamicCast<Ipv4Setting>();
-        ipv4Setting->setMethod(Ipv4Setting::Automatic);
-        ipv4Setting->setAddresses(QList<IpAddress>() << IpAddress());
-        ipv4Setting->setInitialized(true);
-
-        qDBusRegisterMetaType<IpV6DBusAddress>();
-        qDBusRegisterMetaType<IpV6DBusAddressList>();
-        Ipv6Setting::Ptr ipv6Setting = m_connectionSettings->setting(Setting::Ipv6).dynamicCast<Ipv6Setting>();
-        ipv6Setting->setMethod(Ipv6Setting::Automatic);
-        ipv6Setting->setAddresses(QList<IpAddress>() << IpAddress());
-        ipv6Setting->setInitialized(true);
     }
 }
 
@@ -188,7 +179,7 @@ void WirelessConnect::setPassword(const QString &password)
     WirelessSecuritySetting::KeyMgmt keyMgmt = wsSetting->keyMgmt();
     if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
         wsSetting->setWepKey0(password);
-    } else {
+    } else if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
         wsSetting->setPsk(password);
     }
     wsSetting->setInitialized(true);
