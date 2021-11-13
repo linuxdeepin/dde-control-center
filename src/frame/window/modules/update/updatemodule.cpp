@@ -89,7 +89,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
             m_frameProxy->setModuleSubscriptVisible(name(), false);
         } else {
             UpdatesStatus status = m_model->status();
-            if (status == UpdatesStatus::UpdatesAvailable|| status == UpdatesStatus::Updateing || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
+            if (status == UpdatesStatus::UpdatesAvailable || status == UpdatesStatus::Updateing || status == UpdatesStatus::Downloading || status == UpdatesStatus::DownloadPaused || status == UpdatesStatus::Downloaded ||
                     status == UpdatesStatus::Installing || status == UpdatesStatus::RecoveryBackingup || status == UpdatesStatus::RecoveryBackingSuccessed || m_model->getUpdatablePackages()) {
                 m_frameProxy->setModuleSubscriptVisible(name(), true);
             }
@@ -139,6 +139,7 @@ const QString UpdateModule::displayName() const
 
 void UpdateModule::active()
 {
+    qDebug() << "UpdateModule::active";
     connect(m_model, &UpdateModel::beginCheckUpdate, m_work.get(), &UpdateWorker::checkForUpdates);
     connect(m_model, &UpdateModel::updateHistoryAppInfos, m_work.get(), &UpdateWorker::refreshHistoryAppsInfo, Qt::DirectConnection);
     connect(m_model, &UpdateModel::updateCheckUpdateTime, m_work.get(), &UpdateWorker::refreshLastTimeAndCheckCircle, Qt::DirectConnection);
@@ -152,6 +153,7 @@ void UpdateModule::active()
     if (m_model->systemActivation() == UiActiveState::Authorized || m_model->systemActivation() == UiActiveState::TrialAuthorized || m_model->systemActivation() == UiActiveState::AuthorizedLapse) {
         m_updateWidget->setSystemVersion(m_model->systemVersionInfo());
     }
+    qDebug() << "UpdateModule::active setModel";
     m_updateWidget->setModel(m_model, m_work.get());
 
     connect(m_updateWidget, &UpdateWidget::pushMirrorsView, this, [ = ]() {

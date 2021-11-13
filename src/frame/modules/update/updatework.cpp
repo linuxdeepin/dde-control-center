@@ -230,13 +230,13 @@ void UpdateWorker::activate()
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
 #endif
+    m_managerInter->setSync(true);
+    m_updateInter->setSync(true);
     QString checkTime;
     double interval = m_updateInter->GetCheckIntervalAndTime(checkTime);
     m_model->setLastCheckUpdateTime(checkTime);
     m_model->setAutoCheckUpdateCircle(static_cast<int>(interval));
 
-    m_managerInter->setSync(true);
-    m_updateInter->setSync(true);
     m_model->setAutoCleanCache(m_managerInter->autoClean());
     m_model->setAutoDownloadUpdates(m_updateInter->autoDownloadUpdates());
     m_model->setAutoInstallUpdates(m_updateInter->autoInstallUpdates());
@@ -258,12 +258,15 @@ void UpdateWorker::activate()
 
     const QList<QDBusObjectPath> jobs = m_managerInter->jobList();
     if (jobs.count() > 0) {
+        qDebug() << "UpdateWorker::activate, jobs.count() == " << jobs.count();
         setUpdateInfo();
     }
 
     onJobListChanged(m_managerInter->jobList());
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
+
+    Q_EMIT m_model->modelDateLoadComplete();
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
 #endif
@@ -358,6 +361,11 @@ void UpdateWorker::setUpdateInfo()
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);
 
+    qDebug() << "systemUpdate packages:" <<  m_systemPackages;
+    qDebug() << "appUpdate packages:" <<  m_appPackages;
+    qDebug() << "safeUpdate packages:" <<  m_safePackages;
+    qDebug() << "unkonowUpdate packages:" <<  m_unknownPackages;
+
     if (m_model->status() == UpdatesStatus::UpdateFailed) {
         qDebug() << " [UpdateWork] The status is error. Current status : " << m_model->status();
         return;
@@ -376,11 +384,6 @@ void UpdateWorker::setUpdateInfo()
     m_model->setAllDownloadInfo(updateInfoMap);
 
     qDebug() << " UpdateWorker::setUpdateInfo: updateInfoMap.count()" << updateInfoMap.count();
-
-    qDebug() << "systemUpdate packages:" <<  m_systemPackages;
-    qDebug() << "appUpdate packages:" <<  m_appPackages;
-    qDebug() << "safeUpdate packages:" <<  m_safePackages;
-    qDebug() << "unkonowUpdate packages:" <<  m_unknownPackages;
 
     if (updateInfoMap.count() == 0) {
         m_model->setStatus(UpdatesStatus::Updated, __LINE__);
@@ -408,6 +411,7 @@ void UpdateWorker::setUpdateInfo()
 
 QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 {
+    qDebug() << "getAllUpdateInfo";
     QMap<ClassifyUpdateType, UpdateItemInfo *> resultMap;
     QFile logFile(ChangeLogFile);
     if (!logFile.open(QFile::ReadOnly)) {
@@ -461,6 +465,7 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
         safeItemInfo = nullptr;
     }
 
+    qDebug() << "getAllUpdateInfo: otherUpdateInfo ==" << object.value("otherUpdateInfo").toString();
     UpdateItemInfo  *unkownItemInfo = getItemInfo(object.value("otherUpdateInfo"));
     if (unkownItemInfo != nullptr && m_unknownPackages.count() > 0) {
         unkownItemInfo->setName(tr("Unknown Apps Updates"));
@@ -481,13 +486,14 @@ UpdateItemInfo *UpdateWorker::getItemInfo(QJsonValue jsonValue)
         return itemInfo;
     }
 
-
     itemInfo->setPackageId(jsonValue.toObject().value("package_id").toString());
     itemInfo->setName(jsonValue.toObject().value("name_CN").toString());
     itemInfo->setCurrentVersion(jsonValue.toObject().value("current_version").toString());
     itemInfo->setAvailableVersion(jsonValue.toObject().value("available_version").toString());
     itemInfo->setExplain(jsonValue.toObject().value("update_explain").toString());
     itemInfo->setUpdateTime(jsonValue.toObject().value("update_time").toString());
+
+    qDebug() << "UpdateWorker::getItemInfo  itemInfo->name() == " << itemInfo->name();
 
     QJsonValue dataValue = jsonValue.toObject().value("data_info");
     if (dataValue.isArray()) {
@@ -1072,6 +1078,7 @@ void UpdateWorker::onAppUpdateInstallProgressChanged(double value)
         return;
     }
 
+    qDebug() << "onAppUpdateInstallProgressChanged : " << value;
     setUpdateItemProgress(itemInfo, value);
 }
 
@@ -1092,6 +1099,7 @@ void UpdateWorker::onUnkonwnUpdateInstallProgressChanged(double value)
         return;
     }
 
+    qDebug() << "onUnkonwnUpdateInstallProgressChanged : " << value;
     setUpdateItemProgress(itemInfo, value);
 }
 
@@ -1122,10 +1130,10 @@ void UpdateWorker::checkDiskSpace(const QString &jobDescription)
     UpdateJobErrorMessage errorMessage = analyzeJobErrorMessage(jobDescription);
     qDebug() << "job description: " << jobDescription;
 
-    if (errorMessage.jobErrorType == "fetchFailed" ||
+    if (errorMessage.jobErrorType == "unmetDependencies" ||
             !m_lastoresessionHelper->IsDiskSpaceSufficient()) {
         m_model->setStatus(UpdatesStatus::NoSpace, __LINE__);
-    } else if (errorMessage.jobErrorType == "unmetDependencies") {
+    } else if (errorMessage.jobErrorType == "fetchFailed") {
         m_model->setStatus(UpdatesStatus::NoNetwork, __LINE__);
     } else if (errorMessage.jobErrorType == "insufficientSpace") {
         m_model->setStatus(UpdatesStatus::DeependenciesBrokenError, __LINE__);
@@ -1308,10 +1316,12 @@ QString UpdateWorker::getAppName(int id)
     if (m_appPackages.count() <= id) {
         return "";
     }
+    qDebug() << "getAppName";
     if (m_appUpdateName.count() < 1) {
         QString a = QLocale::system().name();
 
         const AppUpdateInfoList applist = m_updateInter->ApplicationUpdateInfos(QLocale::system().name());
+        qDebug() << "getAppName applist.count() == " << applist.count();
         for (AppUpdateInfo val : applist) {
             m_appUpdateName.insert(val.m_packageId, val.m_name);
         }
@@ -1454,10 +1464,10 @@ UpdateJobErrorMessage UpdateWorker::analyzeJobErrorMessage(QString jobDescriptio
     }
     const QJsonObject &object = jobErrorMessage.object();
     QString errorType =  object.value("ErrType").toString();
-    if (errorType.contains("fetchFailed", Qt::CaseInsensitive)) {
+    if (errorType.contains("fetchFailed", Qt::CaseInsensitive) || errorType.contains("IndexDownloadFailed", Qt::CaseInsensitive)) {
         result.jobErrorType = "fetchFailed";
         result.jobErrorMessage = tr("Network disconnected, please retry after connected");
-    } else if (errorType.contains("unmetDependencies", Qt::CaseInsensitive)) {
+    } else if (errorType.contains("unmetDependencies", Qt::CaseInsensitive) || errorType.contains("dependenciesBroken", Qt::CaseInsensitive)) {
         result.jobErrorType = "unmetDependencies";
         result.jobErrorMessage = tr("Dependency error, failed to detect the updates");
     } else if (errorType.contains("insufficientSpace", Qt::CaseInsensitive)) {
@@ -1473,10 +1483,12 @@ UpdateJobErrorMessage UpdateWorker::analyzeJobErrorMessage(QString jobDescriptio
 
 void UpdateWorker::onClassityDownloadStatusChanged(const ClassifyUpdateType type, const QString &value)
 {
+    qDebug() << "onClassityDownloadStatusChanged ::" << type << "status :: " << value;
     if (value == "running" || value == "ready") {
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Downloading);
     } else if (value == "failed") {
         QPointer<JobInter> job = getDownloadJob(type);
+        qDebug() << "onClassityDownloadStatusChanged ::" << type << "job->description() :: " << job->description();
         m_model->setClassityUpdateJonError(type, analyzeJobErrorMessage(job->description()));
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::UpdateFailed);
         cleanLastoreJob(job);
@@ -1495,12 +1507,14 @@ void UpdateWorker::onClassityDownloadStatusChanged(const ClassifyUpdateType type
 
 void UpdateWorker::onClassityInstallStatusChanged(const ClassifyUpdateType type, const QString &value)
 {
+    qDebug() << "onClassityInstallStatusChanged ::" << type << "status :: " << value;
     if (value == "ready") {
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Downloaded);
     } else if (value == "running") {
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::Installing);
     } else if (value == "failed") {
         QPointer<JobInter> job = getInstallJob(type);
+        qDebug() << "onClassityInstallStatusChanged ::" << type << "job->description() :: " << job->description();
         m_model->setClassityUpdateJonError(type, analyzeJobErrorMessage(job->description()));
         m_model->setClassifyUpdateTypeStatus(type, UpdatesStatus::UpdateFailed);
         cleanLastoreJob(job);

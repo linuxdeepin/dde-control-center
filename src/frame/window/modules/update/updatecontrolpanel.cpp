@@ -117,8 +117,13 @@ void updateControlPanel::onStartUpdate()
 
 void updateControlPanel::setProgressValue(int value)
 {
-    if (m_currentValue == value || value < 0 || value > 100)
+    if (value < 0 || value > 100)
         return;
+
+    if (value == 0 && m_currentValue != 100) {
+        return;
+    }
+
     m_currentValue = value;
 
     m_Progess->setValue(value);

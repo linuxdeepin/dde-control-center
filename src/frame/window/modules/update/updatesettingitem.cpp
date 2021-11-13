@@ -109,6 +109,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Downloading:
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
+        setProgress(m_progressVlaue);
         m_controlWidget-> setButtonStatus(ButtonStatus::pause);
         m_controlWidget->setCtrlButtonEnabled(true);
         break;
@@ -132,7 +133,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::Installing:
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
-        //setProgress(m_progressVlaue);
+        setProgressVlaue(0.0);
         m_controlWidget->setButtonIcon(ButtonStatus::invalid);
         m_controlWidget->setCtrlButtonEnabled(false);
         break;
@@ -187,8 +188,6 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
 
 void UpdateSettingItem::setProgress(double value)
 {
-    qDebug() << "[setProgress download] setProgress, value : " << value;
-
     m_controlWidget->setProgressValue(static_cast<int>(value * 100));
 }
 

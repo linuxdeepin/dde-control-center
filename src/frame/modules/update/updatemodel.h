@@ -257,6 +257,8 @@ Q_SIGNALS:
     void safeUpdateStatusChanged(const UpdatesStatus &status);
     void unkonowUpdateStatusChanged(const UpdatesStatus &status);
 
+    void modelDateLoadComplete();
+
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void sourceCheckChanged(bool sourceCheck);
 #endif

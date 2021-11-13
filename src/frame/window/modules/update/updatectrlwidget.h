@@ -93,6 +93,8 @@ private Q_SLOTS:
     void onRequestRefreshWidget();
     void onClassityUpdateJonErrorChanged(ClassifyUpdateType type, const QString &errorMessage);
 
+    void onModelDataLoadComplete();
+
 private:
     void setStatus(const UpdatesStatus &status);
 
