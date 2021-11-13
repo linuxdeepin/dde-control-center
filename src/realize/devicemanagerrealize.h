@@ -37,6 +37,8 @@ namespace network {
 
 class DeviceManagerRealize : public NetworkDeviceRealize
 {
+    Q_OBJECT
+
 public:
     explicit DeviceManagerRealize(QSharedPointer<Device> device, QObject *parent = nullptr);
     ~DeviceManagerRealize() override;
@@ -101,7 +103,6 @@ private:
     void changeWirelessStatus(Device::State newstate);
     void changeStatus(Device::State newstate);
 
-    bool getDeviceEnabledStatus();
     bool getHotspotIsEnabled();
     bool hotspotIsEnabled() override;
 
@@ -117,7 +118,6 @@ private:
     QList<WirelessConnection *> m_wirelessConnections;
     WiredConnection *m_activeWiredConnection;
     WirelessConnection *m_activeWirelessConnection;
-    bool m_enabled;
     bool m_hotspotEnabled;
     QQueue<DeviceStatus> m_statusQueue;
 };

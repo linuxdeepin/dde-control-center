@@ -34,6 +34,8 @@ class NetworkDeviceBase;
 
 class NetworkManagerProcesser : public NetworkProcesser
 {
+    Q_OBJECT
+
 public:
     explicit NetworkManagerProcesser(QObject *parent = Q_NULLPTR);
     ~NetworkManagerProcesser() override;
@@ -55,6 +57,7 @@ private:
 private slots:
     void onDeviceChanged();
     void onConnectivityChanged(NetworkManager::Connectivity conntity);
+    void onDeviceEnabledChanged(QDBusObjectPath path, bool enabled);
 
 private:
     QList<NetworkDeviceBase *> m_devices;

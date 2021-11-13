@@ -63,6 +63,7 @@ void NetworkManagerProcesser::initConnections()
     connect(NetworkManager::notifier(), &Notifier::deviceAdded, this, &NetworkManagerProcesser::onDeviceChanged);
     connect(NetworkManager::notifier(), &Notifier::deviceRemoved, this, &NetworkManagerProcesser::onDeviceChanged);
     connect(NetworkManager::notifier(), &Notifier::connectivityChanged, this, &NetworkManagerProcesser::onConnectivityChanged);
+    QDBusConnection::systemBus().connect("com.deepin.system.Network", "/com/deepin/system/Network", "com.deepin.system.Network", "DeviceEnabled", this, SLOT(onDeviceEnabledChanged(QDBusObjectPath, bool)));
 }
 
 QList<NetworkDeviceBase *> NetworkManagerProcesser::devices()
@@ -208,6 +209,13 @@ void NetworkManagerProcesser::onConnectivityChanged(NetworkManager::Connectivity
         m_connectivity = ctity;
         Q_EMIT connectivityChanged(m_connectivity);
     }
+}
+
+void NetworkManagerProcesser::onDeviceEnabledChanged(QDBusObjectPath path, bool enabled)
+{
+    NetworkDeviceBase *device = findDevice(path.path());
+    if (device)
+        Q_EMIT device->enableChanged(enabled);
 }
 
 NetworkDeviceBase *NetworkManagerProcesser::findDevice(const QString devicePath)

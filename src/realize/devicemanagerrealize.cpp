@@ -48,8 +48,6 @@ DeviceManagerRealize::DeviceManagerRealize(QSharedPointer<Device> device, QObjec
     initSigSlotConnection();
     // 改变状态
     changeStatus(m_wDevice->state());
-    // 获取设备是否禁用状态
-    m_enabled = getDeviceEnabledStatus();
     // 获取是否开启热点
     m_hotspotEnabled = getHotspotIsEnabled();
 }
@@ -81,7 +79,11 @@ DeviceManagerRealize::~DeviceManagerRealize()
 
 bool DeviceManagerRealize::isEnabled() const
 {
-    return m_enabled;
+    QDBusInterface dbusInter("com.deepin.system.Network", "/com/deepin/system/Network", "com.deepin.system.Network", QDBusConnection::systemBus());
+    QDBusPendingCall reply = dbusInter.asyncCall("IsDeviceEnabled", m_wDevice->uni());
+    reply.waitForFinished();
+    QDBusPendingReply<bool> replyResult = reply.reply();
+    return replyResult.argumentAt(0).toBool();
 }
 
 QString DeviceManagerRealize::interface() const
@@ -196,13 +198,10 @@ QJsonObject DeviceManagerRealize::activeConnectionInfo() const
 
 void DeviceManagerRealize::setEnabled(bool enabled)
 {
-    if (m_enabled != enabled) {
+    bool currentEnabled = isEnabled();
+    if (currentEnabled != enabled) {
         QDBusInterface dbusInter("com.deepin.system.Network", "/com/deepin/system/Network", "com.deepin.system.Network", QDBusConnection::systemBus());
         dbusInter.call("EnableDevice", m_wDevice->uni(), enabled);
-        bool oldEnableStatus = m_enabled;
-        m_enabled = getDeviceEnabledStatus();
-        if (oldEnableStatus != m_enabled)
-            Q_EMIT enableChanged(m_enabled);
     }
 }
 
@@ -447,15 +446,6 @@ void DeviceManagerRealize::changeStatus(Device::State newstate)
     }
 }
 
-bool DeviceManagerRealize::getDeviceEnabledStatus()
-{
-    QDBusInterface dbusInter("com.deepin.system.Network", "/com/deepin/system/Network", "com.deepin.system.Network", QDBusConnection::systemBus());
-    QDBusPendingCall reply = dbusInter.asyncCall("IsDeviceEnabled", m_wDevice->uni());
-    reply.waitForFinished();
-    QDBusPendingReply<bool> replyResult = reply.reply();
-    return replyResult.argumentAt(0).toBool();
-}
-
 bool DeviceManagerRealize::getHotspotIsEnabled()
 {
     NetworkManager::WirelessDevice::Ptr wirelessDevice = m_wDevice.staticCast<NetworkManager::WirelessDevice>();
@@ -474,13 +464,6 @@ void DeviceManagerRealize::onStatusChanged(Device::State newstate, Device::State
     Q_UNUSED(reason);
 
     changeStatus(newstate);
-    if ((!m_enabled && newstate != Device::State::Disconnected)
-            || (m_enabled && newstate == Device::State::Disconnected)) {
-        bool oldEnabled = m_enabled;
-        m_enabled = getDeviceEnabledStatus();
-        if (oldEnabled != m_enabled)
-            Q_EMIT enableChanged(m_enabled);
-    }
 }
 
 WiredConnection *DeviceManagerRealize::findWiredConnectionByUuid(const QString &uuid)
