@@ -93,7 +93,6 @@ private:
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
-    void onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason);
     void onUpdatePlugView();
 
     void onIPConfllict(const QString &ip, const QString &mac);
