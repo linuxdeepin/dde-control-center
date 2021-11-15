@@ -304,39 +304,7 @@ void DeviceManagerRealize::onWiredConnectionChanged()
         }
     }
 
-    // 按照最后面的数字从小到大排序，如果名字中没有数字，就按照创建的先后顺序来排序(path数字的大小)
-    qSort(allConnection.begin(), allConnection.end(), [ ] (WiredConnection *conn1, WiredConnection *conn2) {
-        QString lastChar1 = conn1->connection()->id().right(1);
-        QString lastChar2 = conn2->connection()->id().right(1);
-        int rightCount = 3;
-        int index1 = 0;
-        int index2 = 0;
-        bool ok1 = false, ok2 = false;
-        do {
-            if (!ok1) {
-                lastChar1 = conn1->connection()->id().right(rightCount);
-                index1 = lastChar1.toInt(&ok1);
-            }
-            if (!ok2) {
-                lastChar2 = conn2->connection()->id().right(rightCount);
-                index2 = lastChar2.toInt(&ok2);
-            }
-            if ((ok1 && ok2) || rightCount <= 0)
-                break;
-
-            rightCount--;
-        } while (true);
-
-        if (ok1 && ok2)
-            return index1 < index2;
-        QString path1 = conn1->connection()->path();
-        QString path2 = conn2->connection()->path();
-        path1 = path1.replace("\\", "/");
-        path2 = path2.replace("\\", "/");
-        QString configName1 = path1.mid(path1.lastIndexOf("/") + 1);
-        QString configName2 = path2.mid(path2.lastIndexOf("/") + 1);
-        return configName1.toInt() < configName2.toInt();
-    });
+    sortWiredItem(allConnection);
 
     m_wiredConnections = allConnection;
     if (newConnection.size() > 0 || rmConnection.size() > 0) {

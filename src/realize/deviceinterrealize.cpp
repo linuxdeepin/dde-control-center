@@ -245,6 +245,9 @@ void WiredDeviceInterRealize::updateConnection(const QJsonArray &info)
     // 提交改变信号后，删除不在的连接
     for (WiredConnection *connection : rmConns)
         delete connection;
+
+    // 排序
+    sortWiredItem(m_connections);
 }
 
 WiredConnection *WiredDeviceInterRealize::findWiredConnectionByUuid(const QString &uuid)

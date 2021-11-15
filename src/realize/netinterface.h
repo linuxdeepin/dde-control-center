@@ -143,6 +143,7 @@ protected:
     void enqueueStatus(const DeviceStatus &status);
     virtual bool hotspotIsEnabled() { return false; }
     void setDeviceStatus(const DeviceStatus &status);
+    void sortWiredItem(QList<WiredConnection *> &items);
 
 private:
     NetworkDeviceBase *m_device;
