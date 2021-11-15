@@ -47,6 +47,7 @@ Q_SIGNALS:
 public:
     explicit NetworkModule(QObject *parent = nullptr);
 
+    QWidget *content();
     QWidget *itemWidget() const;
     QWidget *itemTipsWidget() const;
     const QString itemContextMenu() const;

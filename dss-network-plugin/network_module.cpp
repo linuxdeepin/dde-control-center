@@ -56,6 +56,12 @@ NetworkModule::NetworkModule(QObject *parent)
     }
 }
 
+QWidget *NetworkModule::content()
+{
+    emit signalShowNetworkDialog();
+    return nullptr;
+}
+
 QWidget *NetworkModule::itemWidget() const
 {
     TrayIcon *trayIcon = new TrayIcon(m_networkPanel);
@@ -256,7 +262,7 @@ void NetworkPlugin::init()
 
 QWidget *NetworkPlugin::content()
 {
-    return nullptr;
+    return m_network->content();
 }
 
 QWidget *NetworkPlugin::itemWidget() const

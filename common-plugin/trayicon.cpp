@@ -69,15 +69,6 @@ void TrayIcon::resizeEvent(QResizeEvent *e)
     m_panel->refreshIcon();
 }
 
-void TrayIcon::mousePressEvent(QMouseEvent *event)
-{
-    if (Qt::LeftButton == event->button()) {
-        showNetworkDialog();
-        return;
-    }
-    event->ignore();
-}
-
 void TrayIcon::showNetworkDialog()
 {
     if (isVisible()) {
