@@ -537,6 +537,10 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     setUpdateProgress(m_model->updateProgress());
     setProgressValue(m_model->upgradeProgress());
 
+    setSystemUpdateStatus(m_model->getSystemUpdateStatus());
+    setAppUpdateStatus(m_model->getAppUpdateStatus());
+    setSafeUpdateStatus(m_model->getSafeUpdateStatus());
+    setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
     setSystemUpdateInfo(m_model->systemDownloadInfo());
     setAppUpdateInfo(m_model->appDownloadInfo());
     setSafeUpdateInfo(m_model->safeDownloadInfo());
@@ -551,14 +555,11 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     qDebug() << "setModel" << "getAppUpdateStatus" << m_model->getAppUpdateStatus();
     qDebug() << "setModel" << "getSafeUpdateStatus" << m_model->getSafeUpdateStatus();
     qDebug() << "setModel" << "getUnkonowUpdateStatus" << m_model->getUnkonowUpdateStatus();
+
     if (m_model->enterCheckUpdate()) {
         setStatus(UpdatesStatus::Checking);
     } else {
         setStatus(m_model->status());
-        setSystemUpdateStatus(m_model->getSystemUpdateStatus());
-        setAppUpdateStatus(m_model->getAppUpdateStatus());
-        setSafeUpdateStatus(m_model->getSafeUpdateStatus());
-        setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
     }
 
     setLowBattery(m_model->lowBattery());
@@ -672,11 +673,9 @@ void UpdateCtrlWidget::showUpdateInfo()
 
 void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
 {
-
+    showUpdateInfo();
     //~ contents_path /update/Update
     setAllUpdateInfo(m_model->allDownloadInfo());
-
-    showUpdateInfo();
 
     setLowBattery(m_model->lowBattery());
     setShowInfo(m_model->systemActivation());
@@ -687,8 +686,8 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
 
 void UpdateCtrlWidget::onFullUpdateClicked()
 {
-	m_isUpdateingAll = true;
-	showAllUpdate();
+    m_isUpdateingAll = true;
+    showAllUpdate();
 
     auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
 
@@ -760,27 +759,30 @@ void UpdateCtrlWidget::onRequestRefreshSize()
 
 void UpdateCtrlWidget::onRequestRefreshWidget()
 {
+    m_isUpdateingAll = true;
     auto refreshUpdateWidget = [ = ](UpdateSettingItem * updateItem)->bool{
-        if (updateItem->status() == UpdatesStatus::Installing
-                || updateItem->status() == UpdatesStatus::Downloading
-                || updateItem->status() == UpdatesStatus::DownloadPaused
-                || updateItem->status() == UpdatesStatus::RecoveryBackingup)
+        if (updateItem->status() == UpdatesStatus::Default)
         {
-            return true;
+            return false;
         }
-        return  false;
+
+        if (updateItem->status() == UpdatesStatus::AutoDownloaded
+                || updateItem->status() == UpdatesStatus::UpdatesAvailable
+                || updateItem->status() == UpdatesStatus::UpdateFailed
+                || updateItem->status() == UpdatesStatus::RecoveryBackupFailed)
+        {
+            m_isUpdateingAll = false;
+            return false;
+        }
+        return  true;
     };
 
-    if (refreshUpdateWidget(m_systemUpdateItem)
-            || refreshUpdateWidget(m_storeUpdateItem)
-            || refreshUpdateWidget(m_safeUpdateItem)
-            || refreshUpdateWidget(m_unknownUpdateItem)) {
-	    m_isUpdateingAll = true;
-        m_CheckAgainBtn->setEnabled(false);        
-    } else {
-	    m_isUpdateingAll = false;
-        m_CheckAgainBtn->setEnabled(true);
-    }
+    bool isUpdateing = refreshUpdateWidget(m_systemUpdateItem);
+    isUpdateing =  refreshUpdateWidget(m_unknownUpdateItem) || isUpdateing;
+    isUpdateing =  refreshUpdateWidget(m_storeUpdateItem) || isUpdateing;
+    isUpdateing = refreshUpdateWidget(m_safeUpdateItem) || isUpdateing;
+
+    m_CheckAgainBtn->setEnabled(!isUpdateing);
 
     showAllUpdate();
 }
@@ -807,8 +809,8 @@ bool UpdateCtrlWidget::checkUpdateItemIsUpdateing(UpdateSettingItem *updateItem,
 void UpdateCtrlWidget::showAllUpdate()
 {
     m_spinner->setVisible(m_isUpdateingAll);
-    if(m_isUpdateingAll){
-       m_spinner->start();
+    if (m_isUpdateingAll) {
+        m_spinner->start();
     } else {
         m_spinner->stop();
     }

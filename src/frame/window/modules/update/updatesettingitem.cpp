@@ -240,6 +240,9 @@ double UpdateSettingItem::getProgressVlaue() const
 
 void UpdateSettingItem::setProgressVlaue(double progressVlaue)
 {
+    if (progressVlaue < 0.0 || progressVlaue > 1.0)
+        return;
+
     m_progressVlaue = progressVlaue;
     setProgress(progressVlaue);
 }
