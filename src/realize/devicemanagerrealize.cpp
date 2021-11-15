@@ -200,8 +200,15 @@ void DeviceManagerRealize::setEnabled(bool enabled)
 {
     bool currentEnabled = isEnabled();
     if (currentEnabled != enabled) {
+        qInfo() << "set Device " << m_wDevice->uni() << " enabled:" << (enabled ? "true" : "false");
         QDBusInterface dbusInter("com.deepin.system.Network", "/com/deepin/system/Network", "com.deepin.system.Network", QDBusConnection::systemBus());
-        dbusInter.call("EnableDevice", m_wDevice->uni(), enabled);
+        QDBusReply<QDBusObjectPath> reply = dbusInter.call("EnableDevice", m_wDevice->uni(), enabled);
+        if (enabled) {
+            // 如果是开启，则让其自动连接
+            QString activeConnectionPath = reply.value().path();
+            NetworkManager::activateConnection(activeConnectionPath, m_wDevice->uni(), QString());
+            qInfo() << "connected:" << activeConnectionPath;
+        }
     }
 }
 
