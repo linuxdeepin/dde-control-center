@@ -78,6 +78,7 @@ class NetworkDeviceRealize : public QObject
 
     friend class NetworkDeviceBase;
     friend class NetworkInterProcesser;
+    friend class NetworkManagerProcesser;
 
 Q_SIGNALS:
     void deviceStatusChanged(const DeviceStatus &) const;                                // 状态发生变化的时候触发的信号

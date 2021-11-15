@@ -207,6 +207,10 @@ void NetworkManagerProcesser::onConnectivityChanged(NetworkManager::Connectivity
     }
     if (m_connectivity != ctity) {
         m_connectivity = ctity;
+        for (NetworkDeviceBase *device : m_devices) {
+            DeviceManagerRealize *deviceRealize = static_cast<DeviceManagerRealize *>(device->deviceRealize());
+            deviceRealize->m_connectivity = m_connectivity;
+        }
         Q_EMIT connectivityChanged(m_connectivity);
     }
 }
