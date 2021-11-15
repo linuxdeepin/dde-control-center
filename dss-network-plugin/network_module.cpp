@@ -74,7 +74,11 @@ QWidget *NetworkModule::itemWidget() const
 
 QWidget *NetworkModule::itemTipsWidget() const
 {
-    return m_networkPanel->itemTips();
+    QWidget *itemTips = m_networkPanel->itemTips();
+    QPalette palette = itemTips->palette();
+    palette.setColor(QPalette::BrightText, Qt::black);
+    itemTips->setPalette(palette);
+    return itemTips;
 }
 
 const QString NetworkModule::itemContextMenu() const
