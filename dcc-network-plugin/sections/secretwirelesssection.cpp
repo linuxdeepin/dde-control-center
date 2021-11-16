@@ -60,7 +60,7 @@ SecretWirelessSection::SecretWirelessSection(WirelessSecuritySetting::Ptr wsSeti
             if (passwordFlags.testFlag(it->second)) {
                 m_currentPasswordType = it->second;
                 if (m_currentPasswordType == Setting::None && strKey.isEmpty())
-                    m_currentPasswordType = Setting::AgentOwned;
+                    m_currentPasswordType = Setting::None;
 
                 break;
             }
@@ -72,7 +72,7 @@ SecretWirelessSection::SecretWirelessSection(WirelessSecuritySetting::Ptr wsSeti
             if (passwordFlags.testFlag(it->second)) {
                 m_currentPasswordType = it->second;
                 if (m_currentPasswordType == Setting::None && strKey.isEmpty())
-                    m_currentPasswordType = Setting::AgentOwned;
+                    m_currentPasswordType = Setting::None;
 
                 break;
             }
