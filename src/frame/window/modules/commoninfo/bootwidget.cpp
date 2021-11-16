@@ -41,6 +41,7 @@
 #include <QScrollBar>
 #include <QListView>
 #include <QDebug>
+#include <QSizePolicy>
 
 using namespace dcc;
 using namespace widgets;
@@ -363,6 +364,7 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
     grid->addWidget(label2, 2, 0, 1, 1);
     grid->addWidget(edit2, 2, 1, 1, 1);
     grid->setRowMinimumHeight(0, 40);
+    grid->setMargin(0);
     m_grubEditAuthDialog->addContent(widget);
     m_grubEditAuthDialog->addButton(tr("Cancel", "button"), false, DDialog::ButtonNormal);
     m_grubEditAuthDialog->addButton(tr("Confirm", "button"), true, DDialog::ButtonRecommend);
@@ -446,6 +448,7 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
             m_grubVerification->setChecked(false);
         }
     });
+    m_grubEditAuthDialog->setSizePolicy(QSizePolicy::Policy::Fixed, QSizePolicy::Policy::Fixed);
     m_grubEditAuthDialog->exec();
     m_grubEditAuthDialog->deleteLater();
     m_grubEditAuthDialog = nullptr;
