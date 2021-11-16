@@ -59,6 +59,7 @@ public:
 
 private:
     void initSearchData();
+    void getPortCount();
 
 public Q_SLOTS:
     void showSpeakerPage();
