@@ -153,17 +153,17 @@ void WirelessConnect::initConnection()
         qInfo() << "create connect:" << m_ssid << uuid << m_accessPoint;
         if (m_accessPoint) {
             m_connectionSettings->setting(Setting::Security8021x).staticCast<Security8021xSetting>()->setPasswordFlags(Setting::AgentOwned);
-            WirelessSecuritySetting::Ptr wsSetting =
-                m_connectionSettings->setting(Setting::WirelessSecurity).dynamicCast<WirelessSecuritySetting>();
+            WirelessSecuritySetting::Ptr wsSetting = m_connectionSettings->setting(Setting::WirelessSecurity).dynamicCast<WirelessSecuritySetting>();
             WirelessSecuritySetting::KeyMgmt keyMgmt = getKeyMgmtByAp(m_accessPoint);
-            wsSetting->setKeyMgmt(keyMgmt);
-            if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
-                wsSetting->setWepKeyFlags(defaultSecretFalg);
-            } else if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
-                wsSetting->setPskFlags(defaultSecretFalg);
+            if (keyMgmt != WirelessSecuritySetting::KeyMgmt::WpaNone) {
+                wsSetting->setKeyMgmt(keyMgmt);
+                if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
+                    wsSetting->setWepKeyFlags(defaultSecretFalg);
+                } else if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
+                    wsSetting->setPskFlags(defaultSecretFalg);
+                }
+                wsSetting->setInitialized(true);
             }
-
-            wsSetting->setInitialized(true);
         }
         WirelessSetting::Ptr wirelessSetting = m_connectionSettings->setting(Setting::Wireless).dynamicCast<WirelessSetting>();
         wirelessSetting->setSsid(m_ssid.toUtf8());
@@ -227,7 +227,6 @@ void WirelessConnect::connectNetwork()
             emit passwordError(QString());
             return;
         }
-        m_device->connectNetwork(m_accessPoint);
     }
     activateConnection();
 }
