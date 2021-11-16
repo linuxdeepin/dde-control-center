@@ -183,6 +183,16 @@ void AccountsModule::onShowAccountsDetailWidget(User *account)
     connect(w, &AccountsDetailWidget::requestRenameFingerItem, m_fingerWorker, &FingerWorker::renameFingerItem);
     connect(w, &AccountsDetailWidget::noticeEnrollCompleted, m_fingerWorker, &FingerWorker::refreshUserEnrollList);
     connect(w, &AccountsDetailWidget::requsetSetPassWordAge, m_accountsWorker, &AccountsWorker::setMaxPasswordAge);
+    connect(w, &AccountsDetailWidget::editingFinished, this, [ = ](QString userFullName) {
+        QDBusPendingReply<bool, QString, int> reply = m_accountsWorker->isUsernameValid(userFullName);
+        //欧拉版会自己创建shutdown等root组账户且不会添加到userList中，导致无法重复性算法无效，先通过isUsernameValid校验这些账户再通过重复性算法校验
+        //vaild == false && code ==6 是用户名已存在
+        if (!reply.argumentAt(0).toBool() && ErrCodeSystemUsed == reply.argumentAt(2).toInt()) {
+            w->onEditingFinished(true, userFullName);
+        } else {
+            w->onEditingFinished(false, userFullName);
+        }
+    });
     m_frameProxy->pushWidget(this, w);
     w->setVisible(true);
     m_isCreatePage = false;
