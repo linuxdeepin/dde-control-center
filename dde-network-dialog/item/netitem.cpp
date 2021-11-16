@@ -54,6 +54,7 @@
 
 DWIDGET_USE_NAMESPACE
 
+#define MAXTEXTWIDTH 180
 /**
  * 单个列表项的基类
  */
@@ -346,7 +347,9 @@ QString WiredItem::symbolicIcon(const bool &connected) const
 void WiredItem::updateView()
 {
     // 更新显示的文本
-    standardItem()->setText(m_connection->connection()->id());
+    QFontMetrics ftm(standardItem()->font());
+    QString displayText = ftm.elidedText(m_connection->connection()->id(), Qt::TextElideMode::ElideRight, MAXTEXTWIDTH);
+    standardItem()->setText(displayText);
     // 更新当前的连接状态
     QString connectionIconFile;
     switch (m_connection->status()) {
@@ -376,7 +379,6 @@ NetItemType WiredItem::itemType()
 void WiredItem::initUi()
 {
     standardItem()->setSizeHint(QSize(-1, 36));
-    standardItem()->setText(m_connection->connection()->id());
 
     // 占位的
     DViewItemAction *emptyAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignVCenter,
@@ -412,7 +414,9 @@ WirelessItem::WirelessItem(QWidget *parent, WirelessDevice *device, AccessPoints
     initConnection();
     if (m_accessPoint) {
         m_wirelessConnect->setSsid(ap->ssid());
-        standardItem()->setText(m_accessPoint->ssid());
+        QFontMetrics ftm(standardItem()->font());
+        QString displayText = ftm.elidedText(m_accessPoint->ssid(), Qt::TextElideMode::ElideRight, MAXTEXTWIDTH);
+        standardItem()->setText(displayText);
     } else {
         m_wifiLabel->setVisible(false);
         standardItem()->setText(tr("Connect to hidden network"));
