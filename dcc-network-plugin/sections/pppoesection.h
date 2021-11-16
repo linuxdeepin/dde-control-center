@@ -48,6 +48,7 @@ public:
 
 private:
     void initUI();
+    QString getDeviceInterface();
     virtual bool eventFilter(QObject *watched, QEvent *event) Q_DECL_OVERRIDE;
 
 private:

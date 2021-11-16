@@ -40,8 +40,6 @@ DWIDGET_END_NAMESPACE
 
 namespace dde {
   namespace network {
-    class NetworkModel;
-    class NetworkDeviceBase;
     class DSLItem;
   }
 }

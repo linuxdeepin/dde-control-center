@@ -25,6 +25,9 @@
 
 #include <QDebug>
 
+#include <networkmanagerqt/manager.h>
+#include <networkmanagerqt/wireddevice.h>
+
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
@@ -75,6 +78,7 @@ void PPPOESection::saveSettings()
     m_pppoeSetting->setService(m_service->text());
     m_pppoeSetting->setPasswordFlags(Setting::SecretFlagType::None);
     m_pppoeSetting->setPassword(m_password->text());
+    m_pppoeSetting->setParent(getDeviceInterface());
 
     m_pppoeSetting->setInitialized(true);
 }
@@ -96,6 +100,23 @@ void PPPOESection::initUI()
     appendItem(m_userName);
     appendItem(m_service);
     appendItem(m_password);
+}
+
+QString PPPOESection::getDeviceInterface()
+{
+    // 只获取没有隐藏的有线网卡的interface
+    NetworkManager::Device::List devices = networkInterfaces();
+    for (NetworkManager::Device::Ptr device : devices) {
+        if (device->type() != NetworkManager::Device::Type::Ethernet)
+            continue;
+
+        if (!device->managed())
+            continue;
+
+        return device->interfaceName();
+    }
+
+    return QString();
 }
 
 bool PPPOESection::eventFilter(QObject *watched, QEvent *event)
