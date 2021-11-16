@@ -244,7 +244,6 @@ void ConnectionEditPage::initConnection()
     });
 
     connect(m_disconnectBtn, &QPushButton::clicked, this, [ = ]() {
-        deactivateConnection(m_disconnectBtn->property("activeConnectionPath").toString());
         Q_EMIT disconnect(m_disconnectBtn->property("connectionUuid").toString());
         Q_EMIT back();
     });
