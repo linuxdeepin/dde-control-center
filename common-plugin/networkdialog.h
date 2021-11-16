@@ -45,7 +45,7 @@ public:
 
     void saveConfig(int x, int y, Dock::Position position = Dock::Position::Bottom);
     void show(int x, int y, Dock::Position position = Dock::Position::Bottom);
-    void setConnectWireless(const QString &path);
+    void setConnectWireless(const QString &dev, const QString &ssid);
     void setRunReason(RunReason reason);
     void setSaveMode(bool isSave);
 
@@ -58,7 +58,8 @@ private Q_SLOTS:
 private:
     QProcess *m_process;
     QWindow *m_focusWindow;
-    QString m_connectPath;
+    QString m_connectDev;
+    QString m_connectSsid;
     RunReason m_runReason;
     bool m_saveMode;
 };

@@ -130,12 +130,13 @@ void LocalServer::readyReadHandler()
                 QJsonDocument doc = QJsonDocument::fromJson(cmd);
                 if (doc.isObject()) {
                     QJsonObject obj = doc.object();
-                    QString key = obj.value("key").toString();
-                    m_panel->passwordError(key);
-                    m_clients[socket] = key;
+                    QString dev = obj.value("dev").toString();
+                    QString ssid = obj.value("ssid").toString();
+                    m_panel->passwordError(dev, ssid);
+                    m_clients[socket] = ssid;
 
                     QJsonObject json;
-                    json.insert("key", key);
+                    json.insert("ssid", ssid);
 
                     QJsonDocument doc;
                     doc.setObject(json);

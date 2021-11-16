@@ -557,7 +557,7 @@ void WirelessItem::expandWidget(ExpandWidget type)
         m_expandItem->setVisible(false);
         standardItem()->setSizeHint(QSize(-1, 36));
         if (m_accessPoint) {
-            LocalServer::instance()->changePassword(m_device->path() + m_accessPoint->path(), QString(), false);
+            LocalServer::instance()->changePassword(m_accessPoint->ssid(), QString(), false);
         }
         break;
     case ExpandWidget::ShowSSID:
@@ -573,6 +573,8 @@ void WirelessItem::expandWidget(ExpandWidget type)
         m_passwdEdit->lineEdit()->setFocus();
         if (!m_passwdEdit->lineEdit()->text().isEmpty()) {
             m_passwdEdit->showAlertMessage(tr("Wrong password"));
+        } else if (m_accessPoint) {
+            m_passwdEdit->showAlertMessage(tr("Password required to connect %1").arg(m_accessPoint->ssid()));
         }
         checkInputValid();
         break;

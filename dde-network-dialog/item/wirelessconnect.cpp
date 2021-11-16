@@ -163,8 +163,6 @@ void WirelessConnect::initConnection()
         }
         WirelessSetting::Ptr wirelessSetting = m_connectionSettings->setting(Setting::Wireless).dynamicCast<WirelessSetting>();
         wirelessSetting->setSsid(m_ssid.toUtf8());
-        wirelessSetting->setMacAddress(QByteArray());
-        wirelessSetting->setMtu(0);
         wirelessSetting->setInitialized(true);
     }
 }
@@ -195,11 +193,11 @@ bool WirelessConnect::hasPassword(QString &password)
         switch (keyMgmt) {
         case WirelessSecuritySetting::KeyMgmt::Wep: {
             password = wsSetting->wepKey0();
-            return true;
+            return wsSetting->wepKeyFlags() != Setting::NotSaved;
         }
         case WirelessSecuritySetting::KeyMgmt::WpaPsk: {
             password = wsSetting->psk();
-            return true;
+            return wsSetting->pskFlags() != Setting::NotSaved;
         }
         default:
             break;
@@ -207,10 +205,7 @@ bool WirelessConnect::hasPassword(QString &password)
         return true;
     }
 
-    if (!m_accessPoint || (m_accessPoint && m_accessPoint->secured())) {
-        return true;
-    }
-    return false;
+    return (!m_accessPoint || m_accessPoint->secured());
 }
 
 void WirelessConnect::connectNetwork()

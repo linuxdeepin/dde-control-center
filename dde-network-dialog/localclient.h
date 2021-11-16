@@ -38,7 +38,7 @@ public:
     void setServerName(const QString &strServerName);
     bool ConnectToServer();
     void sendMessage(const QString &msg);
-    void waitPassword(const QString &key);
+    void waitPassword(const QString &dev, const QString &ssid);
 
 private Q_SLOTS:
     void connectedHandler();
@@ -47,7 +47,8 @@ private Q_SLOTS:
 
 private:
     QLocalSocket *m_clinet;
-    QString m_key;
+    QString m_dev;
+    QString m_ssid;
     QString m_serverName;
     QTimer *m_timer;
     QByteArray m_lastData;

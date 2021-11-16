@@ -57,7 +57,7 @@ public:
     ~NetworkPanel() override;
 
     QWidget *itemApplet();
-    void passwordError(const QString &path);
+    void passwordError(const QString &dev, const QString &ssid);
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -103,7 +103,8 @@ private:
     NetItem *m_selectItem;
     // 记录无线设备Path,防止信号重复连接
     QSet<QString> m_wirelessDevicePath;
-    QString m_reconnectPath;
+    QString m_reconnectDev;
+    QString m_reconnectSsid;
 };
 
 class NetworkDelegate : public DStyledItemDelegate

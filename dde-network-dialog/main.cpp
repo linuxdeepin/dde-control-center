@@ -144,7 +144,7 @@ public:
     }
     ~MainApp() { }
 
-    void run();
+    int run();
     // 解析参数
     void parseArguments();
     void saveConfig();
@@ -154,22 +154,25 @@ public:
 private:
     DArrowRectangle::ArrowDirection m_position;
     QPoint m_point;
-    QString m_path;
+    QString m_dev;
+    QString m_ssid;
     bool m_isWep;
     bool m_isSave;
     RunReason m_reason;
 };
 
-void MainApp::run()
+int MainApp::run()
 {
     parseArguments();
     if (m_isSave) {
         saveConfig();
-        qApp->exit(0);
-    } else if (!clientModel()) {
+        return 0;
+    }
+    if (!clientModel()) {
         saveConfig();
         showWidget();
     }
+    return qApp->exec();
 }
 
 void MainApp::parseArguments()
@@ -183,7 +186,8 @@ void MainApp::parseArguments()
                                                   << "reason",
                                     "run reason", "reason");
     QCommandLineOption wepOption(QStringList() << "w", "wireless wep-key");
-    QCommandLineOption saveOption(QStringList() << "s", "save config", "save");
+    QCommandLineOption saveOption(QStringList() << "s", "save config");
+    QCommandLineOption devOption(QStringList() << "n", "network device", "device");
 
     QCommandLineParser parser;
     parser.setApplicationDescription("DDE Network Dialog");
@@ -195,6 +199,7 @@ void MainApp::parseArguments()
     parser.addOption(reasonOption);
     parser.addOption(wepOption);
     parser.addOption(saveOption);
+    parser.addOption(devOption);
     parser.process(*qApp);
 
     Dtk::Core::DConfig config("dde-network-dialog");
@@ -224,9 +229,6 @@ void MainApp::parseArguments()
     }
     if (!positionStr.isEmpty()) {
         switch (positionStr.at(0).toLower().toLatin1()) {
-        case 'b':
-            m_position = DArrowRectangle::ArrowBottom;
-            break;
         case 't':
             m_position = DArrowRectangle::ArrowTop;
             break;
@@ -236,12 +238,18 @@ void MainApp::parseArguments()
         case 'r':
             m_position = DArrowRectangle::ArrowRight;
             break;
+        case 'b':
+        default:
+            m_position = DArrowRectangle::ArrowBottom;
+            break;
         }
     }
 
+    if (parser.isSet(devOption)) {
+        m_dev = parser.value(devOption);
+    }
     if (parser.isSet(connectPathOption)) {
-        QString path = parser.value(connectPathOption);
-        m_path = path;
+        m_ssid = parser.value(connectPathOption);
     }
 
     m_isWep = parser.isSet(wepOption);
@@ -287,7 +295,7 @@ bool MainApp::clientModel()
     LocalClient *client = new LocalClient(qAppName(), qApp);
     if (client->ConnectToServer()) {
         if (m_isWep) {
-            client->waitPassword(m_path);
+            client->waitPassword(m_dev, m_ssid);
         }
         return true;
     }
@@ -317,9 +325,9 @@ void MainApp::showWidget()
     QObject::connect(popopWindow, &DockPopupWindow::hideSignal, popopWindow, &DockPopupWindow::deleteLater);
     popopWindow->setArrowDirection(m_position);
     LocalServer::instance()->setWidget(panel, popopWindow);
-    if (!m_path.isEmpty()) {
+    if (!m_ssid.isEmpty()) {
         LocalServer::instance()->setWaitPassword(m_isWep);
-        panel->passwordError(m_path);
+        panel->passwordError(m_dev, m_ssid);
     }
     popopWindow->show(m_point);
 }
@@ -345,8 +353,7 @@ int main(int argc, char **argv)
     init_sig_crash();
 
     MainApp mainapp;
-    mainapp.run();
-    int ret = app->exec();
+    int ret = mainapp.run();
     LocalServer::release();
     return ret;
 }

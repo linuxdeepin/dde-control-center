@@ -151,8 +151,8 @@ void NetworkPanel::initConnection()
     if (gsetting)
         connect(gsetting, &QGSettings::changed, [&](const QString &key) {
             if (key == "wireless-scan-interval") {
-                int wirelessScanInterval = gsetting->get("wireless-scan-interval").toInt() * 1000;
-                m_wirelessScanTimer->setInterval(wirelessScanInterval);
+                int interval = gsetting->get("wireless-scan-interval").toInt() * 1000;
+                m_wirelessScanTimer->setInterval(interval);
             }
         });
     connect(m_wirelessScanTimer, &QTimer::timeout, [&] {
@@ -390,7 +390,7 @@ void NetworkPanel::updateView()
 {
     updateItems();
     updateSize();
-    passwordError(QString());
+    passwordError(QString(), QString());
 }
 
 void NetworkPanel::updateSize()
@@ -594,19 +594,20 @@ int NetworkPanel::getStrongestAp()
     return retStrength;
 }
 
-void NetworkPanel::passwordError(const QString &path)
+void NetworkPanel::passwordError(const QString &dev, const QString &ssid)
 {
-    if (!path.isEmpty()) {
-        m_reconnectPath = path;
+    if (!ssid.isEmpty()) {
+        m_reconnectSsid = ssid;
+        m_reconnectDev = dev;
     }
-    if (!m_reconnectPath.isEmpty()) {
+    if (!m_reconnectSsid.isEmpty()) {
         QTimer::singleShot(0, this, &NetworkPanel::expandPasswordInput);
     }
 }
 
 void NetworkPanel::expandPasswordInput()
 {
-    if (m_reconnectPath.isEmpty()) {
+    if (m_reconnectSsid.isEmpty()) {
         return;
     }
 
@@ -614,7 +615,8 @@ void NetworkPanel::expandPasswordInput()
         if (NetItemType::WirelessViewItem == item->itemType()) {
             WirelessItem *wirelessItem = static_cast<WirelessItem *>(item);
             if (wirelessItem->accessPoint()
-                && (wirelessItem->wirelessDevice()->path() + wirelessItem->accessPoint()->path()) == m_reconnectPath) {
+                && (m_reconnectDev.isEmpty() || wirelessItem->wirelessDevice()->path() == m_reconnectDev)
+                && (wirelessItem->accessPoint()->ssid() == m_reconnectSsid)) {
                 if (item != m_selectItem
                     && m_items.contains(m_selectItem)) {
                     WirelessItem *selectItem = static_cast<WirelessItem *>(m_selectItem);
@@ -623,7 +625,8 @@ void NetworkPanel::expandPasswordInput()
                 }
                 wirelessItem->expandPasswordInput();
                 m_selectItem = wirelessItem;
-                m_reconnectPath.clear();
+                m_reconnectSsid.clear();
+                m_reconnectDev.clear();
                 break;
             }
         }
@@ -669,12 +672,12 @@ void NetworkDelegate::paint(QPainter *painter, const QStyleOptionViewItem &optio
         painter->fillRect(rct, ThemeManager::instance()->lineColor());
     }
     bool isHoverItem = cantHover(index);
-    QRect rct = option.rect;
+    QRect rect = option.rect;
     if (drawLine)
-        rct.setHeight(rct.height() - 2);
+        rect.setHeight(rect.height() - 2);
 
     if (!isHoverItem && (option.state & QStyle::State_MouseOver)) {
-        painter->fillRect(rct, ThemeManager::instance()->itemBackgroundColor());
+        painter->fillRect(rect, ThemeManager::instance()->itemBackgroundColor());
     }
     // 绘制右侧的连接图标
     NetConnectionType connectionStatus = static_cast<NetConnectionType>(index.data(NetItemRole::ConnectionStatusRole).toInt());

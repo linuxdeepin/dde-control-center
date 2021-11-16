@@ -94,9 +94,13 @@ void NetworkDialog::runProcess(int x, int y, Dock::Position position)
         break;
     }
     argList << "-d" << pos;
-    if (!m_connectPath.isEmpty()) {
-        argList << "-c" << m_connectPath;
-        m_connectPath.clear();
+    if (!m_connectSsid.isEmpty()) {
+        argList << "-c" << m_connectSsid;
+        m_connectSsid.clear();
+    }
+    if (!m_connectDev.isEmpty()) {
+        argList << "-n" << m_connectDev;
+        m_connectDev.clear();
     }
     switch (m_runReason) {
     case Lock:
@@ -122,9 +126,10 @@ void NetworkDialog::runProcess(int x, int y, Dock::Position position)
     m_process->start(NetworkDialogApp, argList);
 }
 
-void NetworkDialog::setConnectWireless(const QString &path)
+void NetworkDialog::setConnectWireless(const QString &dev, const QString &ssid)
 {
-    m_connectPath = path;
+    m_connectDev = dev;
+    m_connectSsid = ssid;
 }
 
 void NetworkDialog::setRunReason(RunReason reason)

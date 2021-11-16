@@ -48,9 +48,10 @@ LocalClient::~LocalClient()
 
 void LocalClient::connectedHandler()
 {
-    if (!m_key.isEmpty()) {
+    if (!m_ssid.isEmpty()) {
         QJsonObject json;
-        json.insert("key", m_key);
+        json.insert("dev", m_dev);
+        json.insert("ssid", m_ssid);
         QJsonDocument doc;
         doc.setObject(json);
         QString data = "\nconnect:" + doc.toJson(QJsonDocument::Compact) + "\n";
@@ -120,14 +121,15 @@ void LocalClient::readyReadHandler()
 
                 qApp->exit(input ? 0 : 1);
             }
-        } else if (data.startsWith("receive:")) {
+        } else if (data.startsWith("receive:")) { // 已收到
             QByteArray cmd = data.mid(8);
             QJsonDocument doc = QJsonDocument::fromJson(cmd);
             if (doc.isObject()) {
                 QJsonObject obj = doc.object();
-                QString key = obj.value("key").toString();
-                if (key == m_key) {
-                    m_key.clear();
+                QString ssid = obj.value("ssid").toString();
+                if (ssid == m_ssid) {
+                    m_ssid.clear();
+                    m_dev.clear();
                     m_timer->stop();
                 }
             }
@@ -135,9 +137,10 @@ void LocalClient::readyReadHandler()
     }
 }
 
-void LocalClient::waitPassword(const QString &key)
+void LocalClient::waitPassword(const QString &dev, const QString &ssid)
 {
-    m_key = key;
+    m_ssid = ssid;
+    m_dev = dev;
     if (!m_timer) {
         m_timer = new QTimer(this);
         connect(m_timer, &QTimer::timeout, this, &LocalClient::connectedHandler);
