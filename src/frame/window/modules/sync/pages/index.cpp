@@ -50,7 +50,6 @@ IndexPage::IndexPage(QWidget *parent)
 {
     m_bindSwitch = new SwitchWidget(tr("Link to the user account"));
     m_bindSwitch->layout()->setContentsMargins(10, 0, 11, 0);
-    m_bindSwitch->setChecked(isUserAccountBinded());
     m_autoSyncSwitch = new SwitchWidget(tr("Auto Sync"));
     m_autoSyncSwitch->layout()->setContentsMargins(10, 6, 11, 6);
 
@@ -226,6 +225,7 @@ void IndexPage::setModel(dcc::cloudsync::SyncModel *model)
         Q_EMIT m_autoSyncSwitch->checkedChanged(m_autoSyncSwitch->checked());
     }
     m_autoSyncSwitch->setEnabled(model->getActivation());
+    m_bindSwitch->setChecked(isUserAccountBinded());
     m_networkTip->setVisible(model->enableSync());
     m_listView->setVisible(model->enableSync());
     m_lastSyncTimeLbl->setVisible(model->enableSync() && model->lastSyncTime());
