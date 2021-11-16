@@ -105,10 +105,11 @@ void ModifyPasswdPage::initWidget()
         m_newPasswdLevelIconModePath = PASSWORD_LEVEL_ICON_DEEP_MODE_PATH;
         break;
     }
+
     this->setAccessibleName("ModifyPasswdPage");
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->addSpacing(40);
-
+    mainContentLayout->setSpacing(4);
     TitleLabel *titleLabel = new TitleLabel(tr("Change Password"));
     mainContentLayout->addWidget(titleLabel, 0, Qt::AlignHCenter);
     if (!m_isCurrent) {
@@ -141,21 +142,23 @@ void ModifyPasswdPage::initWidget()
     QHBoxLayout *newPasswdLevelLayout = new QHBoxLayout;
     m_newPasswdLevelText->setFixedWidth(55);
     m_newPasswdLevelText->setFixedHeight(20);
-    newPasswdLevelLayout->addWidget(m_newPasswdLevelText);
-    newPasswdLevelLayout->setSpacing(4);
+    m_newPasswdLevelText->setAlignment(Qt::AlignRight);
+    DFontSizeManager::instance()->bind(m_newPasswdLevelText, DFontSizeManager::T8);
+    newPasswdLevelLayout->addWidget(m_newPasswdLevelText, 0, Qt::AlignRight);
+    newPasswdLevelLayout->addSpacing(4);
 
     m_newPasswdLevelIcons[0]->setFixedWidth(8);
     m_newPasswdLevelIcons[0]->setFixedHeight(4);
     m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
     m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[0]);
-    newPasswdLevelLayout->setSpacing(4);
+    newPasswdLevelLayout->addSpacing(4);
 
     m_newPasswdLevelIcons[1]->setFixedWidth(8);
     m_newPasswdLevelIcons[1]->setFixedHeight(4);
     m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
     newPasswdLevelLayout->addWidget(m_newPasswdLevelIcons[1]);
-    newPasswdLevelLayout->setSpacing(4);
+    newPasswdLevelLayout->addSpacing(4);
 
     m_newPasswdLevelIcons[2]->setFixedWidth(8);
     m_newPasswdLevelIcons[2]->setFixedHeight(4);
@@ -164,15 +167,17 @@ void ModifyPasswdPage::initWidget()
     newPasswdLevelLayout->addSpacing(50);
 
     newPasswdLayout->addLayout(newPasswdLevelLayout);
-
+    mainContentLayout->addSpacing(6);
     mainContentLayout->addLayout(newPasswdLayout);
     mainContentLayout->addWidget(m_newPasswordEdit);
 
     QLabel *repeatPasswdLabel = new QLabel(tr("Repeat Password") + ":");
+    mainContentLayout->addSpacing(6);
     mainContentLayout->addWidget(repeatPasswdLabel);
     mainContentLayout->addWidget(m_repeatPasswordEdit);
 
     QLabel *passwdTipsLabel = new QLabel(tr("Password Hint") + ":");
+    mainContentLayout->addSpacing(6);
     mainContentLayout->addWidget(passwdTipsLabel);
     mainContentLayout->addWidget(m_passwordTipsEdit);
     mainContentLayout->addStretch();
@@ -180,7 +185,6 @@ void ModifyPasswdPage::initWidget()
     QPushButton *cancleBtn = new QPushButton(tr("Cancel"));
     DSuggestButton *saveBtn = new DSuggestButton(tr("Save"));
     QHBoxLayout *cansaveLayout = new QHBoxLayout;
-    cansaveLayout->setSpacing(10);
     cansaveLayout->addWidget(cancleBtn);
     cansaveLayout->addWidget(saveBtn);
     mainContentLayout->addLayout(cansaveLayout);
@@ -209,24 +213,27 @@ void ModifyPasswdPage::initWidget()
     connect(m_curUser, &User::checkBindFailed, this, &ModifyPasswdPage::onCheckBindFailed);
 
     connect(m_oldPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
-        if (m_oldPasswordEdit->isAlert()) {
+        if (m_oldPasswordEdit->isAlert())
+        {
             m_oldPasswordEdit->hideAlertMessage();
             m_oldPasswordEdit->setAlert(false);
         }
     });
     connect(m_newPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
-        if (m_newPasswordEdit->isAlert()) {
+        if (m_newPasswordEdit->isAlert())
+        {
             m_newPasswordEdit->hideAlertMessage();
             m_newPasswordEdit->setAlert(false);
         }
     });
     connect(m_repeatPasswordEdit, &DPasswordEdit::textEdited, this, [ & ] {
-        if (m_repeatPasswordEdit->isAlert()) {
+        if (m_repeatPasswordEdit->isAlert())
+        {
             m_repeatPasswordEdit->hideAlertMessage();
             m_repeatPasswordEdit->setAlert(false);
         }
     });
-    connect(m_passwordTipsEdit, &DLineEdit::textEdited, this, [=](const QString &passwdTips) {
+    connect(m_passwordTipsEdit, &DLineEdit::textEdited, this, [ = ](const QString & passwdTips) {
         if (passwdTips.size() > 14) {
             m_passwordTipsEdit->lineEdit()->backspace();
             DDesktopServices::playSystemSoundEffect(DDesktopServices::SSE_Error);
@@ -234,7 +241,7 @@ void ModifyPasswdPage::initWidget()
             m_passwordTipsEdit->setAlert(false);
         }
     });
-    connect(m_newPasswordEdit, &DPasswordEdit::editingFinished, this, [=]() {
+    connect(m_newPasswordEdit, &DPasswordEdit::editingFinished, this, [ = ]() {
         QPalette palette;
         m_focusOut = true;
         m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_newPasswordEdit->text());
@@ -242,6 +249,7 @@ void ModifyPasswdPage::initWidget()
         if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
             palette.setColor(QPalette::Text, QColor("#15BB18"));
             m_newPasswdLevelText->setPalette(palette);
+            m_newPasswdLevelText->setForegroundRole(QPalette::Text);
             m_newPasswdLevelText->setText(tr("Strong"));
 
             m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_HIGH_PATH);
@@ -252,6 +260,7 @@ void ModifyPasswdPage::initWidget()
         } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
             palette.setColor(QPalette::Text, QColor("#FFAA00"));
             m_newPasswdLevelText->setPalette(palette);
+            m_newPasswdLevelText->setForegroundRole(QPalette::Text);
             m_newPasswdLevelText->setText(tr("Medium"));
 
             m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_MIDDLE_PATH);
@@ -264,6 +273,7 @@ void ModifyPasswdPage::initWidget()
         } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
             palette.setColor(QPalette::Text, QColor("#FF5736"));
             m_newPasswdLevelText->setPalette(palette);
+            m_newPasswdLevelText->setForegroundRole(QPalette::Text);
             m_newPasswdLevelText->setText(tr("Weak"));
 
             m_passwdLevelImg->load(PASSWORD_LEVEL_ICON_LOW_PATH);
@@ -278,7 +288,7 @@ void ModifyPasswdPage::initWidget()
         }
     });
 
-    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [=](DGuiApplicationHelper::ColorType themeType){
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, [ = ](DGuiApplicationHelper::ColorType themeType) {
         switch (themeType) {
         case DGuiApplicationHelper::UnknownType:
             break;
@@ -366,7 +376,7 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
             return;
         }
 
-        if (m_newPasswordEdit->lineEdit()->text() == m_oldPasswordEdit->lineEdit()->text() ) {
+        if (m_newPasswordEdit->lineEdit()->text() == m_oldPasswordEdit->lineEdit()->text()) {
             m_newPasswordEdit->setAlert(true);
             m_newPasswordEdit->showAlertMessage(tr("New password should differ from the current one"), m_oldPasswordEdit, 2000);
             return;
@@ -388,8 +398,8 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
 
         // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
         QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
-                                 QStringLiteral("/com/deepin/defender/daemonservice"),
-                                 QStringLiteral("com.deepin.defender.daemonservice"));
+                                     QStringLiteral("/com/deepin/defender/daemonservice"),
+                                     QStringLiteral("com.deepin.defender.daemonservice"));
         QDBusReply<int> level = interface.call("GetPwdLimitLevel");
         if (!interface.isValid()) {
             return;
@@ -400,16 +410,16 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
             dlg.setIcon(QIcon::fromTheme("preferences-system"));
             dlg.addButton(tr("Go to Settings"));
             dlg.addButton(tr("Cancel"), true, DDialog::ButtonWarning);
-            connect(&dlg, &DDialog::buttonClicked, this, [=](int idx) {
+            connect(&dlg, &DDialog::buttonClicked, this, [ = ](int idx) {
                 if (idx == 0) {
                     DDBusSender()
-                        .service("com.deepin.defender.hmiscreen")
-                        .interface("com.deepin.defender.hmiscreen")
-                        .path("/com/deepin/defender/hmiscreen")
-                        .method(QString("ShowPage"))
-                        .arg(QString("securitytools"))
-                        .arg(QString("login-safety"))
-                        .call();
+                    .service("com.deepin.defender.hmiscreen")
+                    .interface("com.deepin.defender.hmiscreen")
+                    .path("/com/deepin/defender/hmiscreen")
+                    .method(QString("ShowPage"))
+                    .arg(QString("securitytools"))
+                    .arg(QString("login-safety"))
+                    .call();
                 }
             });
             dlg.exec();
@@ -466,10 +476,18 @@ void ModifyPasswdPage::resetPassword(const QString &password, const QString &rep
 void ModifyPasswdPage::showEvent(QShowEvent *event)
 {
     Q_UNUSED(event);
-    DPasswordEdit *passwordEdit = m_isCurrent? m_oldPasswordEdit: m_newPasswordEdit;
+    DPasswordEdit *passwordEdit = m_isCurrent ? m_oldPasswordEdit : m_newPasswordEdit;
     if (passwordEdit && !passwordEdit->hasFocus()) {
         passwordEdit->lineEdit()->setFocus();
     }
+}
+
+void ModifyPasswdPage::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing, true);
+    QWidget::paintEvent(event);
 }
 
 void ModifyPasswdPage::resetPasswordFinished(const QString &errorText)
@@ -498,7 +516,7 @@ void ModifyPasswdPage::onForgetPasswordBtnClicked()
 
     QString ubid;
     Q_EMIT requestLocalBindCheck(m_curUser, uosid, uuid, ubid);
-    if(!ubid.isEmpty()) {
+    if (!ubid.isEmpty()) {
         m_isBindCheckError = false;
         Q_EMIT requestStartResetPasswordExec(m_curUser);
     }
