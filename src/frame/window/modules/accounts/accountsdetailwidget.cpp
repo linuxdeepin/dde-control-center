@@ -46,6 +46,7 @@
 #include <QScrollArea>
 #include <QScroller>
 #include <QValidator>
+#include <QGSettings>
 
 DWIDGET_USE_NAMESPACE
 using namespace dcc::accounts;
@@ -414,6 +415,16 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     //~ contents_path /accounts/Accounts Detail
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
+
+    QGSettings *gsettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    connect(gsettings, &QGSettings::changed, this, [ = ](const QString &key) {
+        if ("accountUserModifypasswd" != key)
+            return;
+
+        const QString btnStatus = gsettings->get(key).toString();
+        modifyPassword->setEnabled("Enabled" == btnStatus && m_curUser->isCurrentUser());
+        modifyPassword->setVisible("Hidden" != btnStatus);
+    });
 
     //当前用户禁止使用删除按钮
     m_deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
