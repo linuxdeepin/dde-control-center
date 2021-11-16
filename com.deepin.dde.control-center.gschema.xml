@@ -76,7 +76,7 @@
             <summary>plugin settings about position</summary>
         </key>
         <key name="show-hibernate" type="b">
-            <default>true</default>
+            <default>false</default>
             <summary>The hibernate options show or not</summary>
         </key>
         <key name="show-shutdown" type="b">
