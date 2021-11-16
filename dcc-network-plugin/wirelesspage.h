@@ -162,6 +162,7 @@ private:
     QString connectionUuid(const QString &ssid);
     QString connectionSsid(const QString &uuid);
     void updateLayout(bool enabled);
+    bool isHiddenWlan(const QString &ssid) const;
 
 private:
     WirelessDevice *m_device;

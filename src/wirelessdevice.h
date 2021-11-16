@@ -103,6 +103,7 @@ public:
     QString devicePath() const;                                     // 对应的设备的路径，为返回接口中的key值
     bool connected() const;                                         // 网络是否连接成功
     ConnectionStatus status() const;                                // 当前网络的连接状态
+    bool hidden() const;                                            // 是否为隐藏网络
 
 Q_SIGNALS:
     void strengthChanged(const int) const;                          // 当前信号强度变化

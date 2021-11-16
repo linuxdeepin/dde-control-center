@@ -484,6 +484,14 @@ ConnectionStatus AccessPoints::status() const
     return m_status;
 }
 
+bool AccessPoints::hidden() const
+{
+    if (m_json.contains("Hidden"))
+        return m_json.value("Hidden").toBool();
+
+    return false;
+}
+
 void AccessPoints::updateAccessPoints(const QJsonObject &json)
 {
     int nOldStrength = strength();

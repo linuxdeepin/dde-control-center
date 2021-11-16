@@ -463,6 +463,16 @@ void WirelessPage::updateLayout(bool enabled)
     m_mainLayout->invalidate();
 }
 
+bool WirelessPage::isHiddenWlan(const QString &ssid) const
+{
+    for (AccessPoints *ap : m_device->accessPointItems()) {
+        if (ap->ssid() == ssid)
+            return ap->hidden();
+    }
+
+    return false;
+}
+
 void WirelessPage::onDeviceStatusChanged(const DeviceStatus &stat)
 {
     //当wifi状态切换的时候，刷新一下列表，防止出现wifi已经连接，三级页面没有刷新出来的情况，和wifi已经断开，但是页面上还是显示该wifi
@@ -641,7 +651,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
     if (!m_apEditPage.isNull())
         return;
 
-    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid);
+    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid, isHiddenWlan(ssid));
     connect(m_apEditPage, &ConnectionWirelessEditPage::destroyed, this, [ this ] {
         this->m_apEditPage = nullptr;
     });
