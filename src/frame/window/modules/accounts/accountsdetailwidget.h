@@ -102,9 +102,11 @@ Q_SIGNALS:
     void requestDeleteFingerItem(const QString &userName, const QString& finger);
     void requestRenameFingerItem(const QString &userName, const QString& finger, const QString& newName);
     void noticeEnrollCompleted(QString username);
+    void editingFinished(const QString& userFullName);
 
 public Q_SLOTS:
     void resetDelButtonState();
+    void onEditingFinished(bool isValid, const QString& userFullName);
 
 protected:
     void initUserInfo(QVBoxLayout *layout);

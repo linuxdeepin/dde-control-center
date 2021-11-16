@@ -459,6 +459,15 @@ bool CreateAccountPage::checkFullname()
         return false;
     }
 
+    //欧拉版会自己创建shutdown等root组账户且不会添加到userList中，导致无法重复性算法无效，先通过isUsernameValid校验这些账户再通过重复性算法校验
+    //vaild == false && code ==6 是用户名已存在
+    if (!m_accountWorker->isUsernameValid(userFullName).argumentAt(0).toBool() && ErrCodeSystemUsed == m_accountWorker->isUsernameValid(userFullName).argumentAt(2).toInt()) {
+        m_fullnameEdit->setAlert(true);
+        m_fullnameEdit->showAlertMessage(tr("The name already exists"), m_fullnameEdit, 2000);
+        m_fullnameEdit->lineEdit()->selectAll();
+        return false;
+    }
+
     if (!userFullName.simplified().isEmpty()) {
         QList<User *> userList = m_userModel->userList();
         /* 与已有的用户全名和用户名进行重复性校验 */
