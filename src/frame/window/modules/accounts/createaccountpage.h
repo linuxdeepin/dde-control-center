@@ -70,6 +70,16 @@ public:
         IncludeBlankSymbol
     };
 
+    enum PassErrorCode {
+        ErrCodeEmpty = 1,
+        ErrCodeInvalidChar,
+        ErrCodeFirstCharInvalid,
+        ErrCodeExist,
+        ErrCodeNameExist,
+        ErrCodeSystemUsed,
+        ErrCodeLen
+    };
+
 public:
     explicit CreateAccountPage(dcc::accounts::AccountsWorker *accountsWorker, QWidget *parent = nullptr);
     ~CreateAccountPage();

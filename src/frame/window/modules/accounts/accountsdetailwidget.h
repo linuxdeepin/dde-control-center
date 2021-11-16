@@ -107,9 +107,11 @@ Q_SIGNALS:
     void requestSetGroups(dcc::accounts::User *user, const QStringList &usrGroups);
     void requsetSetPassWordAge(dcc::accounts::User *user, const int age);
     void noticeEnrollCompleted(QString username);
+    void editingFinished(const QString& userFullName);
 
 public Q_SLOTS:
     void resetDelButtonState();
+    void onEditingFinished(bool isValid, const QString& userFullName);
 
 protected:
     void initUserInfo(QVBoxLayout *layout);

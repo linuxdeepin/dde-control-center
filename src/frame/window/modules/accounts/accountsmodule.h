@@ -41,6 +41,16 @@ class AccountsModule : public QObject, public ModuleInterface
 {
     Q_OBJECT
 
+    enum PassErrorCode {
+        ErrCodeEmpty = 1,
+        ErrCodeInvalidChar,
+        ErrCodeFirstCharInvalid,
+        ErrCodeExist,
+        ErrCodeNameExist,
+        ErrCodeSystemUsed,
+        ErrCodeLen
+    };
+
 public:
     explicit AccountsModule(FrameProxyInterface *frame, QObject *parent = nullptr);
 
@@ -56,6 +66,7 @@ public:
 
 Q_SIGNALS:
     void requestLoadUserList();
+    void editingFinished(QDBusPendingReply<bool, QString, int> reply, const QString userFullName);
 
 public Q_SLOTS:
     void onShowAccountsDetailWidget(dcc::accounts::User *account);
