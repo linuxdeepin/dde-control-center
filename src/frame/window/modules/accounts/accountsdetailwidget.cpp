@@ -415,6 +415,19 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
     m_nopasswdLogin->setTitle(tr("Login Without Password"));
     m_nopasswdLogin->setChecked(m_curUser->nopasswdLogin());
 
+    QGSettings *gsettings = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
+    connect(gsettings, &QGSettings::changed, this, [ = ](const QString &key) {
+        if ("accountUserModifypasswd" != key)
+            return;
+
+        const QString btnStatus = gsettings->get(key).toString();
+        m_modifyPassword->setEnabled("Enabled" == btnStatus && m_curUser->isCurrentUser());
+        m_modifyPassword->setVisible("Hidden" != btnStatus);
+    });
+    const QString modifyBtnStatus = gsettings->get("accountUserModifypasswd").toString();
+    m_modifyPassword->setEnabled("Enabled" == modifyBtnStatus && m_curUser->isCurrentUser());
+    m_modifyPassword->setVisible("Hidden" != modifyBtnStatus);
+
     connect(m_curUser, &User::onlineChanged, m_deleteAccount, [this]{
         this->setDeleteBtnStatus("accountUserDeleteaccount");
     });
