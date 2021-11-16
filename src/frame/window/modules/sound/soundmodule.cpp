@@ -138,52 +138,26 @@ void SoundModule::initSearchData()
     };
 
     auto func_process_all = [ = ]() {
+        getPortCount();
 
         m_frameProxy->setModuleVisible(module, true);
 
-        func_device_changed();
+        func_output_changed();
 
         func_input_changed();
 
         func_effect_changed();
 
-        func_output_changed();
+        func_device_changed();
     };
 
     //TODO: 当有输入或输出设备时可能不显示，该问题需要解决
     connect(m_model, &SoundModel::portAdded, this, [ = ](const Port *port) {
-        if (!port) {
-            return;
-        }
-        if (Port::Out == port->direction()) {
-            m_outputPortCount++;
-        } else {
-            m_inputPortCount++;
-        }
-
         func_process_all();
         m_frameProxy->updateSearchData(module);
     });
 
     connect(m_model, &SoundModel::portRemoved, this, [ = ](const QString portName, const uint &cardId) {
-        if (!m_model) {
-            return;
-        }
-
-        const Port *port = m_model->findPort(portName, cardId);
-        if (!port) {
-            return;
-        }
-        if (cardId != port->cardId()) {
-            return;
-        }
-
-        if (Port::Out == port->direction()) {
-            m_outputPortCount--;
-        } else {
-            m_inputPortCount--;
-        }
-
         func_process_all();
         m_frameProxy->updateSearchData(module);
     });
@@ -238,6 +212,21 @@ void SoundModule::initSearchData()
     });
 
     func_process_all();
+}
+
+void SoundModule::getPortCount()
+{
+    m_inputPortCount = 0;
+    m_outputPortCount = 0;
+    QList<Port *> ports = m_model->ports();
+    for (int i = 0; i < ports.size(); i++) {
+        Port * port = ports.value(i);
+        if (port->direction() == Port::Out) {
+            m_outputPortCount ++;
+        } else {
+            m_inputPortCount ++;
+        }
+    }
 }
 
 void SoundModule::initialize()
