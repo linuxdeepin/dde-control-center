@@ -61,8 +61,15 @@ void IrisDetailWidget::initIrisShow()
     m_pNotDevice->setPixmap(QIcon::fromTheme(QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme)).pixmap(64, 64));
     m_pNotDevice->setAlignment(Qt::AlignHCenter);
 
+    QPalette palette;
+    QColor color;
+    color.setAlphaF(0.8);
+    palette.setColor(QPalette::BrightText, color);
+
     m_tip->setWordWrap(true);
     m_tip->setAlignment(Qt::AlignCenter);
+    m_tip->adjustSize();
+    m_tip->setPalette(palette);
 
     mainContentLayout->addWidget(m_irisWidget);
     mainContentLayout->addWidget(m_pNotDevice);

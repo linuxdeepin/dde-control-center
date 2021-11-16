@@ -64,7 +64,7 @@ void FingerDetailWidget::initNotFingerDevice()
     // 显示高亮字体
     QPalette palette;
     QColor color;
-    color.setAlphaF(0.2);
+    color.setAlphaF(0.8);
     palette.setColor(QPalette::BrightText, color);
     DTipLabel *tip = new DTipLabel(tr("No supported devices found"));
     tip->adjustSize();
