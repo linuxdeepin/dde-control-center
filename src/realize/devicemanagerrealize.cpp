@@ -391,6 +391,16 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
         AccessPoints *ap = findAccessPoints(currentConnection->connection()->ssid());
         if (ap) {
             ap->m_status = newStatus;
+            // 按照信号强度从强到弱进行排序
+            qSort(m_accessPoints.begin(), m_accessPoints.end(), [ = ] (AccessPoints * ap1, AccessPoints * ap2) {
+                if (ap1->status() == ConnectionStatus::Activated)
+                    return true;
+                if (ap2->status() == ConnectionStatus::Activated)
+                    return false;
+
+                return ap1->strength() > ap2->strength();
+            });
+
             Q_EMIT activeConnectionChanged();
         }
     }
@@ -515,6 +525,11 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
 
     if (rmConnections.contains(m_activeWirelessConnection))
         m_activeWirelessConnection = Q_NULLPTR;
+
+    // 按照信号强度从强到弱进行排序
+    qSort(m_accessPoints.begin(), m_accessPoints.end(), [ = ] (AccessPoints * ap1, AccessPoints * ap2) {
+        return ap1->strength() > ap2->strength();
+    });
 
     m_wirelessConnections = allConnections;
 
