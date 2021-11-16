@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>Përplasje IP-sh</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Pajisje e çaktivizuar</translation>
     </message>
@@ -57,6 +61,13 @@
         <translation>Aktivizo rrjetin</translation>
     </message>
     <message>
+        <source>Network settings</source>
+        <translation>Rregullime rrjeti</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
         <source>Connecting %1</source>
         <translation>Po lidhet %1</translation>
     </message>
@@ -70,7 +81,7 @@
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation>S’arrihet të lidhet %1, ju lutemi, kontrolloni rrugëzuesin ose kabllin tuaj të rrjetit.</translation>
+        <translation>S’arrihet të lidhet %1, ju lutemi, kontrolloni rrugëzuesin tuaj ose kabllon e rrjetit.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>

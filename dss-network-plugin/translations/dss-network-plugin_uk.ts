@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>Конфлікт IP</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Пристрій вимкнено</translation>
     </message>
@@ -57,16 +61,23 @@
         <translation>Увімкнути мережу</translation>
     </message>
     <message>
+        <source>Network settings</source>
+        <translation>Параметри мережі</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
         <source>Connecting %1</source>
         <translation>Встановлюємо з&apos;єднання із %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 з&apos;єднано</translation>
+        <translation>З&apos;єднання із %1 встановлено</translation>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%1 від&apos;єднано</translation>
+        <translation>З&apos;єднання із %1 розірвано</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>

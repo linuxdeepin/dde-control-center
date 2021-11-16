@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Kablolu bağlantıyı devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Kablolu bağlantıyı etkinleştir</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Kablosuz bağlantıyı devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Kablosuz bağlantıyı etkinleştir</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Ağı devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Ağı etkinleştir</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Ay ayarları</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -49,6 +18,10 @@
     </message>
     <message>
         <source>Wrong password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
         <translation type="unfinished"/>
     </message>
     <message>

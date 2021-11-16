@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>IP ئادرېس توقۇنۇشۇپ قالدى</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>ئۈسكىنە چەكلەش</translation>
     </message>
@@ -57,6 +61,13 @@
         <translation>تورنى قوزغىتىش </translation>
     </message>
     <message>
+        <source>Network settings</source>
+        <translation>تور تەڭشىكى </translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
         <source>Connecting %1</source>
         <translation>ئۇلىنىۋاتىدۇ %1</translation>
     </message>
@@ -82,7 +93,7 @@
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>پارولنى كىرگۈزۈپ ئۇلاڭ  %1</translation>
+        <translation>%1غا  پارول كىرگۈزۈپ ئۇلاڭ </translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
@@ -93,7 +104,7 @@
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>ھەمبەھىر نۇقتىسى</translation>
+        <translation>تور تارقىتىش</translation>
     </message>
     <message>
         <source>SSID</source>

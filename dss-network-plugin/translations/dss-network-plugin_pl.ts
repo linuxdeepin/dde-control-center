@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>Konflikt IP</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Urządzenie jest wyłączone</translation>
     </message>
@@ -57,16 +61,23 @@
         <translation>Włącz sieć</translation>
     </message>
     <message>
+        <source>Network settings</source>
+        <translation>Ustawienia sieci</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
         <source>Connecting %1</source>
         <translation>Łączenie %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 połączony</translation>
+        <translation>%1 połączone</translation>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%1 rozłączony</translation>
+        <translation>%1 rozłączono</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
@@ -82,7 +93,7 @@
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>Aby połączyć się z %1 wymagane jest hasło</translation>
+        <translation>Wymagane jest hasło, aby połączyć się z %1</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>

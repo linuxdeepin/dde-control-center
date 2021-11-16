@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>IP地址冲突</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>设备已禁用</translation>
     </message>
@@ -56,6 +60,13 @@
         <source>Enable network</source>
         <translation>启用网络</translation>
     </message>
+    <message>
+        <source>Network settings</source>
+        <translation>网络设置</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
     <message>
         <source>Connecting %1</source>
         <translation>正在连接%1</translation>

@@ -141,7 +141,7 @@
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Hotspot</source>
-        <translation>ھەمبەھىر نۇقتىسى</translation>
+        <translation>تور تارقىتىش</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>

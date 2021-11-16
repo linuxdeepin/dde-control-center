@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>IP-conflict</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Apparaat uitgeschakeld</translation>
     </message>
@@ -56,6 +60,13 @@
         <source>Enable network</source>
         <translation>Netwerk inschakelen</translation>
     </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Netwerkinstellingen</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
     <message>
         <source>Connecting %1</source>
         <translation>Bezig met verbinden met ‘%1’</translation>

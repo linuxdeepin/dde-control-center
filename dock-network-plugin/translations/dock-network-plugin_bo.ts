@@ -272,4 +272,85 @@
         <translation> IP གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
     </message>
 </context>
+<context>
+    <name>dde::network::NetworkProcesser</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network</source>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wired Network %1</source>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ་%1</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network</source>
+        <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Wireless Network %1</source>
+        <translation>སྐུད་མེད་དྲ་རྒྱ་%1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::network::NetworkDeviceRealize</name>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Disconnected</source>
+        <translation>བཅད་ཟིན།</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connecting</source>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Authenticating</source>
+        <translation>ར་སྤྲོད་བྱེད་བཞིན་པ།</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining address</source>
+        <translation>གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected</source>
+        <translation>སྦྲེལ་ཟིན། </translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Failed</source>
+        <translation>ཕམ་པ།</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Device disabled</source>
+        <translation>སྒྲིག་ཆས་སྤྱོད་མི་ཆོག</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Connected but no Internet access</source>
+        <translation>དྲ་རྒྱ་དང་འབྲེལ་ཟིན་ཡང་མཉམ་སྦྲེལ་དྲ་རྒྱར་འཛུལ་མི་ཐུབ།</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Not connected</source>
+        <translation>སྦྲེལ་མེད་པ། </translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Network cable unplugged</source>
+        <translation>དྲ་སྐུད་མཐུད་མི་འདུག</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>Obtaining IP address</source>
+        <translation> IP གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
+    </message>
+</context>
 </TS>

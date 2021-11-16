@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>Conflicto de IP</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Dispositivo desactivado</translation>
     </message>
@@ -57,36 +61,43 @@
         <translation>Activar red</translation>
     </message>
     <message>
+        <source>Network settings</source>
+        <translation>Ajustes de red</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
         <source>Connecting %1</source>
-        <translation>Conectando %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 conectado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%1 desconectado</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation>No se puede conectar %1, por favor, compruebe el router o el cable de red.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation>No se puede conectar %1, por favor, manténgase más cerca del router inalámbrico</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation>Fallo de conexión, no se puede conectar %1, contraseña incorrecta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>Se requiere una contraseña para conectarse %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation>No se ha podido encontrar la red WLAN 802.11 %1</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

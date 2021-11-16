@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Вимкнути дротове з&apos;єднання</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Увімкнути дротове з&apos;єднання</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Вимкнути бездротове з&apos;єднання</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Увімкнути бездротове з&apos;єднання</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Вимкнути мережу</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Увімкнути мережу</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Параметри мережі</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -49,7 +18,11 @@
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Помилковий пароль</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
+        <translation>Для встановлення з&apos;єднання із %1 потрібен пароль</translation>
     </message>
     <message>
         <source>Password</source>

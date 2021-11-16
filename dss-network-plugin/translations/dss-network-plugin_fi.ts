@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>IP ristiriita</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Laite suljettu</translation>
     </message>
@@ -57,36 +61,43 @@
         <translation>Kytke verkko käyttöön</translation>
     </message>
     <message>
+        <source>Network settings</source>
+        <translation>Verkon asetukset</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
         <source>Connecting %1</source>
-        <translation>Yhdistää %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 yhdistetty</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%1 katkaistu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation>Ei voitu yhdistää %1, tarkista reititin tai verkkokaapeli.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation>Ei voitu yhdistää %1, pysyttele lähempänä langatonta reititintä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation>Yhteys kohteeseen %1 epäonnistui, väärä salasana</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>Salasana tarvitaan yhteydelle %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation>%1 802.11 WLAN-verkkoa ei löytynyt</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

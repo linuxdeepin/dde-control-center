@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>Conflicte d&apos;IP</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Dispositiu inhabilitat</translation>
     </message>
@@ -56,6 +60,13 @@
         <source>Enable network</source>
         <translation>Habilita la xarxa</translation>
     </message>
+    <message>
+        <source>Network settings</source>
+        <translation>Configuració de la xarxa</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
     <message>
         <source>Connecting %1</source>
         <translation type="unfinished"/>

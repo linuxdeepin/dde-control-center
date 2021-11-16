@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>سىملىق تورنى تاقاش</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>سىملىق تورنى ئېچىش</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>سىمسىز تورنى تاقاش</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>سىمسىز تورنى ئېچىش</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>تورنى تاقاش</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>تورنى قوزغىتىش </translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>تور تەڭشىكى </translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -49,7 +18,11 @@
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>پارول خاتا</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
+        <translation>پارولنى كىرگۈزۈپ ئۇلاڭ  %1</translation>
     </message>
     <message>
         <source>Password</source>
@@ -74,7 +47,7 @@
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>ھەمبەھىر نۇقتىسى</translation>
+        <translation>تور تارقىتىش</translation>
     </message>
     <message>
         <source>SSID</source>

@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Vezetékes kapcsolat letiltása</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Vezetékes kapcsolat engedélyezése</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Vezeték-nélküli kapcsolat letiltása</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Vezeték nélküli kapcsolat engedélyezése</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Hálózat letiltása</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Hálózat engedélyezése</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Hálózati beállítások</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -50,6 +19,10 @@
     <message>
         <source>Wrong password</source>
         <translation>Helytelen jelszó</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>

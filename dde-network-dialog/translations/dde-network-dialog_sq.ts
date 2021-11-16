@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Çaktivizo lidhje me fill</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Aktivizo lidhje me fill</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Çaktivizo lidhje pa fill</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Aktivizo lidhje pa fill</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Çaktivizo rrjetin</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Aktivizo rrjetin</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Rregullime rrjeti</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -49,7 +18,11 @@
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalim i gabuar</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
+        <translation>Lypset fjalëkalim për t’u lidhur me %1</translation>
     </message>
     <message>
         <source>Password</source>

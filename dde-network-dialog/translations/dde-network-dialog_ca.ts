@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Inhabilita la connexió amb fil</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Habilita la connexió amb fil</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Inhabilita la connexió sense fil</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Habilita la connexió sense fil</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Inhabilita la xarxa</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Habilita la xarxa</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Configuració de la xarxa</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -49,6 +18,10 @@
     </message>
     <message>
         <source>Wrong password</source>
+        <translation>Contrasenya incorrecta</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
         <translation type="unfinished"/>
     </message>
     <message>

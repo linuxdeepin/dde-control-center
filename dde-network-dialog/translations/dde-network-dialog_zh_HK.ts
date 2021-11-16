@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>關閉有線網絡</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>啟用有線網絡</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>關閉無線網絡</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>啟用無線網絡</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>關閉網絡</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>啟用網絡</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>網絡設置</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -50,6 +19,10 @@
     <message>
         <source>Wrong password</source>
         <translation>密碼錯誤</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
+        <translation>連接%1需要密碼</translation>
     </message>
     <message>
         <source>Password</source>

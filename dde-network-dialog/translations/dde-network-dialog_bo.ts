@@ -1,53 +1,53 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
 <context>
     <name>DeviceControllItem</name>
     <message>
         <source>Wireless Network</source>
-        <translation>无线网络</translation>
+        <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <source>Wired Network</source>
-        <translation>有线网络</translation>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
     </message>
 </context>
 <context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
-        <translation>连接到隐藏网络</translation>
+        <translation>ཡིབ་དྲ་དང་མཐུད་པ།</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>密码错误</translation>
+        <translation>གསང་ཨང་ནོར་འདུག</translation>
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation>连接%1需要密码</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>请输入密码</translation>
+        <translation>གསང་ཨང་འཇུག་རོགས།</translation>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>取 消</translation>
+        <translation>འདོར་བ། </translation>
     </message>
     <message>
         <source>Connect</source>
         <comment>button</comment>
-        <translation>连 接</translation>
+        <translation>འབྲེལ་མཐུད། </translation>
     </message>
     <message>
         <source>Name (SSID)</source>
-        <translation>请输入网络名称（SSID）</translation>
+        <translation>དྲ་བའི་མིང་(SSID）ནང་འཇུག་བྱེད་རོགས། </translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>热点</translation>
+        <translation>ཚ་གནས།</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -55,23 +55,23 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>协议</translation>
+        <translation>གྲོས་མཐུན།</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>安全类型</translation>
+        <translation>བདེ་འཇགས་རིགས།</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>频段</translation>
+        <translation>བྱུང་རིམ།</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>网络通道</translation>
+        <translation>དྲ་རྒྱའི་རྒྱུ་ལམ།</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>接口</translation>
+        <translation>མཐུད་ཁ།</translation>
     </message>
     <message>
         <source>MAC</source>
@@ -83,15 +83,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>网关</translation>
+        <translation>དྲ་སྒོ།</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>首选DNS</translation>
+        <translation>སྔོན་འདེམས་DNS</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>子网掩码</translation>
+        <translation>བུ་དྲ་ཡིབ་ཨང་།</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -99,77 +99,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>前缀</translation>
+        <translation>སྔོན་སྦྱོར།</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>速率</translation>
+        <translation>མྱུར་ཚད།</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>设备已禁用</translation>
+        <translation>སྒྲིག་ཆས་སྤྱོད་མི་ཆོག</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>已连接网络但无法访问互联网</translation>
+        <translation>དྲ་རྒྱ་དང་འབྲེལ་ཟིན་ཡང་མཉམ་སྦྲེལ་དྲ་རྒྱར་འཛུལ་མི་ཐུབ།</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>未连接</translation>
+        <translation>སྦྲེལ་མེད་པ། </translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>未插入网线</translation>
+        <translation>དྲ་སྐུད་མཐུད་མི་འདུག</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>正在连接</translation>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>认证中</translation>
+        <translation>ར་སྤྲོད་བྱེད་བཞིན་པ།</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>正在获取IP地址</translation>
+        <translation> IP གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>已连接</translation>
+        <translation>སྦྲེལ་ཟིན། </translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>已断开</translation>
+        <translation>བཅད་ཟིན།</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>失败</translation>
+        <translation>ཕམ་པ།</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>获取地址中</translation>
+        <translation>གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>有线网络</translation>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>有线网络%1</translation>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ་%1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>无线网络</translation>
+        <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>无线网络%1</translation>
+        <translation>སྐུད་མེད་དྲ་རྒྱ་%1</translation>
     </message>
 </context>
 </TS>

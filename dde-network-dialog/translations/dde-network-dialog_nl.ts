@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Bekabelde verbinding uitschakelen</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Bekabelde verbinding inschakelen</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Draadloze verbinding uitschakelen</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Draadloze verbinding inschakelen</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Netwerk uitschakelen</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Netwerk inschakelen</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Netwerkinstellingen</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -49,7 +18,11 @@
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Onjuist wachtwoord</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
+        <translation>Wachtwoord vereist om verbinding te maken met ‘%1’</translation>
     </message>
     <message>
         <source>Password</source>

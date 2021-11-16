@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>IP çakışması</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Aygıt devre dışı</translation>
     </message>
@@ -57,36 +61,43 @@
         <translation>Ağı etkinleştir</translation>
     </message>
     <message>
+        <source>Network settings</source>
+        <translation>Ay ayarları</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
         <source>Connecting %1</source>
-        <translation>Bağlanıyor %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 bağlandı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%1 bağlantısı kesildi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation>%1 bağlantısı kurulamadı, lütfen yönlendiricinizi ya da ağ kablonuzu denetleyin.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation> %1&apos;e bağlanılamıyor, lütfen kablosuz yönlendiriciye yakın olun</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation>Bağlantı başarısız, parola yanlış olduğundan %1 bağlantısı kurulamadı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>%1&apos;e bağlanmak için parola gerekli</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation>%1  802.11 WLAN ağı bulunamadı</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

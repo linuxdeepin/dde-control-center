@@ -1,68 +1,68 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="bo" version="2.1">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
-        <translation>1 új üzenet</translation>
+        <translation>འཕྲིན་གསར་1 </translation>
     </message>
 </context>
 <context>
     <name>NetworkPanel</name>
     <message>
         <source>IP conflict</source>
-        <translation>IP cím ütközés</translation>
+        <translation>IPགནས་ཡུལ་འགལ་ཟླ་བྱུང་བ།</translation>
     </message>
     <message>
         <source>Device disabled</source>
-        <translation>Eszköz letiltva</translation>
+        <translation>སྒྲིག་ཆས་སྤྱོད་མི་ཆོག</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>A hálózati kábel kihúzva</translation>
+        <translation>དྲ་སྐུད་མཐུད་མི་འདུག</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Nincs kapcsolódva</translation>
+        <translation>སྦྲེལ་མེད་པ། </translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Kapcsolódás</translation>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Csatlakoztatva, de nincs internet hozzáférés</translation>
+        <translation>དྲ་རྒྱ་དང་འབྲེལ་ཟིན་ཡང་མཉམ་སྦྲེལ་དྲ་རྒྱར་འཛུལ་མི་ཐུབ།</translation>
     </message>
     <message>
         <source>Connection failed</source>
-        <translation>A kapcsolódás sikertelen</translation>
+        <translation>འབྲེལ་མཐུད་བྱེད་མ་ཐུབ།</translation>
     </message>
     <message>
         <source>Disable wired connection</source>
-        <translation>Vezetékes kapcsolat letiltása</translation>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
     </message>
     <message>
         <source>Enable wired connection</source>
-        <translation>Vezetékes kapcsolat engedélyezése</translation>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ་སྤྱོད་པ།</translation>
     </message>
     <message>
         <source>Disable wireless connection</source>
-        <translation>Vezeték-nélküli kapcsolat letiltása</translation>
+        <translation>སྐུད་མེད་དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
     </message>
     <message>
         <source>Enable wireless connection</source>
-        <translation>Vezeték nélküli kapcsolat engedélyezése</translation>
+        <translation>སྐུད་མེད་དྲ་རྒྱ་སྤྱོད་པ།</translation>
     </message>
     <message>
         <source>Disable network</source>
-        <translation>Hálózat letiltása</translation>
+        <translation>དྲ་རྒྱ་ཁ་རྒྱོབ།</translation>
     </message>
     <message>
         <source>Enable network</source>
-        <translation>Hálózat engedélyezése</translation>
+        <translation>དྲ་རྒྱ་སྤྱོད་པ།</translation>
     </message>
     <message>
         <source>Network settings</source>
-        <translation>Hálózati beállítások</translation>
+        <translation>དྲ་རྒྱ་སྒྲིག་འགོད།</translation>
     </message>
 </context>
 <context>
@@ -104,7 +104,7 @@
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>Hotspot</translation>
+        <translation>ཚ་གནས།</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -112,27 +112,27 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>Protokoll</translation>
+        <translation>གྲོས་མཐུན།</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Biztonság típusa</translation>
+        <translation>བདེ་འཇགས་རིགས།</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>Sáv</translation>
+        <translation>བྱུང་རིམ།</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>Csatorna</translation>
+        <translation>དྲ་རྒྱའི་རྒྱུ་ལམ།</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Felület</translation>
+        <translation>མཐུད་ཁ།</translation>
     </message>
     <message>
         <source>MAC</source>
-        <translation>MAC cím</translation>
+        <translation>MAC</translation>
     </message>
     <message>
         <source>IPv4</source>
@@ -140,15 +140,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Átjáró</translation>
+        <translation>དྲ་སྒོ།</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Elsődleges DNS</translation>
+        <translation>སྔོན་འདེམས་DNS</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Hálózati maszk</translation>
+        <translation>བུ་དྲ་ཡིབ་ཨང་།</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -156,77 +156,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Előtag</translation>
+        <translation>སྔོན་སྦྱོར།</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Sebesség</translation>
+        <translation>མྱུར་ཚད།</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>Eszköz letiltva</translation>
+        <translation>སྒྲིག་ཆས་སྤྱོད་མི་ཆོག</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Csatlakoztatva, de nincs internet hozzáférés</translation>
+        <translation>དྲ་རྒྱ་དང་འབྲེལ་ཟིན་ཡང་མཉམ་སྦྲེལ་དྲ་རྒྱར་འཛུལ་མི་ཐུབ།</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Nincs csatlakozva</translation>
+        <translation>སྦྲེལ་མེད་པ། </translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>A hálózati kábel kihúzva</translation>
+        <translation>དྲ་སྐུད་མཐུད་མི་འདུག</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Csatlakozás</translation>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Hitelesítés</translation>
+        <translation>ར་སྤྲོད་བྱེད་བཞིན་པ།</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>IP cím lekérése</translation>
+        <translation> IP གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>Csatlakozva</translation>
+        <translation>སྦྲེལ་ཟིན། </translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Szétkapcsolva</translation>
+        <translation>བཅད་ཟིན།</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Sikertelen</translation>
+        <translation>ཕམ་པ།</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>Cím lekérése</translation>
+        <translation>གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Vezetékes hálózat </translation>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Vezetékes hálózat %1</translation>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ་%1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Vezeték nélküli hálózat</translation>
+        <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Vezeték nélküli hálózat %1 </translation>
+        <translation>སྐུད་མེད་དྲ་རྒྱ་%1</translation>
     </message>
 </context>
 </TS>

@@ -9,6 +9,10 @@
 <context>
     <name>NetworkPanel</name>
     <message>
+        <source>IP conflict</source>
+        <translation>İP ziddiyyəti</translation>
+    </message>
+    <message>
         <source>Device disabled</source>
         <translation>Cihaz söndürülüb</translation>
     </message>
@@ -57,36 +61,43 @@
         <translation>Şəbəkəni qoşmaq</translation>
     </message>
     <message>
+        <source>Network settings</source>
+        <translation>Şəbəkə ayarları</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
         <source>Connecting %1</source>
-        <translation>%1 qoşulur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation>%1 qoşuldu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation>%q ayrıldı</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation>%1 ilə bağlantı alınmadı, routerinizi və ya şəbəkə kabelinizi yoxlayın.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation>%1 bağlantısı mümkün deyil, lütfən, simsiz routerə yaxın durun</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation>Bağlantı alınmadı, %1 qoşula bilmir, şifrə səhvdir</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation>%1 ilə bağlantı üçün şifrə tələb olunur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation>%1 802.11 WLAN şəbəkəsi tapıla bilmədi</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

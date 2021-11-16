@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Simli bağlantını söndürmək</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Simli bağlantını qoşmaq</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Simsiz bağlantını söndürmək</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Simsiz bağlantını qoşmaq</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Şəbəkəni söndürmək</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Şəbəkəni qoşmaq</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Şəbəkə ayarları</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -50,6 +19,10 @@
     <message>
         <source>Wrong password</source>
         <translation>Səhv şifrə</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>

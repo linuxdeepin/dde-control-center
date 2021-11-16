@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Disable wired connection</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Enable wired connection</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Disable wireless connection</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Enable wireless connection</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Disable network</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Enable network</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Network settings</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -50,6 +19,10 @@
     <message>
         <source>Wrong password</source>
         <translation>Wrong password</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
+        <translation>Password required to connect %1</translation>
     </message>
     <message>
         <source>Password</source>

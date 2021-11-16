@@ -1,68 +1,68 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="hu" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.1">
 <context>
     <name>Bubble</name>
     <message>
         <source>1 new message</source>
-        <translation>1 új üzenet</translation>
+        <translation>1 nuovo messaggio</translation>
     </message>
 </context>
 <context>
     <name>NetworkPanel</name>
     <message>
         <source>IP conflict</source>
-        <translation>IP cím ütközés</translation>
+        <translation>Conflitto IP</translation>
     </message>
     <message>
         <source>Device disabled</source>
-        <translation>Eszköz letiltva</translation>
+        <translation>Dispositivo disattivato</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>A hálózati kábel kihúzva</translation>
+        <translation>Cavo di rete scollegato</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Nincs kapcsolódva</translation>
+        <translation>Non connesso</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Kapcsolódás</translation>
+        <translation>Connessione in corso</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Csatlakoztatva, de nincs internet hozzáférés</translation>
+        <translation>Connesso senza accesso ad internet</translation>
     </message>
     <message>
         <source>Connection failed</source>
-        <translation>A kapcsolódás sikertelen</translation>
+        <translation>Connessione fallita</translation>
     </message>
     <message>
         <source>Disable wired connection</source>
-        <translation>Vezetékes kapcsolat letiltása</translation>
+        <translation>Disattiva connessione cablata</translation>
     </message>
     <message>
         <source>Enable wired connection</source>
-        <translation>Vezetékes kapcsolat engedélyezése</translation>
+        <translation>Attiva connessione cablata</translation>
     </message>
     <message>
         <source>Disable wireless connection</source>
-        <translation>Vezeték-nélküli kapcsolat letiltása</translation>
+        <translation>Disattiva connessione WiFi</translation>
     </message>
     <message>
         <source>Enable wireless connection</source>
-        <translation>Vezeték nélküli kapcsolat engedélyezése</translation>
+        <translation>Attiva connessione WiFi</translation>
     </message>
     <message>
         <source>Disable network</source>
-        <translation>Hálózat letiltása</translation>
+        <translation>Disabilita Rete</translation>
     </message>
     <message>
         <source>Enable network</source>
-        <translation>Hálózat engedélyezése</translation>
+        <translation>Abilita Rete</translation>
     </message>
     <message>
         <source>Network settings</source>
-        <translation>Hálózati beállítások</translation>
+        <translation>Impostazioni Rete</translation>
     </message>
 </context>
 <context>
@@ -112,27 +112,27 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>Protokoll</translation>
+        <translation>Protocollo</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>Biztonság típusa</translation>
+        <translation>Tipo sicurezza</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>Sáv</translation>
+        <translation>Banda</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>Csatorna</translation>
+        <translation>Canale</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>Felület</translation>
+        <translation>Interfaccia</translation>
     </message>
     <message>
         <source>MAC</source>
-        <translation>MAC cím</translation>
+        <translation>MAC</translation>
     </message>
     <message>
         <source>IPv4</source>
@@ -140,15 +140,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>Átjáró</translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>Elsődleges DNS</translation>
+        <translation>DNS Primario</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>Hálózati maszk</translation>
+        <translation>Netmask</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -156,77 +156,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>Előtag</translation>
+        <translation>Prefisso</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>Sebesség</translation>
+        <translation>Velocità</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>Eszköz letiltva</translation>
+        <translation>Dispositivo disattivato</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>Csatlakoztatva, de nincs internet hozzáférés</translation>
+        <translation>Connesso senza accesso ad internet</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>Nincs csatlakozva</translation>
+        <translation>Non connesso</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>A hálózati kábel kihúzva</translation>
+        <translation>Cavo di rete scollegato</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>Csatlakozás</translation>
+        <translation>Connessione in corso</translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>Hitelesítés</translation>
+        <translation>Autentificazione in corso</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>IP cím lekérése</translation>
+        <translation>Ottenimento indirizzo IP</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>Csatlakozva</translation>
+        <translation>Connesso</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>Szétkapcsolva</translation>
+        <translation>Disconnesso</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>Sikertelen</translation>
+        <translation>Connessione fallita</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>Cím lekérése</translation>
+        <translation>Ottenimento indirizzo</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>Vezetékes hálózat </translation>
+        <translation>Connessione cablata</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>Vezetékes hálózat %1</translation>
+        <translation>Connessione cablata %1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>Vezeték nélküli hálózat</translation>
+        <translation>Connessione WiFi</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>Vezeték nélküli hálózat %1 </translation>
+        <translation>Rete wireless %1</translation>
     </message>
 </context>
 </TS>

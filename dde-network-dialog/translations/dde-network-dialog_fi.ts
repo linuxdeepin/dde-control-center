@@ -11,37 +11,6 @@
     </message>
 </context>
 <context>
-    <name>NetworkPanel</name>
-    <message>
-        <source>Disable wired connection</source>
-        <translation>Poista kiinteä yhteys</translation>
-    </message>
-    <message>
-        <source>Enable wired connection</source>
-        <translation>Kytke kiinteä yhteys</translation>
-    </message>
-    <message>
-        <source>Disable wireless connection</source>
-        <translation>Poista langaton käytöstä</translation>
-    </message>
-    <message>
-        <source>Enable wireless connection</source>
-        <translation>Kytke langaton käyttöön</translation>
-    </message>
-    <message>
-        <source>Disable network</source>
-        <translation>Poista verkko käytöstä</translation>
-    </message>
-    <message>
-        <source>Enable network</source>
-        <translation>Kytke verkko käyttöön</translation>
-    </message>
-    <message>
-        <source>Network settings</source>
-        <translation>Verkon asetukset</translation>
-    </message>
-</context>
-<context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
@@ -49,6 +18,10 @@
     </message>
     <message>
         <source>Wrong password</source>
+        <translation>Väärä salasana</translation>
+    </message>
+    <message>
+        <source>Password required to connect %1</source>
         <translation type="unfinished"/>
     </message>
     <message>

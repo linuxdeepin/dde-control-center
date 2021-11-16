@@ -1,53 +1,53 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="zh_CN" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="it" version="2.1">
 <context>
     <name>DeviceControllItem</name>
     <message>
         <source>Wireless Network</source>
-        <translation>无线网络</translation>
+        <translation>Connessione WiFi</translation>
     </message>
     <message>
         <source>Wired Network</source>
-        <translation>有线网络</translation>
+        <translation>Connessione cablata</translation>
     </message>
 </context>
 <context>
     <name>WirelessItem</name>
     <message>
         <source>Connect to hidden network</source>
-        <translation>连接到隐藏网络</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>密码错误</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation>连接%1需要密码</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Password</source>
-        <translation>请输入密码</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
         <comment>button</comment>
-        <translation>取 消</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Connect</source>
         <comment>button</comment>
-        <translation>连 接</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Name (SSID)</source>
-        <translation>请输入网络名称（SSID）</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDetails</name>
     <message>
         <source>Hotspot</source>
-        <translation>热点</translation>
+        <translation>Hotspot</translation>
     </message>
     <message>
         <source>SSID</source>
@@ -55,23 +55,23 @@
     </message>
     <message>
         <source>Protocol</source>
-        <translation>协议</translation>
+        <translation>Protocollo</translation>
     </message>
     <message>
         <source>Security Type</source>
-        <translation>安全类型</translation>
+        <translation>Tipo sicurezza</translation>
     </message>
     <message>
         <source>Band</source>
-        <translation>频段</translation>
+        <translation>Banda</translation>
     </message>
     <message>
         <source>Channel</source>
-        <translation>网络通道</translation>
+        <translation>Canale</translation>
     </message>
     <message>
         <source>Interface</source>
-        <translation>接口</translation>
+        <translation>Interfaccia</translation>
     </message>
     <message>
         <source>MAC</source>
@@ -83,15 +83,15 @@
     </message>
     <message>
         <source>Gateway</source>
-        <translation>网关</translation>
+        <translation>Gateway</translation>
     </message>
     <message>
         <source>Primary DNS</source>
-        <translation>首选DNS</translation>
+        <translation>DNS Primario</translation>
     </message>
     <message>
         <source>Netmask</source>
-        <translation>子网掩码</translation>
+        <translation>Netmask</translation>
     </message>
     <message>
         <source>IPv6</source>
@@ -99,77 +99,77 @@
     </message>
     <message>
         <source>Prefix</source>
-        <translation>前缀</translation>
+        <translation>Prefisso</translation>
     </message>
     <message>
         <source>Speed</source>
-        <translation>速率</translation>
+        <translation>Velocità</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkDeviceRealize</name>
     <message>
         <source>Device disabled</source>
-        <translation>设备已禁用</translation>
+        <translation>Dispositivo disattivato</translation>
     </message>
     <message>
         <source>Connected but no Internet access</source>
-        <translation>已连接网络但无法访问互联网</translation>
+        <translation>Connesso senza accesso ad internet</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation>未连接</translation>
+        <translation>Non connesso</translation>
     </message>
     <message>
         <source>Network cable unplugged</source>
-        <translation>未插入网线</translation>
+        <translation>Cavo di rete scollegato</translation>
     </message>
     <message>
         <source>Connecting</source>
-        <translation>正在连接</translation>
+        <translation>Connessione in corso</translation>
     </message>
     <message>
         <source>Authenticating</source>
-        <translation>认证中</translation>
+        <translation>Autentificazione in corso</translation>
     </message>
     <message>
         <source>Obtaining IP address</source>
-        <translation>正在获取IP地址</translation>
+        <translation>Ottenimento indirizzo IP</translation>
     </message>
     <message>
         <source>Connected</source>
-        <translation>已连接</translation>
+        <translation>Connesso</translation>
     </message>
     <message>
         <source>Disconnected</source>
-        <translation>已断开</translation>
+        <translation>Disconnesso</translation>
     </message>
     <message>
         <source>Failed</source>
-        <translation>失败</translation>
+        <translation>Connessione fallita</translation>
     </message>
     <message>
         <source>Obtaining address</source>
-        <translation>获取地址中</translation>
+        <translation>Ottenimento indirizzo</translation>
     </message>
 </context>
 <context>
     <name>dde::network::NetworkProcesser</name>
     <message>
         <source>Wired Network</source>
-        <translation>有线网络</translation>
+        <translation>Connessione cablata</translation>
     </message>
     <message>
         <source>Wired Network %1</source>
-        <translation>有线网络%1</translation>
+        <translation>Connessione cablata %1</translation>
     </message>
     <message>
         <source>Wireless Network</source>
-        <translation>无线网络</translation>
+        <translation>Connessione WiFi</translation>
     </message>
     <message>
         <source>Wireless Network %1</source>
-        <translation>无线网络%1</translation>
+        <translation>Rete wireless %1</translation>
     </message>
 </context>
 </TS>
