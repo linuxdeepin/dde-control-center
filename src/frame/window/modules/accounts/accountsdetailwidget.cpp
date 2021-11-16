@@ -291,47 +291,7 @@ void AccountsDetailWidget::initUserInfo(QVBoxLayout *layout)
 
     connect(m_inputLineEdit, &DLineEdit::editingFinished, this, [ = ] {
         QString userFullName = m_inputLineEdit->lineEdit()->text();
-        if (userFullName == m_curUser->fullname() || (!userFullName.isEmpty() && userFullName.simplified().isEmpty())) {
-            m_inputLineEdit->lineEdit()->clearFocus();
-            m_inputLineEdit->setVisible(false);
-            m_fullName->setVisible(true);
-            m_fullNameBtn->setVisible(true);
-            if (m_inputLineEdit->isAlert()) {
-                m_inputLineEdit->setAlert(false);
-                m_inputLineEdit->hideAlertMessage();
-            }
-            return;
-        }
-        if (!userFullName.isEmpty()) {
-            QList<User *> userList = m_userModel->userList();
-            for (User *user : userList) {
-                if (userFullName == user->fullname()) {
-                    m_inputLineEdit->setAlert(true);
-                    m_inputLineEdit->showAlertMessage(tr("The username already exists"), m_inputLineEdit, 2000);
-                    m_inputLineEdit->lineEdit()->selectAll();
-                    return;
-                }
-            }
-            QList<QString> groupList = m_userModel->getAllGroups();
-            for (QString &group : groupList) {
-                if (userFullName == group && userFullName != m_curUser->name()) {
-                    m_inputLineEdit->setAlert(true);
-                    m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
-                    m_inputLineEdit->lineEdit()->selectAll();
-                    return;
-                }
-            }
-        }
-        m_inputLineEdit->lineEdit()->clearFocus();
-        m_inputLineEdit->setVisible(false);
-        m_fullName->setVisible(true);
-        m_fullNameBtn->setVisible(true);
-        if (m_inputLineEdit->isAlert()) {
-            m_inputLineEdit->setAlert(false);
-            m_inputLineEdit->hideAlertMessage();
-        }
-
-        Q_EMIT requestSetFullname(m_curUser, m_inputLineEdit->text());
+        Q_EMIT editingFinished(userFullName);
     });
 
     //点击用户图像
@@ -639,6 +599,57 @@ void AccountsDetailWidget::resizeEvent(QResizeEvent *event)
 void AccountsDetailWidget::resetDelButtonState()
 {
     m_deleteAccount->setEnabled(true);
+}
+
+void AccountsDetailWidget::onEditingFinished(bool isValid, const QString& userFullName)
+{
+    if (userFullName == m_curUser->fullname() || (!userFullName.isEmpty() && userFullName.simplified().isEmpty())) {
+        m_inputLineEdit->lineEdit()->clearFocus();
+        m_inputLineEdit->setVisible(false);
+        m_fullName->setVisible(true);
+        m_fullNameBtn->setVisible(true);
+        if (m_inputLineEdit->isAlert()) {
+            m_inputLineEdit->setAlert(false);
+            m_inputLineEdit->hideAlertMessage();
+        }
+        return;
+    }
+    if (!userFullName.isEmpty()) {
+        if (isValid) {
+            m_inputLineEdit->setAlert(true);
+            m_inputLineEdit->showAlertMessage(tr("The username already exists"), m_inputLineEdit, 2000);
+            m_inputLineEdit->lineEdit()->selectAll();
+            return;
+        }
+        QList<User *> userList = m_userModel->userList();
+        for (User *user : userList) {
+            if (userFullName == user->fullname()) {
+                m_inputLineEdit->setAlert(true);
+                m_inputLineEdit->showAlertMessage(tr("The username already exists"), m_inputLineEdit, 2000);
+                m_inputLineEdit->lineEdit()->selectAll();
+                return;
+            }
+        }
+        QList<QString> groupList = m_userModel->getAllGroups();
+        for (QString &group : groupList) {
+            if (userFullName == group && userFullName != m_curUser->name()) {
+                m_inputLineEdit->setAlert(true);
+                m_inputLineEdit->showAlertMessage(tr("The name already exists"), m_inputLineEdit, 2000);
+                m_inputLineEdit->lineEdit()->selectAll();
+                return;
+            }
+        }
+    }
+    m_inputLineEdit->lineEdit()->clearFocus();
+    m_inputLineEdit->setVisible(false);
+    m_fullName->setVisible(true);
+    m_fullNameBtn->setVisible(true);
+    if (m_inputLineEdit->isAlert()) {
+        m_inputLineEdit->setAlert(false);
+        m_inputLineEdit->hideAlertMessage();
+    }
+
+    Q_EMIT requestSetFullname(m_curUser, m_inputLineEdit->text());
 }
 
 void AccountsDetailWidget::setDeleteBtnStatus(const QString &key, const bool &status)
