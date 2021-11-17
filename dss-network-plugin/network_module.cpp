@@ -34,6 +34,8 @@
 
 #define NETWORK_KEY "network-item-key"
 
+using namespace NetworkManager;
+
 namespace dss {
 namespace module {
 
@@ -112,9 +114,9 @@ void NetworkModule::onAddDevice(const QString &devicePath)
     }
     // 登录界面才监听该信号，用于横幅、密码错误处理
     if (!m_devicePaths.contains(devicePath)) {
-        NetworkManager::Device::Ptr device(new NetworkManager::Device(devicePath));
-        NetworkManager::Device *nmDevice = nullptr;
-        if (device->type() == NetworkManager::Device::Wifi) {
+        Device::Ptr device(new Device(devicePath));
+        Device *nmDevice = nullptr;
+        if (device->type() == Device::Wifi) {
             NetworkManager::WirelessDevice *wDevice = new NetworkManager::WirelessDevice(devicePath, this);
             nmDevice = wDevice;
             connect(wDevice, &NetworkManager::WirelessDevice::activeAccessPointChanged, this, [this](const QString &ap) {
@@ -144,107 +146,125 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
         return;
     }
     switch (newstate) {
-    case NetworkManager::Device::State::Preparing: { // 正在连接
-        if (oldstate == NetworkManager::Device::State::Disconnected) {
+    case Device::State::Preparing: { // 正在连接
+        if (oldstate == Device::State::Disconnected) {
             switch (device->type()) {
-            case NetworkManager::Device::Type::Ethernet:
+            case Device::Type::Ethernet:
                 NotificationManager::NetworkNotify(NotificationManager::WiredConnecting, m_lastConnection);
                 break;
-            case NetworkManager::Device::Type::Wifi:
+            case Device::Type::Wifi:
                 NotificationManager::NetworkNotify(NotificationManager::WirelessConnecting, m_lastConnection);
                 break;
             }
         }
     } break;
-    case NetworkManager::Device::State::Activated: { // 连接成功
+    case Device::State::Activated: { // 连接成功
         switch (device->type()) {
-        case NetworkManager::Device::Type::Ethernet:
+        case Device::Type::Ethernet:
             NotificationManager::NetworkNotify(NotificationManager::WiredConnected, m_lastConnection);
             break;
-        case NetworkManager::Device::Type::Wifi:
+        case Device::Type::Wifi:
             NotificationManager::NetworkNotify(NotificationManager::WirelessConnected, m_lastConnection);
             break;
         }
     } break;
-    case NetworkManager::Device::State::Failed: {
-        if (device->type() == NetworkManager::Device::Wifi) {
+    case Device::State::Failed: {
+        if (device->type() == Device::Wifi) {
             switch (reason) {
-            case NetworkManager::Device::NoSecretsReason:
-            case NetworkManager::Device::ConfigUnavailableReason:
-                m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
-                emit signalShowNetworkDialog();
-                break;
+            case Device::NoSecretsReason:
+            case Device::ConfigUnavailableReason: {
+                NetworkManager::WirelessDevice wirelessDevice(device->uni());
+                WirelessNetwork::Ptr network = wirelessDevice.findNetwork(m_lastConnection);
+                if (network.isNull()) {
+                    break;
+                }
+                AccessPoint::Ptr ap = network->referenceAccessPoint();
+                if (ap.isNull()) {
+                    break;
+                }
+                AccessPoint::Capabilities capabilities = ap->capabilities();
+                AccessPoint::WpaFlags wpaFlags = ap->wpaFlags();
+                AccessPoint::WpaFlags rsnFlags = ap->rsnFlags();
+
+                // 无安全要求的网络连接失败后,不弹网络列表
+                if (capabilities.testFlag(AccessPoint::Capability::Privacy)
+                    || ((wpaFlags.testFlag(AccessPoint::WpaFlag::KeyMgmtPsk) || rsnFlags.testFlag(AccessPoint::WpaFlag::KeyMgmtPsk)))
+                    || ((wpaFlags.testFlag(AccessPoint::WpaFlag::KeyMgmt8021x) || rsnFlags.testFlag(AccessPoint::WpaFlag::KeyMgmt8021x)))) {
+                    m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
+                    emit signalShowNetworkDialog();
+                }
+            } break;
             default:
                 break;
             }
         }
     } // 没有break，还需要继续处理横幅
-    case NetworkManager::Device::State::Disconnected:
-    case NetworkManager::Device::State::NeedAuth:
-    case NetworkManager::Device::State::Unmanaged:
-    case NetworkManager::Device::State::Unavailable: {
-        if (reason == NetworkManager::Device::StateChangeReason::DeviceRemovedReason) {
+    case Device::State::Disconnected:
+    case Device::State::NeedAuth:
+    case Device::State::Unmanaged:
+    case Device::State::Unavailable: {
+        if (reason == Device::StateChangeReason::DeviceRemovedReason) {
             return;
         }
 
         // ignore if device's old state is not available
-        if (!(oldstate > NetworkManager::Device::State::Unavailable)) {
+        if (oldstate <= Device::State::Unavailable) {
             qDebug("no notify, old state is not available");
             return;
         }
 
         // ignore invalid reasons
-        if (reason == NetworkManager::Device::StateChangeReason::UnknownReason) {
+        if (reason == Device::StateChangeReason::UnknownReason) {
             qDebug("no notify, device state reason invalid");
             return;
         }
 
         switch (reason) {
-        case NetworkManager::Device::StateChangeReason::UserRequestedReason:
-            if (newstate == NetworkManager::Device::State::Disconnected) {
+        case Device::StateChangeReason::UserRequestedReason:
+            if (newstate == Device::State::Disconnected) {
                 switch (device->type()) {
-                case NetworkManager::Device::Type::Ethernet:
+                case Device::Type::Ethernet:
                     NotificationManager::NetworkNotify(NotificationManager::WiredDisconnected, m_lastConnection);
                     break;
-                case NetworkManager::Device::Type::Wifi:
+                case Device::Type::Wifi:
                     NotificationManager::NetworkNotify(NotificationManager::WirelessDisconnected, m_lastConnection);
                     break;
                 }
             }
             break;
-        case NetworkManager::Device::StateChangeReason::NewActivation:
-        case NetworkManager::Device::StateChangeReason::ConfigUnavailableReason:
+        case Device::StateChangeReason::NewActivation:
+        case Device::StateChangeReason::ConfigUnavailableReason:
             switch (device->type()) {
-            case NetworkManager::Device::Type::Ethernet:
+            case Device::Type::Ethernet:
                 NotificationManager::NetworkNotify(NotificationManager::WiredUnableConnect, m_lastConnection);
                 break;
-            case NetworkManager::Device::Type::Wifi:
+            case Device::Type::Wifi:
                 NotificationManager::NetworkNotify(NotificationManager::WirelessUnableConnect, m_lastConnection);
                 break;
             }
             break;
-        case NetworkManager::Device::StateChangeReason::AuthSupplicantDisconnectReason:
-            if (oldstate == NetworkManager::Device::State::ConfiguringHardware && newstate == NetworkManager::Device::State::NeedAuth) {
+        case Device::StateChangeReason::AuthSupplicantDisconnectReason:
+            if (oldstate == Device::State::ConfiguringHardware && newstate == Device::State::NeedAuth) {
                 switch (device->type()) {
-                case NetworkManager::Device::Type::Ethernet:
+                case Device::Type::Ethernet:
                     NotificationManager::NetworkNotify(NotificationManager::WiredConnectionFailed, m_lastConnection);
                     break;
-                case NetworkManager::Device::Type::Wifi:
+                case Device::Type::Wifi:
                     NotificationManager::NetworkNotify(NotificationManager::WirelessConnectionFailed, m_lastConnection);
                     break;
                 }
             }
             break;
-        case NetworkManager::Device::StateChangeReason::CarrierReason:
-            if (device->type() == NetworkManager::Device::Ethernet) {
+        case Device::StateChangeReason::CarrierReason:
+            if (device->type() == Device::Ethernet) {
                 qDebug("unplugged device is ethernet");
                 NotificationManager::NetworkNotify(NotificationManager::WiredDisconnected, m_lastConnection);
             }
             break;
-        case NetworkManager::Device::StateChangeReason::NoSecretsReason:
+        case Device::StateChangeReason::NoSecretsReason:
             NotificationManager::NetworkNotify(NotificationManager::NoSecrets, m_lastConnection);
             break;
-        case NetworkManager::Device::StateChangeReason::SsidNotFound:
+        case Device::StateChangeReason::SsidNotFound:
             NotificationManager::NetworkNotify(NotificationManager::SsidNotFound, m_lastConnection);
             break;
         }
