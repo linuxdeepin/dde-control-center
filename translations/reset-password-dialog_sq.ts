@@ -146,27 +146,27 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="482"/>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Gabim sistemi</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="484"/>
         <source>Login expired, please sign in to the Union ID again</source>
-        <translation type="unfinished"/>
+        <translation>Hyrja skadoi, ju lutemi, ribëni hyrjen te Union ID</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="486"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Gabim rrjeti</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="488"/>
         <source>You have reached the number limit to get the code today</source>
-        <translation type="unfinished"/>
+        <translation>Keni mbërritur në numrin kufi për të marrë kodin sot</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="489"/>
         <source>The Union ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>Union ID s’është e lidhur me ndonjë llogari përdoruesi</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="508"/>

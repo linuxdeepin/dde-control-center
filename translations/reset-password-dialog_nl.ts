@@ -146,27 +146,27 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="482"/>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Systeemfout</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="484"/>
         <source>Login expired, please sign in to the Union ID again</source>
-        <translation type="unfinished"/>
+        <translation>Je sessie is verlopen - log opnieuw in met je Union-id</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="486"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Netwerkfout</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="488"/>
         <source>You have reached the number limit to get the code today</source>
-        <translation type="unfinished"/>
+        <translation>Je hebt het maximumaantal inlogpogingen van vandaag bereikt</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="489"/>
         <source>The Union ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>Deze Union-id is niet gekoppeld aan een gebruikersaccount</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="508"/>

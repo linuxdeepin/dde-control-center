@@ -128,84 +128,84 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="214"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="351"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="356"/>
         <source>Full Name</source>
         <translation>设置全名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="278"/>
         <source>The full name is too long</source>
         <translation>名称过长</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="299"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="308"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="313"/>
         <source>The username already exists</source>
         <translation>此用户名已存在</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="411"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="416"/>
         <source>Validity Days</source>
         <translation>密码有效天数</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
         <source>Account Settings</source>
         <translation>帐户设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="473"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="473"/>
         <source>Reset Password</source>
         <translation>重设密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
         <source>Delete Account</source>
         <translation>删除帐户</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="472"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="477"/>
         <source>Auto Login</source>
         <translation>自动登录</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="480"/>
         <source>Login Without Password</source>
         <translation>无密码登录</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="478"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="483"/>
         <source>Administrator</source>
         <translation>管理员</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="515"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>只允许开启一个自动登录帐户，确认开启后将关闭其他帐户的自动登录选项</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="517"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="513"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="518"/>
         <source>Enable</source>
         <translation>开启</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="641"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="646"/>
         <source>Group</source>
         <translation>用户组</translation>
     </message>
@@ -382,133 +382,133 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="112"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="113"/>
         <source>Change Password</source>
         <translation>修改密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
         <source>Reset Password</source>
         <translation>重设密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="117"/>
         <source>Resetting passwords do not change the login keyring. You can install seahorse to manage it.</source>
         <translation>重设帐户密码不会重设“登录”密钥环的密码，需要安装seahorse进行管理。</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
         <source>Current Password</source>
         <translation>当前密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="124"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="125"/>
         <source>Forgot password?</source>
         <translation>忘记密码？</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="138"/>
         <source>New Password</source>
         <translation>新密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="171"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="174"/>
         <source>Repeat Password</source>
         <translation>重复密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="175"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="179"/>
         <source>Password Hint</source>
         <translation>密码提示</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="180"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="402"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="412"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="181"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="186"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="253"/>
         <source>Strong</source>
         <translation>强度高</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="255"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="264"/>
         <source>Medium</source>
         <translation>强度中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="272"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="285"/>
         <source>A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>建议密码长度8位以上，同时包含小写字母、大写字母、数字、符号中的3种</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="277"/>
         <source>Weak</source>
         <translation>强度低</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="277"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="287"/>
         <source>Error occurred when reading the configuration files of password rules!</source>
         <translation>密码规则配置文件读取错误</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="310"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="312"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="314"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="320"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="322"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="324"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="316"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="326"/>
         <source>Optional</source>
         <translation>选填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="330"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="340"/>
         <source>Password cannot be empty</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="346"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="454"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="464"/>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="365"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="375"/>
         <source>Wrong password</source>
         <translation>密码错误</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="371"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="381"/>
         <source>New password should differ from the current one</source>
         <translation>新密码和旧密码不能相同</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="378"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="447"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="388"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="457"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="401"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="411"/>
         <source>Go to Settings</source>
         <translation>前往设置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="516"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="534"/>
         <source>System error</source>
         <translation>系统错误</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="518"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="536"/>
         <source>Network error</source>
         <translation>网络错误</translation>
     </message>
@@ -518,47 +518,47 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="84"/>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>添加人脸数据</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="93"/>
         <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation type="unfinished"/>
+        <translation>请确保五官清晰可见，避免佩戴帽子、墨镜、口罩等物件，保证光线充足，避免阳光直射，以提高录入成功率</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="108"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="110"/>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>下一步</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="187"/>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>人脸录入完成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="193"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>完 成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="197"/>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation>人脸录入失败</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="202"/>
         <source>Try Again</source>
-        <translation type="unfinished"/>
+        <translation>重新录入</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addfaceinfodialog.cpp" line="205"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>关 闭</translation>
     </message>
 </context>
 <context>
@@ -596,42 +596,42 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="84"/>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>添加虹膜数据</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="92"/>
         <source>Look at the iris scanner and make sure your eyes are inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>请注视设备，确保双眼在采集区域内</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="106"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="108"/>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>下一步</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="160"/>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>虹膜录入已完成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="163"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>完 成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="171"/>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>虹膜录入失败</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/addirisinfodialog.cpp" line="176"/>
         <source>Try Again</source>
-        <translation type="unfinished"/>
+        <translation>重新录入</translation>
     </message>
 </context>
 <context>
@@ -639,17 +639,17 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="145"/>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>不得超过15个字符</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="145"/>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/authenticationinfoitem.cpp" line="150"/>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>只能由字母、数字、中文、下划线组成</translation>
     </message>
 </context>
 <context>
@@ -657,12 +657,12 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="66"/>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>添加人脸数据</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/faceinfodialog.cpp" line="74"/>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>请确保您的面部全部显示在识别区域内</translation>
     </message>
 </context>
 <context>
@@ -671,37 +671,37 @@
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="24"/>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="82"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="39"/>
-        <source>Faceid Password</source>
-        <translation type="unfinished"/>
+        <source>Manage Faces</source>
+        <translation>人脸管理</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="40"/>
-        <source>You can add up to 5 faceids</source>
-        <translation type="unfinished"/>
+        <source>You can add up to 5 faces</source>
+        <translation>您最多可录入5个人脸数据</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="78"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="105"/>
         <source>Add Face</source>
-        <translation type="unfinished"/>
+        <translation>添加人脸</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="146"/>
         <source>The name already exists</source>
-        <translation type="unfinished"/>
+        <translation>该名称已存在</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/facewidget.cpp" line="176"/>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>面纹</translation>
     </message>
 </context>
 <context>
@@ -709,7 +709,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/faceiddetailwidget.cpp" line="20"/>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>找不到可支持设备</translation>
     </message>
 </context>
 <context>
@@ -759,7 +759,7 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/irisdetailwidget.cpp" line="20"/>
         <source>No supported devices found</source>
-        <translation type="unfinished"/>
+        <translation>找不到可支持设备</translation>
     </message>
 </context>
 <context>
@@ -768,37 +768,37 @@
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="24"/>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="82"/>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>编辑</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="39"/>
-        <source>Iris Password</source>
-        <translation type="unfinished"/>
+        <source>Manage Irises</source>
+        <translation>虹膜管理</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="40"/>
-        <source>You can add up to 5 iris</source>
-        <translation type="unfinished"/>
+        <source>You can add up to 5 irises</source>
+        <translation>您最多可录入5个虹膜数据</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="78"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="105"/>
         <source>Add Iris</source>
-        <translation type="unfinished"/>
+        <translation>添加虹膜</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="146"/>
         <source>The name already exists</source>
-        <translation type="unfinished"/>
+        <translation>该名称已存在</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/iriswidget.cpp" line="176"/>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>虹膜</translation>
     </message>
 </context>
 <context>
@@ -820,13 +820,13 @@
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="113"/>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>人脸</translation>
         <extra-contents_path>/authentication/Face</extra-contents_path>
     </message>
     <message>
         <location filename="../src/frame/window/modules/authentication/loginoptionswidget.cpp" line="115"/>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>虹膜</translation>
         <extra-contents_path>/authentication/Iris</extra-contents_path>
     </message>
 </context>
@@ -919,103 +919,103 @@
 <context>
     <name>dccV20::commoninfo::BootWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="89"/>
         <source>Updating...</source>
         <translation>正在更新...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="99"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="100"/>
         <source>Startup Delay</source>
         <translation>启动延时</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="103"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="104"/>
         <source>Theme</source>
         <translation>主题</translation>
         <extra-contents_path>/commoninfo/Boot Menu</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="106"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
         <source>Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background</source>
         <translation>您可以点击菜单改变默认启动项，也可以拖拽图片到窗口改变背景图片</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="107"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="108"/>
         <source>Click the option in boot menu to set it as the first boot</source>
         <translation>您可以点击菜单改变默认启动项</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="117"/>
         <source>Switch theme on to view it in boot menu</source>
         <translation>开启主题后您可以在开机时看到主题背景</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="139"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="140"/>
         <source>GRUB Authentication</source>
         <translation>grub验证</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="143"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="144"/>
         <source>GRUB password is required to edit its configuration</source>
         <translation>开启后进入grub编辑需要密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="150"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="151"/>
         <source>Change Password</source>
         <translation>重设密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="158"/>
         <source>Boot Menu</source>
         <translation>启动菜单</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="342"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="343"/>
         <source>Change GRUB password</source>
         <translation>修改grub验证密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="347"/>
-        <source>Username:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="348"/>
-        <source>root</source>
-        <translation type="unfinished"/>
+        <source>Username:</source>
+        <translation>用户名：</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="349"/>
+        <source>root</source>
+        <translation>root</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="350"/>
         <source>New password:</source>
         <translation>新密码：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="350"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="351"/>
         <source>Repeat password:</source>
         <translation>重复密码：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="369"/>
         <source>Cancel</source>
         <comment>button</comment>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="370"/>
         <source>Confirm</source>
         <comment>button</comment>
         <translation>确 定</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="378"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="408"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="410"/>
         <source>Password cannot be empty</source>
         <translation>密码不能为空</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="391"/>
-        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="421"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="393"/>
+        <location filename="../src/frame/window/modules/commoninfo/bootwidget.cpp" line="423"/>
         <source>Passwords do not match</source>
         <translation>密码不一致</translation>
     </message>
@@ -1795,8 +1795,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="349"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="403"/>
-        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="445"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/display/resolutionwidget.cpp" line="447"/>
         <source>Recommended</source>
         <translation>推荐</translation>
     </message>
@@ -1845,7 +1845,7 @@
 <context>
     <name>dccV20::display::SecondaryScreenDialog</name>
     <message>
-        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="116"/>
+        <location filename="../src/frame/window/modules/display/secondaryscreendialog.cpp" line="125"/>
         <source>Brightness</source>
         <translation>亮度</translation>
     </message>
@@ -1875,17 +1875,17 @@
         <translation>命令</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="113"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="127"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="115"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="129"/>
         <source>Add</source>
         <translation>添加</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="146"/>
+        <location filename="../src/frame/window/modules/keyboard/customcontent.cpp" line="160"/>
         <source>This shortcut conflicts with %1, click on Add to make this shortcut effective immediately</source>
         <translation>此快捷键与%1冲突，点击添加使这个快捷键立即生效</translation>
     </message>
@@ -1970,7 +1970,7 @@
         <translation>键盘和语言</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="260"/>
+        <location filename="../src/frame/window/modules/keyboard/keyboardmodule.cpp" line="262"/>
         <source>Custom Shortcut</source>
         <translation>自定义快捷键</translation>
     </message>
@@ -3021,20 +3021,22 @@
 <context>
     <name>dccV20::sound::DevicemanagesPage</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="142"/>
         <source>Output Devices</source>
         <translation>输出设备</translation>
+        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="147"/>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="169"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="148"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="171"/>
         <source>Enable or disable a device as you want</source>
         <translation>控制开关进行设备启用/禁用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="164"/>
+        <location filename="../src/frame/window/modules/sound/devicemanagespage.cpp" line="166"/>
         <source>Input Devices</source>
         <translation>输入设备</translation>
+        <extra-contents_path>/sound/Devices</extra-contents_path>
     </message>
 </context>
 <context>
@@ -3076,7 +3078,7 @@
 <context>
     <name>dccV20::sound::SoundModule</name>
     <message>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="73"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="75"/>
         <source>Sound</source>
         <translation>声音</translation>
     </message>
@@ -3170,72 +3172,72 @@
         <translation>绑定本地帐号</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="54"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="53"/>
         <source>Auto Sync</source>
         <translation>自动同步配置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="58"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="57"/>
         <source>The feature is not available at present, please activate your system first</source>
         <translation>当前系统未激活，暂无法使用该功能</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="61"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="60"/>
         <source>Syncing...</source>
         <translation>正在同步...</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="120"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="119"/>
         <source>Sign Out</source>
         <translation>登出</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="149"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="148"/>
         <source>Your WLAN password will be synced if Network Settings is turned on</source>
         <translation>开启网络同步会同步您的WLAN密码</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="193"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="192"/>
         <source>Network Settings</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="194"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="193"/>
         <source>Sound Settings</source>
         <translation>声音</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="194"/>
         <source>Mouse Settings</source>
         <translation>鼠标</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="195"/>
         <source>Update Settings</source>
         <translation>更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="196"/>
         <source>Dock</source>
         <translation>任务栏</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="197"/>
         <source>Launcher</source>
         <translation>启动器</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="198"/>
         <source>Wallpaper</source>
         <translation>壁纸</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="199"/>
         <source>Theme</source>
         <translation>主题</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="201"/>
+        <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="200"/>
         <source>Power Settings</source>
         <translation>电源</translation>
     </message>
@@ -3254,14 +3256,14 @@
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="433"/>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="462"/>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>系统错误</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="379"/>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="435"/>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="464"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>网络错误</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sync/pages/index.cpp" line="437"/>
@@ -3723,7 +3725,7 @@ Visit User Center and manage your account there.</source>
     </message>
     <message>
         <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="321"/>
-        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="642"/>
+        <location filename="../src/frame/window/modules/update/updatectrlwidget.cpp" line="647"/>
         <source>Last checking time: </source>
         <translation>上次检查更新时间：</translation>
     </message>
@@ -4125,7 +4127,7 @@ Visit User Center and manage your account there.</source>
     <message>
         <location filename="../src/frame/window/search/searchwidget.cpp" line="710"/>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>任务栏</translation>
     </message>
 </context>
 <context>
@@ -4262,80 +4264,76 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="166"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="178"/>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>请确保您的面部全部显示在识别区域内</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="99"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="157"/>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>人脸录入完成</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="104"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="162"/>
         <source>Position a human face please</source>
-        <translation type="unfinished"/>
+        <translation>请使用人类面容</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="112"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="170"/>
         <source>Keep away from the camera</source>
-        <translation type="unfinished"/>
+        <translation>请远离镜头</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="116"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="174"/>
         <source>Get closer to the camera</source>
-        <translation type="unfinished"/>
+        <translation>请靠近镜头</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="124"/>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>请不要多人入镜</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="128"/>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"/>
+        <translation>请确保镜头清洁</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="132"/>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"/>
+        <translation>请避免在暗光、强光、逆光环境下操作</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="136"/>
-        <source>keep your face uncovered</source>
-        <translation type="unfinished"/>
+        <source>Keep your face uncovered</source>
+        <translation>请保持面部无遮挡</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="140"/>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="188"/>
         <source>Scan timed out</source>
-        <translation type="unfinished"/>
+        <translation>录入超时</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="143"/>
+        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="185"/>
         <source>Device crashed, please scan sgain!</source>
-        <translation type="unfinished"/>
+        <translation>录入设备崩溃，请重新录入！</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="182"/>
-        <source>取消</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/modules/authentication/charamangermodel.cpp" line="185"/>
-        <source>崩溃</source>
-        <translation type="unfinished"/>
+        <source>Cancel</source>
+        <translation>取 消</translation>
     </message>
 </context>
 <context>
     <name>dcc::authentication::DisclaimersDialog</name>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="40"/>
-        <source>免责声明</source>
-        <translation type="unfinished"/>
+        <source>Disclaimer</source>
+        <translation>《用户免责声明》</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="44"/>
@@ -4349,32 +4347,43 @@ For better face recognition, take notice of the following when enrolling your fa
 1. Ensure sufficient light, avoid direct sunlight, and keep other people from appearing in the frame.
 2. Pay attention to your appearance before enrollment. Do not cover your face with your hair, a hat, sunglasses, a mask, or heavy makeup.
 3. Do not raise or lower your head, close your eyes, or show your profile face. Make sure your frontal face appears clearly and completely in the frame.
-If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot;&gt; &quot;Face&quot; to delete the enrolled facial data.
+If you agree to this statement and enroll your face (we will not collect your facial information, which will be encrypted locally and stored separately on your device),  face recognition will be enabled. You can go to &quot;Biometric Authentication&quot; &gt; &quot;Face&quot; to delete the enrolled facial data.
 </source>
-        <translation type="unfinished"/>
+        <translation>使用人脸识别功能前，请注意以下事项：
+1.您的电脑可能会被容貌、外形与您相近的人或物品解锁。
+2.人脸识别的安全性低于数字密码、混合密码。
+3.在暗光、强光、逆光或角度过大等场景下，人脸识别的解锁成功率会有所降低。
+4.请勿将设备随意交给他人使用，避免人脸识别功能被恶意利用。
+5.除以上场景外，您需注意其他可能影响人脸识别功能正常使用的情况。
+为更好使用人脸识别，录入面部数据时请注意以下事项：
+1.请保证光线充足，避免阳光直射并避免其他人出现在录入的画面中。
+2.请注意录入数据时的面部状态，避免衣帽、头发、墨镜、口罩、浓妆等遮挡面部信息。
+3.请避免仰头、低头、闭眼或仅露出侧脸的情况，确保脸部正面清晰完整的出现在提示框内。
+若您同意本声明并录入面部数据（我们不会收集您的面容信息，该信息将在您的设备本地加密、单独存储），系统将会开启人脸识别功能。您可前往“生物认证”&gt;&quot;人脸&quot;，删除录入的人脸数据。
+</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="77"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取 消</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersdialog.cpp" line="78"/>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>下一步</translation>
     </message>
 </context>
 <context>
     <name>dcc::authentication::DisclaimersItem</name>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="25"/>
-        <source>I have read and agree to</source>
-        <translation type="unfinished"/>
+        <source>I have read and agree to the</source>
+        <translation>我已阅读并同意</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/authentication/widgets/disclaimersitem.cpp" line="27"/>
-        <source>《the statement》</source>
-        <translation type="unfinished"/>
+        <source>《Disclaimer》</source>
+        <translation>《用户免责声明》</translation>
     </message>
 </context>
 <context>
@@ -4771,8 +4780,7 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::keyboard::ShortcutItem</name>
     <message>
-        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="88"/>
-        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="89"/>
+        <location filename="../src/frame/modules/keyboard/shortcutitem.cpp" line="90"/>
         <source>Enter a new shortcut</source>
         <translation>请输入新的快捷键</translation>
     </message>
@@ -4821,85 +4829,85 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::sound::SoundModel</name>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="112"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="129"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
         <source>Boot up</source>
         <translation>开机</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="113"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="130"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
         <source>Shut down</source>
         <translation>关机</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="114"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="131"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
         <source>Log out</source>
         <translation>注销</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="115"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="132"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="143"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="144"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="145"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="146"/>
         <source>Wake up</source>
         <translation>唤醒</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="116"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="133"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
         <source>Volume +/-</source>
         <translation>音量调节</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="117"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="134"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
         <source>Notification</source>
         <translation>通知</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="118"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
         <source>Low battery</source>
         <translation>电量不足</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="119"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="135"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
         <source>Send icon in Launcher to Desktop</source>
         <translation>从启动器发送图标到桌面</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="120"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="136"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
         <source>Empty Trash</source>
         <translation>清空回收站</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="121"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
         <source>Plug in</source>
         <translation>电源接入</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="122"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
         <source>Plug out</source>
         <translation>电源拔出</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="123"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="137"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="125"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="139"/>
         <source>Removable device connected</source>
         <translation>移动设备接入</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="124"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="138"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="126"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="140"/>
         <source>Removable device removed</source>
         <translation>移动设备拔出</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="125"/>
-        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="139"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="127"/>
+        <location filename="../src/frame/modules/sound/soundmodel.cpp" line="141"/>
         <source>Error</source>
         <translation>错误提示</translation>
     </message>
@@ -4968,37 +4976,32 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::update::UpdateSettingItem</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="146"/>
-        <source>Update failed</source>
-        <translation>更新失败</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="153"/>
         <source>The newest system installed, restart to take effect</source>
         <translation>您已安装最新版本，重启生效！</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="157"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="158"/>
         <source>Waiting</source>
         <translation>等待中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="165"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="166"/>
         <source>Backing up</source>
         <translation>备份中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="177"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="178"/>
         <source>System backup failed</source>
         <translation>系统备份失败</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="206"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="205"/>
         <source>Release date: </source>
         <translation>发布时间：</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="207"/>
+        <location filename="../src/frame/window/modules/update/updatesettingitem.cpp" line="206"/>
         <source>Version</source>
         <translation>版本</translation>
     </message>
@@ -5006,56 +5009,76 @@ If you agree to this statement and enroll your face (we will not collect your fa
 <context>
     <name>dcc::update::UpdateWorker</name>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="426"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="436"/>
         <source>System Updates</source>
         <translation>系统更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="440"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
         <source>%1 apps updates available (such as %2, %3, %4)</source>
         <translation>%2、%3、%4等%1个应用更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="450"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="460"/>
         <source>Security Updates</source>
         <translation>安全更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/modules/update/updatework.cpp" line="460"/>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="471"/>
         <source>Unknown Apps Updates</source>
         <translation>未知来源应用更新</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1469"/>
+        <source>Network disconnected, please retry after connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1472"/>
+        <source>Dependency error, failed to detect the updates</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1475"/>
+        <source>Update failed: insufficient disk space</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/modules/update/updatework.cpp" line="1478"/>
+        <source>Update failed</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dcc::update::updateControlPanel</name>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="39"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="41"/>
         <source>Download and install</source>
         <translation>下载并安装</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="88"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="89"/>
         <source>Learn more</source>
         <translation>了解详情</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="127"/>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="285"/>
         <source>Downloading </source>
         <translation>下载中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="136"/>
         <source>Waiting </source>
         <translation>等待中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="139"/>
         <source>Installing </source>
         <translation>安装中</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="136"/>
+        <location filename="../src/frame/window/modules/update/updatecontrolpanel.cpp" line="142"/>
         <source>Backing up </source>
         <translation>备份中</translation>
     </message>

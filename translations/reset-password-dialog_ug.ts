@@ -24,7 +24,7 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="104"/>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>پارول چوڭ ھەرپ،كىچىك ھەرپ، سانلار ۋە بەلگىلەردىن ئىبارەت ئۈچ تۈرنى ئۆز ئىچىگە ئېلىشى كىرەك(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
+        <translation>پارول چوڭ ھەرپ،كىچىك ھەرپ، سانلار ۋە بەلگىلەردىن ئىبارەت ئۈچ تۈرنى ئۆز ئىچىگە ئېلىشى كېرەك(~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="105"/>
@@ -146,27 +146,27 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="482"/>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>سىستېما خاتالىقى </translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="484"/>
         <source>Login expired, please sign in to the Union ID again</source>
-        <translation type="unfinished"/>
+        <translation>تىزىملىتىش ۋاقتى ئۆتۈپ كەتكەن , Union ID قايتىدىن تىزىملىتىڭ </translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="486"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>تور خاتالىقى </translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="488"/>
         <source>You have reached the number limit to get the code today</source>
-        <translation type="unfinished"/>
+        <translation>بۈگۈنكى دەلىللەش كودىغا ئېرىشىش سانىڭىز توشتى</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="489"/>
         <source>The Union ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>بۇ Union ID يەرلىك ھېسابات نومۇرىغا باغلانمىغان </translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="508"/>

@@ -146,27 +146,27 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="482"/>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Системна помилка</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="484"/>
         <source>Login expired, please sign in to the Union ID again</source>
-        <translation type="unfinished"/>
+        <translation>Термін дії квитка для входу вичерпано. Будь ласка, знову увійдіть до облікового запису Union</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="486"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Помилка мережі</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="488"/>
         <source>You have reached the number limit to get the code today</source>
-        <translation type="unfinished"/>
+        <translation>Ви перевищили граничну кількість отримань коду сьогодні</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="489"/>
         <source>The Union ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікатор Union не пов&apos;язано із обліковим записом користувача</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="508"/>

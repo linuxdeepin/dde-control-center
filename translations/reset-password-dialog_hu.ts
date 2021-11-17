@@ -146,27 +146,27 @@
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="482"/>
         <source>System error</source>
-        <translation type="unfinished"/>
+        <translation>Rendszer hiba</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="484"/>
         <source>Login expired, please sign in to the Union ID again</source>
-        <translation type="unfinished"/>
+        <translation>A bejelentkezés lejárt, kérjük jelentkezzen be újra az Union® azonosítójával</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="486"/>
         <source>Network error</source>
-        <translation type="unfinished"/>
+        <translation>Hálózati hiba</translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="488"/>
         <source>You have reached the number limit to get the code today</source>
-        <translation type="unfinished"/>
+        <translation>Elérte a kód megszerzéséhez egy napon engedélyezett korlátot </translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="489"/>
         <source>The Union ID is not linked to a user account</source>
-        <translation type="unfinished"/>
+        <translation>Az Union® azonosító nincs a felhasználói fiókhoz kapcsolva </translation>
     </message>
     <message>
         <location filename="../src/reset-password-dialog/resetpassworddialog.cpp" line="508"/>
