@@ -47,7 +47,6 @@
 #include <networkdevicebase.h>
 #include <wireddevice.h>
 #include <wirelessdevice.h>
-#include <hotspotcontroller.h>
 
 NetworkPanel::NetworkPanel(QObject *parent)
     : QObject(parent)
@@ -318,7 +317,7 @@ void NetworkPanel::updateItems()
         ctrl->updateView();
 
         items << ctrl;
-        if (device->isEnabled() && !NetworkController::instance()->hotspotController()->enabled(device)) {
+        if (device->isEnabled() && !device->hotspotEnabled()) {
             QList<AccessPoints *> aps = accessPoints(device);
             for (AccessPoints *ap : aps) {
                 WirelessItem *apCtrl = findWirelessItem(ap, device);

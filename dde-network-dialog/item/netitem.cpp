@@ -47,7 +47,6 @@
 #include <wirelessdevice.h>
 #include <networkconst.h>
 #include <networkcontroller.h>
-#include <hotspotcontroller.h>
 
 #define SWITCH_WIDTH 50
 #define SWITCH_HEIGHT 24
@@ -302,7 +301,7 @@ void WirelessControllItem::updateView()
     // 刷新按钮图标
     QPixmap pix = DHiDPIHelper::loadNxPixmap(iconFile());
     m_loadingIndicator->setImageSource(pix);
-    m_loadingIndicator->setVisible(m_device->isEnabled() && !NetworkController::instance()->hotspotController()->enabled(m_device));
+    m_loadingIndicator->setVisible(m_device->isEnabled() && !m_device->hotspotEnabled());
     NetItem::updateView();
 }
 
