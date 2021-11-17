@@ -93,10 +93,6 @@ WirelessSecuritySetting::KeyMgmt WirelessConnect::getKeyMgmtByAp(dde::network::A
 
 void WirelessConnect::initConnection()
 {
-    // 登录界面(用户为lightdm)密码保存为储存所有用户密码
-    struct passwd *userInfo = getpwuid(getuid());
-    Setting::SecretFlagType defaultSecretFalg = (QString(userInfo->pw_name) == LIGHTDM_USER) ? Setting::None : Setting::AgentOwned;
-
     NetworkManager::Connection::Ptr conn;
     const QList<WirelessConnection *> lstConnections = m_device->items();
     for (auto item : lstConnections) {
@@ -158,9 +154,9 @@ void WirelessConnect::initConnection()
             if (keyMgmt != WirelessSecuritySetting::KeyMgmt::WpaNone) {
                 wsSetting->setKeyMgmt(keyMgmt);
                 if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
-                    wsSetting->setWepKeyFlags(defaultSecretFalg);
+                    wsSetting->setWepKeyFlags(Setting::None);
                 } else if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
-                    wsSetting->setPskFlags(defaultSecretFalg);
+                    wsSetting->setPskFlags(Setting::None);
                 }
                 wsSetting->setInitialized(true);
             }
