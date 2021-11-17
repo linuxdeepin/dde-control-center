@@ -44,6 +44,9 @@ void WirelessSettings::initSections()
 {
     GenericSection *genericSection = new GenericSection(m_connSettings);
     genericSection->setConnectionNameEditable(false);
+    if (genericSection->connIdItem()) {
+        genericSection->connIdItem()->setReadOnly(true);
+    }
 
     SecretWirelessSection *secretSection = new SecretWirelessSection(
         m_connSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<NetworkManager::WirelessSecuritySetting>(),
