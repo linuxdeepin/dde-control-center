@@ -155,6 +155,7 @@ void DockPopupWindow::onGlobMouseRelease(const QPoint &mousePos, const int flag)
         return;
 
     emit accept();
+    hide(); // 点击窗口以外先隐藏了，免得 unregisterRegion 之后一直关闭不了
 
     m_regionInter->unregisterRegion();
 }
@@ -169,6 +170,8 @@ void DockPopupWindow::compositeChanged()
 
 void DockPopupWindow::ensureRaised()
 {
-    if (isVisible())
+    if (isVisible()) {
         raise();
+        activateWindow(); // 只要需要显示就先 activate 确认可以获取到输入
+    }
 }
