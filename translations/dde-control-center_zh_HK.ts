@@ -128,84 +128,84 @@
 <context>
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="219"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="356"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="351"/>
         <source>Full Name</source>
         <translation>設置全名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="278"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="273"/>
         <source>The full name is too long</source>
         <translation>名稱過長</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="304"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="313"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="308"/>
         <source>The username already exists</source>
         <translation>此用戶名已存在</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="411"/>
         <source>Validity Days</source>
         <translation>密碼有效天數</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="458"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="453"/>
         <source>Account Settings</source>
         <translation>帳戶設置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
         <source>Change Password</source>
         <translation>修改密碼</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
         <source>Reset Password</source>
         <translation>重設密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
         <source>Delete Account</source>
         <translation>刪除帳戶</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="472"/>
         <source>Auto Login</source>
         <translation>自動登錄</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
         <source>Login Without Password</source>
         <translation>無密碼登錄</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="483"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="478"/>
         <source>Administrator</source>
         <translation>管理員</translation>
         <extra-contents_path>/accounts/Accounts Detail</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="515"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="510"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>只允許開啟一個自動登錄帳戶，確認開啟後將關閉其他帳戶的自動登錄選項</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="517"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="512"/>
         <source>Cancel</source>
         <translation>取 消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="518"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="513"/>
         <source>Enable</source>
         <translation>開啟</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="646"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="641"/>
         <source>Group</source>
         <translation>分組</translation>
     </message>
@@ -3900,22 +3900,25 @@ Visit User Center and manage your account there.</source>
         <translation>系統更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="212"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="214"/>
         <source>App Updates in App Store</source>
         <translation>應用商店的應用</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="214"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="221"/>
         <source>Security Updates</source>
         <translation>安全更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="217"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="226"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="228"/>
         <source>Unknown Apps Updates</source>
         <translation>未知來源應用更新</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="220"/>
+        <location filename="../src/frame/window/modules/update/updatesettings.cpp" line="232"/>
         <source>Install &quot;%1&quot; automatically when the download is complete</source>
         <translation>“%1”下載完成後會自動進行安裝</translation>
     </message>
@@ -5029,23 +5032,23 @@ If you agree to this statement and enroll your face (we will not collect your fa
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1469"/>
-        <source>Network disconnected, please retry after connected</source>
-        <translation type="unfinished"/>
+        <source>Network error</source>
+        <translation>網絡錯誤</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1472"/>
-        <source>Dependency error, failed to detect the updates</source>
-        <translation type="unfinished"/>
+        <source>Dependency error</source>
+        <translation>依賴錯誤</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1475"/>
-        <source>Update failed: insufficient disk space</source>
-        <translation type="unfinished"/>
+        <source>Insufficient disk space</source>
+        <translation>硬盤空間不足</translation>
     </message>
     <message>
         <location filename="../src/frame/modules/update/updatework.cpp" line="1478"/>
         <source>Update failed</source>
-        <translation type="unfinished"/>
+        <translation>更新失敗</translation>
     </message>
 </context>
 <context>

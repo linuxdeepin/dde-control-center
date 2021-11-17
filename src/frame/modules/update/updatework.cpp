@@ -1466,13 +1466,13 @@ UpdateJobErrorMessage UpdateWorker::analyzeJobErrorMessage(QString jobDescriptio
     QString errorType =  object.value("ErrType").toString();
     if (errorType.contains("fetchFailed", Qt::CaseInsensitive) || errorType.contains("IndexDownloadFailed", Qt::CaseInsensitive)) {
         result.jobErrorType = "fetchFailed";
-        result.jobErrorMessage = tr("Network disconnected, please retry after connected");
+        result.jobErrorMessage = tr("Network error");
     } else if (errorType.contains("unmetDependencies", Qt::CaseInsensitive) || errorType.contains("dependenciesBroken", Qt::CaseInsensitive)) {
         result.jobErrorType = "unmetDependencies";
-        result.jobErrorMessage = tr("Dependency error, failed to detect the updates");
+        result.jobErrorMessage = tr("Dependency error");
     } else if (errorType.contains("insufficientSpace", Qt::CaseInsensitive)) {
         result.jobErrorType = "insufficientSpace";
-        result.jobErrorMessage = tr("Update failed: insufficient disk space");
+        result.jobErrorMessage = tr("Insufficient disk space");
     } else {
         result.jobErrorType = "unknown";
         result.jobErrorMessage = tr("Update failed");

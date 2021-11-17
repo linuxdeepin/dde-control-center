@@ -208,13 +208,25 @@ QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
         text = tr("System Updates");
     }
     if (type & 2) {
-        text += tr("App Updates in App Store");
+        if(text.isEmpty()){
+            text += tr("App Updates in App Store");
+        } else {
+            text = text + "," + tr("App Updates in App Store");
+        }
     }
     if (type & 4) {
-        text += tr("Security Updates");
+        if(text.isEmpty()){
+            text += tr("Security Updates");
+        } else {
+            text = text + "," + tr("Security Updates");
+        }
     }
     if (type & 8) {
-        text += tr("Unknown Apps Updates");
+        if(text.isEmpty()){
+            text += tr("Unknown Apps Updates");
+        } else {
+            text = text + "," + tr("Unknown Apps Updates");
+        }
     }
 
     text = QString(tr("Install \"%1\" automatically when the download is complete").arg(text));
