@@ -300,7 +300,7 @@ void UpdateSettings::setUpdateMode()
     quint64 updateMode = 0;
 
     updateMode = updateMode | m_autoCheckSecureUpdate->checked();
-    updateMode = (updateMode << 1) | m_autoCheckAppUpdate->checked();
+    updateMode = (updateMode << 3) | m_autoCheckAppUpdate->checked();
     updateMode = (updateMode << 1) | m_autoCheckUniontechUpdate->checked();
     requestSetUpdateMode(updateMode);
 }

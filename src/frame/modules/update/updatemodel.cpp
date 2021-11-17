@@ -353,7 +353,7 @@ void UpdateModel::setUpdateMode(quint64 updateMode)
 
     setAutoCheckSystemUpdates(m_updateMode & 0b0001);
     setAutoCheckAppUpdates((m_updateMode & 0b0010) >> 1);
-    setAutoCheckSecureUpdates((m_updateMode & 0b0100) >> 2);
+    setAutoCheckSecureUpdates((m_updateMode & 16) >> 4);
 }
 
 void UpdateModel::setAutoCheckSecureUpdates(bool autoCheckSecureUpdates)
