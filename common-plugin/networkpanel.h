@@ -63,6 +63,8 @@ public:
     explicit NetworkPanel(QObject *parent = Q_NULLPTR);
     ~NetworkPanel();
 
+    void setMainWidget(QWidget *mainWidget);
+
     void invokeMenuItem(const QString &menuId);
     bool needShowControlCenter();
     const QString contextMenu(bool hasSetting) const;
@@ -89,6 +91,7 @@ private:
     QStringList getActiveWirelessList() const;
     QStringList currentIpList() const;
     QString getStrengthStateString(int strength);
+    bool isDarkIcon() const;
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
@@ -122,6 +125,7 @@ private:
 
     QSet<QString> m_devicePaths; // 记录无线设备Path,防止信号重复连接
     QString m_lastActiveWirelessDevicePath;
+    QWidget *m_mainWidget;
 };
 
 #endif // NETWORKPANEL_H

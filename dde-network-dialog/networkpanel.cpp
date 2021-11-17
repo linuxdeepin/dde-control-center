@@ -140,7 +140,7 @@ void NetworkPanel::initConnection()
     connect(m_netListView, &DListView::pressed, this, &NetworkPanel::onClickListView);
 
     // 连接超时的信号
-    connect(m_switchWireTimer, &QTimer::timeout, [=]() {
+    connect(m_switchWireTimer, &QTimer::timeout, [ = ] () {
         m_switchWire = !m_switchWire;
         m_timeOut = true;
     });
@@ -149,13 +149,13 @@ void NetworkPanel::initConnection()
     m_wirelessScanTimer->setInterval(wirelessScanInterval);
     const QGSettings *gsetting = Utils::SettingsPtr("com.deepin.dde.dock", QByteArray(), this);
     if (gsetting)
-        connect(gsetting, &QGSettings::changed, [&](const QString &key) {
+        connect(gsetting, &QGSettings::changed, [ & ](const QString &key) {
             if (key == "wireless-scan-interval") {
                 int interval = gsetting->get("wireless-scan-interval").toInt() * 1000;
                 m_wirelessScanTimer->setInterval(interval);
             }
         });
-    connect(m_wirelessScanTimer, &QTimer::timeout, [&] {
+    connect(m_wirelessScanTimer, &QTimer::timeout, [ & ] {
         QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
         for (NetworkDeviceBase *device : devices) {
             if (device->deviceType() == DeviceType::Wireless) {
@@ -164,7 +164,7 @@ void NetworkPanel::initConnection()
             }
         }
     });
-    QTimer::singleShot(100, this, [=] {
+    QTimer::singleShot(100, this, [ = ] {
         onDeviceAdded(networkController->devices());
     });
 }
@@ -209,7 +209,7 @@ void NetworkPanel::getPluginState()
 
 void NetworkPanel::updateItems()
 {
-    auto findBaseController = [=](DeviceType t) -> DeviceControllItem * {
+    auto findBaseController = [ = ] (DeviceType t)-> DeviceControllItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::DeviceControllViewItem)
                 continue;
@@ -222,7 +222,7 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWiredController = [=](WiredDevice *device) -> WiredControllItem * {
+    auto findWiredController = [ = ] (WiredDevice *device)-> WiredControllItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WiredControllViewItem)
                 continue;
@@ -235,7 +235,7 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWiredItem = [=](WiredConnection *conn) -> WiredItem * {
+    auto findWiredItem = [ = ] (WiredConnection *conn)-> WiredItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WiredViewItem)
                 continue;
@@ -248,7 +248,7 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWirelessController = [=](WirelessDevice *device) -> WirelessControllItem * {
+    auto findWirelessController = [ = ] (WirelessDevice *device)-> WirelessControllItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WirelessControllViewItem)
                 continue;
@@ -261,7 +261,7 @@ void NetworkPanel::updateItems()
         return Q_NULLPTR;
     };
 
-    auto findWirelessItem = [=](const AccessPoints *ap, const WirelessDevice *device) -> WirelessItem * {
+    auto findWirelessItem = [ = ] (const AccessPoints *ap, const WirelessDevice *device)-> WirelessItem * {
         for (NetItem *item : m_items) {
             if (item->itemType() != NetItemType::WirelessViewItem)
                 continue;
@@ -303,7 +303,7 @@ void NetworkPanel::updateItems()
     }
 
     // 遍历当前所有的无线网卡
-    auto accessPoints = [&](WirelessDevice *device) {
+    auto accessPoints = [ & ] (WirelessDevice *device) {
         if (device->isEnabled())
             return device->accessPointItems();
 
@@ -335,6 +335,7 @@ void NetworkPanel::updateItems()
                 apCtrl = new WirelessItem(m_netListView->viewport(), device, nullptr);
                 connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::updateSize);
             }
+            apCtrl->updateView();
             items << apCtrl;
         }
     }
@@ -350,7 +351,7 @@ void NetworkPanel::updateItems()
         items << ctrl;
     }
 
-    auto wiredConnections = [&](WiredDevice *device) {
+    auto wiredConnections = [ & ] (WiredDevice *device) {
         if (device->isEnabled())
             return device->items();
 

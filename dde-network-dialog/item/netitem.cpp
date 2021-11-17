@@ -76,6 +76,14 @@ DStandardItem *NetItem::standardItem()
     return m_standardItem;
 }
 
+void NetItem::updateView()
+{
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+        m_standardItem->setForeground(QColor(Qt::black));
+    else
+        m_standardItem->setForeground(QColor(Qt::white));
+}
+
 /**
  * @brief baseControllItem::baseControllItem
  * 总线控制器
@@ -125,6 +133,7 @@ void DeviceControllItem::updateView()
     m_switcher->blockSignals(true);
     m_switcher->setChecked(onOrOff);
     m_switcher->blockSignals(false);
+    NetItem::updateView();
 }
 
 NetItemType DeviceControllItem::itemType()
@@ -208,6 +217,7 @@ void WiredControllItem::updateView()
     m_switcher->blockSignals(true);
     m_switcher->setChecked(m_device->isEnabled());
     m_switcher->blockSignals(false);
+    NetItem::updateView();
 }
 
 NetItemType WiredControllItem::itemType()
@@ -292,6 +302,7 @@ void WirelessControllItem::updateView()
     QPixmap pix = DHiDPIHelper::loadNxPixmap(iconFile());
     m_loadingIndicator->setImageSource(pix);
     m_loadingIndicator->setVisible(m_device->isEnabled() && !NetworkController::instance()->hotspotController()->enabled(m_device));
+    NetItem::updateView();
 }
 
 NetItemType WirelessControllItem::itemType()
@@ -369,6 +380,7 @@ void WiredItem::updateView()
 
     // 设置左侧的连接图标
     m_connectionIconAction->setIcon(QIcon(connectionIconFile));
+    NetItem::updateView();
 }
 
 NetItemType WiredItem::itemType()
@@ -444,6 +456,7 @@ void WirelessItem::updateView()
     updateSrcirityIcon();
     updateWifiIcon();
     updateConnectionStatus();
+    NetItem::updateView();
 }
 
 NetItemType WirelessItem::itemType()

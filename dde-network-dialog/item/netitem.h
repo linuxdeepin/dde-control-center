@@ -99,7 +99,7 @@ public:
     virtual ~NetItem();
 
     virtual DStandardItem *standardItem();
-    virtual void updateView() {}
+    virtual void updateView();
     virtual NetItemType itemType() = 0;
 
 private:

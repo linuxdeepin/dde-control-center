@@ -68,6 +68,7 @@ NetworkPanel::NetworkPanel(QObject *parent)
     , m_ipConflict(false)
     , m_ipConflictChecking(false)
     , m_greeterStyle(false)
+    , m_mainWidget(nullptr)
 {
     initUi();
     initConnection();
@@ -75,6 +76,11 @@ NetworkPanel::NetworkPanel(QObject *parent)
 
 NetworkPanel::~NetworkPanel()
 {
+}
+
+void NetworkPanel::setMainWidget(QWidget *mainWidget)
+{
+    m_mainWidget = mainWidget;
 }
 
 void NetworkPanel::initUi()
@@ -456,6 +462,21 @@ QWidget *NetworkPanel::itemTips()
     return m_tipsWidget;
 }
 
+bool NetworkPanel::isDarkIcon() const
+{
+    // 如果是登陆或者锁屏界面，始终显示白色图标
+    if (m_greeterStyle)
+        return false;
+
+    // 如果当前是白色主题，则任务栏的尺寸是最小尺寸，则显示黑色图标
+    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
+        if (m_mainWidget && m_mainWidget->height() <= PLUGIN_BACKGROUND_MIN_SIZE)
+            return true;
+    }
+
+    return false;
+}
+
 void NetworkPanel::refreshIcon()
 {
     QString stateString;
@@ -463,6 +484,8 @@ void NetworkPanel::refreshIcon()
     const auto ratio = 1.0;
     int iconSize = PLUGIN_ICON_MAX_SIZE;
     int strength = 0;
+
+    bool useDarkIcon = isDarkIcon();
 
     switch (m_pluginState) {
     case PluginState::Disabled:
@@ -499,7 +522,7 @@ void NetworkPanel::refreshIcon()
             strength = QTime::currentTime().msec() / 10 % 100;
             stateString = getStrengthStateString(strength);
             iconString = QString("wireless-%1-symbolic").arg(stateString);
-            if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+            if (useDarkIcon)
                 iconString.append(PLUGIN_MIN_ICON_NAME);
             m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
             emit iconChange();
@@ -509,7 +532,7 @@ void NetworkPanel::refreshIcon()
             const int index = QTime::currentTime().msec() / 200 % 10;
             const int num = index + 1;
             iconString = QString("network-wired-symbolic-connecting%1").arg(num);
-            if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+            if (useDarkIcon)
                 iconString.append(PLUGIN_MIN_ICON_NAME);
             m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
             emit iconChange();
@@ -521,7 +544,7 @@ void NetworkPanel::refreshIcon()
         strength = QTime::currentTime().msec() / 10 % 100;
         stateString = getStrengthStateString(strength);
         iconString = QString("wireless-%1-symbolic").arg(stateString);
-        if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+        if (useDarkIcon)
             iconString.append(PLUGIN_MIN_ICON_NAME);
         m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
         emit iconChange();
@@ -532,7 +555,7 @@ void NetworkPanel::refreshIcon()
         const int index = QTime::currentTime().msec() / 200 % 10;
         const int num = index + 1;
         iconString = QString("network-wired-symbolic-connecting%1").arg(num);
-        if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+        if (useDarkIcon)
             iconString.append(PLUGIN_MIN_ICON_NAME);
         m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
         emit iconChange();
@@ -599,7 +622,7 @@ void NetworkPanel::refreshIcon()
     }
     m_refreshIconTimer->stop();
 
-    if (!m_greeterStyle && DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
+    if (useDarkIcon)
         iconString.append(PLUGIN_MIN_ICON_NAME);
 
     m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);

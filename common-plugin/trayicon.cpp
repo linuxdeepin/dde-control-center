@@ -29,6 +29,7 @@ TrayIcon::TrayIcon(NetworkPanel *panel)
     : QWidget()
     , m_panel(panel)
 {
+    m_panel->setMainWidget(this);
     setAccessibleName(QStringLiteral("NetworkTrayIcon"));
     connect(m_panel, &NetworkPanel::iconChange, this, &TrayIcon::updateIcon);
     setFixedSize(QSize(20, 20));
