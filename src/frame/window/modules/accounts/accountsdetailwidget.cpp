@@ -119,13 +119,8 @@ AccountsDetailWidget::AccountsDetailWidget(User *user, UserModel *model, QWidget
     m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     m_scrollArea->setContentsMargins(0, 0, 0, 0);
-    m_scrollArea->setFrameShape(QFrame::NoFrame);
 
-    QPalette pal = m_scrollArea->palette();
-    pal.setColor(QPalette::Background, Qt::transparent);
-    m_scrollArea->setPalette(pal);
-
-    QWidget *widget = new QWidget(this);
+    QWidget *widget = new QWidget;
     widget->setAccessibleName("scrollAreaWidget");
     widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     widget->setContentsMargins(0, 0, 0, 0);
