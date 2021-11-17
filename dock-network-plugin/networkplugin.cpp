@@ -138,7 +138,9 @@ QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 
 QWidget *NetworkPlugin::itemPopupApplet(const QString &itemKey)
 {
-    emit signalShowNetworkDialog();
+    if (!m_networkPanel->needShowControlCenter()) {
+        emit signalShowNetworkDialog();
+    }
     return Q_NULLPTR;
 }
 

@@ -672,7 +672,7 @@ void WirelessItem::onConnectNetwork()
     // 输入无效在checkInputValid里已判断
     if (m_wirelessConnect->passwordIsValid(password)) {
         if (m_accessPoint) {
-            if (LocalServer::instance()->changePassword(m_device->path() + m_accessPoint->path(), password, true)) {
+            if (LocalServer::instance()->changePassword(m_accessPoint->ssid(), password, true)) {
                 expandWidget(ExpandWidget::Hide);
                 return;
             }
