@@ -719,6 +719,7 @@ void DisplayWorker::monitorAdded(const QString &path)
     mon->setH(inter->height());
     mon->setRotate(inter->rotation());
     mon->setCurrentMode(inter->currentMode());
+    mon->setPreferredMode(inter->bestMode());
     mon->setModeList(inter->modes());
     mon->setRotateList(inter->rotations());
     mon->setPrimary(m_displayInter.primary());

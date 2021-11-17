@@ -67,22 +67,33 @@ void RefreshRatePage::initRateList()
     bool isFirst = true;
     qDebug() << "moni->modeList size:" << moni->modeList().size();
     qDebug() << "moni current mode :" << moni->currentMode().width()
-             << "x" << moni->currentMode().height();
+             << "x" << moni->currentMode().height() << "current rate: " << moni->currentMode().rate();
+    qDebug() << "moni preferred mode :" << moni->preferredMode().width()
+             << "x" << moni->preferredMode().height() << "current rate: " << moni->preferredMode().rate();
     for (auto m : moni->modeList()) {
         if (!Monitor::isSameResolution(m, moni->currentMode()))
             continue;
 
         qDebug() << "get same resolution" << m.width()
-                 << "x" << m.height();
+                 << "x" << m.height() << "rate: " << m.rate();
         auto trate = m.rate();
         DStandardItem *item = new DStandardItem;
         listModel->appendRow(item);
-
         auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
-        if (isFirst) {
-            tstr += QString(" (%1)").arg(tr("Recommended"));
-            isFirst = false;
+
+        // 如果当前设置为preferred分辨率，就取该分辨率下对应的刷新率为preferred
+        if (Monitor::isSameResolution(m, moni->preferredMode())) {
+            if (Monitor::isSameRatefresh(m, moni->preferredMode())) {
+                tstr += QString(" (%1)").arg(tr("Recommended"));
+            }
+        } else {
+            // 如果当前设置不是preferred分辨率，则保持之前的逻辑取该分辨率下第一个刷新率作为preferred
+            if (isFirst) {
+                tstr += QString(" (%1)").arg(tr("Recommended"));
+                isFirst = false;
+            }
         }
+
         if (fabs(trate - moni->currentMode().rate()) < 1e-5) {
             item->setCheckState(Qt::CheckState::Checked);
         } else {

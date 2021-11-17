@@ -119,11 +119,15 @@ void ResolutionDetailPage::initResoList()
     sp.setScrollMetric(QScrollerProperties::VerticalOvershootPolicy, QScrollerProperties::OvershootAlwaysOff);
     scroller->setScrollerProperties(sp);
 
-    bool first = true;
     DStandardItem *curIdx{nullptr};
     const auto &modes = moni->modeList();
     Resolution prevM;
     for (auto m : modes) {
+        if (Monitor::isSameResolution(m, moni->preferredMode())
+                && !Monitor::isSameRatefresh(m, moni->preferredMode())) {
+                continue;
+        }
+
         if (Monitor::isSameResolution(m, prevM)) {
             continue;
         }
@@ -131,9 +135,7 @@ void ResolutionDetailPage::initResoList()
         const QString res = QString("%1x%2").arg(m.width()).arg(m.height());
 
         DStandardItem *item = new DStandardItem();
-        if (first) {
-            first = false;
-            //~ contents_path /display/Resolution
+        if (Monitor::isSameResolution(m, moni->preferredMode())) {
             item->setText(QString("%1 (%2)").arg(res).arg(tr("Recommended")));
         } else {
             item->setText(res);

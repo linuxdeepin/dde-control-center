@@ -146,12 +146,18 @@ void Monitor::setCurrentMode(const Resolution &resolution)
     Q_EMIT currentModeChanged(m_currentMode);
 }
 
+void Monitor::setPreferredMode(const Resolution &resolution)
+{
+    m_preferredMode = resolution;
+}
+
 bool compareResolution(const Resolution &first, const Resolution &second)
 {
     long firstSum = long(first.width()) * first.height();
     long secondSum = long(second.width()) * second.height();
     if ((firstSum > secondSum)
-     || (firstSum == secondSum && first.rate() - second.rate() > 0.000001)) {
+            || (firstSum == secondSum && first.width() > second.width())
+            || (firstSum == secondSum && first.width() == second.width() && first.rate() - second.rate() > 0.000001)) {
         return true;
     }
     return false;

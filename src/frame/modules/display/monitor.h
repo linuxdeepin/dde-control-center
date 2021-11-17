@@ -66,6 +66,7 @@ public:
     inline const QString name() const { Q_ASSERT(!m_name.isEmpty()); return m_name; }
     inline const QString path() const { return m_path; }
     inline const Resolution currentMode() const { return m_currentMode; }
+    inline const Resolution preferredMode() const { return m_preferredMode; }
     inline const QList<quint16> rotateList() const { return m_rotateList; }
     inline const QList<Resolution> modeList() const { return m_modeList; }
     inline bool enable() const { return m_enable; }
@@ -109,6 +110,7 @@ private Q_SLOTS:
     void setPath(const QString &path);
     void setRotateList(const QList<quint16> &rotateList);
     void setCurrentMode(const Resolution &resolution);
+    void setPreferredMode(const Resolution &resolution);
     void setModeList(const ResolutionList &modeList);
     void setMonitorEnable(bool enable);
 
@@ -125,6 +127,7 @@ private:
     QString m_path;
     QString m_primary;
     Resolution m_currentMode;
+    Resolution m_preferredMode;
     QList<quint16> m_rotateList;
 //    QList<QPair<int, int>> m_resolutionList;
 //    QList<double> m_refreshList;

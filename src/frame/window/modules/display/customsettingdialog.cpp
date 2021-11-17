@@ -326,10 +326,20 @@ void CustomSettingDialog::initRefreshrateList(Monitor::JudgementModel mode)
 
         auto tstr = QString::number(trate, 'g', 4) + tr("Hz");
         allStr.append(tstr);
-        if (isFirst) {
-            tstr += QString(" (%1)").arg(tr("Recommended"));
-            isFirst = false;
+
+        // 如果当前设置为preferred分辨率，就取该分辨率下对应的刷新率为preferred
+        if (Monitor::isSameResolution(m, m_monitor->preferredMode())) {
+            if (Monitor::isSameRatefresh(m, m_monitor->preferredMode())) {
+                tstr += QString(" (%1)").arg(tr("Recommended"));
+            }
+        } else {
+            // 如果当前设置不是preferred分辨率，则保持之前的逻辑取该分辨率下第一个刷新率作为preferred
+            if (isFirst) {
+                tstr += QString(" (%1)").arg(tr("Recommended"));
+                isFirst = false;
+            }
         }
+
         if (fabs(trate - currentRate) < 1e-5) {
             item->setCheckState(Qt::CheckState::Checked);
         } else {
@@ -360,13 +370,17 @@ void CustomSettingDialog::initResolutionList()
         m_resolutionListModel = new QStandardItemModel(this);
     m_resolutionList->setModel(m_resolutionListModel);
 
-    bool first = true;
     auto modes = m_monitor->modeList();
     const auto curMode = m_monitor->currentMode();
 
     DStandardItem *curIdx{nullptr};
     Resolution pevR;
     for (auto m : modes) {
+        if (Monitor::isSameResolution(m, m_monitor->preferredMode())
+                && !Monitor::isSameRatefresh(m, m_monitor->preferredMode())) {
+                continue;
+        }
+
         if (Monitor::isSameResolution(pevR, m)) {
             continue;
         }
@@ -393,8 +407,7 @@ void CustomSettingDialog::initResolutionList()
         item->setData(QVariant(m.rate()), RateRole);
         item->setData(QVariant(m.width()), WidthRole);
         item->setData(QVariant(m.height()), HeightRole);
-        if (first) {
-            first = false;
+        if (Monitor::isSameResolution(m, m_monitor->preferredMode())) {
             item->setText(res + QString(" (%1)").arg(tr("Recommended")));
         } else {
             item->setText(res);
