@@ -278,6 +278,7 @@ PersonalizationGeneral::PersonalizationGeneral(QWidget *parent)
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scrollArea->setContentsMargins(0, 0, 0, 0);
+    scrollArea->setBackgroundRole(QPalette::Base);
 
     QVBoxLayout *mainContentLayout = new QVBoxLayout;
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
