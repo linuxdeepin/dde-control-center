@@ -104,7 +104,7 @@ private:
     void changeStatus(Device::State newstate);
 
     bool getHotspotIsEnabled();
-    bool hotspotIsEnabled() override;
+    bool hotspotEnabled() override;
 
 private slots:
     void onWiredConnectionChanged();

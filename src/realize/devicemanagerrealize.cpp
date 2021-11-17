@@ -438,7 +438,7 @@ bool DeviceManagerRealize::getHotspotIsEnabled()
     return (mode == NetworkManager::WirelessDevice::OperationMode::ApMode);
 }
 
-bool DeviceManagerRealize::hotspotIsEnabled()
+bool DeviceManagerRealize::hotspotEnabled()
 {
     return m_hotspotEnabled;
 }

@@ -102,6 +102,11 @@ AccessPoints *WirelessDevice::activeAccessPoints() const
     return Q_NULLPTR;*/
 }
 
+bool WirelessDevice::hotspotEnabled() const
+{
+    return deviceRealize()->hotspotEnabled();
+}
+
 void WirelessDevice::connectNetwork(const QString &ssid)
 {
     AccessPoints *apConnection = findAccessPoint(ssid);

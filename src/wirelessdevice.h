@@ -51,6 +51,7 @@ public:
     void connectNetwork(const QString &ssid);                       // 连接网络，重载函数
     QList<WirelessConnection *> items() const;                      // 无线网络连接列表
     AccessPoints *activeAccessPoints() const;                       // 当前活动的无线连接
+    bool hotspotEnabled() const;                                    // 是否开启热点
 
 Q_SIGNALS:
     void networkAdded(QList<AccessPoints *>);                       // wlan新增网络

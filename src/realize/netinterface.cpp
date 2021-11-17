@@ -296,7 +296,7 @@ QString NetworkDeviceRealize::statusStringDetail()
 
 QString NetworkDeviceRealize::getStatusName()
 {
-    if (hotspotIsEnabled())
+    if (hotspotEnabled())
         return tr("Disconnected");
 
     switch (m_deviceStatus) {

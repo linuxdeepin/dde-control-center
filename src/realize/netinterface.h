@@ -128,6 +128,7 @@ public:
     virtual void connectNetwork(const AccessPoints *item);                               // 连接网络，连接成功抛出deviceStatusChanged信号
     virtual QList<WirelessConnection *> wirelessItems() const;                           // 无线网络连接列表
     virtual AccessPoints *activeAccessPoints() const;                                    // 当前活动的无线连接
+    virtual bool hotspotEnabled() { return false; }                                      // 无线网络是否开启热点
 
     // 有线网络接口
     virtual bool connectNetwork(WiredConnection *connection);                            // 连接网络，连接成功抛出deviceStatusChanged信号
@@ -141,7 +142,6 @@ protected:
     virtual QString statusStringDetail();
     virtual QString getStatusName();
     void enqueueStatus(const DeviceStatus &status);
-    virtual bool hotspotIsEnabled() { return false; }
     void setDeviceStatus(const DeviceStatus &status);
     void sortWiredItem(QList<WiredConnection *> &items);
 

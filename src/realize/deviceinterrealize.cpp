@@ -524,7 +524,7 @@ QList<WirelessConnection *> WirelessDeviceInterRealize::wirelessItems() const
 
 void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
 {
-    bool enabledHotspotOld = hotspotIsEnabled();
+    bool enabledHotspotOld = hotspotEnabled();
 
     m_hotspotInfo = QJsonObject();
     for (const QJsonObject &info : infos) {
@@ -538,7 +538,7 @@ void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObj
     }
 
     if (emitHotspot) {
-        bool enabledHotspot = hotspotIsEnabled();
+        bool enabledHotspot = hotspotEnabled();
         if (enabledHotspotOld != enabledHotspot)
             Q_EMIT hotspotEnableChanged(enabledHotspot);
     }
@@ -546,7 +546,7 @@ void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObj
     DeviceInterRealize::updateActiveConnectionInfo(infos, emitHotspot);
 }
 
-bool dde::network::WirelessDeviceInterRealize::hotspotIsEnabled()
+bool dde::network::WirelessDeviceInterRealize::hotspotEnabled()
 {
     return !m_hotspotInfo.isEmpty();
 }

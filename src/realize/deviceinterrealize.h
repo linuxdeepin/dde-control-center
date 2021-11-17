@@ -146,7 +146,7 @@ protected:
     void updateAccesspoint(const QJsonArray &json);
     void setDeviceEnabledStatus(const bool &enabled) override;
     void updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot) override;
-    bool hotspotIsEnabled() override;
+    bool hotspotEnabled() override;
 
     template<class T>
     void clearListData(QList<T *> &dataList) {
