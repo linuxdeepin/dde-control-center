@@ -122,7 +122,9 @@ MultiScreenWidget::MultiScreenWidget(QWidget *parent)
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_multiSettingLabel);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_modeSettingsItem);
     GSettingWatcher::instance()->bind("displayMultipleDisplays", m_primarySettingsItem);
+    
     DConfigWatcher::instance()->bind(DConfigWatcher::display,"mainScreen", m_primarySettingsItem);
+    DConfigWatcher::instance()->bind(DConfigWatcher::display,"multiscreenMode", m_modeSettingsItem);
 
     QDesktopWidget *desktopwidget = QApplication::desktop();
     connect(desktopwidget,SIGNAL(resized(int)),this,SLOT(onResetSecondaryScreenDlg()));
@@ -146,7 +148,10 @@ MultiScreenWidget::~MultiScreenWidget()
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_multiSettingLabel);
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_modeSettingsItem);
     GSettingWatcher::instance()->erase("displayMultipleDisplays", m_primarySettingsItem);
+
     DConfigWatcher::instance()->erase(DConfigWatcher::display,"mainScreen", m_primarySettingsItem);
+    DConfigWatcher::instance()->erase(DConfigWatcher::display,"multiscreenMode", m_modeSettingsItem);
+
 }
 
 void MultiScreenWidget::setModel(dcc::display::DisplayModel *model)

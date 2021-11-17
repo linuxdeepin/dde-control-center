@@ -93,7 +93,7 @@ class ResolutionWidget : public SettingsItem
     Q_OBJECT
 public:
     explicit ResolutionWidget(int comboxWidth = 300, QWidget *parent = nullptr);
-
+    ~ResolutionWidget();
     enum ResolutionRole {
         IdRole = Dtk::UserRole,
         WidthRole,

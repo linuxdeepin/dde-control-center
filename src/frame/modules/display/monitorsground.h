@@ -74,6 +74,7 @@ protected:
     void resizeEvent(QResizeEvent *event) override;
     void enterEvent(QEvent *) override;
     void leaveEvent(QEvent *) override;
+    void paintEvent(QPaintEvent *event) override;
 
 private:
     void applySettings();

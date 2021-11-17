@@ -26,6 +26,7 @@
 #include "monitorsground.h"
 #include "monitorproxywidget.h"
 #include "displaymodel.h"
+#include "window/dconfigwatcher.h"
 
 #include <math.h>
 #include <float.h>
@@ -84,11 +85,14 @@ MonitorsGround::MonitorsGround(int activateHeight, QWidget *parent)
         applySettings();
         Q_EMIT requestMonitorRelease(m_monitors[m_movingItem]);
     });
+
+    DConfigWatcher::instance()->bind(DConfigWatcher::display,"sketchMap", this);
 }
 
 MonitorsGround::~MonitorsGround()
 {
     qDeleteAll(m_monitors.keys());
+    DConfigWatcher::instance()->erase(DConfigWatcher::display,"sketchMap", this);
 }
 
 void MonitorsGround::setModel(DisplayModel *model, Monitor *moni)
@@ -301,6 +305,14 @@ void MonitorsGround::leaveEvent(QEvent *)
 {
     if (m_scrollArea)
         QScroller::grabGesture(viewport(), QScroller::LeftMouseButtonGesture);
+}
+
+void MonitorsGround::paintEvent(QPaintEvent *event)
+{
+    if(m_isSingleDisplay || m_model->displayMode() != EXTEND_MODE)
+        this->setEnabled(false);
+
+    QGraphicsView::paintEvent(event);
 }
 
 void MonitorsGround::singleScreenAdjest()

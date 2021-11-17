@@ -25,6 +25,7 @@
 
 #include "resolutionwidget.h"
 #include "modules/display/displaymodel.h"
+#include "window/dconfigwatcher.h"
 
 #include <QLabel>
 #include <QComboBox>
@@ -188,6 +189,11 @@ ResolutionWidget::ResolutionWidget(int comboxWidth, QWidget *parent)
     m_contentLayout->addWidget(grp);
 }
 
+ResolutionWidget::~ResolutionWidget()
+{
+    DConfigWatcher::instance()->erase(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
+}
+
 void ResolutionWidget::setModel(DisplayModel *model, Monitor *monitor)
 {
     m_model = model;
@@ -347,12 +353,14 @@ void ResolutionWidget::resolutionWidgetChanged()
 {
     //推荐分辨率下隐藏铺满方式
     if (m_resolutionCombox->currentText().contains(tr("Recommended"))) {
+        DConfigWatcher::instance()->erase(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
         setMinimumHeight(48);
         m_resizeDesktopItem->setVisible(false);
         Q_EMIT requestResizeDesktopVisibleChanged(false);
     } else {
         setMinimumHeight(48*2);
         m_resizeDesktopItem->setVisible(true);
+        DConfigWatcher::instance()->bind(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
         Q_EMIT requestResizeDesktopVisibleChanged(true);
     }
 }

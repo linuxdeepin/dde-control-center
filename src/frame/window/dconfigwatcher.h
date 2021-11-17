@@ -116,7 +116,7 @@ Q_SIGNALS:
     void requestShowSecondMenu(int); //显示第二级页面
 
 private:
-    QMap<ModuleKey *, QWidget *> m_thirdMap; //三级菜单 map
+    QMultiHash<ModuleKey *, QWidget *> m_thirdMap; //三级菜单 map
     QMap<ModuleKey *, QPair<QListView *, QStandardItem *>> m_menuMap;  //二级菜单 map
     QMap<ModuleKey *, bool> m_menuState;
     QMap<QString, DConfig *> m_mapModulesConfig; //模块名称-配置 map

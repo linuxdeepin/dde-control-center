@@ -157,7 +157,7 @@ void DConfigWatcher::erase(ModuleType moduleType, const QString &configName, QWi
     auto lst = m_thirdMap.keys();
     for (auto k : lst) {
         if (k->key == configName && k->type == moduleType) {
-            m_thirdMap.remove(k);
+            m_thirdMap.remove(k,binder);
         }
     }
 }
@@ -194,8 +194,10 @@ void DConfigWatcher::setStatus(QString &moduleName, const QString &configName, Q
 
     if ("Enabled" == setting) {
         binder->setEnabled(true);
+        binder->update();
     } else if ("Disabled" == setting) {
         binder->setEnabled(false);
+        binder->update();
     }
 
     binder->setVisible("Hidden" != setting);
@@ -251,9 +253,9 @@ void DConfigWatcher::onStatusModeChanged(ModuleType moduleType, const QString &k
         return;
 
     // 重新设置控件对应的显示类型
-    for (auto mapUnit : m_thirdMap.keys()) {
-        if (key == mapUnit->key && moduleType == mapUnit->type) {
-            setStatus(moduleName, key, m_thirdMap.value(mapUnit));
+    for (auto mapUnit = m_thirdMap.begin(); mapUnit != m_thirdMap.end(); ++mapUnit) {
+        if (key == mapUnit.key()->key && moduleType == mapUnit.key()->type) {
+            setStatus(moduleName, key, mapUnit.value());
         }
     }
 
