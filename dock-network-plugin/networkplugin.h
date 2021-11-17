@@ -42,6 +42,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void showNetworkDialog(QWidget *w)  const;
     void updatePoint();
+    void lockFrontVisible(bool visible);
 
 public:
     explicit NetworkPlugin(QObject *parent = Q_NULLPTR);

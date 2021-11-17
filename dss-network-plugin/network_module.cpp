@@ -101,10 +101,14 @@ void NetworkModule::showNetworkDialog(QWidget *w) const
     m_networkDialog->show(point.x(), point.y(), Dock::Position::Bottom);
 }
 
-void NetworkModule::updateLockScreenStatus(bool lock)
+void NetworkModule::updateLockScreenStatus(bool visible)
 {
     m_isLockModel = true;
-    m_isLockScreen = lock;
+    m_isLockScreen = visible;
+    if (visible) {
+        m_networkDialog->setSaveMode(true);
+        emit signalShowNetworkDialog();
+    }
 }
 
 void NetworkModule::onAddDevice(const QString &devicePath)

@@ -55,7 +55,7 @@ public:
 
 public Q_SLOTS:
     void showNetworkDialog(QWidget *w) const;
-    void updateLockScreenStatus(bool lock);
+    void updateLockScreenStatus(bool visible);
     void onDeviceStatusChanged(NetworkManager::Device::State newstate, NetworkManager::Device::State oldstate, NetworkManager::Device::StateChangeReason reason);
     void onAddDevice(const QString &path);
 

@@ -62,6 +62,7 @@ void NetworkPlugin::init(PluginProxyInterface *proxyInter)
 
     m_networkPanel.reset(new NetworkPanel);
     m_networkDialog = new NetworkDialog(this);
+    QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(lockFrontVisible(bool)));
 
     if (!pluginIsDisable())
         loadPlugin();
@@ -177,6 +178,13 @@ void NetworkPlugin::refreshPluginItemsVisible()
 void NetworkPlugin::positionChanged(const Dock::Position position)
 {
     updatePoint();
+}
+
+void NetworkPlugin::lockFrontVisible(bool visible)
+{
+    if (!visible) {
+        updatePoint();
+    }
 }
 
 void NetworkPlugin::updatePoint()
