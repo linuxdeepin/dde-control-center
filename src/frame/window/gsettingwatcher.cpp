@@ -27,10 +27,12 @@
 #include <QStandardItemModel>
 #include <QVariant>
 #include <QWidget>
+#include <QDebug>
 
 GSettingWatcher::GSettingWatcher(QObject *parent)
     : QObject(parent)
     , m_gsettings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
+    , m_keys(m_gsettings->keys())
 {
     connect(m_gsettings, &QGSettings::changed, this, &GSettingWatcher::onStatusModeChanged);
 }
@@ -39,6 +41,16 @@ GSettingWatcher *GSettingWatcher::instance()
 {
     static GSettingWatcher w;
     return &w;
+}
+
+bool GSettingWatcher::existKey(const QString &key)
+{
+    if (!m_keys.contains(key)) {
+        qWarning() <<"key:" << key << "non-existent!";
+        return false;
+    }
+
+    return true;
 }
 
 /**
@@ -109,6 +121,9 @@ void GSettingWatcher::erase(const QString &gsettingsName, QWidget *binder)
  */
 void GSettingWatcher::insertState(const QString &key)
 {
+    if(!existKey(key))
+        return;
+
     m_menuState.insert(key, m_gsettings->get(key).toBool());
 }
 
@@ -119,7 +134,7 @@ void GSettingWatcher::insertState(const QString &key)
  */
 void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
 {
-    if (!binder)
+    if (!binder || !existKey(gsettingsName))
         return;
 
     const QString setting = m_gsettings->get(gsettingsName).toString();
@@ -141,6 +156,9 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QWidget *binder)
  */
 void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer, QStandardItem *item)
 {
+    if(!existKey(gsettingsName))
+        return;
+
     bool visible = m_gsettings->get(gsettingsName).toBool();
 
     viewer->setRowHidden(item->row(), !visible);
@@ -158,6 +176,9 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer,
  */
 const QString GSettingWatcher::getStatus(const QString &gsettingsName)
 {
+    if(!existKey(gsettingsName))
+        return QString();
+
     return m_gsettings->get(gsettingsName).toString();
 }
 

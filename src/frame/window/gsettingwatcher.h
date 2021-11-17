@@ -44,11 +44,12 @@ public:
     QMap<QString, bool> getMenuState();
 
 private:
-    GSettingWatcher(QObject *parent = nullptr);
+    explicit GSettingWatcher(QObject *parent = nullptr);
 
     void setStatus(const QString &gsettingsName, QWidget *binder);
     void setStatus(const QString &gsettingsName, QListView *viewer, QStandardItem *item);
     void onStatusModeChanged(const QString &key);
+    bool existKey(const QString &key);
 
 Q_SIGNALS:
     void requestUpdateSecondMenu(int);
@@ -60,6 +61,7 @@ private:
     QGSettings *m_gsettings;
     QHash<QString, QPair<QListView *, QStandardItem *>> m_menuMap;
     QMap<QString, bool> m_menuState;
+    QStringList m_keys;
 };
 
 #endif // GSETTINGWATCHER_H
