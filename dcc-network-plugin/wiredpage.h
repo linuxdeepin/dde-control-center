@@ -106,6 +106,7 @@ private:
     QString m_newConnectionPath;
 
     static const int PathRole = Qt::UserRole + 100;
+    static const int SortRole = Qt::UserRole + 101;
 };
 
 #endif // WIREDPAGE_H

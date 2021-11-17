@@ -69,6 +69,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     m_lvProfiles->setBackgroundType(DStyledItemDelegate::BackgroundType::ClipCornerBackground);
     m_lvProfiles->setSelectionMode(QAbstractItemView::NoSelection);
     m_lvProfiles->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_modelprofiles->setSortRole(SortRole);
 
     TipsItem *tips = new TipsItem(this);
     tips->setFixedHeight(80);
@@ -88,11 +89,11 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     GSettingWatcher::instance()->bind("wiredSwitch", m_switch);
     GSettingWatcher::instance()->bind("wiredSwitch", m_lvProfiles);
     m_tipsGrp->setVisible(dev->isEnabled());
-    connect(m_switch, &SwitchWidget::checkedChanged, this, [this] (const bool checked) {
+    connect(m_switch, &SwitchWidget::checkedChanged, this, [ this ] (const bool checked) {
         m_device->setEnabled(checked);
     });
 
-    connect(this, &WiredPage::requestDeviceEnabled, this, [this] (const QString & devPath, const bool checked) {
+    connect(this, &WiredPage::requestDeviceEnabled, this, [ this ] (const QString & devPath, const bool checked) {
         Q_UNUSED(devPath);
         m_device->setEnabled(checked);
     });
@@ -129,7 +130,7 @@ WiredPage::WiredPage(WiredDevice *dev, QWidget *parent)
     setTitle(tr("Select Settings"));
 
     // 点击有线连接按钮
-    connect(m_lvProfiles, &DListView::clicked, this, [this](const QModelIndex & idx) {
+    connect(m_lvProfiles, &DListView::clicked, this, [ this ](const QModelIndex & idx) {
         m_device->connectNetwork(idx.data(PathRole).toString());
     });
 
@@ -178,9 +179,13 @@ void WiredPage::onUpdateConnectionStatus()
     for (int i = 0; i < m_modelprofiles->rowCount(); i++) {
         ConnectionPageItem *item = static_cast<ConnectionPageItem *>(m_modelprofiles->item(i));
         WiredConnection *connObj = static_cast<WiredConnection *>(item->itemData());
-        if (items.contains(connObj))
+        if (items.contains(connObj)) {
             item->setConnectionStatus(connObj->status());
+            item->setData(items.indexOf(connObj), SortRole);
+        }
     }
+
+    m_modelprofiles->sort(0);
 }
 
 void WiredPage::onConnectionPropertyChanged(const QList<WiredConnection *> &changedConnection)
@@ -213,7 +218,8 @@ void WiredPage::refreshConnectionList()
         it->setData(path, PathRole);
         it->setItemData(connObj);
         it->setConnectionStatus(connObj->status());
-        connect(it, &ConnectionPageItem::detailClick, this, [this, path]{
+        it->setData(connObjList.indexOf(connObj), SortRole);
+        connect(it, &ConnectionPageItem::detailClick, this, [ this, path ]{
             this->editConnection(path);
             m_editPage->setLeftButtonEnable(true);
         });
@@ -222,6 +228,7 @@ void WiredPage::refreshConnectionList()
     }
 
     checkActivatedConnection();
+    m_modelprofiles->sort(0);
 }
 
 void WiredPage::editConnection(const QString &connectionPath)
