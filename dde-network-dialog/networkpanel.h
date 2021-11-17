@@ -54,11 +54,9 @@ class NetworkPanel : public QObject
 
 public:
     explicit NetworkPanel(QObject *parent = Q_NULLPTR);
-    ~NetworkPanel();
+    ~NetworkPanel() override;
 
-    bool needShowControlCenter();
     QWidget *itemApplet();
-    bool hasDevice();
     void passwordError(const QString &path);
 
 protected:

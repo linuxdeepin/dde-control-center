@@ -96,7 +96,7 @@ bool NetworkPlugin::pluginIsDisable()
 const QString NetworkPlugin::itemCommand(const QString &itemKey)
 {
     Q_UNUSED(itemKey)
-    if (!hasDevice() || m_networkPanel->needShowControlCenter()) {
+    if (m_networkPanel->needShowControlCenter()) {
         return QString("dbus-send --print-reply "
                        "--dest=com.deepin.dde.ControlCenter "
                        "/com/deepin/dde/ControlCenter "
@@ -170,14 +170,6 @@ void NetworkPlugin::refreshPluginItemsVisible()
         m_proxyInter->itemRemoved(this, NETWORK_KEY);
     else
         m_proxyInter->itemAdded(this, NETWORK_KEY);
-}
-
-bool NetworkPlugin::hasDevice()
-{
-    if (m_networkPanel.isNull())
-        return false;
-
-    return m_networkPanel.data()->hasDevice();
 }
 
 void NetworkPlugin::positionChanged(const Dock::Position position)

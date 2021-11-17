@@ -348,44 +348,27 @@ void NetworkPanel::invokeMenuItem(const QString &menuId)
 
 bool NetworkPanel::needShowControlCenter()
 {
-    // 得到有线设备和无线设备的数量
-    int wiredCount = deviceCount(DeviceType::Wired);
-    int wirelessCount = deviceCount(DeviceType::Wireless);
-    bool onlyOneTypeDevice = false;
-    if ((wiredCount == 0 && wirelessCount > 0)
-        || (wiredCount > 0 && wirelessCount == 0))
-        onlyOneTypeDevice = true;
+    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
+    // 如果没有网络设备，则直接唤起控制中心
+    if (devices.size() == 0)
+        return true;
 
-    if (onlyOneTypeDevice) {
-        switch (m_pluginState) {
-        case PluginState::Unknow:
-        case PluginState::Nocable:
-        case PluginState::WiredFailed:
-        case PluginState::WirelessConnectNoInternet:
-        case PluginState::WiredConnectNoInternet:
-        case PluginState::WirelessDisconnected:
-        case PluginState::WiredDisconnected:
-        case PluginState::Disabled:
-        case PluginState::WiredDisabled:
-            return true;
-        default:
-            return false;
-        }
-    } else {
-        switch (m_pluginState) {
-        case PluginState::Unknow:
-        case PluginState::Nocable:
-        case PluginState::WiredFailed:
-        case PluginState::ConnectNoInternet:
-        case PluginState::Disconnected:
-        case PluginState::Disabled:
-            return true;
-        default:
-            return false;
+    for (NetworkDeviceBase *device : devices) {
+        if (!device->isEnabled())
+            continue;
+
+        if (device->deviceType() == DeviceType::Wired) {
+            WiredDevice *wiredDevice = static_cast<WiredDevice *>(device);
+            // 只要有一个有线网卡存在连接列表，就让其弹出网络列表
+            if (!wiredDevice->items().isEmpty())
+                return false;
+        } else if (device->deviceType() == DeviceType::Wireless) {
+            WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
+            if (!wirelessDevice->accessPointItems().isEmpty())
+                return false;
         }
     }
 
-    Q_UNREACHABLE();
     return true;
 }
 
@@ -471,11 +454,6 @@ const QString NetworkPanel::contextMenu(bool hasSetting) const
 QWidget *NetworkPanel::itemTips()
 {
     return m_tipsWidget;
-}
-
-bool NetworkPanel::hasDevice()
-{
-    return NetworkController::instance()->devices().size() > 0;
 }
 
 void NetworkPanel::refreshIcon()

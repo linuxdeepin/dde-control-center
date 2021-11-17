@@ -67,7 +67,6 @@ public:
     bool needShowControlCenter();
     const QString contextMenu(bool hasSetting) const;
     QWidget *itemTips();
-    bool hasDevice();
     void setGreeterStyle(bool greeterStyle);
 
     void refreshIcon();

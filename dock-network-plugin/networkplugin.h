@@ -66,10 +66,10 @@ public:
 
     void pluginSettingsChanged() override;
     void positionChanged(const Dock::Position position) override;
+
 private:
     void loadPlugin();
     void refreshPluginItemsVisible();
-    bool hasDevice();
 
 private:
     QScopedPointer<NetworkPanel> m_networkPanel;

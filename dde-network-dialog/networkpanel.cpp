@@ -513,49 +513,6 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
     onUpdatePlugView();
 }
 
-bool NetworkPanel::needShowControlCenter()
-{
-    // 得到有线设备和无线设备的数量
-    int wiredCount = deviceCount(DeviceType::Wired);
-    int wirelessCount = deviceCount(DeviceType::Wireless);
-    bool onlyOneTypeDevice = false;
-    if ((wiredCount == 0 && wirelessCount > 0)
-        || (wiredCount > 0 && wirelessCount == 0))
-        onlyOneTypeDevice = true;
-
-    if (onlyOneTypeDevice) {
-        switch (m_pluginState) {
-        case PluginState::Unknow:
-        case PluginState::Nocable:
-        case PluginState::WiredFailed:
-        case PluginState::WirelessConnectNoInternet:
-        case PluginState::WiredConnectNoInternet:
-        case PluginState::WirelessDisconnected:
-        case PluginState::WiredDisconnected:
-        case PluginState::Disabled:
-        case PluginState::WiredDisabled:
-            return true;
-        default:
-            return false;
-        }
-    } else {
-        switch (m_pluginState) {
-        case PluginState::Unknow:
-        case PluginState::Nocable:
-        case PluginState::WiredFailed:
-        case PluginState::ConnectNoInternet:
-        case PluginState::Disconnected:
-        case PluginState::Disabled:
-            return true;
-        default:
-            return false;
-        }
-    }
-
-    Q_UNREACHABLE();
-    return true;
-}
-
 bool NetworkPanel::deviceEnabled(const DeviceType &deviceType) const
 {
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
@@ -577,11 +534,6 @@ void NetworkPanel::setDeviceEnabled(const DeviceType &deviceType, bool enabeld)
 QWidget *NetworkPanel::itemApplet()
 {
     return m_applet;
-}
-
-bool NetworkPanel::hasDevice()
-{
-    return NetworkController::instance()->devices().size() > 0;
 }
 
 void NetworkPanel::setControlBackground()
