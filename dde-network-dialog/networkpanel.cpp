@@ -79,6 +79,7 @@ void NetworkPanel::initUi()
     m_netListView->setMouseTracking(true);
     m_netListView->setItemMargins(QMargins(10, 0, 10, 0));
     m_netListView->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+    m_netListView->setItemRadius(0);
 
     NetworkDelegate *delegate = new NetworkDelegate(m_netListView);
     delegate->setMargins(QMargins(10, 0, 10, 0));

@@ -65,6 +65,7 @@ NetItem::NetItem(QWidget *parent)
 {
     m_standardItem->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
     m_standardItem->setData(NetConnectionType::UnConnected, ConnectionStatusRole);
+    m_standardItem->setBackground(Qt::transparent);
 }
 
 NetItem::~NetItem()
@@ -509,7 +510,6 @@ void WirelessItem::initUi(QWidget *parent)
     standardItem()->setData(NetItemType::WirelessViewItem, NetItemRole::TypeRole);
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)), NetItemRole::DeviceDataRole);
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_accessPoint)), NetItemRole::DataRole);
-    standardItem()->setBackground(Qt::transparent);
     standardItem()->setFontSize(DFontSizeManager::T6);
 }
 
