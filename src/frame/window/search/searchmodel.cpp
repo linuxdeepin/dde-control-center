@@ -90,33 +90,6 @@ SearchModel::SearchModel(QObject *parent)
     m_contensServerTxtList = {
         {tr("Developer Mode"), true},
     };
-
-    m_contensServerTxtList = {
-        {tr("Developer Mode"), true},
-    };
-
-    //first : 可移除设备名称
-    //second : 可以除设备具体的页面名称(该页面必须与搜索的页面对应)
-    //通过在 loadXml() 301行，使用 “qDebug() << searchBoxStruct.fullPagePath.section('/', 2, -1);”解析
-    m_removedefaultWidgetList = {
-        {tr("Touchpad"), "Touchpad"},
-        {tr("TrackPoint"), "TrackPoint"},
-        {tr("Personal Hotspot"), "Personal Hotspot"},
-        {tr("On Battery"), "On Battery"},
-        {tr("Wired Network"), "Wired Network"},
-        {tr("Wireless Network"), "WirelessPage"},
-        {tr("Multiple Displays"), "Multiple Displays"},
-        {tr("Boot Menu"), "Boot Menu"},
-        {tr("When the lid is closed"), "When the lid is closed"},
-        {tr("Display remaining using and charging time"), "Display remaining using and charging time"},
-        {tr("Maximum capacity"), "Maximum capacity"},
-        {tr("Auto power saving on battery"), "Auto power saving on battery"},
-    };
-
-    //用于区分可移除设备数据，和常驻设备数据（记录页面信息）
-    for (auto data : m_removedefaultWidgetList) {
-        m_defaultRemoveableList << data.second;
-    }
 }
 
 QString SearchModel::formatSearchData(QString data1, QString data2, QString data3)
