@@ -26,6 +26,7 @@
 #include "notificationmanager.h"
 
 #include <QWidget>
+#include <QTime>
 
 #include <networkcontroller.h>
 
@@ -61,7 +62,11 @@ NetworkModule::NetworkModule(QObject *parent)
 
 QWidget *NetworkModule::content()
 {
-    emit signalShowNetworkDialog();
+    int msec = QTime::currentTime().msecsSinceStartOfDay();
+    if(abs(msec - m_clickTime) > 200) {
+        m_clickTime = msec;
+        emit signalShowNetworkDialog();
+    }
     return nullptr;
 }
 

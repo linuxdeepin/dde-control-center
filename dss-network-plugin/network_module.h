@@ -70,6 +70,7 @@ public:
     QString m_lastActiveWirelessDevicePath;
     QString m_lastConnection;
     NetworkManager::Device::State m_lastState;
+    int m_clickTime;
 };
 
 class NetworkPlugin : public QObject

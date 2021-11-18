@@ -75,6 +75,7 @@ private:
 private:
     QScopedPointer<NetworkPanel> m_networkPanel;
     NetworkDialog *m_networkDialog;
+    int m_clickTime;
 };
 
 #endif // NETWORKPLUGIN_H

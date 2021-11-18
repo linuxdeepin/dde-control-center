@@ -26,6 +26,8 @@
 
 #include <DDBusSender>
 
+#include <QTime>
+
 #include <networkcontroller.h>
 
 #define STATE_KEY "enabled"
@@ -34,6 +36,7 @@ NetworkPlugin::NetworkPlugin(QObject *parent)
     : QObject(parent)
     , m_networkPanel(Q_NULLPTR)
     , m_networkDialog(Q_NULLPTR)
+    , m_clickTime(-10000)
 {
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/dock-network-plugin/translations/dock-network-plugin_%1.qm").arg(QLocale::system().name()));
@@ -139,7 +142,9 @@ QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 
 QWidget *NetworkPlugin::itemPopupApplet(const QString &itemKey)
 {
-    if (!m_networkPanel->needShowControlCenter()) {
+    int msec = QTime::currentTime().msecsSinceStartOfDay();
+    if (!m_networkPanel->needShowControlCenter() && abs(msec - m_clickTime) > 200) {
+        m_clickTime = msec;
         emit signalShowNetworkDialog();
     }
     return Q_NULLPTR;
