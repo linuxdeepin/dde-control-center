@@ -48,8 +48,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="921"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="923"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="918"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -70,8 +70,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="933"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="935"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="930"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="932"/>
         <source>Drawing Tablet</source>
         <translation>Tavoletta grafica</translation>
     </message>
@@ -82,8 +82,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="968"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="970"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="965"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="967"/>
         <source>Updates</source>
         <translation>Aggiornamenti</translation>
     </message>
@@ -94,24 +94,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="953"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="955"/>
         <source>General Settings</source>
         <translation>Impostazioni generali</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="415"/>
-        <source>Touchpad</source>
-        <translation>Touchpad</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="416"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="945"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="947"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="942"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="944"/>
         <source>Cloud Sync</source>
         <translation>Sincronizzazione Cloud</translation>
     </message>
@@ -147,7 +137,7 @@
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="322"/>
         <source>Full Name</source>
         <translation>Nome completo</translation>
     </message>
@@ -157,105 +147,106 @@
         <translation>Il nome completo è troppo lungo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="310"/>
-        <source>The username already exists</source>
-        <translation>Questo Username esiste già</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="319"/>
-        <source>The name already exists</source>
-        <translation>Questo nome esiste già</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="376"/>
         <source>Validity Days</source>
         <translation>Giorni di validità</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="428"/>
         <source>Change Password</source>
         <translation>Cambia password</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="430"/>
         <source>Delete Account</source>
         <translation>Elimina account</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="472"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="432"/>
         <source>Auto Login</source>
         <translation>Login automatico</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="435"/>
         <source>Login Without Password</source>
         <translation>Login senza password</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="507"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation>Solo un account puà avere il &quot;Login automatico&quot; attivo. Procedendo verrà disabilitata l&apos;opzione nell&apos;altro account.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="509"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="469"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
         <source>Enable</source>
         <translation>Abilita</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="613"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="573"/>
         <source>Group</source>
         <translation>Gruppo</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="621"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="629"/>
+        <source>The username already exists</source>
+        <translation>Questo Username esiste già</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="638"/>
+        <source>The name already exists</source>
+        <translation>Questo nome esiste già</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="250"/>
         <source>Accounts</source>
         <translation>Account</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="301"/>
         <source>Change Password</source>
         <translation>Cambia password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="305"/>
         <source>Delete Account</source>
         <translation>Elimina account</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="309"/>
         <source>Auto Login</source>
         <translation>Login automatico</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="313"/>
         <source>Login Without Password</source>
         <translation>Login senza password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="274"/>
         <source>Create Account</source>
         <translation>Crea Account</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="274"/>
         <source>New Account</source>
         <translation>Nuovo account</translation>
     </message>
@@ -328,7 +319,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="546"/>
         <source>Cancel</source>
         <translation>Annulla</translation>
     </message>
@@ -424,22 +415,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="495"/>
         <source>The username already exists</source>
         <translation>Questo Username esiste già</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
         <source>The name already exists</source>
         <translation>Questo nome esiste già</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="508"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="517"/>
         <source>Passwords do not match</source>
         <translation>La password non corrisponde</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
         <source>Go to Settings</source>
         <translation>Vai alle impostazioni</translation>
     </message>
@@ -692,40 +684,38 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="246"/>
-        <source>Boot Menu</source>
-        <translation>Menu Boot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="103"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="236"/>
         <source>General Settings</source>
         <translation>Impostazioni generali</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="237"/>
+        <source>Boot Menu</source>
+        <translation>Menu Boot</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="238"/>
         <source>Startup Delay</source>
         <translation>Ritardo avvio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="239"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="240"/>
         <source>Developer Mode</source>
         <translation>Modalità sviluppatore</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="241"/>
         <source>Join User Experience Program</source>
         <translation>Unisciti all&apos;User Experience Program</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="242"/>
         <source>User Experience Program</source>
         <translation>Programma di Betatesting</translation>
     </message>
@@ -2167,81 +2157,79 @@
 <context>
     <name>dccV20::mouse::MouseModule</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="224"/>
-        <source>Touchpad</source>
-        <translation>Touchpad</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="225"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="182"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="213"/>
         <source>Mouse</source>
         <translation>Mouse</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="212"/>
         <source>General</source>
         <translation>Generale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="214"/>
+        <source>Touchpad</source>
+        <translation>Touchpad</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="215"/>
+        <source>TrackPoint</source>
+        <translation>TrackPoint</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="240"/>
         <source>Double-click Test</source>
         <translation>Test doppio-click</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="326"/>
         <source>Left Hand</source>
         <translation>Mano sinistra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="242"/>
         <source>Disable touchpad while typing</source>
         <translation>Disabilita il touchpad quando stai digitando</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="243"/>
         <source>Scrolling Speed</source>
         <translation>Velocità di scorrimento</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="244"/>
         <source>Double-click Speed</source>
         <translation>Velocità doppio click</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="328"/>
         <source>Pointer Speed</source>
         <translation>Velocità del Puntatore</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="251"/>
         <source>Mouse Acceleration</source>
         <translation>Accelerazione del mouse</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="252"/>
         <source>Disable touchpad when a mouse is connected</source>
         <translation>Disabilita il touchpad quando un mouse risulta collegato</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="261"/>
         <source>Natural Scrolling</source>
         <translation>Scorrimento naturale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="260"/>
         <source>Tap to Click</source>
         <translation>Tocca per fare click</translation>
     </message>
@@ -2643,11 +2631,9 @@
         <translation>Generale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
         <translation>Nome</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2691,11 +2677,9 @@
 <context>
     <name>dccV20::network::HotspotPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="278"/>
         <source>Create Hotspot</source>
         <translation>Crea un Hotspot</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2912,203 +2896,170 @@
 <context>
     <name>dccV20::network::NetworkModule</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="297"/>
-        <source>Wired Network</source>
-        <translation>Connessione cablata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="298"/>
-        <source>Wireless Network</source>
-        <translation>Rete wireless</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="294"/>
-        <source>Personal Hotspot</source>
-        <translation>Hotspot personale</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="452"/>
         <source>Network</source>
         <translation>Rete</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="291"/>
         <source>Application Proxy</source>
         <translation>Proxy applicazione</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="292"/>
+        <source>Personal Hotspot</source>
+        <translation>Hotspot personale</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="293"/>
         <source>Network Details</source>
         <translation>Dettagli di rete</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="294"/>
         <source>System Proxy</source>
         <translation>Proxy di sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="295"/>
+        <source>Wired Network</source>
+        <translation>Connessione cablata</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="296"/>
+        <source>Wireless Network</source>
+        <translation>Rete wireless</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="297"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="298"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="320"/>
         <source>Wired Network Adapter</source>
         <translation>Scheda di rete</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="321"/>
         <source>Add Network Connection</source>
         <translation>Aggiungi connessione ad internet</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="327"/>
         <source>Wireless Network Adapter</source>
         <translation>Scheda di rete</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="333"/>
         <source>Hotspot</source>
         <translation>Hotspot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="354"/>
-        <source>Create Hotspot</source>
-        <translation>Crea un Hotspot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="355"/>
-        <source>Name</source>
-        <translation>Nome</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="356"/>
-        <source>Security</source>
-        <translation>Sicurezza</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="357"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="358"/>
-        <source>Device MAC Addr</source>
-        <translation>Indirizzo MAC</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="359"/>
-        <source>Customize MTU</source>
-        <translation>Modifica MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="371"/>
         <source>Proxy Type</source>
         <translation>Tipo di proxy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="340"/>
         <source>IP Address</source>
         <translation>Indirizzo IP</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="367"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="352"/>
         <source>Port</source>
         <translation>Porta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="342"/>
         <source>Username</source>
         <translation>Nome utente </translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="343"/>
         <source>Password</source>
         <translation>Password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="349"/>
         <source>Interface</source>
         <translation>Interfaccia</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="350"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="351"/>
         <source>Band</source>
         <translation>Banda</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="353"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="354"/>
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="355"/>
         <source>Primary DNS</source>
         <translation>DNS Primario</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="356"/>
         <source>Netmask</source>
         <translation>Netmask</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="357"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="358"/>
         <source>Prefix</source>
         <translation>Prefisso</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="359"/>
         <source>Speed</source>
         <translation>Velocità</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="365"/>
         <source>Create PPPoE Connection</source>
         <translation>Crea connessione PPPoE</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="372"/>
         <source>Configuration URL</source>
         <translation>Configurazione URL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="379"/>
         <source>VPN Status</source>
         <translation>Stato VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="380"/>
         <source>Create VPN</source>
         <translation>Crea VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="381"/>
         <source>Import VPN</source>
         <translation>Importa VPN</translation>
     </message>
@@ -3143,9 +3094,9 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="201"/>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="207"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="495"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="502"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="494"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="511"/>
         <source>Disabled</source>
         <translation>Disabilitato</translation>
     </message>
@@ -3165,35 +3116,33 @@
         <translation>Configura dal Network Manager</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="443"/>
         <source>Personal Hotspot</source>
         <translation>Hotspot personale</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="470"/>
         <source>Wired Network %1</source>
         <translation>Connessione cablata %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="472"/>
         <source>Wired Network</source>
         <translation>Connessione cablata</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="476"/>
         <source>Wireless Network %1</source>
         <translation>Rete wireless %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="478"/>
         <source>Wireless Network</source>
         <translation>Rete wireless</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="522"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="528"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="521"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="527"/>
         <source>Disconnected</source>
         <translation>Disconnesso</translation>
     </message>
@@ -3593,24 +3542,22 @@
         <translation>WPA/WPA2 Personal</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="123"/>
         <source>Security</source>
         <translation>Sicurezza</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="129"/>
         <source>Required</source>
         <translation>Richiesta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="160"/>
         <source>Key</source>
         <translation>Chiave</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="166"/>
         <source>Password</source>
         <translation>Password</translation>
     </message>
@@ -4709,33 +4656,27 @@
         <translation>Non collegato</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="115"/>
         <source>SSID</source>
         <translation>SSID</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Required</source>
         <translation>Richiesta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="119"/>
         <source>Device MAC Addr</source>
         <translation>Indirizzo MAC</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="135"/>
         <source>Customize MTU</source>
         <translation>Modifica MTU</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="138"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -5248,25 +5189,25 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="330"/>
         <source>Auto power saving on low battery</source>
         <translation>Risparmio energetico automatico se la batteria è scarica</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
         <source>Auto power saving on battery</source>
         <translation>Risparmio energetico automatico quando non collegato alla rete</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="271"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="340"/>
         <source>Display remaining using and charging time</source>
         <translation>Visualizza il tempo di utilizzo e di ricarica rimanente</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="272"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="342"/>
         <source>Maximum capacity</source>
         <translation>Capacità massima</translation>
     </message>
@@ -5278,16 +5219,16 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="275"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="353"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="354"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
         <source>When the lid is closed</source>
         <translation>Quando chiudi il coperchio del portatile</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="278"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="350"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="351"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="352"/>
         <source>When pressing the power button</source>
         <translation>Quando premi il pulsante di alimentazione</translation>
     </message>
@@ -5298,7 +5239,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="338"/>
         <source>Auto suspend battery level</source>
         <translation>Sospendi automaticamente ad un livello di batteria</translation>
     </message>
@@ -5311,15 +5252,15 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="283"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="337"/>
         <source>Computer will suspend after</source>
         <translation>Il PC andrà in sospensione dopo</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="284"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="356"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="358"/>
         <source>Lock screen after</source>
         <translation>Blocca schermo dopo</translation>
     </message>
@@ -5330,13 +5271,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="336"/>
         <source>Password is required to wake up the computer</source>
         <translation>Password necessaria al risveglio del computer</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="332"/>
         <source>Decrease brightness</source>
         <translation>Diminuisci luminosità</translation>
     </message>
@@ -5357,7 +5298,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="299"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="334"/>
         <source>Power Plans</source>
         <translation>Piano alimentazione</translation>
     </message>
@@ -5372,12 +5313,12 @@
         <translation>Impostazioni risveglio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="379"/>
         <source>Battery low, please plug in</source>
         <translation>Livello batteria basso, collega il PC all&apos;alimentazione</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="381"/>
         <source>Battery critically low</source>
         <translation>Batteria molto scarica</translation>
     </message>
@@ -5703,7 +5644,6 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="82"/>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="109"/>
         <source>Auto power saving on battery</source>
         <translation>Risparmio energetico automatico quando non collegato alla rete</translation>
     </message>
@@ -5733,62 +5673,7 @@
         <translation>Batteria</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="98"/>
-        <source>Touchpad</source>
-        <translation>Touchpad</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="99"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="100"/>
-        <source>Personal Hotspot</source>
-        <translation>Hotspot personale</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="101"/>
-        <source>On Battery</source>
-        <translation>Alimentazione a batteria</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="102"/>
-        <source>Wired Network</source>
-        <translation>Connessione cablata</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="103"/>
-        <source>Wireless Network</source>
-        <translation>Connessione WiFi</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="104"/>
-        <source>Multiple Displays</source>
-        <translation>Multischermo</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="105"/>
-        <source>Boot Menu</source>
-        <translation>Menu Boot</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="106"/>
-        <source>When the lid is closed</source>
-        <translation>Quando chiudi il coperchio del portatile</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="107"/>
-        <source>Display remaining using and charging time</source>
-        <translation>Visualizza il tempo di utilizzo e di ricarica rimanente</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="108"/>
-        <source>Maximum capacity</source>
-        <translation>Capacità massima</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="823"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="800"/>
         <source>Cloud Account</source>
         <translation>Account Cloud</translation>
     </message>
@@ -5866,7 +5751,7 @@
     <name>dccV20::sound::SoundModule</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="241"/>
         <source>Sound</source>
         <translation>Audio</translation>
     </message>
@@ -5902,13 +5787,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="107"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="202"/>
         <source>Automatic Noise Suppression</source>
         <translation>Soppressione automatica del rumore</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="187"/>
         <source>Input Volume</source>
         <translation>Volume di ingresso</translation>
     </message>
@@ -5924,13 +5809,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="190"/>
         <source>Output Volume</source>
         <translation>Volume di uscita</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="193"/>
         <source>Volume Boost</source>
         <translation>Amplificazione volume</translation>
     </message>
@@ -7026,343 +6911,343 @@
         <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="572"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="549"/>
         <source>Create Account</source>
         <translation>Crea Account</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="573"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="550"/>
         <source>Auto Login</source>
         <translation>Login automatico</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="574"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="551"/>
         <source>Login Without Password</source>
         <translation>Login senza password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="575"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="552"/>
         <source>Change Password</source>
         <translation>Cambia password</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="576"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="553"/>
         <source>Delete Account</source>
         <translation>Elimina account</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="579"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="556"/>
         <source>Sign In</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="582"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="559"/>
         <source>My Devices</source>
         <translation>I miei dispositivi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="583"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="560"/>
         <source>Other Devices</source>
         <translation>Altri dispositivi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="584"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="561"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Abilita il bluetooth per identificare dispositivi nelle vicinanze (Speakers, mouse, tastiere..)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="587"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="564"/>
         <source>Boot Menu</source>
         <translation>Menu Boot</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="588"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="565"/>
         <source>Developer Mode</source>
         <translation>Modalità sviluppatore</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="589"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="566"/>
         <source>User Experience Program</source>
         <translation>Programma Betatesting</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="592"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="569"/>
         <source>Format Settings</source>
         <translation>Impostazioni formato</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="593"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="570"/>
         <source>Timezone List</source>
         <translation>Lista fusi orari</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="594"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="571"/>
         <source>Time Settings</source>
         <translation>Impostazioni Orario</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="595"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="572"/>
         <source>Change System Timezone</source>
         <translation>Cambia fuso orario</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="598"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="575"/>
         <source>Webpage</source>
         <translation>Webpage</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="599"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="576"/>
         <source>Mail</source>
         <translation>Mail</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="600"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="577"/>
         <source>Text</source>
         <translation>Testo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="601"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="578"/>
         <source>Music</source>
         <translation>Musica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="602"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="579"/>
         <source>Video</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="603"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="580"/>
         <source>Picture</source>
         <translation>Immagini</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="604"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="581"/>
         <source>Terminal</source>
         <translation>Terminale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="607"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="584"/>
         <source>Brightness</source>
         <translation>Luminosità</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="608"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="585"/>
         <source>Auto Brightness</source>
         <translation>Luminosità automatica</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="609"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="586"/>
         <source>Night Shift</source>
         <translation>Modalità notturna</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="610"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="587"/>
         <source>Change Color Temperature</source>
         <translation>Cambia temperatura colore</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="611"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="588"/>
         <source>Multiple Displays</source>
         <translation>Schermo multiplo</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="612"/>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="661"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="589"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="638"/>
         <source>Mode</source>
         <translation>Modalità</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="613"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="590"/>
         <source>Main Screen</source>
         <translation>Schermo principale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="614"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="591"/>
         <source>Refresh Rate</source>
         <translation>Frequenza di aggiornamento</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="615"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="592"/>
         <source>Resolution</source>
         <translation>Risoluzione</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="616"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="593"/>
         <source>Rotation</source>
         <translation>Rotazione</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="617"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="594"/>
         <source>Display Scaling</source>
         <translation>Scala di visualizzazione</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="620"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="597"/>
         <source>Shortcuts</source>
         <translation>Scorciatoie</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="621"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="598"/>
         <source>Keyboard Layout</source>
         <translation>Layout della tastiera</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="622"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="599"/>
         <source>System Language</source>
         <translation>Lingua di sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="625"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="602"/>
         <source>Personal Hotspot</source>
         <translation>Hotspot personale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="626"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="603"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="627"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="604"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="628"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="605"/>
         <source>Wired Network</source>
         <translation>Connessione cablata</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="629"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="606"/>
         <source>Wireless Network</source>
         <translation>Connessione WiFi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="630"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="607"/>
         <source>Network Details</source>
         <translation>Dettagli di rete</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="631"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="608"/>
         <source>Application Proxy</source>
         <translation>Proxy applicazione</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="632"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="609"/>
         <source>System Proxy</source>
         <translation>Proxy di sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="635"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="612"/>
         <source>System Notifications</source>
         <translation>Notifiche di Sistema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="638"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="615"/>
         <source>Font</source>
         <translation>Font</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="639"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="616"/>
         <source>Icon Theme</source>
         <translation>Tema icone</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="640"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="617"/>
         <source>Cursor Theme</source>
         <translation>Tema cursore</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="643"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="620"/>
         <source>Sound Effects</source>
         <translation>Effetti audio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="644"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="621"/>
         <source>Devices</source>
         <translation>Dispositivi</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="645"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="622"/>
         <source>Input</source>
         <translation>Ingresso</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="646"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="623"/>
         <source>Output</source>
         <translation>Uscita</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="649"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="626"/>
         <source>About This PC</source>
         <translation>Riguardo questo PC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="650"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="627"/>
         <source>Edition License</source>
         <translation>Licenza</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="651"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="628"/>
         <source>End User License Agreement</source>
         <translation>Licenza d&apos;uso</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="652"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="629"/>
         <source>Privacy Policy</source>
         <translation>Privacy Policy</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="655"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="632"/>
         <source>Check for Updates</source>
         <translation>Ricerca aggiornamenti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="656"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="633"/>
         <source>Updates</source>
         <translation>Aggiornamenti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="657"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="634"/>
         <source>Update Settings</source>
         <translation>Impostazioni aggiornamenti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="660"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="637"/>
         <source>Pressure Sensitivity</source>
         <translation>Sensibilità alla pressione</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="664"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="641"/>
         <source>On Battery</source>
         <translation>Alimentazione a batteria</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="665"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="642"/>
         <source>Plugged In</source>
         <translation>Collegato al caricabatteria</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="668"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="645"/>
         <source>General</source>
         <translation>Generale</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="669"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="646"/>
         <source>Mouse</source>
         <translation>Mouse</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="670"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="647"/>
         <source>Touchpad</source>
         <translation>Touchpad</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="671"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="648"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="674"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="651"/>
         <source>Input Methods</source>
         <translation>Metodo di input</translation>
     </message>

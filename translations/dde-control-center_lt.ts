@@ -48,8 +48,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="337"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="921"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="923"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="918"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="920"/>
         <source>Bluetooth</source>
         <translation>Bluetooth</translation>
     </message>
@@ -70,8 +70,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="341"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="933"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="935"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="930"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="932"/>
         <source>Drawing Tablet</source>
         <translation>Piešimo planšetė</translation>
     </message>
@@ -82,8 +82,8 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="343"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="968"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="970"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="965"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="967"/>
         <source>Updates</source>
         <translation>Atnaujinimai</translation>
     </message>
@@ -94,24 +94,14 @@
     </message>
     <message>
         <location filename="../src/frame/window/mainwindow.cpp" line="345"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="956"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="958"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="953"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="955"/>
         <source>General Settings</source>
         <translation>Bendri nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="415"/>
-        <source>Touchpad</source>
-        <translation>Jutiklinis kilimėlis</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="416"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/mainwindow.cpp" line="945"/>
-        <location filename="../src/frame/window/mainwindow.cpp" line="947"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="942"/>
+        <location filename="../src/frame/window/mainwindow.cpp" line="944"/>
         <source>Cloud Sync</source>
         <translation>Sinchronizavimas su debesija</translation>
     </message>
@@ -147,7 +137,7 @@
     <name>dccV20::accounts::AccountsDetailWidget</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="225"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="362"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="322"/>
         <source>Full Name</source>
         <translation>Visas vardas</translation>
     </message>
@@ -157,105 +147,106 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="310"/>
-        <source>The username already exists</source>
-        <translation>Naudotojo vardas jau yra</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="319"/>
-        <source>The name already exists</source>
-        <translation>Pavadinimas jau yra</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="416"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="376"/>
         <source>Validity Days</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="468"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="428"/>
         <source>Change Password</source>
         <translation>Keisti slaptažodį</translation>
         <extra-contents_path>/accounts/Change Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="430"/>
         <source>Delete Account</source>
         <translation>Ištrinti paskyrą</translation>
         <extra-contents_path>/accounts/Delete Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="472"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="432"/>
         <source>Auto Login</source>
         <translation>Automatinis prisijungimas</translation>
         <extra-contents_path>/accounts/Auto Login</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="435"/>
         <source>Login Without Password</source>
         <translation>Prisijungti be slaptažodžio</translation>
         <extra-contents_path>/accounts/Login Without Password</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="507"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="467"/>
         <source>Only one account can have &quot;Auto Login&quot; enabled. If proceeding, that option of other accounts will be disabled.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="509"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="469"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="510"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="470"/>
         <source>Enable</source>
         <translation>Įjungti</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="613"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="573"/>
         <source>Group</source>
         <translation>Grupė</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="621"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="629"/>
+        <source>The username already exists</source>
+        <translation>Naudotojo vardas jau yra</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="638"/>
+        <source>The name already exists</source>
+        <translation>Pavadinimas jau yra</translation>
     </message>
 </context>
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="95"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="240"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="250"/>
         <source>Accounts</source>
         <translation>Paskyros</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="249"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="291"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="301"/>
         <source>Change Password</source>
         <translation>Keisti slaptažodį</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="253"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="305"/>
         <source>Delete Account</source>
         <translation>Ištrinti paskyrą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="257"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="309"/>
         <source>Auto Login</source>
         <translation>Automatinis prisijungimas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="261"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="303"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="313"/>
         <source>Login Without Password</source>
         <translation>Prisijungti be slaptažodžio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="274"/>
         <source>Create Account</source>
         <translation>Sukurti paskyrą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="274"/>
         <source>New Account</source>
         <translation>Nauja paskyra</translation>
     </message>
@@ -328,7 +319,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="537"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="546"/>
         <source>Cancel</source>
         <translation>Atsisakyti</translation>
     </message>
@@ -424,22 +415,23 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="438"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="495"/>
         <source>The username already exists</source>
         <translation>Naudotojo vardas jau yra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="475"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="486"/>
         <source>The name already exists</source>
         <translation>Pavadinimas jau yra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="508"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="517"/>
         <source>Passwords do not match</source>
         <translation>Slaptažodžiai nesutampa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="536"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="545"/>
         <source>Go to Settings</source>
         <translation>Pereiti į nustatymus</translation>
     </message>
@@ -692,40 +684,38 @@
 <context>
     <name>dccV20::commoninfo::CommonInfoModule</name>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="73"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="78"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="246"/>
-        <source>Boot Menu</source>
-        <translation>Paleidimo meniu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="103"/>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="245"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="94"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="236"/>
         <source>General Settings</source>
         <translation>Bendri nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="247"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="237"/>
+        <source>Boot Menu</source>
+        <translation>Paleidimo meniu</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="238"/>
         <source>Startup Delay</source>
         <translation>Paleisties delsa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="248"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="239"/>
         <source>Theme</source>
         <translation>Tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="249"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="240"/>
         <source>Developer Mode</source>
         <translation>Plėtotojo veiksena</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="241"/>
         <source>Join User Experience Program</source>
         <translation>Dalyvauti naudotojo patyrimo programoje</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="251"/>
+        <location filename="../src/frame/window/modules/commoninfo/commoninfomodule.cpp" line="242"/>
         <source>User Experience Program</source>
         <translation>Naudotojo patyrimo programa</translation>
     </message>
@@ -2167,81 +2157,79 @@
 <context>
     <name>dccV20::mouse::MouseModule</name>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="76"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="224"/>
-        <source>Touchpad</source>
-        <translation>Jutiklinis kilimėlis</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="81"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="225"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="182"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="221"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="223"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="172"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="211"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="213"/>
         <source>Mouse</source>
         <translation>Pelė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="222"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="212"/>
         <source>General</source>
         <translation>Bendra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="214"/>
+        <source>Touchpad</source>
+        <translation>Jutiklinis kilimėlis</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="215"/>
+        <source>TrackPoint</source>
+        <translation>TrackPoint</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="240"/>
         <source>Double-click Test</source>
         <translation>Dvikarčio spustelėjimo išbandymas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="251"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="336"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="241"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="326"/>
         <source>Left Hand</source>
         <translation>Kairė ranka</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="242"/>
         <source>Disable touchpad while typing</source>
         <translation>Išjungti jutiklinį kilimėlį, renkant tekstą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="243"/>
         <source>Scrolling Speed</source>
         <translation>Slinkimo greitis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="254"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="244"/>
         <source>Double-click Speed</source>
         <translation>Dvikarčio spustelėjimo greitis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="260"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="277"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="250"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="259"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="267"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="328"/>
         <source>Pointer Speed</source>
         <translation>Rodyklės greitis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="261"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="251"/>
         <source>Mouse Acceleration</source>
         <translation>Pelės pagreitis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="262"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="252"/>
         <source>Disable touchpad when a mouse is connected</source>
         <translation>Išjungti jutiklinį kilimėlį, prijungus pelę</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="263"/>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="253"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="261"/>
         <source>Natural Scrolling</source>
         <translation>Natūrali slinktis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="270"/>
+        <location filename="../src/frame/window/modules/mouse/mousemodule.cpp" line="260"/>
         <source>Tap to Click</source>
         <translation>Bakstelėti, norint spustelėti</translation>
     </message>
@@ -2643,11 +2631,9 @@
         <translation>Bendra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="65"/>
+        <location filename="../src/frame/window/modules/network/sections/generichotspotsection.cpp" line="63"/>
         <source>Name</source>
         <translation>Pavadinimas</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2691,11 +2677,9 @@
 <context>
     <name>dccV20::network::HotspotPage</name>
     <message>
-        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="280"/>
+        <location filename="../src/frame/window/modules/network/hotspotpage.cpp" line="278"/>
         <source>Create Hotspot</source>
         <translation>Sukurti prieigos tašką</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
 </context>
 <context>
@@ -2912,203 +2896,170 @@
 <context>
     <name>dccV20::network::NetworkModule</name>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="171"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="297"/>
-        <source>Wired Network</source>
-        <translation>Laidinis tinklas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="172"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="298"/>
-        <source>Wireless Network</source>
-        <translation>Belaidis tinklas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="173"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="294"/>
-        <source>Personal Hotspot</source>
-        <translation>Asmeninis prieigos taškas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="292"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="480"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="290"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="452"/>
         <source>Network</source>
         <translation>Tinklas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="293"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="291"/>
         <source>Application Proxy</source>
         <translation>Programos įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="295"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="292"/>
+        <source>Personal Hotspot</source>
+        <translation>Asmeninis prieigos taškas</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="293"/>
         <source>Network Details</source>
         <translation>Išsamesnė tinklo informacija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="296"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="294"/>
         <source>System Proxy</source>
         <translation>Sistemos įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="299"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="295"/>
+        <source>Wired Network</source>
+        <translation>Laidinis tinklas</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="296"/>
+        <source>Wireless Network</source>
+        <translation>Belaidis tinklas</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="297"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="300"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="298"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="340"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="320"/>
         <source>Wired Network Adapter</source>
         <translation>Laidinio tinklo adapteris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="321"/>
         <source>Add Network Connection</source>
         <translation>Pridėti tinklo ryšį</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="347"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="327"/>
         <source>Wireless Network Adapter</source>
         <translation>Belaidžio tinklo adapteris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="353"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="333"/>
         <source>Hotspot</source>
         <translation>Prieigos taškas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="354"/>
-        <source>Create Hotspot</source>
-        <translation>Sukurti prieigos tašką</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="355"/>
-        <source>Name</source>
-        <translation>Pavadinimas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="356"/>
-        <source>Security</source>
-        <translation>Saugumas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="357"/>
-        <source>SSID</source>
-        <translation>SSID</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="358"/>
-        <source>Device MAC Addr</source>
-        <translation>Įrenginio MAC adresas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="359"/>
-        <source>Customize MTU</source>
-        <translation>Tinkinti MTU</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="365"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="397"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="371"/>
         <source>Proxy Type</source>
         <translation>Įgaliotojo serverio tipas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="366"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="340"/>
         <source>IP Address</source>
         <translation>IP adresas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="367"/>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="378"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="352"/>
         <source>Port</source>
         <translation>Prievadas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="342"/>
         <source>Username</source>
         <translation>Naudotojo vardas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="369"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="343"/>
         <source>Password</source>
         <translation>Slaptažodis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="375"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="349"/>
         <source>Interface</source>
         <translation>Sąsaja</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="376"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="350"/>
         <source>MAC</source>
         <translation>MAC</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="377"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="351"/>
         <source>Band</source>
         <translation>Juosta</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="379"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="353"/>
         <source>IPv4</source>
         <translation>IPv4</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="354"/>
         <source>Gateway</source>
         <translation>Tinklų sietuvas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="381"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="355"/>
         <source>Primary DNS</source>
         <translation>Pirminis DNS</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="356"/>
         <source>Netmask</source>
         <translation>Tinklo kaukė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="383"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="357"/>
         <source>IPv6</source>
         <translation>IPv6</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="384"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="358"/>
         <source>Prefix</source>
         <translation>Priešdelis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="385"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="359"/>
         <source>Speed</source>
         <translation>Greitis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="391"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="365"/>
         <source>Create PPPoE Connection</source>
         <translation>Sukurti PPPoE ryšį</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="372"/>
         <source>Configuration URL</source>
         <translation>Konfigūracijos URL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="405"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="379"/>
         <source>VPN Status</source>
         <translation>VPN būsena</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="406"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="380"/>
         <source>Create VPN</source>
         <translation>Sukurti VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="407"/>
+        <location filename="../src/frame/window/modules/network/networkmodule.cpp" line="381"/>
         <source>Import VPN</source>
         <translation>Importuoti VPN</translation>
     </message>
@@ -3143,9 +3094,9 @@
     <message>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="201"/>
         <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="207"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="495"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="502"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="512"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="494"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="501"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="511"/>
         <source>Disabled</source>
         <translation>Išjungta</translation>
     </message>
@@ -3165,35 +3116,33 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="444"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="443"/>
         <source>Personal Hotspot</source>
         <translation>Asmeninis prieigos taškas</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="471"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="470"/>
         <source>Wired Network %1</source>
         <translation>Laidinis tinklas %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="473"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="472"/>
         <source>Wired Network</source>
         <translation>Laidinis tinklas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="477"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="476"/>
         <source>Wireless Network %1</source>
         <translation>Belaidis tinklas %1</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="479"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="478"/>
         <source>Wireless Network</source>
         <translation>Belaidis tinklas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="522"/>
-        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="528"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="521"/>
+        <location filename="../src/frame/window/modules/network/networkmodulewidget.cpp" line="527"/>
         <source>Disconnected</source>
         <translation>Atsijungta</translation>
     </message>
@@ -3593,24 +3542,22 @@
         <translation>WPA/WPA2 asmeninis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="125"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="123"/>
         <source>Security</source>
         <translation>Saugumas</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="131"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="129"/>
         <source>Required</source>
         <translation>Būtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="162"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="160"/>
         <source>Key</source>
         <translation>Raktas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="168"/>
+        <location filename="../src/frame/window/modules/network/sections/secrethotspotsection.cpp" line="166"/>
         <source>Password</source>
         <translation>Slaptažodis</translation>
     </message>
@@ -4709,33 +4656,27 @@
         <translation>Nesusietas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="117"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="115"/>
         <source>SSID</source>
         <translation>SSID</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="118"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="116"/>
         <source>Required</source>
         <translation>Būtina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="123"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="119"/>
         <source>Device MAC Addr</source>
         <translation>Įrenginio MAC adresas</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="141"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="135"/>
         <source>Customize MTU</source>
         <translation>Tinkinti MTU</translation>
-        <extra-child_page>Personal Hotspot</extra-child_page>
-        <extra-contents_path>/network/Personal Hotspot</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="144"/>
+        <location filename="../src/frame/window/modules/network/sections/wirelesssection.cpp" line="138"/>
         <source>MTU</source>
         <translation>MTU</translation>
     </message>
@@ -5248,25 +5189,25 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="269"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="331"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="330"/>
         <source>Auto power saving on low battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="329"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="328"/>
         <source>Auto power saving on battery</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="271"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="341"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="340"/>
         <source>Display remaining using and charging time</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="272"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="343"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="342"/>
         <source>Maximum capacity</source>
         <translation type="unfinished"/>
     </message>
@@ -5278,16 +5219,16 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="275"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="353"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="354"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="355"/>
         <source>When the lid is closed</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="278"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="304"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="350"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="351"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="352"/>
         <source>When pressing the power button</source>
         <translation type="unfinished"/>
     </message>
@@ -5298,7 +5239,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="281"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="339"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="338"/>
         <source>Auto suspend battery level</source>
         <translation type="unfinished"/>
     </message>
@@ -5311,15 +5252,15 @@
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="283"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="307"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="337"/>
         <source>Computer will suspend after</source>
         <translation>Kompiuteris bus pristabdytas po</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="284"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="305"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="356"/>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="357"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="358"/>
         <source>Lock screen after</source>
         <translation>Užrakinti ekraną po</translation>
     </message>
@@ -5330,13 +5271,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="294"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="337"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="336"/>
         <source>Password is required to wake up the computer</source>
         <translation>Po kompiuterio pristabdymo reikalauti slaptažodžio</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="295"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="332"/>
         <source>Decrease brightness</source>
         <translation type="unfinished"/>
     </message>
@@ -5357,7 +5298,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/power/powermodule.cpp" line="299"/>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="335"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="334"/>
         <source>Power Plans</source>
         <translation type="unfinished"/>
     </message>
@@ -5372,12 +5313,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="380"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="379"/>
         <source>Battery low, please plug in</source>
         <translation>Baterija baigia išsikrauti, prijunkite maitinimą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="382"/>
+        <location filename="../src/frame/window/modules/power/powermodule.cpp" line="381"/>
         <source>Battery critically low</source>
         <translation>Kritiškai žema baterijos įkrova</translation>
     </message>
@@ -5703,7 +5644,6 @@
     </message>
     <message>
         <location filename="../src/frame/window/search/searchmodel.cpp" line="82"/>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="109"/>
         <source>Auto power saving on battery</source>
         <translation type="unfinished"/>
     </message>
@@ -5733,62 +5673,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="98"/>
-        <source>Touchpad</source>
-        <translation>Jutiklinis kilimėlis</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="99"/>
-        <source>TrackPoint</source>
-        <translation>TrackPoint</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="100"/>
-        <source>Personal Hotspot</source>
-        <translation>Asmeninis prieigos taškas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="101"/>
-        <source>On Battery</source>
-        <translation>Baterijos energija</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="102"/>
-        <source>Wired Network</source>
-        <translation>Laidinis tinklas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="103"/>
-        <source>Wireless Network</source>
-        <translation>Belaidis tinklas</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="104"/>
-        <source>Multiple Displays</source>
-        <translation>Keli ekranai</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="105"/>
-        <source>Boot Menu</source>
-        <translation>Paleidimo meniu</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="106"/>
-        <source>When the lid is closed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="107"/>
-        <source>Display remaining using and charging time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="108"/>
-        <source>Maximum capacity</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="823"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="800"/>
         <source>Cloud Account</source>
         <translation>Debesijos paskyra</translation>
     </message>
@@ -5866,7 +5751,7 @@
     <name>dccV20::sound::SoundModule</name>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="68"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="252"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="241"/>
         <source>Sound</source>
         <translation>Garsas</translation>
     </message>
@@ -5902,13 +5787,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="107"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="228"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="202"/>
         <source>Automatic Noise Suppression</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="108"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="213"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="187"/>
         <source>Input Volume</source>
         <translation>Įvesties garsis</translation>
     </message>
@@ -5924,13 +5809,13 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="118"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="216"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="190"/>
         <source>Output Volume</source>
         <translation>Išvesties garsis</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="119"/>
-        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="219"/>
+        <location filename="../src/frame/window/modules/sound/soundmodule.cpp" line="193"/>
         <source>Volume Boost</source>
         <translation type="unfinished"/>
     </message>
@@ -7026,343 +6911,343 @@
         <extra-contents_path>/defapp/Picture/Add Application</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="572"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="549"/>
         <source>Create Account</source>
         <translation>Sukurti paskyrą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="573"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="550"/>
         <source>Auto Login</source>
         <translation>Automatinis prisijungimas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="574"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="551"/>
         <source>Login Without Password</source>
         <translation>Prisijungti be slaptažodžio</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="575"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="552"/>
         <source>Change Password</source>
         <translation>Keisti slaptažodį</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="576"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="553"/>
         <source>Delete Account</source>
         <translation>Ištrinti paskyrą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="579"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="556"/>
         <source>Sign In</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="582"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="559"/>
         <source>My Devices</source>
         <translation>Mano įrenginiai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="583"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="560"/>
         <source>Other Devices</source>
         <translation>Kiti įrenginiai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="584"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="561"/>
         <source>Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)</source>
         <translation>Įjunkite Bluetooth, norėdami rasti šalia esančius įrenginius (garsiakalbius, klaviatūrą, pelę)</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="587"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="564"/>
         <source>Boot Menu</source>
         <translation>Paleidimo meniu</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="588"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="565"/>
         <source>Developer Mode</source>
         <translation>Plėtotojo veiksena</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="589"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="566"/>
         <source>User Experience Program</source>
         <translation>Naudotojo patyrimo programa</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="592"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="569"/>
         <source>Format Settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="593"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="570"/>
         <source>Timezone List</source>
         <translation>Laiko juostų sąrašas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="594"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="571"/>
         <source>Time Settings</source>
         <translation>Laiko nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="595"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="572"/>
         <source>Change System Timezone</source>
         <translation>Pakeisti sistemos laiko juostą</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="598"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="575"/>
         <source>Webpage</source>
         <translation>Internetinės svetainės</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="599"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="576"/>
         <source>Mail</source>
         <translation>Paštas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="600"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="577"/>
         <source>Text</source>
         <translation>Tekstas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="601"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="578"/>
         <source>Music</source>
         <translation>Muzika</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="602"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="579"/>
         <source>Video</source>
         <translation>Vaizdo įrašai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="603"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="580"/>
         <source>Picture</source>
         <translation>Paveikslai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="604"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="581"/>
         <source>Terminal</source>
         <translation>Terminalas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="607"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="584"/>
         <source>Brightness</source>
         <translation>Ryškumas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="608"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="585"/>
         <source>Auto Brightness</source>
         <translation>Automatinis ryškumas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="609"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="586"/>
         <source>Night Shift</source>
         <translation>Naktinė pamaina</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="610"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="587"/>
         <source>Change Color Temperature</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="611"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="588"/>
         <source>Multiple Displays</source>
         <translation>Keli ekranai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="612"/>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="661"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="589"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="638"/>
         <source>Mode</source>
         <translation>Veiksena</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="613"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="590"/>
         <source>Main Screen</source>
         <translation>Pagrindinis ekranas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="614"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="591"/>
         <source>Refresh Rate</source>
         <translation>Atnaujinimo dažnis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="615"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="592"/>
         <source>Resolution</source>
         <translation>Raiška</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="616"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="593"/>
         <source>Rotation</source>
         <translation>Pasukimas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="617"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="594"/>
         <source>Display Scaling</source>
         <translation>Ekrano mastelis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="620"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="597"/>
         <source>Shortcuts</source>
         <translation>Trumpiniai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="621"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="598"/>
         <source>Keyboard Layout</source>
         <translation>Klaviatūros išdėstymas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="622"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="599"/>
         <source>System Language</source>
         <translation>Sistemos kalba</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="625"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="602"/>
         <source>Personal Hotspot</source>
         <translation>Asmeninis prieigos taškas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="626"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="603"/>
         <source>DSL</source>
         <translation>DSL</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="627"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="604"/>
         <source>VPN</source>
         <translation>VPN</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="628"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="605"/>
         <source>Wired Network</source>
         <translation>Laidinis tinklas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="629"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="606"/>
         <source>Wireless Network</source>
         <translation>Belaidis tinklas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="630"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="607"/>
         <source>Network Details</source>
         <translation>Išsamesnė tinklo informacija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="631"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="608"/>
         <source>Application Proxy</source>
         <translation>Programos įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="632"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="609"/>
         <source>System Proxy</source>
         <translation>Sistemos įgaliotasis serveris</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="635"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="612"/>
         <source>System Notifications</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="638"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="615"/>
         <source>Font</source>
         <translation>Šriftas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="639"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="616"/>
         <source>Icon Theme</source>
         <translation>Piktogramų tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="640"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="617"/>
         <source>Cursor Theme</source>
         <translation>Žymeklio tema</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="643"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="620"/>
         <source>Sound Effects</source>
         <translation>Garso efektai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="644"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="621"/>
         <source>Devices</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="645"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="622"/>
         <source>Input</source>
         <translation>Įvestis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="646"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="623"/>
         <source>Output</source>
         <translation>Išvestis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="649"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="626"/>
         <source>About This PC</source>
         <translation>Apie šį kompiuterį</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="650"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="627"/>
         <source>Edition License</source>
         <translation>Laidos licencija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="651"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="628"/>
         <source>End User License Agreement</source>
         <translation>Galutinio naudotojo licencijos sutikimas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="652"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="629"/>
         <source>Privacy Policy</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="655"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="632"/>
         <source>Check for Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="656"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="633"/>
         <source>Updates</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="657"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="634"/>
         <source>Update Settings</source>
         <translation>Atnaujinimų nustatymai</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="660"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="637"/>
         <source>Pressure Sensitivity</source>
         <translation>Spaudimo jautrumas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="664"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="641"/>
         <source>On Battery</source>
         <translation>Baterijos energija</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="665"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="642"/>
         <source>Plugged In</source>
         <translation>Elektros maitinimas</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="668"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="645"/>
         <source>General</source>
         <translation>Bendra</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="669"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="646"/>
         <source>Mouse</source>
         <translation>Pelė</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="670"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="647"/>
         <source>Touchpad</source>
         <translation>Jutiklinis kilimėlis</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="671"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="648"/>
         <source>TrackPoint</source>
         <translation>TrackPoint</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/search/searchmodel.cpp" line="674"/>
+        <location filename="../src/frame/window/search/searchmodel.cpp" line="651"/>
         <source>Input Methods</source>
         <translation type="unfinished"/>
     </message>
