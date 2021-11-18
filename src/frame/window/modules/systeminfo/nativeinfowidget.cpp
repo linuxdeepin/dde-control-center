@@ -79,10 +79,10 @@ void NativeInfoWidget::initWidget()
         m_productName->setTitle(tr("OS Name:"));
         m_productName->setValue(m_model->productName());
 
-        m_versionNumber = new TitleValueItem();
-        //~ contents_path /systeminfo/About This PC
-        m_versionNumber->setTitle(tr("Version:"));
-        m_versionNumber->setValue(m_model->versionNumber());
+//        m_versionNumber = new TitleValueItem();
+//        //~ contents_path /systeminfo/About This PC
+//        m_versionNumber->setTitle(tr("Version:"));
+//        m_versionNumber->setValue(m_model->versionNumber());
     }
     m_version = new TitleValueItem();
     //~ contents_path /systeminfo/About This PC
@@ -124,7 +124,7 @@ void NativeInfoWidget::initWidget()
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
             (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop) || DSysInfo::uosType() == DSysInfo::UosType::UosSmart) {
         infoGroup->appendItem(m_productName);
-        infoGroup->appendItem(m_versionNumber);
+//        infoGroup->appendItem(m_versionNumber);
     }
     infoGroup->appendItem(m_version);
     infoGroup->appendItem(m_type);
