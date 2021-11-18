@@ -73,7 +73,7 @@ void NativeInfoWidget::initWidget()
     }
 
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
-            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
+            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop) || DSysInfo::uosType() == DSysInfo::UosType::UosSmart) {
         m_productName= new TitleValueItem();
         //~ contents_path /systeminfo/About This PC
         m_productName->setTitle(tr("OS Name:"));
@@ -122,7 +122,7 @@ void NativeInfoWidget::initWidget()
 
     logoGroup->appendItem(logo);
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
-            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
+            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop) || DSysInfo::uosType() == DSysInfo::UosType::UosSmart) {
         infoGroup->appendItem(m_productName);
         infoGroup->appendItem(m_versionNumber);
     }

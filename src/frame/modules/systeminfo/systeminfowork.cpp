@@ -152,7 +152,7 @@ void SystemInfoWork::activate()
     m_model->setDisk(m_systemInfoInter->diskCap());
 
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer ||
-            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop)) {
+            (DSysInfo::uosType() == DSysInfo::UosType::UosDesktop || DSysInfo::uosType() == DSysInfo::UosType::UosSmart)) {
         QString productName = QString("%1").arg(DSysInfo::uosSystemName());
         m_model->setProductName(productName);
         QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
