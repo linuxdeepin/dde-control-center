@@ -426,6 +426,10 @@ void AccountsDetailWidget::initSetting(QVBoxLayout *layout)
         modifyPassword->setVisible("Hidden" != btnStatus);
     });
 
+    const QString modifyBtnStatus = gsettings->get("accountUserModifypasswd").toString();
+    modifyPassword->setEnabled("Enabled" == modifyBtnStatus && m_curUser->isCurrentUser());
+    modifyPassword->setVisible("Hidden" != modifyBtnStatus);
+
     //当前用户禁止使用删除按钮
     m_deleteAccount->setEnabled(!isCurUser && !m_curUser->online());
     connect(m_curUser, &User::onlineChanged, m_deleteAccount, [ = ](const bool online) {
