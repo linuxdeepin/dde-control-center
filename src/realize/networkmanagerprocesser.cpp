@@ -20,6 +20,7 @@
  */
 
 #include "devicemanagerrealize.h"
+#include "utils.h"
 #include "dslcontroller.h"
 #include "hotspotcontroller.h"
 #include "networkdevicebase.h"
@@ -115,14 +116,18 @@ HotspotController *NetworkManagerProcesser::hotspotController()
 
 void NetworkManagerProcesser::onDeviceChanged()
 {
+    PRINTMESSAGE("start");
     QStringList devicePaths;
     QList<NetworkDeviceBase *> oldDevices = m_devices;
     QList<NetworkDeviceBase *> newDevice, currentDevices;
     Device::List allDevices = NetworkManager::networkInterfaces();
     for (QSharedPointer<Device> device : allDevices) {
         QString devPath = device->uni();
-        if (!device->managed())
+        PRINTMESSAGE(QString("path: %1").arg(devPath));
+        if (!device->managed()) {
+            PRINTMESSAGE("unManaged");
             continue;
+        }
 
         NetworkDeviceBase *dev = findDevice(devPath);
         if (!dev) {
@@ -140,6 +145,7 @@ void NetworkManagerProcesser::onDeviceChanged()
             if (dev) {
                 newDevice << dev;
                 devicePaths << devPath;
+                PRINTMESSAGE(QString("new Device, interface: %1").arg(dev->interface()));
             }
         }
         if (dev)
@@ -151,6 +157,7 @@ void NetworkManagerProcesser::onDeviceChanged()
         if (!currentDevices.contains(device)) {
             rmDevices << device;
             m_devices.removeOne(device);
+            PRINTMESSAGE(QString("remove Device interface:%1, path:%2").arg(device->interface()).arg(device->path()));
         }
     }
 
@@ -165,6 +172,7 @@ void NetworkManagerProcesser::onDeviceChanged()
     updateDeviceName();
 
     if (newDevice.size() > 0 || rmDevices.size() > 0) {
+        PRINTMESSAGE(QString("new Device size: %1, remove Device size: %2").arg(newDevice.size()).arg(rmDevices.size()));
         if (newDevice.size() > 0)
             Q_EMIT deviceAdded(newDevice);
 

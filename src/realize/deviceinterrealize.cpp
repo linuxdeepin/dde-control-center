@@ -119,6 +119,8 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
 {
     Q_UNUSED(emitHotspot);
 
+    PRINTMESSAGE(infos);
+
     m_activeInfoData = QJsonObject();
     for (const QJsonObject &info : infos) {
         if (info.value("ConnectionType").toString() == deviceKey()) {
@@ -151,12 +153,14 @@ bool WiredDeviceInterRealize::connectNetwork(WiredConnection *connection)
     if (!connection)
         return false;
 
+    PRINTMESSAGE(QString("connection uuid:%1, DevicePath: %2").arg(connection->connection()->uuid()).arg(path()));
     networkInter()->ActivateConnection(connection->connection()->uuid(), QDBusObjectPath(path()));
     return true;
 }
 
 void WiredDeviceInterRealize::disconnectNetwork()
 {
+    PRINTMESSAGE(QString("DevicePath: %1").arg(path()));
     networkInter()->DisconnectDevice(QDBusObjectPath(path()));
 }
 
@@ -198,6 +202,7 @@ void WiredDeviceInterRealize::setDeviceEnabledStatus(const bool &enabled)
 
 void WiredDeviceInterRealize::updateConnection(const QJsonArray &info)
 {
+    PRINTMESSAGE(info);
     QList<WiredConnection *> newWiredConnections;
     QList<WiredConnection *> changedWiredConnections;
     QStringList connPaths;
@@ -279,6 +284,7 @@ static ConnectionStatus convertStatus(int status)
 
 void WiredDeviceInterRealize::updateActiveInfo(const QList<QJsonObject> &info)
 {
+    PRINTMESSAGE(info);
     bool changeStatus = false;
     // 根据返回的UUID找到对应的连接，找到State=2的连接变成连接成功状态
     for (const QJsonObject &activeInfo : info) {
@@ -348,6 +354,9 @@ void WirelessDeviceInterRealize::connectNetwork(const AccessPoints *item)
     const QString uuid = wirelessConn->connection()->uuid();
     const QString apPath = item->path();
     const QString devPath = path();
+
+    PRINTMESSAGE(QString("Device: %1 accessPoint: %2").arg(devPath));
+
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(networkInter()->ActivateAccessPoint(uuid, QDBusObjectPath(apPath), QDBusObjectPath(devPath)));
 
     connect(w, &QDBusPendingCallWatcher::finished, [ = ](QDBusPendingCallWatcher * wSelf) {
@@ -355,9 +364,11 @@ void WirelessDeviceInterRealize::connectNetwork(const AccessPoints *item)
 
         if (reply.value().path().isEmpty()) {
             // 连接失败
+            PRINTMESSAGE("Failure");
             Q_EMIT connectionFailed(item);
             Q_EMIT deviceStatusChanged(DeviceStatus::Failed);
         } else {
+            PRINTMESSAGE("Success");
             Q_EMIT deviceStatusChanged(DeviceStatus::Activated);
         }
         w->deleteLater();
@@ -443,10 +454,14 @@ WirelessConnection *WirelessDeviceInterRealize::findConnectionByAccessPoint(cons
  */
 void WirelessDeviceInterRealize::syncConnectionAccessPoints()
 {
+    PRINTMESSAGE("syncConnectionAccessPoints:");
     if (m_accessPoints.isEmpty()) {
         clearListData(m_connections);
+        PRINTMESSAGE("m_accessPoints.isEmpty");
         return;
     }
+
+    PRINTMESSAGE("start.....");
 
     QList<WirelessConnection *> connections;
     // 找到每个热点对应的Connection，并将其赋值
@@ -460,6 +475,7 @@ void WirelessDeviceInterRealize::syncConnectionAccessPoints()
         connection->m_accessPoints = accessPoint;
         connections << connection;
     }
+    PRINTMESSAGE(QString("connection size:%1").arg(connections.size()));
     updateActiveInfo();
     // 删除列表中没有AccessPoints的Connection，让两边保持数据一致
     QList<WirelessConnection *> rmConns;
@@ -469,6 +485,7 @@ void WirelessDeviceInterRealize::syncConnectionAccessPoints()
     }
 
     for (WirelessConnection *rmConnection : rmConns) {
+        PRINTMESSAGE(QString("remove connection:%1 path:%2").arg(rmConnection->connection()->ssid()).arg(rmConnection->connection()->path()));
         m_connections.removeOne(rmConnection);
         delete rmConnection;
     }
@@ -479,6 +496,7 @@ void WirelessDeviceInterRealize::updateActiveInfo()
     if (m_activeAccessPoints.isEmpty())
         return;
 
+    PRINTMESSAGE(m_activeAccessPoints);
     // 先将所有的连接变成普通状态
     for (AccessPoints *ap : m_accessPoints)
         ap->m_status = ConnectionStatus::Unknown;
@@ -503,8 +521,10 @@ void WirelessDeviceInterRealize::updateActiveInfo()
             activeAp = ap;
     }
 
-    if (changed)
+    if (changed) {
+        PRINTMESSAGE("accessPoint Status Changed");
         Q_EMIT activeConnectionChanged();
+    }
 
     // 如果发现其中一个连接成功，将这个连接成功的信号移到最上面，然后则向外发送连接成功的信号
     if (activeAp) {
@@ -525,11 +545,14 @@ QList<WirelessConnection *> WirelessDeviceInterRealize::wirelessItems() const
 void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
 {
     bool enabledHotspotOld = hotspotEnabled();
+    PRINTMESSAGE(QString("hotspot enabled old: %1").arg(enabledHotspotOld));
+    PRINTMESSAGE(infos);
 
     m_hotspotInfo = QJsonObject();
     for (const QJsonObject &info : infos) {
         const QString devicePath = info.value("Device").toString();
         const QString connectionType = info.value("ConnectionType").toString();
+        PRINTMESSAGE(QString("Device:%1 ConnectionType:%2").arg(devicePath).arg(connectionType));
         if (devicePath == this->path() && connectionType == "wireless-hotspot") {
             m_hotspotInfo = info;
             setDeviceStatus(DeviceStatus::Disconnected);
@@ -539,6 +562,7 @@ void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObj
 
     if (emitHotspot) {
         bool enabledHotspot = hotspotEnabled();
+        PRINTMESSAGE(QString("hotspot enable: %1").arg(enabledHotspot));
         if (enabledHotspotOld != enabledHotspot)
             Q_EMIT hotspotEnableChanged(enabledHotspot);
     }
@@ -553,6 +577,7 @@ bool dde::network::WirelessDeviceInterRealize::hotspotEnabled()
 
 void WirelessDeviceInterRealize::updateAccesspoint(const QJsonArray &json)
 {
+    PRINTMESSAGE(json);
     // 先过滤相同的ssid，找出信号强度最大的那个
     QMap<QString, int> ssidMaxStrength;
     QMap<QString, QString> ssidPath;
@@ -661,6 +686,7 @@ void WirelessDeviceInterRealize::updateConnection(const QJsonArray &info)
 
 void WirelessDeviceInterRealize::createConnection(const QJsonArray &info)
 {
+    PRINTMESSAGE(info);
     QStringList connPaths;
     for (const QJsonValue &jsonValue : info) {
         const QJsonObject &jsonObj = jsonValue.toObject();

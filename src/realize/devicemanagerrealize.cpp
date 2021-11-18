@@ -20,7 +20,7 @@
  */
 
 #include "devicemanagerrealize.h"
-
+#include "utils.h"
 #include "networkdevicebase.h"
 
 #include <networkmanagerqt/wirelessdevice.h>
@@ -30,6 +30,8 @@
 
 #include <wireddevice.h>
 #include <wirelessdevice.h>
+
+#include <QMetaEnum>
 
 using namespace dde::network;
 using namespace NetworkManager;
@@ -64,6 +66,7 @@ void DeviceManagerRealize::initSigSlotConnection()
             connect(wirelessDevice.get(), &NetworkManager::WirelessDevice::modeChanged, this, [ this ] {
                 bool oldEnabled = m_hotspotEnabled;
                 m_hotspotEnabled = getHotspotIsEnabled();
+                PRINTMESSAGE(QString("wirelessModel changed, old hotspotEnabled: %1, new hotspotEnabled: %2").arg(oldEnabled).arg(m_hotspotEnabled));
                 if (m_hotspotEnabled)
                     setDeviceStatus(DeviceStatus::Disconnected);
                 if (oldEnabled != m_hotspotEnabled)
@@ -287,6 +290,7 @@ void DeviceManagerRealize::onWiredConnectionChanged()
     if (m_wDevice->type() != NetworkManager::Device::Ethernet)
         return;
 
+    PRINTMESSAGE("start.....");
     NetworkManager::Connection::List connections = m_wDevice->availableConnections();
     QList<WiredConnection *> newConnection;
     QList<WiredConnection *> allConnection;
@@ -311,10 +315,13 @@ void DeviceManagerRealize::onWiredConnectionChanged()
         }
     }
 
+    PRINTMESSAGE(QString("wiredConnectionSize:%1").arg(allConnection.size()));
+
     sortWiredItem(allConnection);
 
     m_wiredConnections = allConnection;
     if (newConnection.size() > 0 || rmConnection.size() > 0) {
+        PRINTMESSAGE(QString("new connection size: %1, remove connection size: %2").arg(newConnection.size()).arg(rmConnection.size()));
         if (newConnection.size() > 0)
             Q_EMIT connectionAdded(newConnection);
 
@@ -335,6 +342,7 @@ void DeviceManagerRealize::changeWiredStatus(Device::State newstate)
     if (m_wDevice->type() != NetworkManager::Device::Ethernet)
         return;
 
+    PRINTMESSAGE(QString("Device:%1, new Status: %2").arg(m_wDevice->uni()).arg(QMetaEnum::fromType<Device::State>().valueToKey(newstate)));
     // 查看当前活动连接是否存在与连接列表中，如果不存在，就将当前活动连接置空
     if (m_activeWiredConnection && !m_wiredConnections.contains(m_activeWiredConnection))
         m_activeWiredConnection = Q_NULLPTR;
@@ -347,12 +355,16 @@ void DeviceManagerRealize::changeWiredStatus(Device::State newstate)
         conn->setConnectionStatus(ConnectionStatus::Deactivated);
 
     NetworkManager::ActiveConnection::Ptr activeConn = m_wDevice->activeConnection();
-    if (activeConn.isNull())
+    if (activeConn.isNull()) {
+        PRINTMESSAGE("active connection is empty");
         return;
+    }
 
     WiredConnection *currentConnection = findWiredConnectionByUuid(activeConn->uuid());
-    if (!currentConnection)
+    if (!currentConnection) {
+        PRINTMESSAGE(QString("cannot find connection uuid: %1").arg(activeConn->uuid()));
         return;
+    }
 
     ConnectionStatus newStatus = convertStatus(newstate);
     if (oldStatus != newStatus || currentConnection != m_activeWiredConnection) {
@@ -367,6 +379,7 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
     if (m_wDevice->type() != NetworkManager::Device::Wifi)
         return;
 
+    PRINTMESSAGE(QString("Device:%1, new Status: %2").arg(m_wDevice->uni()).arg(QMetaEnum::fromType<Device::State>().valueToKey(newstate)));
     if (m_activeWirelessConnection && !m_wirelessConnections.contains(m_activeWirelessConnection))
         m_activeWirelessConnection = Q_NULLPTR;
 
@@ -378,12 +391,16 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
     }
 
     NetworkManager::ActiveConnection::Ptr activeConn = m_wDevice->activeConnection();
-    if (activeConn.isNull())
+    if (activeConn.isNull()) {
+        PRINTMESSAGE("active connection is empty");
         return;
+    }
 
     WirelessConnection *currentConnection = findWirelessConnectionByUuid(activeConn->uuid());
-    if (!currentConnection)
+    if (!currentConnection) {
+        PRINTMESSAGE(QString("cannot find connection uuid: %1").arg(activeConn->uuid()));
         return;
+    }
 
     ConnectionStatus newStatus = convertStatus(newstate);
     if (newStatus != oldStatus || m_activeWirelessConnection != currentConnection) {
@@ -466,6 +483,7 @@ void DeviceManagerRealize::onWirelessConnectionChanged()
     if (m_wDevice->type() != NetworkManager::Device::Wifi)
         return;
 
+    PRINTMESSAGE(QString("Device:%1").arg(m_wDevice->uni()));
     NetworkManager::Connection::List connections = m_wDevice->availableConnections();
     QList<WirelessConnection *> newConnection;
     QList<WirelessConnection *> allConnection;
@@ -489,6 +507,7 @@ void DeviceManagerRealize::onWirelessConnectionChanged()
 
 void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnections)
 {
+    PRINTMESSAGE(QString("allConnections size:%1").arg(allConnections.size()));
     QList<AccessPoints *> newAps, allAccessPoints;
     NetworkManager::WirelessDevice::Ptr wirelessDevice = m_wDevice.staticCast<NetworkManager::WirelessDevice>();
     NetworkManager::WirelessNetwork::List networks = wirelessDevice->networks();
@@ -533,6 +552,7 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
 
     m_wirelessConnections = allConnections;
 
+    PRINTMESSAGE(QString("new AccessPoint size:%1, remove AccessPoint Size: %2").arg(newAps.size()).arg(rmAps.size()));
     if (rmAps.size() > 0 || newAps.size() > 0) {
         if (newAps.size() > 0)
             Q_EMIT networkAdded(newAps);
@@ -551,8 +571,10 @@ void DeviceManagerRealize::createWlans(QList<WirelessConnection *> &allConnectio
 
 void DeviceManagerRealize::syncWlanAndConnections(QList<WirelessConnection *> &allConnections)
 {
+    PRINTMESSAGE(QString("allConnections size:%1").arg(allConnections.size()));
     if (m_accessPoints.isEmpty()) {
         clearListData(allConnections);
+        PRINTMESSAGE("m_accessPoints is Empty");
         return;
     }
 
@@ -568,12 +590,15 @@ void DeviceManagerRealize::syncWlanAndConnections(QList<WirelessConnection *> &a
         connection->m_accessPoints = accessPoint;
         connections << connection;
     }
+    PRINTMESSAGE(QString("connections size: %1").arg(connections.size()));
     // 删除列表中没有AccessPoints的Connection，让两边保持数据一致
     QList<WirelessConnection *> rmConns;
     for (WirelessConnection *connection : allConnections) {
         if (!connections.contains(connection))
             rmConns << connection;
     }
+
+    PRINTMESSAGE(QString("remove connections size: %1").arg(rmConns.size()));
 
     for (WirelessConnection *rmConnection : rmConns) {
         allConnections.removeOne(rmConnection);
