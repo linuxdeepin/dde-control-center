@@ -52,13 +52,12 @@ DConfigWatcher::DConfigWatcher(QObject *parent)
         if (!config->isValid()) {
             qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(config->name(), config->subpath());
             continue;
-        }
-        else {
+        } else {
             m_mapModulesConfig.insert(metaEnum.valueToKey(i), config);
-            connect(config, &DConfig::valueChanged, this, [&] (QString key) {
+            connect(config, &DConfig::valueChanged, this, [&](QString key) {
                 auto moduleName = m_mapModulesConfig.key(static_cast<DConfig *>(sender())).toStdString().c_str();
                 int type = QMetaEnum::fromType<ModuleType>().keyToValue(moduleName);
-                onStatusModeChanged(static_cast<ModuleType>(type),key);
+                onStatusModeChanged(static_cast<ModuleType>(type), key);
             });
         }
     }
@@ -79,7 +78,7 @@ DConfigWatcher *DConfigWatcher::instance()
 void DConfigWatcher::bind(ModuleType moduleType, const QString &configName, QWidget *binder)
 {
     QString moduleName;
-    if(!existKey(moduleType,configName,moduleName))
+    if (!existKey(moduleType, configName, moduleName))
         return;
 
     //添加key值到map中
@@ -91,8 +90,8 @@ void DConfigWatcher::bind(ModuleType moduleType, const QString &configName, QWid
     setStatus(moduleName, configName, binder);
 
     // 自动解绑
-    connect(binder, &QObject::destroyed, this, [=] {
-        if(m_thirdMap.values().contains(binder))
+    connect(binder, &QObject::destroyed, this, [ = ] {
+        if (m_thirdMap.values().contains(binder))
             erase(m_thirdMap.key(binder)->type, m_thirdMap.key(binder)->key);
     });
 }
@@ -107,7 +106,7 @@ void DConfigWatcher::bind(ModuleType moduleType, const QString &configName, QWid
 void DConfigWatcher::bind(ModuleType moduleType, const QString &configName, QListView *viewer, QStandardItem *item)
 {
     QString moduleName;
-    if(!existKey(moduleType,configName,moduleName))
+    if (!existKey(moduleType, configName, moduleName))
         return;
 
     //添加key值到map中
@@ -119,7 +118,7 @@ void DConfigWatcher::bind(ModuleType moduleType, const QString &configName, QLis
     setStatus(moduleName, configName, viewer, item);
 
     // 自动解绑
-    connect(viewer, &QListView::destroyed, this, [=] {
+    connect(viewer, &QListView::destroyed, this, [ = ] {
         erase(moduleType, configName);
     });
 }
@@ -157,7 +156,7 @@ void DConfigWatcher::erase(ModuleType moduleType, const QString &configName, QWi
     auto lst = m_thirdMap.keys();
     for (auto k : lst) {
         if (k->key == configName && k->type == moduleType) {
-            m_thirdMap.remove(k,binder);
+            m_thirdMap.remove(k, binder);
         }
     }
 }
@@ -170,7 +169,7 @@ void DConfigWatcher::erase(ModuleType moduleType, const QString &configName, QWi
 void DConfigWatcher::insertState(ModuleType moduleType, const QString &key)
 {
     QString moduleName;
-    if(!existKey(moduleType,key,moduleName))
+    if (!existKey(moduleType, key, moduleName))
         return;
 
     ModuleKey *keys = new ModuleKey();
@@ -215,7 +214,7 @@ void DConfigWatcher::setStatus(QString &moduleName, const QString &configName, Q
     bool visible = m_mapModulesConfig[moduleName]->value(configName).toBool();
     viewer->setRowHidden(item->row(), !visible);
 
-    if(visible)
+    if (visible)
         Q_EMIT requestShowSecondMenu(item->row());
     else
         Q_EMIT requestUpdateSecondMenu(item->row());
@@ -249,7 +248,7 @@ QMap<DConfigWatcher::ModuleKey *, bool> DConfigWatcher::getMenuState()
 void DConfigWatcher::onStatusModeChanged(ModuleType moduleType, const QString &key)
 {
     QString moduleName;
-    if(!existKey(moduleType,key,moduleName))
+    if (!existKey(moduleType, key, moduleName))
         return;
 
     // 重新设置控件对应的显示类型
@@ -289,4 +288,14 @@ bool DConfigWatcher::existKey(ModuleType moduleType, const QString &key, QString
         }
     }
     return false;
+}
+
+DConfig *DConfigWatcher::getModulesConfig(ModuleType moduleType)
+{
+    QMetaEnum metaEnum = QMetaEnum::fromType<ModuleType>();
+    QString key = metaEnum.key(moduleType);
+    if (m_mapModulesConfig.contains(key)) {
+        return m_mapModulesConfig.value(key);
+    }
+    return nullptr;
 }

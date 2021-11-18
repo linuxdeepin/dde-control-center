@@ -60,8 +60,7 @@ public:
     };
     Q_ENUM(ModuleType)
 
-    typedef struct ModuleKey
-    {
+    typedef struct ModuleKey {
         ModuleType type;
         QString key;
 
@@ -71,27 +70,27 @@ public:
             this->key = "";
         }
 
-        void operator=(ModuleKey& moduleKey)
+        void operator=(ModuleKey &moduleKey)
         {
             type = moduleKey.type;
             key = moduleKey.key;
         }
 
-        bool operator==(ModuleKey& moduleKey) const
+        bool operator==(ModuleKey &moduleKey) const
         {
             return (type == moduleKey.type && key == moduleKey.key);
         }
 
-        bool operator<(const ModuleKey& moduleKey) const
+        bool operator<(const ModuleKey &moduleKey) const
         {
             return (type < moduleKey.type);
         }
-        bool operator>(const ModuleKey& moduleKey) const
+        bool operator>(const ModuleKey &moduleKey) const
         {
             return (type > moduleKey.type);
         }
 
-    }ModuleKey;
+    } ModuleKey;
 
     static DConfigWatcher *instance();
 
@@ -101,6 +100,7 @@ public:
     void erase(ModuleType moduleType, const QString &configName, QWidget *binder);
     void insertState(ModuleType moduleType, const QString &);
     const QString getStatus(ModuleType moduleType, const QString &configName);
+    DConfig *getModulesConfig(ModuleType moduleType);
     QMap<ModuleKey *, bool> getMenuState();
 
 private:

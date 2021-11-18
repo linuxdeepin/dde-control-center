@@ -60,6 +60,7 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     , m_autoCheckSecureUpdateTips(new DTipLabel(tr("Switch it on to only update security vulnerabilities and compatibility issues"), this))
     , m_autoCleanCache(new SwitchWidget(this))
     , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
+    , m_dconfig(nullptr)
 {
     initUi();
     initConnection();
@@ -180,7 +181,7 @@ void UpdateSettings::initConnection()
     connect(m_updateNotify, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetUpdateNotify);
     connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoDownloadUpdates);
     connect(m_autoDownloadUpdate, &SwitchWidget::checkedChanged, this, [ = ](bool state) {
-        setCheckStatus(m_autoInstallUpdate, state, "updateAutoCheck");
+        setCheckStatus(m_autoInstallUpdate, state, "updateAutoInstall");
     });
 
     connect(m_autoInstallUpdate, &SwitchWidget::checkedChanged, this, &UpdateSettings::requestSetAutoInstall);
@@ -208,21 +209,21 @@ QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
         text = tr("System Updates");
     }
     if (type & 2) {
-        if(text.isEmpty()){
+        if (text.isEmpty()) {
             text += tr("App Updates in App Store");
         } else {
             text = text + "," + tr("App Updates in App Store");
         }
     }
     if (type & 4) {
-        if(text.isEmpty()){
+        if (text.isEmpty()) {
             text += tr("Security Updates");
         } else {
             text = text + "," + tr("Security Updates");
         }
     }
     if (type & 8) {
-        if(text.isEmpty()){
+        if (text.isEmpty()) {
             text += tr("Unknown Apps Updates");
         } else {
             text = text + "," + tr("Unknown Apps Updates");
@@ -248,8 +249,8 @@ void UpdateSettings::setModel(UpdateModel *model)
     connect(model, &UpdateModel::updateNotifyChanged, m_updateNotify, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoDownloadUpdatesChanged, m_autoDownloadUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoDownloadUpdatesChanged, this, [ = ](bool state) {
-        m_autoInstallUpdate->setVisible(state);
-        m_autoInstallUpdatesTips->setVisible(state);
+        setCheckStatus(m_autoInstallUpdate, state, "updateAutoInstall");
+        setCheckStatus(m_autoInstallUpdatesTips, state, "updateAutoInstall");
     });
     connect(model, &UpdateModel::autoInstallUpdatesChanged, m_autoInstallUpdate, &SwitchWidget::setChecked);
     connect(model, &UpdateModel::autoInstallUpdateTypeChanged, this, [ = ](quint64 type) {
@@ -259,8 +260,6 @@ void UpdateSettings::setModel(UpdateModel *model)
 
     m_autoCheckUpdate->setChecked(model->autoCheckUpdates());
     m_autoCheckSecureUpdate->setChecked(model->autoCheckSecureUpdates());
-    m_autoCheckSecureUpdate->setVisible(true);
-//    m_autoCheckSecureUpdate->setVisible(false);//未列入计划，暂时屏蔽
     m_autoCheckUniontechUpdate->setChecked(model->autoCheckSystemUpdates());
     m_autoCheckAppUpdate->setChecked(model->autoCheckAppUpdates());
     m_updateNotify->setChecked(model->updateNotify());
@@ -275,8 +274,20 @@ void UpdateSettings::setModel(UpdateModel *model)
 
     GSettingWatcher::instance()->bind("updateAutoCheck", m_autoCheckUpdate);
     GSettingWatcher::instance()->bind("updateUpdateNotify", m_updateNotify);
+    GSettingWatcher::instance()->bind("updateAutoDownlaod", m_autoDownloadUpdate);
     GSettingWatcher::instance()->bind("updateCleanCache", m_autoCleanCache);
-//    GSettingWatcher::instance()->bind("updateSecureUpdate", m_autoCheckSecureUpdate);//未列入计划，暂时屏蔽
+    GSettingWatcher::instance()->bind("updateSystemUpdate", m_autoCheckUniontechUpdate);
+    GSettingWatcher::instance()->bind("updateAppUpdate", m_autoCheckAppUpdate);
+
+    m_dconfig = DConfigWatcher::instance()->getModulesConfig(DConfigWatcher::update);
+    DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdate);
+    DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdateTips);
+    connect(m_dconfig, &DConfig::valueChanged, this, [ = ](const QString key) {
+        if (key == "updateAutoInstall") {
+            setCheckStatus(m_autoInstallUpdate, m_autoDownloadUpdate->checked(), "updateAutoInstall");
+            setCheckStatus(m_autoInstallUpdatesTips, m_autoDownloadUpdate->checked(), "updateAutoInstall");
+        }
+    });
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     if (!IsServerSystem && !IsProfessionalSystem && !IsHomeSystem && !IsDeepinDesktop) {
@@ -317,10 +328,10 @@ void UpdateSettings::setUpdateMode()
     requestSetUpdateMode(updateMode);
 }
 
-void UpdateSettings::setCheckStatus(SwitchWidget *widget, bool state, const QString &key)
+void UpdateSettings::setCheckStatus(QWidget *widget, bool state, const QString &key)
 {
     //后续对应配置相关代码
-    const QString status = m_settings->get(key).toString();
+    const QString status = DConfigWatcher::instance()->getStatus(DConfigWatcher::ModuleType::update, key);
 
     if ("Enabled" == status) {
         widget->setEnabled(true);

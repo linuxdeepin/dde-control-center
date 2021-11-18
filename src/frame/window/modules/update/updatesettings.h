@@ -22,6 +22,7 @@
 
 #include "interface/moduleinterface.h"
 #include "widgets/contentwidget.h"
+#include "window/dconfigwatcher.h"
 
 namespace dcc {
 namespace widgets {
@@ -77,7 +78,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
     void setUpdateMode();
-    void setCheckStatus(dcc::widgets::SwitchWidget *widget, bool state, const QString &key);
+    void setCheckStatus(QWidget *widget, bool state, const QString &key);
     void onAutoUpdateCheckChanged();
     void onAutoSecureUpdateCheckChanged();
 
@@ -115,6 +116,7 @@ private:
 #endif
     dcc::widgets::SwitchWidget *m_smartMirrorBtn;
     dcc::widgets::NextPageWidget *m_updateMirrors;
+    DConfig* m_dconfig;
 
     QGSettings *m_settings;
 };

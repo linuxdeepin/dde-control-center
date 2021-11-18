@@ -1,0 +1,28 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "updateSafety": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": "",
+            "name": "update_safety",
+            "name[zh_CN]": "更新设置页面安全更新配置",
+            "description[zh_CN]": "如果启用该配置，安全更新将可用；如果禁用该配置，安全更新将置灰；如果隐藏该配置，安全更新将隐藏。",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "updateAutoInstall": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": "",
+            "name": "update_auto_install",
+            "name[zh_CN]": "更新设置页面自动安装配置",
+            "description[zh_CN]": "如果启用该配置，自动安装将可用；如果禁用该配置，自动安装将置灰；如果隐藏该配置，自动安装将隐藏。",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+  }
