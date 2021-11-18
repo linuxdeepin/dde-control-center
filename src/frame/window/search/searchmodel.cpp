@@ -90,29 +90,6 @@ SearchModel::SearchModel(QObject *parent)
     m_contensServerTxtList = {
         {tr("Developer Mode"), true},
     };
-
-    //first : 可移除设备名称
-    //second : 可以除设备具体的页面名称(该页面必须与搜索的页面对应)
-    //通过在 loadXml() 301行，使用 “qDebug() << searchBoxStruct.fullPagePath.section('/', 2, -1);”解析
-    m_removedefaultWidgetList = {
-        {tr("Touchpad"), "Touchpad"},
-        {tr("TrackPoint"), "TrackPoint"},
-        {tr("Personal Hotspot"), "Personal Hotspot"},
-        {tr("On Battery"), "On Battery"},
-        {tr("Wired Network"), "Wired Network"},
-        {tr("Wireless Network"), "Wireless Network"},
-        {tr("Multiple Displays"), "Multiple Displays"},
-        {tr("Boot Menu"), "Boot Menu"},
-        {tr("When the lid is closed"), "When the lid is closed"},
-        {tr("Display remaining using and charging time"), "Display remaining using and charging time"},
-        {tr("Maximum capacity"), "Maximum capacity"},
-        {tr("Auto power saving on battery"), "Auto power saving on battery"},
-    };
-
-    //用于区分可移除设备数据，和常驻设备数据（记录页面信息）
-    for (auto data : m_removedefaultWidgetList) {
-        m_defaultRemoveableList << data.second;
-    }
 }
 
 QString SearchModel::formatSearchData(QString data1, QString data2, QString data3)
@@ -257,7 +234,7 @@ void SearchModel::loadxml(const QString module)
 
     bool isPlugins = false;
     bool bIsContinue = false;
-    bool bIsTwoLevel = false;  
+    bool bIsTwoLevel = false;
     QString searchModule = "";
     QString searchData = "";
 
@@ -1047,42 +1024,4 @@ void SearchModel::setDetailVisible(const QString &module, const QString &widget,
 void SearchModel::updateSearchData(const QString &module)
 {
     loadxml(module);
-}
-
-void SearchModel::setRemoveableDeviceStatus(const QString &name, bool isExist)
-{
-    Q_UNUSED(name)
-    Q_UNUSED(isExist)
-//    setModuleVisible(name, isExist);
-//    QPair<QString, QString> value("", "");
-
-//    //判断可移除设备是否在默认list中有记录，有记录才需要继续走后面流程
-//    //根据name(模块/小模块名称)从默认list，取出对应的模块和page
-//    auto res = std::find_if(m_removedefaultWidgetList.begin(), m_removedefaultWidgetList.end(), [=] (const QPair<QString, QString> data)->bool{
-//        return (data.first == name);
-//    });
-
-//    if (res != m_removedefaultWidgetList.end()) {
-//        value = (*res);
-//        if (res->second == "On Battery") {
-//            m_bIsOnBattery = isExist;
-//        } else if (res->second == "Touchpad") {
-//            m_bIsUseTouchpad = isExist;
-//        }
-//    }
-
-//    if ("" != value.first && "" != value.second) {
-//        //值存在，移除设备，list移除该值
-//        if (!isExist && m_removeableActualExistList.contains(value)) {
-//            m_removeableActualExistList.removeOne(value);
-//        } else if (isExist && !m_removeableActualExistList.contains(value)) {
-//            //值不存在，现在插入设备，list添加该值
-//            m_removeableActualExistList.append(value);
-//        }
-
-//        qDebug() << "[setRemoveableDeviceStatus] loadWidget : " << name << " , isExist : " << isExist;
-//        loadxml();
-//    } else {
-//        qDebug() << " Not remember the data , name : " << name;
-//        }
 }

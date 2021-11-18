@@ -66,18 +66,9 @@ CommonInfoModule::~CommonInfoModule()
 }
 
 void CommonInfoModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
-{   
+{
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
-#ifdef DCC_DISABLE_GRUB
-    m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), false);
-    if (IsServerSystem) {
-        m_frameProxy->setModuleVisible(this, false);
-    }
-#else
-    m_frameProxy->setRemoveableDeviceStatus(tr("Boot Menu"), true);
-#endif
-
     initSearchData();
 }
 
@@ -272,7 +263,10 @@ void CommonInfoModule::initSearchData()
 
 
     auto func_bootMenu_changed = [ = ] {
-        bool visible = func_is_visible("bootMenu");
+        bool visible = false;
+#ifndef DCC_DISABLE_GRUB
+        visible = func_is_visible("bootMenu");
+#endif
         m_frameProxy->setWidgetVisible(module, bootMenu, visible);
         m_frameProxy->setDetailVisible(module, bootMenu, startupDelay, visible && func_is_visible("commoninfoBootBootdelay", true));
         m_frameProxy->setDetailVisible(module, bootMenu, theme, visible && func_is_visible("commoninfoBootTheme", true));

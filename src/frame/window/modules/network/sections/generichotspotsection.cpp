@@ -60,8 +60,6 @@ void GenericHotspotSection::saveSettings()
 
 void GenericHotspotSection::initUI()
 {
-    //~ contents_path /network/Personal Hotspot
-    //~ child_page Personal Hotspot
     m_connIdItem->setTitle(tr("Name"));
     m_connIdItem->setText(m_connSettings->id());
 

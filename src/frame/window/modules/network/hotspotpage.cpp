@@ -275,8 +275,6 @@ HotspotPage::HotspotPage(QWidget *parent)
 
     setLayout(m_mainLayout);
 
-    //~ contents_path /network/Personal Hotspot
-    //~ child_page Personal Hotspot
     m_newprofile->setToolTip(tr("Create Hotspot"));
     GSettingWatcher::instance()->bind("createHotspot", m_newprofile);
 

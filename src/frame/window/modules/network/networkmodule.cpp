@@ -156,21 +156,20 @@ void NetworkModule::onDeviceListChanged(const QList<dde::network::NetworkDevice 
     m_hasAp = false;
     m_hasWired = false;
     m_hasWireless = false;
+
     for (auto const dev : devices) {
         if (dev->type() == NetworkDevice::Wired) {
             m_hasWired = true;
         }
-        if (dev->type() != NetworkDevice::Wireless)
-            continue;
-        m_hasWireless = true;
-        if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
-            m_hasAp = true;
+        if (dev->type() == NetworkDevice::Wireless) {
+            m_hasWireless = true;
+            if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
+                m_hasAp = true;
+            }
         }
     }
     qDebug() << "[Network] device state : " << m_hasWired << "," << m_hasWireless << "," << m_hasAp;
-    m_frameProxy->setRemoveableDeviceStatus(tr("Wired Network"), m_hasWired);
-    m_frameProxy->setRemoveableDeviceStatus(tr("Wireless Network"), m_hasWireless);
-    m_frameProxy->setRemoveableDeviceStatus(tr("Personal Hotspot"), m_hasAp);
+
 }
 
 void NetworkModule::preInitialize(bool sync , FrameProxyInterface::PushType pushtype)
@@ -182,7 +181,6 @@ void NetworkModule::preInitialize(bool sync , FrameProxyInterface::PushType push
     m_networkModel->moveToThread(qApp->thread());
     m_networkWorker->moveToThread(qApp->thread());
 
-    connect(m_networkModel, &NetworkModel::deviceListChanged, this, &NetworkModule::onDeviceListChanged);
     onDeviceListChanged(m_networkModel->devices());
 
     initSearchData();
@@ -316,24 +314,6 @@ void NetworkModule::initSearchData()
     gslist << "networkWired" << "networkWireless" <<"personalHotspot" << "applicationProxy"
            << "networkDetails" << "networkDsl" << "systemProxy" << "networkVpn";
 
-    //设备变化后相关搜索数据也需要调整
-    auto func_device_visible = [ = ](const QList<dde::network::NetworkDevice *> &devices) {
-        m_hasAp = false;
-        m_hasWired = false;
-        m_hasWireless = false;
-        for (auto const dev : devices) {
-            if (dev->type() == NetworkDevice::Wired) {
-                m_hasWired = true;
-            }
-            if (dev->type() != NetworkDevice::Wireless)
-                continue;
-            m_hasWireless = true;
-            if (qobject_cast<WirelessDevice *>(dev)->supportHotspot()) {
-                m_hasAp = true;
-            }
-        }
-    };
-
     auto func_wired_visible = [ = ](bool visible) {
         bool bWireNetwork = func_is_visible("networkWired") && visible;
         m_frameProxy->setWidgetVisible(module, wiredNetwork, bWireNetwork);
@@ -351,12 +331,6 @@ void NetworkModule::initSearchData()
         bool bPersonalHost = func_is_visible("personalHotspot") && visible;
         m_frameProxy->setWidgetVisible(module, personalHost, bPersonalHost);
         m_frameProxy->setDetailVisible(module, personalHost, tr("Hotspot"), bPersonalHost);
-        m_frameProxy->setDetailVisible(module, personalHost, tr("Create Hotspot"), bPersonalHost);
-        m_frameProxy->setDetailVisible(module, personalHost, tr("Name"), bPersonalHost);
-        m_frameProxy->setDetailVisible(module, personalHost, tr("Security"), bPersonalHost);
-        m_frameProxy->setDetailVisible(module, personalHost, tr("SSID"), bPersonalHost);
-        m_frameProxy->setDetailVisible(module, personalHost, tr("Device MAC Addr"), bPersonalHost);
-        m_frameProxy->setDetailVisible(module, personalHost, tr("Customize MTU"), bPersonalHost);
     };
 
     auto func_appproxy_visible = [ = ]() {
@@ -420,14 +394,13 @@ void NetworkModule::initSearchData()
 
         func_vpn_visible();
 
-        func_device_visible(m_networkModel->devices());
         func_wired_visible(m_hasWired);
         func_wireless_visible(m_hasWireless);
         func_perhotspot_visible(m_hasAp);
      };
 
     connect(m_networkModel, &NetworkModel::deviceListChanged, [ = ](const QList<dde::network::NetworkDevice *> &devices) {
-        func_device_visible(devices);
+        onDeviceListChanged(devices);
         func_wired_visible(m_hasWired);
         func_wireless_visible(m_hasWireless);
         func_perhotspot_visible(m_hasAp);
@@ -454,7 +427,6 @@ void NetworkModule::initSearchData()
         } else if ("networkVpn" == gsetting) {
             func_vpn_visible();
         } else if ("networkWired" == gsetting || "networkWireless" == gsetting || "personalHotspot" == gsetting) {
-            func_device_visible(m_networkModel->devices());
             func_wired_visible(m_hasWired);
             func_wireless_visible(m_hasWireless);
             func_perhotspot_visible(m_hasAp);

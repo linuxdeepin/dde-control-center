@@ -93,8 +93,6 @@ public:
     void updateSearchData(const QString &module) override;
     void showModulePage(const QString &module, const QString &page, bool animation) override;
     void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) override;
-    void setRemoveableDeviceStatus(QString type, bool state) override;
-    bool getRemoveableDeviceStatus(QString type) const override;
     void setSearchPath(ModuleInterface *const inter) const override;
 
 public:
@@ -168,7 +166,6 @@ private:
         QPair <DViewItemAction *, DViewItemAction *> m_action;
     };
     QList<CornerItemGroup> m_remindeSubscriptList;//用于记录是否有角标, QString为模块名称，DViewItemAction为角标对象
-    QList<QString> m_removeableDeviceList;//用于记录可移除设备是否当前是否存在,存在加到list，不存在从list移除
     QGSettings *m_moduleSettings{nullptr};
     QGSettings *m_versionType{nullptr};
     QStringList m_hideModuleNames;

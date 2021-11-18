@@ -59,7 +59,6 @@ public:
     void addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation = "");
     void addUnExsitData(const QString &module = "", const QString &datail = "");
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
-    void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
     void setModuleVisible(const QString &module, bool visible);
     void setWidgetVisible(const QString &module, const QString &widget, bool visible);

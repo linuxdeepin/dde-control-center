@@ -273,11 +273,6 @@ void SearchWidget::removeUnExsitData(const QString &module, const QString &datai
     return m_model->removeUnExsitData(module, datail);
 }
 
-void SearchWidget::setRemoveableDeviceStatus(const QString &name, bool isExist)
-{
-    return m_model->setRemoveableDeviceStatus(name, isExist);
-}
-
 void SearchWidget::addSpecialThreeMenuMap(const QString &name, bool flag)
 {
     return m_model->addSpecialThreeMenuMap(name, flag);

@@ -79,7 +79,6 @@ public:
     void addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation = "");
     void addUnExsitData(const QString &module = "", const QString &datail = "");
     void removeUnExsitData(const QString &module = "", const QString &datail = "");
-    void setRemoveableDeviceStatus(const QString &name, bool isExist);
     void addSpecialThreeMenuMap(const QString &name, bool flag);
     bool getModuleVisible(const QString module);
     bool getWidgetVisible(const QString module, QString widget = "");
@@ -118,8 +117,6 @@ private:
     QList<QString> m_childWidgetList; //二级页面list
     QList<QString> m_childeHideWidgetList; //不需要显示的二级页面list，比如 “默认程序 --> 终端 / 添加默认程序” 和 “默认程序 --> 终端”
     QList<QString> m_TxtListAll; //三级页面list
-    QStringList m_defaultRemoveableList;//存储已知全部模块是否存在
-    QList<QPair<QString, QString>> m_removedefaultWidgetList;//用于存储可以出设备名称，和该名称对应的页面
     QList<QPair<QString, QString>> m_removeableActualExistList;//存储实际模块是否存在
     QList<QPair<QString, bool>> m_contensServerTxtList;
     QMap<QString, bool> m_specialThreeMenuMap; //特别的三菜单显示

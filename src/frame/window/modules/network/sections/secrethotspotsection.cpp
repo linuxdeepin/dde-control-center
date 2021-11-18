@@ -120,8 +120,6 @@ void SecretHotspotSection::initStrMaps()
 void SecretHotspotSection::initUI()
 {
     QComboBox *cb = m_keyMgmtChooser->comboBox();
-    //~ contents_path /network/Personal Hotspot
-    //~ child_page Personal Hotspot
     m_keyMgmtChooser->setTitle(tr("Security"));
     for (auto keyMgmt : KeyMgmtList) {
         cb->addItem(KeyMgmtStrMap.key(keyMgmt), keyMgmt);

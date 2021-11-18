@@ -411,9 +411,6 @@ void MainWindow::initAllModule(const QString &m)
     resetNavList(isIcon);
 
     modulePreInitialize(m);
-    //设置 触控板，指点杆 是否存在
-    m_searchWidget->setRemoveableDeviceStatus(tr("Touchpad"), getRemoveableDeviceStatus(tr("Touchpad")));
-    m_searchWidget->setRemoveableDeviceStatus(tr("TrackPoint"), getRemoveableDeviceStatus(tr("TrackPoint")));
 
     QElapsedTimer et;
     et.start();
@@ -1282,30 +1279,6 @@ void FourthColWidget::paintEvent(QPaintEvent *event)
 
     QRect rt(startPosX, 0, -30, rect().height());
     painter.drawRect(rt);
-}
-
-void MainWindow::setRemoveableDeviceStatus(QString type, bool state)
-{
-    //state:true,list里面不存在，则加入到list
-    //state:false,list里面存在，则从list移除
-    if (state) {
-        if (!m_removeableDeviceList.contains(type)) {
-            m_removeableDeviceList.append(type);
-        }
-    } else {
-        if (m_removeableDeviceList.contains(type)) {
-            m_removeableDeviceList.removeOne(type);
-        }
-    }
-
-    //通知设备“添加/移除"状态
-    if (m_searchWidget)
-        m_searchWidget->setRemoveableDeviceStatus(type, state);
-}
-
-bool MainWindow::getRemoveableDeviceStatus(QString type) const
-{
-    return m_removeableDeviceList.contains(type);
 }
 
 void MainWindow::setSearchPath(ModuleInterface *const inter) const
