@@ -236,7 +236,6 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
                 }
             }
             break;
-        case Device::StateChangeReason::NewActivation:
         case Device::StateChangeReason::ConfigUnavailableReason:
             switch (device->type()) {
             case Device::Type::Ethernet:
