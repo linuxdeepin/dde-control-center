@@ -304,7 +304,7 @@ void MonitorsGround::enterEvent(QEvent *)
 void MonitorsGround::leaveEvent(QEvent *)
 {
     if (m_scrollArea)
-        QScroller::grabGesture(viewport(), QScroller::LeftMouseButtonGesture);
+        QScroller::grabGesture(m_scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
 }
 
 void MonitorsGround::paintEvent(QPaintEvent *event)
