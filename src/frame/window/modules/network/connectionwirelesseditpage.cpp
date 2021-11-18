@@ -66,6 +66,7 @@ void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
 
     m_connectionSettings->setting(NetworkManager::Setting::SettingType::Wireless)
             .staticCast<NetworkManager::WirelessSetting>()->setSsid(nmAp->rawSsid());
+
     m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
 
     connect(m_settingsWidget, &WirelessSettings::requestNextPage, this, &ConnectionWirelessEditPage::onRequestNextPage);

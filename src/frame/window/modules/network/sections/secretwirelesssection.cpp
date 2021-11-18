@@ -59,7 +59,7 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
             if (passwordFlags.testFlag(it->second)) {
                 m_currentPasswordType = it->second;
                 if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
-                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                    m_currentPasswordType = NetworkManager::Setting::None;
                 }
                 break;
             }
@@ -72,7 +72,7 @@ SecretWirelessSection::SecretWirelessSection(NetworkManager::WirelessSecuritySet
             if (passwordFlags.testFlag(it->second)) {
                 m_currentPasswordType = it->second;
                 if (m_currentPasswordType == NetworkManager::Setting::None && strKey.isEmpty()) {
-                    m_currentPasswordType = NetworkManager::Setting::AgentOwned;
+                    m_currentPasswordType = NetworkManager::Setting::None;
                 }
                 break;
             }
