@@ -298,8 +298,8 @@
     </message>
     <message>
         <location filename="language.h" line="90"/>
-        <source>कश्मीरी - (كشميري)	</source>
-        <translation>Cachemir - (Cachemira)</translation>
+        <source>कश्मीरी - (كشميري)</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="language.h" line="91"/>

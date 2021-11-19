@@ -298,7 +298,7 @@
     </message>
     <message>
         <location filename="language.h" line="90"/>
-        <source>कश्मीरी - (كشميري)	</source>
+        <source>कश्मीरी - (كشميري)</source>
         <translation>كەشمىر تىلى</translation>
     </message>
     <message>

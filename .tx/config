@@ -27,6 +27,12 @@ source_file = translations/recovery_en.ts
 source_lang = en
 type = QT
 
+[deepin-desktop-environment.dde-control-center-keyboard_language]
+file_filter = translations/keyboard_language_<lang>.ts
+source_file = translations/keyboard_language_en.ts
+source_lang = en
+type = QT
+
 [deepin-desktop-environment.dde-control-center-reset-password-dialog]
 file_filter = translations/reset-password-dialog_<lang>.ts
 source_file = translations/reset-password-dialog_en.ts
