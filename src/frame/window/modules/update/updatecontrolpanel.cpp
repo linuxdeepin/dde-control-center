@@ -28,6 +28,7 @@ updateControlPanel::updateControlPanel(QWidget *parent)
 {
     QVBoxLayout *titleLay = new QVBoxLayout();
     m_titleLable->setForegroundRole(DPalette::TextTitle);
+    m_titleLable->setWordWrap(true);
     DFontSizeManager::instance()->bind(m_titleLable, DFontSizeManager::T6, QFont::DemiBold);
     titleLay->addWidget(m_titleLable, 0, Qt::AlignTop);
 
@@ -56,13 +57,13 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     m_Progess->setTextDirection(QProgressBar::TopToBottom);
     m_Progess->setRange(0, 100);
     m_Progess->setAlignment(Qt::AlignRight);
-    m_Progess->setMaximumWidth(100);
+    m_Progess->setMaximumWidth(130);
     m_Progess->setMaximumHeight(10);
     m_Progess->setVisible(false);
 
     m_progressLabel->setVisible(false);
     DFontSizeManager::instance()->bind(m_progressLabel, DFontSizeManager::T10);
-    m_progressLabel->setMaximumWidth(100);
+    m_progressLabel->setMaximumWidth(130);
     progressLay->addWidget(m_progressLabel, 0, Qt::AlignCenter);
     progressLay->addWidget(m_Progess, 0, Qt::AlignBottom);
 
@@ -271,7 +272,34 @@ void updateControlPanel::setDate(QString date)
 
 void updateControlPanel::setProgressText(QString text)
 {
-    m_progressLabel->setText(text);
+    m_progressLabel->setText(getElidedText(m_progressLabel, text, Qt::ElideRight, m_progressLabel->maximumWidth() -10, 0, __LINE__));
+    if(m_buttonStatus == ButtonStatus::retry){
+        m_progressLabel->setToolTip(text);
+    }else {
+        m_progressLabel->setToolTip("");
+    }
+
+}
+
+//used to display long string: "12345678" -> "12345..."
+const QString updateControlPanel::getElidedText(QWidget* widget, QString data, Qt::TextElideMode mode, int width, int flags, int line)
+{
+    QString retTxt = data;
+    if (retTxt == "")
+        return retTxt;
+
+    QFontMetrics fontMetrics(font());
+    int fontWidth = fontMetrics.width(data);
+
+    qInfo() << Q_FUNC_INFO << " [Enter], data, width, fontWidth : " << data << width << fontWidth << line;
+
+    if (fontWidth > width) {
+        retTxt = widget->fontMetrics().elidedText(data, mode, width, flags);
+    }
+
+    qInfo() << Q_FUNC_INFO << " [End], retTxt : " << retTxt;
+
+    return retTxt;
 }
 
 void updateControlPanel::setShowMoreButtomText(QString text)

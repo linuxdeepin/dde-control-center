@@ -66,6 +66,8 @@ public:
     void setUpdateButtonVisible(bool visible);
     void setUpdateButtonEnable(bool enable);
 
+    const QString getElidedText(QWidget* widget, QString data, Qt::TextElideMode mode = Qt::ElideRight, int width = 100, int flags = 0, int line = 0);
+
 
     UpdateDProgressType getProgressType() const;
     void setProgressType(const UpdateDProgressType &progressType);
