@@ -170,7 +170,9 @@ void WirelessConnect::initConnection()
 void WirelessConnect::setPassword(const QString &password)
 {
     WirelessSecuritySetting::Ptr wsSetting = m_connectionSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>();
-    WirelessSecuritySetting::KeyMgmt keyMgmt = wsSetting->keyMgmt();
+    bool isHidden = m_connectionSettings->setting(Setting::SettingType::Wireless).staticCast<WirelessSetting>()->hidden();
+    WirelessSecuritySetting::KeyMgmt keyMgmt = isHidden ? getKeyMgmtByAp(m_accessPoint) : wsSetting->keyMgmt();
+    wsSetting->setKeyMgmt(keyMgmt);
     if (keyMgmt == WirelessSecuritySetting::KeyMgmt::Wep) {
         wsSetting->setWepKey0(password);
     } else if (keyMgmt == WirelessSecuritySetting::KeyMgmt::WpaPsk) {
