@@ -248,6 +248,9 @@ void updateControlPanel::setButtonStatus(const ButtonStatus &value)
     }
     m_buttonStatus = value;
     setButtonIcon(value);
+    if(value == ButtonStatus::invalid){
+        m_startButton->setEnabled(false);
+    }
 }
 
 void updateControlPanel::setTitle(QString title)

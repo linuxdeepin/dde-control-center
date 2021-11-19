@@ -107,10 +107,10 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         setVisible(true);
         break;
     case UpdatesStatus::Downloading:
+    	m_controlWidget-> setButtonStatus(ButtonStatus::pause);
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
         setProgress(m_progressVlaue);
-        m_controlWidget-> setButtonStatus(ButtonStatus::pause);
         m_controlWidget->setCtrlButtonEnabled(true);
         break;
     case UpdatesStatus::DownloadPaused:
@@ -122,8 +122,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
         setProgressVlaue(1.0);
-        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
-        m_controlWidget->setCtrlButtonEnabled(false);
+        m_controlWidget->setButtonStatus(ButtonStatus::invalid);
         Q_EMIT requestRefreshSize();
         break;
     case UpdatesStatus::AutoDownloaded:
@@ -134,12 +133,12 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
         setProgressVlaue(0.0);
-        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
+        m_controlWidget->setButtonStatus(ButtonStatus::invalid);
         m_controlWidget->setCtrlButtonEnabled(false);
         break;
     case UpdatesStatus::UpdateSucceeded:
         m_controlWidget->setProgressType(UpdateDProgressType::Install);
-        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
+        m_controlWidget->setButtonStatus(ButtonStatus::invalid);
         this->setVisible(false);
         break;
     case UpdatesStatus::UpdateFailed:
@@ -156,12 +155,11 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
     case UpdatesStatus::WaitRecoveryBackup:
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressText(tr("Waiting"));
-        m_controlWidget->showButton(false);
+        m_controlWidget->setButtonStatus(ButtonStatus::invalid);
         break;
     case UpdatesStatus::RecoveryBackingup:
         m_controlWidget->showUpdateProcess(true);
-        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
-        m_controlWidget->showButton(false);
+        m_controlWidget->setButtonStatus(ButtonStatus::invalid);
         m_controlWidget->setProgressType(UpdateDProgressType::Backup);
         m_controlWidget->setProgressText(tr("Backing up"));
         break;
@@ -169,8 +167,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         m_controlWidget->showUpdateProcess(true);
         setProgressVlaue(1.0);
         m_controlWidget->setProgressType(UpdateDProgressType::Backup);
-        m_controlWidget->setButtonIcon(ButtonStatus::invalid);
-        m_controlWidget->setCtrlButtonEnabled(false);
+        m_controlWidget->setButtonStatus(ButtonStatus::invalid);
         break;
     case UpdatesStatus::RecoveryBackupFailed:
         m_controlWidget->showUpdateProcess(true);
