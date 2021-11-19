@@ -38,6 +38,8 @@ SoundModule::SoundModule(FrameProxyInterface *frameProxy, QObject *parent)
     , ModuleInterface(frameProxy)
     , m_outputPortCount(0)
     , m_inputPortCount(0)
+    , m_outputPortEnableCount(0)
+    , m_inputPortEnableCount(0)
 {
     m_pMainWindow = dynamic_cast<MainWindow *>(m_frameProxy);
     GSettingWatcher::instance()->insertState("soundInput");
@@ -103,7 +105,7 @@ void SoundModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, input, bSoundInput);
         m_frameProxy->setDetailVisible(module, input, tr("Input Device"), bSoundInput);
         //输入设备为空不显示
-        bool isInputVisble = m_inputPortCount > 0;
+        bool isInputVisble = m_inputPortEnableCount > 0;
         m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), bSoundInput && func_is_visible("soundNoiseReduce", "Hidden") && isInputVisble);
         m_frameProxy->setDetailVisible(module, input, tr("Input Volume"), bSoundInput && func_is_visible("soundInputSlider", "Hidden") && isInputVisble);
         m_frameProxy->setDetailVisible(module, input, tr("Input Level"), bSoundInput && isInputVisble);
@@ -114,7 +116,7 @@ void SoundModule::initSearchData()
         m_frameProxy->setWidgetVisible(module, output, bSoundOutput);
         m_frameProxy->setDetailVisible(module, output, tr("Output Device"), bSoundOutput);
         //输出设备为空不显示
-        bool isOutputVisble = m_outputPortCount > 0;
+        bool isOutputVisble = m_outputPortEnableCount > 0;
         m_frameProxy->setDetailVisible(module, output, tr("Output Volume"), bSoundOutput && func_is_visible("soundOutputSlider", "Hidden") && isOutputVisble);
         m_frameProxy->setDetailVisible(module, output, tr("Volume Boost"),  bSoundOutput && func_is_visible("soundVolumeBoost", "Hidden") && isOutputVisble);
         m_frameProxy->setDetailVisible(module, output, leftRightBalance, bSoundOutput && func_is_visible("soundBalanceSlider", "Hidden") && isOutputVisble);
@@ -151,6 +153,14 @@ void SoundModule::initSearchData()
 
     //TODO: 当有输入或输出设备时可能不显示，该问题需要解决
     connect(m_model, &SoundModel::portAdded, this, [ = ](const Port *port) {
+        //需要端口是否可用刷新输入输出搜索数据
+        connect(port, &Port::currentPortEnabled, this, [ = ]() {
+            getPortCount();
+            func_output_changed();
+            func_input_changed();
+            m_frameProxy->updateSearchData(module);
+        });
+
         func_process_all();
         m_frameProxy->updateSearchData(module);
     });
@@ -184,22 +194,22 @@ void SoundModule::initSearchData()
             func_device_changed();
         } else if ("soundInputSlider" == gsetting) {
             //输入设备为空不显示
-            m_frameProxy->setDetailVisible(module, input, tr("Input Volume"), func_is_visible("soundInput") && func_is_visible("soundInputSlider", "Hidden") && m_inputPortCount > 0);
+            m_frameProxy->setDetailVisible(module, input, tr("Input Volume"), func_is_visible("soundInput") && func_is_visible("soundInputSlider", "Hidden") && m_inputPortEnableCount > 0);
         } else if ("soundOutputSlider" == gsetting) {
             //输出设备为空不显示
-            m_frameProxy->setDetailVisible(module, output, tr("Output Volume"), func_is_visible("soundOutput") && func_is_visible("soundOutputSlider", "Hidden") && m_outputPortCount > 0);
+            m_frameProxy->setDetailVisible(module, output, tr("Output Volume"), func_is_visible("soundOutput") && func_is_visible("soundOutputSlider", "Hidden") && m_outputPortEnableCount > 0);
         } else if ("soundVolumeBoost" == gsetting) {
             //输出设备为空不显示
-            m_frameProxy->setDetailVisible(module, output, tr("Volume Boost"),  func_is_visible("soundOutput") && func_is_visible("soundVolumeBoost", "Hidden") && m_outputPortCount > 0);
+            m_frameProxy->setDetailVisible(module, output, tr("Volume Boost"),  func_is_visible("soundOutput") && func_is_visible("soundVolumeBoost", "Hidden") && m_outputPortEnableCount > 0);
         } else if ("soundBalanceSlider" == gsetting) {
             //输出设备为空不显示
-            m_frameProxy->setDetailVisible(module, output, leftRightBalance, func_is_visible("soundOutput") && func_is_visible("soundBalanceSlider", "Hidden") && m_outputPortCount > 0);
+            m_frameProxy->setDetailVisible(module, output, leftRightBalance, func_is_visible("soundOutput") && func_is_visible("soundBalanceSlider", "Hidden") && m_outputPortEnableCount > 0);
         } else if ("soundEffectPage" == gsetting) {
             bool bSoundEffects = func_is_visible("soundEffects");
             m_frameProxy->setDetailVisible(module, soundEffects, soundEffects, bSoundEffects && func_is_visible("soundEffectPage", "Hidden"));
         } else if ("soundNoiseReduce" == gsetting) {
             //输入设备为空不显示
-            m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), func_is_visible("soundInput") && func_is_visible("soundNoiseReduce", "Hidden") && m_inputPortCount > 0);
+            m_frameProxy->setDetailVisible(module, input, tr("Automatic Noise Suppression"), func_is_visible("soundInput") && func_is_visible("soundNoiseReduce", "Hidden") && m_inputPortEnableCount > 0);
         } else {
             qInfo() << " not contains the gsettings : " << gsetting << state;
             return;
@@ -216,13 +226,20 @@ void SoundModule::getPortCount()
 {
     m_inputPortCount = 0;
     m_outputPortCount = 0;
+    m_inputPortEnableCount = 0;
+    m_outputPortEnableCount = 0;
+
     QList<Port *> ports = m_model->ports();
     for (int i = 0; i < ports.size(); i++) {
         Port * port = ports.value(i);
         if (port->direction() == Port::Out) {
             m_outputPortCount ++;
+            if (port->isEnabled())
+                m_outputPortEnableCount ++;
         } else {
             m_inputPortCount ++;
+            if (port->isEnabled())
+                m_inputPortEnableCount ++;
         }
     }
 }

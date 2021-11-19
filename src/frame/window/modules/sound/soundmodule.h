@@ -74,6 +74,9 @@ private:
     MainWindow *m_pMainWindow;
     int m_outputPortCount;
     int m_inputPortCount;
+    int m_outputPortEnableCount;
+    int m_inputPortEnableCount;
+
 };
 } // namespace sound
 } // namespace DCC_NAMESPACE
