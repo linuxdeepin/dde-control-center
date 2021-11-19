@@ -154,7 +154,11 @@ void MonitorsGround::initMonitorProxyWidget(Monitor *mon)
 
     connect(pw, &MonitorProxyWidget::requestMonitorPress, this, &MonitorsGround::requestMonitorPress);
     connect(pw, &MonitorProxyWidget::requestMonitorPress, this, [this,pw]() {
+        for (auto item : m_monitors.keys()) {
+            item->setZValue(0);
+        }
         m_movingItem = pw;
+        m_movingItem->setZValue(1);
     });
     connect(pw, &MonitorProxyWidget::requestMonitorRelease, this, &MonitorsGround::onRequestMonitorRelease);
     connect(pw, &MonitorProxyWidget::requestMouseMove, this, &MonitorsGround::onRequestMouseMove);
@@ -385,12 +389,13 @@ QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, bool isMove)
 
     qreal intersectedArea = 0.0; //相交的面积
 
-    QRectF moveItemIntersect;
+    QRectF moveItemIntersect, moveItemRect;
 
     bool g_bXYTogetherMoved = false; //标志XY方向是否一起移动，其余情况按哪个方向离得近向哪个方向移动
 
 
     moveItemIntersect = m_movingItem->mapRectToScene(m_movingItem->justIntersectRect());
+    moveItemRect = m_movingItem->mapRectToScene(m_movingItem->boundingRect());
 
     auto mapToSceneIntersectRect = [=](MonitorProxyWidget *item) {
         return item->mapToScene(item->justIntersectRect());
@@ -408,7 +413,7 @@ QPointF MonitorsGround::multiScreenSortAlgo(bool &isRestore, bool isMove)
             intersectedArea += rect.width()*rect.height();
 
             //移动块完全覆盖一个块
-            if (moveItemIntersect.contains(m_lstSortItems[i]->mapRectToScene(m_lstSortItems[i]->boundingRect()))) {
+            if (moveItemRect.contains(m_lstSortItems[i]->mapRectToScene(m_lstSortItems[i]->boundingRect()))) {
                 lstShelterItems.append(m_lstSortItems[i]);
             }
 
@@ -1014,60 +1019,12 @@ void MonitorsGround::multiScreenAutoAdjust()
             QList<QPointF> lstPos;
             QList<qreal> lstX,lstY;
             for (auto item : iter.value()) {
-                m_movingItem = item;
-                qDebug() << "将此屏幕设置为移动块" << m_movingItem->name();
+                m_movingItem = item;          
                 bool isRestore = false;
-                QPointF pos = multiScreenSortAlgo(isRestore,false);
-                lstPos.append(pos);
-                lstX.append(pos.x());
-                lstY.append(pos.y());
-                qDebug() << "坐标信息" << pos;
-            }
-            qreal mindX = 0.0;
-            qreal mindY = 0.0;
-            if (!lstPos.isEmpty()) {
-                //排序，根据绝对值排序
-                std::sort(lstX.begin(),lstX.end(),[=](qreal item1,  qreal item2) {
-                   return fabs(item1) < fabs(item2);
-                });
+                multiScreenSortAlgo(isRestore);
 
-                std::sort(lstY.begin(),lstY.end(),[=](qreal item1,  qreal item2) {
-                   return fabs(item1) < fabs(item2);
-                });
-
-                mindX = lstX.first();
-                mindY = lstY.first();
-
-                if (qFuzzyIsNull(mindX) && qFuzzyIsNull(mindY)) {
-                    if(qFuzzyIsNull(lstX.first())) {
-                        lstX.takeFirst();
-                        if(lstX.size() > 0)
-                            mindX = lstX.first();
-                    }
-                    else {
-                        if(qFuzzyIsNull(lstY.first())) {
-                            lstY.takeFirst();
-                            if(lstY.size() > 0)
-                                mindY = lstY.first();
-                        }
-                    }
-                }
-
-
-                qDebug() << "minX:" << mindX << "minY:" << mindY;
-
-                //执行移动操作
-                for (auto item : iter.value()) {
-                    m_movingItem = item;
-                    m_movingItem->moveBy(mindX, mindY);
-                    m_graphicsScene.update();
-                    if (!m_lstSortItems.contains(item))
-                        m_lstSortItems.append(item);
-                }
-
-                for (auto k : m_lstSortItems) {
-                    qDebug() << "sortItems" << k->name();
-                }
+                if (!m_lstSortItems.contains(item))
+                    m_lstSortItems.append(item);
             }
        }
     }
@@ -1279,6 +1236,17 @@ void MonitorsGround::onRequestMouseMove(MonitorProxyWidget *pw)
     qreal right = 0.0;
     qreal left = 0.0;
 
+    qreal topLeft = 0.0;
+    qreal topRight = 0.0;
+    qreal bottomLeft = 0.0;
+    qreal bottomRight = 0.0;
+    qreal rightTop = 0.0;
+    qreal rightBottom = 0.0;
+    qreal leftTop = 0.0;
+    qreal leftBottom = 0.0;
+    
+    int space = 200;
+
     auto minMoveLen = [=](qreal temp, qreal &len) {
         if (fabs(len) > 0.0) {
             if (fabs(temp) < fabs(len)) len = temp;
@@ -1300,39 +1268,93 @@ void MonitorsGround::onRequestMouseMove(MonitorProxyWidget *pw)
             //上相交
             qreal temp =  item->mapToScene(item->boundingRect().topRight()).y() - pw->mapToScene(pw->boundingRect().bottomLeft()).y();
             minMoveLen(temp,top);
+
+            //判断边对齐
+            temp =  item->mapToScene(item->boundingRect().topRight()).x() - pw->mapToScene(pw->boundingRect().bottomRight()).x();
+            minMoveLen(temp,topLeft);
+            temp =  item->mapToScene(item->boundingRect().topLeft()).x() - pw->mapToScene(pw->boundingRect().bottomLeft()).x();
+            minMoveLen(temp,topRight);
         }
         else if (pw->mapToScene(pw->boundingRect()).intersects(item->mapToScene(item->bufferboundingRectBottom()))) {
             //下相交
             qreal temp =  item->mapToScene(item->boundingRect().bottomLeft()).y() - pw->mapToScene(pw->boundingRect().topLeft()).y();
             minMoveLen(temp,bottom);
+
+            //判断边对齐的可能
+            temp =  item->mapToScene(item->boundingRect().topRight()).x() - pw->mapToScene(pw->boundingRect().bottomRight()).x();
+            minMoveLen(temp,bottomLeft);
+            temp =  item->mapToScene(item->boundingRect().topLeft()).x() - pw->mapToScene(pw->boundingRect().bottomLeft()).x();
+            minMoveLen(temp,bottomRight);
         }
         else if (pw->mapToScene(pw->boundingRect()).intersects(item->mapToScene(item->bufferboundingRectLeft()))) {
             //左相交
             qreal temp =  item->mapToScene(item->boundingRect().bottomLeft()).x() - pw->mapToScene(pw->boundingRect().bottomRight()).x();
             minMoveLen(temp,left);
+
+            //判断边对齐的可能
+            temp =  item->mapToScene(item->boundingRect().topRight()).y() - pw->mapToScene(pw->boundingRect().topRight()).y();
+            minMoveLen(temp,leftTop);
+            temp =  item->mapToScene(item->boundingRect().bottomLeft()).y() - pw->mapToScene(pw->boundingRect().bottomLeft()).y();
+            minMoveLen(temp,leftBottom);
         }
         else if (pw->mapToScene(pw->boundingRect()).intersects(item->mapToScene(item->bufferboundingRectRight()))) {
             //右相交
             qreal temp = item->mapToScene(item->boundingRect().bottomRight()).x() - pw->mapToScene(pw->boundingRect().bottomLeft()).x();
             minMoveLen(temp,right);
+
+            //判断边对齐的可能
+            temp =  item->mapToScene(item->boundingRect().topRight()).y() - pw->mapToScene(pw->boundingRect().topRight()).y();
+            minMoveLen(temp,rightTop);
+            temp =  item->mapToScene(item->boundingRect().bottomLeft()).y() - pw->mapToScene(pw->boundingRect().bottomLeft()).y();
+            minMoveLen(temp,rightBottom);
         }
     }
 
-    if (qFuzzyIsNull(top))
-        pw->moveBy(0,bottom);
-    else if (qFuzzyIsNull(bottom))
-        pw->moveBy(0,top);
+    auto edgeAlignment = [=](qreal x1, qreal x2) {
+        if(fabs(x1) > fabs(x2))
+            return fabs(x2) < space ? x2 : 0;
+        else
+            return fabs(x1) < space ? x1 : 0;
+    };
+
+    QPointF autoAdsorptionPos(0.0,0.0),edgeAlignmentPos(0.0,0.0);
+
+    if (qFuzzyIsNull(top)) {
+        edgeAlignmentPos.setX(edgeAlignment(bottomRight,bottomLeft));
+        autoAdsorptionPos.setY(bottom);
+    }
+    else if (qFuzzyIsNull(bottom)) {
+        edgeAlignmentPos.setX(edgeAlignment(topRight,topLeft));
+        autoAdsorptionPos.setY(top);
+    } 
     else {
-        (fabs(top) < fabs(bottom)) ? pw->moveBy(0,top) : pw->moveBy(0,bottom);
+        autoAdsorptionPos.setY((fabs(top) < fabs(bottom)) ? top : bottom);
+        edgeAlignmentPos.setX((fabs(top) < fabs(bottom)) ? edgeAlignment(topRight,topLeft) : edgeAlignment(bottomRight,bottomLeft));
     }
 
-    if (qFuzzyIsNull(left))
-        pw->moveBy(right,0);
-    else if (qFuzzyIsNull(right))
-        pw->moveBy(left,0);
+
+    if (qFuzzyIsNull(left)) {
+        autoAdsorptionPos.setX(right);
+        edgeAlignmentPos.setY(edgeAlignment(rightTop,rightBottom));
+    }   
+    else if (qFuzzyIsNull(right)) {
+        autoAdsorptionPos.setX(left);
+        edgeAlignmentPos.setY(edgeAlignment(leftTop,leftBottom));
+    } 
     else {
-        (fabs(left) < fabs(right)) ? pw->moveBy(left,0) : pw->moveBy(right,0);
+        autoAdsorptionPos.setX((fabs(left) < fabs(right)) ? left : right);
+        edgeAlignmentPos.setY((fabs(left) < fabs(right)) ? edgeAlignment(leftTop,leftBottom) : edgeAlignment(rightTop,rightBottom));
     }
+
+    if(!qFuzzyIsNull(autoAdsorptionPos.x())) {
+        edgeAlignmentPos.setX(0.0);
+    }
+
+    if(!qFuzzyIsNull(autoAdsorptionPos.y())) {
+        edgeAlignmentPos.setY(0.0);
+    }
+    
+    pw->moveBy(edgeAlignmentPos.x() + autoAdsorptionPos.x(), edgeAlignmentPos.y() + autoAdsorptionPos.y());
 }
 
 //更新缩放比例
