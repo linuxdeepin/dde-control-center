@@ -390,15 +390,21 @@ void DeviceManagerRealize::changeWirelessStatus(Device::State newstate)
             oldStatus = activePoint->status();
     }
 
+    // 重置所有的连接的状态
+    for (AccessPoints *accessPoint : m_accessPoints)
+        accessPoint->m_status = ConnectionStatus::Deactivated;
+
     NetworkManager::ActiveConnection::Ptr activeConn = m_wDevice->activeConnection();
     if (activeConn.isNull()) {
         PRINTMESSAGE("active connection is empty");
+        Q_EMIT activeConnectionChanged();
         return;
     }
 
-    WirelessConnection *currentConnection = findWirelessConnectionByUuid(activeConn->uuid());
+    WirelessConnection *currentConnection = findWirelessConnectionBySsid(activeConn->id());
     if (!currentConnection) {
         PRINTMESSAGE(QString("cannot find connection uuid: %1").arg(activeConn->uuid()));
+        Q_EMIT activeConnectionChanged();
         return;
     }
 
@@ -611,6 +617,8 @@ void DeviceManagerRealize::syncWlanAndConnections(QList<WirelessConnection *> &a
 
         delete rmConnection;
     }
+
+    allConnections = connections;
 }
 
 AccessPoints *DeviceManagerRealize::findAccessPoints(const QString &ssid)
@@ -666,6 +674,16 @@ WiredConnection *DeviceManagerRealize::findWiredConnection(const QString &path)
 {
     for (WiredConnection *connection : m_wiredConnections) {
         if (connection->connection()->path() == path)
+            return connection;
+    }
+
+    return Q_NULLPTR;
+}
+
+WirelessConnection *DeviceManagerRealize::findWirelessConnectionBySsid(const QString &ssid)
+{
+    for (WirelessConnection *connection : m_wirelessConnections) {
+        if (connection->connection()->ssid() == ssid)
             return connection;
     }
 

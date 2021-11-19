@@ -1,7 +1,7 @@
 #ifndef UNETWORKCONST_H
 #define UNETWORKCONST_H
 
-#include<QString>
+#include <QString>
 
 #include "com_deepin_daemon_network.h"
 #include "com_deepin_daemon_network_proxychains.h"

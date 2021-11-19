@@ -94,6 +94,7 @@ private:
 
     WiredConnection *findWiredConnection(const QString &path);
     WiredConnection *findWiredConnectionByUuid(const QString &uuid);
+    WirelessConnection *findWirelessConnectionBySsid(const QString &ssid);
     WirelessConnection *findWirelessConnection(const QString &path);
     WirelessConnection *findWirelessConnectionByUuid(const QString &uuid);
     ConnectionStatus convertStatus(Device::State state);
