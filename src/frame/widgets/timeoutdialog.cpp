@@ -42,7 +42,6 @@ TimeoutDialog::TimeoutDialog(const int timeout, QString messageModel, QWidget *p
 
     connect(m_timeoutRefreshTimer, &QTimer::timeout, this, &TimeoutDialog::onRefreshTimeout);
     setAttribute(Qt::WA_DeleteOnClose);
-    setWindowFlags(windowFlags() | Qt::X11BypassWindowManagerHint);
 }
 
 int TimeoutDialog::exec()
@@ -80,4 +79,10 @@ void TimeoutDialog::setMessageModel(const QString &messageModel)
 {
     m_messageModel = messageModel;
     setMessage(m_messageModel.arg(m_timeout));
+}
+
+void TimeoutDialog::mouseMoveEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event)
+    return;
 }

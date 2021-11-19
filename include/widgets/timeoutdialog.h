@@ -43,6 +43,9 @@ public Q_SLOTS:
 private Q_SLOTS:
     void onRefreshTimeout();
 
+protected:
+    void mouseMoveEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+
 private:
     QTimer *m_timeoutRefreshTimer;
 
