@@ -92,8 +92,7 @@ void PowerWorker::active()
     m_powerModel->setSleepLock(m_powerInter->sleepLock());
     m_powerModel->setLidPresent(m_powerInter->lidIsPresent());
     m_powerModel->setSleepOnLidOnPowerClose(m_powerInter->lidClosedSleep());
-    QDBusReply<bool> reply = m_sysPowerInter->call("HasBattery");
-    m_powerModel->setHaveBettary(reply.value());
+    m_powerModel->setHaveBettary(m_sysPowerInter->hasBattery());
     m_powerModel->setPowerSavingModeAutoWhenQuantifyLow(m_sysPowerInter->powerSavingModeAutoWhenBatteryLow());
     m_powerModel->setPowerSavingModeLowerBrightnessThreshold(m_sysPowerInter->powerSavingModeBrightnessDropPercent());
     m_powerModel->setLowPowerNotifyEnable(m_powerInter->lowPowerNotifyEnable());
