@@ -57,7 +57,7 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     m_Progess->setTextDirection(QProgressBar::TopToBottom);
     m_Progess->setRange(0, 100);
     m_Progess->setAlignment(Qt::AlignRight);
-    m_Progess->setMaximumWidth(130);
+    m_Progess->setFixedWidth(100);
     m_Progess->setMaximumHeight(10);
     m_Progess->setVisible(false);
 
@@ -243,9 +243,6 @@ ButtonStatus updateControlPanel::getButtonStatus() const
 
 void updateControlPanel::setButtonStatus(const ButtonStatus &value)
 {
-    if (m_buttonStatus == value) {
-        return;
-    }
     m_buttonStatus = value;
     setButtonIcon(value);
     if(value == ButtonStatus::invalid){

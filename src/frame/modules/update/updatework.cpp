@@ -626,12 +626,12 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
     UpdatesStatus status = m_model->getClassifyUpdateStatus(updateType);
 
     if (m_backupStatus == BackupStatus::Backingup) {
-        m_model->setClassifyUpdateTypeStatus(updateType, UpdatesStatus::WaitRecoveryBackup);
         QPointer<JobInter> job = getDownloadJob(updateType);
         if(job != nullptr){
             m_managerInter->CleanJob(job->id());
             deleteJob(job);
         }
+        m_model->setClassifyUpdateTypeStatus(updateType, UpdatesStatus::WaitRecoveryBackup);
         return;
 
     }
