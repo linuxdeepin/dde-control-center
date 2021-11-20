@@ -76,8 +76,8 @@ enum ClassifyUpdateType {
     Invalid = -1,
     SystemUpdate = 1,
     AppStoreUpdate,
-    SecurityUpdate = 4,
-    UnknownUpdate = 8
+    UnknownUpdate = 8,
+    SecurityUpdate = 16
 };
 
 enum UpdateCtrlType {

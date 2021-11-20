@@ -390,7 +390,7 @@ void UpdateWorker::setUpdateInfo()
     } else {
         qDebug() << "UpdateWorker::setAppUpdateInfo: downloadSize = " << m_downloadSize;
         m_model->setStatus(UpdatesStatus::UpdatesAvailable, __LINE__);
-        for (uint type = ClassifyUpdateType::SystemUpdate; type <= ClassifyUpdateType::UnknownUpdate; type++) {
+        for (uint type = ClassifyUpdateType::SystemUpdate; type <= ClassifyUpdateType::SecurityUpdate; type++) {
             ClassifyUpdateType classifyType = uintToclassifyUpdateType(type);
             if (updateInfoMap.contains(classifyType)) {
                 if (updateInfoMap.value(classifyType) != nullptr) {
