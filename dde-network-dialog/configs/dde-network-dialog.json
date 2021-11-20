@@ -19,6 +19,15 @@
             "name[zh_CN]": "坐标",
             "permissions": "readwrite",
             "visibility": "public"
+        },
+        "networkDialogReason": {
+            "value": "Dock",
+            "serial": 0,
+            "flags": ["nooverride"],
+            "name": "reason",
+            "name[zh_CN]": "理由",
+            "permissions": "readwrite",
+            "visibility": "public"
         }
     }
 }

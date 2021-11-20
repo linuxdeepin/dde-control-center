@@ -38,10 +38,11 @@ class ThemeManager : public QObject, public Dtk::Core::DSingleton<ThemeManager>
 
 public:
     enum ThemeType {
+        LockType,
+        GreeterType,
         UnknownType,
         LightType,
         DarkType,
-        LoginType
     };
 
 Q_SIGNALS:

@@ -41,11 +41,20 @@ DockPopupWindow::DockPopupWindow(QWidget *parent)
     , m_model(false)
     , m_regionInter(new DRegionMonitor(this))
 {
+    setProperty("_d_radius_force", true); // 无特效模式时，让窗口圆角
     setMargin(0);
     m_wmHelper = DWindowManagerHelper::instance();
 
     compositeChanged();
     setWindowFlags(Qt::Popup | Qt::FramelessWindowHint | Qt::NoDropShadowWindowHint | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
+
+    setShadowBlurRadius(20);
+    setRadius(6);
+    setShadowYOffset(2);
+    setShadowXOffset(0);
+    setArrowWidth(18);
+    setArrowHeight(10);
+
     connect(m_wmHelper, &DWindowManagerHelper::hasCompositeChanged, this, &DockPopupWindow::compositeChanged);
     connect(m_regionInter, &DRegionMonitor::buttonPress, this, &DockPopupWindow::onGlobMouseRelease);
 }

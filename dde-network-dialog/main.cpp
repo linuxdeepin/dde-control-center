@@ -254,17 +254,18 @@ void MainApp::parseArguments()
 
     m_isWep = parser.isSet(wepOption);
     m_isSave = parser.isSet(saveOption);
+    QString reason = "Lock";
     if (parser.isSet(reasonOption)) {
-        QString reason = parser.value(reasonOption);
-        if (reason == "Lock") {
-            m_reason = Lock;
-        } else if (reason == "Greeter") {
-            m_reason = Greeter;
-        } else if (reason == "Dock") {
-            m_reason = Dock;
-        } else if (reason == "Password") {
-            m_reason = Password;
-        }
+        reason = parser.value(reasonOption);
+    }
+    if (reason == "Lock") {
+        m_reason = Lock;
+    } else if (reason == "Greeter") {
+        m_reason = Greeter;
+    } else if (reason == "Dock") {
+        m_reason = Dock;
+    } else if (reason == "Password") {
+        m_reason = Password;
     }
 }
 
@@ -308,9 +309,10 @@ void MainApp::showWidget()
     switch (m_reason) {
     case Greeter:
         dde::network::NetworkController::setServiceType(dde::network::ServiceLoadType::LoadFromManager);
-        // 此处没break, Greeter的样式处理同Lock
+        ThemeManager::instance()->setThemeType(ThemeManager::GreeterType);
+        break;
     case Lock:
-        ThemeManager::instance()->setThemeType(ThemeManager::LoginType);
+        ThemeManager::instance()->setThemeType(ThemeManager::LockType);
         break;
     default:
         break;

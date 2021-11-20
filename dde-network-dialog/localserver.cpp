@@ -55,6 +55,7 @@ void LocalServer::clear()
         }
         m_clients.clear();
         m_server->close();
+        QLocalServer::removeServer(m_server->serverName());
         delete m_server;
         m_server = nullptr;
     }
@@ -74,6 +75,7 @@ void LocalServer::setWidget(NetworkPanel *panel, DockPopupWindow *popopWindow)
 
 bool LocalServer::RunServer(const QString &serverName)
 {
+    QLocalServer::removeServer(serverName);
     return m_server->listen(serverName);
 }
 

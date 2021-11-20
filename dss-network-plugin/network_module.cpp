@@ -45,7 +45,7 @@ NetworkModule::NetworkModule(QObject *parent)
     , m_lastState(NetworkManager::Device::State::UnknownState)
 {
     QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(updateLockScreenStatus(bool)));
-    m_isLockModel = QDBusConnection::sessionBus().interface()->isServiceRegistered("com.deepin.dde.lockFront");
+    m_isLockModel = (-1 == qAppName().indexOf("greeter"));
     if (!m_isLockModel) {
         dde::network::NetworkController::setServiceType(dde::network::ServiceLoadType::LoadFromManager);
     }

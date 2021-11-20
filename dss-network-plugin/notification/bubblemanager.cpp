@@ -25,6 +25,8 @@
 #include "constants.h"
 
 #include <DDesktopServices>
+#include <DWindowManagerHelper>
+#include <DPlatformWindowHandle>
 
 #include <QStringList>
 #include <QVariantMap>

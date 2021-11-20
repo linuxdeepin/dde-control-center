@@ -27,7 +27,6 @@
 #include "appbody.h"
 #include "actionbutton.h"
 #include "button.h"
-//#include "icondata.h"
 #include "bubbletool.h"
 #include "constants.h"
 
@@ -42,9 +41,10 @@
 #include <QBoxLayout>
 #include <QParallelAnimationGroup>
 #include <QTextDocument>
+#include <QBitmap>
 
 Bubble::Bubble(QWidget *parent, EntityPtr entity, OSD::ShowStyle style)
-    : DBlurEffectWidget(parent)
+    : QWidget(parent)
     , m_entity(entity)
     , m_icon(new AppIcon(this))
     , m_body(new AppBody(this))
@@ -145,7 +145,7 @@ void Bubble::mouseReleaseEvent(QMouseEvent *event)
 
     m_pressed = false;
 
-    return DBlurEffectWidget::mouseReleaseEvent(event);
+    return QWidget::mouseReleaseEvent(event);
 }
 
 bool Bubble::eventFilter(QObject *obj, QEvent *event)
@@ -162,14 +162,14 @@ bool Bubble::eventFilter(QObject *obj, QEvent *event)
 
 void Bubble::showEvent(QShowEvent *event)
 {
-    DBlurEffectWidget::showEvent(event);
+    QWidget::showEvent(event);
 
     m_quitTimer->start();
 }
 
 void Bubble::hideEvent(QHideEvent *event)
 {
-    DBlurEffectWidget::hideEvent(event);
+    QWidget::hideEvent(event);
 
     m_quitTimer->start();
 }
@@ -183,7 +183,7 @@ void Bubble::enterEvent(QEvent *event)
         m_closeButton->setVisible(true);
     }
 
-    return DBlurEffectWidget::enterEvent(event);
+    return QWidget::enterEvent(event);
 }
 
 void Bubble::leaveEvent(QEvent *event)
@@ -195,7 +195,7 @@ void Bubble::leaveEvent(QEvent *event)
         m_closeButton->setVisible(false);
     }
 
-    return DBlurEffectWidget::leaveEvent(event);
+    return QWidget::leaveEvent(event);
 }
 
 void Bubble::onOutTimerTimeout()
@@ -223,8 +223,6 @@ void Bubble::initUI()
     setAttribute(Qt::WA_TranslucentBackground);
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowFlags(Qt::WindowStaysOnTopHint | Qt::Tool | Qt::X11BypassWindowManagerHint);
-    setBlendMode(DBlurEffectWidget::BehindWindowBlend);
-    setMaskColor(DBlurEffectWidget::AutoColor);
     setMouseTracking(true);
 
     setFixedWidth(OSD::BubbleWidth(OSD::BUBBLEWINDOW));
@@ -352,5 +350,27 @@ void Bubble::setFixedGeometry(QRect rect)
 
 void Bubble::onOpacityChanged(double value)
 {
-    setMaskAlpha(value * 255);
+}
+
+// 无特效模式，手动调整使窗口圆角
+void Bubble::paintEvent(QPaintEvent *event)
+{
+    QBitmap bmp(this->size());
+    bmp.fill();
+    QPainter p(&bmp);
+    p.setPen(Qt::NoPen);
+    p.setBrush(Qt::black);
+    p.drawRoundedRect(bmp.rect(),18,18);
+    setMask(bmp);
+
+    QRect rect = bmp.rect();
+    rect.moveTo(0,1);
+    rect.setHeight(rect.height()-2);
+    QPainter painter;
+    painter.begin(this);
+    painter.setPen(Qt::gray);
+    painter.setBrush(Qt::lightGray);
+    painter.drawRect(rect);
+    painter.end();
+    QWidget::paintEvent(event);
 }

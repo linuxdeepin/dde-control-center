@@ -81,7 +81,7 @@ void NetworkPanel::initUi()
     m_netListView->setItemRadius(0);
 
     NetworkDelegate *delegate = new NetworkDelegate(m_netListView);
-    delegate->setMargins(QMargins(10, 0, 10, 0));
+    delegate->setMargins(QMargins(10, 0, 6, 0));
     m_netListView->setItemDelegate(delegate);
     connect(delegate, &NetworkDelegate::closeClicked, this, [ ] (const QModelIndex &index) {
         // 获取该行数据对应的设备
@@ -95,7 +95,7 @@ void NetworkPanel::initUi()
                 else
                     device->connectNetwork(connection);
             }
-        } else if (type == NetItemType::WirelessViewItem) {
+        } else if (type == NetItemType::WirelessViewItem || type == NetItemType::WirelessHiddenViewItem) {
             WirelessDevice *device = static_cast<WirelessDevice *>(index.data(NetItemRole::DeviceDataRole).value<void *>());
             AccessPoints *accessPoint = static_cast<AccessPoints *>(index.data(NetItemRole::DataRole).value<void *>());
             if (device && accessPoint) {
@@ -562,6 +562,7 @@ void NetworkPanel::onClickListView(const QModelIndex &index)
     }
     NetItemType type = static_cast<NetItemType>(index.data(NetItemRole::TypeRole).toInt());
     switch (type) {
+    case WirelessHiddenViewItem:
     case WirelessViewItem: {
         m_selectItem = selectItem;
         WirelessItem *item = static_cast<WirelessItem *>(selectItem);
@@ -856,7 +857,7 @@ bool NetworkDelegate::editorEvent(QEvent *event, QAbstractItemModel *model, cons
 
 QRect NetworkDelegate::checkRect(const QRect &rct) const
 {
-    int left = rct.right() - RIGHTMARGIN - DIAMETER;
+    int left = rct.right() - RIGHTMARGIN - DIAMETER + 4;
     int top = rct.top() + (DIAMETER / 2); // 连接图标绘制在顶端
     QRect rect;
     rect.setLeft(left);

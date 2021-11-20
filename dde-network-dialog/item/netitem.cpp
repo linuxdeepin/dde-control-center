@@ -65,6 +65,7 @@ NetItem::NetItem(QWidget *parent)
     m_standardItem->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);
     m_standardItem->setData(NetConnectionType::UnConnected, ConnectionStatusRole);
     m_standardItem->setBackground(Qt::transparent);
+    m_standardItem->setTextColorRole(DPalette::BrightText);
 }
 
 NetItem::~NetItem()
@@ -74,14 +75,6 @@ NetItem::~NetItem()
 DStandardItem *NetItem::standardItem()
 {
     return m_standardItem;
-}
-
-void NetItem::updateView()
-{
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType)
-        m_standardItem->setForeground(QColor(Qt::black));
-    else
-        m_standardItem->setForeground(QColor(Qt::white));
 }
 
 /**
@@ -420,7 +413,20 @@ WirelessItem::WirelessItem(QWidget *parent, WirelessDevice *device, AccessPoints
     : NetItem(parent)
     , m_accessPoint(ap)
     , m_device(device)
+    , m_securityAction(nullptr)
+    , m_wifiLabel(nullptr)
+    , m_connectionAction(nullptr)
+    , m_loadingStat(nullptr)
+    , m_connectionWidget(nullptr)
+    , m_connIcon(nullptr)
+    , m_stackWidget(nullptr)
+    , m_expandItem(nullptr)
+    , m_topItem(nullptr)
+    , m_passwdEdit(nullptr)
+    , m_ssidEdit(nullptr)
     , m_wirelessConnect(new WirelessConnect(this, device, ap))
+    , m_connectButton(nullptr)
+
 {
     initUi(parent);
     initConnection();
@@ -483,30 +489,37 @@ QString WirelessItem::getStrengthStateString(int strength)
 
 void WirelessItem::initUi(QWidget *parent)
 {
-    m_expandItem = new DViewItemAction(Qt::AlignBottom, QSize(PANELWIDTH - 10, 20), QSize(PANELWIDTH - 10, 20), false);
+    m_expandItem = new DViewItemAction(Qt::AlignBottom, QSize(PANELWIDTH, 20), QSize(PANELWIDTH, 20), false);
     m_stackWidget = new DStackedWidget(parent);
     // 初始化展开输入控件
     initExpandUi();
     m_expandItem->setWidget(m_stackWidget);
     m_stackWidget->adjustSize();
-    m_stackWidget->setFixedSize(PANELWIDTH - 10, 80);
+    m_stackWidget->setFixedSize(PANELWIDTH - 10, 85);
+    m_stackWidget->layout()->setMargin(0);
     standardItem()->setActionList(Qt::BottomEdge, { m_expandItem });
     m_expandItem->setVisible(false);
     // 左侧的加密图标
-    m_securityAction = new DViewItemAction(Qt::AlignLeft | Qt::AlignTop, QSize(20, 35), QSize(20, 35), false);
+    m_securityAction = new DViewItemAction(Qt::AlignLeft , QSize(20, 35), QSize(20, 35), false);
     updateSrcirityIcon();
     // 绘制WiFi图标
-    m_wifiLabel = new DViewItemAction(Qt::AlignLeft | Qt::AlignTop, QSize(20, 35), QSize(20, 35), false);
+    m_wifiLabel = new DViewItemAction(Qt::AlignLeft , QSize(20, 35), QSize(20, 35), false);
     updateWifiIcon();
 
     standardItem()->setSizeHint(QSize(-1, 36));
     standardItem()->setActionList(Qt::LeftEdge, { m_securityAction, m_wifiLabel });
 
+    m_topItem = new DViewItemAction(Qt::AlignTop, QSize(-1, 1), QSize(-1, 1), false);
+    standardItem()->setActionList(Qt::TopEdge, { m_topItem });
+    m_topItem->setVisible(false);
     // 绘制右侧的连接图标
     standardItem()->setFlags(Qt::ItemIsEnabled);
     updateConnectionStatus();
-
-    standardItem()->setData(NetItemType::WirelessViewItem, NetItemRole::TypeRole);
+    if (m_accessPoint) {
+        standardItem()->setData(NetItemType::WirelessViewItem, NetItemRole::TypeRole);
+    } else {
+        standardItem()->setData(NetItemType::WirelessHiddenViewItem, NetItemRole::TypeRole);
+    }
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_device)), NetItemRole::DeviceDataRole);
     standardItem()->setData(QVariant::fromValue(static_cast<void *>(m_accessPoint)), NetItemRole::DataRole);
     standardItem()->setFontSize(DFontSizeManager::T6);
@@ -567,6 +580,7 @@ void WirelessItem::expandWidget(ExpandWidget type)
     switch (type) {
     case ExpandWidget::Hide:
         m_expandItem->setVisible(false);
+        m_topItem->setVisible(false);
         standardItem()->setSizeHint(QSize(-1, 36));
         if (m_accessPoint) {
             LocalServer::instance()->changePassword(m_accessPoint->ssid(), QString(), false);
@@ -574,19 +588,25 @@ void WirelessItem::expandWidget(ExpandWidget type)
         break;
     case ExpandWidget::ShowSSID:
         m_expandItem->setVisible(true);
-        standardItem()->setSizeHint(QSize(-1, 126));
+        m_topItem->setVisible(true);
+        standardItem()->setSizeHint(QSize(-1, 120));
         m_stackWidget->setCurrentIndex(type);
         m_ssidEdit->lineEdit()->setFocus();
         break;
     case ExpandWidget::ShowPassword:
         m_expandItem->setVisible(true);
-        standardItem()->setSizeHint(QSize(-1, 126));
+        m_topItem->setVisible(true);
+        standardItem()->setSizeHint(QSize(-1, 120));
         m_stackWidget->setCurrentIndex(type);
         m_passwdEdit->lineEdit()->setFocus();
         if (!m_passwdEdit->lineEdit()->text().isEmpty()) {
-            m_passwdEdit->showAlertMessage(tr("Wrong password"));
+            QTimer::singleShot(200, [ this ]() {
+                m_passwdEdit->showAlertMessage(tr("Wrong password"));
+            });
         } else if (m_accessPoint) {
-            m_passwdEdit->showAlertMessage(tr("Password required to connect %1").arg(m_accessPoint->ssid()));
+            QTimer::singleShot(200, [ this ]() {
+                m_passwdEdit->showAlertMessage(tr("Password required to connect %1").arg(m_accessPoint->ssid()));
+            });
         }
         checkInputValid();
         break;
@@ -604,18 +624,25 @@ void WirelessItem::createPasswordEdit()
     m_passwdEdit->lineEdit()->setPlaceholderText(tr("Password"));
     m_passwdEdit->lineEdit()->setMaxLength(256);
     m_passwdEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_passwdEdit->setFixedHeight(36);
+
     DPushButton *cancelButtion = new DPushButton(tr("Cancel", "button"), passwdWidget); // 取消
     m_connectButton = new DSuggestButton(tr("Connect", "button"), passwdWidget); // 连接
+    cancelButtion->setFixedHeight(36);
+    m_connectButton->setFixedHeight(36);
 
     QHBoxLayout *line2 = new QHBoxLayout;
+    line2->setContentsMargins(0,0,0,0);
 
     QVBoxLayout *layout = new QVBoxLayout;
+    layout->setContentsMargins(0,0,10,10);
     line2->setMargin(0);
     line2->setSpacing(0);
     line2->addWidget(cancelButtion);
     line2->addSpacing(10);
     line2->addWidget(m_connectButton);
     layout->addWidget(m_passwdEdit);
+    layout->addSpacing(10);
     layout->addLayout(line2);
     passwdWidget->setLayout(layout);
     m_stackWidget->addWidget(passwdWidget);
@@ -635,19 +662,25 @@ void WirelessItem::createSsidEdit()
     m_ssidEdit->setPlaceholderText(tr("Name (SSID)"));
     m_ssidEdit->lineEdit()->setMaxLength(256);
     m_ssidEdit->setContextMenuPolicy(Qt::NoContextMenu);
+    m_ssidEdit->setFixedHeight(36);
 
     DPushButton *cancelButtion = new DPushButton(tr("Cancel", "button"), ssidWidget); // 取消
     DPushButton *connectButton = new DSuggestButton(tr("Connect", "button"), ssidWidget); // 连接
+    cancelButtion->setFixedHeight(36);
+    connectButton->setFixedHeight(36);
 
     QHBoxLayout *line2 = new QHBoxLayout;
+    line2->setContentsMargins(0,0,0,0);
 
     QVBoxLayout *layout = new QVBoxLayout;
+    layout->setContentsMargins(0,0,10,20);
     line2->setMargin(0);
     line2->setSpacing(0);
     line2->addWidget(cancelButtion);
     line2->addSpacing(10);
     line2->addWidget(connectButton);
     layout->addWidget(m_ssidEdit);
+    layout->addSpacing(10);
     layout->addLayout(line2);
     ssidWidget->setLayout(layout);
     m_stackWidget->addWidget(ssidWidget);

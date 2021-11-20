@@ -80,6 +80,7 @@ enum NetItemType {
     DeviceControllViewItem = 0, // 总控开关
     WirelessControllViewItem,   // 无线网卡开关
     WirelessViewItem,           // 无线列表
+    WirelessHiddenViewItem,     // 无线隐藏列表
     WiredControllViewItem,      // 有线网卡开关
     WiredViewItem               // 有线列表
 };
@@ -99,7 +100,7 @@ public:
     virtual ~NetItem();
 
     virtual DStandardItem *standardItem();
-    virtual void updateView();
+    virtual void updateView() {}
     virtual NetItemType itemType() = 0;
 
 private:
@@ -262,6 +263,7 @@ private:
 
     DStackedWidget *m_stackWidget;
     DViewItemAction *m_expandItem;
+    DViewItemAction *m_topItem; // 占空间
 
     DPasswordEdit *m_passwdEdit;
     DLineEdit *m_ssidEdit;
