@@ -54,6 +54,8 @@ NetworkInterProcesser::NetworkInterProcesser(bool sync, QObject *parent)
     , m_networkInter(new NetworkInter(networkService, networkPath, QDBusConnection::sessionBus(), this))
     , m_connectivity(Connectivity::Full)
     , m_sync(sync)
+    , m_unManagerDevice(Q_NULLPTR)
+    , m_newManagerDevice(Q_NULLPTR)
 {
     Q_ASSERT(m_networkInter);
     initConnection();
@@ -136,6 +138,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
         return;
 
     PRINTMESSAGE(value);
+    static bool isFirstEnter = false;
     const QJsonObject data = QJsonDocument::fromJson(value.toUtf8()).object();
     QStringList devPaths;
     QMap<NetworkDeviceBase *, QJsonObject> devInfoMap;
@@ -150,8 +153,24 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
         QJsonArray deviceList = data.value(key).toArray();
         for (const QJsonValue jsonValue : deviceList) {
             const QJsonObject deviceInfo = jsonValue.toObject();
-            if (!deviceInfo.value("Managed").toBool())
+            if (!deviceInfo.value("Managed").toBool()) {
+                const QString path = deviceInfo.value("Path").toString();
+                NetworkDeviceBase *device = findDevices(path);
+                if (device && device->deviceType() == DeviceType::Wireless && device->supportHotspot()) {
+                    // 上面判断的条件是当前设备为无线设备,并且当前设备支持热点,则需要先判断一下当前设备是不是
+                    // 如果当前unManager的设备是无线设备，并且只有一个UnManager的设备(!m_unManagerDevice)，则认为当前的设备变化信号是通过关闭热点出发的
+                    // 如果发现上一个无线设备存在(m_unManagerDevice不为空)，则认为当前设备不是通过关闭热点引起的
+                    DeviceInterRealize *deviceInter = static_cast<DeviceInterRealize *>(device->deviceRealize());
+                    deviceInter->m_data = deviceInfo;
+                    if (!m_unManagerDevice) {
+                        m_unManagerDevice = device;
+                        isFirstEnter = true;
+                    } else {
+                        m_unManagerDevice = Q_NULLPTR;
+                    }
+                }
                 continue;
+            }
 
             // 根据标志位InterfaceFlags判断网络连接是否有效
             if (type != DeviceType::Wireless) {
@@ -168,6 +187,10 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
                 case DeviceType::Wireless: {
                     DeviceInterRealize *wirelessRealize = new WirelessDeviceInterRealize(m_networkInter, nullptr);
                     device = new WirelessDevice(wirelessRealize, this);
+                    if (!m_newManagerDevice)
+                        m_newManagerDevice = device;
+                    else
+                        m_newManagerDevice = Q_NULLPTR;
                     break;
                 }
                 case DeviceType::Wired: {
@@ -221,56 +244,84 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
         }
     }
 
-    if (newDevices.size() > 0 || rmDevices.size() > 0) {
-        // 更新设备名称
-        updateDeviceName();
+    auto sendDeviceChangeSignal = [ = ] {
+        if (newDevices.size() > 0 || rmDevices.size() > 0) {
+            // 更新设备名称
+            updateDeviceName();
 
-        // 告诉外面新增的设备列表
-        if (newDevices.size() > 0) {
-            // 初始化设备的数据，包括设备是否可用等信息
-            bool wirelessExist = false;
-            for (NetworkDeviceBase *device : newDevices) {
-                DeviceInterRealize *deviceInter = static_cast<DeviceInterRealize *>(device->deviceRealize());
-                deviceInter->initDeviceInfo();
-                if (device->deviceType() == DeviceType::Wireless)
-                    wirelessExist = true;
+            // 告诉外面新增的设备列表
+            if (newDevices.size() > 0) {
+                // 初始化设备的数据，包括设备是否可用等信息
+                bool wirelessExist = false;
+                for (NetworkDeviceBase *device : newDevices) {
+                    DeviceInterRealize *deviceInter = static_cast<DeviceInterRealize *>(device->deviceRealize());
+                    deviceInter->initDeviceInfo();
+                    if (device->deviceType() == DeviceType::Wireless)
+                        wirelessExist = true;
+                }
+
+                // 更新设备的时候，同时需要更新连接信息，因为可能连接的信号发生在设备更新信息之前
+                updateConnectionsInfo(newDevices);
+                // 如果新增的设备中存在无线网卡，则同时需要更新wlan的信息，因为存在如下情况
+                // 如果关闭热点的时候，会先移除设备，然后再新增设备，此时如果不更新wlan，这种情况下，新增的那个无线设备的wlan就会为空
+                if (wirelessExist)
+                    onAccesspointChanged(m_networkInter->wirelessAccessPoints());
+            }
+            // 设备列表发生变化的同时，需要同时更新网络连接状态
+            onActiveConnectionsChanged(m_networkInter->activeConnections());
+
+            // 设备列表发生变化的同时，需要同时更新DSL的相关的信息，因为DSL里面用到了设备的信息，需要获取设备路径等
+            updateDSLData();
+
+            // 设备列表发生变化后，同时也需要更新设备热点的信息
+            updateDeviceHotpot();
+            // 更新热点的活动连接信息
+            updateDeviceActiveHotpot();
+
+            // 发送删除的设备列表信号，此时这些设备对象还未析构，外面调用来处理响应的操作，统一在一个线程中处理
+            if (rmDevices.size() > 0) {
+                for (NetworkDeviceBase *device : rmDevices)
+                    Q_EMIT device->removed();
+
+                Q_EMIT deviceRemoved(rmDevices);
+                // 在移除设备后，需要立刻将网络详情中对应的项移除
+                updateNetworkDetails();
             }
 
-            // 更新设备的时候，同时需要更新连接信息，因为可能连接的信号发生在设备更新信息之前
-            updateConnectionsInfo(newDevices);
-            // 如果新增的设备中存在无线网卡，则同时需要更新wlan的信息，因为存在如下情况
-            // 如果关闭热点的时候，会先移除设备，然后再新增设备，此时如果不更新wlan，这种情况下，新增的那个无线设备的wlan就会为空
-            if (wirelessExist)
-                onAccesspointChanged(m_networkInter->wirelessAccessPoints());
-        }
-        // 设备列表发生变化的同时，需要同时更新网络连接状态
-        onActiveConnectionsChanged(m_networkInter->activeConnections());
+            // 需要将新增设备的信号放到更新设备数据之后，因为外部接收到新增设备信号的时候，需要更新设备信息，如果放到更新设备数据前面，则里面的数据不是最新的数据
+            if (newDevices.size() > 0)
+                Q_EMIT deviceAdded(newDevices);
 
-        // 设备列表发生变化的同时，需要同时更新DSL的相关的信息，因为DSL里面用到了设备的信息，需要获取设备路径等
-        updateDSLData();
-
-        // 设备列表发生变化后，同时也需要更新设备热点的信息
-        updateDeviceHotpot();
-        // 更新热点的活动连接信息
-        updateDeviceActiveHotpot();
-
-        // 发送删除的设备列表信号，此时这些设备对象还未析构，外面调用来处理响应的操作，统一在一个线程中处理
-        if (rmDevices.size() > 0) {
+            // 一定要将删除设备放到最后，因为在发出信号后，外面可能还会用到
             for (NetworkDeviceBase *device : rmDevices)
-                Q_EMIT device->removed();
-
-            Q_EMIT deviceRemoved(rmDevices);
-            // 在移除设备后，需要立刻将网络详情中对应的项移除
-            updateNetworkDetails();
+                delete device;
         }
+    };
 
-        // 需要将新增设备的信号放到更新设备数据之后，因为外部接收到新增设备信号的时候，需要更新设备信息，如果放到更新设备数据前面，则里面的数据不是最新的数据
-        if (newDevices.size() > 0)
-            Q_EMIT deviceAdded(newDevices);
-
-        // 一定要将删除设备放到最后，因为在发出信号后，外面可能还会用到
-        for (NetworkDeviceBase *device : rmDevices)
-            delete device;
+    if (m_unManagerDevice) {
+        // 当前认为是通过关闭热点的设备，并且新增设备为空，则等待下一次newDevice的出现
+        // 此处这么做,是为了防止关闭热点的时候引起当前设备先unManager然后manager
+        if (isFirstEnter) {
+            QTimer::singleShot(1000, this, [ = ] {
+                // 等待1秒过后,查看新设备是否存在s
+                if (m_newManagerDevice) {
+                    // 如果新设备存在,并且和上次unManager的设备的path相同,则认为他们是同一个设备,如果是同一个设备,则无需发送设备变化信号,
+                    // 如果是不同的设备,或者1秒过后没有新增设备,则直接发送设备变化信号
+                    if (m_unManagerDevice->path() != m_newManagerDevice->path()) {
+                        // 如果上次移除的设备和本次新增的设备为同一个设备，则不做任何的操作，否则，需要向外发送设备变化信号
+                        sendDeviceChangeSignal();
+                    }
+                } else {
+                    sendDeviceChangeSignal();
+                }
+                m_unManagerDevice = Q_NULLPTR;
+                m_newManagerDevice = Q_NULLPTR;
+            });
+            isFirstEnter = false;
+        }
+    } else {
+        sendDeviceChangeSignal();
+        m_newManagerDevice = Q_NULLPTR;
     }
 }
 

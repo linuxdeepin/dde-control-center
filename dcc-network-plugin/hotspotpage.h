@@ -78,7 +78,6 @@ private:
 
 Q_SIGNALS:
     void requestDisconnectConnection(const QString &uuid) const;
-    void requestCloseHotspot(WirelessDevice *) const;
 
 private Q_SLOTS:
     void onDeviceRemoved();
@@ -117,7 +116,6 @@ public:
 
 Q_SIGNALS:
     void requestNextPage(dcc::ContentWidget * const w) const;
-    void requestCloseHotspot(WirelessDevice *) const;
 
 private Q_SLOTS:
     void onDeviceAdded(const QList<WirelessDevice *> &devices);

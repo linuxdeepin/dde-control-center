@@ -93,6 +93,8 @@ private:
     QJsonObject m_activeConection;
     QList<NetworkDetails *> m_networkDetails;
     bool m_sync;
+    NetworkDeviceBase *m_unManagerDevice;
+    NetworkDeviceBase *m_newManagerDevice;
 };
 
 }
