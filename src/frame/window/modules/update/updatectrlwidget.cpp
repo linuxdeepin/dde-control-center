@@ -768,6 +768,7 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
 
         if (updateItem->status() == UpdatesStatus::AutoDownloaded
                 || updateItem->status() == UpdatesStatus::UpdatesAvailable
+	            || updateItem->status() == UpdatesStatus::UpdateSucceeded
                 || updateItem->status() == UpdatesStatus::UpdateFailed
                 || updateItem->status() == UpdatesStatus::RecoveryBackupFailed)
         {
@@ -782,7 +783,15 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
     isUpdateing =  refreshUpdateWidget(m_storeUpdateItem) || isUpdateing;
     isUpdateing = refreshUpdateWidget(m_safeUpdateItem) || isUpdateing;
 
-    m_CheckAgainBtn->setEnabled(!isUpdateing);
+    if(isUpdateing){
+        m_CheckAgainBtn->setEnabled(false);
+    }else {
+        if(m_updateSize > 0){
+             m_CheckAgainBtn->setEnabled(true);
+        }else {
+             m_CheckAgainBtn->setEnabled(false);
+        }
+    }
 
     showAllUpdate();
 }
