@@ -348,6 +348,13 @@ void UpdateWorker::checkForUpdates()
 
 void UpdateWorker::setUpdateInfo()
 {
+    m_updatePackages.clear();
+    m_systemPackages.clear();
+    m_appPackages.clear();
+    m_safePackages.clear();
+    m_unknownPackages.clear();
+    m_appUpdateName.clear();
+
     qDebug() << " UpdateWorker::setUpdateInfo() ";
     m_updateInter->setSync(true);
     m_managerInter->setSync(true);
@@ -357,6 +364,14 @@ void UpdateWorker::setUpdateInfo()
     m_appPackages = m_updatePackages.value(AppStoreUpdateType);
     m_safePackages = m_updatePackages.value(SecurityUpdateType);
     m_unknownPackages = m_updatePackages.value(UnknownUpdateType);
+
+    if (m_appPackages.count() > 0) {
+        const AppUpdateInfoList applist = m_updateInter->ApplicationUpdateInfos(QLocale::system().name());
+        qDebug() << "getAppName applist.count() == " << applist.count();
+        for (AppUpdateInfo val : applist) {
+            m_appUpdateName.insert(val.m_packageId, val.m_name);
+        }
+    }
 
     m_updateInter->setSync(false);
     m_managerInter->setSync(false);
@@ -396,9 +411,9 @@ void UpdateWorker::setUpdateInfo()
                 if (updateInfoMap.value(classifyType) != nullptr) {
                     m_downloadSize += updateInfoMap.value(classifyType) ->downloadSize();
                     if (m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::Downloading
-                            || m_model->getClassifyUpdateStatus(classifyType) == UpdatesStatus::DownloadPaused
-                            || m_model->getClassifyUpdateStatus(classifyType) == UpdatesStatus::Downloaded
-                            || m_model->getClassifyUpdateStatus(classifyType) == UpdatesStatus::Installing) {
+                            && m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::DownloadPaused
+                            && m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::Downloaded
+                            && m_model->getClassifyUpdateStatus(classifyType) != UpdatesStatus::Installing) {
                         m_model->setClassifyUpdateTypeStatus(classifyType, UpdatesStatus::UpdatesAvailable);
                     }
                 }
@@ -1323,15 +1338,6 @@ QString UpdateWorker::getAppName(int id)
         return "";
     }
     qDebug() << "getAppName";
-    if (m_appUpdateName.count() < 1) {
-        QString a = QLocale::system().name();
-
-        const AppUpdateInfoList applist = m_updateInter->ApplicationUpdateInfos(QLocale::system().name());
-        qDebug() << "getAppName applist.count() == " << applist.count();
-        for (AppUpdateInfo val : applist) {
-            m_appUpdateName.insert(val.m_packageId, val.m_name);
-        }
-    }
 
     return m_appUpdateName.value(m_appPackages.at(id));
 }
