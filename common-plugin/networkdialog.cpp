@@ -23,6 +23,7 @@
 
 #include <QApplication>
 #include <QDebug>
+#include <QWidget>
 #include <QWindow>
 
 static const QString NetworkDialogApp = "dde-network-dialog"; //网络列表执行文件
@@ -30,7 +31,7 @@ static const QString NetworkDialogApp = "dde-network-dialog"; //网络列表执�
 NetworkDialog::NetworkDialog(QObject *parent)
     : QObject(parent)
     , m_process(new QProcess(this))
-    , m_focusWindow(nullptr)
+    , m_focusWidget(nullptr)
     , m_runReason(Dock)
     , m_saveMode(false)
 {
@@ -44,9 +45,7 @@ NetworkDialog::~NetworkDialog()
 
 void NetworkDialog::finished(int, QProcess::ExitStatus)
 {
-    if ((m_runReason <= Greeter) && m_focusWindow) {
-        m_focusWindow->setKeyboardGrabEnabled(true);
-    }
+    freeFocus();
 }
 
 void NetworkDialog::saveConfig(int x, int y, Dock::Position position)
@@ -60,14 +59,40 @@ void NetworkDialog::show(int x, int y, Dock::Position position)
     m_process->blockSignals(true);
     m_process->close();
     m_process->blockSignals(false);
-    QWindow *window = qApp->focusWindow();
+    requestFocus();
     runProcess(x, y, position);
-    if (window) {
-        m_focusWindow = window;
+}
+
+void NetworkDialog::requestFocus()
+{
+    for (QWidget *w : qApp->topLevelWidgets()) {
+        if (QString("FullscreenBackground") == w->metaObject()->superClass()->className()) {
+            w->installEventFilter(this);
+            if (w->window() && w->window()->windowHandle()->setKeyboardGrabEnabled(false)) {
+                qInfo() << "requestFocus true";
+            }
+            m_focusWidget = w;
+        }
     }
-    if ((m_runReason <= Greeter) && m_focusWindow) {
-        m_focusWindow->setKeyboardGrabEnabled(false);
+}
+
+void NetworkDialog::freeFocus()
+{
+    if (m_focusWidget) {
+        m_focusWidget->removeEventFilter(this);
+        if (m_focusWidget->window() && m_focusWidget->window()->windowHandle()->setKeyboardGrabEnabled(true)) {
+            qInfo() << "freeFocus true";
+        }
+        m_focusWidget = nullptr;
     }
+}
+
+bool NetworkDialog::eventFilter(QObject *watched, QEvent *e)
+{
+    if (e->type() == QEvent::WindowDeactivate) {
+        return true;
+    }
+    return QObject::eventFilter(watched, e);
 }
 
 void NetworkDialog::runProcess(int x, int y, Dock::Position position)

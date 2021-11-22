@@ -51,13 +51,16 @@ public:
 
 private:
     void runProcess(int x, int y, Dock::Position position = Dock::Position::Bottom);
+    bool eventFilter(QObject *watched, QEvent *e) override;
 
 private Q_SLOTS:
     void finished(int, QProcess::ExitStatus);
+    void requestFocus();
+    void freeFocus();
 
 private:
     QProcess *m_process;
-    QWindow *m_focusWindow;
+    QWidget *m_focusWidget;
     QString m_connectDev;
     QString m_connectSsid;
     RunReason m_runReason;
