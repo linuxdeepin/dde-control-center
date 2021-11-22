@@ -99,21 +99,34 @@ QMap<QString, uint> CharaMangerWorker::parseDriverNameJsonData(const QString &ma
     return tmpInfo;
 }
 
-QMap<QString, uint> CharaMangerWorker::parseCharaNameJsonData(const QString &mangerInfo)
+QStringList CharaMangerWorker::parseCharaNameJsonData(const QString &mangerInfo)
 {
-    QMap<QString, uint> tmpInfo;
+    QMap<QString, uint64_t> tmpInfo;
+    QStringList userInfoList;
     if (mangerInfo.isEmpty())
-        return tmpInfo;
+        return QStringList();
 
     QJsonDocument doc = QJsonDocument::fromJson(mangerInfo.toUtf8());
     QJsonArray jInfo = doc.array();
+
     for (QJsonValue jValue : jInfo) {
         QJsonObject jObj = jValue.toObject();
         const QString tmpName = jObj["CharaName"].toString();
-        const uint tmpType = static_cast<uint>(jObj["CharaType"].toInt());
-        tmpInfo.insert(tmpName, tmpType);
+        const uint64_t time = static_cast<uint64_t>(jObj["Time"].toInt());
+        tmpInfo.insert(tmpName, time);
+
+        QMap<QString, uint64_t>::Iterator it = tmpInfo.begin();
+        int index = 0;
+        while (it != tmpInfo.end()) {
+            if (time > it.value()) {
+                index++;
+            }
+            it++;
+        }
+        userInfoList.insert(index, tmpName);
     }
-    return tmpInfo;
+
+    return userInfoList;
 }
 
 QString CharaMangerWorker::getControlCenterDbusSender()
@@ -202,15 +215,7 @@ void CharaMangerWorker::refreshUserEnrollList(const QString &serviceName, const 
 
 void CharaMangerWorker::refreshUserInfo(const QString &EnrollInfo, const int &CharaType)
 {
-    QStringList userInfoList;
-
-    QMap<QString, uint> listInfo = parseCharaNameJsonData(EnrollInfo);
-    QMap<QString, uint>::Iterator it;
-
-    // 遍历解析后的数据 对用户录入数据进行区分
-    for (it = listInfo.begin(); it != listInfo.end(); ++it) {
-        userInfoList.append(it.key());
-    }
+    QStringList userInfoList = parseCharaNameJsonData(EnrollInfo);
 
     if (userInfoList.isEmpty()) {
         qDebug() << "get userInfo error! ";

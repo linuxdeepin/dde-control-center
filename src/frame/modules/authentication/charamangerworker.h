@@ -46,7 +46,7 @@ private:
      * @return 获取后端所有解析后的数据
      */
     QMap<QString, uint> parseDriverNameJsonData(const QString& mangerInfo);
-    QMap<QString, uint> parseCharaNameJsonData(const QString& mangerInfo);
+    QStringList parseCharaNameJsonData(const QString& mangerInfo);
 
     QString getControlCenterDbusSender();
 
