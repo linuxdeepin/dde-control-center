@@ -133,7 +133,6 @@ ResetPasswordDialog::ResetPasswordDialog(QRect screenGeometry, const QString &us
     , m_appName(appName)
     , m_codeTimer(new QTimer(this))
     , m_monitorTimer(new QTimer(this))
-    , m_client(new QLocalSocket(this))
     , m_verifyCodeSuccess(false)
 {
     initWidget();
@@ -265,7 +264,14 @@ void ResetPasswordDialog::initData()
     connect(sn, SIGNAL(activated(int)), this, SLOT(onReadFromServerChanged(int)));
     connect(m_phoneEmailEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onPhoneEmailLineEditFocusChanged);
     connect(m_newPasswordEdit, &DLineEdit::focusChanged, this, &ResetPasswordDialog::onNewPasswordLineEditFocusChanged);
-    connect(getButton(0), &QPushButton::clicked, this, [this]{ this->close(); qApp->quit(); });
+    connect(getButton(0), &QPushButton::clicked, this, [this]{
+        if (m_appName == "greeter" || m_appName == "lock") {
+            m_client->write("close");
+            m_client->flush();
+        }
+        this->close();
+        qApp->quit();
+    });
     connect(getButton(1), &QPushButton::clicked, this, &ResetPasswordDialog::onResetPasswordBtnClicked);
     connect(m_phoneEmailEdit, &DLineEdit::textEdited, this, [ & ] {
         if (m_phoneEmailEdit->isAlert()) {
@@ -323,15 +329,15 @@ void ResetPasswordDialog::initData()
     connect(m_sendCodeBtn, &QPushButton::clicked, this, &ResetPasswordDialog::onVerificationCodeBtnClicked);
     connect(m_codeTimer, &QTimer::timeout, this, &ResetPasswordDialog::startCount);
     connect(m_monitorTimer, &QTimer::timeout, this, &ResetPasswordDialog::startMonitor);
-
-    if (m_appName != "control-center") {
+    if (m_appName == "greeter" || m_appName == "lock") {
         m_monitorTimer->start(300);
-    }
-
-    m_client->connectToServer("GrabKeyboard");
-    if(!m_client->waitForConnected(1000)) {
-        qWarning() << "连接失败!";
-        return;
+        m_client = new QLocalSocket(this);
+        m_client->abort();
+        m_client->connectToServer("GrabKeyboard");
+        if(!m_client->waitForConnected(1000)) {
+            qWarning() << "连接失败!";
+            return;
+        }
     }
 }
 
