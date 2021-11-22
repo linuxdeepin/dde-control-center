@@ -106,7 +106,7 @@ void ScalingWidget::addSlider()
 
 void ScalingWidget::onResolutionChanged()
 {
-    QStringList fscaleList = {"1.0", "1.25", "1.5", "1.75", "2.0", "2.25", "2.5", "2.75", "3.0"};
+    QStringList fscaleList = {"1.0"};
     for (auto moni : m_displayModel->monitorList()) {
         if (!moni->enable()) {
             continue;
@@ -117,7 +117,7 @@ void ScalingWidget::onResolutionChanged()
             return;
         }
         auto ts = getScaleList(tmode);
-        fscaleList = ts.size() < fscaleList.size() ? ts : fscaleList;
+        fscaleList = ts.size() > fscaleList.size() ? ts : fscaleList;
     }
 
     //如果仅一个缩放值可用
