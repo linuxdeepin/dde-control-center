@@ -22,6 +22,7 @@
 #include "modifypasswdpage.h"
 #include "widgets/titlelabel.h"
 #include "modules/accounts/usermodel.h"
+#include "pwqualitymanager.h"
 
 #include <DFontSizeManager>
 
@@ -147,10 +148,7 @@ void ModifyPasswdPage::clickSaveBtn()
         m_oldPasswordEdit->setAlert(true);
         return;
     }
-    if (!onPasswordEditFinished(m_newPasswordEdit)) {
-        return;
-    }
-    if (!onPasswordEditFinished(m_repeatPasswordEdit)) {
+    if (!onPasswordEditFinished(m_newPasswordEdit, m_repeatPasswordEdit)) {
         return;
     }
 
@@ -223,6 +221,7 @@ QString ModifyPasswdPage::validatePassword(const QString &password)
     if (password.size() < passwordMinLength || password.size() > passwordMaxLength) {
         return QString(tr("Password must be between %1 and %2 characters")).arg(passwordMinLength).arg(passwordMaxLength);
     }
+
     // NOTE(justforlxz): 转换为set，如果密码中包含了不存在与validatePolicy中的字符，相减以后不为空。"[0-9]"[^\w\s]+
     int password_character_types = 0;
     if (password.contains(QRegExp("[0-9]")))
@@ -241,46 +240,42 @@ QString ModifyPasswdPage::validatePassword(const QString &password)
     return "";
 }
 
-bool ModifyPasswdPage::onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit)
+bool ModifyPasswdPage::onPasswordEditFinished(DPasswordEdit *passwdEdit, DPasswordEdit *repeatpasswdEdit)
 {
-    const QString &password = edit->lineEdit()->text();
-    if (password.isEmpty()) {
-        edit->setAlert(true);
+    const QString &userpassword = passwdEdit->lineEdit()->text();
+    const QString &repeatpassword = repeatpasswdEdit->lineEdit()->text();
+    if (userpassword.isEmpty()) {
+        passwdEdit->setAlert(true);
         return false;
     }
 
-    const int maxSize = 512;
-    if (password.size() > maxSize) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("Password must be no more than %1 characters").arg(maxSize));
+    if (repeatpassword.isEmpty()) {
+        repeatpasswdEdit->setAlert(true);
         return false;
     }
 
-    auto res = validatePassword(password);
-    if (!res.isEmpty()) {
-        edit->setAlert(true);
-        edit->showAlertMessage(res);
+    PwQualityManager::ERROR_TYPE passResult = PwQualityManager::instance()->verifyPassword(m_curUser->name(), userpassword);
+
+    qDebug() << Q_FUNC_INFO << passResult;
+
+    if (passResult != PwQualityManager::PW_ERROR_TYPE::ENUM_PASSWORD_NOERROR && passResult != PwQualityManager::PW_ERROR_TYPE::ENUM_PASSWORD_SUCCESS) {
+        passwdEdit->setAlert(true);
+        passwdEdit->showAlertMessage(PwQualityManager::instance()->getErrorTips(passResult));
         return false;
     }
 
     //重复密码
-    if (edit == m_repeatPasswordEdit) {
-        if (m_newPasswordEdit->lineEdit()->text() != password) {
-            edit->setAlert(true);
-            edit->showAlertMessage(tr("Passwords do not match"));
-            return false;
-        }
-    }
-
-
-
-    if (m_oldPasswordEdit->lineEdit()->text() == password) {
-        edit->setAlert(true);
-        edit->showAlertMessage(tr("New password should differ from the current one"));
+    if (userpassword != repeatpassword) {
+        repeatpasswdEdit->setAlert(true);
+        repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"));
         return false;
     }
 
-
+    if (m_oldPasswordEdit->lineEdit()->text() == userpassword) {
+        passwdEdit->setAlert(true);
+        passwdEdit->showAlertMessage(tr("New password should differ from the current one"));
+        return false;
+    }
 
     return true;
 }

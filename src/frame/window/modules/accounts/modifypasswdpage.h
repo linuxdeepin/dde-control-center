@@ -69,7 +69,7 @@ protected:
     void showEvent(QShowEvent *event);
 
 private:
-    bool onPasswordEditFinished(Dtk::Widget::DPasswordEdit *edit);
+    bool onPasswordEditFinished(DPasswordEdit *passwdEdit, DPasswordEdit *repeatpasswdEdit);
 
 Q_SIGNALS:
     void requestChangePassword(dcc::accounts::User *userInter, const QString &oldPassword, const QString &password);

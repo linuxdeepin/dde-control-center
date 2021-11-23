@@ -23,6 +23,7 @@
 #include "widgets/titlelabel.h"
 #include "window/utils.h"
 #include "groupitem.h"
+#include "pwqualitymanager.h"
 
 #include <DFontSizeManager>
 
@@ -534,39 +535,17 @@ bool CreateAccountPage::onPasswordEditFinished(DPasswordEdit *passwdEdit, DPassw
         return false;
     }
 
-    if (userpassword != repeatpassword) {
-        m_repeatpasswdEdit->setAlert(true);
-        m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"));
+    PwQualityManager::ERROR_TYPE passResult = PwQualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(), userpassword);
+
+    if (passResult != PwQualityManager::PW_ERROR_TYPE::ENUM_PASSWORD_NOERROR && passResult != PwQualityManager::PW_ERROR_TYPE::ENUM_PASSWORD_SUCCESS) {
+        passwdEdit->setAlert(true);
+        passwdEdit->showAlertMessage(PwQualityManager::instance()->getErrorTips(passResult));
         return false;
     }
 
-    int passResult = verifyPassword(userpassword);
-    switch (passResult)
-    {
-    case ENUM_PASSWORD_NOTEMPTY:
-        passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("Password cannot be empty"));
-        return false;
-    case ENUM_PASSWORD_TOOSHORT:
-    case ENUM_PASSWORD_SEVERAL:
-        passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_passwordMinLength).arg(m_validate_Required));
-        return false;
-    case ENUM_PASSWORD_TOOLONG:
-        passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("Password must be no more than %1 characters").arg(m_passwordMaxLength));
-        return false;
-    case ENUM_PASSWORD_TYPE:
-        passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols").arg(m_validate_Required));
-        return false;
-    case ENUM_PASSWORD_CHARACTER:
-        passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&*()[]{}\\|/?,.<>)"));
-        return false;
-    case ENUM_PASSWORD_REPEATED:
-        passwdEdit->setAlert(true);
-        passwdEdit->showAlertMessage(tr("Password should not be the repeated or reversed username"));
+    if (userpassword != repeatpassword) {
+        m_repeatpasswdEdit->setAlert(true);
+        m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"));
         return false;
     }
 

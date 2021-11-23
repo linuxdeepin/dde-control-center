@@ -380,6 +380,8 @@ set(ACCOUNTS_FILES
                 window/modules/accounts/addfingedialog.cpp
                 window/modules/accounts/fingerwidget.h
                 window/modules/accounts/fingerwidget.cpp
+                window/modules/accounts/pwqualitymanager.cpp
+                window/modules/accounts/pwqualitymanager.h
 )
 
 # load bluetooth
