@@ -61,8 +61,8 @@ Connectivity DeviceInterRealize::connectivity()
     return m_connectivity;
 }
 
-DeviceInterRealize::DeviceInterRealize(NetworkInter *networkInter, QObject *parent)
-    : NetworkDeviceRealize(parent)
+DeviceInterRealize::DeviceInterRealize(IPConfilctChecker *ipChecker, NetworkInter *networkInter, QObject *parent)
+    : NetworkDeviceRealize(ipChecker, parent)
     , m_networkInter(networkInter)
     , m_enabled(true)
     , m_connectivity(Connectivity::Full)
@@ -121,6 +121,7 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
 
     PRINTMESSAGE(infos);
 
+    const QString oldIpv4 = ipv4();
     m_activeInfoData = QJsonObject();
     for (const QJsonObject &info : infos) {
         if (info.value("ConnectionType").toString() == deviceKey()) {
@@ -133,14 +134,17 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
     // 获取到完整的IP地址后，向外发送连接改变的信号
     if (!m_activeInfoData.isEmpty())
         Q_EMIT connectionChanged();
+
+    if (oldIpv4 != ipv4())
+        Q_EMIT ipV4Changed();
 }
 
 /**
  * @brief 有线设备类的具体实现
  */
 
-WiredDeviceInterRealize::WiredDeviceInterRealize(NetworkInter *networkInter, QObject *parent)
-    : DeviceInterRealize(networkInter, parent)
+WiredDeviceInterRealize::WiredDeviceInterRealize(IPConfilctChecker *ipChecker, NetworkInter *networkInter, QObject *parent)
+    : DeviceInterRealize(ipChecker, networkInter, parent)
 {
 }
 
@@ -405,8 +409,8 @@ QList<WirelessConnection *> WirelessDeviceInterRealize::items() const
     return lstItems;
 }
 
-WirelessDeviceInterRealize::WirelessDeviceInterRealize(NetworkInter *networkInter, QObject *parent)
-    : DeviceInterRealize(networkInter, parent)
+WirelessDeviceInterRealize::WirelessDeviceInterRealize(IPConfilctChecker *ipChecker, NetworkInter *networkInter, QObject *parent)
+    : DeviceInterRealize(ipChecker, networkInter, parent)
 {
 }
 
@@ -577,7 +581,6 @@ bool dde::network::WirelessDeviceInterRealize::hotspotEnabled()
 
 void WirelessDeviceInterRealize::updateAccesspoint(const QJsonArray &json)
 {
-    PRINTMESSAGE(json);
     // 先过滤相同的ssid，找出信号强度最大的那个
     QMap<QString, int> ssidMaxStrength;
     QMap<QString, QString> ssidPath;
@@ -686,7 +689,6 @@ void WirelessDeviceInterRealize::updateConnection(const QJsonArray &info)
 
 void WirelessDeviceInterRealize::createConnection(const QJsonArray &info)
 {
-    PRINTMESSAGE(info);
     QStringList connPaths;
     for (const QJsonValue &jsonValue : info) {
         const QJsonObject &jsonObj = jsonValue.toObject();

@@ -61,7 +61,7 @@ public:
     Connectivity connectivity();
 
 protected:
-    explicit DeviceInterRealize(NetworkInter *networkInter, QObject *parent = Q_NULLPTR);
+    explicit DeviceInterRealize(IPConfilctChecker *ipChecker, NetworkInter *networkInter, QObject *parent = Q_NULLPTR);
     virtual ~DeviceInterRealize();
     NetworkInter *networkInter();
     void updateDeviceInfo(const QJsonObject &info);
@@ -90,7 +90,7 @@ class WiredDeviceInterRealize : public DeviceInterRealize
     friend class NetworkInterProcesser;
 
 private:
-    WiredDeviceInterRealize(NetworkInter *networkInter, QObject *parent);
+    WiredDeviceInterRealize(IPConfilctChecker *ipChecker, NetworkInter *networkInter, QObject *parent);
     ~WiredDeviceInterRealize() override;
 
 public:
@@ -126,7 +126,7 @@ public:
     AccessPoints *activeAccessPoints() const override;                                           // 当前活动的无线连接
 
 protected:
-    WirelessDeviceInterRealize(NetworkInter *networkInter, QObject *parent);
+    WirelessDeviceInterRealize(IPConfilctChecker *ipChecker, NetworkInter *networkInter, QObject *parent);
     ~WirelessDeviceInterRealize() override;
 
 private:

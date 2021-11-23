@@ -27,6 +27,7 @@
 #include "networkmanagerprocesser.h"
 #include "proxycontroller.h"
 #include "vpncontroller.h"
+#include "ipconfilctchecker.h"
 
 #include <networkmanagerqt/wireddevice.h>
 #include <networkmanagerqt/wirelessdevice.h>
@@ -49,6 +50,7 @@ NetworkManagerProcesser::NetworkManagerProcesser(QObject *parent)
     , m_hotspotController(Q_NULLPTR)
     , m_networkInter(Q_NULLPTR)
     , m_connectivity(dde::network::Connectivity::Unknownconnectivity)
+    , m_ipChecker(new IPConfilctChecker(this, false, nullptr, this))
 {
     onDeviceChanged();
     initConnections();
@@ -64,6 +66,9 @@ void NetworkManagerProcesser::initConnections()
     connect(NetworkManager::notifier(), &Notifier::deviceAdded, this, &NetworkManagerProcesser::onDeviceChanged);
     connect(NetworkManager::notifier(), &Notifier::deviceRemoved, this, &NetworkManagerProcesser::onDeviceChanged);
     connect(NetworkManager::notifier(), &Notifier::connectivityChanged, this, &NetworkManagerProcesser::onConnectivityChanged);
+    connect(m_ipChecker, &IPConfilctChecker::conflictStatusChanged, this, [ ] (NetworkDeviceBase *device, const bool &confilct) {
+        Q_EMIT device->deviceStatusChanged(confilct ? DeviceStatus::IpConfilct : device->deviceStatus());
+    });
     QDBusConnection::systemBus().connect("com.deepin.system.Network", "/com/deepin/system/Network", "com.deepin.system.Network", "DeviceEnabled", this, SLOT(onDeviceEnabledChanged(QDBusObjectPath, bool)));
 }
 
@@ -134,12 +139,12 @@ void NetworkManagerProcesser::onDeviceChanged()
             if (device->type() == NetworkManager::Device::Ethernet) {
                 // 有线设备
                 NetworkManager::WiredDevice::Ptr wDevice = device.staticCast<NetworkManager::WiredDevice>();
-                DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(wDevice);
+                DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(m_ipChecker, wDevice);
                 dev = new WiredDevice(deviceRealize, Q_NULLPTR);
             } else if (device->type() == NetworkManager::Device::Wifi) {
                 // 无线设备
                 NetworkManager::WirelessDevice::Ptr wDevice = device.staticCast<NetworkManager::WirelessDevice>();
-                DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(wDevice);
+                DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(m_ipChecker, wDevice);
                 dev = new WirelessDevice(deviceRealize, Q_NULLPTR);
             }
             if (dev) {

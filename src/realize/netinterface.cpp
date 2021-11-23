@@ -22,6 +22,7 @@
 #include "netinterface.h"
 #include "networkdevicebase.h"
 
+#include <ipconfilctchecker.h>
 #include <wireddevice.h>
 
 namespace dde {
@@ -205,6 +206,9 @@ Connectivity NetworkDeviceRealize::connectivity()
 
 DeviceStatus NetworkDeviceRealize::deviceStatus() const
 {
+    if (m_ipConflictChecker->ipConfilct(m_device))
+        return DeviceStatus::IpConfilct;
+
     return m_deviceStatus;
 }
 
@@ -239,12 +243,14 @@ QList<WiredConnection *> NetworkDeviceRealize::wiredItems() const
     return QList<WiredConnection *>();
 }
 
-NetworkDeviceRealize::NetworkDeviceRealize(QObject *parent)
+NetworkDeviceRealize::NetworkDeviceRealize(IPConfilctChecker *ipConflictChecker, QObject *parent)
     : QObject (parent)
     , m_device(nullptr)
     , m_connectivity(Connectivity::Full)
     , m_deviceStatus(DeviceStatus::Unknown)
+    , m_ipConflictChecker(ipConflictChecker)
 {
+    Q_ASSERT(m_ipConflictChecker);
 }
 
 NetworkDeviceRealize::~NetworkDeviceRealize()
@@ -288,6 +294,7 @@ QString NetworkDeviceRealize::statusStringDetail()
     case DeviceStatus::Secondaries:   return tr("Obtaining IP address");
     case DeviceStatus::Activated:     return tr("Connected");
     case DeviceStatus::Deactivation:  return tr("Disconnected");
+    case DeviceStatus::IpConfilct:    return tr("IP conflict");
     default: break;
     }
 
@@ -311,6 +318,7 @@ QString NetworkDeviceRealize::getStatusName()
     case DeviceStatus::Activated:     return tr("Connected");
     case DeviceStatus::Deactivation:  return tr("Disconnected");
     case DeviceStatus::Failed:        return tr("Failed");
+    case DeviceStatus::IpConfilct:    return tr("IP conflict");
     default:;
     }
 

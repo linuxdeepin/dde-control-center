@@ -30,7 +30,7 @@ namespace dde {
 
 namespace network {
 
-struct Connection;
+class Connection;
 class HotspotItem;
 class WirelessDevice;
 class NetworkDeviceBase;

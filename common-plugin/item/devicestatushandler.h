@@ -44,6 +44,7 @@ enum class NetDeviceStatus {
     ObtainingIP,
     ObtainIpFailed,
     ConnectNoInternet,
+    IpConflicted,
     Nocable,
     ConnectFailed
 };
@@ -69,6 +70,8 @@ enum class PluginState
     WiredConnectNoInternet,
     WirelessFailed,
     WiredFailed,
+    WiredIpConflicted,
+    WirelessIpConflicted,
     Nocable
 };
 

@@ -20,6 +20,7 @@
  */
 
 #include "networkinterprocesser.h"
+#include "ipconfilctchecker.h"
 
 #include "dslcontroller.h"
 #include "hotspotcontroller.h"
@@ -45,7 +46,7 @@ enum InterfaceFlags {
 const static QString networkService = "com.deepin.daemon.Network";
 const static QString networkPath = "/com/deepin/daemon/Network";
 
-NetworkInterProcesser::NetworkInterProcesser(bool sync, QObject *parent)
+NetworkInterProcesser::NetworkInterProcesser(bool sync, bool ipCheck, QObject *parent)
     : NetworkProcesser(parent)
     , m_proxyController(Q_NULLPTR)
     , m_vpnController(Q_NULLPTR)
@@ -56,8 +57,8 @@ NetworkInterProcesser::NetworkInterProcesser(bool sync, QObject *parent)
     , m_sync(sync)
     , m_unManagerDevice(Q_NULLPTR)
     , m_newManagerDevice(Q_NULLPTR)
+    , m_ipChecker(new IPConfilctChecker(this, ipCheck, m_networkInter, this))
 {
-    Q_ASSERT(m_networkInter);
     initConnection();
     initDeviceService();
 }
@@ -108,6 +109,9 @@ void NetworkInterProcesser::initConnection()
     connect(m_networkInter, &NetworkInter::DeviceEnabled, this, &NetworkInterProcesser::onDeviceEnableChanged);                        // 关闭设备或启用设备
 
     connect(m_networkInter, &NetworkInter::ConnectivityChanged, this, &NetworkInterProcesser::onConnectivityChanged);                  // 网络状态发生变化
+    connect(m_ipChecker, &IPConfilctChecker::conflictStatusChanged, this, [ ] (NetworkDeviceBase *device, const bool &confilct) {
+        Q_EMIT device->deviceStatusChanged(confilct ? DeviceStatus::IpConfilct : device->deviceStatus());
+    });
 }
 
 NetworkDeviceBase *NetworkInterProcesser::findDevices(const QString &path) const
@@ -185,7 +189,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
             if (!device) {
                 switch (type) {
                 case DeviceType::Wireless: {
-                    DeviceInterRealize *wirelessRealize = new WirelessDeviceInterRealize(m_networkInter, nullptr);
+                    DeviceInterRealize *wirelessRealize = new WirelessDeviceInterRealize(m_ipChecker, m_networkInter, nullptr);
                     device = new WirelessDevice(wirelessRealize, this);
                     if (!m_newManagerDevice)
                         m_newManagerDevice = device;
@@ -194,7 +198,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
                     break;
                 }
                 case DeviceType::Wired: {
-                    DeviceInterRealize *wiredRealize = new WiredDeviceInterRealize(m_networkInter, nullptr);
+                    DeviceInterRealize *wiredRealize = new WiredDeviceInterRealize(m_ipChecker, m_networkInter, nullptr);
                     device = new WiredDevice(wiredRealize, this);
                     break;
                 }
@@ -403,8 +407,6 @@ void NetworkInterProcesser::onAccesspointChanged(const QString &accessPoints)
     if (accessPoints.isEmpty())
         return;
 
-    PRINTMESSAGE(accessPoints);
-
     const QJsonObject json = QJsonDocument::fromJson(accessPoints.toUtf8()).object();
 
     for (NetworkDeviceBase *device : m_devices) {
@@ -438,7 +440,7 @@ void NetworkInterProcesser::onDeviceEnableChanged(const QString &devicePath, boo
     }
 }
 
-void NetworkInterProcesser::onConnectivityChanged(int conectivity)
+void NetworkInterProcesser::onConnectivityChanged(uint conectivity)
 {
     PRINTMESSAGE(QString("conectivity:%1").arg(conectivity));
     Connectivity conn = static_cast<Connectivity>(conectivity);

@@ -48,7 +48,6 @@ class QTimer;
 class NetItem;
 
 using namespace dde::network;
-using DbusNetwork = com::deepin::daemon::Network;
 
 class NetworkPanel : public QObject
 {
@@ -86,20 +85,12 @@ private:
     int deviceCount(const DeviceType &devType) const;
     QStringList ipTipsMessage(const DeviceType &devType);
 
-    QStringList getIPList(const DeviceType &deviceType) const;
-    QStringList getActiveWiredList() const;
-    QStringList getActiveWirelessList() const;
-    QStringList currentIpList() const;
     QString getStrengthStateString(int strength);
     bool isDarkIcon() const;
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
     void onUpdatePlugView();
-
-    void onIPConfllict(const QString &ip, const QString &mac);
-    void onSendIpConflictDect(int index = 0);
-    void onDetectConflict();
 
 private:
     PluginState m_pluginState;
@@ -114,13 +105,6 @@ private:
 
     // 判断定时的时间是否到,否则不重置计时器
     bool m_timeOut;
-
-    DbusNetwork *m_networkInter;
-    QStringList m_disconflictList;        // 解除冲突数据列表
-    QMap<QString, QString> m_conflictMap; // 缓存有线和无线冲突的ip列表
-    QTimer *m_detectConflictTimer;        // 定时器自检,当其他主机主动解除ip冲突，我方需要更新网络状态
-    bool m_ipConflict;                    // ip冲突的标识
-    bool m_ipConflictChecking;            // 标记是否正在检测中
     bool m_greeterStyle;                  // 登录界面样式
 
     QSet<QString> m_devicePaths; // 记录无线设备Path,防止信号重复连接

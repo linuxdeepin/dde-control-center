@@ -43,6 +43,7 @@ class AccessPoints;
 class WiredDevice;
 class WiredConnection;
 class WirelessConnection;
+class IPConfilctChecker;
 
 class NetworkProcesser : public QObject
 {
@@ -98,6 +99,7 @@ Q_SIGNALS:
     void connectionAdded(const QList<WiredConnection *>);                                // 新增连接
     void connectionRemoved(const QList<WiredConnection *>);                              // 删除连接
     void connectionPropertyChanged(const QList<WiredConnection *> &);                    // 连接属性发生变化
+    void ipV4Changed();                                                                  // IPv4地址发生变化
 
 public:
     void setDevice(NetworkDeviceBase *device);                                           // 设置当前的设备
@@ -135,8 +137,9 @@ public:
     virtual QList<WiredConnection *> wiredItems() const;                                 // 有线网络连接列表
 
 protected:
-    NetworkDeviceRealize(QObject *parent);
+    NetworkDeviceRealize(IPConfilctChecker *ipConflictChecker, QObject *parent);
     virtual ~NetworkDeviceRealize();
+
     NetworkDeviceBase *device() const;
 
     virtual QString statusStringDetail();
@@ -150,6 +153,7 @@ private:
     Connectivity m_connectivity;
     QQueue<DeviceStatus> m_statusQueue;
     DeviceStatus m_deviceStatus;
+    IPConfilctChecker *m_ipConflictChecker;
 };
 
 }

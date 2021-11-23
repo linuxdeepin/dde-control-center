@@ -54,7 +54,8 @@ enum class DeviceStatus {
     Secondaries     = 90,         // 设备正在等待第二个在当前设备连接成功之前必须激活的连接(例如VPN)
     Activated       = 100,        // 激活状态，也就是连接成功
     Deactivation    = 110,        // 断开连接
-    Failed          = 120         // 连接失败
+    Failed          = 120,        // 连接失败
+    IpConfilct      = 121         // ip冲突
 };
 
 /*

@@ -38,6 +38,7 @@ NetworkPlugin::NetworkPlugin(QObject *parent)
     , m_networkDialog(Q_NULLPTR)
     , m_clickTime(-10000)
 {
+    NetworkController::setIPConflictCheck(true);
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/dock-network-plugin/translations/dock-network-plugin_%1.qm").arg(QLocale::system().name()));
     QCoreApplication::installTranslator(translator);

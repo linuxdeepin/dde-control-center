@@ -31,6 +31,7 @@ namespace dde {
 namespace network {
 
 class NetworkDeviceBase;
+class IPConfilctChecker;
 
 class NetworkManagerProcesser : public NetworkProcesser
 {
@@ -68,6 +69,7 @@ private:
     HotspotController *m_hotspotController;
     NetworkInter *m_networkInter;
     dde::network::Connectivity m_connectivity;
+    IPConfilctChecker *m_ipChecker;
 };
 
 }

@@ -41,6 +41,7 @@ class NetworkDeviceBase : public QObject
     friend class NetworkController;
     friend class NetworkInterProcesser;
     friend class NetworkManagerProcesser;
+    friend class IPConfilctChecker;
 
     Q_PROPERTY(QString statusName READ getStatusName)
     Q_PROPERTY(QString statusDetail READ statusStringDetail)                                    // 当前状态详细说明，取代statusStringDetail接口
@@ -67,7 +68,8 @@ Q_SIGNALS:
     void connectionChanged();                                                                    // 连接发生变化的时候触发的信号
     void nameChanged(const QString &);                                                           // 网卡名称发生变化的时候触发的信号
     void removed();                                                                              // 设备移除
-    void activeConnectionChanged();                                             // 活动连接发生变化的时候发出的信号
+    void activeConnectionChanged();                                                              // 活动连接发生变化的时候发出的信号
+    void ipV4Changed();                                                                          // IPV4地址变化
 
 public:
     bool isEnabled() const;                                                                      // 当前的网卡是否启用

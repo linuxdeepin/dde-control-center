@@ -86,6 +86,7 @@ NetDeviceStatus DeviceStatusHandler::wiredStatus(WiredDevice *device)
     case DeviceStatus::Activated:      return NetDeviceStatus::Connected;
     case DeviceStatus::Deactivation:
     case DeviceStatus::Failed:         return NetDeviceStatus::ConnectFailed;
+    case DeviceStatus::IpConfilct:     return NetDeviceStatus::IpConflicted;
     default:                           return NetDeviceStatus::Unknown;
     }
 
@@ -102,9 +103,9 @@ NetDeviceStatus DeviceStatusHandler::wiredStatus(const QList<WiredDevice *> &dev
     // 显示的规则:从allDeviceStatus列表中按照顺序遍历所有的状态，
     // 再遍历所有的设备的状态，只要其中一个设备的状态满足当前的状态，就返回当前状态
     static QList<NetDeviceStatus> allDeviceStatus =
-        { NetDeviceStatus::Authenticating, NetDeviceStatus::ObtainingIP, NetDeviceStatus::Connected,
-        NetDeviceStatus::ConnectNoInternet, NetDeviceStatus::Connecting, NetDeviceStatus::Disconnected,
-        NetDeviceStatus::Disabled, NetDeviceStatus::Nocable, NetDeviceStatus::Unknown };
+        { NetDeviceStatus::Authenticating, NetDeviceStatus::ObtainingIP, NetDeviceStatus::IpConflicted,
+          NetDeviceStatus::Connected, NetDeviceStatus::ConnectNoInternet, NetDeviceStatus::Connecting,
+          NetDeviceStatus::Disconnected, NetDeviceStatus::Disabled, NetDeviceStatus::Nocable, NetDeviceStatus::Unknown };
     for (int i = 0; i < allDeviceStatus.size(); i++) {
         NetDeviceStatus status = allDeviceStatus[i];
         if (deviceStatus.contains(status))
@@ -141,6 +142,7 @@ NetDeviceStatus DeviceStatusHandler::wirelessStatus(WirelessDevice *device)
     case DeviceStatus::Activated:     return NetDeviceStatus::Connected;
     case DeviceStatus::Deactivation:
     case DeviceStatus::Failed:        return NetDeviceStatus::ConnectFailed;
+    case DeviceStatus::IpConfilct:    return NetDeviceStatus::IpConflicted;
     default:                          return NetDeviceStatus::Unknown;
     }
 
@@ -156,9 +158,9 @@ NetDeviceStatus DeviceStatusHandler::wirelessStatus(const QList<WirelessDevice *
         devStatus << wirelessStatus(device);
 
     static QList<NetDeviceStatus> allDeviceStatus =
-        { NetDeviceStatus::Authenticating, NetDeviceStatus::ObtainingIP, NetDeviceStatus::Connected,
-        NetDeviceStatus::ConnectNoInternet, NetDeviceStatus::Connecting, NetDeviceStatus::Disconnected,
-        NetDeviceStatus::Disabled, NetDeviceStatus::Unknown};
+        { NetDeviceStatus::Authenticating, NetDeviceStatus::ObtainingIP, NetDeviceStatus::IpConflicted,
+          NetDeviceStatus::Connected, NetDeviceStatus::ConnectNoInternet, NetDeviceStatus::Connecting,
+          NetDeviceStatus::Disconnected, NetDeviceStatus::Disabled, NetDeviceStatus::Unknown};
 
     for (int i = 0; i < allDeviceStatus.size(); i++) {
         NetDeviceStatus status = allDeviceStatus[i];
@@ -218,6 +220,12 @@ PluginState DeviceStatusHandler::plugState(const NetDeviceStatus &wiredStatus, c
 
     if (isDisconnected(wiredStatus, wirelessStatus))
         return PluginState::Disconnected;
+
+    if (wirelessStatus == NetDeviceStatus::IpConflicted)
+        return PluginState::WirelessIpConflicted;
+
+    if (wiredStatus == NetDeviceStatus::IpConflicted)
+        return PluginState::WiredIpConflicted;
 
     if (isConnected(wiredStatus, wirelessStatus))
         return PluginState::Connected;

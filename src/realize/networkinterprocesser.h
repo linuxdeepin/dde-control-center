@@ -33,6 +33,7 @@ class VPNController;
 class DSLController;
 class HotspotController;
 class NetworkDetails;
+class IPConfilctChecker;
 
 class NetworkInterProcesser : public NetworkProcesser
 {
@@ -41,7 +42,7 @@ class NetworkInterProcesser : public NetworkProcesser
     friend class NetworkController;
 
 protected:
-    explicit NetworkInterProcesser(bool sync, QObject *parent);
+    explicit NetworkInterProcesser(bool sync, bool ipCheck, QObject *parent);
     ~NetworkInterProcesser() override;
 
     void initDeviceService();
@@ -78,7 +79,7 @@ protected Q_SLOTS:
 
     void onAccesspointChanged(const QString &accessPoints);
     void onDeviceEnableChanged(const QString &devicePath, bool enabled);
-    void onConnectivityChanged(int conectivity);
+    void onConnectivityChanged(uint conectivity);
 
 private:
     ProxyController *m_proxyController;
@@ -95,6 +96,7 @@ private:
     bool m_sync;
     NetworkDeviceBase *m_unManagerDevice;
     NetworkDeviceBase *m_newManagerDevice;
+    IPConfilctChecker *m_ipChecker;
 };
 
 }

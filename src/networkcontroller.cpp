@@ -37,7 +37,11 @@ const static QString networkPath = "/com/deepin/daemon/Network";
 
 using namespace dde::network;
 
+// 默认是异步方式
 bool NetworkController::m_sync = false;
+// 只有任务栏需要检测IP冲突，因此任务栏需要调用相关的接口来检测，其他的应用是不需要检测冲突的
+bool NetworkController::m_checkIpConflicted = false;
+// 默认从网络后台检测
 ServiceLoadType NetworkController::m_serviceLoadType = ServiceLoadType::LoadFromInter;
 
 NetworkController::NetworkController()
@@ -50,7 +54,7 @@ NetworkController::NetworkController()
     if (m_serviceLoadType == ServiceLoadType::LoadFromManager)
         m_processer = new NetworkManagerProcesser(this);
     else
-        m_processer = new NetworkInterProcesser(m_sync, this);
+        m_processer = new NetworkInterProcesser(m_sync, m_checkIpConflicted, this);
 
     connect(m_processer, &NetworkProcesser::deviceAdded, this, &NetworkController::deviceAdded);
     connect(m_processer, &NetworkProcesser::deviceRemoved, this, &NetworkController::deviceRemoved);
@@ -77,6 +81,11 @@ void NetworkController::setActiveSync(const bool sync)
 void NetworkController::setServiceType(const ServiceLoadType serviceType)
 {
     m_serviceLoadType = serviceType;
+}
+
+void NetworkController::setIPConflictCheck(const bool &checkIp)
+{
+    m_checkIpConflicted = checkIp;
 }
 
 ProxyController *NetworkController::proxyController()
