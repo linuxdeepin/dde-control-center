@@ -147,7 +147,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     updateTitleFirstVLay->addWidget(m_updateTipsLab);
     updateTitleFirstVLay->addWidget(m_updateSizeLab);
 
-    updateTitleHLay->setContentsMargins(QMargins(12, 50, 10, 20));
+    updateTitleHLay->setContentsMargins(QMargins(22, 50, 20, 20));
     updateTitleHLay->addLayout(updateTitleFirstVLay);
     updateTitleHLay->addWidget(m_spinner, 1, Qt::AlignRight);
     m_spinner->setVisible(false);
@@ -175,18 +175,18 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     layout->addWidget(m_progress);
     layout->addLayout(fullProcesslayout);
 
-    layout->addLayout(updateTitleHLay);
-    layout->addWidget(m_updateList, 1);
-
     layout->addStretch();
     layout->addWidget(m_resultItem);
     layout->addWidget(m_checkUpdateItem);
     layout->addWidget(m_reminderTip);
     layout->addWidget(m_noNetworkTip);
+
     layout->addSpacing(20);
     layout->addWidget(m_checkUpdateBtn, 0, Qt::AlignCenter);
     layout->addSpacing(5);
     layout->addWidget(m_lastCheckTimeTip);
+    layout->addLayout(updateTitleHLay);
+    layout->addWidget(m_updateList, 1);
     layout->addStretch();
 
     setLayout(layout);
@@ -221,6 +221,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     contentLayout->addSpacing(5);
     contentLayout->addWidget(m_lastCheckAgainTimeTip);
     contentWidget->setLayout(contentLayout);
+    contentWidget->setContentsMargins(10, 0, 10, 0);
 
     m_updateList->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     m_updateList->setContent(contentWidget);
@@ -768,7 +769,7 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
 
         if (updateItem->status() == UpdatesStatus::AutoDownloaded
                 || updateItem->status() == UpdatesStatus::UpdatesAvailable
-	            || updateItem->status() == UpdatesStatus::UpdateSucceeded
+                || updateItem->status() == UpdatesStatus::UpdateSucceeded
                 || updateItem->status() == UpdatesStatus::UpdateFailed
                 || updateItem->status() == UpdatesStatus::RecoveryBackupFailed)
         {
@@ -783,13 +784,13 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
     isUpdateing =  refreshUpdateWidget(m_storeUpdateItem) || isUpdateing;
     isUpdateing = refreshUpdateWidget(m_safeUpdateItem) || isUpdateing;
 
-    if(isUpdateing){
+    if (isUpdateing) {
         m_CheckAgainBtn->setEnabled(false);
-    }else {
-        if(m_updateSize > 0){
-             m_CheckAgainBtn->setEnabled(true);
-        }else {
-             m_CheckAgainBtn->setEnabled(false);
+    } else {
+        if (m_updateSize > 0) {
+            m_CheckAgainBtn->setEnabled(true);
+        } else {
+            m_CheckAgainBtn->setEnabled(false);
         }
     }
 

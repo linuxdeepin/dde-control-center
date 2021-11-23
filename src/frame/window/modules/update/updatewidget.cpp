@@ -81,6 +81,7 @@ UpdateWidget::UpdateWidget(QWidget *parent)
     });
 
     m_mainLayout->setMargin(0);
+    m_layout->setMargin(0);
     m_layout->setAlignment(Qt::AlignTop);
     m_layout->setSpacing(0);
     m_layout->addSpacing(10);
@@ -164,16 +165,7 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 #endif
     connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
 
-    QWidget *updateOutWidget = new QWidget;
-    updateOutWidget->setAccessibleName("updateOutWidget");
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->addStretch();
-    layout->addWidget(updateWidget, Qt::AlignTop);
-    updateWidget->setMinimumHeight(height());
-    layout->addStretch();
-    updateOutWidget->setLayout(layout);
-
-    m_mainLayout->addWidget(updateOutWidget);
+    m_mainLayout->addWidget(updateWidget);
     m_mainLayout->addWidget(updateSetting);
 }
 
