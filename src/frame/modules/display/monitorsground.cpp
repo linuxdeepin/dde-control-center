@@ -205,13 +205,14 @@ void MonitorsGround::onRotateChanged(const quint16 rotate)
       }
 
     onResize();
-
-    if(!m_isSingleDisplay)
-        onRequestMonitorRelease(mon);
+    onRequestMonitorRelease(mon);
 }
 
 void MonitorsGround::onRequestMonitorRelease(Monitor *mon)
 {
+    if (m_isSingleDisplay)
+        return;
+
     Q_UNUSED(mon)
     bool isRestore = false;
     multiScreenSortAlgo(isRestore);
@@ -277,6 +278,9 @@ void MonitorsGround::onResize()
             setFixedHeight(240 + MAX_W - MIN_W);
         }
         updateScale();
+    }
+    else {
+        setSceneRect(QRect(0, 0, width(), height()));
     }
 
     resetMonitorsView();
