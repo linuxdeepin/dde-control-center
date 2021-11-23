@@ -11,7 +11,6 @@ SystemUpdateItem::SystemUpdateItem(QWidget *parent)
     setIcon(":/update/updatev20/dcc_system_update.svg");
     setClassifyUpdateType(SystemUpdate);
 
-    m_line->setForegroundRole(DPalette::AlternateBase);
     m_settingsGroup->insertWidget(m_line);
     m_line->setVisible(false);
 
