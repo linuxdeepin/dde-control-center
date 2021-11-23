@@ -35,6 +35,7 @@
 #include "modules/display/displayworker.h"
 
 #include <QApplication>
+#include <QDesktopWidget>
 
 using namespace dcc::display;
 using namespace DCC_NAMESPACE::display;
@@ -348,19 +349,19 @@ void DisplayModule::pushScreenWidget()
 
 int DisplayModule::showTimeoutDialog(Monitor *monitor)
 {
+    QDesktopWidget *desktopwidget = QApplication::desktop();
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
     qreal radio = qApp->devicePixelRatio();
     QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
     QTimer::singleShot(1, this, [=] { timeoutDialog->moveToCenterByRect(rt.toRect()); });
     // 若用户切换重力旋转 直接退出对话框
     connect(monitor, &Monitor::currentRotateModeChanged, timeoutDialog, &TimeoutDialog::close);
-    connect(monitor, &Monitor::geometryChanged, timeoutDialog, [=] {
+    connect(desktopwidget, &QDesktopWidget::resized, timeoutDialog, [=] {
         if (timeoutDialog) {
             QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
             timeoutDialog->moveToCenterByRect(rt.toRect());
         }
-    },
-            Qt::QueuedConnection);
+    });
     connect(m_displayModel, &DisplayModel::monitorListChanged, timeoutDialog, &TimeoutDialog::deleteLater);
 
     return timeoutDialog->exec();
