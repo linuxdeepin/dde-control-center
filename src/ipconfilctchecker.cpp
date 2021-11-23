@@ -62,7 +62,7 @@ void IPConfilctChecker::clearUnExistDevice()
 
 void IPConfilctChecker::onIPConfilct(const QString &ip, const QString &macAddress)
 {
-    PRINTMESSAGE(QString("received:ip %1, macaddress %2").arg(ip).arg(macAddress));
+    PRINT_INFO_MESSAGE(QString("received:ip %1, macaddress %2").arg(ip).arg(macAddress));
     // 此处通过调用后台获取IP地址，如果直接使用当前网络库中设备的IP地址，就有如下问题
     // 如果是在控制中心修改手动IP的话，从当前库中获取到的IP地址就不是最新的地址，因此此处需要从后台获取实时IP
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->GetActiveConnectionInfo(), this);
@@ -76,7 +76,7 @@ void IPConfilctChecker::onIPConfilct(const QString &ip, const QString &macAddres
 
 void IPConfilctChecker::handlerIpConflict(const QString &ip, const QString &macAddress, const QString &activeConnectionInfo)
 {
-    PRINTMESSAGE(QString("ip:%1, macAddress: %2").arg(ip).arg(macAddress));
+    PRINT_INFO_MESSAGE(QString("ip:%1, macAddress: %2").arg(ip).arg(macAddress));
     QMap<QString, NetworkDeviceBase *> deviceIps = parseDeviceIp(activeConnectionInfo);
     NetworkDeviceBase *conflictDevice = Q_NULLPTR;
     if (deviceIps.contains(ip))
@@ -84,7 +84,7 @@ void IPConfilctChecker::handlerIpConflict(const QString &ip, const QString &macA
 
     // 如果不是本机IP，不做任何处理
     if (!conflictDevice) {
-        PRINTMESSAGE("can't find conflict Device");
+        PRINT_INFO_MESSAGE("can't find conflict Device");
         return;
     }
 
@@ -161,7 +161,7 @@ DeviceIPChecker::DeviceIPChecker(NetworkDeviceBase *device, NetworkInter *netInt
         // 当设备的IP地址发生变化的时候，请求IP冲突， 只有在上一次请求和该次请求发生的时间大于2秒，才发出信号
         m_ipV4 = m_device->ipv4();
         if (!m_ipV4.isEmpty()) {
-            PRINTMESSAGE(QString("request Device:%1, IP: %2").arg(m_device->deviceName()).arg(m_ipV4));
+            PRINT_INFO_MESSAGE(QString("request Device:%1, IP: %2").arg(m_device->deviceName()).arg(m_ipV4));
             m_changeIpv4s << m_ipV4;
             QTimer::singleShot(800, this, [ this ] {
                 if (m_changeIpv4s.size() > 0) {
@@ -198,7 +198,7 @@ bool DeviceIPChecker::ipConfilct()
 
 void DeviceIPChecker::handlerIpConflict()
 {
-    PRINTMESSAGE(QString("device: %1 ip: %2 mac address:%3").arg(m_device->deviceName()).arg(m_ipV4).arg(m_macAddress));
+    PRINT_INFO_MESSAGE(QString("device: %1 ip: %2 mac address:%3").arg(m_device->deviceName()).arg(m_ipV4).arg(m_macAddress));
     if (m_macAddress.isEmpty()) {
         m_conflictCount = 0;
         // 如果MAC地址为空，则表示IP冲突已经解决，则让每个网卡恢复之前的状态
@@ -222,15 +222,15 @@ void DeviceIPChecker::handlerIpConflict()
         m_clearCount++;
     } else {
         m_clearCount = 0;
-        PRINTMESSAGE(QString("find confilct device:%1, confilctCount:%2, conflictIP: %3").arg(m_device->deviceName()).arg(m_conflictCount)).arg(m_ipV4);
+        PRINT_INFO_MESSAGE(QString("find confilct device:%1, confilctCount:%2, conflictIP: %3").arg(m_device->deviceName()).arg(m_conflictCount)).arg(m_ipV4);
 
         // 如果少于两次，则继续确认
         if (m_conflictCount < 1) {
-            PRINTMESSAGE(QString("start confirm %1 times").arg(m_conflictCount));
+            PRINT_INFO_MESSAGE(QString("start confirm %1 times").arg(m_conflictCount));
             requestIPConflictCheck(m_ipV4, 500);
         } else {
             // 如果大于3次，则认为当前IP冲突了
-            PRINTMESSAGE(QString("ip Conflicted: %1, device: %2").arg(m_ipV4).arg(m_device->deviceName()));
+            PRINT_INFO_MESSAGE(QString("ip Conflicted: %1, device: %2").arg(m_ipV4).arg(m_device->deviceName()));
             // 拿到最后一次设备冲突的状态
             bool lastConflictStatus = m_ipConflicted;
             m_ipConflicted = true;

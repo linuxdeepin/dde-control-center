@@ -240,7 +240,7 @@ WirelessDevice *HotspotController::findDevice(const QString &path)
 
 void HotspotController::updateActiveConnectionInfo(const QList<QJsonObject> &conns)
 {
-    PRINTMESSAGE(conns);
+    PRINT_INFO_MESSAGE(conns);
     m_activeconnection = conns;
     updateActiveConnectionInfo();
 }
@@ -299,7 +299,7 @@ void HotspotController::updateDevices(const QList<NetworkDeviceBase *> &devices)
 
 void HotspotController::updateConnections(const QJsonArray &jsons)
 {
-    PRINTMESSAGE(jsons);
+    PRINT_INFO_MESSAGE(jsons);
     // 筛选出通用的(HwAddress为空)热点和指定HwAddress的热点
     QList<QJsonObject> commonConnections;
     QMap<QString, QList<QJsonObject>> deviceConnections;

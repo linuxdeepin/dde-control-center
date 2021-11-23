@@ -141,7 +141,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
     if (value.isEmpty())
         return;
 
-    PRINTMESSAGE(value);
+    PRINT_INFO_MESSAGE("device Changed");
     static bool isFirstEnter = false;
     const QJsonObject data = QJsonDocument::fromJson(value.toUtf8()).object();
     QStringList devPaths;
@@ -173,14 +173,17 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
                         m_unManagerDevice = Q_NULLPTR;
                     }
                 }
+                PRINT_DEBUG_MESSAGE(QString("unManager device: %1").arg(deviceInfo.value("Interface").toString()));
                 continue;
             }
 
             // 根据标志位InterfaceFlags判断网络连接是否有效
             if (type != DeviceType::Wireless) {
                 if (!deviceInfo.value("InterfaceFlags").isUndefined()) {
-                    if (!(deviceInfo.value("InterfaceFlags").toInt() & NM_DEVICE_INTERFACE_FLAG_UP))
+                    if (!(deviceInfo.value("InterfaceFlags").toInt() & NM_DEVICE_INTERFACE_FLAG_UP)) {
+                        PRINT_DEBUG_MESSAGE(QString("Interface_flag_up: %1").arg(deviceInfo.value("Interface").toString()));
                         continue;
+                    }
                 }
             }
 
@@ -189,6 +192,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
             if (!device) {
                 switch (type) {
                 case DeviceType::Wireless: {
+                    PRINT_DEBUG_MESSAGE(QString("new Wireless Device: %1").arg(deviceInfo.value("Interface").toString()));
                     DeviceInterRealize *wirelessRealize = new WirelessDeviceInterRealize(m_ipChecker, m_networkInter, nullptr);
                     device = new WirelessDevice(wirelessRealize, this);
                     if (!m_newManagerDevice)
@@ -198,6 +202,7 @@ void NetworkInterProcesser::onDevicesChanged(const QString &value)
                     break;
                 }
                 case DeviceType::Wired: {
+                    PRINT_DEBUG_MESSAGE(QString("new Wired Device: %1").arg(deviceInfo.value("Interface").toString()));
                     DeviceInterRealize *wiredRealize = new WiredDeviceInterRealize(m_ipChecker, m_networkInter, nullptr);
                     device = new WiredDevice(wiredRealize, this);
                     break;
@@ -334,7 +339,7 @@ void NetworkInterProcesser::onConnectionListChanged(const QString &connections)
     if (connections.isEmpty())
         return;
 
-    PRINTMESSAGE(connections);
+    PRINT_INFO_MESSAGE("start");
 
     m_connections = QJsonDocument::fromJson(connections.toUtf8()).object();
     updateConnectionsInfo(m_devices);
@@ -358,7 +363,7 @@ void NetworkInterProcesser::onConnectionListChanged(const QString &connections)
 
 void NetworkInterProcesser::onActiveConnectionsChanged(const QString &activeConnections)
 {
-    PRINTMESSAGE(activeConnections);
+    PRINT_INFO_MESSAGE("Active Connections Changed");
     m_connectivity = connectivityValue(m_networkInter->connectivity());
     activeInfoChanged(activeConnections);
     updateDeviceConnectiveInfo();
@@ -393,6 +398,8 @@ void NetworkInterProcesser::activeConnInfoChanged(const QString &conns)
             DeviceInterRealize *deviceInter = static_cast<DeviceInterRealize *>(device->deviceRealize());
             deviceInter->updateActiveConnectionInfo(json, !m_hotspotController);
         }
+    } else {
+        PRINT_DEBUG_MESSAGE(QString("receive error connection value: %1").arg(conns));
     }
     // 要更新活动热点信息，是因为如果启用或者禁用热点的话，这个活动连接信息会有变化，通过这里来触发热点启用或禁用的信号
     updateDeviceActiveHotpot();
@@ -426,7 +433,7 @@ void NetworkInterProcesser::onAccesspointChanged(const QString &accessPoints)
 
 void NetworkInterProcesser::onDeviceEnableChanged(const QString &devicePath, bool enabled)
 {
-    PRINTMESSAGE(QString("Device:%1 enabled:%2").arg(devicePath).arg(enabled));
+    PRINT_INFO_MESSAGE(QString("Device enabled:%1").arg(enabled));
     NetworkDeviceBase *device = findDevices(devicePath);
     if (device) {
         DeviceInterRealize *interDevice = static_cast<DeviceInterRealize *>(device->deviceRealize());
@@ -442,7 +449,7 @@ void NetworkInterProcesser::onDeviceEnableChanged(const QString &devicePath, boo
 
 void NetworkInterProcesser::onConnectivityChanged(uint conectivity)
 {
-    PRINTMESSAGE(QString("conectivity:%1").arg(conectivity));
+    PRINT_INFO_MESSAGE(QString("conectivity:%1").arg(conectivity));
     Connectivity conn = static_cast<Connectivity>(conectivity);
     if (conn == m_connectivity)
         return;
@@ -475,20 +482,20 @@ void NetworkInterProcesser::updateConnectionsInfo(const QList<NetworkDeviceBase 
 
 void NetworkInterProcesser::asyncActiveConnectionInfo()
 {
-    PRINTMESSAGE("start");
+    PRINT_INFO_MESSAGE("start");
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->GetActiveConnectionInfo(), this);
     connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
     connect(w, &QDBusPendingCallWatcher::finished, [ = ](QDBusPendingCallWatcher * w) {
         QDBusPendingReply<QString> reply = *w;
         QString activeConnectionInfo = reply.value();
-        PRINTMESSAGE(QString("receive value:%1").arg(activeConnectionInfo));
+        PRINT_INFO_MESSAGE("receive value");
         activeConnInfoChanged(activeConnectionInfo);
     });
 }
 
 void NetworkInterProcesser::activeInfoChanged(const QString &conns)
 {
-    PRINTMESSAGE(conns);
+    PRINT_INFO_MESSAGE("active info changed");
     // 当前活动连接发生变化
     m_activeConection = QJsonDocument::fromJson(conns.toUtf8()).object();
     QMap<QString, QList<QJsonObject>> devActiveConn;
@@ -543,7 +550,7 @@ QList<NetworkDetails *> NetworkInterProcesser::networkDetails()
 
 void NetworkInterProcesser::updateDeviceHotpot()
 {
-    PRINTMESSAGE("start");
+    PRINT_INFO_MESSAGE("start");
     if (!m_hotspotController)
         return;
 
@@ -571,13 +578,13 @@ void NetworkInterProcesser::updateDeviceActiveHotpot()
     }
 
     // 更新活动连接信息
-    PRINTMESSAGE(conns);
+    PRINT_INFO_MESSAGE("update active hotspot");
     m_hotspotController->updateActiveConnectionInfo(conns);
 }
 
 void NetworkInterProcesser::updateNetworkDetails()
 {
-    PRINTMESSAGE("start");
+    PRINT_INFO_MESSAGE("start");
     QStringList devicePaths;
     for (NetworkDeviceBase *device : m_devices) {
         if (!device->isEnabled())
@@ -637,10 +644,10 @@ void NetworkInterProcesser::updateNetworkDetails()
 
 void NetworkInterProcesser::updateDSLData()
 {
-    PRINTMESSAGE(m_connections);
     if (!m_dslController || !m_connections.contains("pppoe"))
         return;
 
+    PRINT_INFO_MESSAGE("start update dsl info");
     m_dslController->updateDevice(m_devices);
     m_dslController->updateDSLItems(m_connections.value("pppoe").toArray());
     m_dslController->updateActiveConnections(m_activeConection);

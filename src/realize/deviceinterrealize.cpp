@@ -119,7 +119,7 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
 {
     Q_UNUSED(emitHotspot);
 
-    PRINTMESSAGE(infos);
+    PRINT_INFO_MESSAGE("receive Ip Data");
 
     const QString oldIpv4 = ipv4();
     m_activeInfoData = QJsonObject();
@@ -157,14 +157,14 @@ bool WiredDeviceInterRealize::connectNetwork(WiredConnection *connection)
     if (!connection)
         return false;
 
-    PRINTMESSAGE(QString("connection uuid:%1, DevicePath: %2").arg(connection->connection()->uuid()).arg(path()));
+    PRINT_DEBUG_MESSAGE(QString("connection ssid: %1").arg(connection->connection()->ssid()));
     networkInter()->ActivateConnection(connection->connection()->uuid(), QDBusObjectPath(path()));
     return true;
 }
 
 void WiredDeviceInterRealize::disconnectNetwork()
 {
-    PRINTMESSAGE(QString("DevicePath: %1").arg(path()));
+    PRINT_INFO_MESSAGE("Disconnected Network");
     networkInter()->DisconnectDevice(QDBusObjectPath(path()));
 }
 
@@ -206,7 +206,7 @@ void WiredDeviceInterRealize::setDeviceEnabledStatus(const bool &enabled)
 
 void WiredDeviceInterRealize::updateConnection(const QJsonArray &info)
 {
-    PRINTMESSAGE(info);
+    PRINT_INFO_MESSAGE("start..........");
     QList<WiredConnection *> newWiredConnections;
     QList<WiredConnection *> changedWiredConnections;
     QStringList connPaths;
@@ -222,6 +222,7 @@ void WiredDeviceInterRealize::updateConnection(const QJsonArray &info)
             conn = new WiredConnection;
             m_connections << conn;
             newWiredConnections << conn;
+            PRINT_DEBUG_MESSAGE(QString("new wifi: %1").arg(jsonObj.value("Ssid").toString()));
         } else {
             if (conn->connection()->id() != jsonObj.value("Id").toString()
                     || conn->connection()->ssid() != jsonObj.value("Ssid").toString())
@@ -288,7 +289,7 @@ static ConnectionStatus convertStatus(int status)
 
 void WiredDeviceInterRealize::updateActiveInfo(const QList<QJsonObject> &info)
 {
-    PRINTMESSAGE(info);
+    PRINT_INFO_MESSAGE("start");
     bool changeStatus = false;
     // 根据返回的UUID找到对应的连接，找到State=2的连接变成连接成功状态
     for (const QJsonObject &activeInfo : info) {
@@ -359,7 +360,7 @@ void WirelessDeviceInterRealize::connectNetwork(const AccessPoints *item)
     const QString apPath = item->path();
     const QString devPath = path();
 
-    PRINTMESSAGE(QString("Device: %1 accessPoint: %2").arg(devPath));
+    PRINT_DEBUG_MESSAGE(QString("connect Network: %1").arg(item->ssid()));
 
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(networkInter()->ActivateAccessPoint(uuid, QDBusObjectPath(apPath), QDBusObjectPath(devPath)));
 
@@ -368,11 +369,11 @@ void WirelessDeviceInterRealize::connectNetwork(const AccessPoints *item)
 
         if (reply.value().path().isEmpty()) {
             // 连接失败
-            PRINTMESSAGE("Failure");
+            PRINT_INFO_MESSAGE("Failure");
             Q_EMIT connectionFailed(item);
             Q_EMIT deviceStatusChanged(DeviceStatus::Failed);
         } else {
-            PRINTMESSAGE("Success");
+            PRINT_INFO_MESSAGE("Success");
             Q_EMIT deviceStatusChanged(DeviceStatus::Activated);
         }
         w->deleteLater();
@@ -458,14 +459,12 @@ WirelessConnection *WirelessDeviceInterRealize::findConnectionByAccessPoint(cons
  */
 void WirelessDeviceInterRealize::syncConnectionAccessPoints()
 {
-    PRINTMESSAGE("syncConnectionAccessPoints:");
+    PRINT_INFO_MESSAGE("start");
     if (m_accessPoints.isEmpty()) {
         clearListData(m_connections);
-        PRINTMESSAGE("m_accessPoints.isEmpty");
+        PRINT_INFO_MESSAGE("can't found accesspoint");
         return;
     }
-
-    PRINTMESSAGE("start.....");
 
     QList<WirelessConnection *> connections;
     // 找到每个热点对应的Connection，并将其赋值
@@ -479,7 +478,7 @@ void WirelessDeviceInterRealize::syncConnectionAccessPoints()
         connection->m_accessPoints = accessPoint;
         connections << connection;
     }
-    PRINTMESSAGE(QString("connection size:%1").arg(connections.size()));
+    PRINT_DEBUG_MESSAGE(QString("connection size:%1").arg(connections.size()));
     updateActiveInfo();
     // 删除列表中没有AccessPoints的Connection，让两边保持数据一致
     QList<WirelessConnection *> rmConns;
@@ -489,7 +488,7 @@ void WirelessDeviceInterRealize::syncConnectionAccessPoints()
     }
 
     for (WirelessConnection *rmConnection : rmConns) {
-        PRINTMESSAGE(QString("remove connection:%1 path:%2").arg(rmConnection->connection()->ssid()).arg(rmConnection->connection()->path()));
+        PRINT_DEBUG_MESSAGE(QString("remove connection:%1").arg(rmConnection->connection()->ssid()));
         m_connections.removeOne(rmConnection);
         delete rmConnection;
     }
@@ -500,7 +499,7 @@ void WirelessDeviceInterRealize::updateActiveInfo()
     if (m_activeAccessPoints.isEmpty())
         return;
 
-    PRINTMESSAGE(m_activeAccessPoints);
+    PRINT_INFO_MESSAGE("start");
     // 先将所有的连接变成普通状态
     for (AccessPoints *ap : m_accessPoints)
         ap->m_status = ConnectionStatus::Unknown;
@@ -526,7 +525,7 @@ void WirelessDeviceInterRealize::updateActiveInfo()
     }
 
     if (changed) {
-        PRINTMESSAGE("accessPoint Status Changed");
+        PRINT_INFO_MESSAGE("accessPoint Status Changed");
         Q_EMIT activeConnectionChanged();
     }
 
@@ -549,14 +548,12 @@ QList<WirelessConnection *> WirelessDeviceInterRealize::wirelessItems() const
 void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &infos, bool emitHotspot)
 {
     bool enabledHotspotOld = hotspotEnabled();
-    PRINTMESSAGE(QString("hotspot enabled old: %1").arg(enabledHotspotOld));
-    PRINTMESSAGE(infos);
+    PRINT_INFO_MESSAGE(QString("hotspot enabled old: %1").arg(enabledHotspotOld));
 
     m_hotspotInfo = QJsonObject();
     for (const QJsonObject &info : infos) {
         const QString devicePath = info.value("Device").toString();
         const QString connectionType = info.value("ConnectionType").toString();
-        PRINTMESSAGE(QString("Device:%1 ConnectionType:%2").arg(devicePath).arg(connectionType));
         if (devicePath == this->path() && connectionType == "wireless-hotspot") {
             m_hotspotInfo = info;
             setDeviceStatus(DeviceStatus::Disconnected);
@@ -566,7 +563,7 @@ void WirelessDeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObj
 
     if (emitHotspot) {
         bool enabledHotspot = hotspotEnabled();
-        PRINTMESSAGE(QString("hotspot enable: %1").arg(enabledHotspot));
+        PRINT_INFO_MESSAGE(QString("hotspot enable: %1").arg(enabledHotspot));
         if (enabledHotspotOld != enabledHotspot)
             Q_EMIT hotspotEnableChanged(enabledHotspot);
     }
