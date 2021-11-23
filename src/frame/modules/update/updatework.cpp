@@ -680,6 +680,7 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
         recoveryCanBackup(updateType);
     } else { //系统环境配置不满足,则直接跳到下一步下载数据
         qDebug() << Q_FUNC_INFO << " [abRecovery] 备份配置环境不满足,继续更新.";
+        m_backupStatus = BackupStatus::Backuped;
         downloadAndInstallUpdates(updateType);
     }
 
