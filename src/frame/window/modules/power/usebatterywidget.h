@@ -71,6 +71,7 @@ private:
     QStandardItemModel *m_lowPowerModel = nullptr;
     dcc::widgets::SwitchWidget *m_swBatteryHint;
     dcc::widgets::TitledSliderItem *m_sldLowBatteryHint;
+    QMap<int, int> m_sldLowBatteryMap;
 
     dcc::widgets::TitledSliderItem *m_sldAutoSuspend;
 
