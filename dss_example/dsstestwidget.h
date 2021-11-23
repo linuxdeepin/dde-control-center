@@ -47,6 +47,7 @@ public:
 
 private:
     void loadDssPlugin();
+    bool eventFilter(QObject *watched, QEvent *event);
 
 private:
     dss::module::NetworkPlugin *m_pModule;

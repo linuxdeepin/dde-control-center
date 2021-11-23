@@ -56,7 +56,8 @@ private:
     NetworkInter *networkInter();
 
 private slots:
-    void onDeviceChanged();
+    void onDeviceAdded(const QString &uni);
+    void onDeviceRemove(const QString &uni);
     void onConnectivityChanged(NetworkManager::Connectivity conntity);
     void onDeviceEnabledChanged(QDBusObjectPath path, bool enabled);
 
@@ -74,4 +75,5 @@ private:
 
 }
 }
+
 #endif // NETWORKMANAGERPROCESSER_H

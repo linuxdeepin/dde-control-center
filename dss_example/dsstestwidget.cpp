@@ -25,6 +25,7 @@
 
 #include <DPalette>
 #include <DFloatingButton>
+#include <QMouseEvent>
 
 using namespace dss::module;
 using namespace Dtk::Widget;
@@ -39,6 +40,7 @@ DssTestWidget::DssTestWidget(QWidget *parent)
     m_button->setFixedSize(QSize(52, 52));
     m_button->setAutoExclusive(true);
     m_button->setBackgroundRole(DPalette::Button);
+    m_button->installEventFilter(this);
     loadDssPlugin();
 }
 
@@ -50,4 +52,23 @@ void DssTestWidget::loadDssPlugin()
 {
     m_pModule->init();
     m_button->setIcon(QIcon(m_pModule->icon()));
+}
+
+bool DssTestWidget::eventFilter(QObject *watched, QEvent *event)
+{
+    if (watched == m_button) {
+        switch (event->type()) {
+        case QEvent::MouseButtonPress: {
+                QMouseEvent *mouseEvent = static_cast<QMouseEvent *>(event);
+                if (mouseEvent->button() == Qt::RightButton) {
+                    const QString itemMenu = m_pModule->itemContextMenu();
+                    qInfo() << itemMenu;
+                }
+            }
+            break;
+        default: break;
+        }
+    }
+
+    return QWidget::eventFilter(watched, event);
 }

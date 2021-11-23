@@ -52,7 +52,10 @@ NetworkManagerProcesser::NetworkManagerProcesser(QObject *parent)
     , m_connectivity(dde::network::Connectivity::Unknownconnectivity)
     , m_ipChecker(new IPConfilctChecker(this, false, nullptr, this))
 {
-    onDeviceChanged();
+    Device::List allDevices = NetworkManager::networkInterfaces();
+    for (Device::Ptr device : allDevices)
+        onDeviceAdded(device->uni());
+
     initConnections();
     onConnectivityChanged(NetworkManager::connectivity());
 }
@@ -63,8 +66,8 @@ NetworkManagerProcesser::~NetworkManagerProcesser()
 
 void NetworkManagerProcesser::initConnections()
 {
-    connect(NetworkManager::notifier(), &Notifier::deviceAdded, this, &NetworkManagerProcesser::onDeviceChanged);
-    connect(NetworkManager::notifier(), &Notifier::deviceRemoved, this, &NetworkManagerProcesser::onDeviceChanged);
+    connect(NetworkManager::notifier(), &Notifier::deviceAdded, this, &NetworkManagerProcesser::onDeviceAdded);
+    connect(NetworkManager::notifier(), &Notifier::deviceRemoved, this, &NetworkManagerProcesser::onDeviceRemove);
     connect(NetworkManager::notifier(), &Notifier::connectivityChanged, this, &NetworkManagerProcesser::onConnectivityChanged);
     connect(m_ipChecker, &IPConfilctChecker::conflictStatusChanged, this, [ ] (NetworkDeviceBase *device, const bool &confilct) {
         Q_EMIT device->deviceStatusChanged(confilct ? DeviceStatus::IpConfilct : device->deviceStatus());
@@ -119,75 +122,105 @@ HotspotController *NetworkManagerProcesser::hotspotController()
     return m_hotspotController;
 }
 
-void NetworkManagerProcesser::onDeviceChanged()
+void NetworkManagerProcesser::onDeviceAdded(const QString &uni)
 {
-    PRINTMESSAGE("start");
-    QStringList devicePaths;
-    QList<NetworkDeviceBase *> oldDevices = m_devices;
-    QList<NetworkDeviceBase *> newDevice, currentDevices;
-    Device::List allDevices = NetworkManager::networkInterfaces();
-    for (QSharedPointer<Device> device : allDevices) {
-        QString devPath = device->uni();
-        PRINTMESSAGE(QString("path: %1").arg(devPath));
-        if (!device->managed()) {
-            PRINTMESSAGE("unManaged");
-            continue;
+    auto deviceExist = [ this ] (const QString &uni)->bool {
+        for (NetworkDeviceBase *device : m_devices) {
+            if (device->path() == uni)
+                return true;
         }
 
-        NetworkDeviceBase *dev = findDevice(devPath);
-        if (!dev) {
-            if (device->type() == NetworkManager::Device::Ethernet) {
-                // 有线设备
-                NetworkManager::WiredDevice::Ptr wDevice = device.staticCast<NetworkManager::WiredDevice>();
-                DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(m_ipChecker, wDevice);
-                dev = new WiredDevice(deviceRealize, Q_NULLPTR);
-            } else if (device->type() == NetworkManager::Device::Wifi) {
-                // 无线设备
-                NetworkManager::WirelessDevice::Ptr wDevice = device.staticCast<NetworkManager::WirelessDevice>();
-                DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(m_ipChecker, wDevice);
-                dev = new WirelessDevice(deviceRealize, Q_NULLPTR);
-            }
-            if (dev) {
-                newDevice << dev;
-                devicePaths << devPath;
-                PRINTMESSAGE(QString("new Device, interface: %1").arg(dev->interface()));
-            }
-        }
-        if (dev)
-            currentDevices << dev;
+        return false;
+    };
+
+    if (deviceExist(uni))
+        return;
+
+    Device::Ptr currentDevice(nullptr);
+    Device::List allDevices = NetworkManager::networkInterfaces();
+    for (Device::Ptr device : allDevices) {
+        if (device->uni() != uni)
+            continue;
+
+        if (device->type() == Device::Wifi || device->type() == Device::Ethernet)
+            currentDevice = device;
+
+        break;
     }
-    // 对比原来的
+
+    if (!currentDevice)
+        return;
+
+    auto createDevice = [ = ](const QSharedPointer<Device> &device)->NetworkDeviceBase * {
+        if (device->type() == Device::Wifi) {
+            // 无线网络
+            NetworkManager::WirelessDevice::Ptr wDevice = device.staticCast<NetworkManager::WirelessDevice>();
+            DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(m_ipChecker, wDevice);
+            return new WirelessDevice(deviceRealize, Q_NULLPTR);
+        } else if (device->type() == Device::Ethernet) {
+            // 有线网络
+            NetworkManager::WiredDevice::Ptr wDevice = device.staticCast<NetworkManager::WiredDevice>();
+            DeviceManagerRealize *deviceRealize = new DeviceManagerRealize(m_ipChecker, wDevice);
+            return new WiredDevice(deviceRealize, Q_NULLPTR);
+        }
+        return nullptr;
+    };
+
+    NetworkDeviceBase *newDevice = Q_NULLPTR;
+    if (currentDevice->managed())
+        newDevice = createDevice(currentDevice);
+
+    connect(currentDevice.get(), &Device::managedChanged, this, [ this, currentDevice, deviceExist, createDevice ] {
+        if (currentDevice->managed()) {
+            // 如果由非manager变成manager的模式，则新增设备
+            if (!deviceExist(currentDevice->uni())) {
+                NetworkDeviceBase *newDevice = createDevice(currentDevice);
+                if (newDevice) {
+                        m_devices << newDevice;
+                        updateDeviceName();
+                        Q_EMIT deviceAdded({ newDevice });
+                    }
+                }
+            } else {
+                // 如果由manager变成非manager模式，则移除设备
+                QList<NetworkDeviceBase *> rmDevices;
+                for (NetworkDeviceBase *dev : m_devices) {
+                    if (dev->path() == currentDevice->uni()) {
+                        m_devices.removeOne(dev);
+                        rmDevices << dev;
+                        break;
+                    }
+                }
+                if (rmDevices.size() > 0) {
+                    updateDeviceName();
+                    Q_EMIT deviceRemoved(rmDevices);
+                    for (NetworkDeviceBase *rmDevice : rmDevices)
+                        delete rmDevice;
+                    rmDevices.clear();
+                }
+            }
+        });
+
+    if (newDevice) {
+        m_devices << newDevice;
+        updateDeviceName();
+        Q_EMIT deviceAdded({ newDevice });
+    }
+}
+
+void NetworkManagerProcesser::onDeviceRemove(const QString &uni)
+{
     QList<NetworkDeviceBase *> rmDevices;
     for (NetworkDeviceBase *device : m_devices) {
-        if (!currentDevices.contains(device)) {
-            rmDevices << device;
+        if (device->path() == uni) {
             m_devices.removeOne(device);
-            PRINTMESSAGE(QString("remove Device interface:%1, path:%2").arg(device->interface()).arg(device->path()));
+            rmDevices << device;
+            break;
         }
     }
 
-    m_devices = currentDevices;
-    qSort(m_devices.begin(), m_devices.end(), [ = ] (NetworkDeviceBase *device1, NetworkDeviceBase *device2) {
-        if (device1->deviceType() != device2->deviceType())
-            return device1->deviceType() == DeviceType::Wired;
-
-        return devicePaths.indexOf(device1->path()) < devicePaths.indexOf(device2->path());
-    });
-
-    updateDeviceName();
-
-    if (newDevice.size() > 0 || rmDevices.size() > 0) {
-        PRINTMESSAGE(QString("new Device size: %1, remove Device size: %2").arg(newDevice.size()).arg(rmDevices.size()));
-        if (newDevice.size() > 0)
-            Q_EMIT deviceAdded(newDevice);
-
-        if (rmDevices.size() > 0) {
-            for (NetworkDeviceBase *device : rmDevices)
-                Q_EMIT device->removed();
-
-            Q_EMIT deviceRemoved(rmDevices);
-        }
-
+    if (rmDevices.size() > 0) {
+        Q_EMIT deviceRemoved(rmDevices);
         for (NetworkDeviceBase *device : rmDevices)
             delete device;
     }
