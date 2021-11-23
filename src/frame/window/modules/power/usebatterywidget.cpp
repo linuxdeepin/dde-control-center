@@ -129,14 +129,19 @@ UseBatteryWidget::UseBatteryWidget(PowerModel *model, QWidget *parent)
     SettingsGroup *lowBatteryGrp = new SettingsGroup(nullptr, SettingsGroup::GroupBackground);
     lowBatteryGrp->layout()->setContentsMargins(0, 0, 0, 0);
     options.clear();
-    for (int i = 0; i <= 9; i++) {
+    for (int i = 0; i <= 3; i++) {
         options.append(QString());
     }
-    options[0] = "16%";
-    options[4] = "20%";
-    options[9] = "25%";
+    options[0] = "10%";
+    options[1] = "15%";
+    options[2] = "20%";
+    options[3] = "25%";
     m_sldLowBatteryHint->setAnnotations(options);
-    m_sldLowBatteryHint->slider()->setRange(16, 25);
+    m_sldLowBatteryMap.insert(0, 10);
+    m_sldLowBatteryMap.insert(1, 15);
+    m_sldLowBatteryMap.insert(2, 20);
+    m_sldLowBatteryMap.insert(3, 25);
+    m_sldLowBatteryHint->slider()->setRange(0, 3);
     m_sldLowBatteryHint->slider()->setType(DCCSlider::Vernier);
     m_sldLowBatteryHint->slider()->setTickPosition(QSlider::NoTicks);
     lowBatteryGrp->appendItem(m_swBatteryHint);
@@ -261,7 +266,9 @@ void UseBatteryWidget::setModel(const PowerModel *model)
     onLowPowerNotifyThreshold(model->lowPowerNotifyThreshold());
     connect(model, &PowerModel::lowPowerNotifyThresholdChanged, this, &UseBatteryWidget::onLowPowerNotifyThreshold);
     connect(m_sldLowBatteryHint->slider(), &DCCSlider::valueChanged, this, [ = ](int value) {
-        Q_EMIT  requestSetLowPowerNotifyThreshold(value);
+        if (m_sldLowBatteryMap.contains(value)) {
+            Q_EMIT  requestSetLowPowerNotifyThreshold(m_sldLowBatteryMap[value]);
+        }
     });
 
     onLowPowerAutoSleepThreshold(model->lowPowerAutoSleepThreshold());
@@ -298,10 +305,22 @@ void UseBatteryWidget::setAutoLockScreenOnBattery(const int delay)
 
 void UseBatteryWidget::onLowPowerNotifyThreshold(const int value)
 {
-    m_sldLowBatteryHint->slider()->blockSignals(true);
-    m_sldLowBatteryHint->slider()->setValue(value);
-    m_sldLowBatteryHint->setValueLiteral(QString("%1%").arg(value));
-    m_sldLowBatteryHint->slider()->blockSignals(false);
+    int index = -1;
+    QMap<int, int>::iterator iter = m_sldLowBatteryMap.begin();
+    while (iter != m_sldLowBatteryMap.end())
+    {
+        if (iter.value() == value) {
+            index = iter.key();
+            break;
+        }
+        ++iter;
+    }
+    if (index >= 0) {
+        m_sldLowBatteryHint->slider()->blockSignals(true);
+        m_sldLowBatteryHint->slider()->setValue(index);
+        m_sldLowBatteryHint->setValueLiteral(QString("%1%").arg(value));
+        m_sldLowBatteryHint->slider()->blockSignals(false);
+    }
 }
 
 void UseBatteryWidget::onLowPowerAutoSleepThreshold(const int value)
