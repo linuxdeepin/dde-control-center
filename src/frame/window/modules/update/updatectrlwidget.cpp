@@ -157,7 +157,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     updateTitleHLay->addLayout(updateTitleFirstVLay);
     updateTitleHLay->addWidget(m_spinner, 1, Qt::AlignRight);
     m_spinner->setVisible(false);
-    m_spinner->setFixedSize(24, 24);
+    m_spinner->setFixedSize(16, 16);
     m_updateingTipsLab->setText(tr("Updating..."));
     m_updateingTipsLab->setVisible(false);
     DFontSizeManager::instance()->bind(m_updateingTipsLab, DFontSizeManager::T8);
@@ -769,14 +769,13 @@ void UpdateCtrlWidget::onRequestRefreshWidget()
 {
     m_isUpdateingAll = true;
     auto refreshUpdateWidget = [ = ](UpdateSettingItem * updateItem)->bool{
-        if (updateItem->status() == UpdatesStatus::Default)
+        if (updateItem->status() == UpdatesStatus::Default || updateItem->status() == UpdatesStatus::UpdateSucceeded)
         {
             return false;
         }
 
         if (updateItem->status() == UpdatesStatus::AutoDownloaded
                 || updateItem->status() == UpdatesStatus::UpdatesAvailable
-                || updateItem->status() == UpdatesStatus::UpdateSucceeded
                 || updateItem->status() == UpdatesStatus::UpdateFailed
                 || updateItem->status() == UpdatesStatus::RecoveryBackupFailed)
         {

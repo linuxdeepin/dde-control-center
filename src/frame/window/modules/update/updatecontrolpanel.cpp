@@ -52,13 +52,12 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     m_startButton->hide();
 
     QVBoxLayout *progressLay = new QVBoxLayout;
-    m_Progess->setFixedHeight(10);
+    m_Progess->setFixedHeight(8);
     m_Progess->setTextVisible(true);
     m_Progess->setTextDirection(QProgressBar::TopToBottom);
     m_Progess->setRange(0, 100);
     m_Progess->setAlignment(Qt::AlignRight);
     m_Progess->setFixedWidth(100);
-    m_Progess->setMaximumHeight(10);
     m_Progess->setVisible(false);
 
     m_progressLabel->setVisible(false);
