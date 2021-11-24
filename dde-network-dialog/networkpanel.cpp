@@ -50,13 +50,11 @@
 
 NetworkPanel::NetworkPanel(QObject *parent)
     : QObject(parent)
-    , m_switchWireTimer(new QTimer(this))
     , m_wirelessScanTimer(new QTimer(this))
     , m_switchWire(true)
     , m_applet(new QScrollArea())
     , m_centerWidget(new QWidget(m_applet))
     , m_netListView(new DListView(m_centerWidget))
-    , m_timeOut(true)
     , m_selectItem(nullptr)
 {
     initUi();
@@ -139,12 +137,6 @@ void NetworkPanel::initConnection()
     // 点击列表的信号
     connect(m_netListView, &DListView::pressed, this, &NetworkPanel::onClickListView);
 
-    // 连接超时的信号
-    connect(m_switchWireTimer, &QTimer::timeout, [ = ] () {
-        m_switchWire = !m_switchWire;
-        m_timeOut = true;
-    });
-
     int wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt() * 1000;
     m_wirelessScanTimer->setInterval(wirelessScanInterval);
     const QGSettings *gsetting = Utils::SettingsPtr("com.deepin.dde.dock", QByteArray(), this);
@@ -167,44 +159,6 @@ void NetworkPanel::initConnection()
     QTimer::singleShot(100, this, [ = ] {
         onDeviceAdded(networkController->devices());
     });
-}
-
-void NetworkPanel::getPluginState()
-{
-    // 所有设备状态叠加
-    QList<int> status;
-    m_pluginState = DeviceStatusHandler::pluginState();
-    switch (m_pluginState) {
-    case PluginState::Unknow:
-    case PluginState::Disabled:
-    case PluginState::Connected:
-    case PluginState::Disconnected:
-    case PluginState::ConnectNoInternet:
-    case PluginState::WirelessDisabled:
-    case PluginState::WiredDisabled:
-    case PluginState::WirelessConnected:
-    case PluginState::WiredConnected:
-    case PluginState::WirelessDisconnected:
-    case PluginState::WiredDisconnected:
-    case PluginState::WirelessConnecting:
-    case PluginState::WiredConnecting:
-    case PluginState::WirelessConnectNoInternet:
-    case PluginState::WiredConnectNoInternet:
-    case PluginState::WiredFailed:
-    case PluginState::Nocable:
-        m_switchWireTimer->stop();
-        m_timeOut = true;
-        break;
-    case PluginState::Connecting:
-        // 启动2s切换计时,只有当计时器记满则重新计数
-        if (m_timeOut) {
-            m_switchWireTimer->start(2000);
-            m_timeOut = false;
-        }
-        break;
-    default:
-        break;
-    }
 }
 
 void NetworkPanel::updateItems()
@@ -547,7 +501,6 @@ void NetworkPanel::setControlBackground()
 
 void NetworkPanel::onUpdatePlugView()
 {
-    getPluginState();
     updateView();
 }
 

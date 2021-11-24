@@ -66,7 +66,6 @@ private:
     void setControlBackground();
     void initUi();
     void initConnection();
-    void getPluginState();
     void updateView(); // 更新网络列表内容大小
     void updateItems();
     bool deviceEnabled(const DeviceType &deviceType) const;
@@ -84,9 +83,6 @@ private Q_SLOTS:
     void updateSize(); // 更新窗口大小
 
 private:
-    PluginState m_pluginState;
-
-    QTimer *m_switchWireTimer;
     QTimer *m_wirelessScanTimer;
 
     bool m_switchWire;
@@ -96,8 +92,6 @@ private:
     QScrollArea *m_applet;
     QWidget *m_centerWidget;
     DListView *m_netListView;
-    // 判断定时的时间是否到,否则不重置计时器
-    bool m_timeOut;
 
     QList<NetItem *> m_items;
     NetItem *m_selectItem;

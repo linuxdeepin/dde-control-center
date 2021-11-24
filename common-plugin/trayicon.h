@@ -41,20 +41,25 @@ Q_SIGNALS:
 
 public:
     explicit TrayIcon(NetworkPanel *panel);
-
-public:
-    void updateIcon();
+    void setGreeterStyle(bool greeterStyle);
 
 protected:
     void paintEvent(QPaintEvent *e);
     void resizeEvent(QResizeEvent *e);
+    QString getStrengthStateString(int strength) const;
+    int getStrongestAp();
+    bool isDarkIcon() const;
 
 public Q_SLOTS:
     void showNetworkDialog();
+    void refreshIcon();
 
 protected:
     NetworkPanel *m_panel;
     QPixmap m_iconPixmap;
+
+    bool m_greeterStyle;                  // 登录界面样式
+    QTimer *m_refreshIconTimer;
 };
 
 #endif // TRAYICON_H

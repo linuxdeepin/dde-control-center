@@ -53,7 +53,6 @@ NetworkModule::NetworkModule(QObject *parent)
     m_networkDialog = new NetworkDialog(this);
     m_networkDialog->setRunReason(NetworkDialog::Lock);
     m_networkPanel = new NetworkPanel(this);
-    m_networkPanel->setGreeterStyle(true);
     if (!m_isLockModel) {
         m_networkDialog->setRunReason(NetworkDialog::Greeter);
         connect(m_networkPanel, &NetworkPanel::addDevice, this, &NetworkModule::onAddDevice);
@@ -73,6 +72,7 @@ QWidget *NetworkModule::content()
 QWidget *NetworkModule::itemWidget() const
 {
     TrayIcon *trayIcon = new TrayIcon(m_networkPanel);
+    trayIcon->setGreeterStyle(true);
     connect(this, &NetworkModule::signalShowNetworkDialog, trayIcon, &TrayIcon::showNetworkDialog);
     connect(trayIcon, &TrayIcon::signalShowNetworkDialog, this, &NetworkModule::showNetworkDialog);
     // 处理内存

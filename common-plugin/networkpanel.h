@@ -55,8 +55,8 @@ class NetworkPanel : public QObject
 
 Q_SIGNALS:
     void sendIpConflictDect(int);
-    void iconChange();
     void addDevice(const QString &devicePath);
+    void pluginStateChenged(PluginState state);
 
 public:
     explicit NetworkPanel(QObject *parent = Q_NULLPTR);
@@ -68,25 +68,18 @@ public:
     bool needShowControlCenter();
     const QString contextMenu(bool hasSetting) const;
     QWidget *itemTips();
-    void setGreeterStyle(bool greeterStyle);
-
-    void refreshIcon();
-    QPixmap icon();
+    PluginState getPluginState();
+    void updatePluginState();
 
 private:
     void initUi();
     void initConnection();
-    void getPluginState();
     void updateTooltips(); // 更新提示的内容
     bool deviceEnabled(const DeviceType &deviceType) const;
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
 
-    int getStrongestAp();
     int deviceCount(const DeviceType &devType) const;
     QStringList ipTipsMessage(const DeviceType &devType);
-
-    QString getStrengthStateString(int strength);
-    bool isDarkIcon() const;
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
@@ -95,17 +88,11 @@ private Q_SLOTS:
 private:
     PluginState m_pluginState;
 
-    QTimer *m_refreshIconTimer;
-    QTimer *m_switchWireTimer;
     QTimer *m_wirelessScanTimer;
 
     Dock::TipsWidget *m_tipsWidget;
     bool m_switchWire;
     QPixmap m_iconPixmap;
-
-    // 判断定时的时间是否到,否则不重置计时器
-    bool m_timeOut;
-    bool m_greeterStyle;                  // 登录界面样式
 
     QSet<QString> m_devicePaths; // 记录无线设备Path,防止信号重复连接
     QString m_lastActiveWirelessDevicePath;

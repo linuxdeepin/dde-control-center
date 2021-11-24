@@ -24,7 +24,6 @@
 #include "widgets/tipswidget.h"
 #include "utils.h"
 #include "item/devicestatushandler.h"
-#include "imageutil.h"
 #include "networkdialog.h"
 
 #include <DHiDPIHelper>
@@ -57,13 +56,9 @@ enum MenuItemKey : int {
 
 NetworkPanel::NetworkPanel(QObject *parent)
     : QObject(parent)
-    , m_refreshIconTimer(new QTimer(this))
-    , m_switchWireTimer(new QTimer(this))
     , m_wirelessScanTimer(new QTimer(this))
     , m_tipsWidget(new Dock::TipsWidget())
     , m_switchWire(true)
-    , m_timeOut(true)
-    , m_greeterStyle(false)
     , m_mainWidget(nullptr)
 {
     initUi();
@@ -81,15 +76,11 @@ void NetworkPanel::setMainWidget(QWidget *mainWidget)
 
 void NetworkPanel::initUi()
 {
-    m_refreshIconTimer->setInterval(100);
     m_tipsWidget->setVisible(false);
 }
 
 void NetworkPanel::initConnection()
 {
-    // 定期更新网络状态图标
-    connect(m_refreshIconTimer, &QTimer::timeout, this, &NetworkPanel::refreshIcon);
-
     // 主题发生变化触发的信号
     connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &NetworkPanel::onUpdatePlugView);
 
@@ -98,12 +89,6 @@ void NetworkPanel::initConnection()
     connect(networkController, &NetworkController::deviceAdded, this, &NetworkPanel::onDeviceAdded);
     connect(networkController, &NetworkController::deviceRemoved, this, &NetworkPanel::onUpdatePlugView);
     connect(networkController, &NetworkController::connectivityChanged, this, &NetworkPanel::onUpdatePlugView);
-
-    // 连接超时的信号
-    connect(m_switchWireTimer, &QTimer::timeout, [ = ]() {
-        m_switchWire = !m_switchWire;
-        m_timeOut = true;
-    });
 
     int wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt() * 1000;
     m_wirelessScanTimer->setInterval(wirelessScanInterval);
@@ -130,42 +115,18 @@ void NetworkPanel::initConnection()
     });
 }
 
-void NetworkPanel::getPluginState()
+void NetworkPanel::updatePluginState()
 {
-    // 所有设备状态叠加
-    QList<int> status;
-    m_pluginState = DeviceStatusHandler::pluginState();
-    switch (m_pluginState) {
-    case PluginState::Unknow:
-    case PluginState::Disabled:
-    case PluginState::Connected:
-    case PluginState::Disconnected:
-    case PluginState::ConnectNoInternet:
-    case PluginState::WirelessDisabled:
-    case PluginState::WiredDisabled:
-    case PluginState::WirelessConnected:
-    case PluginState::WiredConnected:
-    case PluginState::WirelessDisconnected:
-    case PluginState::WiredDisconnected:
-    case PluginState::WirelessConnecting:
-    case PluginState::WiredConnecting:
-    case PluginState::WirelessConnectNoInternet:
-    case PluginState::WiredConnectNoInternet:
-    case PluginState::WiredFailed:
-    case PluginState::Nocable:
-        m_switchWireTimer->stop();
-        m_timeOut = true;
-        break;
-    case PluginState::Connecting:
-        // 启动2s切换计时,只有当计时器记满则重新计数
-        if (m_timeOut) {
-            m_switchWireTimer->start(2000);
-            m_timeOut = false;
-        }
-        break;
-    default:
-        break;
+    PluginState state = DeviceStatusHandler::pluginState();
+    if(state != m_pluginState){
+        m_pluginState = state;
+        emit pluginStateChenged(m_pluginState);
     }
+}
+
+PluginState NetworkPanel::getPluginState()
+{
+    return m_pluginState;
 }
 
 QStringList NetworkPanel::ipTipsMessage(const DeviceType &devType)
@@ -236,23 +197,6 @@ void NetworkPanel::updateTooltips()
         m_tipsWidget->setText(tr("IP conflict"));
         break;
     }
-}
-
-QString NetworkPanel::getStrengthStateString(int strength)
-{
-    if (5 >= strength)
-        return "0";
-
-    if (30 >= strength)
-        return "20";
-
-    if (55 >= strength)
-        return "40";
-
-    if (65 >= strength)
-        return "60";
-
-    return "80";
 }
 
 int NetworkPanel::deviceCount(const DeviceType &devType) const
@@ -454,188 +398,8 @@ QWidget *NetworkPanel::itemTips()
     return m_tipsWidget;
 }
 
-bool NetworkPanel::isDarkIcon() const
-{
-    // 如果是登陆或者锁屏界面，始终显示白色图标
-    if (m_greeterStyle)
-        return false;
-
-    // 如果当前是白色主题，则任务栏的尺寸是最小尺寸，则显示黑色图标
-    if (DGuiApplicationHelper::instance()->themeType() == DGuiApplicationHelper::LightType) {
-        if (m_mainWidget && m_mainWidget->height() <= PLUGIN_BACKGROUND_MIN_SIZE)
-            return true;
-    }
-
-    return false;
-}
-
-void NetworkPanel::refreshIcon()
-{
-    QString stateString;
-    QString iconString;
-    const auto ratio = 1.0;
-    int iconSize = PLUGIN_ICON_MAX_SIZE;
-    int strength = 0;
-
-    bool useDarkIcon = isDarkIcon();
-
-    switch (m_pluginState) {
-    case PluginState::Disabled:
-    case PluginState::WirelessDisabled:
-        stateString = "disabled";
-        iconString = QString("wireless-%1-symbolic").arg(stateString);
-        break;
-    case PluginState::WiredDisabled:
-        stateString = "disabled";
-        iconString = QString("network-%1-symbolic").arg(stateString);
-        break;
-    case PluginState::Connected:
-    case PluginState::WirelessConnected:
-        strength = getStrongestAp();
-        stateString = getStrengthStateString(strength);
-        iconString = QString("wireless-%1-symbolic").arg(stateString);
-        break;
-    case PluginState::WiredConnected:
-        stateString = "online";
-        iconString = QString("network-%1-symbolic").arg(stateString);
-        break;
-    case PluginState::Disconnected:
-    case PluginState::WirelessDisconnected:
-        stateString = "0";
-        iconString = QString("wireless-%1-symbolic").arg(stateString);
-        break;
-    case PluginState::WiredDisconnected:
-        stateString = "none";
-        iconString = QString("network-%1-symbolic").arg(stateString);
-        break;
-    case PluginState::Connecting: {
-        m_refreshIconTimer->start();
-        if (m_switchWire) {
-            strength = QTime::currentTime().msec() / 10 % 100;
-            stateString = getStrengthStateString(strength);
-            iconString = QString("wireless-%1-symbolic").arg(stateString);
-            if (useDarkIcon)
-                iconString.append(PLUGIN_MIN_ICON_NAME);
-            m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-            emit iconChange();
-            return;
-        } else {
-            m_refreshIconTimer->start(200);
-            const int index = QTime::currentTime().msec() / 200 % 10;
-            const int num = index + 1;
-            iconString = QString("network-wired-symbolic-connecting%1").arg(num);
-            if (useDarkIcon)
-                iconString.append(PLUGIN_MIN_ICON_NAME);
-            m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-            emit iconChange();
-            return;
-        }
-    }
-    case PluginState::WirelessConnecting: {
-        m_refreshIconTimer->start();
-        strength = QTime::currentTime().msec() / 10 % 100;
-        stateString = getStrengthStateString(strength);
-        iconString = QString("wireless-%1-symbolic").arg(stateString);
-        if (useDarkIcon)
-            iconString.append(PLUGIN_MIN_ICON_NAME);
-        m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-        emit iconChange();
-        return;
-    }
-    case PluginState::WiredConnecting: {
-        m_refreshIconTimer->start(200);
-        const int index = QTime::currentTime().msec() / 200 % 10;
-        const int num = index + 1;
-        iconString = QString("network-wired-symbolic-connecting%1").arg(num);
-        if (useDarkIcon)
-            iconString.append(PLUGIN_MIN_ICON_NAME);
-        m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-        emit iconChange();
-        return;
-    }
-    case PluginState::ConnectNoInternet:
-    case PluginState::WirelessConnectNoInternet: {
-        // 无线已连接但无法访问互联网 offline
-        stateString = "offline";
-        iconString = QString("network-wireless-%1-symbolic").arg(stateString);
-        break;
-    }
-    case PluginState::WiredConnectNoInternet: {
-        stateString = "warning";
-        iconString = QString("network-%1-symbolic").arg(stateString);
-        break;
-    }
-    case PluginState::WiredFailed: {
-        // 有线连接失败none变为offline
-        stateString = "offline";
-        iconString = QString("network-%1-symbolic").arg(stateString);
-        break;
-    }
-    case PluginState::Unknow:
-    case PluginState::Nocable: {
-        stateString = "error"; // 待图标 暂用错误图标
-        iconString = QString("network-%1-symbolic").arg(stateString);
-        break;
-    }
-    case PluginState::WirelessIpConflicted: {
-        stateString = "offline";
-        iconString = QString("network-wireless-%1-symbolic").arg(stateString);
-        break;
-    }
-    case PluginState::WiredIpConflicted: {
-        stateString = "offline";
-        iconString = QString("network-%1-symbolic").arg(stateString);
-        break;
-    }
-    case PluginState::WirelessFailed:
-    case PluginState::Failed: {
-        // 无线连接失败改为 disconnect
-        stateString = "disconnect";
-        iconString = QString("wireless-%1").arg(stateString);
-        break;
-    }
-    }
-
-    m_refreshIconTimer->stop();
-
-    if (useDarkIcon)
-        iconString.append(PLUGIN_MIN_ICON_NAME);
-
-    m_iconPixmap = ImageUtil::loadSvg(iconString, ":/", iconSize, ratio);
-
-    emit iconChange();
-}
-
-QPixmap NetworkPanel::icon()
-{
-    return m_iconPixmap;
-}
-
 void NetworkPanel::onUpdatePlugView()
 {
-    getPluginState();
-    refreshIcon();
+    updatePluginState();
     updateTooltips();
-}
-
-int NetworkPanel::getStrongestAp()
-{
-    int retStrength = -1;
-    QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
-    for (NetworkDeviceBase *device : devices) {
-        if (device->deviceType() != DeviceType::Wireless)
-            continue;
-
-        WirelessDevice *dev = static_cast<WirelessDevice *>(device);
-        AccessPoints *ap = dev->activeAccessPoints();
-        if (ap && retStrength < ap->strength())
-            retStrength = ap->strength();
-    }
-
-    return retStrength;
-}
-
-void NetworkPanel::setGreeterStyle(bool greeterStyle)
-{
-    m_greeterStyle = greeterStyle;
 }
