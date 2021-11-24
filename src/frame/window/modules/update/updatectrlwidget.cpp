@@ -130,6 +130,8 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_checkUpdateBtn->setVisible(false);
     m_lastCheckTimeTip->setAlignment(Qt::AlignCenter);
     m_lastCheckTimeTip->setVisible(false);
+    DFontSizeManager::instance()->bind(m_lastCheckTimeTip, DFontSizeManager::T8);
+    m_lastCheckTimeTip->setForegroundRole(DPalette::BrightText);
 
     QHBoxLayout *updateTitleHLay = new QHBoxLayout;
     QVBoxLayout *updateTitleFirstVLay = new QVBoxLayout;
@@ -140,11 +142,15 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_updateTipsLab->setVisible(false);
 
     DFontSizeManager::instance()->bind(m_versrionTip, DFontSizeManager::T8);
-    m_versrionTip->setForegroundRole(DPalette::TextTips);
+    m_versrionTip->setForegroundRole(DPalette::BrightText);
+    m_versrionTip->setEnabled(false);
     QString sVersion = QString("%1 %2").arg(Dtk::Core::DSysInfo::uosProductTypeName()).arg(Dtk::Core::DSysInfo::minorVersion());
     m_versrionTip->setText(tr("Current Edition") + "：" + sVersion);
 
     updateTitleFirstVLay->addWidget(m_updateTipsLab);
+
+    DFontSizeManager::instance()->bind(m_updateSizeLab, DFontSizeManager::T8);
+    m_updateSizeLab->setForegroundRole(DPalette::TextTips);
     updateTitleFirstVLay->addWidget(m_updateSizeLab);
 
     updateTitleHLay->setContentsMargins(QMargins(22, 50, 20, 20));
@@ -167,6 +173,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout();
     layout->setMargin(0);
     layout->setSpacing(0);
+    layout->addSpacing(10);
     layout->addWidget(m_versrionTip, 0, Qt::AlignHCenter);
     layout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
     layout->addWidget(m_upgradeWarningGroup);
@@ -215,6 +222,9 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_lastCheckAgainTimeTip->setVisible(false);
     m_CheckAgainBtn->setFixedSize(QSize(300, 36));
     m_lastCheckAgainTimeTip->setAlignment(Qt::AlignCenter);
+    DFontSizeManager::instance()->bind(m_lastCheckAgainTimeTip, DFontSizeManager::T8);
+    m_lastCheckAgainTimeTip->setForegroundRole(DPalette::BrightText);
+    m_lastCheckAgainTimeTip->setEnabled(false);
 
     contentLayout->addSpacing(20);
     contentLayout->addWidget(m_CheckAgainBtn, 0, Qt::AlignCenter);
@@ -235,7 +245,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
 void UpdateCtrlWidget::initConnect()
 {
     auto initUpdateItemConnect = [ = ](UpdateSettingItem * updateItem) {
-        connect(updateItem, &UpdateSettingItem::requestUpdate, this, &UpdateCtrlWidget::onRequestUpdate);
+        connect(updateItem, &UpdateSettingItem::requestUpdate, this, &UpdateCtrlWidget::requestUpdates);
         connect(updateItem, &UpdateSettingItem::requestUpdateCtrl, this, &UpdateCtrlWidget::requestUpdateCtrl);
         connect(updateItem, &UpdateSettingItem::requestRefreshSize, this, &UpdateCtrlWidget::onRequestRefreshSize);
         connect(updateItem, &UpdateSettingItem::requestRefreshWidget, this, &UpdateCtrlWidget::onRequestRefreshWidget);
@@ -687,9 +697,6 @@ void UpdateCtrlWidget::onChangeUpdatesAvailableStatus()
 
 void UpdateCtrlWidget::onFullUpdateClicked()
 {
-    m_isUpdateingAll = true;
-    showAllUpdate();
-
     auto sendRequestUpdates = [ = ](UpdateSettingItem * updateItem, ClassifyUpdateType type) {
 
         if (updateItem->status() == UpdatesStatus::UpdatesAvailable

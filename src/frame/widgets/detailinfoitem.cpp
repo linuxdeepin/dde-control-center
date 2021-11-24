@@ -54,22 +54,15 @@ void DetailInfoItem::initUi()
     QPalette grayColorPal;
     grayColorPal.setColor(QPalette::WindowText, QColor(grayColor));
 
-
-    m_title->setText("桌面版1040");
     m_title->setFixedWidth(220);
     DFontSizeManager::instance()->bind(m_title, DFontSizeManager::T7, QFont::DemiBold);
     m_title->setForegroundRole(DPalette::TextTitle);
 
-    m_dateLabel->setText("2021.10.1");
     DFontSizeManager::instance()->bind(m_dateLabel, DFontSizeManager::T8);
     m_dateLabel->setForegroundRole(DPalette::TextTips);
 
     hboxlayout->addWidget(m_title, 0, Qt::AlignLeft);
     hboxlayout->addWidget(m_dateLabel, 0, Qt::AlignRight);
-
-//    m_explainTitle->setText("本次更新的内容为:");
-//  DFontSizeManager::instance()->bind(m_explainTitle, DFontSizeManager::T8);
-//  m_explainTitle->setForegroundRole(DPalette::TextTips);
 
     DFontSizeManager::instance()->bind(m_dataLable, DFontSizeManager::T8);
     m_dataLable->setForegroundRole(DPalette::TextTips);

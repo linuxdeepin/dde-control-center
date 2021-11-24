@@ -33,7 +33,7 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     titleLay->addWidget(m_titleLable, 0, Qt::AlignTop);
 
     DFontSizeManager::instance()->bind(m_versionLabel, DFontSizeManager::T8);
-    m_versionLabel->setForegroundRole(DPalette::TextTips);
+    m_versionLabel->setForegroundRole(DPalette::TextTitle);
     titleLay->addWidget(m_versionLabel);
     QHBoxLayout *hlay = new QHBoxLayout();
     hlay->addLayout(titleLay);
@@ -41,7 +41,7 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     QVBoxLayout *buttonLay = new QVBoxLayout();
     m_updateButton->setText(tr("Download and install"));
     m_updateButton->setForegroundRole(DPalette::Button);
-    DFontSizeManager::instance()->bind(m_updateButton, DFontSizeManager::T8, QFont::DemiBold);
+    DFontSizeManager::instance()->bind(m_updateButton, DFontSizeManager::T8);
     buttonLay->addWidget(m_updateButton, 0, Qt::AlignRight | Qt::AlignTop);
 
     QHBoxLayout *bulay = new QHBoxLayout();
@@ -75,7 +75,7 @@ updateControlPanel::updateControlPanel(QWidget *parent)
 
     hlay->addLayout(buttonLay);
 
-    DFontSizeManager::instance()->bind(m_versionLabel, DFontSizeManager::T8);
+    DFontSizeManager::instance()->bind(m_detailLabel, DFontSizeManager::T8);
     m_detailLabel->setForegroundRole(DPalette::TextTips);
     m_detailLabel->adjustSize();
     m_detailLabel->setTextFormat(Qt::RichText);
@@ -84,11 +84,17 @@ updateControlPanel::updateControlPanel(QWidget *parent)
 
     QHBoxLayout *dateLay = new QHBoxLayout();
     DFontSizeManager::instance()->bind(m_dateLabel, DFontSizeManager::T8);
-    m_dateLabel->setForegroundRole(DPalette::TextTips);
+    m_dateLabel->setEnabled(false);
+
+    auto pal = m_dateLabel->palette();
+    QColor base_color = pal.text().color();
+    base_color.setAlpha(255 / 10 * 6);
+    pal.setColor(QPalette::Text, base_color);
+    m_dateLabel->setPalette(pal);
     dateLay->addWidget(m_dateLabel, 0, Qt::AlignLeft);
 
     m_showMoreBUtton->setText(tr("Learn more"));
-    DFontSizeManager::instance()->bind(m_showMoreBUtton, DFontSizeManager::T8, QFont::DemiBold);
+    DFontSizeManager::instance()->bind(m_showMoreBUtton, DFontSizeManager::T8);
     m_showMoreBUtton->setForegroundRole(DPalette::Button);
     dateLay->addStretch();
     dateLay->addWidget(m_showMoreBUtton);
