@@ -437,6 +437,7 @@ WirelessItem::WirelessItem(QWidget *parent, WirelessDevice *device, AccessPoints
         standardItem()->setText(displayText);
     } else {
         m_wifiLabel->setVisible(false);
+        m_securityAction->setVisible(false);
         standardItem()->setText(tr("Connect to hidden network"));
     }
 }
@@ -494,9 +495,6 @@ void WirelessItem::initUi(QWidget *parent)
     // 初始化展开输入控件
     initExpandUi();
     m_expandItem->setWidget(m_stackWidget);
-    m_stackWidget->adjustSize();
-    m_stackWidget->setFixedSize(PANELWIDTH - 10, 85);
-    m_stackWidget->layout()->setMargin(0);
     standardItem()->setActionList(Qt::BottomEdge, { m_expandItem });
     m_expandItem->setVisible(false);
     // 左侧的加密图标
@@ -589,14 +587,14 @@ void WirelessItem::expandWidget(ExpandWidget type)
     case ExpandWidget::ShowSSID:
         m_expandItem->setVisible(true);
         m_topItem->setVisible(true);
-        standardItem()->setSizeHint(QSize(-1, 120));
+        standardItem()->setSizeHint(QSize(-1, 130));
         m_stackWidget->setCurrentIndex(type);
         m_ssidEdit->lineEdit()->setFocus();
         break;
     case ExpandWidget::ShowPassword:
         m_expandItem->setVisible(true);
         m_topItem->setVisible(true);
-        standardItem()->setSizeHint(QSize(-1, 120));
+        standardItem()->setSizeHint(QSize(-1, 130));
         m_stackWidget->setCurrentIndex(type);
         m_passwdEdit->lineEdit()->setFocus();
         if (!m_passwdEdit->lineEdit()->text().isEmpty()) {
@@ -625,25 +623,29 @@ void WirelessItem::createPasswordEdit()
     m_passwdEdit->lineEdit()->setMaxLength(256);
     m_passwdEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_passwdEdit->setFixedHeight(36);
+    m_passwdEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     DPushButton *cancelButtion = new DPushButton(tr("Cancel", "button"), passwdWidget); // 取消
-    m_connectButton = new DSuggestButton(tr("Connect", "button"), passwdWidget); // 连接
+    m_connectButton = new DSuggestButton(tr("Connect", "button"), passwdWidget);        // 连接
     cancelButtion->setFixedHeight(36);
+    cancelButtion->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_connectButton->setFixedHeight(36);
+    m_connectButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     QHBoxLayout *line2 = new QHBoxLayout;
-    line2->setContentsMargins(0,0,0,0);
+    line2->setContentsMargins(0, 0, 0, 0);
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setContentsMargins(0,0,10,10);
-    line2->setMargin(0);
-    line2->setSpacing(0);
+    QVBoxLayout *layout = new QVBoxLayout(passwdWidget);
+    layout->setContentsMargins(0, 0, 10, 10);
     line2->addWidget(cancelButtion);
-    line2->addSpacing(10);
+    line2->addSpacing(3);
     line2->addWidget(m_connectButton);
+
     layout->addWidget(m_passwdEdit);
     layout->addSpacing(10);
     layout->addLayout(line2);
+    layout->addSpacing(7);
+
     passwdWidget->setLayout(layout);
     m_stackWidget->addWidget(passwdWidget);
 
@@ -663,25 +665,29 @@ void WirelessItem::createSsidEdit()
     m_ssidEdit->lineEdit()->setMaxLength(256);
     m_ssidEdit->setContextMenuPolicy(Qt::NoContextMenu);
     m_ssidEdit->setFixedHeight(36);
+    m_ssidEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
-    DPushButton *cancelButtion = new DPushButton(tr("Cancel", "button"), ssidWidget); // 取消
+    DPushButton *cancelButtion = new DPushButton(tr("Cancel", "button"), ssidWidget);     // 取消
     DPushButton *connectButton = new DSuggestButton(tr("Connect", "button"), ssidWidget); // 连接
     cancelButtion->setFixedHeight(36);
+    cancelButtion->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     connectButton->setFixedHeight(36);
+    connectButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
 
     QHBoxLayout *line2 = new QHBoxLayout;
-    line2->setContentsMargins(0,0,0,0);
+    line2->setContentsMargins(0, 0, 0, 0);
 
-    QVBoxLayout *layout = new QVBoxLayout;
-    layout->setContentsMargins(0,0,10,20);
-    line2->setMargin(0);
-    line2->setSpacing(0);
+    QVBoxLayout *layout = new QVBoxLayout(ssidWidget);
+    layout->setContentsMargins(0, 0, 10, 10);
     line2->addWidget(cancelButtion);
-    line2->addSpacing(10);
+    line2->addSpacing(3);
     line2->addWidget(connectButton);
+
     layout->addWidget(m_ssidEdit);
     layout->addSpacing(10);
     layout->addLayout(line2);
+    layout->addSpacing(7);
+
     ssidWidget->setLayout(layout);
     m_stackWidget->addWidget(ssidWidget);
 
@@ -695,6 +701,8 @@ void WirelessItem::initExpandUi()
 {
     createPasswordEdit();
     createSsidEdit();
+    m_stackWidget->setContentsMargins(0, 0, 0, 0);
+    m_stackWidget->setFixedSize(PANELWIDTH - 10, 92);
 }
 
 void WirelessItem::connectNetwork()

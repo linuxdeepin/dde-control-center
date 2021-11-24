@@ -65,7 +65,7 @@ void ThemeManager::setThemeType(ThemeType type)
             DPalette palette = Dtk::Gui::DGuiApplicationHelper::instance()->applicationPalette();
 
             palette.setColor(DPalette::All, DPalette::BrightText, QColor(255, 255, 255));         // 文本颜色
-            palette.setColor(DPalette::All, DPalette::Window, QColor(255, 255, 255, 0.02 * 255)); // 背景颜色
+            palette.setColor(DPalette::All, DPalette::Window, QColor(235, 235, 235, 0.05 * 255)); // 背景颜色
 
             Dtk::Gui::DGuiApplicationHelper::instance()->setApplicationPalette(palette);
         } break;
@@ -76,7 +76,7 @@ void ThemeManager::setThemeType(ThemeType type)
             DPalette palette = Dtk::Gui::DGuiApplicationHelper::instance()->applicationPalette();
 
             palette.setColor(DPalette::All, DPalette::BrightText, QColor(255, 255, 255)); // 文本颜色
-            palette.setColor(DPalette::All, DPalette::Window, QColor(83, 107, 105));      // 背景颜色
+            palette.setColor(DPalette::All, DPalette::Window, QColor(210, 210, 210));      // 背景颜色
 
             Dtk::Gui::DGuiApplicationHelper::instance()->setApplicationPalette(palette);
         } break;
@@ -135,7 +135,7 @@ QColor ThemeManager::backgroundColor()
     case DarkType:
         return QColor(0, 0, 0, 0.03 * 255);
     case LockType:
-        return QColor(255, 255, 255, 0.05 * 255);
+        return QColor(235, 235, 235, 0.05 * 255);
     case GreeterType:
         return QColor(105, 105, 105);
     default:
@@ -163,13 +163,13 @@ QColor ThemeManager::itemBackgroundColor()
 {
     switch (m_themeType) {
     case DarkType:
-        return QColor(255, 255, 255, 255 * 0.08);
+        return QColor(255, 255, 255, 255 * 0.10);
     case LockType:
-        return QColor(235, 235, 235, 0.08 * 255);
+        return QColor(255, 255, 255, 255 * 0.10);
     case GreeterType:
         return QColor(155, 155, 155);
     default:
-        return QColor(0, 0, 0, 255 * 0.08);
+        return QColor(0, 0, 0, 255 * 0.10);
     }
     Q_UNREACHABLE();
     return QColor(255, 255, 255, 0.03 * 255);

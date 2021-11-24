@@ -20,6 +20,7 @@
  */
 
 #include "dockpopupwindow.h"
+#include "thememanager.h"
 
 #include <dregionmonitor.h>
 #include <DWindowManagerHelper>
@@ -175,6 +176,7 @@ void DockPopupWindow::compositeChanged()
         setBorderColor(QColor(255, 255, 255, 255 * 0.05));
     else
         setBorderColor(QColor(44, 50, 56));
+    setBackgroundColor(ThemeManager::instance()->backgroundColor());
 }
 
 void DockPopupWindow::ensureRaised()
