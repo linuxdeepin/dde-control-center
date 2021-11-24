@@ -79,16 +79,16 @@ public:
 
     //刚好相交的边界描述
     //四边区域 左-右-下-上
-    inline QRectF justIntersectRectLeft() const { return QRectF(QPointF(boundingRect().left(), justIntersectRect().top()), QPointF(justIntersectRect().left(), justIntersectRect().bottom())); }
-    inline QRectF justIntersectRectRight() const { return QRectF(QPointF(justIntersectRect().right(), justIntersectRect().top()), QPointF(boundingRect().right(), justIntersectRect().bottom())); }
-    inline QRectF justIntersectRectBottom() const { return QRectF(QPointF(justIntersectRect().left(), justIntersectRect().bottom()), QPointF(justIntersectRect().right(), boundingRect().bottom())); }
-    inline QRectF justIntersectRectTop() const { return QRectF(QPointF(justIntersectRect().left(), boundingRect().top()), QPointF(justIntersectRect().right(), justIntersectRect().top())); }
+    inline QRectF justIntersectRectLeft() const { return QRectF(QPointF(boundingRectEx().left(), justIntersectRect().top()), QPointF(justIntersectRect().left(), justIntersectRect().bottom())); }
+    inline QRectF justIntersectRectRight() const { return QRectF(QPointF(justIntersectRect().right(), justIntersectRect().top()), QPointF(boundingRectEx().right(), justIntersectRect().bottom())); }
+    inline QRectF justIntersectRectBottom() const { return QRectF(QPointF(justIntersectRect().left(), justIntersectRect().bottom()), QPointF(justIntersectRect().right(), boundingRectEx().bottom())); }
+    inline QRectF justIntersectRectTop() const { return QRectF(QPointF(justIntersectRect().left(), boundingRectEx().top()), QPointF(justIntersectRect().right(), justIntersectRect().top())); }
 
     //顶点 左上-左下-右上-右下
-    inline QRectF justIntersectRectLeftTop() const { return QRectF(QPointF(boundingRect().adjusted(-1,-1,1,1).left(), boundingRect().adjusted(-1,-1,1,1).top()), QPointF(justIntersectRect().left(), justIntersectRect().top())); }
-    inline QRectF justIntersectRectLeftBottom() const { return QRectF(QPointF(boundingRect().adjusted(-1,-1,1,1).left(), justIntersectRect().bottom()), QPointF(justIntersectRect().left(), boundingRect().adjusted(-1,-1,1,1).bottom())); }
-    inline QRectF justIntersectRectRightTop() const { return QRectF(QPointF(justIntersectRect().right(), boundingRect().adjusted(-1,-1,1,1).top()), QPointF(boundingRect().adjusted(-1,-1,1,1).right(), justIntersectRect().top())); }
-    inline QRectF justIntersectRectRightBottom() const { return QRectF(QPointF(justIntersectRect().right(), justIntersectRect().bottom()), QPointF(boundingRect().adjusted(-1,-1,1,1).right(), boundingRect().adjusted(-1,-1,1,1).bottom())); }
+    inline QRectF justIntersectRectLeftTop() const { return QRectF(QPointF(boundingRectEx().left(), boundingRectEx().top()), QPointF(justIntersectRect().left(), justIntersectRect().top())); }
+    inline QRectF justIntersectRectLeftBottom() const { return QRectF(QPointF(boundingRectEx().left(), justIntersectRect().bottom()), QPointF(justIntersectRect().left(), boundingRectEx().bottom())); }
+    inline QRectF justIntersectRectRightTop() const { return QRectF(QPointF(justIntersectRect().right(), boundingRectEx().top()), QPointF(boundingRectEx().right(), justIntersectRect().top())); }
+    inline QRectF justIntersectRectRightBottom() const { return QRectF(QPointF(justIntersectRect().right(), justIntersectRect().bottom()), QPointF(boundingRectEx().right(), boundingRectEx().bottom())); }
 Q_SIGNALS:
     void requestMonitorPress(Monitor *mon);
     void requestMonitorRelease(Monitor *mon);

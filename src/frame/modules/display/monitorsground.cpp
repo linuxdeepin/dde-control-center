@@ -364,8 +364,62 @@ void MonitorsGround::applySettings()
 
     for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it) {
         monitorPosition.insert(it.value(), QPair<int, int>(int(it.key()->pos().x() - lstX.first()), int(it.key()->pos().y() - lstY.first())));
-        qWarning() << "applySettings" << it.value()->name() << int(it.key()->pos().x() - lstX.first()) << int(it.key()->pos().y() - lstY.first()) << it.key()->pos();
+        qWarning() << "applySettings" << it.value()->name() << monitorPosition[it.value()];
     }
+
+    //在计算之后再做一次过滤
+    //消除一个像素的重叠
+    //首先获取所以的拼接点到list
+    QList<QList<Monitor *>> lstMonitor;
+    for (auto iter = m_mapItemConnectedState.begin(); iter != m_mapItemConnectedState.end(); ++iter) {
+        for (auto item : iter.value()) {
+            QList<Monitor *> lstMonitorTemp;
+            lstMonitorTemp << m_monitors[iter.key()] << m_monitors[item];
+            lstMonitor.append(lstMonitorTemp);
+        }
+    }
+
+    //依据字符串进行排序
+    QMap<QString, QList<Monitor *>> mapMonitor;
+    for (auto m : lstMonitor) {
+        std::sort(m.begin(),m.end(),[=](const Monitor * m1, const Monitor * m2) {
+           return m1->name() < m2->name();
+        });
+        //去重
+        mapMonitor.insert(m.first()->name() + m.last()->name(), m);
+        qDebug() << "mapMonitor" << m.first()->name() + m.last()->name();
+    }
+
+    //获取到实际相交点的信息
+    for (auto m : mapMonitor.values()) {
+        //左右坐标
+        //上下坐标 对比
+        QRect m1(monitorPosition[m.first()].first, monitorPosition[m.first()].second, m.first()->w(), m.first()->h());
+        QRect m2(monitorPosition[m.last()].first, monitorPosition[m.last()].second, m.last()->w(), m.last()->h());
+
+        qDebug() << "获取实际交点" << mapMonitor.key(m) << "1:" << m1 << "2:" << m2;
+
+        //左右相接
+        if (m1.left() < m2.left() && m1.right() == m2.left()) {
+            monitorPosition[m.last()] = (QPair<int, int>(m1.right() + 1, m2.y()));
+        }
+        else if (m1.left() > m2.left() && m2.right() == m1.left()) {
+            monitorPosition[m.first()] = (QPair<int, int>(m2.right() + 1, m1.y()));
+        }
+
+        //上下相接
+        if (m1.top() < m2.top() && m1.bottom() == m2.top()) {
+            monitorPosition[m.last()] = (QPair<int, int>(m2.x(), m1.bottom() + 1));
+        }
+        else if (m1.top() > m2.top() && m2.bottom() == m1.top()) {
+            monitorPosition[m.first()] = (QPair<int, int>(m1.x(), m2.bottom() + 1));
+        }
+    }
+
+    for (auto it(m_monitors.cbegin()); it != m_monitors.cend(); ++it) {
+        qWarning() << "applySettings 处理之后:" << it.value()->name() << monitorPosition[it.value()];
+    }
+
     Q_EMIT requestApplySettings(monitorPosition);
 }
 
@@ -1041,17 +1095,21 @@ void MonitorsGround::multiScreenAutoAdjust()
 
 //更连通状态
 //更新上一次拼接完成的值
-void MonitorsGround::updateConnectedState(bool isInit)
+bool MonitorsGround::updateConnectedState(bool isInit)
 {
+    bool isIntersect = false;
     QList<MonitorProxyWidget *> m_lstItemsTemp;
     for (int i = 0; i < m_lstItems.size(); i++) {
         m_lstItemsTemp.clear();
 
         for (int j = 0; j < m_lstItems.size(); j++) {
-            if (j != i && m_lstItems[i]->mapToScene(m_lstItems[i]->boundingRectEx()).intersects(m_lstItems[j]->mapToScene(m_lstItems[j]->boundingRect()))
+            if (j != i && m_lstItems[i]->mapRectToScene(m_lstItems[i]->boundingRectEx()).intersects(m_lstItems[j]->mapRectToScene(m_lstItems[j]->boundingRect()))
                    && !m_lstItemsTemp.contains(m_lstItems[j])
-                   && !m_lstItems[i]->mapToScene(m_lstItems[i]->justIntersectRect()).intersects(m_lstItems[j]->mapToScene(m_lstItems[j]->boundingRect()))) {
+                   && !m_lstItems[i]->mapRectToScene(m_lstItems[i]->justIntersectRect()).intersects(m_lstItems[j]->mapRectToScene(m_lstItems[j]->boundingRect()))) {
                 m_lstItemsTemp.append(m_lstItems[j]);
+            }
+            if (j != i && m_lstItems[i]->mapRectToScene(m_lstItems[i]->justIntersectRect()).intersects(m_lstItems[j]->mapRectToScene(m_lstItems[j]->boundingRect()))) {
+                isIntersect = true;
             }
         }
 
@@ -1061,6 +1119,8 @@ void MonitorsGround::updateConnectedState(bool isInit)
 
         m_mapItemConnectedState.insert(m_lstItems[i],m_lstItemsTemp);
     }
+
+    return isIntersect;
 }
 
 //获取连通域
@@ -1124,23 +1184,22 @@ void MonitorsGround::onRequestKeyPress(MonitorProxyWidget *pw, int keyValue)
     for (auto item : m_lstItems) {
         if (item == pw)
             continue;
-        if (pw->mapToScene(pw->boundingRect()).intersects(item->mapToScene(item->boundingRect()))) {
-            if (item->mapToScene(item->boundingRect()).intersects(pw->mapToScene(pw->justIntersectRectTop()))) {
-                //上相交
-                bIntersectsTop = true;
-            }
-            else if (item->mapToScene(item->boundingRect()).intersects(pw->mapToScene(pw->justIntersectRectBottom()))) {
-                //下相交
-                bIntersectsBottom = true;
-            }
-            else if (item->mapToScene(item->boundingRect()).intersects(pw->mapToScene(pw->justIntersectRectLeft()))) {
-                //左相交
-                bIntersectsLeft = true;
-            }
-            else if (item->mapToScene(item->boundingRect()).intersects(pw->mapToScene(pw->justIntersectRectRight()))) {
-                //右相交
-                bIntersectsRight = true;
-            }
+
+        if (item->mapRectToScene(item->boundingRect()).intersects(pw->mapRectToScene(pw->justIntersectRectTop()))) {
+            //上相交
+            bIntersectsTop = true;
+        }
+        else if (item->mapRectToScene(item->boundingRect()).intersects(pw->mapRectToScene(pw->justIntersectRectBottom()))) {
+            //下相交
+            bIntersectsBottom = true;
+        }
+        else if (item->mapRectToScene(item->boundingRect()).intersects(pw->mapRectToScene(pw->justIntersectRectLeft()))) {
+            //左相交
+            bIntersectsLeft = true;
+        }
+        else if (item->mapRectToScene(item->boundingRect()).intersects(pw->mapRectToScene(pw->justIntersectRectRight()))) {
+            //右相交
+            bIntersectsRight = true;
         }
     }
 
@@ -1149,22 +1208,22 @@ void MonitorsGround::onRequestKeyPress(MonitorProxyWidget *pw, int keyValue)
             if (item == pw)
                 continue;
             //达成顶点相交
-            if (item->mapToScene(item->boundingRect()).intersects(pw->mapToScene(pw->justIntersectRectLeftTop()))) {
+            if (item->mapRectToScene(item->boundingRect()).intersects(pw->mapRectToScene(pw->justIntersectRectLeftTop()))) {
                 //左上相交
                 bIntersectsBottom = true;
                 bIntersectsRight = true;
             }
-            else if (item->mapToScene(item->boundingRect()).intersects(pw->mapToScene(pw->justIntersectRectLeftBottom()))) {
+            else if (item->mapRectToScene(item->boundingRect()).intersects(pw->mapRectToScene(pw->justIntersectRectLeftBottom()))) {
                 //左下相交
                 bIntersectsTop = true;
                 bIntersectsRight = true;
             }
-            else if (item->mapToScene(item->boundingRect()).intersects(pw->mapToScene(pw->justIntersectRectRightTop()))) {
+            else if (item->mapRectToScene(item->boundingRect()).intersects(pw->mapRectToScene(pw->justIntersectRectRightTop()))) {
                 //右上相交
                 bIntersectsBottom = true;
                 bIntersectsLeft = true;
             }
-            else if (item->mapToScene(item->boundingRect()).intersects(pw->mapToScene(pw->justIntersectRectRightBottom()))) {
+            else if (item->mapRectToScene(item->boundingRect()).intersects(pw->mapRectToScene(pw->justIntersectRectRightBottom()))) {
                 //右下相交
                 bIntersectsTop = true;
                 bIntersectsLeft = true;
@@ -1173,46 +1232,76 @@ void MonitorsGround::onRequestKeyPress(MonitorProxyWidget *pw, int keyValue)
     }
 
     int moveStep = 10;
+    qreal recision = 0.1;
     //根据按键的方向与当前的相接的边和连通域的变化来综合判定是否执行移动操作
     switch (keyValue)
     {
     case  Qt::Key_Left:
         if (!bIntersectsLeft && (bIntersectsTop || bIntersectsBottom)) {
             //执行运动
-            pw->moveBy(-moveStep,0);
-            updateConnectedState();
-            if (getConnectedDomain(m_movingItem).size() != m_lstItems.size()) {
-                pw->moveBy(moveStep,0);
+            for (int i = 0; i < moveStep * 10; i++) {
+                pw->moveBy(-recision, 0);
+                pw->update();
+                //相交
+                if (updateConnectedState()) {
+                    pw->moveBy(1, 0); //此处为：判定为重叠时，回退距离为内缩的距离
+                    break;
+                }
+                if (getConnectedDomain(m_movingItem).size() != m_lstItems.size()) {
+                    pw->moveBy(recision, 0);
+                    break;
+                }
             }
         }
         break;
     case  Qt::Key_Right:
         if (!bIntersectsRight && (bIntersectsTop || bIntersectsBottom)) {
             //执行运动
-            pw->moveBy(moveStep,0);
-            updateConnectedState();
-            if (getConnectedDomain(m_movingItem).size() != m_lstItems.size()) {
-                pw->moveBy(-moveStep,0);
+            for (int i = 0; i < moveStep * 10; i++) {
+                pw->moveBy(recision, 0);
+                pw->update();
+                if (updateConnectedState()) {
+                    pw->moveBy(-1, 0);
+                    break;
+                }
+                if (getConnectedDomain(m_movingItem).size() != m_lstItems.size()) {
+                    pw->moveBy(-recision, 0);
+                    break;
+                }
             }
         }
         break;
     case  Qt::Key_Up:
         if (!bIntersectsTop && (bIntersectsLeft || bIntersectsRight)) {
             //执行运动
-            pw->moveBy(0,-moveStep);
-            updateConnectedState();
-            if (getConnectedDomain(m_movingItem).size() != m_lstItems.size()) {
-                pw->moveBy(0,moveStep);
+            for (int i = 0; i < moveStep * 10; i++) {
+                pw->moveBy(0, -recision);
+                pw->update();
+                if (updateConnectedState()) {
+                    pw->moveBy(0, 1);
+                    break;
+                }
+                if (getConnectedDomain(m_movingItem).size() != m_lstItems.size()) {
+                    pw->moveBy(0, recision);
+                    break;
+                }
             }
         }
         break;
     case  Qt::Key_Down:
         if (!bIntersectsBottom && (bIntersectsLeft || bIntersectsRight)) {
             //执行运动
-            pw->moveBy(0,moveStep);
-            updateConnectedState();
-            if (getConnectedDomain(m_movingItem).size() != m_lstItems.size()) {
-                pw->moveBy(0,-moveStep);
+            for (int i = 0; i < moveStep * 10; i++) {
+                pw->moveBy(0, recision);
+                pw->update();
+                if (updateConnectedState()) {
+                    pw->moveBy(0, -1);
+                    break;
+                }
+                if (getConnectedDomain(m_movingItem).size() != m_lstItems.size()) {
+                    pw->moveBy(0, -recision);
+                    break;
+                }
             }
         }
         break;
@@ -1221,6 +1310,7 @@ void MonitorsGround::onRequestKeyPress(MonitorProxyWidget *pw, int keyValue)
     }
 
     pw->update();
+    updateConnectedState();
 
     Q_EMIT setEffectiveReminderVisible(true, m_nEffectiveTime);
     m_effectiveTimer->start();

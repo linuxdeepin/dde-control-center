@@ -189,7 +189,7 @@ QRectF MonitorProxyWidget::bufferboundingRect() const
 
 QRectF MonitorProxyWidget::justIntersectRect() const
 {
-    return boundingRect().adjusted(10, 10, -10, -10);
+    return boundingRect().adjusted(1, 1, -1, -1);
 }
 
 //外扩0.05个像素, 规避由于计算导致精度丢失或者坐标值完全一致的情况下不能判定为相交的情况
