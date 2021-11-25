@@ -46,6 +46,10 @@ DetailInfoItem::DetailInfoItem(QWidget *parent)
 void DetailInfoItem::initUi()
 {
     QVBoxLayout *mainlayout = new QVBoxLayout;
+
+    mainlayout->setSpacing(0);
+    mainlayout->setMargin(0);
+
     QHBoxLayout *hboxlayout = new QHBoxLayout;
 
     QPalette titleClolrPal;
@@ -78,13 +82,13 @@ void DetailInfoItem::initUi()
     m_linkLable->setOpenExternalLinks(true);
     DFontSizeManager::instance()->bind(m_linkLable, DFontSizeManager::T8);
     m_linkLable->setForegroundRole(DPalette::LinkVisited);
-    //  m_linkLable->setMaximumWidth(150);
     bomboxlayout->addWidget(m_linkDataLabel, 0, Qt::AlignLeft);
     bomboxlayout->addWidget(m_linkLable, 10, Qt::AlignLeft);
 
     mainlayout->addLayout(hboxlayout);
-    mainlayout->addWidget(m_explainTitle);
+    mainlayout->addSpacing(5);
     mainlayout->addWidget(m_dataLable);
+    mainlayout->addSpacing(5);
     mainlayout->addLayout(bomboxlayout);
 
     setLayout(mainlayout);

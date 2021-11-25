@@ -517,10 +517,10 @@ UpdateItemInfo *UpdateWorker::getItemInfo(QJsonValue jsonValue)
         int count = array.count();
         for (int i = 0; i < count; ++i) {
             DetailInfo detailInfo;
-            detailInfo.name = array.at(i).toObject().value("name").toString();
-            detailInfo.updateTime = array.at(i).toObject().value("update_time").toString();
-            detailInfo.info = array.at(i).toObject().value("detail_info").toString();
-            detailInfo.link = array.at(i).toObject().value("link").toString();
+            detailInfo.name = array.at(i).toObject().value("name").toString().trimmed();
+            detailInfo.updateTime = array.at(i).toObject().value("update_time").toString().trimmed();
+            detailInfo.info = array.at(i).toObject().value("detail_info").toString().trimmed();
+            detailInfo.link = array.at(i).toObject().value("link").toString().trimmed();
             if (detailInfo.name.isEmpty()
                     && detailInfo.updateTime.isEmpty()
                     && detailInfo.info.isEmpty()

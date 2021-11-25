@@ -153,7 +153,7 @@ UpdateCtrlWidget::UpdateCtrlWidget(UpdateModel *model, QWidget *parent)
     m_updateSizeLab->setForegroundRole(DPalette::TextTips);
     updateTitleFirstVLay->addWidget(m_updateSizeLab);
 
-    updateTitleHLay->setContentsMargins(QMargins(22, 50, 20, 20));
+    updateTitleHLay->setContentsMargins(QMargins(22, 50, 20, 12));
     updateTitleHLay->addLayout(updateTitleFirstVLay);
     updateTitleHLay->addWidget(m_spinner, 1, Qt::AlignRight);
     m_spinner->setVisible(false);

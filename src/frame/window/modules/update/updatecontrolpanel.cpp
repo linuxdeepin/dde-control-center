@@ -39,38 +39,49 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     hlay->addLayout(titleLay);
 
     QVBoxLayout *buttonLay = new QVBoxLayout();
+    buttonLay->setSpacing(0);
     m_updateButton->setText(tr("Download and install"));
     m_updateButton->setForegroundRole(DPalette::Button);
     DFontSizeManager::instance()->bind(m_updateButton, DFontSizeManager::T8);
     buttonLay->addWidget(m_updateButton, 0, Qt::AlignRight | Qt::AlignTop);
 
-    QHBoxLayout *bulay = new QHBoxLayout();
     m_startButton->setIcon(QIcon::fromTheme("dcc_start"));
     m_startButton->setIconSize(QSize(32, 32));
     m_startButton->setFlat(true);//设置背景透明
     m_startButton->setFixedSize(32, 32);
     m_startButton->hide();
 
-    QVBoxLayout *progressLay = new QVBoxLayout;
+    QHBoxLayout *progressLay = new QHBoxLayout;
     m_Progess->setFixedHeight(8);
-    m_Progess->setTextVisible(true);
-    m_Progess->setTextDirection(QProgressBar::TopToBottom);
     m_Progess->setRange(0, 100);
     m_Progess->setAlignment(Qt::AlignRight);
     m_Progess->setFixedWidth(100);
-    m_Progess->setVisible(false);
+    m_Progess->setVisible(true);
 
     m_progressLabel->setVisible(false);
     DFontSizeManager::instance()->bind(m_progressLabel, DFontSizeManager::T10);
-    m_progressLabel->setMaximumWidth(130);
-    progressLay->addWidget(m_progressLabel, 0, Qt::AlignCenter);
-    progressLay->addWidget(m_Progess, 0, Qt::AlignBottom);
+    m_progressLabel->setFixedWidth(100);
+    m_progressLabel->setScaledContents(true);
+    m_progressLabel->setAlignment(Qt::AlignHCenter);
 
-    bulay->addStretch();
-    bulay->addLayout(progressLay);
 
-    bulay->addWidget(m_startButton, 0, Qt::AlignRight);
-    buttonLay->addLayout(bulay);
+    QVBoxLayout *progressVlay = new QVBoxLayout;
+    progressVlay->setSpacing(0);
+    progressVlay->addWidget(m_progressLabel);
+    progressVlay->addSpacing(2);
+
+    progressVlay->addWidget(m_Progess);
+    progressVlay->addStretch();
+    progressLay->addLayout(progressVlay);
+
+    QVBoxLayout *ctrlButtonVlay = new QVBoxLayout;
+    int progressHeight = m_progressLabel->height();
+    ctrlButtonVlay->addSpacing(progressHeight - 24);
+    ctrlButtonVlay->addWidget(m_startButton);
+    ctrlButtonVlay->addStretch();
+    progressLay->addLayout(ctrlButtonVlay);
+
+    buttonLay->addLayout(progressLay);
 
     hlay->addLayout(buttonLay);
 
@@ -99,10 +110,10 @@ updateControlPanel::updateControlPanel(QWidget *parent)
     dateLay->addWidget(m_showMoreBUtton);
 
     QVBoxLayout *main = new QVBoxLayout();
+    main->setSpacing(0);
     main->addLayout(hlay);
-    main->addSpacing(10);
-
     main->addWidget(m_detailLabel);
+    m_detailLabel->setContentsMargins(0, 10, 0, 0);
     main->addLayout(dateLay);
 
     setLayout(main);
