@@ -198,7 +198,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="566"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="561"/>
         <source>The full name is too long</source>
         <translation>名稱過長</translation>
     </message>
@@ -254,7 +254,7 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="94"/>
         <source>Accounts</source>
         <translation>帳戶</translation>
     </message>
@@ -341,141 +341,111 @@
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="56"/>
         <source>Group</source>
         <translation>分組</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="94"/>
         <source>Create</source>
         <translation>创建</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="157"/>
         <source>New Account</source>
         <translation>新帳戶</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <source>Account Type</source>
         <translation>帳戶種類</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="178"/>
         <source>Username</source>
         <translation>用戶名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="184"/>
         <source>Full Name</source>
         <translation>全名</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="190"/>
         <source>Password</source>
         <translation>密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="196"/>
         <source>Repeat Password</source>
         <translation>重複密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
         <source>Standard</source>
         <translation>標准</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
         <source>Administrator</source>
         <translation>管理員</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="271"/>
         <source>Customized</source>
         <translation>自定義</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="274"/>
         <source>optional</source>
         <translation>選填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="372"/>
         <source>Go to Settings</source>
         <translation>前往設置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="535"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
         <source>Passwords do not match</source>
         <translation>密碼不一致</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>Password cannot be empty</source>
-        <translation>密碼不能為空</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>密碼最少%1位，至少同時包含小寫字母、大寫字母、數字、符號中的%2種</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="553"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>密碼長度不能超過%1個字符</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>密碼應至少包含小寫字母、大寫字母、數字、符號中的%1種</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="561"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>密碼只能由英文（區分大小寫）、數字或特殊符號（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）組成</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="565"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>密碼不可為用戶名重複或倒置</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="589"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="572"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>用戶名長度必須介於3到32個字符之間</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="596"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="579"/>
         <source>The first character must be a letter or number</source>
         <translation>首字符必須為字母或數字</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="602"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="585"/>
         <source>Your username should not only have numbers</source>
         <translation>用戶名不能只包含數字</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="620"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="603"/>
         <source>The full name already exists</source>
         <translation>該全名已存在</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="627"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="610"/>
         <source>The full name is too long</source>
         <translation>名稱過長</translation>
     </message>
@@ -512,77 +482,72 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="60"/>
         <source>Change Password</source>
         <translation>修改密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
         <source>Current Password</source>
         <translation>當前密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
         <source>New Password</source>
         <translation>新密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Repeat Password</source>
         <translation>重複密碼</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="165"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="87"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="131"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="134"/>
         <source>Required</source>
         <translation>必填</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="164"/>
         <source>Go to Settings</source>
         <translation>前往設置</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="190"/>
         <source>Wrong password</source>
         <translation>密碼錯誤</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
         <source>Failed to change the password</source>
         <translation>修改密碼失敗</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="222"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>密碼長度必須介於%1到%2個字符之間</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
         <source>The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>密碼最少6位，至少同時包含小寫字母、大寫字母、數字、符號中的2種</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="238"/>
         <source>Password should not be the repeated or reversed username</source>
         <translation>密碼不可為用戶名重複或倒置</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="255"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>密碼長度不能超過%1個字符</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="270"/>
@@ -590,7 +555,7 @@
         <translation>密碼不一致</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
         <source>New password should differ from the current one</source>
         <translation>新密碼和舊密碼不能相同</translation>
     </message>
@@ -1211,18 +1176,19 @@
         <translation>赫茲</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="330"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="411"/>
         <source>Recommended</source>
         <translation>推薦</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="464"/>
         <source>Main Screen</source>
         <translation>主螢幕</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="487"/>
         <source>Monitor Connected (Multiple)</source>
         <translation>開啟屏幕(可多選)</translation>
     </message>
@@ -1323,12 +1289,13 @@
 <context>
     <name>dccV20::display::RefreshRatePage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="82"/>
         <source>Hz</source>
         <translation>赫茲</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="92"/>
         <source>Recommended</source>
         <translation>推薦</translation>
     </message>
@@ -1336,10 +1303,9 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="139"/>
         <source>Recommended</source>
         <translation>推薦</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -5748,6 +5714,44 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
         <translation>全部清除</translation>
+    </message>
+</context>
+<context>
+    <name>PwQualityManager</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="155"/>
+        <source>Password cannot be empty</source>
+        <translation>密碼不能為空</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="157"/>
+        <source>Password must be between %1 and %2 characters</source>
+        <translation>密碼長度必須介於%1到%2個字符之間</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="159"/>
+        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>密碼最少%1位，至少同時包含小寫字母、大寫字母、數字、符號中的%2種</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="161"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation>密碼長度不能超過%1個字符</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="163"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation>密碼應至少包含小寫字母、大寫字母、數字、符號中的%1種</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="165"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation>密碼只能由英文（區分大小寫）、數字或特殊符號（~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;）組成</translation>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="167"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation>密碼不可為用戶名重複或倒置</translation>
     </message>
 </context>
 <context>

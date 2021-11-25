@@ -198,7 +198,7 @@
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="566"/>
+        <location filename="../src/frame/window/modules/accounts/accountsdetailwidget.cpp" line="561"/>
         <source>The full name is too long</source>
         <translation>이름이 너무 깁니다</translation>
     </message>
@@ -254,7 +254,7 @@
 <context>
     <name>dccV20::accounts::AccountsModule</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="85"/>
+        <location filename="../src/frame/window/modules/accounts/accountsmodule.cpp" line="94"/>
         <source>Accounts</source>
         <translation>계정</translation>
     </message>
@@ -341,141 +341,111 @@
 <context>
     <name>dccV20::accounts::CreateAccountPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="55"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="56"/>
         <source>Group</source>
         <translation>그룹</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="92"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="368"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="373"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="93"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="94"/>
         <source>Create</source>
         <translation>생성</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="152"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="157"/>
         <source>New Account</source>
         <translation>새로운 계정</translation>
         <extra-contents_path>/accounts/New Account</extra-contents_path>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="172"/>
         <source>Account Type</source>
         <translation>계정 타입</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="173"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="178"/>
         <source>Username</source>
         <translation>사용자 이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="179"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="184"/>
         <source>Full Name</source>
         <translation>이름</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="185"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="190"/>
         <source>Password</source>
         <translation>비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="191"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="196"/>
         <source>Repeat Password</source>
         <translation>비밀번호 재입력</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="264"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
         <source>Standard</source>
         <translation>표준</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="265"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
         <source>Administrator</source>
         <translation>관리자</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="266"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="271"/>
         <source>Customized</source>
         <translation>사용자화됨</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="268"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="270"/>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="271"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="273"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="275"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="276"/>
         <source>Required</source>
         <translation>필수 항목</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="269"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="274"/>
         <source>optional</source>
         <translation>옵션</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="367"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="372"/>
         <source>Go to Settings</source>
         <translation>설정으로 이동</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="535"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="548"/>
         <source>Passwords do not match</source>
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="544"/>
-        <source>Password cannot be empty</source>
-        <translation>비밀번호는 비워 둘 수 없습니다</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="549"/>
-        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>비밀번호는 %1자 이상이어야 하며 사용 가능한 네 가지 문자 유형 중 %2자 이상을 포함해야 합니다: 소문자, 대문자, 숫자 및 기호</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="553"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>비밀번호는 %1 자 이하 여야합니다</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="557"/>
-        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
-        <translation>비밀번호는 다음 네가지 문자 유형 중 적어도 %1자 이상이 포함되어야 합니다: 소문자, 대문자, 숫자 및 기호</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="561"/>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
-        <translation>비밀번호는 영문자(대소문자 구분), 숫자 또는 특수 기호(~!@#$%^&amp;*()[]{}|/?,.&lt;&gt;)만 포함해야 합니다  </translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="565"/>
-        <source>Password should not be the repeated or reversed username</source>
-        <translation>비밀번호는 반복 사용자 이름 또는 역방향 사용자 이름이 아니어야 합니다</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="589"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="572"/>
         <source>Username must be between 3 and 32 characters</source>
         <translation>사용자 이름은 3 ~ 32 자 사이 여야합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="596"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="579"/>
         <source>The first character must be a letter or number</source>
         <translation>첫 번째 문자는 문자 또는 숫자여야 합니다.</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="602"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="585"/>
         <source>Your username should not only have numbers</source>
         <translation>사용자 이름에 숫자만 있어야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="620"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="603"/>
         <source>The full name already exists</source>
         <translation>이름이 이미 존재합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="627"/>
+        <location filename="../src/frame/window/modules/accounts/createaccountpage.cpp" line="610"/>
         <source>The full name is too long</source>
         <translation>이름이 너무 깁니다</translation>
     </message>
@@ -512,77 +482,72 @@
 <context>
     <name>dccV20::accounts::ModifyPasswdPage</name>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="59"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="60"/>
         <source>Change Password</source>
         <translation>비밀번호 변경</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="72"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="73"/>
         <source>Current Password</source>
         <translation>현재 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="76"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="77"/>
         <source>New Password</source>
         <translation>새 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="80"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="81"/>
         <source>Repeat Password</source>
         <translation>비밀번호 재입력</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="85"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="167"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="165"/>
         <source>Cancel</source>
         <translation>취소</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="86"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="87"/>
         <source>Save</source>
         <translation>저장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="129"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="131"/>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="133"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="130"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="132"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="134"/>
         <source>Required</source>
         <translation>필수 항목</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="166"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="164"/>
         <source>Go to Settings</source>
         <translation>설정으로 이동</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="192"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="190"/>
         <source>Wrong password</source>
         <translation>잘못된 비밀번호</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="196"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="194"/>
         <source>Failed to change the password</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="224"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="222"/>
         <source>Password must be between %1 and %2 characters</source>
         <translation>비밀번호는 %1에서 %2자 사이여야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="237"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="236"/>
         <source>The password must have at least 6 characters, and contain at least 2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
         <translation>비밀번호는 6자 이상이어야 하며 사용 가능한 4가지 문자 유형 중 2개 이상(소문자, 대문자, 숫자 및 기호)을 포함해야 합니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="239"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="238"/>
         <source>Password should not be the repeated or reversed username</source>
         <translation>비밀번호는 반복 사용자 이름 또는 역방향 사용자 이름이 아니어야 합니다</translation>
-    </message>
-    <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="255"/>
-        <source>Password must be no more than %1 characters</source>
-        <translation>비밀번호는 %1 자 이하 여야합니다</translation>
     </message>
     <message>
         <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="270"/>
@@ -590,7 +555,7 @@
         <translation>비밀번호가 일치하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="279"/>
+        <location filename="../src/frame/window/modules/accounts/modifypasswdpage.cpp" line="276"/>
         <source>New password should differ from the current one</source>
         <translation>새 비밀번호는 현재 비밀번호와 같을 수 없습니다</translation>
     </message>
@@ -1211,18 +1176,19 @@
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="330"/>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="398"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="333"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="338"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="411"/>
         <source>Recommended</source>
         <translation>권장</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="451"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="464"/>
         <source>Main Screen</source>
         <translation>기본 화면</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="474"/>
+        <location filename="../src/frame/window/modules/display/customsettingdialog.cpp" line="487"/>
         <source>Monitor Connected (Multiple)</source>
         <translation>모니터 연결됨 (다중)</translation>
     </message>
@@ -1323,12 +1289,13 @@
 <context>
     <name>dccV20::display::RefreshRatePage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="81"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="82"/>
         <source>Hz</source>
         <translation>Hz</translation>
     </message>
     <message>
-        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="83"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="87"/>
+        <location filename="../src/frame/window/modules/display/refreshratepage.cpp" line="92"/>
         <source>Recommended</source>
         <translation>권장</translation>
     </message>
@@ -1336,10 +1303,9 @@
 <context>
     <name>dccV20::display::ResolutionDetailPage</name>
     <message>
-        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="137"/>
+        <location filename="../src/frame/window/modules/display/resolutiondetailpage.cpp" line="139"/>
         <source>Recommended</source>
         <translation>권장</translation>
-        <extra-contents_path>/display/Resolution</extra-contents_path>
     </message>
 </context>
 <context>
@@ -5748,6 +5714,44 @@ Visit User Center and manage your account there.</source>
         <location filename="../src/frame/notify/notifywidget.cpp" line="35"/>
         <source>Clear all</source>
         <translation>모두 지우기</translation>
+    </message>
+</context>
+<context>
+    <name>PwQualityManager</name>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="155"/>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="157"/>
+        <source>Password must be between %1 and %2 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="159"/>
+        <source>The password must have at least %1 characters, and contain at least %2 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="161"/>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="163"/>
+        <source>The password should contain at least %1 of the four available character types: lowercase letters, uppercase letters, numbers, and symbols</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="165"/>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~!@#$%^&amp;*()[]{}\|/?,.&lt;&gt;)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/frame/window/modules/accounts/pwqualitymanager.cpp" line="167"/>
+        <source>Password should not be the repeated or reversed username</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
