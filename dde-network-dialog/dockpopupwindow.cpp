@@ -172,11 +172,8 @@ void DockPopupWindow::onGlobMouseRelease(const QPoint &mousePos, const int flag)
 
 void DockPopupWindow::compositeChanged()
 {
-    if (m_wmHelper->hasComposite())
-        setBorderColor(QColor(255, 255, 255, 255 * 0.05));
-    else
-        setBorderColor(QColor(44, 50, 56));
     setBackgroundColor(ThemeManager::instance()->backgroundColor());
+    setBorderColor(ThemeManager::instance()->backgroundColor());
 }
 
 void DockPopupWindow::ensureRaised()

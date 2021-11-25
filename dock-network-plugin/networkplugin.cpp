@@ -83,7 +83,7 @@ void NetworkPlugin::invokedMenuItem(const QString &itemKey, const QString &menuI
 void NetworkPlugin::refreshIcon(const QString &itemKey)
 {
     if (itemKey == NETWORK_KEY)
-        m_networkPanel->updatePluginState();
+        emit m_networkPanel->viewUpdate();
 }
 
 void NetworkPlugin::pluginStateSwitched()

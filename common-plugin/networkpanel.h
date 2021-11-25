@@ -56,7 +56,7 @@ class NetworkPanel : public QObject
 Q_SIGNALS:
     void sendIpConflictDect(int);
     void addDevice(const QString &devicePath);
-    void pluginStateChenged(PluginState state);
+    void viewUpdate();
 
 public:
     explicit NetworkPanel(QObject *parent = Q_NULLPTR);

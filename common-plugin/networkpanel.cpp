@@ -117,11 +117,7 @@ void NetworkPanel::initConnection()
 
 void NetworkPanel::updatePluginState()
 {
-    PluginState state = DeviceStatusHandler::pluginState();
-    if(state != m_pluginState){
-        m_pluginState = state;
-        emit pluginStateChenged(m_pluginState);
-    }
+    m_pluginState = DeviceStatusHandler::pluginState();
 }
 
 PluginState NetworkPanel::getPluginState()
@@ -402,4 +398,5 @@ void NetworkPanel::onUpdatePlugView()
 {
     updatePluginState();
     updateTooltips();
+    emit viewUpdate();
 }

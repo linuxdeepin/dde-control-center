@@ -43,7 +43,8 @@ TrayIcon::TrayIcon(NetworkPanel *panel)
 
     m_refreshIconTimer->setInterval(100);
     connect(m_refreshIconTimer, &QTimer::timeout, this, &TrayIcon::refreshIcon);
-    connect(m_panel, &NetworkPanel::pluginStateChenged, this, &TrayIcon::refreshIcon);
+    connect(m_panel, &NetworkPanel::viewUpdate, this, &TrayIcon::refreshIcon);
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, this, &TrayIcon::refreshIcon);
 }
 
 void TrayIcon::paintEvent(QPaintEvent *e)
