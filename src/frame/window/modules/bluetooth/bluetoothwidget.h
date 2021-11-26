@@ -23,6 +23,7 @@
 
 #include "interface/namespace.h"
 #include "widgets/contentwidget.h"
+
 #include <QMap>
 
 namespace dcc {

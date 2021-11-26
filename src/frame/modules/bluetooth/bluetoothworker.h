@@ -29,11 +29,13 @@
 #include <QObject>
 
 #include <com_deepin_daemon_bluetooth.h>
+#include <com_deepin_daemon_airplanemode.h>
 
 #include "bluetoothmodel.h"
 #include "pincodedialog.h"
 
-using  DBusBluetooth = com::deepin::daemon::Bluetooth;
+using DBusBluetooth = com::deepin::daemon::Bluetooth;
+using DBusAirplaneMode = com::deepin::daemon::AirplaneMode;
 
 namespace dcc {
 namespace bluetooth {
@@ -93,6 +95,7 @@ private:
     ~BluetoothWorker();
 
     DBusBluetooth *m_bluetoothInter;
+    DBusAirplaneMode *m_airPlaneModeInter;
     BluetoothModel *m_model;
     QMap<QDBusObjectPath, PinCodeDialog*> m_dialogs;
     bool m_connectingAudioDevice;

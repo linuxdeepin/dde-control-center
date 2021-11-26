@@ -36,6 +36,7 @@ namespace bluetooth {
 BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
     : QObject()
     , m_bluetoothInter(new DBusBluetooth("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this))
+    , m_airPlaneModeInter(new DBusAirplaneMode("com.deepin.daemon.AirplaneMode", "/com/deepin/daemon/AirplaneMode", QDBusConnection::systemBus(), this))
     , m_model(model)
     , m_connectingAudioDevice(false)
     , m_state(m_bluetoothInter->state())
@@ -98,7 +99,11 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
     m_model->setTransportable(m_bluetoothInter->transportable());
     m_model->setCanSendFile(m_bluetoothInter->canSendFile());
 
+    connect(m_airPlaneModeInter, &DBusAirplaneMode::EnabledChanged, m_model, &BluetoothModel::setAirplaneEnable);
+    m_model->setAirplaneEnable(m_airPlaneModeInter->enabled());
+
     m_bluetoothInter->setSync(sync);
+    m_airPlaneModeInter->setSync(sync);
 
     //第一次调用时传true，refresh 函数会使用同步方式去获取蓝牙设备数据
     //避免出现当dbus调用控制中心接口直接显示蓝牙模块时，

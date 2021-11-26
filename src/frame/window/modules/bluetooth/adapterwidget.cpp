@@ -206,6 +206,8 @@ void AdapterWidget::initUI()
     m_myDeviceListView->setVisible(false);
     m_otherDeviceListView->setVisible(false);
 
+    setEnabled(!m_model->airplaneMode());
+
     setLayout(layout);
 }
 
@@ -322,6 +324,8 @@ void AdapterWidget::initConnect()
             }
         }
     });
+
+    connect(m_model, &BluetoothModel::airplaneEnableChanged, this, &AdapterWidget::setDisabled);
 }
 
 void AdapterWidget::loadDetailPage()
