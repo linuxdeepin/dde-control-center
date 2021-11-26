@@ -436,7 +436,7 @@ void BootWidget::showGrubEditAuthPasswdDialog(bool isReset)
     QObject::connect(m_grubEditAuthDialog, &DDialog::buttonClicked, [=](int index, const QString &text){
         if (index == 1) {
             // 需要将密码发送后在worker里加密
-            Q_EMIT setGrubEditPasswd(text, isReset);
+            Q_EMIT setGrubEditPasswd(edit1->text(), isReset);
         } else {
             if (!isReset) {
                 m_grubVerification->setChecked(false);
