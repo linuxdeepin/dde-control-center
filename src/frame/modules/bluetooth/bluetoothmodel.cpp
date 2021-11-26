@@ -33,6 +33,7 @@ BluetoothModel::BluetoothModel(QObject *parent)
     , m_transPortable(false)
     , m_canSendFile(false)
     , m_airplaneEnable(false)
+    , m_displaySwitch(false)
 {
     m_adapters.clear();
 }
@@ -112,6 +113,16 @@ void BluetoothModel::setAirplaneEnable(bool enable)
     m_airplaneEnable = enable;
 
     Q_EMIT airplaneEnableChanged(m_airplaneEnable);
+}
+
+void BluetoothModel::setDisplaySwitch(bool on)
+{
+    if (m_displaySwitch == on)
+        return;
+
+    m_displaySwitch = on;
+
+    Q_EMIT displaySwitchChanged(m_displaySwitch);
 }
 
 } // namespace bluetooth

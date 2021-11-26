@@ -96,8 +96,10 @@ BluetoothWorker::BluetoothWorker(BluetoothModel *model, bool sync)
 
     connect(m_bluetoothInter, &DBusBluetooth::TransportableChanged, m_model, &BluetoothModel::setTransportable);
     connect(m_bluetoothInter, &DBusBluetooth::CanSendFileChanged, m_model, &BluetoothModel::setCanSendFile);
+    connect(m_bluetoothInter, &DBusBluetooth::DisplaySwitchChanged, m_model, &BluetoothModel::setDisplaySwitch);
     m_model->setTransportable(m_bluetoothInter->transportable());
     m_model->setCanSendFile(m_bluetoothInter->canSendFile());
+    m_model->setDisplaySwitch(m_bluetoothInter->displaySwitch());
 
     connect(m_airPlaneModeInter, &DBusAirplaneMode::EnabledChanged, m_model, &BluetoothModel::setAirplaneEnable);
     m_model->setAirplaneEnable(m_airPlaneModeInter->enabled());
@@ -500,6 +502,11 @@ void BluetoothWorker::onRequestSetDiscoverable(const Adapter *adapter, const boo
 {
     QDBusObjectPath path(adapter->id());
     m_bluetoothInter->SetAdapterDiscoverable(path, discoverable);
+}
+
+void BluetoothWorker::setDisplaySwitch(const bool &on)
+{
+    m_bluetoothInter->setDisplaySwitch(on);
 }
 
 } // namespace bluetooth

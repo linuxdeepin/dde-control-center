@@ -46,6 +46,7 @@ public:
     inline bool canSendFile() const { return m_canSendFile; }
 
     inline bool airplaneMode() const { return m_airplaneEnable; }
+    inline bool displaySwitch() const { return m_displaySwitch; }
 
 public Q_SLOTS:
     void addAdapter(Adapter *adapter);
@@ -53,6 +54,7 @@ public Q_SLOTS:
     void setTransportable(const bool transPortable);
     void setCanSendFile(const bool canSendFile);
     void setAirplaneEnable(bool enable);
+    void setDisplaySwitch(bool on);
 
 Q_SIGNALS:
     void adapterAdded(const Adapter *adapter) const;
@@ -62,12 +64,14 @@ Q_SIGNALS:
     void transportableChanged(const bool transPortable) const;
     void canSendFileChanged(const bool canSendFile) const;
     void airplaneEnableChanged(bool enable) const;
+    void displaySwitchChanged(bool on) const;
 
 private:
     QMap<QString, const Adapter *> m_adapters;
     bool m_transPortable;
     bool m_canSendFile;
     bool m_airplaneEnable;
+    bool m_displaySwitch;
     friend class BluetoothWorker;
 };
 

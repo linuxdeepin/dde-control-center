@@ -59,13 +59,10 @@ AdapterWidget::AdapterWidget(const dcc::bluetooth::Adapter *adapter, dcc::blueto
     , m_showAnonymousCheckBox(new DCheckBox(this))
     , m_model(model)
     , m_discoverySwitch(new SwitchWidget(tr("Allow other Bluetooth devices to find this device")))
-    , m_lastPowerCheck(false)
-    , m_bluetoothInter("com.deepin.daemon.Bluetooth", "/com/deepin/daemon/Bluetooth", QDBusConnection::sessionBus(), this)
 {
     setAccessibleName("AdapterWidget");
     m_showAnonymousCheckBox->setAccessibleName("AnonymousCheckBox");
 
-    initMember();
     initUI();
     initConnect();
 
@@ -84,11 +81,6 @@ AdapterWidget::~AdapterWidget()
 bool AdapterWidget::getSwitchState()
 {
     return m_powerSwitch ? m_powerSwitch->checked() : false;
-}
-
-void AdapterWidget::initMember()
-{
-    m_showUnnamedDevices = m_bluetoothInter.displaySwitch();
 }
 
 void AdapterWidget::initUI()
@@ -115,7 +107,7 @@ void AdapterWidget::initUI()
     m_refreshBtn = new DIconButton(this);
     m_refreshBtn->setFixedSize(36, 36);
     m_refreshBtn->setIcon(QIcon::fromTheme("dcc_refresh"));
-    m_showAnonymousCheckBox->setChecked(m_showUnnamedDevices);
+    m_showAnonymousCheckBox->setChecked(m_model->displaySwitch());
     m_showAnonymousCheckBox->setAccessibleName("Btn_anonymouscheckbox");
 
     m_hideAnonymousLabel->setFixedHeight(36);
@@ -283,11 +275,11 @@ void AdapterWidget::initConnect()
 
     connect(m_discoverySwitch, &SwitchWidget::checkedChanged, this, &AdapterWidget::toggleDiscoverableSwitch);
 
-    connect(&m_bluetoothInter, &BluetoothInter::DisplaySwitchChanged, m_showAnonymousCheckBox, &DCheckBox::setChecked);
+    connect(m_model, &BluetoothModel::displaySwitchChanged, m_showAnonymousCheckBox, &DCheckBox::setChecked);
     connect(m_showAnonymousCheckBox, &DCheckBox::stateChanged, this, [ = ](int state) {
         if (state == Qt::CheckState::Unchecked) {
-            if (m_bluetoothInter.displaySwitch()) {
-                m_bluetoothInter.setDisplaySwitch(false);
+            if (m_model->displaySwitch()) {
+                Q_EMIT requestSetDisplaySwitch(false);
             }
             // 将蓝牙名称为空的设备过滤掉
             for (int i = 0; i < m_deviceLists.size(); i++) {
@@ -305,8 +297,8 @@ void AdapterWidget::initConnect()
                 }
             }
         } else {
-            if (!m_bluetoothInter.displaySwitch()) {
-                m_bluetoothInter.setDisplaySwitch(true);
+            if (!m_model->displaySwitch()) {
+                Q_EMIT requestSetDisplaySwitch(true);
             }
             // 显示所有蓝牙设备
             for (int i = 0; i < m_deviceLists.size(); i++) {
@@ -359,7 +351,6 @@ void AdapterWidget::setAdapter(const Adapter *adapter)
     connect(adapter, &Adapter::discoverableChanged, m_discoverySwitch, [ = ] {
         m_discoverySwitch->setChecked(adapter->discoverabled());
     });
-    m_lastPowerCheck = adapter->powered();
     m_discoverySwitch->setChecked(m_adapter->discoverabled());
     onPowerStatus(adapter->powered(), adapter->discovering());
 }
@@ -395,7 +386,6 @@ void AdapterWidget::toggleSwitch(const bool checked)
             }
         }
     }
-    m_lastPowerCheck = checked;
     Q_EMIT requestSetToggleAdapter(m_adapter, checked);
 }
 

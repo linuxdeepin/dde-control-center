@@ -80,7 +80,6 @@ public:
     bool getSwitchState();
 
 private:
-    void initMember();
     void initUI();
     void initConnect();
     void categoryDevice(DeviceSettingsItem *deviceItem, const bool paired);
@@ -100,6 +99,7 @@ Q_SIGNALS:
     void notifyRemoveDevice();
     void requestRefresh(const dcc::bluetooth::Adapter *adapter);
     void requestDiscoverable(const dcc::bluetooth::Adapter *adapter, const bool &discoverable);
+    void requestSetDisplaySwitch(const bool &on);
 
 private Q_SLOTS:
     void addDevice(const dcc::bluetooth::Device *device);
@@ -126,9 +126,6 @@ private:
     DTK_WIDGET_NAMESPACE::DIconButton *m_refreshBtn;
     dcc::bluetooth::BluetoothModel *m_model;
     dcc::widgets::SwitchWidget *m_discoverySwitch;
-    bool m_lastPowerCheck;     // 蓝牙适配器Power开关按钮的最后一次的状态
-    bool m_showUnnamedDevices;
-    BluetoothInter m_bluetoothInter;
 };
 }
 }

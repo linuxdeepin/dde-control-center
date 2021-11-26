@@ -70,6 +70,7 @@ public Q_SLOTS:
     void pinCodeConfirm(const QDBusObjectPath &path, bool value);
     void setAdapterDiscovering(const QDBusObjectPath &path, bool enable);
     void onRequestSetDiscoverable(const Adapter *adapter, const bool &discoverable);
+    void setDisplaySwitch(const bool &on);
 
 private:
     void inflateAdapter(Adapter *adapter, const QJsonObject &adapterObj);
