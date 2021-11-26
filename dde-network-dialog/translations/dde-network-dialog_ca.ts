@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Cal la contrasenya per connectar amb %1</translation>
     </message>
     <message>
         <source>Password</source>

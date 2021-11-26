@@ -499,13 +499,13 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
@@ -2170,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>སྐུད་ཡོད་དྲ་རྒྱ་%1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>སྐུད་མེད་དྲ་རྒྱ།</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>སྐུད་མེད་དྲ་རྒྱ་%1</translation>
     </message>
 </context>
 <context>
@@ -2193,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>བཅད་ཟིན།</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>ར་སྤྲོད་བྱེད་བཞིན་པ།</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>སྦྲེལ་ཟིན། </translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>ཕམ་པ།</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>སྒྲིག་ཆས་སྤྱོད་མི་ཆོག</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>དྲ་རྒྱ་དང་འབྲེལ་ཟིན་ཡང་མཉམ་སྦྲེལ་དྲ་རྒྱར་འཛུལ་མི་ཐུབ།</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>སྦྲེལ་མེད་པ། </translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>དྲ་སྐུད་མཐུད་མི་འདུག</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation> IP གནས་ཡུལ་འཚོལ་བཞིན་པ།</translation>
     </message>
 </context>
 </TS>

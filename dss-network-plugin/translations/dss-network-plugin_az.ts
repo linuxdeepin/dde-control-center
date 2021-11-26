@@ -69,35 +69,35 @@
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 qoşulur</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation type="unfinished"/>
+        <translation>%1 qoşuldu</translation>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation type="unfinished"/>
+        <translation>%1 ayrıldı</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation type="unfinished"/>
+        <translation>%1 ilə bağlantı mümkün deyil, lütfən routerinizi və ya şəbəkə kabelinizi yoxlayın.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation type="unfinished"/>
+        <translation>%1 ilə bağlantı mümüken deyil, lütfən simsiz routerinizə yaxınlaşın</translation>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantı alınmadı, %1 ilə bağlantı mümkün deyil, şifrə səhvdir</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 ilə bağlantı üçün şifrə tələb olunur</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation type="unfinished"/>
+        <translation>%1 802.11 WLAN şəbəkəsi tapılmadı</translation>
     </message>
 </context>
 <context>

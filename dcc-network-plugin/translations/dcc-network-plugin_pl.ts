@@ -9,7 +9,7 @@
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Proxy Type</source>
-        <translation>Rodzaj pośrednika sieciowego</translation>
+        <translation>Rodzaj Proxy</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
@@ -44,7 +44,7 @@
     <message>
         <location filename="../chainsproxypage.cpp"/>
         <source>Check &quot;Use a proxy&quot; in application context menu in Launcher after configured</source>
-        <translation>Zaznacz „Użyj serwera proxy” w menu kontekstowym aplikacji w programie uruchamiającym po skonfigurowaniu</translation>
+        <translation>Zaznacz „Użyj proxy” w menu kontekstowym aplikacji w Launcherze po skonfigurowaniu</translation>
     </message>
     <message>
         <location filename="../chainsproxypage.cpp"/>
@@ -72,7 +72,7 @@
     <message>
         <location filename="../chainstypepage.cpp"/>
         <source>Proxy Type</source>
-        <translation>Rodzaj pośrednika sieciowego</translation>
+        <translation>Rodzaj Proxy</translation>
     </message>
 </context>
 <context>
@@ -450,7 +450,7 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>System Proxy</source>
-        <translation>Systemowy serwer pośredniczący</translation>
+        <translation>Proxy systemowe</translation>
         <extra-contents_path>/network/System Proxy</extra-contents_path>
     </message>
     <message>
@@ -499,13 +499,13 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie przewodowe</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie bezprzewodowe</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
@@ -634,7 +634,7 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>System Proxy</source>
-        <translation>Systemowy serwer pośredniczący</translation>
+        <translation>Proxy systemowe</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
@@ -649,7 +649,7 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Proxy Type</source>
-        <translation>Rodzaj pośrednika sieciowego</translation>
+        <translation>Rodzaj Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
@@ -674,27 +674,27 @@
     <message>
         <location filename="../proxypage.cpp"/>
         <source>HTTP Proxy</source>
-        <translation>Serwer pośredniczący HTTP</translation>
+        <translation>HTTP Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>HTTPS Proxy</source>
-        <translation>Serwer pośredniczący HTTPS</translation>
+        <translation>HTTPS Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>FTP Proxy</source>
-        <translation>Serwer pośredniczący FTP</translation>
+        <translation>FTP Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>SOCKS Proxy</source>
-        <translation>Proxy SOCKS</translation>
+        <translation>SOCKS Proxy</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
         <source>Ignore the proxy configurations for the above hosts and domains</source>
-        <translation>Ignoruj konfiguracje pośrednika sieciowego dla powyższych hostów i domen</translation>
+        <translation>Ignoruj konfiguracje proxy dla powyższych hostów i domen</translation>
     </message>
     <message>
         <location filename="../proxypage.cpp"/>
@@ -1233,7 +1233,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Proxy</source>
-        <translation>Pośrednik sieciowy</translation>
+        <translation>Proxy</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
@@ -1263,7 +1263,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowa bramka</translation>
     </message>
 </context>
 <context>
@@ -1376,7 +1376,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowa bramka</translation>
     </message>
 </context>
 <context>
@@ -1512,7 +1512,7 @@
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>VPN Proxy</source>
-        <translation>Proxy VPN</translation>
+        <translation>VPN Proxy</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
@@ -1532,7 +1532,7 @@
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
         <source>Proxy Type</source>
-        <translation>Rodzaj pośrednika sieciowego</translation>
+        <translation>Rodzaj Proxy</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnproxysection.cpp"/>
@@ -1593,7 +1593,7 @@
     <message>
         <location filename="../sections/vpn/vpnsecopenvpnsection.cpp"/>
         <source>Default</source>
-        <translation>Domyślny</translation>
+        <translation>Domyślne</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsecopenvpnsection.cpp"/>
@@ -1666,7 +1666,7 @@
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowa bramka</translation>
     </message>
 </context>
 <context>
@@ -1674,7 +1674,7 @@
     <message>
         <location filename="../sections/vpn/vpnsstpproxysection.cpp"/>
         <source>VPN Proxy</source>
-        <translation>Proxy VPN</translation>
+        <translation>VPN Proxy</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpnsstpproxysection.cpp"/>
@@ -1797,7 +1797,7 @@
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowa bramka</translation>
     </message>
 </context>
 <context>
@@ -1810,7 +1810,7 @@
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
         <source>Default</source>
-        <translation>Domyślny</translation>
+        <translation>Domyślne</translation>
     </message>
     <message>
         <location filename="../sections/vpn/vpntlssection.cpp"/>
@@ -1918,7 +1918,7 @@
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Nieprawidłowa bramka</translation>
     </message>
 </context>
 <context>
@@ -1936,7 +1936,7 @@
     <message>
         <location filename="../wiredpage.cpp"/>
         <source>Add Network Connection</source>
-        <translation>Dodaj połączenie sieciowe</translation>
+        <translation>Dodaj Połączenie Sieciowe</translation>
         <extra-contents_path>/network/Wired Network/addWiredConnection</extra-contents_path>
     </message>
     <message>
@@ -2170,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie przewodowe</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie przewodowe %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie bezprzewodowe</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Połączenie bezprzewodowe %1</translation>
     </message>
 </context>
 <context>
@@ -2193,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Rozłączono</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Łączenie</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Autoryzowanie</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Uzyskiwanie adresu</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Połączono</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Wystąpił błąd</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Urządzenie wyłączone</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>Połączono, ale brak dostępu do Internetu</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Nie połączono</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Kabel sieciowy odłączony</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>Uzyskiwanie adresu IP</translation>
     </message>
 </context>
 </TS>

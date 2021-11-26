@@ -69,35 +69,35 @@
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 Csatlakozása</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation type="unfinished"/>
+        <translation>%1 csatlakozva</translation>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation type="unfinished"/>
+        <translation>%1 lekapcsolódva</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült csatlakozni a %1 eszközhöz, kérjük ellenőrizze a Routert, vagy a hálózati kábelt.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült csatlakozni a %1 -eszközhöz, kérjük próbálja meg közelebb vinni a Routerhez</translation>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation type="unfinished"/>
+        <translation>A csatlakozás sikertelen, nem sikerült csatlakozni a %1-hez, helytelen jelszó</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó szükséges a %1 csatlakoztatásához</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation type="unfinished"/>
+        <translation>A %1 802.11 vezeték nélküli hálózat nem található</translation>
     </message>
 </context>
 <context>

@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 ilə bağlantə üçün şifrə tələb olunur</translation>
     </message>
     <message>
         <source>Password</source>

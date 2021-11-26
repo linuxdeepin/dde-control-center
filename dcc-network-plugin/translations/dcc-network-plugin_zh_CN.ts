@@ -168,7 +168,7 @@
     <message>
         <location filename="../connectionvpneditpage.cpp"/>
         <source>Export</source>
-        <translation>导 出</translation>
+        <translation>导出</translation>
     </message>
     <message>
         <location filename="../connectionvpneditpage.cpp"/>

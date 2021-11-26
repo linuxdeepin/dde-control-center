@@ -110,7 +110,7 @@
     <message>
         <location filename="../connectioneditpage.cpp"/>
         <source>Hotspot</source>
-        <translation>ھەمبەھىر نۇقتىسى</translation>
+        <translation>تور تارقىتىش</translation>
     </message>
     <message>
         <location filename="../connectioneditpage.cpp"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../hotspotpage.cpp"/>
         <source>Hotspot</source>
-        <translation>ھەمبەھىر نۇقتىسى</translation>
+        <translation>تور تارقىتىش</translation>
     </message>
     <message>
         <location filename="../hotspotpage.cpp"/>
@@ -334,7 +334,7 @@
     <message>
         <location filename="../hotspotpage.cpp"/>
         <source>Create Hotspot</source>
-        <translation>قىزىق نۇقتا قوشۇش</translation>
+        <translation>تور تارقىتىش قۇرۇش</translation>
     </message>
 </context>
 <context>
@@ -880,7 +880,7 @@
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>شەخسىي</translation>
+        <translation>WPA/WPA2شەخسى نۇسخىسى</translation>
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
@@ -931,7 +931,7 @@
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Personal</source>
-        <translation>شەخسىي</translation>
+        <translation>WPA/WPA2شەخسى نۇسخىسى</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
@@ -1960,12 +1960,12 @@
     <message>
         <location filename="../wirelesspage.cpp"/>
         <source>Close Hotspot</source>
-        <translation>قىزىق نۇقتىنى تاقاش</translation>
+        <translation>تور تارقىتىشنى تاقاش</translation>
     </message>
     <message>
         <location filename="../wirelesspage.cpp"/>
         <source>Disable hotspot first if you want to connect to a wireless network</source>
-        <translation>سىمسىز تور ئىقتىدارىنى ئىشلەتمەكچى بولسىڭىز، ئاۋۋال بەھرىلىگەن قىزىق نۇقتىنى تاقاڭ</translation>
+        <translation>سىمسىز تور ئىقتىدارىنى ئىشلەتمەكچى بولسىڭىز، ئاۋۋال تور تارقىتىشنى تاقاڭ</translation>
     </message>
 </context>
 <context>
@@ -2034,7 +2034,7 @@
     <message>
         <location filename="../../src/networkdetails.cpp"/>
         <source>Hotspot</source>
-        <translation>ھەمبەھىر نۇقتىسى</translation>
+        <translation>تور تارقىتىش</translation>
     </message>
     <message>
         <location filename="../../src/networkdetails.cpp"/>

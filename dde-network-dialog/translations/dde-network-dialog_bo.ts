@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>%1འབྲེལ་བར་གསང་ཨང་དགོས།</translation>
     </message>
     <message>
         <source>Password</source>

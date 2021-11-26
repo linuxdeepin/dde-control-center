@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Jelszó szükséges a %1 kapcsolódásához</translation>
     </message>
     <message>
         <source>Password</source>

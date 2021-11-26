@@ -499,13 +499,13 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Xarxa amb fil</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Xarxa sense fil</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
@@ -1263,7 +1263,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Passarel·la no vàlida</translation>
     </message>
 </context>
 <context>
@@ -1376,7 +1376,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Passarel·la no vàlida</translation>
     </message>
 </context>
 <context>
@@ -1666,7 +1666,7 @@
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Passarel·la no vàlida</translation>
     </message>
 </context>
 <context>
@@ -1797,7 +1797,7 @@
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Passarel·la no vàlida</translation>
     </message>
 </context>
 <context>
@@ -1918,7 +1918,7 @@
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Passarel·la no vàlida</translation>
     </message>
 </context>
 <context>

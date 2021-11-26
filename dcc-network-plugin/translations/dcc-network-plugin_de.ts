@@ -499,13 +499,13 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Kabelgebundenes Netzwerk</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Drahtlosnetzwerk</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
@@ -1263,7 +1263,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenconnectsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger Gateway</translation>
     </message>
 </context>
 <context>
@@ -1376,7 +1376,7 @@
     <message>
         <location filename="../sections/vpn/vpnopenvpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger Gateway</translation>
     </message>
 </context>
 <context>
@@ -1666,7 +1666,7 @@
     <message>
         <location filename="../sections/vpn/vpnsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger Gateway</translation>
     </message>
 </context>
 <context>
@@ -1797,7 +1797,7 @@
     <message>
         <location filename="../sections/vpn/vpnstrongswansection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger Gateway</translation>
     </message>
 </context>
 <context>
@@ -1918,7 +1918,7 @@
     <message>
         <location filename="../sections/vpn/vpnvpncsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiger Gateway</translation>
     </message>
 </context>
 <context>
@@ -2170,22 +2170,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Kabelgebundenes Netzwerk</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Kabelgebundenes Netzwerk %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Drahtlosnetzwerk</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Drahtlosnetzwerk %1</translation>
     </message>
 </context>
 <context>
@@ -2193,57 +2193,57 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Getrennt</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>Wird verbunden</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>Wird authentifiziert</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>Adresse wird abgerufen</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Verbunden</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Gerät deaktiviert</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>Verbunden, aber kein Internetzugang</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Nicht verbunden</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Netzwerkkabel abgezogen</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
-        <translation type="unfinished"/>
+        <translation>IP-Adresse wird abgerufen</translation>
     </message>
 </context>
 </TS>
