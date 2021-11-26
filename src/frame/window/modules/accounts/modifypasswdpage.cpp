@@ -192,9 +192,6 @@ void ModifyPasswdPage::onPasswordChangeFinished(const int exitCode, const QStrin
 
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
-        // 企业版控制中心修改密码屏蔽安全中心登录安全的接口需求
-        if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
-            return;
 
         // 密码校验失败并且安全中心密码安全等级不为低，弹出跳转到安全中心的对话框，低、中、高等级分别对应的值为1、2、3
         QDBusInterface interface(QStringLiteral("com.deepin.defender.daemonservice"),
