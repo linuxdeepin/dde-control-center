@@ -69,6 +69,7 @@ void PowerModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_model->moveToThread(qApp->thread());
     m_work->active(); //refresh data
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -172,6 +173,16 @@ QStringList PowerModule::availPage() const
     list << "General" << "Plugged In" << "On Battery";
 
     return list;
+}
+
+void PowerModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //power
+        m_frameProxy->addChildPageTrans("General", tr("General"));
+        m_frameProxy->addChildPageTrans("On Battery", tr("On Battery"));
+        m_frameProxy->addChildPageTrans("Plugged In", tr("Plugged In"));
+    }
 }
 
 void PowerModule::showGeneral()

@@ -90,6 +90,12 @@ SearchModel::SearchModel(QObject *parent)
     m_contensServerTxtList = {
         {tr("Developer Mode"), true},
     };
+
+    //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
+    //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
+    m_transChildPageName = {
+        { "Manage Input Methods", QObject::tr("Input Methods") },
+    };
 }
 
 QString SearchModel::formatSearchData(QString data1, QString data2, QString data3)
@@ -594,114 +600,6 @@ void SearchModel::setLanguage(const QString &type)
 
     watcher->setFuture(QtConcurrent::run([=] {
         QList<SearchBoxStruct::Ptr> list;
-        //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
-        //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
-        m_transChildPageName = {
-            //account
-            { "Create Account", QObject::tr("Create Account") },
-            { "Auto Login", QObject::tr("Auto Login")},
-            { "Login Without Password", QObject::tr("Login Without Password")},
-            { "Change Password", QObject::tr("Change Password")},
-            { "Delete Account", QObject::tr("Delete Account")},
-
-            //union id
-            { "Sign In", QObject::tr("Sign In") },
-
-            //bluetooth
-            { "My Devices", QObject::tr("My Devices") },
-            { "Other Devices", QObject::tr("Other Devices") },
-            { "Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)", QObject::tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)") },
-
-            //commoninfo
-            { "Boot Menu", QObject::tr("Boot Menu") },
-            { "Developer Mode", QObject::tr("Developer Mode") },
-            { "User Experience Program", QObject::tr("User Experience Program") },
-
-            //datetime
-            { "Format Settings", QObject::tr("Format Settings") },
-            { "Timezone List", QObject::tr("Timezone List") },
-            { "Time Settings", QObject::tr("Time Settings") },
-            { "Timezone List/Change System Timezone", QObject::tr("Change System Timezone") },
-
-            //defapp
-            { "Webpage", QObject::tr("Webpage") },
-            { "Mail", QObject::tr("Mail") },
-            { "Text", QObject::tr("Text") },
-            { "Music", QObject::tr("Music") },
-            { "Video", QObject::tr("Video") },
-            { "Picture", QObject::tr("Picture") },
-            { "Terminal", QObject::tr("Terminal") },
-
-            //display
-            { "Brightness", QObject::tr("Brightness") },
-            { "Auto Brightness", QObject::tr("Auto Brightness") },
-            { "Night Shift", QObject::tr("Night Shift") },
-            { "Change Color Temperature", QObject::tr("Change Color Temperature") },
-            { "Multiple Displays", QObject::tr("Multiple Displays") },
-            { "Mode", QObject::tr("Mode") },
-            { "Main Screen", QObject::tr("Main Screen") },
-            { "Refresh Rate", QObject::tr("Refresh Rate") },
-            { "Resolution", QObject::tr("Resolution") },
-            { "Rotation", QObject::tr("Rotation") },
-            { "Display Scaling", QObject::tr("Display Scaling") },
-
-            //keyboard
-            { "Shortcuts", QObject::tr("Shortcuts") },
-            { "Keyboard Layout", QObject::tr("Keyboard Layout") },
-            { "System Language", QObject::tr("System Language") },
-
-            //network
-            { "Personal Hotspot", QObject::tr("Personal Hotspot") },
-            { "DSL", QObject::tr("DSL") },
-            { "VPN", QObject::tr("VPN") },
-            { "Wired Network", QObject::tr("Wired Network") },
-            { "Wireless Network", QObject::tr("Wireless Network") },
-            { "Network Details", QObject::tr("Network Details") },
-            { "Application Proxy", QObject::tr("Application Proxy") },
-            { "System Proxy", QObject::tr("System Proxy") },
-
-            //notification
-            { "System Notifications", QObject::tr("System Notifications") },
-
-            //personalization
-            { "Font", QObject::tr("Font") },
-            { "Icon Theme", QObject::tr("Icon Theme") },
-            { "Cursor Theme", QObject::tr("Cursor Theme") },
-
-            //sound
-            { "Sound Effects", QObject::tr("Sound Effects") },
-            { "Devices", QObject::tr("Devices") },
-            { "Input", QObject::tr("Input") },
-            { "Output", QObject::tr("Output") },
-
-            //systeminfo
-            { "About This PC", QObject::tr("About This PC") },
-            { "Edition License", QObject::tr("Edition License") },
-            { "End User License Agreement", QObject::tr("End User License Agreement") },
-            { "Privacy Policy", QObject::tr("Privacy Policy") },
-
-            //update
-            { "Check for Updates", QObject::tr("Check for Updates") },
-            { "Updates", QObject::tr("Updates") },
-            { "Update Settings", QObject::tr("Update Settings") },
-
-            //wacom
-            { "Pressure Sensitivity", QObject::tr("Pressure Sensitivity") },
-            { "Mode", QObject::tr("Mode") },
-
-            //power
-            { "On Battery", QObject::tr("On Battery") },
-            { "Plugged In", QObject::tr("Plugged In") },
-
-            //mouse
-            { "General", QObject::tr("General") },
-            { "Mouse", QObject::tr("Mouse") },
-            { "Touchpad", QObject::tr("Touchpad") },
-            { "TrackPoint", QObject::tr("TrackPoint") },
-
-
-            { "Manage Input Methods", QObject::tr("Input Methods") },
-        };
 
         //解决历史遗留问题，适配已经存在的插件搜索数据(不需要翻译,只要第二个字符串不为空即可)
         m_transPlusData = {
@@ -716,7 +614,6 @@ void SearchModel::setLanguage(const QString &type)
             { "assistant", "Desktop AI Assistant" },
             { "iat", "Speech to Text" },
             { "tts", "Text to Speech" },
-
         };
 #if DEBUG_XML_SWITCH
         qDebug() << " [SearchWidget] " << Q_FUNC_INFO;
@@ -740,35 +637,6 @@ void SearchModel::setLanguage(const QString &type)
             SearchBoxStruct::Ptr searchBoxStrcut = std::make_shared<SearchBoxStruct>();
             QString xmlExplain;
 
-            /*
-            <message>
-                <source>Update Setting</source>
-                <translation>更新设置</translation>
-                <extra-contents_path>/update/Update Setting</extra-contents_path>
-        </message>
-
-        +::StartElement:  "message"
-
-            +::StartElement:  "source"
-                xmlRead.text :  "Update Setting"
-            -::EndElement:  "source"
-
-            +::StartElement:  "translation"
-                xmlRead.text :  "更新设置"
-            -::EndElement:  "translation"
-
-            +::StartElement:  "extra-contents_path"
-                xmlRead.text :  "/update/Update Setting"
-            -::EndElement:  "extra-contents_path"
-
-        -::EndElement:  "message"
-
-        //以上 <>  </> 一一对应,
-        //在xml的 <> 时进入 StartElement ,
-        //在xml 显示中间内容时进入 Characters,
-        //在xml的 </>时进入EndElement
-
-        */
             //遍历XML文件,读取每一行的xml数据都会
             //先进入StartElement读取出<>中的内容;
             //再进入Characters读取出中间数据部分;
@@ -1072,4 +940,11 @@ void SearchModel::setDetailVisible(const QString &module, const QString &widget,
 void SearchModel::updateSearchData(const QString &module)
 {
     loadxml(module);
+}
+
+void SearchModel::addChildPageTrans(const QString &menu, const QString &tran)
+{
+    if (!m_transChildPageName.contains(menu)) {
+        m_transChildPageName.insert(menu, tran);
+    }
 }

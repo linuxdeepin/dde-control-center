@@ -125,6 +125,7 @@ void DisplayModule::preInitialize(bool sync, FrameProxyInterface::PushType pusht
         }
     });
 
+    addChildPageTrans();
     initSearchData();
 
     QTimer::singleShot(0, m_displayWorker, [=] {
@@ -161,6 +162,24 @@ QStringList DisplayModule::availPage() const
     }
 
     return sl;
+}
+
+void DisplayModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //display
+        m_frameProxy->addChildPageTrans("Brightness", tr("Brightness"));
+        m_frameProxy->addChildPageTrans("Auto Brightness", tr("Auto Brightness"));
+        m_frameProxy->addChildPageTrans("Night Shift", tr("Night Shift"));
+        m_frameProxy->addChildPageTrans("Change Color Temperature", tr("Change Color Temperature"));
+        m_frameProxy->addChildPageTrans("Multiple Displays", tr("Multiple Displays"));
+        m_frameProxy->addChildPageTrans("Mode", tr("Mode"));
+        m_frameProxy->addChildPageTrans("Main Screen", tr("Main Screen"));
+        m_frameProxy->addChildPageTrans("Refresh Rate", tr("Refresh Rate"));
+        m_frameProxy->addChildPageTrans("Resolution", tr("Resolution"));
+        m_frameProxy->addChildPageTrans("Rotation", tr("Rotation"));
+        m_frameProxy->addChildPageTrans("Display Scaling", tr("Display Scaling"));
+    }
 }
 
 void DisplayModule::showSingleScreenWidget()

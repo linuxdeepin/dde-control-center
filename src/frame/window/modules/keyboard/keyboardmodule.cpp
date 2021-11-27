@@ -70,6 +70,7 @@ void KeyboardModule::preInitialize(bool sync, FrameProxyInterface::PushType)
     m_shortcutModel = new ShortcutModel();
     m_work = new KeyboardWorker(m_model);
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -128,6 +129,16 @@ QStringList KeyboardModule::availPage() const
        << "Shortcuts/Add Custom Shortcut"
        << "Input Methods";
     return sl;
+}
+
+void KeyboardModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //keyboard
+        m_frameProxy->addChildPageTrans("Shortcuts", tr("Shortcuts"));
+        m_frameProxy->addChildPageTrans("Keyboard Layout", tr("Keyboard Layout"));
+        m_frameProxy->addChildPageTrans("System Language", tr("System Language"));
+    }
 }
 
 void KeyboardModule::initSearchData()

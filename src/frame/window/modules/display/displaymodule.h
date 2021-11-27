@@ -63,6 +63,7 @@ public:
     int load(const QString &path) override;
     void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     QStringList availPage() const override;
+    void addChildPageTrans() const override;
 
 private Q_SLOTS:
     void onRequestSetResolution(dcc::display::Monitor *monitor, const int mode);
@@ -73,7 +74,7 @@ private Q_SLOTS:
     void pushScreenWidget();
     int showTimeoutDialog(dcc::display::Monitor *monitor, const bool isFillMode = false);
     void onSetFillMode(QString currFullMode = "");
-    void initSearchData();
+    void initSearchData() override;
     void showDisplayRecognize();
 
 private:

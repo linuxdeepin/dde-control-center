@@ -66,9 +66,10 @@ public:
     void contentPopped(QWidget *const w) override;
     int load(const QString &path) override;
     QStringList availPage() const override;
+    void addChildPageTrans() const override;
 
-private:
-    void initSearchData();
+protected:
+    void initSearchData() override;
 
 public Q_SLOTS:
     void showGeneralSetting();
@@ -82,6 +83,7 @@ public Q_SLOTS:
     void onPushCustomShortcut();
     void onPushConflict(dcc::keyboard::ShortcutInfo *info, const QString &shortcut);
     void onShortcutEdit(dcc::keyboard::ShortcutInfo *info);
+
 private:
     KeyboardWidget *m_keyboardWidget = nullptr;
     GeneralKBSettingWidget *m_generalSettingWidget = nullptr;

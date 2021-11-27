@@ -54,6 +54,7 @@ public:
     virtual void contentPopped(QWidget *const w) override;
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 Q_SIGNALS:
     void requestSetCurrentIndex(int row);
@@ -63,7 +64,9 @@ private Q_SLOTS:
     void showIconThemeWidget();
     void showCursorThemeWidget();
     void showFontThemeWidget();
-    void initSearchData();
+
+protected:
+    void initSearchData() override;
 
 private:
     dcc::personalization::PersonalizationModel  *m_model;

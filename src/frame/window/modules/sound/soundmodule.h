@@ -56,9 +56,10 @@ public:
     int load(const QString &path) override;
     QStringList availPage() const override;
     void preInitialize(bool sync = false, FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
+    virtual void addChildPageTrans() const override;
 
 private:
-    void initSearchData();
+    void initSearchData() override;
     void getPortCount();
 
 public Q_SLOTS:
@@ -76,7 +77,6 @@ private:
     int m_inputPortCount;
     int m_outputPortEnableCount;
     int m_inputPortEnableCount;
-
 };
 } // namespace sound
 } // namespace DCC_NAMESPACE

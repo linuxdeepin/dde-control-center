@@ -1409,3 +1409,12 @@ bool MainWindow::GrandSearchAction(const QString json)
     showModulePage(moduleName,pageName,false);
     return true;
 }
+
+void MainWindow::addChildPageTrans(const QString &menu, const QString &tran)
+{
+    if (!m_searchWidget) {
+        return;
+    }
+
+    m_searchWidget->addChildPageTrans(menu, tran);
+}

@@ -59,10 +59,13 @@ public:
     virtual void deactive() override;
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 private Q_SLOTS:
     void onNotifyDealMirrorWidget(bool state);
-    void initSearchData();
+
+private:
+    void initSearchData() override;
 
 private:
     void notifyDisplayReminder(dcc::update::UpdatesStatus status);

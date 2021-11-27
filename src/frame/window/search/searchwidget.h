@@ -67,6 +67,8 @@ public:
     void setWidgetVisible(const QString &module, const QString &widget, bool visible);
     void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible);
     void updateSearchdata(const QString &module);
+    void addChildPageTrans(const QString &menu, const QString &tran);
+
 private Q_SLOTS:
     void onCompleterActivated(const QString &value);
     void onAutoComplete(const QString &text);

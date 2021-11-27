@@ -63,6 +63,7 @@ void DatetimeModule::preInitialize(bool sync, FrameProxyInterface::PushType)
     m_work->moveToThread(qApp->thread());
     m_model->moveToThread(qApp->thread());
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -192,6 +193,17 @@ QStringList DatetimeModule::availPage() const
     list << "Timezone List" << "Timezone List/Change System Timezone" << "Time Settings" << "Timezone List/Add Timezone" << "Format Settings";
 
     return list;
+}
+
+void DatetimeModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //datetime
+        m_frameProxy->addChildPageTrans("Format Settings", tr("Format Settings"));
+        m_frameProxy->addChildPageTrans("Timezone List", tr("Timezone List"));
+        m_frameProxy->addChildPageTrans("Time Settings", tr("Time Settings"));
+        m_frameProxy->addChildPageTrans("Timezone List/Change System Timezone", tr("Change System Timezone"));
+    }
 }
 
 void DatetimeModule::initSearchData()

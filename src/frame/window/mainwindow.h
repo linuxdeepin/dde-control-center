@@ -96,6 +96,7 @@ public:
     void setRemoveableDeviceStatus(QString type, bool state) override;
     bool getRemoveableDeviceStatus(QString type) const override;
     void setSearchPath(ModuleInterface *const inter) const override;
+    void addChildPageTrans(const QString &menu, const QString &tran) override;
 
     QString GrandSearchSearch(const QString json);
     bool GrandSearchStop(const QString json);

@@ -89,6 +89,7 @@ public:
     void updateSearchData(const QString &module);
     void getJumpPath(QString &moduleName, QString &pageName, const QString &searchName);
     inline bool getDataUpdateCompleted() { return m_dataUpdateCompleted; }
+    void addChildPageTrans(const QString &menu, const QString &tran);
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);

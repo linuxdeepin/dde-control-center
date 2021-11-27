@@ -91,6 +91,11 @@ QStringList LoginOptionsModule::availPage() const
     return availList;
 }
 
+void LoginOptionsModule::addChildPageTrans() const
+{
+    //todo(guoyao):请在此添加子页面菜单的翻译，参考其他模块
+}
+
 void LoginOptionsModule::showFingerPage()
 {
     FingerDetailWidget *w = new FingerDetailWidget;
@@ -257,4 +262,9 @@ void LoginOptionsModule::onSetMainWindowEnabled(const bool isEnabled)
 {
     if (m_pMainWindow)
         m_pMainWindow->setEnabled(isEnabled);
+}
+
+void LoginOptionsModule::initSearchData()
+{
+    //todo(guoyao):请在此添加三级页面的翻译，参考其他模块
 }

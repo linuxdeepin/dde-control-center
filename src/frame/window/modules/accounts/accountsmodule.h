@@ -64,6 +64,7 @@ public:
     void active() override;
     int load(const QString &path) override;
     QStringList availPage() const override;
+    void addChildPageTrans() const override;
 
 Q_SIGNALS:
     void requestLoadUserList();
@@ -77,7 +78,7 @@ public Q_SLOTS:
 
 private:
     ~AccountsModule();
-    void initSearchData();
+    void initSearchData() override;
 
 private:
     dcc::accounts::UserModel *m_userModel{nullptr};

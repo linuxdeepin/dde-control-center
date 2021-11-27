@@ -66,6 +66,7 @@ void NotificationModule::preInitialize(bool sync, FrameProxyInterface::PushType 
     m_model->moveToThread(qApp->thread());
     m_worker->active(true); //refresh data
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -125,6 +126,14 @@ QStringList NotificationModule::availPage() const
         list << m_model->getAppModel(i)->getAppName();
     }
     return list;
+}
+
+void NotificationModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //notification
+        m_frameProxy->addChildPageTrans("System Notifications", tr("System Notifications"));
+    }
 }
 
 void NotificationModule::showSystemNotify()

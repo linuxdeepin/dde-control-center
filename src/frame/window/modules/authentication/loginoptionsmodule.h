@@ -53,6 +53,7 @@ public:
     void active() override;
     int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 public Q_SLOTS:
     void showFingerPage();
@@ -66,6 +67,7 @@ public Q_SLOTS:
 private:
     ~LoginOptionsModule();
     void onSetMainWindowEnabled(const bool isEnabled);
+    void initSearchData() override;
 
 private:
     MainWindow *m_pMainWindow = nullptr;

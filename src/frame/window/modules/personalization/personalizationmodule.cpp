@@ -63,6 +63,7 @@ void PersonalizationModule::preInitialize(bool sync, FrameProxyInterface::PushTy
     m_model  = new dcc::personalization::PersonalizationModel;
     m_work = new dcc::personalization::PersonalizationWork(m_model);
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -134,6 +135,16 @@ QStringList PersonalizationModule::availPage() const
     pages << "General" << "Icon Theme" << "Cursor Theme" << "Font";
     pages.append(InsertPlugin::instance()->availPages("personalization"));
     return pages;
+}
+
+void PersonalizationModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //personalization
+        m_frameProxy->addChildPageTrans("Font", tr("Font"));
+        m_frameProxy->addChildPageTrans("Icon Theme", tr("Icon Theme"));
+        m_frameProxy->addChildPageTrans("Cursor Theme", tr("Cursor Theme"));
+    }
 }
 
 void PersonalizationModule::showGenaralWidget()

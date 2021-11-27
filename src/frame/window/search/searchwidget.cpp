@@ -339,3 +339,11 @@ QList<QString> SearchWidget::searchResults(const QString text)
     }
     return lstSearchMsgs;
 }
+void SearchWidget::addChildPageTrans(const QString &menu, const QString &tran)
+{
+    if (!m_model) {
+        return;
+    }
+
+    m_model->addChildPageTrans(menu, tran);
+}
