@@ -36,7 +36,6 @@
 #include "modules/notification/notificationmodule.h"
 #include "modules/systeminfo/systeminfomodule.h"
 #include "modules/network/networkmodule.h"
-#include "modules/defapp/defaultappsmodule.h"
 #include "modules/update/mirrorswidget.h"
 #include "widgets/multiselectlistview.h"
 #include "mainwindow.h"
@@ -1284,4 +1283,13 @@ void FourthColWidget::paintEvent(QPaintEvent *event)
 void MainWindow::setSearchPath(ModuleInterface *const inter) const
 {
     m_searchWidget->addModulesName(inter->name(), inter->displayName(), inter->icon(), inter->translationPath());
+}
+
+void MainWindow::addChildPageTrans(const QString &menu, const QString &tran)
+{
+    if (!m_searchWidget) {
+        return;
+    }
+
+    m_searchWidget->addChildPageTrans(menu, tran);
 }

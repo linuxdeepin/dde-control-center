@@ -49,9 +49,10 @@ public:
     virtual void contentPopped(QWidget *const w) override;
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 private:
-    void initSearchData();
+    void initSearchData() override;
 
 Q_SIGNALS:
     void requestSetDefappCategory(dcc::defapp::DefAppWorker::DefaultAppsCategory category);

@@ -123,6 +123,7 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     Q_EMIT m_work->requestInit();
     Q_EMIT m_work->requestActive();
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -242,6 +243,16 @@ int UpdateModule::load(const QString &path)
 QStringList UpdateModule::availPage() const
 {
     return QStringList() << "Update Settings" << "Update" << "Update Settings/Mirror List" << "Checking";
+}
+
+void UpdateModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //update
+        m_frameProxy->addChildPageTrans("Check for Updates", tr("Check for Updates"));
+        m_frameProxy->addChildPageTrans("Updates", tr("Updates"));
+        m_frameProxy->addChildPageTrans("Update Settings", tr("Update Settings"));
+    }
 }
 
 void UpdateModule::onNotifyDealMirrorWidget(bool state)

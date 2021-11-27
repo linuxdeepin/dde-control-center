@@ -69,6 +69,7 @@ void MouseModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_dbusProxy->moveToThread(qApp->thread());
     m_dbusProxy->active();
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -204,6 +205,17 @@ QStringList MouseModule::availPage() const
         sl << "TrackPoint";
     }
     return sl;
+}
+
+void MouseModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //mouse
+        m_frameProxy->addChildPageTrans("General", tr("General"));
+        m_frameProxy->addChildPageTrans("Mouse", tr("Mouse"));
+        m_frameProxy->addChildPageTrans("Touchpad", tr("Touchpad"));
+        m_frameProxy->addChildPageTrans("TrackPoint", tr("TrackPoint"));
+    }
 }
 
 void MouseModule::initSearchData()

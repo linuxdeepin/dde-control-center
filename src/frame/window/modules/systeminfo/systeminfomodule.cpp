@@ -62,6 +62,7 @@ void SystemInfoModule::preInitialize(bool sync, dccV20::FrameProxyInterface::Pus
     m_model = new SystemInfoModel(this);
     m_work = new SystemInfoWork(m_model, this);
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -126,6 +127,17 @@ QStringList SystemInfoModule::availPage() const
     availList << "About This PC" << "Edition License" << "End User License Agreement" << "Privacy Policy";
 
     return availList;
+}
+
+void SystemInfoModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //systeminfo
+        m_frameProxy->addChildPageTrans("About This PC", tr("About This PC"));
+        m_frameProxy->addChildPageTrans("Edition License", tr("Edition License"));
+        m_frameProxy->addChildPageTrans("End User License Agreement", tr("End User License Agreement"));
+        m_frameProxy->addChildPageTrans("Privacy Policy", tr("Privacy Policy"));
+    }
 }
 
 void SystemInfoModule::initSearchData()

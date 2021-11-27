@@ -313,3 +313,12 @@ void SearchWidget::updateSearchdata(const QString &module)
 
     m_model->updateSearchData(module);
 }
+
+void SearchWidget::addChildPageTrans(const QString &menu, const QString &tran)
+{
+    if (!m_model) {
+        return;
+    }
+
+    m_model->addChildPageTrans(menu, tran);
+}

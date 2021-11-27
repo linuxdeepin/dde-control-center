@@ -60,9 +60,21 @@ void SoundModule::preInitialize(bool, FrameProxyInterface::PushType pushtype)
     m_model->moveToThread(qApp->thread());
     m_worker->moveToThread(qApp->thread());
 
+    addChildPageTrans();
     initSearchData();
 
     connect(m_model, &SoundModel::balanceVisibleChanged, m_pMainWindow, &MainWindow::setSpecialThreeMenuVisible);
+}
+
+void SoundModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //sound
+        m_frameProxy->addChildPageTrans("Sound Effects", tr("Sound Effects"));
+        m_frameProxy->addChildPageTrans("Devices", tr("Devices"));
+        m_frameProxy->addChildPageTrans("Input", tr("Input"));
+        m_frameProxy->addChildPageTrans("Output", tr("Output"));
+    }
 }
 
 void SoundModule::initSearchData()
@@ -72,7 +84,6 @@ void SoundModule::initSearchData()
     QString input = tr("Input");
     QString soundEffects = tr("Sound Effects");
     QString output = tr("Output");
-
     QString leftRightBalance = tr("Left/Right Balance").remove('/').trimmed();
 
     QStringList gsSeclist;

@@ -66,9 +66,10 @@ public:
     virtual void active() override;
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 private:
-    void initSearchData();
+    void initSearchData() override;
 
 Q_SIGNALS:
     void requestAddUserTimeZone(const QString &zone);

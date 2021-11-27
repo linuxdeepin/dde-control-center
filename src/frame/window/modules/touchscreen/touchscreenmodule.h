@@ -54,9 +54,13 @@ public:
     virtual const QString name() const override;
     virtual const QString displayName() const override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 private Q_SLOTS:
     void showTouchRecognize();
+
+private:
+    void initSearchData() override;
 
 private:
     dcc::display::TouchscreenModel *m_touchscreenModel;

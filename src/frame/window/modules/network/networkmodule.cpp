@@ -183,6 +183,7 @@ void NetworkModule::preInitialize(bool sync , FrameProxyInterface::PushType push
 
     onDeviceListChanged(m_networkModel->devices());
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -283,6 +284,21 @@ QStringList NetworkModule::availPage() const
         list << dev->path();
     }
     return list;
+}
+
+void NetworkModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //network
+        m_frameProxy->addChildPageTrans("Personal Hotspot", tr("Personal Hotspot"));
+        m_frameProxy->addChildPageTrans("DSL", tr("DSL"));
+        m_frameProxy->addChildPageTrans("VPN", tr("VPN"));
+        m_frameProxy->addChildPageTrans("Wired Network", tr("Wired Network"));
+        m_frameProxy->addChildPageTrans("Wireless Network", tr("Wireless Network"));
+        m_frameProxy->addChildPageTrans("Network Details", tr("Network Details"));
+        m_frameProxy->addChildPageTrans("Application Proxy", tr("Application Proxy"));
+        m_frameProxy->addChildPageTrans("System Proxy", tr("System Proxy"));
+    }
 }
 
 void NetworkModule::initSearchData()

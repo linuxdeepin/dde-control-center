@@ -69,6 +69,7 @@ void CommonInfoModule::preInitialize(bool sync , FrameProxyInterface::PushType p
 {
     Q_UNUSED(sync);
     Q_UNUSED(pushtype);
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -168,6 +169,16 @@ QStringList CommonInfoModule::availPage() const
     }
 
     return sl;
+}
+
+void CommonInfoModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //commoninfo
+        m_frameProxy->addChildPageTrans("Boot Menu", tr("Boot Menu"));
+        m_frameProxy->addChildPageTrans("Developer Mode", tr("Developer Mode"));
+        m_frameProxy->addChildPageTrans("User Experience Program", tr("User Experience Program"));
+    }
 }
 
 void CommonInfoModule::onShowBootWidget()

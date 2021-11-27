@@ -59,13 +59,13 @@ private:
     void initialize() override;
     const QString name() const override;
     const QString displayName() const override;
-public:
     void active() override;
     int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 private:
-    void initSearchData();
+    void initSearchData() override;
 
 private Q_SLOTS:
     void popPage();

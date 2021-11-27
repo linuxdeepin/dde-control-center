@@ -101,12 +101,6 @@ public:
         return QStringLiteral(":/translations/dde-control-center_%1.ts");
     }
 
-    // 应该暂时不需要finalize；
-    // virtual void finalize();
-
-    // 获取Module的Metadata;
-    // virtual ModuleMetadata getMetadata();
-
     ///
     /// \brief showPage
     /// show specified module page
@@ -170,6 +164,12 @@ public:
         return true;
     }
 
+    /**
+     * @brief addChildPageTrans
+     * @return 添加插件二级菜单翻译内容
+     */
+    virtual void addChildPageTrans() const = 0;
+
 public:
     inline void setAvailable(bool isAvailable) { m_available = isAvailable; }
     inline bool isAvailable() const { return m_available; }
@@ -194,6 +194,9 @@ protected:
     FrameProxyInterface *m_frameProxy{nullptr};
     bool m_available{true};
     bool m_deviceUnavailabel{false};
+
+private:
+    virtual void initSearchData() = 0;
 };
 
 }

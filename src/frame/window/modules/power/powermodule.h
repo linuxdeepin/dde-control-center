@@ -69,6 +69,7 @@ public:
     virtual void active() override;
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 Q_SIGNALS:
 
@@ -80,7 +81,7 @@ private:
     void showUseElectric();
     void showUseBattery();
     bool getDoubleCompare(const double value1, const double value2);
-    void initSearchData();
+    void initSearchData() override;
 
 private:
     dcc::power::PowerModel *m_model;

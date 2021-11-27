@@ -47,9 +47,10 @@ public:
     virtual void active() override;
     virtual void preInitialize(bool sync = false , FrameProxyInterface::PushType = FrameProxyInterface::PushType::Normal) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 private:
-    void initSearchData();
+    void initSearchData() override;
 
 private:
     dcc::cloudsync::SyncModel  *m_model;

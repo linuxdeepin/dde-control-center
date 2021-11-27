@@ -51,11 +51,14 @@ public:
     virtual void active() override;
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 private Q_SLOTS:
     void showSystemNotify();
     void showAppNotify(int index);
-    void initSearchData();
+
+private:
+    void initSearchData() override;
 
 private:
     dcc::notification::NotificationModel *m_model;

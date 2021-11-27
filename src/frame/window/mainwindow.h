@@ -94,6 +94,7 @@ public:
     void showModulePage(const QString &module, const QString &page, bool animation) override;
     void setModuleSubscriptVisible(const QString &module, bool bIsDisplay) override;
     void setSearchPath(ModuleInterface *const inter) const override;
+    void addChildPageTrans(const QString &menu, const QString &tran) override;
 
 public:
     bool isModuleAvailable(const QString &m);

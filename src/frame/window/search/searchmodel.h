@@ -87,7 +87,7 @@ public:
     void setWidgetVisible(const QString &module, const QString &widget, bool visible);
     void setDetailVisible(const QString &module, const QString &widget, const QString &detail, bool visible);
     void updateSearchData(const QString &module);
-
+    void addChildPageTrans(const QString &menu, const QString &tran);
 
 Q_SIGNALS:
     void notifyModuleSearch(QString, QString);

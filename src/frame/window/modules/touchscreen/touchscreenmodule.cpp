@@ -66,6 +66,8 @@ void TouchscreenModule::preInitialize(bool sync, FrameProxyInterface::PushType p
         showTouchRecognize();
     });
 
+    addChildPageTrans();
+
     m_touchscreenWorker->active();
 }
 
@@ -105,6 +107,13 @@ QStringList TouchscreenModule::availPage() const
     return sl;
 }
 
+void TouchscreenModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        m_frameProxy->addChildPageTrans("", "");
+    }
+}
+
 void TouchscreenModule::showTouchRecognize()
 {
     // 只有一块屏幕不显示触摸提示
@@ -142,4 +151,9 @@ void TouchscreenModule::showTouchRecognize()
             }
         }
     }
+}
+
+void TouchscreenModule::initSearchData()
+{
+
 }

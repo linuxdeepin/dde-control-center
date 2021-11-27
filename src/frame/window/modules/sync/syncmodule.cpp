@@ -82,6 +82,7 @@ void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype
         setDeviceUnavailabel(!visible);
     });
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -90,6 +91,13 @@ QStringList SyncModule::availPage() const
     QStringList sl;
     sl << "Cloud Sync" << "Sync ID Sign In";
     return sl;
+}
+
+void SyncModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        m_frameProxy->addChildPageTrans("Sign In", tr("Sign In"));
+    }
 }
 
 void SyncModule::initSearchData()

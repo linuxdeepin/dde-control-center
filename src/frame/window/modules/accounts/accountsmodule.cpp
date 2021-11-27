@@ -57,6 +57,7 @@ void AccountsModule::preInitialize(bool sync, dccV20::FrameProxyInterface::PushT
     if (m_userModel) {
         delete m_userModel;
     }
+
     m_userModel = new UserModel(this);
     m_accountsWorker = new AccountsWorker(m_userModel);
 
@@ -71,6 +72,7 @@ void AccountsModule::preInitialize(bool sync, dccV20::FrameProxyInterface::PushT
 
     m_accountsWorker->active();
 
+    addChildPageTrans();
     initSearchData();
 }
 
@@ -164,6 +166,18 @@ QStringList AccountsModule::availPage() const
     availList << "Accounts Detail"
               << "New Account";
     return availList;
+}
+
+void AccountsModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //account
+        m_frameProxy->addChildPageTrans("Create Account", tr("Create Account"));
+        m_frameProxy->addChildPageTrans("Auto Login", tr("Auto Login"));
+        m_frameProxy->addChildPageTrans("Login Without Password", tr("Login Without Password"));
+        m_frameProxy->addChildPageTrans("Change Password", tr("Change Password"));
+        m_frameProxy->addChildPageTrans("Delete Account", tr("Delete Account"));
+    }
 }
 
 //显示账户信息

@@ -49,9 +49,10 @@ public:
     virtual const QString name() const override;
     virtual const QString displayName() const override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 private:
-    void initSearchData(bool isFirst = true);
+    void initSearchData() override;
 
 private:
     WacomWidget *m_wacomWidget;

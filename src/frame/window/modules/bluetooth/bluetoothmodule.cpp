@@ -62,6 +62,7 @@ void BluetoothModule::preInitialize(bool sync , FrameProxyInterface::PushType pu
 
     connect(m_bluetoothModel, &BluetoothModel::adpaterListChanged, this, updateModuleVisible);
 
+    addChildPageTrans();
     initSearchData();
     updateModuleVisible();
 }
@@ -114,6 +115,16 @@ int BluetoothModule::load(const QString &path)
     }
 
     return -1;
+}
+
+void BluetoothModule::addChildPageTrans() const
+{
+    if (m_frameProxy != nullptr) {
+        //bluetooth
+        m_frameProxy->addChildPageTrans("My Devices", tr("My Devices"));
+        m_frameProxy->addChildPageTrans("Other Devices", tr("Other Devices"));
+        m_frameProxy->addChildPageTrans("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)", tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)"));
+    }
 }
 
 void BluetoothModule::initSearchData()

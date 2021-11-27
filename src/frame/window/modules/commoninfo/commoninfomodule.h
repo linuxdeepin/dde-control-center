@@ -60,6 +60,7 @@ public:
     // 当搜索到相关字段后，load会被调用
     virtual int load(const QString &path) override;
     QStringList availPage() const override;
+    virtual void addChildPageTrans() const override;
 
 public Q_SLOTS:
     void onShowBootWidget();       // for bootmenu
@@ -70,7 +71,7 @@ public Q_SLOTS:
 private:
     void initBootWidget();
     void initUeProgramWidget(); // for user experience program
-    void initSearchData();
+    void initSearchData() override;
 
 private:
     CommonInfoWork *m_commonWork {nullptr};
