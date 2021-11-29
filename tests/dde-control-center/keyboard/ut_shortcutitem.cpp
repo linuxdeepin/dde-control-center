@@ -37,5 +37,5 @@ TEST_F(Tst_ShortcutItem, item)
     EXPECT_NO_THROW(item->onEditMode(false));
     EXPECT_NO_THROW(item->setConfigName("test"));
     EXPECT_EQ(item->configName(), "test");
-    QTest::mouseClick(item,Qt::LeftButton);
+    item->releaseMouse();
 }
