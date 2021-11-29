@@ -725,33 +725,6 @@ void SearchModel::addModulesName(QString moduleName, const QString &searchName, 
 #endif
 }
 
-void SearchModel::addUnExsitData(const QString &module, const QString &datail)
-{
-    auto res = std::any_of(m_unexsitList.begin(), m_unexsitList.end(), [=](const UnexsitStruct &date) {
-        return date.module == module;
-    });
-
-    if (res) {
-        return;
-    }
-
-    UnexsitStruct data;
-    data.module = module;
-    data.datail = datail;
-    m_unexsitList.append(data);
-}
-
-void SearchModel::removeUnExsitData(const QString &module, const QString &datail)
-{
-    auto find = std::find_if(m_unexsitList.begin(), m_unexsitList.end(), [=](const UnexsitStruct& item) {
-        return (item.module == module) && (item.datail == datail);
-    });
-
-    if (find != m_unexsitList.end()) {
-        m_unexsitList.erase(find);
-    }
-}
-
 void SearchModel::addSpecialThreeMenuMap(const QString &name, bool flag)
 {
     m_specialThreeMenuMap.insert(name, flag);
@@ -868,10 +841,6 @@ void SearchModel::setDetailVisible(const QString &module, const QString &widget,
     value.module = module;
     value.childWidget = widget;
     value.detailMap.insert(detail, visible);
-
-    if (!m_hideModuleList.value(module)) {
-        return;
-    }
 
     int count = m_hideWidgetDetailList.count();
     if (count == 0) {

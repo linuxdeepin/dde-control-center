@@ -261,12 +261,9 @@ void AccountsModule::initSearchData()
         return GSettingWatcher::instance()->get(gsettings);
     };
 
-    QString module = tr("Accounts");
+    const QString& module = displayName();
 
     auto func_process_all = [=]() {
-
-        m_frameProxy->setModuleVisible(module, true);
-
         //只存在二级页面，childpage为空，在判断是否加载数据时没有翻译，因此这个函数第二个参数不能添加翻译
         QString gsAccountUserModifypasswd = func_is_visible("accountUserModifypasswd").toString();
         gsettingsMap.insert("accountUserModifypasswd", gsAccountUserModifypasswd != "Hidden");

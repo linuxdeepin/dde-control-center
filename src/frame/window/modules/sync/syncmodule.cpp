@@ -63,7 +63,7 @@ void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype
 {
     if (!DSysInfo::isDeepin()) {
         qInfo() << "module: " << displayName() << " is disable now!";
-        m_frameProxy->setModuleVisible(this, false);
+        m_frameProxy->setModuleVisible(displayName(), false);
         setDeviceUnavailabel(true);
         return;
     }
@@ -74,11 +74,11 @@ void SyncModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype
     m_worker = new SyncWorker(m_model);
 
     bool visible = m_model->syncIsValid() && !IsServerSystem;
-    m_frameProxy->setModuleVisible(this, visible);
+    m_frameProxy->setModuleVisible(displayName(), visible);
     setDeviceUnavailabel(!visible);
     connect(m_model, &SyncModel::syncIsValidChanged, this, [=](bool valid) {
         bool visible = valid && !IsServerSystem;
-        m_frameProxy->setModuleVisible(this, visible);
+        m_frameProxy->setModuleVisible(displayName(), visible);
         setDeviceUnavailabel(!visible);
     });
 
@@ -103,15 +103,7 @@ void SyncModule::addChildPageTrans() const
 void SyncModule::initSearchData()
 {
     auto tfunc = [this]() {
-        if (DSysInfo::isCommunityEdition()) {
-            QString module = tr("Deepin ID");
-            m_frameProxy->setModuleVisible(module, true);
-            m_frameProxy->setWidgetVisible(module, tr("Sign In"), true);
-        } else {
-            QString module = tr("Union ID");
-            m_frameProxy->setModuleVisible(module, true);
-            m_frameProxy->setWidgetVisible(module, tr("Sign In"), true);
-        }
+            m_frameProxy->setWidgetVisible(displayName(), tr("Sign In"), true);
      };
 
     tfunc();

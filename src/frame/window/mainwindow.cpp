@@ -357,15 +357,6 @@ void MainWindow::initAllModule(const QString &m)
         }
         updateModuleVisible();
     });
-    updateModuleVisible();
-
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
-        for (auto i : m_modules) {
-            if (m_hideModuleName.contains((i.first->name()))) {
-                setModuleVisible(i.first, false);
-            }
-        }
-    }
 
     bool isIcon = m_contentStack.empty();
 
@@ -410,6 +401,7 @@ void MainWindow::initAllModule(const QString &m)
     resetNavList(isIcon);
 
     modulePreInitialize(m);
+    updateModuleVisible();
 
     QElapsedTimer et;
     et.start();
@@ -437,9 +429,11 @@ void MainWindow::updateModuleVisible()
     m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();
     for (auto i : m_modules) {
         if (m_hideModuleNames.contains((i.first->name()))) {
-            setModuleVisible(i.first, false);
-        } else if (!i.first->deviceUnavailabel()) {
-            setModuleVisible(i.first, true);
+            setModuleVisible(i.second, false);
+        } else if (i.first->deviceUnavailabel()) {
+            setModuleVisible(i.second, false);
+        } else if (i.first->isAvailable()) {
+            setModuleVisible(i.second, true);
         }
     }
 }
@@ -453,8 +447,6 @@ void MainWindow::modulePreInitialize(const QString &m)
         qDebug() << QString("initialize %1 module using time: %2ms")
                  .arg(it->first->name())
                  .arg(et.elapsed());
-
-        setModuleVisible(it->first, it->first->isAvailable());
         if (it->first->isAvailable()) {
             // 模块有效时先初始化模块和搜索数据
             InsertPlugin::instance()->preInitialize(it->first->name());
@@ -893,101 +885,39 @@ void MainWindow::changeEvent(QEvent *event)
     return DMainWindow::changeEvent(event);
 }
 
-void MainWindow::setModuleVisible(ModuleInterface *const inter, const bool visible)
+void MainWindow::setModuleVisible(const QString &module, bool visible)
 {
+    auto find_it = std::find_if(m_modules.cbegin(),
+                                m_modules.cend(),
+    [ &module ](const QPair<ModuleInterface *, QString> &pair) {
+        return pair.second == module;
+    });
+    if (find_it == m_modules.cend()) {
+        qDebug() << Q_FUNC_INFO << "Not found module:" << find_it->second;
+        return;
+    }
+    const auto& inter = find_it->first;
     bool bFinalVisible = visible;
     if (bFinalVisible && m_hideModuleNames.contains(inter->name())) {
         bFinalVisible = false;
     }
-    inter->setAvailable(bFinalVisible);
 
-    auto find_it = std::find_if(m_modules.cbegin(),
-                                m_modules.cend(),
-    [ = ](const QPair<ModuleInterface *, QString> &pair) {
-        return pair.first == inter;
-    });
+    m_navView->setRowHidden(find_it - m_modules.cbegin(), !bFinalVisible);
+    Q_EMIT moduleVisibleChanged(find_it->first->name(), bFinalVisible);
 
-    if (find_it != m_modules.cend()) {
-        m_navView->setRowHidden(find_it - m_modules.cbegin(), !bFinalVisible);
-        Q_EMIT moduleVisibleChanged(find_it->first->name(), bFinalVisible);
-
-        qDebug() << "[SearchWidget] find_it->first->name() : " << find_it->first->name() << bFinalVisible;
-        if ("bluetooth" == find_it->first->name()) {
-            if (bFinalVisible) {
-                m_searchWidget->removeUnExsitData(tr("Bluetooth"));
-            } else {
-                m_searchWidget->addUnExsitData(tr("Bluetooth"));
-
-                //当前处于＂蓝牙＂页面才会回到主页面
-                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == "bluetooth") {
-                    popAllWidgets();
-                    resetNavList(m_contentStack.empty());
-                }
-            }
-        } else if ("wacom" == find_it->first->name()) {
-            if (bFinalVisible) {
-                m_searchWidget->removeUnExsitData(tr("Drawing Tablet"));
-            } else {
-                m_searchWidget->addUnExsitData(tr("Drawing Tablet"));
-
-                //当前处于＂数位板＂页面才会回到主页面
-                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == "wacom") {
-                    popAllWidgets();
-                    resetNavList(m_contentStack.empty());
-                }
-            }
-        }  else if ("cloudsync" == find_it->first->name()) {
-            if (bFinalVisible) {
-                m_searchWidget->removeUnExsitData(tr("Cloud Sync"));
-            } else {
-                m_searchWidget->addUnExsitData(tr("Cloud Sync"));
-
-                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == inter->name()) {
-                    popAllWidgets();
-                    resetNavList(m_contentStack.empty());
-                }
-            }
-        } else if ("commoninfo" == find_it->first->name()) {
-            if (bFinalVisible) {
-                m_searchWidget->removeUnExsitData(tr("General Settings"));
-            } else {
-                m_searchWidget->addUnExsitData(tr("General Settings"));
-
-                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == inter->name()) {
-                    popAllWidgets();
-                    resetNavList(m_contentStack.empty());
-                }
-            }
-        } else if ("update" == find_it->first->name()) {
-            m_updateVisibale = bFinalVisible;
-            if (bFinalVisible) {
-                m_searchWidget->removeUnExsitData(tr("Updates"));
-            } else {
-                m_searchWidget->addUnExsitData(tr("Updates"));
-
-                if (m_contentStack.count() > 0 && m_contentStack.at(0).first->name() == inter->name()) {
-                    popAllWidgets();
-                    resetNavList(m_contentStack.empty());
-                }
-            }
-        } else {
-            if (!bFinalVisible && m_contentStack.count() > 0  && m_contentStack.at(0).first->name() == inter->name()) {
-                popAllWidgets();
-                resetNavList(m_contentStack.empty());
-            }
-        }
-    } else {
-        qDebug() << Q_FUNC_INFO << "Not found module!";
+    qDebug() << "[SearchWidget] find_it->first->name() : " << find_it->first->name() << bFinalVisible;
+    if (!bFinalVisible && m_contentStack.count() > 0  && m_contentStack.at(0).first->name() == inter->name()) {
+        popAllWidgets();
+        resetNavList(m_contentStack.empty());
     }
-}
 
-void MainWindow::setModuleVisible(const QString &module, bool visible)
-{
+    updateSearchData(find_it->second);
+
     if (!m_searchWidget) {
         return;
     }
 
-    m_searchWidget->setModuleVisible(module, visible);
+    m_searchWidget->setModuleVisible(module, bFinalVisible);
 }
 
 void MainWindow::setWidgetVisible(const QString &module, const QString &widget, bool visible)

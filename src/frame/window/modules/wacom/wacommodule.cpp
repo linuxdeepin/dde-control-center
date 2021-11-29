@@ -57,11 +57,10 @@ void WacomModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtyp
     m_model  = new WacomModel(this);
     m_worker = new WacomWorker(m_model);
 
-    m_frameProxy->setModuleVisible(this, m_model->exist());
     setDeviceUnavailabel(!m_model->exist());
 
     connect(m_model, &WacomModel::existChanged, this, [this](const bool exist) {
-        m_frameProxy->setModuleVisible(this, exist);
+        m_frameProxy->setModuleVisible(displayName(), exist);
         setDeviceUnavailabel(!exist);
         initSearchData();
         m_frameProxy->updateSearchData(tr("Drawing Tablet"));
@@ -91,7 +90,6 @@ void WacomModule::active()
     connect(m_wacomWidget, &WacomWidget::modeChanged, m_worker, &WacomWorker::setCursorMode);
 
     m_wacomWidget->setModel(m_model);
-    m_frameProxy->setModuleVisible(this, m_model->exist());
     setDeviceUnavailabel(!m_model->exist());
     m_frameProxy->pushWidget(this, m_wacomWidget);
     m_wacomWidget->setVisible(true);
@@ -132,8 +130,8 @@ void WacomModule::addChildPageTrans() const
 void WacomModule::initSearchData()
 {
     //todo
-    QString module = tr("Drawing Tablet");
     auto func_process_all = [ = ] {
+        const QString& module = displayName();
         m_frameProxy->setModuleVisible(module, m_model->exist());
         m_frameProxy->setWidgetVisible(module, tr("Mode"), m_model->exist());
         m_frameProxy->setWidgetVisible(module, tr("Pressure Sensitivity"), m_model->exist() && !m_model->getCursorMode());

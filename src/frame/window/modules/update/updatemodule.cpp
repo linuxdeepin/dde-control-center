@@ -60,10 +60,9 @@ UpdateModule::~UpdateModule()
 
 void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushtype)
 {
-    if (!DSysInfo::isDeepin()) {
+    if (!DSysInfo::isDeepin() || DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
         qInfo() << "module: " << displayName() << " is disable now!";
-        m_frameProxy->setModuleVisible(this, false);
-        setDeviceUnavailabel(true);
+        setAvailable(false);
         return;
     }
 
@@ -102,12 +101,12 @@ void UpdateModule::preInitialize(bool sync, FrameProxyInterface::PushType pushty
     onUpdatablePackagesChanged(m_model->getUpdatablePackages());
     connect(m_model, &UpdateModel::updatablePackagesChanged, this, &UpdateModule::onUpdatablePackagesChanged);
 
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler && m_hideModuleName.contains("update")) {
-        m_frameProxy->setModuleVisible(this, false);
+    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler) {
+        m_frameProxy->setModuleVisible(displayName(), false);
         setDeviceUnavailabel(true);
     } else {
         bool bShowUpdate = valueByQSettings<bool>(DCC_CONFIG_FILES, "", "showUpdate", true);
-        m_frameProxy->setModuleVisible(this, bShowUpdate);
+        m_frameProxy->setModuleVisible(displayName(), bShowUpdate);
         setDeviceUnavailabel(!bShowUpdate);
     }
 
@@ -270,9 +269,9 @@ void UpdateModule::onNotifyDealMirrorWidget(bool state)
 
 void UpdateModule::initSearchData()
 {
-    QString module = tr("Updates");//更新
-    QString updates = tr("Check for Updates");//检查更新
-    QString updateSettings = tr("Update Settings");
+    const QString& module = displayName();//更新
+    const QString& updates = tr("Check for Updates");//检查更新
+    const QString& updateSettings = tr("Update Settings");
     static QMap<QString, bool> gsettingsMap;
 
     auto func_is_visible = [=](const QString &gsettings) {
@@ -287,8 +286,6 @@ void UpdateModule::initSearchData()
     };
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
         m_frameProxy->setWidgetVisible(module, updates, true);
         m_frameProxy->setDetailVisible(module, updates, tr("Check for Updates"), true);//检查更新
         m_frameProxy->setDetailVisible(module, updates, tr("Download and install updates"), true);

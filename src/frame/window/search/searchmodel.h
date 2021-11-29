@@ -46,11 +46,6 @@ struct SearchDataStruct {
     QString pinyin;
 };
 
-struct UnexsitStruct {
-    QString module;
-    QString datail;
-};
-
 struct HideChildWidgetStruct {
     QString module;                                     //子页面的模块
     QMap<QString, bool> childWidgetMap;              //子页面名称, 子页面是否显示
@@ -77,8 +72,6 @@ public:
     bool jumpContentPathWidget(const QString &path);
     void setLanguage(const QString &type);
     void addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation = "");
-    void addUnExsitData(const QString &module = "", const QString &datail = "");
-    void removeUnExsitData(const QString &module = "", const QString &datail = "");
     void addSpecialThreeMenuMap(const QString &name, bool flag);
     bool getModuleVisible(const QString module);
     bool getWidgetVisible(const QString module, QString widget = "");
@@ -112,7 +105,6 @@ private:
     QMap<QString, QIcon> m_iconMap;
     QList<QPair<QString, QString>> m_moduleNameList;//用于存储如 "update"和"Update"
     QList<SearchDataStruct> m_inputList;
-    QList<UnexsitStruct>    m_unexsitList;
     QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
     QList<QString> m_childWidgetList; //二级页面list
     QList<QString> m_childeHideWidgetList; //不需要显示的二级页面list，比如 “默认程序 --> 终端 / 添加默认程序” 和 “默认程序 --> 终端”

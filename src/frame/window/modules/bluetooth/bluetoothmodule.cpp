@@ -56,7 +56,7 @@ void BluetoothModule::preInitialize(bool sync , FrameProxyInterface::PushType pu
                     .arg(sender() ? "list change" : "first")
                     .arg(m_bluetoothModel->adapters().size());
         bool visible = m_bluetoothModel->adapters().size();
-        m_frameProxy->setModuleVisible(this, visible);
+        m_frameProxy->setModuleVisible(displayName(), visible);
         setDeviceUnavailabel(!visible);
     };
 
@@ -87,7 +87,7 @@ void BluetoothModule::active()
     connect(m_bluetoothWidget, &BluetoothWidget::requestSetAlias, m_bluetoothWorker, &BluetoothWorker::setAlias);
     connect(m_bluetoothWidget, &BluetoothWidget::showDeviceDetail, this, &BluetoothModule::showDeviceDetail);
     connect(m_bluetoothWidget, &BluetoothWidget::requestModuleVisible, [this](const bool visible) {
-        m_frameProxy->setModuleVisible(this, visible);
+        m_frameProxy->setModuleVisible(displayName(), visible);
         setDeviceUnavailabel(!visible);
     });
     m_frameProxy->pushWidget(this, m_bluetoothWidget);
@@ -133,10 +133,10 @@ void BluetoothModule::initSearchData()
         return;
     }
 
-    QString module = tr("Bluetooth");
-    QString myDevices = tr("My Devices");
-    QString otherDevices = tr("Other Devices");
-    QString explain = tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
+    const QString& module = displayName();
+    const QString& myDevices = tr("My Devices");
+    const QString& otherDevices = tr("Other Devices");
+    const QString& explain = tr("Enable Bluetooth to find nearby devices (speakers, keyboard, mouse)");
 
     static QMap<QString, bool> gsMap = {
         {myDevices, false},

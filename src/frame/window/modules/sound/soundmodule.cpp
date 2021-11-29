@@ -79,18 +79,28 @@ void SoundModule::addChildPageTrans() const
 
 void SoundModule::initSearchData()
 {
-    QString module = tr("Sound");
-    QString devices = tr("Devices");
-    QString input = tr("Input");
-    QString soundEffects = tr("Sound Effects");
-    QString output = tr("Output");
-    QString leftRightBalance = tr("Left/Right Balance").remove('/').trimmed();
+    const QString& module = displayName();
+    const QString& devices = tr("Devices");
+    const QString& input = tr("Input");
+    const QString& soundEffects = tr("Sound Effects");
+    const QString& output = tr("Output");
 
-    QStringList gsSeclist;
-    gsSeclist << "soundOutput" << "soundInput" << "soundEffects" << "deviceManage";
-    QStringList gsThirdlist;
-    gsThirdlist << "soundInputSlider" << "soundOutputSlider" << "soundVolumeBoost"
-                << "soundBalanceSlider" << "soundEffectPage" << "soundNoiseReduce";
+    const QString& leftRightBalance = tr("Left/Right Balance").remove('/').trimmed();
+
+    const QStringList& gsSeclist {
+        "soundOutput"
+        , "soundInput"
+        , "soundEffects"
+        , "deviceManage"
+    };
+    QStringList gsThirdlist {
+        "soundInputSlider"
+        , "soundOutputSlider"
+        , "soundVolumeBoost"
+        , "soundBalanceSlider"
+        , "soundEffectPage"
+        , "soundNoiseReduce"
+    };
 
     static QMap<QString, bool> gsettingsMap;
 
@@ -150,9 +160,6 @@ void SoundModule::initSearchData()
 
     auto func_process_all = [ = ]() {
         getPortCount();
-
-        m_frameProxy->setModuleVisible(module, true);
-
         func_output_changed();
 
         func_input_changed();

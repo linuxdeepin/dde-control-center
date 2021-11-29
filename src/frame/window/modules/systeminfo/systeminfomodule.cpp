@@ -142,13 +142,17 @@ void SystemInfoModule::addChildPageTrans() const
 
 void SystemInfoModule::initSearchData()
 {
-    QString module = tr("System Info");
-    QString aboutThisPC = tr("About This PC");
-    QString edtLicense = tr("Edition License");
-    QString endUserLicenseAgree = tr("End User License Agreement");
-    QString privacyPolicy = tr("Privacy Policy");
-    QStringList gsSecondList;
-    gsSecondList << "aboutThisPc" << "editionLicense" << "endUserLicenseAgreement" << "privacyPolicy";
+    const QString& module = displayName();
+    const QString aboutThisPC = tr("About This PC");
+    const QString& edtLicense = tr("Edition License");
+    const QString& endUserLicenseAgree = tr("End User License Agreement");
+    const QString& privacyPolicy = tr("Privacy Policy");
+    const QStringList& gsSecondList {
+        "aboutThisPc"
+        , "editionLicense"
+        , "endUserLicenseAgreement"
+        , "privacyPolicy"
+    };
     static QMap<QString, bool> gsettingsMap;
 
     auto func_is_visible = [=](const QString &gsettings, bool state = false) {
@@ -200,9 +204,6 @@ void SystemInfoModule::initSearchData()
 
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
-
         func_aboutthispc_changed();
 
         func_edtlicense_changed();

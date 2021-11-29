@@ -303,15 +303,15 @@ void NetworkModule::addChildPageTrans() const
 
 void NetworkModule::initSearchData()
 {
-    QString module = tr("Network");
-    QString applicationProxy = tr("Application Proxy");
-    QString personalHost = tr("Personal Hotspot");
-    QString networkDetail = tr("Network Details");
-    QString systemProxy = tr("System Proxy");
-    QString wiredNetwork = tr("Wired Network");
-    QString wirelessNetwork = tr("Wireless Network");
-    QString dsl = tr("DSL");
-    QString vpn = tr("VPN");
+    const QString& module = displayName();
+    const QString& applicationProxy = tr("Application Proxy");
+    const QString& personalHost = tr("Personal Hotspot");
+    const QString& networkDetail = tr("Network Details");
+    const QString& systemProxy = tr("System Proxy");
+    const QString& wiredNetwork = tr("Wired Network");
+    const QString& wirelessNetwork = tr("Wireless Network");
+    const QString& dsl = tr("DSL");
+    const QString& vpn = tr("VPN");
     static QMap<QString, bool> gsettingsMap;
 
     auto func_is_visible = [ = ](const QString &gsettings) {
@@ -326,10 +326,16 @@ void NetworkModule::initSearchData()
         return ret;
     };
 
-    QStringList gslist;
-    gslist << "networkWired" << "networkWireless" <<"personalHotspot" << "applicationProxy"
-           << "networkDetails" << "networkDsl" << "systemProxy" << "networkVpn";
-
+    const QStringList& gslist {
+        "networkWired"
+        , "networkWireless"
+        , "personalHotspot"
+        , "applicationProxy"
+        , "networkDetails"
+        , "networkDsl"
+        , "systemProxy"
+        , "networkVpn"
+    };
     auto func_wired_visible = [ = ](bool visible) {
         bool bWireNetwork = func_is_visible("networkWired") && visible;
         m_frameProxy->setWidgetVisible(module, wiredNetwork, bWireNetwork);
@@ -398,8 +404,6 @@ void NetworkModule::initSearchData()
     };
 
     auto func_process_all = [ = ]() {
-        m_frameProxy->setModuleVisible(module, true);
-
         func_appproxy_visible();
 
         func_netdetails_visible();

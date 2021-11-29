@@ -217,11 +217,11 @@ void PersonalizationModule::showFontThemeWidget()
 
 void PersonalizationModule::initSearchData()
 {
-    QString module = tr("Personalization");
-    QString font = tr("Font");
-    QString general = tr("General");
-    QString iconTheme = tr("Icon Theme");
-    QString cursorTheme = tr("Cursor Theme");
+    const QString& module = displayName();
+    const QString& font = tr("Font");
+    const QString& general = tr("General");
+    const QString& iconTheme = tr("Icon Theme");
+    const QString& cursorTheme = tr("Cursor Theme");
 
     static QMap<QString, bool> gsettingsMap;
 
@@ -275,9 +275,6 @@ void PersonalizationModule::initSearchData()
     };
 
     auto func_process_all = [ = ]() {
-
-        m_frameProxy->setModuleVisible(module, true);
-
         func_general_changed(func_is_visible("personalizationGeneral"));
 
         func_icontheme_changed(func_is_visible("personalizationIconTheme"));
