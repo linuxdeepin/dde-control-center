@@ -256,7 +256,7 @@ void PersonalizationModule::initSearchData()
         m_frameProxy->setDetailVisible(module, general, tr("Dark"), bGeneral);
         m_frameProxy->setDetailVisible(module, general, tr("Auto"), bGeneral);
         m_frameProxy->setDetailVisible(module, general, tr("Accent Color"), bGeneral);
-        m_frameProxy->setDetailVisible(module, general, tr("Window Effect"), bGeneral && bEffects);
+        m_frameProxy->setDetailVisible(module, general, tr("Window Effect"), bGeneral && bEffects && !IsServerSystem);
         m_frameProxy->setDetailVisible(module, general, tr("Transparency"), bGeneral && bEffects && is3DWm);
         m_frameProxy->setDetailVisible(module, general, tr("Window Minimize Effect"), bGeneral && bEffects && is3DWm);
     };

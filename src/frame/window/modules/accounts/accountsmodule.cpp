@@ -28,6 +28,7 @@
 #include "modules/accounts/user.h"
 #include "modules/accounts/usermodel.h"
 #include "window/gsettingwatcher.h"
+#include "window/utils.h"
 
 #include <DDialog>
 
@@ -257,7 +258,7 @@ void AccountsModule::initSearchData()
 
         bool gsNopasswdLoginVisable = func_is_visible("nopasswdLoginVisable").toBool();
         gsettingsMap.insert("nopasswdLoginVisable", gsNopasswdLoginVisable);
-        m_frameProxy->setWidgetVisible(module, tr("Login Without Password"), gsNopasswdLoginVisable);
+        m_frameProxy->setWidgetVisible(module, tr("Login Without Password"), gsNopasswdLoginVisable && !IsServerSystem);
 
         m_frameProxy->setWidgetVisible(module, tr("Create Account"), true);
         m_frameProxy->setDetailVisible(module, tr("Create Account"), tr("New Account"), true);

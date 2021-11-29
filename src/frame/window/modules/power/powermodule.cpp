@@ -291,12 +291,13 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Low Battery Notification"), haveBettary);
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Auto suspend battery level"), haveBettary && func_is_visible("systemSuspend"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Monitor will suspend after"), haveBettary);
-        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), haveBettary && func_is_visible("systemSuspend"));
+        m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Computer will suspend after"), haveBettary && func_is_visible("systemSuspend")
+                                       && m_model->canSleep() && m_model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
         m_frameProxy->setDetailVisible(module, onBatteayWidget, tr("Lock screen after"), haveBettary && func_is_visible("powerAutoLockscreen"));
     };
 
     auto func_process_all = [=](bool battaty, bool haveLib) {
-        m_frameProxy->setWidgetVisible(module, generalWidget, func_is_visible("general"));
+        m_frameProxy->setWidgetVisible(module, generalWidget, func_is_visible("general") && !IsServerSystem);
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the monitor"), true);
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Password is required to wake up the computer"), func_is_visible("systemSuspend"));
         m_frameProxy->setDetailVisible(module, generalWidget, tr("Decrease brightness"), func_is_visible("powerLowerBrightness"));
@@ -311,7 +312,8 @@ void PowerModule::initSearchData()
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("When pressing the power button"), func_is_visible("powerPressPowerbtn"));
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Lock screen after"), func_is_visible("powerAutoLockscreen"));
         m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Monitor will suspend after"), true);
-        m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), func_is_visible("systemSuspend"));
+        m_frameProxy->setDetailVisible(module, pluggedInWidget, tr("Computer will suspend after"), func_is_visible("systemSuspend")
+                                       && m_model->canSleep() && m_model->getSuspend() && (GSettingWatcher::instance()->getStatus("systemSuspend") != "Hidden"));
 
         func_battary_Changed(battaty, haveLib);
     };

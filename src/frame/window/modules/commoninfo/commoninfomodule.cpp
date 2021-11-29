@@ -301,14 +301,15 @@ void CommonInfoModule::initSearchData()
 
     auto func_developerMode_changed = [ = ] {
         bool visible = func_is_visible("developerMode");
-        m_frameProxy->setWidgetVisible(module, developerMode, visible);
+        m_frameProxy->setWidgetVisible(module, developerMode, visible && !IsServerSystem
+            && !(DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC));
         m_frameProxy->setDetailVisible(module, developerMode, developerMode, visible);
     };
 
     auto func_userExperienceProgram_changed = [ = ] {
         bool visible = func_is_visible("userExperienceProgram");
-        m_frameProxy->setWidgetVisible(module, userExperienceProgram, visible);
-        m_frameProxy->setDetailVisible(module, userExperienceProgram, experienceProgram, visible);
+        m_frameProxy->setWidgetVisible(module, userExperienceProgram, visible && !IsServerSystem);
+        m_frameProxy->setDetailVisible(module, userExperienceProgram, experienceProgram, visible && !IsServerSystem);
     };
 
 

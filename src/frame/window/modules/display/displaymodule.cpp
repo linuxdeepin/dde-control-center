@@ -488,8 +488,9 @@ void DisplayModule::initSearchData()
 
     auto func_brightnessEnable_changed = [ = ] {
         bool isBrightnessEnable = func_is_visible("brightnessEnable", false);
-
-        m_frameProxy->setWidgetVisible(module, tr("Auto Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting") && m_displayModel->autoLightAdjustIsValid());
+        qDebug() << Q_FUNC_INFO << "autoLightAdjustIsValid:::" << m_displayModel->autoLightAdjustIsValid();
+        m_frameProxy->setWidgetVisible(module, tr("Auto Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting")
+                                       && m_displayModel->autoLightAdjustIsValid() && !IsServerSystem);
         m_frameProxy->setWidgetVisible(module, tr("Brightness"), isBrightnessEnable && func_is_visible("displayLightLighting"));
 
         m_frameProxy->setWidgetVisible(module, tr("Night Shift"), isBrightnessEnable && func_is_visible("displayColorTemperature"));

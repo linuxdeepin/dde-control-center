@@ -43,54 +43,7 @@ SearchModel::SearchModel(QObject *parent)
     : QStandardItemModel(parent)
     , m_bIsChinese(false)
     , m_bIstextEdited(false)
-    , m_bIsContensServerType(false)
 {
-    //是否是服务器判断,这个判断与下面可移除设备不同,只能"是"或者"不是"(不是插拔型)
-    m_bIsServerType = IsServerSystem;
-
-    //是否是contens服务器
-    if (DSysInfo::uosEditionType() == DSysInfo::UosEuler || DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC) {
-        m_bIsContensServerType = true;
-    } else {
-
-        m_bIsContensServerType = false;
-    }
-
-    //first存储和服务器/桌面版有关的文言
-    //second : true 用于记录"服务器"才有的搜索数据
-    //second : false用于记录"桌面版"才有的搜索数据
-    m_serverTxtList = {
-        {tr("Window Effect"), false},
-        {tr("Developer Mode"), false},
-        {tr("User Experience Program"), false},
-        {tr("Join User Experience Program"), false},
-        {tr("Display Scaling"), false},
-        {tr("Night Shift"), false},
-        {tr("Login Without Password"), false},
-        {tr("Auto Brightness"), false},
-        {tr("General"), false},
-        {tr("Password is required to wake up the monitor"), false},
-        {tr("Password is required to wake up the computer"), false},
-        {tr("Power Saving Mode"), false},
-        {tr("Auto Mode Switch"), false},
-        {tr("Transparency"), false},
-        {tr("Create PPPoE Connection"), false},
-        {tr("Disable the touchpad while typing"), false},
-        {tr("Disable the touchpad when inserting the mouse"), false},
-        {tr("Computer will suspend after"), false},
-        {tr("Sign In"), false},
-        {tr("Auto power saving on battery"), false},
-        {tr("Touch Screen"), false},
-        {tr("Power Plans"), false},
-        {tr("Power Saving Settings"), false},
-        {tr("Wakeup Settings"), false},
-        {tr("Battery"), false},
-    };
-
-    m_contensServerTxtList = {
-        {tr("Developer Mode"), true},
-    };
-
     //左边是从从xml解析出来的数据，右边是需要被翻译成的数据；
     //后续若还有相同模块还有一样的翻译文言，也可在此处添加类似处理，并在注释处添加　//~ child_page xxx
     m_transChildPageName = {
@@ -533,44 +486,6 @@ void SearchModel::appendChineseData(SearchBoxStruct::Ptr data)
     }
 }
 
-//返回值:true,不加载该搜索数据
-bool SearchModel::isLoadText(const QString &txt)
-{
-    for (auto data : m_serverTxtList) {
-        //有first数据继续判断second
-        if (data.first == txt) {
-            //second: true,需要是服务器才显示
-            //second:false,需要不是服务器才显示
-            //m_bIsServerType当前是否为服务器,true是服务器(此处要取反,需要根据返回值判断)
-            if (data.second == !m_bIsServerType) {
-                return true;
-            } else {
-                break;
-            }
-        }
-    }
-
-    return false;
-}
-
-bool SearchModel::isLoadContensText(const QString &text)
-{
-    for (auto data : m_contensServerTxtList) {
-        //有first数据继续判断second
-        if (data.first == text) {
-            //second: true,需要是contens服务器不显示
-            //m_bIsContensServerType当前是否为服务器,true是contens服务器(此处要取反,需要根据返回值判断)
-            if (data.second == m_bIsContensServerType) {
-                return true;
-            } else {
-                break;
-            }
-        }
-    }
-
-    return false;
-}
-
 //主要用于解决一些特殊数据，比如同时加载了二级和三级页面搜索数据，而要删除二级页面数据； true : 不加载
 bool SearchModel::specialProcessData(SearchBoxStruct::Ptr data)
 {
@@ -696,24 +611,6 @@ void SearchModel::setLanguage(const QString &type)
                                 searchBoxStrcut->actualModuleName = getModulesName(searchBoxStrcut->fullPagePath.section('/', 1, 1));
 
                                 if ("" == searchBoxStrcut->actualModuleName || "" == searchBoxStrcut->translateContent) {
-                                    searchBoxStrcut = std::make_shared<SearchBoxStruct>();
-                                    continue;
-                                }
-
-                                //判断是否为服务器,是服务器时,若当前不是服务器就不添加"Server"
-                                if (isLoadText(searchBoxStrcut->translateContent)) {
-                                    searchBoxStrcut = std::make_shared<SearchBoxStruct>();
-                                    continue;
-                                }
-
-                                //判断是否为contens服务器,是contens服务器时,若当前不是服务器就不添加"Server"
-                                if (isLoadContensText(searchBoxStrcut->translateContent)) {
-                                    searchBoxStrcut = std::make_shared<SearchBoxStruct>();
-                                    continue;
-                                }
-
-                                //判断是否为服务器，如果是服务器状态下搜索不到网络账户相关（所有界面）
-                                if (m_bIsServerType && tr("Cloud Account") == searchBoxStrcut->actualModuleName) {
                                     searchBoxStrcut = std::make_shared<SearchBoxStruct>();
                                     continue;
                                 }
