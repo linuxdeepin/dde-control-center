@@ -92,8 +92,6 @@ private:
     QString transPinyinToChinese(const QString &pinyin);
     QString containTxtData(QString txt);
     void appendChineseData(SearchBoxStruct::Ptr data);
-    bool isLoadText(const QString &txt);
-    bool isLoadContensText(const QString &text);
     bool specialProcessData(SearchBoxStruct::Ptr data);
 
 private:
@@ -105,17 +103,13 @@ private:
     QMap<QString, QIcon> m_iconMap;
     QList<QPair<QString, QString>> m_moduleNameList;//用于存储如 "update"和"Update"
     QList<SearchDataStruct> m_inputList;
-    QList<QPair<QString, bool>> m_serverTxtList;//QString表示和服务器/桌面版有关的文言,bool:true表示只有服务器版会存在,false表示只有桌面版存在
     QList<QString> m_childWidgetList; //二级页面list
     QList<QString> m_childeHideWidgetList; //不需要显示的二级页面list，比如 “默认程序 --> 终端 / 添加默认程序” 和 “默认程序 --> 终端”
     QList<QString> m_TxtListAll; //三级页面list
     QList<QPair<QString, QString>> m_removeableActualExistList;//存储实际模块是否存在
-    QList<QPair<QString, bool>> m_contensServerTxtList;
     QMap<QString, bool> m_specialThreeMenuMap; //特别的三菜单显示
     bool m_bIsChinese;
     bool m_bIstextEdited;
-    bool m_bIsServerType;
-    bool m_bIsContensServerType;
     QMap<QString, bool> m_hideModuleList;
     QList<HideChildWidgetStruct> m_hideWidgetList;
     QList<HideChildWidgetDetailStruct> m_hideWidgetDetailList;
