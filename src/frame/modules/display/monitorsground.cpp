@@ -192,6 +192,7 @@ void MonitorsGround::onRotateChanged(const quint16 rotate)
 {
     Q_UNUSED(rotate)
 
+    onResize();
     if (m_setMergeMode)
         return;
 
@@ -204,7 +205,6 @@ void MonitorsGround::onRotateChanged(const quint16 rotate)
           }
       }
 
-    onResize();
     onRequestMonitorRelease(mon);
 }
 
@@ -243,8 +243,9 @@ void MonitorsGround::adjustAll()
 {
     setEnabled(false);
 
-    const double scaleW = double(width()) / (m_model->screenWidth()*1.2);
-    const double scaleH = double(height()) / (m_model->screenHeight()*1.2);
+
+    const double scaleW = double(width()) / (m_monitors.values().first()->w() * 1.2);
+    const double scaleH = double(height()) / (m_monitors.values().first()->h() * 1.2);
 
     const double scale = std::min(scaleW, scaleH);
 
