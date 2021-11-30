@@ -26,6 +26,7 @@
 #include "updatesettings.h"
 #include "updatehistorybutton.h"
 #include "recenthistoryapplist.h"
+#include "window/utils.h"
 
 #include <types/appupdateinfolist.h>
 
@@ -163,7 +164,9 @@ void UpdateWidget::setModel(const UpdateModel *model, const UpdateWorker *work)
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     connect(updateSetting, &UpdateSettings::requestSetSourceCheck, m_work, &UpdateWorker::setSourceCheck);
 #endif
-    connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
+    if(IsCommunitySystem){
+        connect(updateSetting, &UpdateSettings::requestEnableSmartMirror, m_work, &UpdateWorker::setSmartMirror);
+    }
 
     m_mainLayout->addWidget(updateWidget);
     m_mainLayout->addWidget(updateSetting);

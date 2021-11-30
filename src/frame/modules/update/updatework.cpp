@@ -176,14 +176,15 @@ void UpdateWorker::init()
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
 
     // connect(m_powerSystemInter, &__SystemPower::BatteryPercentageChanged, this, &UpdateWorker::setSystemBatteryPercentage);
-
-    connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
-    connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
-    connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [ = ] {
-        QTimer::singleShot(100, this, [ = ] {
-            m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
-        });
-    }, Qt::UniqueConnection);
+    if(IsCommunitySystem){
+        connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
+        connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
+        connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [ = ] {
+            QTimer::singleShot(100, this, [ = ] {
+                m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
+            });
+        }, Qt::UniqueConnection);
+    }
 
     connect(m_abRecoveryInter, &RecoveryInter::JobEnd, this, &UpdateWorker::onRecoveryBackupFinshed);
     connect(m_abRecoveryInter, &RecoveryInter::BackingUpChanged, m_model, &UpdateModel::setRecoverBackingUp);
@@ -244,12 +245,13 @@ void UpdateWorker::activate()
     m_model->setAutoCheckUpdates(m_updateInter->autoCheckUpdates());
     m_model->setUpdateMode(m_managerInter->updateMode());
     m_model->setUpdateNotify(m_updateInter->updateNotify());
-    m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
+    if(IsCommunitySystem){
+        m_model->setSmartMirrorSwitch(m_smartMirrorInter->enable());
+        onSmartMirrorServiceIsValid(m_smartMirrorInter->isValid());
+    }
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     m_model->setSourceCheck(m_lastoresessionHelper->sourceCheckEnabled());
 #endif
-    onSmartMirrorServiceIsValid(m_smartMirrorInter->isValid());
-
     m_model->setRecoverConfigValid(m_abRecoveryInter->configValid());
 
     setOnBattery(m_powerInter->onBattery());
