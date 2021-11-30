@@ -246,6 +246,8 @@ void ModifyPasswdPage::initWidget()
         QPalette palette;
         m_focusOut = true;
         m_level = PwqualityManager::instance()->GetNewPassWdLevel(m_newPasswordEdit->text());
+        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_newPasswordEdit->lineEdit()->text(),
+                                                                                          m_newPasswordEdit->lineEdit()->text());
 
         if (m_level == PASSWORD_STRENGTH_LEVEL_HIGH) {
             palette.setColor(QPalette::Text, QColor("#15BB18"));
@@ -257,7 +259,10 @@ void ModifyPasswdPage::initWidget()
             m_newPasswdLevelIcons[0]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
             m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
             m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
-
+            if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                m_newPasswordEdit->setAlert(true);
+                m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
+            }
         } else if (m_level == PASSWORD_STRENGTH_LEVEL_MIDDLE) {
             palette.setColor(QPalette::Text, QColor("#FFAA00"));
             m_newPasswdLevelText->setPalette(palette);
@@ -270,7 +275,10 @@ void ModifyPasswdPage::initWidget()
             m_passwdLevelImg->load(m_newPasswdLevelIconModePath);
             m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
 
-            m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"));
+            if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                m_newPasswordEdit->setAlert(true);
+                m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
+            }
         } else if (m_level == PASSWORD_STRENGTH_LEVEL_LOW) {
             palette.setColor(QPalette::Text, QColor("#FF5736"));
             m_newPasswdLevelText->setPalette(palette);
@@ -283,9 +291,19 @@ void ModifyPasswdPage::initWidget()
             m_newPasswdLevelIcons[1]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
             m_newPasswdLevelIcons[2]->setPixmap(QPixmap::fromImage(*m_passwdLevelImg));
 
-            m_newPasswordEdit->showAlertMessage(tr("A stronger password is recommended: more than 8 characters, and contains 3 of the four character types: lowercase letters, uppercase letters, numbers, and symbols"));
+            if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+                m_newPasswordEdit->setAlert(true);
+                m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_newPasswordEdit, 2000);
+            }
         } else {
             m_newPasswordEdit->showAlertMessage(tr("Error occurred when reading the configuration files of password rules!"));
+        }
+    });
+
+    connect(m_repeatPasswordEdit, &DPasswordEdit::editingFinished, this, [ = ]() {
+        if (m_newPasswordEdit->lineEdit()->text() != m_repeatPasswordEdit->lineEdit()->text()) {
+            m_repeatPasswordEdit->setAlert(true);
+            m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
         }
     });
 
@@ -444,28 +462,32 @@ void ModifyPasswdPage::setPasswordEditAttribute(DPasswordEdit *edit)
 
 void ModifyPasswdPage::resetPassword(const QString &password, const QString &repeatPassword)
 {
+    bool check = false;
     PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_curUser->name(),
                                                                                       password);
 
     if (error != PW_NO_ERR) {
         m_newPasswordEdit->setAlert(true);
         m_newPasswordEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
-        return;
+        check = true;
     }
 
     if (password != repeatPassword) {
         m_repeatPasswordEdit->setAlert(true);
         m_repeatPasswordEdit->showAlertMessage(tr("Passwords do not match"), m_repeatPasswordEdit, 2000);
-        return;
+        check = true;
     }
 
     for (auto c : password) {
         if (m_passwordTipsEdit->text().contains(c)) {
             m_passwordTipsEdit->setAlert(true);
             m_passwordTipsEdit->showAlertMessage(tr("The hint is visible to all users. Do not include the password here."), m_passwordTipsEdit, 2000);
-            return;
+            check = true;
         }
     }
+
+    if (check)
+        return;
 
     if (!m_passwordTipsEdit->text().simplified().isEmpty())
         requestSetPasswordHint(m_curUser, m_passwordTipsEdit->text());

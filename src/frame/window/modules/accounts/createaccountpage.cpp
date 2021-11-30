@@ -268,6 +268,25 @@ void CreateAccountPage::initWidgets(QVBoxLayout *layout)
 
     connect(m_fullnameEdit, &DLineEdit::editingFinished, this, &CreateAccountPage::checkFullname);
 
+    //失焦后就提示
+    connect(m_passwdEdit, &DLineEdit::editingFinished, this, [ = ] {
+        PwqualityManager::ERROR_TYPE error = PwqualityManager::instance()->verifyPassword(m_nameEdit->lineEdit()->text(),
+                                                                                          m_passwdEdit->lineEdit()->text());
+        if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+            m_passwdEdit->setAlert(true);
+            m_passwdEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_passwdEdit, 2000);
+        }
+    });
+
+    //失焦后就提示，只检查密码一致性
+    connect(m_repeatpasswdEdit, &DLineEdit::editingFinished, this, [ = ] {
+        if (m_passwdEdit->lineEdit()->text() != m_repeatpasswdEdit->lineEdit()->text()) {
+            m_repeatpasswdEdit->setAlert(true);
+            m_repeatpasswdEdit->showAlertMessage(tr("Passwords do not match"), m_repeatpasswdEdit, 2000);
+        }
+    });
+
+
     connect(m_passwdEdit, &DPasswordEdit::textEdited, this, [ = ] {
         if (m_passwdEdit->isAlert()) {
             m_passwdEdit->hideAlertMessage();
@@ -359,8 +378,26 @@ void CreateAccountPage::showEvent(QShowEvent *event)
 
 void CreateAccountPage::createUser()
 {
+    bool check = false;
     //校验输入的用户名和密码
-    if (!checkName() || !checkFullname() || !checkPassword(m_repeatpasswdEdit) || !checkPassword(m_passwdEdit)) {
+    if (!checkName()) {
+        check = true;
+    }
+
+    if (!checkFullname()) {
+        check = true;
+    }
+
+    if (!checkPassword(m_repeatpasswdEdit)) {
+        check = true;
+    }
+
+    if (!checkPassword(m_passwdEdit)) {
+        check = true;
+    }
+
+
+    if (check) {
         return;
     }
 
@@ -551,7 +588,7 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
 
     if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
         m_passwdEdit->setAlert(true);
-        m_passwdEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error));
+        m_passwdEdit->showAlertMessage(PwqualityManager::instance()->getErrorTips(error), m_passwdEdit, 2000);
 
         // 企业版控制中心用户创建屏蔽安全中心登录安全的接口需求
         if ((DSysInfo::uosEditionType() == DSysInfo::UosEnterprise) || (DSysInfo::uosEditionType() == DSysInfo::UosEnterpriseC))
@@ -563,8 +600,8 @@ bool CreateAccountPage::checkPassword(DPasswordEdit *edit)
         if (!interface.isValid()) {
             return false;
         }
-        QDBusReply<int> level = interface.call("GetPwdLimitLevel");
 
+        QDBusReply<int> level = interface.call("GetPwdLimitLevel");
         if (level != 1) {
             QDBusReply<QString> errorTips = interface.call("GetPwdError");
             DDialog dlg("", errorTips, this);
