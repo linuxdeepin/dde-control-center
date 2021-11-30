@@ -32,9 +32,7 @@
 
 DGUI_USE_NAMESPACE
 
-namespace Dock {
 class TipsWidget;
-}
 
 namespace dde {
 namespace network {
@@ -79,7 +77,7 @@ private:
     void setDeviceEnabled(const DeviceType &deviceType, bool enabeld);
 
     int deviceCount(const DeviceType &devType) const;
-    QStringList ipTipsMessage(const DeviceType &devType);
+    QList<QPair<QString, QStringList>> ipTipsMessage(const DeviceType &devType);
 
 private Q_SLOTS:
     void onDeviceAdded(QList<NetworkDeviceBase *> devices);
@@ -90,7 +88,7 @@ private:
 
     QTimer *m_wirelessScanTimer;
 
-    Dock::TipsWidget *m_tipsWidget;
+    TipsWidget *m_tipsWidget;
     bool m_switchWire;
     QPixmap m_iconPixmap;
 

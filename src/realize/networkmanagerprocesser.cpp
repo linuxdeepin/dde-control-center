@@ -50,7 +50,7 @@ NetworkManagerProcesser::NetworkManagerProcesser(QObject *parent)
     , m_hotspotController(Q_NULLPTR)
     , m_networkInter(Q_NULLPTR)
     , m_connectivity(dde::network::Connectivity::Unknownconnectivity)
-    , m_ipChecker(new IPConfilctChecker(this, false, nullptr, this))
+    , m_ipChecker(new IPConfilctChecker(this, false))
 {
     Device::List allDevices = NetworkManager::networkInterfaces();
     for (Device::Ptr device : allDevices)
@@ -62,6 +62,7 @@ NetworkManagerProcesser::NetworkManagerProcesser(QObject *parent)
 
 NetworkManagerProcesser::~NetworkManagerProcesser()
 {
+    delete m_ipChecker;
 }
 
 void NetworkManagerProcesser::initConnections()

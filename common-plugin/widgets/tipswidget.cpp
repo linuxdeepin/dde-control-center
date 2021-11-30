@@ -4,58 +4,58 @@
 #include <QAccessible>
 #include <QTextDocument>
 
-namespace Dock{
-
 #define MARGIN 10
 
 TipsWidget::TipsWidget(QWidget *parent)
     : QFrame(parent)
-    , m_type(SingleLine)
 {
 }
 
-void TipsWidget::setText(const QString &text)
+void TipsWidget::setContext(const QList<QPair<QString, QStringList>> &textList)
 {
-    m_type = TipsWidget::SingleLine;
-    // 如果传递的是富文本，获取富文本中的纯文本内容进行显示
-    QTextDocument document;
-    document.setHtml(text);
-    // 同时去掉两边的空白信息，例如qBittorrent的提示
-    m_text = document.toPlainText().simplified();
-
-#if 0 //测试时可以使用下面的语句
-    // FIXME:藏语字体绘制会有异常，设置高度时需要使用fontMetrics().boundingRect()去获取整体的边界矩形的高度，
-    // 使用fontMetrics().height()去获取时，针对藏语这种字体，其高度和实际显示区域并不等同
-    m_text = "བོད་སྐད་ཡིག་གཟུགས་ཚད་ལེན་ཚོད་ལྟའི་སྐོར་གྱི་རྗོད་ཚིག";
-#endif
-
-    setFixedSize(fontMetrics().width(m_text) + MARGIN * 2, fontMetrics().boundingRect(m_text).height());
-
-    update();
-
-#ifndef QT_NO_ACCESSIBILITY
-    if (accessibleName().isEmpty()) {
-        QAccessibleEvent event(this, QAccessible::NameChanged);
-        QAccessible::updateAccessibility(&event);
-    }
-#endif
-}
-
-void TipsWidget::setTextList(const QStringList &textList)
-{
-    m_type = TipsWidget::MultiLine;
     m_textList = textList;
 
     int width = 0;
     int height = 0;
-    for (QString text : m_textList) {
-        width = qMax(width, fontMetrics().width(text) + MARGIN * 2);
-        height += fontMetrics().boundingRect(text).height();
+    int titleWidth = 0;
+    for (QPair<QString, QStringList> textPair : m_textList)
+        titleWidth = qMax(titleWidth, fontMetrics().width(textPair.first));
+
+    for (QPair<QString, QStringList> textPair : m_textList) {
+        QString key = textPair.first;
+        QStringList values = textPair.second;
+        if (values.size() > 0) {
+            for (const QString &value : values) {
+                QString text = m_spliter + value;
+                width = qMax(width, fontMetrics().width(text) + MARGIN * 2);
+                height += fontMetrics().boundingRect(text).height();
+            }
+        } else {
+            height += fontMetrics().boundingRect(key).height();
+            width = MARGIN * 2;
+        }
     }
 
+    width += titleWidth;
     setFixedSize(width, height);
 
     update();
+}
+
+void TipsWidget::setSpliter(const QString &spliter)
+{
+    m_spliter = spliter;
+}
+
+// 计算右侧文字的左侧位置
+int TipsWidget::calcValueX()
+{
+    int nMaxWidth = 0;
+    for (QPair<QString, QStringList> textPair : m_textList) {
+        int nCurrentTextWidth = fontMetrics().boundingRect(textPair.first).width();
+        nMaxWidth = qMax(nMaxWidth, nCurrentTextWidth);
+    }
+    return MARGIN + nMaxWidth + fontMetrics().width(m_spliter);
 }
 
 /**
@@ -70,42 +70,28 @@ void TipsWidget::paintEvent(QPaintEvent *event)
     painter.setPen(QPen(palette().brightText(), 1));
 
     QTextOption option;
-    option.setAlignment(Qt::AlignCenter);
+    option.setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
-    switch (m_type) {
-    case SingleLine: {
-        painter.drawText(rect(), m_text, option);
-    }
-        break;
-    case MultiLine: {
-        option.setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-        int y = 0;
-        for (QString text : m_textList) {
+    int y = 0;
+    int valueX = calcValueX();
+    for (QPair<QString, QStringList> textPair : m_textList) {
+        QString key = textPair.first;
+        QStringList values = textPair.second;
+        QString displayText = (values.size() > 0 ? (QString("%1%2").arg(key).arg(m_spliter)) : key);
+        int lineHeight = fontMetrics().boundingRect(displayText).height();
+        painter.drawText(QRect(MARGIN, y, rect().width(), lineHeight), displayText, option);
+        for (const QString &text : values) {
             int lineHeight = fontMetrics().boundingRect(text).height();
-            painter.drawText(QRect(MARGIN, y, rect().width(), lineHeight), text, option);
+            painter.drawText(QRect(valueX, y, rect().width(), lineHeight), text, option);
             y += lineHeight;
         }
-    }
-        break;
     }
 }
 
 bool TipsWidget::event(QEvent *event)
 {
-    if (event->type() == QEvent::FontChange) {
-        switch (m_type) {
-        case SingleLine:
-        {
-            setText(m_text);
-            break;
-        }
-        case MultiLine:
-        {
-            setTextList(m_textList);
-            break;
-        }
-        }
-    }
+    if (event->type() == QEvent::FontChange)
+        setContext(m_textList);
+
     return QFrame::event(event);
-}
 }

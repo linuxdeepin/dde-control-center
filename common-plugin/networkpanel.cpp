@@ -57,7 +57,7 @@ enum MenuItemKey : int {
 NetworkPanel::NetworkPanel(QObject *parent)
     : QObject(parent)
     , m_wirelessScanTimer(new QTimer(this))
-    , m_tipsWidget(new Dock::TipsWidget())
+    , m_tipsWidget(new TipsWidget())
     , m_switchWire(true)
     , m_mainWidget(nullptr)
 {
@@ -77,6 +77,7 @@ void NetworkPanel::setMainWidget(QWidget *mainWidget)
 void NetworkPanel::initUi()
 {
     m_tipsWidget->setVisible(false);
+    m_tipsWidget->setSpliter(" :  ");
 }
 
 void NetworkPanel::initConnection()
@@ -125,20 +126,27 @@ PluginState NetworkPanel::getPluginState()
     return m_pluginState;
 }
 
-QStringList NetworkPanel::ipTipsMessage(const DeviceType &devType)
+QList<QPair<QString, QStringList>> NetworkPanel::ipTipsMessage(const DeviceType &devType)
 {
     DeviceType type = static_cast<DeviceType>(devType);
-    QStringList tipMessage;
+    QList<QPair<QString, QStringList>> tipMessage;
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     for (NetworkDeviceBase *device : devices) {
         if (device->deviceType() != type)
             continue;
 
-        QString ipv4 = device->ipv4();
-        if (ipv4.isEmpty())
+        QStringList ipv4 = device->ipv4();
+        if (ipv4.isEmpty() || ipv4[0].isEmpty())
             continue;
 
-        tipMessage << QString("%1: %2").arg(device->deviceName()).arg(ipv4);
+        QStringList ipv4Messages;
+        for (int i = 0; i < ipv4.size(); i++) {
+            ipv4Messages << (i < 3 ? ipv4[i] : "......");
+            if (i >= 3)
+                break;
+        }
+
+        tipMessage << QPair<QString, QStringList>({ device->deviceName(), ipv4Messages });
     }
 
     return tipMessage;
@@ -148,49 +156,70 @@ void NetworkPanel::updateTooltips()
 {
     switch (m_pluginState) {
     case PluginState::Connected: {
-        QStringList textList;
+        QList<QPair<QString, QStringList>> textList;
         textList << ipTipsMessage(DeviceType::Wireless) << ipTipsMessage(DeviceType::Wired);
-        m_tipsWidget->setTextList(textList);
+        m_tipsWidget->setContext(textList);
         break;
     }
     case PluginState::WirelessConnected:
-        m_tipsWidget->setTextList(ipTipsMessage(DeviceType::Wireless));
+        m_tipsWidget->setContext(ipTipsMessage(DeviceType::Wireless));
         break;
     case PluginState::WiredConnected:
-        m_tipsWidget->setTextList(ipTipsMessage(DeviceType::Wired));
+        m_tipsWidget->setContext(ipTipsMessage(DeviceType::Wired));
         break;
     case PluginState::Disabled:
     case PluginState::WirelessDisabled:
-    case PluginState::WiredDisabled:
-        m_tipsWidget->setText(tr("Device disabled"));
+    case PluginState::WiredDisabled: {
+            QList<QPair<QString, QStringList>> tips;
+            tips << QPair<QString, QStringList>({ tr("Device disabled"), QStringList() });
+            m_tipsWidget->setContext(tips);
+        }
         break;
     case PluginState::Unknow:
-    case PluginState::Nocable:
-        m_tipsWidget->setText(tr("Network cable unplugged"));
+    case PluginState::Nocable: {
+            QList<QPair<QString, QStringList>> tips;
+            tips << QPair<QString, QStringList>({ tr("Network cable unplugged"), QStringList() });
+            m_tipsWidget->setContext(tips);
+        }
         break;
     case PluginState::Disconnected:
     case PluginState::WirelessDisconnected:
-    case PluginState::WiredDisconnected:
-        m_tipsWidget->setText(tr("Not connected"));
+    case PluginState::WiredDisconnected: {
+            QList<QPair<QString, QStringList>> tips;
+            tips << QPair<QString, QStringList>({ tr("Not connected"), QStringList() });
+            m_tipsWidget->setContext(tips);
+        }
         break;
     case PluginState::Connecting:
     case PluginState::WirelessConnecting:
-    case PluginState::WiredConnecting:
-        m_tipsWidget->setText(tr("Connecting"));
+    case PluginState::WiredConnecting: {
+            QList<QPair<QString, QStringList>> tips;
+            tips << QPair<QString, QStringList>({ tr("Connecting"), QStringList() });
+            m_tipsWidget->setContext(tips);
+        }
         break;
     case PluginState::ConnectNoInternet:
     case PluginState::WirelessConnectNoInternet:
-    case PluginState::WiredConnectNoInternet:
-        m_tipsWidget->setText(tr("Connected but no Internet access"));
+    case PluginState::WiredConnectNoInternet: {
+            QList<QPair<QString, QStringList>> tips;
+            tips << QPair<QString, QStringList>({ tr("Connected but no Internet access"), QStringList() });
+            m_tipsWidget->setContext(tips);
+        }
         break;
     case PluginState::Failed:
     case PluginState::WirelessFailed:
-    case PluginState::WiredFailed:
-        m_tipsWidget->setText(tr("Connection failed"));
+    case PluginState::WiredFailed: {
+            QList<QPair<QString, QStringList>> tips;
+            tips << QPair<QString, QStringList>({ tr("Connection failed"), QStringList() });
+            m_tipsWidget->setContext(tips);
+        }
         break;
     case PluginState::WiredIpConflicted:
-    case PluginState::WirelessIpConflicted:
-        m_tipsWidget->setText(tr("IP conflict"));
+    case PluginState::WirelessIpConflicted: {
+            QList<QPair<QString, QStringList>> tips;
+            tips << QPair<QString, QStringList>({ tr("IP conflict"), QStringList() });
+            m_tipsWidget->setContext(tips);
+        }
         break;
     }
 }

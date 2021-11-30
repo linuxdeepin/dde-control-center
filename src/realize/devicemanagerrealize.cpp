@@ -171,32 +171,30 @@ QString DeviceManagerRealize::usingHwAdr() const
     return QString();
 }
 
-QString DeviceManagerRealize::ipv4() const
+QStringList DeviceManagerRealize::ipv4() const
 {
     if (!device() || !device()->isConnected() || !isEnabled())
-        return QString();
+        return QStringList();
 
     NetworkManager::IpAddresses ipv4AddrList = m_wDevice->ipV4Config().addresses();
-    if (!ipv4AddrList.isEmpty()) {
-        IpAddress ipAddr = ipv4AddrList[0];
-        return ipAddr.ip().toString();
-    }
+    QStringList ipv4s;
+    for (const IpAddress &ipAddr : ipv4AddrList)
+        ipv4s << ipAddr.ip().toString();
 
-    return QString();
+    return ipv4s;
 }
 
-QString DeviceManagerRealize::ipv6() const
+QStringList DeviceManagerRealize::ipv6() const
 {
     if (!device() || !device()->isConnected() || !isEnabled())
-        return QString();
+        return QStringList();
 
     NetworkManager::IpAddresses ipv6AddrList = m_wDevice->ipV6Config().addresses();
-    if (!ipv6AddrList.isEmpty()) {
-        IpAddress ipAddr = ipv6AddrList[0];
-        return ipAddr.ip().toString();
-    }
+    QStringList ipv6s;
+    for (const IpAddress &ipAddr : ipv6AddrList)
+        ipv6s << ipAddr.ip().toString();
 
-    return QString();
+    return ipv6s;
 }
 
 QJsonObject DeviceManagerRealize::activeConnectionInfo() const

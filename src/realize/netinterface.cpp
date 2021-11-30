@@ -175,14 +175,14 @@ QString NetworkDeviceRealize::usingHwAdr() const
     return QString();
 }
 
-QString NetworkDeviceRealize::ipv4() const
+QStringList NetworkDeviceRealize::ipv4() const
 {
-    return QString();
+    return QStringList();
 }
 
-QString NetworkDeviceRealize::ipv6() const
+QStringList NetworkDeviceRealize::ipv6() const
 {
-    return QString();
+    return QStringList();
 }
 
 QJsonObject NetworkDeviceRealize::activeConnectionInfo() const

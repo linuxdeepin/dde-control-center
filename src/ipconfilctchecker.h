@@ -19,13 +19,15 @@ Q_SIGNALS:
     void conflictStatusChanged(NetworkDeviceBase *, const bool &);
 
 public:
-    explicit IPConfilctChecker(NetworkProcesser *networkProcesser, const bool ipChecked, NetworkInter *netInter = nullptr, QObject *parent = nullptr);
+    explicit IPConfilctChecker(NetworkProcesser *networkProcesser, const bool ipChecked, QObject *parent = nullptr);
     ~IPConfilctChecker();
 
     bool ipConfilct(NetworkDeviceBase *device) const;
 
 private Q_SLOT:
+    void onDeviceAdded(QList<NetworkDeviceBase *> devices);
     void onIPConfilct(const QString &ip, const QString &macAddress);
+    void onSenderIPInfo(const QStringList &ips);
 
 private:
     void handlerIpConflict(const QString &ip, const QString &macAddress, const QString &activeConnectionInfo);
@@ -36,7 +38,8 @@ private:
     NetworkInter *m_networkInter;
     NetworkProcesser *m_networkProcesser;
     QList<DeviceIPChecker *> m_deviceCheckers;
-    bool m_ipChecked;
+    bool m_ipNeedCheck;
+    QThread *m_thread;
 };
 
 class DeviceIPChecker : public QObject
@@ -45,29 +48,26 @@ class DeviceIPChecker : public QObject
 
 Q_SIGNALS:
     void conflictStatusChanged(NetworkDeviceBase *, const bool &);
+    void ipConflictCheck(const QStringList &);
 
 public:
-    explicit DeviceIPChecker(NetworkDeviceBase *device, NetworkInter *netInter, const bool &ipCheck, QObject *parent);
+    explicit DeviceIPChecker(NetworkDeviceBase *device, NetworkInter *netInter, QObject *parent);
     ~DeviceIPChecker();
     NetworkDeviceBase *device();
-    void setDeviceInfo(const QString &ipv4, const QString &macAddress);
+    void setDeviceInfo(const QStringList &ipv4, const QString &macAddress);
     bool ipConfilct();
     void handlerIpConflict();
-    QString ipV4();
-
-private:
-    void requestIPConflictCheck(const QString &ipv4, const int interval = -1);
+    QStringList ipV4();
 
 private:
     NetworkDeviceBase *m_device;
     NetworkInter *m_networkInter;
-    QString m_ipV4;
+    QStringList m_ipV4;
     QString m_macAddress;
     int m_conflictCount;
     int m_clearCount;
     bool m_ipConflicted;
-    bool m_ipCheck;
-    QStringList m_changeIpv4s;
+    QList<QStringList> m_changeIpv4s;
 };
 
 }

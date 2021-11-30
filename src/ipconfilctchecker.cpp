@@ -13,30 +13,37 @@ const static QString networkPath = "/com/deepin/daemon/Network";
 
 using namespace dde::network;
 
-IPConfilctChecker::IPConfilctChecker(NetworkProcesser *networkProcesser, const bool ipChecked, NetworkInter *netInter, QObject *parent)
+IPConfilctChecker::IPConfilctChecker(NetworkProcesser *networkProcesser, const bool ipChecked, QObject *parent)
     : QObject(parent)
-    , m_networkInter(netInter)
+    , m_networkInter(new NetworkInter(networkService, networkPath, QDBusConnection::sessionBus(), this))
     , m_networkProcesser(networkProcesser)
-    , m_ipChecked(ipChecked)
+    , m_ipNeedCheck(ipChecked)
+    , m_thread(new QThread(this))
 {
-    if (!m_networkInter)
-        m_networkInter = new NetworkInter(networkService, networkPath, QDBusConnection::sessionBus(), this);
+    this->moveToThread(m_thread);
 
     Q_ASSERT(m_networkProcesser);
     connect(m_networkInter, &NetworkInter::IPConflict, this, &IPConfilctChecker::onIPConfilct);                      // IP冲突发出的信号
     // 构造所有的设备冲突检测对象
-    QList<NetworkDeviceBase *> devices = m_networkProcesser->devices();
-    connect(m_networkProcesser, &NetworkProcesser::deviceAdded, this, [ this ] (QList<NetworkDeviceBase *> devices) {
-        for (NetworkDeviceBase *device : devices) {
-            DeviceIPChecker *ipChecker = new DeviceIPChecker(device, m_networkInter, m_ipChecked, this);
-            connect(ipChecker, &DeviceIPChecker::conflictStatusChanged, this, &IPConfilctChecker::conflictStatusChanged);
-            m_deviceCheckers << ipChecker;
-        }
-    });
+    connect(m_networkProcesser, &NetworkProcesser::deviceAdded, this, &IPConfilctChecker::onDeviceAdded, Qt::QueuedConnection);
+    m_thread->start();
 }
 
 IPConfilctChecker::~IPConfilctChecker()
 {
+    m_thread->quit();
+    m_thread->wait();
+}
+
+void IPConfilctChecker::onDeviceAdded(QList<NetworkDeviceBase *> devices)
+{
+    for (NetworkDeviceBase *device : devices) {
+        DeviceIPChecker *ipChecker = new DeviceIPChecker(device, m_networkInter, this);
+        connect(ipChecker, &DeviceIPChecker::conflictStatusChanged, this, &IPConfilctChecker::conflictStatusChanged);
+        if (m_ipNeedCheck)
+            connect(ipChecker, &DeviceIPChecker::ipConflictCheck, this, &IPConfilctChecker::onSenderIPInfo);
+        m_deviceCheckers << ipChecker;
+    }
 }
 
 bool IPConfilctChecker::ipConfilct(NetworkDeviceBase *device) const
@@ -67,11 +74,19 @@ void IPConfilctChecker::onIPConfilct(const QString &ip, const QString &macAddres
     // 如果是在控制中心修改手动IP的话，从当前库中获取到的IP地址就不是最新的地址，因此此处需要从后台获取实时IP
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->GetActiveConnectionInfo(), this);
     connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
-    connect(w, &QDBusPendingCallWatcher::finished, [ = ](QDBusPendingCallWatcher * w) {
+    connect(w, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         QDBusPendingReply<QString> reply = *w;
         QString activeConnectionInfo = reply.value();
         handlerIpConflict(ip, macAddress, activeConnectionInfo);
     });
+}
+
+void IPConfilctChecker::onSenderIPInfo(const QStringList &ips)
+{
+    for (const QString &ip : ips) {
+        m_networkInter->RequestIPConflictCheck(ip, "");
+        QThread::msleep(500);
+    }
 }
 
 void IPConfilctChecker::handlerIpConflict(const QString &ip, const QString &macAddress, const QString &activeConnectionInfo)
@@ -98,12 +113,20 @@ void IPConfilctChecker::handlerIpConflict(const QString &ip, const QString &macA
     }
 
     if (!ipChecker) {
-        ipChecker = new DeviceIPChecker(conflictDevice, m_networkInter, m_ipChecked, this);
+        ipChecker = new DeviceIPChecker(conflictDevice, m_networkInter, this);
         connect(ipChecker, &DeviceIPChecker::conflictStatusChanged, this, &IPConfilctChecker::conflictStatusChanged);
+        if (m_ipNeedCheck)
+            connect(ipChecker, &DeviceIPChecker::ipConflictCheck, this, &IPConfilctChecker::onSenderIPInfo);
         m_deviceCheckers << ipChecker;
     }
 
-    ipChecker->setDeviceInfo(ip, macAddress);
+    QStringList ips;
+    for (auto it = deviceIps.begin(); it != deviceIps.end(); it++) {
+        if (it.value() == conflictDevice)
+            ips << it.key();
+    }
+
+    ipChecker->setDeviceInfo(ips, macAddress);
     ipChecker->handlerIpConflict();
 }
 
@@ -123,12 +146,7 @@ QMap<QString, NetworkDeviceBase *> IPConfilctChecker::parseDeviceIp(const QStrin
     const QJsonArray &infoArray = json.array();
     for (const QJsonValue &infoValue : infoArray) {
         QJsonObject info = infoValue.toObject();
-        if (!info.contains("Ip4"))
-            continue;
-
-        QJsonObject ipv4Object = info.value("Ip4").toObject();
-        const QString ipv4 = ipv4Object.value("Address").toString();
-        if (ipv4.isEmpty())
+        if (!info.contains("IPv4") && !info.contains("Ip4"))
             continue;
 
         const QString devicePath = info.value("Device").toString();
@@ -136,7 +154,30 @@ QMap<QString, NetworkDeviceBase *> IPConfilctChecker::parseDeviceIp(const QStrin
             continue;
 
         NetworkDeviceBase *device = tmpDevicePath[devicePath];
-        deviceIp[ipv4] = device;
+
+        if (info.contains("IPv4")) {
+            QJsonObject ipv4TopObject = info.value("IPv4").toObject();
+            QJsonArray ipv4Addresses = ipv4TopObject.value("Addresses").toArray();
+            for (const QJsonValue addr : ipv4Addresses) {
+                const QJsonObject addrObject = addr.toObject();
+                QString ipAddr = addrObject.value("Address").toString();
+                ipAddr = ipAddr.remove("\"");
+                deviceIp[ipAddr] = device;
+            }
+        } else {
+            QJsonValue ipv4Info = info.value("Ip4");
+            QJsonObject ipv4Object = ipv4Info.toObject();
+            const QString ipv4 = ipv4Object.value("Address").toString();
+            if (ipv4.isEmpty())
+                continue;
+
+            const QString devicePath = info.value("Device").toString();
+            if (!tmpDevicePath.contains(devicePath))
+                continue;
+
+            NetworkDeviceBase *device = tmpDevicePath[devicePath];
+            deviceIp[ipv4] = device;
+        }
     }
 
     return deviceIp;
@@ -148,24 +189,23 @@ QMap<QString, NetworkDeviceBase *> IPConfilctChecker::parseDeviceIp(const QStrin
  * @param netInter
  * @param parent
  */
-DeviceIPChecker::DeviceIPChecker(NetworkDeviceBase *device, NetworkInter *netInter, const bool &ipCheck, QObject *parent)
+DeviceIPChecker::DeviceIPChecker(NetworkDeviceBase *device, NetworkInter *netInter, QObject *parent)
     : QObject(parent)
     , m_device(device)
     , m_networkInter(netInter)
     , m_conflictCount(0)
     , m_clearCount(0)
     , m_ipConflicted(false)
-    , m_ipCheck(ipCheck)
 {
     auto requestConflictCheck = [ this ] () {
         // 当设备的IP地址发生变化的时候，请求IP冲突， 只有在上一次请求和该次请求发生的时间大于2秒，才发出信号
         m_ipV4 = m_device->ipv4();
         if (!m_ipV4.isEmpty()) {
-            PRINT_INFO_MESSAGE(QString("request Device:%1, IP: %2").arg(m_device->deviceName()).arg(m_ipV4));
+            PRINT_INFO_MESSAGE(QString("request Device:%1, IP: %2").arg(m_device->deviceName()).arg(m_ipV4.join(",")));
             m_changeIpv4s << m_ipV4;
             QTimer::singleShot(800, this, [ this ] {
                 if (m_changeIpv4s.size() > 0) {
-                    requestIPConflictCheck(m_changeIpv4s[m_changeIpv4s.size() - 1]);
+                    emit ipConflictCheck(m_changeIpv4s[m_changeIpv4s.size() - 1]);
                     m_changeIpv4s.clear();
                 }
             });
@@ -173,7 +213,6 @@ DeviceIPChecker::DeviceIPChecker(NetworkDeviceBase *device, NetworkInter *netInt
     };
     connect(device, &NetworkDeviceBase::ipV4Changed, this, requestConflictCheck);
     connect(device, &NetworkDeviceBase::enableChanged, this, requestConflictCheck);
-    connect(device, &NetworkDeviceBase::activeConnectionChanged, this, requestConflictCheck);
 }
 
 DeviceIPChecker::~DeviceIPChecker()
@@ -185,7 +224,7 @@ NetworkDeviceBase *DeviceIPChecker::device()
     return m_device;
 }
 
-void DeviceIPChecker::setDeviceInfo(const QString &ipv4, const QString &macAddress)
+void DeviceIPChecker::setDeviceInfo(const QStringList &ipv4, const QString &macAddress)
 {
     m_ipV4 = ipv4;
     m_macAddress = macAddress;
@@ -198,12 +237,12 @@ bool DeviceIPChecker::ipConfilct()
 
 void DeviceIPChecker::handlerIpConflict()
 {
-    PRINT_INFO_MESSAGE(QString("device: %1 ip: %2 mac address:%3").arg(m_device->deviceName()).arg(m_ipV4).arg(m_macAddress));
+    PRINT_INFO_MESSAGE(QString("device: %1 ip: %2 mac address:%3").arg(m_device->deviceName()).arg(m_ipV4.join(",")).arg(m_macAddress));
     if (m_macAddress.isEmpty()) {
         m_conflictCount = 0;
         // 如果MAC地址为空，则表示IP冲突已经解决，则让每个网卡恢复之前的状态
         if (m_clearCount < 3) {
-            requestIPConflictCheck(m_ipV4, 800);
+            emit ipConflictCheck(m_ipV4);
         } else {
             // 拿到最后一次设备冲突的状态
             bool lastConfilctStatus = m_ipConflicted;
@@ -214,23 +253,27 @@ void DeviceIPChecker::handlerIpConflict()
             if (lastConfilctStatus)
                 Q_EMIT conflictStatusChanged(m_device, false);
             // 如果网络没有冲突，则30分钟定期检测一次
-            if (m_clearCount < 3) {
-#define SCANTIME (30 * 60 * 1000)
-                requestIPConflictCheck(m_ipV4, SCANTIME);
-            }
+            if (m_clearCount < 3)
+                emit ipConflictCheck(m_ipV4);
+            // 如果冲突解除，则30秒发送一次，因为正常情况下，如果有冲突，很少会主动给客户端发送冲突信息
+            // 所以在解除后，检测30秒再发送一次检测
+            QTimer::singleShot(1000 * 30, this, [ this ] {
+                PRINT_INFO_MESSAGE(QString("start check ip conflict:%1").arg(m_ipV4.join(",")));
+                emit ipConflictCheck(m_ipV4);
+            });
         }
         m_clearCount++;
     } else {
         m_clearCount = 0;
-        PRINT_INFO_MESSAGE(QString("find confilct device:%1, confilctCount:%2, conflictIP: %3").arg(m_device->deviceName()).arg(m_conflictCount)).arg(m_ipV4);
+        PRINT_INFO_MESSAGE(QString("find confilct device:%1, confilctCount:%2, conflictIP: %3").arg(m_device->deviceName()).arg(m_conflictCount)).arg(m_ipV4.join(","));
 
         // 如果少于两次，则继续确认
         if (m_conflictCount < 1) {
             PRINT_INFO_MESSAGE(QString("start confirm %1 times").arg(m_conflictCount));
-            requestIPConflictCheck(m_ipV4, 500);
+            emit ipConflictCheck(m_ipV4);
         } else {
             // 如果大于3次，则认为当前IP冲突了
-            PRINT_INFO_MESSAGE(QString("ip Conflicted: %1, device: %2").arg(m_ipV4).arg(m_device->deviceName()));
+            PRINT_INFO_MESSAGE(QString("ip Conflicted: %1, device: %2").arg(m_ipV4.join(",")).arg(m_device->deviceName()));
             // 拿到最后一次设备冲突的状态
             bool lastConflictStatus = m_ipConflicted;
             m_ipConflicted = true;
@@ -239,28 +282,16 @@ void DeviceIPChecker::handlerIpConflict()
             if (!lastConflictStatus)
                 Q_EMIT conflictStatusChanged(m_device, true);
 
-            requestIPConflictCheck(m_ipV4, 5000);
+            QTimer::singleShot(5000, this, [ this ] {
+                // 如果确定是有冲突，则每隔5秒检测一次，直到冲突解除
+                emit ipConflictCheck(m_ipV4);
+            });
         }
         m_conflictCount++;
     }
 }
 
-QString DeviceIPChecker::ipV4()
+QStringList DeviceIPChecker::ipV4()
 {
     return m_ipV4;
-}
-
-void DeviceIPChecker::requestIPConflictCheck(const QString &ipv4, const int interval)
-{
-    // 只有主动检测IP，才会定期发送IP冲突检测的功能，因为当前的库是放到了每个独立的应用里面，只需要发送一次检测就行，如果同时都在检测，会一直不停的检测引起问题
-    if (!m_ipCheck)
-        return;
-
-    if (interval < 0) {
-        m_networkInter->RequestIPConflictCheck(ipv4, "");
-    } else {
-        QTimer::singleShot(interval, this, [ this, ipv4 ] {
-            m_networkInter->RequestIPConflictCheck(ipv4, "");
-        });
-    }
 }

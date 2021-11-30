@@ -17,10 +17,34 @@ DockTestWidget::~DockTestWidget()
 void DockTestWidget::initDock()
 {
     m_networkPlugin->init(this);
+    QWidget *pluginWidget = m_networkPlugin->itemWidget(NETWORK_KEY);
     QHBoxLayout *layout = new QHBoxLayout(this);
     layout->setContentsMargins(20, 0, 20, 0);
-    layout->addWidget(m_networkPlugin->itemWidget(NETWORK_KEY));
+    layout->addWidget(pluginWidget);
     layout->addStretch();
+    pluginWidget->installEventFilter(this);
+}
+
+bool DockTestWidget::eventFilter(QObject *object, QEvent *event)
+{
+    if (object == m_networkPlugin->itemWidget(NETWORK_KEY)) {
+        if (event->type() == QEvent::Enter) {
+            m_networkPlugin->itemTipsWidget(NETWORK_KEY)->show();
+            return true;
+        } else if (event->type() == QEvent::Leave) {
+            m_networkPlugin->itemTipsWidget(NETWORK_KEY)->hide();
+            return true;
+        }
+    }
+
+    return QWidget::eventFilter(object, event);
+}
+
+void DockTestWidget::enterEvent(QEvent *event)
+{
+    QWidget *tip = m_networkPlugin->itemTipsWidget(NETWORK_KEY);
+    tip->setFixedSize(200, 300);
+    tip->show();
 }
 
 void DockTestWidget::itemAdded(PluginsItemInterface * const itemInter, const QString &itemKey)

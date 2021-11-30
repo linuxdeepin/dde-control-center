@@ -57,7 +57,7 @@ NetworkInterProcesser::NetworkInterProcesser(bool sync, bool ipCheck, QObject *p
     , m_sync(sync)
     , m_unManagerDevice(Q_NULLPTR)
     , m_newManagerDevice(Q_NULLPTR)
-    , m_ipChecker(new IPConfilctChecker(this, ipCheck, m_networkInter, this))
+    , m_ipChecker(new IPConfilctChecker(this, ipCheck))
 {
     initConnection();
     initDeviceService();
@@ -65,6 +65,7 @@ NetworkInterProcesser::NetworkInterProcesser(bool sync, bool ipCheck, QObject *p
 
 NetworkInterProcesser::~NetworkInterProcesser()
 {
+    delete m_ipChecker;
 }
 
 void NetworkInterProcesser::initNetData(NetworkInter *networkInt)
@@ -88,7 +89,7 @@ void NetworkInterProcesser::initDeviceService()
             QDBusServiceWatcher *serviceWatcher = new QDBusServiceWatcher(this);
             serviceWatcher->setConnection(QDBusConnection::sessionBus());
             serviceWatcher->addWatchedService(networkService);
-            connect(serviceWatcher, &QDBusServiceWatcher::serviceRegistered, [ = ] {
+            connect(serviceWatcher, &QDBusServiceWatcher::serviceRegistered, this, [ = ] {
                 NetworkInter netInter(networkService, networkPath, QDBusConnection::sessionBus(), this);
                 initNetData(&netInter);
                 serviceWatcher->deleteLater();
@@ -485,7 +486,7 @@ void NetworkInterProcesser::asyncActiveConnectionInfo()
     PRINT_INFO_MESSAGE("start");
     QDBusPendingCallWatcher *w = new QDBusPendingCallWatcher(m_networkInter->GetActiveConnectionInfo(), this);
     connect(w, &QDBusPendingCallWatcher::finished, w, &QDBusPendingCallWatcher::deleteLater);
-    connect(w, &QDBusPendingCallWatcher::finished, [ = ](QDBusPendingCallWatcher * w) {
+    connect(w, &QDBusPendingCallWatcher::finished, this, [ = ](QDBusPendingCallWatcher * w) {
         QDBusPendingReply<QString> reply = *w;
         QString activeConnectionInfo = reply.value();
         PRINT_INFO_MESSAGE("receive value");

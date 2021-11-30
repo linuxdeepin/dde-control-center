@@ -59,6 +59,8 @@ private:
     QString ipv6Infomation(QJsonObject connectinfo, InfoType type);
     QString devicePath();
 
+    QString prefixToNetMask(int prefixLength);
+
 private:
     QString m_name;
     QString m_devicePath;

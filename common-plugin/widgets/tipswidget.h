@@ -2,32 +2,25 @@
 #define TIPSWIDGET_H
 
 #include <QFrame>
-namespace Dock {
+
 class TipsWidget : public QFrame
 {
     Q_OBJECT
-    enum ShowType
-    {
-        SingleLine,
-        MultiLine
-    };
+
 public:
     explicit TipsWidget(QWidget *parent = nullptr);
 
-    const QString& text(){return m_text;}
-    const QStringList &textList() { return  m_textList; }
-    void setText(const QString &text);
-    void setTextList(const QStringList &textList);
+    void setContext(const QList<QPair<QString, QStringList>> &textList);
+    void setSpliter(const QString &spliter);
 
 protected:
     void paintEvent(QPaintEvent *event) override;
     bool event(QEvent *event) override;
+    int calcValueX();
 
 private:
-    QString m_text;
-    QStringList m_textList;
-    ShowType m_type;
+    QList<QPair<QString, QStringList>> m_textList;
+    QString m_spliter;
 };
-}
 
 #endif // TIPSWIDGET_H

@@ -17,6 +17,9 @@ public:
 private:
     void initDock();
 
+    bool eventFilter(QObject *object, QEvent *event);
+    void enterEvent(QEvent *event);
+
 private:
     void itemAdded(PluginsItemInterface * const itemInter, const QString &itemKey) override;
     void itemUpdate(PluginsItemInterface * const itemInter, const QString &itemKey) override;

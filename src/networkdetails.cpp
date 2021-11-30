@@ -78,6 +78,16 @@ static const QString compressedIpv6Addr(const QString &ipv6Adr)
     return ipv6Adr;
 }
 
+QString NetworkDetails::prefixToNetMask(int prefixLength)
+{
+    uint32_t mask = (0xFFFFFFFF << (32 - prefixLength)) & 0xFFFFFFFF;
+    uint8_t m1 = mask >> 24;
+    uint8_t m2 = (mask >> 16) & 0xFF;
+    uint8_t m3 = (mask >> 8) & 0xFF;
+    uint8_t m4 = mask & 0xFF;
+    return QString("%1.%2.%3.%4").arg(m1).arg(m2).arg(m3).arg(m4);
+}
+
 void NetworkDetails::updateData(const QJsonObject &info)
 {
     m_items.clear();
@@ -133,39 +143,84 @@ void NetworkDetails::updateData(const QJsonObject &info)
         appendInfo(tr("Band"), band);
     } else {
         // ipv4
-        const auto ipv4 = info.value("Ip4").toObject();
-        if (!ipv4.isEmpty()) {
-            // ipv4 地址
-            const auto ip4Addr = ipv4.value("Address").toString();
-            if (!ip4Addr.isEmpty())
-                appendInfo(tr("IPv4"), ip4Addr);
-            // ipv4 网关
-            const auto gateway = ipv4.value("Gateways").toArray();
+        if (info.contains("IPv4")) {
+            QJsonObject ipv4TopObject = info["IPv4"].toObject();
+            QJsonArray ipv4Array = ipv4TopObject.value("Addresses").toArray();
+            for (const QJsonValue ipv4Value : ipv4Array) {
+                const QJsonObject ipv4Object = ipv4Value.toObject();
+                QString ip = ipv4Object.value("Address").toString();
+                ip = ip.remove("\"");
+                appendInfo(tr("IPv4"), ip);
+                int prefix = ipv4Object.value("Prefix").toInt();
+                QString ip4Netmask = prefixToNetMask(prefix);
+                if (!ip4Netmask.isEmpty())
+                    appendInfo(tr("Netmask"), ip4Netmask);
+            }
+            const QString gateway = ipv4TopObject.value("Gateway").toString();
             if (!gateway.isEmpty())
-                appendInfo(tr("Gateway"), gateway.first().toString());
-            // ipv4 首选DNS
-            const auto ip4PrimaryDns = ipv4.value("Dnses").toArray();
+                appendInfo(tr("Gateway"), gateway);
+
+            const auto ip4PrimaryDns = ipv4TopObject.value("Nameservers").toArray();
             if (!ip4PrimaryDns.isEmpty())
                 appendInfo(tr("Primary DNS"), ip4PrimaryDns.first().toString());
-            // ipv4 子网掩码
-            const auto ip4Netmask = ipv4.value("Mask").toString();
-            if (!ip4Netmask.isEmpty())
-                appendInfo(tr("Netmask"), ip4Netmask);
+        } else {
+            const auto ipv4 = info.value("Ip4").toObject();
+            if (!ipv4.isEmpty()) {
+                // ipv4 地址
+                const auto ip4Addr = ipv4.value("Address").toString();
+                if (!ip4Addr.isEmpty())
+                    appendInfo(tr("IPv4"), ip4Addr);
+                // ipv4 子网掩码
+                const auto ip4Netmask = ipv4.value("Mask").toString();
+                if (!ip4Netmask.isEmpty())
+                    appendInfo(tr("Netmask"), ip4Netmask);
+                // ipv4 网关
+                const auto gateway = ipv4.value("Gateways").toArray();
+                if (!gateway.isEmpty())
+                    appendInfo(tr("Gateway"), gateway.first().toString());
+                // ipv4 首选DNS
+                const auto ip4PrimaryDns = ipv4.value("Dnses").toArray();
+                if (!ip4PrimaryDns.isEmpty())
+                    appendInfo(tr("Primary DNS"), ip4PrimaryDns.first().toString());
+            }
         }
         // ipv6
-        const auto ipv6 = info.value("Ip6").toObject();
-        if (!ipv6.isEmpty()) {
-            appendInfo(tr("IPv6"), compressedIpv6Addr(ipv6Infomation(info, InfoType::Ip)));
-            appendInfo(tr("Gateway"), compressedIpv6Addr(ipv6Infomation(info, InfoType::Gateway)));
+        if (info.contains("IPv6")) {
+            QJsonObject ipv6TopObject = info["IPv6"].toObject();
+            QJsonArray ipv6Array = ipv6TopObject.value("Addresses").toArray();
+            for (const QJsonValue ipv6Value : ipv6Array) {
+                const QJsonObject ipv6Object = ipv6Value.toObject();
+                QString ip = ipv6Object.value("Address").toString();
+                ip = ip.remove("\"");
+                appendInfo(tr("IPv6"), ip);
+                QString ip6Prefix = QString::number(ipv6Object.value("Prefix").toInt());
+                if (!ip6Prefix.isEmpty())
+                    appendInfo(tr("Prefix"), ip6Prefix);
+            }
+            const QString gateway = ipv6TopObject.value("Gateway").toString();
+            if (!gateway.isEmpty())
+                appendInfo(tr("Gateway"), gateway);
 
-            // ipv6 首选DNS
-            const auto ip6PrimaryDns = ipv6.value("Dnses").toArray();
-            if (!ip6PrimaryDns.isEmpty())
-                appendInfo(tr("Primary DNS"), compressedIpv6Addr(ip6PrimaryDns.first().toString()));
-            // ipv6 子网掩码
-            const auto ip6Prefix = ipv6.value("Prefix").toString();
-            if (!ip6Prefix.isEmpty())
-                appendInfo(tr("Prefix"), ip6Prefix);
+            const auto ip4PrimaryDns = ipv6TopObject.value("Nameservers").toArray();
+            if (!ip4PrimaryDns.isEmpty())
+                appendInfo(tr("Primary DNS"), ip4PrimaryDns.first().toString());
+        } else {
+            const auto ipv6 = info.value("Ip6").toObject();
+            if (!ipv6.isEmpty()) {
+                // ipv6地址
+                appendInfo(tr("IPv6"), compressedIpv6Addr(ipv6Infomation(info, InfoType::Ip)));
+                // ipv6前缀
+                const auto ip6Prefix = QString::number(ipv6.value("Prefix").toInt());
+                if (!ip6Prefix.isEmpty())
+                    appendInfo(tr("Prefix"), ip6Prefix);
+                // ipv6网关
+                appendInfo(tr("Gateway"), compressedIpv6Addr(ipv6Infomation(info, InfoType::Gateway)));
+
+                // ipv6 首选DNS
+                const auto ip6PrimaryDns = ipv6.value("Dnses").toArray();
+                if (!ip6PrimaryDns.isEmpty())
+                    appendInfo(tr("Primary DNS"), compressedIpv6Addr(ip6PrimaryDns.first().toString()));
+            }
         }
         // 速率
         const QString speed = info.value("Speed").toString();

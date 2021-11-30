@@ -99,12 +99,12 @@ QString NetworkDeviceBase::usingHwAdr() const
     return deviceRealize()->usingHwAdr();
 }
 
-QString NetworkDeviceBase::ipv4() const
+QStringList NetworkDeviceBase::ipv4() const
 {
     return deviceRealize()->ipv4();
 }
 
-QString NetworkDeviceBase::ipv6() const
+QStringList NetworkDeviceBase::ipv6() const
 {
     return deviceRealize()->ipv6();
 }

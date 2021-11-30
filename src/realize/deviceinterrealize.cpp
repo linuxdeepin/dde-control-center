@@ -26,24 +26,52 @@
 
 using namespace dde::network;
 
-QString DeviceInterRealize::ipv4() const
+QStringList DeviceInterRealize::ipv4() const
 {
-    if (!isConnected() || !isEnabled() || !m_activeInfoData.contains("Ip4"))
-        return QString();
+    if (!isConnected() || !isEnabled())
+        return QStringList();
+
+    if (m_activeInfoData.contains("IPv4")) {
+        QJsonObject ipv4TopObject = m_activeInfoData["IPv4"].toObject();
+        QJsonArray ipv4Array = ipv4TopObject.value("Addresses").toArray();
+        QStringList ipv4s;
+        for (const QJsonValue ipv4Value : ipv4Array) {
+            const QJsonObject ipv4Object = ipv4Value.toObject();
+            QString ip = ipv4Object.value("Address").toString();
+            ip = ip.remove("\"");
+            ipv4s << ip;
+        }
+        return ipv4s;
+    }
 
     // 返回IPv4地址
-    QJsonObject objIpv4 = m_activeInfoData["Ip4"].toObject();
-    return objIpv4.value("Address").toString();
+    QJsonValue ipJsonData = m_activeInfoData["Ip4"];
+    QJsonObject objIpv4 = ipJsonData.toObject();
+    return { objIpv4.value("Address").toString() };
 }
 
-QString DeviceInterRealize::ipv6() const
+QStringList DeviceInterRealize::ipv6() const
 {
     if (!isConnected() || !isEnabled() || !m_activeInfoData.contains("Ip6"))
-        return QString();
+        return QStringList();
 
-    // 返回IPv6地址
-    QJsonObject objIpv4 = m_activeInfoData["Ip6"].toObject();
-    return objIpv4.value("Address").toString();
+    if (m_activeInfoData.contains("IPv6")) {
+        QJsonObject ipv6TopObject = m_activeInfoData["IPv6"].toObject();
+        QJsonArray ipv6Array = ipv6TopObject.value("Addresses").toArray();
+        QStringList ipv6s;
+        for (const QJsonValue ipv6Value : ipv6Array) {
+            const QJsonObject ipv6Object = ipv6Value.toObject();
+            QString ip = ipv6Object.value("Address").toString();
+            ip = ip.remove("\"");
+            ipv6s << ip;
+        }
+        return ipv6s;
+    }
+
+    // 返回IPv4地址
+    QJsonValue ipJsonData = m_activeInfoData["Ip6"];
+    QJsonObject objIpv6 = ipJsonData.toObject();
+    return { objIpv6.value("Address").toString() };
 }
 
 QJsonObject DeviceInterRealize::activeConnectionInfo() const
@@ -121,7 +149,7 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
 
     PRINT_INFO_MESSAGE("receive Ip Data");
 
-    const QString oldIpv4 = ipv4();
+    const QStringList oldIpv4 = ipv4();
     m_activeInfoData = QJsonObject();
     for (const QJsonObject &info : infos) {
         if (info.value("ConnectionType").toString() == deviceKey()) {
@@ -135,7 +163,19 @@ void DeviceInterRealize::updateActiveConnectionInfo(const QList<QJsonObject> &in
     if (!m_activeInfoData.isEmpty())
         Q_EMIT connectionChanged();
 
-    if (oldIpv4 != ipv4())
+    QStringList ipv4s = ipv4();
+    bool ipChanged = false;
+    if (oldIpv4.size() != ipv4s.size()) {
+        ipChanged = true;
+    } else {
+        for (const QString &ip : ipv4s) {
+            if (!oldIpv4.contains(ip)) {
+                ipChanged = true;
+                break;
+            }
+        }
+    }
+    if (ipChanged)
         Q_EMIT ipV4Changed();
 }
 

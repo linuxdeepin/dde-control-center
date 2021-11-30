@@ -58,8 +58,8 @@ class NetworkDeviceBase : public QObject
     Q_PROPERTY(bool supportHotspot READ supportHotspot)                                         // 对应于supportHotspot接口
     Q_PROPERTY(QString realHwAdr READ realHwAdr)                                                // 对应于realHwAdr接口
     Q_PROPERTY(QString usingHwAdr READ usingHwAdr)                                              // 对应于usingHwAdr接口
-    Q_PROPERTY(QString ipv4 READ ipv4)                                                          // 对应于ipv4接口
-    Q_PROPERTY(QString ipv6 READ ipv6)                                                          // 对应于ipv6接口
+    Q_PROPERTY(QStringList ipv4 READ ipv4)                                                      // 对应于ipv4接口
+    Q_PROPERTY(QStringList ipv6 READ ipv6)                                                      // 对应于ipv6接口
     Q_PROPERTY(QString deviceName READ deviceName WRITE setName NOTIFY nameChanged)             // 对应于设备名称
 
 Q_SIGNALS:
@@ -88,8 +88,8 @@ public:
     bool supportHotspot() const;           // 是否支持热点,对应于设备上返回值的SupportHotspot
     QString realHwAdr() const;             // mac地址
     QString usingHwAdr() const;           // 正在使用的mac地址
-    QString ipv4() const;                                                                        // IPV4地址
-    QString ipv6() const;                                                                        // IPV6地址
+    QStringList ipv4() const;                                                                        // IPV4地址
+    QStringList ipv6() const;                                                                        // IPV6地址
     QJsonObject activeConnectionInfo() const;                                                    // 获取当前活动连接的信息
     void setEnabled(bool enabled);                                                               // 开启或禁用网卡
     void disconnectNetwork();                                                        // 断开网络连接，该方法是一个虚方法，具体在子类
