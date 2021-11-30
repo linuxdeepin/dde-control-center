@@ -17,6 +17,14 @@ static const QMap<QString, QString> SYSTEM_LOCAL_MAP {
     {"zh_TW", "zh_TW"},
 };
 
+static const QStringList SYSTEM_LOCAL_LIST {
+    "zh_CN",
+    "zh_HK",
+    "zh_TW",
+    "ug_CN",
+    "bo_CN"
+};
+
 enum UiActiveState {
     Unknown = -1,  //未知
     Unauthorized = 0,  //未授权
@@ -34,7 +42,7 @@ inline bool isFileExist(const QString &path){
 static const QString getLicensePath(const QString &filePath, const QString &type)
 {
     const QString& locale { QLocale::system().name() };
-    QString lang = SYSTEM_LOCAL_MAP.keys().contains(locale) ? locale : "en_US";
+    QString lang = SYSTEM_LOCAL_LIST.contains(locale) ? locale : "en_US";
 
     QString path = QString(filePath).arg(lang).arg(type);
     if (isFileExist(path))
