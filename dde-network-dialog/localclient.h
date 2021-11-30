@@ -24,21 +24,48 @@
 #include <QLocalSocket>
 #include <QProcess>
 
+#include <DSingleton>
+
+class DockPopupWindow;
+class NetworkPanel;
+
 class QTimer;
 
 class LocalClient : public QObject
+    , public Dtk::Core::DSingleton<LocalClient>
 {
     Q_OBJECT
 
+    friend class Dtk::Core::DSingleton<LocalClient>;
+
 public:
-    LocalClient(const QString &serverName, QObject *parent = nullptr);
+    enum RunReason {
+        Lock,     // 锁屏插件唤起
+        Greeter,  // greeter插件唤起
+        Dock,     // 任务栏插件唤起
+        Password, // 密码错误唤起
+    };
+
+protected:
+    explicit LocalClient(QObject *parent = nullptr);
+
+public:
     ~LocalClient();
 
 public:
-    void setServerName(const QString &strServerName);
     bool ConnectToServer();
-    void sendMessage(const QString &msg);
     void waitPassword(const QString &dev, const QString &ssid);
+
+    void showWidget();
+    void initWidget();
+
+    bool changePassword(QString key, QString password, bool input);
+
+public:
+    void showPosition(QLocalSocket *socket, const QByteArray &data);
+    void receive(QLocalSocket *socket, const QByteArray &data);
+    void connectNetwork(QLocalSocket *socket, const QByteArray &data);
+    void receivePassword(QLocalSocket *socket, const QByteArray &data);
 
 private Q_SLOTS:
     void connectedHandler();
@@ -48,10 +75,13 @@ private Q_SLOTS:
 private:
     QLocalSocket *m_clinet;
     QString m_dev;
-    QString m_ssid;
-    QString m_serverName;
+    QString m_ssid; // 等待密码输入模式时才有值，由命令转入 @see waitPassword
     QTimer *m_timer;
+    QTimer *m_exitTimer;
     QByteArray m_lastData;
+
+    DockPopupWindow *m_popopWindow;
+    NetworkPanel *m_panel;
 };
 
 #endif // LOCALCLIENT_H

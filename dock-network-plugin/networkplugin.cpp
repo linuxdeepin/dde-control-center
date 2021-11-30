@@ -70,6 +70,8 @@ void NetworkPlugin::init(PluginProxyInterface *proxyInter)
 
     if (!pluginIsDisable())
         loadPlugin();
+
+    m_networkDialog->runServer(true);
 }
 
 void NetworkPlugin::invokedMenuItem(const QString &itemKey, const QString &menuId, const bool checked)
@@ -126,6 +128,7 @@ QWidget *NetworkPlugin::itemWidget(const QString &itemKey)
         TrayIcon *trayIcon = new TrayIcon(m_networkPanel.data());
         connect(this, &NetworkPlugin::signalShowNetworkDialog, trayIcon, &TrayIcon::showNetworkDialog);
         connect(trayIcon, &TrayIcon::signalShowNetworkDialog, this, &NetworkPlugin::showNetworkDialog);
+        connect(m_networkDialog, &NetworkDialog::requestPosition, trayIcon, &TrayIcon::showNetworkDialog);
         QTimer::singleShot(100, this, &NetworkPlugin::updatePoint);
         return trayIcon;
     }
@@ -147,6 +150,7 @@ QWidget *NetworkPlugin::itemPopupApplet(const QString &itemKey)
     if (!m_networkPanel->needShowControlCenter() && abs(msec - m_clickTime) > 200) {
         m_clickTime = msec;
         emit signalShowNetworkDialog();
+        m_networkDialog->show();
     }
     return Q_NULLPTR;
 }
@@ -188,6 +192,7 @@ void NetworkPlugin::positionChanged(const Dock::Position position)
 
 void NetworkPlugin::lockFrontVisible(bool visible)
 {
+    m_networkDialog->runServer(!visible);
     if (!visible) {
         updatePoint();
     }
@@ -195,7 +200,6 @@ void NetworkPlugin::lockFrontVisible(bool visible)
 
 void NetworkPlugin::updatePoint()
 {
-    m_networkDialog->setSaveMode(true);
     emit signalShowNetworkDialog();
 }
 
@@ -203,7 +207,7 @@ void NetworkPlugin::showNetworkDialog(QWidget *widget) const
 {
     const QWidget *w = qobject_cast<QWidget *>(widget->parentWidget());
     const QWidget *parentWidget = w;
-    Dock::Position position = Dock::Position::Bottom;
+    Dtk::Widget::DArrowRectangle::ArrowDirection position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom;
     QPoint point;
     while (w) {
         parentWidget = w;
@@ -216,21 +220,24 @@ void NetworkPlugin::showNetworkDialog(QWidget *widget) const
         switch (pos) {
         case Dock::Position::Top:
             p.ry() += rect.height() / 2;
+            position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowTop;
             break;
         case Dock::Position::Bottom:
             p.ry() -= rect.height() / 2;
+            position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom;
             break;
         case Dock::Position::Left:
             p.rx() += rect.width() / 2;
+            position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowLeft;
             break;
         case Dock::Position::Right:
             p.rx() -= rect.width() / 2;
+            position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowRight;
             break;
         }
-        position = pos;
         p = widget->mapToGlobal(p);
         point = p;
     }
 
-    m_networkDialog->show(point.x(), point.y(), position);
+    m_networkDialog->setPosition(point.x(), point.y(), position);
 }

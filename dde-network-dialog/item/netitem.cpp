@@ -23,7 +23,7 @@
 #include "constants.h"
 #include "../widgets/statebutton.h"
 #include "wirelessconnect.h"
-#include "../localserver.h"
+#include "../localclient.h"
 #include "../thememanager.h"
 
 #include <DApplicationHelper>
@@ -592,7 +592,7 @@ void WirelessItem::expandWidget(ExpandWidget type)
         m_topItem->setVisible(false);
         standardItem()->setSizeHint(QSize(-1, 36));
         if (m_accessPoint) {
-            LocalServer::instance()->changePassword(m_accessPoint->ssid(), QString(), false);
+            LocalClient::instance()->changePassword(m_accessPoint->ssid(), QString(), false);
         }
         break;
     case ExpandWidget::ShowSSID:
@@ -736,7 +736,7 @@ void WirelessItem::onConnectNetwork()
     // 输入无效在checkInputValid里已判断
     if (m_wirelessConnect->passwordIsValid(password)) {
         if (m_accessPoint) {
-            if (LocalServer::instance()->changePassword(m_accessPoint->ssid(), password, true)) {
+            if (LocalClient::instance()->changePassword(m_accessPoint->ssid(), password, true)) {
                 expandWidget(ExpandWidget::Hide);
                 return;
             }

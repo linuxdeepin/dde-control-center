@@ -26,45 +26,74 @@
 
 #include <QProcess>
 
-class QWindow;
+#include <DArrowRectangle>
+
+class QWidget;
+class QLocalServer;
+class QLocalSocket;
 
 class NetworkDialog : public QObject
 {
     Q_OBJECT
 
+signals:
+    void requestPosition();
+
 public:
     enum RunReason {
-        Lock,      // 锁屏插件唤起
-        Greeter,   // greeter插件唤起
-        Dock,      // 任务栏插件唤起
-        Password,  // 密码错误唤起
+        Lock,     // 锁屏插件唤起
+        Greeter,  // greeter插件唤起
+        Dock,     // 任务栏插件唤起
+        Password, // 密码错误唤起
     };
 
     explicit NetworkDialog(QObject *parent = Q_NULLPTR);
-    ~NetworkDialog();
+    ~NetworkDialog() override;
 
-    void saveConfig(int x, int y, Dock::Position position = Dock::Position::Bottom);
-    void show(int x, int y, Dock::Position position = Dock::Position::Bottom);
+    void show();
     void setConnectWireless(const QString &dev, const QString &ssid);
     void setRunReason(RunReason reason);
-    void setSaveMode(bool isSave);
+    void setPosition(int x, int y, Dtk::Widget::DArrowRectangle::ArrowDirection position = Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom);
 
 private:
-    void runProcess(int x, int y, Dock::Position position = Dock::Position::Bottom);
+    void runProcess(bool show = true);
     bool eventFilter(QObject *watched, QEvent *e) override;
+
+public Q_SLOTS:
+    void runServer(bool start);
 
 private Q_SLOTS:
     void finished(int, QProcess::ExitStatus);
     void requestFocus();
     void freeFocus();
+    void newConnectionHandler();
+    void readyReadHandler();
+    void disconnectedHandler();
+
+public:
+    void showDialog(QLocalSocket *socket, const QByteArray &data);
+    void connectNetwork(QLocalSocket *socket, const QByteArray &data);
+    void sendPassword(QLocalSocket *socket, const QByteArray &data);
+    void closeServer(QLocalSocket *socket, const QByteArray &data);
+    void startServer(QLocalSocket *socket, const QByteArray &data);
+    QByteArray showConfig();
 
 private:
+    int m_x;
+    int m_y;
+    Dtk::Widget::DArrowRectangle::ArrowDirection m_position;
+    RunReason m_runReason;
+
     QProcess *m_process;
     QWidget *m_focusWidget;
     QString m_connectDev;
     QString m_connectSsid;
-    RunReason m_runReason;
     bool m_saveMode;
+    QByteArray m_lastData;
+
+    QLocalServer *m_server;
+    QMap<QLocalSocket *, int> m_clients;
+    QString m_serverName;
 };
 
 #endif // NETWORKDIALOG_H

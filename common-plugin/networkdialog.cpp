@@ -25,16 +25,46 @@
 #include <QDebug>
 #include <QWidget>
 #include <QWindow>
+#include <QLocalServer>
+#include <QLocalSocket>
+
+#include <unistd.h>
+#include <pwd.h>
 
 static const QString NetworkDialogApp = "dde-network-dialog"; //网络列表执行文件
+static QMap<QString, void (NetworkDialog::*)(QLocalSocket *, const QByteArray &)> s_FunMap = {
+    { "show", &NetworkDialog::showDialog },
+    { "password", &NetworkDialog::sendPassword },
+    { "connect", &NetworkDialog::connectNetwork },
+    { "close", &NetworkDialog::closeServer },
+    { "start", &NetworkDialog::startServer }
+};
+
+/**
+ * @brief The ClientType enum
+ * 客户端类型
+ */
+enum ClientType {
+    Unknown,  // 未知
+    Show,     // 弹窗展示
+    Password, // 等待密码
+};
 
 NetworkDialog::NetworkDialog(QObject *parent)
     : QObject(parent)
+    , m_x(0)
+    , m_y(0)
+    , m_position(Dtk::Widget::DArrowRectangle::ArrowDirection::ArrowBottom)
+    , m_runReason(Dock)
     , m_process(new QProcess(this))
     , m_focusWidget(nullptr)
-    , m_runReason(Dock)
     , m_saveMode(false)
+    , m_serverName(NetworkDialogApp + QString::number(getuid()))
 {
+    m_server = new QLocalServer(this);
+    connect(m_server, SIGNAL(newConnection()), this, SLOT(newConnectionHandler()));
+    m_server->setSocketOptions(QLocalServer::WorldAccessOption);
+
     connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, &NetworkDialog::finished);
 }
 
@@ -48,19 +78,13 @@ void NetworkDialog::finished(int, QProcess::ExitStatus)
     freeFocus();
 }
 
-void NetworkDialog::saveConfig(int x, int y, Dock::Position position)
-{
-    m_saveMode = true;
-    runProcess(x, y, position);
-}
-
-void NetworkDialog::show(int x, int y, Dock::Position position)
+void NetworkDialog::show()
 {
     m_process->blockSignals(true);
     m_process->close();
     m_process->blockSignals(false);
     requestFocus();
-    runProcess(x, y, position);
+    runProcess(true);
 }
 
 void NetworkDialog::requestFocus()
@@ -95,59 +119,16 @@ bool NetworkDialog::eventFilter(QObject *watched, QEvent *e)
     return QObject::eventFilter(watched, e);
 }
 
-void NetworkDialog::runProcess(int x, int y, Dock::Position position)
+void NetworkDialog::runProcess(bool show)
 {
     QStringList argList;
-    if (m_saveMode) {
-        argList << "-s";
-        m_saveMode = false;
+    if (show) {
+        argList << "-s" << showConfig();
     }
-    argList << "-p" << QString("%1x%2").arg(x).arg(y);
-    QString pos = "bottom";
-    switch (position) {
-    case Dock::Position::Top:
-        pos = "top";
-        break;
-    case Dock::Position::Bottom:
-        pos = "bottom";
-        break;
-    case Dock::Position::Left:
-        pos = "left";
-        break;
-    case Dock::Position::Right:
-        pos = "right";
-        break;
-    }
-    argList << "-d" << pos;
     if (!m_connectSsid.isEmpty()) {
-        argList << "-c" << m_connectSsid;
+        argList << "-w" << "-c" << m_connectSsid << "-n" << m_connectDev;
         m_connectSsid.clear();
     }
-    if (!m_connectDev.isEmpty()) {
-        argList << "-n" << m_connectDev;
-        m_connectDev.clear();
-    }
-    switch (m_runReason) {
-    case Lock:
-        argList << "-r"
-                << "Lock";
-        break;
-    case Greeter:
-        argList << "-r"
-                << "Greeter";
-        break;
-    case Dock:
-        argList << "-r"
-                << "Dock";
-        break;
-    case Password:
-        argList << "-r"
-                << "Password";
-        break;
-    default:
-        break;
-    }
-
     m_process->start(NetworkDialogApp, argList);
 }
 
@@ -155,6 +136,13 @@ void NetworkDialog::setConnectWireless(const QString &dev, const QString &ssid)
 {
     m_connectDev = dev;
     m_connectSsid = ssid;
+    for (auto it = m_clients.begin(); it != m_clients.end(); it++) {
+        if (it.value() == ClientType::Show) {
+            it.key()->write(QString("\nconnect:{\"ssid\"=\"%1\",\"dev\"=\"%2\"}\n").arg(m_connectSsid).arg(m_connectDev).toUtf8());
+            return;
+        }
+    }
+    runProcess(false);
 }
 
 void NetworkDialog::setRunReason(RunReason reason)
@@ -162,7 +150,134 @@ void NetworkDialog::setRunReason(RunReason reason)
     m_runReason = reason;
 }
 
-void NetworkDialog::setSaveMode(bool isSave)
+void NetworkDialog::setPosition(int x, int y, Dtk::Widget::DArrowRectangle::ArrowDirection position)
 {
-    m_saveMode = isSave;
+    m_x = x;
+    m_y = y;
+    m_position = position;
+}
+
+void NetworkDialog::runServer(bool start)
+{
+    if (start) {
+        m_server->close();
+        QLocalServer::removeServer(m_serverName);
+        if (!m_server->listen(m_serverName)) {
+            QLocalSocket *socket = new QLocalSocket(this);
+            connect(socket, SIGNAL(readyRead()), this, SLOT(readyReadHandler()));
+            connect(socket, &QLocalSocket::connected, this, [ socket ]() {
+                socket->write("\nclose:{}\n");
+            });
+            connect(socket, &QLocalSocket::disconnected, this, [ this, socket ]() {
+                socket->deleteLater();
+                QLocalServer::removeServer(m_serverName);
+                m_server->listen(m_serverName);
+            });
+            socket->connectToServer(m_serverName);
+        }
+    }
+}
+
+void NetworkDialog::newConnectionHandler()
+{
+    QLocalSocket *socket = m_server->nextPendingConnection();
+    connect(socket, SIGNAL(readyRead()), this, SLOT(readyReadHandler()));
+    connect(socket, SIGNAL(disconnected()), this, SLOT(disconnectedHandler()));
+    m_clients.insert(socket, ClientType::Unknown);
+}
+
+void NetworkDialog::disconnectedHandler()
+{
+    QLocalSocket *socket = static_cast<QLocalSocket *>(sender());
+    if (socket) {
+        m_clients.remove(socket);
+        socket->deleteLater();
+    }
+    if (m_clients.isEmpty()) {
+        freeFocus();
+    }
+}
+
+void NetworkDialog::readyReadHandler()
+{
+    QLocalSocket *socket = static_cast<QLocalSocket *>(sender());
+    if (socket) {
+        QByteArray allData = socket->readAll();
+        allData = m_lastData + allData;
+        QList<QByteArray> dataArray = allData.split('\n');
+        m_lastData = dataArray.last();
+        for (const QByteArray &data : dataArray) {
+            int keyIndex = data.indexOf(':');
+            if (keyIndex != -1) {
+                QString key = data.left(keyIndex);
+                QByteArray value = data.mid(keyIndex + 1);
+                if (s_FunMap.contains(key)) {
+                    (this->*s_FunMap.value(key))(socket, value);
+                }
+            }
+        }
+    }
+}
+
+QByteArray NetworkDialog::showConfig()
+{
+    QJsonObject json;
+    json.insert("x", m_x);
+    json.insert("y", m_y);
+    json.insert("reason", m_runReason);
+    json.insert("position", m_position);
+    QJsonDocument doc;
+    doc.setObject(json);
+    return doc.toJson(QJsonDocument::Compact);
+}
+
+void NetworkDialog::showDialog(QLocalSocket *socket, const QByteArray &)
+{
+    emit requestPosition();
+    requestFocus();
+    m_clients[socket] = ClientType::Show;
+    socket->write("\nshowPosition:" + showConfig() + "\n");
+}
+
+void NetworkDialog::connectNetwork(QLocalSocket *socket, const QByteArray &data)
+{
+    QLocalSocket *showSocket = nullptr;
+    for (auto it = m_clients.begin(); it != m_clients.end(); it++) {
+        if (it.value() == ClientType::Show) {
+            showSocket = it.key();
+            break;
+        }
+    }
+    if (nullptr == showSocket) {
+        showDialog(socket, QByteArray());
+        showSocket = socket;
+    }
+    showSocket->write("\nconnect:" + data + "\n");
+    socket->write("\nreceive:" + data + "\n");
+}
+
+void NetworkDialog::sendPassword(QLocalSocket *socket, const QByteArray &data)
+{
+    Q_UNUSED(socket);
+    QByteArray sendData = "\npassword:" + data + "\n";
+    for (auto it = m_clients.begin(); it != m_clients.end(); it++) {
+        it.key()->write(sendData);
+    }
+}
+
+void NetworkDialog::closeServer(QLocalSocket *socket, const QByteArray &data)
+{
+    Q_UNUSED(data);
+    socket->write("\nstart:{}\n");
+    m_server->close();
+    QLocalServer::removeServer(m_serverName);
+}
+
+void NetworkDialog::startServer(QLocalSocket *socket, const QByteArray &data)
+{
+    Q_UNUSED(data);
+    socket->disconnectFromServer();
+    m_server->close();
+    QLocalServer::removeServer(m_serverName);
+    m_server->listen(m_serverName);
 }

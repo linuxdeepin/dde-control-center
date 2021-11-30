@@ -19,10 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "networkpanel.h"
-#include "dockpopupwindow.h"
 #include "localclient.h"
-#include "localserver.h"
 #include "utils.h"
 #include "thememanager.h"
 #include "networkcontroller.h"
@@ -44,10 +41,11 @@
 #include <sys/stat.h>
 #include <signal.h>
 
+using namespace Dtk::Widget;
+
 const int MAX_STACK_FRAMES = 128;
 void sig_crash(int sig)
 {
-    LocalServer::release(); // 异常退出时释放
     QDir dir(QStandardPaths::standardLocations(QStandardPaths::CacheLocation)[0]);
     dir.cdUp();
     QString filePath = "/tmp/dde-collapse.log";
@@ -125,215 +123,6 @@ void init_sig_crash()
     signal(SIGFPE, sig_crash);
 }
 
-class MainApp
-{
-public:
-    enum RunReason {
-        Lock,      // 锁屏插件唤起
-        Greeter,   // greeter插件唤起
-        NeedFocus, // 小于该值需要处理焦点
-        Dock,      // 任务栏插件唤起
-        Password,  // 密码错误唤起
-    };
-
-    MainApp()
-        : m_isWep(false)
-        , m_isSave(false)
-        , m_reason(Dock)
-    {
-    }
-    ~MainApp() { }
-
-    int run();
-    // 解析参数
-    void parseArguments();
-    void saveConfig();
-    bool clientModel();
-    void showWidget();
-
-private:
-    DArrowRectangle::ArrowDirection m_position;
-    QPoint m_point;
-    QString m_dev;
-    QString m_ssid;
-    bool m_isWep;
-    bool m_isSave;
-    RunReason m_reason;
-};
-
-int MainApp::run()
-{
-    parseArguments();
-    if (m_isSave) {
-        saveConfig();
-        return 0;
-    }
-    if (!clientModel()) {
-        saveConfig();
-        showWidget();
-    }
-    return qApp->exec();
-}
-
-void MainApp::parseArguments()
-{
-    QCommandLineOption pointOption(QStringList() << "p", "set point <x>x<y>", "point");
-    QCommandLineOption positionOption(QStringList() << "d", "position [l,r,t,b]", "position");
-    QCommandLineOption connectPathOption(QStringList() << "c"
-                                                       << "connect",
-                                         "connect wireless ", "path");
-    QCommandLineOption reasonOption(QStringList() << "r"
-                                                  << "reason",
-                                    "run reason", "reason");
-    QCommandLineOption wepOption(QStringList() << "w", "wireless wep-key");
-    QCommandLineOption saveOption(QStringList() << "s", "save config");
-    QCommandLineOption devOption(QStringList() << "n", "network device", "device");
-
-    QCommandLineParser parser;
-    parser.setApplicationDescription("DDE Network Dialog");
-    parser.addHelpOption();
-    parser.addVersionOption();
-    parser.addOption(pointOption);
-    parser.addOption(positionOption);
-    parser.addOption(connectPathOption);
-    parser.addOption(reasonOption);
-    parser.addOption(wepOption);
-    parser.addOption(saveOption);
-    parser.addOption(devOption);
-    parser.process(*qApp);
-
-    Dtk::Core::DConfig config("dde-network-dialog");
-    QString point;
-    if (parser.isSet(pointOption)) {
-        point = parser.value(pointOption);
-    } else {
-        point = config.value("networkDialogPoint", "200x600").toString();
-    }
-    const QStringList &points = point.split("x");
-    if (2 == points.size()) {
-        bool xok = false;
-        bool yok = false;
-        int px = points.first().toInt(&xok);
-        int py = points.last().toInt(&yok);
-        if (xok && yok) {
-            m_point.setX(px);
-            m_point.setY(py);
-        }
-    }
-
-    QString positionStr = "b";
-    if (parser.isSet(positionOption)) {
-        positionStr = parser.value(positionOption);
-    } else {
-        positionStr = config.value("networkDialogPosition", "bottom").toString();
-    }
-    if (!positionStr.isEmpty()) {
-        switch (positionStr.at(0).toLower().toLatin1()) {
-        case 't':
-            m_position = DArrowRectangle::ArrowTop;
-            break;
-        case 'l':
-            m_position = DArrowRectangle::ArrowLeft;
-            break;
-        case 'r':
-            m_position = DArrowRectangle::ArrowRight;
-            break;
-        case 'b':
-        default:
-            m_position = DArrowRectangle::ArrowBottom;
-            break;
-        }
-    }
-
-    if (parser.isSet(devOption)) {
-        m_dev = parser.value(devOption);
-    }
-    if (parser.isSet(connectPathOption)) {
-        m_ssid = parser.value(connectPathOption);
-    }
-
-    m_isWep = parser.isSet(wepOption);
-    m_isSave = parser.isSet(saveOption);
-    QString reason = "Lock";
-    if (parser.isSet(reasonOption)) {
-        reason = parser.value(reasonOption);
-    }
-    if (reason == "Lock") {
-        m_reason = Lock;
-    } else if (reason == "Greeter") {
-        m_reason = Greeter;
-    } else if (reason == "Dock") {
-        m_reason = Dock;
-    } else if (reason == "Password") {
-        m_reason = Password;
-    }
-}
-
-void MainApp::saveConfig()
-{
-    Dtk::Core::DConfig config("dde-network-dialog");
-    if (!m_point.isNull()) {
-        config.setValue("networkDialogPoint", QString("%1x%2").arg(m_point.x()).arg(m_point.y()));
-    }
-    switch (m_position) {
-    case DArrowRectangle::ArrowBottom:
-        config.setValue("networkDialogPosition", "bottom");
-        break;
-    case DArrowRectangle::ArrowTop:
-        config.setValue("networkDialogPosition", "top");
-        break;
-    case DArrowRectangle::ArrowLeft:
-        config.setValue("networkDialogPosition", "left");
-        break;
-    case DArrowRectangle::ArrowRight:
-        config.setValue("networkDialogPosition", "right");
-        break;
-    }
-}
-
-bool MainApp::clientModel()
-{
-    LocalClient *client = new LocalClient(qAppName(), qApp);
-    if (client->ConnectToServer()) {
-        if (m_isWep) {
-            client->waitPassword(m_dev, m_ssid);
-        }
-        return true;
-    }
-    delete client;
-    return false;
-}
-
-void MainApp::showWidget()
-{
-    switch (m_reason) {
-    case Greeter:
-        dde::network::NetworkController::setServiceType(dde::network::ServiceLoadType::LoadFromManager);
-        ThemeManager::instance()->setThemeType(ThemeManager::GreeterType);
-        break;
-    case Lock:
-        ThemeManager::instance()->setThemeType(ThemeManager::LockType);
-        break;
-    default:
-        break;
-    }
-
-    LocalServer::instance()->RunServer(qAppName());
-    DockPopupWindow *popopWindow = new DockPopupWindow();
-    NetworkPanel *panel = new NetworkPanel(popopWindow);
-    popopWindow->setContent(panel->itemApplet());
-    QObject::connect(qApp, &DApplication::destroyed, popopWindow, &DockPopupWindow::deleteLater);
-    QObject::connect(popopWindow, &DockPopupWindow::hideSignal, qApp, &QApplication::quit);
-    QObject::connect(popopWindow, &DockPopupWindow::hideSignal, popopWindow, &DockPopupWindow::deleteLater);
-    popopWindow->setArrowDirection(m_position);
-    LocalServer::instance()->setWidget(panel, popopWindow);
-    if (!m_ssid.isEmpty()) {
-        LocalServer::instance()->setWaitPassword(m_isWep);
-        panel->passwordError(m_dev, m_ssid);
-    }
-    popopWindow->show(m_point);
-}
-
 int main(int argc, char **argv)
 {
     if (!QString(qgetenv("XDG_CURRENT_DESKTOP")).toLower().startsWith("deepin")) {
@@ -353,9 +142,31 @@ int main(int argc, char **argv)
 
     // crash catch
     init_sig_crash();
+    QCommandLineOption showOption(QStringList() << "s", "show config", "config");
+    QCommandLineOption wepOption(QStringList() << "w", "wireless wep-key");
+    QCommandLineOption connectPathOption(QStringList() << "c", "connect wireless ", "path");
+    QCommandLineOption devOption(QStringList() << "n", "network device", "device");
 
-    MainApp mainapp;
-    int ret = mainapp.run();
-    LocalServer::release();
-    return ret;
+    QCommandLineParser parser;
+    parser.setApplicationDescription("DDE Network Dialog");
+    parser.addHelpOption();
+    parser.addVersionOption();
+    parser.addOption(showOption);
+    parser.addOption(wepOption);
+    parser.addOption(connectPathOption);
+    parser.addOption(devOption);
+    parser.process(*qApp);
+
+    if (parser.isSet(showOption)) {
+        QString config = parser.value(showOption);
+        LocalClient::instance()->showPosition(nullptr, config.toUtf8());
+    }
+    if (parser.isSet(wepOption)) {
+        QString dev = parser.value(devOption);
+        QString ssid = parser.value(connectPathOption);
+        LocalClient::instance()->waitPassword(dev, ssid);
+    } else {
+        LocalClient::instance()->showWidget();
+    }
+    return app->exec();
 }

@@ -28,6 +28,8 @@
 #include <QWidget>
 #include <QTime>
 
+#include <DArrowRectangle>
+
 #include <networkcontroller.h>
 
 #include <NetworkManagerQt/WirelessDevice>
@@ -57,6 +59,7 @@ NetworkModule::NetworkModule(QObject *parent)
         m_networkDialog->setRunReason(NetworkDialog::Greeter);
         connect(m_networkPanel, &NetworkPanel::addDevice, this, &NetworkModule::onAddDevice);
     }
+    m_networkDialog->runServer(true);
 }
 
 QWidget *NetworkModule::content()
@@ -65,6 +68,7 @@ QWidget *NetworkModule::content()
     if(abs(msec - m_clickTime) > 200) {
         m_clickTime = msec;
         emit signalShowNetworkDialog();
+        m_networkDialog->show();
     }
     return nullptr;
 }
@@ -75,6 +79,7 @@ QWidget *NetworkModule::itemWidget() const
     trayIcon->setGreeterStyle(true);
     connect(this, &NetworkModule::signalShowNetworkDialog, trayIcon, &TrayIcon::showNetworkDialog);
     connect(trayIcon, &TrayIcon::signalShowNetworkDialog, this, &NetworkModule::showNetworkDialog);
+    connect(m_networkDialog, &NetworkDialog::requestPosition, trayIcon, &TrayIcon::showNetworkDialog);
     // 处理内存
     connect(m_networkPanel, &NetworkPanel::destroyed, trayIcon, &TrayIcon::deleteLater);
     return trayIcon;
@@ -103,17 +108,14 @@ void NetworkModule::invokedMenuItem(const QString &menuId, const bool checked) c
 void NetworkModule::showNetworkDialog(QWidget *w) const
 {
     QPoint point = w->mapToGlobal(QPoint(w->width() / 2, 0));
-    m_networkDialog->show(point.x(), point.y(), Dock::Position::Bottom);
+    m_networkDialog->setPosition(point.x(), point.y(), Dtk::Widget::DArrowRectangle::ArrowBottom);
 }
 
 void NetworkModule::updateLockScreenStatus(bool visible)
 {
     m_isLockModel = true;
     m_isLockScreen = visible;
-    if (visible) {
-        m_networkDialog->setSaveMode(true);
-        emit signalShowNetworkDialog();
-    }
+    m_networkDialog->runServer(visible);
 }
 
 void NetworkModule::onAddDevice(const QString &devicePath)
