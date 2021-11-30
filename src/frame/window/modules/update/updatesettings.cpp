@@ -205,24 +205,24 @@ void UpdateSettings::initConnection()
 QString UpdateSettings::getAutoInstallUpdateType(quint64 type)
 {
     QString text = "";
-    if (type & 1) {
+    if (type & ClassifyUpdateType::SystemUpdate) {
         text = tr("System Updates");
     }
-    if (type & 2) {
+    if (type & ClassifyUpdateType::AppStoreUpdate) {
         if (text.isEmpty()) {
             text += tr("App Updates in App Store");
         } else {
             text = text + "," + tr("App Updates in App Store");
         }
     }
-    if (type & 4) {
+    if (type & ClassifyUpdateType::SecurityUpdate) {
         if (text.isEmpty()) {
             text += tr("Security Updates");
         } else {
             text = text + "," + tr("Security Updates");
         }
     }
-    if (type & 8) {
+    if (type & ClassifyUpdateType::UnknownUpdate) {
         if (text.isEmpty()) {
             text += tr("Unknown Apps Updates");
         } else {
