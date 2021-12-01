@@ -134,6 +134,11 @@ NetItemType DeviceControllItem::itemType()
     return DeviceControllViewItem;
 }
 
+void DeviceControllItem::onAirplaneModeChanged(bool airplaneModeEnabled)
+{
+    m_switcher->setDisabled(airplaneModeEnabled);
+}
+
 void DeviceControllItem::initItemText()
 {
     // 创建左侧的切换文本
@@ -303,10 +308,16 @@ NetItemType WirelessControllItem::itemType()
     return WirelessControllViewItem;
 }
 
+void WirelessControllItem::onAirplaneModeChanged(bool airplaneModeEnabled)
+{
+    m_loadingIndicator->setDisabled(airplaneModeEnabled);
+    m_switcher->setDisabled(airplaneModeEnabled);
+}
+
 bool WirelessControllItem::eventFilter(QObject *object, QEvent *event)
 {
     if (object == m_loadingIndicator) {
-        if (event->type() == QEvent::MouseButtonPress) {
+        if (event->type() == QEvent::MouseButtonPress && m_loadingIndicator->isEnabled()) {
             m_device->scanNetwork();
             if (!m_loadingIndicator->loading()) {
                 m_loadingIndicator->setLoading(true);
@@ -744,6 +755,11 @@ void WirelessItem::onInputPassword(const QString oldPassword)
 void WirelessItem::expandPasswordInput()
 {
     m_wirelessConnect->getoldPassword();
+}
+
+void WirelessItem::onAirplaneModeChanged(bool airplaneModeEnabled)
+{
+    m_stackWidget->setDisabled(airplaneModeEnabled);
 }
 
 void WirelessItem::onConnectHidden()

@@ -31,6 +31,8 @@
 #include <DListView>
 #include <DStyledItemDelegate>
 
+#include <com_deepin_daemon_airplanemode.h>
+
 namespace dde {
   namespace network {
     enum class DeviceType;
@@ -43,6 +45,7 @@ class QStandardItemModel;
 class QTimer;
 class QScrollArea;
 
+using DBusAirplaneMode = com::deepin::daemon::AirplaneMode;
 using namespace dde::network;
 
 DGUI_USE_NAMESPACE
@@ -99,6 +102,7 @@ private:
     QSet<QString> m_wirelessDevicePath;
     QString m_reconnectDev;
     QString m_reconnectSsid;
+    DBusAirplaneMode *m_airplaneMode;
 };
 
 class NetworkDelegate : public DStyledItemDelegate
@@ -108,6 +112,7 @@ class NetworkDelegate : public DStyledItemDelegate
 public:
     explicit NetworkDelegate(QAbstractItemView *parent = Q_NULLPTR);
     ~NetworkDelegate() Q_DECL_OVERRIDE;
+    void setDBusAirplaneMode(DBusAirplaneMode *airplane);
 
 Q_SIGNALS:
     void closeClicked(const QModelIndex &);
@@ -132,6 +137,7 @@ private:
     QAbstractItemView *m_parentWidget;
     mutable double m_currentDegree;
     QTimer *m_refreshTimer;
+    DBusAirplaneMode *m_airplaneMode;
     mutable QList<QModelIndex> m_ConnectioningIndexs;
 };
 

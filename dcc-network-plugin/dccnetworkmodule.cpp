@@ -31,6 +31,7 @@ DCCNetworkModule::DCCNetworkModule()
     , m_hasWired(false)
     , m_hasWireless(false)
     , m_indexWidget(nullptr)
+    , m_airplaneMode(new DBusAirplaneMode("com.deepin.daemon.AirplaneMode", "/com/deepin/daemon/AirplaneMode", QDBusConnection::systemBus(), this))
 {
     QTranslator *translator = new QTranslator(this);
     translator->load(QString("/usr/share/dcc-network-plugin/translations/dcc-network-plugin_%1.qm").arg(QLocale::system().name()));
@@ -298,6 +299,8 @@ void DCCNetworkModule::showDeviceDetailPage(NetworkDeviceBase *dev, const QStrin
         connect(wirelessPage, &WirelessPage::closeHotspot, this, [ = ] (WirelessDevice *device) {
             m_indexWidget->setLastDevicePath(device->path());
         });
+        connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, wirelessPage, &WirelessPage::onAirplaneModeChanged);
+        wirelessPage->onAirplaneModeChanged(m_airplaneMode->enabled());
 
         wirelessPage->jumpByUuid(searchPath);
     } else if (dev->deviceType() == DeviceType::Wired) {

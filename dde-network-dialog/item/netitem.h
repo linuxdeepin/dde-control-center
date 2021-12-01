@@ -63,8 +63,6 @@ namespace Dtk {
 } // namespace Dtk
 
 DWIDGET_USE_NAMESPACE
-//DGUI_USE_NAMESPACE
-
 
 enum NetItemRole {
     TypeRole = Qt::UserRole + 100,
@@ -121,6 +119,9 @@ public:
     void updateView() Q_DECL_OVERRIDE;
     NetItemType itemType() Q_DECL_OVERRIDE;
 
+public Q_SLOTS:
+    void onAirplaneModeChanged(bool airplaneModeEnabled);
+
 private:
     void initItemText();
     void initSwitcher();
@@ -166,6 +167,9 @@ public:
     WirelessDevice *device();
     void updateView() Q_DECL_OVERRIDE;
     NetItemType itemType() Q_DECL_OVERRIDE;
+
+public Q_SLOTS:
+    void onAirplaneModeChanged(bool airplaneModeEnabled);
 
 protected:
     bool eventFilter(QObject *object, QEvent *event) Q_DECL_OVERRIDE;
@@ -232,6 +236,9 @@ public:
     void expandWidget(ExpandWidget type);
     void connectNetwork();
     void expandPasswordInput();
+
+public Q_SLOTS:
+    void onAirplaneModeChanged(bool airplaneModeEnabled);
 
 private:
     void initUi(QWidget *parent);

@@ -6,6 +6,8 @@
 #include "interface/moduleinterface.h"
 #include "interface/frameproxyinterface.h"
 
+#include <com_deepin_daemon_airplanemode.h>
+
 class NetworkModuleWidget;
 class WirelessPage;
 class ConnectionEditPage;
@@ -20,6 +22,8 @@ namespace DCC_NAMESPACE {
   class ModuleInterface;
   class FrameProxyInterface;
 }
+
+using DBusAirplaneMode = com::deepin::daemon::AirplaneMode;
 
 using namespace DCC_NAMESPACE;
 using namespace dde::network;
@@ -87,6 +91,7 @@ private:
 
     NetworkModuleWidget *m_indexWidget;
     ConnectionEditPage *m_connEditPage;
+    DBusAirplaneMode *m_airplaneMode;
 };
 
 #endif // NETWORKINTERFACE_H

@@ -140,6 +140,9 @@ Q_SIGNALS:
     void requestFrameKeepAutoHide(const bool autoHide) const;
     void closeHotspot(WirelessDevice *) const;
 
+public Q_SLOTS:
+    void onAirplaneModeChanged(bool airplaneModeEnabled);
+
 private Q_SLOTS:
     void onAPAdded(const QList<AccessPoints*> &addedAccessPoints);
     void onAPRemoved(const QList<AccessPoints*> &lstRemovedAccessPoints);

@@ -56,6 +56,7 @@ NetworkPanel::NetworkPanel(QObject *parent)
     , m_centerWidget(new QWidget(m_applet))
     , m_netListView(new DListView(m_centerWidget))
     , m_selectItem(nullptr)
+    , m_airplaneMode(new DBusAirplaneMode("com.deepin.daemon.AirplaneMode", "/com/deepin/daemon/AirplaneMode", QDBusConnection::systemBus(), this))
 {
     initUi();
     initConnection();
@@ -79,6 +80,7 @@ void NetworkPanel::initUi()
     m_netListView->setItemRadius(0);
 
     NetworkDelegate *delegate = new NetworkDelegate(m_netListView);
+    delegate->setDBusAirplaneMode(m_airplaneMode);
     delegate->setMargins(QMargins(10, 0, 6, 0));
     m_netListView->setItemDelegate(delegate);
     connect(delegate, &NetworkDelegate::closeClicked, this, [ ] (const QModelIndex &index) {
@@ -247,10 +249,13 @@ void NetworkPanel::updateItems()
     QList<NetItem *> items;
     if (wirelessDevices.size() > 1) {
         DeviceControllItem *ctrl = findBaseController(DeviceType::Wireless);
-        if (!ctrl)
+        if (!ctrl) {
             ctrl = new DeviceControllItem(DeviceType::Wireless, m_netListView->viewport());
-        else
+            connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, ctrl, &DeviceControllItem::onAirplaneModeChanged);
+        } else {
             ctrl->updateView();
+        }
+        ctrl->onAirplaneModeChanged(m_airplaneMode->enabled());
 
         ctrl->setDevices(devices);
         items << ctrl;
@@ -266,9 +271,12 @@ void NetworkPanel::updateItems()
 
     for (WirelessDevice *device : wirelessDevices) {
         WirelessControllItem *ctrl = findWirelessController(device);
-        if (!ctrl)
+        if (!ctrl) {
             ctrl = new WirelessControllItem(m_netListView->viewport(), static_cast<WirelessDevice *>(device));
+            connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, ctrl, &WirelessControllItem::onAirplaneModeChanged);
+        }
         ctrl->updateView();
+        ctrl->onAirplaneModeChanged(m_airplaneMode->enabled());
 
         items << ctrl;
         if (device->isEnabled() && !device->hotspotEnabled()) {
@@ -278,19 +286,23 @@ void NetworkPanel::updateItems()
                 if (!apCtrl) {
                     apCtrl = new WirelessItem(m_netListView->viewport(), device, ap);
                     connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::updateSize);
+                    connect(m_airplaneMode, &DBusAirplaneMode::EnabledChanged, apCtrl, &WirelessItem::onAirplaneModeChanged);
                 }
                 apCtrl->updateView();
+                apCtrl->onAirplaneModeChanged(m_airplaneMode->enabled());
 
                 items << apCtrl;
             }
-            // 连接隐藏网络
-            WirelessItem *apCtrl = findWirelessItem(nullptr, device);
-            if (!apCtrl) {
-                apCtrl = new WirelessItem(m_netListView->viewport(), device, nullptr);
-                connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::updateSize);
+            if (!m_airplaneMode->enabled()) {
+                // 连接隐藏网络
+                WirelessItem *apCtrl = findWirelessItem(nullptr, device);
+                if (!apCtrl) {
+                    apCtrl = new WirelessItem(m_netListView->viewport(), device, nullptr);
+                    connect(apCtrl, &WirelessItem::sizeChanged, this, &NetworkPanel::updateSize);
+                }
+                apCtrl->updateView();
+                items << apCtrl;
             }
-            apCtrl->updateView();
-            items << apCtrl;
         }
     }
 
@@ -506,6 +518,11 @@ void NetworkPanel::onUpdatePlugView()
 
 void NetworkPanel::onClickListView(const QModelIndex &index)
 {
+    // 如果当前点击的是连接隐藏网络或者无线网络，且开启了飞行模式，则不让点击
+    NetItemType type = static_cast<NetItemType>(index.data(NetItemRole::TypeRole).toInt());
+    if ((type == WirelessHiddenViewItem || type == WirelessViewItem) && m_airplaneMode->enabled())
+        return;
+
     NetItem *selectItem = m_items.at(index.row());
     if (selectItem != m_selectItem
         && m_items.contains(m_selectItem)) {
@@ -513,7 +530,6 @@ void NetworkPanel::onClickListView(const QModelIndex &index)
         item->expandWidget(WirelessItem::Hide); // 选择切换时隐藏输入框
         m_selectItem = nullptr;
     }
-    NetItemType type = static_cast<NetItemType>(index.data(NetItemRole::TypeRole).toInt());
     switch (type) {
     case WirelessHiddenViewItem:
     case WirelessViewItem: {
@@ -596,6 +612,7 @@ NetworkDelegate::NetworkDelegate(QAbstractItemView *parent)
     , m_parentWidget(parent)
     , m_currentDegree(0)
     , m_refreshTimer(new QTimer(this))
+    , m_airplaneMode(nullptr)
 {
     connect(m_refreshTimer, &QTimer::timeout, this, [this]() {
         this->m_currentDegree += 14;
@@ -609,6 +626,11 @@ NetworkDelegate::~NetworkDelegate()
 {
     if (m_refreshTimer->isActive())
         m_refreshTimer->stop();
+}
+
+void NetworkDelegate::setDBusAirplaneMode(DBusAirplaneMode *airplane)
+{
+    m_airplaneMode = airplane;
 }
 
 void NetworkDelegate::initStyleOption(QStyleOptionViewItem *option, const QModelIndex &index) const
@@ -703,6 +725,10 @@ bool NetworkDelegate::needDrawLine(const QModelIndex &index) const
 bool NetworkDelegate::cantHover(const QModelIndex &index) const
 {
     NetItemType itemType = static_cast<NetItemType>(index.data(TypeRole).toInt());
+    // 如果是无线网络或者连接隐藏网络项，且当前开启了飞行模式，则当前行不让点击
+    if (itemType == NetItemType::WirelessViewItem || itemType == NetItemType::WirelessHiddenViewItem)
+        return (m_airplaneMode && m_airplaneMode->enabled());
+
     return (itemType == NetItemType::DeviceControllViewItem
             || itemType == NetItemType::WirelessControllViewItem
             || itemType == NetItemType::WiredControllViewItem);

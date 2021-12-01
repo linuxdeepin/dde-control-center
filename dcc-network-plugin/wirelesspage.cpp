@@ -547,6 +547,11 @@ void WirelessPage::onUpdateAccessPointInfo(const QList<AccessPoints *> &changeAp
     }
 }
 
+void WirelessPage::onAirplaneModeChanged(bool airplaneModeEnabled)
+{
+    setDisabled(airplaneModeEnabled);
+}
+
 void WirelessPage::onAPAdded(const QList<AccessPoints *> &addedAccessPoints)
 {
     for (AccessPoints *ap: addedAccessPoints) {
