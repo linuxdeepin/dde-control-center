@@ -347,6 +347,12 @@ void ResolutionWidget::OnAvailableFillModesChanged(const QStringList &lstFillMod
     }
     m_resizeDesktopCombox->setDefaultRoleIcon();
 
+    if (lstFillMode.isEmpty()) {
+        DConfigWatcher::instance()->erase(DConfigWatcher::display,"desktopDisplay", m_resizeDesktopItem);
+        setMinimumHeight(48);
+        m_resizeDesktopItem->setVisible(false);
+        Q_EMIT requestResizeDesktopVisibleChanged(false);
+    }
 }
 
 void ResolutionWidget::resolutionWidgetChanged()
