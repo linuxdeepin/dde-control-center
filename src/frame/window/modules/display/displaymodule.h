@@ -71,7 +71,7 @@ private Q_SLOTS:
     void showSingleScreenWidget();
     void showMultiScreenWidget();
     void pushScreenWidget();
-    int showTimeoutDialog(dcc::display::Monitor *monitor);
+    int showTimeoutDialog(dcc::display::Monitor *monitor, const bool isFillMode = false);
 
 private:
     dcc::display::DisplayModel *m_displayModel;

@@ -315,7 +315,14 @@ void DisplayModule::onRequestSetResolution(Monitor *monitor, const int mode)
 
 void DisplayModule::onRequestSetFillMode(dcc::display::Monitor *monitor, const QString fillMode)
 {
+    auto lastFillMode = monitor->currentFillMode();
     m_displayWorker->setCurrentFillMode(monitor,fillMode);
+    //桌面显示增加15秒倒计时功能
+    QTimer::singleShot(300, monitor, [this, monitor, lastFillMode]{
+        if (showTimeoutDialog(monitor, true) != QDialog::Accepted) {
+            m_displayWorker->setCurrentFillMode(monitor,lastFillMode);
+        }
+    });
 }
 
 void DisplayModule::onRequestSetRotate(Monitor *monitor, const int rotate)
@@ -347,7 +354,7 @@ void DisplayModule::pushScreenWidget()
     }
 }
 
-int DisplayModule::showTimeoutDialog(Monitor *monitor)
+int DisplayModule::showTimeoutDialog(Monitor *monitor, const bool isFillMode)
 {
     QDesktopWidget *desktopwidget = QApplication::desktop();
     TimeoutDialog *timeoutDialog = new TimeoutDialog(15);
@@ -355,7 +362,10 @@ int DisplayModule::showTimeoutDialog(Monitor *monitor)
     QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
     QTimer::singleShot(1, this, [=] { timeoutDialog->moveToCenterByRect(rt.toRect()); });
     // 若用户切换重力旋转 直接退出对话框
-    connect(monitor, &Monitor::currentRotateModeChanged, timeoutDialog, &TimeoutDialog::close);
+    if (!isFillMode) {
+        connect(monitor, &Monitor::currentRotateModeChanged, timeoutDialog, &TimeoutDialog::close);
+    }
+
     connect(desktopwidget, &QDesktopWidget::resized, timeoutDialog, [=] {
         if (timeoutDialog) {
             QRectF rt(monitor->x(), monitor->y(), monitor->w() / radio, monitor->h() / radio);
