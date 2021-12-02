@@ -26,6 +26,7 @@
 
 #include <QVBoxLayout>
 #include <QResizeEvent>
+#include <QScrollArea>
 
 #include <QGSettings>
 
@@ -95,6 +96,7 @@ private:
     QStandardItemModel *m_bootItemModel;
     CommonInfoModel *m_commonInfoModel = nullptr;
     bool m_isCommoninfoBootWallpaperConfigValid;
+    QScrollArea *m_scrollArea; // 添加滚动区域
 };
 
 } // namespace commoninfo

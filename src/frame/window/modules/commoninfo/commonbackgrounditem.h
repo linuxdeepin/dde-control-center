@@ -31,7 +31,7 @@ class CommonBackgroundItem : public dcc::widgets::SettingsItem
     Q_OBJECT
 
 public:
-    explicit CommonBackgroundItem(QFrame *parent = nullptr);
+    explicit CommonBackgroundItem(QWidget *parent = nullptr);
 
 Q_SIGNALS:
     void requestEnableTheme(const bool state);

@@ -54,18 +54,35 @@ DTK_USE_NAMESPACE
 BootWidget::BootWidget(QWidget *parent)
     : QWidget(parent)
     , m_isCommoninfoBootWallpaperConfigValid(false)
+    , m_scrollArea(new QScrollArea(this))
 {
+    // 整体布局
+    QVBoxLayout *mainContentLayout = new QVBoxLayout;
+    mainContentLayout->setContentsMargins(0, 0, 0, 0);
+    mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+
+    setLayout(mainContentLayout);
+    setFocusPolicy(Qt::FocusPolicy::ClickFocus);
+
+    m_scrollArea->setAccessibleName("scrollArea");
+    m_scrollArea->setWidgetResizable(true);
+    m_scrollArea->setFrameStyle(QFrame::NoFrame);
+    m_scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    m_scrollArea->setContentsMargins(0, 0, 0, 0);
+    m_scrollArea->setBackgroundRole(QPalette::Base);
+
     QVBoxLayout *layout = new QVBoxLayout;
     SettingsGroup *groupOther = new SettingsGroup;
     groupOther->getLayout()->setContentsMargins(0, 0, 0, 0);
 
-    m_background = new CommonBackgroundItem();
+    m_background = new CommonBackgroundItem(this);
 
     m_listLayout = new QVBoxLayout;
     m_listLayout->addSpacing(List_Interval);
     m_listLayout->setMargin(0);
 
-    m_bootList = new DListView();
+    m_bootList = new DListView(this);
     m_bootList->setAccessibleName("List_bootlist");
     m_bootList->setAutoScroll(false);
     m_bootList->setFrameShape(QFrame::NoFrame);
@@ -86,7 +103,7 @@ BootWidget::BootWidget(QWidget *parent)
     dp.setColor(DPalette::Text, QColor(255, 255, 255));
     DApplicationHelper::instance()->setPalette(m_bootList, dp);
 
-    m_updatingLabel = new TipsLabel(tr("Updating..."));
+    m_updatingLabel = new TipsLabel(tr("Updating..."), this);
     m_updatingLabel->setVisible(false);
 
     DPalette dpLabel = DApplicationHelper::instance()->palette(m_updatingLabel);
@@ -95,18 +112,18 @@ BootWidget::BootWidget(QWidget *parent)
     m_listLayout->addWidget(m_updatingLabel, 0, Qt::AlignHCenter | Qt::AlignBottom);
     m_background->setLayout(m_listLayout);
 
-    m_bootDelay = new SwitchWidget();
+    m_bootDelay = new SwitchWidget(this);
     //~ contents_path /commoninfo/Boot Menu
     m_bootDelay->setTitle(tr("Startup Delay"));
 #ifndef DCC_DISABLE_GRUB_THEME
-    m_theme = new SwitchWidget();
+    m_theme = new SwitchWidget(this);
     //~ contents_path /commoninfo/Boot Menu
     m_theme->setTitle(tr("Theme"));
 #endif
     QMap<bool, QString> mapBackgroundMessage;
     mapBackgroundMessage[true] = tr("Click the option in boot menu to set it as the first boot, and drag and drop a picture to change the background");
     mapBackgroundMessage[false] = tr("Click the option in boot menu to set it as the first boot");
-    DTipLabel *backgroundLabel = new DTipLabel(mapBackgroundMessage[false]);
+    DTipLabel *backgroundLabel = new DTipLabel(mapBackgroundMessage[false], this);
 #ifndef DCC_DISABLE_GRUB_THEME
     backgroundLabel->setText(mapBackgroundMessage[true]);
 #endif
@@ -114,7 +131,7 @@ BootWidget::BootWidget(QWidget *parent)
     backgroundLabel->setContentsMargins(5, 0, 10, 0);
     backgroundLabel->setAlignment(Qt::AlignLeft);
 #ifndef DCC_DISABLE_GRUB_THEME
-    m_themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"));
+    m_themeLbl = new DTipLabel(tr("Switch theme on to view it in boot menu"), this);
     m_themeLbl->setAccessibleName("themeLbl");
     m_themeLbl->setWordWrap(true);
     m_themeLbl->setContentsMargins(5, 0, 10, 0);
@@ -136,26 +153,35 @@ BootWidget::BootWidget(QWidget *parent)
 #ifndef DCC_DISABLE_GRUB_THEME
     layout->addWidget(m_themeLbl);
 #endif
-    m_grubVerification = new SwitchWidget();
+    m_grubVerification = new SwitchWidget(this);
     m_grubVerification->setTitle(tr("GRUB Authentication"));
     m_grubVerification->addBackground();
     layout->addSpacing(List_Interval);
     layout->addWidget(m_grubVerification);
-    m_grubVerifyLbl = new DTipLabel(tr("GRUB password is required to edit its configuration"));
+
+    m_grubVerifyLbl = new DTipLabel(tr("GRUB password is required to edit its configuration"), this);
     m_grubVerifyLbl->setAccessibleName("grubVerifyLbl");
     m_grubVerifyLbl->setWordWrap(true);
     m_grubVerifyLbl->setAlignment(Qt::AlignLeft);
     QHBoxLayout *hLayout = new QHBoxLayout;
     layout->addLayout(hLayout);
     hLayout->addWidget(m_grubVerifyLbl, 1);
-    m_grubModifyPasswdLink = new DCommandLinkButton(tr("Change Password"));
+    m_grubModifyPasswdLink = new DCommandLinkButton(tr("Change Password"), this);
     m_grubModifyPasswdLink->hide();
     hLayout->addWidget(m_grubModifyPasswdLink, 0);
     hLayout->setContentsMargins(5, 0, 10, 0);
     layout->addStretch();
     layout->setContentsMargins(ThirdPageContentsMargins);
-    setLayout(layout);
     setWindowTitle(tr("Boot Menu"));
+
+    mainContentLayout->addWidget(m_scrollArea);
+    QWidget *widget = new QWidget(this);
+    widget->setAccessibleName("scrollAreaWidget");
+    widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    widget->setContentsMargins(0, 0, 0, 0);
+    widget->setMinimumWidth(330);   //设置滑轮区域最小宽度,避免整体窗口最小的时候,fullnamelable太长导致出现滑轮
+    widget->setLayout(layout);
+    m_scrollArea->setWidget(widget);
 
 #ifndef DCC_DISABLE_GRUB_THEME
     m_commoninfoBootWallpaperConfigSetting = new QGSettings("com.deepin.dde.control-center", QByteArray(), this);
