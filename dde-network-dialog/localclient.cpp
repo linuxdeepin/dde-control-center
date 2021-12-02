@@ -43,6 +43,7 @@ static QMap<QString, void (LocalClient::*)(QLocalSocket *, const QByteArray &)> 
 
 LocalClient::LocalClient(QObject *parent)
     : QObject(parent)
+    , m_wait(false)
     , m_timer(nullptr)
     , m_exitTimer(new QTimer(this))
     , m_popopWindow(nullptr)
@@ -119,8 +120,9 @@ void LocalClient::readyReadHandler()
     }
 }
 
-void LocalClient::waitPassword(const QString &dev, const QString &ssid)
+void LocalClient::waitPassword(const QString &dev, const QString &ssid, bool wait)
 {
+    m_wait = wait;
     m_ssid = ssid;
     m_dev = dev;
     if (m_panel) {
@@ -199,7 +201,7 @@ void LocalClient::connectNetwork(QLocalSocket *socket, const QByteArray &data)
 void LocalClient::receivePassword(QLocalSocket *socket, const QByteArray &data)
 {
     Q_UNUSED(socket)
-    if (!m_ssid.isEmpty()) {
+    if (m_wait) {
         QJsonDocument doc = QJsonDocument::fromJson(data);
         if (doc.isObject()) {
             QFile file;
@@ -211,6 +213,7 @@ void LocalClient::receivePassword(QLocalSocket *socket, const QByteArray &data)
             file.flush();
             file.close();
             m_ssid.clear();
+            m_wait = false;
             qApp->exit(doc.object().value("input").toBool() ? 0 : 1);
         }
     }
@@ -231,7 +234,6 @@ void LocalClient::receive(QLocalSocket *socket, const QByteArray &data)
 
 bool LocalClient::changePassword(QString key, QString password, bool input)
 {
-    bool ret = !m_ssid.isEmpty();
     QJsonObject json;
     json.insert("key", key);
     json.insert("password", password);
@@ -243,5 +245,5 @@ bool LocalClient::changePassword(QString key, QString password, bool input)
 
     receivePassword(nullptr, data);
     m_clinet->write("\npassword:" + data + "\n");
-    return ret;
+    return m_wait;
 }

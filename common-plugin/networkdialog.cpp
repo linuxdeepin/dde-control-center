@@ -126,7 +126,7 @@ void NetworkDialog::runProcess(bool show)
         argList << "-s" << showConfig();
     }
     if (!m_connectSsid.isEmpty()) {
-        argList << "-w" << "-c" << m_connectSsid << "-n" << m_connectDev;
+        argList << "-c" << m_connectSsid << "-n" << m_connectDev;
         m_connectSsid.clear();
     }
     m_process->start(NetworkDialogApp, argList);
@@ -138,7 +138,8 @@ void NetworkDialog::setConnectWireless(const QString &dev, const QString &ssid)
     m_connectSsid = ssid;
     for (auto it = m_clients.begin(); it != m_clients.end(); it++) {
         if (it.value() == ClientType::Show) {
-            it.key()->write(QString("\nconnect:{\"ssid\"=\"%1\",\"dev\"=\"%2\"}\n").arg(m_connectSsid).arg(m_connectDev).toUtf8());
+            it.key()->write(QString("\nconnect:{\"ssid\":\"%1\",\"dev\":\"%2\"}\n").arg(m_connectSsid).arg(m_connectDev).toUtf8());
+            m_connectSsid.clear();
             return;
         }
     }

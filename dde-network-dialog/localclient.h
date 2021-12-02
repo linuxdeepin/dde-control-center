@@ -54,7 +54,7 @@ public:
 
 public:
     bool ConnectToServer();
-    void waitPassword(const QString &dev, const QString &ssid);
+    void waitPassword(const QString &dev, const QString &ssid, bool wait);
 
     void showWidget();
     void initWidget();
@@ -76,6 +76,7 @@ private:
     QLocalSocket *m_clinet;
     QString m_dev;
     QString m_ssid; // 等待密码输入模式时才有值，由命令转入 @see waitPassword
+    bool m_wait;    // 等待模式
     QTimer *m_timer;
     QTimer *m_exitTimer;
     QByteArray m_lastData;

@@ -143,7 +143,7 @@ int main(int argc, char **argv)
     // crash catch
     init_sig_crash();
     QCommandLineOption showOption(QStringList() << "s", "show config", "config");
-    QCommandLineOption wepOption(QStringList() << "w", "wireless wep-key");
+    QCommandLineOption waitOption(QStringList() << "w", "wait wep-key"); // 等待模式，密码输入后返回给调用者并退出。否则不退出尝试联网
     QCommandLineOption connectPathOption(QStringList() << "c", "connect wireless ", "path");
     QCommandLineOption devOption(QStringList() << "n", "network device", "device");
 
@@ -152,7 +152,7 @@ int main(int argc, char **argv)
     parser.addHelpOption();
     parser.addVersionOption();
     parser.addOption(showOption);
-    parser.addOption(wepOption);
+    parser.addOption(waitOption);
     parser.addOption(connectPathOption);
     parser.addOption(devOption);
     parser.process(*qApp);
@@ -161,10 +161,10 @@ int main(int argc, char **argv)
         QString config = parser.value(showOption);
         LocalClient::instance()->showPosition(nullptr, config.toUtf8());
     }
-    if (parser.isSet(wepOption)) {
+    if (parser.isSet(devOption)) {
         QString dev = parser.value(devOption);
         QString ssid = parser.value(connectPathOption);
-        LocalClient::instance()->waitPassword(dev, ssid);
+        LocalClient::instance()->waitPassword(dev, ssid, parser.isSet(waitOption));
     } else {
         LocalClient::instance()->showWidget();
     }

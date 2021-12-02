@@ -179,37 +179,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             break;
         }
     } break;
-    case Device::State::Failed: {
-        if (device->type() == Device::Wifi) {
-            switch (reason) {
-            case Device::NoSecretsReason:
-            case Device::ConfigUnavailableReason: {
-                NetworkManager::WirelessDevice wirelessDevice(device->uni());
-                WirelessNetwork::Ptr network = wirelessDevice.findNetwork(m_lastConnection);
-                if (network.isNull()) {
-                    break;
-                }
-                AccessPoint::Ptr ap = network->referenceAccessPoint();
-                if (ap.isNull()) {
-                    break;
-                }
-                AccessPoint::Capabilities capabilities = ap->capabilities();
-                AccessPoint::WpaFlags wpaFlags = ap->wpaFlags();
-                AccessPoint::WpaFlags rsnFlags = ap->rsnFlags();
-
-                // 无安全要求的网络连接失败后,不弹网络列表
-                if (capabilities.testFlag(AccessPoint::Capability::Privacy)
-                    || ((wpaFlags.testFlag(AccessPoint::WpaFlag::KeyMgmtPsk) || rsnFlags.testFlag(AccessPoint::WpaFlag::KeyMgmtPsk)))
-                    || ((wpaFlags.testFlag(AccessPoint::WpaFlag::KeyMgmt8021x) || rsnFlags.testFlag(AccessPoint::WpaFlag::KeyMgmt8021x)))) {
-                    m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
-                    emit signalShowNetworkDialog();
-                }
-            } break;
-            default:
-                break;
-            }
-        }
-    } // 没有break，还需要继续处理横幅
+    case Device::State::Failed:
     case Device::State::Disconnected:
     case Device::State::NeedAuth:
     case Device::State::Unmanaged:
@@ -244,6 +214,7 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             }
             break;
         case Device::StateChangeReason::ConfigUnavailableReason:
+        case Device::StateChangeReason::AuthSupplicantTimeoutReason: // 超时
             switch (device->type()) {
             case Device::Type::Ethernet:
                 NotificationManager::NetworkNotify(NotificationManager::WiredUnableConnect, m_lastConnection);
@@ -261,6 +232,8 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
                     break;
                 case Device::Type::Wifi:
                     NotificationManager::NetworkNotify(NotificationManager::WirelessConnectionFailed, m_lastConnection);
+                    emit signalShowNetworkDialog();
+                    m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
                     break;
                 }
             }
@@ -273,9 +246,13 @@ void NetworkModule::onDeviceStatusChanged(NetworkManager::Device::State newstate
             break;
         case Device::StateChangeReason::NoSecretsReason:
             NotificationManager::NetworkNotify(NotificationManager::NoSecrets, m_lastConnection);
+            emit signalShowNetworkDialog();
+            m_networkDialog->setConnectWireless(device->uni(), m_lastConnection);
             break;
         case Device::StateChangeReason::SsidNotFound:
             NotificationManager::NetworkNotify(NotificationManager::SsidNotFound, m_lastConnection);
+            break;
+        default:
             break;
         }
     } break;
