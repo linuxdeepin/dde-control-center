@@ -99,7 +99,4 @@ private:
     Setting::Ptr m_ipvxSetting;
 };
 
-Q_DECLARE_METATYPE(Ipv4Setting::ConfigMethod)
-Q_DECLARE_METATYPE(Ipv6Setting::ConfigMethod)
-
 #endif /* IPVXSECTION_H */

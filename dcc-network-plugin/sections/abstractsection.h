@@ -30,6 +30,11 @@ namespace dcc {
   }
   class ContentWidget;
 }
+DWIDGET_BEGIN_NAMESPACE
+class DStyleOptionButton;
+DWIDGET_END_NAMESPACE
+
+DWIDGET_USE_NAMESPACE
 
 using namespace dcc;
 using namespace dcc::widgets;
@@ -48,8 +53,10 @@ public:
     virtual bool allInputValid() = 0;
     virtual void saveSettings() = 0;
 
+    void setTitle(const QString &title);
     void appendItem(SettingsItem *item);
     void insertItem(int idx, SettingsItem *item);
+    void removeItem(SettingsItem *item);
     void setSettingsHead(SettingsHead *settingsHead);
 
 Q_SIGNALS:
@@ -60,6 +67,32 @@ Q_SIGNALS:
 private:
     SettingsGroup *m_group;
     QVBoxLayout *m_layout;
+    SettingsHead *m_head;
+};
+
+class ActionButton : public QWidget
+{
+    Q_OBJECT
+
+public:
+    enum ActionType { Add = 0, Delete };
+
+Q_SIGNALS:
+    void clicked();
+
+public:
+    explicit ActionButton(ActionType type, QWidget *parent);
+    ~ActionButton() override;
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    bool eventFilter(QObject *object, QEvent *event) override;
+
+    QColor backgroundColor();
+
+private:
+    ActionType m_actionType;
+    bool m_isMouseEnter;
 };
 
 #endif /* ABSTRACTSECTION_H */

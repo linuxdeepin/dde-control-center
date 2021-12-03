@@ -35,6 +35,9 @@
 #include <com_deepin_daemon_network.h>
 #include <org_freedesktop_notifications.h>
 
+Q_DECLARE_METATYPE(Ipv4Setting::ConfigMethod)
+Q_DECLARE_METATYPE(Ipv6Setting::ConfigMethod)
+
 const unsigned int ipConflictCheckTime = 500;
 
 using NetworkInter = com::deepin::daemon::Network;

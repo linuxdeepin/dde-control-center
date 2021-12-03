@@ -22,7 +22,7 @@
 #include "wiredsettings.h"
 #include "../sections/genericsection.h"
 #include "../sections/secretwiredsection.h"
-#include "../sections/ipvxsection.h"
+#include "../sections/multiipvxsection.h"
 #include "../sections/dnssection.h"
 #include "../sections/ethernetsection.h"
 #include "../window/gsettingwatcher.h"
@@ -54,8 +54,8 @@ void WiredSettings::initSections()
     GenericSection *genericSection = new GenericSection(m_connSettings, frame);
     genericSection->setConnectionType(ConnectionSettings::Wired);
     Secret8021xSection *secretSection = new SecretWiredSection(m_connSettings->setting(Setting::Security8021x).staticCast<Security8021xSetting>(), frame);
-    IpvxSection *ipv4Section = new IpvxSection(m_connSettings->setting(Setting::Ipv4).staticCast<Ipv4Setting>(), frame);
-    IpvxSection *ipv6Section = new IpvxSection(m_connSettings->setting(Setting::Ipv6).staticCast<Ipv6Setting>(), frame);
+    MultiIpvxSection *ipv4Section = new MultiIpvxSection(m_connSettings->setting(Setting::Ipv4).staticCast<Ipv4Setting>(), frame);
+    MultiIpvxSection *ipv6Section = new MultiIpvxSection(m_connSettings->setting(Setting::Ipv6).staticCast<Ipv6Setting>(), frame);
     DNSSection *dnsSection = new DNSSection(m_connSettings);
     EthernetSection *etherNetSection = new EthernetSection(m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>(), m_devicePath, frame);
 
@@ -69,20 +69,20 @@ void WiredSettings::initSections()
 
     connect(genericSection, &GenericSection::editClicked, this, &WiredSettings::anyEditClicked);
     connect(secretSection, &Secret8021xSection::editClicked, this, &WiredSettings::anyEditClicked);
-    connect(ipv4Section, &IpvxSection::editClicked, this, &WiredSettings::anyEditClicked);
-    connect(ipv6Section, &IpvxSection::editClicked, this, &WiredSettings::anyEditClicked);
+    connect(ipv4Section, &MultiIpvxSection::editClicked, this, &WiredSettings::anyEditClicked);
+    connect(ipv6Section, &MultiIpvxSection::editClicked, this, &WiredSettings::anyEditClicked);
     connect(dnsSection, &DNSSection::editClicked, this, &WiredSettings::anyEditClicked);
     connect(etherNetSection, &EthernetSection::editClicked, this, &WiredSettings::anyEditClicked);
 
     connect(secretSection, &Secret8021xSection::requestNextPage, this, &WiredSettings::requestNextPage);
-    connect(ipv4Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
-    connect(ipv6Section, &IpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
+    connect(ipv4Section, &MultiIpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
+    connect(ipv6Section, &MultiIpvxSection::requestNextPage, this, &WiredSettings::requestNextPage);
     connect(dnsSection, &DNSSection::requestNextPage, this, &WiredSettings::requestNextPage);
     connect(etherNetSection, &EthernetSection::requestNextPage, this, &WiredSettings::requestNextPage);
 
     connect(secretSection, &Secret8021xSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
-    connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
-    connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
+    connect(ipv4Section, &MultiIpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
+    connect(ipv6Section, &MultiIpvxSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
     connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
     connect(etherNetSection, &EthernetSection::requestFrameAutoHide, this, &WiredSettings::requestFrameAutoHide);
 

@@ -22,7 +22,7 @@
 #include "wirelesssettings.h"
 #include "../sections/genericsection.h"
 #include "../sections/secretwirelesssection.h"
-#include "../sections/ipvxsection.h"
+#include "../sections/multiipvxsection.h"
 #include "../sections/dnssection.h"
 #include "../sections/wirelesssection.h"
 #include "../window/gsettingwatcher.h"
@@ -51,8 +51,8 @@ void WirelessSettings::initSections()
         m_connSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>(),
         m_connSettings->setting(Setting::SettingType::Security8021x).staticCast<Security8021xSetting>());
 
-    IpvxSection *ipv4Section = new IpvxSection(m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<Ipv4Setting>());
-    IpvxSection *ipv6Section = new IpvxSection(m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<Ipv6Setting>());
+    MultiIpvxSection *ipv4Section = new MultiIpvxSection(m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<Ipv4Setting>());
+    MultiIpvxSection *ipv6Section = new MultiIpvxSection(m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<Ipv6Setting>());
 
     DNSSection *dnsSection = new DNSSection(m_connSettings);
 
@@ -70,21 +70,21 @@ void WirelessSettings::initSections()
 
     connect(genericSection, &GenericSection::editClicked, this, &WirelessSettings::anyEditClicked);
     connect(secretSection, &Secret8021xSection::editClicked, this, &WirelessSettings::anyEditClicked);
-    connect(ipv4Section, &IpvxSection::editClicked, this, &WirelessSettings::anyEditClicked);
-    connect(ipv6Section, &IpvxSection::editClicked, this, &WirelessSettings::anyEditClicked);
+    connect(ipv4Section, &MultiIpvxSection::editClicked, this, &WirelessSettings::anyEditClicked);
+    connect(ipv6Section, &MultiIpvxSection::editClicked, this, &WirelessSettings::anyEditClicked);
     connect(dnsSection, &DNSSection::editClicked, this, &WirelessSettings::anyEditClicked);
     connect(wirelessSection, &WirelessSection::editClicked, this, &WirelessSettings::anyEditClicked);
 
     connect(wirelessSection, &WirelessSection::requestNextPage, this, &WirelessSettings::requestNextPage);
     connect(secretSection, &Secret8021xSection::requestNextPage, this, &WirelessSettings::requestNextPage);
-    connect(ipv4Section, &IpvxSection::requestNextPage, this, &WirelessSettings::requestNextPage);
-    connect(ipv6Section, &IpvxSection::requestNextPage, this, &WirelessSettings::requestNextPage);
+    connect(ipv4Section, &MultiIpvxSection::requestNextPage, this, &WirelessSettings::requestNextPage);
+    connect(ipv6Section, &MultiIpvxSection::requestNextPage, this, &WirelessSettings::requestNextPage);
     connect(dnsSection, &DNSSection::requestNextPage, this, &WirelessSettings::requestNextPage);
 
     connect(wirelessSection, &WirelessSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
     connect(secretSection, &Secret8021xSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
-    connect(ipv4Section, &IpvxSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
-    connect(ipv6Section, &IpvxSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
+    connect(ipv4Section, &MultiIpvxSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
+    connect(ipv6Section, &MultiIpvxSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
     connect(dnsSection, &DNSSection::requestFrameAutoHide, this, &WirelessSettings::requestFrameAutoHide);
 
     connect(wirelessSection, &WirelessSection::ssidChanged, genericSection, &GenericSection::setConnectionName);

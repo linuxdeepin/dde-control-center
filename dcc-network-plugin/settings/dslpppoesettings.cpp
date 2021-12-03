@@ -22,7 +22,7 @@
 #include "dslpppoesettings.h"
 #include "../sections/genericsection.h"
 #include "../sections/pppoesection.h"
-#include "../sections/ipvxsection.h"
+#include "../sections/multiipvxsection.h"
 #include "../sections/dnssection.h"
 #include "../sections/pppsection.h"
 #include "../sections/ethernetsection.h"
@@ -49,20 +49,20 @@ void DslPppoeSettings::initSections()
 {
     GenericSection *genericSection = new GenericSection(m_connSettings);
     PPPOESection *pppoeSection = new PPPOESection(m_connSettings->setting(Setting::Pppoe).staticCast<PppoeSetting>());
-    IpvxSection *ipv4Section = new IpvxSection(m_connSettings->setting(Setting::Ipv4).staticCast<Ipv4Setting>());
+    MultiIpvxSection *ipv4Section = new MultiIpvxSection(m_connSettings->setting(Setting::Ipv4).staticCast<Ipv4Setting>());
     DNSSection *dnsSection = new DNSSection(m_connSettings, false);
     m_etherNetSection = new EthernetSection(m_connSettings->setting(Setting::Wired).staticCast<WiredSetting>(), m_devicePath);
     PPPSection *pppSection = new PPPSection(m_connSettings->setting(Setting::Ppp).staticCast<PppSetting>());
 
     connect(genericSection, &GenericSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(pppoeSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
-    connect(ipv4Section, &IpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(ipv4Section, &MultiIpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(dnsSection, &DNSSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(m_etherNetSection, &EthernetSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
-    connect(pppSection, &IpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
+    connect(pppSection, &MultiIpvxSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
     connect(dnsSection, &DNSSection::editClicked, this, &DslPppoeSettings::anyEditClicked);
 
-    connect(ipv4Section, &IpvxSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
+    connect(ipv4Section, &MultiIpvxSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
     connect(dnsSection, &DNSSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
     connect(m_etherNetSection, &EthernetSection::requestNextPage, this, &DslPppoeSettings::requestNextPage);
 
