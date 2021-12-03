@@ -22,7 +22,7 @@
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Für die Verbindung mit %1 ist ein Passwort erforderlich</translation>
     </message>
     <message>
         <source>Password</source>

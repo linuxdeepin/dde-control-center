@@ -18,11 +18,11 @@
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Contraseña incorrecta</translation>
     </message>
     <message>
         <source>Password required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Se requiere una contraseña para conectarse %1</translation>
     </message>
     <message>
         <source>Password</source>

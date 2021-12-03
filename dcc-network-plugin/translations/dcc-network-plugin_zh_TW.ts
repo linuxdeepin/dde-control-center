@@ -426,6 +426,99 @@
     </message>
 </context>
 <context>
+    <name>MultiIpvxSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Auto</source>
+        <translation>自動</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Manual</source>
+        <translation>手動</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Ignore</source>
+        <translation>忽略</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP Address</source>
+        <translation>IP 位址</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Required</source>
+        <translation>必須</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Gateway</source>
+        <translation>閘道器</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Method</source>
+        <translation>方法</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Netmask</source>
+        <translation>子網路遮罩</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>前置詞</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid IP address</source>
+        <translation>無效的IP位址</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid netmask</source>
+        <translation>無效的子網掩碼</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>無效的網關地址</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Network</source>
+        <translation>網路</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP位址衝突</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Only one gateway is allowed</source>
+        <translation>只允許一個網關</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Duplicate IP address</source>
+        <translation>IP位址重複</translation>
+    </message>
+</context>
+<context>
     <name>NetworkDetailPage</name>
     <message>
         <location filename="../networkdetailpage.cpp"/>
@@ -2244,6 +2337,11 @@
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
         <translation>取得 IP 位址中…</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP位址衝突</translation>
     </message>
 </context>
 </TS>

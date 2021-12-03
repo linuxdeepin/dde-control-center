@@ -69,35 +69,35 @@
     <name>QObject</name>
     <message>
         <source>Connecting %1</source>
-        <translation type="unfinished"/>
+        <translation>Conectando %1</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation type="unfinished"/>
+        <translation>%1 conectado</translation>
     </message>
     <message>
         <source>%1 disconnected</source>
-        <translation type="unfinished"/>
+        <translation>%1 desconectado</translation>
     </message>
     <message>
         <source>Unable to connect %1, please check your router or net cable.</source>
-        <translation type="unfinished"/>
+        <translation>No se puede conectar %1, por favor, compruebe el router o el cable de red.</translation>
     </message>
     <message>
         <source>Unable to connect %1, please keep closer to the wireless router</source>
-        <translation type="unfinished"/>
+        <translation>No se puede conectar %1, por favor, manténgase más cerca del router inalámbrico</translation>
     </message>
     <message>
         <source>Connection failed, unable to connect %1, wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Fallo de conexión, no se puede conectar %1, contraseña incorrecta</translation>
     </message>
     <message>
         <source>Password is required to connect %1</source>
-        <translation type="unfinished"/>
+        <translation>Se requiere una contraseña para conectarse %1</translation>
     </message>
     <message>
         <source>The %1 802.11 WLAN network could not be found</source>
-        <translation type="unfinished"/>
+        <translation>No se ha podido encontrar la red WLAN 802.11 %1</translation>
     </message>
 </context>
 <context>

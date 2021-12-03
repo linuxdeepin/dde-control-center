@@ -426,6 +426,99 @@
     </message>
 </context>
 <context>
+    <name>MultiIpvxSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IPv4</source>
+        <translation>IPv4</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IPv6</source>
+        <translation>IPv6</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Manual</source>
+        <translation>Manual</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Ignore</source>
+        <translation>Ignore</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP Address</source>
+        <translation>IP Address</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Required</source>
+        <translation>Required</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Gateway</source>
+        <translation>Gateway</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Method</source>
+        <translation>Method</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Netmask</source>
+        <translation>Netmask</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>Prefix</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid IP address</source>
+        <translation>Invalid IP address</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid netmask</source>
+        <translation>Invalid netmask</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>Invalid gateway</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Network</source>
+        <translation>Network</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP conflict</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Only one gateway is allowed</source>
+        <translation>Only one gateway is allowed</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Duplicate IP address</source>
+        <translation>Duplicate IP address</translation>
+    </message>
+</context>
+<context>
     <name>NetworkDetailPage</name>
     <message>
         <location filename="../networkdetailpage.cpp"/>
@@ -2244,6 +2337,11 @@
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
         <translation>Obtaining IP address</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP conflict</translation>
     </message>
 </context>
 </TS>

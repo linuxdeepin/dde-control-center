@@ -352,5 +352,10 @@
         <source>Obtaining IP address</source>
         <translation>Uzyskiwanie adresu IP</translation>
     </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>IP conflict</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 </TS>

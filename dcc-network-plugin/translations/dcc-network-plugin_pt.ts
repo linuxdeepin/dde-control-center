@@ -426,6 +426,99 @@
     </message>
 </context>
 <context>
+    <name>MultiIpvxSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IPv4</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IPv6</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Manual</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Ignore</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP Address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Required</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Method</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Netmask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid IP address</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid netmask</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Network</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP conflict</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Only one gateway is allowed</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Duplicate IP address</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>NetworkDetailPage</name>
     <message>
         <location filename="../networkdetailpage.cpp"/>
@@ -499,13 +592,13 @@
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Rede por cabo</translation>
         <extra-contents_path>/network/Wired Network</extra-contents_path>
     </message>
     <message>
         <location filename="../networkmodulewidget.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Rede sem fios</translation>
         <extra-contents_path>/network/WirelessPage</extra-contents_path>
     </message>
 </context>
@@ -2170,22 +2263,22 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network</source>
-        <translation type="unfinished"/>
+        <translation>Rede por cabo</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wired Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Rede por cabo %1</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network</source>
-        <translation type="unfinished"/>
+        <translation>Rede sem fios</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Wireless Network %1</source>
-        <translation type="unfinished"/>
+        <translation>Rede sem fios %1</translation>
     </message>
 </context>
 <context>
@@ -2193,56 +2286,61 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Disconnected</source>
-        <translation type="unfinished"/>
+        <translation>Desligado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connecting</source>
-        <translation type="unfinished"/>
+        <translation>A ligar</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Authenticating</source>
-        <translation type="unfinished"/>
+        <translation>A autenticar</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining address</source>
-        <translation type="unfinished"/>
+        <translation>A obter endereço</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Ligado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Failed</source>
-        <translation type="unfinished"/>
+        <translation>Falha</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Device disabled</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivo desativado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Connected but no Internet access</source>
-        <translation type="unfinished"/>
+        <translation>Ligado mas sem acesso à Internet</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Não ligado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Network cable unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Cabo de rede desligado</translation>
     </message>
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>Obtaining IP address</source>
+        <translation>A obter endereço de IP</translation>
+    </message>
+    <message>
+        <location filename="../../src/realize/netinterface.cpp"/>
+        <source>IP conflict</source>
         <translation type="unfinished"/>
     </message>
 </context>
