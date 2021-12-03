@@ -63,7 +63,7 @@ public Q_SLOTS:
 private:
     dcc::authentication::CharaMangerModel *m_model;
 
-    QVBoxLayout *mainContentLayout;
+    QVBoxLayout *m_mainContentLayout;
     IrisWidget *m_irisWidget;
     QLabel *m_pNotDevice;
     DTipLabel *m_tip;

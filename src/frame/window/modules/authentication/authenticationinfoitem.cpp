@@ -59,7 +59,7 @@ AuthenticationInfoItem::AuthenticationInfoItem(QWidget *parent)
     m_removeBtn->setVisible(false);
     DStyle::setFocusRectVisible(m_removeBtn, false);
 
-    m_layout->setContentsMargins(20, 5, 10, 5);
+    m_layout->setContentsMargins(10, 5, 10, 5);
     m_layout->addWidget(m_title, 0, Qt::AlignLeft);
     m_layout->addWidget(m_editBtn, 0, Qt::AlignLeft);
     m_layout->addWidget(m_editTitle, 0 , Qt::AlignLeft);

@@ -197,7 +197,7 @@ void FingerWidget::addFingerButton(const QString &newFingerName)
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFinger);
     QHBoxLayout *fingerLayout = new QHBoxLayout(this);
     fingerLayout->addWidget(addBtn, 0, Qt::AlignLeft);
-    fingerLayout->setContentsMargins(10, 5, 0, 5);
+    fingerLayout->setContentsMargins(3, 5, 0, 5);
     addfingerItem->setLayout(fingerLayout);
     m_listGrp->insertItem(m_listGrp->itemCount(), addfingerItem);
     addfingerItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);

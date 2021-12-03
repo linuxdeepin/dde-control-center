@@ -104,9 +104,10 @@ void FaceWidget::addFaceButton(const QString &newFaceName)
     SettingsItem* addfaceItem = new SettingsItem(this);
     QString strAddFace = tr("Add Face");
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddFace);
-    QHBoxLayout *faceLayout = new QHBoxLayout(this);
+    QHBoxLayout *faceLayout = new QHBoxLayout();
     faceLayout->addWidget(addBtn, 0, Qt::AlignLeft);
-    faceLayout->setContentsMargins(10, 5, 0, 5);
+    // DCommandLinkButton 本身有2px 的间距 按ui要求上下保持一致
+    faceLayout->setContentsMargins(3, 5, 0, 5);
     addfaceItem->setLayout(faceLayout);
     m_listGrp->insertItem(m_listGrp->itemCount(), addfaceItem);
     addfaceItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);

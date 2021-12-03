@@ -30,6 +30,7 @@ void FingerDetailWidget::initFingerUI()
 {
     //整体布局
     QVBoxLayout *mainContentLayout = new QVBoxLayout(this);
+    mainContentLayout->setContentsMargins(0, 10, 0, 0);
     mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
 
     m_fingerWidget->setContentsMargins(0, 0, 0, 0);

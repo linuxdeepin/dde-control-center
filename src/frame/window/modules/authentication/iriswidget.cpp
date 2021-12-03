@@ -106,7 +106,7 @@ void IrisWidget::addIrisButton(const QString &newIrisName)
     DCommandLinkButton *addBtn = new DCommandLinkButton(strAddIris);
     QHBoxLayout *irisLayout = new QHBoxLayout(this);
     irisLayout->addWidget(addBtn, 0, Qt::AlignLeft);
-    irisLayout->setContentsMargins(10, 5, 0, 5);
+    irisLayout->setContentsMargins(3, 5, 0, 5);
     addItem->setLayout(irisLayout);
     m_listGrp->insertItem(m_listGrp->itemCount(), addItem);
     addItem->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);

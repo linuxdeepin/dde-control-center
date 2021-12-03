@@ -14,7 +14,7 @@ using namespace dcc::authentication;
 FaceidDetailWidget::FaceidDetailWidget(dcc::authentication::CharaMangerModel *model, QWidget *parent)
     : QWidget (parent)
     , m_model (model)
-    , mainContentLayout(new QVBoxLayout(this))
+    , m_mainContentLayout(new QVBoxLayout(this))
     , m_faceWidget(new FaceWidget(model, this))
     , m_pNotDevice(new QLabel(this))
     , m_tip(new DTipLabel(tr("No supported devices found"), this))
@@ -39,10 +39,12 @@ FaceidDetailWidget::~FaceidDetailWidget()
 void FaceidDetailWidget::initFaceidShow()
 {
     //整体布局
+    m_mainContentLayout->setContentsMargins(0, 10, 0, 0);
+
     m_faceWidget->setContentsMargins(0, 0, 0, 0);
     m_faceWidget->layout()->setMargin(0);
 
-    setLayout(mainContentLayout);
+    setLayout(m_mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
     QString theme;
@@ -72,9 +74,9 @@ void FaceidDetailWidget::initFaceidShow()
     m_tip->adjustSize();
     m_tip->setPalette(palette);
 
-    mainContentLayout->addWidget(m_faceWidget);
-    mainContentLayout->addWidget(m_pNotDevice);
-    mainContentLayout->addWidget(m_tip);
+    m_mainContentLayout->addWidget(m_faceWidget);
+    m_mainContentLayout->addWidget(m_pNotDevice);
+    m_mainContentLayout->addWidget(m_tip);
 }
 
 void FaceidDetailWidget::onDeviceStatusChanged(bool hasDevice)
@@ -82,11 +84,11 @@ void FaceidDetailWidget::onDeviceStatusChanged(bool hasDevice)
     if (hasDevice) {
         m_pNotDevice->hide();
         m_tip->hide();
-        mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
+        m_mainContentLayout->setAlignment(Qt::AlignTop | Qt::AlignHCenter);
         m_faceWidget->show();
     } else {
         m_faceWidget->hide();
-        mainContentLayout->setAlignment(Qt::AlignHCenter | Qt::AlignCenter);
+        m_mainContentLayout->setAlignment(Qt::AlignHCenter | Qt::AlignCenter);
         m_pNotDevice->show();
         m_tip->show();
     }
