@@ -113,7 +113,10 @@ void DatetimeWidget::init()
     connect(m_listview, &DListView::activated, m_listview, &QListView::clicked);
     // true : 24 hour type  ,  false : 12 hour type ; All use the system time can recive DatetimeWidget::requestSetHourType signal
     connect(m_hourTypeSwitch, &SwitchWidget::checkedChanged, this, &DatetimeWidget::requestSetHourType);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
         bool isAllHidden = true;
         for (int i = 0; i < m_listview->model()->rowCount(); i++) {
             if (!m_listview->isRowHidden(i))
@@ -190,4 +193,13 @@ void DatetimeWidget::onHourTypeChanged(const bool &type)
         m_hourTypeSwitch->setChecked(type);
         m_clockItem->setTimeHourType(type);
     }
+}
+
+bool DatetimeWidget::configContent(const QString &configName)
+{
+    for (auto m : m_itemList) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
 }

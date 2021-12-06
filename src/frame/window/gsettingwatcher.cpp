@@ -166,7 +166,7 @@ void GSettingWatcher::setStatus(const QString &gsettingsName, QListView *viewer,
     if(visible)
         Q_EMIT requestShowSecondMenu(item->row());
     else
-        Q_EMIT requestUpdateSecondMenu(item->row());
+        Q_EMIT requestUpdateSecondMenu(item->row(), gsettingsName);
 }
 
 /**

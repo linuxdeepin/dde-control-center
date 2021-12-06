@@ -62,8 +62,9 @@ private:
     void initWidget();
     void initData();
 
-    void onRequestUpdateSecondMenu(int row);
+    void onRequestUpdateSecondMenu(int row, const QString &name);
     void onListClicked(const QModelIndex & index);
+    bool configContent(const QString & configName);
 
 Q_SIGNALS:
     void requestShowAboutNative();

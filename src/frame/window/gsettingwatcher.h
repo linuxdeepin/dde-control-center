@@ -52,7 +52,7 @@ private:
     bool existKey(const QString &key);
 
 Q_SIGNALS:
-    void requestUpdateSecondMenu(int);
+    void requestUpdateSecondMenu(int, const QString &gsettingsName = QString());
     void requestUpdateSearchMenu(const QString &, bool);
     void requestShowSecondMenu(int); //显示第二级页面
 

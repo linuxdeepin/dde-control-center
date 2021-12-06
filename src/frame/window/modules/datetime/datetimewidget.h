@@ -79,6 +79,7 @@ Q_SIGNALS:
 public Q_SLOTS:
     void onItemClicked(const QModelIndex &index);
     void onHourTypeChanged(const bool &type);
+    bool configContent(const QString & configName);
 
 private:
     dcc::widgets::MultiSelectListView *m_listview;

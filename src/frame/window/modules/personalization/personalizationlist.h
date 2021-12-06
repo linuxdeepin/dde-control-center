@@ -66,6 +66,9 @@ public Q_SLOTS:
     void setCurrentIndex(int row);
 
 private:
+    bool configContent(const QString & configName);
+
+private:
     QList<ListSubItem> m_itemList;
     dcc::widgets::MultiSelectListView *m_categoryListView;
     QStandardItemModel *m_model;

@@ -75,7 +75,7 @@ void LoginOptionsWidget::onItemClicked(const QModelIndex &index)
         return;
 
     m_currentIndex = index;
-    m_menuMethod[index.row()].itemSignal.invoke(m_menuMethod[index.row()].plugin ? m_menuMethod[index.row()].plugin : this);
+    m_itemList[index.row()].itemSignal.invoke(m_itemList[index.row()].plugin ? m_itemList[index.row()].plugin : this);
     m_deviceListView->resetStatus(index);
 }
 
@@ -108,13 +108,13 @@ void LoginOptionsWidget::initUI()
 void LoginOptionsWidget::initMembers()
 {
     //~ contents_path /authentication/Finger
-    m_menuMethod.append({"dcc_fingerprint", tr("Fingerprint"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFingerDetail), nullptr, "authenticationFinger"});
+    m_itemList.append({"dcc_fingerprint", tr("Fingerprint"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFingerDetail), nullptr, "authenticationFinger"});
     //~ contents_path /authentication/Face
-    m_menuMethod.append({"dcc_faceid", tr("Face"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFaceIdDetail), nullptr, "authenticationFace"});
+    m_itemList.append({"dcc_faceid", tr("Face"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowFaceIdDetail), nullptr, "authenticationFace"});
     //~ contents_path /authentication/Iris
-    m_menuMethod.append({"dcc_iris", tr("Iris"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowIrisDetail), nullptr, "authenticationIris"});
+    m_itemList.append({"dcc_iris", tr("Iris"), QMetaMethod::fromSignal(&LoginOptionsWidget::requestShowIrisDetail), nullptr, "authenticationIris"});
 
-    for (auto mm : m_menuMethod) {
+    for (auto mm : m_itemList) {
         DStandardItem *item = new DStandardItem(mm.itemText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         item->setIcon(QIcon::fromTheme(mm.itemIcon));

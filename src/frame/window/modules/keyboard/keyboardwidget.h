@@ -65,6 +65,7 @@ public:
 private:
     void init();
     void onItemClick(const QModelIndex &index);
+    bool configContent(const QString & configName);
 Q_SIGNALS:
     void showGeneralSetting();
     void showKBLayoutSetting();

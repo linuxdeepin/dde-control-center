@@ -217,7 +217,7 @@ void DConfigWatcher::setStatus(QString &moduleName, const QString &configName, Q
     if (visible)
         Q_EMIT requestShowSecondMenu(item->row());
     else
-        Q_EMIT requestUpdateSecondMenu(item->row());
+        Q_EMIT requestUpdateSecondMenu(item->row(), configName);
 }
 
 /**

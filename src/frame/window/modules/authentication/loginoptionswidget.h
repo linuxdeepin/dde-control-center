@@ -66,7 +66,7 @@ Q_SIGNALS:
     void requestShowIrisDetail();
 
 private:
-    QList <ListSubItem> m_menuMethod;
+    QList <ListSubItem> m_itemList;
     dcc::widgets::MultiSelectListView *m_deviceListView;
     QStandardItemModel *m_deviceItemModel;
     QModelIndex m_currentIndex;

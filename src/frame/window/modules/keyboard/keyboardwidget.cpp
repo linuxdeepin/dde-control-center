@@ -98,7 +98,10 @@ void KeyboardWidget::init()
 
     connect(m_keyboardListView, &DListView::clicked, this, &KeyboardWidget::onItemClick);
     connect(m_keyboardListView, &DListView::activated, m_keyboardListView, &QListView::clicked);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](const int row) {
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](const int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
         bool isAllHidden = true;
         for (int i = 0; i < m_keyboardListView->model()->rowCount(); i++) {
             if (!m_keyboardListView->isRowHidden(i))
@@ -167,4 +170,13 @@ void KeyboardWidget::onItemClick(const QModelIndex &index)
 
     m_lastIndex = index;
     m_keyboardListView->resetStatus(index);
+}
+
+bool KeyboardWidget::configContent(const QString &configName)
+{
+    for (auto m : m_itemList) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
 }

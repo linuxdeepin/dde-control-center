@@ -73,15 +73,15 @@ void SoundWidget::initUi()
 void SoundWidget::initMembers()
 {
     //~ contents_path /sound/Speaker
-    m_menuMethod.append({"dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage), nullptr, "soundOutput"});
+    m_itemList.append({"dcc_speaker", tr("Output"), QMetaMethod::fromSignal(&SoundWidget::requsetSpeakerPage), nullptr, "soundOutput"});
     //~ contents_path /sound/Microphone
-    m_menuMethod.append({"dcc_noun", tr("Input"), QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage), nullptr, "soundInput"});
+    m_itemList.append({"dcc_noun", tr("Input"), QMetaMethod::fromSignal(&SoundWidget::requestMicrophonePage), nullptr, "soundInput"});
     //~ contents_path /sound/Sound Effects
-    m_menuMethod.append({"dcc_sound_effect", tr("Sound Effects"), QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage), nullptr, "soundEffects"});
+    m_itemList.append({"dcc_sound_effect", tr("Sound Effects"), QMetaMethod::fromSignal(&SoundWidget::requsetSoundEffectsPage), nullptr, "soundEffects"});
     //~ contents_path /sound/Devices
-    m_menuMethod.append({"dcc_device_mange", tr("Devices"), QMetaMethod::fromSignal(&SoundWidget::requsetDeviceManagesPage), nullptr, "deviceManage"});
+    m_itemList.append({"dcc_device_mange", tr("Devices"), QMetaMethod::fromSignal(&SoundWidget::requsetDeviceManagesPage), nullptr, "deviceManage"});
 
-    for (auto mm : m_menuMethod) {
+    for (auto mm : m_itemList) {
         DStandardItem *item = new DStandardItem(mm.itemText);
         item->setData(VListViewItemMargin, Dtk::MarginsRole);
         item->setIcon(QIcon::fromTheme(mm.itemIcon));
@@ -90,7 +90,7 @@ void SoundWidget::initMembers()
     }
 
     if (InsertPlugin::instance()->updatePluginInfo("sound")) {
-        InsertPlugin::instance()->pushPlugin(m_itemModel, m_menuMethod);
+        InsertPlugin::instance()->pushPlugin(m_itemModel, m_itemList);
     }
 }
 
@@ -101,11 +101,14 @@ void SoundWidget::initConnections()
             return;
 
         m_currentIdx = idx;
-        m_menuMethod[idx.row()].itemSignal.invoke(m_menuMethod[idx.row()].plugin ? m_menuMethod[idx.row()].plugin : this);
+        m_itemList[idx.row()].itemSignal.invoke(m_itemList[idx.row()].plugin ? m_itemList[idx.row()].plugin : this);
         m_listView->resetStatus(idx);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
         bool isAllHidden = true;
         for (int i = 0; i < m_itemModel->rowCount(); i++) {
             if (!m_listView->isRowHidden(i))
@@ -126,24 +129,33 @@ void SoundWidget::initConnections()
     });
 }
 
+bool SoundWidget::configContent(const QString &configName)
+{
+    for (auto m : m_itemList) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
+}
+
 
 int SoundWidget::showPath(const QString &path)
 {
     auto getIndex = [=](const QString &name) {
-        for (int i = 0; i < m_menuMethod.size(); ++i) {
-            if (name == "Speaker" && m_menuMethod[ i ].itemText == tr("Output")) {
+        for (int i = 0; i < m_itemList.size(); ++i) {
+            if (name == "Speaker" && m_itemList[ i ].itemText == tr("Output")) {
                 return i;
             }
 
-            if (name == "Microphone" && m_menuMethod[ i ].itemText == tr("Input")) {
+            if (name == "Microphone" && m_itemList[ i ].itemText == tr("Input")) {
                 return i;
             }
 
-            if (name == "Sound Effects" && m_menuMethod[ i ].itemText == tr("Sound Effects")) {
+            if (name == "Sound Effects" && m_itemList[ i ].itemText == tr("Sound Effects")) {
                 return i;
             }
 
-            if (name == "Devices" && m_menuMethod[ i ].itemText == tr("Devices")) {
+            if (name == "Devices" && m_itemList[ i ].itemText == tr("Devices")) {
                 return i;
             }
         }
@@ -152,7 +164,7 @@ int SoundWidget::showPath(const QString &path)
     };
 
     int index = getIndex(path);
-    m_menuMethod[ index ].itemSignal.invoke(this);
+    m_itemList[ index ].itemSignal.invoke(this);
     m_currentIdx = m_listView->model()->index(index, 0);
     m_listView->setCurrentIndex(m_currentIdx);
 

@@ -71,6 +71,15 @@ void CommonInfoWidget::showDefaultWidget()
     }
 }
 
+bool CommonInfoWidget::configContent(const QString &configName)
+{
+    for (auto m : m_itemList) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
+}
+
 void CommonInfoWidget::initWidget()
 {
     setAccessibleName("CommonInfoWidget");
@@ -135,7 +144,10 @@ void CommonInfoWidget::initData()
         m_listView->resetStatus(index);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
         bool isAllHidden = true;
         for (int i = 0; i < m_itemModel->rowCount(); i++) {
             if (!m_listView->isRowHidden(i))
@@ -146,7 +158,7 @@ void CommonInfoWidget::initData()
             int index = m_listView->selectionModel()->selectedRows()[0].row();
             Q_EMIT requestUpdateSecondMenu(index == row);
         } else {
-            Q_EMIT requestUpdateSecondMenu(false);
+                Q_EMIT requestUpdateSecondMenu(false);
         }
 
         if (isAllHidden) {

@@ -75,8 +75,11 @@ PersonalizationList::PersonalizationList(QWidget *parent)
     setLayout(m_centralLayout);
     connect(m_categoryListView, &QListView::clicked, this, &PersonalizationList::onCategoryClicked);
     connect(m_categoryListView, &DListView::activated, m_categoryListView, &QListView::clicked);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
-         bool isAllHiden = true;
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
+        bool isAllHiden = true;
          for (int i = 0; i < m_model->rowCount(); i++) {
              if (!m_categoryListView->isRowHidden(i))
                  isAllHiden = false;
@@ -142,6 +145,15 @@ void PersonalizationList::setCurrentIndex(int row)
     const QModelIndex &index = m_model->indexFromItem(m_model->item(row));
     m_categoryListView->setCurrentIndex(index);
     m_categoryListView->clicked(index);
+}
+
+bool PersonalizationList::configContent(const QString &configName)
+{
+    for (auto m : m_itemList) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
 }
 
 void PersonalizationList::showDefaultWidget()

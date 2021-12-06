@@ -67,9 +67,10 @@ private:
     void initUi();
     void initMembers();
     void initConnections();
+    bool configContent(const QString & configName);
 
 private:
-    QList<ListSubItem> m_menuMethod;
+    QList<ListSubItem> m_itemList;
     dcc::widgets::MultiSelectListView *m_listView;
     QStandardItemModel *m_itemModel;
     QModelIndex m_currentIdx;

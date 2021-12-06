@@ -99,7 +99,10 @@ DefaultAppsWidget::DefaultAppsWidget(QWidget *parent)
 
     connect(m_defAppCatView, &QListView::clicked, this, &DefaultAppsWidget::onCategoryClicked);
     connect(m_defAppCatView, &DListView::activated, m_defAppCatView, &QListView::clicked);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
         bool isAllHiden = true;
         for (int i = 0; i < m_itemModel->rowCount(); i++) {
             if (!m_defAppCatView->isRowHidden(i))
@@ -168,4 +171,13 @@ void DefaultAppsWidget::showDefaultWidget()
             break;
         }
     }
+}
+
+bool DefaultAppsWidget::configContent(const QString &configName)
+{
+    for (auto m : m_itemList) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
 }

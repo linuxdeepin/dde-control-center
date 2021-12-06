@@ -67,6 +67,9 @@ public Q_SLOTS:
     dcc::widgets::MultiSelectListView *getCatView() const { return m_defAppCatView; }
 
 private:
+    bool configContent(const QString & configName);
+
+private:
     QList<ListSubItem> m_itemList;
     dcc::widgets::MultiSelectListView *m_defAppCatView;
     QStandardItemModel *m_itemModel;
