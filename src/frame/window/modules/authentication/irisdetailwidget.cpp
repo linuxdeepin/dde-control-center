@@ -2,7 +2,9 @@
 #include "modules/authentication/charamangermodel.h"
 
 #include <DApplicationHelper>
+#include <DFontSizeManager>
 #include <DTipLabel>
+
 #include <QBoxLayout>
 #include <QLabel>
 
@@ -17,7 +19,7 @@ IrisDetailWidget::IrisDetailWidget(dcc::authentication::CharaMangerModel *model,
     , m_mainContentLayout(new QVBoxLayout(this))
     , m_irisWidget(new IrisWidget(model, this))
     , m_pNotDevice(new QLabel(this))
-    , m_tip(new DTipLabel(tr("No supported devices found"), this))
+    , m_tip(new DLabel(tr("No supported devices found"), this))
 {
     connect(m_model, &CharaMangerModel::vaildIrisDriverChanged, this, &IrisDetailWidget::onDeviceStatusChanged);
     onDeviceStatusChanged(model->irisDriverVaild());
@@ -47,6 +49,31 @@ void IrisDetailWidget::initIrisShow()
     setLayout(m_mainContentLayout);
     setFocusPolicy(Qt::FocusPolicy::ClickFocus);
 
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+        this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
+        Q_UNUSED(themeType);
+        m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+    });
+
+    m_pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+    m_pNotDevice->setAlignment(Qt::AlignHCenter);
+
+    // 设置高亮字体
+    m_tip->setEnabled(false);
+    auto pal = m_tip->palette();
+    DFontSizeManager::instance()->bind(m_tip, DFontSizeManager::T7);
+    QColor base_color = pal.text().color();
+    base_color.setAlpha(255 / 10 * 2);
+    pal.setColor(QPalette::Text, base_color);
+    m_tip->setPalette(pal);
+
+    m_mainContentLayout->addWidget(m_irisWidget);
+    m_mainContentLayout->addWidget(m_pNotDevice);
+    m_mainContentLayout->addWidget(m_tip);
+}
+
+QString IrisDetailWidget::getDisplayPath()
+{
     QString theme;
     DGuiApplicationHelper::ColorType type = DGuiApplicationHelper::instance()->themeType();
     switch (type) {
@@ -59,23 +86,7 @@ void IrisDetailWidget::initIrisShow()
         theme = QString("dark");
         break;
     }
-
-    m_pNotDevice->setPixmap(QIcon::fromTheme(QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme)).pixmap(64, 64));
-    m_pNotDevice->setAlignment(Qt::AlignHCenter);
-
-    QPalette palette;
-    QColor color;
-    color.setAlphaF(0.8);
-    palette.setColor(QPalette::BrightText, color);
-
-    m_tip->setWordWrap(true);
-    m_tip->setAlignment(Qt::AlignCenter);
-    m_tip->adjustSize();
-    m_tip->setPalette(palette);
-
-    m_mainContentLayout->addWidget(m_irisWidget);
-    m_mainContentLayout->addWidget(m_pNotDevice);
-    m_mainContentLayout->addWidget(m_tip);
+    return QString(":/authentication/themes/%1/icons/icon_unknown_device.svg").arg(theme);
 }
 
 void IrisDetailWidget::onDeviceStatusChanged(bool hasDevice)

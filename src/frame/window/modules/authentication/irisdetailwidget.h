@@ -50,6 +50,7 @@ public:
 
 private:
     void initIrisShow();
+    QString getDisplayPath();
 
 Q_SIGNALS:
     void requestAddIris(const QString &driverName, const int &charaType, const QString &charaName);
@@ -66,7 +67,7 @@ private:
     QVBoxLayout *m_mainContentLayout;
     IrisWidget *m_irisWidget;
     QLabel *m_pNotDevice;
-    DTipLabel *m_tip;
+    DLabel *m_tip;
 };
 
 }

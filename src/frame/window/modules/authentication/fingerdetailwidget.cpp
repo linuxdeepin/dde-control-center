@@ -2,6 +2,7 @@
 #include "modules/authentication/fingermodel.h"
 
 #include <DApplicationHelper>
+#include <DFontSizeManager>
 #include <DTipLabel>
 
 #include <QBoxLayout>
@@ -51,27 +52,30 @@ void FingerDetailWidget::initFingerUI()
 void FingerDetailWidget::initNotFingerDevice()
 {
     QVBoxLayout *mainContentLayout = new QVBoxLayout(this);
+    mainContentLayout->setContentsMargins(0, 10, 0, 0);
     mainContentLayout->setAlignment(Qt::AlignHCenter | Qt::AlignCenter);
 
     QLabel *pNotDevice = new QLabel;
+
+    // 显示高亮字体
+    DLabel *tip = new DLabel(tr("No supported devices found"));
+    tip->setEnabled(false);
+    auto pal = tip->palette();
+    DFontSizeManager::instance()->bind(tip, DFontSizeManager::T7);
+    QColor base_color = pal.text().color();
+    base_color.setAlpha(255 / 10 * 2);
+    pal.setColor(QPalette::Text, base_color);
+    tip->setPalette(pal);
+
     connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
         this, [=](Dtk::Gui::DGuiApplicationHelper::ColorType themeType) {
         Q_UNUSED(themeType);
         pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
+
     });
     pNotDevice->setPixmap(QIcon::fromTheme(getDisplayPath()).pixmap(64, 64));
     pNotDevice->setAlignment(Qt::AlignHCenter);
 
-    // 显示高亮字体
-    QPalette palette;
-    QColor color;
-    color.setAlphaF(0.8);
-    palette.setColor(QPalette::BrightText, color);
-    DTipLabel *tip = new DTipLabel(tr("No supported devices found"));
-    tip->adjustSize();
-    tip->setWordWrap(true);
-    tip->setAlignment(Qt::AlignCenter);
-    tip->setPalette(palette);
 
     mainContentLayout->addWidget(pNotDevice);
     mainContentLayout->addWidget(tip);

@@ -50,6 +50,7 @@ public:
 
 private:
     void initFaceidShow();
+    QString getDisplayPath();
 
 Q_SIGNALS:
     void requestAddFace(const QString &driverName, const int &charaType, const QString &charaName);
@@ -66,7 +67,7 @@ private:
     QVBoxLayout *m_mainContentLayout;
     FaceWidget *m_faceWidget;
     QLabel *m_pNotDevice;
-    DTipLabel *m_tip;
+    DLabel *m_tip;
 };
 
 }
