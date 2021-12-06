@@ -460,11 +460,15 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 
     UpdateItemInfo *appItemInfo = getItemInfo(object.value("appUpdateInfo"));
     if (appItemInfo != nullptr && m_appPackages.count() > 0 && m_model->autoCheckAppUpdates()) {
-        QString app1Name = getAppName(0);
-        QString app2Name = getAppName(1);
-        QString app3Name = getAppName(2);
+        QString appName = "";
+        for (int i = 0; i < 3; i++) {
+            QString tempName = getAppName(i);
+            if(!tempName.isEmpty()){
+                appName = appName.isEmpty() ? tempName : appName + "," + tempName;
+            }
+        }
 
-        appItemInfo->setName(QString(tr("%1 apps updates available (such as %2, %3, %4)")).arg(m_appPackages.count()).arg(app1Name).arg(app2Name).arg(app3Name));
+        appItemInfo->setName(QString(tr("%1 apps updates available (such as %2)")).arg(m_appPackages.count()).arg(appName));
         appItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_appPackages));
         resultMap.insert(ClassifyUpdateType::AppStoreUpdate, appItemInfo);
     } else {
