@@ -69,6 +69,7 @@ public:
     void setDefaultWidget();
 private:
     void onItemClicked(const QModelIndex &index);
+    bool configContent(const QString & configName);
 Q_SIGNALS:
     void tpadExistChanged(bool bExist);
     void redPointExistChanged(bool bExist);

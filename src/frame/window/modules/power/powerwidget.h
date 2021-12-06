@@ -68,6 +68,7 @@ private:
     void initUi();
     void initMembers();
     void initConnections();
+    bool configContent(const QString & configName);
 
 private:
     dcc::widgets::MultiSelectListView *m_listView;

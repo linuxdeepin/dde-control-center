@@ -66,6 +66,7 @@ private:
     void init();
     void onItemClick(const QModelIndex &index);
     int getListIndex(QString data);
+    bool configContent(const QString & configName);
 Q_SIGNALS:
     void showGeneralSetting();
     void showKBLayoutSetting();

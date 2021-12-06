@@ -98,7 +98,10 @@ void PowerWidget::initConnections()
             m_listView->setRowHidden(row, true);
         }
     });
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](int row) {
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
         bool isAllHidden = true;
         for (int i = 0; i < m_itemModel->rowCount(); i++) {
             if (!m_listView->isRowHidden(i))
@@ -117,6 +120,15 @@ void PowerWidget::initConnections()
             m_listView->clearSelection();
         }
     });
+}
+
+bool PowerWidget::configContent(const QString &configName)
+{
+    for (auto m : m_menuIconText) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
 }
 
 void PowerWidget::initialize(bool hasBattery)

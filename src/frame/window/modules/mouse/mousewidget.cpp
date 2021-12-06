@@ -145,7 +145,10 @@ void MouseWidget::init(bool tpadExist, bool redPointExist)
         }
     });
 
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](const int row) {
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [ = ](const int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
         bool isAllHidden = true;
         for (int i = 0; i < m_mouseListView->model()->rowCount(); i++) {
             if (!m_mouseListView->isRowHidden(i))
@@ -189,4 +192,13 @@ void MouseWidget::onItemClicked(const QModelIndex &index)
     m_lastIndex = index;
     m_menuIconText[index.row()].itemSignal.invoke(m_menuIconText[index.row()].pulgin ? m_menuIconText[index.row()].pulgin : this);
     m_mouseListView->resetStatus(index);
+}
+
+bool MouseWidget::configContent(const QString &configName)
+{
+    for (auto m : m_menuIconText) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
 }

@@ -101,7 +101,10 @@ void SoundWidget::initConnections()
         m_listView->resetStatus(idx);
     });
     connect(m_listView, &DListView::activated, m_listView, &QListView::clicked);
-    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row) {
+    connect(GSettingWatcher::instance(), &GSettingWatcher::requestUpdateSecondMenu, this, [=](int row, const QString & name) {
+        //不是本模块配置不响应
+        if (!configContent(name))
+            return ;
         bool isAllHidden = true;
         for (int i = 0; i < m_itemModel->rowCount(); i++) {
             if (!m_listView->isRowHidden(i))
@@ -120,6 +123,15 @@ void SoundWidget::initConnections()
             m_listView->clearSelection();
         }
     });
+}
+
+bool SoundWidget::configContent(const QString &configName)
+{
+    for (auto m : m_menuMethod) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
 }
 
 

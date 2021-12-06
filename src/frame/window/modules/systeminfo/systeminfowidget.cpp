@@ -115,6 +115,15 @@ void SystemInfoWidget::showDefaultWidget()
     }
 }
 
+bool SystemInfoWidget::configContent(const QString &configName)
+{
+    for (auto m : m_itemList) {
+        if (configName == m.gsettingsName)
+            return true;
+    }
+    return false;
+}
+
 int SystemInfoWidget::showPath(const QString &path)
 {
     for (int i = 0; i < m_itemList.size(); ++i) {
@@ -140,8 +149,11 @@ void SystemInfoWidget::setCurrentIndex(int index)
     Q_EMIT m_listView->clicked(mindex);
 }
 
-void SystemInfoWidget::onRequestUpdateSecondMenu(int row)
+void SystemInfoWidget::onRequestUpdateSecondMenu(int row, const QString & name)
 {
+    //不是本模块配置不响应
+    if (!configContent(name))
+        return;
     bool isAllHiden = true;
     for (int i = 0; i < m_itemModel->rowCount(); i++) {
         if (!m_listView->isRowHidden(i))

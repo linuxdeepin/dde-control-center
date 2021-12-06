@@ -67,6 +67,7 @@ Q_SIGNALS:
 private:
     void initWidget();
     void initData();
+    bool configContent(const QString & configName);
 
 private:
 

@@ -67,6 +67,7 @@ private:
     void initUi();
     void initMembers();
     void initConnections();
+    bool configContent(const QString & configName);
 
 private:
     QList<ListSubItem> m_menuMethod;
