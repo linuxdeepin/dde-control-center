@@ -38,7 +38,10 @@ using namespace dcc::mouse;
 using namespace dcc::widgets;
 
 MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(parent)
+  , m_isNotWayland(false)
 {
+    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
+    m_isNotWayland = !sessionType.contains("wayland");
     m_mouseSettingsGrp = new SettingsGroup;
     //~ contents_path /mouse/Mouse
     //~ child_page Mouse
@@ -86,7 +89,13 @@ MouseSettingWidget::MouseSettingWidget(QWidget *parent) : dcc::ContentWidget(par
     layout()->setContentsMargins(0, 0, 8, 0);
     setContent(tFrame);
 
-    connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, this, &MouseSettingWidget::requestSetMouseMotionAcceleration);
+    connect(m_mouseMoveSlider->slider(), &DCCSlider::valueChanged, [this](int value) {
+        if (m_isNotWayland) {
+            Q_EMIT requestSetMouseMotionAcceleration(value);
+        } else {
+            Q_EMIT requestSetMouseMotionAcceleration(abs(value - 6));
+        }
+    });
     connect(m_adaptiveAccelProfile, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetAccelProfile);
     connect(m_disTchStn, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetDisTouchPad);
     connect(m_mouseNaturalScroll, &SwitchWidget::checkedChanged, this, &MouseSettingWidget::requestSetMouseNaturalScroll);
@@ -116,6 +125,9 @@ void MouseSettingWidget::setModel(dcc::mouse::MouseModel *const model)
 
 void MouseSettingWidget::onMouseMoveSpeedChanged(int speed)
 {
+    if(!m_isNotWayland)
+        speed = abs(speed - 6);
+
     m_mouseMoveSlider->slider()->blockSignals(true);
     m_mouseMoveSlider->slider()->setValue(speed);
     m_mouseMoveSlider->slider()->blockSignals(false);

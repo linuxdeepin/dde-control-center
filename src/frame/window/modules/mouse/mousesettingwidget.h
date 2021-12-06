@@ -65,6 +65,7 @@ private:
     dcc::widgets::SwitchWidget *m_disTchStn;
     dcc::widgets::SwitchWidget *m_mouseNaturalScroll;
     QVBoxLayout *m_contentLayout;
+    bool m_isNotWayland;
 };
 }
 }

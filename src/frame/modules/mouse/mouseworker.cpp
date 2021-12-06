@@ -31,8 +31,10 @@ const QString Service = "com.deepin.daemon.InputDevices";
 MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
+    , m_isNotWayland(false)
 {
-
+    auto sessionType = qEnvironmentVariable("XDG_SESSION_TYPE");
+    m_isNotWayland = !sessionType.contains("wayland");
 }
 
 void MouseWorker::setMouseExist(bool exist)
@@ -215,39 +217,39 @@ double MouseWorker::converToMotionAcceleration(int value)
 {
     switch (value) {
     case 0:
-        return 3.2;
+        return m_isNotWayland ? 3.2 : 1.0;
     case 1:
-        return 2.3;
+        return m_isNotWayland ? 2.3 : 0.6;
     case 2:
-        return 1.6;
+        return m_isNotWayland ? 1.6 : 0.4;
     case 3:
-        return 1.0;
+        return m_isNotWayland ? 1.0 : 0.2;
     case 4:
-        return 0.6;
+        return m_isNotWayland ? 0.6 : 0;
     case 5:
-        return 0.3;
+        return m_isNotWayland ? 0.3 : -0.2;
     case 6:
-        return 0.2;
+        return m_isNotWayland ? 0.2 : -0.5;
     default:
-        return 1.0;
+        return m_isNotWayland ? 1.0 : 0.2;
     }
 }
 //conver real value to slider value
 int MouseWorker::converToModelMotionAcceleration(double value)
 {
-    if (value <= 0.2) {
+    if (value <= (m_isNotWayland ? 0.2 : -0.5)) {
         return 6;
-    } else if (value <= 0.3) {
+    } else if (value <= (m_isNotWayland ? 0.3 : -0.2)) {
         return 5;
-    } else if (value <= 0.6) {
+    } else if (value <= (m_isNotWayland ? 0.6 : 0)) {
         return 4;
-    } else if (value <= 1.0) {
+    } else if (value <= (m_isNotWayland ? 1.0 : 0.2)) {
         return 3;
-    } else if (value <= 1.6) {
+    } else if (value <= (m_isNotWayland ? 1.6 : 0.4)) {
         return 2;
-    } else if (value <= 2.3) {
+    } else if (value <= (m_isNotWayland ? 2.3 : 0.6)) {
         return 1;
-    } else if (value <= 3.2) {
+    } else if (value <= (m_isNotWayland ? 3.2 : 1.0)) {
         return 0;
     } else {
         return 3;
