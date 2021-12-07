@@ -622,12 +622,6 @@ void SearchModel::addModulesName(QString moduleName, const QString &searchName, 
 #endif
 }
 
-void SearchModel::addSpecialThreeMenuMap(const QString &name, bool flag)
-{
-    m_specialThreeMenuMap.insert(name, flag);
-    loadxml();
-}
-
 //获取模块是否显示
 bool SearchModel::getModuleVisible(const QString module)
 {
@@ -757,6 +751,7 @@ void SearchModel::setDetailVisible(const QString &module, const QString &widget,
 
 void SearchModel::updateSearchData(const QString &module)
 {
+    qDebug() << "updateSearchData:" << module;
     loadxml(module);
 }
 

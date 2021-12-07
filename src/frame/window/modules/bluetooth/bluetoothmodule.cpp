@@ -169,7 +169,7 @@ void BluetoothModule::initSearchData()
             m_frameProxy->setWidgetVisible(module, explain, visible);
             gsMap.insert(data, visible);
         } else {
-            qDebug() << " [setSearchState] not match data : " << data << visible;
+            qWarning() << " [setSearchState] not match data : " << data << visible;
         }
 
         if (!first)

@@ -233,9 +233,6 @@ Q_SIGNALS:
     //查询是否可用
     void requestSwitchEnable(unsigned int cardId,QString cardName);
 
-    //声音平衡模块是否可见
-    void balanceVisibleChanged(QString name, bool flag);
-
 #ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
 #endif

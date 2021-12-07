@@ -419,11 +419,6 @@ void MainWindow::updateWinsize()
     setMinimumSize(QSize(WidgetMinimumWidth, WidgetMinimumHeight));
 }
 
-void MainWindow::setSpecialThreeMenuVisible(QString name, bool flag)
-{
-    m_searchWidget->addSpecialThreeMenuMap(name, flag);
-}
-
 void MainWindow::updateModuleVisible()
 {
     m_hideModuleNames = m_moduleSettings->get(GSETTINGS_HIDE_MODULE).toStringList();

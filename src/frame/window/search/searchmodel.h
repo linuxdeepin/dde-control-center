@@ -72,7 +72,6 @@ public:
     bool jumpContentPathWidget(const QString &path);
     void setLanguage(const QString &type);
     void addModulesName(QString moduleName, const QString &searchName, QIcon icon, QString translation = "");
-    void addSpecialThreeMenuMap(const QString &name, bool flag);
     bool getModuleVisible(const QString module);
     bool getWidgetVisible(const QString module, QString widget = "");
     bool getDetailVisible(const QString module, QString widget = "", QString detail = "");
@@ -107,7 +106,6 @@ private:
     QList<QString> m_childeHideWidgetList; //不需要显示的二级页面list，比如 “默认程序 --> 终端 / 添加默认程序” 和 “默认程序 --> 终端”
     QList<QString> m_TxtListAll; //三级页面list
     QList<QPair<QString, QString>> m_removeableActualExistList;//存储实际模块是否存在
-    QMap<QString, bool> m_specialThreeMenuMap; //特别的三菜单显示
     bool m_bIsChinese;
     bool m_bIstextEdited;
     QMap<QString, bool> m_hideModuleList;

@@ -194,7 +194,7 @@ void NotificationModule::initSearchData()
         } else if ("appNotifications" == gsetting) {
             m_frameProxy->setDetailVisible(module, tr("System Notifications"), tr("App Notifications"), func_is_visible("appNotifications"));
         } else {
-            qInfo() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
         }
 

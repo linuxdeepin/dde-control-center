@@ -335,7 +335,7 @@ void DatetimeModule::initSearchData()
             if (m_frameProxy)
                 m_frameProxy->setDetailVisible(module, timeSettings, tr("Auto Sync"), func_is_visible("timeSettings", true) && func_is_visible("datetimeDatesettingAutosync"));
         } else {
-            qInfo() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
         }
 

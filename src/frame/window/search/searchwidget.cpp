@@ -263,11 +263,6 @@ void SearchWidget::addModulesName(QString moduleName, const QString &searchName,
     return m_model->addModulesName(moduleName, searchName, icon, translation);
 }
 
-void SearchWidget::addSpecialThreeMenuMap(const QString &name, bool flag)
-{
-    return m_model->addSpecialThreeMenuMap(name, flag);
-}
-
 void SearchWidget::setModuleVisible(const QString &module, bool visible)
 {
     if (!m_model) {

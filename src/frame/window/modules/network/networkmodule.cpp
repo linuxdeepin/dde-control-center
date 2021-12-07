@@ -451,7 +451,7 @@ void NetworkModule::initSearchData()
             func_wireless_visible(m_hasWireless);
             func_perhotspot_visible(m_hasAp);
         } else {
-            qInfo() << " not contains the gsettings : " << gsetting << state;
+            qWarning() << " not contains the gsettings : " << gsetting << state;
             return;
         }
 

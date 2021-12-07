@@ -252,12 +252,12 @@ void SystemInfoModule::initSearchData()
             } else if ("systeminfoNativeinfoMemory" == gsetting) {
                 m_frameProxy->setDetailVisible(module, aboutThisPC, tr("Memory:"), isAbout && func_is_visible("systeminfoNativeinfoMemory", true));
             } else {
-                qDebug() << " not contains the gsettings : " << gsetting << state;
+                qWarning() << " not contains the gsettings : " << gsetting << state;
                 return;
             }
         }
 
-        qWarning() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
+        qInfo() << " [notifyGSettingsChanged]  gsetting, state :" << gsetting << state;
         m_frameProxy->updateSearchData(module);
     });
 

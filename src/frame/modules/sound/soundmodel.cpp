@@ -411,7 +411,6 @@ void SoundModel::setCurrentBluetoothAudioMode(const QString &mode)
     if (mode != m_currentBluetoothMode) {
         m_currentBluetoothMode = mode;
         Q_EMIT bluetoothModeChanged(mode);
-        Q_EMIT balanceVisibleChanged("Left/Right Balance", !mode.contains("headset"));
     }
 }
 
