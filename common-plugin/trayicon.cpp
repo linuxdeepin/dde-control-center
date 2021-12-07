@@ -19,7 +19,7 @@
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "trayicon.h"
-#include "networkpanel.h"
+#include "networkpluginhelper.h"
 #include "dde-dock/constants.h"
 #include "imageutil.h"
 
@@ -30,20 +30,22 @@
 #include <networkdevicebase.h>
 #include <wirelessdevice.h>
 
-TrayIcon::TrayIcon(NetworkPanel *panel)
+NETWORKPLUGIN_USE_NAMESPACE
+
+TrayIcon::TrayIcon(NetworkPluginHelper *networkHelper)
     : QWidget()
-    , m_panel(panel)
+    , m_networkHelper(networkHelper)
     , m_greeterStyle(false)
     , m_refreshIconTimer(new QTimer(this))
 {
-    m_panel->setMainWidget(this);
+    m_networkHelper->setMainWidget(this);
     setAccessibleName(QStringLiteral("NetworkTrayIcon"));
     setFixedSize(QSize(20, 20));
     setBackgroundRole(DPalette::Button);
 
     m_refreshIconTimer->setInterval(100);
     connect(m_refreshIconTimer, &QTimer::timeout, this, &TrayIcon::refreshIcon);
-    connect(m_panel, &NetworkPanel::viewUpdate, this, &TrayIcon::refreshIcon);
+    connect(m_networkHelper, &NetworkPluginHelper::viewUpdate, this, &TrayIcon::refreshIcon);
     connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, this, &TrayIcon::refreshIcon);
 }
 
@@ -144,7 +146,7 @@ void TrayIcon::refreshIcon()
 
     bool useDarkIcon = isDarkIcon();
 
-    switch (m_panel->getPluginState()) {
+    switch (m_networkHelper->getPluginState()) {
     case PluginState::Disabled:
     case PluginState::WirelessDisabled:
         stateString = "disabled";

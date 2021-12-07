@@ -19,8 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "networkpanel.h"
-#include "constants.h"
+#include "networkpluginhelper.h"
 #include "widgets/tipswidget.h"
 #include "utils.h"
 #include "item/devicestatushandler.h"
@@ -54,10 +53,12 @@ enum MenuItemKey : int {
     MenuWirelessDisable,
 };
 
-NetworkPanel::NetworkPanel(QObject *parent)
+NETWORKPLUGIN_USE_NAMESPACE
+
+NetworkPluginHelper::NetworkPluginHelper(QObject *parent)
     : QObject(parent)
     , m_wirelessScanTimer(new QTimer(this))
-    , m_tipsWidget(new TipsWidget())
+    , m_tipsWidget(new TipsWidget(nullptr))
     , m_switchWire(true)
     , m_mainWidget(nullptr)
 {
@@ -65,31 +66,31 @@ NetworkPanel::NetworkPanel(QObject *parent)
     initConnection();
 }
 
-NetworkPanel::~NetworkPanel()
+NetworkPluginHelper::~NetworkPluginHelper()
 {
 }
 
-void NetworkPanel::setMainWidget(QWidget *mainWidget)
+void NetworkPluginHelper::setMainWidget(QWidget *mainWidget)
 {
     m_mainWidget = mainWidget;
 }
 
-void NetworkPanel::initUi()
+void NetworkPluginHelper::initUi()
 {
     m_tipsWidget->setVisible(false);
     m_tipsWidget->setSpliter(" :  ");
 }
 
-void NetworkPanel::initConnection()
+void NetworkPluginHelper::initConnection()
 {
     // 主题发生变化触发的信号
-    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &NetworkPanel::onUpdatePlugView);
+    connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::themeTypeChanged, this, &NetworkPluginHelper::onUpdatePlugView);
 
     // 连接信号
     NetworkController *networkController = NetworkController::instance();
-    connect(networkController, &NetworkController::deviceAdded, this, &NetworkPanel::onDeviceAdded);
-    connect(networkController, &NetworkController::deviceRemoved, this, &NetworkPanel::onUpdatePlugView);
-    connect(networkController, &NetworkController::connectivityChanged, this, &NetworkPanel::onUpdatePlugView);
+    connect(networkController, &NetworkController::deviceAdded, this, &NetworkPluginHelper::onDeviceAdded);
+    connect(networkController, &NetworkController::deviceRemoved, this, &NetworkPluginHelper::onUpdatePlugView);
+    connect(networkController, &NetworkController::connectivityChanged, this, &NetworkPluginHelper::onUpdatePlugView);
 
     int wirelessScanInterval = Utils::SettingValue("com.deepin.dde.dock", QByteArray(), "wireless-scan-interval", 10).toInt() * 1000;
     m_wirelessScanTimer->setInterval(wirelessScanInterval);
@@ -116,17 +117,17 @@ void NetworkPanel::initConnection()
     });
 }
 
-void NetworkPanel::updatePluginState()
+void NetworkPluginHelper::updatePluginState()
 {
     m_pluginState = DeviceStatusHandler::pluginState();
 }
 
-PluginState NetworkPanel::getPluginState()
+PluginState NetworkPluginHelper::getPluginState()
 {
     return m_pluginState;
 }
 
-QList<QPair<QString, QStringList>> NetworkPanel::ipTipsMessage(const DeviceType &devType)
+QList<QPair<QString, QStringList>> NetworkPluginHelper::ipTipsMessage(const DeviceType &devType)
 {
     DeviceType type = static_cast<DeviceType>(devType);
     QList<QPair<QString, QStringList>> tipMessage;
@@ -148,11 +149,10 @@ QList<QPair<QString, QStringList>> NetworkPanel::ipTipsMessage(const DeviceType 
 
         tipMessage << QPair<QString, QStringList>({ device->deviceName(), ipv4Messages });
     }
-
     return tipMessage;
 }
 
-void NetworkPanel::updateTooltips()
+void NetworkPluginHelper::updateTooltips()
 {
     switch (m_pluginState) {
     case PluginState::Connected: {
@@ -224,7 +224,7 @@ void NetworkPanel::updateTooltips()
     }
 }
 
-int NetworkPanel::deviceCount(const DeviceType &devType) const
+int NetworkPluginHelper::deviceCount(const DeviceType &devType) const
 {
     // 获取指定的设备类型的设备数量
     int count = 0;
@@ -236,35 +236,35 @@ int NetworkPanel::deviceCount(const DeviceType &devType) const
     return count;
 }
 
-void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
+void NetworkPluginHelper::onDeviceAdded(QList<NetworkDeviceBase *> devices)
 {
     // 处理新增设备的信号
     for (NetworkDeviceBase *device : devices) {
         // 当网卡连接状态发生变化的时候重新绘制任务栏的图标
-        connect(device, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPanel::onUpdatePlugView);
-        connect(device, &NetworkDeviceBase::activeConnectionChanged, this, &NetworkPanel::onUpdatePlugView);
+        connect(device, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+        connect(device, &NetworkDeviceBase::activeConnectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
 
         emit addDevice(device->path());
         switch (device->deviceType()) {
         case DeviceType::Wired: {
             WiredDevice *wiredDevice = static_cast<WiredDevice *>(device);
 
-            connect(wiredDevice, &WiredDevice::connectionAdded, this, &NetworkPanel::onUpdatePlugView);
-            connect(wiredDevice, &WiredDevice::connectionRemoved, this, &NetworkPanel::onUpdatePlugView);
-            connect(wiredDevice, &WiredDevice::connectionPropertyChanged, this, &NetworkPanel::onUpdatePlugView);
-            connect(wiredDevice, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPanel::onUpdatePlugView);
-            connect(wiredDevice, &NetworkDeviceBase::enableChanged, this, &NetworkPanel::onUpdatePlugView);
-            connect(wiredDevice, &NetworkDeviceBase::connectionChanged, this, &NetworkPanel::onUpdatePlugView);
+            connect(wiredDevice, &WiredDevice::connectionAdded, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wiredDevice, &WiredDevice::connectionRemoved, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wiredDevice, &WiredDevice::connectionPropertyChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wiredDevice, &NetworkDeviceBase::deviceStatusChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wiredDevice, &NetworkDeviceBase::enableChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wiredDevice, &NetworkDeviceBase::connectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
         } break;
         case DeviceType::Wireless: {
             WirelessDevice *wirelessDevice = static_cast<WirelessDevice *>(device);
 
-            connect(wirelessDevice, &WirelessDevice::networkAdded, this, &NetworkPanel::onUpdatePlugView);
-            connect(wirelessDevice, &WirelessDevice::networkRemoved, this, &NetworkPanel::onUpdatePlugView);
-            connect(wirelessDevice, &WirelessDevice::enableChanged, this, &NetworkPanel::onUpdatePlugView);
-            connect(wirelessDevice, &WirelessDevice::connectionChanged, this, &NetworkPanel::onUpdatePlugView);
-            connect(wirelessDevice, &WirelessDevice::hotspotEnableChanged, this, &NetworkPanel::onUpdatePlugView);
-            connect(wirelessDevice, &WirelessDevice::activeConnectionChanged, this, &NetworkPanel::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::networkAdded, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::networkRemoved, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::enableChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::connectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::hotspotEnableChanged, this, &NetworkPluginHelper::onUpdatePlugView);
+            connect(wirelessDevice, &WirelessDevice::activeConnectionChanged, this, &NetworkPluginHelper::onUpdatePlugView);
 
             wirelessDevice->scanNetwork();
         } break;
@@ -276,7 +276,7 @@ void NetworkPanel::onDeviceAdded(QList<NetworkDeviceBase *> devices)
     onUpdatePlugView();
 }
 
-void NetworkPanel::invokeMenuItem(const QString &menuId)
+void NetworkPluginHelper::invokeMenuItem(const QString &menuId)
 {
     switch (menuId.toInt()) {
     case MenuItemKey::MenuEnable:
@@ -313,7 +313,7 @@ void NetworkPanel::invokeMenuItem(const QString &menuId)
     }
 }
 
-bool NetworkPanel::needShowControlCenter()
+bool NetworkPluginHelper::needShowControlCenter()
 {
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     // 如果没有网络设备，则直接唤起控制中心
@@ -339,7 +339,7 @@ bool NetworkPanel::needShowControlCenter()
     return true;
 }
 
-bool NetworkPanel::deviceEnabled(const DeviceType &deviceType) const
+bool NetworkPluginHelper::deviceEnabled(const DeviceType &deviceType) const
 {
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     for (NetworkDeviceBase *device : devices)
@@ -349,7 +349,7 @@ bool NetworkPanel::deviceEnabled(const DeviceType &deviceType) const
     return false;
 }
 
-void NetworkPanel::setDeviceEnabled(const DeviceType &deviceType, bool enabeld)
+void NetworkPluginHelper::setDeviceEnabled(const DeviceType &deviceType, bool enabeld)
 {
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     for (NetworkDeviceBase *device : devices)
@@ -357,7 +357,7 @@ void NetworkPanel::setDeviceEnabled(const DeviceType &deviceType, bool enabeld)
             device->setEnabled(enabeld);
 }
 
-const QString NetworkPanel::contextMenu(bool hasSetting) const
+const QString NetworkPluginHelper::contextMenu(bool hasSetting) const
 {
     int wiredCount = deviceCount(DeviceType::Wired);
     int wirelessCount = deviceCount(DeviceType::Wireless);
@@ -418,12 +418,12 @@ const QString NetworkPanel::contextMenu(bool hasSetting) const
     return QJsonDocument::fromVariant(menu).toJson();
 }
 
-QWidget *NetworkPanel::itemTips()
+QWidget *NetworkPluginHelper::itemTips()
 {
     return m_tipsWidget;
 }
 
-void NetworkPanel::onUpdatePlugView()
+void NetworkPluginHelper::onUpdatePlugView()
 {
     updatePluginState();
     updateTooltips();

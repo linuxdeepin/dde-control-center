@@ -6,6 +6,8 @@
 
 #define MARGIN 10
 
+NETWORKPLUGIN_USE_NAMESPACE
+
 TipsWidget::TipsWidget(QWidget *parent)
     : QFrame(parent)
 {

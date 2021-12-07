@@ -27,6 +27,11 @@
 #include <QGSettings>
 #include <QDebug>
 
+#define NETWORKPLUGIN_BEGIN_NAMESPACE namespace dde { namespace networkplugin {
+#define NETWORKPLUGIN_END_NAMESPACE }}
+#define NETWORKPLUGIN_USE_NAMESPACE using namespace dde::networkplugin;
+#define NETWORKPLUGIN_NAMESPACE dde::networkplugin
+
 namespace Utils {
 
 #define ICBC_CONF_FILE "/etc/deepin/icbc.conf"

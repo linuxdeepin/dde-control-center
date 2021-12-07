@@ -22,10 +22,13 @@
 #ifndef TRAYICON_H
 #define TRAYICON_H
 
+#include "utils.h"
+
 #include <QWidget>
 #include <QVariantMap>
 
-class NetworkPanel;
+NETWORKPLUGIN_BEGIN_NAMESPACE
+class NetworkPluginHelper;
 
 /**
  * @brief The TrayIcon class
@@ -40,7 +43,7 @@ Q_SIGNALS:
     void signalShowNetworkDialog(QWidget *w);
 
 public:
-    explicit TrayIcon(NetworkPanel *panel);
+    explicit TrayIcon(NetworkPluginHelper *networkHelper);
     void setGreeterStyle(bool greeterStyle);
 
 protected:
@@ -55,11 +58,11 @@ public Q_SLOTS:
     void refreshIcon();
 
 protected:
-    NetworkPanel *m_panel;
+    NetworkPluginHelper *m_networkHelper;
     QPixmap m_iconPixmap;
 
     bool m_greeterStyle;                  // 登录界面样式
     QTimer *m_refreshIconTimer;
 };
-
+NETWORKPLUGIN_END_NAMESPACE
 #endif // TRAYICON_H

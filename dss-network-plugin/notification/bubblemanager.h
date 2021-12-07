@@ -56,21 +56,13 @@ static const QString LauncherDaemonDBusPath = "/com/deepin/dde/daemon/Launcher";
 static const QString SessionDBusServie = "com.deepin.SessionManager";
 static const QString SessionDaemonDBusPath = "/com/deepin/SessionManager";
 
-//class DBusControlCenter;
-//class Login1ManagerInterface;
-//class Persistence;
 class AbstractPersistence;
-//class NotifyCenterWidget;
-//class NotifySettings;
 class AbstractNotifySetting;
-
-//class DBusDockInterface;
 
 class BubbleManager : public QObject, public QDBusContext
 {
     Q_OBJECT
 
-    Q_PROPERTY(QString allSetting READ getAllSetting WRITE setAllSetting)
     Q_PROPERTY(QString systemSetting READ getSystemSetting WRITE setSystemSetting)
 
 public:
@@ -180,7 +172,6 @@ public Q_SLOTS:
     void SetSystemInfo(uint item, const QDBusVariant var);
 
     // 旧接口之后废弃
-    QString getAllSetting();
     void setAllSetting(const QString settings);
     QString getAppSetting(QString appName);
     void setAppSetting(const QString settings);

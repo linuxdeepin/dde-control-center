@@ -20,7 +20,7 @@
 */
 
 #include "network_module.h"
-#include "networkpanel.h"
+#include "networkpluginhelper.h"
 #include "networkdialog.h"
 #include "trayicon.h"
 #include "notificationmanager.h"
@@ -38,6 +38,7 @@
 #define NETWORK_KEY "network-item-key"
 
 using namespace NetworkManager;
+NETWORKPLUGIN_USE_NAMESPACE
 
 namespace dss {
 namespace module {
@@ -54,10 +55,10 @@ NetworkModule::NetworkModule(QObject *parent)
 
     m_networkDialog = new NetworkDialog(this);
     m_networkDialog->setRunReason(NetworkDialog::Lock);
-    m_networkPanel = new NetworkPanel(this);
+    m_networkHelper = new NetworkPluginHelper(this);
     if (!m_isLockModel) {
         m_networkDialog->setRunReason(NetworkDialog::Greeter);
-        connect(m_networkPanel, &NetworkPanel::addDevice, this, &NetworkModule::onAddDevice);
+        connect(m_networkHelper, &NetworkPluginHelper::addDevice, this, &NetworkModule::onAddDevice);
     }
     m_networkDialog->runServer(true);
 }
@@ -75,19 +76,19 @@ QWidget *NetworkModule::content()
 
 QWidget *NetworkModule::itemWidget() const
 {
-    TrayIcon *trayIcon = new TrayIcon(m_networkPanel);
+    TrayIcon *trayIcon = new TrayIcon(m_networkHelper);
     trayIcon->setGreeterStyle(true);
     connect(this, &NetworkModule::signalShowNetworkDialog, trayIcon, &TrayIcon::showNetworkDialog);
     connect(trayIcon, &TrayIcon::signalShowNetworkDialog, this, &NetworkModule::showNetworkDialog);
     connect(m_networkDialog, &NetworkDialog::requestPosition, trayIcon, &TrayIcon::showNetworkDialog);
     // 处理内存
-    connect(m_networkPanel, &NetworkPanel::destroyed, trayIcon, &TrayIcon::deleteLater);
+    connect(m_networkHelper, &NetworkPluginHelper::destroyed, trayIcon, &TrayIcon::deleteLater);
     return trayIcon;
 }
 
 QWidget *NetworkModule::itemTipsWidget() const
 {
-    QWidget *itemTips = m_networkPanel->itemTips();
+    QWidget *itemTips = m_networkHelper->itemTips();
     QPalette palette = itemTips->palette();
     palette.setColor(QPalette::BrightText, Qt::black);
     itemTips->setPalette(palette);
@@ -96,13 +97,13 @@ QWidget *NetworkModule::itemTipsWidget() const
 
 const QString NetworkModule::itemContextMenu() const
 {
-    return m_networkPanel->contextMenu(false);
+    return m_networkHelper->contextMenu(false);
 }
 
 void NetworkModule::invokedMenuItem(const QString &menuId, const bool checked) const
 {
     Q_UNUSED(checked);
-    m_networkPanel->invokeMenuItem(menuId);
+    m_networkHelper->invokeMenuItem(menuId);
 }
 
 void NetworkModule::showNetworkDialog(QWidget *w) const

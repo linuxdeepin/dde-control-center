@@ -397,10 +397,6 @@ void BubbleManager::onOpacityChanged(double value)
 {
 }
 
-QString BubbleManager::getAllSetting()
-{
-}
-
 void BubbleManager::setAllSetting(const QString settings)
 {
 }

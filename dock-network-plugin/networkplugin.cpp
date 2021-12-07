@@ -20,7 +20,7 @@
  */
 
 #include "networkplugin.h"
-#include "networkpanel.h"
+#include "networkpluginhelper.h"
 #include "trayicon.h"
 #include "networkdialog.h"
 
@@ -32,9 +32,11 @@
 
 #define STATE_KEY "enabled"
 
+NETWORKPLUGIN_USE_NAMESPACE
+
 NetworkPlugin::NetworkPlugin(QObject *parent)
     : QObject(parent)
-    , m_networkPanel(Q_NULLPTR)
+    , m_networkHelper(Q_NULLPTR)
     , m_networkDialog(Q_NULLPTR)
     , m_clickTime(-10000)
 {
@@ -61,10 +63,10 @@ const QString NetworkPlugin::pluginDisplayName() const
 void NetworkPlugin::init(PluginProxyInterface *proxyInter)
 {
     m_proxyInter = proxyInter;
-    if (m_networkPanel)
+    if (m_networkHelper)
         return;
 
-    m_networkPanel.reset(new NetworkPanel);
+    m_networkHelper.reset(new NetworkPluginHelper);
     m_networkDialog = new NetworkDialog(this);
     QDBusConnection::sessionBus().connect("com.deepin.dde.lockFront", "/com/deepin/dde/lockFront", "com.deepin.dde.lockFront", "Visible", this, SLOT(lockFrontVisible(bool)));
 
@@ -79,13 +81,13 @@ void NetworkPlugin::invokedMenuItem(const QString &itemKey, const QString &menuI
     Q_UNUSED(checked)
 
     if (itemKey == NETWORK_KEY)
-        m_networkPanel->invokeMenuItem(menuId);
+        m_networkHelper->invokeMenuItem(menuId);
 }
 
 void NetworkPlugin::refreshIcon(const QString &itemKey)
 {
     if (itemKey == NETWORK_KEY)
-        emit m_networkPanel->viewUpdate();
+        emit m_networkHelper->viewUpdate();
 }
 
 void NetworkPlugin::pluginStateSwitched()
@@ -103,7 +105,7 @@ bool NetworkPlugin::pluginIsDisable()
 const QString NetworkPlugin::itemCommand(const QString &itemKey)
 {
     Q_UNUSED(itemKey)
-    if (m_networkPanel->needShowControlCenter()) {
+    if (m_networkHelper->needShowControlCenter()) {
         return QString("dbus-send --print-reply "
                        "--dest=com.deepin.dde.ControlCenter "
                        "/com/deepin/dde/ControlCenter "
@@ -117,7 +119,7 @@ const QString NetworkPlugin::itemCommand(const QString &itemKey)
 const QString NetworkPlugin::itemContextMenu(const QString &itemKey)
 {
     if (itemKey == NETWORK_KEY)
-        return m_networkPanel->contextMenu(true);
+        return m_networkHelper->contextMenu(true);
 
     return QString();
 }
@@ -125,7 +127,7 @@ const QString NetworkPlugin::itemContextMenu(const QString &itemKey)
 QWidget *NetworkPlugin::itemWidget(const QString &itemKey)
 {
     if (itemKey == NETWORK_KEY) {
-        TrayIcon *trayIcon = new TrayIcon(m_networkPanel.data());
+        TrayIcon *trayIcon = new TrayIcon(m_networkHelper.data());
         connect(this, &NetworkPlugin::signalShowNetworkDialog, trayIcon, &TrayIcon::showNetworkDialog);
         connect(trayIcon, &TrayIcon::signalShowNetworkDialog, this, &NetworkPlugin::showNetworkDialog);
         connect(m_networkDialog, &NetworkDialog::requestPosition, trayIcon, &TrayIcon::showNetworkDialog);
@@ -139,7 +141,7 @@ QWidget *NetworkPlugin::itemWidget(const QString &itemKey)
 QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 {
     if (itemKey == NETWORK_KEY)
-        return m_networkPanel->itemTips();
+        return m_networkHelper->itemTips();
 
     return Q_NULLPTR;
 }
@@ -147,7 +149,7 @@ QWidget *NetworkPlugin::itemTipsWidget(const QString &itemKey)
 QWidget *NetworkPlugin::itemPopupApplet(const QString &itemKey)
 {
     int msec = QTime::currentTime().msecsSinceStartOfDay();
-    if (!m_networkPanel->needShowControlCenter() && abs(msec - m_clickTime) > 200) {
+    if (!m_networkHelper->needShowControlCenter() && abs(msec - m_clickTime) > 200) {
         m_clickTime = msec;
         emit signalShowNetworkDialog();
         m_networkDialog->show();

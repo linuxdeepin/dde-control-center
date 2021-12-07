@@ -23,11 +23,14 @@
 #define NETWORKPLUGIN_H
 
 #include "pluginsiteminterface.h"
+#include "../common-plugin/utils.h"
 
 #define NETWORK_KEY "network-item-key"
 
-class NetworkPanel;
+NETWORKPLUGIN_BEGIN_NAMESPACE
+class NetworkPluginHelper;
 class NetworkDialog;
+NETWORKPLUGIN_END_NAMESPACE
 
 class NetworkPlugin : public QObject, PluginsItemInterface
 {
@@ -73,8 +76,8 @@ private:
     void refreshPluginItemsVisible();
 
 private:
-    QScopedPointer<NetworkPanel> m_networkPanel;
-    NetworkDialog *m_networkDialog;
+    QScopedPointer<NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper> m_networkHelper;
+    NETWORKPLUGIN_NAMESPACE::NetworkDialog *m_networkDialog;
     int m_clickTime;
 };
 

@@ -23,11 +23,14 @@
 #define LOGIN_MODULE_H
 
 #include "tray_module_interface.h"
+#include "../common-plugin/utils.h"
 
 #include <NetworkManagerQt/Device>
 
-class NetworkPanel;
+NETWORKPLUGIN_BEGIN_NAMESPACE
+class NetworkPluginHelper;
 class NetworkDialog;
+NETWORKPLUGIN_END_NAMESPACE
 
 namespace dss {
 namespace module {
@@ -60,8 +63,8 @@ public Q_SLOTS:
     void onAddDevice(const QString &path);
 
 public:
-    NetworkPanel *m_networkPanel;
-    NetworkDialog *m_networkDialog;
+    NETWORKPLUGIN_NAMESPACE::NetworkPluginHelper *m_networkHelper;
+    NETWORKPLUGIN_NAMESPACE::NetworkDialog *m_networkDialog;
 
     bool m_isLockModel;  // 锁屏 or greeter
     bool m_isLockScreen; // 锁屏显示

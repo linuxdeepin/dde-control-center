@@ -158,7 +158,7 @@ void NetworkPanel::initConnection()
             }
         }
     });
-    QTimer::singleShot(100, this, [ = ] {
+    QTimer::singleShot(0, this, [ = ] {
         onDeviceAdded(networkController->devices());
     });
 }

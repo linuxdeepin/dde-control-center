@@ -19,9 +19,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef NETWORKPANEL_H
-#define NETWORKPANEL_H
-
+#ifndef NETWORKPLUGINHELPER_H
+#define NETWORKPLUGINHELPER_H
+#include "utils.h"
 #include "item/devicestatushandler.h"
 
 #include <DGuiApplicationHelper>
@@ -32,7 +32,6 @@
 
 DGUI_USE_NAMESPACE
 
-class TipsWidget;
 
 namespace dde {
 namespace network {
@@ -41,13 +40,18 @@ class NetworkDeviceBase;
 } // namespace network
 } // namespace dde
 
-class NetworkDialog;
 class QTimer;
 class NetItem;
 
 using namespace dde::network;
 
-class NetworkPanel : public QObject
+namespace dde {
+namespace networkplugin {
+
+class NetworkDialog;
+class TipsWidget;
+
+class NetworkPluginHelper : public QObject
 {
     Q_OBJECT
 
@@ -57,8 +61,8 @@ Q_SIGNALS:
     void viewUpdate();
 
 public:
-    explicit NetworkPanel(QObject *parent = Q_NULLPTR);
-    ~NetworkPanel();
+    explicit NetworkPluginHelper(QObject *parent = Q_NULLPTR);
+    ~NetworkPluginHelper();
 
     void setMainWidget(QWidget *mainWidget);
 
@@ -97,4 +101,7 @@ private:
     QWidget *m_mainWidget;
 };
 
-#endif // NETWORKPANEL_H
+}
+}
+
+#endif // NETWORKPLUGINHELPER_H

@@ -22,7 +22,7 @@
 #ifndef NETWORKDIALOG_H
 #define NETWORKDIALOG_H
 
-#include "constants.h"
+#include "utils.h"
 
 #include <QProcess>
 
@@ -31,6 +31,8 @@
 class QWidget;
 class QLocalServer;
 class QLocalSocket;
+
+NETWORKPLUGIN_BEGIN_NAMESPACE
 
 class NetworkDialog : public QObject
 {
@@ -96,4 +98,5 @@ private:
     QString m_serverName;
 };
 
+NETWORKPLUGIN_END_NAMESPACE
 #endif // NETWORKDIALOG_H
