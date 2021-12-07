@@ -76,6 +76,12 @@ void NetworkInterProcesser::initNetData(NetworkInter *networkInt)
     onActiveConnectionsChanged(networkInt->activeConnections());
 }
 
+void NetworkInterProcesser::updateSync(const bool sync)
+{
+    m_sync = sync;
+    m_networkInter->setSync(sync);
+}
+
 void NetworkInterProcesser::initDeviceService()
 {
     m_networkInter->setSync(m_sync);

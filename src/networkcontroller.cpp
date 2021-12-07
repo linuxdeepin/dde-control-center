@@ -88,6 +88,14 @@ void NetworkController::setIPConflictCheck(const bool &checkIp)
     m_checkIpConflicted = checkIp;
 }
 
+void NetworkController::updateSync(const bool sync)
+{
+    if(m_serviceLoadType != ServiceLoadType::LoadFromManager) {
+        NetworkInterProcesser *processer = qobject_cast<NetworkInterProcesser *> (m_processer);
+        processer->updateSync(sync);
+    }
+}
+
 ProxyController *NetworkController::proxyController()
 {
     return m_processer->proxyController();

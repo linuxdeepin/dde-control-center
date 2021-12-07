@@ -357,7 +357,8 @@ int NetworkModuleWidget::gotoSetting(const QString &path)
         type = PageType::VPNPage;
     } else if (path == QStringLiteral("DSL")) {
         type = PageType::DSLPage;
-    } else if (path.contains("WirelessPage")) {
+    } else if (path.contains("WirelessPage") || path.contains("Wireless Network")) {
+        // 历史原因，WirelessPage可能也在使用中
         type = PageType::WirelessPage;
     } else if (path.contains("Wired Network")) {
         type = PageType::WiredPage;

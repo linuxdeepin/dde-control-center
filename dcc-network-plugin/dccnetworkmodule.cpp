@@ -45,6 +45,9 @@ DCCNetworkModule::DCCNetworkModule()
     GSettingWatcher::instance()->insertState("applicationProxy");
     GSettingWatcher::instance()->insertState("networkDetails");
     GSettingWatcher::instance()->insertState("personalHotspot");
+
+    // 初始化时采用同步方式获取所有网络数据，加载后使用异步操作进行通信
+    NetworkController::setActiveSync(true);
 }
 
 DCCNetworkModule::~DCCNetworkModule()
@@ -59,6 +62,8 @@ void DCCNetworkModule::initialize()
     connect(networkController, &NetworkController::deviceRemoved, this, &DCCNetworkModule::onDeviceChanged);
     connect(networkController, &NetworkController::deviceAdded, this, &DCCNetworkModule::onDeviceChanged);
     onDeviceChanged();
+    // 后续的操作仍然使用异步，防止操作卡顿
+    networkController->updateSync(false);
 }
 
 void DCCNetworkModule::active()
@@ -88,16 +93,9 @@ QStringList DCCNetworkModule::availPage() const
 {
     QStringList list;
     list << "DSL" << "DSL/Create PPPoE Connection" << "VPN" << "VPN/Create VPN" << "VPN/Import VPN"
-         << "System Proxy" << "Application Proxy" << "Network Details";
-
-    if (m_hasWired)
-        list << "Wired Network" << "Wired Network/addWiredConnection";
-
-    if (m_hasWireless)
-        list << "Wireless Network";
-
-    if (m_hasAp)
-        list << "Personal Hotspot";
+         << "System Proxy" << "Application Proxy" << "Network Details"
+         << "Wired Network" << "Wired Network/addWiredConnection"
+         << "Wireless Network" << "WirelessPage" << "Personal Hotspot";
 
     QList<NetworkDeviceBase *> devices = NetworkController::instance()->devices();
     for (NetworkDeviceBase *dev: devices)

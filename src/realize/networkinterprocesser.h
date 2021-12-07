@@ -49,6 +49,8 @@ protected:
     void initConnection();
     void initNetData(NetworkInter *networkInt);                                    // 填充基本数据
 
+    void updateSync(const bool sync);
+
     NetworkDeviceBase *findDevices(const QString &path) const;                     // 根据设备path查找设备
     void updateConnectionsInfo(const QList<NetworkDeviceBase *> &devices);         // 更新设备连接信息
     void asyncActiveConnectionInfo();                                              // 同步IP地址等信息
