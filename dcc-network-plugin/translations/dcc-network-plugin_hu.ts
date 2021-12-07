@@ -1016,6 +1016,11 @@
     </message>
     <message>
         <location filename="../sections/secrethotspotsection.cpp"/>
+        <source>WPA3 Personal</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../sections/secrethotspotsection.cpp"/>
         <source>Security</source>
         <translation>Biztonság</translation>
     </message>
@@ -1072,8 +1077,8 @@
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
-        <source>WPA2/WPA3 Personal</source>
-        <translation>WPA2/WPA3 Személyes</translation>
+        <source>WPA3 Personal</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
