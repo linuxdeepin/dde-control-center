@@ -106,7 +106,7 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         setVisible(true);
         break;
     case UpdatesStatus::Downloading:
-    	m_controlWidget-> setButtonStatus(ButtonStatus::pause);
+        m_controlWidget-> setButtonStatus(ButtonStatus::pause);
         m_controlWidget->showUpdateProcess(true);
         m_controlWidget->setProgressType(UpdateDProgressType::Download);
         setProgress(m_progressVlaue);
@@ -181,7 +181,10 @@ void UpdateSettingItem::setStatus(const UpdatesStatus &status)
         break;
     }
 
-    Q_EMIT requestRefreshWidget();
+    // 默认状态 不用刷新页面按钮
+    if(m_status != UpdatesStatus::Default){
+    	Q_EMIT requestRefreshWidget();
+    }
 }
 
 void UpdateSettingItem::setProgress(double value)
@@ -252,7 +255,11 @@ qlonglong UpdateSettingItem::updateSize() const
 
 void UpdateSettingItem::setUpdateSize(const qlonglong &updateSize)
 {
-    m_updateSize = updateSize;
+    if (m_updateSize != updateSize) {
+        m_updateSize = updateSize;
+        Q_EMIT requestRefreshSize();
+        Q_EMIT requestRefreshWidget();
+    }
 }
 
 void UpdateSettingItem::setLowBattery(bool lowBattery)

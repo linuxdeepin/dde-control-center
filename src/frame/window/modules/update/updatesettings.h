@@ -117,8 +117,6 @@ private:
     dcc::widgets::SwitchWidget *m_smartMirrorBtn;
     dcc::widgets::NextPageWidget *m_updateMirrors;
     DConfig* m_dconfig;
-
-    QGSettings *m_settings;
 };
 
 }// namespace datetime

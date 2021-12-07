@@ -92,8 +92,6 @@ private Q_SLOTS:
     void onRequestRefreshWidget();
     void onClassityUpdateJonErrorChanged(ClassifyUpdateType type, const QString &errorMessage);
 
-    void onModelDataLoadComplete();
-
 private:
     void setStatus(const UpdatesStatus &status);
 
@@ -169,7 +167,7 @@ private:
     SafeUpdateItem *m_safeUpdateItem;
     UnknownUpdateItem *m_unknownUpdateItem;
 
-    QMap<ClassifyUpdateType,UpdateSettingItem*> m_updateingItemMap;
+    QMap<ClassifyUpdateType, UpdateSettingItem *> m_updateingItemMap;
     dcc::widgets::SettingsGroup *m_updateSummaryGroup;
 };
 

@@ -167,12 +167,13 @@ void UpdateWorker::init()
     connect(m_updateInter, &UpdateInter::AutoCheckUpdatesChanged, m_model, &UpdateModel::setAutoCheckUpdates);
     connect(m_managerInter, &ManagerInter::UpdateModeChanged, m_model, &UpdateModel::setUpdateMode);
     connect(m_updateInter, &UpdateInter::UpdateNotifyChanged, m_model, &UpdateModel::setUpdateNotify);
+    connect(m_updateInter, &UpdateInter::ClassifiedUpdatablePackagesChanged, this, &UpdateWorker::onClassifiedUpdatablePackagesChanged);
 
     connect(m_powerInter, &__Power::OnBatteryChanged, this, &UpdateWorker::setOnBattery);
     connect(m_powerInter, &__Power::BatteryPercentageChanged, this, &UpdateWorker::setBatteryPercentage);
 
     // connect(m_powerSystemInter, &__SystemPower::BatteryPercentageChanged, this, &UpdateWorker::setSystemBatteryPercentage);
-    if(IsCommunitySystem){
+    if (IsCommunitySystem) {
         connect(m_smartMirrorInter, &SmartMirrorInter::EnableChanged, m_model, &UpdateModel::setSmartMirrorSwitch);
         connect(m_smartMirrorInter, &SmartMirrorInter::serviceValidChanged, this, &UpdateWorker::onSmartMirrorServiceIsValid);
         connect(m_smartMirrorInter, &SmartMirrorInter::serviceStartFinished, this, [ = ] {
@@ -264,7 +265,6 @@ void UpdateWorker::activate()
     m_managerInter->setSync(false);
     m_updateInter->setSync(false);
 
-    Q_EMIT m_model->modelDateLoadComplete();
 #ifndef DISABLE_SYS_UPDATE_MIRRORS
     refreshMirrors();
 #endif
@@ -414,6 +414,33 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 {
     qDebug() << "getAllUpdateInfo";
     QMap<ClassifyUpdateType, UpdateItemInfo *> resultMap;
+
+    QMap<ClassifyUpdateType, QString> updateDailyKeyMap;
+    updateDailyKeyMap.insert(ClassifyUpdateType::SystemUpdate, "systemUpdateInfo");
+    updateDailyKeyMap.insert(ClassifyUpdateType::SecurityUpdate, "safeUpdateInfo");
+    updateDailyKeyMap.insert(ClassifyUpdateType::UnknownUpdate, "otherUpdateInfo");
+
+    if (m_systemPackages.count() > 0) {
+        UpdateItemInfo *systemItemInfo = new UpdateItemInfo;
+        systemItemInfo->setName(tr("System Updates"));
+        setUpdateItemDownloadSize(systemItemInfo, m_systemPackages);
+        resultMap.insert(ClassifyUpdateType::SystemUpdate, systemItemInfo);
+    }
+
+    if (m_safePackages.count() > 0) {
+        UpdateItemInfo  *safeItemInfo = new UpdateItemInfo;
+        safeItemInfo->setName(tr("Security Updates"));
+        setUpdateItemDownloadSize(safeItemInfo, m_safePackages);
+        resultMap.insert(ClassifyUpdateType::SecurityUpdate, safeItemInfo);
+    }
+
+    if (m_unknownPackages.count() > 0) {
+        UpdateItemInfo *unkownItemInfo = new UpdateItemInfo;
+        unkownItemInfo->setName(tr("Unknown Apps Updates"));
+        setUpdateItemDownloadSize(unkownItemInfo, m_unknownPackages);
+        resultMap.insert(ClassifyUpdateType::UnknownUpdate, unkownItemInfo);
+    }
+
     QFile logFile(ChangeLogFile);
     if (!logFile.open(QFile::ReadOnly)) {
         qDebug() << "can not find update file:" << ChangeLogFile;
@@ -422,55 +449,23 @@ QMap<ClassifyUpdateType, UpdateItemInfo *> UpdateWorker::getAllUpdateInfo()
 
     QJsonParseError err_rpt;
     QJsonDocument updateInfoDoc = QJsonDocument::fromJson(logFile.readAll(), &err_rpt);
-
     if (err_rpt.error != QJsonParseError::NoError) {
         qDebug() << "更新日志信息JSON格式错误";
         return resultMap;
     }
-
     const QJsonObject &object = updateInfoDoc.object();
-
-    QJsonValue systemUpdateItemInfo =  object.value("systemUpdateInfo");
-
-    UpdateItemInfo *systemItemInfo = getItemInfo(systemUpdateItemInfo);
-    if (systemItemInfo != nullptr && m_systemPackages.count() > 0 && m_model->autoCheckSystemUpdates()) {
-        systemItemInfo->setName(tr("System Updates"));
-        systemItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_systemPackages));
-        resultMap.insert(ClassifyUpdateType::SystemUpdate, systemItemInfo);
-    } else {
-        delete systemItemInfo;
-        systemItemInfo = nullptr;
-    }
-
-    UpdateItemInfo  *safeItemInfo = getItemInfo(object.value("safeUpdateInfo"));
-    if (safeItemInfo != nullptr && m_safePackages.count() > 0 && m_model->autoCheckSecureUpdates()) {
-        safeItemInfo->setName(tr("Security Updates"));
-        safeItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_safePackages));
-        resultMap.insert(ClassifyUpdateType::SecurityUpdate, safeItemInfo);
-    } else {
-        delete safeItemInfo;
-        safeItemInfo = nullptr;
-    }
-
-    qDebug() << "getAllUpdateInfo: otherUpdateInfo ==" << object.value("otherUpdateInfo").toString();
-    UpdateItemInfo  *unkownItemInfo = getItemInfo(object.value("otherUpdateInfo"));
-    if (unkownItemInfo != nullptr && m_unknownPackages.count() > 0) {
-        unkownItemInfo->setName(tr("Unknown Apps Updates"));
-        unkownItemInfo->setDownloadSize(m_managerInter->PackagesDownloadSize(m_unknownPackages));
-        resultMap.insert(ClassifyUpdateType::UnknownUpdate, unkownItemInfo);
-    } else {
-        delete unkownItemInfo;
-        unkownItemInfo = nullptr;
+    for (ClassifyUpdateType type : resultMap.keys()) {
+        getItemInfo(object.value(updateDailyKeyMap.value(type)), resultMap.value(type));
+        qDebug() << "getAllUpdateInfo: " << updateDailyKeyMap.value(type) << " = " << object.value("otherUpdateInfo").toString();
     }
 
     return  resultMap;
 }
 
-UpdateItemInfo *UpdateWorker::getItemInfo(QJsonValue jsonValue)
+void UpdateWorker::getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo)
 {
-    UpdateItemInfo *itemInfo = new UpdateItemInfo;
-    if (jsonValue.isNull()) {
-        return itemInfo;
+    if (jsonValue.isNull() || itemInfo == nullptr) {
+        return ;
     }
 
     itemInfo->setPackageId(jsonValue.toObject().value("package_id").toString());
@@ -506,8 +501,6 @@ UpdateItemInfo *UpdateWorker::getItemInfo(QJsonValue jsonValue)
             itemInfo->setDetailInfos(itemList);
         }
     }
-
-    return itemInfo;
 }
 
 bool UpdateWorker::checkDbusIsValid()
@@ -609,7 +602,7 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
 
     if (m_backupStatus == BackupStatus::Backingup) {
         QPointer<JobInter> job = getDownloadJob(updateType);
-        if(job != nullptr){
+        if (job != nullptr) {
             m_managerInter->CleanJob(job->id());
             deleteJob(job);
         }
@@ -631,7 +624,7 @@ void UpdateWorker::distUpgrade(ClassifyUpdateType updateType)
 
     if (status == UpdatesStatus::Downloading) {
         QPointer<JobInter> job = getDownloadJob(updateType);
-        if(job != nullptr){
+        if (job != nullptr) {
             m_managerInter->CleanJob(job->id());
             deleteJob(job);
         }
@@ -976,11 +969,22 @@ void UpdateWorker::onJobListChanged(const QList<QDBusObjectPath> &jobs)
 
         JobInter jobInter("com.deepin.lastore", m_jobPath, QDBusConnection::systemBus());
 
-        if (!jobInter.isValid())
-            continue;
-
         // id maybe scrapped
         const QString &id = jobInter.id();
+        // 防止刚打开控制中心的时候获取joblist的时候job还存在，由于构建jobInter可能会花销一定时间导致构建完成后job已经完成，这个时候需要设置对应的更新状态为更新成功
+        if (id.isEmpty() && !m_jobPath.isEmpty()) {
+            if (m_jobPath.contains("system_upgrade")) {
+                m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::SystemUpdate, UpdatesStatus::UpdateSucceeded);
+            } else if (m_jobPath.contains("security_upgrade")) {
+                m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::SecurityUpdate, UpdatesStatus::UpdateSucceeded);
+            } else if (m_jobPath.contains("unknown_upgrade")) {
+                m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::UnknownUpdate, UpdatesStatus::UpdateSucceeded);
+            }
+            continue;
+        }
+
+        if (!jobInter.isValid())
+            continue;
 
         qDebug() << "[wubw] onJobListChanged, id : " << id << " , m_jobPath : " << m_jobPath;
         if ((id == "update_source" || id == "custom_update") && m_checkUpdateJob == nullptr) {
@@ -1456,6 +1460,36 @@ QString UpdateWorker::getClassityUpdateDownloadJobName(ClassifyUpdateType update
         break;
     }
     return  value;
+}
+
+void UpdateWorker::onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages)
+{
+    m_systemPackages = packages.value(SystemUpdateType);
+    if (m_systemPackages.count() == 0) {
+        m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::SystemUpdate, UpdatesStatus::Default);
+    }
+    m_safePackages = packages.value(SecurityUpdateType);
+    if (m_safePackages.count() == 0) {
+        m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::SecurityUpdate, UpdatesStatus::Default);
+    }
+    m_unknownPackages = packages.value(UnknownUpdateType);
+    if (m_unknownPackages.count() == 0) {
+        m_model->setClassifyUpdateTypeStatus(ClassifyUpdateType::UnknownUpdate, UpdatesStatus::Default);
+    }
+}
+
+void UpdateWorker::setUpdateItemDownloadSize(UpdateItemInfo *updateItem,  QStringList packages)
+{
+    QDBusPendingCall call = m_managerInter->PackagesDownloadSize(packages);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, [this, updateItem, call] {
+        if (!call.isError())
+        {
+            QDBusReply<qlonglong> reply = call.reply();
+            qlonglong value = reply.value();
+            updateItem->setDownloadSize(value);
+        }
+    });
 }
 
 }

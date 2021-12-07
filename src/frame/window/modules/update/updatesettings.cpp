@@ -59,7 +59,6 @@ UpdateSettings::UpdateSettings(UpdateModel *model, QWidget *parent)
     , m_autoDownloadUpdateTips(new DTipLabel(tr("Switch it on to automatically download the updates in wireless or wired network"), this))
     , m_autoCheckSecureUpdateTips(new DTipLabel(tr("Switch it on to only update security vulnerabilities and compatibility issues"), this))
     , m_autoCleanCache(new SwitchWidget(this))
-    , m_settings(new QGSettings("com.deepin.dde.control-center", QByteArray(), this))
     , m_dconfig(nullptr)
 {
     initUi();
@@ -270,6 +269,7 @@ void UpdateSettings::setModel(UpdateModel *model)
     GSettingWatcher::instance()->bind("updateAutoDownlaod", m_autoDownloadUpdate);
     GSettingWatcher::instance()->bind("updateCleanCache", m_autoCleanCache);
     GSettingWatcher::instance()->bind("updateSystemUpdate", m_autoCheckUniontechUpdate);
+    m_autoCheckAppUpdate->setVisible(false);
 
     m_dconfig = DConfigWatcher::instance()->getModulesConfig(DConfigWatcher::update);
     DConfigWatcher::instance()->bind(DConfigWatcher::update, "updateSafety", m_autoCheckSecureUpdate);

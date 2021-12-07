@@ -519,7 +519,6 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::recoverRestoringChanged, this, &UpdateCtrlWidget::setRecoverRestoring);
     connect(m_model, &UpdateModel::systemActivationChanged, this, &UpdateCtrlWidget::setActiveState);
     connect(m_model, &UpdateModel::classityUpdateJobErrorChanged, this, &UpdateCtrlWidget::onClassityUpdateJonErrorChanged);
-    connect(m_model, &UpdateModel::modelDateLoadComplete, this, &UpdateCtrlWidget::onModelDataLoadComplete);
 
     connect(m_model, &UpdateModel::systemUpdateInfoChanged, this, &UpdateCtrlWidget::setSystemUpdateInfo);
     connect(m_model, &UpdateModel::safeUpdateInfoChanged, this, &UpdateCtrlWidget::setSafeUpdateInfo);
@@ -528,6 +527,11 @@ void UpdateCtrlWidget::setModel(UpdateModel *model)
     connect(m_model, &UpdateModel::systemUpdateProgressChanged, m_systemUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
     connect(m_model, &UpdateModel::safeUpdateProgressChanged, m_safeUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
     connect(m_model, &UpdateModel::unkonowUpdateProgressChanged, m_unknownUpdateItem, &UpdateSettingItem::onUpdateProgressChanged);
+
+    connect(m_model, &UpdateModel::systemUpdateDownloadSizeChanged, m_systemUpdateItem, &UpdateSettingItem::setUpdateSize);
+    connect(m_model, &UpdateModel::safeUpdateDownloadSizeChanged, m_safeUpdateItem, &UpdateSettingItem::setUpdateSize);
+    connect(m_model, &UpdateModel::unkonowUpdateDownloadSizeChanged, m_unknownUpdateItem, &UpdateSettingItem::setUpdateSize);
+
     m_updateingItemMap.clear();
 
     setUpdateProgress(m_model->updateProgress());
@@ -774,32 +778,6 @@ void UpdateCtrlWidget::onClassityUpdateJonErrorChanged(ClassifyUpdateType type, 
     default:
         break;
     }
-}
-
-void UpdateCtrlWidget::onModelDataLoadComplete()
-{
-    qDebug() << "UpdateCtrlWidget::onModelDataLoadComplete";
-    setSystemUpdateInfo(m_model->systemDownloadInfo());
-    setSafeUpdateInfo(m_model->safeDownloadInfo());
-    setUnkonowUpdateInfo(m_model->unknownDownloadInfo());
-    m_systemUpdateItem->setUpdateJobErrorMessage(m_model->getSystemUpdateJobError().jobErrorMessage);
-    m_safeUpdateItem->setUpdateJobErrorMessage(m_model->getSafeUpdateJobError().jobErrorMessage);
-    m_unknownUpdateItem->setUpdateJobErrorMessage(m_model->getUnkonwUpdateJobError().jobErrorMessage);
-
-    qDebug() << "setModel" << m_model->status();
-    qDebug() << "setModel" << "getSystemUpdateStatus" << m_model->getSystemUpdateStatus();
-    qDebug() << "setModel" << "getSafeUpdateStatus" << m_model->getSafeUpdateStatus();
-    qDebug() << "setModel" << "getUnkonowUpdateStatus" << m_model->getUnkonowUpdateStatus();
-    if (m_model->enterCheckUpdate()) {
-        setStatus(UpdatesStatus::Checking);
-    } else {
-        setStatus(m_model->status());
-        setSystemUpdateStatus(m_model->getSystemUpdateStatus());
-        setSafeUpdateStatus(m_model->getSafeUpdateStatus());
-        setUnkonowUpdateStatus(m_model->getUnkonowUpdateStatus());
-    }
-
-    setLowBattery(m_model->lowBattery());
 }
 
 

@@ -66,6 +66,10 @@ struct UpdateJobErrorMessage {
 
 class UpdateModel : public QObject
 {
+    Q_OBJECT
+public:
+    explicit UpdateModel(QObject *parent = nullptr);
+    ~UpdateModel();
 public:
     //ModelUpdatesStatus仅用于log显示；
     //common.h UpdatesStatu更新后，此处需要同步更新
@@ -89,11 +93,6 @@ public:
         RecoveryBackupFailed
     };
     Q_ENUM(ModelUpdatesStatus)
-
-    Q_OBJECT
-public:
-    explicit UpdateModel(QObject *parent = nullptr);
-    ~UpdateModel();
 
     void setMirrorInfos(const MirrorInfoList &list);
     MirrorInfoList mirrorInfos() const { return m_mirrorList;}
@@ -247,7 +246,9 @@ Q_SIGNALS:
     void safeUpdateStatusChanged(const UpdatesStatus &status);
     void unkonowUpdateStatusChanged(const UpdatesStatus &status);
 
-    void modelDateLoadComplete();
+    void systemUpdateDownloadSizeChanged(const qlonglong updateSize);
+    void safeUpdateDownloadSizeChanged(const qlonglong updateSize);
+    void unkonowUpdateDownloadSizeChanged(const qlonglong updateSize);
 
 #ifndef DISABLE_SYS_UPDATE_SOURCE_CHECK
     void sourceCheckChanged(bool sourceCheck);

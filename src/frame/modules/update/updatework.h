@@ -118,6 +118,7 @@ public Q_SLOTS:
 
     void OnDownloadJobCtrl(ClassifyUpdateType type, int updateCtrlType);
     void onRequestOpenAppStore();
+    void onClassifiedUpdatablePackagesChanged(QMap<QString, QStringList> packages);
 
 private Q_SLOTS:
     void setCheckUpdatesJob(const QString &jobPath);
@@ -139,8 +140,9 @@ private Q_SLOTS:
 
 private:
     QMap<ClassifyUpdateType, UpdateItemInfo *> getAllUpdateInfo();
-    UpdateItemInfo *getItemInfo(QJsonValue jsonValue);
+    void getItemInfo(QJsonValue jsonValue, UpdateItemInfo *itemInfo);
     void setUpdateInfo();
+    void setUpdateItemDownloadSize(UpdateItemInfo *updateItem, QStringList packages);
 
     inline bool checkDbusIsValid();
     void onSmartMirrorServiceIsValid(bool isvalid);
@@ -199,7 +201,6 @@ private:
     QList<QString> m_updatableApps;
     QList<QString> m_updatablePackages;
     QString m_jobPath;
-    double m_downloadProcess;
     qlonglong m_downloadSize;
     QString m_iconThemeState;
 

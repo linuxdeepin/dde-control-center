@@ -66,19 +66,25 @@ UpdateModel::UpdateModel(QObject *parent)
     , m_netselectExist(false)
     , m_autoCleanCache(false)
     , m_autoDownloadUpdates(false)
+    , m_autoInstallUpdates(false)
+    , m_autoInstallUpdateType(0)
     , m_autoCheckUpdates(false)
+    , m_updateMode(0)
+    , m_autoCheckSecureUpdates(false)
+    , m_autoCheckSystemUpdates(false)
+    , m_autoCheckAppUpdates(false)
     , m_updateNotify(false)
     , m_smartMirrorSwitch(false)
-    , m_mirrorId("")
+    , m_mirrorId(QString())
     , m_bRecoverBackingUp(false)
     , m_bRecoverConfigValid(false)
     , m_bRecoverRestoring(false)
-    , m_systemVersionInfo("")
+    , m_systemVersionInfo(QString())
     , m_metaEnum(QMetaEnum::fromType<ModelUpdatesStatus>())
     , m_bSystemActivation(UiActiveState::Unknown)
+    , m_lastCheckUpdateTime(QString())
     , m_autoCheckUpdateCircle(0)
     , m_isUpdatablePackages(false)
-
 {
 
 }
@@ -152,6 +158,7 @@ void UpdateModel::setSystemDownloadInfo(UpdateItemInfo *updateItemInfo)
 
     m_systemUpdateInfo = updateItemInfo;
     connect(m_systemUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::systemUpdateProgressChanged);
+    connect(m_systemUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::systemUpdateDownloadSizeChanged);
 
     Q_EMIT systemUpdateInfoChanged(updateItemInfo);
 }
@@ -161,6 +168,7 @@ void UpdateModel::setSafeDownloadInfo(UpdateItemInfo *updateItemInfo)
     deleteUpdateInfo(m_safeUpdateInfo);
     m_safeUpdateInfo = updateItemInfo;
     connect(m_safeUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::safeUpdateProgressChanged);
+    connect(m_safeUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::safeUpdateDownloadSizeChanged);
 
     Q_EMIT safeUpdateInfoChanged(updateItemInfo);
 }
@@ -170,6 +178,7 @@ void UpdateModel::setUnknownDownloadInfo(UpdateItemInfo *updateItemInfo)
     deleteUpdateInfo(m_unknownUpdateInfo);
     m_unknownUpdateInfo = updateItemInfo;
     connect(m_unknownUpdateInfo, &UpdateItemInfo::downloadProgressChanged, this, &UpdateModel::unkonowUpdateProgressChanged);
+    connect(m_unknownUpdateInfo, &UpdateItemInfo::downloadSizeChanged, this, &UpdateModel::unkonowUpdateDownloadSizeChanged);
 
     Q_EMIT unknownUpdateInfoChanged(updateItemInfo);
 }
@@ -573,7 +582,6 @@ void UpdateModel::deleteUpdateInfo(UpdateItemInfo *updateItemInfo)
 {
     if (updateItemInfo != nullptr) {
         updateItemInfo->deleteLater();
-        updateItemInfo = nullptr;
     }
 }
 
