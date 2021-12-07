@@ -23,6 +23,7 @@
 #define CONNECTIONEDITPAGE_H
 
 #include "settings/abstractsettings.h"
+#include "parameterscontainer.h"
 
 #include <QPointer>
 
@@ -123,6 +124,7 @@ protected:
     AbstractSettings *m_settingsWidget;
 
     static FrameProxyInterface *m_frame;
+    ParametersContainer::Ptr m_tempParameter;
 
 private:
     QVBoxLayout *m_mainLayout;

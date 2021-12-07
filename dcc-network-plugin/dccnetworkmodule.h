@@ -67,7 +67,7 @@ public:
 
     QWidget *moduleWidget() Q_DECL_OVERRIDE;
 
-    int load(const QString &path);
+    int load(const QString &path) Q_DECL_OVERRIDE;
 
 private:
     void removeConnEditPageByDevice(NetworkDeviceBase *dev);

@@ -218,7 +218,7 @@ void DCCNetworkModule::onDeviceChanged()
 void DCCNetworkModule::showWirelessEditPage(NetworkDeviceBase *dev, const QString &connUuid, const QString &apPath)
 {
     // it will be destroyed by Frame
-    m_connEditPage = new ConnectionWirelessEditPage(dev->path(), connUuid);
+    m_connEditPage = new ConnectionWirelessEditPage(dev->path(), connUuid, apPath);
     m_connEditPage->setVisible(false);
     connect(m_connEditPage, &ConnectionEditPage::requestNextPage, [ = ](ContentWidget * const w) {
         m_frameProxy->pushWidget(this, w);
@@ -241,7 +241,7 @@ void DCCNetworkModule::showWirelessEditPage(NetworkDeviceBase *dev, const QStrin
         }
 
         ConnectionWirelessEditPage *wirelessEditPage = static_cast<ConnectionWirelessEditPage *>(m_connEditPage);
-        wirelessEditPage->initSettingsWidgetFromAp(apPath);
+        wirelessEditPage->initSettingsWidgetFromAp();
     } else {
         m_connEditPage->initSettingsWidget();
     }

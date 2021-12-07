@@ -23,6 +23,7 @@
 #define SECRETWIRELESSSECTION_H
 
 #include "secret8021xsection.h"
+#include "../parameterscontainer.h"
 
 #include <networkmanagerqt/wirelesssecuritysetting.h>
 
@@ -31,7 +32,7 @@ class SecretWirelessSection : public Secret8021xSection
     Q_OBJECT
 
 public:
-    SecretWirelessSection(WirelessSecuritySetting::Ptr wsSeting, Security8021xSetting::Ptr sSetting, QFrame *parent = nullptr);
+    SecretWirelessSection(WirelessSecuritySetting::Ptr wsSeting, Security8021xSetting::Ptr sSetting, ParametersContainer::Ptr parameter, QFrame *parent = nullptr);
     virtual ~SecretWirelessSection() Q_DECL_OVERRIDE;
 
     bool allInputValid() Q_DECL_OVERRIDE;
@@ -43,6 +44,7 @@ private:
     void initConnection();
     void onKeyMgmtChanged(WirelessSecuritySetting::KeyMgmt);
     void saveUserInputPassword();
+    bool supportWPA3();
 
 private:
     QList<QPair<QString, WirelessSecuritySetting::KeyMgmt>> KeyMgmtStrMap;
@@ -60,6 +62,7 @@ private:
     Security8021xSetting::Ptr m_s8Setting;
 
     QMap<WirelessSecuritySetting::KeyMgmt, QString> m_userInputPasswordMap;
+    ParametersContainer::Ptr m_parameter;
 };
 
 #include "declare_metatype_for_networkmanager.h"

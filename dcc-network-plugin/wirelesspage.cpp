@@ -656,7 +656,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
     if (!m_apEditPage.isNull())
         return;
 
-    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid, isHiddenWlan(ssid));
+    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), uuid, apPath, isHiddenWlan(ssid));
     connect(m_apEditPage, &ConnectionWirelessEditPage::destroyed, this, [ this ] {
         this->m_apEditPage = nullptr;
     });
@@ -668,7 +668,7 @@ void WirelessPage::onApWidgetEditRequested(const QString &apPath, const QString 
         m_editingUuid = uuid;
         m_apEditPage->initSettingsWidget();
     } else {
-        m_apEditPage->initSettingsWidgetFromAp(apPath);
+        m_apEditPage->initSettingsWidgetFromAp();
     }
     m_apEditPage->setLeftButtonEnable(true);
 
@@ -719,7 +719,7 @@ void WirelessPage::onApWidgetConnectRequested(const QString &path, const QString
 
 void WirelessPage::showConnectHidePage()
 {
-    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), QString(), true);
+    m_apEditPage = new ConnectionWirelessEditPage(m_device->path(), QString(), QString(), true);
     m_apEditPage->initSettingsWidget();
     m_apEditPage->setLeftButtonEnable(true);
     connect(m_apEditPage, &ConnectionEditPage::activateWirelessConnection, this, [ this ] (const QString &ssid, const QString &uuid) {

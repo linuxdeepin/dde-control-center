@@ -35,6 +35,7 @@ static const QList<WirelessSecuritySetting::KeyMgmt> KeyMgmtList {
     WirelessSecuritySetting::KeyMgmt::WpaNone,
     //WirelessSecuritySetting::KeyMgmt::Wep,
     WirelessSecuritySetting::KeyMgmt::WpaPsk,
+    WirelessSecuritySetting::KeyMgmt::Ieee8021x
 };
 
 SecretHotspotSection::SecretHotspotSection(WirelessSecuritySetting::Ptr wsSeting, QFrame *parent)
@@ -113,6 +114,7 @@ void SecretHotspotSection::initStrMaps()
         { tr("None"), WirelessSecuritySetting::KeyMgmt::WpaNone },
         { tr("WEP"), WirelessSecuritySetting::KeyMgmt::Wep },
         { tr("WPA/WPA2 Personal"), WirelessSecuritySetting::KeyMgmt::WpaPsk },
+        { tr("WPA3 Personal"), WirelessSecuritySetting::KeyMgmt::Ieee8021x }
     };
 }
 

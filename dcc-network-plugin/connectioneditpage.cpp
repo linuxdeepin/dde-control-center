@@ -175,7 +175,7 @@ void ConnectionEditPage::initSettingsWidget()
         break;
     }
     case ConnectionSettings::ConnectionType::Wireless: {
-        m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
+        m_settingsWidget = new WirelessSettings(m_connectionSettings, m_tempParameter, this);
         break;
     }
 

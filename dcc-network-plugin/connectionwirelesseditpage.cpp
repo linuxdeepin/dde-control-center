@@ -31,9 +31,12 @@
 using namespace dcc::widgets;
 using namespace NetworkManager;
 
-ConnectionWirelessEditPage::ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid, bool isHidden, QWidget *parent)
+ConnectionWirelessEditPage::ConnectionWirelessEditPage(const QString &devPath, const QString &connUuid, const QString &apPath, bool isHidden, QWidget *parent)
     : ConnectionEditPage(ConnectionEditPage::ConnectionType::WirelessConnection, devPath, connUuid, parent)
 {
+    m_tempParameter.reset(new ParametersContainer);
+    m_tempParameter->saveParameters(ParametersContainer::ParamType::AccessPath, apPath);
+    m_tempParameter->saveParameters(ParametersContainer::ParamType::isHidden, isHidden);
     if (isHidden)
         m_connectionSettings->setting(Setting::SettingType::Wireless).staticCast<WirelessSetting>()->setHidden(isHidden);
 }
@@ -42,8 +45,9 @@ ConnectionWirelessEditPage::~ConnectionWirelessEditPage()
 {
 }
 
-void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
+void ConnectionWirelessEditPage::initSettingsWidgetFromAp()
 {
+    const QString &apPath = m_tempParameter->getValue(ParametersContainer::ParamType::AccessPath).toString();
     AccessPoint::Ptr nmAp = QSharedPointer<AccessPoint>(new AccessPoint(apPath));
 
     if (!m_connectionSettings || !nmAp)
@@ -56,7 +60,7 @@ void ConnectionWirelessEditPage::initSettingsWidgetFromAp(const QString &apPath)
 
     m_connectionSettings->setting(Setting::SettingType::Wireless).staticCast<WirelessSetting>()->setSsid(nmAp->rawSsid());
 
-    m_settingsWidget = new WirelessSettings(m_connectionSettings, this);
+    m_settingsWidget = new WirelessSettings(m_connectionSettings, m_tempParameter, this);
 
     connect(m_settingsWidget, &WirelessSettings::requestNextPage, this, &ConnectionWirelessEditPage::onRequestNextPage);
     connect(m_settingsWidget, &AbstractSettings::requestFrameAutoHide, this, &ConnectionEditPage::requestFrameAutoHide);

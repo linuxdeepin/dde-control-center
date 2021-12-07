@@ -32,8 +32,9 @@
 
 using namespace NetworkManager;
 
-WirelessSettings::WirelessSettings(ConnectionSettings::Ptr connSettings, QWidget *parent)
+WirelessSettings::WirelessSettings(ConnectionSettings::Ptr connSettings, ParametersContainer::Ptr parameters, QWidget *parent)
     : AbstractSettings(connSettings, parent)
+    , m_parameter(parameters)
 {
     initSections();
 }
@@ -49,7 +50,7 @@ void WirelessSettings::initSections()
 
     SecretWirelessSection *secretSection = new SecretWirelessSection(
         m_connSettings->setting(Setting::SettingType::WirelessSecurity).staticCast<WirelessSecuritySetting>(),
-        m_connSettings->setting(Setting::SettingType::Security8021x).staticCast<Security8021xSetting>());
+        m_connSettings->setting(Setting::SettingType::Security8021x).staticCast<Security8021xSetting>(), m_parameter);
 
     MultiIpvxSection *ipv4Section = new MultiIpvxSection(m_connSettings->setting(Setting::SettingType::Ipv4).staticCast<Ipv4Setting>());
     MultiIpvxSection *ipv6Section = new MultiIpvxSection(m_connSettings->setting(Setting::SettingType::Ipv6).staticCast<Ipv6Setting>());
