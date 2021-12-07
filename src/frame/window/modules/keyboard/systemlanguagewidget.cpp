@@ -81,7 +81,7 @@ SystemLanguageWidget::SystemLanguageWidget(KeyboardModel *model, QWidget *parent
     m_langListview->setModel(m_langItemModel);
 
     layout->addWidget(m_langListview);
-    layout->setContentsMargins(0, 0, 0, 0);
+    layout->setContentsMargins(0, 0, 10, 0);
 
     QWidget *widget = new QWidget(this);
     widget->setAccessibleName("SystemLanguageWidget_QWidget");
