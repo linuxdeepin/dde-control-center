@@ -454,6 +454,19 @@
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Method</source>
+        <translation>Method</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>Prefix</translation>
+    </message>
+</context>
+<context>
+    <name>IPInputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
         <source>IP Address</source>
         <translation>IP Address</translation>
     </message>
@@ -467,21 +480,9 @@
         <source>Gateway</source>
         <translation>Gateway</translation>
     </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Method</source>
-        <translation>Method</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Netmask</source>
-        <translation>Netmask</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Prefix</source>
-        <translation>Prefix</translation>
-    </message>
+</context>
+<context>
+    <name>IPV4InputSection</name>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
@@ -516,6 +517,44 @@
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Duplicate IP address</source>
         <translation>Duplicate IP address</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Netmask</source>
+        <translation>Netmask</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Required</source>
+        <translation>Required</translation>
+    </message>
+</context>
+<context>
+    <name>IPV6InputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Duplicate IP address</source>
+        <translation>Duplicate IP address</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid IP address</source>
+        <translation>Invalid IP address</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Only one gateway is allowed</source>
+        <translation>Only one gateway is allowed</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>Invalid gateway</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>Prefix</translation>
     </message>
 </context>
 <context>
@@ -1030,6 +1069,11 @@
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Enterprise</translation>
+    </message>
+    <message>
+        <location filename="../sections/secretwirelesssection.cpp"/>
+        <source>WPA2/WPA3 Personal</source>
+        <translation>WPA2/WPA3 Personal</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>

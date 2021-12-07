@@ -18,7 +18,7 @@
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Yanlış parola</translation>
     </message>
     <message>
         <source>Password required to connect %1</source>

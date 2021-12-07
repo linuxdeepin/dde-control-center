@@ -430,92 +430,131 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv4</source>
-        <translation type="unfinished"/>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv6</source>
-        <translation type="unfinished"/>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>Handmatig</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP Address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Required</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Negeren</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Method</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Netmask</source>
-        <translation type="unfinished"/>
+        <translation>Methode</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Prefix</source>
-        <translation type="unfinished"/>
+        <translation>Voorvoegsel</translation>
+    </message>
+</context>
+<context>
+    <name>IPInputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP Address</source>
+        <translation>IP-adres</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Required</source>
+        <translation>Vereist</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Gateway</source>
+        <translation>Gateway</translation>
+    </message>
+</context>
+<context>
+    <name>IPV4InputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig ip-adres</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid netmask</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldig netmasker</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid gateway</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldige gateway</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Network</source>
-        <translation type="unfinished"/>
+        <translation>Netwerk</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>IP-conflict</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Only one gateway is allowed</source>
-        <translation type="unfinished"/>
+        <translation>Er is slechts één gateway toegestaan</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <translation>Dubbel ip-adres</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Netmask</source>
+        <translation>Netmasker</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Required</source>
+        <translation>Vereist</translation>
+    </message>
+</context>
+<context>
+    <name>IPV6InputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Duplicate IP address</source>
+        <translation>Dubbel ip-adres</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid IP address</source>
+        <translation>Ongeldig ip-adres</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Only one gateway is allowed</source>
+        <translation>Er is slechts één gateway toegestaan</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>Ongeldige gateway</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>Voorvoegsel</translation>
     </message>
 </context>
 <context>
@@ -1030,6 +1069,11 @@
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 enterprise</translation>
+    </message>
+    <message>
+        <location filename="../sections/secretwirelesssection.cpp"/>
+        <source>WPA2/WPA3 Personal</source>
+        <translation>WPA2/WPA3 persoonlijk</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
@@ -2341,7 +2385,7 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>IP-conflict</translation>
     </message>
 </context>
 </TS>

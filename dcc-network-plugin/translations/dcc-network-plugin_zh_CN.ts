@@ -454,6 +454,19 @@
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Method</source>
+        <translation>方法</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>前缀</translation>
+    </message>
+</context>
+<context>
+    <name>IPInputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
         <source>IP Address</source>
         <translation>IP 地址</translation>
     </message>
@@ -467,21 +480,9 @@
         <source>Gateway</source>
         <translation>网关</translation>
     </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Method</source>
-        <translation>方法</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Netmask</source>
-        <translation>子网掩码</translation>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Prefix</source>
-        <translation>前缀</translation>
-    </message>
+</context>
+<context>
+    <name>IPV4InputSection</name>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
@@ -516,6 +517,44 @@
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Duplicate IP address</source>
         <translation>IP地址重复</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Netmask</source>
+        <translation>子网掩码</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Required</source>
+        <translation>必填</translation>
+    </message>
+</context>
+<context>
+    <name>IPV6InputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Duplicate IP address</source>
+        <translation>IP地址重复</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid IP address</source>
+        <translation>无效的IP地址</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Only one gateway is allowed</source>
+        <translation>只允许一个网关</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>无效的网关地址</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>前缀</translation>
     </message>
 </context>
 <context>
@@ -1030,6 +1069,11 @@
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2企业版</translation>
+    </message>
+    <message>
+        <location filename="../sections/secretwirelesssection.cpp"/>
+        <source>WPA2/WPA3 Personal</source>
+        <translation>WPA2/WPA3个人版</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>

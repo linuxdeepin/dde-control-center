@@ -430,47 +430,93 @@
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv4</source>
-        <translation type="unfinished"/>
+        <translation>IPv4</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>IPv6</source>
-        <translation type="unfinished"/>
+        <translation>IPv6</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automatikus</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Manual</source>
-        <translation type="unfinished"/>
+        <translation>Manuális</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Ignore</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP Address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Required</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Gateway</source>
-        <translation type="unfinished"/>
+        <translation>Kihagyás</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Method</source>
-        <translation type="unfinished"/>
+        <translation>Eljárás</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>Előtag</translation>
+    </message>
+</context>
+<context>
+    <name>IPInputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP Address</source>
+        <translation>IP cím</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Required</source>
+        <translation>Kötelező</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Gateway</source>
+        <translation>Átjáró</translation>
+    </message>
+</context>
+<context>
+    <name>IPV4InputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid IP address</source>
+        <translation>Érvénytelen IP cím</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid netmask</source>
+        <translation>Érvénytelen hálózati maszk</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Invalid gateway</source>
+        <translation>Érvénytelen átjáró</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Network</source>
+        <translation>Hálózat</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>IP conflict</source>
+        <translation>IP cím ütközés</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Only one gateway is allowed</source>
+        <translation>Csak egy átjáró engedélyezett</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Duplicate IP address</source>
+        <translation>Duplikált IP cím</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
@@ -479,43 +525,36 @@
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Prefix</source>
-        <translation type="unfinished"/>
+        <source>Required</source>
+        <translation>Kötelező</translation>
+    </message>
+</context>
+<context>
+    <name>IPV6InputSection</name>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Duplicate IP address</source>
+        <translation>Duplikált IP cím</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Invalid IP address</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Invalid netmask</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Invalid gateway</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Network</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../sections/multiipvxsection.cpp"/>
-        <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Érvénytelen IP cím</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
         <source>Only one gateway is allowed</source>
-        <translation type="unfinished"/>
+        <translation>Csak egy átjáró engedélyezett</translation>
     </message>
     <message>
         <location filename="../sections/multiipvxsection.cpp"/>
-        <source>Duplicate IP address</source>
-        <translation type="unfinished"/>
+        <source>Invalid gateway</source>
+        <translation>Érvénytelen átjáró</translation>
+    </message>
+    <message>
+        <location filename="../sections/multiipvxsection.cpp"/>
+        <source>Prefix</source>
+        <translation>Előtag</translation>
     </message>
 </context>
 <context>
@@ -1030,6 +1069,11 @@
         <location filename="../sections/secretwirelesssection.cpp"/>
         <source>WPA/WPA2 Enterprise</source>
         <translation>WPA/WPA2 Vállalati</translation>
+    </message>
+    <message>
+        <location filename="../sections/secretwirelesssection.cpp"/>
+        <source>WPA2/WPA3 Personal</source>
+        <translation>WPA2/WPA3 Személyes</translation>
     </message>
     <message>
         <location filename="../sections/secretwirelesssection.cpp"/>
@@ -2341,7 +2385,7 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>IP cím ütközés</translation>
     </message>
 </context>
 </TS>

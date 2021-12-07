@@ -355,7 +355,7 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>Përplasje IP-sh</translation>
     </message>
 </context>
 </TS>

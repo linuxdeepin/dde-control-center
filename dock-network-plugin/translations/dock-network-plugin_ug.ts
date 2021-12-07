@@ -355,7 +355,7 @@
     <message>
         <location filename="../../src/realize/netinterface.cpp"/>
         <source>IP conflict</source>
-        <translation type="unfinished"/>
+        <translation>IP ئادرېس توقۇنۇشۇپ قالدى</translation>
     </message>
 </context>
 </TS>
